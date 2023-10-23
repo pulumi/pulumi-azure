@@ -47,18 +47,24 @@ class LinkServiceNatIpConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             primary: pulumi.Input[bool],
-             subnet_id: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             primary: Optional[pulumi.Input[bool]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
              private_ip_address: Optional[pulumi.Input[str]] = None,
              private_ip_address_version: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'subnetId' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if primary is None:
+            raise TypeError("Missing 'primary' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'privateIpAddress' in kwargs:
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+        if private_ip_address is None and 'privateIpAddress' in kwargs:
             private_ip_address = kwargs['privateIpAddress']
-        if 'privateIpAddressVersion' in kwargs:
+        if private_ip_address_version is None and 'privateIpAddressVersion' in kwargs:
             private_ip_address_version = kwargs['privateIpAddressVersion']
 
         _setter("name", name)
@@ -149,10 +155,14 @@ class MxRecordRecordArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             exchange: pulumi.Input[str],
-             preference: pulumi.Input[int],
+             exchange: Optional[pulumi.Input[str]] = None,
+             preference: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if exchange is None:
+            raise TypeError("Missing 'exchange' argument")
+        if preference is None:
+            raise TypeError("Missing 'preference' argument")
 
         _setter("exchange", exchange)
         _setter("preference", preference)
@@ -199,12 +209,14 @@ class ResolverForwardingRuleTargetDnsServerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ip_address: pulumi.Input[str],
+             ip_address: Optional[pulumi.Input[str]] = None,
              port: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ipAddress' in kwargs:
+        if ip_address is None and 'ipAddress' in kwargs:
             ip_address = kwargs['ipAddress']
+        if ip_address is None:
+            raise TypeError("Missing 'ip_address' argument")
 
         _setter("ip_address", ip_address)
         if port is not None:
@@ -255,16 +267,18 @@ class ResolverInboundEndpointIpConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             subnet_id: pulumi.Input[str],
+             subnet_id: Optional[pulumi.Input[str]] = None,
              private_ip_address: Optional[pulumi.Input[str]] = None,
              private_ip_allocation_method: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'privateIpAddress' in kwargs:
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+        if private_ip_address is None and 'privateIpAddress' in kwargs:
             private_ip_address = kwargs['privateIpAddress']
-        if 'privateIpAllocationMethod' in kwargs:
+        if private_ip_allocation_method is None and 'privateIpAllocationMethod' in kwargs:
             private_ip_allocation_method = kwargs['privateIpAllocationMethod']
 
         _setter("subnet_id", subnet_id)
@@ -333,12 +347,20 @@ class SRVRecordRecordArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             port: pulumi.Input[int],
-             priority: pulumi.Input[int],
-             target: pulumi.Input[str],
-             weight: pulumi.Input[int],
+             port: Optional[pulumi.Input[int]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             target: Optional[pulumi.Input[str]] = None,
+             weight: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if priority is None:
+            raise TypeError("Missing 'priority' argument")
+        if target is None:
+            raise TypeError("Missing 'target' argument")
+        if weight is None:
+            raise TypeError("Missing 'weight' argument")
 
         _setter("port", port)
         _setter("priority", priority)
@@ -408,9 +430,11 @@ class TxtRecordRecordArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             value: pulumi.Input[str],
+             value: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("value", value)
 
@@ -468,7 +492,7 @@ class ZoneSoaRecordArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             email: pulumi.Input[str],
+             email: Optional[pulumi.Input[str]] = None,
              expire_time: Optional[pulumi.Input[int]] = None,
              fqdn: Optional[pulumi.Input[str]] = None,
              host_name: Optional[pulumi.Input[str]] = None,
@@ -480,17 +504,19 @@ class ZoneSoaRecordArgs:
              ttl: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'expireTime' in kwargs:
+        if email is None:
+            raise TypeError("Missing 'email' argument")
+        if expire_time is None and 'expireTime' in kwargs:
             expire_time = kwargs['expireTime']
-        if 'hostName' in kwargs:
+        if host_name is None and 'hostName' in kwargs:
             host_name = kwargs['hostName']
-        if 'minimumTtl' in kwargs:
+        if minimum_ttl is None and 'minimumTtl' in kwargs:
             minimum_ttl = kwargs['minimumTtl']
-        if 'refreshTime' in kwargs:
+        if refresh_time is None and 'refreshTime' in kwargs:
             refresh_time = kwargs['refreshTime']
-        if 'retryTime' in kwargs:
+        if retry_time is None and 'retryTime' in kwargs:
             retry_time = kwargs['retryTime']
-        if 'serialNumber' in kwargs:
+        if serial_number is None and 'serialNumber' in kwargs:
             serial_number = kwargs['serialNumber']
 
         _setter("email", email)

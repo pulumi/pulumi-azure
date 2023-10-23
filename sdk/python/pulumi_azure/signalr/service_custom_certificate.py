@@ -36,15 +36,19 @@ class ServiceCustomCertificateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             custom_certificate_id: pulumi.Input[str],
-             signalr_service_id: pulumi.Input[str],
+             custom_certificate_id: Optional[pulumi.Input[str]] = None,
+             signalr_service_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'customCertificateId' in kwargs:
+        if custom_certificate_id is None and 'customCertificateId' in kwargs:
             custom_certificate_id = kwargs['customCertificateId']
-        if 'signalrServiceId' in kwargs:
+        if custom_certificate_id is None:
+            raise TypeError("Missing 'custom_certificate_id' argument")
+        if signalr_service_id is None and 'signalrServiceId' in kwargs:
             signalr_service_id = kwargs['signalrServiceId']
+        if signalr_service_id is None:
+            raise TypeError("Missing 'signalr_service_id' argument")
 
         _setter("custom_certificate_id", custom_certificate_id)
         _setter("signalr_service_id", signalr_service_id)
@@ -126,11 +130,11 @@ class _ServiceCustomCertificateState:
              signalr_service_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'certificateVersion' in kwargs:
+        if certificate_version is None and 'certificateVersion' in kwargs:
             certificate_version = kwargs['certificateVersion']
-        if 'customCertificateId' in kwargs:
+        if custom_certificate_id is None and 'customCertificateId' in kwargs:
             custom_certificate_id = kwargs['customCertificateId']
-        if 'signalrServiceId' in kwargs:
+        if signalr_service_id is None and 'signalrServiceId' in kwargs:
             signalr_service_id = kwargs['signalrServiceId']
 
         if certificate_version is not None:

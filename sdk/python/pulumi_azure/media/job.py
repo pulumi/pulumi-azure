@@ -49,26 +49,36 @@ class JobArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             input_asset: pulumi.Input['JobInputAssetArgs'],
-             media_services_account_name: pulumi.Input[str],
-             output_assets: pulumi.Input[Sequence[pulumi.Input['JobOutputAssetArgs']]],
-             resource_group_name: pulumi.Input[str],
-             transform_name: pulumi.Input[str],
+             input_asset: Optional[pulumi.Input['JobInputAssetArgs']] = None,
+             media_services_account_name: Optional[pulumi.Input[str]] = None,
+             output_assets: Optional[pulumi.Input[Sequence[pulumi.Input['JobOutputAssetArgs']]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             transform_name: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              priority: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'inputAsset' in kwargs:
+        if input_asset is None and 'inputAsset' in kwargs:
             input_asset = kwargs['inputAsset']
-        if 'mediaServicesAccountName' in kwargs:
+        if input_asset is None:
+            raise TypeError("Missing 'input_asset' argument")
+        if media_services_account_name is None and 'mediaServicesAccountName' in kwargs:
             media_services_account_name = kwargs['mediaServicesAccountName']
-        if 'outputAssets' in kwargs:
+        if media_services_account_name is None:
+            raise TypeError("Missing 'media_services_account_name' argument")
+        if output_assets is None and 'outputAssets' in kwargs:
             output_assets = kwargs['outputAssets']
-        if 'resourceGroupName' in kwargs:
+        if output_assets is None:
+            raise TypeError("Missing 'output_assets' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'transformName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if transform_name is None and 'transformName' in kwargs:
             transform_name = kwargs['transformName']
+        if transform_name is None:
+            raise TypeError("Missing 'transform_name' argument")
 
         _setter("input_asset", input_asset)
         _setter("media_services_account_name", media_services_account_name)
@@ -225,15 +235,15 @@ class _JobState:
              transform_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'inputAsset' in kwargs:
+        if input_asset is None and 'inputAsset' in kwargs:
             input_asset = kwargs['inputAsset']
-        if 'mediaServicesAccountName' in kwargs:
+        if media_services_account_name is None and 'mediaServicesAccountName' in kwargs:
             media_services_account_name = kwargs['mediaServicesAccountName']
-        if 'outputAssets' in kwargs:
+        if output_assets is None and 'outputAssets' in kwargs:
             output_assets = kwargs['outputAssets']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'transformName' in kwargs:
+        if transform_name is None and 'transformName' in kwargs:
             transform_name = kwargs['transformName']
 
         if description is not None:

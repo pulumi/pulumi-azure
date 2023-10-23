@@ -32,15 +32,19 @@ class AssignmentVirtualMachineArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             maintenance_configuration_id: pulumi.Input[str],
-             virtual_machine_id: pulumi.Input[str],
+             maintenance_configuration_id: Optional[pulumi.Input[str]] = None,
+             virtual_machine_id: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'maintenanceConfigurationId' in kwargs:
+        if maintenance_configuration_id is None and 'maintenanceConfigurationId' in kwargs:
             maintenance_configuration_id = kwargs['maintenanceConfigurationId']
-        if 'virtualMachineId' in kwargs:
+        if maintenance_configuration_id is None:
+            raise TypeError("Missing 'maintenance_configuration_id' argument")
+        if virtual_machine_id is None and 'virtualMachineId' in kwargs:
             virtual_machine_id = kwargs['virtualMachineId']
+        if virtual_machine_id is None:
+            raise TypeError("Missing 'virtual_machine_id' argument")
 
         _setter("maintenance_configuration_id", maintenance_configuration_id)
         _setter("virtual_machine_id", virtual_machine_id)
@@ -110,9 +114,9 @@ class _AssignmentVirtualMachineState:
              virtual_machine_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'maintenanceConfigurationId' in kwargs:
+        if maintenance_configuration_id is None and 'maintenanceConfigurationId' in kwargs:
             maintenance_configuration_id = kwargs['maintenanceConfigurationId']
-        if 'virtualMachineId' in kwargs:
+        if virtual_machine_id is None and 'virtualMachineId' in kwargs:
             virtual_machine_id = kwargs['virtualMachineId']
 
         if location is not None:

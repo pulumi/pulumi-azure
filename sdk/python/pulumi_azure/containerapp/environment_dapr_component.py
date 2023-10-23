@@ -54,9 +54,9 @@ class EnvironmentDaprComponentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             component_type: pulumi.Input[str],
-             container_app_environment_id: pulumi.Input[str],
-             version: pulumi.Input[str],
+             component_type: Optional[pulumi.Input[str]] = None,
+             container_app_environment_id: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
              ignore_errors: Optional[pulumi.Input[bool]] = None,
              init_timeout: Optional[pulumi.Input[str]] = None,
              metadatas: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentMetadataArgs']]]] = None,
@@ -65,13 +65,19 @@ class EnvironmentDaprComponentArgs:
              secrets: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentSecretArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'componentType' in kwargs:
+        if component_type is None and 'componentType' in kwargs:
             component_type = kwargs['componentType']
-        if 'containerAppEnvironmentId' in kwargs:
+        if component_type is None:
+            raise TypeError("Missing 'component_type' argument")
+        if container_app_environment_id is None and 'containerAppEnvironmentId' in kwargs:
             container_app_environment_id = kwargs['containerAppEnvironmentId']
-        if 'ignoreErrors' in kwargs:
+        if container_app_environment_id is None:
+            raise TypeError("Missing 'container_app_environment_id' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
+        if ignore_errors is None and 'ignoreErrors' in kwargs:
             ignore_errors = kwargs['ignoreErrors']
-        if 'initTimeout' in kwargs:
+        if init_timeout is None and 'initTimeout' in kwargs:
             init_timeout = kwargs['initTimeout']
 
         _setter("component_type", component_type)
@@ -253,13 +259,13 @@ class _EnvironmentDaprComponentState:
              version: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'componentType' in kwargs:
+        if component_type is None and 'componentType' in kwargs:
             component_type = kwargs['componentType']
-        if 'containerAppEnvironmentId' in kwargs:
+        if container_app_environment_id is None and 'containerAppEnvironmentId' in kwargs:
             container_app_environment_id = kwargs['containerAppEnvironmentId']
-        if 'ignoreErrors' in kwargs:
+        if ignore_errors is None and 'ignoreErrors' in kwargs:
             ignore_errors = kwargs['ignoreErrors']
-        if 'initTimeout' in kwargs:
+        if init_timeout is None and 'initTimeout' in kwargs:
             init_timeout = kwargs['initTimeout']
 
         if component_type is not None:

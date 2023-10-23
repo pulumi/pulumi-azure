@@ -32,15 +32,19 @@ class HyperVReplicationPolicyAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             hyperv_site_id: pulumi.Input[str],
-             policy_id: pulumi.Input[str],
+             hyperv_site_id: Optional[pulumi.Input[str]] = None,
+             policy_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'hypervSiteId' in kwargs:
+        if hyperv_site_id is None and 'hypervSiteId' in kwargs:
             hyperv_site_id = kwargs['hypervSiteId']
-        if 'policyId' in kwargs:
+        if hyperv_site_id is None:
+            raise TypeError("Missing 'hyperv_site_id' argument")
+        if policy_id is None and 'policyId' in kwargs:
             policy_id = kwargs['policyId']
+        if policy_id is None:
+            raise TypeError("Missing 'policy_id' argument")
 
         _setter("hyperv_site_id", hyperv_site_id)
         _setter("policy_id", policy_id)
@@ -110,9 +114,9 @@ class _HyperVReplicationPolicyAssociationState:
              policy_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'hypervSiteId' in kwargs:
+        if hyperv_site_id is None and 'hypervSiteId' in kwargs:
             hyperv_site_id = kwargs['hypervSiteId']
-        if 'policyId' in kwargs:
+        if policy_id is None and 'policyId' in kwargs:
             policy_id = kwargs['policyId']
 
         if hyperv_site_id is not None:

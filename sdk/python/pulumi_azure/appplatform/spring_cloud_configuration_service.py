@@ -37,14 +37,16 @@ class SpringCloudConfigurationServiceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             spring_cloud_service_id: pulumi.Input[str],
+             spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
              generation: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              repositories: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudConfigurationServiceRepositoryArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'springCloudServiceId' in kwargs:
+        if spring_cloud_service_id is None and 'springCloudServiceId' in kwargs:
             spring_cloud_service_id = kwargs['springCloudServiceId']
+        if spring_cloud_service_id is None:
+            raise TypeError("Missing 'spring_cloud_service_id' argument")
 
         _setter("spring_cloud_service_id", spring_cloud_service_id)
         if generation is not None:
@@ -133,7 +135,7 @@ class _SpringCloudConfigurationServiceState:
              spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'springCloudServiceId' in kwargs:
+        if spring_cloud_service_id is None and 'springCloudServiceId' in kwargs:
             spring_cloud_service_id = kwargs['springCloudServiceId']
 
         if generation is not None:

@@ -49,29 +49,41 @@ class ProtectionContainerMappingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             recovery_fabric_name: pulumi.Input[str],
-             recovery_replication_policy_id: pulumi.Input[str],
-             recovery_source_protection_container_name: pulumi.Input[str],
-             recovery_target_protection_container_id: pulumi.Input[str],
-             recovery_vault_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             recovery_fabric_name: Optional[pulumi.Input[str]] = None,
+             recovery_replication_policy_id: Optional[pulumi.Input[str]] = None,
+             recovery_source_protection_container_name: Optional[pulumi.Input[str]] = None,
+             recovery_target_protection_container_id: Optional[pulumi.Input[str]] = None,
+             recovery_vault_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              automatic_update: Optional[pulumi.Input['ProtectionContainerMappingAutomaticUpdateArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'recoveryFabricName' in kwargs:
+        if recovery_fabric_name is None and 'recoveryFabricName' in kwargs:
             recovery_fabric_name = kwargs['recoveryFabricName']
-        if 'recoveryReplicationPolicyId' in kwargs:
+        if recovery_fabric_name is None:
+            raise TypeError("Missing 'recovery_fabric_name' argument")
+        if recovery_replication_policy_id is None and 'recoveryReplicationPolicyId' in kwargs:
             recovery_replication_policy_id = kwargs['recoveryReplicationPolicyId']
-        if 'recoverySourceProtectionContainerName' in kwargs:
+        if recovery_replication_policy_id is None:
+            raise TypeError("Missing 'recovery_replication_policy_id' argument")
+        if recovery_source_protection_container_name is None and 'recoverySourceProtectionContainerName' in kwargs:
             recovery_source_protection_container_name = kwargs['recoverySourceProtectionContainerName']
-        if 'recoveryTargetProtectionContainerId' in kwargs:
+        if recovery_source_protection_container_name is None:
+            raise TypeError("Missing 'recovery_source_protection_container_name' argument")
+        if recovery_target_protection_container_id is None and 'recoveryTargetProtectionContainerId' in kwargs:
             recovery_target_protection_container_id = kwargs['recoveryTargetProtectionContainerId']
-        if 'recoveryVaultName' in kwargs:
+        if recovery_target_protection_container_id is None:
+            raise TypeError("Missing 'recovery_target_protection_container_id' argument")
+        if recovery_vault_name is None and 'recoveryVaultName' in kwargs:
             recovery_vault_name = kwargs['recoveryVaultName']
-        if 'resourceGroupName' in kwargs:
+        if recovery_vault_name is None:
+            raise TypeError("Missing 'recovery_vault_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'automaticUpdate' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if automatic_update is None and 'automaticUpdate' in kwargs:
             automatic_update = kwargs['automaticUpdate']
 
         _setter("recovery_fabric_name", recovery_fabric_name)
@@ -228,19 +240,19 @@ class _ProtectionContainerMappingState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'automaticUpdate' in kwargs:
+        if automatic_update is None and 'automaticUpdate' in kwargs:
             automatic_update = kwargs['automaticUpdate']
-        if 'recoveryFabricName' in kwargs:
+        if recovery_fabric_name is None and 'recoveryFabricName' in kwargs:
             recovery_fabric_name = kwargs['recoveryFabricName']
-        if 'recoveryReplicationPolicyId' in kwargs:
+        if recovery_replication_policy_id is None and 'recoveryReplicationPolicyId' in kwargs:
             recovery_replication_policy_id = kwargs['recoveryReplicationPolicyId']
-        if 'recoverySourceProtectionContainerName' in kwargs:
+        if recovery_source_protection_container_name is None and 'recoverySourceProtectionContainerName' in kwargs:
             recovery_source_protection_container_name = kwargs['recoverySourceProtectionContainerName']
-        if 'recoveryTargetProtectionContainerId' in kwargs:
+        if recovery_target_protection_container_id is None and 'recoveryTargetProtectionContainerId' in kwargs:
             recovery_target_protection_container_id = kwargs['recoveryTargetProtectionContainerId']
-        if 'recoveryVaultName' in kwargs:
+        if recovery_vault_name is None and 'recoveryVaultName' in kwargs:
             recovery_vault_name = kwargs['recoveryVaultName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if automatic_update is not None:

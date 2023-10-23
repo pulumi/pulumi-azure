@@ -90,13 +90,13 @@ class VolumeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             account_name: pulumi.Input[str],
-             pool_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             service_level: pulumi.Input[str],
-             storage_quota_in_gb: pulumi.Input[int],
-             subnet_id: pulumi.Input[str],
-             volume_path: pulumi.Input[str],
+             account_name: Optional[pulumi.Input[str]] = None,
+             pool_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             service_level: Optional[pulumi.Input[str]] = None,
+             storage_quota_in_gb: Optional[pulumi.Input[int]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             volume_path: Optional[pulumi.Input[str]] = None,
              azure_vmware_data_store_enabled: Optional[pulumi.Input[bool]] = None,
              create_from_snapshot_resource_id: Optional[pulumi.Input[str]] = None,
              data_protection_replication: Optional[pulumi.Input['VolumeDataProtectionReplicationArgs']] = None,
@@ -113,37 +113,51 @@ class VolumeArgs:
              zone: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accountName' in kwargs:
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'poolName' in kwargs:
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if pool_name is None and 'poolName' in kwargs:
             pool_name = kwargs['poolName']
-        if 'resourceGroupName' in kwargs:
+        if pool_name is None:
+            raise TypeError("Missing 'pool_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serviceLevel' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if service_level is None and 'serviceLevel' in kwargs:
             service_level = kwargs['serviceLevel']
-        if 'storageQuotaInGb' in kwargs:
+        if service_level is None:
+            raise TypeError("Missing 'service_level' argument")
+        if storage_quota_in_gb is None and 'storageQuotaInGb' in kwargs:
             storage_quota_in_gb = kwargs['storageQuotaInGb']
-        if 'subnetId' in kwargs:
+        if storage_quota_in_gb is None:
+            raise TypeError("Missing 'storage_quota_in_gb' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'volumePath' in kwargs:
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+        if volume_path is None and 'volumePath' in kwargs:
             volume_path = kwargs['volumePath']
-        if 'azureVmwareDataStoreEnabled' in kwargs:
+        if volume_path is None:
+            raise TypeError("Missing 'volume_path' argument")
+        if azure_vmware_data_store_enabled is None and 'azureVmwareDataStoreEnabled' in kwargs:
             azure_vmware_data_store_enabled = kwargs['azureVmwareDataStoreEnabled']
-        if 'createFromSnapshotResourceId' in kwargs:
+        if create_from_snapshot_resource_id is None and 'createFromSnapshotResourceId' in kwargs:
             create_from_snapshot_resource_id = kwargs['createFromSnapshotResourceId']
-        if 'dataProtectionReplication' in kwargs:
+        if data_protection_replication is None and 'dataProtectionReplication' in kwargs:
             data_protection_replication = kwargs['dataProtectionReplication']
-        if 'dataProtectionSnapshotPolicy' in kwargs:
+        if data_protection_snapshot_policy is None and 'dataProtectionSnapshotPolicy' in kwargs:
             data_protection_snapshot_policy = kwargs['dataProtectionSnapshotPolicy']
-        if 'exportPolicyRules' in kwargs:
+        if export_policy_rules is None and 'exportPolicyRules' in kwargs:
             export_policy_rules = kwargs['exportPolicyRules']
-        if 'networkFeatures' in kwargs:
+        if network_features is None and 'networkFeatures' in kwargs:
             network_features = kwargs['networkFeatures']
-        if 'securityStyle' in kwargs:
+        if security_style is None and 'securityStyle' in kwargs:
             security_style = kwargs['securityStyle']
-        if 'snapshotDirectoryVisible' in kwargs:
+        if snapshot_directory_visible is None and 'snapshotDirectoryVisible' in kwargs:
             snapshot_directory_visible = kwargs['snapshotDirectoryVisible']
-        if 'throughputInMibps' in kwargs:
+        if throughput_in_mibps is None and 'throughputInMibps' in kwargs:
             throughput_in_mibps = kwargs['throughputInMibps']
 
         _setter("account_name", account_name)
@@ -541,39 +555,39 @@ class _VolumeState:
              zone: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accountName' in kwargs:
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'azureVmwareDataStoreEnabled' in kwargs:
+        if azure_vmware_data_store_enabled is None and 'azureVmwareDataStoreEnabled' in kwargs:
             azure_vmware_data_store_enabled = kwargs['azureVmwareDataStoreEnabled']
-        if 'createFromSnapshotResourceId' in kwargs:
+        if create_from_snapshot_resource_id is None and 'createFromSnapshotResourceId' in kwargs:
             create_from_snapshot_resource_id = kwargs['createFromSnapshotResourceId']
-        if 'dataProtectionReplication' in kwargs:
+        if data_protection_replication is None and 'dataProtectionReplication' in kwargs:
             data_protection_replication = kwargs['dataProtectionReplication']
-        if 'dataProtectionSnapshotPolicy' in kwargs:
+        if data_protection_snapshot_policy is None and 'dataProtectionSnapshotPolicy' in kwargs:
             data_protection_snapshot_policy = kwargs['dataProtectionSnapshotPolicy']
-        if 'exportPolicyRules' in kwargs:
+        if export_policy_rules is None and 'exportPolicyRules' in kwargs:
             export_policy_rules = kwargs['exportPolicyRules']
-        if 'mountIpAddresses' in kwargs:
+        if mount_ip_addresses is None and 'mountIpAddresses' in kwargs:
             mount_ip_addresses = kwargs['mountIpAddresses']
-        if 'networkFeatures' in kwargs:
+        if network_features is None and 'networkFeatures' in kwargs:
             network_features = kwargs['networkFeatures']
-        if 'poolName' in kwargs:
+        if pool_name is None and 'poolName' in kwargs:
             pool_name = kwargs['poolName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'securityStyle' in kwargs:
+        if security_style is None and 'securityStyle' in kwargs:
             security_style = kwargs['securityStyle']
-        if 'serviceLevel' in kwargs:
+        if service_level is None and 'serviceLevel' in kwargs:
             service_level = kwargs['serviceLevel']
-        if 'snapshotDirectoryVisible' in kwargs:
+        if snapshot_directory_visible is None and 'snapshotDirectoryVisible' in kwargs:
             snapshot_directory_visible = kwargs['snapshotDirectoryVisible']
-        if 'storageQuotaInGb' in kwargs:
+        if storage_quota_in_gb is None and 'storageQuotaInGb' in kwargs:
             storage_quota_in_gb = kwargs['storageQuotaInGb']
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'throughputInMibps' in kwargs:
+        if throughput_in_mibps is None and 'throughputInMibps' in kwargs:
             throughput_in_mibps = kwargs['throughputInMibps']
-        if 'volumePath' in kwargs:
+        if volume_path is None and 'volumePath' in kwargs:
             volume_path = kwargs['volumePath']
 
         if account_name is not None:

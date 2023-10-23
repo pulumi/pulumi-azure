@@ -76,7 +76,7 @@ class FirewallPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              auto_learn_private_ranges_enabled: Optional[pulumi.Input[bool]] = None,
              base_policy_id: Optional[pulumi.Input[str]] = None,
              dns: Optional[pulumi.Input['FirewallPolicyDnsArgs']] = None,
@@ -95,25 +95,27 @@ class FirewallPolicyArgs:
              tls_certificate: Optional[pulumi.Input['FirewallPolicyTlsCertificateArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'autoLearnPrivateRangesEnabled' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if auto_learn_private_ranges_enabled is None and 'autoLearnPrivateRangesEnabled' in kwargs:
             auto_learn_private_ranges_enabled = kwargs['autoLearnPrivateRangesEnabled']
-        if 'basePolicyId' in kwargs:
+        if base_policy_id is None and 'basePolicyId' in kwargs:
             base_policy_id = kwargs['basePolicyId']
-        if 'explicitProxy' in kwargs:
+        if explicit_proxy is None and 'explicitProxy' in kwargs:
             explicit_proxy = kwargs['explicitProxy']
-        if 'intrusionDetection' in kwargs:
+        if intrusion_detection is None and 'intrusionDetection' in kwargs:
             intrusion_detection = kwargs['intrusionDetection']
-        if 'privateIpRanges' in kwargs:
+        if private_ip_ranges is None and 'privateIpRanges' in kwargs:
             private_ip_ranges = kwargs['privateIpRanges']
-        if 'sqlRedirectAllowed' in kwargs:
+        if sql_redirect_allowed is None and 'sqlRedirectAllowed' in kwargs:
             sql_redirect_allowed = kwargs['sqlRedirectAllowed']
-        if 'threatIntelligenceAllowlist' in kwargs:
+        if threat_intelligence_allowlist is None and 'threatIntelligenceAllowlist' in kwargs:
             threat_intelligence_allowlist = kwargs['threatIntelligenceAllowlist']
-        if 'threatIntelligenceMode' in kwargs:
+        if threat_intelligence_mode is None and 'threatIntelligenceMode' in kwargs:
             threat_intelligence_mode = kwargs['threatIntelligenceMode']
-        if 'tlsCertificate' in kwargs:
+        if tls_certificate is None and 'tlsCertificate' in kwargs:
             tls_certificate = kwargs['tlsCertificate']
 
         _setter("resource_group_name", resource_group_name)
@@ -449,29 +451,29 @@ class _FirewallPolicyState:
              tls_certificate: Optional[pulumi.Input['FirewallPolicyTlsCertificateArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'autoLearnPrivateRangesEnabled' in kwargs:
+        if auto_learn_private_ranges_enabled is None and 'autoLearnPrivateRangesEnabled' in kwargs:
             auto_learn_private_ranges_enabled = kwargs['autoLearnPrivateRangesEnabled']
-        if 'basePolicyId' in kwargs:
+        if base_policy_id is None and 'basePolicyId' in kwargs:
             base_policy_id = kwargs['basePolicyId']
-        if 'childPolicies' in kwargs:
+        if child_policies is None and 'childPolicies' in kwargs:
             child_policies = kwargs['childPolicies']
-        if 'explicitProxy' in kwargs:
+        if explicit_proxy is None and 'explicitProxy' in kwargs:
             explicit_proxy = kwargs['explicitProxy']
-        if 'intrusionDetection' in kwargs:
+        if intrusion_detection is None and 'intrusionDetection' in kwargs:
             intrusion_detection = kwargs['intrusionDetection']
-        if 'privateIpRanges' in kwargs:
+        if private_ip_ranges is None and 'privateIpRanges' in kwargs:
             private_ip_ranges = kwargs['privateIpRanges']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'ruleCollectionGroups' in kwargs:
+        if rule_collection_groups is None and 'ruleCollectionGroups' in kwargs:
             rule_collection_groups = kwargs['ruleCollectionGroups']
-        if 'sqlRedirectAllowed' in kwargs:
+        if sql_redirect_allowed is None and 'sqlRedirectAllowed' in kwargs:
             sql_redirect_allowed = kwargs['sqlRedirectAllowed']
-        if 'threatIntelligenceAllowlist' in kwargs:
+        if threat_intelligence_allowlist is None and 'threatIntelligenceAllowlist' in kwargs:
             threat_intelligence_allowlist = kwargs['threatIntelligenceAllowlist']
-        if 'threatIntelligenceMode' in kwargs:
+        if threat_intelligence_mode is None and 'threatIntelligenceMode' in kwargs:
             threat_intelligence_mode = kwargs['threatIntelligenceMode']
-        if 'tlsCertificate' in kwargs:
+        if tls_certificate is None and 'tlsCertificate' in kwargs:
             tls_certificate = kwargs['tlsCertificate']
 
         if auto_learn_private_ranges_enabled is not None:

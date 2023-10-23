@@ -35,16 +35,20 @@ class NetworkManagerSubscriptionConnectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             network_manager_id: pulumi.Input[str],
-             subscription_id: pulumi.Input[str],
+             network_manager_id: Optional[pulumi.Input[str]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'networkManagerId' in kwargs:
+        if network_manager_id is None and 'networkManagerId' in kwargs:
             network_manager_id = kwargs['networkManagerId']
-        if 'subscriptionId' in kwargs:
+        if network_manager_id is None:
+            raise TypeError("Missing 'network_manager_id' argument")
+        if subscription_id is None and 'subscriptionId' in kwargs:
             subscription_id = kwargs['subscriptionId']
+        if subscription_id is None:
+            raise TypeError("Missing 'subscription_id' argument")
 
         _setter("network_manager_id", network_manager_id)
         _setter("subscription_id", subscription_id)
@@ -136,11 +140,11 @@ class _NetworkManagerSubscriptionConnectionState:
              subscription_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'connectionState' in kwargs:
+        if connection_state is None and 'connectionState' in kwargs:
             connection_state = kwargs['connectionState']
-        if 'networkManagerId' in kwargs:
+        if network_manager_id is None and 'networkManagerId' in kwargs:
             network_manager_id = kwargs['networkManagerId']
-        if 'subscriptionId' in kwargs:
+        if subscription_id is None and 'subscriptionId' in kwargs:
             subscription_id = kwargs['subscriptionId']
 
         if connection_state is not None:

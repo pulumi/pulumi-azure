@@ -38,21 +38,29 @@ class ChannelEmailArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bot_name: pulumi.Input[str],
-             email_address: pulumi.Input[str],
-             email_password: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             bot_name: Optional[pulumi.Input[str]] = None,
+             email_address: Optional[pulumi.Input[str]] = None,
+             email_password: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'botName' in kwargs:
+        if bot_name is None and 'botName' in kwargs:
             bot_name = kwargs['botName']
-        if 'emailAddress' in kwargs:
+        if bot_name is None:
+            raise TypeError("Missing 'bot_name' argument")
+        if email_address is None and 'emailAddress' in kwargs:
             email_address = kwargs['emailAddress']
-        if 'emailPassword' in kwargs:
+        if email_address is None:
+            raise TypeError("Missing 'email_address' argument")
+        if email_password is None and 'emailPassword' in kwargs:
             email_password = kwargs['emailPassword']
-        if 'resourceGroupName' in kwargs:
+        if email_password is None:
+            raise TypeError("Missing 'email_password' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("bot_name", bot_name)
         _setter("email_address", email_address)
@@ -156,13 +164,13 @@ class _ChannelEmailState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'botName' in kwargs:
+        if bot_name is None and 'botName' in kwargs:
             bot_name = kwargs['botName']
-        if 'emailAddress' in kwargs:
+        if email_address is None and 'emailAddress' in kwargs:
             email_address = kwargs['emailAddress']
-        if 'emailPassword' in kwargs:
+        if email_password is None and 'emailPassword' in kwargs:
             email_password = kwargs['emailPassword']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if bot_name is not None:

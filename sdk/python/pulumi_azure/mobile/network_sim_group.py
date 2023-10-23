@@ -45,7 +45,7 @@ class NetworkSimGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mobile_network_id: pulumi.Input[str],
+             mobile_network_id: Optional[pulumi.Input[str]] = None,
              encryption_key_url: Optional[pulumi.Input[str]] = None,
              identity: Optional[pulumi.Input['NetworkSimGroupIdentityArgs']] = None,
              location: Optional[pulumi.Input[str]] = None,
@@ -53,9 +53,11 @@ class NetworkSimGroupArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'mobileNetworkId' in kwargs:
+        if mobile_network_id is None and 'mobileNetworkId' in kwargs:
             mobile_network_id = kwargs['mobileNetworkId']
-        if 'encryptionKeyUrl' in kwargs:
+        if mobile_network_id is None:
+            raise TypeError("Missing 'mobile_network_id' argument")
+        if encryption_key_url is None and 'encryptionKeyUrl' in kwargs:
             encryption_key_url = kwargs['encryptionKeyUrl']
 
         _setter("mobile_network_id", mobile_network_id)
@@ -185,9 +187,9 @@ class _NetworkSimGroupState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'encryptionKeyUrl' in kwargs:
+        if encryption_key_url is None and 'encryptionKeyUrl' in kwargs:
             encryption_key_url = kwargs['encryptionKeyUrl']
-        if 'mobileNetworkId' in kwargs:
+        if mobile_network_id is None and 'mobileNetworkId' in kwargs:
             mobile_network_id = kwargs['mobileNetworkId']
 
         if encryption_key_url is not None:

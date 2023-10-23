@@ -58,8 +58,8 @@ class SqlPoolArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             sku_name: pulumi.Input[str],
-             synapse_workspace_id: pulumi.Input[str],
+             sku_name: Optional[pulumi.Input[str]] = None,
+             synapse_workspace_id: Optional[pulumi.Input[str]] = None,
              collation: Optional[pulumi.Input[str]] = None,
              create_mode: Optional[pulumi.Input[str]] = None,
              data_encrypted: Optional[pulumi.Input[bool]] = None,
@@ -71,19 +71,23 @@ class SqlPoolArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'synapseWorkspaceId' in kwargs:
+        if sku_name is None:
+            raise TypeError("Missing 'sku_name' argument")
+        if synapse_workspace_id is None and 'synapseWorkspaceId' in kwargs:
             synapse_workspace_id = kwargs['synapseWorkspaceId']
-        if 'createMode' in kwargs:
+        if synapse_workspace_id is None:
+            raise TypeError("Missing 'synapse_workspace_id' argument")
+        if create_mode is None and 'createMode' in kwargs:
             create_mode = kwargs['createMode']
-        if 'dataEncrypted' in kwargs:
+        if data_encrypted is None and 'dataEncrypted' in kwargs:
             data_encrypted = kwargs['dataEncrypted']
-        if 'geoBackupPolicyEnabled' in kwargs:
+        if geo_backup_policy_enabled is None and 'geoBackupPolicyEnabled' in kwargs:
             geo_backup_policy_enabled = kwargs['geoBackupPolicyEnabled']
-        if 'recoveryDatabaseId' in kwargs:
+        if recovery_database_id is None and 'recoveryDatabaseId' in kwargs:
             recovery_database_id = kwargs['recoveryDatabaseId']
-        if 'storageAccountType' in kwargs:
+        if storage_account_type is None and 'storageAccountType' in kwargs:
             storage_account_type = kwargs['storageAccountType']
 
         _setter("sku_name", sku_name)
@@ -298,19 +302,19 @@ class _SqlPoolState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'createMode' in kwargs:
+        if create_mode is None and 'createMode' in kwargs:
             create_mode = kwargs['createMode']
-        if 'dataEncrypted' in kwargs:
+        if data_encrypted is None and 'dataEncrypted' in kwargs:
             data_encrypted = kwargs['dataEncrypted']
-        if 'geoBackupPolicyEnabled' in kwargs:
+        if geo_backup_policy_enabled is None and 'geoBackupPolicyEnabled' in kwargs:
             geo_backup_policy_enabled = kwargs['geoBackupPolicyEnabled']
-        if 'recoveryDatabaseId' in kwargs:
+        if recovery_database_id is None and 'recoveryDatabaseId' in kwargs:
             recovery_database_id = kwargs['recoveryDatabaseId']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'storageAccountType' in kwargs:
+        if storage_account_type is None and 'storageAccountType' in kwargs:
             storage_account_type = kwargs['storageAccountType']
-        if 'synapseWorkspaceId' in kwargs:
+        if synapse_workspace_id is None and 'synapseWorkspaceId' in kwargs:
             synapse_workspace_id = kwargs['synapseWorkspaceId']
 
         if collation is not None:

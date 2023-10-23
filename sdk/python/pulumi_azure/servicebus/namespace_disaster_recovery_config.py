@@ -35,17 +35,21 @@ class NamespaceDisasterRecoveryConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             partner_namespace_id: pulumi.Input[str],
-             primary_namespace_id: pulumi.Input[str],
+             partner_namespace_id: Optional[pulumi.Input[str]] = None,
+             primary_namespace_id: Optional[pulumi.Input[str]] = None,
              alias_authorization_rule_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'partnerNamespaceId' in kwargs:
+        if partner_namespace_id is None and 'partnerNamespaceId' in kwargs:
             partner_namespace_id = kwargs['partnerNamespaceId']
-        if 'primaryNamespaceId' in kwargs:
+        if partner_namespace_id is None:
+            raise TypeError("Missing 'partner_namespace_id' argument")
+        if primary_namespace_id is None and 'primaryNamespaceId' in kwargs:
             primary_namespace_id = kwargs['primaryNamespaceId']
-        if 'aliasAuthorizationRuleId' in kwargs:
+        if primary_namespace_id is None:
+            raise TypeError("Missing 'primary_namespace_id' argument")
+        if alias_authorization_rule_id is None and 'aliasAuthorizationRuleId' in kwargs:
             alias_authorization_rule_id = kwargs['aliasAuthorizationRuleId']
 
         _setter("partner_namespace_id", partner_namespace_id)
@@ -150,19 +154,19 @@ class _NamespaceDisasterRecoveryConfigState:
              secondary_connection_string_alias: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'aliasAuthorizationRuleId' in kwargs:
+        if alias_authorization_rule_id is None and 'aliasAuthorizationRuleId' in kwargs:
             alias_authorization_rule_id = kwargs['aliasAuthorizationRuleId']
-        if 'defaultPrimaryKey' in kwargs:
+        if default_primary_key is None and 'defaultPrimaryKey' in kwargs:
             default_primary_key = kwargs['defaultPrimaryKey']
-        if 'defaultSecondaryKey' in kwargs:
+        if default_secondary_key is None and 'defaultSecondaryKey' in kwargs:
             default_secondary_key = kwargs['defaultSecondaryKey']
-        if 'partnerNamespaceId' in kwargs:
+        if partner_namespace_id is None and 'partnerNamespaceId' in kwargs:
             partner_namespace_id = kwargs['partnerNamespaceId']
-        if 'primaryConnectionStringAlias' in kwargs:
+        if primary_connection_string_alias is None and 'primaryConnectionStringAlias' in kwargs:
             primary_connection_string_alias = kwargs['primaryConnectionStringAlias']
-        if 'primaryNamespaceId' in kwargs:
+        if primary_namespace_id is None and 'primaryNamespaceId' in kwargs:
             primary_namespace_id = kwargs['primaryNamespaceId']
-        if 'secondaryConnectionStringAlias' in kwargs:
+        if secondary_connection_string_alias is None and 'secondaryConnectionStringAlias' in kwargs:
             secondary_connection_string_alias = kwargs['secondaryConnectionStringAlias']
 
         if alias_authorization_rule_id is not None:

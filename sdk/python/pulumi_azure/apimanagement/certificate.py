@@ -50,8 +50,8 @@ class CertificateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_management_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             api_management_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              data: Optional[pulumi.Input[str]] = None,
              key_vault_identity_client_id: Optional[pulumi.Input[str]] = None,
              key_vault_secret_id: Optional[pulumi.Input[str]] = None,
@@ -59,13 +59,17 @@ class CertificateArgs:
              password: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'resourceGroupName' in kwargs:
+        if api_management_name is None:
+            raise TypeError("Missing 'api_management_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'keyVaultIdentityClientId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if key_vault_identity_client_id is None and 'keyVaultIdentityClientId' in kwargs:
             key_vault_identity_client_id = kwargs['keyVaultIdentityClientId']
-        if 'keyVaultSecretId' in kwargs:
+        if key_vault_secret_id is None and 'keyVaultSecretId' in kwargs:
             key_vault_secret_id = kwargs['keyVaultSecretId']
 
         _setter("api_management_name", api_management_name)
@@ -232,13 +236,13 @@ class _CertificateState:
              thumbprint: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'keyVaultIdentityClientId' in kwargs:
+        if key_vault_identity_client_id is None and 'keyVaultIdentityClientId' in kwargs:
             key_vault_identity_client_id = kwargs['keyVaultIdentityClientId']
-        if 'keyVaultSecretId' in kwargs:
+        if key_vault_secret_id is None and 'keyVaultSecretId' in kwargs:
             key_vault_secret_id = kwargs['keyVaultSecretId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if api_management_name is not None:

@@ -56,36 +56,50 @@ class NatPoolArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             backend_port: pulumi.Input[int],
-             frontend_ip_configuration_name: pulumi.Input[str],
-             frontend_port_end: pulumi.Input[int],
-             frontend_port_start: pulumi.Input[int],
-             loadbalancer_id: pulumi.Input[str],
-             protocol: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             backend_port: Optional[pulumi.Input[int]] = None,
+             frontend_ip_configuration_name: Optional[pulumi.Input[str]] = None,
+             frontend_port_end: Optional[pulumi.Input[int]] = None,
+             frontend_port_start: Optional[pulumi.Input[int]] = None,
+             loadbalancer_id: Optional[pulumi.Input[str]] = None,
+             protocol: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              floating_ip_enabled: Optional[pulumi.Input[bool]] = None,
              idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tcp_reset_enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'backendPort' in kwargs:
+        if backend_port is None and 'backendPort' in kwargs:
             backend_port = kwargs['backendPort']
-        if 'frontendIpConfigurationName' in kwargs:
+        if backend_port is None:
+            raise TypeError("Missing 'backend_port' argument")
+        if frontend_ip_configuration_name is None and 'frontendIpConfigurationName' in kwargs:
             frontend_ip_configuration_name = kwargs['frontendIpConfigurationName']
-        if 'frontendPortEnd' in kwargs:
+        if frontend_ip_configuration_name is None:
+            raise TypeError("Missing 'frontend_ip_configuration_name' argument")
+        if frontend_port_end is None and 'frontendPortEnd' in kwargs:
             frontend_port_end = kwargs['frontendPortEnd']
-        if 'frontendPortStart' in kwargs:
+        if frontend_port_end is None:
+            raise TypeError("Missing 'frontend_port_end' argument")
+        if frontend_port_start is None and 'frontendPortStart' in kwargs:
             frontend_port_start = kwargs['frontendPortStart']
-        if 'loadbalancerId' in kwargs:
+        if frontend_port_start is None:
+            raise TypeError("Missing 'frontend_port_start' argument")
+        if loadbalancer_id is None and 'loadbalancerId' in kwargs:
             loadbalancer_id = kwargs['loadbalancerId']
-        if 'resourceGroupName' in kwargs:
+        if loadbalancer_id is None:
+            raise TypeError("Missing 'loadbalancer_id' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'floatingIpEnabled' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if floating_ip_enabled is None and 'floatingIpEnabled' in kwargs:
             floating_ip_enabled = kwargs['floatingIpEnabled']
-        if 'idleTimeoutInMinutes' in kwargs:
+        if idle_timeout_in_minutes is None and 'idleTimeoutInMinutes' in kwargs:
             idle_timeout_in_minutes = kwargs['idleTimeoutInMinutes']
-        if 'tcpResetEnabled' in kwargs:
+        if tcp_reset_enabled is None and 'tcpResetEnabled' in kwargs:
             tcp_reset_enabled = kwargs['tcpResetEnabled']
 
         _setter("backend_port", backend_port)
@@ -298,25 +312,25 @@ class _NatPoolState:
              tcp_reset_enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'backendPort' in kwargs:
+        if backend_port is None and 'backendPort' in kwargs:
             backend_port = kwargs['backendPort']
-        if 'floatingIpEnabled' in kwargs:
+        if floating_ip_enabled is None and 'floatingIpEnabled' in kwargs:
             floating_ip_enabled = kwargs['floatingIpEnabled']
-        if 'frontendIpConfigurationId' in kwargs:
+        if frontend_ip_configuration_id is None and 'frontendIpConfigurationId' in kwargs:
             frontend_ip_configuration_id = kwargs['frontendIpConfigurationId']
-        if 'frontendIpConfigurationName' in kwargs:
+        if frontend_ip_configuration_name is None and 'frontendIpConfigurationName' in kwargs:
             frontend_ip_configuration_name = kwargs['frontendIpConfigurationName']
-        if 'frontendPortEnd' in kwargs:
+        if frontend_port_end is None and 'frontendPortEnd' in kwargs:
             frontend_port_end = kwargs['frontendPortEnd']
-        if 'frontendPortStart' in kwargs:
+        if frontend_port_start is None and 'frontendPortStart' in kwargs:
             frontend_port_start = kwargs['frontendPortStart']
-        if 'idleTimeoutInMinutes' in kwargs:
+        if idle_timeout_in_minutes is None and 'idleTimeoutInMinutes' in kwargs:
             idle_timeout_in_minutes = kwargs['idleTimeoutInMinutes']
-        if 'loadbalancerId' in kwargs:
+        if loadbalancer_id is None and 'loadbalancerId' in kwargs:
             loadbalancer_id = kwargs['loadbalancerId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'tcpResetEnabled' in kwargs:
+        if tcp_reset_enabled is None and 'tcpResetEnabled' in kwargs:
             tcp_reset_enabled = kwargs['tcpResetEnabled']
 
         if backend_port is not None:

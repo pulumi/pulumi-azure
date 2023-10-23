@@ -49,9 +49,9 @@ class LiveEventOutputArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             archive_window_duration: pulumi.Input[str],
-             asset_name: pulumi.Input[str],
-             live_event_id: pulumi.Input[str],
+             archive_window_duration: Optional[pulumi.Input[str]] = None,
+             asset_name: Optional[pulumi.Input[str]] = None,
+             live_event_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              hls_fragments_per_ts_segment: Optional[pulumi.Input[int]] = None,
              manifest_name: Optional[pulumi.Input[str]] = None,
@@ -60,19 +60,25 @@ class LiveEventOutputArgs:
              rewind_window_duration: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'archiveWindowDuration' in kwargs:
+        if archive_window_duration is None and 'archiveWindowDuration' in kwargs:
             archive_window_duration = kwargs['archiveWindowDuration']
-        if 'assetName' in kwargs:
+        if archive_window_duration is None:
+            raise TypeError("Missing 'archive_window_duration' argument")
+        if asset_name is None and 'assetName' in kwargs:
             asset_name = kwargs['assetName']
-        if 'liveEventId' in kwargs:
+        if asset_name is None:
+            raise TypeError("Missing 'asset_name' argument")
+        if live_event_id is None and 'liveEventId' in kwargs:
             live_event_id = kwargs['liveEventId']
-        if 'hlsFragmentsPerTsSegment' in kwargs:
+        if live_event_id is None:
+            raise TypeError("Missing 'live_event_id' argument")
+        if hls_fragments_per_ts_segment is None and 'hlsFragmentsPerTsSegment' in kwargs:
             hls_fragments_per_ts_segment = kwargs['hlsFragmentsPerTsSegment']
-        if 'manifestName' in kwargs:
+        if manifest_name is None and 'manifestName' in kwargs:
             manifest_name = kwargs['manifestName']
-        if 'outputSnapTimeInSeconds' in kwargs:
+        if output_snap_time_in_seconds is None and 'outputSnapTimeInSeconds' in kwargs:
             output_snap_time_in_seconds = kwargs['outputSnapTimeInSeconds']
-        if 'rewindWindowDuration' in kwargs:
+        if rewind_window_duration is None and 'rewindWindowDuration' in kwargs:
             rewind_window_duration = kwargs['rewindWindowDuration']
 
         _setter("archive_window_duration", archive_window_duration)
@@ -246,19 +252,19 @@ class _LiveEventOutputState:
              rewind_window_duration: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'archiveWindowDuration' in kwargs:
+        if archive_window_duration is None and 'archiveWindowDuration' in kwargs:
             archive_window_duration = kwargs['archiveWindowDuration']
-        if 'assetName' in kwargs:
+        if asset_name is None and 'assetName' in kwargs:
             asset_name = kwargs['assetName']
-        if 'hlsFragmentsPerTsSegment' in kwargs:
+        if hls_fragments_per_ts_segment is None and 'hlsFragmentsPerTsSegment' in kwargs:
             hls_fragments_per_ts_segment = kwargs['hlsFragmentsPerTsSegment']
-        if 'liveEventId' in kwargs:
+        if live_event_id is None and 'liveEventId' in kwargs:
             live_event_id = kwargs['liveEventId']
-        if 'manifestName' in kwargs:
+        if manifest_name is None and 'manifestName' in kwargs:
             manifest_name = kwargs['manifestName']
-        if 'outputSnapTimeInSeconds' in kwargs:
+        if output_snap_time_in_seconds is None and 'outputSnapTimeInSeconds' in kwargs:
             output_snap_time_in_seconds = kwargs['outputSnapTimeInSeconds']
-        if 'rewindWindowDuration' in kwargs:
+        if rewind_window_duration is None and 'rewindWindowDuration' in kwargs:
             rewind_window_duration = kwargs['rewindWindowDuration']
 
         if archive_window_duration is not None:

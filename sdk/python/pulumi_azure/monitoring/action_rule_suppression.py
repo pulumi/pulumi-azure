@@ -49,8 +49,8 @@ class ActionRuleSuppressionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             suppression: pulumi.Input['ActionRuleSuppressionSuppressionArgs'],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             suppression: Optional[pulumi.Input['ActionRuleSuppressionSuppressionArgs']] = None,
              condition: Optional[pulumi.Input['ActionRuleSuppressionConditionArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
@@ -59,8 +59,12 @@ class ActionRuleSuppressionArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if suppression is None:
+            raise TypeError("Missing 'suppression' argument")
 
         _setter("resource_group_name", resource_group_name)
         _setter("suppression", suppression)
@@ -220,7 +224,7 @@ class _ActionRuleSuppressionState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if condition is not None:

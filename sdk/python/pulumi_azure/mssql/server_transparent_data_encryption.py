@@ -36,16 +36,18 @@ class ServerTransparentDataEncryptionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             server_id: pulumi.Input[str],
+             server_id: Optional[pulumi.Input[str]] = None,
              auto_rotation_enabled: Optional[pulumi.Input[bool]] = None,
              key_vault_key_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'serverId' in kwargs:
+        if server_id is None and 'serverId' in kwargs:
             server_id = kwargs['serverId']
-        if 'autoRotationEnabled' in kwargs:
+        if server_id is None:
+            raise TypeError("Missing 'server_id' argument")
+        if auto_rotation_enabled is None and 'autoRotationEnabled' in kwargs:
             auto_rotation_enabled = kwargs['autoRotationEnabled']
-        if 'keyVaultKeyId' in kwargs:
+        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
             key_vault_key_id = kwargs['keyVaultKeyId']
 
         _setter("server_id", server_id)
@@ -125,11 +127,11 @@ class _ServerTransparentDataEncryptionState:
              server_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'autoRotationEnabled' in kwargs:
+        if auto_rotation_enabled is None and 'autoRotationEnabled' in kwargs:
             auto_rotation_enabled = kwargs['autoRotationEnabled']
-        if 'keyVaultKeyId' in kwargs:
+        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
             key_vault_key_id = kwargs['keyVaultKeyId']
-        if 'serverId' in kwargs:
+        if server_id is None and 'serverId' in kwargs:
             server_id = kwargs['serverId']
 
         if auto_rotation_enabled is not None:

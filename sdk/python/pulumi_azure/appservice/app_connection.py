@@ -48,24 +48,30 @@ class AppConnectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             authentication: pulumi.Input['AppConnectionAuthenticationArgs'],
-             function_app_id: pulumi.Input[str],
-             target_resource_id: pulumi.Input[str],
+             authentication: Optional[pulumi.Input['AppConnectionAuthenticationArgs']] = None,
+             function_app_id: Optional[pulumi.Input[str]] = None,
+             target_resource_id: Optional[pulumi.Input[str]] = None,
              client_type: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              secret_store: Optional[pulumi.Input['AppConnectionSecretStoreArgs']] = None,
              vnet_solution: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'functionAppId' in kwargs:
+        if authentication is None:
+            raise TypeError("Missing 'authentication' argument")
+        if function_app_id is None and 'functionAppId' in kwargs:
             function_app_id = kwargs['functionAppId']
-        if 'targetResourceId' in kwargs:
+        if function_app_id is None:
+            raise TypeError("Missing 'function_app_id' argument")
+        if target_resource_id is None and 'targetResourceId' in kwargs:
             target_resource_id = kwargs['targetResourceId']
-        if 'clientType' in kwargs:
+        if target_resource_id is None:
+            raise TypeError("Missing 'target_resource_id' argument")
+        if client_type is None and 'clientType' in kwargs:
             client_type = kwargs['clientType']
-        if 'secretStore' in kwargs:
+        if secret_store is None and 'secretStore' in kwargs:
             secret_store = kwargs['secretStore']
-        if 'vnetSolution' in kwargs:
+        if vnet_solution is None and 'vnetSolution' in kwargs:
             vnet_solution = kwargs['vnetSolution']
 
         _setter("authentication", authentication)
@@ -211,15 +217,15 @@ class _AppConnectionState:
              vnet_solution: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientType' in kwargs:
+        if client_type is None and 'clientType' in kwargs:
             client_type = kwargs['clientType']
-        if 'functionAppId' in kwargs:
+        if function_app_id is None and 'functionAppId' in kwargs:
             function_app_id = kwargs['functionAppId']
-        if 'secretStore' in kwargs:
+        if secret_store is None and 'secretStore' in kwargs:
             secret_store = kwargs['secretStore']
-        if 'targetResourceId' in kwargs:
+        if target_resource_id is None and 'targetResourceId' in kwargs:
             target_resource_id = kwargs['targetResourceId']
-        if 'vnetSolution' in kwargs:
+        if vnet_solution is None and 'vnetSolution' in kwargs:
             vnet_solution = kwargs['vnetSolution']
 
         if authentication is not None:

@@ -47,9 +47,9 @@ class TimeSeriesInsightsStandardEnvironmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_retention_time: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             sku_name: pulumi.Input[str],
+             data_retention_time: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              partition_key: Optional[pulumi.Input[str]] = None,
@@ -57,15 +57,21 @@ class TimeSeriesInsightsStandardEnvironmentArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dataRetentionTime' in kwargs:
+        if data_retention_time is None and 'dataRetentionTime' in kwargs:
             data_retention_time = kwargs['dataRetentionTime']
-        if 'resourceGroupName' in kwargs:
+        if data_retention_time is None:
+            raise TypeError("Missing 'data_retention_time' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'partitionKey' in kwargs:
+        if sku_name is None:
+            raise TypeError("Missing 'sku_name' argument")
+        if partition_key is None and 'partitionKey' in kwargs:
             partition_key = kwargs['partitionKey']
-        if 'storageLimitExceededBehavior' in kwargs:
+        if storage_limit_exceeded_behavior is None and 'storageLimitExceededBehavior' in kwargs:
             storage_limit_exceeded_behavior = kwargs['storageLimitExceededBehavior']
 
         _setter("data_retention_time", data_retention_time)
@@ -225,15 +231,15 @@ class _TimeSeriesInsightsStandardEnvironmentState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dataRetentionTime' in kwargs:
+        if data_retention_time is None and 'dataRetentionTime' in kwargs:
             data_retention_time = kwargs['dataRetentionTime']
-        if 'partitionKey' in kwargs:
+        if partition_key is None and 'partitionKey' in kwargs:
             partition_key = kwargs['partitionKey']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'storageLimitExceededBehavior' in kwargs:
+        if storage_limit_exceeded_behavior is None and 'storageLimitExceededBehavior' in kwargs:
             storage_limit_exceeded_behavior = kwargs['storageLimitExceededBehavior']
 
         if data_retention_time is not None:

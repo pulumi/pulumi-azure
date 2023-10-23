@@ -76,8 +76,8 @@ class ActionGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             short_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             short_name: Optional[pulumi.Input[str]] = None,
              arm_role_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['ActionGroupArmRoleReceiverArgs']]]] = None,
              automation_runbook_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['ActionGroupAutomationRunbookReceiverArgs']]]] = None,
              azure_app_push_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['ActionGroupAzureAppPushReceiverArgs']]]] = None,
@@ -95,31 +95,35 @@ class ActionGroupArgs:
              webhook_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['ActionGroupWebhookReceiverArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'shortName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if short_name is None and 'shortName' in kwargs:
             short_name = kwargs['shortName']
-        if 'armRoleReceivers' in kwargs:
+        if short_name is None:
+            raise TypeError("Missing 'short_name' argument")
+        if arm_role_receivers is None and 'armRoleReceivers' in kwargs:
             arm_role_receivers = kwargs['armRoleReceivers']
-        if 'automationRunbookReceivers' in kwargs:
+        if automation_runbook_receivers is None and 'automationRunbookReceivers' in kwargs:
             automation_runbook_receivers = kwargs['automationRunbookReceivers']
-        if 'azureAppPushReceivers' in kwargs:
+        if azure_app_push_receivers is None and 'azureAppPushReceivers' in kwargs:
             azure_app_push_receivers = kwargs['azureAppPushReceivers']
-        if 'azureFunctionReceivers' in kwargs:
+        if azure_function_receivers is None and 'azureFunctionReceivers' in kwargs:
             azure_function_receivers = kwargs['azureFunctionReceivers']
-        if 'emailReceivers' in kwargs:
+        if email_receivers is None and 'emailReceivers' in kwargs:
             email_receivers = kwargs['emailReceivers']
-        if 'eventHubReceivers' in kwargs:
+        if event_hub_receivers is None and 'eventHubReceivers' in kwargs:
             event_hub_receivers = kwargs['eventHubReceivers']
-        if 'itsmReceivers' in kwargs:
+        if itsm_receivers is None and 'itsmReceivers' in kwargs:
             itsm_receivers = kwargs['itsmReceivers']
-        if 'logicAppReceivers' in kwargs:
+        if logic_app_receivers is None and 'logicAppReceivers' in kwargs:
             logic_app_receivers = kwargs['logicAppReceivers']
-        if 'smsReceivers' in kwargs:
+        if sms_receivers is None and 'smsReceivers' in kwargs:
             sms_receivers = kwargs['smsReceivers']
-        if 'voiceReceivers' in kwargs:
+        if voice_receivers is None and 'voiceReceivers' in kwargs:
             voice_receivers = kwargs['voiceReceivers']
-        if 'webhookReceivers' in kwargs:
+        if webhook_receivers is None and 'webhookReceivers' in kwargs:
             webhook_receivers = kwargs['webhookReceivers']
 
         _setter("resource_group_name", resource_group_name)
@@ -442,31 +446,31 @@ class _ActionGroupState:
              webhook_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['ActionGroupWebhookReceiverArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'armRoleReceivers' in kwargs:
+        if arm_role_receivers is None and 'armRoleReceivers' in kwargs:
             arm_role_receivers = kwargs['armRoleReceivers']
-        if 'automationRunbookReceivers' in kwargs:
+        if automation_runbook_receivers is None and 'automationRunbookReceivers' in kwargs:
             automation_runbook_receivers = kwargs['automationRunbookReceivers']
-        if 'azureAppPushReceivers' in kwargs:
+        if azure_app_push_receivers is None and 'azureAppPushReceivers' in kwargs:
             azure_app_push_receivers = kwargs['azureAppPushReceivers']
-        if 'azureFunctionReceivers' in kwargs:
+        if azure_function_receivers is None and 'azureFunctionReceivers' in kwargs:
             azure_function_receivers = kwargs['azureFunctionReceivers']
-        if 'emailReceivers' in kwargs:
+        if email_receivers is None and 'emailReceivers' in kwargs:
             email_receivers = kwargs['emailReceivers']
-        if 'eventHubReceivers' in kwargs:
+        if event_hub_receivers is None and 'eventHubReceivers' in kwargs:
             event_hub_receivers = kwargs['eventHubReceivers']
-        if 'itsmReceivers' in kwargs:
+        if itsm_receivers is None and 'itsmReceivers' in kwargs:
             itsm_receivers = kwargs['itsmReceivers']
-        if 'logicAppReceivers' in kwargs:
+        if logic_app_receivers is None and 'logicAppReceivers' in kwargs:
             logic_app_receivers = kwargs['logicAppReceivers']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'shortName' in kwargs:
+        if short_name is None and 'shortName' in kwargs:
             short_name = kwargs['shortName']
-        if 'smsReceivers' in kwargs:
+        if sms_receivers is None and 'smsReceivers' in kwargs:
             sms_receivers = kwargs['smsReceivers']
-        if 'voiceReceivers' in kwargs:
+        if voice_receivers is None and 'voiceReceivers' in kwargs:
             voice_receivers = kwargs['voiceReceivers']
-        if 'webhookReceivers' in kwargs:
+        if webhook_receivers is None and 'webhookReceivers' in kwargs:
             webhook_receivers = kwargs['webhookReceivers']
 
         if arm_role_receivers is not None:

@@ -66,15 +66,17 @@ class GlobalVMShutdownScheduleNotificationSettings(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: bool,
+             enabled: Optional[bool] = None,
              email: Optional[str] = None,
              time_in_minutes: Optional[int] = None,
              webhook_url: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'timeInMinutes' in kwargs:
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if time_in_minutes is None and 'timeInMinutes' in kwargs:
             time_in_minutes = kwargs['timeInMinutes']
-        if 'webhookUrl' in kwargs:
+        if webhook_url is None and 'webhookUrl' in kwargs:
             webhook_url = kwargs['webhookUrl']
 
         _setter("enabled", enabled)
@@ -141,12 +143,20 @@ class LinuxVirtualMachineGalleryImageReference(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             offer: str,
-             publisher: str,
-             sku: str,
-             version: str,
+             offer: Optional[str] = None,
+             publisher: Optional[str] = None,
+             sku: Optional[str] = None,
+             version: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if offer is None:
+            raise TypeError("Missing 'offer' argument")
+        if publisher is None:
+            raise TypeError("Missing 'publisher' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
 
         _setter("offer", offer)
         _setter("publisher", publisher)
@@ -225,14 +235,18 @@ class LinuxVirtualMachineInboundNatRule(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             backend_port: int,
-             protocol: str,
+             backend_port: Optional[int] = None,
+             protocol: Optional[str] = None,
              frontend_port: Optional[int] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'backendPort' in kwargs:
+        if backend_port is None and 'backendPort' in kwargs:
             backend_port = kwargs['backendPort']
-        if 'frontendPort' in kwargs:
+        if backend_port is None:
+            raise TypeError("Missing 'backend_port' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if frontend_port is None and 'frontendPort' in kwargs:
             frontend_port = kwargs['frontendPort']
 
         _setter("backend_port", backend_port)
@@ -279,9 +293,11 @@ class ScheduleDailyRecurrence(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             time: str,
+             time: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if time is None:
+            raise TypeError("Missing 'time' argument")
 
         _setter("time", time)
 
@@ -308,9 +324,11 @@ class ScheduleHourlyRecurrence(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             minute: int,
+             minute: Optional[int] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if minute is None:
+            raise TypeError("Missing 'minute' argument")
 
         _setter("minute", minute)
 
@@ -367,9 +385,9 @@ class ScheduleNotificationSettings(dict):
              webhook_url: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'timeInMinutes' in kwargs:
+        if time_in_minutes is None and 'timeInMinutes' in kwargs:
             time_in_minutes = kwargs['timeInMinutes']
-        if 'webhookUrl' in kwargs:
+        if webhook_url is None and 'webhookUrl' in kwargs:
             webhook_url = kwargs['webhookUrl']
 
         if status is not None:
@@ -438,11 +456,13 @@ class ScheduleWeeklyRecurrence(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             time: str,
+             time: Optional[str] = None,
              week_days: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'weekDays' in kwargs:
+        if time is None:
+            raise TypeError("Missing 'time' argument")
+        if week_days is None and 'weekDays' in kwargs:
             week_days = kwargs['weekDays']
 
         _setter("time", time)
@@ -510,9 +530,9 @@ class VirtualNetworkSubnet(dict):
              use_public_ip_address: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'useInVirtualMachineCreation' in kwargs:
+        if use_in_virtual_machine_creation is None and 'useInVirtualMachineCreation' in kwargs:
             use_in_virtual_machine_creation = kwargs['useInVirtualMachineCreation']
-        if 'usePublicIpAddress' in kwargs:
+        if use_public_ip_address is None and 'usePublicIpAddress' in kwargs:
             use_public_ip_address = kwargs['usePublicIpAddress']
 
         if name is not None:
@@ -570,12 +590,20 @@ class WindowsVirtualMachineGalleryImageReference(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             offer: str,
-             publisher: str,
-             sku: str,
-             version: str,
+             offer: Optional[str] = None,
+             publisher: Optional[str] = None,
+             sku: Optional[str] = None,
+             version: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if offer is None:
+            raise TypeError("Missing 'offer' argument")
+        if publisher is None:
+            raise TypeError("Missing 'publisher' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
 
         _setter("offer", offer)
         _setter("publisher", publisher)
@@ -654,14 +682,18 @@ class WindowsVirtualMachineInboundNatRule(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             backend_port: int,
-             protocol: str,
+             backend_port: Optional[int] = None,
+             protocol: Optional[str] = None,
              frontend_port: Optional[int] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'backendPort' in kwargs:
+        if backend_port is None and 'backendPort' in kwargs:
             backend_port = kwargs['backendPort']
-        if 'frontendPort' in kwargs:
+        if backend_port is None:
+            raise TypeError("Missing 'backend_port' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if frontend_port is None and 'frontendPort' in kwargs:
             frontend_port = kwargs['frontendPort']
 
         _setter("backend_port", backend_port)
@@ -714,17 +746,23 @@ class GetVirtualNetworkAllowedSubnetResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             allow_public_ip: str,
-             lab_subnet_name: str,
-             resource_id: str,
+             allow_public_ip: Optional[str] = None,
+             lab_subnet_name: Optional[str] = None,
+             resource_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowPublicIp' in kwargs:
+        if allow_public_ip is None and 'allowPublicIp' in kwargs:
             allow_public_ip = kwargs['allowPublicIp']
-        if 'labSubnetName' in kwargs:
+        if allow_public_ip is None:
+            raise TypeError("Missing 'allow_public_ip' argument")
+        if lab_subnet_name is None and 'labSubnetName' in kwargs:
             lab_subnet_name = kwargs['labSubnetName']
-        if 'resourceId' in kwargs:
+        if lab_subnet_name is None:
+            raise TypeError("Missing 'lab_subnet_name' argument")
+        if resource_id is None and 'resourceId' in kwargs:
             resource_id = kwargs['resourceId']
+        if resource_id is None:
+            raise TypeError("Missing 'resource_id' argument")
 
         _setter("allow_public_ip", allow_public_ip)
         _setter("lab_subnet_name", lab_subnet_name)
@@ -780,23 +818,33 @@ class GetVirtualNetworkSubnetOverrideResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             lab_subnet_name: str,
-             resource_id: str,
-             use_in_vm_creation_permission: str,
-             use_public_ip_address_permission: str,
-             virtual_network_pool_name: str,
+             lab_subnet_name: Optional[str] = None,
+             resource_id: Optional[str] = None,
+             use_in_vm_creation_permission: Optional[str] = None,
+             use_public_ip_address_permission: Optional[str] = None,
+             virtual_network_pool_name: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'labSubnetName' in kwargs:
+        if lab_subnet_name is None and 'labSubnetName' in kwargs:
             lab_subnet_name = kwargs['labSubnetName']
-        if 'resourceId' in kwargs:
+        if lab_subnet_name is None:
+            raise TypeError("Missing 'lab_subnet_name' argument")
+        if resource_id is None and 'resourceId' in kwargs:
             resource_id = kwargs['resourceId']
-        if 'useInVmCreationPermission' in kwargs:
+        if resource_id is None:
+            raise TypeError("Missing 'resource_id' argument")
+        if use_in_vm_creation_permission is None and 'useInVmCreationPermission' in kwargs:
             use_in_vm_creation_permission = kwargs['useInVmCreationPermission']
-        if 'usePublicIpAddressPermission' in kwargs:
+        if use_in_vm_creation_permission is None:
+            raise TypeError("Missing 'use_in_vm_creation_permission' argument")
+        if use_public_ip_address_permission is None and 'usePublicIpAddressPermission' in kwargs:
             use_public_ip_address_permission = kwargs['usePublicIpAddressPermission']
-        if 'virtualNetworkPoolName' in kwargs:
+        if use_public_ip_address_permission is None:
+            raise TypeError("Missing 'use_public_ip_address_permission' argument")
+        if virtual_network_pool_name is None and 'virtualNetworkPoolName' in kwargs:
             virtual_network_pool_name = kwargs['virtualNetworkPoolName']
+        if virtual_network_pool_name is None:
+            raise TypeError("Missing 'virtual_network_pool_name' argument")
 
         _setter("lab_subnet_name", lab_subnet_name)
         _setter("resource_id", resource_id)

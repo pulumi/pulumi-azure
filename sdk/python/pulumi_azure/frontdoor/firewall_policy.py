@@ -55,7 +55,7 @@ class FirewallPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              custom_block_response_body: Optional[pulumi.Input[str]] = None,
              custom_block_response_status_code: Optional[pulumi.Input[int]] = None,
              custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomRuleArgs']]]] = None,
@@ -67,17 +67,19 @@ class FirewallPolicyArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'customBlockResponseBody' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if custom_block_response_body is None and 'customBlockResponseBody' in kwargs:
             custom_block_response_body = kwargs['customBlockResponseBody']
-        if 'customBlockResponseStatusCode' in kwargs:
+        if custom_block_response_status_code is None and 'customBlockResponseStatusCode' in kwargs:
             custom_block_response_status_code = kwargs['customBlockResponseStatusCode']
-        if 'customRules' in kwargs:
+        if custom_rules is None and 'customRules' in kwargs:
             custom_rules = kwargs['customRules']
-        if 'managedRules' in kwargs:
+        if managed_rules is None and 'managedRules' in kwargs:
             managed_rules = kwargs['managedRules']
-        if 'redirectUrl' in kwargs:
+        if redirect_url is None and 'redirectUrl' in kwargs:
             redirect_url = kwargs['redirectUrl']
 
         _setter("resource_group_name", resource_group_name)
@@ -283,19 +285,19 @@ class _FirewallPolicyState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'customBlockResponseBody' in kwargs:
+        if custom_block_response_body is None and 'customBlockResponseBody' in kwargs:
             custom_block_response_body = kwargs['customBlockResponseBody']
-        if 'customBlockResponseStatusCode' in kwargs:
+        if custom_block_response_status_code is None and 'customBlockResponseStatusCode' in kwargs:
             custom_block_response_status_code = kwargs['customBlockResponseStatusCode']
-        if 'customRules' in kwargs:
+        if custom_rules is None and 'customRules' in kwargs:
             custom_rules = kwargs['customRules']
-        if 'frontendEndpointIds' in kwargs:
+        if frontend_endpoint_ids is None and 'frontendEndpointIds' in kwargs:
             frontend_endpoint_ids = kwargs['frontendEndpointIds']
-        if 'managedRules' in kwargs:
+        if managed_rules is None and 'managedRules' in kwargs:
             managed_rules = kwargs['managedRules']
-        if 'redirectUrl' in kwargs:
+        if redirect_url is None and 'redirectUrl' in kwargs:
             redirect_url = kwargs['redirectUrl']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if custom_block_response_body is not None:

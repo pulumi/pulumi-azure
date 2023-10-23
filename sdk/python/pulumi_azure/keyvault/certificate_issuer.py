@@ -46,8 +46,8 @@ class CertificateIssuerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_vault_id: pulumi.Input[str],
-             provider_name: pulumi.Input[str],
+             key_vault_id: Optional[pulumi.Input[str]] = None,
+             provider_name: Optional[pulumi.Input[str]] = None,
              account_id: Optional[pulumi.Input[str]] = None,
              admins: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateIssuerAdminArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
@@ -55,13 +55,17 @@ class CertificateIssuerArgs:
              password: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'keyVaultId' in kwargs:
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
-        if 'providerName' in kwargs:
+        if key_vault_id is None:
+            raise TypeError("Missing 'key_vault_id' argument")
+        if provider_name is None and 'providerName' in kwargs:
             provider_name = kwargs['providerName']
-        if 'accountId' in kwargs:
+        if provider_name is None:
+            raise TypeError("Missing 'provider_name' argument")
+        if account_id is None and 'accountId' in kwargs:
             account_id = kwargs['accountId']
-        if 'orgId' in kwargs:
+        if org_id is None and 'orgId' in kwargs:
             org_id = kwargs['orgId']
 
         _setter("key_vault_id", key_vault_id)
@@ -204,13 +208,13 @@ class _CertificateIssuerState:
              provider_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accountId' in kwargs:
+        if account_id is None and 'accountId' in kwargs:
             account_id = kwargs['accountId']
-        if 'keyVaultId' in kwargs:
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
-        if 'orgId' in kwargs:
+        if org_id is None and 'orgId' in kwargs:
             org_id = kwargs['orgId']
-        if 'providerName' in kwargs:
+        if provider_name is None and 'providerName' in kwargs:
             provider_name = kwargs['providerName']
 
         if account_id is not None:

@@ -38,17 +38,21 @@ class HealthbotArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             sku_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
+        if sku_name is None:
+            raise TypeError("Missing 'sku_name' argument")
 
         _setter("resource_group_name", resource_group_name)
         _setter("sku_name", sku_name)
@@ -158,11 +162,11 @@ class _HealthbotState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'botManagementPortalUrl' in kwargs:
+        if bot_management_portal_url is None and 'botManagementPortalUrl' in kwargs:
             bot_management_portal_url = kwargs['botManagementPortalUrl']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
 
         if bot_management_portal_url is not None:

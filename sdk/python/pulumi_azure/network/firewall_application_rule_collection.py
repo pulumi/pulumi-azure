@@ -43,18 +43,28 @@ class FirewallApplicationRuleCollectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action: pulumi.Input[str],
-             azure_firewall_name: pulumi.Input[str],
-             priority: pulumi.Input[int],
-             resource_group_name: pulumi.Input[str],
-             rules: pulumi.Input[Sequence[pulumi.Input['FirewallApplicationRuleCollectionRuleArgs']]],
+             action: Optional[pulumi.Input[str]] = None,
+             azure_firewall_name: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             rules: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallApplicationRuleCollectionRuleArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'azureFirewallName' in kwargs:
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if azure_firewall_name is None and 'azureFirewallName' in kwargs:
             azure_firewall_name = kwargs['azureFirewallName']
-        if 'resourceGroupName' in kwargs:
+        if azure_firewall_name is None:
+            raise TypeError("Missing 'azure_firewall_name' argument")
+        if priority is None:
+            raise TypeError("Missing 'priority' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if rules is None:
+            raise TypeError("Missing 'rules' argument")
 
         _setter("action", action)
         _setter("azure_firewall_name", azure_firewall_name)
@@ -175,9 +185,9 @@ class _FirewallApplicationRuleCollectionState:
              rules: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallApplicationRuleCollectionRuleArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'azureFirewallName' in kwargs:
+        if azure_firewall_name is None and 'azureFirewallName' in kwargs:
             azure_firewall_name = kwargs['azureFirewallName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if action is not None:

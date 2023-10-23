@@ -34,15 +34,19 @@ class FrontdoorSecurityPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cdn_frontdoor_profile_id: pulumi.Input[str],
-             security_policies: pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesArgs'],
+             cdn_frontdoor_profile_id: Optional[pulumi.Input[str]] = None,
+             security_policies: Optional[pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'cdnFrontdoorProfileId' in kwargs:
+        if cdn_frontdoor_profile_id is None and 'cdnFrontdoorProfileId' in kwargs:
             cdn_frontdoor_profile_id = kwargs['cdnFrontdoorProfileId']
-        if 'securityPolicies' in kwargs:
+        if cdn_frontdoor_profile_id is None:
+            raise TypeError("Missing 'cdn_frontdoor_profile_id' argument")
+        if security_policies is None and 'securityPolicies' in kwargs:
             security_policies = kwargs['securityPolicies']
+        if security_policies is None:
+            raise TypeError("Missing 'security_policies' argument")
 
         _setter("cdn_frontdoor_profile_id", cdn_frontdoor_profile_id)
         _setter("security_policies", security_policies)
@@ -112,9 +116,9 @@ class _FrontdoorSecurityPolicyState:
              security_policies: Optional[pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'cdnFrontdoorProfileId' in kwargs:
+        if cdn_frontdoor_profile_id is None and 'cdnFrontdoorProfileId' in kwargs:
             cdn_frontdoor_profile_id = kwargs['cdnFrontdoorProfileId']
-        if 'securityPolicies' in kwargs:
+        if security_policies is None and 'securityPolicies' in kwargs:
             security_policies = kwargs['securityPolicies']
 
         if cdn_frontdoor_profile_id is not None:

@@ -62,8 +62,8 @@ class SoftwareUpdateConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             automation_account_id: pulumi.Input[str],
-             schedules: pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationScheduleArgs']]],
+             automation_account_id: Optional[pulumi.Input[str]] = None,
+             schedules: Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationScheduleArgs']]]] = None,
              duration: Optional[pulumi.Input[str]] = None,
              linuxes: Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationLinuxArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
@@ -76,17 +76,21 @@ class SoftwareUpdateConfigurationArgs:
              windows: Optional[pulumi.Input['SoftwareUpdateConfigurationWindowsArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'automationAccountId' in kwargs:
+        if automation_account_id is None and 'automationAccountId' in kwargs:
             automation_account_id = kwargs['automationAccountId']
-        if 'nonAzureComputerNames' in kwargs:
+        if automation_account_id is None:
+            raise TypeError("Missing 'automation_account_id' argument")
+        if schedules is None:
+            raise TypeError("Missing 'schedules' argument")
+        if non_azure_computer_names is None and 'nonAzureComputerNames' in kwargs:
             non_azure_computer_names = kwargs['nonAzureComputerNames']
-        if 'operatingSystem' in kwargs:
+        if operating_system is None and 'operatingSystem' in kwargs:
             operating_system = kwargs['operatingSystem']
-        if 'postTasks' in kwargs:
+        if post_tasks is None and 'postTasks' in kwargs:
             post_tasks = kwargs['postTasks']
-        if 'preTasks' in kwargs:
+        if pre_tasks is None and 'preTasks' in kwargs:
             pre_tasks = kwargs['preTasks']
-        if 'virtualMachineIds' in kwargs:
+        if virtual_machine_ids is None and 'virtualMachineIds' in kwargs:
             virtual_machine_ids = kwargs['virtualMachineIds']
 
         _setter("automation_account_id", automation_account_id)
@@ -336,23 +340,23 @@ class _SoftwareUpdateConfigurationState:
              windows: Optional[pulumi.Input['SoftwareUpdateConfigurationWindowsArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'automationAccountId' in kwargs:
+        if automation_account_id is None and 'automationAccountId' in kwargs:
             automation_account_id = kwargs['automationAccountId']
-        if 'errorCode' in kwargs:
+        if error_code is None and 'errorCode' in kwargs:
             error_code = kwargs['errorCode']
-        if 'errorMeesage' in kwargs:
+        if error_meesage is None and 'errorMeesage' in kwargs:
             error_meesage = kwargs['errorMeesage']
-        if 'errorMessage' in kwargs:
+        if error_message is None and 'errorMessage' in kwargs:
             error_message = kwargs['errorMessage']
-        if 'nonAzureComputerNames' in kwargs:
+        if non_azure_computer_names is None and 'nonAzureComputerNames' in kwargs:
             non_azure_computer_names = kwargs['nonAzureComputerNames']
-        if 'operatingSystem' in kwargs:
+        if operating_system is None and 'operatingSystem' in kwargs:
             operating_system = kwargs['operatingSystem']
-        if 'postTasks' in kwargs:
+        if post_tasks is None and 'postTasks' in kwargs:
             post_tasks = kwargs['postTasks']
-        if 'preTasks' in kwargs:
+        if pre_tasks is None and 'preTasks' in kwargs:
             pre_tasks = kwargs['preTasks']
-        if 'virtualMachineIds' in kwargs:
+        if virtual_machine_ids is None and 'virtualMachineIds' in kwargs:
             virtual_machine_ids = kwargs['virtualMachineIds']
 
         if automation_account_id is not None:

@@ -44,18 +44,24 @@ class FrontdoorCustomDomainArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cdn_frontdoor_profile_id: pulumi.Input[str],
-             host_name: pulumi.Input[str],
-             tls: pulumi.Input['FrontdoorCustomDomainTlsArgs'],
+             cdn_frontdoor_profile_id: Optional[pulumi.Input[str]] = None,
+             host_name: Optional[pulumi.Input[str]] = None,
+             tls: Optional[pulumi.Input['FrontdoorCustomDomainTlsArgs']] = None,
              dns_zone_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'cdnFrontdoorProfileId' in kwargs:
+        if cdn_frontdoor_profile_id is None and 'cdnFrontdoorProfileId' in kwargs:
             cdn_frontdoor_profile_id = kwargs['cdnFrontdoorProfileId']
-        if 'hostName' in kwargs:
+        if cdn_frontdoor_profile_id is None:
+            raise TypeError("Missing 'cdn_frontdoor_profile_id' argument")
+        if host_name is None and 'hostName' in kwargs:
             host_name = kwargs['hostName']
-        if 'dnsZoneId' in kwargs:
+        if host_name is None:
+            raise TypeError("Missing 'host_name' argument")
+        if tls is None:
+            raise TypeError("Missing 'tls' argument")
+        if dns_zone_id is None and 'dnsZoneId' in kwargs:
             dns_zone_id = kwargs['dnsZoneId']
 
         _setter("cdn_frontdoor_profile_id", cdn_frontdoor_profile_id)
@@ -177,15 +183,15 @@ class _FrontdoorCustomDomainState:
              validation_token: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'cdnFrontdoorProfileId' in kwargs:
+        if cdn_frontdoor_profile_id is None and 'cdnFrontdoorProfileId' in kwargs:
             cdn_frontdoor_profile_id = kwargs['cdnFrontdoorProfileId']
-        if 'dnsZoneId' in kwargs:
+        if dns_zone_id is None and 'dnsZoneId' in kwargs:
             dns_zone_id = kwargs['dnsZoneId']
-        if 'expirationDate' in kwargs:
+        if expiration_date is None and 'expirationDate' in kwargs:
             expiration_date = kwargs['expirationDate']
-        if 'hostName' in kwargs:
+        if host_name is None and 'hostName' in kwargs:
             host_name = kwargs['hostName']
-        if 'validationToken' in kwargs:
+        if validation_token is None and 'validationToken' in kwargs:
             validation_token = kwargs['validationToken']
 
         if cdn_frontdoor_profile_id is not None:

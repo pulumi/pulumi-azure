@@ -32,15 +32,19 @@ class NetworkManagerStaticMemberArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             network_group_id: pulumi.Input[str],
-             target_virtual_network_id: pulumi.Input[str],
+             network_group_id: Optional[pulumi.Input[str]] = None,
+             target_virtual_network_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'networkGroupId' in kwargs:
+        if network_group_id is None and 'networkGroupId' in kwargs:
             network_group_id = kwargs['networkGroupId']
-        if 'targetVirtualNetworkId' in kwargs:
+        if network_group_id is None:
+            raise TypeError("Missing 'network_group_id' argument")
+        if target_virtual_network_id is None and 'targetVirtualNetworkId' in kwargs:
             target_virtual_network_id = kwargs['targetVirtualNetworkId']
+        if target_virtual_network_id is None:
+            raise TypeError("Missing 'target_virtual_network_id' argument")
 
         _setter("network_group_id", network_group_id)
         _setter("target_virtual_network_id", target_virtual_network_id)
@@ -114,9 +118,9 @@ class _NetworkManagerStaticMemberState:
              target_virtual_network_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'networkGroupId' in kwargs:
+        if network_group_id is None and 'networkGroupId' in kwargs:
             network_group_id = kwargs['networkGroupId']
-        if 'targetVirtualNetworkId' in kwargs:
+        if target_virtual_network_id is None and 'targetVirtualNetworkId' in kwargs:
             target_virtual_network_id = kwargs['targetVirtualNetworkId']
 
         if name is not None:

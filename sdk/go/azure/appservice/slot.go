@@ -37,7 +37,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := random.NewRandomId(ctx, "server", &random.RandomIdArgs{
-//				Keepers: pulumi.AnyMap{
+//				Keepers: pulumi.Map{
 //					"azi_id": pulumi.Any(1),
 //				},
 //				ByteLength: pulumi.Int(8),
@@ -127,7 +127,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := random.NewRandomId(ctx, "server", &random.RandomIdArgs{
-//				Keepers: pulumi.AnyMap{
+//				Keepers: pulumi.Map{
 //					"azi_id": pulumi.Any(1),
 //				},
 //				ByteLength: pulumi.Int(8),

@@ -55,10 +55,10 @@ class SqlServerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             administrator_login: pulumi.Input[str],
-             administrator_login_password: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             version: pulumi.Input[str],
+             administrator_login: Optional[pulumi.Input[str]] = None,
+             administrator_login_password: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
              connection_policy: Optional[pulumi.Input[str]] = None,
              identity: Optional[pulumi.Input['SqlServerIdentityArgs']] = None,
              location: Optional[pulumi.Input[str]] = None,
@@ -67,15 +67,23 @@ class SqlServerArgs:
              threat_detection_policy: Optional[pulumi.Input['SqlServerThreatDetectionPolicyArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'administratorLogin' in kwargs:
+        if administrator_login is None and 'administratorLogin' in kwargs:
             administrator_login = kwargs['administratorLogin']
-        if 'administratorLoginPassword' in kwargs:
+        if administrator_login is None:
+            raise TypeError("Missing 'administrator_login' argument")
+        if administrator_login_password is None and 'administratorLoginPassword' in kwargs:
             administrator_login_password = kwargs['administratorLoginPassword']
-        if 'resourceGroupName' in kwargs:
+        if administrator_login_password is None:
+            raise TypeError("Missing 'administrator_login_password' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'connectionPolicy' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
+        if connection_policy is None and 'connectionPolicy' in kwargs:
             connection_policy = kwargs['connectionPolicy']
-        if 'threatDetectionPolicy' in kwargs:
+        if threat_detection_policy is None and 'threatDetectionPolicy' in kwargs:
             threat_detection_policy = kwargs['threatDetectionPolicy']
 
         _setter("administrator_login", administrator_login)
@@ -274,17 +282,17 @@ class _SqlServerState:
              version: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'administratorLogin' in kwargs:
+        if administrator_login is None and 'administratorLogin' in kwargs:
             administrator_login = kwargs['administratorLogin']
-        if 'administratorLoginPassword' in kwargs:
+        if administrator_login_password is None and 'administratorLoginPassword' in kwargs:
             administrator_login_password = kwargs['administratorLoginPassword']
-        if 'connectionPolicy' in kwargs:
+        if connection_policy is None and 'connectionPolicy' in kwargs:
             connection_policy = kwargs['connectionPolicy']
-        if 'fullyQualifiedDomainName' in kwargs:
+        if fully_qualified_domain_name is None and 'fullyQualifiedDomainName' in kwargs:
             fully_qualified_domain_name = kwargs['fullyQualifiedDomainName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'threatDetectionPolicy' in kwargs:
+        if threat_detection_policy is None and 'threatDetectionPolicy' in kwargs:
             threat_detection_policy = kwargs['threatDetectionPolicy']
 
         if administrator_login is not None:

@@ -37,15 +37,17 @@ class IntegrationRuntimeSelfHostedArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_factory_id: pulumi.Input[str],
+             data_factory_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              rbac_authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'rbacAuthorizations' in kwargs:
+        if data_factory_id is None:
+            raise TypeError("Missing 'data_factory_id' argument")
+        if rbac_authorizations is None and 'rbacAuthorizations' in kwargs:
             rbac_authorizations = kwargs['rbacAuthorizations']
 
         _setter("data_factory_id", data_factory_id)
@@ -143,13 +145,13 @@ class _IntegrationRuntimeSelfHostedState:
              secondary_authorization_key: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'primaryAuthorizationKey' in kwargs:
+        if primary_authorization_key is None and 'primaryAuthorizationKey' in kwargs:
             primary_authorization_key = kwargs['primaryAuthorizationKey']
-        if 'rbacAuthorizations' in kwargs:
+        if rbac_authorizations is None and 'rbacAuthorizations' in kwargs:
             rbac_authorizations = kwargs['rbacAuthorizations']
-        if 'secondaryAuthorizationKey' in kwargs:
+        if secondary_authorization_key is None and 'secondaryAuthorizationKey' in kwargs:
             secondary_authorization_key = kwargs['secondaryAuthorizationKey']
 
         if data_factory_id is not None:

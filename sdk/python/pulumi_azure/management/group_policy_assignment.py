@@ -69,8 +69,8 @@ class GroupPolicyAssignmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             management_group_id: pulumi.Input[str],
-             policy_definition_id: pulumi.Input[str],
+             management_group_id: Optional[pulumi.Input[str]] = None,
+             policy_definition_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              display_name: Optional[pulumi.Input[str]] = None,
              enforce: Optional[pulumi.Input[bool]] = None,
@@ -85,17 +85,21 @@ class GroupPolicyAssignmentArgs:
              resource_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentResourceSelectorArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'managementGroupId' in kwargs:
+        if management_group_id is None and 'managementGroupId' in kwargs:
             management_group_id = kwargs['managementGroupId']
-        if 'policyDefinitionId' in kwargs:
+        if management_group_id is None:
+            raise TypeError("Missing 'management_group_id' argument")
+        if policy_definition_id is None and 'policyDefinitionId' in kwargs:
             policy_definition_id = kwargs['policyDefinitionId']
-        if 'displayName' in kwargs:
+        if policy_definition_id is None:
+            raise TypeError("Missing 'policy_definition_id' argument")
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'nonComplianceMessages' in kwargs:
+        if non_compliance_messages is None and 'nonComplianceMessages' in kwargs:
             non_compliance_messages = kwargs['nonComplianceMessages']
-        if 'notScopes' in kwargs:
+        if not_scopes is None and 'notScopes' in kwargs:
             not_scopes = kwargs['notScopes']
-        if 'resourceSelectors' in kwargs:
+        if resource_selectors is None and 'resourceSelectors' in kwargs:
             resource_selectors = kwargs['resourceSelectors']
 
         _setter("management_group_id", management_group_id)
@@ -368,17 +372,17 @@ class _GroupPolicyAssignmentState:
              resource_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentResourceSelectorArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'managementGroupId' in kwargs:
+        if management_group_id is None and 'managementGroupId' in kwargs:
             management_group_id = kwargs['managementGroupId']
-        if 'nonComplianceMessages' in kwargs:
+        if non_compliance_messages is None and 'nonComplianceMessages' in kwargs:
             non_compliance_messages = kwargs['nonComplianceMessages']
-        if 'notScopes' in kwargs:
+        if not_scopes is None and 'notScopes' in kwargs:
             not_scopes = kwargs['notScopes']
-        if 'policyDefinitionId' in kwargs:
+        if policy_definition_id is None and 'policyDefinitionId' in kwargs:
             policy_definition_id = kwargs['policyDefinitionId']
-        if 'resourceSelectors' in kwargs:
+        if resource_selectors is None and 'resourceSelectors' in kwargs:
             resource_selectors = kwargs['resourceSelectors']
 
         if description is not None:

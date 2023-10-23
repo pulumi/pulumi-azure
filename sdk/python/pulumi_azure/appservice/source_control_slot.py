@@ -51,7 +51,7 @@ class SourceControlSlotArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             slot_id: pulumi.Input[str],
+             slot_id: Optional[pulumi.Input[str]] = None,
              branch: Optional[pulumi.Input[str]] = None,
              github_action_configuration: Optional[pulumi.Input['SourceControlSlotGithubActionConfigurationArgs']] = None,
              repo_url: Optional[pulumi.Input[str]] = None,
@@ -61,19 +61,21 @@ class SourceControlSlotArgs:
              use_mercurial: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'slotId' in kwargs:
+        if slot_id is None and 'slotId' in kwargs:
             slot_id = kwargs['slotId']
-        if 'githubActionConfiguration' in kwargs:
+        if slot_id is None:
+            raise TypeError("Missing 'slot_id' argument")
+        if github_action_configuration is None and 'githubActionConfiguration' in kwargs:
             github_action_configuration = kwargs['githubActionConfiguration']
-        if 'repoUrl' in kwargs:
+        if repo_url is None and 'repoUrl' in kwargs:
             repo_url = kwargs['repoUrl']
-        if 'rollbackEnabled' in kwargs:
+        if rollback_enabled is None and 'rollbackEnabled' in kwargs:
             rollback_enabled = kwargs['rollbackEnabled']
-        if 'useLocalGit' in kwargs:
+        if use_local_git is None and 'useLocalGit' in kwargs:
             use_local_git = kwargs['useLocalGit']
-        if 'useManualIntegration' in kwargs:
+        if use_manual_integration is None and 'useManualIntegration' in kwargs:
             use_manual_integration = kwargs['useManualIntegration']
-        if 'useMercurial' in kwargs:
+        if use_mercurial is None and 'useMercurial' in kwargs:
             use_mercurial = kwargs['useMercurial']
 
         _setter("slot_id", slot_id)
@@ -247,23 +249,23 @@ class _SourceControlSlotState:
              uses_github_action: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'githubActionConfiguration' in kwargs:
+        if github_action_configuration is None and 'githubActionConfiguration' in kwargs:
             github_action_configuration = kwargs['githubActionConfiguration']
-        if 'repoUrl' in kwargs:
+        if repo_url is None and 'repoUrl' in kwargs:
             repo_url = kwargs['repoUrl']
-        if 'rollbackEnabled' in kwargs:
+        if rollback_enabled is None and 'rollbackEnabled' in kwargs:
             rollback_enabled = kwargs['rollbackEnabled']
-        if 'scmType' in kwargs:
+        if scm_type is None and 'scmType' in kwargs:
             scm_type = kwargs['scmType']
-        if 'slotId' in kwargs:
+        if slot_id is None and 'slotId' in kwargs:
             slot_id = kwargs['slotId']
-        if 'useLocalGit' in kwargs:
+        if use_local_git is None and 'useLocalGit' in kwargs:
             use_local_git = kwargs['useLocalGit']
-        if 'useManualIntegration' in kwargs:
+        if use_manual_integration is None and 'useManualIntegration' in kwargs:
             use_manual_integration = kwargs['useManualIntegration']
-        if 'useMercurial' in kwargs:
+        if use_mercurial is None and 'useMercurial' in kwargs:
             use_mercurial = kwargs['useMercurial']
-        if 'usesGithubAction' in kwargs:
+        if uses_github_action is None and 'usesGithubAction' in kwargs:
             uses_github_action = kwargs['usesGithubAction']
 
         if branch is not None:

@@ -55,11 +55,11 @@ class SourceControlArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             automation_account_id: pulumi.Input[str],
-             folder_path: pulumi.Input[str],
-             repository_url: pulumi.Input[str],
-             security: pulumi.Input['SourceControlSecurityArgs'],
-             source_control_type: pulumi.Input[str],
+             automation_account_id: Optional[pulumi.Input[str]] = None,
+             folder_path: Optional[pulumi.Input[str]] = None,
+             repository_url: Optional[pulumi.Input[str]] = None,
+             security: Optional[pulumi.Input['SourceControlSecurityArgs']] = None,
+             source_control_type: Optional[pulumi.Input[str]] = None,
              automatic_sync: Optional[pulumi.Input[bool]] = None,
              branch: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -67,17 +67,27 @@ class SourceControlArgs:
              publish_runbook_enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'automationAccountId' in kwargs:
+        if automation_account_id is None and 'automationAccountId' in kwargs:
             automation_account_id = kwargs['automationAccountId']
-        if 'folderPath' in kwargs:
+        if automation_account_id is None:
+            raise TypeError("Missing 'automation_account_id' argument")
+        if folder_path is None and 'folderPath' in kwargs:
             folder_path = kwargs['folderPath']
-        if 'repositoryUrl' in kwargs:
+        if folder_path is None:
+            raise TypeError("Missing 'folder_path' argument")
+        if repository_url is None and 'repositoryUrl' in kwargs:
             repository_url = kwargs['repositoryUrl']
-        if 'sourceControlType' in kwargs:
+        if repository_url is None:
+            raise TypeError("Missing 'repository_url' argument")
+        if security is None:
+            raise TypeError("Missing 'security' argument")
+        if source_control_type is None and 'sourceControlType' in kwargs:
             source_control_type = kwargs['sourceControlType']
-        if 'automaticSync' in kwargs:
+        if source_control_type is None:
+            raise TypeError("Missing 'source_control_type' argument")
+        if automatic_sync is None and 'automaticSync' in kwargs:
             automatic_sync = kwargs['automaticSync']
-        if 'publishRunbookEnabled' in kwargs:
+        if publish_runbook_enabled is None and 'publishRunbookEnabled' in kwargs:
             publish_runbook_enabled = kwargs['publishRunbookEnabled']
 
         _setter("automation_account_id", automation_account_id)
@@ -271,17 +281,17 @@ class _SourceControlState:
              source_control_type: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'automaticSync' in kwargs:
+        if automatic_sync is None and 'automaticSync' in kwargs:
             automatic_sync = kwargs['automaticSync']
-        if 'automationAccountId' in kwargs:
+        if automation_account_id is None and 'automationAccountId' in kwargs:
             automation_account_id = kwargs['automationAccountId']
-        if 'folderPath' in kwargs:
+        if folder_path is None and 'folderPath' in kwargs:
             folder_path = kwargs['folderPath']
-        if 'publishRunbookEnabled' in kwargs:
+        if publish_runbook_enabled is None and 'publishRunbookEnabled' in kwargs:
             publish_runbook_enabled = kwargs['publishRunbookEnabled']
-        if 'repositoryUrl' in kwargs:
+        if repository_url is None and 'repositoryUrl' in kwargs:
             repository_url = kwargs['repositoryUrl']
-        if 'sourceControlType' in kwargs:
+        if source_control_type is None and 'sourceControlType' in kwargs:
             source_control_type = kwargs['sourceControlType']
 
         if automatic_sync is not None:

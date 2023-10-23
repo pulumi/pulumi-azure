@@ -44,25 +44,35 @@ class ConnectionClassicCertificateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             automation_account_name: pulumi.Input[str],
-             certificate_asset_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             subscription_id: pulumi.Input[str],
-             subscription_name: pulumi.Input[str],
+             automation_account_name: Optional[pulumi.Input[str]] = None,
+             certificate_asset_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
+             subscription_name: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'automationAccountName' in kwargs:
+        if automation_account_name is None and 'automationAccountName' in kwargs:
             automation_account_name = kwargs['automationAccountName']
-        if 'certificateAssetName' in kwargs:
+        if automation_account_name is None:
+            raise TypeError("Missing 'automation_account_name' argument")
+        if certificate_asset_name is None and 'certificateAssetName' in kwargs:
             certificate_asset_name = kwargs['certificateAssetName']
-        if 'resourceGroupName' in kwargs:
+        if certificate_asset_name is None:
+            raise TypeError("Missing 'certificate_asset_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'subscriptionId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if subscription_id is None and 'subscriptionId' in kwargs:
             subscription_id = kwargs['subscriptionId']
-        if 'subscriptionName' in kwargs:
+        if subscription_id is None:
+            raise TypeError("Missing 'subscription_id' argument")
+        if subscription_name is None and 'subscriptionName' in kwargs:
             subscription_name = kwargs['subscriptionName']
+        if subscription_name is None:
+            raise TypeError("Missing 'subscription_name' argument")
 
         _setter("automation_account_name", automation_account_name)
         _setter("certificate_asset_name", certificate_asset_name)
@@ -201,15 +211,15 @@ class _ConnectionClassicCertificateState:
              subscription_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'automationAccountName' in kwargs:
+        if automation_account_name is None and 'automationAccountName' in kwargs:
             automation_account_name = kwargs['automationAccountName']
-        if 'certificateAssetName' in kwargs:
+        if certificate_asset_name is None and 'certificateAssetName' in kwargs:
             certificate_asset_name = kwargs['certificateAssetName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'subscriptionId' in kwargs:
+        if subscription_id is None and 'subscriptionId' in kwargs:
             subscription_id = kwargs['subscriptionId']
-        if 'subscriptionName' in kwargs:
+        if subscription_name is None and 'subscriptionName' in kwargs:
             subscription_name = kwargs['subscriptionName']
 
         if automation_account_name is not None:

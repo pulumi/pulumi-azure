@@ -32,17 +32,23 @@ class CertificateBindingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             certificate_id: pulumi.Input[str],
-             hostname_binding_id: pulumi.Input[str],
-             ssl_state: pulumi.Input[str],
+             certificate_id: Optional[pulumi.Input[str]] = None,
+             hostname_binding_id: Optional[pulumi.Input[str]] = None,
+             ssl_state: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'certificateId' in kwargs:
+        if certificate_id is None and 'certificateId' in kwargs:
             certificate_id = kwargs['certificateId']
-        if 'hostnameBindingId' in kwargs:
+        if certificate_id is None:
+            raise TypeError("Missing 'certificate_id' argument")
+        if hostname_binding_id is None and 'hostnameBindingId' in kwargs:
             hostname_binding_id = kwargs['hostnameBindingId']
-        if 'sslState' in kwargs:
+        if hostname_binding_id is None:
+            raise TypeError("Missing 'hostname_binding_id' argument")
+        if ssl_state is None and 'sslState' in kwargs:
             ssl_state = kwargs['sslState']
+        if ssl_state is None:
+            raise TypeError("Missing 'ssl_state' argument")
 
         _setter("certificate_id", certificate_id)
         _setter("hostname_binding_id", hostname_binding_id)
@@ -123,13 +129,13 @@ class _CertificateBindingState:
              thumbprint: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'appServiceName' in kwargs:
+        if app_service_name is None and 'appServiceName' in kwargs:
             app_service_name = kwargs['appServiceName']
-        if 'certificateId' in kwargs:
+        if certificate_id is None and 'certificateId' in kwargs:
             certificate_id = kwargs['certificateId']
-        if 'hostnameBindingId' in kwargs:
+        if hostname_binding_id is None and 'hostnameBindingId' in kwargs:
             hostname_binding_id = kwargs['hostnameBindingId']
-        if 'sslState' in kwargs:
+        if ssl_state is None and 'sslState' in kwargs:
             ssl_state = kwargs['sslState']
 
         if app_service_name is not None:

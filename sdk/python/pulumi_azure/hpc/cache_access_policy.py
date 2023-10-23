@@ -34,15 +34,19 @@ class CacheAccessPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             access_rules: pulumi.Input[Sequence[pulumi.Input['CacheAccessPolicyAccessRuleArgs']]],
-             hpc_cache_id: pulumi.Input[str],
+             access_rules: Optional[pulumi.Input[Sequence[pulumi.Input['CacheAccessPolicyAccessRuleArgs']]]] = None,
+             hpc_cache_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accessRules' in kwargs:
+        if access_rules is None and 'accessRules' in kwargs:
             access_rules = kwargs['accessRules']
-        if 'hpcCacheId' in kwargs:
+        if access_rules is None:
+            raise TypeError("Missing 'access_rules' argument")
+        if hpc_cache_id is None and 'hpcCacheId' in kwargs:
             hpc_cache_id = kwargs['hpcCacheId']
+        if hpc_cache_id is None:
+            raise TypeError("Missing 'hpc_cache_id' argument")
 
         _setter("access_rules", access_rules)
         _setter("hpc_cache_id", hpc_cache_id)
@@ -112,9 +116,9 @@ class _CacheAccessPolicyState:
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accessRules' in kwargs:
+        if access_rules is None and 'accessRules' in kwargs:
             access_rules = kwargs['accessRules']
-        if 'hpcCacheId' in kwargs:
+        if hpc_cache_id is None and 'hpcCacheId' in kwargs:
             hpc_cache_id = kwargs['hpcCacheId']
 
         if access_rules is not None:

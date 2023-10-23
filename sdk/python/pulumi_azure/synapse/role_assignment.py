@@ -41,19 +41,23 @@ class RoleAssignmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             principal_id: pulumi.Input[str],
-             role_name: pulumi.Input[str],
+             principal_id: Optional[pulumi.Input[str]] = None,
+             role_name: Optional[pulumi.Input[str]] = None,
              synapse_spark_pool_id: Optional[pulumi.Input[str]] = None,
              synapse_workspace_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'roleName' in kwargs:
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if role_name is None and 'roleName' in kwargs:
             role_name = kwargs['roleName']
-        if 'synapseSparkPoolId' in kwargs:
+        if role_name is None:
+            raise TypeError("Missing 'role_name' argument")
+        if synapse_spark_pool_id is None and 'synapseSparkPoolId' in kwargs:
             synapse_spark_pool_id = kwargs['synapseSparkPoolId']
-        if 'synapseWorkspaceId' in kwargs:
+        if synapse_workspace_id is None and 'synapseWorkspaceId' in kwargs:
             synapse_workspace_id = kwargs['synapseWorkspaceId']
 
         _setter("principal_id", principal_id)
@@ -154,13 +158,13 @@ class _RoleAssignmentState:
              synapse_workspace_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'roleName' in kwargs:
+        if role_name is None and 'roleName' in kwargs:
             role_name = kwargs['roleName']
-        if 'synapseSparkPoolId' in kwargs:
+        if synapse_spark_pool_id is None and 'synapseSparkPoolId' in kwargs:
             synapse_spark_pool_id = kwargs['synapseSparkPoolId']
-        if 'synapseWorkspaceId' in kwargs:
+        if synapse_workspace_id is None and 'synapseWorkspaceId' in kwargs:
             synapse_workspace_id = kwargs['synapseWorkspaceId']
 
         if principal_id is not None:

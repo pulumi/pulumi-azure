@@ -49,8 +49,8 @@ class AlertProcessingRuleSuppressionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             scopes: pulumi.Input[Sequence[pulumi.Input[str]]],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              condition: Optional[pulumi.Input['AlertProcessingRuleSuppressionConditionArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
@@ -59,8 +59,12 @@ class AlertProcessingRuleSuppressionArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if scopes is None:
+            raise TypeError("Missing 'scopes' argument")
 
         _setter("resource_group_name", resource_group_name)
         _setter("scopes", scopes)
@@ -220,7 +224,7 @@ class _AlertProcessingRuleSuppressionState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if condition is not None:

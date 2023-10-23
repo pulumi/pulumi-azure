@@ -56,8 +56,8 @@ class EnvironmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             subnet_id: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
              allowed_user_ip_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentClusterSettingArgs']]]] = None,
              front_end_scale_factor: Optional[pulumi.Input[int]] = None,
@@ -67,19 +67,23 @@ class EnvironmentArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'subnetId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'allowedUserIpCidrs' in kwargs:
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+        if allowed_user_ip_cidrs is None and 'allowedUserIpCidrs' in kwargs:
             allowed_user_ip_cidrs = kwargs['allowedUserIpCidrs']
-        if 'clusterSettings' in kwargs:
+        if cluster_settings is None and 'clusterSettings' in kwargs:
             cluster_settings = kwargs['clusterSettings']
-        if 'frontEndScaleFactor' in kwargs:
+        if front_end_scale_factor is None and 'frontEndScaleFactor' in kwargs:
             front_end_scale_factor = kwargs['frontEndScaleFactor']
-        if 'internalLoadBalancingMode' in kwargs:
+        if internal_load_balancing_mode is None and 'internalLoadBalancingMode' in kwargs:
             internal_load_balancing_mode = kwargs['internalLoadBalancingMode']
-        if 'pricingTier' in kwargs:
+        if pricing_tier is None and 'pricingTier' in kwargs:
             pricing_tier = kwargs['pricingTier']
 
         _setter("resource_group_name", resource_group_name)
@@ -282,25 +286,25 @@ class _EnvironmentState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowedUserIpCidrs' in kwargs:
+        if allowed_user_ip_cidrs is None and 'allowedUserIpCidrs' in kwargs:
             allowed_user_ip_cidrs = kwargs['allowedUserIpCidrs']
-        if 'clusterSettings' in kwargs:
+        if cluster_settings is None and 'clusterSettings' in kwargs:
             cluster_settings = kwargs['clusterSettings']
-        if 'frontEndScaleFactor' in kwargs:
+        if front_end_scale_factor is None and 'frontEndScaleFactor' in kwargs:
             front_end_scale_factor = kwargs['frontEndScaleFactor']
-        if 'internalIpAddress' in kwargs:
+        if internal_ip_address is None and 'internalIpAddress' in kwargs:
             internal_ip_address = kwargs['internalIpAddress']
-        if 'internalLoadBalancingMode' in kwargs:
+        if internal_load_balancing_mode is None and 'internalLoadBalancingMode' in kwargs:
             internal_load_balancing_mode = kwargs['internalLoadBalancingMode']
-        if 'outboundIpAddresses' in kwargs:
+        if outbound_ip_addresses is None and 'outboundIpAddresses' in kwargs:
             outbound_ip_addresses = kwargs['outboundIpAddresses']
-        if 'pricingTier' in kwargs:
+        if pricing_tier is None and 'pricingTier' in kwargs:
             pricing_tier = kwargs['pricingTier']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serviceIpAddress' in kwargs:
+        if service_ip_address is None and 'serviceIpAddress' in kwargs:
             service_ip_address = kwargs['serviceIpAddress']
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
 
         if allowed_user_ip_cidrs is not None:

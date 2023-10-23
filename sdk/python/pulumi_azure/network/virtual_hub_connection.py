@@ -40,18 +40,22 @@ class VirtualHubConnectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             remote_virtual_network_id: pulumi.Input[str],
-             virtual_hub_id: pulumi.Input[str],
+             remote_virtual_network_id: Optional[pulumi.Input[str]] = None,
+             virtual_hub_id: Optional[pulumi.Input[str]] = None,
              internet_security_enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              routing: Optional[pulumi.Input['VirtualHubConnectionRoutingArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'remoteVirtualNetworkId' in kwargs:
+        if remote_virtual_network_id is None and 'remoteVirtualNetworkId' in kwargs:
             remote_virtual_network_id = kwargs['remoteVirtualNetworkId']
-        if 'virtualHubId' in kwargs:
+        if remote_virtual_network_id is None:
+            raise TypeError("Missing 'remote_virtual_network_id' argument")
+        if virtual_hub_id is None and 'virtualHubId' in kwargs:
             virtual_hub_id = kwargs['virtualHubId']
-        if 'internetSecurityEnabled' in kwargs:
+        if virtual_hub_id is None:
+            raise TypeError("Missing 'virtual_hub_id' argument")
+        if internet_security_enabled is None and 'internetSecurityEnabled' in kwargs:
             internet_security_enabled = kwargs['internetSecurityEnabled']
 
         _setter("remote_virtual_network_id", remote_virtual_network_id)
@@ -158,11 +162,11 @@ class _VirtualHubConnectionState:
              virtual_hub_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'internetSecurityEnabled' in kwargs:
+        if internet_security_enabled is None and 'internetSecurityEnabled' in kwargs:
             internet_security_enabled = kwargs['internetSecurityEnabled']
-        if 'remoteVirtualNetworkId' in kwargs:
+        if remote_virtual_network_id is None and 'remoteVirtualNetworkId' in kwargs:
             remote_virtual_network_id = kwargs['remoteVirtualNetworkId']
-        if 'virtualHubId' in kwargs:
+        if virtual_hub_id is None and 'virtualHubId' in kwargs:
             virtual_hub_id = kwargs['virtualHubId']
 
         if internet_security_enabled is not None:

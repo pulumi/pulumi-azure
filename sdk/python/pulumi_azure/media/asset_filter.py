@@ -40,20 +40,22 @@ class AssetFilterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             asset_id: pulumi.Input[str],
+             asset_id: Optional[pulumi.Input[str]] = None,
              first_quality_bitrate: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
              presentation_time_range: Optional[pulumi.Input['AssetFilterPresentationTimeRangeArgs']] = None,
              track_selections: Optional[pulumi.Input[Sequence[pulumi.Input['AssetFilterTrackSelectionArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'assetId' in kwargs:
+        if asset_id is None and 'assetId' in kwargs:
             asset_id = kwargs['assetId']
-        if 'firstQualityBitrate' in kwargs:
+        if asset_id is None:
+            raise TypeError("Missing 'asset_id' argument")
+        if first_quality_bitrate is None and 'firstQualityBitrate' in kwargs:
             first_quality_bitrate = kwargs['firstQualityBitrate']
-        if 'presentationTimeRange' in kwargs:
+        if presentation_time_range is None and 'presentationTimeRange' in kwargs:
             presentation_time_range = kwargs['presentationTimeRange']
-        if 'trackSelections' in kwargs:
+        if track_selections is None and 'trackSelections' in kwargs:
             track_selections = kwargs['trackSelections']
 
         _setter("asset_id", asset_id)
@@ -161,13 +163,13 @@ class _AssetFilterState:
              track_selections: Optional[pulumi.Input[Sequence[pulumi.Input['AssetFilterTrackSelectionArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'assetId' in kwargs:
+        if asset_id is None and 'assetId' in kwargs:
             asset_id = kwargs['assetId']
-        if 'firstQualityBitrate' in kwargs:
+        if first_quality_bitrate is None and 'firstQualityBitrate' in kwargs:
             first_quality_bitrate = kwargs['firstQualityBitrate']
-        if 'presentationTimeRange' in kwargs:
+        if presentation_time_range is None and 'presentationTimeRange' in kwargs:
             presentation_time_range = kwargs['presentationTimeRange']
-        if 'trackSelections' in kwargs:
+        if track_selections is None and 'trackSelections' in kwargs:
             track_selections = kwargs['trackSelections']
 
         if asset_id is not None:

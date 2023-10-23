@@ -46,22 +46,28 @@ class NetworkServiceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mobile_network_id: pulumi.Input[str],
-             pcc_rules: pulumi.Input[Sequence[pulumi.Input['NetworkServicePccRuleArgs']]],
-             service_precedence: pulumi.Input[int],
+             mobile_network_id: Optional[pulumi.Input[str]] = None,
+             pcc_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkServicePccRuleArgs']]]] = None,
+             service_precedence: Optional[pulumi.Input[int]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              service_qos_policy: Optional[pulumi.Input['NetworkServiceServiceQosPolicyArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'mobileNetworkId' in kwargs:
+        if mobile_network_id is None and 'mobileNetworkId' in kwargs:
             mobile_network_id = kwargs['mobileNetworkId']
-        if 'pccRules' in kwargs:
+        if mobile_network_id is None:
+            raise TypeError("Missing 'mobile_network_id' argument")
+        if pcc_rules is None and 'pccRules' in kwargs:
             pcc_rules = kwargs['pccRules']
-        if 'servicePrecedence' in kwargs:
+        if pcc_rules is None:
+            raise TypeError("Missing 'pcc_rules' argument")
+        if service_precedence is None and 'servicePrecedence' in kwargs:
             service_precedence = kwargs['servicePrecedence']
-        if 'serviceQosPolicy' in kwargs:
+        if service_precedence is None:
+            raise TypeError("Missing 'service_precedence' argument")
+        if service_qos_policy is None and 'serviceQosPolicy' in kwargs:
             service_qos_policy = kwargs['serviceQosPolicy']
 
         _setter("mobile_network_id", mobile_network_id)
@@ -203,13 +209,13 @@ class _NetworkServiceState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'mobileNetworkId' in kwargs:
+        if mobile_network_id is None and 'mobileNetworkId' in kwargs:
             mobile_network_id = kwargs['mobileNetworkId']
-        if 'pccRules' in kwargs:
+        if pcc_rules is None and 'pccRules' in kwargs:
             pcc_rules = kwargs['pccRules']
-        if 'servicePrecedence' in kwargs:
+        if service_precedence is None and 'servicePrecedence' in kwargs:
             service_precedence = kwargs['servicePrecedence']
-        if 'serviceQosPolicy' in kwargs:
+        if service_qos_policy is None and 'serviceQosPolicy' in kwargs:
             service_qos_policy = kwargs['serviceQosPolicy']
 
         if location is not None:

@@ -35,20 +35,28 @@ class IdentityProviderTwitterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_key: pulumi.Input[str],
-             api_management_name: pulumi.Input[str],
-             api_secret_key: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             api_key: Optional[pulumi.Input[str]] = None,
+             api_management_name: Optional[pulumi.Input[str]] = None,
+             api_secret_key: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'apiKey' in kwargs:
+        if api_key is None and 'apiKey' in kwargs:
             api_key = kwargs['apiKey']
-        if 'apiManagementName' in kwargs:
+        if api_key is None:
+            raise TypeError("Missing 'api_key' argument")
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'apiSecretKey' in kwargs:
+        if api_management_name is None:
+            raise TypeError("Missing 'api_management_name' argument")
+        if api_secret_key is None and 'apiSecretKey' in kwargs:
             api_secret_key = kwargs['apiSecretKey']
-        if 'resourceGroupName' in kwargs:
+        if api_secret_key is None:
+            raise TypeError("Missing 'api_secret_key' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("api_key", api_key)
         _setter("api_management_name", api_management_name)
@@ -134,13 +142,13 @@ class _IdentityProviderTwitterState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'apiKey' in kwargs:
+        if api_key is None and 'apiKey' in kwargs:
             api_key = kwargs['apiKey']
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'apiSecretKey' in kwargs:
+        if api_secret_key is None and 'apiSecretKey' in kwargs:
             api_secret_key = kwargs['apiSecretKey']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if api_key is not None:

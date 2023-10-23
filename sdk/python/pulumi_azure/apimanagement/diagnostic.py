@@ -67,10 +67,10 @@ class DiagnosticArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_management_logger_id: pulumi.Input[str],
-             api_management_name: pulumi.Input[str],
-             identifier: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             api_management_logger_id: Optional[pulumi.Input[str]] = None,
+             api_management_name: Optional[pulumi.Input[str]] = None,
+             identifier: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              always_log_errors: Optional[pulumi.Input[bool]] = None,
              backend_request: Optional[pulumi.Input['DiagnosticBackendRequestArgs']] = None,
              backend_response: Optional[pulumi.Input['DiagnosticBackendResponseArgs']] = None,
@@ -83,29 +83,37 @@ class DiagnosticArgs:
              verbosity: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'apiManagementLoggerId' in kwargs:
+        if api_management_logger_id is None and 'apiManagementLoggerId' in kwargs:
             api_management_logger_id = kwargs['apiManagementLoggerId']
-        if 'apiManagementName' in kwargs:
+        if api_management_logger_id is None:
+            raise TypeError("Missing 'api_management_logger_id' argument")
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'resourceGroupName' in kwargs:
+        if api_management_name is None:
+            raise TypeError("Missing 'api_management_name' argument")
+        if identifier is None:
+            raise TypeError("Missing 'identifier' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'alwaysLogErrors' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if always_log_errors is None and 'alwaysLogErrors' in kwargs:
             always_log_errors = kwargs['alwaysLogErrors']
-        if 'backendRequest' in kwargs:
+        if backend_request is None and 'backendRequest' in kwargs:
             backend_request = kwargs['backendRequest']
-        if 'backendResponse' in kwargs:
+        if backend_response is None and 'backendResponse' in kwargs:
             backend_response = kwargs['backendResponse']
-        if 'frontendRequest' in kwargs:
+        if frontend_request is None and 'frontendRequest' in kwargs:
             frontend_request = kwargs['frontendRequest']
-        if 'frontendResponse' in kwargs:
+        if frontend_response is None and 'frontendResponse' in kwargs:
             frontend_response = kwargs['frontendResponse']
-        if 'httpCorrelationProtocol' in kwargs:
+        if http_correlation_protocol is None and 'httpCorrelationProtocol' in kwargs:
             http_correlation_protocol = kwargs['httpCorrelationProtocol']
-        if 'logClientIp' in kwargs:
+        if log_client_ip is None and 'logClientIp' in kwargs:
             log_client_ip = kwargs['logClientIp']
-        if 'operationNameFormat' in kwargs:
+        if operation_name_format is None and 'operationNameFormat' in kwargs:
             operation_name_format = kwargs['operationNameFormat']
-        if 'samplingPercentage' in kwargs:
+        if sampling_percentage is None and 'samplingPercentage' in kwargs:
             sampling_percentage = kwargs['samplingPercentage']
 
         _setter("api_management_logger_id", api_management_logger_id)
@@ -372,29 +380,29 @@ class _DiagnosticState:
              verbosity: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'alwaysLogErrors' in kwargs:
+        if always_log_errors is None and 'alwaysLogErrors' in kwargs:
             always_log_errors = kwargs['alwaysLogErrors']
-        if 'apiManagementLoggerId' in kwargs:
+        if api_management_logger_id is None and 'apiManagementLoggerId' in kwargs:
             api_management_logger_id = kwargs['apiManagementLoggerId']
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'backendRequest' in kwargs:
+        if backend_request is None and 'backendRequest' in kwargs:
             backend_request = kwargs['backendRequest']
-        if 'backendResponse' in kwargs:
+        if backend_response is None and 'backendResponse' in kwargs:
             backend_response = kwargs['backendResponse']
-        if 'frontendRequest' in kwargs:
+        if frontend_request is None and 'frontendRequest' in kwargs:
             frontend_request = kwargs['frontendRequest']
-        if 'frontendResponse' in kwargs:
+        if frontend_response is None and 'frontendResponse' in kwargs:
             frontend_response = kwargs['frontendResponse']
-        if 'httpCorrelationProtocol' in kwargs:
+        if http_correlation_protocol is None and 'httpCorrelationProtocol' in kwargs:
             http_correlation_protocol = kwargs['httpCorrelationProtocol']
-        if 'logClientIp' in kwargs:
+        if log_client_ip is None and 'logClientIp' in kwargs:
             log_client_ip = kwargs['logClientIp']
-        if 'operationNameFormat' in kwargs:
+        if operation_name_format is None and 'operationNameFormat' in kwargs:
             operation_name_format = kwargs['operationNameFormat']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'samplingPercentage' in kwargs:
+        if sampling_percentage is None and 'samplingPercentage' in kwargs:
             sampling_percentage = kwargs['samplingPercentage']
 
         if always_log_errors is not None:

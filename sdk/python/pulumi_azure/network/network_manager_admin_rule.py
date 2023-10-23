@@ -58,11 +58,11 @@ class NetworkManagerAdminRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action: pulumi.Input[str],
-             admin_rule_collection_id: pulumi.Input[str],
-             direction: pulumi.Input[str],
-             priority: pulumi.Input[int],
-             protocol: pulumi.Input[str],
+             action: Optional[pulumi.Input[str]] = None,
+             admin_rule_collection_id: Optional[pulumi.Input[str]] = None,
+             direction: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             protocol: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              destination_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              destinations: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkManagerAdminRuleDestinationArgs']]]] = None,
@@ -71,11 +71,21 @@ class NetworkManagerAdminRuleArgs:
              sources: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkManagerAdminRuleSourceArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'adminRuleCollectionId' in kwargs:
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if admin_rule_collection_id is None and 'adminRuleCollectionId' in kwargs:
             admin_rule_collection_id = kwargs['adminRuleCollectionId']
-        if 'destinationPortRanges' in kwargs:
+        if admin_rule_collection_id is None:
+            raise TypeError("Missing 'admin_rule_collection_id' argument")
+        if direction is None:
+            raise TypeError("Missing 'direction' argument")
+        if priority is None:
+            raise TypeError("Missing 'priority' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if destination_port_ranges is None and 'destinationPortRanges' in kwargs:
             destination_port_ranges = kwargs['destinationPortRanges']
-        if 'sourcePortRanges' in kwargs:
+        if source_port_ranges is None and 'sourcePortRanges' in kwargs:
             source_port_ranges = kwargs['sourcePortRanges']
 
         _setter("action", action)
@@ -287,11 +297,11 @@ class _NetworkManagerAdminRuleState:
              sources: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkManagerAdminRuleSourceArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'adminRuleCollectionId' in kwargs:
+        if admin_rule_collection_id is None and 'adminRuleCollectionId' in kwargs:
             admin_rule_collection_id = kwargs['adminRuleCollectionId']
-        if 'destinationPortRanges' in kwargs:
+        if destination_port_ranges is None and 'destinationPortRanges' in kwargs:
             destination_port_ranges = kwargs['destinationPortRanges']
-        if 'sourcePortRanges' in kwargs:
+        if source_port_ranges is None and 'sourcePortRanges' in kwargs:
             source_port_ranges = kwargs['sourcePortRanges']
 
         if action is not None:

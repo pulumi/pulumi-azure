@@ -46,20 +46,26 @@ class VirtualNetworkRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             server_name: pulumi.Input[str],
-             subnet_id: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
              ignore_missing_vnet_service_endpoint: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serverName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if server_name is None and 'serverName' in kwargs:
             server_name = kwargs['serverName']
-        if 'subnetId' in kwargs:
+        if server_name is None:
+            raise TypeError("Missing 'server_name' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'ignoreMissingVnetServiceEndpoint' in kwargs:
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+        if ignore_missing_vnet_service_endpoint is None and 'ignoreMissingVnetServiceEndpoint' in kwargs:
             ignore_missing_vnet_service_endpoint = kwargs['ignoreMissingVnetServiceEndpoint']
 
         _setter("resource_group_name", resource_group_name)
@@ -181,13 +187,13 @@ class _VirtualNetworkRuleState:
              subnet_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ignoreMissingVnetServiceEndpoint' in kwargs:
+        if ignore_missing_vnet_service_endpoint is None and 'ignoreMissingVnetServiceEndpoint' in kwargs:
             ignore_missing_vnet_service_endpoint = kwargs['ignoreMissingVnetServiceEndpoint']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serverName' in kwargs:
+        if server_name is None and 'serverName' in kwargs:
             server_name = kwargs['serverName']
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
 
         if ignore_missing_vnet_service_endpoint is not None:

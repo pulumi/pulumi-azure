@@ -37,17 +37,23 @@ class WorkspaceKeyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             active: pulumi.Input[bool],
-             customer_managed_key_name: pulumi.Input[str],
-             synapse_workspace_id: pulumi.Input[str],
+             active: Optional[pulumi.Input[bool]] = None,
+             customer_managed_key_name: Optional[pulumi.Input[str]] = None,
+             synapse_workspace_id: Optional[pulumi.Input[str]] = None,
              customer_managed_key_versionless_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'customerManagedKeyName' in kwargs:
+        if active is None:
+            raise TypeError("Missing 'active' argument")
+        if customer_managed_key_name is None and 'customerManagedKeyName' in kwargs:
             customer_managed_key_name = kwargs['customerManagedKeyName']
-        if 'synapseWorkspaceId' in kwargs:
+        if customer_managed_key_name is None:
+            raise TypeError("Missing 'customer_managed_key_name' argument")
+        if synapse_workspace_id is None and 'synapseWorkspaceId' in kwargs:
             synapse_workspace_id = kwargs['synapseWorkspaceId']
-        if 'customerManagedKeyVersionlessId' in kwargs:
+        if synapse_workspace_id is None:
+            raise TypeError("Missing 'synapse_workspace_id' argument")
+        if customer_managed_key_versionless_id is None and 'customerManagedKeyVersionlessId' in kwargs:
             customer_managed_key_versionless_id = kwargs['customerManagedKeyVersionlessId']
 
         _setter("active", active)
@@ -139,11 +145,11 @@ class _WorkspaceKeyState:
              synapse_workspace_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'customerManagedKeyName' in kwargs:
+        if customer_managed_key_name is None and 'customerManagedKeyName' in kwargs:
             customer_managed_key_name = kwargs['customerManagedKeyName']
-        if 'customerManagedKeyVersionlessId' in kwargs:
+        if customer_managed_key_versionless_id is None and 'customerManagedKeyVersionlessId' in kwargs:
             customer_managed_key_versionless_id = kwargs['customerManagedKeyVersionlessId']
-        if 'synapseWorkspaceId' in kwargs:
+        if synapse_workspace_id is None and 'synapseWorkspaceId' in kwargs:
             synapse_workspace_id = kwargs['synapseWorkspaceId']
 
         if active is not None:

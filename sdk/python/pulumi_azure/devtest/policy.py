@@ -50,26 +50,36 @@ class PolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             evaluator_type: pulumi.Input[str],
-             lab_name: pulumi.Input[str],
-             policy_set_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             threshold: pulumi.Input[str],
+             evaluator_type: Optional[pulumi.Input[str]] = None,
+             lab_name: Optional[pulumi.Input[str]] = None,
+             policy_set_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             threshold: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              fact_data: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'evaluatorType' in kwargs:
+        if evaluator_type is None and 'evaluatorType' in kwargs:
             evaluator_type = kwargs['evaluatorType']
-        if 'labName' in kwargs:
+        if evaluator_type is None:
+            raise TypeError("Missing 'evaluator_type' argument")
+        if lab_name is None and 'labName' in kwargs:
             lab_name = kwargs['labName']
-        if 'policySetName' in kwargs:
+        if lab_name is None:
+            raise TypeError("Missing 'lab_name' argument")
+        if policy_set_name is None and 'policySetName' in kwargs:
             policy_set_name = kwargs['policySetName']
-        if 'resourceGroupName' in kwargs:
+        if policy_set_name is None:
+            raise TypeError("Missing 'policy_set_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'factData' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if threshold is None:
+            raise TypeError("Missing 'threshold' argument")
+        if fact_data is None and 'factData' in kwargs:
             fact_data = kwargs['factData']
 
         _setter("evaluator_type", evaluator_type)
@@ -245,15 +255,15 @@ class _PolicyState:
              threshold: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'evaluatorType' in kwargs:
+        if evaluator_type is None and 'evaluatorType' in kwargs:
             evaluator_type = kwargs['evaluatorType']
-        if 'factData' in kwargs:
+        if fact_data is None and 'factData' in kwargs:
             fact_data = kwargs['factData']
-        if 'labName' in kwargs:
+        if lab_name is None and 'labName' in kwargs:
             lab_name = kwargs['labName']
-        if 'policySetName' in kwargs:
+        if policy_set_name is None and 'policySetName' in kwargs:
             policy_set_name = kwargs['policySetName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if description is not None:

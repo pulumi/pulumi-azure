@@ -61,7 +61,7 @@ class ServiceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              access_policy_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              authentication_configuration: Optional[pulumi.Input['ServiceAuthenticationConfigurationArgs']] = None,
              cors_configuration: Optional[pulumi.Input['ServiceCorsConfigurationArgs']] = None,
@@ -74,19 +74,21 @@ class ServiceArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'accessPolicyObjectIds' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if access_policy_object_ids is None and 'accessPolicyObjectIds' in kwargs:
             access_policy_object_ids = kwargs['accessPolicyObjectIds']
-        if 'authenticationConfiguration' in kwargs:
+        if authentication_configuration is None and 'authenticationConfiguration' in kwargs:
             authentication_configuration = kwargs['authenticationConfiguration']
-        if 'corsConfiguration' in kwargs:
+        if cors_configuration is None and 'corsConfiguration' in kwargs:
             cors_configuration = kwargs['corsConfiguration']
-        if 'cosmosdbKeyVaultKeyVersionlessId' in kwargs:
+        if cosmosdb_key_vault_key_versionless_id is None and 'cosmosdbKeyVaultKeyVersionlessId' in kwargs:
             cosmosdb_key_vault_key_versionless_id = kwargs['cosmosdbKeyVaultKeyVersionlessId']
-        if 'cosmosdbThroughput' in kwargs:
+        if cosmosdb_throughput is None and 'cosmosdbThroughput' in kwargs:
             cosmosdb_throughput = kwargs['cosmosdbThroughput']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
 
         _setter("resource_group_name", resource_group_name)
@@ -306,19 +308,19 @@ class _ServiceState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accessPolicyObjectIds' in kwargs:
+        if access_policy_object_ids is None and 'accessPolicyObjectIds' in kwargs:
             access_policy_object_ids = kwargs['accessPolicyObjectIds']
-        if 'authenticationConfiguration' in kwargs:
+        if authentication_configuration is None and 'authenticationConfiguration' in kwargs:
             authentication_configuration = kwargs['authenticationConfiguration']
-        if 'corsConfiguration' in kwargs:
+        if cors_configuration is None and 'corsConfiguration' in kwargs:
             cors_configuration = kwargs['corsConfiguration']
-        if 'cosmosdbKeyVaultKeyVersionlessId' in kwargs:
+        if cosmosdb_key_vault_key_versionless_id is None and 'cosmosdbKeyVaultKeyVersionlessId' in kwargs:
             cosmosdb_key_vault_key_versionless_id = kwargs['cosmosdbKeyVaultKeyVersionlessId']
-        if 'cosmosdbThroughput' in kwargs:
+        if cosmosdb_throughput is None and 'cosmosdbThroughput' in kwargs:
             cosmosdb_throughput = kwargs['cosmosdbThroughput']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if access_policy_object_ids is not None:

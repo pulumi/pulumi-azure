@@ -52,13 +52,17 @@ class AnalyticsSolutionPlan(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             product: str,
-             publisher: str,
+             product: Optional[str] = None,
+             publisher: Optional[str] = None,
              name: Optional[str] = None,
              promotion_code: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'promotionCode' in kwargs:
+        if product is None:
+            raise TypeError("Missing 'product' argument")
+        if publisher is None:
+            raise TypeError("Missing 'publisher' argument")
+        if promotion_code is None and 'promotionCode' in kwargs:
             promotion_code = kwargs['promotionCode']
 
         _setter("product", product)

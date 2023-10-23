@@ -70,9 +70,9 @@ class StreamingEndpointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             media_services_account_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             scale_units: pulumi.Input[int],
+             media_services_account_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             scale_units: Optional[pulumi.Input[int]] = None,
              access_control: Optional[pulumi.Input['StreamingEndpointAccessControlArgs']] = None,
              auto_start_enabled: Optional[pulumi.Input[bool]] = None,
              cdn_enabled: Optional[pulumi.Input[bool]] = None,
@@ -87,27 +87,33 @@ class StreamingEndpointArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'mediaServicesAccountName' in kwargs:
+        if media_services_account_name is None and 'mediaServicesAccountName' in kwargs:
             media_services_account_name = kwargs['mediaServicesAccountName']
-        if 'resourceGroupName' in kwargs:
+        if media_services_account_name is None:
+            raise TypeError("Missing 'media_services_account_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'scaleUnits' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if scale_units is None and 'scaleUnits' in kwargs:
             scale_units = kwargs['scaleUnits']
-        if 'accessControl' in kwargs:
+        if scale_units is None:
+            raise TypeError("Missing 'scale_units' argument")
+        if access_control is None and 'accessControl' in kwargs:
             access_control = kwargs['accessControl']
-        if 'autoStartEnabled' in kwargs:
+        if auto_start_enabled is None and 'autoStartEnabled' in kwargs:
             auto_start_enabled = kwargs['autoStartEnabled']
-        if 'cdnEnabled' in kwargs:
+        if cdn_enabled is None and 'cdnEnabled' in kwargs:
             cdn_enabled = kwargs['cdnEnabled']
-        if 'cdnProfile' in kwargs:
+        if cdn_profile is None and 'cdnProfile' in kwargs:
             cdn_profile = kwargs['cdnProfile']
-        if 'cdnProvider' in kwargs:
+        if cdn_provider is None and 'cdnProvider' in kwargs:
             cdn_provider = kwargs['cdnProvider']
-        if 'crossSiteAccessPolicy' in kwargs:
+        if cross_site_access_policy is None and 'crossSiteAccessPolicy' in kwargs:
             cross_site_access_policy = kwargs['crossSiteAccessPolicy']
-        if 'customHostNames' in kwargs:
+        if custom_host_names is None and 'customHostNames' in kwargs:
             custom_host_names = kwargs['customHostNames']
-        if 'maxCacheAgeSeconds' in kwargs:
+        if max_cache_age_seconds is None and 'maxCacheAgeSeconds' in kwargs:
             max_cache_age_seconds = kwargs['maxCacheAgeSeconds']
 
         _setter("media_services_account_name", media_services_account_name)
@@ -401,29 +407,29 @@ class _StreamingEndpointState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accessControl' in kwargs:
+        if access_control is None and 'accessControl' in kwargs:
             access_control = kwargs['accessControl']
-        if 'autoStartEnabled' in kwargs:
+        if auto_start_enabled is None and 'autoStartEnabled' in kwargs:
             auto_start_enabled = kwargs['autoStartEnabled']
-        if 'cdnEnabled' in kwargs:
+        if cdn_enabled is None and 'cdnEnabled' in kwargs:
             cdn_enabled = kwargs['cdnEnabled']
-        if 'cdnProfile' in kwargs:
+        if cdn_profile is None and 'cdnProfile' in kwargs:
             cdn_profile = kwargs['cdnProfile']
-        if 'cdnProvider' in kwargs:
+        if cdn_provider is None and 'cdnProvider' in kwargs:
             cdn_provider = kwargs['cdnProvider']
-        if 'crossSiteAccessPolicy' in kwargs:
+        if cross_site_access_policy is None and 'crossSiteAccessPolicy' in kwargs:
             cross_site_access_policy = kwargs['crossSiteAccessPolicy']
-        if 'customHostNames' in kwargs:
+        if custom_host_names is None and 'customHostNames' in kwargs:
             custom_host_names = kwargs['customHostNames']
-        if 'hostName' in kwargs:
+        if host_name is None and 'hostName' in kwargs:
             host_name = kwargs['hostName']
-        if 'maxCacheAgeSeconds' in kwargs:
+        if max_cache_age_seconds is None and 'maxCacheAgeSeconds' in kwargs:
             max_cache_age_seconds = kwargs['maxCacheAgeSeconds']
-        if 'mediaServicesAccountName' in kwargs:
+        if media_services_account_name is None and 'mediaServicesAccountName' in kwargs:
             media_services_account_name = kwargs['mediaServicesAccountName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'scaleUnits' in kwargs:
+        if scale_units is None and 'scaleUnits' in kwargs:
             scale_units = kwargs['scaleUnits']
 
         if access_control is not None:

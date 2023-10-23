@@ -84,12 +84,12 @@ class LocalRulestackRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action: pulumi.Input[str],
-             applications: pulumi.Input[Sequence[pulumi.Input[str]]],
-             destination: pulumi.Input['LocalRulestackRuleDestinationArgs'],
-             priority: pulumi.Input[int],
-             rulestack_id: pulumi.Input[str],
-             source: pulumi.Input['LocalRulestackRuleSourceArgs'],
+             action: Optional[pulumi.Input[str]] = None,
+             applications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             destination: Optional[pulumi.Input['LocalRulestackRuleDestinationArgs']] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             rulestack_id: Optional[pulumi.Input[str]] = None,
+             source: Optional[pulumi.Input['LocalRulestackRuleSourceArgs']] = None,
              audit_comment: Optional[pulumi.Input[str]] = None,
              category: Optional[pulumi.Input['LocalRulestackRuleCategoryArgs']] = None,
              decryption_rule_type: Optional[pulumi.Input[str]] = None,
@@ -105,21 +105,33 @@ class LocalRulestackRuleArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'rulestackId' in kwargs:
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if applications is None:
+            raise TypeError("Missing 'applications' argument")
+        if destination is None:
+            raise TypeError("Missing 'destination' argument")
+        if priority is None:
+            raise TypeError("Missing 'priority' argument")
+        if rulestack_id is None and 'rulestackId' in kwargs:
             rulestack_id = kwargs['rulestackId']
-        if 'auditComment' in kwargs:
+        if rulestack_id is None:
+            raise TypeError("Missing 'rulestack_id' argument")
+        if source is None:
+            raise TypeError("Missing 'source' argument")
+        if audit_comment is None and 'auditComment' in kwargs:
             audit_comment = kwargs['auditComment']
-        if 'decryptionRuleType' in kwargs:
+        if decryption_rule_type is None and 'decryptionRuleType' in kwargs:
             decryption_rule_type = kwargs['decryptionRuleType']
-        if 'inspectionCertificateId' in kwargs:
+        if inspection_certificate_id is None and 'inspectionCertificateId' in kwargs:
             inspection_certificate_id = kwargs['inspectionCertificateId']
-        if 'loggingEnabled' in kwargs:
+        if logging_enabled is None and 'loggingEnabled' in kwargs:
             logging_enabled = kwargs['loggingEnabled']
-        if 'negateDestination' in kwargs:
+        if negate_destination is None and 'negateDestination' in kwargs:
             negate_destination = kwargs['negateDestination']
-        if 'negateSource' in kwargs:
+        if negate_source is None and 'negateSource' in kwargs:
             negate_source = kwargs['negateSource']
-        if 'protocolPorts' in kwargs:
+        if protocol_ports is None and 'protocolPorts' in kwargs:
             protocol_ports = kwargs['protocolPorts']
 
         _setter("action", action)
@@ -478,21 +490,21 @@ class _LocalRulestackRuleState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'auditComment' in kwargs:
+        if audit_comment is None and 'auditComment' in kwargs:
             audit_comment = kwargs['auditComment']
-        if 'decryptionRuleType' in kwargs:
+        if decryption_rule_type is None and 'decryptionRuleType' in kwargs:
             decryption_rule_type = kwargs['decryptionRuleType']
-        if 'inspectionCertificateId' in kwargs:
+        if inspection_certificate_id is None and 'inspectionCertificateId' in kwargs:
             inspection_certificate_id = kwargs['inspectionCertificateId']
-        if 'loggingEnabled' in kwargs:
+        if logging_enabled is None and 'loggingEnabled' in kwargs:
             logging_enabled = kwargs['loggingEnabled']
-        if 'negateDestination' in kwargs:
+        if negate_destination is None and 'negateDestination' in kwargs:
             negate_destination = kwargs['negateDestination']
-        if 'negateSource' in kwargs:
+        if negate_source is None and 'negateSource' in kwargs:
             negate_source = kwargs['negateSource']
-        if 'protocolPorts' in kwargs:
+        if protocol_ports is None and 'protocolPorts' in kwargs:
             protocol_ports = kwargs['protocolPorts']
-        if 'rulestackId' in kwargs:
+        if rulestack_id is None and 'rulestackId' in kwargs:
             rulestack_id = kwargs['rulestackId']
 
         if action is not None:

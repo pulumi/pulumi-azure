@@ -38,17 +38,21 @@ class ResolverDnsForwardingRulesetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             private_dns_resolver_outbound_endpoint_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             resource_group_name: pulumi.Input[str],
+             private_dns_resolver_outbound_endpoint_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'privateDnsResolverOutboundEndpointIds' in kwargs:
+        if private_dns_resolver_outbound_endpoint_ids is None and 'privateDnsResolverOutboundEndpointIds' in kwargs:
             private_dns_resolver_outbound_endpoint_ids = kwargs['privateDnsResolverOutboundEndpointIds']
-        if 'resourceGroupName' in kwargs:
+        if private_dns_resolver_outbound_endpoint_ids is None:
+            raise TypeError("Missing 'private_dns_resolver_outbound_endpoint_ids' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("private_dns_resolver_outbound_endpoint_ids", private_dns_resolver_outbound_endpoint_ids)
         _setter("resource_group_name", resource_group_name)
@@ -154,9 +158,9 @@ class _ResolverDnsForwardingRulesetState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'privateDnsResolverOutboundEndpointIds' in kwargs:
+        if private_dns_resolver_outbound_endpoint_ids is None and 'privateDnsResolverOutboundEndpointIds' in kwargs:
             private_dns_resolver_outbound_endpoint_ids = kwargs['privateDnsResolverOutboundEndpointIds']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if location is not None:

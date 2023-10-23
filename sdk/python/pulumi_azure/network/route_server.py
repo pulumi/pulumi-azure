@@ -49,23 +49,31 @@ class RouteServerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             public_ip_address_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             sku: pulumi.Input[str],
-             subnet_id: pulumi.Input[str],
+             public_ip_address_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
              branch_to_branch_traffic_enabled: Optional[pulumi.Input[bool]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'publicIpAddressId' in kwargs:
+        if public_ip_address_id is None and 'publicIpAddressId' in kwargs:
             public_ip_address_id = kwargs['publicIpAddressId']
-        if 'resourceGroupName' in kwargs:
+        if public_ip_address_id is None:
+            raise TypeError("Missing 'public_ip_address_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'subnetId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'branchToBranchTrafficEnabled' in kwargs:
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+        if branch_to_branch_traffic_enabled is None and 'branchToBranchTrafficEnabled' in kwargs:
             branch_to_branch_traffic_enabled = kwargs['branchToBranchTrafficEnabled']
 
         _setter("public_ip_address_id", public_ip_address_id)
@@ -237,19 +245,19 @@ class _RouteServerState:
              virtual_router_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'branchToBranchTrafficEnabled' in kwargs:
+        if branch_to_branch_traffic_enabled is None and 'branchToBranchTrafficEnabled' in kwargs:
             branch_to_branch_traffic_enabled = kwargs['branchToBranchTrafficEnabled']
-        if 'publicIpAddressId' in kwargs:
+        if public_ip_address_id is None and 'publicIpAddressId' in kwargs:
             public_ip_address_id = kwargs['publicIpAddressId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'routingState' in kwargs:
+        if routing_state is None and 'routingState' in kwargs:
             routing_state = kwargs['routingState']
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'virtualRouterAsn' in kwargs:
+        if virtual_router_asn is None and 'virtualRouterAsn' in kwargs:
             virtual_router_asn = kwargs['virtualRouterAsn']
-        if 'virtualRouterIps' in kwargs:
+        if virtual_router_ips is None and 'virtualRouterIps' in kwargs:
             virtual_router_ips = kwargs['virtualRouterIps']
 
         if branch_to_branch_traffic_enabled is not None:

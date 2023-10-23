@@ -78,11 +78,11 @@ class SpringCloudApiPortalSsoArgs:
              scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecret' in kwargs:
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'issuerUri' in kwargs:
+        if issuer_uri is None and 'issuerUri' in kwargs:
             issuer_uri = kwargs['issuerUri']
 
         if client_id is not None:
@@ -169,22 +169,28 @@ class SpringCloudAppCustomPersistentDiskArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mount_path: pulumi.Input[str],
-             share_name: pulumi.Input[str],
-             storage_name: pulumi.Input[str],
+             mount_path: Optional[pulumi.Input[str]] = None,
+             share_name: Optional[pulumi.Input[str]] = None,
+             storage_name: Optional[pulumi.Input[str]] = None,
              mount_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              read_only_enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'mountPath' in kwargs:
+        if mount_path is None and 'mountPath' in kwargs:
             mount_path = kwargs['mountPath']
-        if 'shareName' in kwargs:
+        if mount_path is None:
+            raise TypeError("Missing 'mount_path' argument")
+        if share_name is None and 'shareName' in kwargs:
             share_name = kwargs['shareName']
-        if 'storageName' in kwargs:
+        if share_name is None:
+            raise TypeError("Missing 'share_name' argument")
+        if storage_name is None and 'storageName' in kwargs:
             storage_name = kwargs['storageName']
-        if 'mountOptions' in kwargs:
+        if storage_name is None:
+            raise TypeError("Missing 'storage_name' argument")
+        if mount_options is None and 'mountOptions' in kwargs:
             mount_options = kwargs['mountOptions']
-        if 'readOnlyEnabled' in kwargs:
+        if read_only_enabled is None and 'readOnlyEnabled' in kwargs:
             read_only_enabled = kwargs['readOnlyEnabled']
 
         _setter("mount_path", mount_path)
@@ -281,17 +287,19 @@ class SpringCloudAppIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -386,15 +394,15 @@ class SpringCloudAppIngressSettingsArgs:
              session_cookie_max_age: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'backendProtocol' in kwargs:
+        if backend_protocol is None and 'backendProtocol' in kwargs:
             backend_protocol = kwargs['backendProtocol']
-        if 'readTimeoutInSeconds' in kwargs:
+        if read_timeout_in_seconds is None and 'readTimeoutInSeconds' in kwargs:
             read_timeout_in_seconds = kwargs['readTimeoutInSeconds']
-        if 'sendTimeoutInSeconds' in kwargs:
+        if send_timeout_in_seconds is None and 'sendTimeoutInSeconds' in kwargs:
             send_timeout_in_seconds = kwargs['sendTimeoutInSeconds']
-        if 'sessionAffinity' in kwargs:
+        if session_affinity is None and 'sessionAffinity' in kwargs:
             session_affinity = kwargs['sessionAffinity']
-        if 'sessionCookieMaxAge' in kwargs:
+        if session_cookie_max_age is None and 'sessionCookieMaxAge' in kwargs:
             session_cookie_max_age = kwargs['sessionCookieMaxAge']
 
         if backend_protocol is not None:
@@ -486,13 +494,15 @@ class SpringCloudAppPersistentDiskArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             size_in_gb: pulumi.Input[int],
+             size_in_gb: Optional[pulumi.Input[int]] = None,
              mount_path: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'sizeInGb' in kwargs:
+        if size_in_gb is None and 'sizeInGb' in kwargs:
             size_in_gb = kwargs['sizeInGb']
-        if 'mountPath' in kwargs:
+        if size_in_gb is None:
+            raise TypeError("Missing 'size_in_gb' argument")
+        if mount_path is None and 'mountPath' in kwargs:
             mount_path = kwargs['mountPath']
 
         _setter("size_in_gb", size_in_gb)
@@ -653,11 +663,13 @@ class SpringCloudBuilderBuildPackGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              build_pack_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'buildPackIds' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if build_pack_ids is None and 'buildPackIds' in kwargs:
             build_pack_ids = kwargs['buildPackIds']
 
         _setter("name", name)
@@ -706,10 +718,14 @@ class SpringCloudBuilderStackArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             id: pulumi.Input[str],
-             version: pulumi.Input[str],
+             id: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
 
         _setter("id", id)
         _setter("version", version)
@@ -786,10 +802,10 @@ class SpringCloudConfigurationServiceRepositoryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             label: pulumi.Input[str],
-             name: pulumi.Input[str],
-             patterns: pulumi.Input[Sequence[pulumi.Input[str]]],
-             uri: pulumi.Input[str],
+             label: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             uri: Optional[pulumi.Input[str]] = None,
              ca_certificate_id: Optional[pulumi.Input[str]] = None,
              host_key: Optional[pulumi.Input[str]] = None,
              host_key_algorithm: Optional[pulumi.Input[str]] = None,
@@ -800,17 +816,25 @@ class SpringCloudConfigurationServiceRepositoryArgs:
              username: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'caCertificateId' in kwargs:
+        if label is None:
+            raise TypeError("Missing 'label' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if patterns is None:
+            raise TypeError("Missing 'patterns' argument")
+        if uri is None:
+            raise TypeError("Missing 'uri' argument")
+        if ca_certificate_id is None and 'caCertificateId' in kwargs:
             ca_certificate_id = kwargs['caCertificateId']
-        if 'hostKey' in kwargs:
+        if host_key is None and 'hostKey' in kwargs:
             host_key = kwargs['hostKey']
-        if 'hostKeyAlgorithm' in kwargs:
+        if host_key_algorithm is None and 'hostKeyAlgorithm' in kwargs:
             host_key_algorithm = kwargs['hostKeyAlgorithm']
-        if 'privateKey' in kwargs:
+        if private_key is None and 'privateKey' in kwargs:
             private_key = kwargs['privateKey']
-        if 'searchPaths' in kwargs:
+        if search_paths is None and 'searchPaths' in kwargs:
             search_paths = kwargs['searchPaths']
-        if 'strictHostKeyChecking' in kwargs:
+        if strict_host_key_checking is None and 'strictHostKeyChecking' in kwargs:
             strict_host_key_checking = kwargs['strictHostKeyChecking']
 
         _setter("label", label)
@@ -1011,7 +1035,7 @@ class SpringCloudConnectionAuthenticationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              certificate: Optional[pulumi.Input[str]] = None,
              client_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
@@ -1020,11 +1044,13 @@ class SpringCloudConnectionAuthenticationArgs:
              subscription_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'subscriptionId' in kwargs:
+        if subscription_id is None and 'subscriptionId' in kwargs:
             subscription_id = kwargs['subscriptionId']
 
         _setter("type", type)
@@ -1140,11 +1166,13 @@ class SpringCloudConnectionSecretStoreArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_vault_id: pulumi.Input[str],
+             key_vault_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'keyVaultId' in kwargs:
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
+        if key_vault_id is None:
+            raise TypeError("Missing 'key_vault_id' argument")
 
         _setter("key_vault_id", key_vault_id)
 
@@ -1256,7 +1284,7 @@ class SpringCloudCustomizedAcceleratorGitRepositoryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             url: pulumi.Input[str],
+             url: Optional[pulumi.Input[str]] = None,
              basic_auth: Optional[pulumi.Input['SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgs']] = None,
              branch: Optional[pulumi.Input[str]] = None,
              ca_certificate_id: Optional[pulumi.Input[str]] = None,
@@ -1266,15 +1294,17 @@ class SpringCloudCustomizedAcceleratorGitRepositoryArgs:
              ssh_auth: Optional[pulumi.Input['SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'basicAuth' in kwargs:
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+        if basic_auth is None and 'basicAuth' in kwargs:
             basic_auth = kwargs['basicAuth']
-        if 'caCertificateId' in kwargs:
+        if ca_certificate_id is None and 'caCertificateId' in kwargs:
             ca_certificate_id = kwargs['caCertificateId']
-        if 'gitTag' in kwargs:
+        if git_tag is None and 'gitTag' in kwargs:
             git_tag = kwargs['gitTag']
-        if 'intervalInSeconds' in kwargs:
+        if interval_in_seconds is None and 'intervalInSeconds' in kwargs:
             interval_in_seconds = kwargs['intervalInSeconds']
-        if 'sshAuth' in kwargs:
+        if ssh_auth is None and 'sshAuth' in kwargs:
             ssh_auth = kwargs['sshAuth']
 
         _setter("url", url)
@@ -1407,10 +1437,14 @@ class SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             password: pulumi.Input[str],
-             username: pulumi.Input[str],
+             password: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
 
         _setter("password", password)
         _setter("username", username)
@@ -1460,16 +1494,18 @@ class SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             private_key: pulumi.Input[str],
+             private_key: Optional[pulumi.Input[str]] = None,
              host_key: Optional[pulumi.Input[str]] = None,
              host_key_algorithm: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'privateKey' in kwargs:
+        if private_key is None and 'privateKey' in kwargs:
             private_key = kwargs['privateKey']
-        if 'hostKey' in kwargs:
+        if private_key is None:
+            raise TypeError("Missing 'private_key' argument")
+        if host_key is None and 'hostKey' in kwargs:
             host_key = kwargs['hostKey']
-        if 'hostKeyAlgorithm' in kwargs:
+        if host_key_algorithm is None and 'hostKeyAlgorithm' in kwargs:
             host_key_algorithm = kwargs['hostKeyAlgorithm']
 
         _setter("private_key", private_key)
@@ -1544,11 +1580,11 @@ class SpringCloudDevToolPortalSsoArgs:
              scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecret' in kwargs:
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'metadataUrl' in kwargs:
+        if metadata_url is None and 'metadataUrl' in kwargs:
             metadata_url = kwargs['metadataUrl']
 
         if client_id is not None:
@@ -1642,9 +1678,9 @@ class SpringCloudGatewayApiMetadataArgs:
              version: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'documentationUrl' in kwargs:
+        if documentation_url is None and 'documentationUrl' in kwargs:
             documentation_url = kwargs['documentationUrl']
-        if 'serverUrl' in kwargs:
+        if server_url is None and 'serverUrl' in kwargs:
             server_url = kwargs['serverUrl']
 
         if description is not None:
@@ -1740,9 +1776,9 @@ class SpringCloudGatewayClientAuthorizationArgs:
              verification_enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'certificateIds' in kwargs:
+        if certificate_ids is None and 'certificateIds' in kwargs:
             certificate_ids = kwargs['certificateIds']
-        if 'verificationEnabled' in kwargs:
+        if verification_enabled is None and 'verificationEnabled' in kwargs:
             verification_enabled = kwargs['verificationEnabled']
 
         if certificate_ids is not None:
@@ -1816,19 +1852,19 @@ class SpringCloudGatewayCorsArgs:
              max_age_seconds: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowedHeaders' in kwargs:
+        if allowed_headers is None and 'allowedHeaders' in kwargs:
             allowed_headers = kwargs['allowedHeaders']
-        if 'allowedMethods' in kwargs:
+        if allowed_methods is None and 'allowedMethods' in kwargs:
             allowed_methods = kwargs['allowedMethods']
-        if 'allowedOriginPatterns' in kwargs:
+        if allowed_origin_patterns is None and 'allowedOriginPatterns' in kwargs:
             allowed_origin_patterns = kwargs['allowedOriginPatterns']
-        if 'allowedOrigins' in kwargs:
+        if allowed_origins is None and 'allowedOrigins' in kwargs:
             allowed_origins = kwargs['allowedOrigins']
-        if 'credentialsAllowed' in kwargs:
+        if credentials_allowed is None and 'credentialsAllowed' in kwargs:
             credentials_allowed = kwargs['credentialsAllowed']
-        if 'exposedHeaders' in kwargs:
+        if exposed_headers is None and 'exposedHeaders' in kwargs:
             exposed_headers = kwargs['exposedHeaders']
-        if 'maxAgeSeconds' in kwargs:
+        if max_age_seconds is None and 'maxAgeSeconds' in kwargs:
             max_age_seconds = kwargs['maxAgeSeconds']
 
         if allowed_headers is not None:
@@ -2063,7 +2099,7 @@ class SpringCloudGatewayRouteConfigRouteArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             order: pulumi.Input[int],
+             order: Optional[pulumi.Input[int]] = None,
              classification_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              description: Optional[pulumi.Input[str]] = None,
              filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -2074,11 +2110,13 @@ class SpringCloudGatewayRouteConfigRouteArgs:
              uri: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'classificationTags' in kwargs:
+        if order is None:
+            raise TypeError("Missing 'order' argument")
+        if classification_tags is None and 'classificationTags' in kwargs:
             classification_tags = kwargs['classificationTags']
-        if 'ssoValidationEnabled' in kwargs:
+        if sso_validation_enabled is None and 'ssoValidationEnabled' in kwargs:
             sso_validation_enabled = kwargs['ssoValidationEnabled']
-        if 'tokenRelay' in kwargs:
+        if token_relay is None and 'tokenRelay' in kwargs:
             token_relay = kwargs['tokenRelay']
 
         _setter("order", order)
@@ -2237,11 +2275,11 @@ class SpringCloudGatewaySsoArgs:
              scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecret' in kwargs:
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'issuerUri' in kwargs:
+        if issuer_uri is None and 'issuerUri' in kwargs:
             issuer_uri = kwargs['issuerUri']
 
         if client_id is not None:
@@ -2391,7 +2429,7 @@ class SpringCloudServiceConfigServerGitSettingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             uri: pulumi.Input[str],
+             uri: Optional[pulumi.Input[str]] = None,
              http_basic_auth: Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs']] = None,
              label: Optional[pulumi.Input[str]] = None,
              repositories: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudServiceConfigServerGitSettingRepositoryArgs']]]] = None,
@@ -2399,11 +2437,13 @@ class SpringCloudServiceConfigServerGitSettingArgs:
              ssh_auth: Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingSshAuthArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'httpBasicAuth' in kwargs:
+        if uri is None:
+            raise TypeError("Missing 'uri' argument")
+        if http_basic_auth is None and 'httpBasicAuth' in kwargs:
             http_basic_auth = kwargs['httpBasicAuth']
-        if 'searchPaths' in kwargs:
+        if search_paths is None and 'searchPaths' in kwargs:
             search_paths = kwargs['searchPaths']
-        if 'sshAuth' in kwargs:
+        if ssh_auth is None and 'sshAuth' in kwargs:
             ssh_auth = kwargs['sshAuth']
 
         _setter("uri", uri)
@@ -2508,10 +2548,14 @@ class SpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             password: pulumi.Input[str],
-             username: pulumi.Input[str],
+             password: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
 
         _setter("password", password)
         _setter("username", username)
@@ -2573,8 +2617,8 @@ class SpringCloudServiceConfigServerGitSettingRepositoryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             uri: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             uri: Optional[pulumi.Input[str]] = None,
              http_basic_auth: Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs']] = None,
              label: Optional[pulumi.Input[str]] = None,
              patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -2582,11 +2626,15 @@ class SpringCloudServiceConfigServerGitSettingRepositoryArgs:
              ssh_auth: Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'httpBasicAuth' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if uri is None:
+            raise TypeError("Missing 'uri' argument")
+        if http_basic_auth is None and 'httpBasicAuth' in kwargs:
             http_basic_auth = kwargs['httpBasicAuth']
-        if 'searchPaths' in kwargs:
+        if search_paths is None and 'searchPaths' in kwargs:
             search_paths = kwargs['searchPaths']
-        if 'sshAuth' in kwargs:
+        if ssh_auth is None and 'sshAuth' in kwargs:
             ssh_auth = kwargs['sshAuth']
 
         _setter("name", name)
@@ -2704,10 +2752,14 @@ class SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             password: pulumi.Input[str],
-             username: pulumi.Input[str],
+             password: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
 
         _setter("password", password)
         _setter("username", username)
@@ -2760,19 +2812,21 @@ class SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             private_key: pulumi.Input[str],
+             private_key: Optional[pulumi.Input[str]] = None,
              host_key: Optional[pulumi.Input[str]] = None,
              host_key_algorithm: Optional[pulumi.Input[str]] = None,
              strict_host_key_checking_enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'privateKey' in kwargs:
+        if private_key is None and 'privateKey' in kwargs:
             private_key = kwargs['privateKey']
-        if 'hostKey' in kwargs:
+        if private_key is None:
+            raise TypeError("Missing 'private_key' argument")
+        if host_key is None and 'hostKey' in kwargs:
             host_key = kwargs['hostKey']
-        if 'hostKeyAlgorithm' in kwargs:
+        if host_key_algorithm is None and 'hostKeyAlgorithm' in kwargs:
             host_key_algorithm = kwargs['hostKeyAlgorithm']
-        if 'strictHostKeyCheckingEnabled' in kwargs:
+        if strict_host_key_checking_enabled is None and 'strictHostKeyCheckingEnabled' in kwargs:
             strict_host_key_checking_enabled = kwargs['strictHostKeyCheckingEnabled']
 
         _setter("private_key", private_key)
@@ -2855,19 +2909,21 @@ class SpringCloudServiceConfigServerGitSettingSshAuthArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             private_key: pulumi.Input[str],
+             private_key: Optional[pulumi.Input[str]] = None,
              host_key: Optional[pulumi.Input[str]] = None,
              host_key_algorithm: Optional[pulumi.Input[str]] = None,
              strict_host_key_checking_enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'privateKey' in kwargs:
+        if private_key is None and 'privateKey' in kwargs:
             private_key = kwargs['privateKey']
-        if 'hostKey' in kwargs:
+        if private_key is None:
+            raise TypeError("Missing 'private_key' argument")
+        if host_key is None and 'hostKey' in kwargs:
             host_key = kwargs['hostKey']
-        if 'hostKeyAlgorithm' in kwargs:
+        if host_key_algorithm is None and 'hostKeyAlgorithm' in kwargs:
             host_key_algorithm = kwargs['hostKeyAlgorithm']
-        if 'strictHostKeyCheckingEnabled' in kwargs:
+        if strict_host_key_checking_enabled is None and 'strictHostKeyCheckingEnabled' in kwargs:
             strict_host_key_checking_enabled = kwargs['strictHostKeyCheckingEnabled']
 
         _setter("private_key", private_key)
@@ -2950,12 +3006,20 @@ class SpringCloudServiceContainerRegistryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             password: pulumi.Input[str],
-             server: pulumi.Input[str],
-             username: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             server: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if server is None:
+            raise TypeError("Missing 'server' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
 
         _setter("name", name)
         _setter("password", password)
@@ -3028,7 +3092,7 @@ class SpringCloudServiceDefaultBuildServiceArgs:
              container_registry_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'containerRegistryName' in kwargs:
+        if container_registry_name is None and 'containerRegistryName' in kwargs:
             container_registry_name = kwargs['containerRegistryName']
 
         if container_registry_name is not None:
@@ -3067,11 +3131,17 @@ class SpringCloudServiceMarketplaceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             plan: pulumi.Input[str],
-             product: pulumi.Input[str],
-             publisher: pulumi.Input[str],
+             plan: Optional[pulumi.Input[str]] = None,
+             product: Optional[pulumi.Input[str]] = None,
+             publisher: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if plan is None:
+            raise TypeError("Missing 'plan' argument")
+        if product is None:
+            raise TypeError("Missing 'product' argument")
+        if publisher is None:
+            raise TypeError("Missing 'publisher' argument")
 
         _setter("plan", plan)
         _setter("product", product)
@@ -3146,28 +3216,34 @@ class SpringCloudServiceNetworkArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_subnet_id: pulumi.Input[str],
-             cidr_ranges: pulumi.Input[Sequence[pulumi.Input[str]]],
-             service_runtime_subnet_id: pulumi.Input[str],
+             app_subnet_id: Optional[pulumi.Input[str]] = None,
+             cidr_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             service_runtime_subnet_id: Optional[pulumi.Input[str]] = None,
              app_network_resource_group: Optional[pulumi.Input[str]] = None,
              outbound_type: Optional[pulumi.Input[str]] = None,
              read_timeout_seconds: Optional[pulumi.Input[int]] = None,
              service_runtime_network_resource_group: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'appSubnetId' in kwargs:
+        if app_subnet_id is None and 'appSubnetId' in kwargs:
             app_subnet_id = kwargs['appSubnetId']
-        if 'cidrRanges' in kwargs:
+        if app_subnet_id is None:
+            raise TypeError("Missing 'app_subnet_id' argument")
+        if cidr_ranges is None and 'cidrRanges' in kwargs:
             cidr_ranges = kwargs['cidrRanges']
-        if 'serviceRuntimeSubnetId' in kwargs:
+        if cidr_ranges is None:
+            raise TypeError("Missing 'cidr_ranges' argument")
+        if service_runtime_subnet_id is None and 'serviceRuntimeSubnetId' in kwargs:
             service_runtime_subnet_id = kwargs['serviceRuntimeSubnetId']
-        if 'appNetworkResourceGroup' in kwargs:
+        if service_runtime_subnet_id is None:
+            raise TypeError("Missing 'service_runtime_subnet_id' argument")
+        if app_network_resource_group is None and 'appNetworkResourceGroup' in kwargs:
             app_network_resource_group = kwargs['appNetworkResourceGroup']
-        if 'outboundType' in kwargs:
+        if outbound_type is None and 'outboundType' in kwargs:
             outbound_type = kwargs['outboundType']
-        if 'readTimeoutSeconds' in kwargs:
+        if read_timeout_seconds is None and 'readTimeoutSeconds' in kwargs:
             read_timeout_seconds = kwargs['readTimeoutSeconds']
-        if 'serviceRuntimeNetworkResourceGroup' in kwargs:
+        if service_runtime_network_resource_group is None and 'serviceRuntimeNetworkResourceGroup' in kwargs:
             service_runtime_network_resource_group = kwargs['serviceRuntimeNetworkResourceGroup']
 
         _setter("app_subnet_id", app_subnet_id)
@@ -3300,7 +3376,7 @@ class SpringCloudServiceRequiredNetworkTrafficRuleArgs:
              protocol: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ipAddresses' in kwargs:
+        if ip_addresses is None and 'ipAddresses' in kwargs:
             ip_addresses = kwargs['ipAddresses']
 
         if direction is not None:
@@ -3396,9 +3472,9 @@ class SpringCloudServiceTraceArgs:
              sample_rate: Optional[pulumi.Input[float]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
-        if 'sampleRate' in kwargs:
+        if sample_rate is None and 'sampleRate' in kwargs:
             sample_rate = kwargs['sampleRate']
 
         if connection_string is not None:

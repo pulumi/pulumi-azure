@@ -49,9 +49,9 @@ class DefinitionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             authorizations: pulumi.Input[Sequence[pulumi.Input['DefinitionAuthorizationArgs']]],
-             managing_tenant_id: pulumi.Input[str],
-             scope: pulumi.Input[str],
+             authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionAuthorizationArgs']]]] = None,
+             managing_tenant_id: Optional[pulumi.Input[str]] = None,
+             scope: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              eligible_authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionEligibleAuthorizationArgs']]]] = None,
              lighthouse_definition_id: Optional[pulumi.Input[str]] = None,
@@ -59,11 +59,17 @@ class DefinitionArgs:
              plan: Optional[pulumi.Input['DefinitionPlanArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'managingTenantId' in kwargs:
+        if authorizations is None:
+            raise TypeError("Missing 'authorizations' argument")
+        if managing_tenant_id is None and 'managingTenantId' in kwargs:
             managing_tenant_id = kwargs['managingTenantId']
-        if 'eligibleAuthorizations' in kwargs:
+        if managing_tenant_id is None:
+            raise TypeError("Missing 'managing_tenant_id' argument")
+        if scope is None:
+            raise TypeError("Missing 'scope' argument")
+        if eligible_authorizations is None and 'eligibleAuthorizations' in kwargs:
             eligible_authorizations = kwargs['eligibleAuthorizations']
-        if 'lighthouseDefinitionId' in kwargs:
+        if lighthouse_definition_id is None and 'lighthouseDefinitionId' in kwargs:
             lighthouse_definition_id = kwargs['lighthouseDefinitionId']
 
         _setter("authorizations", authorizations)
@@ -223,11 +229,11 @@ class _DefinitionState:
              scope: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'eligibleAuthorizations' in kwargs:
+        if eligible_authorizations is None and 'eligibleAuthorizations' in kwargs:
             eligible_authorizations = kwargs['eligibleAuthorizations']
-        if 'lighthouseDefinitionId' in kwargs:
+        if lighthouse_definition_id is None and 'lighthouseDefinitionId' in kwargs:
             lighthouse_definition_id = kwargs['lighthouseDefinitionId']
-        if 'managingTenantId' in kwargs:
+        if managing_tenant_id is None and 'managingTenantId' in kwargs:
             managing_tenant_id = kwargs['managingTenantId']
 
         if authorizations is not None:

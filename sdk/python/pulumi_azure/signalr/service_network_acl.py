@@ -37,19 +37,25 @@ class ServiceNetworkAclArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             default_action: pulumi.Input[str],
-             public_network: pulumi.Input['ServiceNetworkAclPublicNetworkArgs'],
-             signalr_service_id: pulumi.Input[str],
+             default_action: Optional[pulumi.Input[str]] = None,
+             public_network: Optional[pulumi.Input['ServiceNetworkAclPublicNetworkArgs']] = None,
+             signalr_service_id: Optional[pulumi.Input[str]] = None,
              private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceNetworkAclPrivateEndpointArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'defaultAction' in kwargs:
+        if default_action is None and 'defaultAction' in kwargs:
             default_action = kwargs['defaultAction']
-        if 'publicNetwork' in kwargs:
+        if default_action is None:
+            raise TypeError("Missing 'default_action' argument")
+        if public_network is None and 'publicNetwork' in kwargs:
             public_network = kwargs['publicNetwork']
-        if 'signalrServiceId' in kwargs:
+        if public_network is None:
+            raise TypeError("Missing 'public_network' argument")
+        if signalr_service_id is None and 'signalrServiceId' in kwargs:
             signalr_service_id = kwargs['signalrServiceId']
-        if 'privateEndpoints' in kwargs:
+        if signalr_service_id is None:
+            raise TypeError("Missing 'signalr_service_id' argument")
+        if private_endpoints is None and 'privateEndpoints' in kwargs:
             private_endpoints = kwargs['privateEndpoints']
 
         _setter("default_action", default_action)
@@ -137,13 +143,13 @@ class _ServiceNetworkAclState:
              signalr_service_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'defaultAction' in kwargs:
+        if default_action is None and 'defaultAction' in kwargs:
             default_action = kwargs['defaultAction']
-        if 'privateEndpoints' in kwargs:
+        if private_endpoints is None and 'privateEndpoints' in kwargs:
             private_endpoints = kwargs['privateEndpoints']
-        if 'publicNetwork' in kwargs:
+        if public_network is None and 'publicNetwork' in kwargs:
             public_network = kwargs['publicNetwork']
-        if 'signalrServiceId' in kwargs:
+        if signalr_service_id is None and 'signalrServiceId' in kwargs:
             signalr_service_id = kwargs['signalrServiceId']
 
         if default_action is not None:

@@ -37,14 +37,16 @@ class VirtualHubRouteTableArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             virtual_hub_id: pulumi.Input[str],
+             virtual_hub_id: Optional[pulumi.Input[str]] = None,
              labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              routes: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteTableRouteArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'virtualHubId' in kwargs:
+        if virtual_hub_id is None and 'virtualHubId' in kwargs:
             virtual_hub_id = kwargs['virtualHubId']
+        if virtual_hub_id is None:
+            raise TypeError("Missing 'virtual_hub_id' argument")
 
         _setter("virtual_hub_id", virtual_hub_id)
         if labels is not None:
@@ -133,7 +135,7 @@ class _VirtualHubRouteTableState:
              virtual_hub_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'virtualHubId' in kwargs:
+        if virtual_hub_id is None and 'virtualHubId' in kwargs:
             virtual_hub_id = kwargs['virtualHubId']
 
         if labels is not None:

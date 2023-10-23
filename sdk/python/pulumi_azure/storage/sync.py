@@ -38,16 +38,18 @@ class SyncArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              incoming_traffic_policy: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'incomingTrafficPolicy' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if incoming_traffic_policy is None and 'incomingTrafficPolicy' in kwargs:
             incoming_traffic_policy = kwargs['incomingTrafficPolicy']
 
         _setter("resource_group_name", resource_group_name)
@@ -155,9 +157,9 @@ class _SyncState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'incomingTrafficPolicy' in kwargs:
+        if incoming_traffic_policy is None and 'incomingTrafficPolicy' in kwargs:
             incoming_traffic_policy = kwargs['incomingTrafficPolicy']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if incoming_traffic_policy is not None:

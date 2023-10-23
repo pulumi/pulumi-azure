@@ -46,19 +46,25 @@ class BackupVaultArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             datastore_type: pulumi.Input[str],
-             redundancy: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             datastore_type: Optional[pulumi.Input[str]] = None,
+             redundancy: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              identity: Optional[pulumi.Input['BackupVaultIdentityArgs']] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'datastoreType' in kwargs:
+        if datastore_type is None and 'datastoreType' in kwargs:
             datastore_type = kwargs['datastoreType']
-        if 'resourceGroupName' in kwargs:
+        if datastore_type is None:
+            raise TypeError("Missing 'datastore_type' argument")
+        if redundancy is None:
+            raise TypeError("Missing 'redundancy' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("datastore_type", datastore_type)
         _setter("redundancy", redundancy)
@@ -199,9 +205,9 @@ class _BackupVaultState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'datastoreType' in kwargs:
+        if datastore_type is None and 'datastoreType' in kwargs:
             datastore_type = kwargs['datastoreType']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if datastore_type is not None:

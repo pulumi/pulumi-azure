@@ -40,15 +40,17 @@ class TopicAuthorizationRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             topic_id: pulumi.Input[str],
+             topic_id: Optional[pulumi.Input[str]] = None,
              listen: Optional[pulumi.Input[bool]] = None,
              manage: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              send: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'topicId' in kwargs:
+        if topic_id is None and 'topicId' in kwargs:
             topic_id = kwargs['topicId']
+        if topic_id is None:
+            raise TypeError("Missing 'topic_id' argument")
 
         _setter("topic_id", topic_id)
         if listen is not None:
@@ -183,19 +185,19 @@ class _TopicAuthorizationRuleState:
              topic_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'primaryConnectionString' in kwargs:
+        if primary_connection_string is None and 'primaryConnectionString' in kwargs:
             primary_connection_string = kwargs['primaryConnectionString']
-        if 'primaryConnectionStringAlias' in kwargs:
+        if primary_connection_string_alias is None and 'primaryConnectionStringAlias' in kwargs:
             primary_connection_string_alias = kwargs['primaryConnectionStringAlias']
-        if 'primaryKey' in kwargs:
+        if primary_key is None and 'primaryKey' in kwargs:
             primary_key = kwargs['primaryKey']
-        if 'secondaryConnectionString' in kwargs:
+        if secondary_connection_string is None and 'secondaryConnectionString' in kwargs:
             secondary_connection_string = kwargs['secondaryConnectionString']
-        if 'secondaryConnectionStringAlias' in kwargs:
+        if secondary_connection_string_alias is None and 'secondaryConnectionStringAlias' in kwargs:
             secondary_connection_string_alias = kwargs['secondaryConnectionStringAlias']
-        if 'secondaryKey' in kwargs:
+        if secondary_key is None and 'secondaryKey' in kwargs:
             secondary_key = kwargs['secondaryKey']
-        if 'topicId' in kwargs:
+        if topic_id is None and 'topicId' in kwargs:
             topic_id = kwargs['topicId']
 
         if listen is not None:

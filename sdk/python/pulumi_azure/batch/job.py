@@ -41,7 +41,7 @@ class JobArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             batch_pool_id: pulumi.Input[str],
+             batch_pool_id: Optional[pulumi.Input[str]] = None,
              common_environment_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              display_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
@@ -49,13 +49,15 @@ class JobArgs:
              task_retry_maximum: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'batchPoolId' in kwargs:
+        if batch_pool_id is None and 'batchPoolId' in kwargs:
             batch_pool_id = kwargs['batchPoolId']
-        if 'commonEnvironmentProperties' in kwargs:
+        if batch_pool_id is None:
+            raise TypeError("Missing 'batch_pool_id' argument")
+        if common_environment_properties is None and 'commonEnvironmentProperties' in kwargs:
             common_environment_properties = kwargs['commonEnvironmentProperties']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'taskRetryMaximum' in kwargs:
+        if task_retry_maximum is None and 'taskRetryMaximum' in kwargs:
             task_retry_maximum = kwargs['taskRetryMaximum']
 
         _setter("batch_pool_id", batch_pool_id)
@@ -181,13 +183,13 @@ class _JobState:
              task_retry_maximum: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'batchPoolId' in kwargs:
+        if batch_pool_id is None and 'batchPoolId' in kwargs:
             batch_pool_id = kwargs['batchPoolId']
-        if 'commonEnvironmentProperties' in kwargs:
+        if common_environment_properties is None and 'commonEnvironmentProperties' in kwargs:
             common_environment_properties = kwargs['commonEnvironmentProperties']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'taskRetryMaximum' in kwargs:
+        if task_retry_maximum is None and 'taskRetryMaximum' in kwargs:
             task_retry_maximum = kwargs['taskRetryMaximum']
 
         if batch_pool_id is not None:

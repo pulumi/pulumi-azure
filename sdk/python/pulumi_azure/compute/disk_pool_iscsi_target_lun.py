@@ -32,15 +32,19 @@ class DiskPoolIscsiTargetLunArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             disk_pool_managed_disk_attachment_id: pulumi.Input[str],
-             iscsi_target_id: pulumi.Input[str],
+             disk_pool_managed_disk_attachment_id: Optional[pulumi.Input[str]] = None,
+             iscsi_target_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'diskPoolManagedDiskAttachmentId' in kwargs:
+        if disk_pool_managed_disk_attachment_id is None and 'diskPoolManagedDiskAttachmentId' in kwargs:
             disk_pool_managed_disk_attachment_id = kwargs['diskPoolManagedDiskAttachmentId']
-        if 'iscsiTargetId' in kwargs:
+        if disk_pool_managed_disk_attachment_id is None:
+            raise TypeError("Missing 'disk_pool_managed_disk_attachment_id' argument")
+        if iscsi_target_id is None and 'iscsiTargetId' in kwargs:
             iscsi_target_id = kwargs['iscsiTargetId']
+        if iscsi_target_id is None:
+            raise TypeError("Missing 'iscsi_target_id' argument")
 
         _setter("disk_pool_managed_disk_attachment_id", disk_pool_managed_disk_attachment_id)
         _setter("iscsi_target_id", iscsi_target_id)
@@ -114,9 +118,9 @@ class _DiskPoolIscsiTargetLunState:
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'diskPoolManagedDiskAttachmentId' in kwargs:
+        if disk_pool_managed_disk_attachment_id is None and 'diskPoolManagedDiskAttachmentId' in kwargs:
             disk_pool_managed_disk_attachment_id = kwargs['diskPoolManagedDiskAttachmentId']
-        if 'iscsiTargetId' in kwargs:
+        if iscsi_target_id is None and 'iscsiTargetId' in kwargs:
             iscsi_target_id = kwargs['iscsiTargetId']
 
         if disk_pool_managed_disk_attachment_id is not None:

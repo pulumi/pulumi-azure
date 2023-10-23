@@ -65,14 +65,14 @@ class ScheduledActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             display_name: pulumi.Input[str],
-             email_address_sender: pulumi.Input[str],
-             email_addresses: pulumi.Input[Sequence[pulumi.Input[str]]],
-             email_subject: pulumi.Input[str],
-             end_date: pulumi.Input[str],
-             frequency: pulumi.Input[str],
-             start_date: pulumi.Input[str],
-             view_id: pulumi.Input[str],
+             display_name: Optional[pulumi.Input[str]] = None,
+             email_address_sender: Optional[pulumi.Input[str]] = None,
+             email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             email_subject: Optional[pulumi.Input[str]] = None,
+             end_date: Optional[pulumi.Input[str]] = None,
+             frequency: Optional[pulumi.Input[str]] = None,
+             start_date: Optional[pulumi.Input[str]] = None,
+             view_id: Optional[pulumi.Input[str]] = None,
              day_of_month: Optional[pulumi.Input[int]] = None,
              days_of_weeks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              hour_of_day: Optional[pulumi.Input[int]] = None,
@@ -81,27 +81,43 @@ class ScheduledActionArgs:
              weeks_of_months: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'emailAddressSender' in kwargs:
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if email_address_sender is None and 'emailAddressSender' in kwargs:
             email_address_sender = kwargs['emailAddressSender']
-        if 'emailAddresses' in kwargs:
+        if email_address_sender is None:
+            raise TypeError("Missing 'email_address_sender' argument")
+        if email_addresses is None and 'emailAddresses' in kwargs:
             email_addresses = kwargs['emailAddresses']
-        if 'emailSubject' in kwargs:
+        if email_addresses is None:
+            raise TypeError("Missing 'email_addresses' argument")
+        if email_subject is None and 'emailSubject' in kwargs:
             email_subject = kwargs['emailSubject']
-        if 'endDate' in kwargs:
+        if email_subject is None:
+            raise TypeError("Missing 'email_subject' argument")
+        if end_date is None and 'endDate' in kwargs:
             end_date = kwargs['endDate']
-        if 'startDate' in kwargs:
+        if end_date is None:
+            raise TypeError("Missing 'end_date' argument")
+        if frequency is None:
+            raise TypeError("Missing 'frequency' argument")
+        if start_date is None and 'startDate' in kwargs:
             start_date = kwargs['startDate']
-        if 'viewId' in kwargs:
+        if start_date is None:
+            raise TypeError("Missing 'start_date' argument")
+        if view_id is None and 'viewId' in kwargs:
             view_id = kwargs['viewId']
-        if 'dayOfMonth' in kwargs:
+        if view_id is None:
+            raise TypeError("Missing 'view_id' argument")
+        if day_of_month is None and 'dayOfMonth' in kwargs:
             day_of_month = kwargs['dayOfMonth']
-        if 'daysOfWeeks' in kwargs:
+        if days_of_weeks is None and 'daysOfWeeks' in kwargs:
             days_of_weeks = kwargs['daysOfWeeks']
-        if 'hourOfDay' in kwargs:
+        if hour_of_day is None and 'hourOfDay' in kwargs:
             hour_of_day = kwargs['hourOfDay']
-        if 'weeksOfMonths' in kwargs:
+        if weeks_of_months is None and 'weeksOfMonths' in kwargs:
             weeks_of_months = kwargs['weeksOfMonths']
 
         _setter("display_name", display_name)
@@ -364,27 +380,27 @@ class _ScheduledActionState:
              weeks_of_months: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dayOfMonth' in kwargs:
+        if day_of_month is None and 'dayOfMonth' in kwargs:
             day_of_month = kwargs['dayOfMonth']
-        if 'daysOfWeeks' in kwargs:
+        if days_of_weeks is None and 'daysOfWeeks' in kwargs:
             days_of_weeks = kwargs['daysOfWeeks']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'emailAddressSender' in kwargs:
+        if email_address_sender is None and 'emailAddressSender' in kwargs:
             email_address_sender = kwargs['emailAddressSender']
-        if 'emailAddresses' in kwargs:
+        if email_addresses is None and 'emailAddresses' in kwargs:
             email_addresses = kwargs['emailAddresses']
-        if 'emailSubject' in kwargs:
+        if email_subject is None and 'emailSubject' in kwargs:
             email_subject = kwargs['emailSubject']
-        if 'endDate' in kwargs:
+        if end_date is None and 'endDate' in kwargs:
             end_date = kwargs['endDate']
-        if 'hourOfDay' in kwargs:
+        if hour_of_day is None and 'hourOfDay' in kwargs:
             hour_of_day = kwargs['hourOfDay']
-        if 'startDate' in kwargs:
+        if start_date is None and 'startDate' in kwargs:
             start_date = kwargs['startDate']
-        if 'viewId' in kwargs:
+        if view_id is None and 'viewId' in kwargs:
             view_id = kwargs['viewId']
-        if 'weeksOfMonths' in kwargs:
+        if weeks_of_months is None and 'weeksOfMonths' in kwargs:
             weeks_of_months = kwargs['weeksOfMonths']
 
         if day_of_month is not None:

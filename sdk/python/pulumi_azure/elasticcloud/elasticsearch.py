@@ -49,9 +49,9 @@ class ElasticsearchArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             elastic_cloud_email_address: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             sku_name: pulumi.Input[str],
+             elastic_cloud_email_address: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              logs: Optional[pulumi.Input['ElasticsearchLogsArgs']] = None,
              monitoring_enabled: Optional[pulumi.Input[bool]] = None,
@@ -59,13 +59,19 @@ class ElasticsearchArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'elasticCloudEmailAddress' in kwargs:
+        if elastic_cloud_email_address is None and 'elasticCloudEmailAddress' in kwargs:
             elastic_cloud_email_address = kwargs['elasticCloudEmailAddress']
-        if 'resourceGroupName' in kwargs:
+        if elastic_cloud_email_address is None:
+            raise TypeError("Missing 'elastic_cloud_email_address' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'monitoringEnabled' in kwargs:
+        if sku_name is None:
+            raise TypeError("Missing 'sku_name' argument")
+        if monitoring_enabled is None and 'monitoringEnabled' in kwargs:
             monitoring_enabled = kwargs['monitoringEnabled']
 
         _setter("elastic_cloud_email_address", elastic_cloud_email_address)
@@ -249,25 +255,25 @@ class _ElasticsearchState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'elasticCloudDeploymentId' in kwargs:
+        if elastic_cloud_deployment_id is None and 'elasticCloudDeploymentId' in kwargs:
             elastic_cloud_deployment_id = kwargs['elasticCloudDeploymentId']
-        if 'elasticCloudEmailAddress' in kwargs:
+        if elastic_cloud_email_address is None and 'elasticCloudEmailAddress' in kwargs:
             elastic_cloud_email_address = kwargs['elasticCloudEmailAddress']
-        if 'elasticCloudSsoDefaultUrl' in kwargs:
+        if elastic_cloud_sso_default_url is None and 'elasticCloudSsoDefaultUrl' in kwargs:
             elastic_cloud_sso_default_url = kwargs['elasticCloudSsoDefaultUrl']
-        if 'elasticCloudUserId' in kwargs:
+        if elastic_cloud_user_id is None and 'elasticCloudUserId' in kwargs:
             elastic_cloud_user_id = kwargs['elasticCloudUserId']
-        if 'elasticsearchServiceUrl' in kwargs:
+        if elasticsearch_service_url is None and 'elasticsearchServiceUrl' in kwargs:
             elasticsearch_service_url = kwargs['elasticsearchServiceUrl']
-        if 'kibanaServiceUrl' in kwargs:
+        if kibana_service_url is None and 'kibanaServiceUrl' in kwargs:
             kibana_service_url = kwargs['kibanaServiceUrl']
-        if 'kibanaSsoUri' in kwargs:
+        if kibana_sso_uri is None and 'kibanaSsoUri' in kwargs:
             kibana_sso_uri = kwargs['kibanaSsoUri']
-        if 'monitoringEnabled' in kwargs:
+        if monitoring_enabled is None and 'monitoringEnabled' in kwargs:
             monitoring_enabled = kwargs['monitoringEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
 
         if elastic_cloud_deployment_id is not None:

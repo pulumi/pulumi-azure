@@ -49,25 +49,33 @@ class AttachedDatabaseConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cluster_name: pulumi.Input[str],
-             cluster_resource_id: pulumi.Input[str],
-             database_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             cluster_resource_id: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              default_principal_modification_kind: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              sharing: Optional[pulumi.Input['AttachedDatabaseConfigurationSharingArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clusterName' in kwargs:
+        if cluster_name is None and 'clusterName' in kwargs:
             cluster_name = kwargs['clusterName']
-        if 'clusterResourceId' in kwargs:
+        if cluster_name is None:
+            raise TypeError("Missing 'cluster_name' argument")
+        if cluster_resource_id is None and 'clusterResourceId' in kwargs:
             cluster_resource_id = kwargs['clusterResourceId']
-        if 'databaseName' in kwargs:
+        if cluster_resource_id is None:
+            raise TypeError("Missing 'cluster_resource_id' argument")
+        if database_name is None and 'databaseName' in kwargs:
             database_name = kwargs['databaseName']
-        if 'resourceGroupName' in kwargs:
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'defaultPrincipalModificationKind' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if default_principal_modification_kind is None and 'defaultPrincipalModificationKind' in kwargs:
             default_principal_modification_kind = kwargs['defaultPrincipalModificationKind']
 
         _setter("cluster_name", cluster_name)
@@ -230,17 +238,17 @@ class _AttachedDatabaseConfigurationState:
              sharing: Optional[pulumi.Input['AttachedDatabaseConfigurationSharingArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'attachedDatabaseNames' in kwargs:
+        if attached_database_names is None and 'attachedDatabaseNames' in kwargs:
             attached_database_names = kwargs['attachedDatabaseNames']
-        if 'clusterName' in kwargs:
+        if cluster_name is None and 'clusterName' in kwargs:
             cluster_name = kwargs['clusterName']
-        if 'clusterResourceId' in kwargs:
+        if cluster_resource_id is None and 'clusterResourceId' in kwargs:
             cluster_resource_id = kwargs['clusterResourceId']
-        if 'databaseName' in kwargs:
+        if database_name is None and 'databaseName' in kwargs:
             database_name = kwargs['databaseName']
-        if 'defaultPrincipalModificationKind' in kwargs:
+        if default_principal_modification_kind is None and 'defaultPrincipalModificationKind' in kwargs:
             default_principal_modification_kind = kwargs['defaultPrincipalModificationKind']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if attached_database_names is not None:

@@ -46,19 +46,27 @@ class DataLakeGen2PathArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             filesystem_name: pulumi.Input[str],
-             path: pulumi.Input[str],
-             resource: pulumi.Input[str],
-             storage_account_id: pulumi.Input[str],
+             filesystem_name: Optional[pulumi.Input[str]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             resource: Optional[pulumi.Input[str]] = None,
+             storage_account_id: Optional[pulumi.Input[str]] = None,
              aces: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeGen2PathAceArgs']]]] = None,
              group: Optional[pulumi.Input[str]] = None,
              owner: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'filesystemName' in kwargs:
+        if filesystem_name is None and 'filesystemName' in kwargs:
             filesystem_name = kwargs['filesystemName']
-        if 'storageAccountId' in kwargs:
+        if filesystem_name is None:
+            raise TypeError("Missing 'filesystem_name' argument")
+        if path is None:
+            raise TypeError("Missing 'path' argument")
+        if resource is None:
+            raise TypeError("Missing 'resource' argument")
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
+        if storage_account_id is None:
+            raise TypeError("Missing 'storage_account_id' argument")
 
         _setter("filesystem_name", filesystem_name)
         _setter("path", path)
@@ -198,9 +206,9 @@ class _DataLakeGen2PathState:
              storage_account_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'filesystemName' in kwargs:
+        if filesystem_name is None and 'filesystemName' in kwargs:
             filesystem_name = kwargs['filesystemName']
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
 
         if aces is not None:

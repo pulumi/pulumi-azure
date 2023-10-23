@@ -35,16 +35,22 @@ class ClusterTrustedAccessRoleBindingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             kubernetes_cluster_id: pulumi.Input[str],
-             roles: pulumi.Input[Sequence[pulumi.Input[str]]],
-             source_resource_id: pulumi.Input[str],
+             kubernetes_cluster_id: Optional[pulumi.Input[str]] = None,
+             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             source_resource_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'kubernetesClusterId' in kwargs:
+        if kubernetes_cluster_id is None and 'kubernetesClusterId' in kwargs:
             kubernetes_cluster_id = kwargs['kubernetesClusterId']
-        if 'sourceResourceId' in kwargs:
+        if kubernetes_cluster_id is None:
+            raise TypeError("Missing 'kubernetes_cluster_id' argument")
+        if roles is None:
+            raise TypeError("Missing 'roles' argument")
+        if source_resource_id is None and 'sourceResourceId' in kwargs:
             source_resource_id = kwargs['sourceResourceId']
+        if source_resource_id is None:
+            raise TypeError("Missing 'source_resource_id' argument")
 
         _setter("kubernetes_cluster_id", kubernetes_cluster_id)
         _setter("roles", roles)
@@ -131,9 +137,9 @@ class _ClusterTrustedAccessRoleBindingState:
              source_resource_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'kubernetesClusterId' in kwargs:
+        if kubernetes_cluster_id is None and 'kubernetesClusterId' in kwargs:
             kubernetes_cluster_id = kwargs['kubernetesClusterId']
-        if 'sourceResourceId' in kwargs:
+        if source_resource_id is None and 'sourceResourceId' in kwargs:
             source_resource_id = kwargs['sourceResourceId']
 
         if kubernetes_cluster_id is not None:

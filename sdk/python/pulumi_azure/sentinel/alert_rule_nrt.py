@@ -86,10 +86,10 @@ class AlertRuleNrtArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             display_name: pulumi.Input[str],
-             log_analytics_workspace_id: pulumi.Input[str],
-             query: pulumi.Input[str],
-             severity: pulumi.Input[str],
+             display_name: Optional[pulumi.Input[str]] = None,
+             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+             query: Optional[pulumi.Input[str]] = None,
+             severity: Optional[pulumi.Input[str]] = None,
              alert_details_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtAlertDetailsOverrideArgs']]]] = None,
              alert_rule_template_guid: Optional[pulumi.Input[str]] = None,
              alert_rule_template_version: Optional[pulumi.Input[str]] = None,
@@ -107,27 +107,35 @@ class AlertRuleNrtArgs:
              techniques: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if 'alertDetailsOverrides' in kwargs:
+        if log_analytics_workspace_id is None:
+            raise TypeError("Missing 'log_analytics_workspace_id' argument")
+        if query is None:
+            raise TypeError("Missing 'query' argument")
+        if severity is None:
+            raise TypeError("Missing 'severity' argument")
+        if alert_details_overrides is None and 'alertDetailsOverrides' in kwargs:
             alert_details_overrides = kwargs['alertDetailsOverrides']
-        if 'alertRuleTemplateGuid' in kwargs:
+        if alert_rule_template_guid is None and 'alertRuleTemplateGuid' in kwargs:
             alert_rule_template_guid = kwargs['alertRuleTemplateGuid']
-        if 'alertRuleTemplateVersion' in kwargs:
+        if alert_rule_template_version is None and 'alertRuleTemplateVersion' in kwargs:
             alert_rule_template_version = kwargs['alertRuleTemplateVersion']
-        if 'customDetails' in kwargs:
+        if custom_details is None and 'customDetails' in kwargs:
             custom_details = kwargs['customDetails']
-        if 'entityMappings' in kwargs:
+        if entity_mappings is None and 'entityMappings' in kwargs:
             entity_mappings = kwargs['entityMappings']
-        if 'eventGrouping' in kwargs:
+        if event_grouping is None and 'eventGrouping' in kwargs:
             event_grouping = kwargs['eventGrouping']
-        if 'sentinelEntityMappings' in kwargs:
+        if sentinel_entity_mappings is None and 'sentinelEntityMappings' in kwargs:
             sentinel_entity_mappings = kwargs['sentinelEntityMappings']
-        if 'suppressionDuration' in kwargs:
+        if suppression_duration is None and 'suppressionDuration' in kwargs:
             suppression_duration = kwargs['suppressionDuration']
-        if 'suppressionEnabled' in kwargs:
+        if suppression_enabled is None and 'suppressionEnabled' in kwargs:
             suppression_enabled = kwargs['suppressionEnabled']
 
         _setter("display_name", display_name)
@@ -492,27 +500,27 @@ class _AlertRuleNrtState:
              techniques: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'alertDetailsOverrides' in kwargs:
+        if alert_details_overrides is None and 'alertDetailsOverrides' in kwargs:
             alert_details_overrides = kwargs['alertDetailsOverrides']
-        if 'alertRuleTemplateGuid' in kwargs:
+        if alert_rule_template_guid is None and 'alertRuleTemplateGuid' in kwargs:
             alert_rule_template_guid = kwargs['alertRuleTemplateGuid']
-        if 'alertRuleTemplateVersion' in kwargs:
+        if alert_rule_template_version is None and 'alertRuleTemplateVersion' in kwargs:
             alert_rule_template_version = kwargs['alertRuleTemplateVersion']
-        if 'customDetails' in kwargs:
+        if custom_details is None and 'customDetails' in kwargs:
             custom_details = kwargs['customDetails']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'entityMappings' in kwargs:
+        if entity_mappings is None and 'entityMappings' in kwargs:
             entity_mappings = kwargs['entityMappings']
-        if 'eventGrouping' in kwargs:
+        if event_grouping is None and 'eventGrouping' in kwargs:
             event_grouping = kwargs['eventGrouping']
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if 'sentinelEntityMappings' in kwargs:
+        if sentinel_entity_mappings is None and 'sentinelEntityMappings' in kwargs:
             sentinel_entity_mappings = kwargs['sentinelEntityMappings']
-        if 'suppressionDuration' in kwargs:
+        if suppression_duration is None and 'suppressionDuration' in kwargs:
             suppression_duration = kwargs['suppressionDuration']
-        if 'suppressionEnabled' in kwargs:
+        if suppression_enabled is None and 'suppressionEnabled' in kwargs:
             suppression_enabled = kwargs['suppressionEnabled']
 
         if alert_details_overrides is not None:

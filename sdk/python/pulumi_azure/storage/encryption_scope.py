@@ -38,18 +38,22 @@ class EncryptionScopeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             source: pulumi.Input[str],
-             storage_account_id: pulumi.Input[str],
+             source: Optional[pulumi.Input[str]] = None,
+             storage_account_id: Optional[pulumi.Input[str]] = None,
              infrastructure_encryption_required: Optional[pulumi.Input[bool]] = None,
              key_vault_key_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'storageAccountId' in kwargs:
+        if source is None:
+            raise TypeError("Missing 'source' argument")
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'infrastructureEncryptionRequired' in kwargs:
+        if storage_account_id is None:
+            raise TypeError("Missing 'storage_account_id' argument")
+        if infrastructure_encryption_required is None and 'infrastructureEncryptionRequired' in kwargs:
             infrastructure_encryption_required = kwargs['infrastructureEncryptionRequired']
-        if 'keyVaultKeyId' in kwargs:
+        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
             key_vault_key_id = kwargs['keyVaultKeyId']
 
         _setter("source", source)
@@ -156,11 +160,11 @@ class _EncryptionScopeState:
              storage_account_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'infrastructureEncryptionRequired' in kwargs:
+        if infrastructure_encryption_required is None and 'infrastructureEncryptionRequired' in kwargs:
             infrastructure_encryption_required = kwargs['infrastructureEncryptionRequired']
-        if 'keyVaultKeyId' in kwargs:
+        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
             key_vault_key_id = kwargs['keyVaultKeyId']
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
 
         if infrastructure_encryption_required is not None:

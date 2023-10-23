@@ -32,15 +32,19 @@ class ApiOperationTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_operation_id: pulumi.Input[str],
-             display_name: pulumi.Input[str],
+             api_operation_id: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'apiOperationId' in kwargs:
+        if api_operation_id is None and 'apiOperationId' in kwargs:
             api_operation_id = kwargs['apiOperationId']
-        if 'displayName' in kwargs:
+        if api_operation_id is None:
+            raise TypeError("Missing 'api_operation_id' argument")
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
 
         _setter("api_operation_id", api_operation_id)
         _setter("display_name", display_name)
@@ -110,9 +114,9 @@ class _ApiOperationTagState:
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'apiOperationId' in kwargs:
+        if api_operation_id is None and 'apiOperationId' in kwargs:
             api_operation_id = kwargs['apiOperationId']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
 
         if api_operation_id is not None:

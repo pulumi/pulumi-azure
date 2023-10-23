@@ -63,7 +63,7 @@ class ChannelDirectLineSiteArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              endpoint_parameters_enabled: Optional[pulumi.Input[bool]] = None,
              enhanced_authentication_enabled: Optional[pulumi.Input[bool]] = None,
@@ -77,19 +77,21 @@ class ChannelDirectLineSiteArgs:
              v3_allowed: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'endpointParametersEnabled' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if endpoint_parameters_enabled is None and 'endpointParametersEnabled' in kwargs:
             endpoint_parameters_enabled = kwargs['endpointParametersEnabled']
-        if 'enhancedAuthenticationEnabled' in kwargs:
+        if enhanced_authentication_enabled is None and 'enhancedAuthenticationEnabled' in kwargs:
             enhanced_authentication_enabled = kwargs['enhancedAuthenticationEnabled']
-        if 'storageEnabled' in kwargs:
+        if storage_enabled is None and 'storageEnabled' in kwargs:
             storage_enabled = kwargs['storageEnabled']
-        if 'trustedOrigins' in kwargs:
+        if trusted_origins is None and 'trustedOrigins' in kwargs:
             trusted_origins = kwargs['trustedOrigins']
-        if 'userUploadEnabled' in kwargs:
+        if user_upload_enabled is None and 'userUploadEnabled' in kwargs:
             user_upload_enabled = kwargs['userUploadEnabled']
-        if 'v1Allowed' in kwargs:
+        if v1_allowed is None and 'v1Allowed' in kwargs:
             v1_allowed = kwargs['v1Allowed']
-        if 'v3Allowed' in kwargs:
+        if v3_allowed is None and 'v3Allowed' in kwargs:
             v3_allowed = kwargs['v3Allowed']
 
         _setter("name", name)
@@ -278,12 +280,16 @@ class ChannelFacebookPageArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             access_token: pulumi.Input[str],
-             id: pulumi.Input[str],
+             access_token: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accessToken' in kwargs:
+        if access_token is None and 'accessToken' in kwargs:
             access_token = kwargs['accessToken']
+        if access_token is None:
+            raise TypeError("Missing 'access_token' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
 
         _setter("access_token", access_token)
         _setter("id", id)
@@ -330,12 +336,16 @@ class ChannelLineLineChannelArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             access_token: pulumi.Input[str],
-             secret: pulumi.Input[str],
+             access_token: Optional[pulumi.Input[str]] = None,
+             secret: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accessToken' in kwargs:
+        if access_token is None and 'accessToken' in kwargs:
             access_token = kwargs['accessToken']
+        if access_token is None:
+            raise TypeError("Missing 'access_token' argument")
+        if secret is None:
+            raise TypeError("Missing 'secret' argument")
 
         _setter("access_token", access_token)
         _setter("secret", secret)
@@ -388,17 +398,19 @@ class ChannelWebChatSiteArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              endpoint_parameters_enabled: Optional[pulumi.Input[bool]] = None,
              storage_enabled: Optional[pulumi.Input[bool]] = None,
              user_upload_enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'endpointParametersEnabled' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if endpoint_parameters_enabled is None and 'endpointParametersEnabled' in kwargs:
             endpoint_parameters_enabled = kwargs['endpointParametersEnabled']
-        if 'storageEnabled' in kwargs:
+        if storage_enabled is None and 'storageEnabled' in kwargs:
             storage_enabled = kwargs['storageEnabled']
-        if 'userUploadEnabled' in kwargs:
+        if user_upload_enabled is None and 'userUploadEnabled' in kwargs:
             user_upload_enabled = kwargs['userUploadEnabled']
 
         _setter("name", name)

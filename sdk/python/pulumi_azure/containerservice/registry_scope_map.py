@@ -38,17 +38,23 @@ class RegistryScopeMapArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             actions: pulumi.Input[Sequence[pulumi.Input[str]]],
-             container_registry_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             container_registry_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'containerRegistryName' in kwargs:
+        if actions is None:
+            raise TypeError("Missing 'actions' argument")
+        if container_registry_name is None and 'containerRegistryName' in kwargs:
             container_registry_name = kwargs['containerRegistryName']
-        if 'resourceGroupName' in kwargs:
+        if container_registry_name is None:
+            raise TypeError("Missing 'container_registry_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("actions", actions)
         _setter("container_registry_name", container_registry_name)
@@ -153,9 +159,9 @@ class _RegistryScopeMapState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'containerRegistryName' in kwargs:
+        if container_registry_name is None and 'containerRegistryName' in kwargs:
             container_registry_name = kwargs['containerRegistryName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if actions is not None:

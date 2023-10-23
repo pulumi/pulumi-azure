@@ -33,21 +33,31 @@ class FlexibleServerActiveDirectoryAdministratorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             identity_id: pulumi.Input[str],
-             login: pulumi.Input[str],
-             object_id: pulumi.Input[str],
-             server_id: pulumi.Input[str],
-             tenant_id: pulumi.Input[str],
+             identity_id: Optional[pulumi.Input[str]] = None,
+             login: Optional[pulumi.Input[str]] = None,
+             object_id: Optional[pulumi.Input[str]] = None,
+             server_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityId' in kwargs:
+        if identity_id is None and 'identityId' in kwargs:
             identity_id = kwargs['identityId']
-        if 'objectId' in kwargs:
+        if identity_id is None:
+            raise TypeError("Missing 'identity_id' argument")
+        if login is None:
+            raise TypeError("Missing 'login' argument")
+        if object_id is None and 'objectId' in kwargs:
             object_id = kwargs['objectId']
-        if 'serverId' in kwargs:
+        if object_id is None:
+            raise TypeError("Missing 'object_id' argument")
+        if server_id is None and 'serverId' in kwargs:
             server_id = kwargs['serverId']
-        if 'tenantId' in kwargs:
+        if server_id is None:
+            raise TypeError("Missing 'server_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
 
         _setter("identity_id", identity_id)
         _setter("login", login)
@@ -130,13 +140,13 @@ class _FlexibleServerActiveDirectoryAdministratorState:
              tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityId' in kwargs:
+        if identity_id is None and 'identityId' in kwargs:
             identity_id = kwargs['identityId']
-        if 'objectId' in kwargs:
+        if object_id is None and 'objectId' in kwargs:
             object_id = kwargs['objectId']
-        if 'serverId' in kwargs:
+        if server_id is None and 'serverId' in kwargs:
             server_id = kwargs['serverId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         if identity_id is not None:

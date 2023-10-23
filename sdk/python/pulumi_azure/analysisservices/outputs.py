@@ -52,15 +52,21 @@ class ServerIpv4FirewallRule(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             range_end: str,
-             range_start: str,
+             name: Optional[str] = None,
+             range_end: Optional[str] = None,
+             range_start: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'rangeEnd' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if range_end is None and 'rangeEnd' in kwargs:
             range_end = kwargs['rangeEnd']
-        if 'rangeStart' in kwargs:
+        if range_end is None:
+            raise TypeError("Missing 'range_end' argument")
+        if range_start is None and 'rangeStart' in kwargs:
             range_start = kwargs['rangeStart']
+        if range_start is None:
+            raise TypeError("Missing 'range_start' argument")
 
         _setter("name", name)
         _setter("range_end", range_end)

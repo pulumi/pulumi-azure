@@ -37,17 +37,19 @@ class DataConnectorThreatIntelligenceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             log_analytics_workspace_id: pulumi.Input[str],
+             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
              lookback_date: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if 'lookbackDate' in kwargs:
+        if log_analytics_workspace_id is None:
+            raise TypeError("Missing 'log_analytics_workspace_id' argument")
+        if lookback_date is None and 'lookbackDate' in kwargs:
             lookback_date = kwargs['lookbackDate']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("log_analytics_workspace_id", log_analytics_workspace_id)
@@ -141,11 +143,11 @@ class _DataConnectorThreatIntelligenceState:
              tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if 'lookbackDate' in kwargs:
+        if lookback_date is None and 'lookbackDate' in kwargs:
             lookback_date = kwargs['lookbackDate']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         if log_analytics_workspace_id is not None:

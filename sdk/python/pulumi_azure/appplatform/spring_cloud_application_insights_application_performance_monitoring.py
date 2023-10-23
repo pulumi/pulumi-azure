@@ -47,7 +47,7 @@ class SpringCloudApplicationInsightsApplicationPerformanceMonitoringArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             spring_cloud_service_id: pulumi.Input[str],
+             spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
              connection_string: Optional[pulumi.Input[str]] = None,
              globally_enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
@@ -57,19 +57,21 @@ class SpringCloudApplicationInsightsApplicationPerformanceMonitoringArgs:
              sampling_requests_per_second: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'springCloudServiceId' in kwargs:
+        if spring_cloud_service_id is None and 'springCloudServiceId' in kwargs:
             spring_cloud_service_id = kwargs['springCloudServiceId']
-        if 'connectionString' in kwargs:
+        if spring_cloud_service_id is None:
+            raise TypeError("Missing 'spring_cloud_service_id' argument")
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
-        if 'globallyEnabled' in kwargs:
+        if globally_enabled is None and 'globallyEnabled' in kwargs:
             globally_enabled = kwargs['globallyEnabled']
-        if 'roleInstance' in kwargs:
+        if role_instance is None and 'roleInstance' in kwargs:
             role_instance = kwargs['roleInstance']
-        if 'roleName' in kwargs:
+        if role_name is None and 'roleName' in kwargs:
             role_name = kwargs['roleName']
-        if 'samplingPercentage' in kwargs:
+        if sampling_percentage is None and 'samplingPercentage' in kwargs:
             sampling_percentage = kwargs['samplingPercentage']
-        if 'samplingRequestsPerSecond' in kwargs:
+        if sampling_requests_per_second is None and 'samplingRequestsPerSecond' in kwargs:
             sampling_requests_per_second = kwargs['samplingRequestsPerSecond']
 
         _setter("spring_cloud_service_id", spring_cloud_service_id)
@@ -231,19 +233,19 @@ class _SpringCloudApplicationInsightsApplicationPerformanceMonitoringState:
              spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
-        if 'globallyEnabled' in kwargs:
+        if globally_enabled is None and 'globallyEnabled' in kwargs:
             globally_enabled = kwargs['globallyEnabled']
-        if 'roleInstance' in kwargs:
+        if role_instance is None and 'roleInstance' in kwargs:
             role_instance = kwargs['roleInstance']
-        if 'roleName' in kwargs:
+        if role_name is None and 'roleName' in kwargs:
             role_name = kwargs['roleName']
-        if 'samplingPercentage' in kwargs:
+        if sampling_percentage is None and 'samplingPercentage' in kwargs:
             sampling_percentage = kwargs['samplingPercentage']
-        if 'samplingRequestsPerSecond' in kwargs:
+        if sampling_requests_per_second is None and 'samplingRequestsPerSecond' in kwargs:
             sampling_requests_per_second = kwargs['samplingRequestsPerSecond']
-        if 'springCloudServiceId' in kwargs:
+        if spring_cloud_service_id is None and 'springCloudServiceId' in kwargs:
             spring_cloud_service_id = kwargs['springCloudServiceId']
 
         if connection_string is not None:

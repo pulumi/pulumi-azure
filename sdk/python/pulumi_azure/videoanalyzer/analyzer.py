@@ -43,18 +43,24 @@ class AnalyzerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             identity: pulumi.Input['AnalyzerIdentityArgs'],
-             resource_group_name: pulumi.Input[str],
-             storage_account: pulumi.Input['AnalyzerStorageAccountArgs'],
+             identity: Optional[pulumi.Input['AnalyzerIdentityArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             storage_account: Optional[pulumi.Input['AnalyzerStorageAccountArgs']] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if identity is None:
+            raise TypeError("Missing 'identity' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'storageAccount' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if storage_account is None and 'storageAccount' in kwargs:
             storage_account = kwargs['storageAccount']
+        if storage_account is None:
+            raise TypeError("Missing 'storage_account' argument")
 
         _setter("identity", identity)
         _setter("resource_group_name", resource_group_name)
@@ -177,9 +183,9 @@ class _AnalyzerState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'storageAccount' in kwargs:
+        if storage_account is None and 'storageAccount' in kwargs:
             storage_account = kwargs['storageAccount']
 
         if identity is not None:

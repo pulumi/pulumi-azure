@@ -49,28 +49,40 @@ class ResourceGroupCostManagementExportArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             export_data_options: pulumi.Input['ResourceGroupCostManagementExportExportDataOptionsArgs'],
-             export_data_storage_location: pulumi.Input['ResourceGroupCostManagementExportExportDataStorageLocationArgs'],
-             recurrence_period_end_date: pulumi.Input[str],
-             recurrence_period_start_date: pulumi.Input[str],
-             recurrence_type: pulumi.Input[str],
-             resource_group_id: pulumi.Input[str],
+             export_data_options: Optional[pulumi.Input['ResourceGroupCostManagementExportExportDataOptionsArgs']] = None,
+             export_data_storage_location: Optional[pulumi.Input['ResourceGroupCostManagementExportExportDataStorageLocationArgs']] = None,
+             recurrence_period_end_date: Optional[pulumi.Input[str]] = None,
+             recurrence_period_start_date: Optional[pulumi.Input[str]] = None,
+             recurrence_type: Optional[pulumi.Input[str]] = None,
+             resource_group_id: Optional[pulumi.Input[str]] = None,
              active: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'exportDataOptions' in kwargs:
+        if export_data_options is None and 'exportDataOptions' in kwargs:
             export_data_options = kwargs['exportDataOptions']
-        if 'exportDataStorageLocation' in kwargs:
+        if export_data_options is None:
+            raise TypeError("Missing 'export_data_options' argument")
+        if export_data_storage_location is None and 'exportDataStorageLocation' in kwargs:
             export_data_storage_location = kwargs['exportDataStorageLocation']
-        if 'recurrencePeriodEndDate' in kwargs:
+        if export_data_storage_location is None:
+            raise TypeError("Missing 'export_data_storage_location' argument")
+        if recurrence_period_end_date is None and 'recurrencePeriodEndDate' in kwargs:
             recurrence_period_end_date = kwargs['recurrencePeriodEndDate']
-        if 'recurrencePeriodStartDate' in kwargs:
+        if recurrence_period_end_date is None:
+            raise TypeError("Missing 'recurrence_period_end_date' argument")
+        if recurrence_period_start_date is None and 'recurrencePeriodStartDate' in kwargs:
             recurrence_period_start_date = kwargs['recurrencePeriodStartDate']
-        if 'recurrenceType' in kwargs:
+        if recurrence_period_start_date is None:
+            raise TypeError("Missing 'recurrence_period_start_date' argument")
+        if recurrence_type is None and 'recurrenceType' in kwargs:
             recurrence_type = kwargs['recurrenceType']
-        if 'resourceGroupId' in kwargs:
+        if recurrence_type is None:
+            raise TypeError("Missing 'recurrence_type' argument")
+        if resource_group_id is None and 'resourceGroupId' in kwargs:
             resource_group_id = kwargs['resourceGroupId']
+        if resource_group_id is None:
+            raise TypeError("Missing 'resource_group_id' argument")
 
         _setter("export_data_options", export_data_options)
         _setter("export_data_storage_location", export_data_storage_location)
@@ -226,17 +238,17 @@ class _ResourceGroupCostManagementExportState:
              resource_group_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'exportDataOptions' in kwargs:
+        if export_data_options is None and 'exportDataOptions' in kwargs:
             export_data_options = kwargs['exportDataOptions']
-        if 'exportDataStorageLocation' in kwargs:
+        if export_data_storage_location is None and 'exportDataStorageLocation' in kwargs:
             export_data_storage_location = kwargs['exportDataStorageLocation']
-        if 'recurrencePeriodEndDate' in kwargs:
+        if recurrence_period_end_date is None and 'recurrencePeriodEndDate' in kwargs:
             recurrence_period_end_date = kwargs['recurrencePeriodEndDate']
-        if 'recurrencePeriodStartDate' in kwargs:
+        if recurrence_period_start_date is None and 'recurrencePeriodStartDate' in kwargs:
             recurrence_period_start_date = kwargs['recurrencePeriodStartDate']
-        if 'recurrenceType' in kwargs:
+        if recurrence_type is None and 'recurrenceType' in kwargs:
             recurrence_type = kwargs['recurrenceType']
-        if 'resourceGroupId' in kwargs:
+        if resource_group_id is None and 'resourceGroupId' in kwargs:
             resource_group_id = kwargs['resourceGroupId']
 
         if active is not None:

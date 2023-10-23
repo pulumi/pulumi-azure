@@ -68,9 +68,9 @@ class FrontdoorOriginArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cdn_frontdoor_origin_group_id: pulumi.Input[str],
-             certificate_name_check_enabled: pulumi.Input[bool],
-             host_name: pulumi.Input[str],
+             cdn_frontdoor_origin_group_id: Optional[pulumi.Input[str]] = None,
+             certificate_name_check_enabled: Optional[pulumi.Input[bool]] = None,
+             host_name: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              health_probes_enabled: Optional[pulumi.Input[bool]] = None,
              http_port: Optional[pulumi.Input[int]] = None,
@@ -82,21 +82,27 @@ class FrontdoorOriginArgs:
              weight: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'cdnFrontdoorOriginGroupId' in kwargs:
+        if cdn_frontdoor_origin_group_id is None and 'cdnFrontdoorOriginGroupId' in kwargs:
             cdn_frontdoor_origin_group_id = kwargs['cdnFrontdoorOriginGroupId']
-        if 'certificateNameCheckEnabled' in kwargs:
+        if cdn_frontdoor_origin_group_id is None:
+            raise TypeError("Missing 'cdn_frontdoor_origin_group_id' argument")
+        if certificate_name_check_enabled is None and 'certificateNameCheckEnabled' in kwargs:
             certificate_name_check_enabled = kwargs['certificateNameCheckEnabled']
-        if 'hostName' in kwargs:
+        if certificate_name_check_enabled is None:
+            raise TypeError("Missing 'certificate_name_check_enabled' argument")
+        if host_name is None and 'hostName' in kwargs:
             host_name = kwargs['hostName']
-        if 'healthProbesEnabled' in kwargs:
+        if host_name is None:
+            raise TypeError("Missing 'host_name' argument")
+        if health_probes_enabled is None and 'healthProbesEnabled' in kwargs:
             health_probes_enabled = kwargs['healthProbesEnabled']
-        if 'httpPort' in kwargs:
+        if http_port is None and 'httpPort' in kwargs:
             http_port = kwargs['httpPort']
-        if 'httpsPort' in kwargs:
+        if https_port is None and 'httpsPort' in kwargs:
             https_port = kwargs['httpsPort']
-        if 'originHostHeader' in kwargs:
+        if origin_host_header is None and 'originHostHeader' in kwargs:
             origin_host_header = kwargs['originHostHeader']
-        if 'privateLink' in kwargs:
+        if private_link is None and 'privateLink' in kwargs:
             private_link = kwargs['privateLink']
 
         _setter("cdn_frontdoor_origin_group_id", cdn_frontdoor_origin_group_id)
@@ -346,21 +352,21 @@ class _FrontdoorOriginState:
              weight: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'cdnFrontdoorOriginGroupId' in kwargs:
+        if cdn_frontdoor_origin_group_id is None and 'cdnFrontdoorOriginGroupId' in kwargs:
             cdn_frontdoor_origin_group_id = kwargs['cdnFrontdoorOriginGroupId']
-        if 'certificateNameCheckEnabled' in kwargs:
+        if certificate_name_check_enabled is None and 'certificateNameCheckEnabled' in kwargs:
             certificate_name_check_enabled = kwargs['certificateNameCheckEnabled']
-        if 'healthProbesEnabled' in kwargs:
+        if health_probes_enabled is None and 'healthProbesEnabled' in kwargs:
             health_probes_enabled = kwargs['healthProbesEnabled']
-        if 'hostName' in kwargs:
+        if host_name is None and 'hostName' in kwargs:
             host_name = kwargs['hostName']
-        if 'httpPort' in kwargs:
+        if http_port is None and 'httpPort' in kwargs:
             http_port = kwargs['httpPort']
-        if 'httpsPort' in kwargs:
+        if https_port is None and 'httpsPort' in kwargs:
             https_port = kwargs['httpsPort']
-        if 'originHostHeader' in kwargs:
+        if origin_host_header is None and 'originHostHeader' in kwargs:
             origin_host_header = kwargs['originHostHeader']
-        if 'privateLink' in kwargs:
+        if private_link is None and 'privateLink' in kwargs:
             private_link = kwargs['privateLink']
 
         if cdn_frontdoor_origin_group_id is not None:

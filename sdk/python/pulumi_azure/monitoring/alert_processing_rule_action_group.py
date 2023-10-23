@@ -52,9 +52,9 @@ class AlertProcessingRuleActionGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             add_action_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             resource_group_name: pulumi.Input[str],
-             scopes: pulumi.Input[Sequence[pulumi.Input[str]]],
+             add_action_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              condition: Optional[pulumi.Input['AlertProcessingRuleActionGroupConditionArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
@@ -63,10 +63,16 @@ class AlertProcessingRuleActionGroupArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'addActionGroupIds' in kwargs:
+        if add_action_group_ids is None and 'addActionGroupIds' in kwargs:
             add_action_group_ids = kwargs['addActionGroupIds']
-        if 'resourceGroupName' in kwargs:
+        if add_action_group_ids is None:
+            raise TypeError("Missing 'add_action_group_ids' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if scopes is None:
+            raise TypeError("Missing 'scopes' argument")
 
         _setter("add_action_group_ids", add_action_group_ids)
         _setter("resource_group_name", resource_group_name)
@@ -243,9 +249,9 @@ class _AlertProcessingRuleActionGroupState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'addActionGroupIds' in kwargs:
+        if add_action_group_ids is None and 'addActionGroupIds' in kwargs:
             add_action_group_ids = kwargs['addActionGroupIds']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if add_action_group_ids is not None:

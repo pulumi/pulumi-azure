@@ -62,9 +62,9 @@ class WebAppArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             microsoft_app_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             sku: pulumi.Input[str],
+             microsoft_app_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
              developer_app_insights_api_key: Optional[pulumi.Input[str]] = None,
              developer_app_insights_application_id: Optional[pulumi.Input[str]] = None,
              developer_app_insights_key: Optional[pulumi.Input[str]] = None,
@@ -77,21 +77,27 @@ class WebAppArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'microsoftAppId' in kwargs:
+        if microsoft_app_id is None and 'microsoftAppId' in kwargs:
             microsoft_app_id = kwargs['microsoftAppId']
-        if 'resourceGroupName' in kwargs:
+        if microsoft_app_id is None:
+            raise TypeError("Missing 'microsoft_app_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'developerAppInsightsApiKey' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if developer_app_insights_api_key is None and 'developerAppInsightsApiKey' in kwargs:
             developer_app_insights_api_key = kwargs['developerAppInsightsApiKey']
-        if 'developerAppInsightsApplicationId' in kwargs:
+        if developer_app_insights_application_id is None and 'developerAppInsightsApplicationId' in kwargs:
             developer_app_insights_application_id = kwargs['developerAppInsightsApplicationId']
-        if 'developerAppInsightsKey' in kwargs:
+        if developer_app_insights_key is None and 'developerAppInsightsKey' in kwargs:
             developer_app_insights_key = kwargs['developerAppInsightsKey']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'luisAppIds' in kwargs:
+        if luis_app_ids is None and 'luisAppIds' in kwargs:
             luis_app_ids = kwargs['luisAppIds']
-        if 'luisKey' in kwargs:
+        if luis_key is None and 'luisKey' in kwargs:
             luis_key = kwargs['luisKey']
 
         _setter("microsoft_app_id", microsoft_app_id)
@@ -341,21 +347,21 @@ class _WebAppState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'developerAppInsightsApiKey' in kwargs:
+        if developer_app_insights_api_key is None and 'developerAppInsightsApiKey' in kwargs:
             developer_app_insights_api_key = kwargs['developerAppInsightsApiKey']
-        if 'developerAppInsightsApplicationId' in kwargs:
+        if developer_app_insights_application_id is None and 'developerAppInsightsApplicationId' in kwargs:
             developer_app_insights_application_id = kwargs['developerAppInsightsApplicationId']
-        if 'developerAppInsightsKey' in kwargs:
+        if developer_app_insights_key is None and 'developerAppInsightsKey' in kwargs:
             developer_app_insights_key = kwargs['developerAppInsightsKey']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'luisAppIds' in kwargs:
+        if luis_app_ids is None and 'luisAppIds' in kwargs:
             luis_app_ids = kwargs['luisAppIds']
-        if 'luisKey' in kwargs:
+        if luis_key is None and 'luisKey' in kwargs:
             luis_key = kwargs['luisKey']
-        if 'microsoftAppId' in kwargs:
+        if microsoft_app_id is None and 'microsoftAppId' in kwargs:
             microsoft_app_id = kwargs['microsoftAppId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if developer_app_insights_api_key is not None:

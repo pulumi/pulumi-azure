@@ -29,14 +29,18 @@ class GroupSubscriptionAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             management_group_id: pulumi.Input[str],
-             subscription_id: pulumi.Input[str],
+             management_group_id: Optional[pulumi.Input[str]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'managementGroupId' in kwargs:
+        if management_group_id is None and 'managementGroupId' in kwargs:
             management_group_id = kwargs['managementGroupId']
-        if 'subscriptionId' in kwargs:
+        if management_group_id is None:
+            raise TypeError("Missing 'management_group_id' argument")
+        if subscription_id is None and 'subscriptionId' in kwargs:
             subscription_id = kwargs['subscriptionId']
+        if subscription_id is None:
+            raise TypeError("Missing 'subscription_id' argument")
 
         _setter("management_group_id", management_group_id)
         _setter("subscription_id", subscription_id)
@@ -88,9 +92,9 @@ class _GroupSubscriptionAssociationState:
              subscription_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'managementGroupId' in kwargs:
+        if management_group_id is None and 'managementGroupId' in kwargs:
             management_group_id = kwargs['managementGroupId']
-        if 'subscriptionId' in kwargs:
+        if subscription_id is None and 'subscriptionId' in kwargs:
             subscription_id = kwargs['subscriptionId']
 
         if management_group_id is not None:

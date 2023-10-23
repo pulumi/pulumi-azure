@@ -37,14 +37,18 @@ class LockArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             lock_level: pulumi.Input[str],
-             scope: pulumi.Input[str],
+             lock_level: Optional[pulumi.Input[str]] = None,
+             scope: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              notes: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'lockLevel' in kwargs:
+        if lock_level is None and 'lockLevel' in kwargs:
             lock_level = kwargs['lockLevel']
+        if lock_level is None:
+            raise TypeError("Missing 'lock_level' argument")
+        if scope is None:
+            raise TypeError("Missing 'scope' argument")
 
         _setter("lock_level", lock_level)
         _setter("scope", scope)
@@ -136,7 +140,7 @@ class _LockState:
              scope: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'lockLevel' in kwargs:
+        if lock_level is None and 'lockLevel' in kwargs:
             lock_level = kwargs['lockLevel']
 
         if lock_level is not None:

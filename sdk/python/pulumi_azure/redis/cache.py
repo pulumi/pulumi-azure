@@ -94,10 +94,10 @@ class CacheArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             capacity: pulumi.Input[int],
-             family: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             sku_name: pulumi.Input[str],
+             capacity: Optional[pulumi.Input[int]] = None,
+             family: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
              enable_non_ssl_port: Optional[pulumi.Input[bool]] = None,
              identity: Optional[pulumi.Input['CacheIdentityArgs']] = None,
              location: Optional[pulumi.Input[str]] = None,
@@ -117,33 +117,41 @@ class CacheArgs:
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if capacity is None:
+            raise TypeError("Missing 'capacity' argument")
+        if family is None:
+            raise TypeError("Missing 'family' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'enableNonSslPort' in kwargs:
+        if sku_name is None:
+            raise TypeError("Missing 'sku_name' argument")
+        if enable_non_ssl_port is None and 'enableNonSslPort' in kwargs:
             enable_non_ssl_port = kwargs['enableNonSslPort']
-        if 'minimumTlsVersion' in kwargs:
+        if minimum_tls_version is None and 'minimumTlsVersion' in kwargs:
             minimum_tls_version = kwargs['minimumTlsVersion']
-        if 'patchSchedules' in kwargs:
+        if patch_schedules is None and 'patchSchedules' in kwargs:
             patch_schedules = kwargs['patchSchedules']
-        if 'privateStaticIpAddress' in kwargs:
+        if private_static_ip_address is None and 'privateStaticIpAddress' in kwargs:
             private_static_ip_address = kwargs['privateStaticIpAddress']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'redisConfiguration' in kwargs:
+        if redis_configuration is None and 'redisConfiguration' in kwargs:
             redis_configuration = kwargs['redisConfiguration']
-        if 'redisVersion' in kwargs:
+        if redis_version is None and 'redisVersion' in kwargs:
             redis_version = kwargs['redisVersion']
-        if 'replicasPerMaster' in kwargs:
+        if replicas_per_master is None and 'replicasPerMaster' in kwargs:
             replicas_per_master = kwargs['replicasPerMaster']
-        if 'replicasPerPrimary' in kwargs:
+        if replicas_per_primary is None and 'replicasPerPrimary' in kwargs:
             replicas_per_primary = kwargs['replicasPerPrimary']
-        if 'shardCount' in kwargs:
+        if shard_count is None and 'shardCount' in kwargs:
             shard_count = kwargs['shardCount']
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'tenantSettings' in kwargs:
+        if tenant_settings is None and 'tenantSettings' in kwargs:
             tenant_settings = kwargs['tenantSettings']
 
         _setter("capacity", capacity)
@@ -576,43 +584,43 @@ class _CacheState:
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'enableNonSslPort' in kwargs:
+        if enable_non_ssl_port is None and 'enableNonSslPort' in kwargs:
             enable_non_ssl_port = kwargs['enableNonSslPort']
-        if 'minimumTlsVersion' in kwargs:
+        if minimum_tls_version is None and 'minimumTlsVersion' in kwargs:
             minimum_tls_version = kwargs['minimumTlsVersion']
-        if 'patchSchedules' in kwargs:
+        if patch_schedules is None and 'patchSchedules' in kwargs:
             patch_schedules = kwargs['patchSchedules']
-        if 'primaryAccessKey' in kwargs:
+        if primary_access_key is None and 'primaryAccessKey' in kwargs:
             primary_access_key = kwargs['primaryAccessKey']
-        if 'primaryConnectionString' in kwargs:
+        if primary_connection_string is None and 'primaryConnectionString' in kwargs:
             primary_connection_string = kwargs['primaryConnectionString']
-        if 'privateStaticIpAddress' in kwargs:
+        if private_static_ip_address is None and 'privateStaticIpAddress' in kwargs:
             private_static_ip_address = kwargs['privateStaticIpAddress']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'redisConfiguration' in kwargs:
+        if redis_configuration is None and 'redisConfiguration' in kwargs:
             redis_configuration = kwargs['redisConfiguration']
-        if 'redisVersion' in kwargs:
+        if redis_version is None and 'redisVersion' in kwargs:
             redis_version = kwargs['redisVersion']
-        if 'replicasPerMaster' in kwargs:
+        if replicas_per_master is None and 'replicasPerMaster' in kwargs:
             replicas_per_master = kwargs['replicasPerMaster']
-        if 'replicasPerPrimary' in kwargs:
+        if replicas_per_primary is None and 'replicasPerPrimary' in kwargs:
             replicas_per_primary = kwargs['replicasPerPrimary']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'secondaryAccessKey' in kwargs:
+        if secondary_access_key is None and 'secondaryAccessKey' in kwargs:
             secondary_access_key = kwargs['secondaryAccessKey']
-        if 'secondaryConnectionString' in kwargs:
+        if secondary_connection_string is None and 'secondaryConnectionString' in kwargs:
             secondary_connection_string = kwargs['secondaryConnectionString']
-        if 'shardCount' in kwargs:
+        if shard_count is None and 'shardCount' in kwargs:
             shard_count = kwargs['shardCount']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'sslPort' in kwargs:
+        if ssl_port is None and 'sslPort' in kwargs:
             ssl_port = kwargs['sslPort']
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'tenantSettings' in kwargs:
+        if tenant_settings is None and 'tenantSettings' in kwargs:
             tenant_settings = kwargs['tenantSettings']
 
         if capacity is not None:

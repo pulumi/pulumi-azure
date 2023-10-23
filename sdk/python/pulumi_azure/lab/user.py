@@ -35,15 +35,19 @@ class UserArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             email: pulumi.Input[str],
-             lab_id: pulumi.Input[str],
+             email: Optional[pulumi.Input[str]] = None,
+             lab_id: Optional[pulumi.Input[str]] = None,
              additional_usage_quota: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'labId' in kwargs:
+        if email is None:
+            raise TypeError("Missing 'email' argument")
+        if lab_id is None and 'labId' in kwargs:
             lab_id = kwargs['labId']
-        if 'additionalUsageQuota' in kwargs:
+        if lab_id is None:
+            raise TypeError("Missing 'lab_id' argument")
+        if additional_usage_quota is None and 'additionalUsageQuota' in kwargs:
             additional_usage_quota = kwargs['additionalUsageQuota']
 
         _setter("email", email)
@@ -132,9 +136,9 @@ class _UserState:
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'additionalUsageQuota' in kwargs:
+        if additional_usage_quota is None and 'additionalUsageQuota' in kwargs:
             additional_usage_quota = kwargs['additionalUsageQuota']
-        if 'labId' in kwargs:
+        if lab_id is None and 'labId' in kwargs:
             lab_id = kwargs['labId']
 
         if additional_usage_quota is not None:

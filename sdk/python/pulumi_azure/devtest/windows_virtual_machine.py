@@ -77,15 +77,15 @@ class WindowsVirtualMachineArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             gallery_image_reference: pulumi.Input['WindowsVirtualMachineGalleryImageReferenceArgs'],
-             lab_name: pulumi.Input[str],
-             lab_subnet_name: pulumi.Input[str],
-             lab_virtual_network_id: pulumi.Input[str],
-             password: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             size: pulumi.Input[str],
-             storage_type: pulumi.Input[str],
-             username: pulumi.Input[str],
+             gallery_image_reference: Optional[pulumi.Input['WindowsVirtualMachineGalleryImageReferenceArgs']] = None,
+             lab_name: Optional[pulumi.Input[str]] = None,
+             lab_subnet_name: Optional[pulumi.Input[str]] = None,
+             lab_virtual_network_id: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             size: Optional[pulumi.Input[str]] = None,
+             storage_type: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
              allow_claim: Optional[pulumi.Input[bool]] = None,
              disallow_public_ip_address: Optional[pulumi.Input[bool]] = None,
              inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineInboundNatRuleArgs']]]] = None,
@@ -95,23 +95,41 @@ class WindowsVirtualMachineArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'galleryImageReference' in kwargs:
+        if gallery_image_reference is None and 'galleryImageReference' in kwargs:
             gallery_image_reference = kwargs['galleryImageReference']
-        if 'labName' in kwargs:
+        if gallery_image_reference is None:
+            raise TypeError("Missing 'gallery_image_reference' argument")
+        if lab_name is None and 'labName' in kwargs:
             lab_name = kwargs['labName']
-        if 'labSubnetName' in kwargs:
+        if lab_name is None:
+            raise TypeError("Missing 'lab_name' argument")
+        if lab_subnet_name is None and 'labSubnetName' in kwargs:
             lab_subnet_name = kwargs['labSubnetName']
-        if 'labVirtualNetworkId' in kwargs:
+        if lab_subnet_name is None:
+            raise TypeError("Missing 'lab_subnet_name' argument")
+        if lab_virtual_network_id is None and 'labVirtualNetworkId' in kwargs:
             lab_virtual_network_id = kwargs['labVirtualNetworkId']
-        if 'resourceGroupName' in kwargs:
+        if lab_virtual_network_id is None:
+            raise TypeError("Missing 'lab_virtual_network_id' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'storageType' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if size is None:
+            raise TypeError("Missing 'size' argument")
+        if storage_type is None and 'storageType' in kwargs:
             storage_type = kwargs['storageType']
-        if 'allowClaim' in kwargs:
+        if storage_type is None:
+            raise TypeError("Missing 'storage_type' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+        if allow_claim is None and 'allowClaim' in kwargs:
             allow_claim = kwargs['allowClaim']
-        if 'disallowPublicIpAddress' in kwargs:
+        if disallow_public_ip_address is None and 'disallowPublicIpAddress' in kwargs:
             disallow_public_ip_address = kwargs['disallowPublicIpAddress']
-        if 'inboundNatRules' in kwargs:
+        if inbound_nat_rules is None and 'inboundNatRules' in kwargs:
             inbound_nat_rules = kwargs['inboundNatRules']
 
         _setter("gallery_image_reference", gallery_image_reference)
@@ -425,25 +443,25 @@ class _WindowsVirtualMachineState:
              username: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowClaim' in kwargs:
+        if allow_claim is None and 'allowClaim' in kwargs:
             allow_claim = kwargs['allowClaim']
-        if 'disallowPublicIpAddress' in kwargs:
+        if disallow_public_ip_address is None and 'disallowPublicIpAddress' in kwargs:
             disallow_public_ip_address = kwargs['disallowPublicIpAddress']
-        if 'galleryImageReference' in kwargs:
+        if gallery_image_reference is None and 'galleryImageReference' in kwargs:
             gallery_image_reference = kwargs['galleryImageReference']
-        if 'inboundNatRules' in kwargs:
+        if inbound_nat_rules is None and 'inboundNatRules' in kwargs:
             inbound_nat_rules = kwargs['inboundNatRules']
-        if 'labName' in kwargs:
+        if lab_name is None and 'labName' in kwargs:
             lab_name = kwargs['labName']
-        if 'labSubnetName' in kwargs:
+        if lab_subnet_name is None and 'labSubnetName' in kwargs:
             lab_subnet_name = kwargs['labSubnetName']
-        if 'labVirtualNetworkId' in kwargs:
+        if lab_virtual_network_id is None and 'labVirtualNetworkId' in kwargs:
             lab_virtual_network_id = kwargs['labVirtualNetworkId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'storageType' in kwargs:
+        if storage_type is None and 'storageType' in kwargs:
             storage_type = kwargs['storageType']
-        if 'uniqueIdentifier' in kwargs:
+        if unique_identifier is None and 'uniqueIdentifier' in kwargs:
             unique_identifier = kwargs['uniqueIdentifier']
 
         if allow_claim is not None:

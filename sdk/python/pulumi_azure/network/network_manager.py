@@ -46,19 +46,25 @@ class NetworkManagerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             scope: pulumi.Input['NetworkManagerScopeArgs'],
-             scope_accesses: pulumi.Input[Sequence[pulumi.Input[str]]],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             scope: Optional[pulumi.Input['NetworkManagerScopeArgs']] = None,
+             scope_accesses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              description: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'scopeAccesses' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if scope is None:
+            raise TypeError("Missing 'scope' argument")
+        if scope_accesses is None and 'scopeAccesses' in kwargs:
             scope_accesses = kwargs['scopeAccesses']
+        if scope_accesses is None:
+            raise TypeError("Missing 'scope_accesses' argument")
 
         _setter("resource_group_name", resource_group_name)
         _setter("scope", scope)
@@ -203,11 +209,11 @@ class _NetworkManagerState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'crossTenantScopes' in kwargs:
+        if cross_tenant_scopes is None and 'crossTenantScopes' in kwargs:
             cross_tenant_scopes = kwargs['crossTenantScopes']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'scopeAccesses' in kwargs:
+        if scope_accesses is None and 'scopeAccesses' in kwargs:
             scope_accesses = kwargs['scopeAccesses']
 
         if cross_tenant_scopes is not None:

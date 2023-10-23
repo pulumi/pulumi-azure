@@ -49,9 +49,9 @@ class NetworkManagerConnectivityConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             applies_to_groups: pulumi.Input[Sequence[pulumi.Input['NetworkManagerConnectivityConfigurationAppliesToGroupArgs']]],
-             connectivity_topology: pulumi.Input[str],
-             network_manager_id: pulumi.Input[str],
+             applies_to_groups: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkManagerConnectivityConfigurationAppliesToGroupArgs']]]] = None,
+             connectivity_topology: Optional[pulumi.Input[str]] = None,
+             network_manager_id: Optional[pulumi.Input[str]] = None,
              delete_existing_peering_enabled: Optional[pulumi.Input[bool]] = None,
              description: Optional[pulumi.Input[str]] = None,
              global_mesh_enabled: Optional[pulumi.Input[bool]] = None,
@@ -59,15 +59,21 @@ class NetworkManagerConnectivityConfigurationArgs:
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'appliesToGroups' in kwargs:
+        if applies_to_groups is None and 'appliesToGroups' in kwargs:
             applies_to_groups = kwargs['appliesToGroups']
-        if 'connectivityTopology' in kwargs:
+        if applies_to_groups is None:
+            raise TypeError("Missing 'applies_to_groups' argument")
+        if connectivity_topology is None and 'connectivityTopology' in kwargs:
             connectivity_topology = kwargs['connectivityTopology']
-        if 'networkManagerId' in kwargs:
+        if connectivity_topology is None:
+            raise TypeError("Missing 'connectivity_topology' argument")
+        if network_manager_id is None and 'networkManagerId' in kwargs:
             network_manager_id = kwargs['networkManagerId']
-        if 'deleteExistingPeeringEnabled' in kwargs:
+        if network_manager_id is None:
+            raise TypeError("Missing 'network_manager_id' argument")
+        if delete_existing_peering_enabled is None and 'deleteExistingPeeringEnabled' in kwargs:
             delete_existing_peering_enabled = kwargs['deleteExistingPeeringEnabled']
-        if 'globalMeshEnabled' in kwargs:
+        if global_mesh_enabled is None and 'globalMeshEnabled' in kwargs:
             global_mesh_enabled = kwargs['globalMeshEnabled']
 
         _setter("applies_to_groups", applies_to_groups)
@@ -227,15 +233,15 @@ class _NetworkManagerConnectivityConfigurationState:
              network_manager_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'appliesToGroups' in kwargs:
+        if applies_to_groups is None and 'appliesToGroups' in kwargs:
             applies_to_groups = kwargs['appliesToGroups']
-        if 'connectivityTopology' in kwargs:
+        if connectivity_topology is None and 'connectivityTopology' in kwargs:
             connectivity_topology = kwargs['connectivityTopology']
-        if 'deleteExistingPeeringEnabled' in kwargs:
+        if delete_existing_peering_enabled is None and 'deleteExistingPeeringEnabled' in kwargs:
             delete_existing_peering_enabled = kwargs['deleteExistingPeeringEnabled']
-        if 'globalMeshEnabled' in kwargs:
+        if global_mesh_enabled is None and 'globalMeshEnabled' in kwargs:
             global_mesh_enabled = kwargs['globalMeshEnabled']
-        if 'networkManagerId' in kwargs:
+        if network_manager_id is None and 'networkManagerId' in kwargs:
             network_manager_id = kwargs['networkManagerId']
 
         if applies_to_groups is not None:

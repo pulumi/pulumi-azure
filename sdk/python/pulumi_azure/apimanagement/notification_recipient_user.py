@@ -32,17 +32,23 @@ class NotificationRecipientUserArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_management_id: pulumi.Input[str],
-             notification_type: pulumi.Input[str],
-             user_id: pulumi.Input[str],
+             api_management_id: Optional[pulumi.Input[str]] = None,
+             notification_type: Optional[pulumi.Input[str]] = None,
+             user_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'apiManagementId' in kwargs:
+        if api_management_id is None and 'apiManagementId' in kwargs:
             api_management_id = kwargs['apiManagementId']
-        if 'notificationType' in kwargs:
+        if api_management_id is None:
+            raise TypeError("Missing 'api_management_id' argument")
+        if notification_type is None and 'notificationType' in kwargs:
             notification_type = kwargs['notificationType']
-        if 'userId' in kwargs:
+        if notification_type is None:
+            raise TypeError("Missing 'notification_type' argument")
+        if user_id is None and 'userId' in kwargs:
             user_id = kwargs['userId']
+        if user_id is None:
+            raise TypeError("Missing 'user_id' argument")
 
         _setter("api_management_id", api_management_id)
         _setter("notification_type", notification_type)
@@ -111,11 +117,11 @@ class _NotificationRecipientUserState:
              user_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'apiManagementId' in kwargs:
+        if api_management_id is None and 'apiManagementId' in kwargs:
             api_management_id = kwargs['apiManagementId']
-        if 'notificationType' in kwargs:
+        if notification_type is None and 'notificationType' in kwargs:
             notification_type = kwargs['notificationType']
-        if 'userId' in kwargs:
+        if user_id is None and 'userId' in kwargs:
             user_id = kwargs['userId']
 
         if api_management_id is not None:

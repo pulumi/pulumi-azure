@@ -32,17 +32,23 @@ class NetworkInterfaceBackendAddressPoolAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             backend_address_pool_id: pulumi.Input[str],
-             ip_configuration_name: pulumi.Input[str],
-             network_interface_id: pulumi.Input[str],
+             backend_address_pool_id: Optional[pulumi.Input[str]] = None,
+             ip_configuration_name: Optional[pulumi.Input[str]] = None,
+             network_interface_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'backendAddressPoolId' in kwargs:
+        if backend_address_pool_id is None and 'backendAddressPoolId' in kwargs:
             backend_address_pool_id = kwargs['backendAddressPoolId']
-        if 'ipConfigurationName' in kwargs:
+        if backend_address_pool_id is None:
+            raise TypeError("Missing 'backend_address_pool_id' argument")
+        if ip_configuration_name is None and 'ipConfigurationName' in kwargs:
             ip_configuration_name = kwargs['ipConfigurationName']
-        if 'networkInterfaceId' in kwargs:
+        if ip_configuration_name is None:
+            raise TypeError("Missing 'ip_configuration_name' argument")
+        if network_interface_id is None and 'networkInterfaceId' in kwargs:
             network_interface_id = kwargs['networkInterfaceId']
+        if network_interface_id is None:
+            raise TypeError("Missing 'network_interface_id' argument")
 
         _setter("backend_address_pool_id", backend_address_pool_id)
         _setter("ip_configuration_name", ip_configuration_name)
@@ -111,11 +117,11 @@ class _NetworkInterfaceBackendAddressPoolAssociationState:
              network_interface_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'backendAddressPoolId' in kwargs:
+        if backend_address_pool_id is None and 'backendAddressPoolId' in kwargs:
             backend_address_pool_id = kwargs['backendAddressPoolId']
-        if 'ipConfigurationName' in kwargs:
+        if ip_configuration_name is None and 'ipConfigurationName' in kwargs:
             ip_configuration_name = kwargs['ipConfigurationName']
-        if 'networkInterfaceId' in kwargs:
+        if network_interface_id is None and 'networkInterfaceId' in kwargs:
             network_interface_id = kwargs['networkInterfaceId']
 
         if backend_address_pool_id is not None:

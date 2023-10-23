@@ -50,10 +50,10 @@ class WebhookArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             automation_account_name: pulumi.Input[str],
-             expiry_time: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             runbook_name: pulumi.Input[str],
+             automation_account_name: Optional[pulumi.Input[str]] = None,
+             expiry_time: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             runbook_name: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -61,15 +61,23 @@ class WebhookArgs:
              uri: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'automationAccountName' in kwargs:
+        if automation_account_name is None and 'automationAccountName' in kwargs:
             automation_account_name = kwargs['automationAccountName']
-        if 'expiryTime' in kwargs:
+        if automation_account_name is None:
+            raise TypeError("Missing 'automation_account_name' argument")
+        if expiry_time is None and 'expiryTime' in kwargs:
             expiry_time = kwargs['expiryTime']
-        if 'resourceGroupName' in kwargs:
+        if expiry_time is None:
+            raise TypeError("Missing 'expiry_time' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'runbookName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if runbook_name is None and 'runbookName' in kwargs:
             runbook_name = kwargs['runbookName']
-        if 'runOnWorkerGroup' in kwargs:
+        if runbook_name is None:
+            raise TypeError("Missing 'runbook_name' argument")
+        if run_on_worker_group is None and 'runOnWorkerGroup' in kwargs:
             run_on_worker_group = kwargs['runOnWorkerGroup']
 
         _setter("automation_account_name", automation_account_name)
@@ -246,15 +254,15 @@ class _WebhookState:
              uri: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'automationAccountName' in kwargs:
+        if automation_account_name is None and 'automationAccountName' in kwargs:
             automation_account_name = kwargs['automationAccountName']
-        if 'expiryTime' in kwargs:
+        if expiry_time is None and 'expiryTime' in kwargs:
             expiry_time = kwargs['expiryTime']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'runOnWorkerGroup' in kwargs:
+        if run_on_worker_group is None and 'runOnWorkerGroup' in kwargs:
             run_on_worker_group = kwargs['runOnWorkerGroup']
-        if 'runbookName' in kwargs:
+        if runbook_name is None and 'runbookName' in kwargs:
             runbook_name = kwargs['runbookName']
 
         if automation_account_name is not None:

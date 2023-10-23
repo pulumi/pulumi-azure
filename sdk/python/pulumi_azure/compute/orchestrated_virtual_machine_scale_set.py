@@ -141,8 +141,8 @@ class OrchestratedVirtualMachineScaleSetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             platform_fault_domain_count: pulumi.Input[int],
-             resource_group_name: pulumi.Input[str],
+             platform_fault_domain_count: Optional[pulumi.Input[int]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              additional_capabilities: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs']] = None,
              automatic_instance_repair: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs']] = None,
              boot_diagnostics: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs']] = None,
@@ -177,55 +177,59 @@ class OrchestratedVirtualMachineScaleSetArgs:
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'platformFaultDomainCount' in kwargs:
+        if platform_fault_domain_count is None and 'platformFaultDomainCount' in kwargs:
             platform_fault_domain_count = kwargs['platformFaultDomainCount']
-        if 'resourceGroupName' in kwargs:
+        if platform_fault_domain_count is None:
+            raise TypeError("Missing 'platform_fault_domain_count' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'additionalCapabilities' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if additional_capabilities is None and 'additionalCapabilities' in kwargs:
             additional_capabilities = kwargs['additionalCapabilities']
-        if 'automaticInstanceRepair' in kwargs:
+        if automatic_instance_repair is None and 'automaticInstanceRepair' in kwargs:
             automatic_instance_repair = kwargs['automaticInstanceRepair']
-        if 'bootDiagnostics' in kwargs:
+        if boot_diagnostics is None and 'bootDiagnostics' in kwargs:
             boot_diagnostics = kwargs['bootDiagnostics']
-        if 'capacityReservationGroupId' in kwargs:
+        if capacity_reservation_group_id is None and 'capacityReservationGroupId' in kwargs:
             capacity_reservation_group_id = kwargs['capacityReservationGroupId']
-        if 'dataDisks' in kwargs:
+        if data_disks is None and 'dataDisks' in kwargs:
             data_disks = kwargs['dataDisks']
-        if 'encryptionAtHostEnabled' in kwargs:
+        if encryption_at_host_enabled is None and 'encryptionAtHostEnabled' in kwargs:
             encryption_at_host_enabled = kwargs['encryptionAtHostEnabled']
-        if 'evictionPolicy' in kwargs:
+        if eviction_policy is None and 'evictionPolicy' in kwargs:
             eviction_policy = kwargs['evictionPolicy']
-        if 'extensionOperationsEnabled' in kwargs:
+        if extension_operations_enabled is None and 'extensionOperationsEnabled' in kwargs:
             extension_operations_enabled = kwargs['extensionOperationsEnabled']
-        if 'extensionsTimeBudget' in kwargs:
+        if extensions_time_budget is None and 'extensionsTimeBudget' in kwargs:
             extensions_time_budget = kwargs['extensionsTimeBudget']
-        if 'licenseType' in kwargs:
+        if license_type is None and 'licenseType' in kwargs:
             license_type = kwargs['licenseType']
-        if 'maxBidPrice' in kwargs:
+        if max_bid_price is None and 'maxBidPrice' in kwargs:
             max_bid_price = kwargs['maxBidPrice']
-        if 'networkInterfaces' in kwargs:
+        if network_interfaces is None and 'networkInterfaces' in kwargs:
             network_interfaces = kwargs['networkInterfaces']
-        if 'osDisk' in kwargs:
+        if os_disk is None and 'osDisk' in kwargs:
             os_disk = kwargs['osDisk']
-        if 'osProfile' in kwargs:
+        if os_profile is None and 'osProfile' in kwargs:
             os_profile = kwargs['osProfile']
-        if 'priorityMix' in kwargs:
+        if priority_mix is None and 'priorityMix' in kwargs:
             priority_mix = kwargs['priorityMix']
-        if 'proximityPlacementGroupId' in kwargs:
+        if proximity_placement_group_id is None and 'proximityPlacementGroupId' in kwargs:
             proximity_placement_group_id = kwargs['proximityPlacementGroupId']
-        if 'singlePlacementGroup' in kwargs:
+        if single_placement_group is None and 'singlePlacementGroup' in kwargs:
             single_placement_group = kwargs['singlePlacementGroup']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'sourceImageId' in kwargs:
+        if source_image_id is None and 'sourceImageId' in kwargs:
             source_image_id = kwargs['sourceImageId']
-        if 'sourceImageReference' in kwargs:
+        if source_image_reference is None and 'sourceImageReference' in kwargs:
             source_image_reference = kwargs['sourceImageReference']
-        if 'terminationNotification' in kwargs:
+        if termination_notification is None and 'terminationNotification' in kwargs:
             termination_notification = kwargs['terminationNotification']
-        if 'userDataBase64' in kwargs:
+        if user_data_base64 is None and 'userDataBase64' in kwargs:
             user_data_base64 = kwargs['userDataBase64']
-        if 'zoneBalance' in kwargs:
+        if zone_balance is None and 'zoneBalance' in kwargs:
             zone_balance = kwargs['zoneBalance']
 
         _setter("platform_fault_domain_count", platform_fault_domain_count)
@@ -886,57 +890,57 @@ class _OrchestratedVirtualMachineScaleSetState:
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'additionalCapabilities' in kwargs:
+        if additional_capabilities is None and 'additionalCapabilities' in kwargs:
             additional_capabilities = kwargs['additionalCapabilities']
-        if 'automaticInstanceRepair' in kwargs:
+        if automatic_instance_repair is None and 'automaticInstanceRepair' in kwargs:
             automatic_instance_repair = kwargs['automaticInstanceRepair']
-        if 'bootDiagnostics' in kwargs:
+        if boot_diagnostics is None and 'bootDiagnostics' in kwargs:
             boot_diagnostics = kwargs['bootDiagnostics']
-        if 'capacityReservationGroupId' in kwargs:
+        if capacity_reservation_group_id is None and 'capacityReservationGroupId' in kwargs:
             capacity_reservation_group_id = kwargs['capacityReservationGroupId']
-        if 'dataDisks' in kwargs:
+        if data_disks is None and 'dataDisks' in kwargs:
             data_disks = kwargs['dataDisks']
-        if 'encryptionAtHostEnabled' in kwargs:
+        if encryption_at_host_enabled is None and 'encryptionAtHostEnabled' in kwargs:
             encryption_at_host_enabled = kwargs['encryptionAtHostEnabled']
-        if 'evictionPolicy' in kwargs:
+        if eviction_policy is None and 'evictionPolicy' in kwargs:
             eviction_policy = kwargs['evictionPolicy']
-        if 'extensionOperationsEnabled' in kwargs:
+        if extension_operations_enabled is None and 'extensionOperationsEnabled' in kwargs:
             extension_operations_enabled = kwargs['extensionOperationsEnabled']
-        if 'extensionsTimeBudget' in kwargs:
+        if extensions_time_budget is None and 'extensionsTimeBudget' in kwargs:
             extensions_time_budget = kwargs['extensionsTimeBudget']
-        if 'licenseType' in kwargs:
+        if license_type is None and 'licenseType' in kwargs:
             license_type = kwargs['licenseType']
-        if 'maxBidPrice' in kwargs:
+        if max_bid_price is None and 'maxBidPrice' in kwargs:
             max_bid_price = kwargs['maxBidPrice']
-        if 'networkInterfaces' in kwargs:
+        if network_interfaces is None and 'networkInterfaces' in kwargs:
             network_interfaces = kwargs['networkInterfaces']
-        if 'osDisk' in kwargs:
+        if os_disk is None and 'osDisk' in kwargs:
             os_disk = kwargs['osDisk']
-        if 'osProfile' in kwargs:
+        if os_profile is None and 'osProfile' in kwargs:
             os_profile = kwargs['osProfile']
-        if 'platformFaultDomainCount' in kwargs:
+        if platform_fault_domain_count is None and 'platformFaultDomainCount' in kwargs:
             platform_fault_domain_count = kwargs['platformFaultDomainCount']
-        if 'priorityMix' in kwargs:
+        if priority_mix is None and 'priorityMix' in kwargs:
             priority_mix = kwargs['priorityMix']
-        if 'proximityPlacementGroupId' in kwargs:
+        if proximity_placement_group_id is None and 'proximityPlacementGroupId' in kwargs:
             proximity_placement_group_id = kwargs['proximityPlacementGroupId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'singlePlacementGroup' in kwargs:
+        if single_placement_group is None and 'singlePlacementGroup' in kwargs:
             single_placement_group = kwargs['singlePlacementGroup']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'sourceImageId' in kwargs:
+        if source_image_id is None and 'sourceImageId' in kwargs:
             source_image_id = kwargs['sourceImageId']
-        if 'sourceImageReference' in kwargs:
+        if source_image_reference is None and 'sourceImageReference' in kwargs:
             source_image_reference = kwargs['sourceImageReference']
-        if 'terminationNotification' in kwargs:
+        if termination_notification is None and 'terminationNotification' in kwargs:
             termination_notification = kwargs['terminationNotification']
-        if 'uniqueId' in kwargs:
+        if unique_id is None and 'uniqueId' in kwargs:
             unique_id = kwargs['uniqueId']
-        if 'userDataBase64' in kwargs:
+        if user_data_base64 is None and 'userDataBase64' in kwargs:
             user_data_base64 = kwargs['userDataBase64']
-        if 'zoneBalance' in kwargs:
+        if zone_balance is None and 'zoneBalance' in kwargs:
             zone_balance = kwargs['zoneBalance']
 
         if additional_capabilities is not None:

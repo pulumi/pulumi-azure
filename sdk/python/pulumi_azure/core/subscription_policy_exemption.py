@@ -50,9 +50,9 @@ class SubscriptionPolicyExemptionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             exemption_category: pulumi.Input[str],
-             policy_assignment_id: pulumi.Input[str],
-             subscription_id: pulumi.Input[str],
+             exemption_category: Optional[pulumi.Input[str]] = None,
+             policy_assignment_id: Optional[pulumi.Input[str]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              display_name: Optional[pulumi.Input[str]] = None,
              expires_on: Optional[pulumi.Input[str]] = None,
@@ -61,17 +61,23 @@ class SubscriptionPolicyExemptionArgs:
              policy_definition_reference_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'exemptionCategory' in kwargs:
+        if exemption_category is None and 'exemptionCategory' in kwargs:
             exemption_category = kwargs['exemptionCategory']
-        if 'policyAssignmentId' in kwargs:
+        if exemption_category is None:
+            raise TypeError("Missing 'exemption_category' argument")
+        if policy_assignment_id is None and 'policyAssignmentId' in kwargs:
             policy_assignment_id = kwargs['policyAssignmentId']
-        if 'subscriptionId' in kwargs:
+        if policy_assignment_id is None:
+            raise TypeError("Missing 'policy_assignment_id' argument")
+        if subscription_id is None and 'subscriptionId' in kwargs:
             subscription_id = kwargs['subscriptionId']
-        if 'displayName' in kwargs:
+        if subscription_id is None:
+            raise TypeError("Missing 'subscription_id' argument")
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'expiresOn' in kwargs:
+        if expires_on is None and 'expiresOn' in kwargs:
             expires_on = kwargs['expiresOn']
-        if 'policyDefinitionReferenceIds' in kwargs:
+        if policy_definition_reference_ids is None and 'policyDefinitionReferenceIds' in kwargs:
             policy_definition_reference_ids = kwargs['policyDefinitionReferenceIds']
 
         _setter("exemption_category", exemption_category)
@@ -249,17 +255,17 @@ class _SubscriptionPolicyExemptionState:
              subscription_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'exemptionCategory' in kwargs:
+        if exemption_category is None and 'exemptionCategory' in kwargs:
             exemption_category = kwargs['exemptionCategory']
-        if 'expiresOn' in kwargs:
+        if expires_on is None and 'expiresOn' in kwargs:
             expires_on = kwargs['expiresOn']
-        if 'policyAssignmentId' in kwargs:
+        if policy_assignment_id is None and 'policyAssignmentId' in kwargs:
             policy_assignment_id = kwargs['policyAssignmentId']
-        if 'policyDefinitionReferenceIds' in kwargs:
+        if policy_definition_reference_ids is None and 'policyDefinitionReferenceIds' in kwargs:
             policy_definition_reference_ids = kwargs['policyDefinitionReferenceIds']
-        if 'subscriptionId' in kwargs:
+        if subscription_id is None and 'subscriptionId' in kwargs:
             subscription_id = kwargs['subscriptionId']
 
         if description is not None:

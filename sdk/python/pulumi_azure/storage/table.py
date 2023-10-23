@@ -34,13 +34,15 @@ class TableArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             storage_account_name: pulumi.Input[str],
+             storage_account_name: Optional[pulumi.Input[str]] = None,
              acls: Optional[pulumi.Input[Sequence[pulumi.Input['TableAclArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'storageAccountName' in kwargs:
+        if storage_account_name is None and 'storageAccountName' in kwargs:
             storage_account_name = kwargs['storageAccountName']
+        if storage_account_name is None:
+            raise TypeError("Missing 'storage_account_name' argument")
 
         _setter("storage_account_name", storage_account_name)
         if acls is not None:
@@ -111,7 +113,7 @@ class _TableState:
              storage_account_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'storageAccountName' in kwargs:
+        if storage_account_name is None and 'storageAccountName' in kwargs:
             storage_account_name = kwargs['storageAccountName']
 
         if acls is not None:

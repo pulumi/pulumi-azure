@@ -35,18 +35,24 @@ class SpringCloudStorageArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             spring_cloud_service_id: pulumi.Input[str],
-             storage_account_key: pulumi.Input[str],
-             storage_account_name: pulumi.Input[str],
+             spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
+             storage_account_key: Optional[pulumi.Input[str]] = None,
+             storage_account_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'springCloudServiceId' in kwargs:
+        if spring_cloud_service_id is None and 'springCloudServiceId' in kwargs:
             spring_cloud_service_id = kwargs['springCloudServiceId']
-        if 'storageAccountKey' in kwargs:
+        if spring_cloud_service_id is None:
+            raise TypeError("Missing 'spring_cloud_service_id' argument")
+        if storage_account_key is None and 'storageAccountKey' in kwargs:
             storage_account_key = kwargs['storageAccountKey']
-        if 'storageAccountName' in kwargs:
+        if storage_account_key is None:
+            raise TypeError("Missing 'storage_account_key' argument")
+        if storage_account_name is None and 'storageAccountName' in kwargs:
             storage_account_name = kwargs['storageAccountName']
+        if storage_account_name is None:
+            raise TypeError("Missing 'storage_account_name' argument")
 
         _setter("spring_cloud_service_id", spring_cloud_service_id)
         _setter("storage_account_key", storage_account_key)
@@ -133,11 +139,11 @@ class _SpringCloudStorageState:
              storage_account_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'springCloudServiceId' in kwargs:
+        if spring_cloud_service_id is None and 'springCloudServiceId' in kwargs:
             spring_cloud_service_id = kwargs['springCloudServiceId']
-        if 'storageAccountKey' in kwargs:
+        if storage_account_key is None and 'storageAccountKey' in kwargs:
             storage_account_key = kwargs['storageAccountKey']
-        if 'storageAccountName' in kwargs:
+        if storage_account_name is None and 'storageAccountName' in kwargs:
             storage_account_name = kwargs['storageAccountName']
 
         if name is not None:

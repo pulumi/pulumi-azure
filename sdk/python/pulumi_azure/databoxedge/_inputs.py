@@ -76,17 +76,17 @@ class DeviceDevicePropertyArgs:
              type: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'configuredRoleTypes' in kwargs:
+        if configured_role_types is None and 'configuredRoleTypes' in kwargs:
             configured_role_types = kwargs['configuredRoleTypes']
-        if 'hcsVersion' in kwargs:
+        if hcs_version is None and 'hcsVersion' in kwargs:
             hcs_version = kwargs['hcsVersion']
-        if 'nodeCount' in kwargs:
+        if node_count is None and 'nodeCount' in kwargs:
             node_count = kwargs['nodeCount']
-        if 'serialNumber' in kwargs:
+        if serial_number is None and 'serialNumber' in kwargs:
             serial_number = kwargs['serialNumber']
-        if 'softwareVersion' in kwargs:
+        if software_version is None and 'softwareVersion' in kwargs:
             software_version = kwargs['softwareVersion']
-        if 'timeZone' in kwargs:
+        if time_zone is None and 'timeZone' in kwargs:
             time_zone = kwargs['timeZone']
 
         if capacity is not None:
@@ -268,16 +268,24 @@ class OrderContactArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             company_name: pulumi.Input[str],
-             emails: pulumi.Input[Sequence[pulumi.Input[str]]],
-             name: pulumi.Input[str],
-             phone_number: pulumi.Input[str],
+             company_name: Optional[pulumi.Input[str]] = None,
+             emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             phone_number: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'companyName' in kwargs:
+        if company_name is None and 'companyName' in kwargs:
             company_name = kwargs['companyName']
-        if 'phoneNumber' in kwargs:
+        if company_name is None:
+            raise TypeError("Missing 'company_name' argument")
+        if emails is None:
+            raise TypeError("Missing 'emails' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if phone_number is None and 'phoneNumber' in kwargs:
             phone_number = kwargs['phoneNumber']
+        if phone_number is None:
+            raise TypeError("Missing 'phone_number' argument")
 
         _setter("company_name", company_name)
         _setter("emails", emails)
@@ -362,13 +370,13 @@ class OrderReturnTrackingArgs:
              tracking_url: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'carrierName' in kwargs:
+        if carrier_name is None and 'carrierName' in kwargs:
             carrier_name = kwargs['carrierName']
-        if 'serialNumber' in kwargs:
+        if serial_number is None and 'serialNumber' in kwargs:
             serial_number = kwargs['serialNumber']
-        if 'trackingId' in kwargs:
+        if tracking_id is None and 'trackingId' in kwargs:
             tracking_id = kwargs['trackingId']
-        if 'trackingUrl' in kwargs:
+        if tracking_url is None and 'trackingUrl' in kwargs:
             tracking_url = kwargs['trackingUrl']
 
         if carrier_name is not None:
@@ -455,15 +463,25 @@ class OrderShipmentAddressArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             addresses: pulumi.Input[Sequence[pulumi.Input[str]]],
-             city: pulumi.Input[str],
-             country: pulumi.Input[str],
-             postal_code: pulumi.Input[str],
-             state: pulumi.Input[str],
+             addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             city: Optional[pulumi.Input[str]] = None,
+             country: Optional[pulumi.Input[str]] = None,
+             postal_code: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'postalCode' in kwargs:
+        if addresses is None:
+            raise TypeError("Missing 'addresses' argument")
+        if city is None:
+            raise TypeError("Missing 'city' argument")
+        if country is None:
+            raise TypeError("Missing 'country' argument")
+        if postal_code is None and 'postalCode' in kwargs:
             postal_code = kwargs['postalCode']
+        if postal_code is None:
+            raise TypeError("Missing 'postal_code' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
 
         _setter("addresses", addresses)
         _setter("city", city)
@@ -557,9 +575,9 @@ class OrderShipmentHistoryArgs:
              last_update: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'additionalDetails' in kwargs:
+        if additional_details is None and 'additionalDetails' in kwargs:
             additional_details = kwargs['additionalDetails']
-        if 'lastUpdate' in kwargs:
+        if last_update is None and 'lastUpdate' in kwargs:
             last_update = kwargs['lastUpdate']
 
         if additional_details is not None:
@@ -635,13 +653,13 @@ class OrderShipmentTrackingArgs:
              tracking_url: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'carrierName' in kwargs:
+        if carrier_name is None and 'carrierName' in kwargs:
             carrier_name = kwargs['carrierName']
-        if 'serialNumber' in kwargs:
+        if serial_number is None and 'serialNumber' in kwargs:
             serial_number = kwargs['serialNumber']
-        if 'trackingId' in kwargs:
+        if tracking_id is None and 'trackingId' in kwargs:
             tracking_id = kwargs['trackingId']
-        if 'trackingUrl' in kwargs:
+        if tracking_url is None and 'trackingUrl' in kwargs:
             tracking_url = kwargs['trackingUrl']
 
         if carrier_name is not None:
@@ -731,9 +749,9 @@ class OrderStatusArgs:
              last_update: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'additionalDetails' in kwargs:
+        if additional_details is None and 'additionalDetails' in kwargs:
             additional_details = kwargs['additionalDetails']
-        if 'lastUpdate' in kwargs:
+        if last_update is None and 'lastUpdate' in kwargs:
             last_update = kwargs['lastUpdate']
 
         if additional_details is not None:

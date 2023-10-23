@@ -36,16 +36,18 @@ class ManagedInstanceTransparentDataEncryptionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             managed_instance_id: pulumi.Input[str],
+             managed_instance_id: Optional[pulumi.Input[str]] = None,
              auto_rotation_enabled: Optional[pulumi.Input[bool]] = None,
              key_vault_key_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'managedInstanceId' in kwargs:
+        if managed_instance_id is None and 'managedInstanceId' in kwargs:
             managed_instance_id = kwargs['managedInstanceId']
-        if 'autoRotationEnabled' in kwargs:
+        if managed_instance_id is None:
+            raise TypeError("Missing 'managed_instance_id' argument")
+        if auto_rotation_enabled is None and 'autoRotationEnabled' in kwargs:
             auto_rotation_enabled = kwargs['autoRotationEnabled']
-        if 'keyVaultKeyId' in kwargs:
+        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
             key_vault_key_id = kwargs['keyVaultKeyId']
 
         _setter("managed_instance_id", managed_instance_id)
@@ -125,11 +127,11 @@ class _ManagedInstanceTransparentDataEncryptionState:
              managed_instance_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'autoRotationEnabled' in kwargs:
+        if auto_rotation_enabled is None and 'autoRotationEnabled' in kwargs:
             auto_rotation_enabled = kwargs['autoRotationEnabled']
-        if 'keyVaultKeyId' in kwargs:
+        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
             key_vault_key_id = kwargs['keyVaultKeyId']
-        if 'managedInstanceId' in kwargs:
+        if managed_instance_id is None and 'managedInstanceId' in kwargs:
             managed_instance_id = kwargs['managedInstanceId']
 
         if auto_rotation_enabled is not None:

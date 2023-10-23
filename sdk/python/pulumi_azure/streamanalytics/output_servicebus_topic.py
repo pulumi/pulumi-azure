@@ -60,11 +60,11 @@ class OutputServicebusTopicArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             serialization: pulumi.Input['OutputServicebusTopicSerializationArgs'],
-             servicebus_namespace: pulumi.Input[str],
-             stream_analytics_job_name: pulumi.Input[str],
-             topic_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             serialization: Optional[pulumi.Input['OutputServicebusTopicSerializationArgs']] = None,
+             servicebus_namespace: Optional[pulumi.Input[str]] = None,
+             stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
+             topic_name: Optional[pulumi.Input[str]] = None,
              authentication_mode: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              property_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -73,23 +73,33 @@ class OutputServicebusTopicArgs:
              system_property_columns: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'servicebusNamespace' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if serialization is None:
+            raise TypeError("Missing 'serialization' argument")
+        if servicebus_namespace is None and 'servicebusNamespace' in kwargs:
             servicebus_namespace = kwargs['servicebusNamespace']
-        if 'streamAnalyticsJobName' in kwargs:
+        if servicebus_namespace is None:
+            raise TypeError("Missing 'servicebus_namespace' argument")
+        if stream_analytics_job_name is None and 'streamAnalyticsJobName' in kwargs:
             stream_analytics_job_name = kwargs['streamAnalyticsJobName']
-        if 'topicName' in kwargs:
+        if stream_analytics_job_name is None:
+            raise TypeError("Missing 'stream_analytics_job_name' argument")
+        if topic_name is None and 'topicName' in kwargs:
             topic_name = kwargs['topicName']
-        if 'authenticationMode' in kwargs:
+        if topic_name is None:
+            raise TypeError("Missing 'topic_name' argument")
+        if authentication_mode is None and 'authenticationMode' in kwargs:
             authentication_mode = kwargs['authenticationMode']
-        if 'propertyColumns' in kwargs:
+        if property_columns is None and 'propertyColumns' in kwargs:
             property_columns = kwargs['propertyColumns']
-        if 'sharedAccessPolicyKey' in kwargs:
+        if shared_access_policy_key is None and 'sharedAccessPolicyKey' in kwargs:
             shared_access_policy_key = kwargs['sharedAccessPolicyKey']
-        if 'sharedAccessPolicyName' in kwargs:
+        if shared_access_policy_name is None and 'sharedAccessPolicyName' in kwargs:
             shared_access_policy_name = kwargs['sharedAccessPolicyName']
-        if 'systemPropertyColumns' in kwargs:
+        if system_property_columns is None and 'systemPropertyColumns' in kwargs:
             system_property_columns = kwargs['systemPropertyColumns']
 
         _setter("resource_group_name", resource_group_name)
@@ -305,23 +315,23 @@ class _OutputServicebusTopicState:
              topic_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'authenticationMode' in kwargs:
+        if authentication_mode is None and 'authenticationMode' in kwargs:
             authentication_mode = kwargs['authenticationMode']
-        if 'propertyColumns' in kwargs:
+        if property_columns is None and 'propertyColumns' in kwargs:
             property_columns = kwargs['propertyColumns']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'servicebusNamespace' in kwargs:
+        if servicebus_namespace is None and 'servicebusNamespace' in kwargs:
             servicebus_namespace = kwargs['servicebusNamespace']
-        if 'sharedAccessPolicyKey' in kwargs:
+        if shared_access_policy_key is None and 'sharedAccessPolicyKey' in kwargs:
             shared_access_policy_key = kwargs['sharedAccessPolicyKey']
-        if 'sharedAccessPolicyName' in kwargs:
+        if shared_access_policy_name is None and 'sharedAccessPolicyName' in kwargs:
             shared_access_policy_name = kwargs['sharedAccessPolicyName']
-        if 'streamAnalyticsJobName' in kwargs:
+        if stream_analytics_job_name is None and 'streamAnalyticsJobName' in kwargs:
             stream_analytics_job_name = kwargs['streamAnalyticsJobName']
-        if 'systemPropertyColumns' in kwargs:
+        if system_property_columns is None and 'systemPropertyColumns' in kwargs:
             system_property_columns = kwargs['systemPropertyColumns']
-        if 'topicName' in kwargs:
+        if topic_name is None and 'topicName' in kwargs:
             topic_name = kwargs['topicName']
 
         if authentication_mode is not None:

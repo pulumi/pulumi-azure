@@ -50,7 +50,7 @@ class IntegrationRuntimeRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_factory_id: pulumi.Input[str],
+             data_factory_id: Optional[pulumi.Input[str]] = None,
              cleanup_enabled: Optional[pulumi.Input[bool]] = None,
              compute_type: Optional[pulumi.Input[str]] = None,
              core_count: Optional[pulumi.Input[int]] = None,
@@ -61,17 +61,19 @@ class IntegrationRuntimeRuleArgs:
              virtual_network_enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'cleanupEnabled' in kwargs:
+        if data_factory_id is None:
+            raise TypeError("Missing 'data_factory_id' argument")
+        if cleanup_enabled is None and 'cleanupEnabled' in kwargs:
             cleanup_enabled = kwargs['cleanupEnabled']
-        if 'computeType' in kwargs:
+        if compute_type is None and 'computeType' in kwargs:
             compute_type = kwargs['computeType']
-        if 'coreCount' in kwargs:
+        if core_count is None and 'coreCount' in kwargs:
             core_count = kwargs['coreCount']
-        if 'timeToLiveMin' in kwargs:
+        if time_to_live_min is None and 'timeToLiveMin' in kwargs:
             time_to_live_min = kwargs['timeToLiveMin']
-        if 'virtualNetworkEnabled' in kwargs:
+        if virtual_network_enabled is None and 'virtualNetworkEnabled' in kwargs:
             virtual_network_enabled = kwargs['virtualNetworkEnabled']
 
         _setter("data_factory_id", data_factory_id)
@@ -251,17 +253,17 @@ class _IntegrationRuntimeRuleState:
              virtual_network_enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'cleanupEnabled' in kwargs:
+        if cleanup_enabled is None and 'cleanupEnabled' in kwargs:
             cleanup_enabled = kwargs['cleanupEnabled']
-        if 'computeType' in kwargs:
+        if compute_type is None and 'computeType' in kwargs:
             compute_type = kwargs['computeType']
-        if 'coreCount' in kwargs:
+        if core_count is None and 'coreCount' in kwargs:
             core_count = kwargs['coreCount']
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'timeToLiveMin' in kwargs:
+        if time_to_live_min is None and 'timeToLiveMin' in kwargs:
             time_to_live_min = kwargs['timeToLiveMin']
-        if 'virtualNetworkEnabled' in kwargs:
+        if virtual_network_enabled is None and 'virtualNetworkEnabled' in kwargs:
             virtual_network_enabled = kwargs['virtualNetworkEnabled']
 
         if cleanup_enabled is not None:

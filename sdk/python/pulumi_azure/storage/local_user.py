@@ -46,7 +46,7 @@ class LocalUserArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             storage_account_id: pulumi.Input[str],
+             storage_account_id: Optional[pulumi.Input[str]] = None,
              home_directory: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              permission_scopes: Optional[pulumi.Input[Sequence[pulumi.Input['LocalUserPermissionScopeArgs']]]] = None,
@@ -55,17 +55,19 @@ class LocalUserArgs:
              ssh_password_enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'homeDirectory' in kwargs:
+        if storage_account_id is None:
+            raise TypeError("Missing 'storage_account_id' argument")
+        if home_directory is None and 'homeDirectory' in kwargs:
             home_directory = kwargs['homeDirectory']
-        if 'permissionScopes' in kwargs:
+        if permission_scopes is None and 'permissionScopes' in kwargs:
             permission_scopes = kwargs['permissionScopes']
-        if 'sshAuthorizedKeys' in kwargs:
+        if ssh_authorized_keys is None and 'sshAuthorizedKeys' in kwargs:
             ssh_authorized_keys = kwargs['sshAuthorizedKeys']
-        if 'sshKeyEnabled' in kwargs:
+        if ssh_key_enabled is None and 'sshKeyEnabled' in kwargs:
             ssh_key_enabled = kwargs['sshKeyEnabled']
-        if 'sshPasswordEnabled' in kwargs:
+        if ssh_password_enabled is None and 'sshPasswordEnabled' in kwargs:
             ssh_password_enabled = kwargs['sshPasswordEnabled']
 
         _setter("storage_account_id", storage_account_id)
@@ -217,17 +219,17 @@ class _LocalUserState:
              storage_account_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'homeDirectory' in kwargs:
+        if home_directory is None and 'homeDirectory' in kwargs:
             home_directory = kwargs['homeDirectory']
-        if 'permissionScopes' in kwargs:
+        if permission_scopes is None and 'permissionScopes' in kwargs:
             permission_scopes = kwargs['permissionScopes']
-        if 'sshAuthorizedKeys' in kwargs:
+        if ssh_authorized_keys is None and 'sshAuthorizedKeys' in kwargs:
             ssh_authorized_keys = kwargs['sshAuthorizedKeys']
-        if 'sshKeyEnabled' in kwargs:
+        if ssh_key_enabled is None and 'sshKeyEnabled' in kwargs:
             ssh_key_enabled = kwargs['sshKeyEnabled']
-        if 'sshPasswordEnabled' in kwargs:
+        if ssh_password_enabled is None and 'sshPasswordEnabled' in kwargs:
             ssh_password_enabled = kwargs['sshPasswordEnabled']
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
 
         if home_directory is not None:

@@ -38,22 +38,24 @@ class StorageDefenderArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             storage_account_id: pulumi.Input[str],
+             storage_account_id: Optional[pulumi.Input[str]] = None,
              malware_scanning_on_upload_cap_gb_per_month: Optional[pulumi.Input[int]] = None,
              malware_scanning_on_upload_enabled: Optional[pulumi.Input[bool]] = None,
              override_subscription_settings_enabled: Optional[pulumi.Input[bool]] = None,
              sensitive_data_discovery_enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'malwareScanningOnUploadCapGbPerMonth' in kwargs:
+        if storage_account_id is None:
+            raise TypeError("Missing 'storage_account_id' argument")
+        if malware_scanning_on_upload_cap_gb_per_month is None and 'malwareScanningOnUploadCapGbPerMonth' in kwargs:
             malware_scanning_on_upload_cap_gb_per_month = kwargs['malwareScanningOnUploadCapGbPerMonth']
-        if 'malwareScanningOnUploadEnabled' in kwargs:
+        if malware_scanning_on_upload_enabled is None and 'malwareScanningOnUploadEnabled' in kwargs:
             malware_scanning_on_upload_enabled = kwargs['malwareScanningOnUploadEnabled']
-        if 'overrideSubscriptionSettingsEnabled' in kwargs:
+        if override_subscription_settings_enabled is None and 'overrideSubscriptionSettingsEnabled' in kwargs:
             override_subscription_settings_enabled = kwargs['overrideSubscriptionSettingsEnabled']
-        if 'sensitiveDataDiscoveryEnabled' in kwargs:
+        if sensitive_data_discovery_enabled is None and 'sensitiveDataDiscoveryEnabled' in kwargs:
             sensitive_data_discovery_enabled = kwargs['sensitiveDataDiscoveryEnabled']
 
         _setter("storage_account_id", storage_account_id)
@@ -161,15 +163,15 @@ class _StorageDefenderState:
              storage_account_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'malwareScanningOnUploadCapGbPerMonth' in kwargs:
+        if malware_scanning_on_upload_cap_gb_per_month is None and 'malwareScanningOnUploadCapGbPerMonth' in kwargs:
             malware_scanning_on_upload_cap_gb_per_month = kwargs['malwareScanningOnUploadCapGbPerMonth']
-        if 'malwareScanningOnUploadEnabled' in kwargs:
+        if malware_scanning_on_upload_enabled is None and 'malwareScanningOnUploadEnabled' in kwargs:
             malware_scanning_on_upload_enabled = kwargs['malwareScanningOnUploadEnabled']
-        if 'overrideSubscriptionSettingsEnabled' in kwargs:
+        if override_subscription_settings_enabled is None and 'overrideSubscriptionSettingsEnabled' in kwargs:
             override_subscription_settings_enabled = kwargs['overrideSubscriptionSettingsEnabled']
-        if 'sensitiveDataDiscoveryEnabled' in kwargs:
+        if sensitive_data_discovery_enabled is None and 'sensitiveDataDiscoveryEnabled' in kwargs:
             sensitive_data_discovery_enabled = kwargs['sensitiveDataDiscoveryEnabled']
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
 
         if malware_scanning_on_upload_cap_gb_per_month is not None:

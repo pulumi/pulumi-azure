@@ -67,7 +67,7 @@ class TriggerScheduleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_factory_id: pulumi.Input[str],
+             data_factory_id: Optional[pulumi.Input[str]] = None,
              activated: Optional[pulumi.Input[bool]] = None,
              annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -83,17 +83,19 @@ class TriggerScheduleArgs:
              time_zone: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'endTime' in kwargs:
+        if data_factory_id is None:
+            raise TypeError("Missing 'data_factory_id' argument")
+        if end_time is None and 'endTime' in kwargs:
             end_time = kwargs['endTime']
-        if 'pipelineName' in kwargs:
+        if pipeline_name is None and 'pipelineName' in kwargs:
             pipeline_name = kwargs['pipelineName']
-        if 'pipelineParameters' in kwargs:
+        if pipeline_parameters is None and 'pipelineParameters' in kwargs:
             pipeline_parameters = kwargs['pipelineParameters']
-        if 'startTime' in kwargs:
+        if start_time is None and 'startTime' in kwargs:
             start_time = kwargs['startTime']
-        if 'timeZone' in kwargs:
+        if time_zone is None and 'timeZone' in kwargs:
             time_zone = kwargs['timeZone']
 
         _setter("data_factory_id", data_factory_id)
@@ -363,17 +365,17 @@ class _TriggerScheduleState:
              time_zone: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'endTime' in kwargs:
+        if end_time is None and 'endTime' in kwargs:
             end_time = kwargs['endTime']
-        if 'pipelineName' in kwargs:
+        if pipeline_name is None and 'pipelineName' in kwargs:
             pipeline_name = kwargs['pipelineName']
-        if 'pipelineParameters' in kwargs:
+        if pipeline_parameters is None and 'pipelineParameters' in kwargs:
             pipeline_parameters = kwargs['pipelineParameters']
-        if 'startTime' in kwargs:
+        if start_time is None and 'startTime' in kwargs:
             start_time = kwargs['startTime']
-        if 'timeZone' in kwargs:
+        if time_zone is None and 'timeZone' in kwargs:
             time_zone = kwargs['timeZone']
 
         if activated is not None:

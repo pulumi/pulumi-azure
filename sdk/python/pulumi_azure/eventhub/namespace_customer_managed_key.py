@@ -32,16 +32,20 @@ class NamespaceCustomerManagedKeyInitArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             eventhub_namespace_id: pulumi.Input[str],
-             key_vault_key_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             eventhub_namespace_id: Optional[pulumi.Input[str]] = None,
+             key_vault_key_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'eventhubNamespaceId' in kwargs:
+        if eventhub_namespace_id is None and 'eventhubNamespaceId' in kwargs:
             eventhub_namespace_id = kwargs['eventhubNamespaceId']
-        if 'keyVaultKeyIds' in kwargs:
+        if eventhub_namespace_id is None:
+            raise TypeError("Missing 'eventhub_namespace_id' argument")
+        if key_vault_key_ids is None and 'keyVaultKeyIds' in kwargs:
             key_vault_key_ids = kwargs['keyVaultKeyIds']
-        if 'infrastructureEncryptionEnabled' in kwargs:
+        if key_vault_key_ids is None:
+            raise TypeError("Missing 'key_vault_key_ids' argument")
+        if infrastructure_encryption_enabled is None and 'infrastructureEncryptionEnabled' in kwargs:
             infrastructure_encryption_enabled = kwargs['infrastructureEncryptionEnabled']
 
         _setter("eventhub_namespace_id", eventhub_namespace_id)
@@ -112,11 +116,11 @@ class _NamespaceCustomerManagedKeyState:
              key_vault_key_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'eventhubNamespaceId' in kwargs:
+        if eventhub_namespace_id is None and 'eventhubNamespaceId' in kwargs:
             eventhub_namespace_id = kwargs['eventhubNamespaceId']
-        if 'infrastructureEncryptionEnabled' in kwargs:
+        if infrastructure_encryption_enabled is None and 'infrastructureEncryptionEnabled' in kwargs:
             infrastructure_encryption_enabled = kwargs['infrastructureEncryptionEnabled']
-        if 'keyVaultKeyIds' in kwargs:
+        if key_vault_key_ids is None and 'keyVaultKeyIds' in kwargs:
             key_vault_key_ids = kwargs['keyVaultKeyIds']
 
         if eventhub_namespace_id is not None:

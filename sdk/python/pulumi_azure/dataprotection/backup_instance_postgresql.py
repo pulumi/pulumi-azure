@@ -41,21 +41,27 @@ class BackupInstancePostgresqlArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             backup_policy_id: pulumi.Input[str],
-             database_id: pulumi.Input[str],
-             vault_id: pulumi.Input[str],
+             backup_policy_id: Optional[pulumi.Input[str]] = None,
+             database_id: Optional[pulumi.Input[str]] = None,
+             vault_id: Optional[pulumi.Input[str]] = None,
              database_credential_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'backupPolicyId' in kwargs:
+        if backup_policy_id is None and 'backupPolicyId' in kwargs:
             backup_policy_id = kwargs['backupPolicyId']
-        if 'databaseId' in kwargs:
+        if backup_policy_id is None:
+            raise TypeError("Missing 'backup_policy_id' argument")
+        if database_id is None and 'databaseId' in kwargs:
             database_id = kwargs['databaseId']
-        if 'vaultId' in kwargs:
+        if database_id is None:
+            raise TypeError("Missing 'database_id' argument")
+        if vault_id is None and 'vaultId' in kwargs:
             vault_id = kwargs['vaultId']
-        if 'databaseCredentialKeyVaultSecretId' in kwargs:
+        if vault_id is None:
+            raise TypeError("Missing 'vault_id' argument")
+        if database_credential_key_vault_secret_id is None and 'databaseCredentialKeyVaultSecretId' in kwargs:
             database_credential_key_vault_secret_id = kwargs['databaseCredentialKeyVaultSecretId']
 
         _setter("backup_policy_id", backup_policy_id)
@@ -179,13 +185,13 @@ class _BackupInstancePostgresqlState:
              vault_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'backupPolicyId' in kwargs:
+        if backup_policy_id is None and 'backupPolicyId' in kwargs:
             backup_policy_id = kwargs['backupPolicyId']
-        if 'databaseCredentialKeyVaultSecretId' in kwargs:
+        if database_credential_key_vault_secret_id is None and 'databaseCredentialKeyVaultSecretId' in kwargs:
             database_credential_key_vault_secret_id = kwargs['databaseCredentialKeyVaultSecretId']
-        if 'databaseId' in kwargs:
+        if database_id is None and 'databaseId' in kwargs:
             database_id = kwargs['databaseId']
-        if 'vaultId' in kwargs:
+        if vault_id is None and 'vaultId' in kwargs:
             vault_id = kwargs['vaultId']
 
         if backup_policy_id is not None:

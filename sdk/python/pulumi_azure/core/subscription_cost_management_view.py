@@ -55,26 +55,40 @@ class SubscriptionCostManagementViewArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             accumulated: pulumi.Input[bool],
-             chart_type: pulumi.Input[str],
-             dataset: pulumi.Input['SubscriptionCostManagementViewDatasetArgs'],
-             display_name: pulumi.Input[str],
-             report_type: pulumi.Input[str],
-             subscription_id: pulumi.Input[str],
-             timeframe: pulumi.Input[str],
+             accumulated: Optional[pulumi.Input[bool]] = None,
+             chart_type: Optional[pulumi.Input[str]] = None,
+             dataset: Optional[pulumi.Input['SubscriptionCostManagementViewDatasetArgs']] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             report_type: Optional[pulumi.Input[str]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
+             timeframe: Optional[pulumi.Input[str]] = None,
              kpis: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewKpiArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              pivots: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewPivotArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'chartType' in kwargs:
+        if accumulated is None:
+            raise TypeError("Missing 'accumulated' argument")
+        if chart_type is None and 'chartType' in kwargs:
             chart_type = kwargs['chartType']
-        if 'displayName' in kwargs:
+        if chart_type is None:
+            raise TypeError("Missing 'chart_type' argument")
+        if dataset is None:
+            raise TypeError("Missing 'dataset' argument")
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'reportType' in kwargs:
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if report_type is None and 'reportType' in kwargs:
             report_type = kwargs['reportType']
-        if 'subscriptionId' in kwargs:
+        if report_type is None:
+            raise TypeError("Missing 'report_type' argument")
+        if subscription_id is None and 'subscriptionId' in kwargs:
             subscription_id = kwargs['subscriptionId']
+        if subscription_id is None:
+            raise TypeError("Missing 'subscription_id' argument")
+        if timeframe is None:
+            raise TypeError("Missing 'timeframe' argument")
 
         _setter("accumulated", accumulated)
         _setter("chart_type", chart_type)
@@ -265,13 +279,13 @@ class _SubscriptionCostManagementViewState:
              timeframe: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'chartType' in kwargs:
+        if chart_type is None and 'chartType' in kwargs:
             chart_type = kwargs['chartType']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'reportType' in kwargs:
+        if report_type is None and 'reportType' in kwargs:
             report_type = kwargs['reportType']
-        if 'subscriptionId' in kwargs:
+        if subscription_id is None and 'subscriptionId' in kwargs:
             subscription_id = kwargs['subscriptionId']
 
         if accumulated is not None:

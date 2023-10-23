@@ -37,17 +37,23 @@ class AssessmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             assessment_policy_id: pulumi.Input[str],
-             status: pulumi.Input['AssessmentStatusArgs'],
-             target_resource_id: pulumi.Input[str],
+             assessment_policy_id: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input['AssessmentStatusArgs']] = None,
+             target_resource_id: Optional[pulumi.Input[str]] = None,
              additional_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'assessmentPolicyId' in kwargs:
+        if assessment_policy_id is None and 'assessmentPolicyId' in kwargs:
             assessment_policy_id = kwargs['assessmentPolicyId']
-        if 'targetResourceId' in kwargs:
+        if assessment_policy_id is None:
+            raise TypeError("Missing 'assessment_policy_id' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if target_resource_id is None and 'targetResourceId' in kwargs:
             target_resource_id = kwargs['targetResourceId']
-        if 'additionalData' in kwargs:
+        if target_resource_id is None:
+            raise TypeError("Missing 'target_resource_id' argument")
+        if additional_data is None and 'additionalData' in kwargs:
             additional_data = kwargs['additionalData']
 
         _setter("assessment_policy_id", assessment_policy_id)
@@ -135,11 +141,11 @@ class _AssessmentState:
              target_resource_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'additionalData' in kwargs:
+        if additional_data is None and 'additionalData' in kwargs:
             additional_data = kwargs['additionalData']
-        if 'assessmentPolicyId' in kwargs:
+        if assessment_policy_id is None and 'assessmentPolicyId' in kwargs:
             assessment_policy_id = kwargs['assessmentPolicyId']
-        if 'targetResourceId' in kwargs:
+        if target_resource_id is None and 'targetResourceId' in kwargs:
             target_resource_id = kwargs['targetResourceId']
 
         if additional_data is not None:

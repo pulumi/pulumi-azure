@@ -49,8 +49,8 @@ class EndpointServicebusQueueArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             iothub_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             iothub_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              authentication_type: Optional[pulumi.Input[str]] = None,
              connection_string: Optional[pulumi.Input[str]] = None,
              endpoint_uri: Optional[pulumi.Input[str]] = None,
@@ -59,19 +59,23 @@ class EndpointServicebusQueueArgs:
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'iothubId' in kwargs:
+        if iothub_id is None and 'iothubId' in kwargs:
             iothub_id = kwargs['iothubId']
-        if 'resourceGroupName' in kwargs:
+        if iothub_id is None:
+            raise TypeError("Missing 'iothub_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'authenticationType' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if authentication_type is None and 'authenticationType' in kwargs:
             authentication_type = kwargs['authenticationType']
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
-        if 'endpointUri' in kwargs:
+        if endpoint_uri is None and 'endpointUri' in kwargs:
             endpoint_uri = kwargs['endpointUri']
-        if 'entityPath' in kwargs:
+        if entity_path is None and 'entityPath' in kwargs:
             entity_path = kwargs['entityPath']
-        if 'identityId' in kwargs:
+        if identity_id is None and 'identityId' in kwargs:
             identity_id = kwargs['identityId']
 
         _setter("iothub_id", iothub_id)
@@ -236,19 +240,19 @@ class _EndpointServicebusQueueState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'authenticationType' in kwargs:
+        if authentication_type is None and 'authenticationType' in kwargs:
             authentication_type = kwargs['authenticationType']
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
-        if 'endpointUri' in kwargs:
+        if endpoint_uri is None and 'endpointUri' in kwargs:
             endpoint_uri = kwargs['endpointUri']
-        if 'entityPath' in kwargs:
+        if entity_path is None and 'entityPath' in kwargs:
             entity_path = kwargs['entityPath']
-        if 'identityId' in kwargs:
+        if identity_id is None and 'identityId' in kwargs:
             identity_id = kwargs['identityId']
-        if 'iothubId' in kwargs:
+        if iothub_id is None and 'iothubId' in kwargs:
             iothub_id = kwargs['iothubId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if authentication_type is not None:

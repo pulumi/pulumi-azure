@@ -38,21 +38,31 @@ class ActiveDirectoryAdministratorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             login: pulumi.Input[str],
-             object_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             server_name: pulumi.Input[str],
-             tenant_id: pulumi.Input[str],
+             login: Optional[pulumi.Input[str]] = None,
+             object_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'objectId' in kwargs:
+        if login is None:
+            raise TypeError("Missing 'login' argument")
+        if object_id is None and 'objectId' in kwargs:
             object_id = kwargs['objectId']
-        if 'resourceGroupName' in kwargs:
+        if object_id is None:
+            raise TypeError("Missing 'object_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serverName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if server_name is None and 'serverName' in kwargs:
             server_name = kwargs['serverName']
-        if 'tenantId' in kwargs:
+        if server_name is None:
+            raise TypeError("Missing 'server_name' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
 
         _setter("login", login)
         _setter("object_id", object_id)
@@ -155,13 +165,13 @@ class _ActiveDirectoryAdministratorState:
              tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'objectId' in kwargs:
+        if object_id is None and 'objectId' in kwargs:
             object_id = kwargs['objectId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serverName' in kwargs:
+        if server_name is None and 'serverName' in kwargs:
             server_name = kwargs['serverName']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         if login is not None:

@@ -32,13 +32,15 @@ class ApiReleaseArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_id: pulumi.Input[str],
+             api_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              notes: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'apiId' in kwargs:
+        if api_id is None and 'apiId' in kwargs:
             api_id = kwargs['apiId']
+        if api_id is None:
+            raise TypeError("Missing 'api_id' argument")
 
         _setter("api_id", api_id)
         if name is not None:
@@ -109,7 +111,7 @@ class _ApiReleaseState:
              notes: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'apiId' in kwargs:
+        if api_id is None and 'apiId' in kwargs:
             api_id = kwargs['apiId']
 
         if api_id is not None:

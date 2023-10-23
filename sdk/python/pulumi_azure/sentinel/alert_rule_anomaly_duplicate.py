@@ -54,30 +54,40 @@ class AlertRuleAnomalyDuplicateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             built_in_rule_id: pulumi.Input[str],
-             display_name: pulumi.Input[str],
-             enabled: pulumi.Input[bool],
-             log_analytics_workspace_id: pulumi.Input[str],
-             mode: pulumi.Input[str],
+             built_in_rule_id: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+             mode: Optional[pulumi.Input[str]] = None,
              multi_select_observations: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateMultiSelectObservationArgs']]]] = None,
              prioritized_exclude_observations: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgs']]]] = None,
              single_select_observations: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateSingleSelectObservationArgs']]]] = None,
              threshold_observations: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateThresholdObservationArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'builtInRuleId' in kwargs:
+        if built_in_rule_id is None and 'builtInRuleId' in kwargs:
             built_in_rule_id = kwargs['builtInRuleId']
-        if 'displayName' in kwargs:
+        if built_in_rule_id is None:
+            raise TypeError("Missing 'built_in_rule_id' argument")
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if 'multiSelectObservations' in kwargs:
+        if log_analytics_workspace_id is None:
+            raise TypeError("Missing 'log_analytics_workspace_id' argument")
+        if mode is None:
+            raise TypeError("Missing 'mode' argument")
+        if multi_select_observations is None and 'multiSelectObservations' in kwargs:
             multi_select_observations = kwargs['multiSelectObservations']
-        if 'prioritizedExcludeObservations' in kwargs:
+        if prioritized_exclude_observations is None and 'prioritizedExcludeObservations' in kwargs:
             prioritized_exclude_observations = kwargs['prioritizedExcludeObservations']
-        if 'singleSelectObservations' in kwargs:
+        if single_select_observations is None and 'singleSelectObservations' in kwargs:
             single_select_observations = kwargs['singleSelectObservations']
-        if 'thresholdObservations' in kwargs:
+        if threshold_observations is None and 'thresholdObservations' in kwargs:
             threshold_observations = kwargs['thresholdObservations']
 
         _setter("built_in_rule_id", built_in_rule_id)
@@ -297,29 +307,29 @@ class _AlertRuleAnomalyDuplicateState:
              threshold_observations: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateThresholdObservationArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'anomalySettingsVersion' in kwargs:
+        if anomaly_settings_version is None and 'anomalySettingsVersion' in kwargs:
             anomaly_settings_version = kwargs['anomalySettingsVersion']
-        if 'anomalyVersion' in kwargs:
+        if anomaly_version is None and 'anomalyVersion' in kwargs:
             anomaly_version = kwargs['anomalyVersion']
-        if 'builtInRuleId' in kwargs:
+        if built_in_rule_id is None and 'builtInRuleId' in kwargs:
             built_in_rule_id = kwargs['builtInRuleId']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'isDefaultSettings' in kwargs:
+        if is_default_settings is None and 'isDefaultSettings' in kwargs:
             is_default_settings = kwargs['isDefaultSettings']
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if 'multiSelectObservations' in kwargs:
+        if multi_select_observations is None and 'multiSelectObservations' in kwargs:
             multi_select_observations = kwargs['multiSelectObservations']
-        if 'prioritizedExcludeObservations' in kwargs:
+        if prioritized_exclude_observations is None and 'prioritizedExcludeObservations' in kwargs:
             prioritized_exclude_observations = kwargs['prioritizedExcludeObservations']
-        if 'requiredDataConnectors' in kwargs:
+        if required_data_connectors is None and 'requiredDataConnectors' in kwargs:
             required_data_connectors = kwargs['requiredDataConnectors']
-        if 'settingsDefinitionId' in kwargs:
+        if settings_definition_id is None and 'settingsDefinitionId' in kwargs:
             settings_definition_id = kwargs['settingsDefinitionId']
-        if 'singleSelectObservations' in kwargs:
+        if single_select_observations is None and 'singleSelectObservations' in kwargs:
             single_select_observations = kwargs['singleSelectObservations']
-        if 'thresholdObservations' in kwargs:
+        if threshold_observations is None and 'thresholdObservations' in kwargs:
             threshold_observations = kwargs['thresholdObservations']
 
         if anomaly_settings_version is not None:

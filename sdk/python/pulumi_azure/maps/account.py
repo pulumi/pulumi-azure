@@ -40,18 +40,22 @@ class AccountArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             sku_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
              local_authentication_enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'localAuthenticationEnabled' in kwargs:
+        if sku_name is None:
+            raise TypeError("Missing 'sku_name' argument")
+        if local_authentication_enabled is None and 'localAuthenticationEnabled' in kwargs:
             local_authentication_enabled = kwargs['localAuthenticationEnabled']
 
         _setter("resource_group_name", resource_group_name)
@@ -174,17 +178,17 @@ class _AccountState:
              x_ms_client_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'localAuthenticationEnabled' in kwargs:
+        if local_authentication_enabled is None and 'localAuthenticationEnabled' in kwargs:
             local_authentication_enabled = kwargs['localAuthenticationEnabled']
-        if 'primaryAccessKey' in kwargs:
+        if primary_access_key is None and 'primaryAccessKey' in kwargs:
             primary_access_key = kwargs['primaryAccessKey']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'secondaryAccessKey' in kwargs:
+        if secondary_access_key is None and 'secondaryAccessKey' in kwargs:
             secondary_access_key = kwargs['secondaryAccessKey']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'xMsClientId' in kwargs:
+        if x_ms_client_id is None and 'xMsClientId' in kwargs:
             x_ms_client_id = kwargs['xMsClientId']
 
         if local_authentication_enabled is not None:

@@ -68,11 +68,11 @@ class RunBookArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             automation_account_name: pulumi.Input[str],
-             log_progress: pulumi.Input[bool],
-             log_verbose: pulumi.Input[bool],
-             resource_group_name: pulumi.Input[str],
-             runbook_type: pulumi.Input[str],
+             automation_account_name: Optional[pulumi.Input[str]] = None,
+             log_progress: Optional[pulumi.Input[bool]] = None,
+             log_verbose: Optional[pulumi.Input[bool]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             runbook_type: Optional[pulumi.Input[str]] = None,
              content: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              draft: Optional[pulumi.Input['RunBookDraftArgs']] = None,
@@ -84,21 +84,31 @@ class RunBookArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'automationAccountName' in kwargs:
+        if automation_account_name is None and 'automationAccountName' in kwargs:
             automation_account_name = kwargs['automationAccountName']
-        if 'logProgress' in kwargs:
+        if automation_account_name is None:
+            raise TypeError("Missing 'automation_account_name' argument")
+        if log_progress is None and 'logProgress' in kwargs:
             log_progress = kwargs['logProgress']
-        if 'logVerbose' in kwargs:
+        if log_progress is None:
+            raise TypeError("Missing 'log_progress' argument")
+        if log_verbose is None and 'logVerbose' in kwargs:
             log_verbose = kwargs['logVerbose']
-        if 'resourceGroupName' in kwargs:
+        if log_verbose is None:
+            raise TypeError("Missing 'log_verbose' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'runbookType' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if runbook_type is None and 'runbookType' in kwargs:
             runbook_type = kwargs['runbookType']
-        if 'jobSchedules' in kwargs:
+        if runbook_type is None:
+            raise TypeError("Missing 'runbook_type' argument")
+        if job_schedules is None and 'jobSchedules' in kwargs:
             job_schedules = kwargs['jobSchedules']
-        if 'logActivityTraceLevel' in kwargs:
+        if log_activity_trace_level is None and 'logActivityTraceLevel' in kwargs:
             log_activity_trace_level = kwargs['logActivityTraceLevel']
-        if 'publishContentLink' in kwargs:
+        if publish_content_link is None and 'publishContentLink' in kwargs:
             publish_content_link = kwargs['publishContentLink']
 
         _setter("automation_account_name", automation_account_name)
@@ -364,21 +374,21 @@ class _RunBookState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'automationAccountName' in kwargs:
+        if automation_account_name is None and 'automationAccountName' in kwargs:
             automation_account_name = kwargs['automationAccountName']
-        if 'jobSchedules' in kwargs:
+        if job_schedules is None and 'jobSchedules' in kwargs:
             job_schedules = kwargs['jobSchedules']
-        if 'logActivityTraceLevel' in kwargs:
+        if log_activity_trace_level is None and 'logActivityTraceLevel' in kwargs:
             log_activity_trace_level = kwargs['logActivityTraceLevel']
-        if 'logProgress' in kwargs:
+        if log_progress is None and 'logProgress' in kwargs:
             log_progress = kwargs['logProgress']
-        if 'logVerbose' in kwargs:
+        if log_verbose is None and 'logVerbose' in kwargs:
             log_verbose = kwargs['logVerbose']
-        if 'publishContentLink' in kwargs:
+        if publish_content_link is None and 'publishContentLink' in kwargs:
             publish_content_link = kwargs['publishContentLink']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'runbookType' in kwargs:
+        if runbook_type is None and 'runbookType' in kwargs:
             runbook_type = kwargs['runbookType']
 
         if automation_account_name is not None:

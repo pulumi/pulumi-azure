@@ -64,11 +64,11 @@ class WebTestArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_insights_id: pulumi.Input[str],
-             configuration: pulumi.Input[str],
-             geo_locations: pulumi.Input[Sequence[pulumi.Input[str]]],
-             kind: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             application_insights_id: Optional[pulumi.Input[str]] = None,
+             configuration: Optional[pulumi.Input[str]] = None,
+             geo_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              frequency: Optional[pulumi.Input[int]] = None,
@@ -79,13 +79,23 @@ class WebTestArgs:
              timeout: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'applicationInsightsId' in kwargs:
+        if application_insights_id is None and 'applicationInsightsId' in kwargs:
             application_insights_id = kwargs['applicationInsightsId']
-        if 'geoLocations' in kwargs:
+        if application_insights_id is None:
+            raise TypeError("Missing 'application_insights_id' argument")
+        if configuration is None:
+            raise TypeError("Missing 'configuration' argument")
+        if geo_locations is None and 'geoLocations' in kwargs:
             geo_locations = kwargs['geoLocations']
-        if 'resourceGroupName' in kwargs:
+        if geo_locations is None:
+            raise TypeError("Missing 'geo_locations' argument")
+        if kind is None:
+            raise TypeError("Missing 'kind' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'retryEnabled' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if retry_enabled is None and 'retryEnabled' in kwargs:
             retry_enabled = kwargs['retryEnabled']
 
         _setter("application_insights_id", application_insights_id)
@@ -340,15 +350,15 @@ class _WebTestState:
              timeout: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'applicationInsightsId' in kwargs:
+        if application_insights_id is None and 'applicationInsightsId' in kwargs:
             application_insights_id = kwargs['applicationInsightsId']
-        if 'geoLocations' in kwargs:
+        if geo_locations is None and 'geoLocations' in kwargs:
             geo_locations = kwargs['geoLocations']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'retryEnabled' in kwargs:
+        if retry_enabled is None and 'retryEnabled' in kwargs:
             retry_enabled = kwargs['retryEnabled']
-        if 'syntheticMonitorId' in kwargs:
+        if synthetic_monitor_id is None and 'syntheticMonitorId' in kwargs:
             synthetic_monitor_id = kwargs['syntheticMonitorId']
 
         if application_insights_id is not None:

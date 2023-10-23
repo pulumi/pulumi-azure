@@ -41,17 +41,21 @@ class MoverSourceEndpointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             host: pulumi.Input[str],
-             storage_mover_id: pulumi.Input[str],
+             host: Optional[pulumi.Input[str]] = None,
+             storage_mover_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              export: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              nfs_version: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'storageMoverId' in kwargs:
+        if host is None:
+            raise TypeError("Missing 'host' argument")
+        if storage_mover_id is None and 'storageMoverId' in kwargs:
             storage_mover_id = kwargs['storageMoverId']
-        if 'nfsVersion' in kwargs:
+        if storage_mover_id is None:
+            raise TypeError("Missing 'storage_mover_id' argument")
+        if nfs_version is None and 'nfsVersion' in kwargs:
             nfs_version = kwargs['nfsVersion']
 
         _setter("host", host)
@@ -176,9 +180,9 @@ class _MoverSourceEndpointState:
              storage_mover_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'nfsVersion' in kwargs:
+        if nfs_version is None and 'nfsVersion' in kwargs:
             nfs_version = kwargs['nfsVersion']
-        if 'storageMoverId' in kwargs:
+        if storage_mover_id is None and 'storageMoverId' in kwargs:
             storage_mover_id = kwargs['storageMoverId']
 
         if description is not None:

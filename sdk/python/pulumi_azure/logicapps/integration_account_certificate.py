@@ -43,21 +43,25 @@ class IntegrationAccountCertificateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             integration_account_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             integration_account_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              key_vault_key: Optional[pulumi.Input['IntegrationAccountCertificateKeyVaultKeyArgs']] = None,
              metadata: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              public_certificate: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'integrationAccountName' in kwargs:
+        if integration_account_name is None and 'integrationAccountName' in kwargs:
             integration_account_name = kwargs['integrationAccountName']
-        if 'resourceGroupName' in kwargs:
+        if integration_account_name is None:
+            raise TypeError("Missing 'integration_account_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'keyVaultKey' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if key_vault_key is None and 'keyVaultKey' in kwargs:
             key_vault_key = kwargs['keyVaultKey']
-        if 'publicCertificate' in kwargs:
+        if public_certificate is None and 'publicCertificate' in kwargs:
             public_certificate = kwargs['publicCertificate']
 
         _setter("integration_account_name", integration_account_name)
@@ -182,13 +186,13 @@ class _IntegrationAccountCertificateState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'integrationAccountName' in kwargs:
+        if integration_account_name is None and 'integrationAccountName' in kwargs:
             integration_account_name = kwargs['integrationAccountName']
-        if 'keyVaultKey' in kwargs:
+        if key_vault_key is None and 'keyVaultKey' in kwargs:
             key_vault_key = kwargs['keyVaultKey']
-        if 'publicCertificate' in kwargs:
+        if public_certificate is None and 'publicCertificate' in kwargs:
             public_certificate = kwargs['publicCertificate']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if integration_account_name is not None:

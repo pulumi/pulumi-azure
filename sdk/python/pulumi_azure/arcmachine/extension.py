@@ -62,9 +62,9 @@ class ExtensionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             arc_machine_id: pulumi.Input[str],
-             publisher: pulumi.Input[str],
-             type: pulumi.Input[str],
+             arc_machine_id: Optional[pulumi.Input[str]] = None,
+             publisher: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              automatic_upgrade_enabled: Optional[pulumi.Input[bool]] = None,
              force_update_tag: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
@@ -75,15 +75,21 @@ class ExtensionArgs:
              type_handler_version: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'arcMachineId' in kwargs:
+        if arc_machine_id is None and 'arcMachineId' in kwargs:
             arc_machine_id = kwargs['arcMachineId']
-        if 'automaticUpgradeEnabled' in kwargs:
+        if arc_machine_id is None:
+            raise TypeError("Missing 'arc_machine_id' argument")
+        if publisher is None:
+            raise TypeError("Missing 'publisher' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if automatic_upgrade_enabled is None and 'automaticUpgradeEnabled' in kwargs:
             automatic_upgrade_enabled = kwargs['automaticUpgradeEnabled']
-        if 'forceUpdateTag' in kwargs:
+        if force_update_tag is None and 'forceUpdateTag' in kwargs:
             force_update_tag = kwargs['forceUpdateTag']
-        if 'protectedSettings' in kwargs:
+        if protected_settings is None and 'protectedSettings' in kwargs:
             protected_settings = kwargs['protectedSettings']
-        if 'typeHandlerVersion' in kwargs:
+        if type_handler_version is None and 'typeHandlerVersion' in kwargs:
             type_handler_version = kwargs['typeHandlerVersion']
 
         _setter("arc_machine_id", arc_machine_id)
@@ -309,15 +315,15 @@ class _ExtensionState:
              type_handler_version: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'arcMachineId' in kwargs:
+        if arc_machine_id is None and 'arcMachineId' in kwargs:
             arc_machine_id = kwargs['arcMachineId']
-        if 'automaticUpgradeEnabled' in kwargs:
+        if automatic_upgrade_enabled is None and 'automaticUpgradeEnabled' in kwargs:
             automatic_upgrade_enabled = kwargs['automaticUpgradeEnabled']
-        if 'forceUpdateTag' in kwargs:
+        if force_update_tag is None and 'forceUpdateTag' in kwargs:
             force_update_tag = kwargs['forceUpdateTag']
-        if 'protectedSettings' in kwargs:
+        if protected_settings is None and 'protectedSettings' in kwargs:
             protected_settings = kwargs['protectedSettings']
-        if 'typeHandlerVersion' in kwargs:
+        if type_handler_version is None and 'typeHandlerVersion' in kwargs:
             type_handler_version = kwargs['typeHandlerVersion']
 
         if arc_machine_id is not None:

@@ -45,7 +45,7 @@ class RoleDefinitionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             scope: pulumi.Input[str],
+             scope: Optional[pulumi.Input[str]] = None,
              assignable_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
@@ -53,9 +53,11 @@ class RoleDefinitionArgs:
              role_definition_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'assignableScopes' in kwargs:
+        if scope is None:
+            raise TypeError("Missing 'scope' argument")
+        if assignable_scopes is None and 'assignableScopes' in kwargs:
             assignable_scopes = kwargs['assignableScopes']
-        if 'roleDefinitionId' in kwargs:
+        if role_definition_id is None and 'roleDefinitionId' in kwargs:
             role_definition_id = kwargs['roleDefinitionId']
 
         _setter("scope", scope)
@@ -189,11 +191,11 @@ class _RoleDefinitionState:
              scope: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'assignableScopes' in kwargs:
+        if assignable_scopes is None and 'assignableScopes' in kwargs:
             assignable_scopes = kwargs['assignableScopes']
-        if 'roleDefinitionId' in kwargs:
+        if role_definition_id is None and 'roleDefinitionId' in kwargs:
             role_definition_id = kwargs['roleDefinitionId']
-        if 'roleDefinitionResourceId' in kwargs:
+        if role_definition_resource_id is None and 'roleDefinitionResourceId' in kwargs:
             role_definition_resource_id = kwargs['roleDefinitionResourceId']
 
         if assignable_scopes is not None:

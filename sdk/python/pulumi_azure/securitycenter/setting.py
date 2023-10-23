@@ -29,12 +29,16 @@ class SettingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: pulumi.Input[bool],
-             setting_name: pulumi.Input[str],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             setting_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'settingName' in kwargs:
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if setting_name is None and 'settingName' in kwargs:
             setting_name = kwargs['settingName']
+        if setting_name is None:
+            raise TypeError("Missing 'setting_name' argument")
 
         _setter("enabled", enabled)
         _setter("setting_name", setting_name)
@@ -86,7 +90,7 @@ class _SettingState:
              setting_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'settingName' in kwargs:
+        if setting_name is None and 'settingName' in kwargs:
             setting_name = kwargs['settingName']
 
         if enabled is not None:

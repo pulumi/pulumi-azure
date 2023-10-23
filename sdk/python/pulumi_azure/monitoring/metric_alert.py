@@ -83,8 +83,8 @@ class MetricAlertArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             scopes: pulumi.Input[Sequence[pulumi.Input[str]]],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              actions: Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertActionArgs']]]] = None,
              application_insights_web_test_location_availability_criteria: Optional[pulumi.Input['MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs']] = None,
              auto_mitigate: Optional[pulumi.Input[bool]] = None,
@@ -101,19 +101,23 @@ class MetricAlertArgs:
              window_size: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'applicationInsightsWebTestLocationAvailabilityCriteria' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if scopes is None:
+            raise TypeError("Missing 'scopes' argument")
+        if application_insights_web_test_location_availability_criteria is None and 'applicationInsightsWebTestLocationAvailabilityCriteria' in kwargs:
             application_insights_web_test_location_availability_criteria = kwargs['applicationInsightsWebTestLocationAvailabilityCriteria']
-        if 'autoMitigate' in kwargs:
+        if auto_mitigate is None and 'autoMitigate' in kwargs:
             auto_mitigate = kwargs['autoMitigate']
-        if 'dynamicCriteria' in kwargs:
+        if dynamic_criteria is None and 'dynamicCriteria' in kwargs:
             dynamic_criteria = kwargs['dynamicCriteria']
-        if 'targetResourceLocation' in kwargs:
+        if target_resource_location is None and 'targetResourceLocation' in kwargs:
             target_resource_location = kwargs['targetResourceLocation']
-        if 'targetResourceType' in kwargs:
+        if target_resource_type is None and 'targetResourceType' in kwargs:
             target_resource_type = kwargs['targetResourceType']
-        if 'windowSize' in kwargs:
+        if window_size is None and 'windowSize' in kwargs:
             window_size = kwargs['windowSize']
 
         _setter("resource_group_name", resource_group_name)
@@ -438,19 +442,19 @@ class _MetricAlertState:
              window_size: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'applicationInsightsWebTestLocationAvailabilityCriteria' in kwargs:
+        if application_insights_web_test_location_availability_criteria is None and 'applicationInsightsWebTestLocationAvailabilityCriteria' in kwargs:
             application_insights_web_test_location_availability_criteria = kwargs['applicationInsightsWebTestLocationAvailabilityCriteria']
-        if 'autoMitigate' in kwargs:
+        if auto_mitigate is None and 'autoMitigate' in kwargs:
             auto_mitigate = kwargs['autoMitigate']
-        if 'dynamicCriteria' in kwargs:
+        if dynamic_criteria is None and 'dynamicCriteria' in kwargs:
             dynamic_criteria = kwargs['dynamicCriteria']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'targetResourceLocation' in kwargs:
+        if target_resource_location is None and 'targetResourceLocation' in kwargs:
             target_resource_location = kwargs['targetResourceLocation']
-        if 'targetResourceType' in kwargs:
+        if target_resource_type is None and 'targetResourceType' in kwargs:
             target_resource_type = kwargs['targetResourceType']
-        if 'windowSize' in kwargs:
+        if window_size is None and 'windowSize' in kwargs:
             window_size = kwargs['windowSize']
 
         if actions is not None:

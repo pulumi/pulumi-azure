@@ -49,24 +49,34 @@ class SpacecraftArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             links: pulumi.Input[Sequence[pulumi.Input['SpacecraftLinkArgs']]],
-             norad_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             title_line: pulumi.Input[str],
-             two_line_elements: pulumi.Input[Sequence[pulumi.Input[str]]],
+             links: Optional[pulumi.Input[Sequence[pulumi.Input['SpacecraftLinkArgs']]]] = None,
+             norad_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             title_line: Optional[pulumi.Input[str]] = None,
+             two_line_elements: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'noradId' in kwargs:
+        if links is None:
+            raise TypeError("Missing 'links' argument")
+        if norad_id is None and 'noradId' in kwargs:
             norad_id = kwargs['noradId']
-        if 'resourceGroupName' in kwargs:
+        if norad_id is None:
+            raise TypeError("Missing 'norad_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'titleLine' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if title_line is None and 'titleLine' in kwargs:
             title_line = kwargs['titleLine']
-        if 'twoLineElements' in kwargs:
+        if title_line is None:
+            raise TypeError("Missing 'title_line' argument")
+        if two_line_elements is None and 'twoLineElements' in kwargs:
             two_line_elements = kwargs['twoLineElements']
+        if two_line_elements is None:
+            raise TypeError("Missing 'two_line_elements' argument")
 
         _setter("links", links)
         _setter("norad_id", norad_id)
@@ -223,13 +233,13 @@ class _SpacecraftState:
              two_line_elements: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'noradId' in kwargs:
+        if norad_id is None and 'noradId' in kwargs:
             norad_id = kwargs['noradId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'titleLine' in kwargs:
+        if title_line is None and 'titleLine' in kwargs:
             title_line = kwargs['titleLine']
-        if 'twoLineElements' in kwargs:
+        if two_line_elements is None and 'twoLineElements' in kwargs:
             two_line_elements = kwargs['twoLineElements']
 
         if links is not None:

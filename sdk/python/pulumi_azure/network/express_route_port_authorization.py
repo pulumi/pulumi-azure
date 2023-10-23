@@ -32,15 +32,19 @@ class ExpressRoutePortAuthorizationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             express_route_port_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             express_route_port_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'expressRoutePortName' in kwargs:
+        if express_route_port_name is None and 'expressRoutePortName' in kwargs:
             express_route_port_name = kwargs['expressRoutePortName']
-        if 'resourceGroupName' in kwargs:
+        if express_route_port_name is None:
+            raise TypeError("Missing 'express_route_port_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("express_route_port_name", express_route_port_name)
         _setter("resource_group_name", resource_group_name)
@@ -118,13 +122,13 @@ class _ExpressRoutePortAuthorizationState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'authorizationKey' in kwargs:
+        if authorization_key is None and 'authorizationKey' in kwargs:
             authorization_key = kwargs['authorizationKey']
-        if 'authorizationUseStatus' in kwargs:
+        if authorization_use_status is None and 'authorizationUseStatus' in kwargs:
             authorization_use_status = kwargs['authorizationUseStatus']
-        if 'expressRoutePortName' in kwargs:
+        if express_route_port_name is None and 'expressRoutePortName' in kwargs:
             express_route_port_name = kwargs['expressRoutePortName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if authorization_key is not None:

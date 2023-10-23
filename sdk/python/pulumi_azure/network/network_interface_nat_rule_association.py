@@ -32,17 +32,23 @@ class NetworkInterfaceNatRuleAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ip_configuration_name: pulumi.Input[str],
-             nat_rule_id: pulumi.Input[str],
-             network_interface_id: pulumi.Input[str],
+             ip_configuration_name: Optional[pulumi.Input[str]] = None,
+             nat_rule_id: Optional[pulumi.Input[str]] = None,
+             network_interface_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ipConfigurationName' in kwargs:
+        if ip_configuration_name is None and 'ipConfigurationName' in kwargs:
             ip_configuration_name = kwargs['ipConfigurationName']
-        if 'natRuleId' in kwargs:
+        if ip_configuration_name is None:
+            raise TypeError("Missing 'ip_configuration_name' argument")
+        if nat_rule_id is None and 'natRuleId' in kwargs:
             nat_rule_id = kwargs['natRuleId']
-        if 'networkInterfaceId' in kwargs:
+        if nat_rule_id is None:
+            raise TypeError("Missing 'nat_rule_id' argument")
+        if network_interface_id is None and 'networkInterfaceId' in kwargs:
             network_interface_id = kwargs['networkInterfaceId']
+        if network_interface_id is None:
+            raise TypeError("Missing 'network_interface_id' argument")
 
         _setter("ip_configuration_name", ip_configuration_name)
         _setter("nat_rule_id", nat_rule_id)
@@ -111,11 +117,11 @@ class _NetworkInterfaceNatRuleAssociationState:
              network_interface_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ipConfigurationName' in kwargs:
+        if ip_configuration_name is None and 'ipConfigurationName' in kwargs:
             ip_configuration_name = kwargs['ipConfigurationName']
-        if 'natRuleId' in kwargs:
+        if nat_rule_id is None and 'natRuleId' in kwargs:
             nat_rule_id = kwargs['natRuleId']
-        if 'networkInterfaceId' in kwargs:
+        if network_interface_id is None and 'networkInterfaceId' in kwargs:
             network_interface_id = kwargs['networkInterfaceId']
 
         if ip_configuration_name is not None:

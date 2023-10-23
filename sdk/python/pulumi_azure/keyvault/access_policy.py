@@ -47,9 +47,9 @@ class AccessPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_vault_id: pulumi.Input[str],
-             object_id: pulumi.Input[str],
-             tenant_id: pulumi.Input[str],
+             key_vault_id: Optional[pulumi.Input[str]] = None,
+             object_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
              application_id: Optional[pulumi.Input[str]] = None,
              certificate_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              key_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -57,21 +57,27 @@ class AccessPolicyArgs:
              storage_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'keyVaultId' in kwargs:
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
-        if 'objectId' in kwargs:
+        if key_vault_id is None:
+            raise TypeError("Missing 'key_vault_id' argument")
+        if object_id is None and 'objectId' in kwargs:
             object_id = kwargs['objectId']
-        if 'tenantId' in kwargs:
+        if object_id is None:
+            raise TypeError("Missing 'object_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
-        if 'applicationId' in kwargs:
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if application_id is None and 'applicationId' in kwargs:
             application_id = kwargs['applicationId']
-        if 'certificatePermissions' in kwargs:
+        if certificate_permissions is None and 'certificatePermissions' in kwargs:
             certificate_permissions = kwargs['certificatePermissions']
-        if 'keyPermissions' in kwargs:
+        if key_permissions is None and 'keyPermissions' in kwargs:
             key_permissions = kwargs['keyPermissions']
-        if 'secretPermissions' in kwargs:
+        if secret_permissions is None and 'secretPermissions' in kwargs:
             secret_permissions = kwargs['secretPermissions']
-        if 'storagePermissions' in kwargs:
+        if storage_permissions is None and 'storagePermissions' in kwargs:
             storage_permissions = kwargs['storagePermissions']
 
         _setter("key_vault_id", key_vault_id)
@@ -231,21 +237,21 @@ class _AccessPolicyState:
              tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'applicationId' in kwargs:
+        if application_id is None and 'applicationId' in kwargs:
             application_id = kwargs['applicationId']
-        if 'certificatePermissions' in kwargs:
+        if certificate_permissions is None and 'certificatePermissions' in kwargs:
             certificate_permissions = kwargs['certificatePermissions']
-        if 'keyPermissions' in kwargs:
+        if key_permissions is None and 'keyPermissions' in kwargs:
             key_permissions = kwargs['keyPermissions']
-        if 'keyVaultId' in kwargs:
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
-        if 'objectId' in kwargs:
+        if object_id is None and 'objectId' in kwargs:
             object_id = kwargs['objectId']
-        if 'secretPermissions' in kwargs:
+        if secret_permissions is None and 'secretPermissions' in kwargs:
             secret_permissions = kwargs['secretPermissions']
-        if 'storagePermissions' in kwargs:
+        if storage_permissions is None and 'storagePermissions' in kwargs:
             storage_permissions = kwargs['storagePermissions']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         if application_id is not None:

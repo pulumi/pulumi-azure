@@ -46,7 +46,7 @@ class NatGatewayArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
@@ -55,11 +55,13 @@ class NatGatewayArgs:
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'idleTimeoutInMinutes' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if idle_timeout_in_minutes is None and 'idleTimeoutInMinutes' in kwargs:
             idle_timeout_in_minutes = kwargs['idleTimeoutInMinutes']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
 
         _setter("resource_group_name", resource_group_name)
@@ -211,13 +213,13 @@ class _NatGatewayState:
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'idleTimeoutInMinutes' in kwargs:
+        if idle_timeout_in_minutes is None and 'idleTimeoutInMinutes' in kwargs:
             idle_timeout_in_minutes = kwargs['idleTimeoutInMinutes']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'resourceGuid' in kwargs:
+        if resource_guid is None and 'resourceGuid' in kwargs:
             resource_guid = kwargs['resourceGuid']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
 
         if idle_timeout_in_minutes is not None:

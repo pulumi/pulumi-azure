@@ -69,9 +69,9 @@ class FirewallArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             sku_name: pulumi.Input[str],
-             sku_tier: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
+             sku_tier: Optional[pulumi.Input[str]] = None,
              dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              firewall_policy_id: Optional[pulumi.Input[str]] = None,
              ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallIpConfigurationArgs']]]] = None,
@@ -85,25 +85,31 @@ class FirewallArgs:
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'skuTier' in kwargs:
+        if sku_name is None:
+            raise TypeError("Missing 'sku_name' argument")
+        if sku_tier is None and 'skuTier' in kwargs:
             sku_tier = kwargs['skuTier']
-        if 'dnsServers' in kwargs:
+        if sku_tier is None:
+            raise TypeError("Missing 'sku_tier' argument")
+        if dns_servers is None and 'dnsServers' in kwargs:
             dns_servers = kwargs['dnsServers']
-        if 'firewallPolicyId' in kwargs:
+        if firewall_policy_id is None and 'firewallPolicyId' in kwargs:
             firewall_policy_id = kwargs['firewallPolicyId']
-        if 'ipConfigurations' in kwargs:
+        if ip_configurations is None and 'ipConfigurations' in kwargs:
             ip_configurations = kwargs['ipConfigurations']
-        if 'managementIpConfiguration' in kwargs:
+        if management_ip_configuration is None and 'managementIpConfiguration' in kwargs:
             management_ip_configuration = kwargs['managementIpConfiguration']
-        if 'privateIpRanges' in kwargs:
+        if private_ip_ranges is None and 'privateIpRanges' in kwargs:
             private_ip_ranges = kwargs['privateIpRanges']
-        if 'threatIntelMode' in kwargs:
+        if threat_intel_mode is None and 'threatIntelMode' in kwargs:
             threat_intel_mode = kwargs['threatIntelMode']
-        if 'virtualHub' in kwargs:
+        if virtual_hub is None and 'virtualHub' in kwargs:
             virtual_hub = kwargs['virtualHub']
 
         _setter("resource_group_name", resource_group_name)
@@ -375,25 +381,25 @@ class _FirewallState:
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dnsServers' in kwargs:
+        if dns_servers is None and 'dnsServers' in kwargs:
             dns_servers = kwargs['dnsServers']
-        if 'firewallPolicyId' in kwargs:
+        if firewall_policy_id is None and 'firewallPolicyId' in kwargs:
             firewall_policy_id = kwargs['firewallPolicyId']
-        if 'ipConfigurations' in kwargs:
+        if ip_configurations is None and 'ipConfigurations' in kwargs:
             ip_configurations = kwargs['ipConfigurations']
-        if 'managementIpConfiguration' in kwargs:
+        if management_ip_configuration is None and 'managementIpConfiguration' in kwargs:
             management_ip_configuration = kwargs['managementIpConfiguration']
-        if 'privateIpRanges' in kwargs:
+        if private_ip_ranges is None and 'privateIpRanges' in kwargs:
             private_ip_ranges = kwargs['privateIpRanges']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'skuTier' in kwargs:
+        if sku_tier is None and 'skuTier' in kwargs:
             sku_tier = kwargs['skuTier']
-        if 'threatIntelMode' in kwargs:
+        if threat_intel_mode is None and 'threatIntelMode' in kwargs:
             threat_intel_mode = kwargs['threatIntelMode']
-        if 'virtualHub' in kwargs:
+        if virtual_hub is None and 'virtualHub' in kwargs:
             virtual_hub = kwargs['virtualHub']
 
         if dns_servers is not None:

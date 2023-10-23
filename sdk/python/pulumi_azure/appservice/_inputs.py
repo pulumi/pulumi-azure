@@ -451,7 +451,7 @@ class AppConnectionAuthenticationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              certificate: Optional[pulumi.Input[str]] = None,
              client_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
@@ -460,11 +460,13 @@ class AppConnectionAuthenticationArgs:
              subscription_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'subscriptionId' in kwargs:
+        if subscription_id is None and 'subscriptionId' in kwargs:
             subscription_id = kwargs['subscriptionId']
 
         _setter("type", type)
@@ -580,11 +582,13 @@ class AppConnectionSecretStoreArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_vault_id: pulumi.Input[str],
+             key_vault_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'keyVaultId' in kwargs:
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
+        if key_vault_id is None:
+            raise TypeError("Missing 'key_vault_id' argument")
 
         _setter("key_vault_id", key_vault_id)
 
@@ -656,7 +660,7 @@ class AppServiceAuthSettingsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: pulumi.Input[bool],
+             enabled: Optional[pulumi.Input[bool]] = None,
              active_directory: Optional[pulumi.Input['AppServiceAuthSettingsActiveDirectoryArgs']] = None,
              additional_login_params: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -672,21 +676,23 @@ class AppServiceAuthSettingsArgs:
              unauthenticated_client_action: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'activeDirectory' in kwargs:
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if active_directory is None and 'activeDirectory' in kwargs:
             active_directory = kwargs['activeDirectory']
-        if 'additionalLoginParams' in kwargs:
+        if additional_login_params is None and 'additionalLoginParams' in kwargs:
             additional_login_params = kwargs['additionalLoginParams']
-        if 'allowedExternalRedirectUrls' in kwargs:
+        if allowed_external_redirect_urls is None and 'allowedExternalRedirectUrls' in kwargs:
             allowed_external_redirect_urls = kwargs['allowedExternalRedirectUrls']
-        if 'defaultProvider' in kwargs:
+        if default_provider is None and 'defaultProvider' in kwargs:
             default_provider = kwargs['defaultProvider']
-        if 'runtimeVersion' in kwargs:
+        if runtime_version is None and 'runtimeVersion' in kwargs:
             runtime_version = kwargs['runtimeVersion']
-        if 'tokenRefreshExtensionHours' in kwargs:
+        if token_refresh_extension_hours is None and 'tokenRefreshExtensionHours' in kwargs:
             token_refresh_extension_hours = kwargs['tokenRefreshExtensionHours']
-        if 'tokenStoreEnabled' in kwargs:
+        if token_store_enabled is None and 'tokenStoreEnabled' in kwargs:
             token_store_enabled = kwargs['tokenStoreEnabled']
-        if 'unauthenticatedClientAction' in kwargs:
+        if unauthenticated_client_action is None and 'unauthenticatedClientAction' in kwargs:
             unauthenticated_client_action = kwargs['unauthenticatedClientAction']
 
         _setter("enabled", enabled)
@@ -908,16 +914,18 @@ class AppServiceAuthSettingsActiveDirectoryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
              allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              client_secret: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'allowedAudiences' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if allowed_audiences is None and 'allowedAudiences' in kwargs:
             allowed_audiences = kwargs['allowedAudiences']
-        if 'clientSecret' in kwargs:
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
 
         _setter("client_id", client_id)
@@ -983,16 +991,20 @@ class AppServiceAuthSettingsFacebookArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_id: pulumi.Input[str],
-             app_secret: pulumi.Input[str],
+             app_id: Optional[pulumi.Input[str]] = None,
+             app_secret: Optional[pulumi.Input[str]] = None,
              oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'appId' in kwargs:
+        if app_id is None and 'appId' in kwargs:
             app_id = kwargs['appId']
-        if 'appSecret' in kwargs:
+        if app_id is None:
+            raise TypeError("Missing 'app_id' argument")
+        if app_secret is None and 'appSecret' in kwargs:
             app_secret = kwargs['appSecret']
-        if 'oauthScopes' in kwargs:
+        if app_secret is None:
+            raise TypeError("Missing 'app_secret' argument")
+        if oauth_scopes is None and 'oauthScopes' in kwargs:
             oauth_scopes = kwargs['oauthScopes']
 
         _setter("app_id", app_id)
@@ -1057,16 +1069,20 @@ class AppServiceAuthSettingsGoogleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             client_secret: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret: Optional[pulumi.Input[str]] = None,
              oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecret' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'oauthScopes' in kwargs:
+        if client_secret is None:
+            raise TypeError("Missing 'client_secret' argument")
+        if oauth_scopes is None and 'oauthScopes' in kwargs:
             oauth_scopes = kwargs['oauthScopes']
 
         _setter("client_id", client_id)
@@ -1131,16 +1147,20 @@ class AppServiceAuthSettingsMicrosoftArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             client_secret: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret: Optional[pulumi.Input[str]] = None,
              oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecret' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'oauthScopes' in kwargs:
+        if client_secret is None:
+            raise TypeError("Missing 'client_secret' argument")
+        if oauth_scopes is None and 'oauthScopes' in kwargs:
             oauth_scopes = kwargs['oauthScopes']
 
         _setter("client_id", client_id)
@@ -1202,14 +1222,18 @@ class AppServiceAuthSettingsTwitterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             consumer_key: pulumi.Input[str],
-             consumer_secret: pulumi.Input[str],
+             consumer_key: Optional[pulumi.Input[str]] = None,
+             consumer_secret: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'consumerKey' in kwargs:
+        if consumer_key is None and 'consumerKey' in kwargs:
             consumer_key = kwargs['consumerKey']
-        if 'consumerSecret' in kwargs:
+        if consumer_key is None:
+            raise TypeError("Missing 'consumer_key' argument")
+        if consumer_secret is None and 'consumerSecret' in kwargs:
             consumer_secret = kwargs['consumerSecret']
+        if consumer_secret is None:
+            raise TypeError("Missing 'consumer_secret' argument")
 
         _setter("consumer_key", consumer_key)
         _setter("consumer_secret", consumer_secret)
@@ -1262,14 +1286,20 @@ class AppServiceBackupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             schedule: pulumi.Input['AppServiceBackupScheduleArgs'],
-             storage_account_url: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             schedule: Optional[pulumi.Input['AppServiceBackupScheduleArgs']] = None,
+             storage_account_url: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'storageAccountUrl' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if schedule is None:
+            raise TypeError("Missing 'schedule' argument")
+        if storage_account_url is None and 'storageAccountUrl' in kwargs:
             storage_account_url = kwargs['storageAccountUrl']
+        if storage_account_url is None:
+            raise TypeError("Missing 'storage_account_url' argument")
 
         _setter("name", name)
         _setter("schedule", schedule)
@@ -1352,22 +1382,26 @@ class AppServiceBackupScheduleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             frequency_interval: pulumi.Input[int],
-             frequency_unit: pulumi.Input[str],
+             frequency_interval: Optional[pulumi.Input[int]] = None,
+             frequency_unit: Optional[pulumi.Input[str]] = None,
              keep_at_least_one_backup: Optional[pulumi.Input[bool]] = None,
              retention_period_in_days: Optional[pulumi.Input[int]] = None,
              start_time: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'frequencyInterval' in kwargs:
+        if frequency_interval is None and 'frequencyInterval' in kwargs:
             frequency_interval = kwargs['frequencyInterval']
-        if 'frequencyUnit' in kwargs:
+        if frequency_interval is None:
+            raise TypeError("Missing 'frequency_interval' argument")
+        if frequency_unit is None and 'frequencyUnit' in kwargs:
             frequency_unit = kwargs['frequencyUnit']
-        if 'keepAtLeastOneBackup' in kwargs:
+        if frequency_unit is None:
+            raise TypeError("Missing 'frequency_unit' argument")
+        if keep_at_least_one_backup is None and 'keepAtLeastOneBackup' in kwargs:
             keep_at_least_one_backup = kwargs['keepAtLeastOneBackup']
-        if 'retentionPeriodInDays' in kwargs:
+        if retention_period_in_days is None and 'retentionPeriodInDays' in kwargs:
             retention_period_in_days = kwargs['retentionPeriodInDays']
-        if 'startTime' in kwargs:
+        if start_time is None and 'startTime' in kwargs:
             start_time = kwargs['startTime']
 
         _setter("frequency_interval", frequency_interval)
@@ -1460,11 +1494,17 @@ class AppServiceConnectionStringArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             type: pulumi.Input[str],
-             value: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("name", name)
         _setter("type", type)
@@ -1532,17 +1572,19 @@ class AppServiceIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -1633,13 +1675,13 @@ class AppServiceLogsArgs:
              http_logs: Optional[pulumi.Input['AppServiceLogsHttpLogsArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'applicationLogs' in kwargs:
+        if application_logs is None and 'applicationLogs' in kwargs:
             application_logs = kwargs['applicationLogs']
-        if 'detailedErrorMessagesEnabled' in kwargs:
+        if detailed_error_messages_enabled is None and 'detailedErrorMessagesEnabled' in kwargs:
             detailed_error_messages_enabled = kwargs['detailedErrorMessagesEnabled']
-        if 'failedRequestTracingEnabled' in kwargs:
+        if failed_request_tracing_enabled is None and 'failedRequestTracingEnabled' in kwargs:
             failed_request_tracing_enabled = kwargs['failedRequestTracingEnabled']
-        if 'httpLogs' in kwargs:
+        if http_logs is None and 'httpLogs' in kwargs:
             http_logs = kwargs['httpLogs']
 
         if application_logs is not None:
@@ -1721,9 +1763,9 @@ class AppServiceLogsApplicationLogsArgs:
              file_system_level: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'azureBlobStorage' in kwargs:
+        if azure_blob_storage is None and 'azureBlobStorage' in kwargs:
             azure_blob_storage = kwargs['azureBlobStorage']
-        if 'fileSystemLevel' in kwargs:
+        if file_system_level is None and 'fileSystemLevel' in kwargs:
             file_system_level = kwargs['fileSystemLevel']
 
         if azure_blob_storage is not None:
@@ -1776,15 +1818,21 @@ class AppServiceLogsApplicationLogsAzureBlobStorageArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             level: pulumi.Input[str],
-             retention_in_days: pulumi.Input[int],
-             sas_url: pulumi.Input[str],
+             level: Optional[pulumi.Input[str]] = None,
+             retention_in_days: Optional[pulumi.Input[int]] = None,
+             sas_url: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'retentionInDays' in kwargs:
+        if level is None:
+            raise TypeError("Missing 'level' argument")
+        if retention_in_days is None and 'retentionInDays' in kwargs:
             retention_in_days = kwargs['retentionInDays']
-        if 'sasUrl' in kwargs:
+        if retention_in_days is None:
+            raise TypeError("Missing 'retention_in_days' argument")
+        if sas_url is None and 'sasUrl' in kwargs:
             sas_url = kwargs['sasUrl']
+        if sas_url is None:
+            raise TypeError("Missing 'sas_url' argument")
 
         _setter("level", level)
         _setter("retention_in_days", retention_in_days)
@@ -1848,9 +1896,9 @@ class AppServiceLogsHttpLogsArgs:
              file_system: Optional[pulumi.Input['AppServiceLogsHttpLogsFileSystemArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'azureBlobStorage' in kwargs:
+        if azure_blob_storage is None and 'azureBlobStorage' in kwargs:
             azure_blob_storage = kwargs['azureBlobStorage']
-        if 'fileSystem' in kwargs:
+        if file_system is None and 'fileSystem' in kwargs:
             file_system = kwargs['fileSystem']
 
         if azure_blob_storage is not None:
@@ -1900,14 +1948,18 @@ class AppServiceLogsHttpLogsAzureBlobStorageArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             retention_in_days: pulumi.Input[int],
-             sas_url: pulumi.Input[str],
+             retention_in_days: Optional[pulumi.Input[int]] = None,
+             sas_url: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'retentionInDays' in kwargs:
+        if retention_in_days is None and 'retentionInDays' in kwargs:
             retention_in_days = kwargs['retentionInDays']
-        if 'sasUrl' in kwargs:
+        if retention_in_days is None:
+            raise TypeError("Missing 'retention_in_days' argument")
+        if sas_url is None and 'sasUrl' in kwargs:
             sas_url = kwargs['sasUrl']
+        if sas_url is None:
+            raise TypeError("Missing 'sas_url' argument")
 
         _setter("retention_in_days", retention_in_days)
         _setter("sas_url", sas_url)
@@ -1954,14 +2006,18 @@ class AppServiceLogsHttpLogsFileSystemArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             retention_in_days: pulumi.Input[int],
-             retention_in_mb: pulumi.Input[int],
+             retention_in_days: Optional[pulumi.Input[int]] = None,
+             retention_in_mb: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'retentionInDays' in kwargs:
+        if retention_in_days is None and 'retentionInDays' in kwargs:
             retention_in_days = kwargs['retentionInDays']
-        if 'retentionInMb' in kwargs:
+        if retention_in_days is None:
+            raise TypeError("Missing 'retention_in_days' argument")
+        if retention_in_mb is None and 'retentionInMb' in kwargs:
             retention_in_mb = kwargs['retentionInMb']
+        if retention_in_mb is None:
+            raise TypeError("Missing 'retention_in_mb' argument")
 
         _setter("retention_in_days", retention_in_days)
         _setter("retention_in_mb", retention_in_mb)
@@ -2143,65 +2199,65 @@ class AppServiceSiteConfigArgs:
              windows_fx_version: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'acrUseManagedIdentityCredentials' in kwargs:
+        if acr_use_managed_identity_credentials is None and 'acrUseManagedIdentityCredentials' in kwargs:
             acr_use_managed_identity_credentials = kwargs['acrUseManagedIdentityCredentials']
-        if 'acrUserManagedIdentityClientId' in kwargs:
+        if acr_user_managed_identity_client_id is None and 'acrUserManagedIdentityClientId' in kwargs:
             acr_user_managed_identity_client_id = kwargs['acrUserManagedIdentityClientId']
-        if 'alwaysOn' in kwargs:
+        if always_on is None and 'alwaysOn' in kwargs:
             always_on = kwargs['alwaysOn']
-        if 'appCommandLine' in kwargs:
+        if app_command_line is None and 'appCommandLine' in kwargs:
             app_command_line = kwargs['appCommandLine']
-        if 'autoSwapSlotName' in kwargs:
+        if auto_swap_slot_name is None and 'autoSwapSlotName' in kwargs:
             auto_swap_slot_name = kwargs['autoSwapSlotName']
-        if 'defaultDocuments' in kwargs:
+        if default_documents is None and 'defaultDocuments' in kwargs:
             default_documents = kwargs['defaultDocuments']
-        if 'dotnetFrameworkVersion' in kwargs:
+        if dotnet_framework_version is None and 'dotnetFrameworkVersion' in kwargs:
             dotnet_framework_version = kwargs['dotnetFrameworkVersion']
-        if 'ftpsState' in kwargs:
+        if ftps_state is None and 'ftpsState' in kwargs:
             ftps_state = kwargs['ftpsState']
-        if 'healthCheckPath' in kwargs:
+        if health_check_path is None and 'healthCheckPath' in kwargs:
             health_check_path = kwargs['healthCheckPath']
-        if 'http2Enabled' in kwargs:
+        if http2_enabled is None and 'http2Enabled' in kwargs:
             http2_enabled = kwargs['http2Enabled']
-        if 'ipRestrictions' in kwargs:
+        if ip_restrictions is None and 'ipRestrictions' in kwargs:
             ip_restrictions = kwargs['ipRestrictions']
-        if 'javaContainer' in kwargs:
+        if java_container is None and 'javaContainer' in kwargs:
             java_container = kwargs['javaContainer']
-        if 'javaContainerVersion' in kwargs:
+        if java_container_version is None and 'javaContainerVersion' in kwargs:
             java_container_version = kwargs['javaContainerVersion']
-        if 'javaVersion' in kwargs:
+        if java_version is None and 'javaVersion' in kwargs:
             java_version = kwargs['javaVersion']
-        if 'linuxFxVersion' in kwargs:
+        if linux_fx_version is None and 'linuxFxVersion' in kwargs:
             linux_fx_version = kwargs['linuxFxVersion']
-        if 'localMysqlEnabled' in kwargs:
+        if local_mysql_enabled is None and 'localMysqlEnabled' in kwargs:
             local_mysql_enabled = kwargs['localMysqlEnabled']
-        if 'managedPipelineMode' in kwargs:
+        if managed_pipeline_mode is None and 'managedPipelineMode' in kwargs:
             managed_pipeline_mode = kwargs['managedPipelineMode']
-        if 'minTlsVersion' in kwargs:
+        if min_tls_version is None and 'minTlsVersion' in kwargs:
             min_tls_version = kwargs['minTlsVersion']
-        if 'numberOfWorkers' in kwargs:
+        if number_of_workers is None and 'numberOfWorkers' in kwargs:
             number_of_workers = kwargs['numberOfWorkers']
-        if 'phpVersion' in kwargs:
+        if php_version is None and 'phpVersion' in kwargs:
             php_version = kwargs['phpVersion']
-        if 'pythonVersion' in kwargs:
+        if python_version is None and 'pythonVersion' in kwargs:
             python_version = kwargs['pythonVersion']
-        if 'remoteDebuggingEnabled' in kwargs:
+        if remote_debugging_enabled is None and 'remoteDebuggingEnabled' in kwargs:
             remote_debugging_enabled = kwargs['remoteDebuggingEnabled']
-        if 'remoteDebuggingVersion' in kwargs:
+        if remote_debugging_version is None and 'remoteDebuggingVersion' in kwargs:
             remote_debugging_version = kwargs['remoteDebuggingVersion']
-        if 'scmIpRestrictions' in kwargs:
+        if scm_ip_restrictions is None and 'scmIpRestrictions' in kwargs:
             scm_ip_restrictions = kwargs['scmIpRestrictions']
-        if 'scmType' in kwargs:
+        if scm_type is None and 'scmType' in kwargs:
             scm_type = kwargs['scmType']
-        if 'scmUseMainIpRestriction' in kwargs:
+        if scm_use_main_ip_restriction is None and 'scmUseMainIpRestriction' in kwargs:
             scm_use_main_ip_restriction = kwargs['scmUseMainIpRestriction']
-        if 'use32BitWorkerProcess' in kwargs:
+        if use32_bit_worker_process is None and 'use32BitWorkerProcess' in kwargs:
             use32_bit_worker_process = kwargs['use32BitWorkerProcess']
-        if 'vnetRouteAllEnabled' in kwargs:
+        if vnet_route_all_enabled is None and 'vnetRouteAllEnabled' in kwargs:
             vnet_route_all_enabled = kwargs['vnetRouteAllEnabled']
-        if 'websocketsEnabled' in kwargs:
+        if websockets_enabled is None and 'websocketsEnabled' in kwargs:
             websockets_enabled = kwargs['websocketsEnabled']
-        if 'windowsFxVersion' in kwargs:
+        if windows_fx_version is None and 'windowsFxVersion' in kwargs:
             windows_fx_version = kwargs['windowsFxVersion']
 
         if acr_use_managed_identity_credentials is not None:
@@ -2670,13 +2726,15 @@ class AppServiceSiteConfigCorsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
+             allowed_origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              support_credentials: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowedOrigins' in kwargs:
+        if allowed_origins is None and 'allowedOrigins' in kwargs:
             allowed_origins = kwargs['allowedOrigins']
-        if 'supportCredentials' in kwargs:
+        if allowed_origins is None:
+            raise TypeError("Missing 'allowed_origins' argument")
+        if support_credentials is None and 'supportCredentials' in kwargs:
             support_credentials = kwargs['supportCredentials']
 
         _setter("allowed_origins", allowed_origins)
@@ -2751,11 +2809,11 @@ class AppServiceSiteConfigIpRestrictionArgs:
              virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ipAddress' in kwargs:
+        if ip_address is None and 'ipAddress' in kwargs:
             ip_address = kwargs['ipAddress']
-        if 'serviceTag' in kwargs:
+        if service_tag is None and 'serviceTag' in kwargs:
             service_tag = kwargs['serviceTag']
-        if 'virtualNetworkSubnetId' in kwargs:
+        if virtual_network_subnet_id is None and 'virtualNetworkSubnetId' in kwargs:
             virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
 
         if action is not None:
@@ -2889,13 +2947,13 @@ class AppServiceSiteConfigIpRestrictionHeadersArgs:
              x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'xAzureFdids' in kwargs:
+        if x_azure_fdids is None and 'xAzureFdids' in kwargs:
             x_azure_fdids = kwargs['xAzureFdids']
-        if 'xFdHealthProbe' in kwargs:
+        if x_fd_health_probe is None and 'xFdHealthProbe' in kwargs:
             x_fd_health_probe = kwargs['xFdHealthProbe']
-        if 'xForwardedFors' in kwargs:
+        if x_forwarded_fors is None and 'xForwardedFors' in kwargs:
             x_forwarded_fors = kwargs['xForwardedFors']
-        if 'xForwardedHosts' in kwargs:
+        if x_forwarded_hosts is None and 'xForwardedHosts' in kwargs:
             x_forwarded_hosts = kwargs['xForwardedHosts']
 
         if x_azure_fdids is not None:
@@ -2999,11 +3057,11 @@ class AppServiceSiteConfigScmIpRestrictionArgs:
              virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ipAddress' in kwargs:
+        if ip_address is None and 'ipAddress' in kwargs:
             ip_address = kwargs['ipAddress']
-        if 'serviceTag' in kwargs:
+        if service_tag is None and 'serviceTag' in kwargs:
             service_tag = kwargs['serviceTag']
-        if 'virtualNetworkSubnetId' in kwargs:
+        if virtual_network_subnet_id is None and 'virtualNetworkSubnetId' in kwargs:
             virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
 
         if action is not None:
@@ -3137,13 +3195,13 @@ class AppServiceSiteConfigScmIpRestrictionHeadersArgs:
              x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'xAzureFdids' in kwargs:
+        if x_azure_fdids is None and 'xAzureFdids' in kwargs:
             x_azure_fdids = kwargs['xAzureFdids']
-        if 'xFdHealthProbe' in kwargs:
+        if x_fd_health_probe is None and 'xFdHealthProbe' in kwargs:
             x_fd_health_probe = kwargs['xFdHealthProbe']
-        if 'xForwardedFors' in kwargs:
+        if x_forwarded_fors is None and 'xForwardedFors' in kwargs:
             x_forwarded_fors = kwargs['xForwardedFors']
-        if 'xForwardedHosts' in kwargs:
+        if x_forwarded_hosts is None and 'xForwardedHosts' in kwargs:
             x_forwarded_hosts = kwargs['xForwardedHosts']
 
         if x_azure_fdids is not None:
@@ -3289,13 +3347,13 @@ class AppServiceSourceControlArgs:
              use_mercurial: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'manualIntegration' in kwargs:
+        if manual_integration is None and 'manualIntegration' in kwargs:
             manual_integration = kwargs['manualIntegration']
-        if 'repoUrl' in kwargs:
+        if repo_url is None and 'repoUrl' in kwargs:
             repo_url = kwargs['repoUrl']
-        if 'rollbackEnabled' in kwargs:
+        if rollback_enabled is None and 'rollbackEnabled' in kwargs:
             rollback_enabled = kwargs['rollbackEnabled']
-        if 'useMercurial' in kwargs:
+        if use_mercurial is None and 'useMercurial' in kwargs:
             use_mercurial = kwargs['useMercurial']
 
         if branch is not None:
@@ -3399,21 +3457,31 @@ class AppServiceStorageAccountArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             access_key: pulumi.Input[str],
-             account_name: pulumi.Input[str],
-             name: pulumi.Input[str],
-             share_name: pulumi.Input[str],
-             type: pulumi.Input[str],
+             access_key: Optional[pulumi.Input[str]] = None,
+             account_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             share_name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              mount_path: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accessKey' in kwargs:
+        if access_key is None and 'accessKey' in kwargs:
             access_key = kwargs['accessKey']
-        if 'accountName' in kwargs:
+        if access_key is None:
+            raise TypeError("Missing 'access_key' argument")
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'shareName' in kwargs:
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if share_name is None and 'shareName' in kwargs:
             share_name = kwargs['shareName']
-        if 'mountPath' in kwargs:
+        if share_name is None:
+            raise TypeError("Missing 'share_name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if mount_path is None and 'mountPath' in kwargs:
             mount_path = kwargs['mountPath']
 
         _setter("access_key", access_key)
@@ -3526,13 +3594,13 @@ class CertificateOrderCertificateArgs:
              provisioning_state: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'certificateName' in kwargs:
+        if certificate_name is None and 'certificateName' in kwargs:
             certificate_name = kwargs['certificateName']
-        if 'keyVaultId' in kwargs:
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
-        if 'keyVaultSecretName' in kwargs:
+        if key_vault_secret_name is None and 'keyVaultSecretName' in kwargs:
             key_vault_secret_name = kwargs['keyVaultSecretName']
-        if 'provisioningState' in kwargs:
+        if provisioning_state is None and 'provisioningState' in kwargs:
             provisioning_state = kwargs['provisioningState']
 
         if certificate_name is not None:
@@ -3625,7 +3693,7 @@ class ConnectionAuthenticationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              certificate: Optional[pulumi.Input[str]] = None,
              client_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
@@ -3634,11 +3702,13 @@ class ConnectionAuthenticationArgs:
              subscription_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'subscriptionId' in kwargs:
+        if subscription_id is None and 'subscriptionId' in kwargs:
             subscription_id = kwargs['subscriptionId']
 
         _setter("type", type)
@@ -3754,11 +3824,13 @@ class ConnectionSecretStoreArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_vault_id: pulumi.Input[str],
+             key_vault_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'keyVaultId' in kwargs:
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
+        if key_vault_id is None:
+            raise TypeError("Missing 'key_vault_id' argument")
 
         _setter("key_vault_id", key_vault_id)
 
@@ -3792,10 +3864,14 @@ class EnvironmentClusterSettingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             value: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("name", name)
         _setter("value", value)
@@ -3842,10 +3918,14 @@ class EnvironmentV3ClusterSettingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             value: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("name", name)
         _setter("value", value)
@@ -3900,7 +3980,7 @@ class EnvironmentV3InboundNetworkDependencyArgs:
              ports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ipAddresses' in kwargs:
+        if ip_addresses is None and 'ipAddresses' in kwargs:
             ip_addresses = kwargs['ipAddresses']
 
         if description is not None:
@@ -4002,7 +4082,7 @@ class FunctionAppAuthSettingsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: pulumi.Input[bool],
+             enabled: Optional[pulumi.Input[bool]] = None,
              active_directory: Optional[pulumi.Input['FunctionAppAuthSettingsActiveDirectoryArgs']] = None,
              additional_login_params: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -4018,21 +4098,23 @@ class FunctionAppAuthSettingsArgs:
              unauthenticated_client_action: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'activeDirectory' in kwargs:
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if active_directory is None and 'activeDirectory' in kwargs:
             active_directory = kwargs['activeDirectory']
-        if 'additionalLoginParams' in kwargs:
+        if additional_login_params is None and 'additionalLoginParams' in kwargs:
             additional_login_params = kwargs['additionalLoginParams']
-        if 'allowedExternalRedirectUrls' in kwargs:
+        if allowed_external_redirect_urls is None and 'allowedExternalRedirectUrls' in kwargs:
             allowed_external_redirect_urls = kwargs['allowedExternalRedirectUrls']
-        if 'defaultProvider' in kwargs:
+        if default_provider is None and 'defaultProvider' in kwargs:
             default_provider = kwargs['defaultProvider']
-        if 'runtimeVersion' in kwargs:
+        if runtime_version is None and 'runtimeVersion' in kwargs:
             runtime_version = kwargs['runtimeVersion']
-        if 'tokenRefreshExtensionHours' in kwargs:
+        if token_refresh_extension_hours is None and 'tokenRefreshExtensionHours' in kwargs:
             token_refresh_extension_hours = kwargs['tokenRefreshExtensionHours']
-        if 'tokenStoreEnabled' in kwargs:
+        if token_store_enabled is None and 'tokenStoreEnabled' in kwargs:
             token_store_enabled = kwargs['tokenStoreEnabled']
-        if 'unauthenticatedClientAction' in kwargs:
+        if unauthenticated_client_action is None and 'unauthenticatedClientAction' in kwargs:
             unauthenticated_client_action = kwargs['unauthenticatedClientAction']
 
         _setter("enabled", enabled)
@@ -4254,16 +4336,18 @@ class FunctionAppAuthSettingsActiveDirectoryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
              allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              client_secret: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'allowedAudiences' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if allowed_audiences is None and 'allowedAudiences' in kwargs:
             allowed_audiences = kwargs['allowedAudiences']
-        if 'clientSecret' in kwargs:
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
 
         _setter("client_id", client_id)
@@ -4329,16 +4413,20 @@ class FunctionAppAuthSettingsFacebookArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_id: pulumi.Input[str],
-             app_secret: pulumi.Input[str],
+             app_id: Optional[pulumi.Input[str]] = None,
+             app_secret: Optional[pulumi.Input[str]] = None,
              oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'appId' in kwargs:
+        if app_id is None and 'appId' in kwargs:
             app_id = kwargs['appId']
-        if 'appSecret' in kwargs:
+        if app_id is None:
+            raise TypeError("Missing 'app_id' argument")
+        if app_secret is None and 'appSecret' in kwargs:
             app_secret = kwargs['appSecret']
-        if 'oauthScopes' in kwargs:
+        if app_secret is None:
+            raise TypeError("Missing 'app_secret' argument")
+        if oauth_scopes is None and 'oauthScopes' in kwargs:
             oauth_scopes = kwargs['oauthScopes']
 
         _setter("app_id", app_id)
@@ -4403,16 +4491,20 @@ class FunctionAppAuthSettingsGoogleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             client_secret: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret: Optional[pulumi.Input[str]] = None,
              oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecret' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'oauthScopes' in kwargs:
+        if client_secret is None:
+            raise TypeError("Missing 'client_secret' argument")
+        if oauth_scopes is None and 'oauthScopes' in kwargs:
             oauth_scopes = kwargs['oauthScopes']
 
         _setter("client_id", client_id)
@@ -4477,16 +4569,20 @@ class FunctionAppAuthSettingsMicrosoftArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             client_secret: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret: Optional[pulumi.Input[str]] = None,
              oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecret' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'oauthScopes' in kwargs:
+        if client_secret is None:
+            raise TypeError("Missing 'client_secret' argument")
+        if oauth_scopes is None and 'oauthScopes' in kwargs:
             oauth_scopes = kwargs['oauthScopes']
 
         _setter("client_id", client_id)
@@ -4548,14 +4644,18 @@ class FunctionAppAuthSettingsTwitterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             consumer_key: pulumi.Input[str],
-             consumer_secret: pulumi.Input[str],
+             consumer_key: Optional[pulumi.Input[str]] = None,
+             consumer_secret: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'consumerKey' in kwargs:
+        if consumer_key is None and 'consumerKey' in kwargs:
             consumer_key = kwargs['consumerKey']
-        if 'consumerSecret' in kwargs:
+        if consumer_key is None:
+            raise TypeError("Missing 'consumer_key' argument")
+        if consumer_secret is None and 'consumerSecret' in kwargs:
             consumer_secret = kwargs['consumerSecret']
+        if consumer_secret is None:
+            raise TypeError("Missing 'consumer_secret' argument")
 
         _setter("consumer_key", consumer_key)
         _setter("consumer_secret", consumer_secret)
@@ -4605,11 +4705,17 @@ class FunctionAppConnectionStringArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             type: pulumi.Input[str],
-             value: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("name", name)
         _setter("type", type)
@@ -4669,10 +4775,14 @@ class FunctionAppFunctionFileArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             content: pulumi.Input[str],
-             name: pulumi.Input[str],
+             content: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if content is None:
+            raise TypeError("Missing 'content' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("content", content)
         _setter("name", name)
@@ -4727,17 +4837,19 @@ class FunctionAppIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -4907,45 +5019,45 @@ class FunctionAppSiteConfigArgs:
              websockets_enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'alwaysOn' in kwargs:
+        if always_on is None and 'alwaysOn' in kwargs:
             always_on = kwargs['alwaysOn']
-        if 'appScaleLimit' in kwargs:
+        if app_scale_limit is None and 'appScaleLimit' in kwargs:
             app_scale_limit = kwargs['appScaleLimit']
-        if 'autoSwapSlotName' in kwargs:
+        if auto_swap_slot_name is None and 'autoSwapSlotName' in kwargs:
             auto_swap_slot_name = kwargs['autoSwapSlotName']
-        if 'dotnetFrameworkVersion' in kwargs:
+        if dotnet_framework_version is None and 'dotnetFrameworkVersion' in kwargs:
             dotnet_framework_version = kwargs['dotnetFrameworkVersion']
-        if 'elasticInstanceMinimum' in kwargs:
+        if elastic_instance_minimum is None and 'elasticInstanceMinimum' in kwargs:
             elastic_instance_minimum = kwargs['elasticInstanceMinimum']
-        if 'ftpsState' in kwargs:
+        if ftps_state is None and 'ftpsState' in kwargs:
             ftps_state = kwargs['ftpsState']
-        if 'healthCheckPath' in kwargs:
+        if health_check_path is None and 'healthCheckPath' in kwargs:
             health_check_path = kwargs['healthCheckPath']
-        if 'http2Enabled' in kwargs:
+        if http2_enabled is None and 'http2Enabled' in kwargs:
             http2_enabled = kwargs['http2Enabled']
-        if 'ipRestrictions' in kwargs:
+        if ip_restrictions is None and 'ipRestrictions' in kwargs:
             ip_restrictions = kwargs['ipRestrictions']
-        if 'javaVersion' in kwargs:
+        if java_version is None and 'javaVersion' in kwargs:
             java_version = kwargs['javaVersion']
-        if 'linuxFxVersion' in kwargs:
+        if linux_fx_version is None and 'linuxFxVersion' in kwargs:
             linux_fx_version = kwargs['linuxFxVersion']
-        if 'minTlsVersion' in kwargs:
+        if min_tls_version is None and 'minTlsVersion' in kwargs:
             min_tls_version = kwargs['minTlsVersion']
-        if 'preWarmedInstanceCount' in kwargs:
+        if pre_warmed_instance_count is None and 'preWarmedInstanceCount' in kwargs:
             pre_warmed_instance_count = kwargs['preWarmedInstanceCount']
-        if 'runtimeScaleMonitoringEnabled' in kwargs:
+        if runtime_scale_monitoring_enabled is None and 'runtimeScaleMonitoringEnabled' in kwargs:
             runtime_scale_monitoring_enabled = kwargs['runtimeScaleMonitoringEnabled']
-        if 'scmIpRestrictions' in kwargs:
+        if scm_ip_restrictions is None and 'scmIpRestrictions' in kwargs:
             scm_ip_restrictions = kwargs['scmIpRestrictions']
-        if 'scmType' in kwargs:
+        if scm_type is None and 'scmType' in kwargs:
             scm_type = kwargs['scmType']
-        if 'scmUseMainIpRestriction' in kwargs:
+        if scm_use_main_ip_restriction is None and 'scmUseMainIpRestriction' in kwargs:
             scm_use_main_ip_restriction = kwargs['scmUseMainIpRestriction']
-        if 'use32BitWorkerProcess' in kwargs:
+        if use32_bit_worker_process is None and 'use32BitWorkerProcess' in kwargs:
             use32_bit_worker_process = kwargs['use32BitWorkerProcess']
-        if 'vnetRouteAllEnabled' in kwargs:
+        if vnet_route_all_enabled is None and 'vnetRouteAllEnabled' in kwargs:
             vnet_route_all_enabled = kwargs['vnetRouteAllEnabled']
-        if 'websocketsEnabled' in kwargs:
+        if websockets_enabled is None and 'websocketsEnabled' in kwargs:
             websockets_enabled = kwargs['websocketsEnabled']
 
         if always_on is not None:
@@ -5270,13 +5382,15 @@ class FunctionAppSiteConfigCorsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
+             allowed_origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              support_credentials: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowedOrigins' in kwargs:
+        if allowed_origins is None and 'allowedOrigins' in kwargs:
             allowed_origins = kwargs['allowedOrigins']
-        if 'supportCredentials' in kwargs:
+        if allowed_origins is None:
+            raise TypeError("Missing 'allowed_origins' argument")
+        if support_credentials is None and 'supportCredentials' in kwargs:
             support_credentials = kwargs['supportCredentials']
 
         _setter("allowed_origins", allowed_origins)
@@ -5351,11 +5465,11 @@ class FunctionAppSiteConfigIpRestrictionArgs:
              virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ipAddress' in kwargs:
+        if ip_address is None and 'ipAddress' in kwargs:
             ip_address = kwargs['ipAddress']
-        if 'serviceTag' in kwargs:
+        if service_tag is None and 'serviceTag' in kwargs:
             service_tag = kwargs['serviceTag']
-        if 'virtualNetworkSubnetId' in kwargs:
+        if virtual_network_subnet_id is None and 'virtualNetworkSubnetId' in kwargs:
             virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
 
         if action is not None:
@@ -5489,13 +5603,13 @@ class FunctionAppSiteConfigIpRestrictionHeadersArgs:
              x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'xAzureFdids' in kwargs:
+        if x_azure_fdids is None and 'xAzureFdids' in kwargs:
             x_azure_fdids = kwargs['xAzureFdids']
-        if 'xFdHealthProbe' in kwargs:
+        if x_fd_health_probe is None and 'xFdHealthProbe' in kwargs:
             x_fd_health_probe = kwargs['xFdHealthProbe']
-        if 'xForwardedFors' in kwargs:
+        if x_forwarded_fors is None and 'xForwardedFors' in kwargs:
             x_forwarded_fors = kwargs['xForwardedFors']
-        if 'xForwardedHosts' in kwargs:
+        if x_forwarded_hosts is None and 'xForwardedHosts' in kwargs:
             x_forwarded_hosts = kwargs['xForwardedHosts']
 
         if x_azure_fdids is not None:
@@ -5599,11 +5713,11 @@ class FunctionAppSiteConfigScmIpRestrictionArgs:
              virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ipAddress' in kwargs:
+        if ip_address is None and 'ipAddress' in kwargs:
             ip_address = kwargs['ipAddress']
-        if 'serviceTag' in kwargs:
+        if service_tag is None and 'serviceTag' in kwargs:
             service_tag = kwargs['serviceTag']
-        if 'virtualNetworkSubnetId' in kwargs:
+        if virtual_network_subnet_id is None and 'virtualNetworkSubnetId' in kwargs:
             virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
 
         if action is not None:
@@ -5737,13 +5851,13 @@ class FunctionAppSiteConfigScmIpRestrictionHeadersArgs:
              x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'xAzureFdids' in kwargs:
+        if x_azure_fdids is None and 'xAzureFdids' in kwargs:
             x_azure_fdids = kwargs['xAzureFdids']
-        if 'xFdHealthProbe' in kwargs:
+        if x_fd_health_probe is None and 'xFdHealthProbe' in kwargs:
             x_fd_health_probe = kwargs['xFdHealthProbe']
-        if 'xForwardedFors' in kwargs:
+        if x_forwarded_fors is None and 'xForwardedFors' in kwargs:
             x_forwarded_fors = kwargs['xForwardedFors']
-        if 'xForwardedHosts' in kwargs:
+        if x_forwarded_hosts is None and 'xForwardedHosts' in kwargs:
             x_forwarded_hosts = kwargs['xForwardedHosts']
 
         if x_azure_fdids is not None:
@@ -5911,7 +6025,7 @@ class FunctionAppSlotAuthSettingsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: pulumi.Input[bool],
+             enabled: Optional[pulumi.Input[bool]] = None,
              active_directory: Optional[pulumi.Input['FunctionAppSlotAuthSettingsActiveDirectoryArgs']] = None,
              additional_login_params: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -5927,21 +6041,23 @@ class FunctionAppSlotAuthSettingsArgs:
              unauthenticated_client_action: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'activeDirectory' in kwargs:
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if active_directory is None and 'activeDirectory' in kwargs:
             active_directory = kwargs['activeDirectory']
-        if 'additionalLoginParams' in kwargs:
+        if additional_login_params is None and 'additionalLoginParams' in kwargs:
             additional_login_params = kwargs['additionalLoginParams']
-        if 'allowedExternalRedirectUrls' in kwargs:
+        if allowed_external_redirect_urls is None and 'allowedExternalRedirectUrls' in kwargs:
             allowed_external_redirect_urls = kwargs['allowedExternalRedirectUrls']
-        if 'defaultProvider' in kwargs:
+        if default_provider is None and 'defaultProvider' in kwargs:
             default_provider = kwargs['defaultProvider']
-        if 'runtimeVersion' in kwargs:
+        if runtime_version is None and 'runtimeVersion' in kwargs:
             runtime_version = kwargs['runtimeVersion']
-        if 'tokenRefreshExtensionHours' in kwargs:
+        if token_refresh_extension_hours is None and 'tokenRefreshExtensionHours' in kwargs:
             token_refresh_extension_hours = kwargs['tokenRefreshExtensionHours']
-        if 'tokenStoreEnabled' in kwargs:
+        if token_store_enabled is None and 'tokenStoreEnabled' in kwargs:
             token_store_enabled = kwargs['tokenStoreEnabled']
-        if 'unauthenticatedClientAction' in kwargs:
+        if unauthenticated_client_action is None and 'unauthenticatedClientAction' in kwargs:
             unauthenticated_client_action = kwargs['unauthenticatedClientAction']
 
         _setter("enabled", enabled)
@@ -6163,16 +6279,18 @@ class FunctionAppSlotAuthSettingsActiveDirectoryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
              allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              client_secret: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'allowedAudiences' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if allowed_audiences is None and 'allowedAudiences' in kwargs:
             allowed_audiences = kwargs['allowedAudiences']
-        if 'clientSecret' in kwargs:
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
 
         _setter("client_id", client_id)
@@ -6238,16 +6356,20 @@ class FunctionAppSlotAuthSettingsFacebookArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_id: pulumi.Input[str],
-             app_secret: pulumi.Input[str],
+             app_id: Optional[pulumi.Input[str]] = None,
+             app_secret: Optional[pulumi.Input[str]] = None,
              oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'appId' in kwargs:
+        if app_id is None and 'appId' in kwargs:
             app_id = kwargs['appId']
-        if 'appSecret' in kwargs:
+        if app_id is None:
+            raise TypeError("Missing 'app_id' argument")
+        if app_secret is None and 'appSecret' in kwargs:
             app_secret = kwargs['appSecret']
-        if 'oauthScopes' in kwargs:
+        if app_secret is None:
+            raise TypeError("Missing 'app_secret' argument")
+        if oauth_scopes is None and 'oauthScopes' in kwargs:
             oauth_scopes = kwargs['oauthScopes']
 
         _setter("app_id", app_id)
@@ -6312,16 +6434,20 @@ class FunctionAppSlotAuthSettingsGoogleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             client_secret: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret: Optional[pulumi.Input[str]] = None,
              oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecret' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'oauthScopes' in kwargs:
+        if client_secret is None:
+            raise TypeError("Missing 'client_secret' argument")
+        if oauth_scopes is None and 'oauthScopes' in kwargs:
             oauth_scopes = kwargs['oauthScopes']
 
         _setter("client_id", client_id)
@@ -6386,16 +6512,20 @@ class FunctionAppSlotAuthSettingsMicrosoftArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             client_secret: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret: Optional[pulumi.Input[str]] = None,
              oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecret' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'oauthScopes' in kwargs:
+        if client_secret is None:
+            raise TypeError("Missing 'client_secret' argument")
+        if oauth_scopes is None and 'oauthScopes' in kwargs:
             oauth_scopes = kwargs['oauthScopes']
 
         _setter("client_id", client_id)
@@ -6457,14 +6587,18 @@ class FunctionAppSlotAuthSettingsTwitterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             consumer_key: pulumi.Input[str],
-             consumer_secret: pulumi.Input[str],
+             consumer_key: Optional[pulumi.Input[str]] = None,
+             consumer_secret: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'consumerKey' in kwargs:
+        if consumer_key is None and 'consumerKey' in kwargs:
             consumer_key = kwargs['consumerKey']
-        if 'consumerSecret' in kwargs:
+        if consumer_key is None:
+            raise TypeError("Missing 'consumer_key' argument")
+        if consumer_secret is None and 'consumerSecret' in kwargs:
             consumer_secret = kwargs['consumerSecret']
+        if consumer_secret is None:
+            raise TypeError("Missing 'consumer_secret' argument")
 
         _setter("consumer_key", consumer_key)
         _setter("consumer_secret", consumer_secret)
@@ -6514,11 +6648,17 @@ class FunctionAppSlotConnectionStringArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             type: pulumi.Input[str],
-             value: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("name", name)
         _setter("type", type)
@@ -6586,17 +6726,19 @@ class FunctionAppSlotIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -6762,45 +6904,45 @@ class FunctionAppSlotSiteConfigArgs:
              websockets_enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'alwaysOn' in kwargs:
+        if always_on is None and 'alwaysOn' in kwargs:
             always_on = kwargs['alwaysOn']
-        if 'appScaleLimit' in kwargs:
+        if app_scale_limit is None and 'appScaleLimit' in kwargs:
             app_scale_limit = kwargs['appScaleLimit']
-        if 'autoSwapSlotName' in kwargs:
+        if auto_swap_slot_name is None and 'autoSwapSlotName' in kwargs:
             auto_swap_slot_name = kwargs['autoSwapSlotName']
-        if 'dotnetFrameworkVersion' in kwargs:
+        if dotnet_framework_version is None and 'dotnetFrameworkVersion' in kwargs:
             dotnet_framework_version = kwargs['dotnetFrameworkVersion']
-        if 'elasticInstanceMinimum' in kwargs:
+        if elastic_instance_minimum is None and 'elasticInstanceMinimum' in kwargs:
             elastic_instance_minimum = kwargs['elasticInstanceMinimum']
-        if 'ftpsState' in kwargs:
+        if ftps_state is None and 'ftpsState' in kwargs:
             ftps_state = kwargs['ftpsState']
-        if 'healthCheckPath' in kwargs:
+        if health_check_path is None and 'healthCheckPath' in kwargs:
             health_check_path = kwargs['healthCheckPath']
-        if 'http2Enabled' in kwargs:
+        if http2_enabled is None and 'http2Enabled' in kwargs:
             http2_enabled = kwargs['http2Enabled']
-        if 'ipRestrictions' in kwargs:
+        if ip_restrictions is None and 'ipRestrictions' in kwargs:
             ip_restrictions = kwargs['ipRestrictions']
-        if 'javaVersion' in kwargs:
+        if java_version is None and 'javaVersion' in kwargs:
             java_version = kwargs['javaVersion']
-        if 'linuxFxVersion' in kwargs:
+        if linux_fx_version is None and 'linuxFxVersion' in kwargs:
             linux_fx_version = kwargs['linuxFxVersion']
-        if 'minTlsVersion' in kwargs:
+        if min_tls_version is None and 'minTlsVersion' in kwargs:
             min_tls_version = kwargs['minTlsVersion']
-        if 'preWarmedInstanceCount' in kwargs:
+        if pre_warmed_instance_count is None and 'preWarmedInstanceCount' in kwargs:
             pre_warmed_instance_count = kwargs['preWarmedInstanceCount']
-        if 'runtimeScaleMonitoringEnabled' in kwargs:
+        if runtime_scale_monitoring_enabled is None and 'runtimeScaleMonitoringEnabled' in kwargs:
             runtime_scale_monitoring_enabled = kwargs['runtimeScaleMonitoringEnabled']
-        if 'scmIpRestrictions' in kwargs:
+        if scm_ip_restrictions is None and 'scmIpRestrictions' in kwargs:
             scm_ip_restrictions = kwargs['scmIpRestrictions']
-        if 'scmType' in kwargs:
+        if scm_type is None and 'scmType' in kwargs:
             scm_type = kwargs['scmType']
-        if 'scmUseMainIpRestriction' in kwargs:
+        if scm_use_main_ip_restriction is None and 'scmUseMainIpRestriction' in kwargs:
             scm_use_main_ip_restriction = kwargs['scmUseMainIpRestriction']
-        if 'use32BitWorkerProcess' in kwargs:
+        if use32_bit_worker_process is None and 'use32BitWorkerProcess' in kwargs:
             use32_bit_worker_process = kwargs['use32BitWorkerProcess']
-        if 'vnetRouteAllEnabled' in kwargs:
+        if vnet_route_all_enabled is None and 'vnetRouteAllEnabled' in kwargs:
             vnet_route_all_enabled = kwargs['vnetRouteAllEnabled']
-        if 'websocketsEnabled' in kwargs:
+        if websockets_enabled is None and 'websocketsEnabled' in kwargs:
             websockets_enabled = kwargs['websocketsEnabled']
 
         if always_on is not None:
@@ -7121,13 +7263,15 @@ class FunctionAppSlotSiteConfigCorsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
+             allowed_origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              support_credentials: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowedOrigins' in kwargs:
+        if allowed_origins is None and 'allowedOrigins' in kwargs:
             allowed_origins = kwargs['allowedOrigins']
-        if 'supportCredentials' in kwargs:
+        if allowed_origins is None:
+            raise TypeError("Missing 'allowed_origins' argument")
+        if support_credentials is None and 'supportCredentials' in kwargs:
             support_credentials = kwargs['supportCredentials']
 
         _setter("allowed_origins", allowed_origins)
@@ -7202,11 +7346,11 @@ class FunctionAppSlotSiteConfigIpRestrictionArgs:
              virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ipAddress' in kwargs:
+        if ip_address is None and 'ipAddress' in kwargs:
             ip_address = kwargs['ipAddress']
-        if 'serviceTag' in kwargs:
+        if service_tag is None and 'serviceTag' in kwargs:
             service_tag = kwargs['serviceTag']
-        if 'virtualNetworkSubnetId' in kwargs:
+        if virtual_network_subnet_id is None and 'virtualNetworkSubnetId' in kwargs:
             virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
 
         if action is not None:
@@ -7340,13 +7484,13 @@ class FunctionAppSlotSiteConfigIpRestrictionHeadersArgs:
              x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'xAzureFdids' in kwargs:
+        if x_azure_fdids is None and 'xAzureFdids' in kwargs:
             x_azure_fdids = kwargs['xAzureFdids']
-        if 'xFdHealthProbe' in kwargs:
+        if x_fd_health_probe is None and 'xFdHealthProbe' in kwargs:
             x_fd_health_probe = kwargs['xFdHealthProbe']
-        if 'xForwardedFors' in kwargs:
+        if x_forwarded_fors is None and 'xForwardedFors' in kwargs:
             x_forwarded_fors = kwargs['xForwardedFors']
-        if 'xForwardedHosts' in kwargs:
+        if x_forwarded_hosts is None and 'xForwardedHosts' in kwargs:
             x_forwarded_hosts = kwargs['xForwardedHosts']
 
         if x_azure_fdids is not None:
@@ -7450,11 +7594,11 @@ class FunctionAppSlotSiteConfigScmIpRestrictionArgs:
              virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ipAddress' in kwargs:
+        if ip_address is None and 'ipAddress' in kwargs:
             ip_address = kwargs['ipAddress']
-        if 'serviceTag' in kwargs:
+        if service_tag is None and 'serviceTag' in kwargs:
             service_tag = kwargs['serviceTag']
-        if 'virtualNetworkSubnetId' in kwargs:
+        if virtual_network_subnet_id is None and 'virtualNetworkSubnetId' in kwargs:
             virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
 
         if action is not None:
@@ -7588,13 +7732,13 @@ class FunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs:
              x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'xAzureFdids' in kwargs:
+        if x_azure_fdids is None and 'xAzureFdids' in kwargs:
             x_azure_fdids = kwargs['xAzureFdids']
-        if 'xFdHealthProbe' in kwargs:
+        if x_fd_health_probe is None and 'xFdHealthProbe' in kwargs:
             x_fd_health_probe = kwargs['xFdHealthProbe']
-        if 'xForwardedFors' in kwargs:
+        if x_forwarded_fors is None and 'xForwardedFors' in kwargs:
             x_forwarded_fors = kwargs['xForwardedFors']
-        if 'xForwardedHosts' in kwargs:
+        if x_forwarded_hosts is None and 'xForwardedHosts' in kwargs:
             x_forwarded_hosts = kwargs['xForwardedHosts']
 
         if x_azure_fdids is not None:
@@ -7740,13 +7884,13 @@ class FunctionAppSourceControlArgs:
              use_mercurial: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'manualIntegration' in kwargs:
+        if manual_integration is None and 'manualIntegration' in kwargs:
             manual_integration = kwargs['manualIntegration']
-        if 'repoUrl' in kwargs:
+        if repo_url is None and 'repoUrl' in kwargs:
             repo_url = kwargs['repoUrl']
-        if 'rollbackEnabled' in kwargs:
+        if rollback_enabled is None and 'rollbackEnabled' in kwargs:
             rollback_enabled = kwargs['rollbackEnabled']
-        if 'useMercurial' in kwargs:
+        if use_mercurial is None and 'useMercurial' in kwargs:
             use_mercurial = kwargs['useMercurial']
 
         if branch is not None:
@@ -7881,7 +8025,7 @@ class LinuxFunctionAppAuthSettingsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: pulumi.Input[bool],
+             enabled: Optional[pulumi.Input[bool]] = None,
              active_directory: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsActiveDirectoryArgs']] = None,
              additional_login_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -7898,21 +8042,23 @@ class LinuxFunctionAppAuthSettingsArgs:
              unauthenticated_client_action: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'activeDirectory' in kwargs:
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if active_directory is None and 'activeDirectory' in kwargs:
             active_directory = kwargs['activeDirectory']
-        if 'additionalLoginParameters' in kwargs:
+        if additional_login_parameters is None and 'additionalLoginParameters' in kwargs:
             additional_login_parameters = kwargs['additionalLoginParameters']
-        if 'allowedExternalRedirectUrls' in kwargs:
+        if allowed_external_redirect_urls is None and 'allowedExternalRedirectUrls' in kwargs:
             allowed_external_redirect_urls = kwargs['allowedExternalRedirectUrls']
-        if 'defaultProvider' in kwargs:
+        if default_provider is None and 'defaultProvider' in kwargs:
             default_provider = kwargs['defaultProvider']
-        if 'runtimeVersion' in kwargs:
+        if runtime_version is None and 'runtimeVersion' in kwargs:
             runtime_version = kwargs['runtimeVersion']
-        if 'tokenRefreshExtensionHours' in kwargs:
+        if token_refresh_extension_hours is None and 'tokenRefreshExtensionHours' in kwargs:
             token_refresh_extension_hours = kwargs['tokenRefreshExtensionHours']
-        if 'tokenStoreEnabled' in kwargs:
+        if token_store_enabled is None and 'tokenStoreEnabled' in kwargs:
             token_store_enabled = kwargs['tokenStoreEnabled']
-        if 'unauthenticatedClientAction' in kwargs:
+        if unauthenticated_client_action is None and 'unauthenticatedClientAction' in kwargs:
             unauthenticated_client_action = kwargs['unauthenticatedClientAction']
 
         _setter("enabled", enabled)
@@ -8155,19 +8301,21 @@ class LinuxFunctionAppAuthSettingsActiveDirectoryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
              allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              client_secret: Optional[pulumi.Input[str]] = None,
              client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'allowedAudiences' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if allowed_audiences is None and 'allowedAudiences' in kwargs:
             allowed_audiences = kwargs['allowedAudiences']
-        if 'clientSecret' in kwargs:
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'clientSecretSettingName' in kwargs:
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
 
         _setter("client_id", client_id)
@@ -8252,19 +8400,21 @@ class LinuxFunctionAppAuthSettingsFacebookArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_id: pulumi.Input[str],
+             app_id: Optional[pulumi.Input[str]] = None,
              app_secret: Optional[pulumi.Input[str]] = None,
              app_secret_setting_name: Optional[pulumi.Input[str]] = None,
              oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'appId' in kwargs:
+        if app_id is None and 'appId' in kwargs:
             app_id = kwargs['appId']
-        if 'appSecret' in kwargs:
+        if app_id is None:
+            raise TypeError("Missing 'app_id' argument")
+        if app_secret is None and 'appSecret' in kwargs:
             app_secret = kwargs['appSecret']
-        if 'appSecretSettingName' in kwargs:
+        if app_secret_setting_name is None and 'appSecretSettingName' in kwargs:
             app_secret_setting_name = kwargs['appSecretSettingName']
-        if 'oauthScopes' in kwargs:
+        if oauth_scopes is None and 'oauthScopes' in kwargs:
             oauth_scopes = kwargs['oauthScopes']
 
         _setter("app_id", app_id)
@@ -8347,19 +8497,21 @@ class LinuxFunctionAppAuthSettingsGithubArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
              client_secret: Optional[pulumi.Input[str]] = None,
              client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecret' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'clientSecretSettingName' in kwargs:
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'oauthScopes' in kwargs:
+        if oauth_scopes is None and 'oauthScopes' in kwargs:
             oauth_scopes = kwargs['oauthScopes']
 
         _setter("client_id", client_id)
@@ -8442,19 +8594,21 @@ class LinuxFunctionAppAuthSettingsGoogleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
              client_secret: Optional[pulumi.Input[str]] = None,
              client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecret' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'clientSecretSettingName' in kwargs:
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'oauthScopes' in kwargs:
+        if oauth_scopes is None and 'oauthScopes' in kwargs:
             oauth_scopes = kwargs['oauthScopes']
 
         _setter("client_id", client_id)
@@ -8537,19 +8691,21 @@ class LinuxFunctionAppAuthSettingsMicrosoftArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
              client_secret: Optional[pulumi.Input[str]] = None,
              client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecret' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'clientSecretSettingName' in kwargs:
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'oauthScopes' in kwargs:
+        if oauth_scopes is None and 'oauthScopes' in kwargs:
             oauth_scopes = kwargs['oauthScopes']
 
         _setter("client_id", client_id)
@@ -8629,16 +8785,18 @@ class LinuxFunctionAppAuthSettingsTwitterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             consumer_key: pulumi.Input[str],
+             consumer_key: Optional[pulumi.Input[str]] = None,
              consumer_secret: Optional[pulumi.Input[str]] = None,
              consumer_secret_setting_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'consumerKey' in kwargs:
+        if consumer_key is None and 'consumerKey' in kwargs:
             consumer_key = kwargs['consumerKey']
-        if 'consumerSecret' in kwargs:
+        if consumer_key is None:
+            raise TypeError("Missing 'consumer_key' argument")
+        if consumer_secret is None and 'consumerSecret' in kwargs:
             consumer_secret = kwargs['consumerSecret']
-        if 'consumerSecretSettingName' in kwargs:
+        if consumer_secret_setting_name is None and 'consumerSecretSettingName' in kwargs:
             consumer_secret_setting_name = kwargs['consumerSecretSettingName']
 
         _setter("consumer_key", consumer_key)
@@ -8767,7 +8925,7 @@ class LinuxFunctionAppAuthSettingsV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             login: pulumi.Input['LinuxFunctionAppAuthSettingsV2LoginArgs'],
+             login: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2LoginArgs']] = None,
              active_directory_v2: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2Args']] = None,
              apple_v2: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2AppleV2Args']] = None,
              auth_enabled: Optional[pulumi.Input[bool]] = None,
@@ -8791,47 +8949,49 @@ class LinuxFunctionAppAuthSettingsV2Args:
              unauthenticated_action: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'activeDirectoryV2' in kwargs:
+        if login is None:
+            raise TypeError("Missing 'login' argument")
+        if active_directory_v2 is None and 'activeDirectoryV2' in kwargs:
             active_directory_v2 = kwargs['activeDirectoryV2']
-        if 'appleV2' in kwargs:
+        if apple_v2 is None and 'appleV2' in kwargs:
             apple_v2 = kwargs['appleV2']
-        if 'authEnabled' in kwargs:
+        if auth_enabled is None and 'authEnabled' in kwargs:
             auth_enabled = kwargs['authEnabled']
-        if 'azureStaticWebAppV2' in kwargs:
+        if azure_static_web_app_v2 is None and 'azureStaticWebAppV2' in kwargs:
             azure_static_web_app_v2 = kwargs['azureStaticWebAppV2']
-        if 'configFilePath' in kwargs:
+        if config_file_path is None and 'configFilePath' in kwargs:
             config_file_path = kwargs['configFilePath']
-        if 'customOidcV2s' in kwargs:
+        if custom_oidc_v2s is None and 'customOidcV2s' in kwargs:
             custom_oidc_v2s = kwargs['customOidcV2s']
-        if 'defaultProvider' in kwargs:
+        if default_provider is None and 'defaultProvider' in kwargs:
             default_provider = kwargs['defaultProvider']
-        if 'excludedPaths' in kwargs:
+        if excluded_paths is None and 'excludedPaths' in kwargs:
             excluded_paths = kwargs['excludedPaths']
-        if 'facebookV2' in kwargs:
+        if facebook_v2 is None and 'facebookV2' in kwargs:
             facebook_v2 = kwargs['facebookV2']
-        if 'forwardProxyConvention' in kwargs:
+        if forward_proxy_convention is None and 'forwardProxyConvention' in kwargs:
             forward_proxy_convention = kwargs['forwardProxyConvention']
-        if 'forwardProxyCustomHostHeaderName' in kwargs:
+        if forward_proxy_custom_host_header_name is None and 'forwardProxyCustomHostHeaderName' in kwargs:
             forward_proxy_custom_host_header_name = kwargs['forwardProxyCustomHostHeaderName']
-        if 'forwardProxyCustomSchemeHeaderName' in kwargs:
+        if forward_proxy_custom_scheme_header_name is None and 'forwardProxyCustomSchemeHeaderName' in kwargs:
             forward_proxy_custom_scheme_header_name = kwargs['forwardProxyCustomSchemeHeaderName']
-        if 'githubV2' in kwargs:
+        if github_v2 is None and 'githubV2' in kwargs:
             github_v2 = kwargs['githubV2']
-        if 'googleV2' in kwargs:
+        if google_v2 is None and 'googleV2' in kwargs:
             google_v2 = kwargs['googleV2']
-        if 'httpRouteApiPrefix' in kwargs:
+        if http_route_api_prefix is None and 'httpRouteApiPrefix' in kwargs:
             http_route_api_prefix = kwargs['httpRouteApiPrefix']
-        if 'microsoftV2' in kwargs:
+        if microsoft_v2 is None and 'microsoftV2' in kwargs:
             microsoft_v2 = kwargs['microsoftV2']
-        if 'requireAuthentication' in kwargs:
+        if require_authentication is None and 'requireAuthentication' in kwargs:
             require_authentication = kwargs['requireAuthentication']
-        if 'requireHttps' in kwargs:
+        if require_https is None and 'requireHttps' in kwargs:
             require_https = kwargs['requireHttps']
-        if 'runtimeVersion' in kwargs:
+        if runtime_version is None and 'runtimeVersion' in kwargs:
             runtime_version = kwargs['runtimeVersion']
-        if 'twitterV2' in kwargs:
+        if twitter_v2 is None and 'twitterV2' in kwargs:
             twitter_v2 = kwargs['twitterV2']
-        if 'unauthenticatedAction' in kwargs:
+        if unauthenticated_action is None and 'unauthenticatedAction' in kwargs:
             unauthenticated_action = kwargs['unauthenticatedAction']
 
         _setter("login", login)
@@ -9200,8 +9360,8 @@ class LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             tenant_auth_endpoint: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             tenant_auth_endpoint: Optional[pulumi.Input[str]] = None,
              allowed_applications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              allowed_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -9214,29 +9374,33 @@ class LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2Args:
              www_authentication_disabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'tenantAuthEndpoint' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if tenant_auth_endpoint is None and 'tenantAuthEndpoint' in kwargs:
             tenant_auth_endpoint = kwargs['tenantAuthEndpoint']
-        if 'allowedApplications' in kwargs:
+        if tenant_auth_endpoint is None:
+            raise TypeError("Missing 'tenant_auth_endpoint' argument")
+        if allowed_applications is None and 'allowedApplications' in kwargs:
             allowed_applications = kwargs['allowedApplications']
-        if 'allowedAudiences' in kwargs:
+        if allowed_audiences is None and 'allowedAudiences' in kwargs:
             allowed_audiences = kwargs['allowedAudiences']
-        if 'allowedGroups' in kwargs:
+        if allowed_groups is None and 'allowedGroups' in kwargs:
             allowed_groups = kwargs['allowedGroups']
-        if 'allowedIdentities' in kwargs:
+        if allowed_identities is None and 'allowedIdentities' in kwargs:
             allowed_identities = kwargs['allowedIdentities']
-        if 'clientSecretCertificateThumbprint' in kwargs:
+        if client_secret_certificate_thumbprint is None and 'clientSecretCertificateThumbprint' in kwargs:
             client_secret_certificate_thumbprint = kwargs['clientSecretCertificateThumbprint']
-        if 'clientSecretSettingName' in kwargs:
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'jwtAllowedClientApplications' in kwargs:
+        if jwt_allowed_client_applications is None and 'jwtAllowedClientApplications' in kwargs:
             jwt_allowed_client_applications = kwargs['jwtAllowedClientApplications']
-        if 'jwtAllowedGroups' in kwargs:
+        if jwt_allowed_groups is None and 'jwtAllowedGroups' in kwargs:
             jwt_allowed_groups = kwargs['jwtAllowedGroups']
-        if 'loginParameters' in kwargs:
+        if login_parameters is None and 'loginParameters' in kwargs:
             login_parameters = kwargs['loginParameters']
-        if 'wwwAuthenticationDisabled' in kwargs:
+        if www_authentication_disabled is None and 'wwwAuthenticationDisabled' in kwargs:
             www_authentication_disabled = kwargs['wwwAuthenticationDisabled']
 
         _setter("client_id", client_id)
@@ -9431,16 +9595,20 @@ class LinuxFunctionAppAuthSettingsV2AppleV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             client_secret_setting_name: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecretSettingName' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'loginScopes' in kwargs:
+        if client_secret_setting_name is None:
+            raise TypeError("Missing 'client_secret_setting_name' argument")
+        if login_scopes is None and 'loginScopes' in kwargs:
             login_scopes = kwargs['loginScopes']
 
         _setter("client_id", client_id)
@@ -9499,11 +9667,13 @@ class LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
 
         _setter("client_id", client_id)
 
@@ -9564,9 +9734,9 @@ class LinuxFunctionAppAuthSettingsV2CustomOidcV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             name: pulumi.Input[str],
-             openid_configuration_endpoint: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             openid_configuration_endpoint: Optional[pulumi.Input[str]] = None,
              authorisation_endpoint: Optional[pulumi.Input[str]] = None,
              certification_uri: Optional[pulumi.Input[str]] = None,
              client_credential_method: Optional[pulumi.Input[str]] = None,
@@ -9577,23 +9747,29 @@ class LinuxFunctionAppAuthSettingsV2CustomOidcV2Args:
              token_endpoint: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'openidConfigurationEndpoint' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if openid_configuration_endpoint is None and 'openidConfigurationEndpoint' in kwargs:
             openid_configuration_endpoint = kwargs['openidConfigurationEndpoint']
-        if 'authorisationEndpoint' in kwargs:
+        if openid_configuration_endpoint is None:
+            raise TypeError("Missing 'openid_configuration_endpoint' argument")
+        if authorisation_endpoint is None and 'authorisationEndpoint' in kwargs:
             authorisation_endpoint = kwargs['authorisationEndpoint']
-        if 'certificationUri' in kwargs:
+        if certification_uri is None and 'certificationUri' in kwargs:
             certification_uri = kwargs['certificationUri']
-        if 'clientCredentialMethod' in kwargs:
+        if client_credential_method is None and 'clientCredentialMethod' in kwargs:
             client_credential_method = kwargs['clientCredentialMethod']
-        if 'clientSecretSettingName' in kwargs:
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'issuerEndpoint' in kwargs:
+        if issuer_endpoint is None and 'issuerEndpoint' in kwargs:
             issuer_endpoint = kwargs['issuerEndpoint']
-        if 'nameClaimType' in kwargs:
+        if name_claim_type is None and 'nameClaimType' in kwargs:
             name_claim_type = kwargs['nameClaimType']
-        if 'tokenEndpoint' in kwargs:
+        if token_endpoint is None and 'tokenEndpoint' in kwargs:
             token_endpoint = kwargs['tokenEndpoint']
 
         _setter("client_id", client_id)
@@ -9774,19 +9950,23 @@ class LinuxFunctionAppAuthSettingsV2FacebookV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_id: pulumi.Input[str],
-             app_secret_setting_name: pulumi.Input[str],
+             app_id: Optional[pulumi.Input[str]] = None,
+             app_secret_setting_name: Optional[pulumi.Input[str]] = None,
              graph_api_version: Optional[pulumi.Input[str]] = None,
              login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'appId' in kwargs:
+        if app_id is None and 'appId' in kwargs:
             app_id = kwargs['appId']
-        if 'appSecretSettingName' in kwargs:
+        if app_id is None:
+            raise TypeError("Missing 'app_id' argument")
+        if app_secret_setting_name is None and 'appSecretSettingName' in kwargs:
             app_secret_setting_name = kwargs['appSecretSettingName']
-        if 'graphApiVersion' in kwargs:
+        if app_secret_setting_name is None:
+            raise TypeError("Missing 'app_secret_setting_name' argument")
+        if graph_api_version is None and 'graphApiVersion' in kwargs:
             graph_api_version = kwargs['graphApiVersion']
-        if 'loginScopes' in kwargs:
+        if login_scopes is None and 'loginScopes' in kwargs:
             login_scopes = kwargs['loginScopes']
 
         _setter("app_id", app_id)
@@ -9867,16 +10047,20 @@ class LinuxFunctionAppAuthSettingsV2GithubV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             client_secret_setting_name: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecretSettingName' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'loginScopes' in kwargs:
+        if client_secret_setting_name is None:
+            raise TypeError("Missing 'client_secret_setting_name' argument")
+        if login_scopes is None and 'loginScopes' in kwargs:
             login_scopes = kwargs['loginScopes']
 
         _setter("client_id", client_id)
@@ -9946,19 +10130,23 @@ class LinuxFunctionAppAuthSettingsV2GoogleV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             client_secret_setting_name: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecretSettingName' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'allowedAudiences' in kwargs:
+        if client_secret_setting_name is None:
+            raise TypeError("Missing 'client_secret_setting_name' argument")
+        if allowed_audiences is None and 'allowedAudiences' in kwargs:
             allowed_audiences = kwargs['allowedAudiences']
-        if 'loginScopes' in kwargs:
+        if login_scopes is None and 'loginScopes' in kwargs:
             login_scopes = kwargs['loginScopes']
 
         _setter("client_id", client_id)
@@ -10078,27 +10266,27 @@ class LinuxFunctionAppAuthSettingsV2LoginArgs:
              validate_nonce: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowedExternalRedirectUrls' in kwargs:
+        if allowed_external_redirect_urls is None and 'allowedExternalRedirectUrls' in kwargs:
             allowed_external_redirect_urls = kwargs['allowedExternalRedirectUrls']
-        if 'cookieExpirationConvention' in kwargs:
+        if cookie_expiration_convention is None and 'cookieExpirationConvention' in kwargs:
             cookie_expiration_convention = kwargs['cookieExpirationConvention']
-        if 'cookieExpirationTime' in kwargs:
+        if cookie_expiration_time is None and 'cookieExpirationTime' in kwargs:
             cookie_expiration_time = kwargs['cookieExpirationTime']
-        if 'logoutEndpoint' in kwargs:
+        if logout_endpoint is None and 'logoutEndpoint' in kwargs:
             logout_endpoint = kwargs['logoutEndpoint']
-        if 'nonceExpirationTime' in kwargs:
+        if nonce_expiration_time is None and 'nonceExpirationTime' in kwargs:
             nonce_expiration_time = kwargs['nonceExpirationTime']
-        if 'preserveUrlFragmentsForLogins' in kwargs:
+        if preserve_url_fragments_for_logins is None and 'preserveUrlFragmentsForLogins' in kwargs:
             preserve_url_fragments_for_logins = kwargs['preserveUrlFragmentsForLogins']
-        if 'tokenRefreshExtensionTime' in kwargs:
+        if token_refresh_extension_time is None and 'tokenRefreshExtensionTime' in kwargs:
             token_refresh_extension_time = kwargs['tokenRefreshExtensionTime']
-        if 'tokenStoreEnabled' in kwargs:
+        if token_store_enabled is None and 'tokenStoreEnabled' in kwargs:
             token_store_enabled = kwargs['tokenStoreEnabled']
-        if 'tokenStorePath' in kwargs:
+        if token_store_path is None and 'tokenStorePath' in kwargs:
             token_store_path = kwargs['tokenStorePath']
-        if 'tokenStoreSasSettingName' in kwargs:
+        if token_store_sas_setting_name is None and 'tokenStoreSasSettingName' in kwargs:
             token_store_sas_setting_name = kwargs['tokenStoreSasSettingName']
-        if 'validateNonce' in kwargs:
+        if validate_nonce is None and 'validateNonce' in kwargs:
             validate_nonce = kwargs['validateNonce']
 
         if allowed_external_redirect_urls is not None:
@@ -10284,19 +10472,23 @@ class LinuxFunctionAppAuthSettingsV2MicrosoftV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             client_secret_setting_name: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecretSettingName' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'allowedAudiences' in kwargs:
+        if client_secret_setting_name is None:
+            raise TypeError("Missing 'client_secret_setting_name' argument")
+        if allowed_audiences is None and 'allowedAudiences' in kwargs:
             allowed_audiences = kwargs['allowedAudiences']
-        if 'loginScopes' in kwargs:
+        if login_scopes is None and 'loginScopes' in kwargs:
             login_scopes = kwargs['loginScopes']
 
         _setter("client_id", client_id)
@@ -10376,14 +10568,18 @@ class LinuxFunctionAppAuthSettingsV2TwitterV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             consumer_key: pulumi.Input[str],
-             consumer_secret_setting_name: pulumi.Input[str],
+             consumer_key: Optional[pulumi.Input[str]] = None,
+             consumer_secret_setting_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'consumerKey' in kwargs:
+        if consumer_key is None and 'consumerKey' in kwargs:
             consumer_key = kwargs['consumerKey']
-        if 'consumerSecretSettingName' in kwargs:
+        if consumer_key is None:
+            raise TypeError("Missing 'consumer_key' argument")
+        if consumer_secret_setting_name is None and 'consumerSecretSettingName' in kwargs:
             consumer_secret_setting_name = kwargs['consumerSecretSettingName']
+        if consumer_secret_setting_name is None:
+            raise TypeError("Missing 'consumer_secret_setting_name' argument")
 
         _setter("consumer_key", consumer_key)
         _setter("consumer_secret_setting_name", consumer_secret_setting_name)
@@ -10438,14 +10634,20 @@ class LinuxFunctionAppBackupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             schedule: pulumi.Input['LinuxFunctionAppBackupScheduleArgs'],
-             storage_account_url: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             schedule: Optional[pulumi.Input['LinuxFunctionAppBackupScheduleArgs']] = None,
+             storage_account_url: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'storageAccountUrl' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if schedule is None:
+            raise TypeError("Missing 'schedule' argument")
+        if storage_account_url is None and 'storageAccountUrl' in kwargs:
             storage_account_url = kwargs['storageAccountUrl']
+        if storage_account_url is None:
+            raise TypeError("Missing 'storage_account_url' argument")
 
         _setter("name", name)
         _setter("schedule", schedule)
@@ -10532,25 +10734,29 @@ class LinuxFunctionAppBackupScheduleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             frequency_interval: pulumi.Input[int],
-             frequency_unit: pulumi.Input[str],
+             frequency_interval: Optional[pulumi.Input[int]] = None,
+             frequency_unit: Optional[pulumi.Input[str]] = None,
              keep_at_least_one_backup: Optional[pulumi.Input[bool]] = None,
              last_execution_time: Optional[pulumi.Input[str]] = None,
              retention_period_days: Optional[pulumi.Input[int]] = None,
              start_time: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'frequencyInterval' in kwargs:
+        if frequency_interval is None and 'frequencyInterval' in kwargs:
             frequency_interval = kwargs['frequencyInterval']
-        if 'frequencyUnit' in kwargs:
+        if frequency_interval is None:
+            raise TypeError("Missing 'frequency_interval' argument")
+        if frequency_unit is None and 'frequencyUnit' in kwargs:
             frequency_unit = kwargs['frequencyUnit']
-        if 'keepAtLeastOneBackup' in kwargs:
+        if frequency_unit is None:
+            raise TypeError("Missing 'frequency_unit' argument")
+        if keep_at_least_one_backup is None and 'keepAtLeastOneBackup' in kwargs:
             keep_at_least_one_backup = kwargs['keepAtLeastOneBackup']
-        if 'lastExecutionTime' in kwargs:
+        if last_execution_time is None and 'lastExecutionTime' in kwargs:
             last_execution_time = kwargs['lastExecutionTime']
-        if 'retentionPeriodDays' in kwargs:
+        if retention_period_days is None and 'retentionPeriodDays' in kwargs:
             retention_period_days = kwargs['retentionPeriodDays']
-        if 'startTime' in kwargs:
+        if start_time is None and 'startTime' in kwargs:
             start_time = kwargs['startTime']
 
         _setter("frequency_interval", frequency_interval)
@@ -10656,11 +10862,17 @@ class LinuxFunctionAppConnectionStringArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             type: pulumi.Input[str],
-             value: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("name", name)
         _setter("type", type)
@@ -10728,17 +10940,19 @@ class LinuxFunctionAppIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -10960,75 +11174,75 @@ class LinuxFunctionAppSiteConfigArgs:
              worker_count: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'alwaysOn' in kwargs:
+        if always_on is None and 'alwaysOn' in kwargs:
             always_on = kwargs['alwaysOn']
-        if 'apiDefinitionUrl' in kwargs:
+        if api_definition_url is None and 'apiDefinitionUrl' in kwargs:
             api_definition_url = kwargs['apiDefinitionUrl']
-        if 'apiManagementApiId' in kwargs:
+        if api_management_api_id is None and 'apiManagementApiId' in kwargs:
             api_management_api_id = kwargs['apiManagementApiId']
-        if 'appCommandLine' in kwargs:
+        if app_command_line is None and 'appCommandLine' in kwargs:
             app_command_line = kwargs['appCommandLine']
-        if 'appScaleLimit' in kwargs:
+        if app_scale_limit is None and 'appScaleLimit' in kwargs:
             app_scale_limit = kwargs['appScaleLimit']
-        if 'appServiceLogs' in kwargs:
+        if app_service_logs is None and 'appServiceLogs' in kwargs:
             app_service_logs = kwargs['appServiceLogs']
-        if 'applicationInsightsConnectionString' in kwargs:
+        if application_insights_connection_string is None and 'applicationInsightsConnectionString' in kwargs:
             application_insights_connection_string = kwargs['applicationInsightsConnectionString']
-        if 'applicationInsightsKey' in kwargs:
+        if application_insights_key is None and 'applicationInsightsKey' in kwargs:
             application_insights_key = kwargs['applicationInsightsKey']
-        if 'applicationStack' in kwargs:
+        if application_stack is None and 'applicationStack' in kwargs:
             application_stack = kwargs['applicationStack']
-        if 'containerRegistryManagedIdentityClientId' in kwargs:
+        if container_registry_managed_identity_client_id is None and 'containerRegistryManagedIdentityClientId' in kwargs:
             container_registry_managed_identity_client_id = kwargs['containerRegistryManagedIdentityClientId']
-        if 'containerRegistryUseManagedIdentity' in kwargs:
+        if container_registry_use_managed_identity is None and 'containerRegistryUseManagedIdentity' in kwargs:
             container_registry_use_managed_identity = kwargs['containerRegistryUseManagedIdentity']
-        if 'defaultDocuments' in kwargs:
+        if default_documents is None and 'defaultDocuments' in kwargs:
             default_documents = kwargs['defaultDocuments']
-        if 'detailedErrorLoggingEnabled' in kwargs:
+        if detailed_error_logging_enabled is None and 'detailedErrorLoggingEnabled' in kwargs:
             detailed_error_logging_enabled = kwargs['detailedErrorLoggingEnabled']
-        if 'elasticInstanceMinimum' in kwargs:
+        if elastic_instance_minimum is None and 'elasticInstanceMinimum' in kwargs:
             elastic_instance_minimum = kwargs['elasticInstanceMinimum']
-        if 'ftpsState' in kwargs:
+        if ftps_state is None and 'ftpsState' in kwargs:
             ftps_state = kwargs['ftpsState']
-        if 'healthCheckEvictionTimeInMin' in kwargs:
+        if health_check_eviction_time_in_min is None and 'healthCheckEvictionTimeInMin' in kwargs:
             health_check_eviction_time_in_min = kwargs['healthCheckEvictionTimeInMin']
-        if 'healthCheckPath' in kwargs:
+        if health_check_path is None and 'healthCheckPath' in kwargs:
             health_check_path = kwargs['healthCheckPath']
-        if 'http2Enabled' in kwargs:
+        if http2_enabled is None and 'http2Enabled' in kwargs:
             http2_enabled = kwargs['http2Enabled']
-        if 'ipRestrictions' in kwargs:
+        if ip_restrictions is None and 'ipRestrictions' in kwargs:
             ip_restrictions = kwargs['ipRestrictions']
-        if 'linuxFxVersion' in kwargs:
+        if linux_fx_version is None and 'linuxFxVersion' in kwargs:
             linux_fx_version = kwargs['linuxFxVersion']
-        if 'loadBalancingMode' in kwargs:
+        if load_balancing_mode is None and 'loadBalancingMode' in kwargs:
             load_balancing_mode = kwargs['loadBalancingMode']
-        if 'managedPipelineMode' in kwargs:
+        if managed_pipeline_mode is None and 'managedPipelineMode' in kwargs:
             managed_pipeline_mode = kwargs['managedPipelineMode']
-        if 'minimumTlsVersion' in kwargs:
+        if minimum_tls_version is None and 'minimumTlsVersion' in kwargs:
             minimum_tls_version = kwargs['minimumTlsVersion']
-        if 'preWarmedInstanceCount' in kwargs:
+        if pre_warmed_instance_count is None and 'preWarmedInstanceCount' in kwargs:
             pre_warmed_instance_count = kwargs['preWarmedInstanceCount']
-        if 'remoteDebuggingEnabled' in kwargs:
+        if remote_debugging_enabled is None and 'remoteDebuggingEnabled' in kwargs:
             remote_debugging_enabled = kwargs['remoteDebuggingEnabled']
-        if 'remoteDebuggingVersion' in kwargs:
+        if remote_debugging_version is None and 'remoteDebuggingVersion' in kwargs:
             remote_debugging_version = kwargs['remoteDebuggingVersion']
-        if 'runtimeScaleMonitoringEnabled' in kwargs:
+        if runtime_scale_monitoring_enabled is None and 'runtimeScaleMonitoringEnabled' in kwargs:
             runtime_scale_monitoring_enabled = kwargs['runtimeScaleMonitoringEnabled']
-        if 'scmIpRestrictions' in kwargs:
+        if scm_ip_restrictions is None and 'scmIpRestrictions' in kwargs:
             scm_ip_restrictions = kwargs['scmIpRestrictions']
-        if 'scmMinimumTlsVersion' in kwargs:
+        if scm_minimum_tls_version is None and 'scmMinimumTlsVersion' in kwargs:
             scm_minimum_tls_version = kwargs['scmMinimumTlsVersion']
-        if 'scmType' in kwargs:
+        if scm_type is None and 'scmType' in kwargs:
             scm_type = kwargs['scmType']
-        if 'scmUseMainIpRestriction' in kwargs:
+        if scm_use_main_ip_restriction is None and 'scmUseMainIpRestriction' in kwargs:
             scm_use_main_ip_restriction = kwargs['scmUseMainIpRestriction']
-        if 'use32BitWorker' in kwargs:
+        if use32_bit_worker is None and 'use32BitWorker' in kwargs:
             use32_bit_worker = kwargs['use32BitWorker']
-        if 'vnetRouteAllEnabled' in kwargs:
+        if vnet_route_all_enabled is None and 'vnetRouteAllEnabled' in kwargs:
             vnet_route_all_enabled = kwargs['vnetRouteAllEnabled']
-        if 'websocketsEnabled' in kwargs:
+        if websockets_enabled is None and 'websocketsEnabled' in kwargs:
             websockets_enabled = kwargs['websocketsEnabled']
-        if 'workerCount' in kwargs:
+        if worker_count is None and 'workerCount' in kwargs:
             worker_count = kwargs['workerCount']
 
         if always_on is not None:
@@ -11557,9 +11771,9 @@ class LinuxFunctionAppSiteConfigAppServiceLogsArgs:
              retention_period_days: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'diskQuotaMb' in kwargs:
+        if disk_quota_mb is None and 'diskQuotaMb' in kwargs:
             disk_quota_mb = kwargs['diskQuotaMb']
-        if 'retentionPeriodDays' in kwargs:
+        if retention_period_days is None and 'retentionPeriodDays' in kwargs:
             retention_period_days = kwargs['retentionPeriodDays']
 
         if disk_quota_mb is not None:
@@ -11639,19 +11853,19 @@ class LinuxFunctionAppSiteConfigApplicationStackArgs:
              use_dotnet_isolated_runtime: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dotnetVersion' in kwargs:
+        if dotnet_version is None and 'dotnetVersion' in kwargs:
             dotnet_version = kwargs['dotnetVersion']
-        if 'javaVersion' in kwargs:
+        if java_version is None and 'javaVersion' in kwargs:
             java_version = kwargs['javaVersion']
-        if 'nodeVersion' in kwargs:
+        if node_version is None and 'nodeVersion' in kwargs:
             node_version = kwargs['nodeVersion']
-        if 'powershellCoreVersion' in kwargs:
+        if powershell_core_version is None and 'powershellCoreVersion' in kwargs:
             powershell_core_version = kwargs['powershellCoreVersion']
-        if 'pythonVersion' in kwargs:
+        if python_version is None and 'pythonVersion' in kwargs:
             python_version = kwargs['pythonVersion']
-        if 'useCustomRuntime' in kwargs:
+        if use_custom_runtime is None and 'useCustomRuntime' in kwargs:
             use_custom_runtime = kwargs['useCustomRuntime']
-        if 'useDotnetIsolatedRuntime' in kwargs:
+        if use_dotnet_isolated_runtime is None and 'useDotnetIsolatedRuntime' in kwargs:
             use_dotnet_isolated_runtime = kwargs['useDotnetIsolatedRuntime']
 
         if dockers is not None:
@@ -11798,22 +12012,28 @@ class LinuxFunctionAppSiteConfigApplicationStackDockerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             image_name: pulumi.Input[str],
-             image_tag: pulumi.Input[str],
-             registry_url: pulumi.Input[str],
+             image_name: Optional[pulumi.Input[str]] = None,
+             image_tag: Optional[pulumi.Input[str]] = None,
+             registry_url: Optional[pulumi.Input[str]] = None,
              registry_password: Optional[pulumi.Input[str]] = None,
              registry_username: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'imageName' in kwargs:
+        if image_name is None and 'imageName' in kwargs:
             image_name = kwargs['imageName']
-        if 'imageTag' in kwargs:
+        if image_name is None:
+            raise TypeError("Missing 'image_name' argument")
+        if image_tag is None and 'imageTag' in kwargs:
             image_tag = kwargs['imageTag']
-        if 'registryUrl' in kwargs:
+        if image_tag is None:
+            raise TypeError("Missing 'image_tag' argument")
+        if registry_url is None and 'registryUrl' in kwargs:
             registry_url = kwargs['registryUrl']
-        if 'registryPassword' in kwargs:
+        if registry_url is None:
+            raise TypeError("Missing 'registry_url' argument")
+        if registry_password is None and 'registryPassword' in kwargs:
             registry_password = kwargs['registryPassword']
-        if 'registryUsername' in kwargs:
+        if registry_username is None and 'registryUsername' in kwargs:
             registry_username = kwargs['registryUsername']
 
         _setter("image_name", image_name)
@@ -11910,9 +12130,9 @@ class LinuxFunctionAppSiteConfigCorsArgs:
              support_credentials: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowedOrigins' in kwargs:
+        if allowed_origins is None and 'allowedOrigins' in kwargs:
             allowed_origins = kwargs['allowedOrigins']
-        if 'supportCredentials' in kwargs:
+        if support_credentials is None and 'supportCredentials' in kwargs:
             support_credentials = kwargs['supportCredentials']
 
         if allowed_origins is not None:
@@ -11988,11 +12208,11 @@ class LinuxFunctionAppSiteConfigIpRestrictionArgs:
              virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ipAddress' in kwargs:
+        if ip_address is None and 'ipAddress' in kwargs:
             ip_address = kwargs['ipAddress']
-        if 'serviceTag' in kwargs:
+        if service_tag is None and 'serviceTag' in kwargs:
             service_tag = kwargs['serviceTag']
-        if 'virtualNetworkSubnetId' in kwargs:
+        if virtual_network_subnet_id is None and 'virtualNetworkSubnetId' in kwargs:
             virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
 
         if action is not None:
@@ -12126,13 +12346,13 @@ class LinuxFunctionAppSiteConfigIpRestrictionHeadersArgs:
              x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'xAzureFdids' in kwargs:
+        if x_azure_fdids is None and 'xAzureFdids' in kwargs:
             x_azure_fdids = kwargs['xAzureFdids']
-        if 'xFdHealthProbe' in kwargs:
+        if x_fd_health_probe is None and 'xFdHealthProbe' in kwargs:
             x_fd_health_probe = kwargs['xFdHealthProbe']
-        if 'xForwardedFors' in kwargs:
+        if x_forwarded_fors is None and 'xForwardedFors' in kwargs:
             x_forwarded_fors = kwargs['xForwardedFors']
-        if 'xForwardedHosts' in kwargs:
+        if x_forwarded_hosts is None and 'xForwardedHosts' in kwargs:
             x_forwarded_hosts = kwargs['xForwardedHosts']
 
         if x_azure_fdids is not None:
@@ -12236,11 +12456,11 @@ class LinuxFunctionAppSiteConfigScmIpRestrictionArgs:
              virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ipAddress' in kwargs:
+        if ip_address is None and 'ipAddress' in kwargs:
             ip_address = kwargs['ipAddress']
-        if 'serviceTag' in kwargs:
+        if service_tag is None and 'serviceTag' in kwargs:
             service_tag = kwargs['serviceTag']
-        if 'virtualNetworkSubnetId' in kwargs:
+        if virtual_network_subnet_id is None and 'virtualNetworkSubnetId' in kwargs:
             virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
 
         if action is not None:
@@ -12374,13 +12594,13 @@ class LinuxFunctionAppSiteConfigScmIpRestrictionHeadersArgs:
              x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'xAzureFdids' in kwargs:
+        if x_azure_fdids is None and 'xAzureFdids' in kwargs:
             x_azure_fdids = kwargs['xAzureFdids']
-        if 'xFdHealthProbe' in kwargs:
+        if x_fd_health_probe is None and 'xFdHealthProbe' in kwargs:
             x_fd_health_probe = kwargs['xFdHealthProbe']
-        if 'xForwardedFors' in kwargs:
+        if x_forwarded_fors is None and 'xForwardedFors' in kwargs:
             x_forwarded_fors = kwargs['xForwardedFors']
-        if 'xForwardedHosts' in kwargs:
+        if x_forwarded_hosts is None and 'xForwardedHosts' in kwargs:
             x_forwarded_hosts = kwargs['xForwardedHosts']
 
         if x_azure_fdids is not None:
@@ -12553,7 +12773,7 @@ class LinuxFunctionAppSlotAuthSettingsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: pulumi.Input[bool],
+             enabled: Optional[pulumi.Input[bool]] = None,
              active_directory: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsActiveDirectoryArgs']] = None,
              additional_login_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -12570,21 +12790,23 @@ class LinuxFunctionAppSlotAuthSettingsArgs:
              unauthenticated_client_action: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'activeDirectory' in kwargs:
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if active_directory is None and 'activeDirectory' in kwargs:
             active_directory = kwargs['activeDirectory']
-        if 'additionalLoginParameters' in kwargs:
+        if additional_login_parameters is None and 'additionalLoginParameters' in kwargs:
             additional_login_parameters = kwargs['additionalLoginParameters']
-        if 'allowedExternalRedirectUrls' in kwargs:
+        if allowed_external_redirect_urls is None and 'allowedExternalRedirectUrls' in kwargs:
             allowed_external_redirect_urls = kwargs['allowedExternalRedirectUrls']
-        if 'defaultProvider' in kwargs:
+        if default_provider is None and 'defaultProvider' in kwargs:
             default_provider = kwargs['defaultProvider']
-        if 'runtimeVersion' in kwargs:
+        if runtime_version is None and 'runtimeVersion' in kwargs:
             runtime_version = kwargs['runtimeVersion']
-        if 'tokenRefreshExtensionHours' in kwargs:
+        if token_refresh_extension_hours is None and 'tokenRefreshExtensionHours' in kwargs:
             token_refresh_extension_hours = kwargs['tokenRefreshExtensionHours']
-        if 'tokenStoreEnabled' in kwargs:
+        if token_store_enabled is None and 'tokenStoreEnabled' in kwargs:
             token_store_enabled = kwargs['tokenStoreEnabled']
-        if 'unauthenticatedClientAction' in kwargs:
+        if unauthenticated_client_action is None and 'unauthenticatedClientAction' in kwargs:
             unauthenticated_client_action = kwargs['unauthenticatedClientAction']
 
         _setter("enabled", enabled)
@@ -12827,19 +13049,21 @@ class LinuxFunctionAppSlotAuthSettingsActiveDirectoryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
              allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              client_secret: Optional[pulumi.Input[str]] = None,
              client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'allowedAudiences' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if allowed_audiences is None and 'allowedAudiences' in kwargs:
             allowed_audiences = kwargs['allowedAudiences']
-        if 'clientSecret' in kwargs:
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'clientSecretSettingName' in kwargs:
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
 
         _setter("client_id", client_id)
@@ -12924,19 +13148,21 @@ class LinuxFunctionAppSlotAuthSettingsFacebookArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_id: pulumi.Input[str],
+             app_id: Optional[pulumi.Input[str]] = None,
              app_secret: Optional[pulumi.Input[str]] = None,
              app_secret_setting_name: Optional[pulumi.Input[str]] = None,
              oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'appId' in kwargs:
+        if app_id is None and 'appId' in kwargs:
             app_id = kwargs['appId']
-        if 'appSecret' in kwargs:
+        if app_id is None:
+            raise TypeError("Missing 'app_id' argument")
+        if app_secret is None and 'appSecret' in kwargs:
             app_secret = kwargs['appSecret']
-        if 'appSecretSettingName' in kwargs:
+        if app_secret_setting_name is None and 'appSecretSettingName' in kwargs:
             app_secret_setting_name = kwargs['appSecretSettingName']
-        if 'oauthScopes' in kwargs:
+        if oauth_scopes is None and 'oauthScopes' in kwargs:
             oauth_scopes = kwargs['oauthScopes']
 
         _setter("app_id", app_id)
@@ -13019,19 +13245,21 @@ class LinuxFunctionAppSlotAuthSettingsGithubArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
              client_secret: Optional[pulumi.Input[str]] = None,
              client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecret' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'clientSecretSettingName' in kwargs:
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'oauthScopes' in kwargs:
+        if oauth_scopes is None and 'oauthScopes' in kwargs:
             oauth_scopes = kwargs['oauthScopes']
 
         _setter("client_id", client_id)
@@ -13114,19 +13342,21 @@ class LinuxFunctionAppSlotAuthSettingsGoogleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
              client_secret: Optional[pulumi.Input[str]] = None,
              client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecret' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'clientSecretSettingName' in kwargs:
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'oauthScopes' in kwargs:
+        if oauth_scopes is None and 'oauthScopes' in kwargs:
             oauth_scopes = kwargs['oauthScopes']
 
         _setter("client_id", client_id)
@@ -13209,19 +13439,21 @@ class LinuxFunctionAppSlotAuthSettingsMicrosoftArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
              client_secret: Optional[pulumi.Input[str]] = None,
              client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecret' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'clientSecretSettingName' in kwargs:
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'oauthScopes' in kwargs:
+        if oauth_scopes is None and 'oauthScopes' in kwargs:
             oauth_scopes = kwargs['oauthScopes']
 
         _setter("client_id", client_id)
@@ -13301,16 +13533,18 @@ class LinuxFunctionAppSlotAuthSettingsTwitterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             consumer_key: pulumi.Input[str],
+             consumer_key: Optional[pulumi.Input[str]] = None,
              consumer_secret: Optional[pulumi.Input[str]] = None,
              consumer_secret_setting_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'consumerKey' in kwargs:
+        if consumer_key is None and 'consumerKey' in kwargs:
             consumer_key = kwargs['consumerKey']
-        if 'consumerSecret' in kwargs:
+        if consumer_key is None:
+            raise TypeError("Missing 'consumer_key' argument")
+        if consumer_secret is None and 'consumerSecret' in kwargs:
             consumer_secret = kwargs['consumerSecret']
-        if 'consumerSecretSettingName' in kwargs:
+        if consumer_secret_setting_name is None and 'consumerSecretSettingName' in kwargs:
             consumer_secret_setting_name = kwargs['consumerSecretSettingName']
 
         _setter("consumer_key", consumer_key)
@@ -13439,7 +13673,7 @@ class LinuxFunctionAppSlotAuthSettingsV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             login: pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2LoginArgs'],
+             login: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2LoginArgs']] = None,
              active_directory_v2: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args']] = None,
              apple_v2: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2AppleV2Args']] = None,
              auth_enabled: Optional[pulumi.Input[bool]] = None,
@@ -13463,47 +13697,49 @@ class LinuxFunctionAppSlotAuthSettingsV2Args:
              unauthenticated_action: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'activeDirectoryV2' in kwargs:
+        if login is None:
+            raise TypeError("Missing 'login' argument")
+        if active_directory_v2 is None and 'activeDirectoryV2' in kwargs:
             active_directory_v2 = kwargs['activeDirectoryV2']
-        if 'appleV2' in kwargs:
+        if apple_v2 is None and 'appleV2' in kwargs:
             apple_v2 = kwargs['appleV2']
-        if 'authEnabled' in kwargs:
+        if auth_enabled is None and 'authEnabled' in kwargs:
             auth_enabled = kwargs['authEnabled']
-        if 'azureStaticWebAppV2' in kwargs:
+        if azure_static_web_app_v2 is None and 'azureStaticWebAppV2' in kwargs:
             azure_static_web_app_v2 = kwargs['azureStaticWebAppV2']
-        if 'configFilePath' in kwargs:
+        if config_file_path is None and 'configFilePath' in kwargs:
             config_file_path = kwargs['configFilePath']
-        if 'customOidcV2s' in kwargs:
+        if custom_oidc_v2s is None and 'customOidcV2s' in kwargs:
             custom_oidc_v2s = kwargs['customOidcV2s']
-        if 'defaultProvider' in kwargs:
+        if default_provider is None and 'defaultProvider' in kwargs:
             default_provider = kwargs['defaultProvider']
-        if 'excludedPaths' in kwargs:
+        if excluded_paths is None and 'excludedPaths' in kwargs:
             excluded_paths = kwargs['excludedPaths']
-        if 'facebookV2' in kwargs:
+        if facebook_v2 is None and 'facebookV2' in kwargs:
             facebook_v2 = kwargs['facebookV2']
-        if 'forwardProxyConvention' in kwargs:
+        if forward_proxy_convention is None and 'forwardProxyConvention' in kwargs:
             forward_proxy_convention = kwargs['forwardProxyConvention']
-        if 'forwardProxyCustomHostHeaderName' in kwargs:
+        if forward_proxy_custom_host_header_name is None and 'forwardProxyCustomHostHeaderName' in kwargs:
             forward_proxy_custom_host_header_name = kwargs['forwardProxyCustomHostHeaderName']
-        if 'forwardProxyCustomSchemeHeaderName' in kwargs:
+        if forward_proxy_custom_scheme_header_name is None and 'forwardProxyCustomSchemeHeaderName' in kwargs:
             forward_proxy_custom_scheme_header_name = kwargs['forwardProxyCustomSchemeHeaderName']
-        if 'githubV2' in kwargs:
+        if github_v2 is None and 'githubV2' in kwargs:
             github_v2 = kwargs['githubV2']
-        if 'googleV2' in kwargs:
+        if google_v2 is None and 'googleV2' in kwargs:
             google_v2 = kwargs['googleV2']
-        if 'httpRouteApiPrefix' in kwargs:
+        if http_route_api_prefix is None and 'httpRouteApiPrefix' in kwargs:
             http_route_api_prefix = kwargs['httpRouteApiPrefix']
-        if 'microsoftV2' in kwargs:
+        if microsoft_v2 is None and 'microsoftV2' in kwargs:
             microsoft_v2 = kwargs['microsoftV2']
-        if 'requireAuthentication' in kwargs:
+        if require_authentication is None and 'requireAuthentication' in kwargs:
             require_authentication = kwargs['requireAuthentication']
-        if 'requireHttps' in kwargs:
+        if require_https is None and 'requireHttps' in kwargs:
             require_https = kwargs['requireHttps']
-        if 'runtimeVersion' in kwargs:
+        if runtime_version is None and 'runtimeVersion' in kwargs:
             runtime_version = kwargs['runtimeVersion']
-        if 'twitterV2' in kwargs:
+        if twitter_v2 is None and 'twitterV2' in kwargs:
             twitter_v2 = kwargs['twitterV2']
-        if 'unauthenticatedAction' in kwargs:
+        if unauthenticated_action is None and 'unauthenticatedAction' in kwargs:
             unauthenticated_action = kwargs['unauthenticatedAction']
 
         _setter("login", login)
@@ -13872,8 +14108,8 @@ class LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             tenant_auth_endpoint: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             tenant_auth_endpoint: Optional[pulumi.Input[str]] = None,
              allowed_applications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              allowed_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -13886,29 +14122,33 @@ class LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args:
              www_authentication_disabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'tenantAuthEndpoint' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if tenant_auth_endpoint is None and 'tenantAuthEndpoint' in kwargs:
             tenant_auth_endpoint = kwargs['tenantAuthEndpoint']
-        if 'allowedApplications' in kwargs:
+        if tenant_auth_endpoint is None:
+            raise TypeError("Missing 'tenant_auth_endpoint' argument")
+        if allowed_applications is None and 'allowedApplications' in kwargs:
             allowed_applications = kwargs['allowedApplications']
-        if 'allowedAudiences' in kwargs:
+        if allowed_audiences is None and 'allowedAudiences' in kwargs:
             allowed_audiences = kwargs['allowedAudiences']
-        if 'allowedGroups' in kwargs:
+        if allowed_groups is None and 'allowedGroups' in kwargs:
             allowed_groups = kwargs['allowedGroups']
-        if 'allowedIdentities' in kwargs:
+        if allowed_identities is None and 'allowedIdentities' in kwargs:
             allowed_identities = kwargs['allowedIdentities']
-        if 'clientSecretCertificateThumbprint' in kwargs:
+        if client_secret_certificate_thumbprint is None and 'clientSecretCertificateThumbprint' in kwargs:
             client_secret_certificate_thumbprint = kwargs['clientSecretCertificateThumbprint']
-        if 'clientSecretSettingName' in kwargs:
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'jwtAllowedClientApplications' in kwargs:
+        if jwt_allowed_client_applications is None and 'jwtAllowedClientApplications' in kwargs:
             jwt_allowed_client_applications = kwargs['jwtAllowedClientApplications']
-        if 'jwtAllowedGroups' in kwargs:
+        if jwt_allowed_groups is None and 'jwtAllowedGroups' in kwargs:
             jwt_allowed_groups = kwargs['jwtAllowedGroups']
-        if 'loginParameters' in kwargs:
+        if login_parameters is None and 'loginParameters' in kwargs:
             login_parameters = kwargs['loginParameters']
-        if 'wwwAuthenticationDisabled' in kwargs:
+        if www_authentication_disabled is None and 'wwwAuthenticationDisabled' in kwargs:
             www_authentication_disabled = kwargs['wwwAuthenticationDisabled']
 
         _setter("client_id", client_id)
@@ -14103,16 +14343,20 @@ class LinuxFunctionAppSlotAuthSettingsV2AppleV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             client_secret_setting_name: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecretSettingName' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'loginScopes' in kwargs:
+        if client_secret_setting_name is None:
+            raise TypeError("Missing 'client_secret_setting_name' argument")
+        if login_scopes is None and 'loginScopes' in kwargs:
             login_scopes = kwargs['loginScopes']
 
         _setter("client_id", client_id)
@@ -14171,11 +14415,13 @@ class LinuxFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
 
         _setter("client_id", client_id)
 
@@ -14236,9 +14482,9 @@ class LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             name: pulumi.Input[str],
-             openid_configuration_endpoint: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             openid_configuration_endpoint: Optional[pulumi.Input[str]] = None,
              authorisation_endpoint: Optional[pulumi.Input[str]] = None,
              certification_uri: Optional[pulumi.Input[str]] = None,
              client_credential_method: Optional[pulumi.Input[str]] = None,
@@ -14249,23 +14495,29 @@ class LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2Args:
              token_endpoint: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'openidConfigurationEndpoint' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if openid_configuration_endpoint is None and 'openidConfigurationEndpoint' in kwargs:
             openid_configuration_endpoint = kwargs['openidConfigurationEndpoint']
-        if 'authorisationEndpoint' in kwargs:
+        if openid_configuration_endpoint is None:
+            raise TypeError("Missing 'openid_configuration_endpoint' argument")
+        if authorisation_endpoint is None and 'authorisationEndpoint' in kwargs:
             authorisation_endpoint = kwargs['authorisationEndpoint']
-        if 'certificationUri' in kwargs:
+        if certification_uri is None and 'certificationUri' in kwargs:
             certification_uri = kwargs['certificationUri']
-        if 'clientCredentialMethod' in kwargs:
+        if client_credential_method is None and 'clientCredentialMethod' in kwargs:
             client_credential_method = kwargs['clientCredentialMethod']
-        if 'clientSecretSettingName' in kwargs:
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'issuerEndpoint' in kwargs:
+        if issuer_endpoint is None and 'issuerEndpoint' in kwargs:
             issuer_endpoint = kwargs['issuerEndpoint']
-        if 'nameClaimType' in kwargs:
+        if name_claim_type is None and 'nameClaimType' in kwargs:
             name_claim_type = kwargs['nameClaimType']
-        if 'tokenEndpoint' in kwargs:
+        if token_endpoint is None and 'tokenEndpoint' in kwargs:
             token_endpoint = kwargs['tokenEndpoint']
 
         _setter("client_id", client_id)
@@ -14446,19 +14698,23 @@ class LinuxFunctionAppSlotAuthSettingsV2FacebookV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_id: pulumi.Input[str],
-             app_secret_setting_name: pulumi.Input[str],
+             app_id: Optional[pulumi.Input[str]] = None,
+             app_secret_setting_name: Optional[pulumi.Input[str]] = None,
              graph_api_version: Optional[pulumi.Input[str]] = None,
              login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'appId' in kwargs:
+        if app_id is None and 'appId' in kwargs:
             app_id = kwargs['appId']
-        if 'appSecretSettingName' in kwargs:
+        if app_id is None:
+            raise TypeError("Missing 'app_id' argument")
+        if app_secret_setting_name is None and 'appSecretSettingName' in kwargs:
             app_secret_setting_name = kwargs['appSecretSettingName']
-        if 'graphApiVersion' in kwargs:
+        if app_secret_setting_name is None:
+            raise TypeError("Missing 'app_secret_setting_name' argument")
+        if graph_api_version is None and 'graphApiVersion' in kwargs:
             graph_api_version = kwargs['graphApiVersion']
-        if 'loginScopes' in kwargs:
+        if login_scopes is None and 'loginScopes' in kwargs:
             login_scopes = kwargs['loginScopes']
 
         _setter("app_id", app_id)
@@ -14539,16 +14795,20 @@ class LinuxFunctionAppSlotAuthSettingsV2GithubV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             client_secret_setting_name: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecretSettingName' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'loginScopes' in kwargs:
+        if client_secret_setting_name is None:
+            raise TypeError("Missing 'client_secret_setting_name' argument")
+        if login_scopes is None and 'loginScopes' in kwargs:
             login_scopes = kwargs['loginScopes']
 
         _setter("client_id", client_id)
@@ -14618,19 +14878,23 @@ class LinuxFunctionAppSlotAuthSettingsV2GoogleV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             client_secret_setting_name: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecretSettingName' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'allowedAudiences' in kwargs:
+        if client_secret_setting_name is None:
+            raise TypeError("Missing 'client_secret_setting_name' argument")
+        if allowed_audiences is None and 'allowedAudiences' in kwargs:
             allowed_audiences = kwargs['allowedAudiences']
-        if 'loginScopes' in kwargs:
+        if login_scopes is None and 'loginScopes' in kwargs:
             login_scopes = kwargs['loginScopes']
 
         _setter("client_id", client_id)
@@ -14750,27 +15014,27 @@ class LinuxFunctionAppSlotAuthSettingsV2LoginArgs:
              validate_nonce: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowedExternalRedirectUrls' in kwargs:
+        if allowed_external_redirect_urls is None and 'allowedExternalRedirectUrls' in kwargs:
             allowed_external_redirect_urls = kwargs['allowedExternalRedirectUrls']
-        if 'cookieExpirationConvention' in kwargs:
+        if cookie_expiration_convention is None and 'cookieExpirationConvention' in kwargs:
             cookie_expiration_convention = kwargs['cookieExpirationConvention']
-        if 'cookieExpirationTime' in kwargs:
+        if cookie_expiration_time is None and 'cookieExpirationTime' in kwargs:
             cookie_expiration_time = kwargs['cookieExpirationTime']
-        if 'logoutEndpoint' in kwargs:
+        if logout_endpoint is None and 'logoutEndpoint' in kwargs:
             logout_endpoint = kwargs['logoutEndpoint']
-        if 'nonceExpirationTime' in kwargs:
+        if nonce_expiration_time is None and 'nonceExpirationTime' in kwargs:
             nonce_expiration_time = kwargs['nonceExpirationTime']
-        if 'preserveUrlFragmentsForLogins' in kwargs:
+        if preserve_url_fragments_for_logins is None and 'preserveUrlFragmentsForLogins' in kwargs:
             preserve_url_fragments_for_logins = kwargs['preserveUrlFragmentsForLogins']
-        if 'tokenRefreshExtensionTime' in kwargs:
+        if token_refresh_extension_time is None and 'tokenRefreshExtensionTime' in kwargs:
             token_refresh_extension_time = kwargs['tokenRefreshExtensionTime']
-        if 'tokenStoreEnabled' in kwargs:
+        if token_store_enabled is None and 'tokenStoreEnabled' in kwargs:
             token_store_enabled = kwargs['tokenStoreEnabled']
-        if 'tokenStorePath' in kwargs:
+        if token_store_path is None and 'tokenStorePath' in kwargs:
             token_store_path = kwargs['tokenStorePath']
-        if 'tokenStoreSasSettingName' in kwargs:
+        if token_store_sas_setting_name is None and 'tokenStoreSasSettingName' in kwargs:
             token_store_sas_setting_name = kwargs['tokenStoreSasSettingName']
-        if 'validateNonce' in kwargs:
+        if validate_nonce is None and 'validateNonce' in kwargs:
             validate_nonce = kwargs['validateNonce']
 
         if allowed_external_redirect_urls is not None:
@@ -14956,19 +15220,23 @@ class LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             client_secret_setting_name: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecretSettingName' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'allowedAudiences' in kwargs:
+        if client_secret_setting_name is None:
+            raise TypeError("Missing 'client_secret_setting_name' argument")
+        if allowed_audiences is None and 'allowedAudiences' in kwargs:
             allowed_audiences = kwargs['allowedAudiences']
-        if 'loginScopes' in kwargs:
+        if login_scopes is None and 'loginScopes' in kwargs:
             login_scopes = kwargs['loginScopes']
 
         _setter("client_id", client_id)
@@ -15048,14 +15316,18 @@ class LinuxFunctionAppSlotAuthSettingsV2TwitterV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             consumer_key: pulumi.Input[str],
-             consumer_secret_setting_name: pulumi.Input[str],
+             consumer_key: Optional[pulumi.Input[str]] = None,
+             consumer_secret_setting_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'consumerKey' in kwargs:
+        if consumer_key is None and 'consumerKey' in kwargs:
             consumer_key = kwargs['consumerKey']
-        if 'consumerSecretSettingName' in kwargs:
+        if consumer_key is None:
+            raise TypeError("Missing 'consumer_key' argument")
+        if consumer_secret_setting_name is None and 'consumerSecretSettingName' in kwargs:
             consumer_secret_setting_name = kwargs['consumerSecretSettingName']
+        if consumer_secret_setting_name is None:
+            raise TypeError("Missing 'consumer_secret_setting_name' argument")
 
         _setter("consumer_key", consumer_key)
         _setter("consumer_secret_setting_name", consumer_secret_setting_name)
@@ -15110,14 +15382,20 @@ class LinuxFunctionAppSlotBackupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             schedule: pulumi.Input['LinuxFunctionAppSlotBackupScheduleArgs'],
-             storage_account_url: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             schedule: Optional[pulumi.Input['LinuxFunctionAppSlotBackupScheduleArgs']] = None,
+             storage_account_url: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'storageAccountUrl' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if schedule is None:
+            raise TypeError("Missing 'schedule' argument")
+        if storage_account_url is None and 'storageAccountUrl' in kwargs:
             storage_account_url = kwargs['storageAccountUrl']
+        if storage_account_url is None:
+            raise TypeError("Missing 'storage_account_url' argument")
 
         _setter("name", name)
         _setter("schedule", schedule)
@@ -15205,25 +15483,29 @@ class LinuxFunctionAppSlotBackupScheduleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             frequency_interval: pulumi.Input[int],
-             frequency_unit: pulumi.Input[str],
+             frequency_interval: Optional[pulumi.Input[int]] = None,
+             frequency_unit: Optional[pulumi.Input[str]] = None,
              keep_at_least_one_backup: Optional[pulumi.Input[bool]] = None,
              last_execution_time: Optional[pulumi.Input[str]] = None,
              retention_period_days: Optional[pulumi.Input[int]] = None,
              start_time: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'frequencyInterval' in kwargs:
+        if frequency_interval is None and 'frequencyInterval' in kwargs:
             frequency_interval = kwargs['frequencyInterval']
-        if 'frequencyUnit' in kwargs:
+        if frequency_interval is None:
+            raise TypeError("Missing 'frequency_interval' argument")
+        if frequency_unit is None and 'frequencyUnit' in kwargs:
             frequency_unit = kwargs['frequencyUnit']
-        if 'keepAtLeastOneBackup' in kwargs:
+        if frequency_unit is None:
+            raise TypeError("Missing 'frequency_unit' argument")
+        if keep_at_least_one_backup is None and 'keepAtLeastOneBackup' in kwargs:
             keep_at_least_one_backup = kwargs['keepAtLeastOneBackup']
-        if 'lastExecutionTime' in kwargs:
+        if last_execution_time is None and 'lastExecutionTime' in kwargs:
             last_execution_time = kwargs['lastExecutionTime']
-        if 'retentionPeriodDays' in kwargs:
+        if retention_period_days is None and 'retentionPeriodDays' in kwargs:
             retention_period_days = kwargs['retentionPeriodDays']
-        if 'startTime' in kwargs:
+        if start_time is None and 'startTime' in kwargs:
             start_time = kwargs['startTime']
 
         _setter("frequency_interval", frequency_interval)
@@ -15332,11 +15614,17 @@ class LinuxFunctionAppSlotConnectionStringArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             type: pulumi.Input[str],
-             value: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("name", name)
         _setter("type", type)
@@ -15404,17 +15692,19 @@ class LinuxFunctionAppSlotIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -15639,77 +15929,77 @@ class LinuxFunctionAppSlotSiteConfigArgs:
              worker_count: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'alwaysOn' in kwargs:
+        if always_on is None and 'alwaysOn' in kwargs:
             always_on = kwargs['alwaysOn']
-        if 'apiDefinitionUrl' in kwargs:
+        if api_definition_url is None and 'apiDefinitionUrl' in kwargs:
             api_definition_url = kwargs['apiDefinitionUrl']
-        if 'apiManagementApiId' in kwargs:
+        if api_management_api_id is None and 'apiManagementApiId' in kwargs:
             api_management_api_id = kwargs['apiManagementApiId']
-        if 'appCommandLine' in kwargs:
+        if app_command_line is None and 'appCommandLine' in kwargs:
             app_command_line = kwargs['appCommandLine']
-        if 'appScaleLimit' in kwargs:
+        if app_scale_limit is None and 'appScaleLimit' in kwargs:
             app_scale_limit = kwargs['appScaleLimit']
-        if 'appServiceLogs' in kwargs:
+        if app_service_logs is None and 'appServiceLogs' in kwargs:
             app_service_logs = kwargs['appServiceLogs']
-        if 'applicationInsightsConnectionString' in kwargs:
+        if application_insights_connection_string is None and 'applicationInsightsConnectionString' in kwargs:
             application_insights_connection_string = kwargs['applicationInsightsConnectionString']
-        if 'applicationInsightsKey' in kwargs:
+        if application_insights_key is None and 'applicationInsightsKey' in kwargs:
             application_insights_key = kwargs['applicationInsightsKey']
-        if 'applicationStack' in kwargs:
+        if application_stack is None and 'applicationStack' in kwargs:
             application_stack = kwargs['applicationStack']
-        if 'autoSwapSlotName' in kwargs:
+        if auto_swap_slot_name is None and 'autoSwapSlotName' in kwargs:
             auto_swap_slot_name = kwargs['autoSwapSlotName']
-        if 'containerRegistryManagedIdentityClientId' in kwargs:
+        if container_registry_managed_identity_client_id is None and 'containerRegistryManagedIdentityClientId' in kwargs:
             container_registry_managed_identity_client_id = kwargs['containerRegistryManagedIdentityClientId']
-        if 'containerRegistryUseManagedIdentity' in kwargs:
+        if container_registry_use_managed_identity is None and 'containerRegistryUseManagedIdentity' in kwargs:
             container_registry_use_managed_identity = kwargs['containerRegistryUseManagedIdentity']
-        if 'defaultDocuments' in kwargs:
+        if default_documents is None and 'defaultDocuments' in kwargs:
             default_documents = kwargs['defaultDocuments']
-        if 'detailedErrorLoggingEnabled' in kwargs:
+        if detailed_error_logging_enabled is None and 'detailedErrorLoggingEnabled' in kwargs:
             detailed_error_logging_enabled = kwargs['detailedErrorLoggingEnabled']
-        if 'elasticInstanceMinimum' in kwargs:
+        if elastic_instance_minimum is None and 'elasticInstanceMinimum' in kwargs:
             elastic_instance_minimum = kwargs['elasticInstanceMinimum']
-        if 'ftpsState' in kwargs:
+        if ftps_state is None and 'ftpsState' in kwargs:
             ftps_state = kwargs['ftpsState']
-        if 'healthCheckEvictionTimeInMin' in kwargs:
+        if health_check_eviction_time_in_min is None and 'healthCheckEvictionTimeInMin' in kwargs:
             health_check_eviction_time_in_min = kwargs['healthCheckEvictionTimeInMin']
-        if 'healthCheckPath' in kwargs:
+        if health_check_path is None and 'healthCheckPath' in kwargs:
             health_check_path = kwargs['healthCheckPath']
-        if 'http2Enabled' in kwargs:
+        if http2_enabled is None and 'http2Enabled' in kwargs:
             http2_enabled = kwargs['http2Enabled']
-        if 'ipRestrictions' in kwargs:
+        if ip_restrictions is None and 'ipRestrictions' in kwargs:
             ip_restrictions = kwargs['ipRestrictions']
-        if 'linuxFxVersion' in kwargs:
+        if linux_fx_version is None and 'linuxFxVersion' in kwargs:
             linux_fx_version = kwargs['linuxFxVersion']
-        if 'loadBalancingMode' in kwargs:
+        if load_balancing_mode is None and 'loadBalancingMode' in kwargs:
             load_balancing_mode = kwargs['loadBalancingMode']
-        if 'managedPipelineMode' in kwargs:
+        if managed_pipeline_mode is None and 'managedPipelineMode' in kwargs:
             managed_pipeline_mode = kwargs['managedPipelineMode']
-        if 'minimumTlsVersion' in kwargs:
+        if minimum_tls_version is None and 'minimumTlsVersion' in kwargs:
             minimum_tls_version = kwargs['minimumTlsVersion']
-        if 'preWarmedInstanceCount' in kwargs:
+        if pre_warmed_instance_count is None and 'preWarmedInstanceCount' in kwargs:
             pre_warmed_instance_count = kwargs['preWarmedInstanceCount']
-        if 'remoteDebuggingEnabled' in kwargs:
+        if remote_debugging_enabled is None and 'remoteDebuggingEnabled' in kwargs:
             remote_debugging_enabled = kwargs['remoteDebuggingEnabled']
-        if 'remoteDebuggingVersion' in kwargs:
+        if remote_debugging_version is None and 'remoteDebuggingVersion' in kwargs:
             remote_debugging_version = kwargs['remoteDebuggingVersion']
-        if 'runtimeScaleMonitoringEnabled' in kwargs:
+        if runtime_scale_monitoring_enabled is None and 'runtimeScaleMonitoringEnabled' in kwargs:
             runtime_scale_monitoring_enabled = kwargs['runtimeScaleMonitoringEnabled']
-        if 'scmIpRestrictions' in kwargs:
+        if scm_ip_restrictions is None and 'scmIpRestrictions' in kwargs:
             scm_ip_restrictions = kwargs['scmIpRestrictions']
-        if 'scmMinimumTlsVersion' in kwargs:
+        if scm_minimum_tls_version is None and 'scmMinimumTlsVersion' in kwargs:
             scm_minimum_tls_version = kwargs['scmMinimumTlsVersion']
-        if 'scmType' in kwargs:
+        if scm_type is None and 'scmType' in kwargs:
             scm_type = kwargs['scmType']
-        if 'scmUseMainIpRestriction' in kwargs:
+        if scm_use_main_ip_restriction is None and 'scmUseMainIpRestriction' in kwargs:
             scm_use_main_ip_restriction = kwargs['scmUseMainIpRestriction']
-        if 'use32BitWorker' in kwargs:
+        if use32_bit_worker is None and 'use32BitWorker' in kwargs:
             use32_bit_worker = kwargs['use32BitWorker']
-        if 'vnetRouteAllEnabled' in kwargs:
+        if vnet_route_all_enabled is None and 'vnetRouteAllEnabled' in kwargs:
             vnet_route_all_enabled = kwargs['vnetRouteAllEnabled']
-        if 'websocketsEnabled' in kwargs:
+        if websockets_enabled is None and 'websocketsEnabled' in kwargs:
             websockets_enabled = kwargs['websocketsEnabled']
-        if 'workerCount' in kwargs:
+        if worker_count is None and 'workerCount' in kwargs:
             worker_count = kwargs['workerCount']
 
         if always_on is not None:
@@ -16257,9 +16547,9 @@ class LinuxFunctionAppSlotSiteConfigAppServiceLogsArgs:
              retention_period_days: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'diskQuotaMb' in kwargs:
+        if disk_quota_mb is None and 'diskQuotaMb' in kwargs:
             disk_quota_mb = kwargs['diskQuotaMb']
-        if 'retentionPeriodDays' in kwargs:
+        if retention_period_days is None and 'retentionPeriodDays' in kwargs:
             retention_period_days = kwargs['retentionPeriodDays']
 
         if disk_quota_mb is not None:
@@ -16339,19 +16629,19 @@ class LinuxFunctionAppSlotSiteConfigApplicationStackArgs:
              use_dotnet_isolated_runtime: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dotnetVersion' in kwargs:
+        if dotnet_version is None and 'dotnetVersion' in kwargs:
             dotnet_version = kwargs['dotnetVersion']
-        if 'javaVersion' in kwargs:
+        if java_version is None and 'javaVersion' in kwargs:
             java_version = kwargs['javaVersion']
-        if 'nodeVersion' in kwargs:
+        if node_version is None and 'nodeVersion' in kwargs:
             node_version = kwargs['nodeVersion']
-        if 'powershellCoreVersion' in kwargs:
+        if powershell_core_version is None and 'powershellCoreVersion' in kwargs:
             powershell_core_version = kwargs['powershellCoreVersion']
-        if 'pythonVersion' in kwargs:
+        if python_version is None and 'pythonVersion' in kwargs:
             python_version = kwargs['pythonVersion']
-        if 'useCustomRuntime' in kwargs:
+        if use_custom_runtime is None and 'useCustomRuntime' in kwargs:
             use_custom_runtime = kwargs['useCustomRuntime']
-        if 'useDotnetIsolatedRuntime' in kwargs:
+        if use_dotnet_isolated_runtime is None and 'useDotnetIsolatedRuntime' in kwargs:
             use_dotnet_isolated_runtime = kwargs['useDotnetIsolatedRuntime']
 
         if dockers is not None:
@@ -16498,22 +16788,28 @@ class LinuxFunctionAppSlotSiteConfigApplicationStackDockerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             image_name: pulumi.Input[str],
-             image_tag: pulumi.Input[str],
-             registry_url: pulumi.Input[str],
+             image_name: Optional[pulumi.Input[str]] = None,
+             image_tag: Optional[pulumi.Input[str]] = None,
+             registry_url: Optional[pulumi.Input[str]] = None,
              registry_password: Optional[pulumi.Input[str]] = None,
              registry_username: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'imageName' in kwargs:
+        if image_name is None and 'imageName' in kwargs:
             image_name = kwargs['imageName']
-        if 'imageTag' in kwargs:
+        if image_name is None:
+            raise TypeError("Missing 'image_name' argument")
+        if image_tag is None and 'imageTag' in kwargs:
             image_tag = kwargs['imageTag']
-        if 'registryUrl' in kwargs:
+        if image_tag is None:
+            raise TypeError("Missing 'image_tag' argument")
+        if registry_url is None and 'registryUrl' in kwargs:
             registry_url = kwargs['registryUrl']
-        if 'registryPassword' in kwargs:
+        if registry_url is None:
+            raise TypeError("Missing 'registry_url' argument")
+        if registry_password is None and 'registryPassword' in kwargs:
             registry_password = kwargs['registryPassword']
-        if 'registryUsername' in kwargs:
+        if registry_username is None and 'registryUsername' in kwargs:
             registry_username = kwargs['registryUsername']
 
         _setter("image_name", image_name)
@@ -16610,9 +16906,9 @@ class LinuxFunctionAppSlotSiteConfigCorsArgs:
              support_credentials: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowedOrigins' in kwargs:
+        if allowed_origins is None and 'allowedOrigins' in kwargs:
             allowed_origins = kwargs['allowedOrigins']
-        if 'supportCredentials' in kwargs:
+        if support_credentials is None and 'supportCredentials' in kwargs:
             support_credentials = kwargs['supportCredentials']
 
         if allowed_origins is not None:
@@ -16688,11 +16984,11 @@ class LinuxFunctionAppSlotSiteConfigIpRestrictionArgs:
              virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ipAddress' in kwargs:
+        if ip_address is None and 'ipAddress' in kwargs:
             ip_address = kwargs['ipAddress']
-        if 'serviceTag' in kwargs:
+        if service_tag is None and 'serviceTag' in kwargs:
             service_tag = kwargs['serviceTag']
-        if 'virtualNetworkSubnetId' in kwargs:
+        if virtual_network_subnet_id is None and 'virtualNetworkSubnetId' in kwargs:
             virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
 
         if action is not None:
@@ -16826,13 +17122,13 @@ class LinuxFunctionAppSlotSiteConfigIpRestrictionHeadersArgs:
              x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'xAzureFdids' in kwargs:
+        if x_azure_fdids is None and 'xAzureFdids' in kwargs:
             x_azure_fdids = kwargs['xAzureFdids']
-        if 'xFdHealthProbe' in kwargs:
+        if x_fd_health_probe is None and 'xFdHealthProbe' in kwargs:
             x_fd_health_probe = kwargs['xFdHealthProbe']
-        if 'xForwardedFors' in kwargs:
+        if x_forwarded_fors is None and 'xForwardedFors' in kwargs:
             x_forwarded_fors = kwargs['xForwardedFors']
-        if 'xForwardedHosts' in kwargs:
+        if x_forwarded_hosts is None and 'xForwardedHosts' in kwargs:
             x_forwarded_hosts = kwargs['xForwardedHosts']
 
         if x_azure_fdids is not None:
@@ -16936,11 +17232,11 @@ class LinuxFunctionAppSlotSiteConfigScmIpRestrictionArgs:
              virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ipAddress' in kwargs:
+        if ip_address is None and 'ipAddress' in kwargs:
             ip_address = kwargs['ipAddress']
-        if 'serviceTag' in kwargs:
+        if service_tag is None and 'serviceTag' in kwargs:
             service_tag = kwargs['serviceTag']
-        if 'virtualNetworkSubnetId' in kwargs:
+        if virtual_network_subnet_id is None and 'virtualNetworkSubnetId' in kwargs:
             virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
 
         if action is not None:
@@ -17074,13 +17370,13 @@ class LinuxFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs:
              x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'xAzureFdids' in kwargs:
+        if x_azure_fdids is None and 'xAzureFdids' in kwargs:
             x_azure_fdids = kwargs['xAzureFdids']
-        if 'xFdHealthProbe' in kwargs:
+        if x_fd_health_probe is None and 'xFdHealthProbe' in kwargs:
             x_fd_health_probe = kwargs['xFdHealthProbe']
-        if 'xForwardedFors' in kwargs:
+        if x_forwarded_fors is None and 'xForwardedFors' in kwargs:
             x_forwarded_fors = kwargs['xForwardedFors']
-        if 'xForwardedHosts' in kwargs:
+        if x_forwarded_hosts is None and 'xForwardedHosts' in kwargs:
             x_forwarded_hosts = kwargs['xForwardedHosts']
 
         if x_azure_fdids is not None:
@@ -17222,21 +17518,31 @@ class LinuxFunctionAppSlotStorageAccountArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             access_key: pulumi.Input[str],
-             account_name: pulumi.Input[str],
-             name: pulumi.Input[str],
-             share_name: pulumi.Input[str],
-             type: pulumi.Input[str],
+             access_key: Optional[pulumi.Input[str]] = None,
+             account_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             share_name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              mount_path: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accessKey' in kwargs:
+        if access_key is None and 'accessKey' in kwargs:
             access_key = kwargs['accessKey']
-        if 'accountName' in kwargs:
+        if access_key is None:
+            raise TypeError("Missing 'access_key' argument")
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'shareName' in kwargs:
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if share_name is None and 'shareName' in kwargs:
             share_name = kwargs['shareName']
-        if 'mountPath' in kwargs:
+        if share_name is None:
+            raise TypeError("Missing 'share_name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if mount_path is None and 'mountPath' in kwargs:
             mount_path = kwargs['mountPath']
 
         _setter("access_key", access_key)
@@ -17341,9 +17647,9 @@ class LinuxFunctionAppStickySettingsArgs:
              connection_string_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'appSettingNames' in kwargs:
+        if app_setting_names is None and 'appSettingNames' in kwargs:
             app_setting_names = kwargs['appSettingNames']
-        if 'connectionStringNames' in kwargs:
+        if connection_string_names is None and 'connectionStringNames' in kwargs:
             connection_string_names = kwargs['connectionStringNames']
 
         if app_setting_names is not None:
@@ -17405,21 +17711,31 @@ class LinuxFunctionAppStorageAccountArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             access_key: pulumi.Input[str],
-             account_name: pulumi.Input[str],
-             name: pulumi.Input[str],
-             share_name: pulumi.Input[str],
-             type: pulumi.Input[str],
+             access_key: Optional[pulumi.Input[str]] = None,
+             account_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             share_name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              mount_path: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accessKey' in kwargs:
+        if access_key is None and 'accessKey' in kwargs:
             access_key = kwargs['accessKey']
-        if 'accountName' in kwargs:
+        if access_key is None:
+            raise TypeError("Missing 'access_key' argument")
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'shareName' in kwargs:
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if share_name is None and 'shareName' in kwargs:
             share_name = kwargs['shareName']
-        if 'mountPath' in kwargs:
+        if share_name is None:
+            raise TypeError("Missing 'share_name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if mount_path is None and 'mountPath' in kwargs:
             mount_path = kwargs['mountPath']
 
         _setter("access_key", access_key)
@@ -17563,7 +17879,7 @@ class LinuxWebAppAuthSettingsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: pulumi.Input[bool],
+             enabled: Optional[pulumi.Input[bool]] = None,
              active_directory: Optional[pulumi.Input['LinuxWebAppAuthSettingsActiveDirectoryArgs']] = None,
              additional_login_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -17580,21 +17896,23 @@ class LinuxWebAppAuthSettingsArgs:
              unauthenticated_client_action: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'activeDirectory' in kwargs:
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if active_directory is None and 'activeDirectory' in kwargs:
             active_directory = kwargs['activeDirectory']
-        if 'additionalLoginParameters' in kwargs:
+        if additional_login_parameters is None and 'additionalLoginParameters' in kwargs:
             additional_login_parameters = kwargs['additionalLoginParameters']
-        if 'allowedExternalRedirectUrls' in kwargs:
+        if allowed_external_redirect_urls is None and 'allowedExternalRedirectUrls' in kwargs:
             allowed_external_redirect_urls = kwargs['allowedExternalRedirectUrls']
-        if 'defaultProvider' in kwargs:
+        if default_provider is None and 'defaultProvider' in kwargs:
             default_provider = kwargs['defaultProvider']
-        if 'runtimeVersion' in kwargs:
+        if runtime_version is None and 'runtimeVersion' in kwargs:
             runtime_version = kwargs['runtimeVersion']
-        if 'tokenRefreshExtensionHours' in kwargs:
+        if token_refresh_extension_hours is None and 'tokenRefreshExtensionHours' in kwargs:
             token_refresh_extension_hours = kwargs['tokenRefreshExtensionHours']
-        if 'tokenStoreEnabled' in kwargs:
+        if token_store_enabled is None and 'tokenStoreEnabled' in kwargs:
             token_store_enabled = kwargs['tokenStoreEnabled']
-        if 'unauthenticatedClientAction' in kwargs:
+        if unauthenticated_client_action is None and 'unauthenticatedClientAction' in kwargs:
             unauthenticated_client_action = kwargs['unauthenticatedClientAction']
 
         _setter("enabled", enabled)
@@ -17837,19 +18155,21 @@ class LinuxWebAppAuthSettingsActiveDirectoryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
              allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              client_secret: Optional[pulumi.Input[str]] = None,
              client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'allowedAudiences' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if allowed_audiences is None and 'allowedAudiences' in kwargs:
             allowed_audiences = kwargs['allowedAudiences']
-        if 'clientSecret' in kwargs:
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'clientSecretSettingName' in kwargs:
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
 
         _setter("client_id", client_id)
@@ -17934,19 +18254,21 @@ class LinuxWebAppAuthSettingsFacebookArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_id: pulumi.Input[str],
+             app_id: Optional[pulumi.Input[str]] = None,
              app_secret: Optional[pulumi.Input[str]] = None,
              app_secret_setting_name: Optional[pulumi.Input[str]] = None,
              oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'appId' in kwargs:
+        if app_id is None and 'appId' in kwargs:
             app_id = kwargs['appId']
-        if 'appSecret' in kwargs:
+        if app_id is None:
+            raise TypeError("Missing 'app_id' argument")
+        if app_secret is None and 'appSecret' in kwargs:
             app_secret = kwargs['appSecret']
-        if 'appSecretSettingName' in kwargs:
+        if app_secret_setting_name is None and 'appSecretSettingName' in kwargs:
             app_secret_setting_name = kwargs['appSecretSettingName']
-        if 'oauthScopes' in kwargs:
+        if oauth_scopes is None and 'oauthScopes' in kwargs:
             oauth_scopes = kwargs['oauthScopes']
 
         _setter("app_id", app_id)
@@ -18029,19 +18351,21 @@ class LinuxWebAppAuthSettingsGithubArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
              client_secret: Optional[pulumi.Input[str]] = None,
              client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecret' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'clientSecretSettingName' in kwargs:
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'oauthScopes' in kwargs:
+        if oauth_scopes is None and 'oauthScopes' in kwargs:
             oauth_scopes = kwargs['oauthScopes']
 
         _setter("client_id", client_id)
@@ -18124,19 +18448,21 @@ class LinuxWebAppAuthSettingsGoogleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
              client_secret: Optional[pulumi.Input[str]] = None,
              client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecret' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'clientSecretSettingName' in kwargs:
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'oauthScopes' in kwargs:
+        if oauth_scopes is None and 'oauthScopes' in kwargs:
             oauth_scopes = kwargs['oauthScopes']
 
         _setter("client_id", client_id)
@@ -18219,19 +18545,21 @@ class LinuxWebAppAuthSettingsMicrosoftArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
              client_secret: Optional[pulumi.Input[str]] = None,
              client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecret' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'clientSecretSettingName' in kwargs:
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'oauthScopes' in kwargs:
+        if oauth_scopes is None and 'oauthScopes' in kwargs:
             oauth_scopes = kwargs['oauthScopes']
 
         _setter("client_id", client_id)
@@ -18311,16 +18639,18 @@ class LinuxWebAppAuthSettingsTwitterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             consumer_key: pulumi.Input[str],
+             consumer_key: Optional[pulumi.Input[str]] = None,
              consumer_secret: Optional[pulumi.Input[str]] = None,
              consumer_secret_setting_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'consumerKey' in kwargs:
+        if consumer_key is None and 'consumerKey' in kwargs:
             consumer_key = kwargs['consumerKey']
-        if 'consumerSecret' in kwargs:
+        if consumer_key is None:
+            raise TypeError("Missing 'consumer_key' argument")
+        if consumer_secret is None and 'consumerSecret' in kwargs:
             consumer_secret = kwargs['consumerSecret']
-        if 'consumerSecretSettingName' in kwargs:
+        if consumer_secret_setting_name is None and 'consumerSecretSettingName' in kwargs:
             consumer_secret_setting_name = kwargs['consumerSecretSettingName']
 
         _setter("consumer_key", consumer_key)
@@ -18449,7 +18779,7 @@ class LinuxWebAppAuthSettingsV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             login: pulumi.Input['LinuxWebAppAuthSettingsV2LoginArgs'],
+             login: Optional[pulumi.Input['LinuxWebAppAuthSettingsV2LoginArgs']] = None,
              active_directory_v2: Optional[pulumi.Input['LinuxWebAppAuthSettingsV2ActiveDirectoryV2Args']] = None,
              apple_v2: Optional[pulumi.Input['LinuxWebAppAuthSettingsV2AppleV2Args']] = None,
              auth_enabled: Optional[pulumi.Input[bool]] = None,
@@ -18473,47 +18803,49 @@ class LinuxWebAppAuthSettingsV2Args:
              unauthenticated_action: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'activeDirectoryV2' in kwargs:
+        if login is None:
+            raise TypeError("Missing 'login' argument")
+        if active_directory_v2 is None and 'activeDirectoryV2' in kwargs:
             active_directory_v2 = kwargs['activeDirectoryV2']
-        if 'appleV2' in kwargs:
+        if apple_v2 is None and 'appleV2' in kwargs:
             apple_v2 = kwargs['appleV2']
-        if 'authEnabled' in kwargs:
+        if auth_enabled is None and 'authEnabled' in kwargs:
             auth_enabled = kwargs['authEnabled']
-        if 'azureStaticWebAppV2' in kwargs:
+        if azure_static_web_app_v2 is None and 'azureStaticWebAppV2' in kwargs:
             azure_static_web_app_v2 = kwargs['azureStaticWebAppV2']
-        if 'configFilePath' in kwargs:
+        if config_file_path is None and 'configFilePath' in kwargs:
             config_file_path = kwargs['configFilePath']
-        if 'customOidcV2s' in kwargs:
+        if custom_oidc_v2s is None and 'customOidcV2s' in kwargs:
             custom_oidc_v2s = kwargs['customOidcV2s']
-        if 'defaultProvider' in kwargs:
+        if default_provider is None and 'defaultProvider' in kwargs:
             default_provider = kwargs['defaultProvider']
-        if 'excludedPaths' in kwargs:
+        if excluded_paths is None and 'excludedPaths' in kwargs:
             excluded_paths = kwargs['excludedPaths']
-        if 'facebookV2' in kwargs:
+        if facebook_v2 is None and 'facebookV2' in kwargs:
             facebook_v2 = kwargs['facebookV2']
-        if 'forwardProxyConvention' in kwargs:
+        if forward_proxy_convention is None and 'forwardProxyConvention' in kwargs:
             forward_proxy_convention = kwargs['forwardProxyConvention']
-        if 'forwardProxyCustomHostHeaderName' in kwargs:
+        if forward_proxy_custom_host_header_name is None and 'forwardProxyCustomHostHeaderName' in kwargs:
             forward_proxy_custom_host_header_name = kwargs['forwardProxyCustomHostHeaderName']
-        if 'forwardProxyCustomSchemeHeaderName' in kwargs:
+        if forward_proxy_custom_scheme_header_name is None and 'forwardProxyCustomSchemeHeaderName' in kwargs:
             forward_proxy_custom_scheme_header_name = kwargs['forwardProxyCustomSchemeHeaderName']
-        if 'githubV2' in kwargs:
+        if github_v2 is None and 'githubV2' in kwargs:
             github_v2 = kwargs['githubV2']
-        if 'googleV2' in kwargs:
+        if google_v2 is None and 'googleV2' in kwargs:
             google_v2 = kwargs['googleV2']
-        if 'httpRouteApiPrefix' in kwargs:
+        if http_route_api_prefix is None and 'httpRouteApiPrefix' in kwargs:
             http_route_api_prefix = kwargs['httpRouteApiPrefix']
-        if 'microsoftV2' in kwargs:
+        if microsoft_v2 is None and 'microsoftV2' in kwargs:
             microsoft_v2 = kwargs['microsoftV2']
-        if 'requireAuthentication' in kwargs:
+        if require_authentication is None and 'requireAuthentication' in kwargs:
             require_authentication = kwargs['requireAuthentication']
-        if 'requireHttps' in kwargs:
+        if require_https is None and 'requireHttps' in kwargs:
             require_https = kwargs['requireHttps']
-        if 'runtimeVersion' in kwargs:
+        if runtime_version is None and 'runtimeVersion' in kwargs:
             runtime_version = kwargs['runtimeVersion']
-        if 'twitterV2' in kwargs:
+        if twitter_v2 is None and 'twitterV2' in kwargs:
             twitter_v2 = kwargs['twitterV2']
-        if 'unauthenticatedAction' in kwargs:
+        if unauthenticated_action is None and 'unauthenticatedAction' in kwargs:
             unauthenticated_action = kwargs['unauthenticatedAction']
 
         _setter("login", login)
@@ -18882,8 +19214,8 @@ class LinuxWebAppAuthSettingsV2ActiveDirectoryV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             tenant_auth_endpoint: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             tenant_auth_endpoint: Optional[pulumi.Input[str]] = None,
              allowed_applications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              allowed_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -18896,29 +19228,33 @@ class LinuxWebAppAuthSettingsV2ActiveDirectoryV2Args:
              www_authentication_disabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'tenantAuthEndpoint' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if tenant_auth_endpoint is None and 'tenantAuthEndpoint' in kwargs:
             tenant_auth_endpoint = kwargs['tenantAuthEndpoint']
-        if 'allowedApplications' in kwargs:
+        if tenant_auth_endpoint is None:
+            raise TypeError("Missing 'tenant_auth_endpoint' argument")
+        if allowed_applications is None and 'allowedApplications' in kwargs:
             allowed_applications = kwargs['allowedApplications']
-        if 'allowedAudiences' in kwargs:
+        if allowed_audiences is None and 'allowedAudiences' in kwargs:
             allowed_audiences = kwargs['allowedAudiences']
-        if 'allowedGroups' in kwargs:
+        if allowed_groups is None and 'allowedGroups' in kwargs:
             allowed_groups = kwargs['allowedGroups']
-        if 'allowedIdentities' in kwargs:
+        if allowed_identities is None and 'allowedIdentities' in kwargs:
             allowed_identities = kwargs['allowedIdentities']
-        if 'clientSecretCertificateThumbprint' in kwargs:
+        if client_secret_certificate_thumbprint is None and 'clientSecretCertificateThumbprint' in kwargs:
             client_secret_certificate_thumbprint = kwargs['clientSecretCertificateThumbprint']
-        if 'clientSecretSettingName' in kwargs:
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'jwtAllowedClientApplications' in kwargs:
+        if jwt_allowed_client_applications is None and 'jwtAllowedClientApplications' in kwargs:
             jwt_allowed_client_applications = kwargs['jwtAllowedClientApplications']
-        if 'jwtAllowedGroups' in kwargs:
+        if jwt_allowed_groups is None and 'jwtAllowedGroups' in kwargs:
             jwt_allowed_groups = kwargs['jwtAllowedGroups']
-        if 'loginParameters' in kwargs:
+        if login_parameters is None and 'loginParameters' in kwargs:
             login_parameters = kwargs['loginParameters']
-        if 'wwwAuthenticationDisabled' in kwargs:
+        if www_authentication_disabled is None and 'wwwAuthenticationDisabled' in kwargs:
             www_authentication_disabled = kwargs['wwwAuthenticationDisabled']
 
         _setter("client_id", client_id)
@@ -19113,16 +19449,20 @@ class LinuxWebAppAuthSettingsV2AppleV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             client_secret_setting_name: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecretSettingName' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'loginScopes' in kwargs:
+        if client_secret_setting_name is None:
+            raise TypeError("Missing 'client_secret_setting_name' argument")
+        if login_scopes is None and 'loginScopes' in kwargs:
             login_scopes = kwargs['loginScopes']
 
         _setter("client_id", client_id)
@@ -19181,11 +19521,13 @@ class LinuxWebAppAuthSettingsV2AzureStaticWebAppV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
 
         _setter("client_id", client_id)
 
@@ -19245,9 +19587,9 @@ class LinuxWebAppAuthSettingsV2CustomOidcV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             name: pulumi.Input[str],
-             openid_configuration_endpoint: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             openid_configuration_endpoint: Optional[pulumi.Input[str]] = None,
              authorisation_endpoint: Optional[pulumi.Input[str]] = None,
              certification_uri: Optional[pulumi.Input[str]] = None,
              client_credential_method: Optional[pulumi.Input[str]] = None,
@@ -19258,23 +19600,29 @@ class LinuxWebAppAuthSettingsV2CustomOidcV2Args:
              token_endpoint: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'openidConfigurationEndpoint' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if openid_configuration_endpoint is None and 'openidConfigurationEndpoint' in kwargs:
             openid_configuration_endpoint = kwargs['openidConfigurationEndpoint']
-        if 'authorisationEndpoint' in kwargs:
+        if openid_configuration_endpoint is None:
+            raise TypeError("Missing 'openid_configuration_endpoint' argument")
+        if authorisation_endpoint is None and 'authorisationEndpoint' in kwargs:
             authorisation_endpoint = kwargs['authorisationEndpoint']
-        if 'certificationUri' in kwargs:
+        if certification_uri is None and 'certificationUri' in kwargs:
             certification_uri = kwargs['certificationUri']
-        if 'clientCredentialMethod' in kwargs:
+        if client_credential_method is None and 'clientCredentialMethod' in kwargs:
             client_credential_method = kwargs['clientCredentialMethod']
-        if 'clientSecretSettingName' in kwargs:
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'issuerEndpoint' in kwargs:
+        if issuer_endpoint is None and 'issuerEndpoint' in kwargs:
             issuer_endpoint = kwargs['issuerEndpoint']
-        if 'nameClaimType' in kwargs:
+        if name_claim_type is None and 'nameClaimType' in kwargs:
             name_claim_type = kwargs['nameClaimType']
-        if 'tokenEndpoint' in kwargs:
+        if token_endpoint is None and 'tokenEndpoint' in kwargs:
             token_endpoint = kwargs['tokenEndpoint']
 
         _setter("client_id", client_id)
@@ -19452,19 +19800,23 @@ class LinuxWebAppAuthSettingsV2FacebookV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_id: pulumi.Input[str],
-             app_secret_setting_name: pulumi.Input[str],
+             app_id: Optional[pulumi.Input[str]] = None,
+             app_secret_setting_name: Optional[pulumi.Input[str]] = None,
              graph_api_version: Optional[pulumi.Input[str]] = None,
              login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'appId' in kwargs:
+        if app_id is None and 'appId' in kwargs:
             app_id = kwargs['appId']
-        if 'appSecretSettingName' in kwargs:
+        if app_id is None:
+            raise TypeError("Missing 'app_id' argument")
+        if app_secret_setting_name is None and 'appSecretSettingName' in kwargs:
             app_secret_setting_name = kwargs['appSecretSettingName']
-        if 'graphApiVersion' in kwargs:
+        if app_secret_setting_name is None:
+            raise TypeError("Missing 'app_secret_setting_name' argument")
+        if graph_api_version is None and 'graphApiVersion' in kwargs:
             graph_api_version = kwargs['graphApiVersion']
-        if 'loginScopes' in kwargs:
+        if login_scopes is None and 'loginScopes' in kwargs:
             login_scopes = kwargs['loginScopes']
 
         _setter("app_id", app_id)
@@ -19545,16 +19897,20 @@ class LinuxWebAppAuthSettingsV2GithubV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             client_secret_setting_name: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecretSettingName' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'loginScopes' in kwargs:
+        if client_secret_setting_name is None:
+            raise TypeError("Missing 'client_secret_setting_name' argument")
+        if login_scopes is None and 'loginScopes' in kwargs:
             login_scopes = kwargs['loginScopes']
 
         _setter("client_id", client_id)
@@ -19624,19 +19980,23 @@ class LinuxWebAppAuthSettingsV2GoogleV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             client_secret_setting_name: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecretSettingName' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'allowedAudiences' in kwargs:
+        if client_secret_setting_name is None:
+            raise TypeError("Missing 'client_secret_setting_name' argument")
+        if allowed_audiences is None and 'allowedAudiences' in kwargs:
             allowed_audiences = kwargs['allowedAudiences']
-        if 'loginScopes' in kwargs:
+        if login_scopes is None and 'loginScopes' in kwargs:
             login_scopes = kwargs['loginScopes']
 
         _setter("client_id", client_id)
@@ -19756,27 +20116,27 @@ class LinuxWebAppAuthSettingsV2LoginArgs:
              validate_nonce: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowedExternalRedirectUrls' in kwargs:
+        if allowed_external_redirect_urls is None and 'allowedExternalRedirectUrls' in kwargs:
             allowed_external_redirect_urls = kwargs['allowedExternalRedirectUrls']
-        if 'cookieExpirationConvention' in kwargs:
+        if cookie_expiration_convention is None and 'cookieExpirationConvention' in kwargs:
             cookie_expiration_convention = kwargs['cookieExpirationConvention']
-        if 'cookieExpirationTime' in kwargs:
+        if cookie_expiration_time is None and 'cookieExpirationTime' in kwargs:
             cookie_expiration_time = kwargs['cookieExpirationTime']
-        if 'logoutEndpoint' in kwargs:
+        if logout_endpoint is None and 'logoutEndpoint' in kwargs:
             logout_endpoint = kwargs['logoutEndpoint']
-        if 'nonceExpirationTime' in kwargs:
+        if nonce_expiration_time is None and 'nonceExpirationTime' in kwargs:
             nonce_expiration_time = kwargs['nonceExpirationTime']
-        if 'preserveUrlFragmentsForLogins' in kwargs:
+        if preserve_url_fragments_for_logins is None and 'preserveUrlFragmentsForLogins' in kwargs:
             preserve_url_fragments_for_logins = kwargs['preserveUrlFragmentsForLogins']
-        if 'tokenRefreshExtensionTime' in kwargs:
+        if token_refresh_extension_time is None and 'tokenRefreshExtensionTime' in kwargs:
             token_refresh_extension_time = kwargs['tokenRefreshExtensionTime']
-        if 'tokenStoreEnabled' in kwargs:
+        if token_store_enabled is None and 'tokenStoreEnabled' in kwargs:
             token_store_enabled = kwargs['tokenStoreEnabled']
-        if 'tokenStorePath' in kwargs:
+        if token_store_path is None and 'tokenStorePath' in kwargs:
             token_store_path = kwargs['tokenStorePath']
-        if 'tokenStoreSasSettingName' in kwargs:
+        if token_store_sas_setting_name is None and 'tokenStoreSasSettingName' in kwargs:
             token_store_sas_setting_name = kwargs['tokenStoreSasSettingName']
-        if 'validateNonce' in kwargs:
+        if validate_nonce is None and 'validateNonce' in kwargs:
             validate_nonce = kwargs['validateNonce']
 
         if allowed_external_redirect_urls is not None:
@@ -19962,19 +20322,23 @@ class LinuxWebAppAuthSettingsV2MicrosoftV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             client_secret_setting_name: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecretSettingName' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'allowedAudiences' in kwargs:
+        if client_secret_setting_name is None:
+            raise TypeError("Missing 'client_secret_setting_name' argument")
+        if allowed_audiences is None and 'allowedAudiences' in kwargs:
             allowed_audiences = kwargs['allowedAudiences']
-        if 'loginScopes' in kwargs:
+        if login_scopes is None and 'loginScopes' in kwargs:
             login_scopes = kwargs['loginScopes']
 
         _setter("client_id", client_id)
@@ -20054,14 +20418,18 @@ class LinuxWebAppAuthSettingsV2TwitterV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             consumer_key: pulumi.Input[str],
-             consumer_secret_setting_name: pulumi.Input[str],
+             consumer_key: Optional[pulumi.Input[str]] = None,
+             consumer_secret_setting_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'consumerKey' in kwargs:
+        if consumer_key is None and 'consumerKey' in kwargs:
             consumer_key = kwargs['consumerKey']
-        if 'consumerSecretSettingName' in kwargs:
+        if consumer_key is None:
+            raise TypeError("Missing 'consumer_key' argument")
+        if consumer_secret_setting_name is None and 'consumerSecretSettingName' in kwargs:
             consumer_secret_setting_name = kwargs['consumerSecretSettingName']
+        if consumer_secret_setting_name is None:
+            raise TypeError("Missing 'consumer_secret_setting_name' argument")
 
         _setter("consumer_key", consumer_key)
         _setter("consumer_secret_setting_name", consumer_secret_setting_name)
@@ -20116,14 +20484,20 @@ class LinuxWebAppBackupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             schedule: pulumi.Input['LinuxWebAppBackupScheduleArgs'],
-             storage_account_url: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             schedule: Optional[pulumi.Input['LinuxWebAppBackupScheduleArgs']] = None,
+             storage_account_url: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'storageAccountUrl' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if schedule is None:
+            raise TypeError("Missing 'schedule' argument")
+        if storage_account_url is None and 'storageAccountUrl' in kwargs:
             storage_account_url = kwargs['storageAccountUrl']
+        if storage_account_url is None:
+            raise TypeError("Missing 'storage_account_url' argument")
 
         _setter("name", name)
         _setter("schedule", schedule)
@@ -20210,25 +20584,29 @@ class LinuxWebAppBackupScheduleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             frequency_interval: pulumi.Input[int],
-             frequency_unit: pulumi.Input[str],
+             frequency_interval: Optional[pulumi.Input[int]] = None,
+             frequency_unit: Optional[pulumi.Input[str]] = None,
              keep_at_least_one_backup: Optional[pulumi.Input[bool]] = None,
              last_execution_time: Optional[pulumi.Input[str]] = None,
              retention_period_days: Optional[pulumi.Input[int]] = None,
              start_time: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'frequencyInterval' in kwargs:
+        if frequency_interval is None and 'frequencyInterval' in kwargs:
             frequency_interval = kwargs['frequencyInterval']
-        if 'frequencyUnit' in kwargs:
+        if frequency_interval is None:
+            raise TypeError("Missing 'frequency_interval' argument")
+        if frequency_unit is None and 'frequencyUnit' in kwargs:
             frequency_unit = kwargs['frequencyUnit']
-        if 'keepAtLeastOneBackup' in kwargs:
+        if frequency_unit is None:
+            raise TypeError("Missing 'frequency_unit' argument")
+        if keep_at_least_one_backup is None and 'keepAtLeastOneBackup' in kwargs:
             keep_at_least_one_backup = kwargs['keepAtLeastOneBackup']
-        if 'lastExecutionTime' in kwargs:
+        if last_execution_time is None and 'lastExecutionTime' in kwargs:
             last_execution_time = kwargs['lastExecutionTime']
-        if 'retentionPeriodDays' in kwargs:
+        if retention_period_days is None and 'retentionPeriodDays' in kwargs:
             retention_period_days = kwargs['retentionPeriodDays']
-        if 'startTime' in kwargs:
+        if start_time is None and 'startTime' in kwargs:
             start_time = kwargs['startTime']
 
         _setter("frequency_interval", frequency_interval)
@@ -20334,11 +20712,17 @@ class LinuxWebAppConnectionStringArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             type: pulumi.Input[str],
-             value: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("name", name)
         _setter("type", type)
@@ -20406,17 +20790,19 @@ class LinuxWebAppIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -20507,13 +20893,13 @@ class LinuxWebAppLogsArgs:
              http_logs: Optional[pulumi.Input['LinuxWebAppLogsHttpLogsArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'applicationLogs' in kwargs:
+        if application_logs is None and 'applicationLogs' in kwargs:
             application_logs = kwargs['applicationLogs']
-        if 'detailedErrorMessages' in kwargs:
+        if detailed_error_messages is None and 'detailedErrorMessages' in kwargs:
             detailed_error_messages = kwargs['detailedErrorMessages']
-        if 'failedRequestTracing' in kwargs:
+        if failed_request_tracing is None and 'failedRequestTracing' in kwargs:
             failed_request_tracing = kwargs['failedRequestTracing']
-        if 'httpLogs' in kwargs:
+        if http_logs is None and 'httpLogs' in kwargs:
             http_logs = kwargs['httpLogs']
 
         if application_logs is not None:
@@ -20591,13 +20977,15 @@ class LinuxWebAppLogsApplicationLogsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             file_system_level: pulumi.Input[str],
+             file_system_level: Optional[pulumi.Input[str]] = None,
              azure_blob_storage: Optional[pulumi.Input['LinuxWebAppLogsApplicationLogsAzureBlobStorageArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'fileSystemLevel' in kwargs:
+        if file_system_level is None and 'fileSystemLevel' in kwargs:
             file_system_level = kwargs['fileSystemLevel']
-        if 'azureBlobStorage' in kwargs:
+        if file_system_level is None:
+            raise TypeError("Missing 'file_system_level' argument")
+        if azure_blob_storage is None and 'azureBlobStorage' in kwargs:
             azure_blob_storage = kwargs['azureBlobStorage']
 
         _setter("file_system_level", file_system_level)
@@ -20649,15 +21037,21 @@ class LinuxWebAppLogsApplicationLogsAzureBlobStorageArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             level: pulumi.Input[str],
-             retention_in_days: pulumi.Input[int],
-             sas_url: pulumi.Input[str],
+             level: Optional[pulumi.Input[str]] = None,
+             retention_in_days: Optional[pulumi.Input[int]] = None,
+             sas_url: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'retentionInDays' in kwargs:
+        if level is None:
+            raise TypeError("Missing 'level' argument")
+        if retention_in_days is None and 'retentionInDays' in kwargs:
             retention_in_days = kwargs['retentionInDays']
-        if 'sasUrl' in kwargs:
+        if retention_in_days is None:
+            raise TypeError("Missing 'retention_in_days' argument")
+        if sas_url is None and 'sasUrl' in kwargs:
             sas_url = kwargs['sasUrl']
+        if sas_url is None:
+            raise TypeError("Missing 'sas_url' argument")
 
         _setter("level", level)
         _setter("retention_in_days", retention_in_days)
@@ -20721,9 +21115,9 @@ class LinuxWebAppLogsHttpLogsArgs:
              file_system: Optional[pulumi.Input['LinuxWebAppLogsHttpLogsFileSystemArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'azureBlobStorage' in kwargs:
+        if azure_blob_storage is None and 'azureBlobStorage' in kwargs:
             azure_blob_storage = kwargs['azureBlobStorage']
-        if 'fileSystem' in kwargs:
+        if file_system is None and 'fileSystem' in kwargs:
             file_system = kwargs['fileSystem']
 
         if azure_blob_storage is not None:
@@ -20773,13 +21167,15 @@ class LinuxWebAppLogsHttpLogsAzureBlobStorageArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             sas_url: pulumi.Input[str],
+             sas_url: Optional[pulumi.Input[str]] = None,
              retention_in_days: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'sasUrl' in kwargs:
+        if sas_url is None and 'sasUrl' in kwargs:
             sas_url = kwargs['sasUrl']
-        if 'retentionInDays' in kwargs:
+        if sas_url is None:
+            raise TypeError("Missing 'sas_url' argument")
+        if retention_in_days is None and 'retentionInDays' in kwargs:
             retention_in_days = kwargs['retentionInDays']
 
         _setter("sas_url", sas_url)
@@ -20828,14 +21224,18 @@ class LinuxWebAppLogsHttpLogsFileSystemArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             retention_in_days: pulumi.Input[int],
-             retention_in_mb: pulumi.Input[int],
+             retention_in_days: Optional[pulumi.Input[int]] = None,
+             retention_in_mb: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'retentionInDays' in kwargs:
+        if retention_in_days is None and 'retentionInDays' in kwargs:
             retention_in_days = kwargs['retentionInDays']
-        if 'retentionInMb' in kwargs:
+        if retention_in_days is None:
+            raise TypeError("Missing 'retention_in_days' argument")
+        if retention_in_mb is None and 'retentionInMb' in kwargs:
             retention_in_mb = kwargs['retentionInMb']
+        if retention_in_mb is None:
+            raise TypeError("Missing 'retention_in_mb' argument")
 
         _setter("retention_in_days", retention_in_days)
         _setter("retention_in_mb", retention_in_mb)
@@ -21004,67 +21404,67 @@ class LinuxWebAppSiteConfigArgs:
              worker_count: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'alwaysOn' in kwargs:
+        if always_on is None and 'alwaysOn' in kwargs:
             always_on = kwargs['alwaysOn']
-        if 'apiDefinitionUrl' in kwargs:
+        if api_definition_url is None and 'apiDefinitionUrl' in kwargs:
             api_definition_url = kwargs['apiDefinitionUrl']
-        if 'apiManagementApiId' in kwargs:
+        if api_management_api_id is None and 'apiManagementApiId' in kwargs:
             api_management_api_id = kwargs['apiManagementApiId']
-        if 'appCommandLine' in kwargs:
+        if app_command_line is None and 'appCommandLine' in kwargs:
             app_command_line = kwargs['appCommandLine']
-        if 'applicationStack' in kwargs:
+        if application_stack is None and 'applicationStack' in kwargs:
             application_stack = kwargs['applicationStack']
-        if 'autoHealEnabled' in kwargs:
+        if auto_heal_enabled is None and 'autoHealEnabled' in kwargs:
             auto_heal_enabled = kwargs['autoHealEnabled']
-        if 'autoHealSetting' in kwargs:
+        if auto_heal_setting is None and 'autoHealSetting' in kwargs:
             auto_heal_setting = kwargs['autoHealSetting']
-        if 'containerRegistryManagedIdentityClientId' in kwargs:
+        if container_registry_managed_identity_client_id is None and 'containerRegistryManagedIdentityClientId' in kwargs:
             container_registry_managed_identity_client_id = kwargs['containerRegistryManagedIdentityClientId']
-        if 'containerRegistryUseManagedIdentity' in kwargs:
+        if container_registry_use_managed_identity is None and 'containerRegistryUseManagedIdentity' in kwargs:
             container_registry_use_managed_identity = kwargs['containerRegistryUseManagedIdentity']
-        if 'defaultDocuments' in kwargs:
+        if default_documents is None and 'defaultDocuments' in kwargs:
             default_documents = kwargs['defaultDocuments']
-        if 'detailedErrorLoggingEnabled' in kwargs:
+        if detailed_error_logging_enabled is None and 'detailedErrorLoggingEnabled' in kwargs:
             detailed_error_logging_enabled = kwargs['detailedErrorLoggingEnabled']
-        if 'ftpsState' in kwargs:
+        if ftps_state is None and 'ftpsState' in kwargs:
             ftps_state = kwargs['ftpsState']
-        if 'healthCheckEvictionTimeInMin' in kwargs:
+        if health_check_eviction_time_in_min is None and 'healthCheckEvictionTimeInMin' in kwargs:
             health_check_eviction_time_in_min = kwargs['healthCheckEvictionTimeInMin']
-        if 'healthCheckPath' in kwargs:
+        if health_check_path is None and 'healthCheckPath' in kwargs:
             health_check_path = kwargs['healthCheckPath']
-        if 'http2Enabled' in kwargs:
+        if http2_enabled is None and 'http2Enabled' in kwargs:
             http2_enabled = kwargs['http2Enabled']
-        if 'ipRestrictions' in kwargs:
+        if ip_restrictions is None and 'ipRestrictions' in kwargs:
             ip_restrictions = kwargs['ipRestrictions']
-        if 'linuxFxVersion' in kwargs:
+        if linux_fx_version is None and 'linuxFxVersion' in kwargs:
             linux_fx_version = kwargs['linuxFxVersion']
-        if 'loadBalancingMode' in kwargs:
+        if load_balancing_mode is None and 'loadBalancingMode' in kwargs:
             load_balancing_mode = kwargs['loadBalancingMode']
-        if 'localMysqlEnabled' in kwargs:
+        if local_mysql_enabled is None and 'localMysqlEnabled' in kwargs:
             local_mysql_enabled = kwargs['localMysqlEnabled']
-        if 'managedPipelineMode' in kwargs:
+        if managed_pipeline_mode is None and 'managedPipelineMode' in kwargs:
             managed_pipeline_mode = kwargs['managedPipelineMode']
-        if 'minimumTlsVersion' in kwargs:
+        if minimum_tls_version is None and 'minimumTlsVersion' in kwargs:
             minimum_tls_version = kwargs['minimumTlsVersion']
-        if 'remoteDebuggingEnabled' in kwargs:
+        if remote_debugging_enabled is None and 'remoteDebuggingEnabled' in kwargs:
             remote_debugging_enabled = kwargs['remoteDebuggingEnabled']
-        if 'remoteDebuggingVersion' in kwargs:
+        if remote_debugging_version is None and 'remoteDebuggingVersion' in kwargs:
             remote_debugging_version = kwargs['remoteDebuggingVersion']
-        if 'scmIpRestrictions' in kwargs:
+        if scm_ip_restrictions is None and 'scmIpRestrictions' in kwargs:
             scm_ip_restrictions = kwargs['scmIpRestrictions']
-        if 'scmMinimumTlsVersion' in kwargs:
+        if scm_minimum_tls_version is None and 'scmMinimumTlsVersion' in kwargs:
             scm_minimum_tls_version = kwargs['scmMinimumTlsVersion']
-        if 'scmType' in kwargs:
+        if scm_type is None and 'scmType' in kwargs:
             scm_type = kwargs['scmType']
-        if 'scmUseMainIpRestriction' in kwargs:
+        if scm_use_main_ip_restriction is None and 'scmUseMainIpRestriction' in kwargs:
             scm_use_main_ip_restriction = kwargs['scmUseMainIpRestriction']
-        if 'use32BitWorker' in kwargs:
+        if use32_bit_worker is None and 'use32BitWorker' in kwargs:
             use32_bit_worker = kwargs['use32BitWorker']
-        if 'vnetRouteAllEnabled' in kwargs:
+        if vnet_route_all_enabled is None and 'vnetRouteAllEnabled' in kwargs:
             vnet_route_all_enabled = kwargs['vnetRouteAllEnabled']
-        if 'websocketsEnabled' in kwargs:
+        if websockets_enabled is None and 'websocketsEnabled' in kwargs:
             websockets_enabled = kwargs['websocketsEnabled']
-        if 'workerCount' in kwargs:
+        if worker_count is None and 'workerCount' in kwargs:
             worker_count = kwargs['workerCount']
 
         if always_on is not None:
@@ -21588,35 +21988,35 @@ class LinuxWebAppSiteConfigApplicationStackArgs:
              ruby_version: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dockerImage' in kwargs:
+        if docker_image is None and 'dockerImage' in kwargs:
             docker_image = kwargs['dockerImage']
-        if 'dockerImageName' in kwargs:
+        if docker_image_name is None and 'dockerImageName' in kwargs:
             docker_image_name = kwargs['dockerImageName']
-        if 'dockerImageTag' in kwargs:
+        if docker_image_tag is None and 'dockerImageTag' in kwargs:
             docker_image_tag = kwargs['dockerImageTag']
-        if 'dockerRegistryPassword' in kwargs:
+        if docker_registry_password is None and 'dockerRegistryPassword' in kwargs:
             docker_registry_password = kwargs['dockerRegistryPassword']
-        if 'dockerRegistryUrl' in kwargs:
+        if docker_registry_url is None and 'dockerRegistryUrl' in kwargs:
             docker_registry_url = kwargs['dockerRegistryUrl']
-        if 'dockerRegistryUsername' in kwargs:
+        if docker_registry_username is None and 'dockerRegistryUsername' in kwargs:
             docker_registry_username = kwargs['dockerRegistryUsername']
-        if 'dotnetVersion' in kwargs:
+        if dotnet_version is None and 'dotnetVersion' in kwargs:
             dotnet_version = kwargs['dotnetVersion']
-        if 'goVersion' in kwargs:
+        if go_version is None and 'goVersion' in kwargs:
             go_version = kwargs['goVersion']
-        if 'javaServer' in kwargs:
+        if java_server is None and 'javaServer' in kwargs:
             java_server = kwargs['javaServer']
-        if 'javaServerVersion' in kwargs:
+        if java_server_version is None and 'javaServerVersion' in kwargs:
             java_server_version = kwargs['javaServerVersion']
-        if 'javaVersion' in kwargs:
+        if java_version is None and 'javaVersion' in kwargs:
             java_version = kwargs['javaVersion']
-        if 'nodeVersion' in kwargs:
+        if node_version is None and 'nodeVersion' in kwargs:
             node_version = kwargs['nodeVersion']
-        if 'phpVersion' in kwargs:
+        if php_version is None and 'phpVersion' in kwargs:
             php_version = kwargs['phpVersion']
-        if 'pythonVersion' in kwargs:
+        if python_version is None and 'pythonVersion' in kwargs:
             python_version = kwargs['pythonVersion']
-        if 'rubyVersion' in kwargs:
+        if ruby_version is None and 'rubyVersion' in kwargs:
             ruby_version = kwargs['rubyVersion']
 
         if docker_image is not None:
@@ -21916,13 +22316,15 @@ class LinuxWebAppSiteConfigAutoHealSettingActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action_type: pulumi.Input[str],
+             action_type: Optional[pulumi.Input[str]] = None,
              minimum_process_execution_time: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'actionType' in kwargs:
+        if action_type is None and 'actionType' in kwargs:
             action_type = kwargs['actionType']
-        if 'minimumProcessExecutionTime' in kwargs:
+        if action_type is None:
+            raise TypeError("Missing 'action_type' argument")
+        if minimum_process_execution_time is None and 'minimumProcessExecutionTime' in kwargs:
             minimum_process_execution_time = kwargs['minimumProcessExecutionTime']
 
         _setter("action_type", action_type)
@@ -21979,9 +22381,9 @@ class LinuxWebAppSiteConfigAutoHealSettingTriggerArgs:
              status_codes: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'slowRequests' in kwargs:
+        if slow_requests is None and 'slowRequests' in kwargs:
             slow_requests = kwargs['slowRequests']
-        if 'statusCodes' in kwargs:
+        if status_codes is None and 'statusCodes' in kwargs:
             status_codes = kwargs['statusCodes']
 
         if requests is not None:
@@ -22045,10 +22447,14 @@ class LinuxWebAppSiteConfigAutoHealSettingTriggerRequestsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             count: pulumi.Input[int],
-             interval: pulumi.Input[str],
+             count: Optional[pulumi.Input[int]] = None,
+             interval: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if count is None:
+            raise TypeError("Missing 'count' argument")
+        if interval is None:
+            raise TypeError("Missing 'interval' argument")
 
         _setter("count", count)
         _setter("interval", interval)
@@ -22101,14 +22507,20 @@ class LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             count: pulumi.Input[int],
-             interval: pulumi.Input[str],
-             time_taken: pulumi.Input[str],
+             count: Optional[pulumi.Input[int]] = None,
+             interval: Optional[pulumi.Input[str]] = None,
+             time_taken: Optional[pulumi.Input[str]] = None,
              path: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'timeTaken' in kwargs:
+        if count is None:
+            raise TypeError("Missing 'count' argument")
+        if interval is None:
+            raise TypeError("Missing 'interval' argument")
+        if time_taken is None and 'timeTaken' in kwargs:
             time_taken = kwargs['timeTaken']
+        if time_taken is None:
+            raise TypeError("Missing 'time_taken' argument")
 
         _setter("count", count)
         _setter("interval", interval)
@@ -22194,19 +22606,25 @@ class LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             count: pulumi.Input[int],
-             interval: pulumi.Input[str],
-             status_code_range: pulumi.Input[str],
+             count: Optional[pulumi.Input[int]] = None,
+             interval: Optional[pulumi.Input[str]] = None,
+             status_code_range: Optional[pulumi.Input[str]] = None,
              path: Optional[pulumi.Input[str]] = None,
              sub_status: Optional[pulumi.Input[int]] = None,
              win32_status_code: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'statusCodeRange' in kwargs:
+        if count is None:
+            raise TypeError("Missing 'count' argument")
+        if interval is None:
+            raise TypeError("Missing 'interval' argument")
+        if status_code_range is None and 'statusCodeRange' in kwargs:
             status_code_range = kwargs['statusCodeRange']
-        if 'subStatus' in kwargs:
+        if status_code_range is None:
+            raise TypeError("Missing 'status_code_range' argument")
+        if sub_status is None and 'subStatus' in kwargs:
             sub_status = kwargs['subStatus']
-        if 'win32StatusCode' in kwargs:
+        if win32_status_code is None and 'win32StatusCode' in kwargs:
             win32_status_code = kwargs['win32StatusCode']
 
         _setter("count", count)
@@ -22313,9 +22731,9 @@ class LinuxWebAppSiteConfigCorsArgs:
              support_credentials: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowedOrigins' in kwargs:
+        if allowed_origins is None and 'allowedOrigins' in kwargs:
             allowed_origins = kwargs['allowedOrigins']
-        if 'supportCredentials' in kwargs:
+        if support_credentials is None and 'supportCredentials' in kwargs:
             support_credentials = kwargs['supportCredentials']
 
         if allowed_origins is not None:
@@ -22391,11 +22809,11 @@ class LinuxWebAppSiteConfigIpRestrictionArgs:
              virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ipAddress' in kwargs:
+        if ip_address is None and 'ipAddress' in kwargs:
             ip_address = kwargs['ipAddress']
-        if 'serviceTag' in kwargs:
+        if service_tag is None and 'serviceTag' in kwargs:
             service_tag = kwargs['serviceTag']
-        if 'virtualNetworkSubnetId' in kwargs:
+        if virtual_network_subnet_id is None and 'virtualNetworkSubnetId' in kwargs:
             virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
 
         if action is not None:
@@ -22529,13 +22947,13 @@ class LinuxWebAppSiteConfigIpRestrictionHeadersArgs:
              x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'xAzureFdids' in kwargs:
+        if x_azure_fdids is None and 'xAzureFdids' in kwargs:
             x_azure_fdids = kwargs['xAzureFdids']
-        if 'xFdHealthProbe' in kwargs:
+        if x_fd_health_probe is None and 'xFdHealthProbe' in kwargs:
             x_fd_health_probe = kwargs['xFdHealthProbe']
-        if 'xForwardedFors' in kwargs:
+        if x_forwarded_fors is None and 'xForwardedFors' in kwargs:
             x_forwarded_fors = kwargs['xForwardedFors']
-        if 'xForwardedHosts' in kwargs:
+        if x_forwarded_hosts is None and 'xForwardedHosts' in kwargs:
             x_forwarded_hosts = kwargs['xForwardedHosts']
 
         if x_azure_fdids is not None:
@@ -22639,11 +23057,11 @@ class LinuxWebAppSiteConfigScmIpRestrictionArgs:
              virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ipAddress' in kwargs:
+        if ip_address is None and 'ipAddress' in kwargs:
             ip_address = kwargs['ipAddress']
-        if 'serviceTag' in kwargs:
+        if service_tag is None and 'serviceTag' in kwargs:
             service_tag = kwargs['serviceTag']
-        if 'virtualNetworkSubnetId' in kwargs:
+        if virtual_network_subnet_id is None and 'virtualNetworkSubnetId' in kwargs:
             virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
 
         if action is not None:
@@ -22777,13 +23195,13 @@ class LinuxWebAppSiteConfigScmIpRestrictionHeadersArgs:
              x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'xAzureFdids' in kwargs:
+        if x_azure_fdids is None and 'xAzureFdids' in kwargs:
             x_azure_fdids = kwargs['xAzureFdids']
-        if 'xFdHealthProbe' in kwargs:
+        if x_fd_health_probe is None and 'xFdHealthProbe' in kwargs:
             x_fd_health_probe = kwargs['xFdHealthProbe']
-        if 'xForwardedFors' in kwargs:
+        if x_forwarded_fors is None and 'xForwardedFors' in kwargs:
             x_forwarded_fors = kwargs['xForwardedFors']
-        if 'xForwardedHosts' in kwargs:
+        if x_forwarded_hosts is None and 'xForwardedHosts' in kwargs:
             x_forwarded_hosts = kwargs['xForwardedHosts']
 
         if x_azure_fdids is not None:
@@ -22952,7 +23370,7 @@ class LinuxWebAppSlotAuthSettingsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: pulumi.Input[bool],
+             enabled: Optional[pulumi.Input[bool]] = None,
              active_directory: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsActiveDirectoryArgs']] = None,
              additional_login_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -22969,21 +23387,23 @@ class LinuxWebAppSlotAuthSettingsArgs:
              unauthenticated_client_action: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'activeDirectory' in kwargs:
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if active_directory is None and 'activeDirectory' in kwargs:
             active_directory = kwargs['activeDirectory']
-        if 'additionalLoginParameters' in kwargs:
+        if additional_login_parameters is None and 'additionalLoginParameters' in kwargs:
             additional_login_parameters = kwargs['additionalLoginParameters']
-        if 'allowedExternalRedirectUrls' in kwargs:
+        if allowed_external_redirect_urls is None and 'allowedExternalRedirectUrls' in kwargs:
             allowed_external_redirect_urls = kwargs['allowedExternalRedirectUrls']
-        if 'defaultProvider' in kwargs:
+        if default_provider is None and 'defaultProvider' in kwargs:
             default_provider = kwargs['defaultProvider']
-        if 'runtimeVersion' in kwargs:
+        if runtime_version is None and 'runtimeVersion' in kwargs:
             runtime_version = kwargs['runtimeVersion']
-        if 'tokenRefreshExtensionHours' in kwargs:
+        if token_refresh_extension_hours is None and 'tokenRefreshExtensionHours' in kwargs:
             token_refresh_extension_hours = kwargs['tokenRefreshExtensionHours']
-        if 'tokenStoreEnabled' in kwargs:
+        if token_store_enabled is None and 'tokenStoreEnabled' in kwargs:
             token_store_enabled = kwargs['tokenStoreEnabled']
-        if 'unauthenticatedClientAction' in kwargs:
+        if unauthenticated_client_action is None and 'unauthenticatedClientAction' in kwargs:
             unauthenticated_client_action = kwargs['unauthenticatedClientAction']
 
         _setter("enabled", enabled)
@@ -23226,19 +23646,21 @@ class LinuxWebAppSlotAuthSettingsActiveDirectoryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
              allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              client_secret: Optional[pulumi.Input[str]] = None,
              client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'allowedAudiences' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if allowed_audiences is None and 'allowedAudiences' in kwargs:
             allowed_audiences = kwargs['allowedAudiences']
-        if 'clientSecret' in kwargs:
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'clientSecretSettingName' in kwargs:
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
 
         _setter("client_id", client_id)
@@ -23323,19 +23745,21 @@ class LinuxWebAppSlotAuthSettingsFacebookArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_id: pulumi.Input[str],
+             app_id: Optional[pulumi.Input[str]] = None,
              app_secret: Optional[pulumi.Input[str]] = None,
              app_secret_setting_name: Optional[pulumi.Input[str]] = None,
              oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'appId' in kwargs:
+        if app_id is None and 'appId' in kwargs:
             app_id = kwargs['appId']
-        if 'appSecret' in kwargs:
+        if app_id is None:
+            raise TypeError("Missing 'app_id' argument")
+        if app_secret is None and 'appSecret' in kwargs:
             app_secret = kwargs['appSecret']
-        if 'appSecretSettingName' in kwargs:
+        if app_secret_setting_name is None and 'appSecretSettingName' in kwargs:
             app_secret_setting_name = kwargs['appSecretSettingName']
-        if 'oauthScopes' in kwargs:
+        if oauth_scopes is None and 'oauthScopes' in kwargs:
             oauth_scopes = kwargs['oauthScopes']
 
         _setter("app_id", app_id)
@@ -23418,19 +23842,21 @@ class LinuxWebAppSlotAuthSettingsGithubArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
              client_secret: Optional[pulumi.Input[str]] = None,
              client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecret' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'clientSecretSettingName' in kwargs:
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'oauthScopes' in kwargs:
+        if oauth_scopes is None and 'oauthScopes' in kwargs:
             oauth_scopes = kwargs['oauthScopes']
 
         _setter("client_id", client_id)
@@ -23513,19 +23939,21 @@ class LinuxWebAppSlotAuthSettingsGoogleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
              client_secret: Optional[pulumi.Input[str]] = None,
              client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecret' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'clientSecretSettingName' in kwargs:
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'oauthScopes' in kwargs:
+        if oauth_scopes is None and 'oauthScopes' in kwargs:
             oauth_scopes = kwargs['oauthScopes']
 
         _setter("client_id", client_id)
@@ -23608,19 +24036,21 @@ class LinuxWebAppSlotAuthSettingsMicrosoftArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
              client_secret: Optional[pulumi.Input[str]] = None,
              client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecret' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'clientSecretSettingName' in kwargs:
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'oauthScopes' in kwargs:
+        if oauth_scopes is None and 'oauthScopes' in kwargs:
             oauth_scopes = kwargs['oauthScopes']
 
         _setter("client_id", client_id)
@@ -23700,16 +24130,18 @@ class LinuxWebAppSlotAuthSettingsTwitterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             consumer_key: pulumi.Input[str],
+             consumer_key: Optional[pulumi.Input[str]] = None,
              consumer_secret: Optional[pulumi.Input[str]] = None,
              consumer_secret_setting_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'consumerKey' in kwargs:
+        if consumer_key is None and 'consumerKey' in kwargs:
             consumer_key = kwargs['consumerKey']
-        if 'consumerSecret' in kwargs:
+        if consumer_key is None:
+            raise TypeError("Missing 'consumer_key' argument")
+        if consumer_secret is None and 'consumerSecret' in kwargs:
             consumer_secret = kwargs['consumerSecret']
-        if 'consumerSecretSettingName' in kwargs:
+        if consumer_secret_setting_name is None and 'consumerSecretSettingName' in kwargs:
             consumer_secret_setting_name = kwargs['consumerSecretSettingName']
 
         _setter("consumer_key", consumer_key)
@@ -23838,7 +24270,7 @@ class LinuxWebAppSlotAuthSettingsV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             login: pulumi.Input['LinuxWebAppSlotAuthSettingsV2LoginArgs'],
+             login: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2LoginArgs']] = None,
              active_directory_v2: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2Args']] = None,
              apple_v2: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2AppleV2Args']] = None,
              auth_enabled: Optional[pulumi.Input[bool]] = None,
@@ -23862,47 +24294,49 @@ class LinuxWebAppSlotAuthSettingsV2Args:
              unauthenticated_action: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'activeDirectoryV2' in kwargs:
+        if login is None:
+            raise TypeError("Missing 'login' argument")
+        if active_directory_v2 is None and 'activeDirectoryV2' in kwargs:
             active_directory_v2 = kwargs['activeDirectoryV2']
-        if 'appleV2' in kwargs:
+        if apple_v2 is None and 'appleV2' in kwargs:
             apple_v2 = kwargs['appleV2']
-        if 'authEnabled' in kwargs:
+        if auth_enabled is None and 'authEnabled' in kwargs:
             auth_enabled = kwargs['authEnabled']
-        if 'azureStaticWebAppV2' in kwargs:
+        if azure_static_web_app_v2 is None and 'azureStaticWebAppV2' in kwargs:
             azure_static_web_app_v2 = kwargs['azureStaticWebAppV2']
-        if 'configFilePath' in kwargs:
+        if config_file_path is None and 'configFilePath' in kwargs:
             config_file_path = kwargs['configFilePath']
-        if 'customOidcV2s' in kwargs:
+        if custom_oidc_v2s is None and 'customOidcV2s' in kwargs:
             custom_oidc_v2s = kwargs['customOidcV2s']
-        if 'defaultProvider' in kwargs:
+        if default_provider is None and 'defaultProvider' in kwargs:
             default_provider = kwargs['defaultProvider']
-        if 'excludedPaths' in kwargs:
+        if excluded_paths is None and 'excludedPaths' in kwargs:
             excluded_paths = kwargs['excludedPaths']
-        if 'facebookV2' in kwargs:
+        if facebook_v2 is None and 'facebookV2' in kwargs:
             facebook_v2 = kwargs['facebookV2']
-        if 'forwardProxyConvention' in kwargs:
+        if forward_proxy_convention is None and 'forwardProxyConvention' in kwargs:
             forward_proxy_convention = kwargs['forwardProxyConvention']
-        if 'forwardProxyCustomHostHeaderName' in kwargs:
+        if forward_proxy_custom_host_header_name is None and 'forwardProxyCustomHostHeaderName' in kwargs:
             forward_proxy_custom_host_header_name = kwargs['forwardProxyCustomHostHeaderName']
-        if 'forwardProxyCustomSchemeHeaderName' in kwargs:
+        if forward_proxy_custom_scheme_header_name is None and 'forwardProxyCustomSchemeHeaderName' in kwargs:
             forward_proxy_custom_scheme_header_name = kwargs['forwardProxyCustomSchemeHeaderName']
-        if 'githubV2' in kwargs:
+        if github_v2 is None and 'githubV2' in kwargs:
             github_v2 = kwargs['githubV2']
-        if 'googleV2' in kwargs:
+        if google_v2 is None and 'googleV2' in kwargs:
             google_v2 = kwargs['googleV2']
-        if 'httpRouteApiPrefix' in kwargs:
+        if http_route_api_prefix is None and 'httpRouteApiPrefix' in kwargs:
             http_route_api_prefix = kwargs['httpRouteApiPrefix']
-        if 'microsoftV2' in kwargs:
+        if microsoft_v2 is None and 'microsoftV2' in kwargs:
             microsoft_v2 = kwargs['microsoftV2']
-        if 'requireAuthentication' in kwargs:
+        if require_authentication is None and 'requireAuthentication' in kwargs:
             require_authentication = kwargs['requireAuthentication']
-        if 'requireHttps' in kwargs:
+        if require_https is None and 'requireHttps' in kwargs:
             require_https = kwargs['requireHttps']
-        if 'runtimeVersion' in kwargs:
+        if runtime_version is None and 'runtimeVersion' in kwargs:
             runtime_version = kwargs['runtimeVersion']
-        if 'twitterV2' in kwargs:
+        if twitter_v2 is None and 'twitterV2' in kwargs:
             twitter_v2 = kwargs['twitterV2']
-        if 'unauthenticatedAction' in kwargs:
+        if unauthenticated_action is None and 'unauthenticatedAction' in kwargs:
             unauthenticated_action = kwargs['unauthenticatedAction']
 
         _setter("login", login)
@@ -24271,8 +24705,8 @@ class LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             tenant_auth_endpoint: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             tenant_auth_endpoint: Optional[pulumi.Input[str]] = None,
              allowed_applications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              allowed_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -24285,29 +24719,33 @@ class LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2Args:
              www_authentication_disabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'tenantAuthEndpoint' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if tenant_auth_endpoint is None and 'tenantAuthEndpoint' in kwargs:
             tenant_auth_endpoint = kwargs['tenantAuthEndpoint']
-        if 'allowedApplications' in kwargs:
+        if tenant_auth_endpoint is None:
+            raise TypeError("Missing 'tenant_auth_endpoint' argument")
+        if allowed_applications is None and 'allowedApplications' in kwargs:
             allowed_applications = kwargs['allowedApplications']
-        if 'allowedAudiences' in kwargs:
+        if allowed_audiences is None and 'allowedAudiences' in kwargs:
             allowed_audiences = kwargs['allowedAudiences']
-        if 'allowedGroups' in kwargs:
+        if allowed_groups is None and 'allowedGroups' in kwargs:
             allowed_groups = kwargs['allowedGroups']
-        if 'allowedIdentities' in kwargs:
+        if allowed_identities is None and 'allowedIdentities' in kwargs:
             allowed_identities = kwargs['allowedIdentities']
-        if 'clientSecretCertificateThumbprint' in kwargs:
+        if client_secret_certificate_thumbprint is None and 'clientSecretCertificateThumbprint' in kwargs:
             client_secret_certificate_thumbprint = kwargs['clientSecretCertificateThumbprint']
-        if 'clientSecretSettingName' in kwargs:
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'jwtAllowedClientApplications' in kwargs:
+        if jwt_allowed_client_applications is None and 'jwtAllowedClientApplications' in kwargs:
             jwt_allowed_client_applications = kwargs['jwtAllowedClientApplications']
-        if 'jwtAllowedGroups' in kwargs:
+        if jwt_allowed_groups is None and 'jwtAllowedGroups' in kwargs:
             jwt_allowed_groups = kwargs['jwtAllowedGroups']
-        if 'loginParameters' in kwargs:
+        if login_parameters is None and 'loginParameters' in kwargs:
             login_parameters = kwargs['loginParameters']
-        if 'wwwAuthenticationDisabled' in kwargs:
+        if www_authentication_disabled is None and 'wwwAuthenticationDisabled' in kwargs:
             www_authentication_disabled = kwargs['wwwAuthenticationDisabled']
 
         _setter("client_id", client_id)
@@ -24502,16 +24940,20 @@ class LinuxWebAppSlotAuthSettingsV2AppleV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             client_secret_setting_name: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecretSettingName' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'loginScopes' in kwargs:
+        if client_secret_setting_name is None:
+            raise TypeError("Missing 'client_secret_setting_name' argument")
+        if login_scopes is None and 'loginScopes' in kwargs:
             login_scopes = kwargs['loginScopes']
 
         _setter("client_id", client_id)
@@ -24570,11 +25012,13 @@ class LinuxWebAppSlotAuthSettingsV2AzureStaticWebAppV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
 
         _setter("client_id", client_id)
 
@@ -24634,9 +25078,9 @@ class LinuxWebAppSlotAuthSettingsV2CustomOidcV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             name: pulumi.Input[str],
-             openid_configuration_endpoint: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             openid_configuration_endpoint: Optional[pulumi.Input[str]] = None,
              authorisation_endpoint: Optional[pulumi.Input[str]] = None,
              certification_uri: Optional[pulumi.Input[str]] = None,
              client_credential_method: Optional[pulumi.Input[str]] = None,
@@ -24647,23 +25091,29 @@ class LinuxWebAppSlotAuthSettingsV2CustomOidcV2Args:
              token_endpoint: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'openidConfigurationEndpoint' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if openid_configuration_endpoint is None and 'openidConfigurationEndpoint' in kwargs:
             openid_configuration_endpoint = kwargs['openidConfigurationEndpoint']
-        if 'authorisationEndpoint' in kwargs:
+        if openid_configuration_endpoint is None:
+            raise TypeError("Missing 'openid_configuration_endpoint' argument")
+        if authorisation_endpoint is None and 'authorisationEndpoint' in kwargs:
             authorisation_endpoint = kwargs['authorisationEndpoint']
-        if 'certificationUri' in kwargs:
+        if certification_uri is None and 'certificationUri' in kwargs:
             certification_uri = kwargs['certificationUri']
-        if 'clientCredentialMethod' in kwargs:
+        if client_credential_method is None and 'clientCredentialMethod' in kwargs:
             client_credential_method = kwargs['clientCredentialMethod']
-        if 'clientSecretSettingName' in kwargs:
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'issuerEndpoint' in kwargs:
+        if issuer_endpoint is None and 'issuerEndpoint' in kwargs:
             issuer_endpoint = kwargs['issuerEndpoint']
-        if 'nameClaimType' in kwargs:
+        if name_claim_type is None and 'nameClaimType' in kwargs:
             name_claim_type = kwargs['nameClaimType']
-        if 'tokenEndpoint' in kwargs:
+        if token_endpoint is None and 'tokenEndpoint' in kwargs:
             token_endpoint = kwargs['tokenEndpoint']
 
         _setter("client_id", client_id)
@@ -24841,19 +25291,23 @@ class LinuxWebAppSlotAuthSettingsV2FacebookV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_id: pulumi.Input[str],
-             app_secret_setting_name: pulumi.Input[str],
+             app_id: Optional[pulumi.Input[str]] = None,
+             app_secret_setting_name: Optional[pulumi.Input[str]] = None,
              graph_api_version: Optional[pulumi.Input[str]] = None,
              login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'appId' in kwargs:
+        if app_id is None and 'appId' in kwargs:
             app_id = kwargs['appId']
-        if 'appSecretSettingName' in kwargs:
+        if app_id is None:
+            raise TypeError("Missing 'app_id' argument")
+        if app_secret_setting_name is None and 'appSecretSettingName' in kwargs:
             app_secret_setting_name = kwargs['appSecretSettingName']
-        if 'graphApiVersion' in kwargs:
+        if app_secret_setting_name is None:
+            raise TypeError("Missing 'app_secret_setting_name' argument")
+        if graph_api_version is None and 'graphApiVersion' in kwargs:
             graph_api_version = kwargs['graphApiVersion']
-        if 'loginScopes' in kwargs:
+        if login_scopes is None and 'loginScopes' in kwargs:
             login_scopes = kwargs['loginScopes']
 
         _setter("app_id", app_id)
@@ -24934,16 +25388,20 @@ class LinuxWebAppSlotAuthSettingsV2GithubV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             client_secret_setting_name: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecretSettingName' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'loginScopes' in kwargs:
+        if client_secret_setting_name is None:
+            raise TypeError("Missing 'client_secret_setting_name' argument")
+        if login_scopes is None and 'loginScopes' in kwargs:
             login_scopes = kwargs['loginScopes']
 
         _setter("client_id", client_id)
@@ -25013,19 +25471,23 @@ class LinuxWebAppSlotAuthSettingsV2GoogleV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             client_secret_setting_name: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecretSettingName' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'allowedAudiences' in kwargs:
+        if client_secret_setting_name is None:
+            raise TypeError("Missing 'client_secret_setting_name' argument")
+        if allowed_audiences is None and 'allowedAudiences' in kwargs:
             allowed_audiences = kwargs['allowedAudiences']
-        if 'loginScopes' in kwargs:
+        if login_scopes is None and 'loginScopes' in kwargs:
             login_scopes = kwargs['loginScopes']
 
         _setter("client_id", client_id)
@@ -25145,27 +25607,27 @@ class LinuxWebAppSlotAuthSettingsV2LoginArgs:
              validate_nonce: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowedExternalRedirectUrls' in kwargs:
+        if allowed_external_redirect_urls is None and 'allowedExternalRedirectUrls' in kwargs:
             allowed_external_redirect_urls = kwargs['allowedExternalRedirectUrls']
-        if 'cookieExpirationConvention' in kwargs:
+        if cookie_expiration_convention is None and 'cookieExpirationConvention' in kwargs:
             cookie_expiration_convention = kwargs['cookieExpirationConvention']
-        if 'cookieExpirationTime' in kwargs:
+        if cookie_expiration_time is None and 'cookieExpirationTime' in kwargs:
             cookie_expiration_time = kwargs['cookieExpirationTime']
-        if 'logoutEndpoint' in kwargs:
+        if logout_endpoint is None and 'logoutEndpoint' in kwargs:
             logout_endpoint = kwargs['logoutEndpoint']
-        if 'nonceExpirationTime' in kwargs:
+        if nonce_expiration_time is None and 'nonceExpirationTime' in kwargs:
             nonce_expiration_time = kwargs['nonceExpirationTime']
-        if 'preserveUrlFragmentsForLogins' in kwargs:
+        if preserve_url_fragments_for_logins is None and 'preserveUrlFragmentsForLogins' in kwargs:
             preserve_url_fragments_for_logins = kwargs['preserveUrlFragmentsForLogins']
-        if 'tokenRefreshExtensionTime' in kwargs:
+        if token_refresh_extension_time is None and 'tokenRefreshExtensionTime' in kwargs:
             token_refresh_extension_time = kwargs['tokenRefreshExtensionTime']
-        if 'tokenStoreEnabled' in kwargs:
+        if token_store_enabled is None and 'tokenStoreEnabled' in kwargs:
             token_store_enabled = kwargs['tokenStoreEnabled']
-        if 'tokenStorePath' in kwargs:
+        if token_store_path is None and 'tokenStorePath' in kwargs:
             token_store_path = kwargs['tokenStorePath']
-        if 'tokenStoreSasSettingName' in kwargs:
+        if token_store_sas_setting_name is None and 'tokenStoreSasSettingName' in kwargs:
             token_store_sas_setting_name = kwargs['tokenStoreSasSettingName']
-        if 'validateNonce' in kwargs:
+        if validate_nonce is None and 'validateNonce' in kwargs:
             validate_nonce = kwargs['validateNonce']
 
         if allowed_external_redirect_urls is not None:
@@ -25351,19 +25813,23 @@ class LinuxWebAppSlotAuthSettingsV2MicrosoftV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             client_secret_setting_name: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecretSettingName' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'allowedAudiences' in kwargs:
+        if client_secret_setting_name is None:
+            raise TypeError("Missing 'client_secret_setting_name' argument")
+        if allowed_audiences is None and 'allowedAudiences' in kwargs:
             allowed_audiences = kwargs['allowedAudiences']
-        if 'loginScopes' in kwargs:
+        if login_scopes is None and 'loginScopes' in kwargs:
             login_scopes = kwargs['loginScopes']
 
         _setter("client_id", client_id)
@@ -25443,14 +25909,18 @@ class LinuxWebAppSlotAuthSettingsV2TwitterV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             consumer_key: pulumi.Input[str],
-             consumer_secret_setting_name: pulumi.Input[str],
+             consumer_key: Optional[pulumi.Input[str]] = None,
+             consumer_secret_setting_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'consumerKey' in kwargs:
+        if consumer_key is None and 'consumerKey' in kwargs:
             consumer_key = kwargs['consumerKey']
-        if 'consumerSecretSettingName' in kwargs:
+        if consumer_key is None:
+            raise TypeError("Missing 'consumer_key' argument")
+        if consumer_secret_setting_name is None and 'consumerSecretSettingName' in kwargs:
             consumer_secret_setting_name = kwargs['consumerSecretSettingName']
+        if consumer_secret_setting_name is None:
+            raise TypeError("Missing 'consumer_secret_setting_name' argument")
 
         _setter("consumer_key", consumer_key)
         _setter("consumer_secret_setting_name", consumer_secret_setting_name)
@@ -25505,14 +25975,20 @@ class LinuxWebAppSlotBackupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             schedule: pulumi.Input['LinuxWebAppSlotBackupScheduleArgs'],
-             storage_account_url: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             schedule: Optional[pulumi.Input['LinuxWebAppSlotBackupScheduleArgs']] = None,
+             storage_account_url: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'storageAccountUrl' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if schedule is None:
+            raise TypeError("Missing 'schedule' argument")
+        if storage_account_url is None and 'storageAccountUrl' in kwargs:
             storage_account_url = kwargs['storageAccountUrl']
+        if storage_account_url is None:
+            raise TypeError("Missing 'storage_account_url' argument")
 
         _setter("name", name)
         _setter("schedule", schedule)
@@ -25599,25 +26075,29 @@ class LinuxWebAppSlotBackupScheduleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             frequency_interval: pulumi.Input[int],
-             frequency_unit: pulumi.Input[str],
+             frequency_interval: Optional[pulumi.Input[int]] = None,
+             frequency_unit: Optional[pulumi.Input[str]] = None,
              keep_at_least_one_backup: Optional[pulumi.Input[bool]] = None,
              last_execution_time: Optional[pulumi.Input[str]] = None,
              retention_period_days: Optional[pulumi.Input[int]] = None,
              start_time: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'frequencyInterval' in kwargs:
+        if frequency_interval is None and 'frequencyInterval' in kwargs:
             frequency_interval = kwargs['frequencyInterval']
-        if 'frequencyUnit' in kwargs:
+        if frequency_interval is None:
+            raise TypeError("Missing 'frequency_interval' argument")
+        if frequency_unit is None and 'frequencyUnit' in kwargs:
             frequency_unit = kwargs['frequencyUnit']
-        if 'keepAtLeastOneBackup' in kwargs:
+        if frequency_unit is None:
+            raise TypeError("Missing 'frequency_unit' argument")
+        if keep_at_least_one_backup is None and 'keepAtLeastOneBackup' in kwargs:
             keep_at_least_one_backup = kwargs['keepAtLeastOneBackup']
-        if 'lastExecutionTime' in kwargs:
+        if last_execution_time is None and 'lastExecutionTime' in kwargs:
             last_execution_time = kwargs['lastExecutionTime']
-        if 'retentionPeriodDays' in kwargs:
+        if retention_period_days is None and 'retentionPeriodDays' in kwargs:
             retention_period_days = kwargs['retentionPeriodDays']
-        if 'startTime' in kwargs:
+        if start_time is None and 'startTime' in kwargs:
             start_time = kwargs['startTime']
 
         _setter("frequency_interval", frequency_interval)
@@ -25723,11 +26203,17 @@ class LinuxWebAppSlotConnectionStringArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             type: pulumi.Input[str],
-             value: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("name", name)
         _setter("type", type)
@@ -25795,17 +26281,19 @@ class LinuxWebAppSlotIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -25896,13 +26384,13 @@ class LinuxWebAppSlotLogsArgs:
              http_logs: Optional[pulumi.Input['LinuxWebAppSlotLogsHttpLogsArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'applicationLogs' in kwargs:
+        if application_logs is None and 'applicationLogs' in kwargs:
             application_logs = kwargs['applicationLogs']
-        if 'detailedErrorMessages' in kwargs:
+        if detailed_error_messages is None and 'detailedErrorMessages' in kwargs:
             detailed_error_messages = kwargs['detailedErrorMessages']
-        if 'failedRequestTracing' in kwargs:
+        if failed_request_tracing is None and 'failedRequestTracing' in kwargs:
             failed_request_tracing = kwargs['failedRequestTracing']
-        if 'httpLogs' in kwargs:
+        if http_logs is None and 'httpLogs' in kwargs:
             http_logs = kwargs['httpLogs']
 
         if application_logs is not None:
@@ -25980,13 +26468,15 @@ class LinuxWebAppSlotLogsApplicationLogsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             file_system_level: pulumi.Input[str],
+             file_system_level: Optional[pulumi.Input[str]] = None,
              azure_blob_storage: Optional[pulumi.Input['LinuxWebAppSlotLogsApplicationLogsAzureBlobStorageArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'fileSystemLevel' in kwargs:
+        if file_system_level is None and 'fileSystemLevel' in kwargs:
             file_system_level = kwargs['fileSystemLevel']
-        if 'azureBlobStorage' in kwargs:
+        if file_system_level is None:
+            raise TypeError("Missing 'file_system_level' argument")
+        if azure_blob_storage is None and 'azureBlobStorage' in kwargs:
             azure_blob_storage = kwargs['azureBlobStorage']
 
         _setter("file_system_level", file_system_level)
@@ -26038,15 +26528,21 @@ class LinuxWebAppSlotLogsApplicationLogsAzureBlobStorageArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             level: pulumi.Input[str],
-             retention_in_days: pulumi.Input[int],
-             sas_url: pulumi.Input[str],
+             level: Optional[pulumi.Input[str]] = None,
+             retention_in_days: Optional[pulumi.Input[int]] = None,
+             sas_url: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'retentionInDays' in kwargs:
+        if level is None:
+            raise TypeError("Missing 'level' argument")
+        if retention_in_days is None and 'retentionInDays' in kwargs:
             retention_in_days = kwargs['retentionInDays']
-        if 'sasUrl' in kwargs:
+        if retention_in_days is None:
+            raise TypeError("Missing 'retention_in_days' argument")
+        if sas_url is None and 'sasUrl' in kwargs:
             sas_url = kwargs['sasUrl']
+        if sas_url is None:
+            raise TypeError("Missing 'sas_url' argument")
 
         _setter("level", level)
         _setter("retention_in_days", retention_in_days)
@@ -26110,9 +26606,9 @@ class LinuxWebAppSlotLogsHttpLogsArgs:
              file_system: Optional[pulumi.Input['LinuxWebAppSlotLogsHttpLogsFileSystemArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'azureBlobStorage' in kwargs:
+        if azure_blob_storage is None and 'azureBlobStorage' in kwargs:
             azure_blob_storage = kwargs['azureBlobStorage']
-        if 'fileSystem' in kwargs:
+        if file_system is None and 'fileSystem' in kwargs:
             file_system = kwargs['fileSystem']
 
         if azure_blob_storage is not None:
@@ -26162,13 +26658,15 @@ class LinuxWebAppSlotLogsHttpLogsAzureBlobStorageArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             sas_url: pulumi.Input[str],
+             sas_url: Optional[pulumi.Input[str]] = None,
              retention_in_days: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'sasUrl' in kwargs:
+        if sas_url is None and 'sasUrl' in kwargs:
             sas_url = kwargs['sasUrl']
-        if 'retentionInDays' in kwargs:
+        if sas_url is None:
+            raise TypeError("Missing 'sas_url' argument")
+        if retention_in_days is None and 'retentionInDays' in kwargs:
             retention_in_days = kwargs['retentionInDays']
 
         _setter("sas_url", sas_url)
@@ -26217,14 +26715,18 @@ class LinuxWebAppSlotLogsHttpLogsFileSystemArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             retention_in_days: pulumi.Input[int],
-             retention_in_mb: pulumi.Input[int],
+             retention_in_days: Optional[pulumi.Input[int]] = None,
+             retention_in_mb: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'retentionInDays' in kwargs:
+        if retention_in_days is None and 'retentionInDays' in kwargs:
             retention_in_days = kwargs['retentionInDays']
-        if 'retentionInMb' in kwargs:
+        if retention_in_days is None:
+            raise TypeError("Missing 'retention_in_days' argument")
+        if retention_in_mb is None and 'retentionInMb' in kwargs:
             retention_in_mb = kwargs['retentionInMb']
+        if retention_in_mb is None:
+            raise TypeError("Missing 'retention_in_mb' argument")
 
         _setter("retention_in_days", retention_in_days)
         _setter("retention_in_mb", retention_in_mb)
@@ -26397,69 +26899,69 @@ class LinuxWebAppSlotSiteConfigArgs:
              worker_count: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'alwaysOn' in kwargs:
+        if always_on is None and 'alwaysOn' in kwargs:
             always_on = kwargs['alwaysOn']
-        if 'apiDefinitionUrl' in kwargs:
+        if api_definition_url is None and 'apiDefinitionUrl' in kwargs:
             api_definition_url = kwargs['apiDefinitionUrl']
-        if 'apiManagementApiId' in kwargs:
+        if api_management_api_id is None and 'apiManagementApiId' in kwargs:
             api_management_api_id = kwargs['apiManagementApiId']
-        if 'appCommandLine' in kwargs:
+        if app_command_line is None and 'appCommandLine' in kwargs:
             app_command_line = kwargs['appCommandLine']
-        if 'applicationStack' in kwargs:
+        if application_stack is None and 'applicationStack' in kwargs:
             application_stack = kwargs['applicationStack']
-        if 'autoHealEnabled' in kwargs:
+        if auto_heal_enabled is None and 'autoHealEnabled' in kwargs:
             auto_heal_enabled = kwargs['autoHealEnabled']
-        if 'autoHealSetting' in kwargs:
+        if auto_heal_setting is None and 'autoHealSetting' in kwargs:
             auto_heal_setting = kwargs['autoHealSetting']
-        if 'autoSwapSlotName' in kwargs:
+        if auto_swap_slot_name is None and 'autoSwapSlotName' in kwargs:
             auto_swap_slot_name = kwargs['autoSwapSlotName']
-        if 'containerRegistryManagedIdentityClientId' in kwargs:
+        if container_registry_managed_identity_client_id is None and 'containerRegistryManagedIdentityClientId' in kwargs:
             container_registry_managed_identity_client_id = kwargs['containerRegistryManagedIdentityClientId']
-        if 'containerRegistryUseManagedIdentity' in kwargs:
+        if container_registry_use_managed_identity is None and 'containerRegistryUseManagedIdentity' in kwargs:
             container_registry_use_managed_identity = kwargs['containerRegistryUseManagedIdentity']
-        if 'defaultDocuments' in kwargs:
+        if default_documents is None and 'defaultDocuments' in kwargs:
             default_documents = kwargs['defaultDocuments']
-        if 'detailedErrorLoggingEnabled' in kwargs:
+        if detailed_error_logging_enabled is None and 'detailedErrorLoggingEnabled' in kwargs:
             detailed_error_logging_enabled = kwargs['detailedErrorLoggingEnabled']
-        if 'ftpsState' in kwargs:
+        if ftps_state is None and 'ftpsState' in kwargs:
             ftps_state = kwargs['ftpsState']
-        if 'healthCheckEvictionTimeInMin' in kwargs:
+        if health_check_eviction_time_in_min is None and 'healthCheckEvictionTimeInMin' in kwargs:
             health_check_eviction_time_in_min = kwargs['healthCheckEvictionTimeInMin']
-        if 'healthCheckPath' in kwargs:
+        if health_check_path is None and 'healthCheckPath' in kwargs:
             health_check_path = kwargs['healthCheckPath']
-        if 'http2Enabled' in kwargs:
+        if http2_enabled is None and 'http2Enabled' in kwargs:
             http2_enabled = kwargs['http2Enabled']
-        if 'ipRestrictions' in kwargs:
+        if ip_restrictions is None and 'ipRestrictions' in kwargs:
             ip_restrictions = kwargs['ipRestrictions']
-        if 'linuxFxVersion' in kwargs:
+        if linux_fx_version is None and 'linuxFxVersion' in kwargs:
             linux_fx_version = kwargs['linuxFxVersion']
-        if 'loadBalancingMode' in kwargs:
+        if load_balancing_mode is None and 'loadBalancingMode' in kwargs:
             load_balancing_mode = kwargs['loadBalancingMode']
-        if 'localMysqlEnabled' in kwargs:
+        if local_mysql_enabled is None and 'localMysqlEnabled' in kwargs:
             local_mysql_enabled = kwargs['localMysqlEnabled']
-        if 'managedPipelineMode' in kwargs:
+        if managed_pipeline_mode is None and 'managedPipelineMode' in kwargs:
             managed_pipeline_mode = kwargs['managedPipelineMode']
-        if 'minimumTlsVersion' in kwargs:
+        if minimum_tls_version is None and 'minimumTlsVersion' in kwargs:
             minimum_tls_version = kwargs['minimumTlsVersion']
-        if 'remoteDebuggingEnabled' in kwargs:
+        if remote_debugging_enabled is None and 'remoteDebuggingEnabled' in kwargs:
             remote_debugging_enabled = kwargs['remoteDebuggingEnabled']
-        if 'remoteDebuggingVersion' in kwargs:
+        if remote_debugging_version is None and 'remoteDebuggingVersion' in kwargs:
             remote_debugging_version = kwargs['remoteDebuggingVersion']
-        if 'scmIpRestrictions' in kwargs:
+        if scm_ip_restrictions is None and 'scmIpRestrictions' in kwargs:
             scm_ip_restrictions = kwargs['scmIpRestrictions']
-        if 'scmMinimumTlsVersion' in kwargs:
+        if scm_minimum_tls_version is None and 'scmMinimumTlsVersion' in kwargs:
             scm_minimum_tls_version = kwargs['scmMinimumTlsVersion']
-        if 'scmType' in kwargs:
+        if scm_type is None and 'scmType' in kwargs:
             scm_type = kwargs['scmType']
-        if 'scmUseMainIpRestriction' in kwargs:
+        if scm_use_main_ip_restriction is None and 'scmUseMainIpRestriction' in kwargs:
             scm_use_main_ip_restriction = kwargs['scmUseMainIpRestriction']
-        if 'use32BitWorker' in kwargs:
+        if use32_bit_worker is None and 'use32BitWorker' in kwargs:
             use32_bit_worker = kwargs['use32BitWorker']
-        if 'vnetRouteAllEnabled' in kwargs:
+        if vnet_route_all_enabled is None and 'vnetRouteAllEnabled' in kwargs:
             vnet_route_all_enabled = kwargs['vnetRouteAllEnabled']
-        if 'websocketsEnabled' in kwargs:
+        if websockets_enabled is None and 'websocketsEnabled' in kwargs:
             websockets_enabled = kwargs['websocketsEnabled']
-        if 'workerCount' in kwargs:
+        if worker_count is None and 'workerCount' in kwargs:
             worker_count = kwargs['workerCount']
 
         if always_on is not None:
@@ -26997,35 +27499,35 @@ class LinuxWebAppSlotSiteConfigApplicationStackArgs:
              ruby_version: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dockerImage' in kwargs:
+        if docker_image is None and 'dockerImage' in kwargs:
             docker_image = kwargs['dockerImage']
-        if 'dockerImageName' in kwargs:
+        if docker_image_name is None and 'dockerImageName' in kwargs:
             docker_image_name = kwargs['dockerImageName']
-        if 'dockerImageTag' in kwargs:
+        if docker_image_tag is None and 'dockerImageTag' in kwargs:
             docker_image_tag = kwargs['dockerImageTag']
-        if 'dockerRegistryPassword' in kwargs:
+        if docker_registry_password is None and 'dockerRegistryPassword' in kwargs:
             docker_registry_password = kwargs['dockerRegistryPassword']
-        if 'dockerRegistryUrl' in kwargs:
+        if docker_registry_url is None and 'dockerRegistryUrl' in kwargs:
             docker_registry_url = kwargs['dockerRegistryUrl']
-        if 'dockerRegistryUsername' in kwargs:
+        if docker_registry_username is None and 'dockerRegistryUsername' in kwargs:
             docker_registry_username = kwargs['dockerRegistryUsername']
-        if 'dotnetVersion' in kwargs:
+        if dotnet_version is None and 'dotnetVersion' in kwargs:
             dotnet_version = kwargs['dotnetVersion']
-        if 'goVersion' in kwargs:
+        if go_version is None and 'goVersion' in kwargs:
             go_version = kwargs['goVersion']
-        if 'javaServer' in kwargs:
+        if java_server is None and 'javaServer' in kwargs:
             java_server = kwargs['javaServer']
-        if 'javaServerVersion' in kwargs:
+        if java_server_version is None and 'javaServerVersion' in kwargs:
             java_server_version = kwargs['javaServerVersion']
-        if 'javaVersion' in kwargs:
+        if java_version is None and 'javaVersion' in kwargs:
             java_version = kwargs['javaVersion']
-        if 'nodeVersion' in kwargs:
+        if node_version is None and 'nodeVersion' in kwargs:
             node_version = kwargs['nodeVersion']
-        if 'phpVersion' in kwargs:
+        if php_version is None and 'phpVersion' in kwargs:
             php_version = kwargs['phpVersion']
-        if 'pythonVersion' in kwargs:
+        if python_version is None and 'pythonVersion' in kwargs:
             python_version = kwargs['pythonVersion']
-        if 'rubyVersion' in kwargs:
+        if ruby_version is None and 'rubyVersion' in kwargs:
             ruby_version = kwargs['rubyVersion']
 
         if docker_image is not None:
@@ -27325,13 +27827,15 @@ class LinuxWebAppSlotSiteConfigAutoHealSettingActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action_type: pulumi.Input[str],
+             action_type: Optional[pulumi.Input[str]] = None,
              minimum_process_execution_time: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'actionType' in kwargs:
+        if action_type is None and 'actionType' in kwargs:
             action_type = kwargs['actionType']
-        if 'minimumProcessExecutionTime' in kwargs:
+        if action_type is None:
+            raise TypeError("Missing 'action_type' argument")
+        if minimum_process_execution_time is None and 'minimumProcessExecutionTime' in kwargs:
             minimum_process_execution_time = kwargs['minimumProcessExecutionTime']
 
         _setter("action_type", action_type)
@@ -27388,9 +27892,9 @@ class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArgs:
              status_codes: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'slowRequests' in kwargs:
+        if slow_requests is None and 'slowRequests' in kwargs:
             slow_requests = kwargs['slowRequests']
-        if 'statusCodes' in kwargs:
+        if status_codes is None and 'statusCodes' in kwargs:
             status_codes = kwargs['statusCodes']
 
         if requests is not None:
@@ -27454,10 +27958,14 @@ class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             count: pulumi.Input[int],
-             interval: pulumi.Input[str],
+             count: Optional[pulumi.Input[int]] = None,
+             interval: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if count is None:
+            raise TypeError("Missing 'count' argument")
+        if interval is None:
+            raise TypeError("Missing 'interval' argument")
 
         _setter("count", count)
         _setter("interval", interval)
@@ -27510,14 +28018,20 @@ class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             count: pulumi.Input[int],
-             interval: pulumi.Input[str],
-             time_taken: pulumi.Input[str],
+             count: Optional[pulumi.Input[int]] = None,
+             interval: Optional[pulumi.Input[str]] = None,
+             time_taken: Optional[pulumi.Input[str]] = None,
              path: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'timeTaken' in kwargs:
+        if count is None:
+            raise TypeError("Missing 'count' argument")
+        if interval is None:
+            raise TypeError("Missing 'interval' argument")
+        if time_taken is None and 'timeTaken' in kwargs:
             time_taken = kwargs['timeTaken']
+        if time_taken is None:
+            raise TypeError("Missing 'time_taken' argument")
 
         _setter("count", count)
         _setter("interval", interval)
@@ -27603,19 +28117,25 @@ class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             count: pulumi.Input[int],
-             interval: pulumi.Input[str],
-             status_code_range: pulumi.Input[str],
+             count: Optional[pulumi.Input[int]] = None,
+             interval: Optional[pulumi.Input[str]] = None,
+             status_code_range: Optional[pulumi.Input[str]] = None,
              path: Optional[pulumi.Input[str]] = None,
              sub_status: Optional[pulumi.Input[int]] = None,
              win32_status_code: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'statusCodeRange' in kwargs:
+        if count is None:
+            raise TypeError("Missing 'count' argument")
+        if interval is None:
+            raise TypeError("Missing 'interval' argument")
+        if status_code_range is None and 'statusCodeRange' in kwargs:
             status_code_range = kwargs['statusCodeRange']
-        if 'subStatus' in kwargs:
+        if status_code_range is None:
+            raise TypeError("Missing 'status_code_range' argument")
+        if sub_status is None and 'subStatus' in kwargs:
             sub_status = kwargs['subStatus']
-        if 'win32StatusCode' in kwargs:
+        if win32_status_code is None and 'win32StatusCode' in kwargs:
             win32_status_code = kwargs['win32StatusCode']
 
         _setter("count", count)
@@ -27722,9 +28242,9 @@ class LinuxWebAppSlotSiteConfigCorsArgs:
              support_credentials: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowedOrigins' in kwargs:
+        if allowed_origins is None and 'allowedOrigins' in kwargs:
             allowed_origins = kwargs['allowedOrigins']
-        if 'supportCredentials' in kwargs:
+        if support_credentials is None and 'supportCredentials' in kwargs:
             support_credentials = kwargs['supportCredentials']
 
         if allowed_origins is not None:
@@ -27800,11 +28320,11 @@ class LinuxWebAppSlotSiteConfigIpRestrictionArgs:
              virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ipAddress' in kwargs:
+        if ip_address is None and 'ipAddress' in kwargs:
             ip_address = kwargs['ipAddress']
-        if 'serviceTag' in kwargs:
+        if service_tag is None and 'serviceTag' in kwargs:
             service_tag = kwargs['serviceTag']
-        if 'virtualNetworkSubnetId' in kwargs:
+        if virtual_network_subnet_id is None and 'virtualNetworkSubnetId' in kwargs:
             virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
 
         if action is not None:
@@ -27938,13 +28458,13 @@ class LinuxWebAppSlotSiteConfigIpRestrictionHeadersArgs:
              x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'xAzureFdids' in kwargs:
+        if x_azure_fdids is None and 'xAzureFdids' in kwargs:
             x_azure_fdids = kwargs['xAzureFdids']
-        if 'xFdHealthProbe' in kwargs:
+        if x_fd_health_probe is None and 'xFdHealthProbe' in kwargs:
             x_fd_health_probe = kwargs['xFdHealthProbe']
-        if 'xForwardedFors' in kwargs:
+        if x_forwarded_fors is None and 'xForwardedFors' in kwargs:
             x_forwarded_fors = kwargs['xForwardedFors']
-        if 'xForwardedHosts' in kwargs:
+        if x_forwarded_hosts is None and 'xForwardedHosts' in kwargs:
             x_forwarded_hosts = kwargs['xForwardedHosts']
 
         if x_azure_fdids is not None:
@@ -28048,11 +28568,11 @@ class LinuxWebAppSlotSiteConfigScmIpRestrictionArgs:
              virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ipAddress' in kwargs:
+        if ip_address is None and 'ipAddress' in kwargs:
             ip_address = kwargs['ipAddress']
-        if 'serviceTag' in kwargs:
+        if service_tag is None and 'serviceTag' in kwargs:
             service_tag = kwargs['serviceTag']
-        if 'virtualNetworkSubnetId' in kwargs:
+        if virtual_network_subnet_id is None and 'virtualNetworkSubnetId' in kwargs:
             virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
 
         if action is not None:
@@ -28186,13 +28706,13 @@ class LinuxWebAppSlotSiteConfigScmIpRestrictionHeadersArgs:
              x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'xAzureFdids' in kwargs:
+        if x_azure_fdids is None and 'xAzureFdids' in kwargs:
             x_azure_fdids = kwargs['xAzureFdids']
-        if 'xFdHealthProbe' in kwargs:
+        if x_fd_health_probe is None and 'xFdHealthProbe' in kwargs:
             x_fd_health_probe = kwargs['xFdHealthProbe']
-        if 'xForwardedFors' in kwargs:
+        if x_forwarded_fors is None and 'xForwardedFors' in kwargs:
             x_forwarded_fors = kwargs['xForwardedFors']
-        if 'xForwardedHosts' in kwargs:
+        if x_forwarded_hosts is None and 'xForwardedHosts' in kwargs:
             x_forwarded_hosts = kwargs['xForwardedHosts']
 
         if x_azure_fdids is not None:
@@ -28330,21 +28850,31 @@ class LinuxWebAppSlotStorageAccountArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             access_key: pulumi.Input[str],
-             account_name: pulumi.Input[str],
-             name: pulumi.Input[str],
-             share_name: pulumi.Input[str],
-             type: pulumi.Input[str],
+             access_key: Optional[pulumi.Input[str]] = None,
+             account_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             share_name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              mount_path: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accessKey' in kwargs:
+        if access_key is None and 'accessKey' in kwargs:
             access_key = kwargs['accessKey']
-        if 'accountName' in kwargs:
+        if access_key is None:
+            raise TypeError("Missing 'access_key' argument")
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'shareName' in kwargs:
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if share_name is None and 'shareName' in kwargs:
             share_name = kwargs['shareName']
-        if 'mountPath' in kwargs:
+        if share_name is None:
+            raise TypeError("Missing 'share_name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if mount_path is None and 'mountPath' in kwargs:
             mount_path = kwargs['mountPath']
 
         _setter("access_key", access_key)
@@ -28449,9 +28979,9 @@ class LinuxWebAppStickySettingsArgs:
              connection_string_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'appSettingNames' in kwargs:
+        if app_setting_names is None and 'appSettingNames' in kwargs:
             app_setting_names = kwargs['appSettingNames']
-        if 'connectionStringNames' in kwargs:
+        if connection_string_names is None and 'connectionStringNames' in kwargs:
             connection_string_names = kwargs['connectionStringNames']
 
         if app_setting_names is not None:
@@ -28513,21 +29043,31 @@ class LinuxWebAppStorageAccountArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             access_key: pulumi.Input[str],
-             account_name: pulumi.Input[str],
-             name: pulumi.Input[str],
-             share_name: pulumi.Input[str],
-             type: pulumi.Input[str],
+             access_key: Optional[pulumi.Input[str]] = None,
+             account_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             share_name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              mount_path: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accessKey' in kwargs:
+        if access_key is None and 'accessKey' in kwargs:
             access_key = kwargs['accessKey']
-        if 'accountName' in kwargs:
+        if access_key is None:
+            raise TypeError("Missing 'access_key' argument")
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'shareName' in kwargs:
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if share_name is None and 'shareName' in kwargs:
             share_name = kwargs['shareName']
-        if 'mountPath' in kwargs:
+        if share_name is None:
+            raise TypeError("Missing 'share_name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if mount_path is None and 'mountPath' in kwargs:
             mount_path = kwargs['mountPath']
 
         _setter("access_key", access_key)
@@ -28631,11 +29171,15 @@ class PlanSkuArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             size: pulumi.Input[str],
-             tier: pulumi.Input[str],
+             size: Optional[pulumi.Input[str]] = None,
+             tier: Optional[pulumi.Input[str]] = None,
              capacity: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if size is None:
+            raise TypeError("Missing 'size' argument")
+        if tier is None:
+            raise TypeError("Missing 'tier' argument")
 
         _setter("size", size)
         _setter("tier", tier)
@@ -28734,7 +29278,7 @@ class SlotAuthSettingsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: pulumi.Input[bool],
+             enabled: Optional[pulumi.Input[bool]] = None,
              active_directory: Optional[pulumi.Input['SlotAuthSettingsActiveDirectoryArgs']] = None,
              additional_login_params: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -28750,21 +29294,23 @@ class SlotAuthSettingsArgs:
              unauthenticated_client_action: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'activeDirectory' in kwargs:
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if active_directory is None and 'activeDirectory' in kwargs:
             active_directory = kwargs['activeDirectory']
-        if 'additionalLoginParams' in kwargs:
+        if additional_login_params is None and 'additionalLoginParams' in kwargs:
             additional_login_params = kwargs['additionalLoginParams']
-        if 'allowedExternalRedirectUrls' in kwargs:
+        if allowed_external_redirect_urls is None and 'allowedExternalRedirectUrls' in kwargs:
             allowed_external_redirect_urls = kwargs['allowedExternalRedirectUrls']
-        if 'defaultProvider' in kwargs:
+        if default_provider is None and 'defaultProvider' in kwargs:
             default_provider = kwargs['defaultProvider']
-        if 'runtimeVersion' in kwargs:
+        if runtime_version is None and 'runtimeVersion' in kwargs:
             runtime_version = kwargs['runtimeVersion']
-        if 'tokenRefreshExtensionHours' in kwargs:
+        if token_refresh_extension_hours is None and 'tokenRefreshExtensionHours' in kwargs:
             token_refresh_extension_hours = kwargs['tokenRefreshExtensionHours']
-        if 'tokenStoreEnabled' in kwargs:
+        if token_store_enabled is None and 'tokenStoreEnabled' in kwargs:
             token_store_enabled = kwargs['tokenStoreEnabled']
-        if 'unauthenticatedClientAction' in kwargs:
+        if unauthenticated_client_action is None and 'unauthenticatedClientAction' in kwargs:
             unauthenticated_client_action = kwargs['unauthenticatedClientAction']
 
         _setter("enabled", enabled)
@@ -28986,16 +29532,18 @@ class SlotAuthSettingsActiveDirectoryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
              allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              client_secret: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'allowedAudiences' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if allowed_audiences is None and 'allowedAudiences' in kwargs:
             allowed_audiences = kwargs['allowedAudiences']
-        if 'clientSecret' in kwargs:
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
 
         _setter("client_id", client_id)
@@ -29061,16 +29609,20 @@ class SlotAuthSettingsFacebookArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_id: pulumi.Input[str],
-             app_secret: pulumi.Input[str],
+             app_id: Optional[pulumi.Input[str]] = None,
+             app_secret: Optional[pulumi.Input[str]] = None,
              oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'appId' in kwargs:
+        if app_id is None and 'appId' in kwargs:
             app_id = kwargs['appId']
-        if 'appSecret' in kwargs:
+        if app_id is None:
+            raise TypeError("Missing 'app_id' argument")
+        if app_secret is None and 'appSecret' in kwargs:
             app_secret = kwargs['appSecret']
-        if 'oauthScopes' in kwargs:
+        if app_secret is None:
+            raise TypeError("Missing 'app_secret' argument")
+        if oauth_scopes is None and 'oauthScopes' in kwargs:
             oauth_scopes = kwargs['oauthScopes']
 
         _setter("app_id", app_id)
@@ -29135,16 +29687,20 @@ class SlotAuthSettingsGoogleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             client_secret: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret: Optional[pulumi.Input[str]] = None,
              oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecret' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'oauthScopes' in kwargs:
+        if client_secret is None:
+            raise TypeError("Missing 'client_secret' argument")
+        if oauth_scopes is None and 'oauthScopes' in kwargs:
             oauth_scopes = kwargs['oauthScopes']
 
         _setter("client_id", client_id)
@@ -29209,16 +29765,20 @@ class SlotAuthSettingsMicrosoftArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             client_secret: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret: Optional[pulumi.Input[str]] = None,
              oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecret' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'oauthScopes' in kwargs:
+        if client_secret is None:
+            raise TypeError("Missing 'client_secret' argument")
+        if oauth_scopes is None and 'oauthScopes' in kwargs:
             oauth_scopes = kwargs['oauthScopes']
 
         _setter("client_id", client_id)
@@ -29280,14 +29840,18 @@ class SlotAuthSettingsTwitterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             consumer_key: pulumi.Input[str],
-             consumer_secret: pulumi.Input[str],
+             consumer_key: Optional[pulumi.Input[str]] = None,
+             consumer_secret: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'consumerKey' in kwargs:
+        if consumer_key is None and 'consumerKey' in kwargs:
             consumer_key = kwargs['consumerKey']
-        if 'consumerSecret' in kwargs:
+        if consumer_key is None:
+            raise TypeError("Missing 'consumer_key' argument")
+        if consumer_secret is None and 'consumerSecret' in kwargs:
             consumer_secret = kwargs['consumerSecret']
+        if consumer_secret is None:
+            raise TypeError("Missing 'consumer_secret' argument")
 
         _setter("consumer_key", consumer_key)
         _setter("consumer_secret", consumer_secret)
@@ -29337,11 +29901,17 @@ class SlotConnectionStringArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             type: pulumi.Input[str],
-             value: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("name", name)
         _setter("type", type)
@@ -29409,17 +29979,19 @@ class SlotIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -29510,13 +30082,13 @@ class SlotLogsArgs:
              http_logs: Optional[pulumi.Input['SlotLogsHttpLogsArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'applicationLogs' in kwargs:
+        if application_logs is None and 'applicationLogs' in kwargs:
             application_logs = kwargs['applicationLogs']
-        if 'detailedErrorMessagesEnabled' in kwargs:
+        if detailed_error_messages_enabled is None and 'detailedErrorMessagesEnabled' in kwargs:
             detailed_error_messages_enabled = kwargs['detailedErrorMessagesEnabled']
-        if 'failedRequestTracingEnabled' in kwargs:
+        if failed_request_tracing_enabled is None and 'failedRequestTracingEnabled' in kwargs:
             failed_request_tracing_enabled = kwargs['failedRequestTracingEnabled']
-        if 'httpLogs' in kwargs:
+        if http_logs is None and 'httpLogs' in kwargs:
             http_logs = kwargs['httpLogs']
 
         if application_logs is not None:
@@ -29598,9 +30170,9 @@ class SlotLogsApplicationLogsArgs:
              file_system_level: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'azureBlobStorage' in kwargs:
+        if azure_blob_storage is None and 'azureBlobStorage' in kwargs:
             azure_blob_storage = kwargs['azureBlobStorage']
-        if 'fileSystemLevel' in kwargs:
+        if file_system_level is None and 'fileSystemLevel' in kwargs:
             file_system_level = kwargs['fileSystemLevel']
 
         if azure_blob_storage is not None:
@@ -29653,15 +30225,21 @@ class SlotLogsApplicationLogsAzureBlobStorageArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             level: pulumi.Input[str],
-             retention_in_days: pulumi.Input[int],
-             sas_url: pulumi.Input[str],
+             level: Optional[pulumi.Input[str]] = None,
+             retention_in_days: Optional[pulumi.Input[int]] = None,
+             sas_url: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'retentionInDays' in kwargs:
+        if level is None:
+            raise TypeError("Missing 'level' argument")
+        if retention_in_days is None and 'retentionInDays' in kwargs:
             retention_in_days = kwargs['retentionInDays']
-        if 'sasUrl' in kwargs:
+        if retention_in_days is None:
+            raise TypeError("Missing 'retention_in_days' argument")
+        if sas_url is None and 'sasUrl' in kwargs:
             sas_url = kwargs['sasUrl']
+        if sas_url is None:
+            raise TypeError("Missing 'sas_url' argument")
 
         _setter("level", level)
         _setter("retention_in_days", retention_in_days)
@@ -29725,9 +30303,9 @@ class SlotLogsHttpLogsArgs:
              file_system: Optional[pulumi.Input['SlotLogsHttpLogsFileSystemArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'azureBlobStorage' in kwargs:
+        if azure_blob_storage is None and 'azureBlobStorage' in kwargs:
             azure_blob_storage = kwargs['azureBlobStorage']
-        if 'fileSystem' in kwargs:
+        if file_system is None and 'fileSystem' in kwargs:
             file_system = kwargs['fileSystem']
 
         if azure_blob_storage is not None:
@@ -29777,14 +30355,18 @@ class SlotLogsHttpLogsAzureBlobStorageArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             retention_in_days: pulumi.Input[int],
-             sas_url: pulumi.Input[str],
+             retention_in_days: Optional[pulumi.Input[int]] = None,
+             sas_url: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'retentionInDays' in kwargs:
+        if retention_in_days is None and 'retentionInDays' in kwargs:
             retention_in_days = kwargs['retentionInDays']
-        if 'sasUrl' in kwargs:
+        if retention_in_days is None:
+            raise TypeError("Missing 'retention_in_days' argument")
+        if sas_url is None and 'sasUrl' in kwargs:
             sas_url = kwargs['sasUrl']
+        if sas_url is None:
+            raise TypeError("Missing 'sas_url' argument")
 
         _setter("retention_in_days", retention_in_days)
         _setter("sas_url", sas_url)
@@ -29831,14 +30413,18 @@ class SlotLogsHttpLogsFileSystemArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             retention_in_days: pulumi.Input[int],
-             retention_in_mb: pulumi.Input[int],
+             retention_in_days: Optional[pulumi.Input[int]] = None,
+             retention_in_mb: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'retentionInDays' in kwargs:
+        if retention_in_days is None and 'retentionInDays' in kwargs:
             retention_in_days = kwargs['retentionInDays']
-        if 'retentionInMb' in kwargs:
+        if retention_in_days is None:
+            raise TypeError("Missing 'retention_in_days' argument")
+        if retention_in_mb is None and 'retentionInMb' in kwargs:
             retention_in_mb = kwargs['retentionInMb']
+        if retention_in_mb is None:
+            raise TypeError("Missing 'retention_in_mb' argument")
 
         _setter("retention_in_days", retention_in_days)
         _setter("retention_in_mb", retention_in_mb)
@@ -30019,65 +30605,65 @@ class SlotSiteConfigArgs:
              windows_fx_version: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'acrUseManagedIdentityCredentials' in kwargs:
+        if acr_use_managed_identity_credentials is None and 'acrUseManagedIdentityCredentials' in kwargs:
             acr_use_managed_identity_credentials = kwargs['acrUseManagedIdentityCredentials']
-        if 'acrUserManagedIdentityClientId' in kwargs:
+        if acr_user_managed_identity_client_id is None and 'acrUserManagedIdentityClientId' in kwargs:
             acr_user_managed_identity_client_id = kwargs['acrUserManagedIdentityClientId']
-        if 'alwaysOn' in kwargs:
+        if always_on is None and 'alwaysOn' in kwargs:
             always_on = kwargs['alwaysOn']
-        if 'appCommandLine' in kwargs:
+        if app_command_line is None and 'appCommandLine' in kwargs:
             app_command_line = kwargs['appCommandLine']
-        if 'autoSwapSlotName' in kwargs:
+        if auto_swap_slot_name is None and 'autoSwapSlotName' in kwargs:
             auto_swap_slot_name = kwargs['autoSwapSlotName']
-        if 'defaultDocuments' in kwargs:
+        if default_documents is None and 'defaultDocuments' in kwargs:
             default_documents = kwargs['defaultDocuments']
-        if 'dotnetFrameworkVersion' in kwargs:
+        if dotnet_framework_version is None and 'dotnetFrameworkVersion' in kwargs:
             dotnet_framework_version = kwargs['dotnetFrameworkVersion']
-        if 'ftpsState' in kwargs:
+        if ftps_state is None and 'ftpsState' in kwargs:
             ftps_state = kwargs['ftpsState']
-        if 'healthCheckPath' in kwargs:
+        if health_check_path is None and 'healthCheckPath' in kwargs:
             health_check_path = kwargs['healthCheckPath']
-        if 'http2Enabled' in kwargs:
+        if http2_enabled is None and 'http2Enabled' in kwargs:
             http2_enabled = kwargs['http2Enabled']
-        if 'ipRestrictions' in kwargs:
+        if ip_restrictions is None and 'ipRestrictions' in kwargs:
             ip_restrictions = kwargs['ipRestrictions']
-        if 'javaContainer' in kwargs:
+        if java_container is None and 'javaContainer' in kwargs:
             java_container = kwargs['javaContainer']
-        if 'javaContainerVersion' in kwargs:
+        if java_container_version is None and 'javaContainerVersion' in kwargs:
             java_container_version = kwargs['javaContainerVersion']
-        if 'javaVersion' in kwargs:
+        if java_version is None and 'javaVersion' in kwargs:
             java_version = kwargs['javaVersion']
-        if 'linuxFxVersion' in kwargs:
+        if linux_fx_version is None and 'linuxFxVersion' in kwargs:
             linux_fx_version = kwargs['linuxFxVersion']
-        if 'localMysqlEnabled' in kwargs:
+        if local_mysql_enabled is None and 'localMysqlEnabled' in kwargs:
             local_mysql_enabled = kwargs['localMysqlEnabled']
-        if 'managedPipelineMode' in kwargs:
+        if managed_pipeline_mode is None and 'managedPipelineMode' in kwargs:
             managed_pipeline_mode = kwargs['managedPipelineMode']
-        if 'minTlsVersion' in kwargs:
+        if min_tls_version is None and 'minTlsVersion' in kwargs:
             min_tls_version = kwargs['minTlsVersion']
-        if 'numberOfWorkers' in kwargs:
+        if number_of_workers is None and 'numberOfWorkers' in kwargs:
             number_of_workers = kwargs['numberOfWorkers']
-        if 'phpVersion' in kwargs:
+        if php_version is None and 'phpVersion' in kwargs:
             php_version = kwargs['phpVersion']
-        if 'pythonVersion' in kwargs:
+        if python_version is None and 'pythonVersion' in kwargs:
             python_version = kwargs['pythonVersion']
-        if 'remoteDebuggingEnabled' in kwargs:
+        if remote_debugging_enabled is None and 'remoteDebuggingEnabled' in kwargs:
             remote_debugging_enabled = kwargs['remoteDebuggingEnabled']
-        if 'remoteDebuggingVersion' in kwargs:
+        if remote_debugging_version is None and 'remoteDebuggingVersion' in kwargs:
             remote_debugging_version = kwargs['remoteDebuggingVersion']
-        if 'scmIpRestrictions' in kwargs:
+        if scm_ip_restrictions is None and 'scmIpRestrictions' in kwargs:
             scm_ip_restrictions = kwargs['scmIpRestrictions']
-        if 'scmType' in kwargs:
+        if scm_type is None and 'scmType' in kwargs:
             scm_type = kwargs['scmType']
-        if 'scmUseMainIpRestriction' in kwargs:
+        if scm_use_main_ip_restriction is None and 'scmUseMainIpRestriction' in kwargs:
             scm_use_main_ip_restriction = kwargs['scmUseMainIpRestriction']
-        if 'use32BitWorkerProcess' in kwargs:
+        if use32_bit_worker_process is None and 'use32BitWorkerProcess' in kwargs:
             use32_bit_worker_process = kwargs['use32BitWorkerProcess']
-        if 'vnetRouteAllEnabled' in kwargs:
+        if vnet_route_all_enabled is None and 'vnetRouteAllEnabled' in kwargs:
             vnet_route_all_enabled = kwargs['vnetRouteAllEnabled']
-        if 'websocketsEnabled' in kwargs:
+        if websockets_enabled is None and 'websocketsEnabled' in kwargs:
             websockets_enabled = kwargs['websocketsEnabled']
-        if 'windowsFxVersion' in kwargs:
+        if windows_fx_version is None and 'windowsFxVersion' in kwargs:
             windows_fx_version = kwargs['windowsFxVersion']
 
         if acr_use_managed_identity_credentials is not None:
@@ -30543,13 +31129,15 @@ class SlotSiteConfigCorsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
+             allowed_origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              support_credentials: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowedOrigins' in kwargs:
+        if allowed_origins is None and 'allowedOrigins' in kwargs:
             allowed_origins = kwargs['allowedOrigins']
-        if 'supportCredentials' in kwargs:
+        if allowed_origins is None:
+            raise TypeError("Missing 'allowed_origins' argument")
+        if support_credentials is None and 'supportCredentials' in kwargs:
             support_credentials = kwargs['supportCredentials']
 
         _setter("allowed_origins", allowed_origins)
@@ -30624,11 +31212,11 @@ class SlotSiteConfigIpRestrictionArgs:
              virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ipAddress' in kwargs:
+        if ip_address is None and 'ipAddress' in kwargs:
             ip_address = kwargs['ipAddress']
-        if 'serviceTag' in kwargs:
+        if service_tag is None and 'serviceTag' in kwargs:
             service_tag = kwargs['serviceTag']
-        if 'virtualNetworkSubnetId' in kwargs:
+        if virtual_network_subnet_id is None and 'virtualNetworkSubnetId' in kwargs:
             virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
 
         if action is not None:
@@ -30762,13 +31350,13 @@ class SlotSiteConfigIpRestrictionHeadersArgs:
              x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'xAzureFdids' in kwargs:
+        if x_azure_fdids is None and 'xAzureFdids' in kwargs:
             x_azure_fdids = kwargs['xAzureFdids']
-        if 'xFdHealthProbe' in kwargs:
+        if x_fd_health_probe is None and 'xFdHealthProbe' in kwargs:
             x_fd_health_probe = kwargs['xFdHealthProbe']
-        if 'xForwardedFors' in kwargs:
+        if x_forwarded_fors is None and 'xForwardedFors' in kwargs:
             x_forwarded_fors = kwargs['xForwardedFors']
-        if 'xForwardedHosts' in kwargs:
+        if x_forwarded_hosts is None and 'xForwardedHosts' in kwargs:
             x_forwarded_hosts = kwargs['xForwardedHosts']
 
         if x_azure_fdids is not None:
@@ -30872,11 +31460,11 @@ class SlotSiteConfigScmIpRestrictionArgs:
              virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ipAddress' in kwargs:
+        if ip_address is None and 'ipAddress' in kwargs:
             ip_address = kwargs['ipAddress']
-        if 'serviceTag' in kwargs:
+        if service_tag is None and 'serviceTag' in kwargs:
             service_tag = kwargs['serviceTag']
-        if 'virtualNetworkSubnetId' in kwargs:
+        if virtual_network_subnet_id is None and 'virtualNetworkSubnetId' in kwargs:
             virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
 
         if action is not None:
@@ -31010,13 +31598,13 @@ class SlotSiteConfigScmIpRestrictionHeadersArgs:
              x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'xAzureFdids' in kwargs:
+        if x_azure_fdids is None and 'xAzureFdids' in kwargs:
             x_azure_fdids = kwargs['xAzureFdids']
-        if 'xFdHealthProbe' in kwargs:
+        if x_fd_health_probe is None and 'xFdHealthProbe' in kwargs:
             x_fd_health_probe = kwargs['xFdHealthProbe']
-        if 'xForwardedFors' in kwargs:
+        if x_forwarded_fors is None and 'xForwardedFors' in kwargs:
             x_forwarded_fors = kwargs['xForwardedFors']
-        if 'xForwardedHosts' in kwargs:
+        if x_forwarded_hosts is None and 'xForwardedHosts' in kwargs:
             x_forwarded_hosts = kwargs['xForwardedHosts']
 
         if x_azure_fdids is not None:
@@ -31158,21 +31746,31 @@ class SlotStorageAccountArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             access_key: pulumi.Input[str],
-             account_name: pulumi.Input[str],
-             name: pulumi.Input[str],
-             share_name: pulumi.Input[str],
-             type: pulumi.Input[str],
+             access_key: Optional[pulumi.Input[str]] = None,
+             account_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             share_name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              mount_path: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accessKey' in kwargs:
+        if access_key is None and 'accessKey' in kwargs:
             access_key = kwargs['accessKey']
-        if 'accountName' in kwargs:
+        if access_key is None:
+            raise TypeError("Missing 'access_key' argument")
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'shareName' in kwargs:
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if share_name is None and 'shareName' in kwargs:
             share_name = kwargs['shareName']
-        if 'mountPath' in kwargs:
+        if share_name is None:
+            raise TypeError("Missing 'share_name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if mount_path is None and 'mountPath' in kwargs:
             mount_path = kwargs['mountPath']
 
         _setter("access_key", access_key)
@@ -31284,13 +31882,13 @@ class SourceControlGithubActionConfigurationArgs:
              linux_action: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'codeConfiguration' in kwargs:
+        if code_configuration is None and 'codeConfiguration' in kwargs:
             code_configuration = kwargs['codeConfiguration']
-        if 'containerConfiguration' in kwargs:
+        if container_configuration is None and 'containerConfiguration' in kwargs:
             container_configuration = kwargs['containerConfiguration']
-        if 'generateWorkflowFile' in kwargs:
+        if generate_workflow_file is None and 'generateWorkflowFile' in kwargs:
             generate_workflow_file = kwargs['generateWorkflowFile']
-        if 'linuxAction' in kwargs:
+        if linux_action is None and 'linuxAction' in kwargs:
             linux_action = kwargs['linuxAction']
 
         if code_configuration is not None:
@@ -31365,14 +31963,18 @@ class SourceControlGithubActionConfigurationCodeConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             runtime_stack: pulumi.Input[str],
-             runtime_version: pulumi.Input[str],
+             runtime_stack: Optional[pulumi.Input[str]] = None,
+             runtime_version: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'runtimeStack' in kwargs:
+        if runtime_stack is None and 'runtimeStack' in kwargs:
             runtime_stack = kwargs['runtimeStack']
-        if 'runtimeVersion' in kwargs:
+        if runtime_stack is None:
+            raise TypeError("Missing 'runtime_stack' argument")
+        if runtime_version is None and 'runtimeVersion' in kwargs:
             runtime_version = kwargs['runtimeVersion']
+        if runtime_version is None:
+            raise TypeError("Missing 'runtime_version' argument")
 
         _setter("runtime_stack", runtime_stack)
         _setter("runtime_version", runtime_version)
@@ -31425,19 +32027,23 @@ class SourceControlGithubActionConfigurationContainerConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             image_name: pulumi.Input[str],
-             registry_url: pulumi.Input[str],
+             image_name: Optional[pulumi.Input[str]] = None,
+             registry_url: Optional[pulumi.Input[str]] = None,
              registry_password: Optional[pulumi.Input[str]] = None,
              registry_username: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'imageName' in kwargs:
+        if image_name is None and 'imageName' in kwargs:
             image_name = kwargs['imageName']
-        if 'registryUrl' in kwargs:
+        if image_name is None:
+            raise TypeError("Missing 'image_name' argument")
+        if registry_url is None and 'registryUrl' in kwargs:
             registry_url = kwargs['registryUrl']
-        if 'registryPassword' in kwargs:
+        if registry_url is None:
+            raise TypeError("Missing 'registry_url' argument")
+        if registry_password is None and 'registryPassword' in kwargs:
             registry_password = kwargs['registryPassword']
-        if 'registryUsername' in kwargs:
+        if registry_username is None and 'registryUsername' in kwargs:
             registry_username = kwargs['registryUsername']
 
         _setter("image_name", image_name)
@@ -31525,13 +32131,13 @@ class SourceControlSlotGithubActionConfigurationArgs:
              linux_action: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'codeConfiguration' in kwargs:
+        if code_configuration is None and 'codeConfiguration' in kwargs:
             code_configuration = kwargs['codeConfiguration']
-        if 'containerConfiguration' in kwargs:
+        if container_configuration is None and 'containerConfiguration' in kwargs:
             container_configuration = kwargs['containerConfiguration']
-        if 'generateWorkflowFile' in kwargs:
+        if generate_workflow_file is None and 'generateWorkflowFile' in kwargs:
             generate_workflow_file = kwargs['generateWorkflowFile']
-        if 'linuxAction' in kwargs:
+        if linux_action is None and 'linuxAction' in kwargs:
             linux_action = kwargs['linuxAction']
 
         if code_configuration is not None:
@@ -31609,14 +32215,18 @@ class SourceControlSlotGithubActionConfigurationCodeConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             runtime_stack: pulumi.Input[str],
-             runtime_version: pulumi.Input[str],
+             runtime_stack: Optional[pulumi.Input[str]] = None,
+             runtime_version: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'runtimeStack' in kwargs:
+        if runtime_stack is None and 'runtimeStack' in kwargs:
             runtime_stack = kwargs['runtimeStack']
-        if 'runtimeVersion' in kwargs:
+        if runtime_stack is None:
+            raise TypeError("Missing 'runtime_stack' argument")
+        if runtime_version is None and 'runtimeVersion' in kwargs:
             runtime_version = kwargs['runtimeVersion']
+        if runtime_version is None:
+            raise TypeError("Missing 'runtime_version' argument")
 
         _setter("runtime_stack", runtime_stack)
         _setter("runtime_version", runtime_version)
@@ -31669,19 +32279,23 @@ class SourceControlSlotGithubActionConfigurationContainerConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             image_name: pulumi.Input[str],
-             registry_url: pulumi.Input[str],
+             image_name: Optional[pulumi.Input[str]] = None,
+             registry_url: Optional[pulumi.Input[str]] = None,
              registry_password: Optional[pulumi.Input[str]] = None,
              registry_username: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'imageName' in kwargs:
+        if image_name is None and 'imageName' in kwargs:
             image_name = kwargs['imageName']
-        if 'registryUrl' in kwargs:
+        if image_name is None:
+            raise TypeError("Missing 'image_name' argument")
+        if registry_url is None and 'registryUrl' in kwargs:
             registry_url = kwargs['registryUrl']
-        if 'registryPassword' in kwargs:
+        if registry_url is None:
+            raise TypeError("Missing 'registry_url' argument")
+        if registry_password is None and 'registryPassword' in kwargs:
             registry_password = kwargs['registryPassword']
-        if 'registryUsername' in kwargs:
+        if registry_username is None and 'registryUsername' in kwargs:
             registry_username = kwargs['registryUsername']
 
         _setter("image_name", image_name)
@@ -31762,17 +32376,19 @@ class StaticSiteIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -31889,7 +32505,7 @@ class WindowsFunctionAppAuthSettingsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: pulumi.Input[bool],
+             enabled: Optional[pulumi.Input[bool]] = None,
              active_directory: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsActiveDirectoryArgs']] = None,
              additional_login_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -31906,21 +32522,23 @@ class WindowsFunctionAppAuthSettingsArgs:
              unauthenticated_client_action: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'activeDirectory' in kwargs:
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if active_directory is None and 'activeDirectory' in kwargs:
             active_directory = kwargs['activeDirectory']
-        if 'additionalLoginParameters' in kwargs:
+        if additional_login_parameters is None and 'additionalLoginParameters' in kwargs:
             additional_login_parameters = kwargs['additionalLoginParameters']
-        if 'allowedExternalRedirectUrls' in kwargs:
+        if allowed_external_redirect_urls is None and 'allowedExternalRedirectUrls' in kwargs:
             allowed_external_redirect_urls = kwargs['allowedExternalRedirectUrls']
-        if 'defaultProvider' in kwargs:
+        if default_provider is None and 'defaultProvider' in kwargs:
             default_provider = kwargs['defaultProvider']
-        if 'runtimeVersion' in kwargs:
+        if runtime_version is None and 'runtimeVersion' in kwargs:
             runtime_version = kwargs['runtimeVersion']
-        if 'tokenRefreshExtensionHours' in kwargs:
+        if token_refresh_extension_hours is None and 'tokenRefreshExtensionHours' in kwargs:
             token_refresh_extension_hours = kwargs['tokenRefreshExtensionHours']
-        if 'tokenStoreEnabled' in kwargs:
+        if token_store_enabled is None and 'tokenStoreEnabled' in kwargs:
             token_store_enabled = kwargs['tokenStoreEnabled']
-        if 'unauthenticatedClientAction' in kwargs:
+        if unauthenticated_client_action is None and 'unauthenticatedClientAction' in kwargs:
             unauthenticated_client_action = kwargs['unauthenticatedClientAction']
 
         _setter("enabled", enabled)
@@ -32163,19 +32781,21 @@ class WindowsFunctionAppAuthSettingsActiveDirectoryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
              allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              client_secret: Optional[pulumi.Input[str]] = None,
              client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'allowedAudiences' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if allowed_audiences is None and 'allowedAudiences' in kwargs:
             allowed_audiences = kwargs['allowedAudiences']
-        if 'clientSecret' in kwargs:
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'clientSecretSettingName' in kwargs:
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
 
         _setter("client_id", client_id)
@@ -32260,19 +32880,21 @@ class WindowsFunctionAppAuthSettingsFacebookArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_id: pulumi.Input[str],
+             app_id: Optional[pulumi.Input[str]] = None,
              app_secret: Optional[pulumi.Input[str]] = None,
              app_secret_setting_name: Optional[pulumi.Input[str]] = None,
              oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'appId' in kwargs:
+        if app_id is None and 'appId' in kwargs:
             app_id = kwargs['appId']
-        if 'appSecret' in kwargs:
+        if app_id is None:
+            raise TypeError("Missing 'app_id' argument")
+        if app_secret is None and 'appSecret' in kwargs:
             app_secret = kwargs['appSecret']
-        if 'appSecretSettingName' in kwargs:
+        if app_secret_setting_name is None and 'appSecretSettingName' in kwargs:
             app_secret_setting_name = kwargs['appSecretSettingName']
-        if 'oauthScopes' in kwargs:
+        if oauth_scopes is None and 'oauthScopes' in kwargs:
             oauth_scopes = kwargs['oauthScopes']
 
         _setter("app_id", app_id)
@@ -32355,19 +32977,21 @@ class WindowsFunctionAppAuthSettingsGithubArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
              client_secret: Optional[pulumi.Input[str]] = None,
              client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecret' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'clientSecretSettingName' in kwargs:
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'oauthScopes' in kwargs:
+        if oauth_scopes is None and 'oauthScopes' in kwargs:
             oauth_scopes = kwargs['oauthScopes']
 
         _setter("client_id", client_id)
@@ -32450,19 +33074,21 @@ class WindowsFunctionAppAuthSettingsGoogleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
              client_secret: Optional[pulumi.Input[str]] = None,
              client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecret' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'clientSecretSettingName' in kwargs:
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'oauthScopes' in kwargs:
+        if oauth_scopes is None and 'oauthScopes' in kwargs:
             oauth_scopes = kwargs['oauthScopes']
 
         _setter("client_id", client_id)
@@ -32545,19 +33171,21 @@ class WindowsFunctionAppAuthSettingsMicrosoftArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
              client_secret: Optional[pulumi.Input[str]] = None,
              client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecret' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'clientSecretSettingName' in kwargs:
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'oauthScopes' in kwargs:
+        if oauth_scopes is None and 'oauthScopes' in kwargs:
             oauth_scopes = kwargs['oauthScopes']
 
         _setter("client_id", client_id)
@@ -32637,16 +33265,18 @@ class WindowsFunctionAppAuthSettingsTwitterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             consumer_key: pulumi.Input[str],
+             consumer_key: Optional[pulumi.Input[str]] = None,
              consumer_secret: Optional[pulumi.Input[str]] = None,
              consumer_secret_setting_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'consumerKey' in kwargs:
+        if consumer_key is None and 'consumerKey' in kwargs:
             consumer_key = kwargs['consumerKey']
-        if 'consumerSecret' in kwargs:
+        if consumer_key is None:
+            raise TypeError("Missing 'consumer_key' argument")
+        if consumer_secret is None and 'consumerSecret' in kwargs:
             consumer_secret = kwargs['consumerSecret']
-        if 'consumerSecretSettingName' in kwargs:
+        if consumer_secret_setting_name is None and 'consumerSecretSettingName' in kwargs:
             consumer_secret_setting_name = kwargs['consumerSecretSettingName']
 
         _setter("consumer_key", consumer_key)
@@ -32775,7 +33405,7 @@ class WindowsFunctionAppAuthSettingsV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             login: pulumi.Input['WindowsFunctionAppAuthSettingsV2LoginArgs'],
+             login: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2LoginArgs']] = None,
              active_directory_v2: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Args']] = None,
              apple_v2: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2AppleV2Args']] = None,
              auth_enabled: Optional[pulumi.Input[bool]] = None,
@@ -32799,47 +33429,49 @@ class WindowsFunctionAppAuthSettingsV2Args:
              unauthenticated_action: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'activeDirectoryV2' in kwargs:
+        if login is None:
+            raise TypeError("Missing 'login' argument")
+        if active_directory_v2 is None and 'activeDirectoryV2' in kwargs:
             active_directory_v2 = kwargs['activeDirectoryV2']
-        if 'appleV2' in kwargs:
+        if apple_v2 is None and 'appleV2' in kwargs:
             apple_v2 = kwargs['appleV2']
-        if 'authEnabled' in kwargs:
+        if auth_enabled is None and 'authEnabled' in kwargs:
             auth_enabled = kwargs['authEnabled']
-        if 'azureStaticWebAppV2' in kwargs:
+        if azure_static_web_app_v2 is None and 'azureStaticWebAppV2' in kwargs:
             azure_static_web_app_v2 = kwargs['azureStaticWebAppV2']
-        if 'configFilePath' in kwargs:
+        if config_file_path is None and 'configFilePath' in kwargs:
             config_file_path = kwargs['configFilePath']
-        if 'customOidcV2s' in kwargs:
+        if custom_oidc_v2s is None and 'customOidcV2s' in kwargs:
             custom_oidc_v2s = kwargs['customOidcV2s']
-        if 'defaultProvider' in kwargs:
+        if default_provider is None and 'defaultProvider' in kwargs:
             default_provider = kwargs['defaultProvider']
-        if 'excludedPaths' in kwargs:
+        if excluded_paths is None and 'excludedPaths' in kwargs:
             excluded_paths = kwargs['excludedPaths']
-        if 'facebookV2' in kwargs:
+        if facebook_v2 is None and 'facebookV2' in kwargs:
             facebook_v2 = kwargs['facebookV2']
-        if 'forwardProxyConvention' in kwargs:
+        if forward_proxy_convention is None and 'forwardProxyConvention' in kwargs:
             forward_proxy_convention = kwargs['forwardProxyConvention']
-        if 'forwardProxyCustomHostHeaderName' in kwargs:
+        if forward_proxy_custom_host_header_name is None and 'forwardProxyCustomHostHeaderName' in kwargs:
             forward_proxy_custom_host_header_name = kwargs['forwardProxyCustomHostHeaderName']
-        if 'forwardProxyCustomSchemeHeaderName' in kwargs:
+        if forward_proxy_custom_scheme_header_name is None and 'forwardProxyCustomSchemeHeaderName' in kwargs:
             forward_proxy_custom_scheme_header_name = kwargs['forwardProxyCustomSchemeHeaderName']
-        if 'githubV2' in kwargs:
+        if github_v2 is None and 'githubV2' in kwargs:
             github_v2 = kwargs['githubV2']
-        if 'googleV2' in kwargs:
+        if google_v2 is None and 'googleV2' in kwargs:
             google_v2 = kwargs['googleV2']
-        if 'httpRouteApiPrefix' in kwargs:
+        if http_route_api_prefix is None and 'httpRouteApiPrefix' in kwargs:
             http_route_api_prefix = kwargs['httpRouteApiPrefix']
-        if 'microsoftV2' in kwargs:
+        if microsoft_v2 is None and 'microsoftV2' in kwargs:
             microsoft_v2 = kwargs['microsoftV2']
-        if 'requireAuthentication' in kwargs:
+        if require_authentication is None and 'requireAuthentication' in kwargs:
             require_authentication = kwargs['requireAuthentication']
-        if 'requireHttps' in kwargs:
+        if require_https is None and 'requireHttps' in kwargs:
             require_https = kwargs['requireHttps']
-        if 'runtimeVersion' in kwargs:
+        if runtime_version is None and 'runtimeVersion' in kwargs:
             runtime_version = kwargs['runtimeVersion']
-        if 'twitterV2' in kwargs:
+        if twitter_v2 is None and 'twitterV2' in kwargs:
             twitter_v2 = kwargs['twitterV2']
-        if 'unauthenticatedAction' in kwargs:
+        if unauthenticated_action is None and 'unauthenticatedAction' in kwargs:
             unauthenticated_action = kwargs['unauthenticatedAction']
 
         _setter("login", login)
@@ -33208,8 +33840,8 @@ class WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             tenant_auth_endpoint: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             tenant_auth_endpoint: Optional[pulumi.Input[str]] = None,
              allowed_applications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              allowed_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -33222,29 +33854,33 @@ class WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Args:
              www_authentication_disabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'tenantAuthEndpoint' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if tenant_auth_endpoint is None and 'tenantAuthEndpoint' in kwargs:
             tenant_auth_endpoint = kwargs['tenantAuthEndpoint']
-        if 'allowedApplications' in kwargs:
+        if tenant_auth_endpoint is None:
+            raise TypeError("Missing 'tenant_auth_endpoint' argument")
+        if allowed_applications is None and 'allowedApplications' in kwargs:
             allowed_applications = kwargs['allowedApplications']
-        if 'allowedAudiences' in kwargs:
+        if allowed_audiences is None and 'allowedAudiences' in kwargs:
             allowed_audiences = kwargs['allowedAudiences']
-        if 'allowedGroups' in kwargs:
+        if allowed_groups is None and 'allowedGroups' in kwargs:
             allowed_groups = kwargs['allowedGroups']
-        if 'allowedIdentities' in kwargs:
+        if allowed_identities is None and 'allowedIdentities' in kwargs:
             allowed_identities = kwargs['allowedIdentities']
-        if 'clientSecretCertificateThumbprint' in kwargs:
+        if client_secret_certificate_thumbprint is None and 'clientSecretCertificateThumbprint' in kwargs:
             client_secret_certificate_thumbprint = kwargs['clientSecretCertificateThumbprint']
-        if 'clientSecretSettingName' in kwargs:
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'jwtAllowedClientApplications' in kwargs:
+        if jwt_allowed_client_applications is None and 'jwtAllowedClientApplications' in kwargs:
             jwt_allowed_client_applications = kwargs['jwtAllowedClientApplications']
-        if 'jwtAllowedGroups' in kwargs:
+        if jwt_allowed_groups is None and 'jwtAllowedGroups' in kwargs:
             jwt_allowed_groups = kwargs['jwtAllowedGroups']
-        if 'loginParameters' in kwargs:
+        if login_parameters is None and 'loginParameters' in kwargs:
             login_parameters = kwargs['loginParameters']
-        if 'wwwAuthenticationDisabled' in kwargs:
+        if www_authentication_disabled is None and 'wwwAuthenticationDisabled' in kwargs:
             www_authentication_disabled = kwargs['wwwAuthenticationDisabled']
 
         _setter("client_id", client_id)
@@ -33439,16 +34075,20 @@ class WindowsFunctionAppAuthSettingsV2AppleV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             client_secret_setting_name: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecretSettingName' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'loginScopes' in kwargs:
+        if client_secret_setting_name is None:
+            raise TypeError("Missing 'client_secret_setting_name' argument")
+        if login_scopes is None and 'loginScopes' in kwargs:
             login_scopes = kwargs['loginScopes']
 
         _setter("client_id", client_id)
@@ -33507,11 +34147,13 @@ class WindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
 
         _setter("client_id", client_id)
 
@@ -33572,9 +34214,9 @@ class WindowsFunctionAppAuthSettingsV2CustomOidcV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             name: pulumi.Input[str],
-             openid_configuration_endpoint: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             openid_configuration_endpoint: Optional[pulumi.Input[str]] = None,
              authorisation_endpoint: Optional[pulumi.Input[str]] = None,
              certification_uri: Optional[pulumi.Input[str]] = None,
              client_credential_method: Optional[pulumi.Input[str]] = None,
@@ -33585,23 +34227,29 @@ class WindowsFunctionAppAuthSettingsV2CustomOidcV2Args:
              token_endpoint: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'openidConfigurationEndpoint' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if openid_configuration_endpoint is None and 'openidConfigurationEndpoint' in kwargs:
             openid_configuration_endpoint = kwargs['openidConfigurationEndpoint']
-        if 'authorisationEndpoint' in kwargs:
+        if openid_configuration_endpoint is None:
+            raise TypeError("Missing 'openid_configuration_endpoint' argument")
+        if authorisation_endpoint is None and 'authorisationEndpoint' in kwargs:
             authorisation_endpoint = kwargs['authorisationEndpoint']
-        if 'certificationUri' in kwargs:
+        if certification_uri is None and 'certificationUri' in kwargs:
             certification_uri = kwargs['certificationUri']
-        if 'clientCredentialMethod' in kwargs:
+        if client_credential_method is None and 'clientCredentialMethod' in kwargs:
             client_credential_method = kwargs['clientCredentialMethod']
-        if 'clientSecretSettingName' in kwargs:
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'issuerEndpoint' in kwargs:
+        if issuer_endpoint is None and 'issuerEndpoint' in kwargs:
             issuer_endpoint = kwargs['issuerEndpoint']
-        if 'nameClaimType' in kwargs:
+        if name_claim_type is None and 'nameClaimType' in kwargs:
             name_claim_type = kwargs['nameClaimType']
-        if 'tokenEndpoint' in kwargs:
+        if token_endpoint is None and 'tokenEndpoint' in kwargs:
             token_endpoint = kwargs['tokenEndpoint']
 
         _setter("client_id", client_id)
@@ -33782,19 +34430,23 @@ class WindowsFunctionAppAuthSettingsV2FacebookV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_id: pulumi.Input[str],
-             app_secret_setting_name: pulumi.Input[str],
+             app_id: Optional[pulumi.Input[str]] = None,
+             app_secret_setting_name: Optional[pulumi.Input[str]] = None,
              graph_api_version: Optional[pulumi.Input[str]] = None,
              login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'appId' in kwargs:
+        if app_id is None and 'appId' in kwargs:
             app_id = kwargs['appId']
-        if 'appSecretSettingName' in kwargs:
+        if app_id is None:
+            raise TypeError("Missing 'app_id' argument")
+        if app_secret_setting_name is None and 'appSecretSettingName' in kwargs:
             app_secret_setting_name = kwargs['appSecretSettingName']
-        if 'graphApiVersion' in kwargs:
+        if app_secret_setting_name is None:
+            raise TypeError("Missing 'app_secret_setting_name' argument")
+        if graph_api_version is None and 'graphApiVersion' in kwargs:
             graph_api_version = kwargs['graphApiVersion']
-        if 'loginScopes' in kwargs:
+        if login_scopes is None and 'loginScopes' in kwargs:
             login_scopes = kwargs['loginScopes']
 
         _setter("app_id", app_id)
@@ -33875,16 +34527,20 @@ class WindowsFunctionAppAuthSettingsV2GithubV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             client_secret_setting_name: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecretSettingName' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'loginScopes' in kwargs:
+        if client_secret_setting_name is None:
+            raise TypeError("Missing 'client_secret_setting_name' argument")
+        if login_scopes is None and 'loginScopes' in kwargs:
             login_scopes = kwargs['loginScopes']
 
         _setter("client_id", client_id)
@@ -33954,19 +34610,23 @@ class WindowsFunctionAppAuthSettingsV2GoogleV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             client_secret_setting_name: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecretSettingName' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'allowedAudiences' in kwargs:
+        if client_secret_setting_name is None:
+            raise TypeError("Missing 'client_secret_setting_name' argument")
+        if allowed_audiences is None and 'allowedAudiences' in kwargs:
             allowed_audiences = kwargs['allowedAudiences']
-        if 'loginScopes' in kwargs:
+        if login_scopes is None and 'loginScopes' in kwargs:
             login_scopes = kwargs['loginScopes']
 
         _setter("client_id", client_id)
@@ -34086,27 +34746,27 @@ class WindowsFunctionAppAuthSettingsV2LoginArgs:
              validate_nonce: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowedExternalRedirectUrls' in kwargs:
+        if allowed_external_redirect_urls is None and 'allowedExternalRedirectUrls' in kwargs:
             allowed_external_redirect_urls = kwargs['allowedExternalRedirectUrls']
-        if 'cookieExpirationConvention' in kwargs:
+        if cookie_expiration_convention is None and 'cookieExpirationConvention' in kwargs:
             cookie_expiration_convention = kwargs['cookieExpirationConvention']
-        if 'cookieExpirationTime' in kwargs:
+        if cookie_expiration_time is None and 'cookieExpirationTime' in kwargs:
             cookie_expiration_time = kwargs['cookieExpirationTime']
-        if 'logoutEndpoint' in kwargs:
+        if logout_endpoint is None and 'logoutEndpoint' in kwargs:
             logout_endpoint = kwargs['logoutEndpoint']
-        if 'nonceExpirationTime' in kwargs:
+        if nonce_expiration_time is None and 'nonceExpirationTime' in kwargs:
             nonce_expiration_time = kwargs['nonceExpirationTime']
-        if 'preserveUrlFragmentsForLogins' in kwargs:
+        if preserve_url_fragments_for_logins is None and 'preserveUrlFragmentsForLogins' in kwargs:
             preserve_url_fragments_for_logins = kwargs['preserveUrlFragmentsForLogins']
-        if 'tokenRefreshExtensionTime' in kwargs:
+        if token_refresh_extension_time is None and 'tokenRefreshExtensionTime' in kwargs:
             token_refresh_extension_time = kwargs['tokenRefreshExtensionTime']
-        if 'tokenStoreEnabled' in kwargs:
+        if token_store_enabled is None and 'tokenStoreEnabled' in kwargs:
             token_store_enabled = kwargs['tokenStoreEnabled']
-        if 'tokenStorePath' in kwargs:
+        if token_store_path is None and 'tokenStorePath' in kwargs:
             token_store_path = kwargs['tokenStorePath']
-        if 'tokenStoreSasSettingName' in kwargs:
+        if token_store_sas_setting_name is None and 'tokenStoreSasSettingName' in kwargs:
             token_store_sas_setting_name = kwargs['tokenStoreSasSettingName']
-        if 'validateNonce' in kwargs:
+        if validate_nonce is None and 'validateNonce' in kwargs:
             validate_nonce = kwargs['validateNonce']
 
         if allowed_external_redirect_urls is not None:
@@ -34292,19 +34952,23 @@ class WindowsFunctionAppAuthSettingsV2MicrosoftV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             client_secret_setting_name: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecretSettingName' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'allowedAudiences' in kwargs:
+        if client_secret_setting_name is None:
+            raise TypeError("Missing 'client_secret_setting_name' argument")
+        if allowed_audiences is None and 'allowedAudiences' in kwargs:
             allowed_audiences = kwargs['allowedAudiences']
-        if 'loginScopes' in kwargs:
+        if login_scopes is None and 'loginScopes' in kwargs:
             login_scopes = kwargs['loginScopes']
 
         _setter("client_id", client_id)
@@ -34384,14 +35048,18 @@ class WindowsFunctionAppAuthSettingsV2TwitterV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             consumer_key: pulumi.Input[str],
-             consumer_secret_setting_name: pulumi.Input[str],
+             consumer_key: Optional[pulumi.Input[str]] = None,
+             consumer_secret_setting_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'consumerKey' in kwargs:
+        if consumer_key is None and 'consumerKey' in kwargs:
             consumer_key = kwargs['consumerKey']
-        if 'consumerSecretSettingName' in kwargs:
+        if consumer_key is None:
+            raise TypeError("Missing 'consumer_key' argument")
+        if consumer_secret_setting_name is None and 'consumerSecretSettingName' in kwargs:
             consumer_secret_setting_name = kwargs['consumerSecretSettingName']
+        if consumer_secret_setting_name is None:
+            raise TypeError("Missing 'consumer_secret_setting_name' argument")
 
         _setter("consumer_key", consumer_key)
         _setter("consumer_secret_setting_name", consumer_secret_setting_name)
@@ -34446,14 +35114,20 @@ class WindowsFunctionAppBackupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             schedule: pulumi.Input['WindowsFunctionAppBackupScheduleArgs'],
-             storage_account_url: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             schedule: Optional[pulumi.Input['WindowsFunctionAppBackupScheduleArgs']] = None,
+             storage_account_url: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'storageAccountUrl' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if schedule is None:
+            raise TypeError("Missing 'schedule' argument")
+        if storage_account_url is None and 'storageAccountUrl' in kwargs:
             storage_account_url = kwargs['storageAccountUrl']
+        if storage_account_url is None:
+            raise TypeError("Missing 'storage_account_url' argument")
 
         _setter("name", name)
         _setter("schedule", schedule)
@@ -34540,25 +35214,29 @@ class WindowsFunctionAppBackupScheduleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             frequency_interval: pulumi.Input[int],
-             frequency_unit: pulumi.Input[str],
+             frequency_interval: Optional[pulumi.Input[int]] = None,
+             frequency_unit: Optional[pulumi.Input[str]] = None,
              keep_at_least_one_backup: Optional[pulumi.Input[bool]] = None,
              last_execution_time: Optional[pulumi.Input[str]] = None,
              retention_period_days: Optional[pulumi.Input[int]] = None,
              start_time: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'frequencyInterval' in kwargs:
+        if frequency_interval is None and 'frequencyInterval' in kwargs:
             frequency_interval = kwargs['frequencyInterval']
-        if 'frequencyUnit' in kwargs:
+        if frequency_interval is None:
+            raise TypeError("Missing 'frequency_interval' argument")
+        if frequency_unit is None and 'frequencyUnit' in kwargs:
             frequency_unit = kwargs['frequencyUnit']
-        if 'keepAtLeastOneBackup' in kwargs:
+        if frequency_unit is None:
+            raise TypeError("Missing 'frequency_unit' argument")
+        if keep_at_least_one_backup is None and 'keepAtLeastOneBackup' in kwargs:
             keep_at_least_one_backup = kwargs['keepAtLeastOneBackup']
-        if 'lastExecutionTime' in kwargs:
+        if last_execution_time is None and 'lastExecutionTime' in kwargs:
             last_execution_time = kwargs['lastExecutionTime']
-        if 'retentionPeriodDays' in kwargs:
+        if retention_period_days is None and 'retentionPeriodDays' in kwargs:
             retention_period_days = kwargs['retentionPeriodDays']
-        if 'startTime' in kwargs:
+        if start_time is None and 'startTime' in kwargs:
             start_time = kwargs['startTime']
 
         _setter("frequency_interval", frequency_interval)
@@ -34664,11 +35342,17 @@ class WindowsFunctionAppConnectionStringArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             type: pulumi.Input[str],
-             value: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("name", name)
         _setter("type", type)
@@ -34736,17 +35420,19 @@ class WindowsFunctionAppIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -34960,71 +35646,71 @@ class WindowsFunctionAppSiteConfigArgs:
              worker_count: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'alwaysOn' in kwargs:
+        if always_on is None and 'alwaysOn' in kwargs:
             always_on = kwargs['alwaysOn']
-        if 'apiDefinitionUrl' in kwargs:
+        if api_definition_url is None and 'apiDefinitionUrl' in kwargs:
             api_definition_url = kwargs['apiDefinitionUrl']
-        if 'apiManagementApiId' in kwargs:
+        if api_management_api_id is None and 'apiManagementApiId' in kwargs:
             api_management_api_id = kwargs['apiManagementApiId']
-        if 'appCommandLine' in kwargs:
+        if app_command_line is None and 'appCommandLine' in kwargs:
             app_command_line = kwargs['appCommandLine']
-        if 'appScaleLimit' in kwargs:
+        if app_scale_limit is None and 'appScaleLimit' in kwargs:
             app_scale_limit = kwargs['appScaleLimit']
-        if 'appServiceLogs' in kwargs:
+        if app_service_logs is None and 'appServiceLogs' in kwargs:
             app_service_logs = kwargs['appServiceLogs']
-        if 'applicationInsightsConnectionString' in kwargs:
+        if application_insights_connection_string is None and 'applicationInsightsConnectionString' in kwargs:
             application_insights_connection_string = kwargs['applicationInsightsConnectionString']
-        if 'applicationInsightsKey' in kwargs:
+        if application_insights_key is None and 'applicationInsightsKey' in kwargs:
             application_insights_key = kwargs['applicationInsightsKey']
-        if 'applicationStack' in kwargs:
+        if application_stack is None and 'applicationStack' in kwargs:
             application_stack = kwargs['applicationStack']
-        if 'defaultDocuments' in kwargs:
+        if default_documents is None and 'defaultDocuments' in kwargs:
             default_documents = kwargs['defaultDocuments']
-        if 'detailedErrorLoggingEnabled' in kwargs:
+        if detailed_error_logging_enabled is None and 'detailedErrorLoggingEnabled' in kwargs:
             detailed_error_logging_enabled = kwargs['detailedErrorLoggingEnabled']
-        if 'elasticInstanceMinimum' in kwargs:
+        if elastic_instance_minimum is None and 'elasticInstanceMinimum' in kwargs:
             elastic_instance_minimum = kwargs['elasticInstanceMinimum']
-        if 'ftpsState' in kwargs:
+        if ftps_state is None and 'ftpsState' in kwargs:
             ftps_state = kwargs['ftpsState']
-        if 'healthCheckEvictionTimeInMin' in kwargs:
+        if health_check_eviction_time_in_min is None and 'healthCheckEvictionTimeInMin' in kwargs:
             health_check_eviction_time_in_min = kwargs['healthCheckEvictionTimeInMin']
-        if 'healthCheckPath' in kwargs:
+        if health_check_path is None and 'healthCheckPath' in kwargs:
             health_check_path = kwargs['healthCheckPath']
-        if 'http2Enabled' in kwargs:
+        if http2_enabled is None and 'http2Enabled' in kwargs:
             http2_enabled = kwargs['http2Enabled']
-        if 'ipRestrictions' in kwargs:
+        if ip_restrictions is None and 'ipRestrictions' in kwargs:
             ip_restrictions = kwargs['ipRestrictions']
-        if 'loadBalancingMode' in kwargs:
+        if load_balancing_mode is None and 'loadBalancingMode' in kwargs:
             load_balancing_mode = kwargs['loadBalancingMode']
-        if 'managedPipelineMode' in kwargs:
+        if managed_pipeline_mode is None and 'managedPipelineMode' in kwargs:
             managed_pipeline_mode = kwargs['managedPipelineMode']
-        if 'minimumTlsVersion' in kwargs:
+        if minimum_tls_version is None and 'minimumTlsVersion' in kwargs:
             minimum_tls_version = kwargs['minimumTlsVersion']
-        if 'preWarmedInstanceCount' in kwargs:
+        if pre_warmed_instance_count is None and 'preWarmedInstanceCount' in kwargs:
             pre_warmed_instance_count = kwargs['preWarmedInstanceCount']
-        if 'remoteDebuggingEnabled' in kwargs:
+        if remote_debugging_enabled is None and 'remoteDebuggingEnabled' in kwargs:
             remote_debugging_enabled = kwargs['remoteDebuggingEnabled']
-        if 'remoteDebuggingVersion' in kwargs:
+        if remote_debugging_version is None and 'remoteDebuggingVersion' in kwargs:
             remote_debugging_version = kwargs['remoteDebuggingVersion']
-        if 'runtimeScaleMonitoringEnabled' in kwargs:
+        if runtime_scale_monitoring_enabled is None and 'runtimeScaleMonitoringEnabled' in kwargs:
             runtime_scale_monitoring_enabled = kwargs['runtimeScaleMonitoringEnabled']
-        if 'scmIpRestrictions' in kwargs:
+        if scm_ip_restrictions is None and 'scmIpRestrictions' in kwargs:
             scm_ip_restrictions = kwargs['scmIpRestrictions']
-        if 'scmMinimumTlsVersion' in kwargs:
+        if scm_minimum_tls_version is None and 'scmMinimumTlsVersion' in kwargs:
             scm_minimum_tls_version = kwargs['scmMinimumTlsVersion']
-        if 'scmType' in kwargs:
+        if scm_type is None and 'scmType' in kwargs:
             scm_type = kwargs['scmType']
-        if 'scmUseMainIpRestriction' in kwargs:
+        if scm_use_main_ip_restriction is None and 'scmUseMainIpRestriction' in kwargs:
             scm_use_main_ip_restriction = kwargs['scmUseMainIpRestriction']
-        if 'use32BitWorker' in kwargs:
+        if use32_bit_worker is None and 'use32BitWorker' in kwargs:
             use32_bit_worker = kwargs['use32BitWorker']
-        if 'vnetRouteAllEnabled' in kwargs:
+        if vnet_route_all_enabled is None and 'vnetRouteAllEnabled' in kwargs:
             vnet_route_all_enabled = kwargs['vnetRouteAllEnabled']
-        if 'websocketsEnabled' in kwargs:
+        if websockets_enabled is None and 'websocketsEnabled' in kwargs:
             websockets_enabled = kwargs['websocketsEnabled']
-        if 'windowsFxVersion' in kwargs:
+        if windows_fx_version is None and 'windowsFxVersion' in kwargs:
             windows_fx_version = kwargs['windowsFxVersion']
-        if 'workerCount' in kwargs:
+        if worker_count is None and 'workerCount' in kwargs:
             worker_count = kwargs['workerCount']
 
         if always_on is not None:
@@ -35525,9 +36211,9 @@ class WindowsFunctionAppSiteConfigAppServiceLogsArgs:
              retention_period_days: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'diskQuotaMb' in kwargs:
+        if disk_quota_mb is None and 'diskQuotaMb' in kwargs:
             disk_quota_mb = kwargs['diskQuotaMb']
-        if 'retentionPeriodDays' in kwargs:
+        if retention_period_days is None and 'retentionPeriodDays' in kwargs:
             retention_period_days = kwargs['retentionPeriodDays']
 
         if disk_quota_mb is not None:
@@ -35601,17 +36287,17 @@ class WindowsFunctionAppSiteConfigApplicationStackArgs:
              use_dotnet_isolated_runtime: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dotnetVersion' in kwargs:
+        if dotnet_version is None and 'dotnetVersion' in kwargs:
             dotnet_version = kwargs['dotnetVersion']
-        if 'javaVersion' in kwargs:
+        if java_version is None and 'javaVersion' in kwargs:
             java_version = kwargs['javaVersion']
-        if 'nodeVersion' in kwargs:
+        if node_version is None and 'nodeVersion' in kwargs:
             node_version = kwargs['nodeVersion']
-        if 'powershellCoreVersion' in kwargs:
+        if powershell_core_version is None and 'powershellCoreVersion' in kwargs:
             powershell_core_version = kwargs['powershellCoreVersion']
-        if 'useCustomRuntime' in kwargs:
+        if use_custom_runtime is None and 'useCustomRuntime' in kwargs:
             use_custom_runtime = kwargs['useCustomRuntime']
-        if 'useDotnetIsolatedRuntime' in kwargs:
+        if use_dotnet_isolated_runtime is None and 'useDotnetIsolatedRuntime' in kwargs:
             use_dotnet_isolated_runtime = kwargs['useDotnetIsolatedRuntime']
 
         if dotnet_version is not None:
@@ -35723,9 +36409,9 @@ class WindowsFunctionAppSiteConfigCorsArgs:
              support_credentials: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowedOrigins' in kwargs:
+        if allowed_origins is None and 'allowedOrigins' in kwargs:
             allowed_origins = kwargs['allowedOrigins']
-        if 'supportCredentials' in kwargs:
+        if support_credentials is None and 'supportCredentials' in kwargs:
             support_credentials = kwargs['supportCredentials']
 
         if allowed_origins is not None:
@@ -35801,11 +36487,11 @@ class WindowsFunctionAppSiteConfigIpRestrictionArgs:
              virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ipAddress' in kwargs:
+        if ip_address is None and 'ipAddress' in kwargs:
             ip_address = kwargs['ipAddress']
-        if 'serviceTag' in kwargs:
+        if service_tag is None and 'serviceTag' in kwargs:
             service_tag = kwargs['serviceTag']
-        if 'virtualNetworkSubnetId' in kwargs:
+        if virtual_network_subnet_id is None and 'virtualNetworkSubnetId' in kwargs:
             virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
 
         if action is not None:
@@ -35939,13 +36625,13 @@ class WindowsFunctionAppSiteConfigIpRestrictionHeadersArgs:
              x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'xAzureFdids' in kwargs:
+        if x_azure_fdids is None and 'xAzureFdids' in kwargs:
             x_azure_fdids = kwargs['xAzureFdids']
-        if 'xFdHealthProbe' in kwargs:
+        if x_fd_health_probe is None and 'xFdHealthProbe' in kwargs:
             x_fd_health_probe = kwargs['xFdHealthProbe']
-        if 'xForwardedFors' in kwargs:
+        if x_forwarded_fors is None and 'xForwardedFors' in kwargs:
             x_forwarded_fors = kwargs['xForwardedFors']
-        if 'xForwardedHosts' in kwargs:
+        if x_forwarded_hosts is None and 'xForwardedHosts' in kwargs:
             x_forwarded_hosts = kwargs['xForwardedHosts']
 
         if x_azure_fdids is not None:
@@ -36049,11 +36735,11 @@ class WindowsFunctionAppSiteConfigScmIpRestrictionArgs:
              virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ipAddress' in kwargs:
+        if ip_address is None and 'ipAddress' in kwargs:
             ip_address = kwargs['ipAddress']
-        if 'serviceTag' in kwargs:
+        if service_tag is None and 'serviceTag' in kwargs:
             service_tag = kwargs['serviceTag']
-        if 'virtualNetworkSubnetId' in kwargs:
+        if virtual_network_subnet_id is None and 'virtualNetworkSubnetId' in kwargs:
             virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
 
         if action is not None:
@@ -36187,13 +36873,13 @@ class WindowsFunctionAppSiteConfigScmIpRestrictionHeadersArgs:
              x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'xAzureFdids' in kwargs:
+        if x_azure_fdids is None and 'xAzureFdids' in kwargs:
             x_azure_fdids = kwargs['xAzureFdids']
-        if 'xFdHealthProbe' in kwargs:
+        if x_fd_health_probe is None and 'xFdHealthProbe' in kwargs:
             x_fd_health_probe = kwargs['xFdHealthProbe']
-        if 'xForwardedFors' in kwargs:
+        if x_forwarded_fors is None and 'xForwardedFors' in kwargs:
             x_forwarded_fors = kwargs['xForwardedFors']
-        if 'xForwardedHosts' in kwargs:
+        if x_forwarded_hosts is None and 'xForwardedHosts' in kwargs:
             x_forwarded_hosts = kwargs['xForwardedHosts']
 
         if x_azure_fdids is not None:
@@ -36366,7 +37052,7 @@ class WindowsFunctionAppSlotAuthSettingsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: pulumi.Input[bool],
+             enabled: Optional[pulumi.Input[bool]] = None,
              active_directory: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsActiveDirectoryArgs']] = None,
              additional_login_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -36383,21 +37069,23 @@ class WindowsFunctionAppSlotAuthSettingsArgs:
              unauthenticated_client_action: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'activeDirectory' in kwargs:
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if active_directory is None and 'activeDirectory' in kwargs:
             active_directory = kwargs['activeDirectory']
-        if 'additionalLoginParameters' in kwargs:
+        if additional_login_parameters is None and 'additionalLoginParameters' in kwargs:
             additional_login_parameters = kwargs['additionalLoginParameters']
-        if 'allowedExternalRedirectUrls' in kwargs:
+        if allowed_external_redirect_urls is None and 'allowedExternalRedirectUrls' in kwargs:
             allowed_external_redirect_urls = kwargs['allowedExternalRedirectUrls']
-        if 'defaultProvider' in kwargs:
+        if default_provider is None and 'defaultProvider' in kwargs:
             default_provider = kwargs['defaultProvider']
-        if 'runtimeVersion' in kwargs:
+        if runtime_version is None and 'runtimeVersion' in kwargs:
             runtime_version = kwargs['runtimeVersion']
-        if 'tokenRefreshExtensionHours' in kwargs:
+        if token_refresh_extension_hours is None and 'tokenRefreshExtensionHours' in kwargs:
             token_refresh_extension_hours = kwargs['tokenRefreshExtensionHours']
-        if 'tokenStoreEnabled' in kwargs:
+        if token_store_enabled is None and 'tokenStoreEnabled' in kwargs:
             token_store_enabled = kwargs['tokenStoreEnabled']
-        if 'unauthenticatedClientAction' in kwargs:
+        if unauthenticated_client_action is None and 'unauthenticatedClientAction' in kwargs:
             unauthenticated_client_action = kwargs['unauthenticatedClientAction']
 
         _setter("enabled", enabled)
@@ -36640,19 +37328,21 @@ class WindowsFunctionAppSlotAuthSettingsActiveDirectoryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
              allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              client_secret: Optional[pulumi.Input[str]] = None,
              client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'allowedAudiences' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if allowed_audiences is None and 'allowedAudiences' in kwargs:
             allowed_audiences = kwargs['allowedAudiences']
-        if 'clientSecret' in kwargs:
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'clientSecretSettingName' in kwargs:
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
 
         _setter("client_id", client_id)
@@ -36737,19 +37427,21 @@ class WindowsFunctionAppSlotAuthSettingsFacebookArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_id: pulumi.Input[str],
+             app_id: Optional[pulumi.Input[str]] = None,
              app_secret: Optional[pulumi.Input[str]] = None,
              app_secret_setting_name: Optional[pulumi.Input[str]] = None,
              oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'appId' in kwargs:
+        if app_id is None and 'appId' in kwargs:
             app_id = kwargs['appId']
-        if 'appSecret' in kwargs:
+        if app_id is None:
+            raise TypeError("Missing 'app_id' argument")
+        if app_secret is None and 'appSecret' in kwargs:
             app_secret = kwargs['appSecret']
-        if 'appSecretSettingName' in kwargs:
+        if app_secret_setting_name is None and 'appSecretSettingName' in kwargs:
             app_secret_setting_name = kwargs['appSecretSettingName']
-        if 'oauthScopes' in kwargs:
+        if oauth_scopes is None and 'oauthScopes' in kwargs:
             oauth_scopes = kwargs['oauthScopes']
 
         _setter("app_id", app_id)
@@ -36832,19 +37524,21 @@ class WindowsFunctionAppSlotAuthSettingsGithubArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
              client_secret: Optional[pulumi.Input[str]] = None,
              client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecret' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'clientSecretSettingName' in kwargs:
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'oauthScopes' in kwargs:
+        if oauth_scopes is None and 'oauthScopes' in kwargs:
             oauth_scopes = kwargs['oauthScopes']
 
         _setter("client_id", client_id)
@@ -36927,19 +37621,21 @@ class WindowsFunctionAppSlotAuthSettingsGoogleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
              client_secret: Optional[pulumi.Input[str]] = None,
              client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecret' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'clientSecretSettingName' in kwargs:
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'oauthScopes' in kwargs:
+        if oauth_scopes is None and 'oauthScopes' in kwargs:
             oauth_scopes = kwargs['oauthScopes']
 
         _setter("client_id", client_id)
@@ -37022,19 +37718,21 @@ class WindowsFunctionAppSlotAuthSettingsMicrosoftArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
              client_secret: Optional[pulumi.Input[str]] = None,
              client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecret' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'clientSecretSettingName' in kwargs:
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'oauthScopes' in kwargs:
+        if oauth_scopes is None and 'oauthScopes' in kwargs:
             oauth_scopes = kwargs['oauthScopes']
 
         _setter("client_id", client_id)
@@ -37114,16 +37812,18 @@ class WindowsFunctionAppSlotAuthSettingsTwitterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             consumer_key: pulumi.Input[str],
+             consumer_key: Optional[pulumi.Input[str]] = None,
              consumer_secret: Optional[pulumi.Input[str]] = None,
              consumer_secret_setting_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'consumerKey' in kwargs:
+        if consumer_key is None and 'consumerKey' in kwargs:
             consumer_key = kwargs['consumerKey']
-        if 'consumerSecret' in kwargs:
+        if consumer_key is None:
+            raise TypeError("Missing 'consumer_key' argument")
+        if consumer_secret is None and 'consumerSecret' in kwargs:
             consumer_secret = kwargs['consumerSecret']
-        if 'consumerSecretSettingName' in kwargs:
+        if consumer_secret_setting_name is None and 'consumerSecretSettingName' in kwargs:
             consumer_secret_setting_name = kwargs['consumerSecretSettingName']
 
         _setter("consumer_key", consumer_key)
@@ -37252,7 +37952,7 @@ class WindowsFunctionAppSlotAuthSettingsV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             login: pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2LoginArgs'],
+             login: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2LoginArgs']] = None,
              active_directory_v2: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args']] = None,
              apple_v2: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2AppleV2Args']] = None,
              auth_enabled: Optional[pulumi.Input[bool]] = None,
@@ -37276,47 +37976,49 @@ class WindowsFunctionAppSlotAuthSettingsV2Args:
              unauthenticated_action: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'activeDirectoryV2' in kwargs:
+        if login is None:
+            raise TypeError("Missing 'login' argument")
+        if active_directory_v2 is None and 'activeDirectoryV2' in kwargs:
             active_directory_v2 = kwargs['activeDirectoryV2']
-        if 'appleV2' in kwargs:
+        if apple_v2 is None and 'appleV2' in kwargs:
             apple_v2 = kwargs['appleV2']
-        if 'authEnabled' in kwargs:
+        if auth_enabled is None and 'authEnabled' in kwargs:
             auth_enabled = kwargs['authEnabled']
-        if 'azureStaticWebAppV2' in kwargs:
+        if azure_static_web_app_v2 is None and 'azureStaticWebAppV2' in kwargs:
             azure_static_web_app_v2 = kwargs['azureStaticWebAppV2']
-        if 'configFilePath' in kwargs:
+        if config_file_path is None and 'configFilePath' in kwargs:
             config_file_path = kwargs['configFilePath']
-        if 'customOidcV2s' in kwargs:
+        if custom_oidc_v2s is None and 'customOidcV2s' in kwargs:
             custom_oidc_v2s = kwargs['customOidcV2s']
-        if 'defaultProvider' in kwargs:
+        if default_provider is None and 'defaultProvider' in kwargs:
             default_provider = kwargs['defaultProvider']
-        if 'excludedPaths' in kwargs:
+        if excluded_paths is None and 'excludedPaths' in kwargs:
             excluded_paths = kwargs['excludedPaths']
-        if 'facebookV2' in kwargs:
+        if facebook_v2 is None and 'facebookV2' in kwargs:
             facebook_v2 = kwargs['facebookV2']
-        if 'forwardProxyConvention' in kwargs:
+        if forward_proxy_convention is None and 'forwardProxyConvention' in kwargs:
             forward_proxy_convention = kwargs['forwardProxyConvention']
-        if 'forwardProxyCustomHostHeaderName' in kwargs:
+        if forward_proxy_custom_host_header_name is None and 'forwardProxyCustomHostHeaderName' in kwargs:
             forward_proxy_custom_host_header_name = kwargs['forwardProxyCustomHostHeaderName']
-        if 'forwardProxyCustomSchemeHeaderName' in kwargs:
+        if forward_proxy_custom_scheme_header_name is None and 'forwardProxyCustomSchemeHeaderName' in kwargs:
             forward_proxy_custom_scheme_header_name = kwargs['forwardProxyCustomSchemeHeaderName']
-        if 'githubV2' in kwargs:
+        if github_v2 is None and 'githubV2' in kwargs:
             github_v2 = kwargs['githubV2']
-        if 'googleV2' in kwargs:
+        if google_v2 is None and 'googleV2' in kwargs:
             google_v2 = kwargs['googleV2']
-        if 'httpRouteApiPrefix' in kwargs:
+        if http_route_api_prefix is None and 'httpRouteApiPrefix' in kwargs:
             http_route_api_prefix = kwargs['httpRouteApiPrefix']
-        if 'microsoftV2' in kwargs:
+        if microsoft_v2 is None and 'microsoftV2' in kwargs:
             microsoft_v2 = kwargs['microsoftV2']
-        if 'requireAuthentication' in kwargs:
+        if require_authentication is None and 'requireAuthentication' in kwargs:
             require_authentication = kwargs['requireAuthentication']
-        if 'requireHttps' in kwargs:
+        if require_https is None and 'requireHttps' in kwargs:
             require_https = kwargs['requireHttps']
-        if 'runtimeVersion' in kwargs:
+        if runtime_version is None and 'runtimeVersion' in kwargs:
             runtime_version = kwargs['runtimeVersion']
-        if 'twitterV2' in kwargs:
+        if twitter_v2 is None and 'twitterV2' in kwargs:
             twitter_v2 = kwargs['twitterV2']
-        if 'unauthenticatedAction' in kwargs:
+        if unauthenticated_action is None and 'unauthenticatedAction' in kwargs:
             unauthenticated_action = kwargs['unauthenticatedAction']
 
         _setter("login", login)
@@ -37685,8 +38387,8 @@ class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             tenant_auth_endpoint: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             tenant_auth_endpoint: Optional[pulumi.Input[str]] = None,
              allowed_applications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              allowed_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -37699,29 +38401,33 @@ class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args:
              www_authentication_disabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'tenantAuthEndpoint' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if tenant_auth_endpoint is None and 'tenantAuthEndpoint' in kwargs:
             tenant_auth_endpoint = kwargs['tenantAuthEndpoint']
-        if 'allowedApplications' in kwargs:
+        if tenant_auth_endpoint is None:
+            raise TypeError("Missing 'tenant_auth_endpoint' argument")
+        if allowed_applications is None and 'allowedApplications' in kwargs:
             allowed_applications = kwargs['allowedApplications']
-        if 'allowedAudiences' in kwargs:
+        if allowed_audiences is None and 'allowedAudiences' in kwargs:
             allowed_audiences = kwargs['allowedAudiences']
-        if 'allowedGroups' in kwargs:
+        if allowed_groups is None and 'allowedGroups' in kwargs:
             allowed_groups = kwargs['allowedGroups']
-        if 'allowedIdentities' in kwargs:
+        if allowed_identities is None and 'allowedIdentities' in kwargs:
             allowed_identities = kwargs['allowedIdentities']
-        if 'clientSecretCertificateThumbprint' in kwargs:
+        if client_secret_certificate_thumbprint is None and 'clientSecretCertificateThumbprint' in kwargs:
             client_secret_certificate_thumbprint = kwargs['clientSecretCertificateThumbprint']
-        if 'clientSecretSettingName' in kwargs:
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'jwtAllowedClientApplications' in kwargs:
+        if jwt_allowed_client_applications is None and 'jwtAllowedClientApplications' in kwargs:
             jwt_allowed_client_applications = kwargs['jwtAllowedClientApplications']
-        if 'jwtAllowedGroups' in kwargs:
+        if jwt_allowed_groups is None and 'jwtAllowedGroups' in kwargs:
             jwt_allowed_groups = kwargs['jwtAllowedGroups']
-        if 'loginParameters' in kwargs:
+        if login_parameters is None and 'loginParameters' in kwargs:
             login_parameters = kwargs['loginParameters']
-        if 'wwwAuthenticationDisabled' in kwargs:
+        if www_authentication_disabled is None and 'wwwAuthenticationDisabled' in kwargs:
             www_authentication_disabled = kwargs['wwwAuthenticationDisabled']
 
         _setter("client_id", client_id)
@@ -37916,16 +38622,20 @@ class WindowsFunctionAppSlotAuthSettingsV2AppleV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             client_secret_setting_name: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecretSettingName' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'loginScopes' in kwargs:
+        if client_secret_setting_name is None:
+            raise TypeError("Missing 'client_secret_setting_name' argument")
+        if login_scopes is None and 'loginScopes' in kwargs:
             login_scopes = kwargs['loginScopes']
 
         _setter("client_id", client_id)
@@ -37984,11 +38694,13 @@ class WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
 
         _setter("client_id", client_id)
 
@@ -38049,9 +38761,9 @@ class WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             name: pulumi.Input[str],
-             openid_configuration_endpoint: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             openid_configuration_endpoint: Optional[pulumi.Input[str]] = None,
              authorisation_endpoint: Optional[pulumi.Input[str]] = None,
              certification_uri: Optional[pulumi.Input[str]] = None,
              client_credential_method: Optional[pulumi.Input[str]] = None,
@@ -38062,23 +38774,29 @@ class WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2Args:
              token_endpoint: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'openidConfigurationEndpoint' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if openid_configuration_endpoint is None and 'openidConfigurationEndpoint' in kwargs:
             openid_configuration_endpoint = kwargs['openidConfigurationEndpoint']
-        if 'authorisationEndpoint' in kwargs:
+        if openid_configuration_endpoint is None:
+            raise TypeError("Missing 'openid_configuration_endpoint' argument")
+        if authorisation_endpoint is None and 'authorisationEndpoint' in kwargs:
             authorisation_endpoint = kwargs['authorisationEndpoint']
-        if 'certificationUri' in kwargs:
+        if certification_uri is None and 'certificationUri' in kwargs:
             certification_uri = kwargs['certificationUri']
-        if 'clientCredentialMethod' in kwargs:
+        if client_credential_method is None and 'clientCredentialMethod' in kwargs:
             client_credential_method = kwargs['clientCredentialMethod']
-        if 'clientSecretSettingName' in kwargs:
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'issuerEndpoint' in kwargs:
+        if issuer_endpoint is None and 'issuerEndpoint' in kwargs:
             issuer_endpoint = kwargs['issuerEndpoint']
-        if 'nameClaimType' in kwargs:
+        if name_claim_type is None and 'nameClaimType' in kwargs:
             name_claim_type = kwargs['nameClaimType']
-        if 'tokenEndpoint' in kwargs:
+        if token_endpoint is None and 'tokenEndpoint' in kwargs:
             token_endpoint = kwargs['tokenEndpoint']
 
         _setter("client_id", client_id)
@@ -38259,19 +38977,23 @@ class WindowsFunctionAppSlotAuthSettingsV2FacebookV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_id: pulumi.Input[str],
-             app_secret_setting_name: pulumi.Input[str],
+             app_id: Optional[pulumi.Input[str]] = None,
+             app_secret_setting_name: Optional[pulumi.Input[str]] = None,
              graph_api_version: Optional[pulumi.Input[str]] = None,
              login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'appId' in kwargs:
+        if app_id is None and 'appId' in kwargs:
             app_id = kwargs['appId']
-        if 'appSecretSettingName' in kwargs:
+        if app_id is None:
+            raise TypeError("Missing 'app_id' argument")
+        if app_secret_setting_name is None and 'appSecretSettingName' in kwargs:
             app_secret_setting_name = kwargs['appSecretSettingName']
-        if 'graphApiVersion' in kwargs:
+        if app_secret_setting_name is None:
+            raise TypeError("Missing 'app_secret_setting_name' argument")
+        if graph_api_version is None and 'graphApiVersion' in kwargs:
             graph_api_version = kwargs['graphApiVersion']
-        if 'loginScopes' in kwargs:
+        if login_scopes is None and 'loginScopes' in kwargs:
             login_scopes = kwargs['loginScopes']
 
         _setter("app_id", app_id)
@@ -38352,16 +39074,20 @@ class WindowsFunctionAppSlotAuthSettingsV2GithubV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             client_secret_setting_name: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecretSettingName' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'loginScopes' in kwargs:
+        if client_secret_setting_name is None:
+            raise TypeError("Missing 'client_secret_setting_name' argument")
+        if login_scopes is None and 'loginScopes' in kwargs:
             login_scopes = kwargs['loginScopes']
 
         _setter("client_id", client_id)
@@ -38431,19 +39157,23 @@ class WindowsFunctionAppSlotAuthSettingsV2GoogleV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             client_secret_setting_name: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecretSettingName' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'allowedAudiences' in kwargs:
+        if client_secret_setting_name is None:
+            raise TypeError("Missing 'client_secret_setting_name' argument")
+        if allowed_audiences is None and 'allowedAudiences' in kwargs:
             allowed_audiences = kwargs['allowedAudiences']
-        if 'loginScopes' in kwargs:
+        if login_scopes is None and 'loginScopes' in kwargs:
             login_scopes = kwargs['loginScopes']
 
         _setter("client_id", client_id)
@@ -38563,27 +39293,27 @@ class WindowsFunctionAppSlotAuthSettingsV2LoginArgs:
              validate_nonce: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowedExternalRedirectUrls' in kwargs:
+        if allowed_external_redirect_urls is None and 'allowedExternalRedirectUrls' in kwargs:
             allowed_external_redirect_urls = kwargs['allowedExternalRedirectUrls']
-        if 'cookieExpirationConvention' in kwargs:
+        if cookie_expiration_convention is None and 'cookieExpirationConvention' in kwargs:
             cookie_expiration_convention = kwargs['cookieExpirationConvention']
-        if 'cookieExpirationTime' in kwargs:
+        if cookie_expiration_time is None and 'cookieExpirationTime' in kwargs:
             cookie_expiration_time = kwargs['cookieExpirationTime']
-        if 'logoutEndpoint' in kwargs:
+        if logout_endpoint is None and 'logoutEndpoint' in kwargs:
             logout_endpoint = kwargs['logoutEndpoint']
-        if 'nonceExpirationTime' in kwargs:
+        if nonce_expiration_time is None and 'nonceExpirationTime' in kwargs:
             nonce_expiration_time = kwargs['nonceExpirationTime']
-        if 'preserveUrlFragmentsForLogins' in kwargs:
+        if preserve_url_fragments_for_logins is None and 'preserveUrlFragmentsForLogins' in kwargs:
             preserve_url_fragments_for_logins = kwargs['preserveUrlFragmentsForLogins']
-        if 'tokenRefreshExtensionTime' in kwargs:
+        if token_refresh_extension_time is None and 'tokenRefreshExtensionTime' in kwargs:
             token_refresh_extension_time = kwargs['tokenRefreshExtensionTime']
-        if 'tokenStoreEnabled' in kwargs:
+        if token_store_enabled is None and 'tokenStoreEnabled' in kwargs:
             token_store_enabled = kwargs['tokenStoreEnabled']
-        if 'tokenStorePath' in kwargs:
+        if token_store_path is None and 'tokenStorePath' in kwargs:
             token_store_path = kwargs['tokenStorePath']
-        if 'tokenStoreSasSettingName' in kwargs:
+        if token_store_sas_setting_name is None and 'tokenStoreSasSettingName' in kwargs:
             token_store_sas_setting_name = kwargs['tokenStoreSasSettingName']
-        if 'validateNonce' in kwargs:
+        if validate_nonce is None and 'validateNonce' in kwargs:
             validate_nonce = kwargs['validateNonce']
 
         if allowed_external_redirect_urls is not None:
@@ -38769,19 +39499,23 @@ class WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             client_secret_setting_name: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecretSettingName' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'allowedAudiences' in kwargs:
+        if client_secret_setting_name is None:
+            raise TypeError("Missing 'client_secret_setting_name' argument")
+        if allowed_audiences is None and 'allowedAudiences' in kwargs:
             allowed_audiences = kwargs['allowedAudiences']
-        if 'loginScopes' in kwargs:
+        if login_scopes is None and 'loginScopes' in kwargs:
             login_scopes = kwargs['loginScopes']
 
         _setter("client_id", client_id)
@@ -38861,14 +39595,18 @@ class WindowsFunctionAppSlotAuthSettingsV2TwitterV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             consumer_key: pulumi.Input[str],
-             consumer_secret_setting_name: pulumi.Input[str],
+             consumer_key: Optional[pulumi.Input[str]] = None,
+             consumer_secret_setting_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'consumerKey' in kwargs:
+        if consumer_key is None and 'consumerKey' in kwargs:
             consumer_key = kwargs['consumerKey']
-        if 'consumerSecretSettingName' in kwargs:
+        if consumer_key is None:
+            raise TypeError("Missing 'consumer_key' argument")
+        if consumer_secret_setting_name is None and 'consumerSecretSettingName' in kwargs:
             consumer_secret_setting_name = kwargs['consumerSecretSettingName']
+        if consumer_secret_setting_name is None:
+            raise TypeError("Missing 'consumer_secret_setting_name' argument")
 
         _setter("consumer_key", consumer_key)
         _setter("consumer_secret_setting_name", consumer_secret_setting_name)
@@ -38923,14 +39661,20 @@ class WindowsFunctionAppSlotBackupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             schedule: pulumi.Input['WindowsFunctionAppSlotBackupScheduleArgs'],
-             storage_account_url: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             schedule: Optional[pulumi.Input['WindowsFunctionAppSlotBackupScheduleArgs']] = None,
+             storage_account_url: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'storageAccountUrl' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if schedule is None:
+            raise TypeError("Missing 'schedule' argument")
+        if storage_account_url is None and 'storageAccountUrl' in kwargs:
             storage_account_url = kwargs['storageAccountUrl']
+        if storage_account_url is None:
+            raise TypeError("Missing 'storage_account_url' argument")
 
         _setter("name", name)
         _setter("schedule", schedule)
@@ -39018,25 +39762,29 @@ class WindowsFunctionAppSlotBackupScheduleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             frequency_interval: pulumi.Input[int],
-             frequency_unit: pulumi.Input[str],
+             frequency_interval: Optional[pulumi.Input[int]] = None,
+             frequency_unit: Optional[pulumi.Input[str]] = None,
              keep_at_least_one_backup: Optional[pulumi.Input[bool]] = None,
              last_execution_time: Optional[pulumi.Input[str]] = None,
              retention_period_days: Optional[pulumi.Input[int]] = None,
              start_time: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'frequencyInterval' in kwargs:
+        if frequency_interval is None and 'frequencyInterval' in kwargs:
             frequency_interval = kwargs['frequencyInterval']
-        if 'frequencyUnit' in kwargs:
+        if frequency_interval is None:
+            raise TypeError("Missing 'frequency_interval' argument")
+        if frequency_unit is None and 'frequencyUnit' in kwargs:
             frequency_unit = kwargs['frequencyUnit']
-        if 'keepAtLeastOneBackup' in kwargs:
+        if frequency_unit is None:
+            raise TypeError("Missing 'frequency_unit' argument")
+        if keep_at_least_one_backup is None and 'keepAtLeastOneBackup' in kwargs:
             keep_at_least_one_backup = kwargs['keepAtLeastOneBackup']
-        if 'lastExecutionTime' in kwargs:
+        if last_execution_time is None and 'lastExecutionTime' in kwargs:
             last_execution_time = kwargs['lastExecutionTime']
-        if 'retentionPeriodDays' in kwargs:
+        if retention_period_days is None and 'retentionPeriodDays' in kwargs:
             retention_period_days = kwargs['retentionPeriodDays']
-        if 'startTime' in kwargs:
+        if start_time is None and 'startTime' in kwargs:
             start_time = kwargs['startTime']
 
         _setter("frequency_interval", frequency_interval)
@@ -39145,11 +39893,17 @@ class WindowsFunctionAppSlotConnectionStringArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             type: pulumi.Input[str],
-             value: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("name", name)
         _setter("type", type)
@@ -39217,17 +39971,19 @@ class WindowsFunctionAppSlotIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -39444,73 +40200,73 @@ class WindowsFunctionAppSlotSiteConfigArgs:
              worker_count: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'alwaysOn' in kwargs:
+        if always_on is None and 'alwaysOn' in kwargs:
             always_on = kwargs['alwaysOn']
-        if 'apiDefinitionUrl' in kwargs:
+        if api_definition_url is None and 'apiDefinitionUrl' in kwargs:
             api_definition_url = kwargs['apiDefinitionUrl']
-        if 'apiManagementApiId' in kwargs:
+        if api_management_api_id is None and 'apiManagementApiId' in kwargs:
             api_management_api_id = kwargs['apiManagementApiId']
-        if 'appCommandLine' in kwargs:
+        if app_command_line is None and 'appCommandLine' in kwargs:
             app_command_line = kwargs['appCommandLine']
-        if 'appScaleLimit' in kwargs:
+        if app_scale_limit is None and 'appScaleLimit' in kwargs:
             app_scale_limit = kwargs['appScaleLimit']
-        if 'appServiceLogs' in kwargs:
+        if app_service_logs is None and 'appServiceLogs' in kwargs:
             app_service_logs = kwargs['appServiceLogs']
-        if 'applicationInsightsConnectionString' in kwargs:
+        if application_insights_connection_string is None and 'applicationInsightsConnectionString' in kwargs:
             application_insights_connection_string = kwargs['applicationInsightsConnectionString']
-        if 'applicationInsightsKey' in kwargs:
+        if application_insights_key is None and 'applicationInsightsKey' in kwargs:
             application_insights_key = kwargs['applicationInsightsKey']
-        if 'applicationStack' in kwargs:
+        if application_stack is None and 'applicationStack' in kwargs:
             application_stack = kwargs['applicationStack']
-        if 'autoSwapSlotName' in kwargs:
+        if auto_swap_slot_name is None and 'autoSwapSlotName' in kwargs:
             auto_swap_slot_name = kwargs['autoSwapSlotName']
-        if 'defaultDocuments' in kwargs:
+        if default_documents is None and 'defaultDocuments' in kwargs:
             default_documents = kwargs['defaultDocuments']
-        if 'detailedErrorLoggingEnabled' in kwargs:
+        if detailed_error_logging_enabled is None and 'detailedErrorLoggingEnabled' in kwargs:
             detailed_error_logging_enabled = kwargs['detailedErrorLoggingEnabled']
-        if 'elasticInstanceMinimum' in kwargs:
+        if elastic_instance_minimum is None and 'elasticInstanceMinimum' in kwargs:
             elastic_instance_minimum = kwargs['elasticInstanceMinimum']
-        if 'ftpsState' in kwargs:
+        if ftps_state is None and 'ftpsState' in kwargs:
             ftps_state = kwargs['ftpsState']
-        if 'healthCheckEvictionTimeInMin' in kwargs:
+        if health_check_eviction_time_in_min is None and 'healthCheckEvictionTimeInMin' in kwargs:
             health_check_eviction_time_in_min = kwargs['healthCheckEvictionTimeInMin']
-        if 'healthCheckPath' in kwargs:
+        if health_check_path is None and 'healthCheckPath' in kwargs:
             health_check_path = kwargs['healthCheckPath']
-        if 'http2Enabled' in kwargs:
+        if http2_enabled is None and 'http2Enabled' in kwargs:
             http2_enabled = kwargs['http2Enabled']
-        if 'ipRestrictions' in kwargs:
+        if ip_restrictions is None and 'ipRestrictions' in kwargs:
             ip_restrictions = kwargs['ipRestrictions']
-        if 'loadBalancingMode' in kwargs:
+        if load_balancing_mode is None and 'loadBalancingMode' in kwargs:
             load_balancing_mode = kwargs['loadBalancingMode']
-        if 'managedPipelineMode' in kwargs:
+        if managed_pipeline_mode is None and 'managedPipelineMode' in kwargs:
             managed_pipeline_mode = kwargs['managedPipelineMode']
-        if 'minimumTlsVersion' in kwargs:
+        if minimum_tls_version is None and 'minimumTlsVersion' in kwargs:
             minimum_tls_version = kwargs['minimumTlsVersion']
-        if 'preWarmedInstanceCount' in kwargs:
+        if pre_warmed_instance_count is None and 'preWarmedInstanceCount' in kwargs:
             pre_warmed_instance_count = kwargs['preWarmedInstanceCount']
-        if 'remoteDebuggingEnabled' in kwargs:
+        if remote_debugging_enabled is None and 'remoteDebuggingEnabled' in kwargs:
             remote_debugging_enabled = kwargs['remoteDebuggingEnabled']
-        if 'remoteDebuggingVersion' in kwargs:
+        if remote_debugging_version is None and 'remoteDebuggingVersion' in kwargs:
             remote_debugging_version = kwargs['remoteDebuggingVersion']
-        if 'runtimeScaleMonitoringEnabled' in kwargs:
+        if runtime_scale_monitoring_enabled is None and 'runtimeScaleMonitoringEnabled' in kwargs:
             runtime_scale_monitoring_enabled = kwargs['runtimeScaleMonitoringEnabled']
-        if 'scmIpRestrictions' in kwargs:
+        if scm_ip_restrictions is None and 'scmIpRestrictions' in kwargs:
             scm_ip_restrictions = kwargs['scmIpRestrictions']
-        if 'scmMinimumTlsVersion' in kwargs:
+        if scm_minimum_tls_version is None and 'scmMinimumTlsVersion' in kwargs:
             scm_minimum_tls_version = kwargs['scmMinimumTlsVersion']
-        if 'scmType' in kwargs:
+        if scm_type is None and 'scmType' in kwargs:
             scm_type = kwargs['scmType']
-        if 'scmUseMainIpRestriction' in kwargs:
+        if scm_use_main_ip_restriction is None and 'scmUseMainIpRestriction' in kwargs:
             scm_use_main_ip_restriction = kwargs['scmUseMainIpRestriction']
-        if 'use32BitWorker' in kwargs:
+        if use32_bit_worker is None and 'use32BitWorker' in kwargs:
             use32_bit_worker = kwargs['use32BitWorker']
-        if 'vnetRouteAllEnabled' in kwargs:
+        if vnet_route_all_enabled is None and 'vnetRouteAllEnabled' in kwargs:
             vnet_route_all_enabled = kwargs['vnetRouteAllEnabled']
-        if 'websocketsEnabled' in kwargs:
+        if websockets_enabled is None and 'websocketsEnabled' in kwargs:
             websockets_enabled = kwargs['websocketsEnabled']
-        if 'windowsFxVersion' in kwargs:
+        if windows_fx_version is None and 'windowsFxVersion' in kwargs:
             windows_fx_version = kwargs['windowsFxVersion']
-        if 'workerCount' in kwargs:
+        if worker_count is None and 'workerCount' in kwargs:
             worker_count = kwargs['workerCount']
 
         if always_on is not None:
@@ -40030,9 +40786,9 @@ class WindowsFunctionAppSlotSiteConfigAppServiceLogsArgs:
              retention_period_days: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'diskQuotaMb' in kwargs:
+        if disk_quota_mb is None and 'diskQuotaMb' in kwargs:
             disk_quota_mb = kwargs['diskQuotaMb']
-        if 'retentionPeriodDays' in kwargs:
+        if retention_period_days is None and 'retentionPeriodDays' in kwargs:
             retention_period_days = kwargs['retentionPeriodDays']
 
         if disk_quota_mb is not None:
@@ -40104,17 +40860,17 @@ class WindowsFunctionAppSlotSiteConfigApplicationStackArgs:
              use_dotnet_isolated_runtime: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dotnetVersion' in kwargs:
+        if dotnet_version is None and 'dotnetVersion' in kwargs:
             dotnet_version = kwargs['dotnetVersion']
-        if 'javaVersion' in kwargs:
+        if java_version is None and 'javaVersion' in kwargs:
             java_version = kwargs['javaVersion']
-        if 'nodeVersion' in kwargs:
+        if node_version is None and 'nodeVersion' in kwargs:
             node_version = kwargs['nodeVersion']
-        if 'powershellCoreVersion' in kwargs:
+        if powershell_core_version is None and 'powershellCoreVersion' in kwargs:
             powershell_core_version = kwargs['powershellCoreVersion']
-        if 'useCustomRuntime' in kwargs:
+        if use_custom_runtime is None and 'useCustomRuntime' in kwargs:
             use_custom_runtime = kwargs['useCustomRuntime']
-        if 'useDotnetIsolatedRuntime' in kwargs:
+        if use_dotnet_isolated_runtime is None and 'useDotnetIsolatedRuntime' in kwargs:
             use_dotnet_isolated_runtime = kwargs['useDotnetIsolatedRuntime']
 
         if dotnet_version is not None:
@@ -40224,9 +40980,9 @@ class WindowsFunctionAppSlotSiteConfigCorsArgs:
              support_credentials: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowedOrigins' in kwargs:
+        if allowed_origins is None and 'allowedOrigins' in kwargs:
             allowed_origins = kwargs['allowedOrigins']
-        if 'supportCredentials' in kwargs:
+        if support_credentials is None and 'supportCredentials' in kwargs:
             support_credentials = kwargs['supportCredentials']
 
         if allowed_origins is not None:
@@ -40302,11 +41058,11 @@ class WindowsFunctionAppSlotSiteConfigIpRestrictionArgs:
              virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ipAddress' in kwargs:
+        if ip_address is None and 'ipAddress' in kwargs:
             ip_address = kwargs['ipAddress']
-        if 'serviceTag' in kwargs:
+        if service_tag is None and 'serviceTag' in kwargs:
             service_tag = kwargs['serviceTag']
-        if 'virtualNetworkSubnetId' in kwargs:
+        if virtual_network_subnet_id is None and 'virtualNetworkSubnetId' in kwargs:
             virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
 
         if action is not None:
@@ -40440,13 +41196,13 @@ class WindowsFunctionAppSlotSiteConfigIpRestrictionHeadersArgs:
              x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'xAzureFdids' in kwargs:
+        if x_azure_fdids is None and 'xAzureFdids' in kwargs:
             x_azure_fdids = kwargs['xAzureFdids']
-        if 'xFdHealthProbe' in kwargs:
+        if x_fd_health_probe is None and 'xFdHealthProbe' in kwargs:
             x_fd_health_probe = kwargs['xFdHealthProbe']
-        if 'xForwardedFors' in kwargs:
+        if x_forwarded_fors is None and 'xForwardedFors' in kwargs:
             x_forwarded_fors = kwargs['xForwardedFors']
-        if 'xForwardedHosts' in kwargs:
+        if x_forwarded_hosts is None and 'xForwardedHosts' in kwargs:
             x_forwarded_hosts = kwargs['xForwardedHosts']
 
         if x_azure_fdids is not None:
@@ -40550,11 +41306,11 @@ class WindowsFunctionAppSlotSiteConfigScmIpRestrictionArgs:
              virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ipAddress' in kwargs:
+        if ip_address is None and 'ipAddress' in kwargs:
             ip_address = kwargs['ipAddress']
-        if 'serviceTag' in kwargs:
+        if service_tag is None and 'serviceTag' in kwargs:
             service_tag = kwargs['serviceTag']
-        if 'virtualNetworkSubnetId' in kwargs:
+        if virtual_network_subnet_id is None and 'virtualNetworkSubnetId' in kwargs:
             virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
 
         if action is not None:
@@ -40688,13 +41444,13 @@ class WindowsFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs:
              x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'xAzureFdids' in kwargs:
+        if x_azure_fdids is None and 'xAzureFdids' in kwargs:
             x_azure_fdids = kwargs['xAzureFdids']
-        if 'xFdHealthProbe' in kwargs:
+        if x_fd_health_probe is None and 'xFdHealthProbe' in kwargs:
             x_fd_health_probe = kwargs['xFdHealthProbe']
-        if 'xForwardedFors' in kwargs:
+        if x_forwarded_fors is None and 'xForwardedFors' in kwargs:
             x_forwarded_fors = kwargs['xForwardedFors']
-        if 'xForwardedHosts' in kwargs:
+        if x_forwarded_hosts is None and 'xForwardedHosts' in kwargs:
             x_forwarded_hosts = kwargs['xForwardedHosts']
 
         if x_azure_fdids is not None:
@@ -40836,21 +41592,31 @@ class WindowsFunctionAppSlotStorageAccountArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             access_key: pulumi.Input[str],
-             account_name: pulumi.Input[str],
-             name: pulumi.Input[str],
-             share_name: pulumi.Input[str],
-             type: pulumi.Input[str],
+             access_key: Optional[pulumi.Input[str]] = None,
+             account_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             share_name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              mount_path: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accessKey' in kwargs:
+        if access_key is None and 'accessKey' in kwargs:
             access_key = kwargs['accessKey']
-        if 'accountName' in kwargs:
+        if access_key is None:
+            raise TypeError("Missing 'access_key' argument")
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'shareName' in kwargs:
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if share_name is None and 'shareName' in kwargs:
             share_name = kwargs['shareName']
-        if 'mountPath' in kwargs:
+        if share_name is None:
+            raise TypeError("Missing 'share_name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if mount_path is None and 'mountPath' in kwargs:
             mount_path = kwargs['mountPath']
 
         _setter("access_key", access_key)
@@ -40955,9 +41721,9 @@ class WindowsFunctionAppStickySettingsArgs:
              connection_string_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'appSettingNames' in kwargs:
+        if app_setting_names is None and 'appSettingNames' in kwargs:
             app_setting_names = kwargs['appSettingNames']
-        if 'connectionStringNames' in kwargs:
+        if connection_string_names is None and 'connectionStringNames' in kwargs:
             connection_string_names = kwargs['connectionStringNames']
 
         if app_setting_names is not None:
@@ -41019,21 +41785,31 @@ class WindowsFunctionAppStorageAccountArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             access_key: pulumi.Input[str],
-             account_name: pulumi.Input[str],
-             name: pulumi.Input[str],
-             share_name: pulumi.Input[str],
-             type: pulumi.Input[str],
+             access_key: Optional[pulumi.Input[str]] = None,
+             account_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             share_name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              mount_path: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accessKey' in kwargs:
+        if access_key is None and 'accessKey' in kwargs:
             access_key = kwargs['accessKey']
-        if 'accountName' in kwargs:
+        if access_key is None:
+            raise TypeError("Missing 'access_key' argument")
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'shareName' in kwargs:
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if share_name is None and 'shareName' in kwargs:
             share_name = kwargs['shareName']
-        if 'mountPath' in kwargs:
+        if share_name is None:
+            raise TypeError("Missing 'share_name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if mount_path is None and 'mountPath' in kwargs:
             mount_path = kwargs['mountPath']
 
         _setter("access_key", access_key)
@@ -41177,7 +41953,7 @@ class WindowsWebAppAuthSettingsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: pulumi.Input[bool],
+             enabled: Optional[pulumi.Input[bool]] = None,
              active_directory: Optional[pulumi.Input['WindowsWebAppAuthSettingsActiveDirectoryArgs']] = None,
              additional_login_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -41194,21 +41970,23 @@ class WindowsWebAppAuthSettingsArgs:
              unauthenticated_client_action: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'activeDirectory' in kwargs:
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if active_directory is None and 'activeDirectory' in kwargs:
             active_directory = kwargs['activeDirectory']
-        if 'additionalLoginParameters' in kwargs:
+        if additional_login_parameters is None and 'additionalLoginParameters' in kwargs:
             additional_login_parameters = kwargs['additionalLoginParameters']
-        if 'allowedExternalRedirectUrls' in kwargs:
+        if allowed_external_redirect_urls is None and 'allowedExternalRedirectUrls' in kwargs:
             allowed_external_redirect_urls = kwargs['allowedExternalRedirectUrls']
-        if 'defaultProvider' in kwargs:
+        if default_provider is None and 'defaultProvider' in kwargs:
             default_provider = kwargs['defaultProvider']
-        if 'runtimeVersion' in kwargs:
+        if runtime_version is None and 'runtimeVersion' in kwargs:
             runtime_version = kwargs['runtimeVersion']
-        if 'tokenRefreshExtensionHours' in kwargs:
+        if token_refresh_extension_hours is None and 'tokenRefreshExtensionHours' in kwargs:
             token_refresh_extension_hours = kwargs['tokenRefreshExtensionHours']
-        if 'tokenStoreEnabled' in kwargs:
+        if token_store_enabled is None and 'tokenStoreEnabled' in kwargs:
             token_store_enabled = kwargs['tokenStoreEnabled']
-        if 'unauthenticatedClientAction' in kwargs:
+        if unauthenticated_client_action is None and 'unauthenticatedClientAction' in kwargs:
             unauthenticated_client_action = kwargs['unauthenticatedClientAction']
 
         _setter("enabled", enabled)
@@ -41451,19 +42229,21 @@ class WindowsWebAppAuthSettingsActiveDirectoryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
              allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              client_secret: Optional[pulumi.Input[str]] = None,
              client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'allowedAudiences' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if allowed_audiences is None and 'allowedAudiences' in kwargs:
             allowed_audiences = kwargs['allowedAudiences']
-        if 'clientSecret' in kwargs:
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'clientSecretSettingName' in kwargs:
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
 
         _setter("client_id", client_id)
@@ -41548,19 +42328,21 @@ class WindowsWebAppAuthSettingsFacebookArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_id: pulumi.Input[str],
+             app_id: Optional[pulumi.Input[str]] = None,
              app_secret: Optional[pulumi.Input[str]] = None,
              app_secret_setting_name: Optional[pulumi.Input[str]] = None,
              oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'appId' in kwargs:
+        if app_id is None and 'appId' in kwargs:
             app_id = kwargs['appId']
-        if 'appSecret' in kwargs:
+        if app_id is None:
+            raise TypeError("Missing 'app_id' argument")
+        if app_secret is None and 'appSecret' in kwargs:
             app_secret = kwargs['appSecret']
-        if 'appSecretSettingName' in kwargs:
+        if app_secret_setting_name is None and 'appSecretSettingName' in kwargs:
             app_secret_setting_name = kwargs['appSecretSettingName']
-        if 'oauthScopes' in kwargs:
+        if oauth_scopes is None and 'oauthScopes' in kwargs:
             oauth_scopes = kwargs['oauthScopes']
 
         _setter("app_id", app_id)
@@ -41643,19 +42425,21 @@ class WindowsWebAppAuthSettingsGithubArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
              client_secret: Optional[pulumi.Input[str]] = None,
              client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecret' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'clientSecretSettingName' in kwargs:
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'oauthScopes' in kwargs:
+        if oauth_scopes is None and 'oauthScopes' in kwargs:
             oauth_scopes = kwargs['oauthScopes']
 
         _setter("client_id", client_id)
@@ -41738,19 +42522,21 @@ class WindowsWebAppAuthSettingsGoogleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
              client_secret: Optional[pulumi.Input[str]] = None,
              client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecret' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'clientSecretSettingName' in kwargs:
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'oauthScopes' in kwargs:
+        if oauth_scopes is None and 'oauthScopes' in kwargs:
             oauth_scopes = kwargs['oauthScopes']
 
         _setter("client_id", client_id)
@@ -41833,19 +42619,21 @@ class WindowsWebAppAuthSettingsMicrosoftArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
              client_secret: Optional[pulumi.Input[str]] = None,
              client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecret' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'clientSecretSettingName' in kwargs:
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'oauthScopes' in kwargs:
+        if oauth_scopes is None and 'oauthScopes' in kwargs:
             oauth_scopes = kwargs['oauthScopes']
 
         _setter("client_id", client_id)
@@ -41925,16 +42713,18 @@ class WindowsWebAppAuthSettingsTwitterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             consumer_key: pulumi.Input[str],
+             consumer_key: Optional[pulumi.Input[str]] = None,
              consumer_secret: Optional[pulumi.Input[str]] = None,
              consumer_secret_setting_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'consumerKey' in kwargs:
+        if consumer_key is None and 'consumerKey' in kwargs:
             consumer_key = kwargs['consumerKey']
-        if 'consumerSecret' in kwargs:
+        if consumer_key is None:
+            raise TypeError("Missing 'consumer_key' argument")
+        if consumer_secret is None and 'consumerSecret' in kwargs:
             consumer_secret = kwargs['consumerSecret']
-        if 'consumerSecretSettingName' in kwargs:
+        if consumer_secret_setting_name is None and 'consumerSecretSettingName' in kwargs:
             consumer_secret_setting_name = kwargs['consumerSecretSettingName']
 
         _setter("consumer_key", consumer_key)
@@ -42063,7 +42853,7 @@ class WindowsWebAppAuthSettingsV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             login: pulumi.Input['WindowsWebAppAuthSettingsV2LoginArgs'],
+             login: Optional[pulumi.Input['WindowsWebAppAuthSettingsV2LoginArgs']] = None,
              active_directory_v2: Optional[pulumi.Input['WindowsWebAppAuthSettingsV2ActiveDirectoryV2Args']] = None,
              apple_v2: Optional[pulumi.Input['WindowsWebAppAuthSettingsV2AppleV2Args']] = None,
              auth_enabled: Optional[pulumi.Input[bool]] = None,
@@ -42087,47 +42877,49 @@ class WindowsWebAppAuthSettingsV2Args:
              unauthenticated_action: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'activeDirectoryV2' in kwargs:
+        if login is None:
+            raise TypeError("Missing 'login' argument")
+        if active_directory_v2 is None and 'activeDirectoryV2' in kwargs:
             active_directory_v2 = kwargs['activeDirectoryV2']
-        if 'appleV2' in kwargs:
+        if apple_v2 is None and 'appleV2' in kwargs:
             apple_v2 = kwargs['appleV2']
-        if 'authEnabled' in kwargs:
+        if auth_enabled is None and 'authEnabled' in kwargs:
             auth_enabled = kwargs['authEnabled']
-        if 'azureStaticWebAppV2' in kwargs:
+        if azure_static_web_app_v2 is None and 'azureStaticWebAppV2' in kwargs:
             azure_static_web_app_v2 = kwargs['azureStaticWebAppV2']
-        if 'configFilePath' in kwargs:
+        if config_file_path is None and 'configFilePath' in kwargs:
             config_file_path = kwargs['configFilePath']
-        if 'customOidcV2s' in kwargs:
+        if custom_oidc_v2s is None and 'customOidcV2s' in kwargs:
             custom_oidc_v2s = kwargs['customOidcV2s']
-        if 'defaultProvider' in kwargs:
+        if default_provider is None and 'defaultProvider' in kwargs:
             default_provider = kwargs['defaultProvider']
-        if 'excludedPaths' in kwargs:
+        if excluded_paths is None and 'excludedPaths' in kwargs:
             excluded_paths = kwargs['excludedPaths']
-        if 'facebookV2' in kwargs:
+        if facebook_v2 is None and 'facebookV2' in kwargs:
             facebook_v2 = kwargs['facebookV2']
-        if 'forwardProxyConvention' in kwargs:
+        if forward_proxy_convention is None and 'forwardProxyConvention' in kwargs:
             forward_proxy_convention = kwargs['forwardProxyConvention']
-        if 'forwardProxyCustomHostHeaderName' in kwargs:
+        if forward_proxy_custom_host_header_name is None and 'forwardProxyCustomHostHeaderName' in kwargs:
             forward_proxy_custom_host_header_name = kwargs['forwardProxyCustomHostHeaderName']
-        if 'forwardProxyCustomSchemeHeaderName' in kwargs:
+        if forward_proxy_custom_scheme_header_name is None and 'forwardProxyCustomSchemeHeaderName' in kwargs:
             forward_proxy_custom_scheme_header_name = kwargs['forwardProxyCustomSchemeHeaderName']
-        if 'githubV2' in kwargs:
+        if github_v2 is None and 'githubV2' in kwargs:
             github_v2 = kwargs['githubV2']
-        if 'googleV2' in kwargs:
+        if google_v2 is None and 'googleV2' in kwargs:
             google_v2 = kwargs['googleV2']
-        if 'httpRouteApiPrefix' in kwargs:
+        if http_route_api_prefix is None and 'httpRouteApiPrefix' in kwargs:
             http_route_api_prefix = kwargs['httpRouteApiPrefix']
-        if 'microsoftV2' in kwargs:
+        if microsoft_v2 is None and 'microsoftV2' in kwargs:
             microsoft_v2 = kwargs['microsoftV2']
-        if 'requireAuthentication' in kwargs:
+        if require_authentication is None and 'requireAuthentication' in kwargs:
             require_authentication = kwargs['requireAuthentication']
-        if 'requireHttps' in kwargs:
+        if require_https is None and 'requireHttps' in kwargs:
             require_https = kwargs['requireHttps']
-        if 'runtimeVersion' in kwargs:
+        if runtime_version is None and 'runtimeVersion' in kwargs:
             runtime_version = kwargs['runtimeVersion']
-        if 'twitterV2' in kwargs:
+        if twitter_v2 is None and 'twitterV2' in kwargs:
             twitter_v2 = kwargs['twitterV2']
-        if 'unauthenticatedAction' in kwargs:
+        if unauthenticated_action is None and 'unauthenticatedAction' in kwargs:
             unauthenticated_action = kwargs['unauthenticatedAction']
 
         _setter("login", login)
@@ -42496,8 +43288,8 @@ class WindowsWebAppAuthSettingsV2ActiveDirectoryV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             tenant_auth_endpoint: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             tenant_auth_endpoint: Optional[pulumi.Input[str]] = None,
              allowed_applications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              allowed_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -42510,29 +43302,33 @@ class WindowsWebAppAuthSettingsV2ActiveDirectoryV2Args:
              www_authentication_disabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'tenantAuthEndpoint' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if tenant_auth_endpoint is None and 'tenantAuthEndpoint' in kwargs:
             tenant_auth_endpoint = kwargs['tenantAuthEndpoint']
-        if 'allowedApplications' in kwargs:
+        if tenant_auth_endpoint is None:
+            raise TypeError("Missing 'tenant_auth_endpoint' argument")
+        if allowed_applications is None and 'allowedApplications' in kwargs:
             allowed_applications = kwargs['allowedApplications']
-        if 'allowedAudiences' in kwargs:
+        if allowed_audiences is None and 'allowedAudiences' in kwargs:
             allowed_audiences = kwargs['allowedAudiences']
-        if 'allowedGroups' in kwargs:
+        if allowed_groups is None and 'allowedGroups' in kwargs:
             allowed_groups = kwargs['allowedGroups']
-        if 'allowedIdentities' in kwargs:
+        if allowed_identities is None and 'allowedIdentities' in kwargs:
             allowed_identities = kwargs['allowedIdentities']
-        if 'clientSecretCertificateThumbprint' in kwargs:
+        if client_secret_certificate_thumbprint is None and 'clientSecretCertificateThumbprint' in kwargs:
             client_secret_certificate_thumbprint = kwargs['clientSecretCertificateThumbprint']
-        if 'clientSecretSettingName' in kwargs:
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'jwtAllowedClientApplications' in kwargs:
+        if jwt_allowed_client_applications is None and 'jwtAllowedClientApplications' in kwargs:
             jwt_allowed_client_applications = kwargs['jwtAllowedClientApplications']
-        if 'jwtAllowedGroups' in kwargs:
+        if jwt_allowed_groups is None and 'jwtAllowedGroups' in kwargs:
             jwt_allowed_groups = kwargs['jwtAllowedGroups']
-        if 'loginParameters' in kwargs:
+        if login_parameters is None and 'loginParameters' in kwargs:
             login_parameters = kwargs['loginParameters']
-        if 'wwwAuthenticationDisabled' in kwargs:
+        if www_authentication_disabled is None and 'wwwAuthenticationDisabled' in kwargs:
             www_authentication_disabled = kwargs['wwwAuthenticationDisabled']
 
         _setter("client_id", client_id)
@@ -42727,16 +43523,20 @@ class WindowsWebAppAuthSettingsV2AppleV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             client_secret_setting_name: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecretSettingName' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'loginScopes' in kwargs:
+        if client_secret_setting_name is None:
+            raise TypeError("Missing 'client_secret_setting_name' argument")
+        if login_scopes is None and 'loginScopes' in kwargs:
             login_scopes = kwargs['loginScopes']
 
         _setter("client_id", client_id)
@@ -42795,11 +43595,13 @@ class WindowsWebAppAuthSettingsV2AzureStaticWebAppV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
 
         _setter("client_id", client_id)
 
@@ -42860,9 +43662,9 @@ class WindowsWebAppAuthSettingsV2CustomOidcV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             name: pulumi.Input[str],
-             openid_configuration_endpoint: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             openid_configuration_endpoint: Optional[pulumi.Input[str]] = None,
              authorisation_endpoint: Optional[pulumi.Input[str]] = None,
              certification_uri: Optional[pulumi.Input[str]] = None,
              client_credential_method: Optional[pulumi.Input[str]] = None,
@@ -42873,23 +43675,29 @@ class WindowsWebAppAuthSettingsV2CustomOidcV2Args:
              token_endpoint: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'openidConfigurationEndpoint' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if openid_configuration_endpoint is None and 'openidConfigurationEndpoint' in kwargs:
             openid_configuration_endpoint = kwargs['openidConfigurationEndpoint']
-        if 'authorisationEndpoint' in kwargs:
+        if openid_configuration_endpoint is None:
+            raise TypeError("Missing 'openid_configuration_endpoint' argument")
+        if authorisation_endpoint is None and 'authorisationEndpoint' in kwargs:
             authorisation_endpoint = kwargs['authorisationEndpoint']
-        if 'certificationUri' in kwargs:
+        if certification_uri is None and 'certificationUri' in kwargs:
             certification_uri = kwargs['certificationUri']
-        if 'clientCredentialMethod' in kwargs:
+        if client_credential_method is None and 'clientCredentialMethod' in kwargs:
             client_credential_method = kwargs['clientCredentialMethod']
-        if 'clientSecretSettingName' in kwargs:
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'issuerEndpoint' in kwargs:
+        if issuer_endpoint is None and 'issuerEndpoint' in kwargs:
             issuer_endpoint = kwargs['issuerEndpoint']
-        if 'nameClaimType' in kwargs:
+        if name_claim_type is None and 'nameClaimType' in kwargs:
             name_claim_type = kwargs['nameClaimType']
-        if 'tokenEndpoint' in kwargs:
+        if token_endpoint is None and 'tokenEndpoint' in kwargs:
             token_endpoint = kwargs['tokenEndpoint']
 
         _setter("client_id", client_id)
@@ -43070,19 +43878,23 @@ class WindowsWebAppAuthSettingsV2FacebookV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_id: pulumi.Input[str],
-             app_secret_setting_name: pulumi.Input[str],
+             app_id: Optional[pulumi.Input[str]] = None,
+             app_secret_setting_name: Optional[pulumi.Input[str]] = None,
              graph_api_version: Optional[pulumi.Input[str]] = None,
              login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'appId' in kwargs:
+        if app_id is None and 'appId' in kwargs:
             app_id = kwargs['appId']
-        if 'appSecretSettingName' in kwargs:
+        if app_id is None:
+            raise TypeError("Missing 'app_id' argument")
+        if app_secret_setting_name is None and 'appSecretSettingName' in kwargs:
             app_secret_setting_name = kwargs['appSecretSettingName']
-        if 'graphApiVersion' in kwargs:
+        if app_secret_setting_name is None:
+            raise TypeError("Missing 'app_secret_setting_name' argument")
+        if graph_api_version is None and 'graphApiVersion' in kwargs:
             graph_api_version = kwargs['graphApiVersion']
-        if 'loginScopes' in kwargs:
+        if login_scopes is None and 'loginScopes' in kwargs:
             login_scopes = kwargs['loginScopes']
 
         _setter("app_id", app_id)
@@ -43163,16 +43975,20 @@ class WindowsWebAppAuthSettingsV2GithubV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             client_secret_setting_name: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecretSettingName' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'loginScopes' in kwargs:
+        if client_secret_setting_name is None:
+            raise TypeError("Missing 'client_secret_setting_name' argument")
+        if login_scopes is None and 'loginScopes' in kwargs:
             login_scopes = kwargs['loginScopes']
 
         _setter("client_id", client_id)
@@ -43242,19 +44058,23 @@ class WindowsWebAppAuthSettingsV2GoogleV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             client_secret_setting_name: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecretSettingName' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'allowedAudiences' in kwargs:
+        if client_secret_setting_name is None:
+            raise TypeError("Missing 'client_secret_setting_name' argument")
+        if allowed_audiences is None and 'allowedAudiences' in kwargs:
             allowed_audiences = kwargs['allowedAudiences']
-        if 'loginScopes' in kwargs:
+        if login_scopes is None and 'loginScopes' in kwargs:
             login_scopes = kwargs['loginScopes']
 
         _setter("client_id", client_id)
@@ -43374,27 +44194,27 @@ class WindowsWebAppAuthSettingsV2LoginArgs:
              validate_nonce: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowedExternalRedirectUrls' in kwargs:
+        if allowed_external_redirect_urls is None and 'allowedExternalRedirectUrls' in kwargs:
             allowed_external_redirect_urls = kwargs['allowedExternalRedirectUrls']
-        if 'cookieExpirationConvention' in kwargs:
+        if cookie_expiration_convention is None and 'cookieExpirationConvention' in kwargs:
             cookie_expiration_convention = kwargs['cookieExpirationConvention']
-        if 'cookieExpirationTime' in kwargs:
+        if cookie_expiration_time is None and 'cookieExpirationTime' in kwargs:
             cookie_expiration_time = kwargs['cookieExpirationTime']
-        if 'logoutEndpoint' in kwargs:
+        if logout_endpoint is None and 'logoutEndpoint' in kwargs:
             logout_endpoint = kwargs['logoutEndpoint']
-        if 'nonceExpirationTime' in kwargs:
+        if nonce_expiration_time is None and 'nonceExpirationTime' in kwargs:
             nonce_expiration_time = kwargs['nonceExpirationTime']
-        if 'preserveUrlFragmentsForLogins' in kwargs:
+        if preserve_url_fragments_for_logins is None and 'preserveUrlFragmentsForLogins' in kwargs:
             preserve_url_fragments_for_logins = kwargs['preserveUrlFragmentsForLogins']
-        if 'tokenRefreshExtensionTime' in kwargs:
+        if token_refresh_extension_time is None and 'tokenRefreshExtensionTime' in kwargs:
             token_refresh_extension_time = kwargs['tokenRefreshExtensionTime']
-        if 'tokenStoreEnabled' in kwargs:
+        if token_store_enabled is None and 'tokenStoreEnabled' in kwargs:
             token_store_enabled = kwargs['tokenStoreEnabled']
-        if 'tokenStorePath' in kwargs:
+        if token_store_path is None and 'tokenStorePath' in kwargs:
             token_store_path = kwargs['tokenStorePath']
-        if 'tokenStoreSasSettingName' in kwargs:
+        if token_store_sas_setting_name is None and 'tokenStoreSasSettingName' in kwargs:
             token_store_sas_setting_name = kwargs['tokenStoreSasSettingName']
-        if 'validateNonce' in kwargs:
+        if validate_nonce is None and 'validateNonce' in kwargs:
             validate_nonce = kwargs['validateNonce']
 
         if allowed_external_redirect_urls is not None:
@@ -43580,19 +44400,23 @@ class WindowsWebAppAuthSettingsV2MicrosoftV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             client_secret_setting_name: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecretSettingName' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'allowedAudiences' in kwargs:
+        if client_secret_setting_name is None:
+            raise TypeError("Missing 'client_secret_setting_name' argument")
+        if allowed_audiences is None and 'allowedAudiences' in kwargs:
             allowed_audiences = kwargs['allowedAudiences']
-        if 'loginScopes' in kwargs:
+        if login_scopes is None and 'loginScopes' in kwargs:
             login_scopes = kwargs['loginScopes']
 
         _setter("client_id", client_id)
@@ -43672,14 +44496,18 @@ class WindowsWebAppAuthSettingsV2TwitterV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             consumer_key: pulumi.Input[str],
-             consumer_secret_setting_name: pulumi.Input[str],
+             consumer_key: Optional[pulumi.Input[str]] = None,
+             consumer_secret_setting_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'consumerKey' in kwargs:
+        if consumer_key is None and 'consumerKey' in kwargs:
             consumer_key = kwargs['consumerKey']
-        if 'consumerSecretSettingName' in kwargs:
+        if consumer_key is None:
+            raise TypeError("Missing 'consumer_key' argument")
+        if consumer_secret_setting_name is None and 'consumerSecretSettingName' in kwargs:
             consumer_secret_setting_name = kwargs['consumerSecretSettingName']
+        if consumer_secret_setting_name is None:
+            raise TypeError("Missing 'consumer_secret_setting_name' argument")
 
         _setter("consumer_key", consumer_key)
         _setter("consumer_secret_setting_name", consumer_secret_setting_name)
@@ -43734,14 +44562,20 @@ class WindowsWebAppBackupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             schedule: pulumi.Input['WindowsWebAppBackupScheduleArgs'],
-             storage_account_url: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             schedule: Optional[pulumi.Input['WindowsWebAppBackupScheduleArgs']] = None,
+             storage_account_url: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'storageAccountUrl' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if schedule is None:
+            raise TypeError("Missing 'schedule' argument")
+        if storage_account_url is None and 'storageAccountUrl' in kwargs:
             storage_account_url = kwargs['storageAccountUrl']
+        if storage_account_url is None:
+            raise TypeError("Missing 'storage_account_url' argument")
 
         _setter("name", name)
         _setter("schedule", schedule)
@@ -43828,25 +44662,29 @@ class WindowsWebAppBackupScheduleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             frequency_interval: pulumi.Input[int],
-             frequency_unit: pulumi.Input[str],
+             frequency_interval: Optional[pulumi.Input[int]] = None,
+             frequency_unit: Optional[pulumi.Input[str]] = None,
              keep_at_least_one_backup: Optional[pulumi.Input[bool]] = None,
              last_execution_time: Optional[pulumi.Input[str]] = None,
              retention_period_days: Optional[pulumi.Input[int]] = None,
              start_time: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'frequencyInterval' in kwargs:
+        if frequency_interval is None and 'frequencyInterval' in kwargs:
             frequency_interval = kwargs['frequencyInterval']
-        if 'frequencyUnit' in kwargs:
+        if frequency_interval is None:
+            raise TypeError("Missing 'frequency_interval' argument")
+        if frequency_unit is None and 'frequencyUnit' in kwargs:
             frequency_unit = kwargs['frequencyUnit']
-        if 'keepAtLeastOneBackup' in kwargs:
+        if frequency_unit is None:
+            raise TypeError("Missing 'frequency_unit' argument")
+        if keep_at_least_one_backup is None and 'keepAtLeastOneBackup' in kwargs:
             keep_at_least_one_backup = kwargs['keepAtLeastOneBackup']
-        if 'lastExecutionTime' in kwargs:
+        if last_execution_time is None and 'lastExecutionTime' in kwargs:
             last_execution_time = kwargs['lastExecutionTime']
-        if 'retentionPeriodDays' in kwargs:
+        if retention_period_days is None and 'retentionPeriodDays' in kwargs:
             retention_period_days = kwargs['retentionPeriodDays']
-        if 'startTime' in kwargs:
+        if start_time is None and 'startTime' in kwargs:
             start_time = kwargs['startTime']
 
         _setter("frequency_interval", frequency_interval)
@@ -43952,11 +44790,17 @@ class WindowsWebAppConnectionStringArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             type: pulumi.Input[str],
-             value: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("name", name)
         _setter("type", type)
@@ -44024,17 +44868,19 @@ class WindowsWebAppIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -44125,13 +44971,13 @@ class WindowsWebAppLogsArgs:
              http_logs: Optional[pulumi.Input['WindowsWebAppLogsHttpLogsArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'applicationLogs' in kwargs:
+        if application_logs is None and 'applicationLogs' in kwargs:
             application_logs = kwargs['applicationLogs']
-        if 'detailedErrorMessages' in kwargs:
+        if detailed_error_messages is None and 'detailedErrorMessages' in kwargs:
             detailed_error_messages = kwargs['detailedErrorMessages']
-        if 'failedRequestTracing' in kwargs:
+        if failed_request_tracing is None and 'failedRequestTracing' in kwargs:
             failed_request_tracing = kwargs['failedRequestTracing']
-        if 'httpLogs' in kwargs:
+        if http_logs is None and 'httpLogs' in kwargs:
             http_logs = kwargs['httpLogs']
 
         if application_logs is not None:
@@ -44209,13 +45055,15 @@ class WindowsWebAppLogsApplicationLogsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             file_system_level: pulumi.Input[str],
+             file_system_level: Optional[pulumi.Input[str]] = None,
              azure_blob_storage: Optional[pulumi.Input['WindowsWebAppLogsApplicationLogsAzureBlobStorageArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'fileSystemLevel' in kwargs:
+        if file_system_level is None and 'fileSystemLevel' in kwargs:
             file_system_level = kwargs['fileSystemLevel']
-        if 'azureBlobStorage' in kwargs:
+        if file_system_level is None:
+            raise TypeError("Missing 'file_system_level' argument")
+        if azure_blob_storage is None and 'azureBlobStorage' in kwargs:
             azure_blob_storage = kwargs['azureBlobStorage']
 
         _setter("file_system_level", file_system_level)
@@ -44267,15 +45115,21 @@ class WindowsWebAppLogsApplicationLogsAzureBlobStorageArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             level: pulumi.Input[str],
-             retention_in_days: pulumi.Input[int],
-             sas_url: pulumi.Input[str],
+             level: Optional[pulumi.Input[str]] = None,
+             retention_in_days: Optional[pulumi.Input[int]] = None,
+             sas_url: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'retentionInDays' in kwargs:
+        if level is None:
+            raise TypeError("Missing 'level' argument")
+        if retention_in_days is None and 'retentionInDays' in kwargs:
             retention_in_days = kwargs['retentionInDays']
-        if 'sasUrl' in kwargs:
+        if retention_in_days is None:
+            raise TypeError("Missing 'retention_in_days' argument")
+        if sas_url is None and 'sasUrl' in kwargs:
             sas_url = kwargs['sasUrl']
+        if sas_url is None:
+            raise TypeError("Missing 'sas_url' argument")
 
         _setter("level", level)
         _setter("retention_in_days", retention_in_days)
@@ -44339,9 +45193,9 @@ class WindowsWebAppLogsHttpLogsArgs:
              file_system: Optional[pulumi.Input['WindowsWebAppLogsHttpLogsFileSystemArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'azureBlobStorage' in kwargs:
+        if azure_blob_storage is None and 'azureBlobStorage' in kwargs:
             azure_blob_storage = kwargs['azureBlobStorage']
-        if 'fileSystem' in kwargs:
+        if file_system is None and 'fileSystem' in kwargs:
             file_system = kwargs['fileSystem']
 
         if azure_blob_storage is not None:
@@ -44391,13 +45245,15 @@ class WindowsWebAppLogsHttpLogsAzureBlobStorageArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             sas_url: pulumi.Input[str],
+             sas_url: Optional[pulumi.Input[str]] = None,
              retention_in_days: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'sasUrl' in kwargs:
+        if sas_url is None and 'sasUrl' in kwargs:
             sas_url = kwargs['sasUrl']
-        if 'retentionInDays' in kwargs:
+        if sas_url is None:
+            raise TypeError("Missing 'sas_url' argument")
+        if retention_in_days is None and 'retentionInDays' in kwargs:
             retention_in_days = kwargs['retentionInDays']
 
         _setter("sas_url", sas_url)
@@ -44446,14 +45302,18 @@ class WindowsWebAppLogsHttpLogsFileSystemArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             retention_in_days: pulumi.Input[int],
-             retention_in_mb: pulumi.Input[int],
+             retention_in_days: Optional[pulumi.Input[int]] = None,
+             retention_in_mb: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'retentionInDays' in kwargs:
+        if retention_in_days is None and 'retentionInDays' in kwargs:
             retention_in_days = kwargs['retentionInDays']
-        if 'retentionInMb' in kwargs:
+        if retention_in_days is None:
+            raise TypeError("Missing 'retention_in_days' argument")
+        if retention_in_mb is None and 'retentionInMb' in kwargs:
             retention_in_mb = kwargs['retentionInMb']
+        if retention_in_mb is None:
+            raise TypeError("Missing 'retention_in_mb' argument")
 
         _setter("retention_in_days", retention_in_days)
         _setter("retention_in_mb", retention_in_mb)
@@ -44629,71 +45489,71 @@ class WindowsWebAppSiteConfigArgs:
              worker_count: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'alwaysOn' in kwargs:
+        if always_on is None and 'alwaysOn' in kwargs:
             always_on = kwargs['alwaysOn']
-        if 'apiDefinitionUrl' in kwargs:
+        if api_definition_url is None and 'apiDefinitionUrl' in kwargs:
             api_definition_url = kwargs['apiDefinitionUrl']
-        if 'apiManagementApiId' in kwargs:
+        if api_management_api_id is None and 'apiManagementApiId' in kwargs:
             api_management_api_id = kwargs['apiManagementApiId']
-        if 'appCommandLine' in kwargs:
+        if app_command_line is None and 'appCommandLine' in kwargs:
             app_command_line = kwargs['appCommandLine']
-        if 'applicationStack' in kwargs:
+        if application_stack is None and 'applicationStack' in kwargs:
             application_stack = kwargs['applicationStack']
-        if 'autoHealEnabled' in kwargs:
+        if auto_heal_enabled is None and 'autoHealEnabled' in kwargs:
             auto_heal_enabled = kwargs['autoHealEnabled']
-        if 'autoHealSetting' in kwargs:
+        if auto_heal_setting is None and 'autoHealSetting' in kwargs:
             auto_heal_setting = kwargs['autoHealSetting']
-        if 'containerRegistryManagedIdentityClientId' in kwargs:
+        if container_registry_managed_identity_client_id is None and 'containerRegistryManagedIdentityClientId' in kwargs:
             container_registry_managed_identity_client_id = kwargs['containerRegistryManagedIdentityClientId']
-        if 'containerRegistryUseManagedIdentity' in kwargs:
+        if container_registry_use_managed_identity is None and 'containerRegistryUseManagedIdentity' in kwargs:
             container_registry_use_managed_identity = kwargs['containerRegistryUseManagedIdentity']
-        if 'defaultDocuments' in kwargs:
+        if default_documents is None and 'defaultDocuments' in kwargs:
             default_documents = kwargs['defaultDocuments']
-        if 'detailedErrorLoggingEnabled' in kwargs:
+        if detailed_error_logging_enabled is None and 'detailedErrorLoggingEnabled' in kwargs:
             detailed_error_logging_enabled = kwargs['detailedErrorLoggingEnabled']
-        if 'ftpsState' in kwargs:
+        if ftps_state is None and 'ftpsState' in kwargs:
             ftps_state = kwargs['ftpsState']
-        if 'healthCheckEvictionTimeInMin' in kwargs:
+        if health_check_eviction_time_in_min is None and 'healthCheckEvictionTimeInMin' in kwargs:
             health_check_eviction_time_in_min = kwargs['healthCheckEvictionTimeInMin']
-        if 'healthCheckPath' in kwargs:
+        if health_check_path is None and 'healthCheckPath' in kwargs:
             health_check_path = kwargs['healthCheckPath']
-        if 'http2Enabled' in kwargs:
+        if http2_enabled is None and 'http2Enabled' in kwargs:
             http2_enabled = kwargs['http2Enabled']
-        if 'ipRestrictions' in kwargs:
+        if ip_restrictions is None and 'ipRestrictions' in kwargs:
             ip_restrictions = kwargs['ipRestrictions']
-        if 'linuxFxVersion' in kwargs:
+        if linux_fx_version is None and 'linuxFxVersion' in kwargs:
             linux_fx_version = kwargs['linuxFxVersion']
-        if 'loadBalancingMode' in kwargs:
+        if load_balancing_mode is None and 'loadBalancingMode' in kwargs:
             load_balancing_mode = kwargs['loadBalancingMode']
-        if 'localMysqlEnabled' in kwargs:
+        if local_mysql_enabled is None and 'localMysqlEnabled' in kwargs:
             local_mysql_enabled = kwargs['localMysqlEnabled']
-        if 'managedPipelineMode' in kwargs:
+        if managed_pipeline_mode is None and 'managedPipelineMode' in kwargs:
             managed_pipeline_mode = kwargs['managedPipelineMode']
-        if 'minimumTlsVersion' in kwargs:
+        if minimum_tls_version is None and 'minimumTlsVersion' in kwargs:
             minimum_tls_version = kwargs['minimumTlsVersion']
-        if 'remoteDebuggingEnabled' in kwargs:
+        if remote_debugging_enabled is None and 'remoteDebuggingEnabled' in kwargs:
             remote_debugging_enabled = kwargs['remoteDebuggingEnabled']
-        if 'remoteDebuggingVersion' in kwargs:
+        if remote_debugging_version is None and 'remoteDebuggingVersion' in kwargs:
             remote_debugging_version = kwargs['remoteDebuggingVersion']
-        if 'scmIpRestrictions' in kwargs:
+        if scm_ip_restrictions is None and 'scmIpRestrictions' in kwargs:
             scm_ip_restrictions = kwargs['scmIpRestrictions']
-        if 'scmMinimumTlsVersion' in kwargs:
+        if scm_minimum_tls_version is None and 'scmMinimumTlsVersion' in kwargs:
             scm_minimum_tls_version = kwargs['scmMinimumTlsVersion']
-        if 'scmType' in kwargs:
+        if scm_type is None and 'scmType' in kwargs:
             scm_type = kwargs['scmType']
-        if 'scmUseMainIpRestriction' in kwargs:
+        if scm_use_main_ip_restriction is None and 'scmUseMainIpRestriction' in kwargs:
             scm_use_main_ip_restriction = kwargs['scmUseMainIpRestriction']
-        if 'use32BitWorker' in kwargs:
+        if use32_bit_worker is None and 'use32BitWorker' in kwargs:
             use32_bit_worker = kwargs['use32BitWorker']
-        if 'virtualApplications' in kwargs:
+        if virtual_applications is None and 'virtualApplications' in kwargs:
             virtual_applications = kwargs['virtualApplications']
-        if 'vnetRouteAllEnabled' in kwargs:
+        if vnet_route_all_enabled is None and 'vnetRouteAllEnabled' in kwargs:
             vnet_route_all_enabled = kwargs['vnetRouteAllEnabled']
-        if 'websocketsEnabled' in kwargs:
+        if websockets_enabled is None and 'websocketsEnabled' in kwargs:
             websockets_enabled = kwargs['websocketsEnabled']
-        if 'windowsFxVersion' in kwargs:
+        if windows_fx_version is None and 'windowsFxVersion' in kwargs:
             windows_fx_version = kwargs['windowsFxVersion']
-        if 'workerCount' in kwargs:
+        if worker_count is None and 'workerCount' in kwargs:
             worker_count = kwargs['workerCount']
 
         if always_on is not None:
@@ -45264,41 +46124,41 @@ class WindowsWebAppSiteConfigApplicationStackArgs:
              tomcat_version: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'currentStack' in kwargs:
+        if current_stack is None and 'currentStack' in kwargs:
             current_stack = kwargs['currentStack']
-        if 'dockerContainerName' in kwargs:
+        if docker_container_name is None and 'dockerContainerName' in kwargs:
             docker_container_name = kwargs['dockerContainerName']
-        if 'dockerContainerRegistry' in kwargs:
+        if docker_container_registry is None and 'dockerContainerRegistry' in kwargs:
             docker_container_registry = kwargs['dockerContainerRegistry']
-        if 'dockerContainerTag' in kwargs:
+        if docker_container_tag is None and 'dockerContainerTag' in kwargs:
             docker_container_tag = kwargs['dockerContainerTag']
-        if 'dockerImageName' in kwargs:
+        if docker_image_name is None and 'dockerImageName' in kwargs:
             docker_image_name = kwargs['dockerImageName']
-        if 'dockerRegistryPassword' in kwargs:
+        if docker_registry_password is None and 'dockerRegistryPassword' in kwargs:
             docker_registry_password = kwargs['dockerRegistryPassword']
-        if 'dockerRegistryUrl' in kwargs:
+        if docker_registry_url is None and 'dockerRegistryUrl' in kwargs:
             docker_registry_url = kwargs['dockerRegistryUrl']
-        if 'dockerRegistryUsername' in kwargs:
+        if docker_registry_username is None and 'dockerRegistryUsername' in kwargs:
             docker_registry_username = kwargs['dockerRegistryUsername']
-        if 'dotnetCoreVersion' in kwargs:
+        if dotnet_core_version is None and 'dotnetCoreVersion' in kwargs:
             dotnet_core_version = kwargs['dotnetCoreVersion']
-        if 'dotnetVersion' in kwargs:
+        if dotnet_version is None and 'dotnetVersion' in kwargs:
             dotnet_version = kwargs['dotnetVersion']
-        if 'javaContainer' in kwargs:
+        if java_container is None and 'javaContainer' in kwargs:
             java_container = kwargs['javaContainer']
-        if 'javaContainerVersion' in kwargs:
+        if java_container_version is None and 'javaContainerVersion' in kwargs:
             java_container_version = kwargs['javaContainerVersion']
-        if 'javaEmbeddedServerEnabled' in kwargs:
+        if java_embedded_server_enabled is None and 'javaEmbeddedServerEnabled' in kwargs:
             java_embedded_server_enabled = kwargs['javaEmbeddedServerEnabled']
-        if 'javaVersion' in kwargs:
+        if java_version is None and 'javaVersion' in kwargs:
             java_version = kwargs['javaVersion']
-        if 'nodeVersion' in kwargs:
+        if node_version is None and 'nodeVersion' in kwargs:
             node_version = kwargs['nodeVersion']
-        if 'phpVersion' in kwargs:
+        if php_version is None and 'phpVersion' in kwargs:
             php_version = kwargs['phpVersion']
-        if 'pythonVersion' in kwargs:
+        if python_version is None and 'pythonVersion' in kwargs:
             python_version = kwargs['pythonVersion']
-        if 'tomcatVersion' in kwargs:
+        if tomcat_version is None and 'tomcatVersion' in kwargs:
             tomcat_version = kwargs['tomcatVersion']
 
         if current_stack is not None:
@@ -45612,10 +46472,14 @@ class WindowsWebAppSiteConfigAutoHealSettingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action: pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingActionArgs'],
-             trigger: pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerArgs'],
+             action: Optional[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingActionArgs']] = None,
+             trigger: Optional[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if trigger is None:
+            raise TypeError("Missing 'trigger' argument")
 
         _setter("action", action)
         _setter("trigger", trigger)
@@ -45665,16 +46529,18 @@ class WindowsWebAppSiteConfigAutoHealSettingActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action_type: pulumi.Input[str],
+             action_type: Optional[pulumi.Input[str]] = None,
              custom_action: Optional[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingActionCustomActionArgs']] = None,
              minimum_process_execution_time: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'actionType' in kwargs:
+        if action_type is None and 'actionType' in kwargs:
             action_type = kwargs['actionType']
-        if 'customAction' in kwargs:
+        if action_type is None:
+            raise TypeError("Missing 'action_type' argument")
+        if custom_action is None and 'customAction' in kwargs:
             custom_action = kwargs['customAction']
-        if 'minimumProcessExecutionTime' in kwargs:
+        if minimum_process_execution_time is None and 'minimumProcessExecutionTime' in kwargs:
             minimum_process_execution_time = kwargs['minimumProcessExecutionTime']
 
         _setter("action_type", action_type)
@@ -45737,10 +46603,12 @@ class WindowsWebAppSiteConfigAutoHealSettingActionCustomActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             executable: pulumi.Input[str],
+             executable: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if executable is None:
+            raise TypeError("Missing 'executable' argument")
 
         _setter("executable", executable)
         if parameters is not None:
@@ -45800,11 +46668,11 @@ class WindowsWebAppSiteConfigAutoHealSettingTriggerArgs:
              status_codes: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'privateMemoryKb' in kwargs:
+        if private_memory_kb is None and 'privateMemoryKb' in kwargs:
             private_memory_kb = kwargs['privateMemoryKb']
-        if 'slowRequests' in kwargs:
+        if slow_requests is None and 'slowRequests' in kwargs:
             slow_requests = kwargs['slowRequests']
-        if 'statusCodes' in kwargs:
+        if status_codes is None and 'statusCodes' in kwargs:
             status_codes = kwargs['statusCodes']
 
         if private_memory_kb is not None:
@@ -45882,10 +46750,14 @@ class WindowsWebAppSiteConfigAutoHealSettingTriggerRequestsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             count: pulumi.Input[int],
-             interval: pulumi.Input[str],
+             count: Optional[pulumi.Input[int]] = None,
+             interval: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if count is None:
+            raise TypeError("Missing 'count' argument")
+        if interval is None:
+            raise TypeError("Missing 'interval' argument")
 
         _setter("count", count)
         _setter("interval", interval)
@@ -45938,14 +46810,20 @@ class WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             count: pulumi.Input[int],
-             interval: pulumi.Input[str],
-             time_taken: pulumi.Input[str],
+             count: Optional[pulumi.Input[int]] = None,
+             interval: Optional[pulumi.Input[str]] = None,
+             time_taken: Optional[pulumi.Input[str]] = None,
              path: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'timeTaken' in kwargs:
+        if count is None:
+            raise TypeError("Missing 'count' argument")
+        if interval is None:
+            raise TypeError("Missing 'interval' argument")
+        if time_taken is None and 'timeTaken' in kwargs:
             time_taken = kwargs['timeTaken']
+        if time_taken is None:
+            raise TypeError("Missing 'time_taken' argument")
 
         _setter("count", count)
         _setter("interval", interval)
@@ -46031,19 +46909,25 @@ class WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             count: pulumi.Input[int],
-             interval: pulumi.Input[str],
-             status_code_range: pulumi.Input[str],
+             count: Optional[pulumi.Input[int]] = None,
+             interval: Optional[pulumi.Input[str]] = None,
+             status_code_range: Optional[pulumi.Input[str]] = None,
              path: Optional[pulumi.Input[str]] = None,
              sub_status: Optional[pulumi.Input[int]] = None,
              win32_status_code: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'statusCodeRange' in kwargs:
+        if count is None:
+            raise TypeError("Missing 'count' argument")
+        if interval is None:
+            raise TypeError("Missing 'interval' argument")
+        if status_code_range is None and 'statusCodeRange' in kwargs:
             status_code_range = kwargs['statusCodeRange']
-        if 'subStatus' in kwargs:
+        if status_code_range is None:
+            raise TypeError("Missing 'status_code_range' argument")
+        if sub_status is None and 'subStatus' in kwargs:
             sub_status = kwargs['subStatus']
-        if 'win32StatusCode' in kwargs:
+        if win32_status_code is None and 'win32StatusCode' in kwargs:
             win32_status_code = kwargs['win32StatusCode']
 
         _setter("count", count)
@@ -46150,9 +47034,9 @@ class WindowsWebAppSiteConfigCorsArgs:
              support_credentials: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowedOrigins' in kwargs:
+        if allowed_origins is None and 'allowedOrigins' in kwargs:
             allowed_origins = kwargs['allowedOrigins']
-        if 'supportCredentials' in kwargs:
+        if support_credentials is None and 'supportCredentials' in kwargs:
             support_credentials = kwargs['supportCredentials']
 
         if allowed_origins is not None:
@@ -46228,11 +47112,11 @@ class WindowsWebAppSiteConfigIpRestrictionArgs:
              virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ipAddress' in kwargs:
+        if ip_address is None and 'ipAddress' in kwargs:
             ip_address = kwargs['ipAddress']
-        if 'serviceTag' in kwargs:
+        if service_tag is None and 'serviceTag' in kwargs:
             service_tag = kwargs['serviceTag']
-        if 'virtualNetworkSubnetId' in kwargs:
+        if virtual_network_subnet_id is None and 'virtualNetworkSubnetId' in kwargs:
             virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
 
         if action is not None:
@@ -46366,13 +47250,13 @@ class WindowsWebAppSiteConfigIpRestrictionHeadersArgs:
              x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'xAzureFdids' in kwargs:
+        if x_azure_fdids is None and 'xAzureFdids' in kwargs:
             x_azure_fdids = kwargs['xAzureFdids']
-        if 'xFdHealthProbe' in kwargs:
+        if x_fd_health_probe is None and 'xFdHealthProbe' in kwargs:
             x_fd_health_probe = kwargs['xFdHealthProbe']
-        if 'xForwardedFors' in kwargs:
+        if x_forwarded_fors is None and 'xForwardedFors' in kwargs:
             x_forwarded_fors = kwargs['xForwardedFors']
-        if 'xForwardedHosts' in kwargs:
+        if x_forwarded_hosts is None and 'xForwardedHosts' in kwargs:
             x_forwarded_hosts = kwargs['xForwardedHosts']
 
         if x_azure_fdids is not None:
@@ -46476,11 +47360,11 @@ class WindowsWebAppSiteConfigScmIpRestrictionArgs:
              virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ipAddress' in kwargs:
+        if ip_address is None and 'ipAddress' in kwargs:
             ip_address = kwargs['ipAddress']
-        if 'serviceTag' in kwargs:
+        if service_tag is None and 'serviceTag' in kwargs:
             service_tag = kwargs['serviceTag']
-        if 'virtualNetworkSubnetId' in kwargs:
+        if virtual_network_subnet_id is None and 'virtualNetworkSubnetId' in kwargs:
             virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
 
         if action is not None:
@@ -46614,13 +47498,13 @@ class WindowsWebAppSiteConfigScmIpRestrictionHeadersArgs:
              x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'xAzureFdids' in kwargs:
+        if x_azure_fdids is None and 'xAzureFdids' in kwargs:
             x_azure_fdids = kwargs['xAzureFdids']
-        if 'xFdHealthProbe' in kwargs:
+        if x_fd_health_probe is None and 'xFdHealthProbe' in kwargs:
             x_fd_health_probe = kwargs['xFdHealthProbe']
-        if 'xForwardedFors' in kwargs:
+        if x_forwarded_fors is None and 'xForwardedFors' in kwargs:
             x_forwarded_fors = kwargs['xForwardedFors']
-        if 'xForwardedHosts' in kwargs:
+        if x_forwarded_hosts is None and 'xForwardedHosts' in kwargs:
             x_forwarded_hosts = kwargs['xForwardedHosts']
 
         if x_azure_fdids is not None:
@@ -46704,17 +47588,23 @@ class WindowsWebAppSiteConfigVirtualApplicationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             physical_path: pulumi.Input[str],
-             preload: pulumi.Input[bool],
-             virtual_path: pulumi.Input[str],
+             physical_path: Optional[pulumi.Input[str]] = None,
+             preload: Optional[pulumi.Input[bool]] = None,
+             virtual_path: Optional[pulumi.Input[str]] = None,
              virtual_directories: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'physicalPath' in kwargs:
+        if physical_path is None and 'physicalPath' in kwargs:
             physical_path = kwargs['physicalPath']
-        if 'virtualPath' in kwargs:
+        if physical_path is None:
+            raise TypeError("Missing 'physical_path' argument")
+        if preload is None:
+            raise TypeError("Missing 'preload' argument")
+        if virtual_path is None and 'virtualPath' in kwargs:
             virtual_path = kwargs['virtualPath']
-        if 'virtualDirectories' in kwargs:
+        if virtual_path is None:
+            raise TypeError("Missing 'virtual_path' argument")
+        if virtual_directories is None and 'virtualDirectories' in kwargs:
             virtual_directories = kwargs['virtualDirectories']
 
         _setter("physical_path", physical_path)
@@ -46793,9 +47683,9 @@ class WindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArgs:
              virtual_path: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'physicalPath' in kwargs:
+        if physical_path is None and 'physicalPath' in kwargs:
             physical_path = kwargs['physicalPath']
-        if 'virtualPath' in kwargs:
+        if virtual_path is None and 'virtualPath' in kwargs:
             virtual_path = kwargs['virtualPath']
 
         if physical_path is not None:
@@ -46940,7 +47830,7 @@ class WindowsWebAppSlotAuthSettingsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: pulumi.Input[bool],
+             enabled: Optional[pulumi.Input[bool]] = None,
              active_directory: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsActiveDirectoryArgs']] = None,
              additional_login_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -46957,21 +47847,23 @@ class WindowsWebAppSlotAuthSettingsArgs:
              unauthenticated_client_action: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'activeDirectory' in kwargs:
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if active_directory is None and 'activeDirectory' in kwargs:
             active_directory = kwargs['activeDirectory']
-        if 'additionalLoginParameters' in kwargs:
+        if additional_login_parameters is None and 'additionalLoginParameters' in kwargs:
             additional_login_parameters = kwargs['additionalLoginParameters']
-        if 'allowedExternalRedirectUrls' in kwargs:
+        if allowed_external_redirect_urls is None and 'allowedExternalRedirectUrls' in kwargs:
             allowed_external_redirect_urls = kwargs['allowedExternalRedirectUrls']
-        if 'defaultProvider' in kwargs:
+        if default_provider is None and 'defaultProvider' in kwargs:
             default_provider = kwargs['defaultProvider']
-        if 'runtimeVersion' in kwargs:
+        if runtime_version is None and 'runtimeVersion' in kwargs:
             runtime_version = kwargs['runtimeVersion']
-        if 'tokenRefreshExtensionHours' in kwargs:
+        if token_refresh_extension_hours is None and 'tokenRefreshExtensionHours' in kwargs:
             token_refresh_extension_hours = kwargs['tokenRefreshExtensionHours']
-        if 'tokenStoreEnabled' in kwargs:
+        if token_store_enabled is None and 'tokenStoreEnabled' in kwargs:
             token_store_enabled = kwargs['tokenStoreEnabled']
-        if 'unauthenticatedClientAction' in kwargs:
+        if unauthenticated_client_action is None and 'unauthenticatedClientAction' in kwargs:
             unauthenticated_client_action = kwargs['unauthenticatedClientAction']
 
         _setter("enabled", enabled)
@@ -47214,19 +48106,21 @@ class WindowsWebAppSlotAuthSettingsActiveDirectoryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
              allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              client_secret: Optional[pulumi.Input[str]] = None,
              client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'allowedAudiences' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if allowed_audiences is None and 'allowedAudiences' in kwargs:
             allowed_audiences = kwargs['allowedAudiences']
-        if 'clientSecret' in kwargs:
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'clientSecretSettingName' in kwargs:
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
 
         _setter("client_id", client_id)
@@ -47311,19 +48205,21 @@ class WindowsWebAppSlotAuthSettingsFacebookArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_id: pulumi.Input[str],
+             app_id: Optional[pulumi.Input[str]] = None,
              app_secret: Optional[pulumi.Input[str]] = None,
              app_secret_setting_name: Optional[pulumi.Input[str]] = None,
              oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'appId' in kwargs:
+        if app_id is None and 'appId' in kwargs:
             app_id = kwargs['appId']
-        if 'appSecret' in kwargs:
+        if app_id is None:
+            raise TypeError("Missing 'app_id' argument")
+        if app_secret is None and 'appSecret' in kwargs:
             app_secret = kwargs['appSecret']
-        if 'appSecretSettingName' in kwargs:
+        if app_secret_setting_name is None and 'appSecretSettingName' in kwargs:
             app_secret_setting_name = kwargs['appSecretSettingName']
-        if 'oauthScopes' in kwargs:
+        if oauth_scopes is None and 'oauthScopes' in kwargs:
             oauth_scopes = kwargs['oauthScopes']
 
         _setter("app_id", app_id)
@@ -47406,19 +48302,21 @@ class WindowsWebAppSlotAuthSettingsGithubArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
              client_secret: Optional[pulumi.Input[str]] = None,
              client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecret' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'clientSecretSettingName' in kwargs:
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'oauthScopes' in kwargs:
+        if oauth_scopes is None and 'oauthScopes' in kwargs:
             oauth_scopes = kwargs['oauthScopes']
 
         _setter("client_id", client_id)
@@ -47501,19 +48399,21 @@ class WindowsWebAppSlotAuthSettingsGoogleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
              client_secret: Optional[pulumi.Input[str]] = None,
              client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecret' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'clientSecretSettingName' in kwargs:
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'oauthScopes' in kwargs:
+        if oauth_scopes is None and 'oauthScopes' in kwargs:
             oauth_scopes = kwargs['oauthScopes']
 
         _setter("client_id", client_id)
@@ -47596,19 +48496,21 @@ class WindowsWebAppSlotAuthSettingsMicrosoftArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
              client_secret: Optional[pulumi.Input[str]] = None,
              client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecret' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'clientSecretSettingName' in kwargs:
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'oauthScopes' in kwargs:
+        if oauth_scopes is None and 'oauthScopes' in kwargs:
             oauth_scopes = kwargs['oauthScopes']
 
         _setter("client_id", client_id)
@@ -47688,16 +48590,18 @@ class WindowsWebAppSlotAuthSettingsTwitterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             consumer_key: pulumi.Input[str],
+             consumer_key: Optional[pulumi.Input[str]] = None,
              consumer_secret: Optional[pulumi.Input[str]] = None,
              consumer_secret_setting_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'consumerKey' in kwargs:
+        if consumer_key is None and 'consumerKey' in kwargs:
             consumer_key = kwargs['consumerKey']
-        if 'consumerSecret' in kwargs:
+        if consumer_key is None:
+            raise TypeError("Missing 'consumer_key' argument")
+        if consumer_secret is None and 'consumerSecret' in kwargs:
             consumer_secret = kwargs['consumerSecret']
-        if 'consumerSecretSettingName' in kwargs:
+        if consumer_secret_setting_name is None and 'consumerSecretSettingName' in kwargs:
             consumer_secret_setting_name = kwargs['consumerSecretSettingName']
 
         _setter("consumer_key", consumer_key)
@@ -47826,7 +48730,7 @@ class WindowsWebAppSlotAuthSettingsV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             login: pulumi.Input['WindowsWebAppSlotAuthSettingsV2LoginArgs'],
+             login: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2LoginArgs']] = None,
              active_directory_v2: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2Args']] = None,
              apple_v2: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2AppleV2Args']] = None,
              auth_enabled: Optional[pulumi.Input[bool]] = None,
@@ -47850,47 +48754,49 @@ class WindowsWebAppSlotAuthSettingsV2Args:
              unauthenticated_action: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'activeDirectoryV2' in kwargs:
+        if login is None:
+            raise TypeError("Missing 'login' argument")
+        if active_directory_v2 is None and 'activeDirectoryV2' in kwargs:
             active_directory_v2 = kwargs['activeDirectoryV2']
-        if 'appleV2' in kwargs:
+        if apple_v2 is None and 'appleV2' in kwargs:
             apple_v2 = kwargs['appleV2']
-        if 'authEnabled' in kwargs:
+        if auth_enabled is None and 'authEnabled' in kwargs:
             auth_enabled = kwargs['authEnabled']
-        if 'azureStaticWebAppV2' in kwargs:
+        if azure_static_web_app_v2 is None and 'azureStaticWebAppV2' in kwargs:
             azure_static_web_app_v2 = kwargs['azureStaticWebAppV2']
-        if 'configFilePath' in kwargs:
+        if config_file_path is None and 'configFilePath' in kwargs:
             config_file_path = kwargs['configFilePath']
-        if 'customOidcV2s' in kwargs:
+        if custom_oidc_v2s is None and 'customOidcV2s' in kwargs:
             custom_oidc_v2s = kwargs['customOidcV2s']
-        if 'defaultProvider' in kwargs:
+        if default_provider is None and 'defaultProvider' in kwargs:
             default_provider = kwargs['defaultProvider']
-        if 'excludedPaths' in kwargs:
+        if excluded_paths is None and 'excludedPaths' in kwargs:
             excluded_paths = kwargs['excludedPaths']
-        if 'facebookV2' in kwargs:
+        if facebook_v2 is None and 'facebookV2' in kwargs:
             facebook_v2 = kwargs['facebookV2']
-        if 'forwardProxyConvention' in kwargs:
+        if forward_proxy_convention is None and 'forwardProxyConvention' in kwargs:
             forward_proxy_convention = kwargs['forwardProxyConvention']
-        if 'forwardProxyCustomHostHeaderName' in kwargs:
+        if forward_proxy_custom_host_header_name is None and 'forwardProxyCustomHostHeaderName' in kwargs:
             forward_proxy_custom_host_header_name = kwargs['forwardProxyCustomHostHeaderName']
-        if 'forwardProxyCustomSchemeHeaderName' in kwargs:
+        if forward_proxy_custom_scheme_header_name is None and 'forwardProxyCustomSchemeHeaderName' in kwargs:
             forward_proxy_custom_scheme_header_name = kwargs['forwardProxyCustomSchemeHeaderName']
-        if 'githubV2' in kwargs:
+        if github_v2 is None and 'githubV2' in kwargs:
             github_v2 = kwargs['githubV2']
-        if 'googleV2' in kwargs:
+        if google_v2 is None and 'googleV2' in kwargs:
             google_v2 = kwargs['googleV2']
-        if 'httpRouteApiPrefix' in kwargs:
+        if http_route_api_prefix is None and 'httpRouteApiPrefix' in kwargs:
             http_route_api_prefix = kwargs['httpRouteApiPrefix']
-        if 'microsoftV2' in kwargs:
+        if microsoft_v2 is None and 'microsoftV2' in kwargs:
             microsoft_v2 = kwargs['microsoftV2']
-        if 'requireAuthentication' in kwargs:
+        if require_authentication is None and 'requireAuthentication' in kwargs:
             require_authentication = kwargs['requireAuthentication']
-        if 'requireHttps' in kwargs:
+        if require_https is None and 'requireHttps' in kwargs:
             require_https = kwargs['requireHttps']
-        if 'runtimeVersion' in kwargs:
+        if runtime_version is None and 'runtimeVersion' in kwargs:
             runtime_version = kwargs['runtimeVersion']
-        if 'twitterV2' in kwargs:
+        if twitter_v2 is None and 'twitterV2' in kwargs:
             twitter_v2 = kwargs['twitterV2']
-        if 'unauthenticatedAction' in kwargs:
+        if unauthenticated_action is None and 'unauthenticatedAction' in kwargs:
             unauthenticated_action = kwargs['unauthenticatedAction']
 
         _setter("login", login)
@@ -48259,8 +49165,8 @@ class WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             tenant_auth_endpoint: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             tenant_auth_endpoint: Optional[pulumi.Input[str]] = None,
              allowed_applications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              allowed_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -48273,29 +49179,33 @@ class WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2Args:
              www_authentication_disabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'tenantAuthEndpoint' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if tenant_auth_endpoint is None and 'tenantAuthEndpoint' in kwargs:
             tenant_auth_endpoint = kwargs['tenantAuthEndpoint']
-        if 'allowedApplications' in kwargs:
+        if tenant_auth_endpoint is None:
+            raise TypeError("Missing 'tenant_auth_endpoint' argument")
+        if allowed_applications is None and 'allowedApplications' in kwargs:
             allowed_applications = kwargs['allowedApplications']
-        if 'allowedAudiences' in kwargs:
+        if allowed_audiences is None and 'allowedAudiences' in kwargs:
             allowed_audiences = kwargs['allowedAudiences']
-        if 'allowedGroups' in kwargs:
+        if allowed_groups is None and 'allowedGroups' in kwargs:
             allowed_groups = kwargs['allowedGroups']
-        if 'allowedIdentities' in kwargs:
+        if allowed_identities is None and 'allowedIdentities' in kwargs:
             allowed_identities = kwargs['allowedIdentities']
-        if 'clientSecretCertificateThumbprint' in kwargs:
+        if client_secret_certificate_thumbprint is None and 'clientSecretCertificateThumbprint' in kwargs:
             client_secret_certificate_thumbprint = kwargs['clientSecretCertificateThumbprint']
-        if 'clientSecretSettingName' in kwargs:
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'jwtAllowedClientApplications' in kwargs:
+        if jwt_allowed_client_applications is None and 'jwtAllowedClientApplications' in kwargs:
             jwt_allowed_client_applications = kwargs['jwtAllowedClientApplications']
-        if 'jwtAllowedGroups' in kwargs:
+        if jwt_allowed_groups is None and 'jwtAllowedGroups' in kwargs:
             jwt_allowed_groups = kwargs['jwtAllowedGroups']
-        if 'loginParameters' in kwargs:
+        if login_parameters is None and 'loginParameters' in kwargs:
             login_parameters = kwargs['loginParameters']
-        if 'wwwAuthenticationDisabled' in kwargs:
+        if www_authentication_disabled is None and 'wwwAuthenticationDisabled' in kwargs:
             www_authentication_disabled = kwargs['wwwAuthenticationDisabled']
 
         _setter("client_id", client_id)
@@ -48490,16 +49400,20 @@ class WindowsWebAppSlotAuthSettingsV2AppleV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             client_secret_setting_name: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecretSettingName' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'loginScopes' in kwargs:
+        if client_secret_setting_name is None:
+            raise TypeError("Missing 'client_secret_setting_name' argument")
+        if login_scopes is None and 'loginScopes' in kwargs:
             login_scopes = kwargs['loginScopes']
 
         _setter("client_id", client_id)
@@ -48558,11 +49472,13 @@ class WindowsWebAppSlotAuthSettingsV2AzureStaticWebAppV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
 
         _setter("client_id", client_id)
 
@@ -48622,9 +49538,9 @@ class WindowsWebAppSlotAuthSettingsV2CustomOidcV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             name: pulumi.Input[str],
-             openid_configuration_endpoint: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             openid_configuration_endpoint: Optional[pulumi.Input[str]] = None,
              authorisation_endpoint: Optional[pulumi.Input[str]] = None,
              certification_uri: Optional[pulumi.Input[str]] = None,
              client_credential_method: Optional[pulumi.Input[str]] = None,
@@ -48635,23 +49551,29 @@ class WindowsWebAppSlotAuthSettingsV2CustomOidcV2Args:
              token_endpoint: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'openidConfigurationEndpoint' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if openid_configuration_endpoint is None and 'openidConfigurationEndpoint' in kwargs:
             openid_configuration_endpoint = kwargs['openidConfigurationEndpoint']
-        if 'authorisationEndpoint' in kwargs:
+        if openid_configuration_endpoint is None:
+            raise TypeError("Missing 'openid_configuration_endpoint' argument")
+        if authorisation_endpoint is None and 'authorisationEndpoint' in kwargs:
             authorisation_endpoint = kwargs['authorisationEndpoint']
-        if 'certificationUri' in kwargs:
+        if certification_uri is None and 'certificationUri' in kwargs:
             certification_uri = kwargs['certificationUri']
-        if 'clientCredentialMethod' in kwargs:
+        if client_credential_method is None and 'clientCredentialMethod' in kwargs:
             client_credential_method = kwargs['clientCredentialMethod']
-        if 'clientSecretSettingName' in kwargs:
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'issuerEndpoint' in kwargs:
+        if issuer_endpoint is None and 'issuerEndpoint' in kwargs:
             issuer_endpoint = kwargs['issuerEndpoint']
-        if 'nameClaimType' in kwargs:
+        if name_claim_type is None and 'nameClaimType' in kwargs:
             name_claim_type = kwargs['nameClaimType']
-        if 'tokenEndpoint' in kwargs:
+        if token_endpoint is None and 'tokenEndpoint' in kwargs:
             token_endpoint = kwargs['tokenEndpoint']
 
         _setter("client_id", client_id)
@@ -48829,19 +49751,23 @@ class WindowsWebAppSlotAuthSettingsV2FacebookV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_id: pulumi.Input[str],
-             app_secret_setting_name: pulumi.Input[str],
+             app_id: Optional[pulumi.Input[str]] = None,
+             app_secret_setting_name: Optional[pulumi.Input[str]] = None,
              graph_api_version: Optional[pulumi.Input[str]] = None,
              login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'appId' in kwargs:
+        if app_id is None and 'appId' in kwargs:
             app_id = kwargs['appId']
-        if 'appSecretSettingName' in kwargs:
+        if app_id is None:
+            raise TypeError("Missing 'app_id' argument")
+        if app_secret_setting_name is None and 'appSecretSettingName' in kwargs:
             app_secret_setting_name = kwargs['appSecretSettingName']
-        if 'graphApiVersion' in kwargs:
+        if app_secret_setting_name is None:
+            raise TypeError("Missing 'app_secret_setting_name' argument")
+        if graph_api_version is None and 'graphApiVersion' in kwargs:
             graph_api_version = kwargs['graphApiVersion']
-        if 'loginScopes' in kwargs:
+        if login_scopes is None and 'loginScopes' in kwargs:
             login_scopes = kwargs['loginScopes']
 
         _setter("app_id", app_id)
@@ -48922,16 +49848,20 @@ class WindowsWebAppSlotAuthSettingsV2GithubV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             client_secret_setting_name: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecretSettingName' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'loginScopes' in kwargs:
+        if client_secret_setting_name is None:
+            raise TypeError("Missing 'client_secret_setting_name' argument")
+        if login_scopes is None and 'loginScopes' in kwargs:
             login_scopes = kwargs['loginScopes']
 
         _setter("client_id", client_id)
@@ -49001,19 +49931,23 @@ class WindowsWebAppSlotAuthSettingsV2GoogleV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             client_secret_setting_name: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecretSettingName' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'allowedAudiences' in kwargs:
+        if client_secret_setting_name is None:
+            raise TypeError("Missing 'client_secret_setting_name' argument")
+        if allowed_audiences is None and 'allowedAudiences' in kwargs:
             allowed_audiences = kwargs['allowedAudiences']
-        if 'loginScopes' in kwargs:
+        if login_scopes is None and 'loginScopes' in kwargs:
             login_scopes = kwargs['loginScopes']
 
         _setter("client_id", client_id)
@@ -49133,27 +50067,27 @@ class WindowsWebAppSlotAuthSettingsV2LoginArgs:
              validate_nonce: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowedExternalRedirectUrls' in kwargs:
+        if allowed_external_redirect_urls is None and 'allowedExternalRedirectUrls' in kwargs:
             allowed_external_redirect_urls = kwargs['allowedExternalRedirectUrls']
-        if 'cookieExpirationConvention' in kwargs:
+        if cookie_expiration_convention is None and 'cookieExpirationConvention' in kwargs:
             cookie_expiration_convention = kwargs['cookieExpirationConvention']
-        if 'cookieExpirationTime' in kwargs:
+        if cookie_expiration_time is None and 'cookieExpirationTime' in kwargs:
             cookie_expiration_time = kwargs['cookieExpirationTime']
-        if 'logoutEndpoint' in kwargs:
+        if logout_endpoint is None and 'logoutEndpoint' in kwargs:
             logout_endpoint = kwargs['logoutEndpoint']
-        if 'nonceExpirationTime' in kwargs:
+        if nonce_expiration_time is None and 'nonceExpirationTime' in kwargs:
             nonce_expiration_time = kwargs['nonceExpirationTime']
-        if 'preserveUrlFragmentsForLogins' in kwargs:
+        if preserve_url_fragments_for_logins is None and 'preserveUrlFragmentsForLogins' in kwargs:
             preserve_url_fragments_for_logins = kwargs['preserveUrlFragmentsForLogins']
-        if 'tokenRefreshExtensionTime' in kwargs:
+        if token_refresh_extension_time is None and 'tokenRefreshExtensionTime' in kwargs:
             token_refresh_extension_time = kwargs['tokenRefreshExtensionTime']
-        if 'tokenStoreEnabled' in kwargs:
+        if token_store_enabled is None and 'tokenStoreEnabled' in kwargs:
             token_store_enabled = kwargs['tokenStoreEnabled']
-        if 'tokenStorePath' in kwargs:
+        if token_store_path is None and 'tokenStorePath' in kwargs:
             token_store_path = kwargs['tokenStorePath']
-        if 'tokenStoreSasSettingName' in kwargs:
+        if token_store_sas_setting_name is None and 'tokenStoreSasSettingName' in kwargs:
             token_store_sas_setting_name = kwargs['tokenStoreSasSettingName']
-        if 'validateNonce' in kwargs:
+        if validate_nonce is None and 'validateNonce' in kwargs:
             validate_nonce = kwargs['validateNonce']
 
         if allowed_external_redirect_urls is not None:
@@ -49339,19 +50273,23 @@ class WindowsWebAppSlotAuthSettingsV2MicrosoftV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             client_secret_setting_name: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret_setting_name: Optional[pulumi.Input[str]] = None,
              allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecretSettingName' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
             client_secret_setting_name = kwargs['clientSecretSettingName']
-        if 'allowedAudiences' in kwargs:
+        if client_secret_setting_name is None:
+            raise TypeError("Missing 'client_secret_setting_name' argument")
+        if allowed_audiences is None and 'allowedAudiences' in kwargs:
             allowed_audiences = kwargs['allowedAudiences']
-        if 'loginScopes' in kwargs:
+        if login_scopes is None and 'loginScopes' in kwargs:
             login_scopes = kwargs['loginScopes']
 
         _setter("client_id", client_id)
@@ -49431,14 +50369,18 @@ class WindowsWebAppSlotAuthSettingsV2TwitterV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             consumer_key: pulumi.Input[str],
-             consumer_secret_setting_name: pulumi.Input[str],
+             consumer_key: Optional[pulumi.Input[str]] = None,
+             consumer_secret_setting_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'consumerKey' in kwargs:
+        if consumer_key is None and 'consumerKey' in kwargs:
             consumer_key = kwargs['consumerKey']
-        if 'consumerSecretSettingName' in kwargs:
+        if consumer_key is None:
+            raise TypeError("Missing 'consumer_key' argument")
+        if consumer_secret_setting_name is None and 'consumerSecretSettingName' in kwargs:
             consumer_secret_setting_name = kwargs['consumerSecretSettingName']
+        if consumer_secret_setting_name is None:
+            raise TypeError("Missing 'consumer_secret_setting_name' argument")
 
         _setter("consumer_key", consumer_key)
         _setter("consumer_secret_setting_name", consumer_secret_setting_name)
@@ -49493,14 +50435,20 @@ class WindowsWebAppSlotBackupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             schedule: pulumi.Input['WindowsWebAppSlotBackupScheduleArgs'],
-             storage_account_url: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             schedule: Optional[pulumi.Input['WindowsWebAppSlotBackupScheduleArgs']] = None,
+             storage_account_url: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'storageAccountUrl' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if schedule is None:
+            raise TypeError("Missing 'schedule' argument")
+        if storage_account_url is None and 'storageAccountUrl' in kwargs:
             storage_account_url = kwargs['storageAccountUrl']
+        if storage_account_url is None:
+            raise TypeError("Missing 'storage_account_url' argument")
 
         _setter("name", name)
         _setter("schedule", schedule)
@@ -49587,25 +50535,29 @@ class WindowsWebAppSlotBackupScheduleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             frequency_interval: pulumi.Input[int],
-             frequency_unit: pulumi.Input[str],
+             frequency_interval: Optional[pulumi.Input[int]] = None,
+             frequency_unit: Optional[pulumi.Input[str]] = None,
              keep_at_least_one_backup: Optional[pulumi.Input[bool]] = None,
              last_execution_time: Optional[pulumi.Input[str]] = None,
              retention_period_days: Optional[pulumi.Input[int]] = None,
              start_time: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'frequencyInterval' in kwargs:
+        if frequency_interval is None and 'frequencyInterval' in kwargs:
             frequency_interval = kwargs['frequencyInterval']
-        if 'frequencyUnit' in kwargs:
+        if frequency_interval is None:
+            raise TypeError("Missing 'frequency_interval' argument")
+        if frequency_unit is None and 'frequencyUnit' in kwargs:
             frequency_unit = kwargs['frequencyUnit']
-        if 'keepAtLeastOneBackup' in kwargs:
+        if frequency_unit is None:
+            raise TypeError("Missing 'frequency_unit' argument")
+        if keep_at_least_one_backup is None and 'keepAtLeastOneBackup' in kwargs:
             keep_at_least_one_backup = kwargs['keepAtLeastOneBackup']
-        if 'lastExecutionTime' in kwargs:
+        if last_execution_time is None and 'lastExecutionTime' in kwargs:
             last_execution_time = kwargs['lastExecutionTime']
-        if 'retentionPeriodDays' in kwargs:
+        if retention_period_days is None and 'retentionPeriodDays' in kwargs:
             retention_period_days = kwargs['retentionPeriodDays']
-        if 'startTime' in kwargs:
+        if start_time is None and 'startTime' in kwargs:
             start_time = kwargs['startTime']
 
         _setter("frequency_interval", frequency_interval)
@@ -49711,11 +50663,17 @@ class WindowsWebAppSlotConnectionStringArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             type: pulumi.Input[str],
-             value: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("name", name)
         _setter("type", type)
@@ -49783,17 +50741,19 @@ class WindowsWebAppSlotIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -49884,13 +50844,13 @@ class WindowsWebAppSlotLogsArgs:
              http_logs: Optional[pulumi.Input['WindowsWebAppSlotLogsHttpLogsArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'applicationLogs' in kwargs:
+        if application_logs is None and 'applicationLogs' in kwargs:
             application_logs = kwargs['applicationLogs']
-        if 'detailedErrorMessages' in kwargs:
+        if detailed_error_messages is None and 'detailedErrorMessages' in kwargs:
             detailed_error_messages = kwargs['detailedErrorMessages']
-        if 'failedRequestTracing' in kwargs:
+        if failed_request_tracing is None and 'failedRequestTracing' in kwargs:
             failed_request_tracing = kwargs['failedRequestTracing']
-        if 'httpLogs' in kwargs:
+        if http_logs is None and 'httpLogs' in kwargs:
             http_logs = kwargs['httpLogs']
 
         if application_logs is not None:
@@ -49968,13 +50928,15 @@ class WindowsWebAppSlotLogsApplicationLogsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             file_system_level: pulumi.Input[str],
+             file_system_level: Optional[pulumi.Input[str]] = None,
              azure_blob_storage: Optional[pulumi.Input['WindowsWebAppSlotLogsApplicationLogsAzureBlobStorageArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'fileSystemLevel' in kwargs:
+        if file_system_level is None and 'fileSystemLevel' in kwargs:
             file_system_level = kwargs['fileSystemLevel']
-        if 'azureBlobStorage' in kwargs:
+        if file_system_level is None:
+            raise TypeError("Missing 'file_system_level' argument")
+        if azure_blob_storage is None and 'azureBlobStorage' in kwargs:
             azure_blob_storage = kwargs['azureBlobStorage']
 
         _setter("file_system_level", file_system_level)
@@ -50026,15 +50988,21 @@ class WindowsWebAppSlotLogsApplicationLogsAzureBlobStorageArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             level: pulumi.Input[str],
-             retention_in_days: pulumi.Input[int],
-             sas_url: pulumi.Input[str],
+             level: Optional[pulumi.Input[str]] = None,
+             retention_in_days: Optional[pulumi.Input[int]] = None,
+             sas_url: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'retentionInDays' in kwargs:
+        if level is None:
+            raise TypeError("Missing 'level' argument")
+        if retention_in_days is None and 'retentionInDays' in kwargs:
             retention_in_days = kwargs['retentionInDays']
-        if 'sasUrl' in kwargs:
+        if retention_in_days is None:
+            raise TypeError("Missing 'retention_in_days' argument")
+        if sas_url is None and 'sasUrl' in kwargs:
             sas_url = kwargs['sasUrl']
+        if sas_url is None:
+            raise TypeError("Missing 'sas_url' argument")
 
         _setter("level", level)
         _setter("retention_in_days", retention_in_days)
@@ -50098,9 +51066,9 @@ class WindowsWebAppSlotLogsHttpLogsArgs:
              file_system: Optional[pulumi.Input['WindowsWebAppSlotLogsHttpLogsFileSystemArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'azureBlobStorage' in kwargs:
+        if azure_blob_storage is None and 'azureBlobStorage' in kwargs:
             azure_blob_storage = kwargs['azureBlobStorage']
-        if 'fileSystem' in kwargs:
+        if file_system is None and 'fileSystem' in kwargs:
             file_system = kwargs['fileSystem']
 
         if azure_blob_storage is not None:
@@ -50150,13 +51118,15 @@ class WindowsWebAppSlotLogsHttpLogsAzureBlobStorageArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             sas_url: pulumi.Input[str],
+             sas_url: Optional[pulumi.Input[str]] = None,
              retention_in_days: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'sasUrl' in kwargs:
+        if sas_url is None and 'sasUrl' in kwargs:
             sas_url = kwargs['sasUrl']
-        if 'retentionInDays' in kwargs:
+        if sas_url is None:
+            raise TypeError("Missing 'sas_url' argument")
+        if retention_in_days is None and 'retentionInDays' in kwargs:
             retention_in_days = kwargs['retentionInDays']
 
         _setter("sas_url", sas_url)
@@ -50205,14 +51175,18 @@ class WindowsWebAppSlotLogsHttpLogsFileSystemArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             retention_in_days: pulumi.Input[int],
-             retention_in_mb: pulumi.Input[int],
+             retention_in_days: Optional[pulumi.Input[int]] = None,
+             retention_in_mb: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'retentionInDays' in kwargs:
+        if retention_in_days is None and 'retentionInDays' in kwargs:
             retention_in_days = kwargs['retentionInDays']
-        if 'retentionInMb' in kwargs:
+        if retention_in_days is None:
+            raise TypeError("Missing 'retention_in_days' argument")
+        if retention_in_mb is None and 'retentionInMb' in kwargs:
             retention_in_mb = kwargs['retentionInMb']
+        if retention_in_mb is None:
+            raise TypeError("Missing 'retention_in_mb' argument")
 
         _setter("retention_in_days", retention_in_days)
         _setter("retention_in_mb", retention_in_mb)
@@ -50389,71 +51363,71 @@ class WindowsWebAppSlotSiteConfigArgs:
              worker_count: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'alwaysOn' in kwargs:
+        if always_on is None and 'alwaysOn' in kwargs:
             always_on = kwargs['alwaysOn']
-        if 'apiDefinitionUrl' in kwargs:
+        if api_definition_url is None and 'apiDefinitionUrl' in kwargs:
             api_definition_url = kwargs['apiDefinitionUrl']
-        if 'apiManagementApiId' in kwargs:
+        if api_management_api_id is None and 'apiManagementApiId' in kwargs:
             api_management_api_id = kwargs['apiManagementApiId']
-        if 'appCommandLine' in kwargs:
+        if app_command_line is None and 'appCommandLine' in kwargs:
             app_command_line = kwargs['appCommandLine']
-        if 'applicationStack' in kwargs:
+        if application_stack is None and 'applicationStack' in kwargs:
             application_stack = kwargs['applicationStack']
-        if 'autoHealEnabled' in kwargs:
+        if auto_heal_enabled is None and 'autoHealEnabled' in kwargs:
             auto_heal_enabled = kwargs['autoHealEnabled']
-        if 'autoHealSetting' in kwargs:
+        if auto_heal_setting is None and 'autoHealSetting' in kwargs:
             auto_heal_setting = kwargs['autoHealSetting']
-        if 'autoSwapSlotName' in kwargs:
+        if auto_swap_slot_name is None and 'autoSwapSlotName' in kwargs:
             auto_swap_slot_name = kwargs['autoSwapSlotName']
-        if 'containerRegistryManagedIdentityClientId' in kwargs:
+        if container_registry_managed_identity_client_id is None and 'containerRegistryManagedIdentityClientId' in kwargs:
             container_registry_managed_identity_client_id = kwargs['containerRegistryManagedIdentityClientId']
-        if 'containerRegistryUseManagedIdentity' in kwargs:
+        if container_registry_use_managed_identity is None and 'containerRegistryUseManagedIdentity' in kwargs:
             container_registry_use_managed_identity = kwargs['containerRegistryUseManagedIdentity']
-        if 'defaultDocuments' in kwargs:
+        if default_documents is None and 'defaultDocuments' in kwargs:
             default_documents = kwargs['defaultDocuments']
-        if 'detailedErrorLoggingEnabled' in kwargs:
+        if detailed_error_logging_enabled is None and 'detailedErrorLoggingEnabled' in kwargs:
             detailed_error_logging_enabled = kwargs['detailedErrorLoggingEnabled']
-        if 'ftpsState' in kwargs:
+        if ftps_state is None and 'ftpsState' in kwargs:
             ftps_state = kwargs['ftpsState']
-        if 'healthCheckEvictionTimeInMin' in kwargs:
+        if health_check_eviction_time_in_min is None and 'healthCheckEvictionTimeInMin' in kwargs:
             health_check_eviction_time_in_min = kwargs['healthCheckEvictionTimeInMin']
-        if 'healthCheckPath' in kwargs:
+        if health_check_path is None and 'healthCheckPath' in kwargs:
             health_check_path = kwargs['healthCheckPath']
-        if 'http2Enabled' in kwargs:
+        if http2_enabled is None and 'http2Enabled' in kwargs:
             http2_enabled = kwargs['http2Enabled']
-        if 'ipRestrictions' in kwargs:
+        if ip_restrictions is None and 'ipRestrictions' in kwargs:
             ip_restrictions = kwargs['ipRestrictions']
-        if 'loadBalancingMode' in kwargs:
+        if load_balancing_mode is None and 'loadBalancingMode' in kwargs:
             load_balancing_mode = kwargs['loadBalancingMode']
-        if 'localMysqlEnabled' in kwargs:
+        if local_mysql_enabled is None and 'localMysqlEnabled' in kwargs:
             local_mysql_enabled = kwargs['localMysqlEnabled']
-        if 'managedPipelineMode' in kwargs:
+        if managed_pipeline_mode is None and 'managedPipelineMode' in kwargs:
             managed_pipeline_mode = kwargs['managedPipelineMode']
-        if 'minimumTlsVersion' in kwargs:
+        if minimum_tls_version is None and 'minimumTlsVersion' in kwargs:
             minimum_tls_version = kwargs['minimumTlsVersion']
-        if 'remoteDebuggingEnabled' in kwargs:
+        if remote_debugging_enabled is None and 'remoteDebuggingEnabled' in kwargs:
             remote_debugging_enabled = kwargs['remoteDebuggingEnabled']
-        if 'remoteDebuggingVersion' in kwargs:
+        if remote_debugging_version is None and 'remoteDebuggingVersion' in kwargs:
             remote_debugging_version = kwargs['remoteDebuggingVersion']
-        if 'scmIpRestrictions' in kwargs:
+        if scm_ip_restrictions is None and 'scmIpRestrictions' in kwargs:
             scm_ip_restrictions = kwargs['scmIpRestrictions']
-        if 'scmMinimumTlsVersion' in kwargs:
+        if scm_minimum_tls_version is None and 'scmMinimumTlsVersion' in kwargs:
             scm_minimum_tls_version = kwargs['scmMinimumTlsVersion']
-        if 'scmType' in kwargs:
+        if scm_type is None and 'scmType' in kwargs:
             scm_type = kwargs['scmType']
-        if 'scmUseMainIpRestriction' in kwargs:
+        if scm_use_main_ip_restriction is None and 'scmUseMainIpRestriction' in kwargs:
             scm_use_main_ip_restriction = kwargs['scmUseMainIpRestriction']
-        if 'use32BitWorker' in kwargs:
+        if use32_bit_worker is None and 'use32BitWorker' in kwargs:
             use32_bit_worker = kwargs['use32BitWorker']
-        if 'virtualApplications' in kwargs:
+        if virtual_applications is None and 'virtualApplications' in kwargs:
             virtual_applications = kwargs['virtualApplications']
-        if 'vnetRouteAllEnabled' in kwargs:
+        if vnet_route_all_enabled is None and 'vnetRouteAllEnabled' in kwargs:
             vnet_route_all_enabled = kwargs['vnetRouteAllEnabled']
-        if 'websocketsEnabled' in kwargs:
+        if websockets_enabled is None and 'websocketsEnabled' in kwargs:
             websockets_enabled = kwargs['websocketsEnabled']
-        if 'windowsFxVersion' in kwargs:
+        if windows_fx_version is None and 'windowsFxVersion' in kwargs:
             windows_fx_version = kwargs['windowsFxVersion']
-        if 'workerCount' in kwargs:
+        if worker_count is None and 'workerCount' in kwargs:
             worker_count = kwargs['workerCount']
 
         if always_on is not None:
@@ -51019,41 +51993,41 @@ class WindowsWebAppSlotSiteConfigApplicationStackArgs:
              tomcat_version: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'currentStack' in kwargs:
+        if current_stack is None and 'currentStack' in kwargs:
             current_stack = kwargs['currentStack']
-        if 'dockerContainerName' in kwargs:
+        if docker_container_name is None and 'dockerContainerName' in kwargs:
             docker_container_name = kwargs['dockerContainerName']
-        if 'dockerContainerRegistry' in kwargs:
+        if docker_container_registry is None and 'dockerContainerRegistry' in kwargs:
             docker_container_registry = kwargs['dockerContainerRegistry']
-        if 'dockerContainerTag' in kwargs:
+        if docker_container_tag is None and 'dockerContainerTag' in kwargs:
             docker_container_tag = kwargs['dockerContainerTag']
-        if 'dockerImageName' in kwargs:
+        if docker_image_name is None and 'dockerImageName' in kwargs:
             docker_image_name = kwargs['dockerImageName']
-        if 'dockerRegistryPassword' in kwargs:
+        if docker_registry_password is None and 'dockerRegistryPassword' in kwargs:
             docker_registry_password = kwargs['dockerRegistryPassword']
-        if 'dockerRegistryUrl' in kwargs:
+        if docker_registry_url is None and 'dockerRegistryUrl' in kwargs:
             docker_registry_url = kwargs['dockerRegistryUrl']
-        if 'dockerRegistryUsername' in kwargs:
+        if docker_registry_username is None and 'dockerRegistryUsername' in kwargs:
             docker_registry_username = kwargs['dockerRegistryUsername']
-        if 'dotnetCoreVersion' in kwargs:
+        if dotnet_core_version is None and 'dotnetCoreVersion' in kwargs:
             dotnet_core_version = kwargs['dotnetCoreVersion']
-        if 'dotnetVersion' in kwargs:
+        if dotnet_version is None and 'dotnetVersion' in kwargs:
             dotnet_version = kwargs['dotnetVersion']
-        if 'javaContainer' in kwargs:
+        if java_container is None and 'javaContainer' in kwargs:
             java_container = kwargs['javaContainer']
-        if 'javaContainerVersion' in kwargs:
+        if java_container_version is None and 'javaContainerVersion' in kwargs:
             java_container_version = kwargs['javaContainerVersion']
-        if 'javaEmbeddedServerEnabled' in kwargs:
+        if java_embedded_server_enabled is None and 'javaEmbeddedServerEnabled' in kwargs:
             java_embedded_server_enabled = kwargs['javaEmbeddedServerEnabled']
-        if 'javaVersion' in kwargs:
+        if java_version is None and 'javaVersion' in kwargs:
             java_version = kwargs['javaVersion']
-        if 'nodeVersion' in kwargs:
+        if node_version is None and 'nodeVersion' in kwargs:
             node_version = kwargs['nodeVersion']
-        if 'phpVersion' in kwargs:
+        if php_version is None and 'phpVersion' in kwargs:
             php_version = kwargs['phpVersion']
-        if 'pythonVersion' in kwargs:
+        if python_version is None and 'pythonVersion' in kwargs:
             python_version = kwargs['pythonVersion']
-        if 'tomcatVersion' in kwargs:
+        if tomcat_version is None and 'tomcatVersion' in kwargs:
             tomcat_version = kwargs['tomcatVersion']
 
         if current_stack is not None:
@@ -51359,10 +52333,14 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action: pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingActionArgs'],
-             trigger: pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerArgs'],
+             action: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingActionArgs']] = None,
+             trigger: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if trigger is None:
+            raise TypeError("Missing 'trigger' argument")
 
         _setter("action", action)
         _setter("trigger", trigger)
@@ -51412,16 +52390,18 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action_type: pulumi.Input[str],
+             action_type: Optional[pulumi.Input[str]] = None,
              custom_action: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomActionArgs']] = None,
              minimum_process_execution_time: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'actionType' in kwargs:
+        if action_type is None and 'actionType' in kwargs:
             action_type = kwargs['actionType']
-        if 'customAction' in kwargs:
+        if action_type is None:
+            raise TypeError("Missing 'action_type' argument")
+        if custom_action is None and 'customAction' in kwargs:
             custom_action = kwargs['customAction']
-        if 'minimumProcessExecutionTime' in kwargs:
+        if minimum_process_execution_time is None and 'minimumProcessExecutionTime' in kwargs:
             minimum_process_execution_time = kwargs['minimumProcessExecutionTime']
 
         _setter("action_type", action_type)
@@ -51484,10 +52464,12 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             executable: pulumi.Input[str],
+             executable: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if executable is None:
+            raise TypeError("Missing 'executable' argument")
 
         _setter("executable", executable)
         if parameters is not None:
@@ -51547,11 +52529,11 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerArgs:
              status_codes: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'privateMemoryKb' in kwargs:
+        if private_memory_kb is None and 'privateMemoryKb' in kwargs:
             private_memory_kb = kwargs['privateMemoryKb']
-        if 'slowRequests' in kwargs:
+        if slow_requests is None and 'slowRequests' in kwargs:
             slow_requests = kwargs['slowRequests']
-        if 'statusCodes' in kwargs:
+        if status_codes is None and 'statusCodes' in kwargs:
             status_codes = kwargs['statusCodes']
 
         if private_memory_kb is not None:
@@ -51629,10 +52611,14 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             count: pulumi.Input[int],
-             interval: pulumi.Input[str],
+             count: Optional[pulumi.Input[int]] = None,
+             interval: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if count is None:
+            raise TypeError("Missing 'count' argument")
+        if interval is None:
+            raise TypeError("Missing 'interval' argument")
 
         _setter("count", count)
         _setter("interval", interval)
@@ -51685,14 +52671,20 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             count: pulumi.Input[int],
-             interval: pulumi.Input[str],
-             time_taken: pulumi.Input[str],
+             count: Optional[pulumi.Input[int]] = None,
+             interval: Optional[pulumi.Input[str]] = None,
+             time_taken: Optional[pulumi.Input[str]] = None,
              path: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'timeTaken' in kwargs:
+        if count is None:
+            raise TypeError("Missing 'count' argument")
+        if interval is None:
+            raise TypeError("Missing 'interval' argument")
+        if time_taken is None and 'timeTaken' in kwargs:
             time_taken = kwargs['timeTaken']
+        if time_taken is None:
+            raise TypeError("Missing 'time_taken' argument")
 
         _setter("count", count)
         _setter("interval", interval)
@@ -51778,19 +52770,25 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             count: pulumi.Input[int],
-             interval: pulumi.Input[str],
-             status_code_range: pulumi.Input[str],
+             count: Optional[pulumi.Input[int]] = None,
+             interval: Optional[pulumi.Input[str]] = None,
+             status_code_range: Optional[pulumi.Input[str]] = None,
              path: Optional[pulumi.Input[str]] = None,
              sub_status: Optional[pulumi.Input[int]] = None,
              win32_status_code: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'statusCodeRange' in kwargs:
+        if count is None:
+            raise TypeError("Missing 'count' argument")
+        if interval is None:
+            raise TypeError("Missing 'interval' argument")
+        if status_code_range is None and 'statusCodeRange' in kwargs:
             status_code_range = kwargs['statusCodeRange']
-        if 'subStatus' in kwargs:
+        if status_code_range is None:
+            raise TypeError("Missing 'status_code_range' argument")
+        if sub_status is None and 'subStatus' in kwargs:
             sub_status = kwargs['subStatus']
-        if 'win32StatusCode' in kwargs:
+        if win32_status_code is None and 'win32StatusCode' in kwargs:
             win32_status_code = kwargs['win32StatusCode']
 
         _setter("count", count)
@@ -51897,9 +52895,9 @@ class WindowsWebAppSlotSiteConfigCorsArgs:
              support_credentials: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowedOrigins' in kwargs:
+        if allowed_origins is None and 'allowedOrigins' in kwargs:
             allowed_origins = kwargs['allowedOrigins']
-        if 'supportCredentials' in kwargs:
+        if support_credentials is None and 'supportCredentials' in kwargs:
             support_credentials = kwargs['supportCredentials']
 
         if allowed_origins is not None:
@@ -51975,11 +52973,11 @@ class WindowsWebAppSlotSiteConfigIpRestrictionArgs:
              virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ipAddress' in kwargs:
+        if ip_address is None and 'ipAddress' in kwargs:
             ip_address = kwargs['ipAddress']
-        if 'serviceTag' in kwargs:
+        if service_tag is None and 'serviceTag' in kwargs:
             service_tag = kwargs['serviceTag']
-        if 'virtualNetworkSubnetId' in kwargs:
+        if virtual_network_subnet_id is None and 'virtualNetworkSubnetId' in kwargs:
             virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
 
         if action is not None:
@@ -52113,13 +53111,13 @@ class WindowsWebAppSlotSiteConfigIpRestrictionHeadersArgs:
              x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'xAzureFdids' in kwargs:
+        if x_azure_fdids is None and 'xAzureFdids' in kwargs:
             x_azure_fdids = kwargs['xAzureFdids']
-        if 'xFdHealthProbe' in kwargs:
+        if x_fd_health_probe is None and 'xFdHealthProbe' in kwargs:
             x_fd_health_probe = kwargs['xFdHealthProbe']
-        if 'xForwardedFors' in kwargs:
+        if x_forwarded_fors is None and 'xForwardedFors' in kwargs:
             x_forwarded_fors = kwargs['xForwardedFors']
-        if 'xForwardedHosts' in kwargs:
+        if x_forwarded_hosts is None and 'xForwardedHosts' in kwargs:
             x_forwarded_hosts = kwargs['xForwardedHosts']
 
         if x_azure_fdids is not None:
@@ -52223,11 +53221,11 @@ class WindowsWebAppSlotSiteConfigScmIpRestrictionArgs:
              virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ipAddress' in kwargs:
+        if ip_address is None and 'ipAddress' in kwargs:
             ip_address = kwargs['ipAddress']
-        if 'serviceTag' in kwargs:
+        if service_tag is None and 'serviceTag' in kwargs:
             service_tag = kwargs['serviceTag']
-        if 'virtualNetworkSubnetId' in kwargs:
+        if virtual_network_subnet_id is None and 'virtualNetworkSubnetId' in kwargs:
             virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
 
         if action is not None:
@@ -52361,13 +53359,13 @@ class WindowsWebAppSlotSiteConfigScmIpRestrictionHeadersArgs:
              x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'xAzureFdids' in kwargs:
+        if x_azure_fdids is None and 'xAzureFdids' in kwargs:
             x_azure_fdids = kwargs['xAzureFdids']
-        if 'xFdHealthProbe' in kwargs:
+        if x_fd_health_probe is None and 'xFdHealthProbe' in kwargs:
             x_fd_health_probe = kwargs['xFdHealthProbe']
-        if 'xForwardedFors' in kwargs:
+        if x_forwarded_fors is None and 'xForwardedFors' in kwargs:
             x_forwarded_fors = kwargs['xForwardedFors']
-        if 'xForwardedHosts' in kwargs:
+        if x_forwarded_hosts is None and 'xForwardedHosts' in kwargs:
             x_forwarded_hosts = kwargs['xForwardedHosts']
 
         if x_azure_fdids is not None:
@@ -52451,17 +53449,23 @@ class WindowsWebAppSlotSiteConfigVirtualApplicationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             physical_path: pulumi.Input[str],
-             preload: pulumi.Input[bool],
-             virtual_path: pulumi.Input[str],
+             physical_path: Optional[pulumi.Input[str]] = None,
+             preload: Optional[pulumi.Input[bool]] = None,
+             virtual_path: Optional[pulumi.Input[str]] = None,
              virtual_directories: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectoryArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'physicalPath' in kwargs:
+        if physical_path is None and 'physicalPath' in kwargs:
             physical_path = kwargs['physicalPath']
-        if 'virtualPath' in kwargs:
+        if physical_path is None:
+            raise TypeError("Missing 'physical_path' argument")
+        if preload is None:
+            raise TypeError("Missing 'preload' argument")
+        if virtual_path is None and 'virtualPath' in kwargs:
             virtual_path = kwargs['virtualPath']
-        if 'virtualDirectories' in kwargs:
+        if virtual_path is None:
+            raise TypeError("Missing 'virtual_path' argument")
+        if virtual_directories is None and 'virtualDirectories' in kwargs:
             virtual_directories = kwargs['virtualDirectories']
 
         _setter("physical_path", physical_path)
@@ -52540,9 +53544,9 @@ class WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectoryArgs:
              virtual_path: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'physicalPath' in kwargs:
+        if physical_path is None and 'physicalPath' in kwargs:
             physical_path = kwargs['physicalPath']
-        if 'virtualPath' in kwargs:
+        if virtual_path is None and 'virtualPath' in kwargs:
             virtual_path = kwargs['virtualPath']
 
         if physical_path is not None:
@@ -52652,21 +53656,31 @@ class WindowsWebAppSlotStorageAccountArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             access_key: pulumi.Input[str],
-             account_name: pulumi.Input[str],
-             name: pulumi.Input[str],
-             share_name: pulumi.Input[str],
-             type: pulumi.Input[str],
+             access_key: Optional[pulumi.Input[str]] = None,
+             account_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             share_name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              mount_path: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accessKey' in kwargs:
+        if access_key is None and 'accessKey' in kwargs:
             access_key = kwargs['accessKey']
-        if 'accountName' in kwargs:
+        if access_key is None:
+            raise TypeError("Missing 'access_key' argument")
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'shareName' in kwargs:
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if share_name is None and 'shareName' in kwargs:
             share_name = kwargs['shareName']
-        if 'mountPath' in kwargs:
+        if share_name is None:
+            raise TypeError("Missing 'share_name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if mount_path is None and 'mountPath' in kwargs:
             mount_path = kwargs['mountPath']
 
         _setter("access_key", access_key)
@@ -52771,9 +53785,9 @@ class WindowsWebAppStickySettingsArgs:
              connection_string_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'appSettingNames' in kwargs:
+        if app_setting_names is None and 'appSettingNames' in kwargs:
             app_setting_names = kwargs['appSettingNames']
-        if 'connectionStringNames' in kwargs:
+        if connection_string_names is None and 'connectionStringNames' in kwargs:
             connection_string_names = kwargs['connectionStringNames']
 
         if app_setting_names is not None:
@@ -52835,21 +53849,31 @@ class WindowsWebAppStorageAccountArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             access_key: pulumi.Input[str],
-             account_name: pulumi.Input[str],
-             name: pulumi.Input[str],
-             share_name: pulumi.Input[str],
-             type: pulumi.Input[str],
+             access_key: Optional[pulumi.Input[str]] = None,
+             account_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             share_name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              mount_path: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accessKey' in kwargs:
+        if access_key is None and 'accessKey' in kwargs:
             access_key = kwargs['accessKey']
-        if 'accountName' in kwargs:
+        if access_key is None:
+            raise TypeError("Missing 'access_key' argument")
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'shareName' in kwargs:
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if share_name is None and 'shareName' in kwargs:
             share_name = kwargs['shareName']
-        if 'mountPath' in kwargs:
+        if share_name is None:
+            raise TypeError("Missing 'share_name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if mount_path is None and 'mountPath' in kwargs:
             mount_path = kwargs['mountPath']
 
         _setter("access_key", access_key)

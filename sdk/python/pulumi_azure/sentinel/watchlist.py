@@ -44,22 +44,28 @@ class WatchlistArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             display_name: pulumi.Input[str],
-             item_search_key: pulumi.Input[str],
-             log_analytics_workspace_id: pulumi.Input[str],
+             display_name: Optional[pulumi.Input[str]] = None,
+             item_search_key: Optional[pulumi.Input[str]] = None,
+             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
              default_duration: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'itemSearchKey' in kwargs:
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if item_search_key is None and 'itemSearchKey' in kwargs:
             item_search_key = kwargs['itemSearchKey']
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if item_search_key is None:
+            raise TypeError("Missing 'item_search_key' argument")
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if 'defaultDuration' in kwargs:
+        if log_analytics_workspace_id is None:
+            raise TypeError("Missing 'log_analytics_workspace_id' argument")
+        if default_duration is None and 'defaultDuration' in kwargs:
             default_duration = kwargs['defaultDuration']
 
         _setter("display_name", display_name)
@@ -201,13 +207,13 @@ class _WatchlistState:
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'defaultDuration' in kwargs:
+        if default_duration is None and 'defaultDuration' in kwargs:
             default_duration = kwargs['defaultDuration']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'itemSearchKey' in kwargs:
+        if item_search_key is None and 'itemSearchKey' in kwargs:
             item_search_key = kwargs['itemSearchKey']
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
 
         if default_duration is not None:

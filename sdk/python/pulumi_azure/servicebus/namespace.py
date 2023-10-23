@@ -65,8 +65,8 @@ class NamespaceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             sku: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
              capacity: Optional[pulumi.Input[int]] = None,
              customer_managed_key: Optional[pulumi.Input['NamespaceCustomerManagedKeyArgs']] = None,
              identity: Optional[pulumi.Input['NamespaceIdentityArgs']] = None,
@@ -80,19 +80,23 @@ class NamespaceArgs:
              zone_redundant: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'customerManagedKey' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if customer_managed_key is None and 'customerManagedKey' in kwargs:
             customer_managed_key = kwargs['customerManagedKey']
-        if 'localAuthEnabled' in kwargs:
+        if local_auth_enabled is None and 'localAuthEnabled' in kwargs:
             local_auth_enabled = kwargs['localAuthEnabled']
-        if 'minimumTlsVersion' in kwargs:
+        if minimum_tls_version is None and 'minimumTlsVersion' in kwargs:
             minimum_tls_version = kwargs['minimumTlsVersion']
-        if 'networkRuleSet' in kwargs:
+        if network_rule_set is None and 'networkRuleSet' in kwargs:
             network_rule_set = kwargs['networkRuleSet']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'zoneRedundant' in kwargs:
+        if zone_redundant is None and 'zoneRedundant' in kwargs:
             zone_redundant = kwargs['zoneRedundant']
 
         _setter("resource_group_name", resource_group_name)
@@ -365,27 +369,27 @@ class _NamespaceState:
              zone_redundant: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'customerManagedKey' in kwargs:
+        if customer_managed_key is None and 'customerManagedKey' in kwargs:
             customer_managed_key = kwargs['customerManagedKey']
-        if 'defaultPrimaryConnectionString' in kwargs:
+        if default_primary_connection_string is None and 'defaultPrimaryConnectionString' in kwargs:
             default_primary_connection_string = kwargs['defaultPrimaryConnectionString']
-        if 'defaultPrimaryKey' in kwargs:
+        if default_primary_key is None and 'defaultPrimaryKey' in kwargs:
             default_primary_key = kwargs['defaultPrimaryKey']
-        if 'defaultSecondaryConnectionString' in kwargs:
+        if default_secondary_connection_string is None and 'defaultSecondaryConnectionString' in kwargs:
             default_secondary_connection_string = kwargs['defaultSecondaryConnectionString']
-        if 'defaultSecondaryKey' in kwargs:
+        if default_secondary_key is None and 'defaultSecondaryKey' in kwargs:
             default_secondary_key = kwargs['defaultSecondaryKey']
-        if 'localAuthEnabled' in kwargs:
+        if local_auth_enabled is None and 'localAuthEnabled' in kwargs:
             local_auth_enabled = kwargs['localAuthEnabled']
-        if 'minimumTlsVersion' in kwargs:
+        if minimum_tls_version is None and 'minimumTlsVersion' in kwargs:
             minimum_tls_version = kwargs['minimumTlsVersion']
-        if 'networkRuleSet' in kwargs:
+        if network_rule_set is None and 'networkRuleSet' in kwargs:
             network_rule_set = kwargs['networkRuleSet']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'zoneRedundant' in kwargs:
+        if zone_redundant is None and 'zoneRedundant' in kwargs:
             zone_redundant = kwargs['zoneRedundant']
 
         if capacity is not None:

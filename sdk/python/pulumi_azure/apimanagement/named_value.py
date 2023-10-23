@@ -51,9 +51,9 @@ class NamedValueArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_management_name: pulumi.Input[str],
-             display_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             api_management_name: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              secret: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -61,13 +61,19 @@ class NamedValueArgs:
              value_from_key_vault: Optional[pulumi.Input['NamedValueValueFromKeyVaultArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'displayName' in kwargs:
+        if api_management_name is None:
+            raise TypeError("Missing 'api_management_name' argument")
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'resourceGroupName' in kwargs:
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'valueFromKeyVault' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if value_from_key_vault is None and 'valueFromKeyVault' in kwargs:
             value_from_key_vault = kwargs['valueFromKeyVault']
 
         _setter("api_management_name", api_management_name)
@@ -231,13 +237,13 @@ class _NamedValueState:
              value_from_key_vault: Optional[pulumi.Input['NamedValueValueFromKeyVaultArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'valueFromKeyVault' in kwargs:
+        if value_from_key_vault is None and 'valueFromKeyVault' in kwargs:
             value_from_key_vault = kwargs['valueFromKeyVault']
 
         if api_management_name is not None:

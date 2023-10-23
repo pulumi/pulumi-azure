@@ -41,19 +41,23 @@ class SecurityPartnerProviderArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             security_provider_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             security_provider_name: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              virtual_hub_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'securityProviderName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if security_provider_name is None and 'securityProviderName' in kwargs:
             security_provider_name = kwargs['securityProviderName']
-        if 'virtualHubId' in kwargs:
+        if security_provider_name is None:
+            raise TypeError("Missing 'security_provider_name' argument")
+        if virtual_hub_id is None and 'virtualHubId' in kwargs:
             virtual_hub_id = kwargs['virtualHubId']
 
         _setter("resource_group_name", resource_group_name)
@@ -178,11 +182,11 @@ class _SecurityPartnerProviderState:
              virtual_hub_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'securityProviderName' in kwargs:
+        if security_provider_name is None and 'securityProviderName' in kwargs:
             security_provider_name = kwargs['securityProviderName']
-        if 'virtualHubId' in kwargs:
+        if virtual_hub_id is None and 'virtualHubId' in kwargs:
             virtual_hub_id = kwargs['virtualHubId']
 
         if location is not None:

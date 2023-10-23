@@ -71,8 +71,8 @@ class DatasetParquetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_factory_id: pulumi.Input[str],
-             linked_service_name: pulumi.Input[str],
+             data_factory_id: Optional[pulumi.Input[str]] = None,
+             linked_service_name: Optional[pulumi.Input[str]] = None,
              additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              azure_blob_fs_location: Optional[pulumi.Input['DatasetParquetAzureBlobFsLocationArgs']] = None,
@@ -87,23 +87,27 @@ class DatasetParquetArgs:
              schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetParquetSchemaColumnArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'linkedServiceName' in kwargs:
+        if data_factory_id is None:
+            raise TypeError("Missing 'data_factory_id' argument")
+        if linked_service_name is None and 'linkedServiceName' in kwargs:
             linked_service_name = kwargs['linkedServiceName']
-        if 'additionalProperties' in kwargs:
+        if linked_service_name is None:
+            raise TypeError("Missing 'linked_service_name' argument")
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'azureBlobFsLocation' in kwargs:
+        if azure_blob_fs_location is None and 'azureBlobFsLocation' in kwargs:
             azure_blob_fs_location = kwargs['azureBlobFsLocation']
-        if 'azureBlobStorageLocation' in kwargs:
+        if azure_blob_storage_location is None and 'azureBlobStorageLocation' in kwargs:
             azure_blob_storage_location = kwargs['azureBlobStorageLocation']
-        if 'compressionCodec' in kwargs:
+        if compression_codec is None and 'compressionCodec' in kwargs:
             compression_codec = kwargs['compressionCodec']
-        if 'compressionLevel' in kwargs:
+        if compression_level is None and 'compressionLevel' in kwargs:
             compression_level = kwargs['compressionLevel']
-        if 'httpServerLocation' in kwargs:
+        if http_server_location is None and 'httpServerLocation' in kwargs:
             http_server_location = kwargs['httpServerLocation']
-        if 'schemaColumns' in kwargs:
+        if schema_columns is None and 'schemaColumns' in kwargs:
             schema_columns = kwargs['schemaColumns']
 
         _setter("data_factory_id", data_factory_id)
@@ -380,23 +384,23 @@ class _DatasetParquetState:
              schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetParquetSchemaColumnArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'additionalProperties' in kwargs:
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'azureBlobFsLocation' in kwargs:
+        if azure_blob_fs_location is None and 'azureBlobFsLocation' in kwargs:
             azure_blob_fs_location = kwargs['azureBlobFsLocation']
-        if 'azureBlobStorageLocation' in kwargs:
+        if azure_blob_storage_location is None and 'azureBlobStorageLocation' in kwargs:
             azure_blob_storage_location = kwargs['azureBlobStorageLocation']
-        if 'compressionCodec' in kwargs:
+        if compression_codec is None and 'compressionCodec' in kwargs:
             compression_codec = kwargs['compressionCodec']
-        if 'compressionLevel' in kwargs:
+        if compression_level is None and 'compressionLevel' in kwargs:
             compression_level = kwargs['compressionLevel']
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'httpServerLocation' in kwargs:
+        if http_server_location is None and 'httpServerLocation' in kwargs:
             http_server_location = kwargs['httpServerLocation']
-        if 'linkedServiceName' in kwargs:
+        if linked_service_name is None and 'linkedServiceName' in kwargs:
             linked_service_name = kwargs['linkedServiceName']
-        if 'schemaColumns' in kwargs:
+        if schema_columns is None and 'schemaColumns' in kwargs:
             schema_columns = kwargs['schemaColumns']
 
         if additional_properties is not None:

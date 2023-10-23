@@ -43,22 +43,32 @@ class PolicyVMWorkloadArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             protection_policies: pulumi.Input[Sequence[pulumi.Input['PolicyVMWorkloadProtectionPolicyArgs']]],
-             recovery_vault_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             settings: pulumi.Input['PolicyVMWorkloadSettingsArgs'],
-             workload_type: pulumi.Input[str],
+             protection_policies: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyVMWorkloadProtectionPolicyArgs']]]] = None,
+             recovery_vault_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             settings: Optional[pulumi.Input['PolicyVMWorkloadSettingsArgs']] = None,
+             workload_type: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'protectionPolicies' in kwargs:
+        if protection_policies is None and 'protectionPolicies' in kwargs:
             protection_policies = kwargs['protectionPolicies']
-        if 'recoveryVaultName' in kwargs:
+        if protection_policies is None:
+            raise TypeError("Missing 'protection_policies' argument")
+        if recovery_vault_name is None and 'recoveryVaultName' in kwargs:
             recovery_vault_name = kwargs['recoveryVaultName']
-        if 'resourceGroupName' in kwargs:
+        if recovery_vault_name is None:
+            raise TypeError("Missing 'recovery_vault_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'workloadType' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if settings is None:
+            raise TypeError("Missing 'settings' argument")
+        if workload_type is None and 'workloadType' in kwargs:
             workload_type = kwargs['workloadType']
+        if workload_type is None:
+            raise TypeError("Missing 'workload_type' argument")
 
         _setter("protection_policies", protection_policies)
         _setter("recovery_vault_name", recovery_vault_name)
@@ -179,13 +189,13 @@ class _PolicyVMWorkloadState:
              workload_type: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'protectionPolicies' in kwargs:
+        if protection_policies is None and 'protectionPolicies' in kwargs:
             protection_policies = kwargs['protectionPolicies']
-        if 'recoveryVaultName' in kwargs:
+        if recovery_vault_name is None and 'recoveryVaultName' in kwargs:
             recovery_vault_name = kwargs['recoveryVaultName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'workloadType' in kwargs:
+        if workload_type is None and 'workloadType' in kwargs:
             workload_type = kwargs['workloadType']
 
         if name is not None:

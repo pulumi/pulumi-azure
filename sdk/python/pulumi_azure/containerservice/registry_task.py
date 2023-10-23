@@ -83,7 +83,7 @@ class RegistryTaskArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             container_registry_id: pulumi.Input[str],
+             container_registry_id: Optional[pulumi.Input[str]] = None,
              agent_pool_name: Optional[pulumi.Input[str]] = None,
              agent_setting: Optional[pulumi.Input['RegistryTaskAgentSettingArgs']] = None,
              base_image_trigger: Optional[pulumi.Input['RegistryTaskBaseImageTriggerArgs']] = None,
@@ -103,31 +103,33 @@ class RegistryTaskArgs:
              timer_triggers: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryTaskTimerTriggerArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'containerRegistryId' in kwargs:
+        if container_registry_id is None and 'containerRegistryId' in kwargs:
             container_registry_id = kwargs['containerRegistryId']
-        if 'agentPoolName' in kwargs:
+        if container_registry_id is None:
+            raise TypeError("Missing 'container_registry_id' argument")
+        if agent_pool_name is None and 'agentPoolName' in kwargs:
             agent_pool_name = kwargs['agentPoolName']
-        if 'agentSetting' in kwargs:
+        if agent_setting is None and 'agentSetting' in kwargs:
             agent_setting = kwargs['agentSetting']
-        if 'baseImageTrigger' in kwargs:
+        if base_image_trigger is None and 'baseImageTrigger' in kwargs:
             base_image_trigger = kwargs['baseImageTrigger']
-        if 'dockerStep' in kwargs:
+        if docker_step is None and 'dockerStep' in kwargs:
             docker_step = kwargs['dockerStep']
-        if 'encodedStep' in kwargs:
+        if encoded_step is None and 'encodedStep' in kwargs:
             encoded_step = kwargs['encodedStep']
-        if 'fileStep' in kwargs:
+        if file_step is None and 'fileStep' in kwargs:
             file_step = kwargs['fileStep']
-        if 'isSystemTask' in kwargs:
+        if is_system_task is None and 'isSystemTask' in kwargs:
             is_system_task = kwargs['isSystemTask']
-        if 'logTemplate' in kwargs:
+        if log_template is None and 'logTemplate' in kwargs:
             log_template = kwargs['logTemplate']
-        if 'registryCredential' in kwargs:
+        if registry_credential is None and 'registryCredential' in kwargs:
             registry_credential = kwargs['registryCredential']
-        if 'sourceTriggers' in kwargs:
+        if source_triggers is None and 'sourceTriggers' in kwargs:
             source_triggers = kwargs['sourceTriggers']
-        if 'timeoutInSeconds' in kwargs:
+        if timeout_in_seconds is None and 'timeoutInSeconds' in kwargs:
             timeout_in_seconds = kwargs['timeoutInSeconds']
-        if 'timerTriggers' in kwargs:
+        if timer_triggers is None and 'timerTriggers' in kwargs:
             timer_triggers = kwargs['timerTriggers']
 
         _setter("container_registry_id", container_registry_id)
@@ -477,31 +479,31 @@ class _RegistryTaskState:
              timer_triggers: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryTaskTimerTriggerArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'agentPoolName' in kwargs:
+        if agent_pool_name is None and 'agentPoolName' in kwargs:
             agent_pool_name = kwargs['agentPoolName']
-        if 'agentSetting' in kwargs:
+        if agent_setting is None and 'agentSetting' in kwargs:
             agent_setting = kwargs['agentSetting']
-        if 'baseImageTrigger' in kwargs:
+        if base_image_trigger is None and 'baseImageTrigger' in kwargs:
             base_image_trigger = kwargs['baseImageTrigger']
-        if 'containerRegistryId' in kwargs:
+        if container_registry_id is None and 'containerRegistryId' in kwargs:
             container_registry_id = kwargs['containerRegistryId']
-        if 'dockerStep' in kwargs:
+        if docker_step is None and 'dockerStep' in kwargs:
             docker_step = kwargs['dockerStep']
-        if 'encodedStep' in kwargs:
+        if encoded_step is None and 'encodedStep' in kwargs:
             encoded_step = kwargs['encodedStep']
-        if 'fileStep' in kwargs:
+        if file_step is None and 'fileStep' in kwargs:
             file_step = kwargs['fileStep']
-        if 'isSystemTask' in kwargs:
+        if is_system_task is None and 'isSystemTask' in kwargs:
             is_system_task = kwargs['isSystemTask']
-        if 'logTemplate' in kwargs:
+        if log_template is None and 'logTemplate' in kwargs:
             log_template = kwargs['logTemplate']
-        if 'registryCredential' in kwargs:
+        if registry_credential is None and 'registryCredential' in kwargs:
             registry_credential = kwargs['registryCredential']
-        if 'sourceTriggers' in kwargs:
+        if source_triggers is None and 'sourceTriggers' in kwargs:
             source_triggers = kwargs['sourceTriggers']
-        if 'timeoutInSeconds' in kwargs:
+        if timeout_in_seconds is None and 'timeoutInSeconds' in kwargs:
             timeout_in_seconds = kwargs['timeoutInSeconds']
-        if 'timerTriggers' in kwargs:
+        if timer_triggers is None and 'timerTriggers' in kwargs:
             timer_triggers = kwargs['timerTriggers']
 
         if agent_pool_name is not None:

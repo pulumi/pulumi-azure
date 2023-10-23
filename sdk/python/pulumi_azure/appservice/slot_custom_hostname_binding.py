@@ -39,15 +39,19 @@ class SlotCustomHostnameBindingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_service_slot_id: pulumi.Input[str],
-             hostname: pulumi.Input[str],
+             app_service_slot_id: Optional[pulumi.Input[str]] = None,
+             hostname: Optional[pulumi.Input[str]] = None,
              ssl_state: Optional[pulumi.Input[str]] = None,
              thumbprint: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'appServiceSlotId' in kwargs:
+        if app_service_slot_id is None and 'appServiceSlotId' in kwargs:
             app_service_slot_id = kwargs['appServiceSlotId']
-        if 'sslState' in kwargs:
+        if app_service_slot_id is None:
+            raise TypeError("Missing 'app_service_slot_id' argument")
+        if hostname is None:
+            raise TypeError("Missing 'hostname' argument")
+        if ssl_state is None and 'sslState' in kwargs:
             ssl_state = kwargs['sslState']
 
         _setter("app_service_slot_id", app_service_slot_id)
@@ -148,11 +152,11 @@ class _SlotCustomHostnameBindingState:
              virtual_ip: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'appServiceSlotId' in kwargs:
+        if app_service_slot_id is None and 'appServiceSlotId' in kwargs:
             app_service_slot_id = kwargs['appServiceSlotId']
-        if 'sslState' in kwargs:
+        if ssl_state is None and 'sslState' in kwargs:
             ssl_state = kwargs['sslState']
-        if 'virtualIp' in kwargs:
+        if virtual_ip is None and 'virtualIp' in kwargs:
             virtual_ip = kwargs['virtualIp']
 
         if app_service_slot_id is not None:

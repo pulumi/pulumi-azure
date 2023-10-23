@@ -67,8 +67,8 @@ class PlanArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             sku: pulumi.Input['PlanSkuArgs'],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['PlanSkuArgs']] = None,
              app_service_environment_id: Optional[pulumi.Input[str]] = None,
              is_xenon: Optional[pulumi.Input[bool]] = None,
              kind: Optional[pulumi.Input[str]] = None,
@@ -81,17 +81,21 @@ class PlanArgs:
              zone_redundant: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'appServiceEnvironmentId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if app_service_environment_id is None and 'appServiceEnvironmentId' in kwargs:
             app_service_environment_id = kwargs['appServiceEnvironmentId']
-        if 'isXenon' in kwargs:
+        if is_xenon is None and 'isXenon' in kwargs:
             is_xenon = kwargs['isXenon']
-        if 'maximumElasticWorkerCount' in kwargs:
+        if maximum_elastic_worker_count is None and 'maximumElasticWorkerCount' in kwargs:
             maximum_elastic_worker_count = kwargs['maximumElasticWorkerCount']
-        if 'perSiteScaling' in kwargs:
+        if per_site_scaling is None and 'perSiteScaling' in kwargs:
             per_site_scaling = kwargs['perSiteScaling']
-        if 'zoneRedundant' in kwargs:
+        if zone_redundant is None and 'zoneRedundant' in kwargs:
             zone_redundant = kwargs['zoneRedundant']
 
         _setter("resource_group_name", resource_group_name)
@@ -340,19 +344,19 @@ class _PlanState:
              zone_redundant: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'appServiceEnvironmentId' in kwargs:
+        if app_service_environment_id is None and 'appServiceEnvironmentId' in kwargs:
             app_service_environment_id = kwargs['appServiceEnvironmentId']
-        if 'isXenon' in kwargs:
+        if is_xenon is None and 'isXenon' in kwargs:
             is_xenon = kwargs['isXenon']
-        if 'maximumElasticWorkerCount' in kwargs:
+        if maximum_elastic_worker_count is None and 'maximumElasticWorkerCount' in kwargs:
             maximum_elastic_worker_count = kwargs['maximumElasticWorkerCount']
-        if 'maximumNumberOfWorkers' in kwargs:
+        if maximum_number_of_workers is None and 'maximumNumberOfWorkers' in kwargs:
             maximum_number_of_workers = kwargs['maximumNumberOfWorkers']
-        if 'perSiteScaling' in kwargs:
+        if per_site_scaling is None and 'perSiteScaling' in kwargs:
             per_site_scaling = kwargs['perSiteScaling']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'zoneRedundant' in kwargs:
+        if zone_redundant is None and 'zoneRedundant' in kwargs:
             zone_redundant = kwargs['zoneRedundant']
 
         if app_service_environment_id is not None:

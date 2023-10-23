@@ -85,12 +85,12 @@ class ThreatIntelligenceIndicatorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             display_name: pulumi.Input[str],
-             pattern: pulumi.Input[str],
-             pattern_type: pulumi.Input[str],
-             source: pulumi.Input[str],
-             validate_from_utc: pulumi.Input[str],
-             workspace_id: pulumi.Input[str],
+             display_name: Optional[pulumi.Input[str]] = None,
+             pattern: Optional[pulumi.Input[str]] = None,
+             pattern_type: Optional[pulumi.Input[str]] = None,
+             source: Optional[pulumi.Input[str]] = None,
+             validate_from_utc: Optional[pulumi.Input[str]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
              confidence: Optional[pulumi.Input[int]] = None,
              created_by: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -107,29 +107,41 @@ class ThreatIntelligenceIndicatorArgs:
              validate_until_utc: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'patternType' in kwargs:
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if pattern is None:
+            raise TypeError("Missing 'pattern' argument")
+        if pattern_type is None and 'patternType' in kwargs:
             pattern_type = kwargs['patternType']
-        if 'validateFromUtc' in kwargs:
+        if pattern_type is None:
+            raise TypeError("Missing 'pattern_type' argument")
+        if source is None:
+            raise TypeError("Missing 'source' argument")
+        if validate_from_utc is None and 'validateFromUtc' in kwargs:
             validate_from_utc = kwargs['validateFromUtc']
-        if 'workspaceId' in kwargs:
+        if validate_from_utc is None:
+            raise TypeError("Missing 'validate_from_utc' argument")
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
-        if 'createdBy' in kwargs:
+        if workspace_id is None:
+            raise TypeError("Missing 'workspace_id' argument")
+        if created_by is None and 'createdBy' in kwargs:
             created_by = kwargs['createdBy']
-        if 'externalReferences' in kwargs:
+        if external_references is None and 'externalReferences' in kwargs:
             external_references = kwargs['externalReferences']
-        if 'granularMarkings' in kwargs:
+        if granular_markings is None and 'granularMarkings' in kwargs:
             granular_markings = kwargs['granularMarkings']
-        if 'killChainPhases' in kwargs:
+        if kill_chain_phases is None and 'killChainPhases' in kwargs:
             kill_chain_phases = kwargs['killChainPhases']
-        if 'objectMarkingRefs' in kwargs:
+        if object_marking_refs is None and 'objectMarkingRefs' in kwargs:
             object_marking_refs = kwargs['objectMarkingRefs']
-        if 'patternVersion' in kwargs:
+        if pattern_version is None and 'patternVersion' in kwargs:
             pattern_version = kwargs['patternVersion']
-        if 'threatTypes' in kwargs:
+        if threat_types is None and 'threatTypes' in kwargs:
             threat_types = kwargs['threatTypes']
-        if 'validateUntilUtc' in kwargs:
+        if validate_until_utc is None and 'validateUntilUtc' in kwargs:
             validate_until_utc = kwargs['validateUntilUtc']
 
         _setter("display_name", display_name)
@@ -533,41 +545,41 @@ class _ThreatIntelligenceIndicatorState:
              workspace_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'createdBy' in kwargs:
+        if created_by is None and 'createdBy' in kwargs:
             created_by = kwargs['createdBy']
-        if 'createdOn' in kwargs:
+        if created_on is None and 'createdOn' in kwargs:
             created_on = kwargs['createdOn']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'externalId' in kwargs:
+        if external_id is None and 'externalId' in kwargs:
             external_id = kwargs['externalId']
-        if 'externalLastUpdatedTimeUtc' in kwargs:
+        if external_last_updated_time_utc is None and 'externalLastUpdatedTimeUtc' in kwargs:
             external_last_updated_time_utc = kwargs['externalLastUpdatedTimeUtc']
-        if 'externalReferences' in kwargs:
+        if external_references is None and 'externalReferences' in kwargs:
             external_references = kwargs['externalReferences']
-        if 'granularMarkings' in kwargs:
+        if granular_markings is None and 'granularMarkings' in kwargs:
             granular_markings = kwargs['granularMarkings']
-        if 'indicatorTypes' in kwargs:
+        if indicator_types is None and 'indicatorTypes' in kwargs:
             indicator_types = kwargs['indicatorTypes']
-        if 'killChainPhases' in kwargs:
+        if kill_chain_phases is None and 'killChainPhases' in kwargs:
             kill_chain_phases = kwargs['killChainPhases']
-        if 'lastUpdatedTimeUtc' in kwargs:
+        if last_updated_time_utc is None and 'lastUpdatedTimeUtc' in kwargs:
             last_updated_time_utc = kwargs['lastUpdatedTimeUtc']
-        if 'objectMarkingRefs' in kwargs:
+        if object_marking_refs is None and 'objectMarkingRefs' in kwargs:
             object_marking_refs = kwargs['objectMarkingRefs']
-        if 'parsedPatterns' in kwargs:
+        if parsed_patterns is None and 'parsedPatterns' in kwargs:
             parsed_patterns = kwargs['parsedPatterns']
-        if 'patternType' in kwargs:
+        if pattern_type is None and 'patternType' in kwargs:
             pattern_type = kwargs['patternType']
-        if 'patternVersion' in kwargs:
+        if pattern_version is None and 'patternVersion' in kwargs:
             pattern_version = kwargs['patternVersion']
-        if 'threatTypes' in kwargs:
+        if threat_types is None and 'threatTypes' in kwargs:
             threat_types = kwargs['threatTypes']
-        if 'validateFromUtc' in kwargs:
+        if validate_from_utc is None and 'validateFromUtc' in kwargs:
             validate_from_utc = kwargs['validateFromUtc']
-        if 'validateUntilUtc' in kwargs:
+        if validate_until_utc is None and 'validateUntilUtc' in kwargs:
             validate_until_utc = kwargs['validateUntilUtc']
-        if 'workspaceId' in kwargs:
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
 
         if confidence is not None:

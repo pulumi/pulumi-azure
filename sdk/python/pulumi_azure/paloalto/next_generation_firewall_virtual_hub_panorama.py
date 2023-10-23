@@ -41,9 +41,9 @@ class NextGenerationFirewallVirtualHubPanoramaArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             network_profile: pulumi.Input['NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs'],
-             panorama_base64_config: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             network_profile: Optional[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs']] = None,
+             panorama_base64_config: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              destination_nats: Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDestinationNatArgs']]]] = None,
              dns_settings: Optional[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgs']] = None,
              location: Optional[pulumi.Input[str]] = None,
@@ -51,15 +51,21 @@ class NextGenerationFirewallVirtualHubPanoramaArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'networkProfile' in kwargs:
+        if network_profile is None and 'networkProfile' in kwargs:
             network_profile = kwargs['networkProfile']
-        if 'panoramaBase64Config' in kwargs:
+        if network_profile is None:
+            raise TypeError("Missing 'network_profile' argument")
+        if panorama_base64_config is None and 'panoramaBase64Config' in kwargs:
             panorama_base64_config = kwargs['panoramaBase64Config']
-        if 'resourceGroupName' in kwargs:
+        if panorama_base64_config is None:
+            raise TypeError("Missing 'panorama_base64_config' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'destinationNats' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if destination_nats is None and 'destinationNats' in kwargs:
             destination_nats = kwargs['destinationNats']
-        if 'dnsSettings' in kwargs:
+        if dns_settings is None and 'dnsSettings' in kwargs:
             dns_settings = kwargs['dnsSettings']
 
         _setter("network_profile", network_profile)
@@ -190,15 +196,15 @@ class _NextGenerationFirewallVirtualHubPanoramaState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'destinationNats' in kwargs:
+        if destination_nats is None and 'destinationNats' in kwargs:
             destination_nats = kwargs['destinationNats']
-        if 'dnsSettings' in kwargs:
+        if dns_settings is None and 'dnsSettings' in kwargs:
             dns_settings = kwargs['dnsSettings']
-        if 'networkProfile' in kwargs:
+        if network_profile is None and 'networkProfile' in kwargs:
             network_profile = kwargs['networkProfile']
-        if 'panoramaBase64Config' in kwargs:
+        if panorama_base64_config is None and 'panoramaBase64Config' in kwargs:
             panorama_base64_config = kwargs['panoramaBase64Config']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if destination_nats is not None:

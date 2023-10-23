@@ -43,18 +43,22 @@ class EventHubNamespaceAuthorizationRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             namespace_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             namespace_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              listen: Optional[pulumi.Input[bool]] = None,
              manage: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              send: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'namespaceName' in kwargs:
+        if namespace_name is None and 'namespaceName' in kwargs:
             namespace_name = kwargs['namespaceName']
-        if 'resourceGroupName' in kwargs:
+        if namespace_name is None:
+            raise TypeError("Missing 'namespace_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("namespace_name", namespace_name)
         _setter("resource_group_name", resource_group_name)
@@ -206,21 +210,21 @@ class _EventHubNamespaceAuthorizationRuleState:
              send: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'namespaceName' in kwargs:
+        if namespace_name is None and 'namespaceName' in kwargs:
             namespace_name = kwargs['namespaceName']
-        if 'primaryConnectionString' in kwargs:
+        if primary_connection_string is None and 'primaryConnectionString' in kwargs:
             primary_connection_string = kwargs['primaryConnectionString']
-        if 'primaryConnectionStringAlias' in kwargs:
+        if primary_connection_string_alias is None and 'primaryConnectionStringAlias' in kwargs:
             primary_connection_string_alias = kwargs['primaryConnectionStringAlias']
-        if 'primaryKey' in kwargs:
+        if primary_key is None and 'primaryKey' in kwargs:
             primary_key = kwargs['primaryKey']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'secondaryConnectionString' in kwargs:
+        if secondary_connection_string is None and 'secondaryConnectionString' in kwargs:
             secondary_connection_string = kwargs['secondaryConnectionString']
-        if 'secondaryConnectionStringAlias' in kwargs:
+        if secondary_connection_string_alias is None and 'secondaryConnectionStringAlias' in kwargs:
             secondary_connection_string_alias = kwargs['secondaryConnectionStringAlias']
-        if 'secondaryKey' in kwargs:
+        if secondary_key is None and 'secondaryKey' in kwargs:
             secondary_key = kwargs['secondaryKey']
 
         if listen is not None:

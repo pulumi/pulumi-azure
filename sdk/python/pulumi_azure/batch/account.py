@@ -77,7 +77,7 @@ class AccountArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              allowed_authentication_modes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              encryption: Optional[pulumi.Input['AccountEncryptionArgs']] = None,
              identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
@@ -93,23 +93,25 @@ class AccountArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'allowedAuthenticationModes' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if allowed_authentication_modes is None and 'allowedAuthenticationModes' in kwargs:
             allowed_authentication_modes = kwargs['allowedAuthenticationModes']
-        if 'keyVaultReference' in kwargs:
+        if key_vault_reference is None and 'keyVaultReference' in kwargs:
             key_vault_reference = kwargs['keyVaultReference']
-        if 'networkProfile' in kwargs:
+        if network_profile is None and 'networkProfile' in kwargs:
             network_profile = kwargs['networkProfile']
-        if 'poolAllocationMode' in kwargs:
+        if pool_allocation_mode is None and 'poolAllocationMode' in kwargs:
             pool_allocation_mode = kwargs['poolAllocationMode']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'storageAccountAuthenticationMode' in kwargs:
+        if storage_account_authentication_mode is None and 'storageAccountAuthenticationMode' in kwargs:
             storage_account_authentication_mode = kwargs['storageAccountAuthenticationMode']
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'storageAccountNodeIdentity' in kwargs:
+        if storage_account_node_identity is None and 'storageAccountNodeIdentity' in kwargs:
             storage_account_node_identity = kwargs['storageAccountNodeIdentity']
 
         _setter("resource_group_name", resource_group_name)
@@ -411,29 +413,29 @@ class _AccountState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accountEndpoint' in kwargs:
+        if account_endpoint is None and 'accountEndpoint' in kwargs:
             account_endpoint = kwargs['accountEndpoint']
-        if 'allowedAuthenticationModes' in kwargs:
+        if allowed_authentication_modes is None and 'allowedAuthenticationModes' in kwargs:
             allowed_authentication_modes = kwargs['allowedAuthenticationModes']
-        if 'keyVaultReference' in kwargs:
+        if key_vault_reference is None and 'keyVaultReference' in kwargs:
             key_vault_reference = kwargs['keyVaultReference']
-        if 'networkProfile' in kwargs:
+        if network_profile is None and 'networkProfile' in kwargs:
             network_profile = kwargs['networkProfile']
-        if 'poolAllocationMode' in kwargs:
+        if pool_allocation_mode is None and 'poolAllocationMode' in kwargs:
             pool_allocation_mode = kwargs['poolAllocationMode']
-        if 'primaryAccessKey' in kwargs:
+        if primary_access_key is None and 'primaryAccessKey' in kwargs:
             primary_access_key = kwargs['primaryAccessKey']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'secondaryAccessKey' in kwargs:
+        if secondary_access_key is None and 'secondaryAccessKey' in kwargs:
             secondary_access_key = kwargs['secondaryAccessKey']
-        if 'storageAccountAuthenticationMode' in kwargs:
+        if storage_account_authentication_mode is None and 'storageAccountAuthenticationMode' in kwargs:
             storage_account_authentication_mode = kwargs['storageAccountAuthenticationMode']
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'storageAccountNodeIdentity' in kwargs:
+        if storage_account_node_identity is None and 'storageAccountNodeIdentity' in kwargs:
             storage_account_node_identity = kwargs['storageAccountNodeIdentity']
 
         if account_endpoint is not None:

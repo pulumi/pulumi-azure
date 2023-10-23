@@ -126,11 +126,11 @@ class ConfigurationInstallPatchesLinux(dict):
              package_names_mask_to_includes: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'classificationsToIncludes' in kwargs:
+        if classifications_to_includes is None and 'classificationsToIncludes' in kwargs:
             classifications_to_includes = kwargs['classificationsToIncludes']
-        if 'packageNamesMaskToExcludes' in kwargs:
+        if package_names_mask_to_excludes is None and 'packageNamesMaskToExcludes' in kwargs:
             package_names_mask_to_excludes = kwargs['packageNamesMaskToExcludes']
-        if 'packageNamesMaskToIncludes' in kwargs:
+        if package_names_mask_to_includes is None and 'packageNamesMaskToIncludes' in kwargs:
             package_names_mask_to_includes = kwargs['packageNamesMaskToIncludes']
 
         if classifications_to_includes is not None:
@@ -211,11 +211,11 @@ class ConfigurationInstallPatchesWindow(dict):
              kb_numbers_to_includes: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'classificationsToIncludes' in kwargs:
+        if classifications_to_includes is None and 'classificationsToIncludes' in kwargs:
             classifications_to_includes = kwargs['classificationsToIncludes']
-        if 'kbNumbersToExcludes' in kwargs:
+        if kb_numbers_to_excludes is None and 'kbNumbersToExcludes' in kwargs:
             kb_numbers_to_excludes = kwargs['kbNumbersToExcludes']
-        if 'kbNumbersToIncludes' in kwargs:
+        if kb_numbers_to_includes is None and 'kbNumbersToIncludes' in kwargs:
             kb_numbers_to_includes = kwargs['kbNumbersToIncludes']
 
         if classifications_to_includes is not None:
@@ -299,20 +299,24 @@ class ConfigurationWindow(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             start_date_time: str,
-             time_zone: str,
+             start_date_time: Optional[str] = None,
+             time_zone: Optional[str] = None,
              duration: Optional[str] = None,
              expiration_date_time: Optional[str] = None,
              recur_every: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'startDateTime' in kwargs:
+        if start_date_time is None and 'startDateTime' in kwargs:
             start_date_time = kwargs['startDateTime']
-        if 'timeZone' in kwargs:
+        if start_date_time is None:
+            raise TypeError("Missing 'start_date_time' argument")
+        if time_zone is None and 'timeZone' in kwargs:
             time_zone = kwargs['timeZone']
-        if 'expirationDateTime' in kwargs:
+        if time_zone is None:
+            raise TypeError("Missing 'time_zone' argument")
+        if expiration_date_time is None and 'expirationDateTime' in kwargs:
             expiration_date_time = kwargs['expirationDateTime']
-        if 'recurEvery' in kwargs:
+        if recur_every is None and 'recurEvery' in kwargs:
             recur_every = kwargs['recurEvery']
 
         _setter("start_date_time", start_date_time)
@@ -385,11 +389,17 @@ class GetConfigurationInstallPatchResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             linuxes: Sequence['outputs.GetConfigurationInstallPatchLinuxResult'],
-             reboot: str,
-             windows: Sequence['outputs.GetConfigurationInstallPatchWindowResult'],
+             linuxes: Optional[Sequence['outputs.GetConfigurationInstallPatchLinuxResult']] = None,
+             reboot: Optional[str] = None,
+             windows: Optional[Sequence['outputs.GetConfigurationInstallPatchWindowResult']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if linuxes is None:
+            raise TypeError("Missing 'linuxes' argument")
+        if reboot is None:
+            raise TypeError("Missing 'reboot' argument")
+        if windows is None:
+            raise TypeError("Missing 'windows' argument")
 
         _setter("linuxes", linuxes)
         _setter("reboot", reboot)
@@ -440,17 +450,23 @@ class GetConfigurationInstallPatchLinuxResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             classifications_to_includes: Sequence[str],
-             package_names_mask_to_excludes: Sequence[str],
-             package_names_mask_to_includes: Sequence[str],
+             classifications_to_includes: Optional[Sequence[str]] = None,
+             package_names_mask_to_excludes: Optional[Sequence[str]] = None,
+             package_names_mask_to_includes: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'classificationsToIncludes' in kwargs:
+        if classifications_to_includes is None and 'classificationsToIncludes' in kwargs:
             classifications_to_includes = kwargs['classificationsToIncludes']
-        if 'packageNamesMaskToExcludes' in kwargs:
+        if classifications_to_includes is None:
+            raise TypeError("Missing 'classifications_to_includes' argument")
+        if package_names_mask_to_excludes is None and 'packageNamesMaskToExcludes' in kwargs:
             package_names_mask_to_excludes = kwargs['packageNamesMaskToExcludes']
-        if 'packageNamesMaskToIncludes' in kwargs:
+        if package_names_mask_to_excludes is None:
+            raise TypeError("Missing 'package_names_mask_to_excludes' argument")
+        if package_names_mask_to_includes is None and 'packageNamesMaskToIncludes' in kwargs:
             package_names_mask_to_includes = kwargs['packageNamesMaskToIncludes']
+        if package_names_mask_to_includes is None:
+            raise TypeError("Missing 'package_names_mask_to_includes' argument")
 
         _setter("classifications_to_includes", classifications_to_includes)
         _setter("package_names_mask_to_excludes", package_names_mask_to_excludes)
@@ -501,17 +517,23 @@ class GetConfigurationInstallPatchWindowResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             classifications_to_includes: Sequence[str],
-             kb_numbers_to_excludes: Sequence[str],
-             kb_numbers_to_includes: Sequence[str],
+             classifications_to_includes: Optional[Sequence[str]] = None,
+             kb_numbers_to_excludes: Optional[Sequence[str]] = None,
+             kb_numbers_to_includes: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'classificationsToIncludes' in kwargs:
+        if classifications_to_includes is None and 'classificationsToIncludes' in kwargs:
             classifications_to_includes = kwargs['classificationsToIncludes']
-        if 'kbNumbersToExcludes' in kwargs:
+        if classifications_to_includes is None:
+            raise TypeError("Missing 'classifications_to_includes' argument")
+        if kb_numbers_to_excludes is None and 'kbNumbersToExcludes' in kwargs:
             kb_numbers_to_excludes = kwargs['kbNumbersToExcludes']
-        if 'kbNumbersToIncludes' in kwargs:
+        if kb_numbers_to_excludes is None:
+            raise TypeError("Missing 'kb_numbers_to_excludes' argument")
+        if kb_numbers_to_includes is None and 'kbNumbersToIncludes' in kwargs:
             kb_numbers_to_includes = kwargs['kbNumbersToIncludes']
+        if kb_numbers_to_includes is None:
+            raise TypeError("Missing 'kb_numbers_to_includes' argument")
 
         _setter("classifications_to_includes", classifications_to_includes)
         _setter("kb_numbers_to_excludes", kb_numbers_to_excludes)
@@ -568,21 +590,31 @@ class GetConfigurationWindowResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             duration: str,
-             expiration_date_time: str,
-             recur_every: str,
-             start_date_time: str,
-             time_zone: str,
+             duration: Optional[str] = None,
+             expiration_date_time: Optional[str] = None,
+             recur_every: Optional[str] = None,
+             start_date_time: Optional[str] = None,
+             time_zone: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'expirationDateTime' in kwargs:
+        if duration is None:
+            raise TypeError("Missing 'duration' argument")
+        if expiration_date_time is None and 'expirationDateTime' in kwargs:
             expiration_date_time = kwargs['expirationDateTime']
-        if 'recurEvery' in kwargs:
+        if expiration_date_time is None:
+            raise TypeError("Missing 'expiration_date_time' argument")
+        if recur_every is None and 'recurEvery' in kwargs:
             recur_every = kwargs['recurEvery']
-        if 'startDateTime' in kwargs:
+        if recur_every is None:
+            raise TypeError("Missing 'recur_every' argument")
+        if start_date_time is None and 'startDateTime' in kwargs:
             start_date_time = kwargs['startDateTime']
-        if 'timeZone' in kwargs:
+        if start_date_time is None:
+            raise TypeError("Missing 'start_date_time' argument")
+        if time_zone is None and 'timeZone' in kwargs:
             time_zone = kwargs['timeZone']
+        if time_zone is None:
+            raise TypeError("Missing 'time_zone' argument")
 
         _setter("duration", duration)
         _setter("expiration_date_time", expiration_date_time)
@@ -666,22 +698,38 @@ class GetPublicConfigurationsConfigResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             description: str,
-             duration: str,
-             id: str,
-             location: str,
-             maintenance_scope: str,
-             name: str,
-             recur_every: str,
-             time_zone: str,
+             description: Optional[str] = None,
+             duration: Optional[str] = None,
+             id: Optional[str] = None,
+             location: Optional[str] = None,
+             maintenance_scope: Optional[str] = None,
+             name: Optional[str] = None,
+             recur_every: Optional[str] = None,
+             time_zone: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'maintenanceScope' in kwargs:
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if duration is None:
+            raise TypeError("Missing 'duration' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if location is None:
+            raise TypeError("Missing 'location' argument")
+        if maintenance_scope is None and 'maintenanceScope' in kwargs:
             maintenance_scope = kwargs['maintenanceScope']
-        if 'recurEvery' in kwargs:
+        if maintenance_scope is None:
+            raise TypeError("Missing 'maintenance_scope' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if recur_every is None and 'recurEvery' in kwargs:
             recur_every = kwargs['recurEvery']
-        if 'timeZone' in kwargs:
+        if recur_every is None:
+            raise TypeError("Missing 'recur_every' argument")
+        if time_zone is None and 'timeZone' in kwargs:
             time_zone = kwargs['timeZone']
+        if time_zone is None:
+            raise TypeError("Missing 'time_zone' argument")
 
         _setter("description", description)
         _setter("duration", duration)

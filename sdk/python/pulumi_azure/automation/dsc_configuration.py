@@ -47,9 +47,9 @@ class DscConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             automation_account_name: pulumi.Input[str],
-             content_embedded: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             automation_account_name: Optional[pulumi.Input[str]] = None,
+             content_embedded: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              log_verbose: Optional[pulumi.Input[bool]] = None,
@@ -57,13 +57,19 @@ class DscConfigurationArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'automationAccountName' in kwargs:
+        if automation_account_name is None and 'automationAccountName' in kwargs:
             automation_account_name = kwargs['automationAccountName']
-        if 'contentEmbedded' in kwargs:
+        if automation_account_name is None:
+            raise TypeError("Missing 'automation_account_name' argument")
+        if content_embedded is None and 'contentEmbedded' in kwargs:
             content_embedded = kwargs['contentEmbedded']
-        if 'resourceGroupName' in kwargs:
+        if content_embedded is None:
+            raise TypeError("Missing 'content_embedded' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'logVerbose' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if log_verbose is None and 'logVerbose' in kwargs:
             log_verbose = kwargs['logVerbose']
 
         _setter("automation_account_name", automation_account_name)
@@ -226,13 +232,13 @@ class _DscConfigurationState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'automationAccountName' in kwargs:
+        if automation_account_name is None and 'automationAccountName' in kwargs:
             automation_account_name = kwargs['automationAccountName']
-        if 'contentEmbedded' in kwargs:
+        if content_embedded is None and 'contentEmbedded' in kwargs:
             content_embedded = kwargs['contentEmbedded']
-        if 'logVerbose' in kwargs:
+        if log_verbose is None and 'logVerbose' in kwargs:
             log_verbose = kwargs['logVerbose']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if automation_account_name is not None:

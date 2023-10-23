@@ -106,17 +106,19 @@ class DomainIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -197,12 +199,14 @@ class DomainInboundIpRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ip_mask: pulumi.Input[str],
+             ip_mask: Optional[pulumi.Input[str]] = None,
              action: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ipMask' in kwargs:
+        if ip_mask is None and 'ipMask' in kwargs:
             ip_mask = kwargs['ipMask']
+        if ip_mask is None:
+            raise TypeError("Missing 'ip_mask' argument")
 
         _setter("ip_mask", ip_mask)
         if action is not None:
@@ -258,9 +262,9 @@ class DomainInputMappingDefaultValuesArgs:
              subject: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dataVersion' in kwargs:
+        if data_version is None and 'dataVersion' in kwargs:
             data_version = kwargs['dataVersion']
-        if 'eventType' in kwargs:
+        if event_type is None and 'eventType' in kwargs:
             event_type = kwargs['eventType']
 
         if data_version is not None:
@@ -344,11 +348,11 @@ class DomainInputMappingFieldsArgs:
              topic: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dataVersion' in kwargs:
+        if data_version is None and 'dataVersion' in kwargs:
             data_version = kwargs['dataVersion']
-        if 'eventTime' in kwargs:
+        if event_time is None and 'eventTime' in kwargs:
             event_time = kwargs['eventTime']
-        if 'eventType' in kwargs:
+        if event_type is None and 'eventType' in kwargs:
             event_type = kwargs['eventType']
 
         if data_version is not None:
@@ -528,43 +532,43 @@ class EventSubscriptionAdvancedFilterArgs:
              string_not_ins: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotInArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'boolEquals' in kwargs:
+        if bool_equals is None and 'boolEquals' in kwargs:
             bool_equals = kwargs['boolEquals']
-        if 'isNotNulls' in kwargs:
+        if is_not_nulls is None and 'isNotNulls' in kwargs:
             is_not_nulls = kwargs['isNotNulls']
-        if 'isNullOrUndefineds' in kwargs:
+        if is_null_or_undefineds is None and 'isNullOrUndefineds' in kwargs:
             is_null_or_undefineds = kwargs['isNullOrUndefineds']
-        if 'numberGreaterThanOrEquals' in kwargs:
+        if number_greater_than_or_equals is None and 'numberGreaterThanOrEquals' in kwargs:
             number_greater_than_or_equals = kwargs['numberGreaterThanOrEquals']
-        if 'numberGreaterThans' in kwargs:
+        if number_greater_thans is None and 'numberGreaterThans' in kwargs:
             number_greater_thans = kwargs['numberGreaterThans']
-        if 'numberInRanges' in kwargs:
+        if number_in_ranges is None and 'numberInRanges' in kwargs:
             number_in_ranges = kwargs['numberInRanges']
-        if 'numberIns' in kwargs:
+        if number_ins is None and 'numberIns' in kwargs:
             number_ins = kwargs['numberIns']
-        if 'numberLessThanOrEquals' in kwargs:
+        if number_less_than_or_equals is None and 'numberLessThanOrEquals' in kwargs:
             number_less_than_or_equals = kwargs['numberLessThanOrEquals']
-        if 'numberLessThans' in kwargs:
+        if number_less_thans is None and 'numberLessThans' in kwargs:
             number_less_thans = kwargs['numberLessThans']
-        if 'numberNotInRanges' in kwargs:
+        if number_not_in_ranges is None and 'numberNotInRanges' in kwargs:
             number_not_in_ranges = kwargs['numberNotInRanges']
-        if 'numberNotIns' in kwargs:
+        if number_not_ins is None and 'numberNotIns' in kwargs:
             number_not_ins = kwargs['numberNotIns']
-        if 'stringBeginsWiths' in kwargs:
+        if string_begins_withs is None and 'stringBeginsWiths' in kwargs:
             string_begins_withs = kwargs['stringBeginsWiths']
-        if 'stringContains' in kwargs:
+        if string_contains is None and 'stringContains' in kwargs:
             string_contains = kwargs['stringContains']
-        if 'stringEndsWiths' in kwargs:
+        if string_ends_withs is None and 'stringEndsWiths' in kwargs:
             string_ends_withs = kwargs['stringEndsWiths']
-        if 'stringIns' in kwargs:
+        if string_ins is None and 'stringIns' in kwargs:
             string_ins = kwargs['stringIns']
-        if 'stringNotBeginsWiths' in kwargs:
+        if string_not_begins_withs is None and 'stringNotBeginsWiths' in kwargs:
             string_not_begins_withs = kwargs['stringNotBeginsWiths']
-        if 'stringNotContains' in kwargs:
+        if string_not_contains is None and 'stringNotContains' in kwargs:
             string_not_contains = kwargs['stringNotContains']
-        if 'stringNotEndsWiths' in kwargs:
+        if string_not_ends_withs is None and 'stringNotEndsWiths' in kwargs:
             string_not_ends_withs = kwargs['stringNotEndsWiths']
-        if 'stringNotIns' in kwargs:
+        if string_not_ins is None and 'stringNotIns' in kwargs:
             string_not_ins = kwargs['stringNotIns']
 
         if bool_equals is not None:
@@ -856,10 +860,14 @@ class EventSubscriptionAdvancedFilterBoolEqualArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[bool],
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("key", key)
         _setter("value", value)
@@ -905,9 +913,11 @@ class EventSubscriptionAdvancedFilterIsNotNullArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
 
         _setter("key", key)
 
@@ -938,9 +948,11 @@ class EventSubscriptionAdvancedFilterIsNullOrUndefinedArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
 
         _setter("key", key)
 
@@ -976,10 +988,14 @@ class EventSubscriptionAdvancedFilterNumberGreaterThanArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[float],
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[float]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("key", key)
         _setter("value", value)
@@ -1030,10 +1046,14 @@ class EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[float],
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[float]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("key", key)
         _setter("value", value)
@@ -1084,10 +1104,14 @@ class EventSubscriptionAdvancedFilterNumberInArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             values: pulumi.Input[Sequence[pulumi.Input[float]]],
+             key: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[float]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("key", key)
         _setter("values", values)
@@ -1138,10 +1162,14 @@ class EventSubscriptionAdvancedFilterNumberInRangeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             values: pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]],
+             key: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("key", key)
         _setter("values", values)
@@ -1192,10 +1220,14 @@ class EventSubscriptionAdvancedFilterNumberLessThanArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[float],
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[float]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("key", key)
         _setter("value", value)
@@ -1246,10 +1278,14 @@ class EventSubscriptionAdvancedFilterNumberLessThanOrEqualArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[float],
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[float]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("key", key)
         _setter("value", value)
@@ -1300,10 +1336,14 @@ class EventSubscriptionAdvancedFilterNumberNotInArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             values: pulumi.Input[Sequence[pulumi.Input[float]]],
+             key: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[float]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("key", key)
         _setter("values", values)
@@ -1354,10 +1394,14 @@ class EventSubscriptionAdvancedFilterNumberNotInRangeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             values: pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]],
+             key: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("key", key)
         _setter("values", values)
@@ -1408,10 +1452,14 @@ class EventSubscriptionAdvancedFilterStringBeginsWithArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             key: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("key", key)
         _setter("values", values)
@@ -1462,10 +1510,14 @@ class EventSubscriptionAdvancedFilterStringContainArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             key: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("key", key)
         _setter("values", values)
@@ -1516,10 +1568,14 @@ class EventSubscriptionAdvancedFilterStringEndsWithArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             key: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("key", key)
         _setter("values", values)
@@ -1570,10 +1626,14 @@ class EventSubscriptionAdvancedFilterStringInArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             key: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("key", key)
         _setter("values", values)
@@ -1624,10 +1684,14 @@ class EventSubscriptionAdvancedFilterStringNotBeginsWithArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             key: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("key", key)
         _setter("values", values)
@@ -1678,10 +1742,14 @@ class EventSubscriptionAdvancedFilterStringNotContainArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             key: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("key", key)
         _setter("values", values)
@@ -1732,10 +1800,14 @@ class EventSubscriptionAdvancedFilterStringNotEndsWithArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             key: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("key", key)
         _setter("values", values)
@@ -1786,10 +1858,14 @@ class EventSubscriptionAdvancedFilterStringNotInArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             key: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("key", key)
         _setter("values", values)
@@ -1841,16 +1917,18 @@ class EventSubscriptionAzureFunctionEndpointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             function_id: pulumi.Input[str],
+             function_id: Optional[pulumi.Input[str]] = None,
              max_events_per_batch: Optional[pulumi.Input[int]] = None,
              preferred_batch_size_in_kilobytes: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'functionId' in kwargs:
+        if function_id is None and 'functionId' in kwargs:
             function_id = kwargs['functionId']
-        if 'maxEventsPerBatch' in kwargs:
+        if function_id is None:
+            raise TypeError("Missing 'function_id' argument")
+        if max_events_per_batch is None and 'maxEventsPerBatch' in kwargs:
             max_events_per_batch = kwargs['maxEventsPerBatch']
-        if 'preferredBatchSizeInKilobytes' in kwargs:
+        if preferred_batch_size_in_kilobytes is None and 'preferredBatchSizeInKilobytes' in kwargs:
             preferred_batch_size_in_kilobytes = kwargs['preferredBatchSizeInKilobytes']
 
         _setter("function_id", function_id)
@@ -1913,11 +1991,13 @@ class EventSubscriptionDeadLetterIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              user_assigned_identity: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'userAssignedIdentity' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if user_assigned_identity is None and 'userAssignedIdentity' in kwargs:
             user_assigned_identity = kwargs['userAssignedIdentity']
 
         _setter("type", type)
@@ -1966,11 +2046,13 @@ class EventSubscriptionDeliveryIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              user_assigned_identity: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'userAssignedIdentity' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if user_assigned_identity is None and 'userAssignedIdentity' in kwargs:
             user_assigned_identity = kwargs['userAssignedIdentity']
 
         _setter("type", type)
@@ -2028,16 +2110,20 @@ class EventSubscriptionDeliveryPropertyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             header_name: pulumi.Input[str],
-             type: pulumi.Input[str],
+             header_name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              secret: Optional[pulumi.Input[bool]] = None,
              source_field: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'headerName' in kwargs:
+        if header_name is None and 'headerName' in kwargs:
             header_name = kwargs['headerName']
-        if 'sourceField' in kwargs:
+        if header_name is None:
+            raise TypeError("Missing 'header_name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if source_field is None and 'sourceField' in kwargs:
             source_field = kwargs['sourceField']
 
         _setter("header_name", header_name)
@@ -2127,14 +2213,18 @@ class EventSubscriptionRetryPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             event_time_to_live: pulumi.Input[int],
-             max_delivery_attempts: pulumi.Input[int],
+             event_time_to_live: Optional[pulumi.Input[int]] = None,
+             max_delivery_attempts: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'eventTimeToLive' in kwargs:
+        if event_time_to_live is None and 'eventTimeToLive' in kwargs:
             event_time_to_live = kwargs['eventTimeToLive']
-        if 'maxDeliveryAttempts' in kwargs:
+        if event_time_to_live is None:
+            raise TypeError("Missing 'event_time_to_live' argument")
+        if max_delivery_attempts is None and 'maxDeliveryAttempts' in kwargs:
             max_delivery_attempts = kwargs['maxDeliveryAttempts']
+        if max_delivery_attempts is None:
+            raise TypeError("Missing 'max_delivery_attempts' argument")
 
         _setter("event_time_to_live", event_time_to_live)
         _setter("max_delivery_attempts", max_delivery_attempts)
@@ -2181,14 +2271,18 @@ class EventSubscriptionStorageBlobDeadLetterDestinationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             storage_account_id: pulumi.Input[str],
-             storage_blob_container_name: pulumi.Input[str],
+             storage_account_id: Optional[pulumi.Input[str]] = None,
+             storage_blob_container_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'storageBlobContainerName' in kwargs:
+        if storage_account_id is None:
+            raise TypeError("Missing 'storage_account_id' argument")
+        if storage_blob_container_name is None and 'storageBlobContainerName' in kwargs:
             storage_blob_container_name = kwargs['storageBlobContainerName']
+        if storage_blob_container_name is None:
+            raise TypeError("Missing 'storage_blob_container_name' argument")
 
         _setter("storage_account_id", storage_account_id)
         _setter("storage_blob_container_name", storage_blob_container_name)
@@ -2238,16 +2332,20 @@ class EventSubscriptionStorageQueueEndpointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             queue_name: pulumi.Input[str],
-             storage_account_id: pulumi.Input[str],
+             queue_name: Optional[pulumi.Input[str]] = None,
+             storage_account_id: Optional[pulumi.Input[str]] = None,
              queue_message_time_to_live_in_seconds: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'queueName' in kwargs:
+        if queue_name is None and 'queueName' in kwargs:
             queue_name = kwargs['queueName']
-        if 'storageAccountId' in kwargs:
+        if queue_name is None:
+            raise TypeError("Missing 'queue_name' argument")
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'queueMessageTimeToLiveInSeconds' in kwargs:
+        if storage_account_id is None:
+            raise TypeError("Missing 'storage_account_id' argument")
+        if queue_message_time_to_live_in_seconds is None and 'queueMessageTimeToLiveInSeconds' in kwargs:
             queue_message_time_to_live_in_seconds = kwargs['queueMessageTimeToLiveInSeconds']
 
         _setter("queue_name", queue_name)
@@ -2317,11 +2415,11 @@ class EventSubscriptionSubjectFilterArgs:
              subject_ends_with: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'caseSensitive' in kwargs:
+        if case_sensitive is None and 'caseSensitive' in kwargs:
             case_sensitive = kwargs['caseSensitive']
-        if 'subjectBeginsWith' in kwargs:
+        if subject_begins_with is None and 'subjectBeginsWith' in kwargs:
             subject_begins_with = kwargs['subjectBeginsWith']
-        if 'subjectEndsWith' in kwargs:
+        if subject_ends_with is None and 'subjectEndsWith' in kwargs:
             subject_ends_with = kwargs['subjectEndsWith']
 
         if case_sensitive is not None:
@@ -2397,7 +2495,7 @@ class EventSubscriptionWebhookEndpointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             url: pulumi.Input[str],
+             url: Optional[pulumi.Input[str]] = None,
              active_directory_app_id_or_uri: Optional[pulumi.Input[str]] = None,
              active_directory_tenant_id: Optional[pulumi.Input[str]] = None,
              base_url: Optional[pulumi.Input[str]] = None,
@@ -2405,15 +2503,17 @@ class EventSubscriptionWebhookEndpointArgs:
              preferred_batch_size_in_kilobytes: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'activeDirectoryAppIdOrUri' in kwargs:
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+        if active_directory_app_id_or_uri is None and 'activeDirectoryAppIdOrUri' in kwargs:
             active_directory_app_id_or_uri = kwargs['activeDirectoryAppIdOrUri']
-        if 'activeDirectoryTenantId' in kwargs:
+        if active_directory_tenant_id is None and 'activeDirectoryTenantId' in kwargs:
             active_directory_tenant_id = kwargs['activeDirectoryTenantId']
-        if 'baseUrl' in kwargs:
+        if base_url is None and 'baseUrl' in kwargs:
             base_url = kwargs['baseUrl']
-        if 'maxEventsPerBatch' in kwargs:
+        if max_events_per_batch is None and 'maxEventsPerBatch' in kwargs:
             max_events_per_batch = kwargs['maxEventsPerBatch']
-        if 'preferredBatchSizeInKilobytes' in kwargs:
+        if preferred_batch_size_in_kilobytes is None and 'preferredBatchSizeInKilobytes' in kwargs:
             preferred_batch_size_in_kilobytes = kwargs['preferredBatchSizeInKilobytes']
 
         _setter("url", url)
@@ -2592,43 +2692,43 @@ class SystemTopicEventSubscriptionAdvancedFilterArgs:
              string_not_ins: Optional[pulumi.Input[Sequence[pulumi.Input['SystemTopicEventSubscriptionAdvancedFilterStringNotInArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'boolEquals' in kwargs:
+        if bool_equals is None and 'boolEquals' in kwargs:
             bool_equals = kwargs['boolEquals']
-        if 'isNotNulls' in kwargs:
+        if is_not_nulls is None and 'isNotNulls' in kwargs:
             is_not_nulls = kwargs['isNotNulls']
-        if 'isNullOrUndefineds' in kwargs:
+        if is_null_or_undefineds is None and 'isNullOrUndefineds' in kwargs:
             is_null_or_undefineds = kwargs['isNullOrUndefineds']
-        if 'numberGreaterThanOrEquals' in kwargs:
+        if number_greater_than_or_equals is None and 'numberGreaterThanOrEquals' in kwargs:
             number_greater_than_or_equals = kwargs['numberGreaterThanOrEquals']
-        if 'numberGreaterThans' in kwargs:
+        if number_greater_thans is None and 'numberGreaterThans' in kwargs:
             number_greater_thans = kwargs['numberGreaterThans']
-        if 'numberInRanges' in kwargs:
+        if number_in_ranges is None and 'numberInRanges' in kwargs:
             number_in_ranges = kwargs['numberInRanges']
-        if 'numberIns' in kwargs:
+        if number_ins is None and 'numberIns' in kwargs:
             number_ins = kwargs['numberIns']
-        if 'numberLessThanOrEquals' in kwargs:
+        if number_less_than_or_equals is None and 'numberLessThanOrEquals' in kwargs:
             number_less_than_or_equals = kwargs['numberLessThanOrEquals']
-        if 'numberLessThans' in kwargs:
+        if number_less_thans is None and 'numberLessThans' in kwargs:
             number_less_thans = kwargs['numberLessThans']
-        if 'numberNotInRanges' in kwargs:
+        if number_not_in_ranges is None and 'numberNotInRanges' in kwargs:
             number_not_in_ranges = kwargs['numberNotInRanges']
-        if 'numberNotIns' in kwargs:
+        if number_not_ins is None and 'numberNotIns' in kwargs:
             number_not_ins = kwargs['numberNotIns']
-        if 'stringBeginsWiths' in kwargs:
+        if string_begins_withs is None and 'stringBeginsWiths' in kwargs:
             string_begins_withs = kwargs['stringBeginsWiths']
-        if 'stringContains' in kwargs:
+        if string_contains is None and 'stringContains' in kwargs:
             string_contains = kwargs['stringContains']
-        if 'stringEndsWiths' in kwargs:
+        if string_ends_withs is None and 'stringEndsWiths' in kwargs:
             string_ends_withs = kwargs['stringEndsWiths']
-        if 'stringIns' in kwargs:
+        if string_ins is None and 'stringIns' in kwargs:
             string_ins = kwargs['stringIns']
-        if 'stringNotBeginsWiths' in kwargs:
+        if string_not_begins_withs is None and 'stringNotBeginsWiths' in kwargs:
             string_not_begins_withs = kwargs['stringNotBeginsWiths']
-        if 'stringNotContains' in kwargs:
+        if string_not_contains is None and 'stringNotContains' in kwargs:
             string_not_contains = kwargs['stringNotContains']
-        if 'stringNotEndsWiths' in kwargs:
+        if string_not_ends_withs is None and 'stringNotEndsWiths' in kwargs:
             string_not_ends_withs = kwargs['stringNotEndsWiths']
-        if 'stringNotIns' in kwargs:
+        if string_not_ins is None and 'stringNotIns' in kwargs:
             string_not_ins = kwargs['stringNotIns']
 
         if bool_equals is not None:
@@ -2920,10 +3020,14 @@ class SystemTopicEventSubscriptionAdvancedFilterBoolEqualArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[bool],
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("key", key)
         _setter("value", value)
@@ -2969,9 +3073,11 @@ class SystemTopicEventSubscriptionAdvancedFilterIsNotNullArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
 
         _setter("key", key)
 
@@ -3002,9 +3108,11 @@ class SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefinedArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
 
         _setter("key", key)
 
@@ -3040,10 +3148,14 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[float],
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[float]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("key", key)
         _setter("value", value)
@@ -3094,10 +3206,14 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[float],
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[float]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("key", key)
         _setter("value", value)
@@ -3148,10 +3264,14 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberInArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             values: pulumi.Input[Sequence[pulumi.Input[float]]],
+             key: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[float]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("key", key)
         _setter("values", values)
@@ -3202,10 +3322,14 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberInRangeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             values: pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]],
+             key: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("key", key)
         _setter("values", values)
@@ -3256,10 +3380,14 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[float],
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[float]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("key", key)
         _setter("value", value)
@@ -3310,10 +3438,14 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[float],
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[float]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("key", key)
         _setter("value", value)
@@ -3364,10 +3496,14 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberNotInArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             values: pulumi.Input[Sequence[pulumi.Input[float]]],
+             key: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[float]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("key", key)
         _setter("values", values)
@@ -3418,10 +3554,14 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberNotInRangeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             values: pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]],
+             key: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("key", key)
         _setter("values", values)
@@ -3472,10 +3612,14 @@ class SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             key: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("key", key)
         _setter("values", values)
@@ -3526,10 +3670,14 @@ class SystemTopicEventSubscriptionAdvancedFilterStringContainArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             key: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("key", key)
         _setter("values", values)
@@ -3580,10 +3728,14 @@ class SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             key: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("key", key)
         _setter("values", values)
@@ -3634,10 +3786,14 @@ class SystemTopicEventSubscriptionAdvancedFilterStringInArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             key: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("key", key)
         _setter("values", values)
@@ -3688,10 +3844,14 @@ class SystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWithArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             key: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("key", key)
         _setter("values", values)
@@ -3742,10 +3902,14 @@ class SystemTopicEventSubscriptionAdvancedFilterStringNotContainArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             key: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("key", key)
         _setter("values", values)
@@ -3796,10 +3960,14 @@ class SystemTopicEventSubscriptionAdvancedFilterStringNotEndsWithArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             key: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("key", key)
         _setter("values", values)
@@ -3850,10 +4018,14 @@ class SystemTopicEventSubscriptionAdvancedFilterStringNotInArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             key: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("key", key)
         _setter("values", values)
@@ -3905,16 +4077,18 @@ class SystemTopicEventSubscriptionAzureFunctionEndpointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             function_id: pulumi.Input[str],
+             function_id: Optional[pulumi.Input[str]] = None,
              max_events_per_batch: Optional[pulumi.Input[int]] = None,
              preferred_batch_size_in_kilobytes: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'functionId' in kwargs:
+        if function_id is None and 'functionId' in kwargs:
             function_id = kwargs['functionId']
-        if 'maxEventsPerBatch' in kwargs:
+        if function_id is None:
+            raise TypeError("Missing 'function_id' argument")
+        if max_events_per_batch is None and 'maxEventsPerBatch' in kwargs:
             max_events_per_batch = kwargs['maxEventsPerBatch']
-        if 'preferredBatchSizeInKilobytes' in kwargs:
+        if preferred_batch_size_in_kilobytes is None and 'preferredBatchSizeInKilobytes' in kwargs:
             preferred_batch_size_in_kilobytes = kwargs['preferredBatchSizeInKilobytes']
 
         _setter("function_id", function_id)
@@ -3977,11 +4151,13 @@ class SystemTopicEventSubscriptionDeadLetterIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              user_assigned_identity: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'userAssignedIdentity' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if user_assigned_identity is None and 'userAssignedIdentity' in kwargs:
             user_assigned_identity = kwargs['userAssignedIdentity']
 
         _setter("type", type)
@@ -4030,11 +4206,13 @@ class SystemTopicEventSubscriptionDeliveryIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              user_assigned_identity: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'userAssignedIdentity' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if user_assigned_identity is None and 'userAssignedIdentity' in kwargs:
             user_assigned_identity = kwargs['userAssignedIdentity']
 
         _setter("type", type)
@@ -4092,16 +4270,20 @@ class SystemTopicEventSubscriptionDeliveryPropertyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             header_name: pulumi.Input[str],
-             type: pulumi.Input[str],
+             header_name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              secret: Optional[pulumi.Input[bool]] = None,
              source_field: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'headerName' in kwargs:
+        if header_name is None and 'headerName' in kwargs:
             header_name = kwargs['headerName']
-        if 'sourceField' in kwargs:
+        if header_name is None:
+            raise TypeError("Missing 'header_name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if source_field is None and 'sourceField' in kwargs:
             source_field = kwargs['sourceField']
 
         _setter("header_name", header_name)
@@ -4191,14 +4373,18 @@ class SystemTopicEventSubscriptionRetryPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             event_time_to_live: pulumi.Input[int],
-             max_delivery_attempts: pulumi.Input[int],
+             event_time_to_live: Optional[pulumi.Input[int]] = None,
+             max_delivery_attempts: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'eventTimeToLive' in kwargs:
+        if event_time_to_live is None and 'eventTimeToLive' in kwargs:
             event_time_to_live = kwargs['eventTimeToLive']
-        if 'maxDeliveryAttempts' in kwargs:
+        if event_time_to_live is None:
+            raise TypeError("Missing 'event_time_to_live' argument")
+        if max_delivery_attempts is None and 'maxDeliveryAttempts' in kwargs:
             max_delivery_attempts = kwargs['maxDeliveryAttempts']
+        if max_delivery_attempts is None:
+            raise TypeError("Missing 'max_delivery_attempts' argument")
 
         _setter("event_time_to_live", event_time_to_live)
         _setter("max_delivery_attempts", max_delivery_attempts)
@@ -4245,14 +4431,18 @@ class SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             storage_account_id: pulumi.Input[str],
-             storage_blob_container_name: pulumi.Input[str],
+             storage_account_id: Optional[pulumi.Input[str]] = None,
+             storage_blob_container_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'storageBlobContainerName' in kwargs:
+        if storage_account_id is None:
+            raise TypeError("Missing 'storage_account_id' argument")
+        if storage_blob_container_name is None and 'storageBlobContainerName' in kwargs:
             storage_blob_container_name = kwargs['storageBlobContainerName']
+        if storage_blob_container_name is None:
+            raise TypeError("Missing 'storage_blob_container_name' argument")
 
         _setter("storage_account_id", storage_account_id)
         _setter("storage_blob_container_name", storage_blob_container_name)
@@ -4302,16 +4492,20 @@ class SystemTopicEventSubscriptionStorageQueueEndpointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             queue_name: pulumi.Input[str],
-             storage_account_id: pulumi.Input[str],
+             queue_name: Optional[pulumi.Input[str]] = None,
+             storage_account_id: Optional[pulumi.Input[str]] = None,
              queue_message_time_to_live_in_seconds: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'queueName' in kwargs:
+        if queue_name is None and 'queueName' in kwargs:
             queue_name = kwargs['queueName']
-        if 'storageAccountId' in kwargs:
+        if queue_name is None:
+            raise TypeError("Missing 'queue_name' argument")
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'queueMessageTimeToLiveInSeconds' in kwargs:
+        if storage_account_id is None:
+            raise TypeError("Missing 'storage_account_id' argument")
+        if queue_message_time_to_live_in_seconds is None and 'queueMessageTimeToLiveInSeconds' in kwargs:
             queue_message_time_to_live_in_seconds = kwargs['queueMessageTimeToLiveInSeconds']
 
         _setter("queue_name", queue_name)
@@ -4381,11 +4575,11 @@ class SystemTopicEventSubscriptionSubjectFilterArgs:
              subject_ends_with: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'caseSensitive' in kwargs:
+        if case_sensitive is None and 'caseSensitive' in kwargs:
             case_sensitive = kwargs['caseSensitive']
-        if 'subjectBeginsWith' in kwargs:
+        if subject_begins_with is None and 'subjectBeginsWith' in kwargs:
             subject_begins_with = kwargs['subjectBeginsWith']
-        if 'subjectEndsWith' in kwargs:
+        if subject_ends_with is None and 'subjectEndsWith' in kwargs:
             subject_ends_with = kwargs['subjectEndsWith']
 
         if case_sensitive is not None:
@@ -4461,7 +4655,7 @@ class SystemTopicEventSubscriptionWebhookEndpointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             url: pulumi.Input[str],
+             url: Optional[pulumi.Input[str]] = None,
              active_directory_app_id_or_uri: Optional[pulumi.Input[str]] = None,
              active_directory_tenant_id: Optional[pulumi.Input[str]] = None,
              base_url: Optional[pulumi.Input[str]] = None,
@@ -4469,15 +4663,17 @@ class SystemTopicEventSubscriptionWebhookEndpointArgs:
              preferred_batch_size_in_kilobytes: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'activeDirectoryAppIdOrUri' in kwargs:
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+        if active_directory_app_id_or_uri is None and 'activeDirectoryAppIdOrUri' in kwargs:
             active_directory_app_id_or_uri = kwargs['activeDirectoryAppIdOrUri']
-        if 'activeDirectoryTenantId' in kwargs:
+        if active_directory_tenant_id is None and 'activeDirectoryTenantId' in kwargs:
             active_directory_tenant_id = kwargs['activeDirectoryTenantId']
-        if 'baseUrl' in kwargs:
+        if base_url is None and 'baseUrl' in kwargs:
             base_url = kwargs['baseUrl']
-        if 'maxEventsPerBatch' in kwargs:
+        if max_events_per_batch is None and 'maxEventsPerBatch' in kwargs:
             max_events_per_batch = kwargs['maxEventsPerBatch']
-        if 'preferredBatchSizeInKilobytes' in kwargs:
+        if preferred_batch_size_in_kilobytes is None and 'preferredBatchSizeInKilobytes' in kwargs:
             preferred_batch_size_in_kilobytes = kwargs['preferredBatchSizeInKilobytes']
 
         _setter("url", url)
@@ -4592,17 +4788,19 @@ class SystemTopicIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -4693,17 +4891,19 @@ class TopicIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -4784,12 +4984,14 @@ class TopicInboundIpRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ip_mask: pulumi.Input[str],
+             ip_mask: Optional[pulumi.Input[str]] = None,
              action: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ipMask' in kwargs:
+        if ip_mask is None and 'ipMask' in kwargs:
             ip_mask = kwargs['ipMask']
+        if ip_mask is None:
+            raise TypeError("Missing 'ip_mask' argument")
 
         _setter("ip_mask", ip_mask)
         if action is not None:
@@ -4845,9 +5047,9 @@ class TopicInputMappingDefaultValuesArgs:
              subject: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dataVersion' in kwargs:
+        if data_version is None and 'dataVersion' in kwargs:
             data_version = kwargs['dataVersion']
-        if 'eventType' in kwargs:
+        if event_type is None and 'eventType' in kwargs:
             event_type = kwargs['eventType']
 
         if data_version is not None:
@@ -4931,11 +5133,11 @@ class TopicInputMappingFieldsArgs:
              topic: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dataVersion' in kwargs:
+        if data_version is None and 'dataVersion' in kwargs:
             data_version = kwargs['dataVersion']
-        if 'eventTime' in kwargs:
+        if event_time is None and 'eventTime' in kwargs:
             event_time = kwargs['eventTime']
-        if 'eventType' in kwargs:
+        if event_type is None and 'eventType' in kwargs:
             event_type = kwargs['eventType']
 
         if data_version is not None:

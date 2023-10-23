@@ -38,18 +38,26 @@ class FunctionAppHybridConnectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             function_app_id: pulumi.Input[str],
-             hostname: pulumi.Input[str],
-             port: pulumi.Input[int],
-             relay_id: pulumi.Input[str],
+             function_app_id: Optional[pulumi.Input[str]] = None,
+             hostname: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             relay_id: Optional[pulumi.Input[str]] = None,
              send_key_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'functionAppId' in kwargs:
+        if function_app_id is None and 'functionAppId' in kwargs:
             function_app_id = kwargs['functionAppId']
-        if 'relayId' in kwargs:
+        if function_app_id is None:
+            raise TypeError("Missing 'function_app_id' argument")
+        if hostname is None:
+            raise TypeError("Missing 'hostname' argument")
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if relay_id is None and 'relayId' in kwargs:
             relay_id = kwargs['relayId']
-        if 'sendKeyName' in kwargs:
+        if relay_id is None:
+            raise TypeError("Missing 'relay_id' argument")
+        if send_key_name is None and 'sendKeyName' in kwargs:
             send_key_name = kwargs['sendKeyName']
 
         _setter("function_app_id", function_app_id)
@@ -174,21 +182,21 @@ class _FunctionAppHybridConnectionState:
              service_bus_suffix: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'functionAppId' in kwargs:
+        if function_app_id is None and 'functionAppId' in kwargs:
             function_app_id = kwargs['functionAppId']
-        if 'namespaceName' in kwargs:
+        if namespace_name is None and 'namespaceName' in kwargs:
             namespace_name = kwargs['namespaceName']
-        if 'relayId' in kwargs:
+        if relay_id is None and 'relayId' in kwargs:
             relay_id = kwargs['relayId']
-        if 'relayName' in kwargs:
+        if relay_name is None and 'relayName' in kwargs:
             relay_name = kwargs['relayName']
-        if 'sendKeyName' in kwargs:
+        if send_key_name is None and 'sendKeyName' in kwargs:
             send_key_name = kwargs['sendKeyName']
-        if 'sendKeyValue' in kwargs:
+        if send_key_value is None and 'sendKeyValue' in kwargs:
             send_key_value = kwargs['sendKeyValue']
-        if 'serviceBusNamespace' in kwargs:
+        if service_bus_namespace is None and 'serviceBusNamespace' in kwargs:
             service_bus_namespace = kwargs['serviceBusNamespace']
-        if 'serviceBusSuffix' in kwargs:
+        if service_bus_suffix is None and 'serviceBusSuffix' in kwargs:
             service_bus_suffix = kwargs['serviceBusSuffix']
 
         if function_app_id is not None:

@@ -29,14 +29,18 @@ class SubnetNetworkSecurityGroupAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             network_security_group_id: pulumi.Input[str],
-             subnet_id: pulumi.Input[str],
+             network_security_group_id: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'networkSecurityGroupId' in kwargs:
+        if network_security_group_id is None and 'networkSecurityGroupId' in kwargs:
             network_security_group_id = kwargs['networkSecurityGroupId']
-        if 'subnetId' in kwargs:
+        if network_security_group_id is None:
+            raise TypeError("Missing 'network_security_group_id' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
 
         _setter("network_security_group_id", network_security_group_id)
         _setter("subnet_id", subnet_id)
@@ -88,9 +92,9 @@ class _SubnetNetworkSecurityGroupAssociationState:
              subnet_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'networkSecurityGroupId' in kwargs:
+        if network_security_group_id is None and 'networkSecurityGroupId' in kwargs:
             network_security_group_id = kwargs['networkSecurityGroupId']
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
 
         if network_security_group_id is not None:

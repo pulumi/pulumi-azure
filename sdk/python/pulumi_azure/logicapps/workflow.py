@@ -66,7 +66,7 @@ class WorkflowArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              access_control: Optional[pulumi.Input['WorkflowAccessControlArgs']] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              identity: Optional[pulumi.Input['WorkflowIdentityArgs']] = None,
@@ -81,19 +81,21 @@ class WorkflowArgs:
              workflow_version: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'accessControl' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if access_control is None and 'accessControl' in kwargs:
             access_control = kwargs['accessControl']
-        if 'integrationServiceEnvironmentId' in kwargs:
+        if integration_service_environment_id is None and 'integrationServiceEnvironmentId' in kwargs:
             integration_service_environment_id = kwargs['integrationServiceEnvironmentId']
-        if 'logicAppIntegrationAccountId' in kwargs:
+        if logic_app_integration_account_id is None and 'logicAppIntegrationAccountId' in kwargs:
             logic_app_integration_account_id = kwargs['logicAppIntegrationAccountId']
-        if 'workflowParameters' in kwargs:
+        if workflow_parameters is None and 'workflowParameters' in kwargs:
             workflow_parameters = kwargs['workflowParameters']
-        if 'workflowSchema' in kwargs:
+        if workflow_schema is None and 'workflowSchema' in kwargs:
             workflow_schema = kwargs['workflowSchema']
-        if 'workflowVersion' in kwargs:
+        if workflow_version is None and 'workflowVersion' in kwargs:
             workflow_version = kwargs['workflowVersion']
 
         _setter("resource_group_name", resource_group_name)
@@ -369,29 +371,29 @@ class _WorkflowState:
              workflow_version: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accessControl' in kwargs:
+        if access_control is None and 'accessControl' in kwargs:
             access_control = kwargs['accessControl']
-        if 'accessEndpoint' in kwargs:
+        if access_endpoint is None and 'accessEndpoint' in kwargs:
             access_endpoint = kwargs['accessEndpoint']
-        if 'connectorEndpointIpAddresses' in kwargs:
+        if connector_endpoint_ip_addresses is None and 'connectorEndpointIpAddresses' in kwargs:
             connector_endpoint_ip_addresses = kwargs['connectorEndpointIpAddresses']
-        if 'connectorOutboundIpAddresses' in kwargs:
+        if connector_outbound_ip_addresses is None and 'connectorOutboundIpAddresses' in kwargs:
             connector_outbound_ip_addresses = kwargs['connectorOutboundIpAddresses']
-        if 'integrationServiceEnvironmentId' in kwargs:
+        if integration_service_environment_id is None and 'integrationServiceEnvironmentId' in kwargs:
             integration_service_environment_id = kwargs['integrationServiceEnvironmentId']
-        if 'logicAppIntegrationAccountId' in kwargs:
+        if logic_app_integration_account_id is None and 'logicAppIntegrationAccountId' in kwargs:
             logic_app_integration_account_id = kwargs['logicAppIntegrationAccountId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'workflowEndpointIpAddresses' in kwargs:
+        if workflow_endpoint_ip_addresses is None and 'workflowEndpointIpAddresses' in kwargs:
             workflow_endpoint_ip_addresses = kwargs['workflowEndpointIpAddresses']
-        if 'workflowOutboundIpAddresses' in kwargs:
+        if workflow_outbound_ip_addresses is None and 'workflowOutboundIpAddresses' in kwargs:
             workflow_outbound_ip_addresses = kwargs['workflowOutboundIpAddresses']
-        if 'workflowParameters' in kwargs:
+        if workflow_parameters is None and 'workflowParameters' in kwargs:
             workflow_parameters = kwargs['workflowParameters']
-        if 'workflowSchema' in kwargs:
+        if workflow_schema is None and 'workflowSchema' in kwargs:
             workflow_schema = kwargs['workflowSchema']
-        if 'workflowVersion' in kwargs:
+        if workflow_version is None and 'workflowVersion' in kwargs:
             workflow_version = kwargs['workflowVersion']
 
         if access_control is not None:

@@ -62,12 +62,12 @@ class IotHubDataConnectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cluster_name: pulumi.Input[str],
-             consumer_group: pulumi.Input[str],
-             database_name: pulumi.Input[str],
-             iothub_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             shared_access_policy_name: pulumi.Input[str],
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             consumer_group: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             iothub_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             shared_access_policy_name: Optional[pulumi.Input[str]] = None,
              data_format: Optional[pulumi.Input[str]] = None,
              database_routing_type: Optional[pulumi.Input[str]] = None,
              event_system_properties: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -77,27 +77,39 @@ class IotHubDataConnectionArgs:
              table_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clusterName' in kwargs:
+        if cluster_name is None and 'clusterName' in kwargs:
             cluster_name = kwargs['clusterName']
-        if 'consumerGroup' in kwargs:
+        if cluster_name is None:
+            raise TypeError("Missing 'cluster_name' argument")
+        if consumer_group is None and 'consumerGroup' in kwargs:
             consumer_group = kwargs['consumerGroup']
-        if 'databaseName' in kwargs:
+        if consumer_group is None:
+            raise TypeError("Missing 'consumer_group' argument")
+        if database_name is None and 'databaseName' in kwargs:
             database_name = kwargs['databaseName']
-        if 'iothubId' in kwargs:
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if iothub_id is None and 'iothubId' in kwargs:
             iothub_id = kwargs['iothubId']
-        if 'resourceGroupName' in kwargs:
+        if iothub_id is None:
+            raise TypeError("Missing 'iothub_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'sharedAccessPolicyName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if shared_access_policy_name is None and 'sharedAccessPolicyName' in kwargs:
             shared_access_policy_name = kwargs['sharedAccessPolicyName']
-        if 'dataFormat' in kwargs:
+        if shared_access_policy_name is None:
+            raise TypeError("Missing 'shared_access_policy_name' argument")
+        if data_format is None and 'dataFormat' in kwargs:
             data_format = kwargs['dataFormat']
-        if 'databaseRoutingType' in kwargs:
+        if database_routing_type is None and 'databaseRoutingType' in kwargs:
             database_routing_type = kwargs['databaseRoutingType']
-        if 'eventSystemProperties' in kwargs:
+        if event_system_properties is None and 'eventSystemProperties' in kwargs:
             event_system_properties = kwargs['eventSystemProperties']
-        if 'mappingRuleName' in kwargs:
+        if mapping_rule_name is None and 'mappingRuleName' in kwargs:
             mapping_rule_name = kwargs['mappingRuleName']
-        if 'tableName' in kwargs:
+        if table_name is None and 'tableName' in kwargs:
             table_name = kwargs['tableName']
 
         _setter("cluster_name", cluster_name)
@@ -344,27 +356,27 @@ class _IotHubDataConnectionState:
              table_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clusterName' in kwargs:
+        if cluster_name is None and 'clusterName' in kwargs:
             cluster_name = kwargs['clusterName']
-        if 'consumerGroup' in kwargs:
+        if consumer_group is None and 'consumerGroup' in kwargs:
             consumer_group = kwargs['consumerGroup']
-        if 'dataFormat' in kwargs:
+        if data_format is None and 'dataFormat' in kwargs:
             data_format = kwargs['dataFormat']
-        if 'databaseName' in kwargs:
+        if database_name is None and 'databaseName' in kwargs:
             database_name = kwargs['databaseName']
-        if 'databaseRoutingType' in kwargs:
+        if database_routing_type is None and 'databaseRoutingType' in kwargs:
             database_routing_type = kwargs['databaseRoutingType']
-        if 'eventSystemProperties' in kwargs:
+        if event_system_properties is None and 'eventSystemProperties' in kwargs:
             event_system_properties = kwargs['eventSystemProperties']
-        if 'iothubId' in kwargs:
+        if iothub_id is None and 'iothubId' in kwargs:
             iothub_id = kwargs['iothubId']
-        if 'mappingRuleName' in kwargs:
+        if mapping_rule_name is None and 'mappingRuleName' in kwargs:
             mapping_rule_name = kwargs['mappingRuleName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'sharedAccessPolicyName' in kwargs:
+        if shared_access_policy_name is None and 'sharedAccessPolicyName' in kwargs:
             shared_access_policy_name = kwargs['sharedAccessPolicyName']
-        if 'tableName' in kwargs:
+        if table_name is None and 'tableName' in kwargs:
             table_name = kwargs['tableName']
 
         if cluster_name is not None:

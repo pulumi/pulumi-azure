@@ -57,9 +57,9 @@ class ApplicationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             kind: pulumi.Input[str],
-             managed_resource_group_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             kind: Optional[pulumi.Input[str]] = None,
+             managed_resource_group_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              application_definition_id: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
@@ -69,13 +69,19 @@ class ApplicationArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'managedResourceGroupName' in kwargs:
+        if kind is None:
+            raise TypeError("Missing 'kind' argument")
+        if managed_resource_group_name is None and 'managedResourceGroupName' in kwargs:
             managed_resource_group_name = kwargs['managedResourceGroupName']
-        if 'resourceGroupName' in kwargs:
+        if managed_resource_group_name is None:
+            raise TypeError("Missing 'managed_resource_group_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'applicationDefinitionId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if application_definition_id is None and 'applicationDefinitionId' in kwargs:
             application_definition_id = kwargs['applicationDefinitionId']
-        if 'parameterValues' in kwargs:
+        if parameter_values is None and 'parameterValues' in kwargs:
             parameter_values = kwargs['parameterValues']
 
         _setter("kind", kind)
@@ -285,13 +291,13 @@ class _ApplicationState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'applicationDefinitionId' in kwargs:
+        if application_definition_id is None and 'applicationDefinitionId' in kwargs:
             application_definition_id = kwargs['applicationDefinitionId']
-        if 'managedResourceGroupName' in kwargs:
+        if managed_resource_group_name is None and 'managedResourceGroupName' in kwargs:
             managed_resource_group_name = kwargs['managedResourceGroupName']
-        if 'parameterValues' in kwargs:
+        if parameter_values is None and 'parameterValues' in kwargs:
             parameter_values = kwargs['parameterValues']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if application_definition_id is not None:

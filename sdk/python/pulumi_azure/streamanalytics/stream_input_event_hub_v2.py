@@ -55,10 +55,10 @@ class StreamInputEventHubV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             eventhub_name: pulumi.Input[str],
-             serialization: pulumi.Input['StreamInputEventHubV2SerializationArgs'],
-             servicebus_namespace: pulumi.Input[str],
-             stream_analytics_job_id: pulumi.Input[str],
+             eventhub_name: Optional[pulumi.Input[str]] = None,
+             serialization: Optional[pulumi.Input['StreamInputEventHubV2SerializationArgs']] = None,
+             servicebus_namespace: Optional[pulumi.Input[str]] = None,
+             stream_analytics_job_id: Optional[pulumi.Input[str]] = None,
              authentication_mode: Optional[pulumi.Input[str]] = None,
              eventhub_consumer_group_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
@@ -67,21 +67,29 @@ class StreamInputEventHubV2Args:
              shared_access_policy_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'eventhubName' in kwargs:
+        if eventhub_name is None and 'eventhubName' in kwargs:
             eventhub_name = kwargs['eventhubName']
-        if 'servicebusNamespace' in kwargs:
+        if eventhub_name is None:
+            raise TypeError("Missing 'eventhub_name' argument")
+        if serialization is None:
+            raise TypeError("Missing 'serialization' argument")
+        if servicebus_namespace is None and 'servicebusNamespace' in kwargs:
             servicebus_namespace = kwargs['servicebusNamespace']
-        if 'streamAnalyticsJobId' in kwargs:
+        if servicebus_namespace is None:
+            raise TypeError("Missing 'servicebus_namespace' argument")
+        if stream_analytics_job_id is None and 'streamAnalyticsJobId' in kwargs:
             stream_analytics_job_id = kwargs['streamAnalyticsJobId']
-        if 'authenticationMode' in kwargs:
+        if stream_analytics_job_id is None:
+            raise TypeError("Missing 'stream_analytics_job_id' argument")
+        if authentication_mode is None and 'authenticationMode' in kwargs:
             authentication_mode = kwargs['authenticationMode']
-        if 'eventhubConsumerGroupName' in kwargs:
+        if eventhub_consumer_group_name is None and 'eventhubConsumerGroupName' in kwargs:
             eventhub_consumer_group_name = kwargs['eventhubConsumerGroupName']
-        if 'partitionKey' in kwargs:
+        if partition_key is None and 'partitionKey' in kwargs:
             partition_key = kwargs['partitionKey']
-        if 'sharedAccessPolicyKey' in kwargs:
+        if shared_access_policy_key is None and 'sharedAccessPolicyKey' in kwargs:
             shared_access_policy_key = kwargs['sharedAccessPolicyKey']
-        if 'sharedAccessPolicyName' in kwargs:
+        if shared_access_policy_name is None and 'sharedAccessPolicyName' in kwargs:
             shared_access_policy_name = kwargs['sharedAccessPolicyName']
 
         _setter("eventhub_name", eventhub_name)
@@ -276,21 +284,21 @@ class _StreamInputEventHubV2State:
              stream_analytics_job_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'authenticationMode' in kwargs:
+        if authentication_mode is None and 'authenticationMode' in kwargs:
             authentication_mode = kwargs['authenticationMode']
-        if 'eventhubConsumerGroupName' in kwargs:
+        if eventhub_consumer_group_name is None and 'eventhubConsumerGroupName' in kwargs:
             eventhub_consumer_group_name = kwargs['eventhubConsumerGroupName']
-        if 'eventhubName' in kwargs:
+        if eventhub_name is None and 'eventhubName' in kwargs:
             eventhub_name = kwargs['eventhubName']
-        if 'partitionKey' in kwargs:
+        if partition_key is None and 'partitionKey' in kwargs:
             partition_key = kwargs['partitionKey']
-        if 'servicebusNamespace' in kwargs:
+        if servicebus_namespace is None and 'servicebusNamespace' in kwargs:
             servicebus_namespace = kwargs['servicebusNamespace']
-        if 'sharedAccessPolicyKey' in kwargs:
+        if shared_access_policy_key is None and 'sharedAccessPolicyKey' in kwargs:
             shared_access_policy_key = kwargs['sharedAccessPolicyKey']
-        if 'sharedAccessPolicyName' in kwargs:
+        if shared_access_policy_name is None and 'sharedAccessPolicyName' in kwargs:
             shared_access_policy_name = kwargs['sharedAccessPolicyName']
-        if 'streamAnalyticsJobId' in kwargs:
+        if stream_analytics_job_id is None and 'streamAnalyticsJobId' in kwargs:
             stream_analytics_job_id = kwargs['streamAnalyticsJobId']
 
         if authentication_mode is not None:

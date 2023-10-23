@@ -53,35 +53,49 @@ class TimeSeriesDatabaseConnectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             digital_twins_id: pulumi.Input[str],
-             eventhub_name: pulumi.Input[str],
-             eventhub_namespace_endpoint_uri: pulumi.Input[str],
-             eventhub_namespace_id: pulumi.Input[str],
-             kusto_cluster_id: pulumi.Input[str],
-             kusto_cluster_uri: pulumi.Input[str],
-             kusto_database_name: pulumi.Input[str],
+             digital_twins_id: Optional[pulumi.Input[str]] = None,
+             eventhub_name: Optional[pulumi.Input[str]] = None,
+             eventhub_namespace_endpoint_uri: Optional[pulumi.Input[str]] = None,
+             eventhub_namespace_id: Optional[pulumi.Input[str]] = None,
+             kusto_cluster_id: Optional[pulumi.Input[str]] = None,
+             kusto_cluster_uri: Optional[pulumi.Input[str]] = None,
+             kusto_database_name: Optional[pulumi.Input[str]] = None,
              eventhub_consumer_group_name: Optional[pulumi.Input[str]] = None,
              kusto_table_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'digitalTwinsId' in kwargs:
+        if digital_twins_id is None and 'digitalTwinsId' in kwargs:
             digital_twins_id = kwargs['digitalTwinsId']
-        if 'eventhubName' in kwargs:
+        if digital_twins_id is None:
+            raise TypeError("Missing 'digital_twins_id' argument")
+        if eventhub_name is None and 'eventhubName' in kwargs:
             eventhub_name = kwargs['eventhubName']
-        if 'eventhubNamespaceEndpointUri' in kwargs:
+        if eventhub_name is None:
+            raise TypeError("Missing 'eventhub_name' argument")
+        if eventhub_namespace_endpoint_uri is None and 'eventhubNamespaceEndpointUri' in kwargs:
             eventhub_namespace_endpoint_uri = kwargs['eventhubNamespaceEndpointUri']
-        if 'eventhubNamespaceId' in kwargs:
+        if eventhub_namespace_endpoint_uri is None:
+            raise TypeError("Missing 'eventhub_namespace_endpoint_uri' argument")
+        if eventhub_namespace_id is None and 'eventhubNamespaceId' in kwargs:
             eventhub_namespace_id = kwargs['eventhubNamespaceId']
-        if 'kustoClusterId' in kwargs:
+        if eventhub_namespace_id is None:
+            raise TypeError("Missing 'eventhub_namespace_id' argument")
+        if kusto_cluster_id is None and 'kustoClusterId' in kwargs:
             kusto_cluster_id = kwargs['kustoClusterId']
-        if 'kustoClusterUri' in kwargs:
+        if kusto_cluster_id is None:
+            raise TypeError("Missing 'kusto_cluster_id' argument")
+        if kusto_cluster_uri is None and 'kustoClusterUri' in kwargs:
             kusto_cluster_uri = kwargs['kustoClusterUri']
-        if 'kustoDatabaseName' in kwargs:
+        if kusto_cluster_uri is None:
+            raise TypeError("Missing 'kusto_cluster_uri' argument")
+        if kusto_database_name is None and 'kustoDatabaseName' in kwargs:
             kusto_database_name = kwargs['kustoDatabaseName']
-        if 'eventhubConsumerGroupName' in kwargs:
+        if kusto_database_name is None:
+            raise TypeError("Missing 'kusto_database_name' argument")
+        if eventhub_consumer_group_name is None and 'eventhubConsumerGroupName' in kwargs:
             eventhub_consumer_group_name = kwargs['eventhubConsumerGroupName']
-        if 'kustoTableName' in kwargs:
+        if kusto_table_name is None and 'kustoTableName' in kwargs:
             kusto_table_name = kwargs['kustoTableName']
 
         _setter("digital_twins_id", digital_twins_id)
@@ -273,23 +287,23 @@ class _TimeSeriesDatabaseConnectionState:
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'digitalTwinsId' in kwargs:
+        if digital_twins_id is None and 'digitalTwinsId' in kwargs:
             digital_twins_id = kwargs['digitalTwinsId']
-        if 'eventhubConsumerGroupName' in kwargs:
+        if eventhub_consumer_group_name is None and 'eventhubConsumerGroupName' in kwargs:
             eventhub_consumer_group_name = kwargs['eventhubConsumerGroupName']
-        if 'eventhubName' in kwargs:
+        if eventhub_name is None and 'eventhubName' in kwargs:
             eventhub_name = kwargs['eventhubName']
-        if 'eventhubNamespaceEndpointUri' in kwargs:
+        if eventhub_namespace_endpoint_uri is None and 'eventhubNamespaceEndpointUri' in kwargs:
             eventhub_namespace_endpoint_uri = kwargs['eventhubNamespaceEndpointUri']
-        if 'eventhubNamespaceId' in kwargs:
+        if eventhub_namespace_id is None and 'eventhubNamespaceId' in kwargs:
             eventhub_namespace_id = kwargs['eventhubNamespaceId']
-        if 'kustoClusterId' in kwargs:
+        if kusto_cluster_id is None and 'kustoClusterId' in kwargs:
             kusto_cluster_id = kwargs['kustoClusterId']
-        if 'kustoClusterUri' in kwargs:
+        if kusto_cluster_uri is None and 'kustoClusterUri' in kwargs:
             kusto_cluster_uri = kwargs['kustoClusterUri']
-        if 'kustoDatabaseName' in kwargs:
+        if kusto_database_name is None and 'kustoDatabaseName' in kwargs:
             kusto_database_name = kwargs['kustoDatabaseName']
-        if 'kustoTableName' in kwargs:
+        if kusto_table_name is None and 'kustoTableName' in kwargs:
             kusto_table_name = kwargs['kustoTableName']
 
         if digital_twins_id is not None:

@@ -46,24 +46,30 @@ class ManagedStorageAccountArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_vault_id: pulumi.Input[str],
-             storage_account_id: pulumi.Input[str],
-             storage_account_key: pulumi.Input[str],
+             key_vault_id: Optional[pulumi.Input[str]] = None,
+             storage_account_id: Optional[pulumi.Input[str]] = None,
+             storage_account_key: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              regenerate_key_automatically: Optional[pulumi.Input[bool]] = None,
              regeneration_period: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'keyVaultId' in kwargs:
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
-        if 'storageAccountId' in kwargs:
+        if key_vault_id is None:
+            raise TypeError("Missing 'key_vault_id' argument")
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'storageAccountKey' in kwargs:
+        if storage_account_id is None:
+            raise TypeError("Missing 'storage_account_id' argument")
+        if storage_account_key is None and 'storageAccountKey' in kwargs:
             storage_account_key = kwargs['storageAccountKey']
-        if 'regenerateKeyAutomatically' in kwargs:
+        if storage_account_key is None:
+            raise TypeError("Missing 'storage_account_key' argument")
+        if regenerate_key_automatically is None and 'regenerateKeyAutomatically' in kwargs:
             regenerate_key_automatically = kwargs['regenerateKeyAutomatically']
-        if 'regenerationPeriod' in kwargs:
+        if regeneration_period is None and 'regenerationPeriod' in kwargs:
             regeneration_period = kwargs['regenerationPeriod']
 
         _setter("key_vault_id", key_vault_id)
@@ -209,15 +215,15 @@ class _ManagedStorageAccountState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'keyVaultId' in kwargs:
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
-        if 'regenerateKeyAutomatically' in kwargs:
+        if regenerate_key_automatically is None and 'regenerateKeyAutomatically' in kwargs:
             regenerate_key_automatically = kwargs['regenerateKeyAutomatically']
-        if 'regenerationPeriod' in kwargs:
+        if regeneration_period is None and 'regenerationPeriod' in kwargs:
             regeneration_period = kwargs['regenerationPeriod']
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'storageAccountKey' in kwargs:
+        if storage_account_key is None and 'storageAccountKey' in kwargs:
             storage_account_key = kwargs['storageAccountKey']
 
         if key_vault_id is not None:

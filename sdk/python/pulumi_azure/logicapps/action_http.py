@@ -51,9 +51,9 @@ class ActionHttpArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             logic_app_id: pulumi.Input[str],
-             method: pulumi.Input[str],
-             uri: pulumi.Input[str],
+             logic_app_id: Optional[pulumi.Input[str]] = None,
+             method: Optional[pulumi.Input[str]] = None,
+             uri: Optional[pulumi.Input[str]] = None,
              body: Optional[pulumi.Input[str]] = None,
              headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
@@ -61,9 +61,15 @@ class ActionHttpArgs:
              run_afters: Optional[pulumi.Input[Sequence[pulumi.Input['ActionHttpRunAfterArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'logicAppId' in kwargs:
+        if logic_app_id is None and 'logicAppId' in kwargs:
             logic_app_id = kwargs['logicAppId']
-        if 'runAfters' in kwargs:
+        if logic_app_id is None:
+            raise TypeError("Missing 'logic_app_id' argument")
+        if method is None:
+            raise TypeError("Missing 'method' argument")
+        if uri is None:
+            raise TypeError("Missing 'uri' argument")
+        if run_afters is None and 'runAfters' in kwargs:
             run_afters = kwargs['runAfters']
 
         _setter("logic_app_id", logic_app_id)
@@ -227,9 +233,9 @@ class _ActionHttpState:
              uri: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'logicAppId' in kwargs:
+        if logic_app_id is None and 'logicAppId' in kwargs:
             logic_app_id = kwargs['logicAppId']
-        if 'runAfters' in kwargs:
+        if run_afters is None and 'runAfters' in kwargs:
             run_afters = kwargs['runAfters']
 
         if body is not None:

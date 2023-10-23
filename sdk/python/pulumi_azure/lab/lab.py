@@ -64,10 +64,10 @@ class LabArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             security: pulumi.Input['LabSecurityArgs'],
-             title: pulumi.Input[str],
-             virtual_machine: pulumi.Input['LabVirtualMachineArgs'],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             security: Optional[pulumi.Input['LabSecurityArgs']] = None,
+             title: Optional[pulumi.Input[str]] = None,
+             virtual_machine: Optional[pulumi.Input['LabVirtualMachineArgs']] = None,
              auto_shutdown: Optional[pulumi.Input['LabAutoShutdownArgs']] = None,
              connection_setting: Optional[pulumi.Input['LabConnectionSettingArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -79,15 +79,23 @@ class LabArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'virtualMachine' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if security is None:
+            raise TypeError("Missing 'security' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if virtual_machine is None and 'virtualMachine' in kwargs:
             virtual_machine = kwargs['virtualMachine']
-        if 'autoShutdown' in kwargs:
+        if virtual_machine is None:
+            raise TypeError("Missing 'virtual_machine' argument")
+        if auto_shutdown is None and 'autoShutdown' in kwargs:
             auto_shutdown = kwargs['autoShutdown']
-        if 'connectionSetting' in kwargs:
+        if connection_setting is None and 'connectionSetting' in kwargs:
             connection_setting = kwargs['connectionSetting']
-        if 'labPlanId' in kwargs:
+        if lab_plan_id is None and 'labPlanId' in kwargs:
             lab_plan_id = kwargs['labPlanId']
 
         _setter("resource_group_name", resource_group_name)
@@ -336,15 +344,15 @@ class _LabState:
              virtual_machine: Optional[pulumi.Input['LabVirtualMachineArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'autoShutdown' in kwargs:
+        if auto_shutdown is None and 'autoShutdown' in kwargs:
             auto_shutdown = kwargs['autoShutdown']
-        if 'connectionSetting' in kwargs:
+        if connection_setting is None and 'connectionSetting' in kwargs:
             connection_setting = kwargs['connectionSetting']
-        if 'labPlanId' in kwargs:
+        if lab_plan_id is None and 'labPlanId' in kwargs:
             lab_plan_id = kwargs['labPlanId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'virtualMachine' in kwargs:
+        if virtual_machine is None and 'virtualMachine' in kwargs:
             virtual_machine = kwargs['virtualMachine']
 
         if auto_shutdown is not None:

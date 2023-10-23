@@ -70,9 +70,9 @@ class LiveEventArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             input: pulumi.Input['LiveEventInputArgs'],
-             media_services_account_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             input: Optional[pulumi.Input['LiveEventInputArgs']] = None,
+             media_services_account_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              auto_start_enabled: Optional[pulumi.Input[bool]] = None,
              cross_site_access_policy: Optional[pulumi.Input['LiveEventCrossSiteAccessPolicyArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -87,21 +87,27 @@ class LiveEventArgs:
              use_static_hostname: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'mediaServicesAccountName' in kwargs:
+        if input is None:
+            raise TypeError("Missing 'input' argument")
+        if media_services_account_name is None and 'mediaServicesAccountName' in kwargs:
             media_services_account_name = kwargs['mediaServicesAccountName']
-        if 'resourceGroupName' in kwargs:
+        if media_services_account_name is None:
+            raise TypeError("Missing 'media_services_account_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'autoStartEnabled' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if auto_start_enabled is None and 'autoStartEnabled' in kwargs:
             auto_start_enabled = kwargs['autoStartEnabled']
-        if 'crossSiteAccessPolicy' in kwargs:
+        if cross_site_access_policy is None and 'crossSiteAccessPolicy' in kwargs:
             cross_site_access_policy = kwargs['crossSiteAccessPolicy']
-        if 'hostnamePrefix' in kwargs:
+        if hostname_prefix is None and 'hostnamePrefix' in kwargs:
             hostname_prefix = kwargs['hostnamePrefix']
-        if 'streamOptions' in kwargs:
+        if stream_options is None and 'streamOptions' in kwargs:
             stream_options = kwargs['streamOptions']
-        if 'transcriptionLanguages' in kwargs:
+        if transcription_languages is None and 'transcriptionLanguages' in kwargs:
             transcription_languages = kwargs['transcriptionLanguages']
-        if 'useStaticHostname' in kwargs:
+        if use_static_hostname is None and 'useStaticHostname' in kwargs:
             use_static_hostname = kwargs['useStaticHostname']
 
         _setter("input", input)
@@ -387,21 +393,21 @@ class _LiveEventState:
              use_static_hostname: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'autoStartEnabled' in kwargs:
+        if auto_start_enabled is None and 'autoStartEnabled' in kwargs:
             auto_start_enabled = kwargs['autoStartEnabled']
-        if 'crossSiteAccessPolicy' in kwargs:
+        if cross_site_access_policy is None and 'crossSiteAccessPolicy' in kwargs:
             cross_site_access_policy = kwargs['crossSiteAccessPolicy']
-        if 'hostnamePrefix' in kwargs:
+        if hostname_prefix is None and 'hostnamePrefix' in kwargs:
             hostname_prefix = kwargs['hostnamePrefix']
-        if 'mediaServicesAccountName' in kwargs:
+        if media_services_account_name is None and 'mediaServicesAccountName' in kwargs:
             media_services_account_name = kwargs['mediaServicesAccountName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'streamOptions' in kwargs:
+        if stream_options is None and 'streamOptions' in kwargs:
             stream_options = kwargs['streamOptions']
-        if 'transcriptionLanguages' in kwargs:
+        if transcription_languages is None and 'transcriptionLanguages' in kwargs:
             transcription_languages = kwargs['transcriptionLanguages']
-        if 'useStaticHostname' in kwargs:
+        if use_static_hostname is None and 'useStaticHostname' in kwargs:
             use_static_hostname = kwargs['useStaticHostname']
 
         if auto_start_enabled is not None:

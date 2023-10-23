@@ -40,20 +40,26 @@ class BackupPolicyDiskArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             backup_repeating_time_intervals: pulumi.Input[Sequence[pulumi.Input[str]]],
-             default_retention_duration: pulumi.Input[str],
-             vault_id: pulumi.Input[str],
+             backup_repeating_time_intervals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             default_retention_duration: Optional[pulumi.Input[str]] = None,
+             vault_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPolicyDiskRetentionRuleArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'backupRepeatingTimeIntervals' in kwargs:
+        if backup_repeating_time_intervals is None and 'backupRepeatingTimeIntervals' in kwargs:
             backup_repeating_time_intervals = kwargs['backupRepeatingTimeIntervals']
-        if 'defaultRetentionDuration' in kwargs:
+        if backup_repeating_time_intervals is None:
+            raise TypeError("Missing 'backup_repeating_time_intervals' argument")
+        if default_retention_duration is None and 'defaultRetentionDuration' in kwargs:
             default_retention_duration = kwargs['defaultRetentionDuration']
-        if 'vaultId' in kwargs:
+        if default_retention_duration is None:
+            raise TypeError("Missing 'default_retention_duration' argument")
+        if vault_id is None and 'vaultId' in kwargs:
             vault_id = kwargs['vaultId']
-        if 'retentionRules' in kwargs:
+        if vault_id is None:
+            raise TypeError("Missing 'vault_id' argument")
+        if retention_rules is None and 'retentionRules' in kwargs:
             retention_rules = kwargs['retentionRules']
 
         _setter("backup_repeating_time_intervals", backup_repeating_time_intervals)
@@ -159,13 +165,13 @@ class _BackupPolicyDiskState:
              vault_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'backupRepeatingTimeIntervals' in kwargs:
+        if backup_repeating_time_intervals is None and 'backupRepeatingTimeIntervals' in kwargs:
             backup_repeating_time_intervals = kwargs['backupRepeatingTimeIntervals']
-        if 'defaultRetentionDuration' in kwargs:
+        if default_retention_duration is None and 'defaultRetentionDuration' in kwargs:
             default_retention_duration = kwargs['defaultRetentionDuration']
-        if 'retentionRules' in kwargs:
+        if retention_rules is None and 'retentionRules' in kwargs:
             retention_rules = kwargs['retentionRules']
-        if 'vaultId' in kwargs:
+        if vault_id is None and 'vaultId' in kwargs:
             vault_id = kwargs['vaultId']
 
         if backup_repeating_time_intervals is not None:

@@ -38,17 +38,23 @@ class TimeSeriesInsightsAccessPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             principal_object_id: pulumi.Input[str],
-             roles: pulumi.Input[Sequence[pulumi.Input[str]]],
-             time_series_insights_environment_id: pulumi.Input[str],
+             principal_object_id: Optional[pulumi.Input[str]] = None,
+             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             time_series_insights_environment_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'principalObjectId' in kwargs:
+        if principal_object_id is None and 'principalObjectId' in kwargs:
             principal_object_id = kwargs['principalObjectId']
-        if 'timeSeriesInsightsEnvironmentId' in kwargs:
+        if principal_object_id is None:
+            raise TypeError("Missing 'principal_object_id' argument")
+        if roles is None:
+            raise TypeError("Missing 'roles' argument")
+        if time_series_insights_environment_id is None and 'timeSeriesInsightsEnvironmentId' in kwargs:
             time_series_insights_environment_id = kwargs['timeSeriesInsightsEnvironmentId']
+        if time_series_insights_environment_id is None:
+            raise TypeError("Missing 'time_series_insights_environment_id' argument")
 
         _setter("principal_object_id", principal_object_id)
         _setter("roles", roles)
@@ -153,9 +159,9 @@ class _TimeSeriesInsightsAccessPolicyState:
              time_series_insights_environment_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'principalObjectId' in kwargs:
+        if principal_object_id is None and 'principalObjectId' in kwargs:
             principal_object_id = kwargs['principalObjectId']
-        if 'timeSeriesInsightsEnvironmentId' in kwargs:
+        if time_series_insights_environment_id is None and 'timeSeriesInsightsEnvironmentId' in kwargs:
             time_series_insights_environment_id = kwargs['timeSeriesInsightsEnvironmentId']
 
         if description is not None:

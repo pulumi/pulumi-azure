@@ -45,7 +45,7 @@ class SubscriptionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             subscription_name: pulumi.Input[str],
+             subscription_name: Optional[pulumi.Input[str]] = None,
              alias: Optional[pulumi.Input[str]] = None,
              billing_scope_id: Optional[pulumi.Input[str]] = None,
              subscription_id: Optional[pulumi.Input[str]] = None,
@@ -53,11 +53,13 @@ class SubscriptionArgs:
              workload: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'subscriptionName' in kwargs:
+        if subscription_name is None and 'subscriptionName' in kwargs:
             subscription_name = kwargs['subscriptionName']
-        if 'billingScopeId' in kwargs:
+        if subscription_name is None:
+            raise TypeError("Missing 'subscription_name' argument")
+        if billing_scope_id is None and 'billingScopeId' in kwargs:
             billing_scope_id = kwargs['billingScopeId']
-        if 'subscriptionId' in kwargs:
+        if subscription_id is None and 'subscriptionId' in kwargs:
             subscription_id = kwargs['subscriptionId']
 
         _setter("subscription_name", subscription_name)
@@ -195,13 +197,13 @@ class _SubscriptionState:
              workload: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'billingScopeId' in kwargs:
+        if billing_scope_id is None and 'billingScopeId' in kwargs:
             billing_scope_id = kwargs['billingScopeId']
-        if 'subscriptionId' in kwargs:
+        if subscription_id is None and 'subscriptionId' in kwargs:
             subscription_id = kwargs['subscriptionId']
-        if 'subscriptionName' in kwargs:
+        if subscription_name is None and 'subscriptionName' in kwargs:
             subscription_name = kwargs['subscriptionName']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         if alias is not None:

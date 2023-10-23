@@ -37,19 +37,23 @@ class LinkedServiceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             workspace_id: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
              read_access_id: Optional[pulumi.Input[str]] = None,
              write_access_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'workspaceId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
-        if 'readAccessId' in kwargs:
+        if workspace_id is None:
+            raise TypeError("Missing 'workspace_id' argument")
+        if read_access_id is None and 'readAccessId' in kwargs:
             read_access_id = kwargs['readAccessId']
-        if 'writeAccessId' in kwargs:
+        if write_access_id is None and 'writeAccessId' in kwargs:
             write_access_id = kwargs['writeAccessId']
 
         _setter("resource_group_name", resource_group_name)
@@ -146,13 +150,13 @@ class _LinkedServiceState:
              write_access_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'readAccessId' in kwargs:
+        if read_access_id is None and 'readAccessId' in kwargs:
             read_access_id = kwargs['readAccessId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'workspaceId' in kwargs:
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
-        if 'writeAccessId' in kwargs:
+        if write_access_id is None and 'writeAccessId' in kwargs:
             write_access_id = kwargs['writeAccessId']
 
         if name is not None:

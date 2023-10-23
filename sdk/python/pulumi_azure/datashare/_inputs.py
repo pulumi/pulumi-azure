@@ -37,14 +37,16 @@ class AccountIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'principalId' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -112,15 +114,21 @@ class DatasetBlobStorageStorageAccountArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             subscription_id: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'subscriptionId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if subscription_id is None and 'subscriptionId' in kwargs:
             subscription_id = kwargs['subscriptionId']
+        if subscription_id is None:
+            raise TypeError("Missing 'subscription_id' argument")
 
         _setter("name", name)
         _setter("resource_group_name", resource_group_name)
@@ -183,13 +191,19 @@ class ShareSnapshotScheduleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             recurrence: pulumi.Input[str],
-             start_time: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             recurrence: Optional[pulumi.Input[str]] = None,
+             start_time: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'startTime' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if recurrence is None:
+            raise TypeError("Missing 'recurrence' argument")
+        if start_time is None and 'startTime' in kwargs:
             start_time = kwargs['startTime']
+        if start_time is None:
+            raise TypeError("Missing 'start_time' argument")
 
         _setter("name", name)
         _setter("recurrence", recurrence)

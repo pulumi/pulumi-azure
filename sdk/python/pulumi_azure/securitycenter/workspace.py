@@ -29,12 +29,16 @@ class WorkspaceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             scope: pulumi.Input[str],
-             workspace_id: pulumi.Input[str],
+             scope: Optional[pulumi.Input[str]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'workspaceId' in kwargs:
+        if scope is None:
+            raise TypeError("Missing 'scope' argument")
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
+        if workspace_id is None:
+            raise TypeError("Missing 'workspace_id' argument")
 
         _setter("scope", scope)
         _setter("workspace_id", workspace_id)
@@ -86,7 +90,7 @@ class _WorkspaceState:
              workspace_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'workspaceId' in kwargs:
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
 
         if scope is not None:

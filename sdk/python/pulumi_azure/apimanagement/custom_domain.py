@@ -43,7 +43,7 @@ class CustomDomainArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_management_id: pulumi.Input[str],
+             api_management_id: Optional[pulumi.Input[str]] = None,
              developer_portals: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainDeveloperPortalArgs']]]] = None,
              gateways: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainGatewayArgs']]]] = None,
              managements: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainManagementArgs']]]] = None,
@@ -51,9 +51,11 @@ class CustomDomainArgs:
              scms: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainScmArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'apiManagementId' in kwargs:
+        if api_management_id is None and 'apiManagementId' in kwargs:
             api_management_id = kwargs['apiManagementId']
-        if 'developerPortals' in kwargs:
+        if api_management_id is None:
+            raise TypeError("Missing 'api_management_id' argument")
+        if developer_portals is None and 'developerPortals' in kwargs:
             developer_portals = kwargs['developerPortals']
 
         _setter("api_management_id", api_management_id)
@@ -179,9 +181,9 @@ class _CustomDomainState:
              scms: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainScmArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'apiManagementId' in kwargs:
+        if api_management_id is None and 'apiManagementId' in kwargs:
             api_management_id = kwargs['apiManagementId']
-        if 'developerPortals' in kwargs:
+        if developer_portals is None and 'developerPortals' in kwargs:
             developer_portals = kwargs['developerPortals']
 
         if api_management_id is not None:

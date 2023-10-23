@@ -94,8 +94,8 @@ class ClusterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             sku: pulumi.Input['ClusterSkuArgs'],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['ClusterSkuArgs']] = None,
              allowed_fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              allowed_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              auto_stop_enabled: Optional[pulumi.Input[bool]] = None,
@@ -118,35 +118,39 @@ class ClusterArgs:
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'allowedFqdns' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if allowed_fqdns is None and 'allowedFqdns' in kwargs:
             allowed_fqdns = kwargs['allowedFqdns']
-        if 'allowedIpRanges' in kwargs:
+        if allowed_ip_ranges is None and 'allowedIpRanges' in kwargs:
             allowed_ip_ranges = kwargs['allowedIpRanges']
-        if 'autoStopEnabled' in kwargs:
+        if auto_stop_enabled is None and 'autoStopEnabled' in kwargs:
             auto_stop_enabled = kwargs['autoStopEnabled']
-        if 'diskEncryptionEnabled' in kwargs:
+        if disk_encryption_enabled is None and 'diskEncryptionEnabled' in kwargs:
             disk_encryption_enabled = kwargs['diskEncryptionEnabled']
-        if 'doubleEncryptionEnabled' in kwargs:
+        if double_encryption_enabled is None and 'doubleEncryptionEnabled' in kwargs:
             double_encryption_enabled = kwargs['doubleEncryptionEnabled']
-        if 'languageExtensions' in kwargs:
+        if language_extensions is None and 'languageExtensions' in kwargs:
             language_extensions = kwargs['languageExtensions']
-        if 'optimizedAutoScale' in kwargs:
+        if optimized_auto_scale is None and 'optimizedAutoScale' in kwargs:
             optimized_auto_scale = kwargs['optimizedAutoScale']
-        if 'outboundNetworkAccessRestricted' in kwargs:
+        if outbound_network_access_restricted is None and 'outboundNetworkAccessRestricted' in kwargs:
             outbound_network_access_restricted = kwargs['outboundNetworkAccessRestricted']
-        if 'publicIpType' in kwargs:
+        if public_ip_type is None and 'publicIpType' in kwargs:
             public_ip_type = kwargs['publicIpType']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'purgeEnabled' in kwargs:
+        if purge_enabled is None and 'purgeEnabled' in kwargs:
             purge_enabled = kwargs['purgeEnabled']
-        if 'streamingIngestionEnabled' in kwargs:
+        if streaming_ingestion_enabled is None and 'streamingIngestionEnabled' in kwargs:
             streaming_ingestion_enabled = kwargs['streamingIngestionEnabled']
-        if 'trustedExternalTenants' in kwargs:
+        if trusted_external_tenants is None and 'trustedExternalTenants' in kwargs:
             trusted_external_tenants = kwargs['trustedExternalTenants']
-        if 'virtualNetworkConfiguration' in kwargs:
+        if virtual_network_configuration is None and 'virtualNetworkConfiguration' in kwargs:
             virtual_network_configuration = kwargs['virtualNetworkConfiguration']
 
         _setter("resource_group_name", resource_group_name)
@@ -577,37 +581,37 @@ class _ClusterState:
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowedFqdns' in kwargs:
+        if allowed_fqdns is None and 'allowedFqdns' in kwargs:
             allowed_fqdns = kwargs['allowedFqdns']
-        if 'allowedIpRanges' in kwargs:
+        if allowed_ip_ranges is None and 'allowedIpRanges' in kwargs:
             allowed_ip_ranges = kwargs['allowedIpRanges']
-        if 'autoStopEnabled' in kwargs:
+        if auto_stop_enabled is None and 'autoStopEnabled' in kwargs:
             auto_stop_enabled = kwargs['autoStopEnabled']
-        if 'dataIngestionUri' in kwargs:
+        if data_ingestion_uri is None and 'dataIngestionUri' in kwargs:
             data_ingestion_uri = kwargs['dataIngestionUri']
-        if 'diskEncryptionEnabled' in kwargs:
+        if disk_encryption_enabled is None and 'diskEncryptionEnabled' in kwargs:
             disk_encryption_enabled = kwargs['diskEncryptionEnabled']
-        if 'doubleEncryptionEnabled' in kwargs:
+        if double_encryption_enabled is None and 'doubleEncryptionEnabled' in kwargs:
             double_encryption_enabled = kwargs['doubleEncryptionEnabled']
-        if 'languageExtensions' in kwargs:
+        if language_extensions is None and 'languageExtensions' in kwargs:
             language_extensions = kwargs['languageExtensions']
-        if 'optimizedAutoScale' in kwargs:
+        if optimized_auto_scale is None and 'optimizedAutoScale' in kwargs:
             optimized_auto_scale = kwargs['optimizedAutoScale']
-        if 'outboundNetworkAccessRestricted' in kwargs:
+        if outbound_network_access_restricted is None and 'outboundNetworkAccessRestricted' in kwargs:
             outbound_network_access_restricted = kwargs['outboundNetworkAccessRestricted']
-        if 'publicIpType' in kwargs:
+        if public_ip_type is None and 'publicIpType' in kwargs:
             public_ip_type = kwargs['publicIpType']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'purgeEnabled' in kwargs:
+        if purge_enabled is None and 'purgeEnabled' in kwargs:
             purge_enabled = kwargs['purgeEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'streamingIngestionEnabled' in kwargs:
+        if streaming_ingestion_enabled is None and 'streamingIngestionEnabled' in kwargs:
             streaming_ingestion_enabled = kwargs['streamingIngestionEnabled']
-        if 'trustedExternalTenants' in kwargs:
+        if trusted_external_tenants is None and 'trustedExternalTenants' in kwargs:
             trusted_external_tenants = kwargs['trustedExternalTenants']
-        if 'virtualNetworkConfiguration' in kwargs:
+        if virtual_network_configuration is None and 'virtualNetworkConfiguration' in kwargs:
             virtual_network_configuration = kwargs['virtualNetworkConfiguration']
 
         if allowed_fqdns is not None:

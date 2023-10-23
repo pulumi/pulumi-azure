@@ -73,7 +73,7 @@ class VirtualMachineArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             virtual_machine_id: pulumi.Input[str],
+             virtual_machine_id: Optional[pulumi.Input[str]] = None,
              assessment: Optional[pulumi.Input['VirtualMachineAssessmentArgs']] = None,
              auto_backup: Optional[pulumi.Input['VirtualMachineAutoBackupArgs']] = None,
              auto_patching: Optional[pulumi.Input['VirtualMachineAutoPatchingArgs']] = None,
@@ -91,33 +91,35 @@ class VirtualMachineArgs:
              wsfc_domain_credential: Optional[pulumi.Input['VirtualMachineWsfcDomainCredentialArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'virtualMachineId' in kwargs:
+        if virtual_machine_id is None and 'virtualMachineId' in kwargs:
             virtual_machine_id = kwargs['virtualMachineId']
-        if 'autoBackup' in kwargs:
+        if virtual_machine_id is None:
+            raise TypeError("Missing 'virtual_machine_id' argument")
+        if auto_backup is None and 'autoBackup' in kwargs:
             auto_backup = kwargs['autoBackup']
-        if 'autoPatching' in kwargs:
+        if auto_patching is None and 'autoPatching' in kwargs:
             auto_patching = kwargs['autoPatching']
-        if 'keyVaultCredential' in kwargs:
+        if key_vault_credential is None and 'keyVaultCredential' in kwargs:
             key_vault_credential = kwargs['keyVaultCredential']
-        if 'rServicesEnabled' in kwargs:
+        if r_services_enabled is None and 'rServicesEnabled' in kwargs:
             r_services_enabled = kwargs['rServicesEnabled']
-        if 'sqlConnectivityPort' in kwargs:
+        if sql_connectivity_port is None and 'sqlConnectivityPort' in kwargs:
             sql_connectivity_port = kwargs['sqlConnectivityPort']
-        if 'sqlConnectivityType' in kwargs:
+        if sql_connectivity_type is None and 'sqlConnectivityType' in kwargs:
             sql_connectivity_type = kwargs['sqlConnectivityType']
-        if 'sqlConnectivityUpdatePassword' in kwargs:
+        if sql_connectivity_update_password is None and 'sqlConnectivityUpdatePassword' in kwargs:
             sql_connectivity_update_password = kwargs['sqlConnectivityUpdatePassword']
-        if 'sqlConnectivityUpdateUsername' in kwargs:
+        if sql_connectivity_update_username is None and 'sqlConnectivityUpdateUsername' in kwargs:
             sql_connectivity_update_username = kwargs['sqlConnectivityUpdateUsername']
-        if 'sqlInstance' in kwargs:
+        if sql_instance is None and 'sqlInstance' in kwargs:
             sql_instance = kwargs['sqlInstance']
-        if 'sqlLicenseType' in kwargs:
+        if sql_license_type is None and 'sqlLicenseType' in kwargs:
             sql_license_type = kwargs['sqlLicenseType']
-        if 'sqlVirtualMachineGroupId' in kwargs:
+        if sql_virtual_machine_group_id is None and 'sqlVirtualMachineGroupId' in kwargs:
             sql_virtual_machine_group_id = kwargs['sqlVirtualMachineGroupId']
-        if 'storageConfiguration' in kwargs:
+        if storage_configuration is None and 'storageConfiguration' in kwargs:
             storage_configuration = kwargs['storageConfiguration']
-        if 'wsfcDomainCredential' in kwargs:
+        if wsfc_domain_credential is None and 'wsfcDomainCredential' in kwargs:
             wsfc_domain_credential = kwargs['wsfcDomainCredential']
 
         _setter("virtual_machine_id", virtual_machine_id)
@@ -423,33 +425,33 @@ class _VirtualMachineState:
              wsfc_domain_credential: Optional[pulumi.Input['VirtualMachineWsfcDomainCredentialArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'autoBackup' in kwargs:
+        if auto_backup is None and 'autoBackup' in kwargs:
             auto_backup = kwargs['autoBackup']
-        if 'autoPatching' in kwargs:
+        if auto_patching is None and 'autoPatching' in kwargs:
             auto_patching = kwargs['autoPatching']
-        if 'keyVaultCredential' in kwargs:
+        if key_vault_credential is None and 'keyVaultCredential' in kwargs:
             key_vault_credential = kwargs['keyVaultCredential']
-        if 'rServicesEnabled' in kwargs:
+        if r_services_enabled is None and 'rServicesEnabled' in kwargs:
             r_services_enabled = kwargs['rServicesEnabled']
-        if 'sqlConnectivityPort' in kwargs:
+        if sql_connectivity_port is None and 'sqlConnectivityPort' in kwargs:
             sql_connectivity_port = kwargs['sqlConnectivityPort']
-        if 'sqlConnectivityType' in kwargs:
+        if sql_connectivity_type is None and 'sqlConnectivityType' in kwargs:
             sql_connectivity_type = kwargs['sqlConnectivityType']
-        if 'sqlConnectivityUpdatePassword' in kwargs:
+        if sql_connectivity_update_password is None and 'sqlConnectivityUpdatePassword' in kwargs:
             sql_connectivity_update_password = kwargs['sqlConnectivityUpdatePassword']
-        if 'sqlConnectivityUpdateUsername' in kwargs:
+        if sql_connectivity_update_username is None and 'sqlConnectivityUpdateUsername' in kwargs:
             sql_connectivity_update_username = kwargs['sqlConnectivityUpdateUsername']
-        if 'sqlInstance' in kwargs:
+        if sql_instance is None and 'sqlInstance' in kwargs:
             sql_instance = kwargs['sqlInstance']
-        if 'sqlLicenseType' in kwargs:
+        if sql_license_type is None and 'sqlLicenseType' in kwargs:
             sql_license_type = kwargs['sqlLicenseType']
-        if 'sqlVirtualMachineGroupId' in kwargs:
+        if sql_virtual_machine_group_id is None and 'sqlVirtualMachineGroupId' in kwargs:
             sql_virtual_machine_group_id = kwargs['sqlVirtualMachineGroupId']
-        if 'storageConfiguration' in kwargs:
+        if storage_configuration is None and 'storageConfiguration' in kwargs:
             storage_configuration = kwargs['storageConfiguration']
-        if 'virtualMachineId' in kwargs:
+        if virtual_machine_id is None and 'virtualMachineId' in kwargs:
             virtual_machine_id = kwargs['virtualMachineId']
-        if 'wsfcDomainCredential' in kwargs:
+        if wsfc_domain_credential is None and 'wsfcDomainCredential' in kwargs:
             wsfc_domain_credential = kwargs['wsfcDomainCredential']
 
         if assessment is not None:

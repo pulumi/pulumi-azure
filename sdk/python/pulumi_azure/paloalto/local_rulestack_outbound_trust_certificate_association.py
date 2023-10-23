@@ -26,11 +26,13 @@ class LocalRulestackOutboundTrustCertificateAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             certificate_id: pulumi.Input[str],
+             certificate_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'certificateId' in kwargs:
+        if certificate_id is None and 'certificateId' in kwargs:
             certificate_id = kwargs['certificateId']
+        if certificate_id is None:
+            raise TypeError("Missing 'certificate_id' argument")
 
         _setter("certificate_id", certificate_id)
 
@@ -65,7 +67,7 @@ class _LocalRulestackOutboundTrustCertificateAssociationState:
              certificate_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'certificateId' in kwargs:
+        if certificate_id is None and 'certificateId' in kwargs:
             certificate_id = kwargs['certificateId']
 
         if certificate_id is not None:

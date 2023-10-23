@@ -80,9 +80,9 @@ class ChannelsRegistrationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             microsoft_app_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             sku: pulumi.Input[str],
+             microsoft_app_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
              cmk_key_vault_url: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              developer_app_insights_api_key: Optional[pulumi.Input[str]] = None,
@@ -99,27 +99,33 @@ class ChannelsRegistrationArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'microsoftAppId' in kwargs:
+        if microsoft_app_id is None and 'microsoftAppId' in kwargs:
             microsoft_app_id = kwargs['microsoftAppId']
-        if 'resourceGroupName' in kwargs:
+        if microsoft_app_id is None:
+            raise TypeError("Missing 'microsoft_app_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'cmkKeyVaultUrl' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if cmk_key_vault_url is None and 'cmkKeyVaultUrl' in kwargs:
             cmk_key_vault_url = kwargs['cmkKeyVaultUrl']
-        if 'developerAppInsightsApiKey' in kwargs:
+        if developer_app_insights_api_key is None and 'developerAppInsightsApiKey' in kwargs:
             developer_app_insights_api_key = kwargs['developerAppInsightsApiKey']
-        if 'developerAppInsightsApplicationId' in kwargs:
+        if developer_app_insights_application_id is None and 'developerAppInsightsApplicationId' in kwargs:
             developer_app_insights_application_id = kwargs['developerAppInsightsApplicationId']
-        if 'developerAppInsightsKey' in kwargs:
+        if developer_app_insights_key is None and 'developerAppInsightsKey' in kwargs:
             developer_app_insights_key = kwargs['developerAppInsightsKey']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'iconUrl' in kwargs:
+        if icon_url is None and 'iconUrl' in kwargs:
             icon_url = kwargs['iconUrl']
-        if 'isolatedNetworkEnabled' in kwargs:
+        if isolated_network_enabled is None and 'isolatedNetworkEnabled' in kwargs:
             isolated_network_enabled = kwargs['isolatedNetworkEnabled']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'streamingEndpointEnabled' in kwargs:
+        if streaming_endpoint_enabled is None and 'streamingEndpointEnabled' in kwargs:
             streaming_endpoint_enabled = kwargs['streamingEndpointEnabled']
 
         _setter("microsoft_app_id", microsoft_app_id)
@@ -459,27 +465,27 @@ class _ChannelsRegistrationState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'cmkKeyVaultUrl' in kwargs:
+        if cmk_key_vault_url is None and 'cmkKeyVaultUrl' in kwargs:
             cmk_key_vault_url = kwargs['cmkKeyVaultUrl']
-        if 'developerAppInsightsApiKey' in kwargs:
+        if developer_app_insights_api_key is None and 'developerAppInsightsApiKey' in kwargs:
             developer_app_insights_api_key = kwargs['developerAppInsightsApiKey']
-        if 'developerAppInsightsApplicationId' in kwargs:
+        if developer_app_insights_application_id is None and 'developerAppInsightsApplicationId' in kwargs:
             developer_app_insights_application_id = kwargs['developerAppInsightsApplicationId']
-        if 'developerAppInsightsKey' in kwargs:
+        if developer_app_insights_key is None and 'developerAppInsightsKey' in kwargs:
             developer_app_insights_key = kwargs['developerAppInsightsKey']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'iconUrl' in kwargs:
+        if icon_url is None and 'iconUrl' in kwargs:
             icon_url = kwargs['iconUrl']
-        if 'isolatedNetworkEnabled' in kwargs:
+        if isolated_network_enabled is None and 'isolatedNetworkEnabled' in kwargs:
             isolated_network_enabled = kwargs['isolatedNetworkEnabled']
-        if 'microsoftAppId' in kwargs:
+        if microsoft_app_id is None and 'microsoftAppId' in kwargs:
             microsoft_app_id = kwargs['microsoftAppId']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'streamingEndpointEnabled' in kwargs:
+        if streaming_endpoint_enabled is None and 'streamingEndpointEnabled' in kwargs:
             streaming_endpoint_enabled = kwargs['streamingEndpointEnabled']
 
         if cmk_key_vault_url is not None:

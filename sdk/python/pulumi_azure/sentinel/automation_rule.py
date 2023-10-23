@@ -65,9 +65,9 @@ class AutomationRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             display_name: pulumi.Input[str],
-             log_analytics_workspace_id: pulumi.Input[str],
-             order: pulumi.Input[int],
+             display_name: Optional[pulumi.Input[str]] = None,
+             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+             order: Optional[pulumi.Input[int]] = None,
              action_incidents: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleActionIncidentArgs']]]] = None,
              action_playbooks: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleActionPlaybookArgs']]]] = None,
              condition_json: Optional[pulumi.Input[str]] = None,
@@ -79,19 +79,25 @@ class AutomationRuleArgs:
              triggers_when: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if 'actionIncidents' in kwargs:
+        if log_analytics_workspace_id is None:
+            raise TypeError("Missing 'log_analytics_workspace_id' argument")
+        if order is None:
+            raise TypeError("Missing 'order' argument")
+        if action_incidents is None and 'actionIncidents' in kwargs:
             action_incidents = kwargs['actionIncidents']
-        if 'actionPlaybooks' in kwargs:
+        if action_playbooks is None and 'actionPlaybooks' in kwargs:
             action_playbooks = kwargs['actionPlaybooks']
-        if 'conditionJson' in kwargs:
+        if condition_json is None and 'conditionJson' in kwargs:
             condition_json = kwargs['conditionJson']
-        if 'triggersOn' in kwargs:
+        if triggers_on is None and 'triggersOn' in kwargs:
             triggers_on = kwargs['triggersOn']
-        if 'triggersWhen' in kwargs:
+        if triggers_when is None and 'triggersWhen' in kwargs:
             triggers_when = kwargs['triggersWhen']
 
         _setter("display_name", display_name)
@@ -337,19 +343,19 @@ class _AutomationRuleState:
              triggers_when: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'actionIncidents' in kwargs:
+        if action_incidents is None and 'actionIncidents' in kwargs:
             action_incidents = kwargs['actionIncidents']
-        if 'actionPlaybooks' in kwargs:
+        if action_playbooks is None and 'actionPlaybooks' in kwargs:
             action_playbooks = kwargs['actionPlaybooks']
-        if 'conditionJson' in kwargs:
+        if condition_json is None and 'conditionJson' in kwargs:
             condition_json = kwargs['conditionJson']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if 'triggersOn' in kwargs:
+        if triggers_on is None and 'triggersOn' in kwargs:
             triggers_on = kwargs['triggersOn']
-        if 'triggersWhen' in kwargs:
+        if triggers_when is None and 'triggersWhen' in kwargs:
             triggers_when = kwargs['triggersWhen']
 
         if action_incidents is not None:

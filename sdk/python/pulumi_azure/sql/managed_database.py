@@ -32,13 +32,15 @@ class ManagedDatabaseArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             sql_managed_instance_id: pulumi.Input[str],
+             sql_managed_instance_id: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'sqlManagedInstanceId' in kwargs:
+        if sql_managed_instance_id is None and 'sqlManagedInstanceId' in kwargs:
             sql_managed_instance_id = kwargs['sqlManagedInstanceId']
+        if sql_managed_instance_id is None:
+            raise TypeError("Missing 'sql_managed_instance_id' argument")
 
         _setter("sql_managed_instance_id", sql_managed_instance_id)
         if location is not None:
@@ -109,7 +111,7 @@ class _ManagedDatabaseState:
              sql_managed_instance_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'sqlManagedInstanceId' in kwargs:
+        if sql_managed_instance_id is None and 'sqlManagedInstanceId' in kwargs:
             sql_managed_instance_id = kwargs['sqlManagedInstanceId']
 
         if location is not None:

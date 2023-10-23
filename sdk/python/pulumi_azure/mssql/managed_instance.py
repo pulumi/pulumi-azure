@@ -85,14 +85,14 @@ class ManagedInstanceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             administrator_login: pulumi.Input[str],
-             administrator_login_password: pulumi.Input[str],
-             license_type: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             sku_name: pulumi.Input[str],
-             storage_size_in_gb: pulumi.Input[int],
-             subnet_id: pulumi.Input[str],
-             vcores: pulumi.Input[int],
+             administrator_login: Optional[pulumi.Input[str]] = None,
+             administrator_login_password: Optional[pulumi.Input[str]] = None,
+             license_type: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
+             storage_size_in_gb: Optional[pulumi.Input[int]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             vcores: Optional[pulumi.Input[int]] = None,
              collation: Optional[pulumi.Input[str]] = None,
              dns_zone_partner_id: Optional[pulumi.Input[str]] = None,
              identity: Optional[pulumi.Input['ManagedInstanceIdentityArgs']] = None,
@@ -107,33 +107,49 @@ class ManagedInstanceArgs:
              timezone_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'administratorLogin' in kwargs:
+        if administrator_login is None and 'administratorLogin' in kwargs:
             administrator_login = kwargs['administratorLogin']
-        if 'administratorLoginPassword' in kwargs:
+        if administrator_login is None:
+            raise TypeError("Missing 'administrator_login' argument")
+        if administrator_login_password is None and 'administratorLoginPassword' in kwargs:
             administrator_login_password = kwargs['administratorLoginPassword']
-        if 'licenseType' in kwargs:
+        if administrator_login_password is None:
+            raise TypeError("Missing 'administrator_login_password' argument")
+        if license_type is None and 'licenseType' in kwargs:
             license_type = kwargs['licenseType']
-        if 'resourceGroupName' in kwargs:
+        if license_type is None:
+            raise TypeError("Missing 'license_type' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'storageSizeInGb' in kwargs:
+        if sku_name is None:
+            raise TypeError("Missing 'sku_name' argument")
+        if storage_size_in_gb is None and 'storageSizeInGb' in kwargs:
             storage_size_in_gb = kwargs['storageSizeInGb']
-        if 'subnetId' in kwargs:
+        if storage_size_in_gb is None:
+            raise TypeError("Missing 'storage_size_in_gb' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'dnsZonePartnerId' in kwargs:
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+        if vcores is None:
+            raise TypeError("Missing 'vcores' argument")
+        if dns_zone_partner_id is None and 'dnsZonePartnerId' in kwargs:
             dns_zone_partner_id = kwargs['dnsZonePartnerId']
-        if 'maintenanceConfigurationName' in kwargs:
+        if maintenance_configuration_name is None and 'maintenanceConfigurationName' in kwargs:
             maintenance_configuration_name = kwargs['maintenanceConfigurationName']
-        if 'minimumTlsVersion' in kwargs:
+        if minimum_tls_version is None and 'minimumTlsVersion' in kwargs:
             minimum_tls_version = kwargs['minimumTlsVersion']
-        if 'proxyOverride' in kwargs:
+        if proxy_override is None and 'proxyOverride' in kwargs:
             proxy_override = kwargs['proxyOverride']
-        if 'publicDataEndpointEnabled' in kwargs:
+        if public_data_endpoint_enabled is None and 'publicDataEndpointEnabled' in kwargs:
             public_data_endpoint_enabled = kwargs['publicDataEndpointEnabled']
-        if 'storageAccountType' in kwargs:
+        if storage_account_type is None and 'storageAccountType' in kwargs:
             storage_account_type = kwargs['storageAccountType']
-        if 'timezoneId' in kwargs:
+        if timezone_id is None and 'timezoneId' in kwargs:
             timezone_id = kwargs['timezoneId']
 
         _setter("administrator_login", administrator_login)
@@ -508,33 +524,33 @@ class _ManagedInstanceState:
              vcores: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'administratorLogin' in kwargs:
+        if administrator_login is None and 'administratorLogin' in kwargs:
             administrator_login = kwargs['administratorLogin']
-        if 'administratorLoginPassword' in kwargs:
+        if administrator_login_password is None and 'administratorLoginPassword' in kwargs:
             administrator_login_password = kwargs['administratorLoginPassword']
-        if 'dnsZonePartnerId' in kwargs:
+        if dns_zone_partner_id is None and 'dnsZonePartnerId' in kwargs:
             dns_zone_partner_id = kwargs['dnsZonePartnerId']
-        if 'licenseType' in kwargs:
+        if license_type is None and 'licenseType' in kwargs:
             license_type = kwargs['licenseType']
-        if 'maintenanceConfigurationName' in kwargs:
+        if maintenance_configuration_name is None and 'maintenanceConfigurationName' in kwargs:
             maintenance_configuration_name = kwargs['maintenanceConfigurationName']
-        if 'minimumTlsVersion' in kwargs:
+        if minimum_tls_version is None and 'minimumTlsVersion' in kwargs:
             minimum_tls_version = kwargs['minimumTlsVersion']
-        if 'proxyOverride' in kwargs:
+        if proxy_override is None and 'proxyOverride' in kwargs:
             proxy_override = kwargs['proxyOverride']
-        if 'publicDataEndpointEnabled' in kwargs:
+        if public_data_endpoint_enabled is None and 'publicDataEndpointEnabled' in kwargs:
             public_data_endpoint_enabled = kwargs['publicDataEndpointEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'storageAccountType' in kwargs:
+        if storage_account_type is None and 'storageAccountType' in kwargs:
             storage_account_type = kwargs['storageAccountType']
-        if 'storageSizeInGb' in kwargs:
+        if storage_size_in_gb is None and 'storageSizeInGb' in kwargs:
             storage_size_in_gb = kwargs['storageSizeInGb']
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'timezoneId' in kwargs:
+        if timezone_id is None and 'timezoneId' in kwargs:
             timezone_id = kwargs['timezoneId']
 
         if administrator_login is not None:

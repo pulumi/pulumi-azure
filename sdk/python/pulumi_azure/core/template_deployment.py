@@ -43,21 +43,25 @@ class TemplateDeploymentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             deployment_mode: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             deployment_mode: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              parameters_body: Optional[pulumi.Input[str]] = None,
              template_body: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'deploymentMode' in kwargs:
+        if deployment_mode is None and 'deploymentMode' in kwargs:
             deployment_mode = kwargs['deploymentMode']
-        if 'resourceGroupName' in kwargs:
+        if deployment_mode is None:
+            raise TypeError("Missing 'deployment_mode' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'parametersBody' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if parameters_body is None and 'parametersBody' in kwargs:
             parameters_body = kwargs['parametersBody']
-        if 'templateBody' in kwargs:
+        if template_body is None and 'templateBody' in kwargs:
             template_body = kwargs['templateBody']
 
         _setter("deployment_mode", deployment_mode)
@@ -190,13 +194,13 @@ class _TemplateDeploymentState:
              template_body: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'deploymentMode' in kwargs:
+        if deployment_mode is None and 'deploymentMode' in kwargs:
             deployment_mode = kwargs['deploymentMode']
-        if 'parametersBody' in kwargs:
+        if parameters_body is None and 'parametersBody' in kwargs:
             parameters_body = kwargs['parametersBody']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'templateBody' in kwargs:
+        if template_body is None and 'templateBody' in kwargs:
             template_body = kwargs['templateBody']
 
         if deployment_mode is not None:

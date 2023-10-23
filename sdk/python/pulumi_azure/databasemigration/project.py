@@ -44,23 +44,31 @@ class ProjectArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             service_name: pulumi.Input[str],
-             source_platform: pulumi.Input[str],
-             target_platform: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             service_name: Optional[pulumi.Input[str]] = None,
+             source_platform: Optional[pulumi.Input[str]] = None,
+             target_platform: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serviceName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if service_name is None and 'serviceName' in kwargs:
             service_name = kwargs['serviceName']
-        if 'sourcePlatform' in kwargs:
+        if service_name is None:
+            raise TypeError("Missing 'service_name' argument")
+        if source_platform is None and 'sourcePlatform' in kwargs:
             source_platform = kwargs['sourcePlatform']
-        if 'targetPlatform' in kwargs:
+        if source_platform is None:
+            raise TypeError("Missing 'source_platform' argument")
+        if target_platform is None and 'targetPlatform' in kwargs:
             target_platform = kwargs['targetPlatform']
+        if target_platform is None:
+            raise TypeError("Missing 'target_platform' argument")
 
         _setter("resource_group_name", resource_group_name)
         _setter("service_name", service_name)
@@ -200,13 +208,13 @@ class _ProjectState:
              target_platform: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serviceName' in kwargs:
+        if service_name is None and 'serviceName' in kwargs:
             service_name = kwargs['serviceName']
-        if 'sourcePlatform' in kwargs:
+        if source_platform is None and 'sourcePlatform' in kwargs:
             source_platform = kwargs['sourcePlatform']
-        if 'targetPlatform' in kwargs:
+        if target_platform is None and 'targetPlatform' in kwargs:
             target_platform = kwargs['targetPlatform']
 
         if location is not None:

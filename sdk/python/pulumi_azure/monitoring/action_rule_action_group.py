@@ -49,8 +49,8 @@ class ActionRuleActionGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action_group_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             action_group_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              condition: Optional[pulumi.Input['ActionRuleActionGroupConditionArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
@@ -59,10 +59,14 @@ class ActionRuleActionGroupArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'actionGroupId' in kwargs:
+        if action_group_id is None and 'actionGroupId' in kwargs:
             action_group_id = kwargs['actionGroupId']
-        if 'resourceGroupName' in kwargs:
+        if action_group_id is None:
+            raise TypeError("Missing 'action_group_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("action_group_id", action_group_id)
         _setter("resource_group_name", resource_group_name)
@@ -222,9 +226,9 @@ class _ActionRuleActionGroupState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'actionGroupId' in kwargs:
+        if action_group_id is None and 'actionGroupId' in kwargs:
             action_group_id = kwargs['actionGroupId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if action_group_id is not None:

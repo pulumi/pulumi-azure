@@ -43,17 +43,19 @@ class GroupPolicyAssignmentIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -132,11 +134,13 @@ class GroupPolicyAssignmentNonComplianceMessageArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             content: pulumi.Input[str],
+             content: Optional[pulumi.Input[str]] = None,
              policy_definition_reference_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'policyDefinitionReferenceId' in kwargs:
+        if content is None:
+            raise TypeError("Missing 'content' argument")
+        if policy_definition_reference_id is None and 'policyDefinitionReferenceId' in kwargs:
             policy_definition_reference_id = kwargs['policyDefinitionReferenceId']
 
         _setter("content", content)
@@ -185,10 +189,12 @@ class GroupPolicyAssignmentOverrideArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             value: pulumi.Input[str],
+             value: Optional[pulumi.Input[str]] = None,
              selectors: Optional[pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentOverrideSelectorArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("value", value)
         if selectors is not None:
@@ -244,7 +250,7 @@ class GroupPolicyAssignmentOverrideSelectorArgs:
              not_ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'notIns' in kwargs:
+        if not_ins is None and 'notIns' in kwargs:
             not_ins = kwargs['notIns']
 
         if ins is not None:
@@ -308,10 +314,12 @@ class GroupPolicyAssignmentResourceSelectorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             selectors: pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentResourceSelectorSelectorArgs']]],
+             selectors: Optional[pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentResourceSelectorSelectorArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if selectors is None:
+            raise TypeError("Missing 'selectors' argument")
 
         _setter("selectors", selectors)
         if name is not None:
@@ -362,12 +370,14 @@ class GroupPolicyAssignmentResourceSelectorSelectorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             kind: pulumi.Input[str],
+             kind: Optional[pulumi.Input[str]] = None,
              ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              not_ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'notIns' in kwargs:
+        if kind is None:
+            raise TypeError("Missing 'kind' argument")
+        if not_ins is None and 'notIns' in kwargs:
             not_ins = kwargs['notIns']
 
         _setter("kind", kind)

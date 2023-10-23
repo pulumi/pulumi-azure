@@ -52,10 +52,10 @@ class MonitorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             datadog_organization: pulumi.Input['MonitorDatadogOrganizationArgs'],
-             resource_group_name: pulumi.Input[str],
-             sku_name: pulumi.Input[str],
-             user: pulumi.Input['MonitorUserArgs'],
+             datadog_organization: Optional[pulumi.Input['MonitorDatadogOrganizationArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
+             user: Optional[pulumi.Input['MonitorUserArgs']] = None,
              identity: Optional[pulumi.Input['MonitorIdentityArgs']] = None,
              location: Optional[pulumi.Input[str]] = None,
              monitoring_enabled: Optional[pulumi.Input[bool]] = None,
@@ -63,13 +63,21 @@ class MonitorArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'datadogOrganization' in kwargs:
+        if datadog_organization is None and 'datadogOrganization' in kwargs:
             datadog_organization = kwargs['datadogOrganization']
-        if 'resourceGroupName' in kwargs:
+        if datadog_organization is None:
+            raise TypeError("Missing 'datadog_organization' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'monitoringEnabled' in kwargs:
+        if sku_name is None:
+            raise TypeError("Missing 'sku_name' argument")
+        if user is None:
+            raise TypeError("Missing 'user' argument")
+        if monitoring_enabled is None and 'monitoringEnabled' in kwargs:
             monitoring_enabled = kwargs['monitoringEnabled']
 
         _setter("datadog_organization", datadog_organization)
@@ -250,15 +258,15 @@ class _MonitorState:
              user: Optional[pulumi.Input['MonitorUserArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'datadogOrganization' in kwargs:
+        if datadog_organization is None and 'datadogOrganization' in kwargs:
             datadog_organization = kwargs['datadogOrganization']
-        if 'marketplaceSubscriptionStatus' in kwargs:
+        if marketplace_subscription_status is None and 'marketplaceSubscriptionStatus' in kwargs:
             marketplace_subscription_status = kwargs['marketplaceSubscriptionStatus']
-        if 'monitoringEnabled' in kwargs:
+        if monitoring_enabled is None and 'monitoringEnabled' in kwargs:
             monitoring_enabled = kwargs['monitoringEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
 
         if datadog_organization is not None:

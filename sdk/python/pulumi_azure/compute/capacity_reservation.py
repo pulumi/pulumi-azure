@@ -40,15 +40,19 @@ class CapacityReservationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             capacity_reservation_group_id: pulumi.Input[str],
-             sku: pulumi.Input['CapacityReservationSkuArgs'],
+             capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['CapacityReservationSkuArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zone: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'capacityReservationGroupId' in kwargs:
+        if capacity_reservation_group_id is None and 'capacityReservationGroupId' in kwargs:
             capacity_reservation_group_id = kwargs['capacityReservationGroupId']
+        if capacity_reservation_group_id is None:
+            raise TypeError("Missing 'capacity_reservation_group_id' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
 
         _setter("capacity_reservation_group_id", capacity_reservation_group_id)
         _setter("sku", sku)
@@ -154,7 +158,7 @@ class _CapacityReservationState:
              zone: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'capacityReservationGroupId' in kwargs:
+        if capacity_reservation_group_id is None and 'capacityReservationGroupId' in kwargs:
             capacity_reservation_group_id = kwargs['capacityReservationGroupId']
 
         if capacity_reservation_group_id is not None:

@@ -43,21 +43,25 @@ class IotHubDeviceUpdateInstanceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             device_update_account_id: pulumi.Input[str],
-             iothub_id: pulumi.Input[str],
+             device_update_account_id: Optional[pulumi.Input[str]] = None,
+             iothub_id: Optional[pulumi.Input[str]] = None,
              diagnostic_enabled: Optional[pulumi.Input[bool]] = None,
              diagnostic_storage_account: Optional[pulumi.Input['IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'deviceUpdateAccountId' in kwargs:
+        if device_update_account_id is None and 'deviceUpdateAccountId' in kwargs:
             device_update_account_id = kwargs['deviceUpdateAccountId']
-        if 'iothubId' in kwargs:
+        if device_update_account_id is None:
+            raise TypeError("Missing 'device_update_account_id' argument")
+        if iothub_id is None and 'iothubId' in kwargs:
             iothub_id = kwargs['iothubId']
-        if 'diagnosticEnabled' in kwargs:
+        if iothub_id is None:
+            raise TypeError("Missing 'iothub_id' argument")
+        if diagnostic_enabled is None and 'diagnosticEnabled' in kwargs:
             diagnostic_enabled = kwargs['diagnosticEnabled']
-        if 'diagnosticStorageAccount' in kwargs:
+        if diagnostic_storage_account is None and 'diagnosticStorageAccount' in kwargs:
             diagnostic_storage_account = kwargs['diagnosticStorageAccount']
 
         _setter("device_update_account_id", device_update_account_id)
@@ -182,13 +186,13 @@ class _IotHubDeviceUpdateInstanceState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'deviceUpdateAccountId' in kwargs:
+        if device_update_account_id is None and 'deviceUpdateAccountId' in kwargs:
             device_update_account_id = kwargs['deviceUpdateAccountId']
-        if 'diagnosticEnabled' in kwargs:
+        if diagnostic_enabled is None and 'diagnosticEnabled' in kwargs:
             diagnostic_enabled = kwargs['diagnosticEnabled']
-        if 'diagnosticStorageAccount' in kwargs:
+        if diagnostic_storage_account is None and 'diagnosticStorageAccount' in kwargs:
             diagnostic_storage_account = kwargs['diagnosticStorageAccount']
-        if 'iothubId' in kwargs:
+        if iothub_id is None and 'iothubId' in kwargs:
             iothub_id = kwargs['iothubId']
 
         if device_update_account_id is not None:

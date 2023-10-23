@@ -63,9 +63,9 @@ class DataCollectionRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_flows: pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataFlowArgs']]],
-             destinations: pulumi.Input['DataCollectionRuleDestinationsArgs'],
-             resource_group_name: pulumi.Input[str],
+             data_flows: Optional[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataFlowArgs']]]] = None,
+             destinations: Optional[pulumi.Input['DataCollectionRuleDestinationsArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              data_collection_endpoint_id: Optional[pulumi.Input[str]] = None,
              data_sources: Optional[pulumi.Input['DataCollectionRuleDataSourcesArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -77,15 +77,21 @@ class DataCollectionRuleArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dataFlows' in kwargs:
+        if data_flows is None and 'dataFlows' in kwargs:
             data_flows = kwargs['dataFlows']
-        if 'resourceGroupName' in kwargs:
+        if data_flows is None:
+            raise TypeError("Missing 'data_flows' argument")
+        if destinations is None:
+            raise TypeError("Missing 'destinations' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'dataCollectionEndpointId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if data_collection_endpoint_id is None and 'dataCollectionEndpointId' in kwargs:
             data_collection_endpoint_id = kwargs['dataCollectionEndpointId']
-        if 'dataSources' in kwargs:
+        if data_sources is None and 'dataSources' in kwargs:
             data_sources = kwargs['dataSources']
-        if 'streamDeclarations' in kwargs:
+        if stream_declarations is None and 'streamDeclarations' in kwargs:
             stream_declarations = kwargs['streamDeclarations']
 
         _setter("data_flows", data_flows)
@@ -325,17 +331,17 @@ class _DataCollectionRuleState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dataCollectionEndpointId' in kwargs:
+        if data_collection_endpoint_id is None and 'dataCollectionEndpointId' in kwargs:
             data_collection_endpoint_id = kwargs['dataCollectionEndpointId']
-        if 'dataFlows' in kwargs:
+        if data_flows is None and 'dataFlows' in kwargs:
             data_flows = kwargs['dataFlows']
-        if 'dataSources' in kwargs:
+        if data_sources is None and 'dataSources' in kwargs:
             data_sources = kwargs['dataSources']
-        if 'immutableId' in kwargs:
+        if immutable_id is None and 'immutableId' in kwargs:
             immutable_id = kwargs['immutableId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'streamDeclarations' in kwargs:
+        if stream_declarations is None and 'streamDeclarations' in kwargs:
             stream_declarations = kwargs['streamDeclarations']
 
         if data_collection_endpoint_id is not None:

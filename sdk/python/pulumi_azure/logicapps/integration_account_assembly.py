@@ -47,9 +47,9 @@ class IntegrationAccountAssemblyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             assembly_name: pulumi.Input[str],
-             integration_account_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             assembly_name: Optional[pulumi.Input[str]] = None,
+             integration_account_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              assembly_version: Optional[pulumi.Input[str]] = None,
              content: Optional[pulumi.Input[str]] = None,
              content_link_uri: Optional[pulumi.Input[str]] = None,
@@ -57,15 +57,21 @@ class IntegrationAccountAssemblyArgs:
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'assemblyName' in kwargs:
+        if assembly_name is None and 'assemblyName' in kwargs:
             assembly_name = kwargs['assemblyName']
-        if 'integrationAccountName' in kwargs:
+        if assembly_name is None:
+            raise TypeError("Missing 'assembly_name' argument")
+        if integration_account_name is None and 'integrationAccountName' in kwargs:
             integration_account_name = kwargs['integrationAccountName']
-        if 'resourceGroupName' in kwargs:
+        if integration_account_name is None:
+            raise TypeError("Missing 'integration_account_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'assemblyVersion' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if assembly_version is None and 'assemblyVersion' in kwargs:
             assembly_version = kwargs['assemblyVersion']
-        if 'contentLinkUri' in kwargs:
+        if content_link_uri is None and 'contentLinkUri' in kwargs:
             content_link_uri = kwargs['contentLinkUri']
 
         _setter("assembly_name", assembly_name)
@@ -225,15 +231,15 @@ class _IntegrationAccountAssemblyState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'assemblyName' in kwargs:
+        if assembly_name is None and 'assemblyName' in kwargs:
             assembly_name = kwargs['assemblyName']
-        if 'assemblyVersion' in kwargs:
+        if assembly_version is None and 'assemblyVersion' in kwargs:
             assembly_version = kwargs['assemblyVersion']
-        if 'contentLinkUri' in kwargs:
+        if content_link_uri is None and 'contentLinkUri' in kwargs:
             content_link_uri = kwargs['contentLinkUri']
-        if 'integrationAccountName' in kwargs:
+        if integration_account_name is None and 'integrationAccountName' in kwargs:
             integration_account_name = kwargs['integrationAccountName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if assembly_name is not None:

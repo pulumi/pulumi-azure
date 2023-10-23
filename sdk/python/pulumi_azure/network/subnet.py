@@ -64,9 +64,9 @@ class SubnetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             address_prefixes: pulumi.Input[Sequence[pulumi.Input[str]]],
-             resource_group_name: pulumi.Input[str],
-             virtual_network_name: pulumi.Input[str],
+             address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             virtual_network_name: Optional[pulumi.Input[str]] = None,
              delegations: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetDelegationArgs']]]] = None,
              enforce_private_link_endpoint_network_policies: Optional[pulumi.Input[bool]] = None,
              enforce_private_link_service_network_policies: Optional[pulumi.Input[bool]] = None,
@@ -77,23 +77,29 @@ class SubnetArgs:
              service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'addressPrefixes' in kwargs:
+        if address_prefixes is None and 'addressPrefixes' in kwargs:
             address_prefixes = kwargs['addressPrefixes']
-        if 'resourceGroupName' in kwargs:
+        if address_prefixes is None:
+            raise TypeError("Missing 'address_prefixes' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'virtualNetworkName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if virtual_network_name is None and 'virtualNetworkName' in kwargs:
             virtual_network_name = kwargs['virtualNetworkName']
-        if 'enforcePrivateLinkEndpointNetworkPolicies' in kwargs:
+        if virtual_network_name is None:
+            raise TypeError("Missing 'virtual_network_name' argument")
+        if enforce_private_link_endpoint_network_policies is None and 'enforcePrivateLinkEndpointNetworkPolicies' in kwargs:
             enforce_private_link_endpoint_network_policies = kwargs['enforcePrivateLinkEndpointNetworkPolicies']
-        if 'enforcePrivateLinkServiceNetworkPolicies' in kwargs:
+        if enforce_private_link_service_network_policies is None and 'enforcePrivateLinkServiceNetworkPolicies' in kwargs:
             enforce_private_link_service_network_policies = kwargs['enforcePrivateLinkServiceNetworkPolicies']
-        if 'privateEndpointNetworkPoliciesEnabled' in kwargs:
+        if private_endpoint_network_policies_enabled is None and 'privateEndpointNetworkPoliciesEnabled' in kwargs:
             private_endpoint_network_policies_enabled = kwargs['privateEndpointNetworkPoliciesEnabled']
-        if 'privateLinkServiceNetworkPoliciesEnabled' in kwargs:
+        if private_link_service_network_policies_enabled is None and 'privateLinkServiceNetworkPoliciesEnabled' in kwargs:
             private_link_service_network_policies_enabled = kwargs['privateLinkServiceNetworkPoliciesEnabled']
-        if 'serviceEndpointPolicyIds' in kwargs:
+        if service_endpoint_policy_ids is None and 'serviceEndpointPolicyIds' in kwargs:
             service_endpoint_policy_ids = kwargs['serviceEndpointPolicyIds']
-        if 'serviceEndpoints' in kwargs:
+        if service_endpoints is None and 'serviceEndpoints' in kwargs:
             service_endpoints = kwargs['serviceEndpoints']
 
         _setter("address_prefixes", address_prefixes)
@@ -327,23 +333,23 @@ class _SubnetState:
              virtual_network_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'addressPrefixes' in kwargs:
+        if address_prefixes is None and 'addressPrefixes' in kwargs:
             address_prefixes = kwargs['addressPrefixes']
-        if 'enforcePrivateLinkEndpointNetworkPolicies' in kwargs:
+        if enforce_private_link_endpoint_network_policies is None and 'enforcePrivateLinkEndpointNetworkPolicies' in kwargs:
             enforce_private_link_endpoint_network_policies = kwargs['enforcePrivateLinkEndpointNetworkPolicies']
-        if 'enforcePrivateLinkServiceNetworkPolicies' in kwargs:
+        if enforce_private_link_service_network_policies is None and 'enforcePrivateLinkServiceNetworkPolicies' in kwargs:
             enforce_private_link_service_network_policies = kwargs['enforcePrivateLinkServiceNetworkPolicies']
-        if 'privateEndpointNetworkPoliciesEnabled' in kwargs:
+        if private_endpoint_network_policies_enabled is None and 'privateEndpointNetworkPoliciesEnabled' in kwargs:
             private_endpoint_network_policies_enabled = kwargs['privateEndpointNetworkPoliciesEnabled']
-        if 'privateLinkServiceNetworkPoliciesEnabled' in kwargs:
+        if private_link_service_network_policies_enabled is None and 'privateLinkServiceNetworkPoliciesEnabled' in kwargs:
             private_link_service_network_policies_enabled = kwargs['privateLinkServiceNetworkPoliciesEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serviceEndpointPolicyIds' in kwargs:
+        if service_endpoint_policy_ids is None and 'serviceEndpointPolicyIds' in kwargs:
             service_endpoint_policy_ids = kwargs['serviceEndpointPolicyIds']
-        if 'serviceEndpoints' in kwargs:
+        if service_endpoints is None and 'serviceEndpoints' in kwargs:
             service_endpoints = kwargs['serviceEndpoints']
-        if 'virtualNetworkName' in kwargs:
+        if virtual_network_name is None and 'virtualNetworkName' in kwargs:
             virtual_network_name = kwargs['virtualNetworkName']
 
         if address_prefixes is not None:

@@ -61,8 +61,8 @@ class ServiceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             sku: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
              aad_auth_enabled: Optional[pulumi.Input[bool]] = None,
              capacity: Optional[pulumi.Input[int]] = None,
              identity: Optional[pulumi.Input['ServiceIdentityArgs']] = None,
@@ -75,17 +75,21 @@ class ServiceArgs:
              tls_client_cert_enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'aadAuthEnabled' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if aad_auth_enabled is None and 'aadAuthEnabled' in kwargs:
             aad_auth_enabled = kwargs['aadAuthEnabled']
-        if 'liveTrace' in kwargs:
+        if live_trace is None and 'liveTrace' in kwargs:
             live_trace = kwargs['liveTrace']
-        if 'localAuthEnabled' in kwargs:
+        if local_auth_enabled is None and 'localAuthEnabled' in kwargs:
             local_auth_enabled = kwargs['localAuthEnabled']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'tlsClientCertEnabled' in kwargs:
+        if tls_client_cert_enabled is None and 'tlsClientCertEnabled' in kwargs:
             tls_client_cert_enabled = kwargs['tlsClientCertEnabled']
 
         _setter("resource_group_name", resource_group_name)
@@ -353,31 +357,31 @@ class _ServiceState:
              version: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'aadAuthEnabled' in kwargs:
+        if aad_auth_enabled is None and 'aadAuthEnabled' in kwargs:
             aad_auth_enabled = kwargs['aadAuthEnabled']
-        if 'externalIp' in kwargs:
+        if external_ip is None and 'externalIp' in kwargs:
             external_ip = kwargs['externalIp']
-        if 'liveTrace' in kwargs:
+        if live_trace is None and 'liveTrace' in kwargs:
             live_trace = kwargs['liveTrace']
-        if 'localAuthEnabled' in kwargs:
+        if local_auth_enabled is None and 'localAuthEnabled' in kwargs:
             local_auth_enabled = kwargs['localAuthEnabled']
-        if 'primaryAccessKey' in kwargs:
+        if primary_access_key is None and 'primaryAccessKey' in kwargs:
             primary_access_key = kwargs['primaryAccessKey']
-        if 'primaryConnectionString' in kwargs:
+        if primary_connection_string is None and 'primaryConnectionString' in kwargs:
             primary_connection_string = kwargs['primaryConnectionString']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'publicPort' in kwargs:
+        if public_port is None and 'publicPort' in kwargs:
             public_port = kwargs['publicPort']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'secondaryAccessKey' in kwargs:
+        if secondary_access_key is None and 'secondaryAccessKey' in kwargs:
             secondary_access_key = kwargs['secondaryAccessKey']
-        if 'secondaryConnectionString' in kwargs:
+        if secondary_connection_string is None and 'secondaryConnectionString' in kwargs:
             secondary_connection_string = kwargs['secondaryConnectionString']
-        if 'serverPort' in kwargs:
+        if server_port is None and 'serverPort' in kwargs:
             server_port = kwargs['serverPort']
-        if 'tlsClientCertEnabled' in kwargs:
+        if tls_client_cert_enabled is None and 'tlsClientCertEnabled' in kwargs:
             tls_client_cert_enabled = kwargs['tlsClientCertEnabled']
 
         if aad_auth_enabled is not None:

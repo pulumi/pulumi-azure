@@ -56,11 +56,11 @@ class OutputMssqlArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             server: pulumi.Input[str],
-             stream_analytics_job_name: pulumi.Input[str],
-             table: pulumi.Input[str],
+             database: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             server: Optional[pulumi.Input[str]] = None,
+             stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
+             table: Optional[pulumi.Input[str]] = None,
              authentication_mode: Optional[pulumi.Input[str]] = None,
              max_batch_count: Optional[pulumi.Input[float]] = None,
              max_writer_count: Optional[pulumi.Input[float]] = None,
@@ -69,15 +69,25 @@ class OutputMssqlArgs:
              user: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if database is None:
+            raise TypeError("Missing 'database' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'streamAnalyticsJobName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if server is None:
+            raise TypeError("Missing 'server' argument")
+        if stream_analytics_job_name is None and 'streamAnalyticsJobName' in kwargs:
             stream_analytics_job_name = kwargs['streamAnalyticsJobName']
-        if 'authenticationMode' in kwargs:
+        if stream_analytics_job_name is None:
+            raise TypeError("Missing 'stream_analytics_job_name' argument")
+        if table is None:
+            raise TypeError("Missing 'table' argument")
+        if authentication_mode is None and 'authenticationMode' in kwargs:
             authentication_mode = kwargs['authenticationMode']
-        if 'maxBatchCount' in kwargs:
+        if max_batch_count is None and 'maxBatchCount' in kwargs:
             max_batch_count = kwargs['maxBatchCount']
-        if 'maxWriterCount' in kwargs:
+        if max_writer_count is None and 'maxWriterCount' in kwargs:
             max_writer_count = kwargs['maxWriterCount']
 
         _setter("database", database)
@@ -289,15 +299,15 @@ class _OutputMssqlState:
              user: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'authenticationMode' in kwargs:
+        if authentication_mode is None and 'authenticationMode' in kwargs:
             authentication_mode = kwargs['authenticationMode']
-        if 'maxBatchCount' in kwargs:
+        if max_batch_count is None and 'maxBatchCount' in kwargs:
             max_batch_count = kwargs['maxBatchCount']
-        if 'maxWriterCount' in kwargs:
+        if max_writer_count is None and 'maxWriterCount' in kwargs:
             max_writer_count = kwargs['maxWriterCount']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'streamAnalyticsJobName' in kwargs:
+        if stream_analytics_job_name is None and 'streamAnalyticsJobName' in kwargs:
             stream_analytics_job_name = kwargs['streamAnalyticsJobName']
 
         if authentication_mode is not None:

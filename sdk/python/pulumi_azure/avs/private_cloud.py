@@ -57,10 +57,10 @@ class PrivateCloudArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             management_cluster: pulumi.Input['PrivateCloudManagementClusterArgs'],
-             network_subnet_cidr: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             sku_name: pulumi.Input[str],
+             management_cluster: Optional[pulumi.Input['PrivateCloudManagementClusterArgs']] = None,
+             network_subnet_cidr: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
              internet_connection_enabled: Optional[pulumi.Input[bool]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
@@ -69,19 +69,27 @@ class PrivateCloudArgs:
              vcenter_password: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'managementCluster' in kwargs:
+        if management_cluster is None and 'managementCluster' in kwargs:
             management_cluster = kwargs['managementCluster']
-        if 'networkSubnetCidr' in kwargs:
+        if management_cluster is None:
+            raise TypeError("Missing 'management_cluster' argument")
+        if network_subnet_cidr is None and 'networkSubnetCidr' in kwargs:
             network_subnet_cidr = kwargs['networkSubnetCidr']
-        if 'resourceGroupName' in kwargs:
+        if network_subnet_cidr is None:
+            raise TypeError("Missing 'network_subnet_cidr' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'internetConnectionEnabled' in kwargs:
+        if sku_name is None:
+            raise TypeError("Missing 'sku_name' argument")
+        if internet_connection_enabled is None and 'internetConnectionEnabled' in kwargs:
             internet_connection_enabled = kwargs['internetConnectionEnabled']
-        if 'nsxtPassword' in kwargs:
+        if nsxt_password is None and 'nsxtPassword' in kwargs:
             nsxt_password = kwargs['nsxtPassword']
-        if 'vcenterPassword' in kwargs:
+        if vcenter_password is None and 'vcenterPassword' in kwargs:
             vcenter_password = kwargs['vcenterPassword']
 
         _setter("management_cluster", management_cluster)
@@ -316,35 +324,35 @@ class _PrivateCloudState:
              vmotion_subnet_cidr: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'hcxCloudManagerEndpoint' in kwargs:
+        if hcx_cloud_manager_endpoint is None and 'hcxCloudManagerEndpoint' in kwargs:
             hcx_cloud_manager_endpoint = kwargs['hcxCloudManagerEndpoint']
-        if 'internetConnectionEnabled' in kwargs:
+        if internet_connection_enabled is None and 'internetConnectionEnabled' in kwargs:
             internet_connection_enabled = kwargs['internetConnectionEnabled']
-        if 'managementCluster' in kwargs:
+        if management_cluster is None and 'managementCluster' in kwargs:
             management_cluster = kwargs['managementCluster']
-        if 'managementSubnetCidr' in kwargs:
+        if management_subnet_cidr is None and 'managementSubnetCidr' in kwargs:
             management_subnet_cidr = kwargs['managementSubnetCidr']
-        if 'networkSubnetCidr' in kwargs:
+        if network_subnet_cidr is None and 'networkSubnetCidr' in kwargs:
             network_subnet_cidr = kwargs['networkSubnetCidr']
-        if 'nsxtCertificateThumbprint' in kwargs:
+        if nsxt_certificate_thumbprint is None and 'nsxtCertificateThumbprint' in kwargs:
             nsxt_certificate_thumbprint = kwargs['nsxtCertificateThumbprint']
-        if 'nsxtManagerEndpoint' in kwargs:
+        if nsxt_manager_endpoint is None and 'nsxtManagerEndpoint' in kwargs:
             nsxt_manager_endpoint = kwargs['nsxtManagerEndpoint']
-        if 'nsxtPassword' in kwargs:
+        if nsxt_password is None and 'nsxtPassword' in kwargs:
             nsxt_password = kwargs['nsxtPassword']
-        if 'provisioningSubnetCidr' in kwargs:
+        if provisioning_subnet_cidr is None and 'provisioningSubnetCidr' in kwargs:
             provisioning_subnet_cidr = kwargs['provisioningSubnetCidr']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'vcenterCertificateThumbprint' in kwargs:
+        if vcenter_certificate_thumbprint is None and 'vcenterCertificateThumbprint' in kwargs:
             vcenter_certificate_thumbprint = kwargs['vcenterCertificateThumbprint']
-        if 'vcenterPassword' in kwargs:
+        if vcenter_password is None and 'vcenterPassword' in kwargs:
             vcenter_password = kwargs['vcenterPassword']
-        if 'vcsaEndpoint' in kwargs:
+        if vcsa_endpoint is None and 'vcsaEndpoint' in kwargs:
             vcsa_endpoint = kwargs['vcsaEndpoint']
-        if 'vmotionSubnetCidr' in kwargs:
+        if vmotion_subnet_cidr is None and 'vmotionSubnetCidr' in kwargs:
             vmotion_subnet_cidr = kwargs['vmotionSubnetCidr']
 
         if circuits is not None:

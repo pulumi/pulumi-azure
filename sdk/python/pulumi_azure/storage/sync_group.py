@@ -29,12 +29,14 @@ class SyncGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             storage_sync_id: pulumi.Input[str],
+             storage_sync_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'storageSyncId' in kwargs:
+        if storage_sync_id is None and 'storageSyncId' in kwargs:
             storage_sync_id = kwargs['storageSyncId']
+        if storage_sync_id is None:
+            raise TypeError("Missing 'storage_sync_id' argument")
 
         _setter("storage_sync_id", storage_sync_id)
         if name is not None:
@@ -87,7 +89,7 @@ class _SyncGroupState:
              storage_sync_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'storageSyncId' in kwargs:
+        if storage_sync_id is None and 'storageSyncId' in kwargs:
             storage_sync_id = kwargs['storageSyncId']
 
         if name is not None:

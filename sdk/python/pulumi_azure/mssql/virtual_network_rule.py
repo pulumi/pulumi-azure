@@ -37,17 +37,21 @@ class VirtualNetworkRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             server_id: pulumi.Input[str],
-             subnet_id: pulumi.Input[str],
+             server_id: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
              ignore_missing_vnet_service_endpoint: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'serverId' in kwargs:
+        if server_id is None and 'serverId' in kwargs:
             server_id = kwargs['serverId']
-        if 'subnetId' in kwargs:
+        if server_id is None:
+            raise TypeError("Missing 'server_id' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'ignoreMissingVnetServiceEndpoint' in kwargs:
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+        if ignore_missing_vnet_service_endpoint is None and 'ignoreMissingVnetServiceEndpoint' in kwargs:
             ignore_missing_vnet_service_endpoint = kwargs['ignoreMissingVnetServiceEndpoint']
 
         _setter("server_id", server_id)
@@ -140,11 +144,11 @@ class _VirtualNetworkRuleState:
              subnet_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ignoreMissingVnetServiceEndpoint' in kwargs:
+        if ignore_missing_vnet_service_endpoint is None and 'ignoreMissingVnetServiceEndpoint' in kwargs:
             ignore_missing_vnet_service_endpoint = kwargs['ignoreMissingVnetServiceEndpoint']
-        if 'serverId' in kwargs:
+        if server_id is None and 'serverId' in kwargs:
             server_id = kwargs['serverId']
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
 
         if ignore_missing_vnet_service_endpoint is not None:

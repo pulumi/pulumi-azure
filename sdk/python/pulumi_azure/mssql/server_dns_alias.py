@@ -29,12 +29,14 @@ class ServerDnsAliasArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mssql_server_id: pulumi.Input[str],
+             mssql_server_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'mssqlServerId' in kwargs:
+        if mssql_server_id is None and 'mssqlServerId' in kwargs:
             mssql_server_id = kwargs['mssqlServerId']
+        if mssql_server_id is None:
+            raise TypeError("Missing 'mssql_server_id' argument")
 
         _setter("mssql_server_id", mssql_server_id)
         if name is not None:
@@ -91,9 +93,9 @@ class _ServerDnsAliasState:
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dnsRecord' in kwargs:
+        if dns_record is None and 'dnsRecord' in kwargs:
             dns_record = kwargs['dnsRecord']
-        if 'mssqlServerId' in kwargs:
+        if mssql_server_id is None and 'mssqlServerId' in kwargs:
             mssql_server_id = kwargs['mssqlServerId']
 
         if dns_record is not None:

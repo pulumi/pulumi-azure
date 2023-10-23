@@ -39,14 +39,16 @@ class ClusterExtensionIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'principalId' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -112,14 +114,16 @@ class ClusterIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'principalId' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -197,7 +201,7 @@ class FluxConfigurationBlobStorageArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             container_id: pulumi.Input[str],
+             container_id: Optional[pulumi.Input[str]] = None,
              account_key: Optional[pulumi.Input[str]] = None,
              local_auth_reference: Optional[pulumi.Input[str]] = None,
              sas_token: Optional[pulumi.Input[str]] = None,
@@ -206,19 +210,21 @@ class FluxConfigurationBlobStorageArgs:
              timeout_in_seconds: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'containerId' in kwargs:
+        if container_id is None and 'containerId' in kwargs:
             container_id = kwargs['containerId']
-        if 'accountKey' in kwargs:
+        if container_id is None:
+            raise TypeError("Missing 'container_id' argument")
+        if account_key is None and 'accountKey' in kwargs:
             account_key = kwargs['accountKey']
-        if 'localAuthReference' in kwargs:
+        if local_auth_reference is None and 'localAuthReference' in kwargs:
             local_auth_reference = kwargs['localAuthReference']
-        if 'sasToken' in kwargs:
+        if sas_token is None and 'sasToken' in kwargs:
             sas_token = kwargs['sasToken']
-        if 'servicePrincipal' in kwargs:
+        if service_principal is None and 'servicePrincipal' in kwargs:
             service_principal = kwargs['servicePrincipal']
-        if 'syncIntervalInSeconds' in kwargs:
+        if sync_interval_in_seconds is None and 'syncIntervalInSeconds' in kwargs:
             sync_interval_in_seconds = kwargs['syncIntervalInSeconds']
-        if 'timeoutInSeconds' in kwargs:
+        if timeout_in_seconds is None and 'timeoutInSeconds' in kwargs:
             timeout_in_seconds = kwargs['timeoutInSeconds']
 
         _setter("container_id", container_id)
@@ -349,25 +355,29 @@ class FluxConfigurationBlobStorageServicePrincipalArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             tenant_id: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
              client_certificate_base64: Optional[pulumi.Input[str]] = None,
              client_certificate_password: Optional[pulumi.Input[str]] = None,
              client_certificate_send_chain: Optional[pulumi.Input[bool]] = None,
              client_secret: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'tenantId' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
-        if 'clientCertificateBase64' in kwargs:
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if client_certificate_base64 is None and 'clientCertificateBase64' in kwargs:
             client_certificate_base64 = kwargs['clientCertificateBase64']
-        if 'clientCertificatePassword' in kwargs:
+        if client_certificate_password is None and 'clientCertificatePassword' in kwargs:
             client_certificate_password = kwargs['clientCertificatePassword']
-        if 'clientCertificateSendChain' in kwargs:
+        if client_certificate_send_chain is None and 'clientCertificateSendChain' in kwargs:
             client_certificate_send_chain = kwargs['clientCertificateSendChain']
-        if 'clientSecret' in kwargs:
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
 
         _setter("client_id", client_id)
@@ -489,8 +499,8 @@ class FluxConfigurationBucketArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bucket_name: pulumi.Input[str],
-             url: pulumi.Input[str],
+             bucket_name: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
              access_key: Optional[pulumi.Input[str]] = None,
              local_auth_reference: Optional[pulumi.Input[str]] = None,
              secret_key_base64: Optional[pulumi.Input[str]] = None,
@@ -499,19 +509,23 @@ class FluxConfigurationBucketArgs:
              tls_enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'bucketName' in kwargs:
+        if bucket_name is None and 'bucketName' in kwargs:
             bucket_name = kwargs['bucketName']
-        if 'accessKey' in kwargs:
+        if bucket_name is None:
+            raise TypeError("Missing 'bucket_name' argument")
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+        if access_key is None and 'accessKey' in kwargs:
             access_key = kwargs['accessKey']
-        if 'localAuthReference' in kwargs:
+        if local_auth_reference is None and 'localAuthReference' in kwargs:
             local_auth_reference = kwargs['localAuthReference']
-        if 'secretKeyBase64' in kwargs:
+        if secret_key_base64 is None and 'secretKeyBase64' in kwargs:
             secret_key_base64 = kwargs['secretKeyBase64']
-        if 'syncIntervalInSeconds' in kwargs:
+        if sync_interval_in_seconds is None and 'syncIntervalInSeconds' in kwargs:
             sync_interval_in_seconds = kwargs['syncIntervalInSeconds']
-        if 'timeoutInSeconds' in kwargs:
+        if timeout_in_seconds is None and 'timeoutInSeconds' in kwargs:
             timeout_in_seconds = kwargs['timeoutInSeconds']
-        if 'tlsEnabled' in kwargs:
+        if tls_enabled is None and 'tlsEnabled' in kwargs:
             tls_enabled = kwargs['tlsEnabled']
 
         _setter("bucket_name", bucket_name)
@@ -670,9 +684,9 @@ class FluxConfigurationGitRepositoryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             reference_type: pulumi.Input[str],
-             reference_value: pulumi.Input[str],
-             url: pulumi.Input[str],
+             reference_type: Optional[pulumi.Input[str]] = None,
+             reference_value: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
              https_ca_cert_base64: Optional[pulumi.Input[str]] = None,
              https_key_base64: Optional[pulumi.Input[str]] = None,
              https_user: Optional[pulumi.Input[str]] = None,
@@ -683,25 +697,31 @@ class FluxConfigurationGitRepositoryArgs:
              timeout_in_seconds: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'referenceType' in kwargs:
+        if reference_type is None and 'referenceType' in kwargs:
             reference_type = kwargs['referenceType']
-        if 'referenceValue' in kwargs:
+        if reference_type is None:
+            raise TypeError("Missing 'reference_type' argument")
+        if reference_value is None and 'referenceValue' in kwargs:
             reference_value = kwargs['referenceValue']
-        if 'httpsCaCertBase64' in kwargs:
+        if reference_value is None:
+            raise TypeError("Missing 'reference_value' argument")
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+        if https_ca_cert_base64 is None and 'httpsCaCertBase64' in kwargs:
             https_ca_cert_base64 = kwargs['httpsCaCertBase64']
-        if 'httpsKeyBase64' in kwargs:
+        if https_key_base64 is None and 'httpsKeyBase64' in kwargs:
             https_key_base64 = kwargs['httpsKeyBase64']
-        if 'httpsUser' in kwargs:
+        if https_user is None and 'httpsUser' in kwargs:
             https_user = kwargs['httpsUser']
-        if 'localAuthReference' in kwargs:
+        if local_auth_reference is None and 'localAuthReference' in kwargs:
             local_auth_reference = kwargs['localAuthReference']
-        if 'sshKnownHostsBase64' in kwargs:
+        if ssh_known_hosts_base64 is None and 'sshKnownHostsBase64' in kwargs:
             ssh_known_hosts_base64 = kwargs['sshKnownHostsBase64']
-        if 'sshPrivateKeyBase64' in kwargs:
+        if ssh_private_key_base64 is None and 'sshPrivateKeyBase64' in kwargs:
             ssh_private_key_base64 = kwargs['sshPrivateKeyBase64']
-        if 'syncIntervalInSeconds' in kwargs:
+        if sync_interval_in_seconds is None and 'syncIntervalInSeconds' in kwargs:
             sync_interval_in_seconds = kwargs['syncIntervalInSeconds']
-        if 'timeoutInSeconds' in kwargs:
+        if timeout_in_seconds is None and 'timeoutInSeconds' in kwargs:
             timeout_in_seconds = kwargs['timeoutInSeconds']
 
         _setter("reference_type", reference_type)
@@ -892,7 +912,7 @@ class FluxConfigurationKustomizationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              depends_ons: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              garbage_collection_enabled: Optional[pulumi.Input[bool]] = None,
              path: Optional[pulumi.Input[str]] = None,
@@ -902,17 +922,19 @@ class FluxConfigurationKustomizationArgs:
              timeout_in_seconds: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dependsOns' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if depends_ons is None and 'dependsOns' in kwargs:
             depends_ons = kwargs['dependsOns']
-        if 'garbageCollectionEnabled' in kwargs:
+        if garbage_collection_enabled is None and 'garbageCollectionEnabled' in kwargs:
             garbage_collection_enabled = kwargs['garbageCollectionEnabled']
-        if 'recreatingEnabled' in kwargs:
+        if recreating_enabled is None and 'recreatingEnabled' in kwargs:
             recreating_enabled = kwargs['recreatingEnabled']
-        if 'retryIntervalInSeconds' in kwargs:
+        if retry_interval_in_seconds is None and 'retryIntervalInSeconds' in kwargs:
             retry_interval_in_seconds = kwargs['retryIntervalInSeconds']
-        if 'syncIntervalInSeconds' in kwargs:
+        if sync_interval_in_seconds is None and 'syncIntervalInSeconds' in kwargs:
             sync_interval_in_seconds = kwargs['syncIntervalInSeconds']
-        if 'timeoutInSeconds' in kwargs:
+        if timeout_in_seconds is None and 'timeoutInSeconds' in kwargs:
             timeout_in_seconds = kwargs['timeoutInSeconds']
 
         _setter("name", name)

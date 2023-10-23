@@ -26,11 +26,13 @@ class RegistryTaskScheduleRunNowArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             container_registry_task_id: pulumi.Input[str],
+             container_registry_task_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'containerRegistryTaskId' in kwargs:
+        if container_registry_task_id is None and 'containerRegistryTaskId' in kwargs:
             container_registry_task_id = kwargs['containerRegistryTaskId']
+        if container_registry_task_id is None:
+            raise TypeError("Missing 'container_registry_task_id' argument")
 
         _setter("container_registry_task_id", container_registry_task_id)
 
@@ -65,7 +67,7 @@ class _RegistryTaskScheduleRunNowState:
              container_registry_task_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'containerRegistryTaskId' in kwargs:
+        if container_registry_task_id is None and 'containerRegistryTaskId' in kwargs:
             container_registry_task_id = kwargs['containerRegistryTaskId']
 
         if container_registry_task_id is not None:

@@ -40,17 +40,21 @@ class ProfileArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             container_network_interface: pulumi.Input['ProfileContainerNetworkInterfaceArgs'],
-             resource_group_name: pulumi.Input[str],
+             container_network_interface: Optional[pulumi.Input['ProfileContainerNetworkInterfaceArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'containerNetworkInterface' in kwargs:
+        if container_network_interface is None and 'containerNetworkInterface' in kwargs:
             container_network_interface = kwargs['containerNetworkInterface']
-        if 'resourceGroupName' in kwargs:
+        if container_network_interface is None:
+            raise TypeError("Missing 'container_network_interface' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("container_network_interface", container_network_interface)
         _setter("resource_group_name", resource_group_name)
@@ -160,11 +164,11 @@ class _ProfileState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'containerNetworkInterface' in kwargs:
+        if container_network_interface is None and 'containerNetworkInterface' in kwargs:
             container_network_interface = kwargs['containerNetworkInterface']
-        if 'containerNetworkInterfaceIds' in kwargs:
+        if container_network_interface_ids is None and 'containerNetworkInterfaceIds' in kwargs:
             container_network_interface_ids = kwargs['containerNetworkInterfaceIds']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if container_network_interface is not None:

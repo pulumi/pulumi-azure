@@ -49,8 +49,8 @@ class SynapseSparkArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             machine_learning_workspace_id: pulumi.Input[str],
-             synapse_spark_pool_id: pulumi.Input[str],
+             machine_learning_workspace_id: Optional[pulumi.Input[str]] = None,
+             synapse_spark_pool_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              identity: Optional[pulumi.Input['SynapseSparkIdentityArgs']] = None,
              local_auth_enabled: Optional[pulumi.Input[bool]] = None,
@@ -59,11 +59,15 @@ class SynapseSparkArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'machineLearningWorkspaceId' in kwargs:
+        if machine_learning_workspace_id is None and 'machineLearningWorkspaceId' in kwargs:
             machine_learning_workspace_id = kwargs['machineLearningWorkspaceId']
-        if 'synapseSparkPoolId' in kwargs:
+        if machine_learning_workspace_id is None:
+            raise TypeError("Missing 'machine_learning_workspace_id' argument")
+        if synapse_spark_pool_id is None and 'synapseSparkPoolId' in kwargs:
             synapse_spark_pool_id = kwargs['synapseSparkPoolId']
-        if 'localAuthEnabled' in kwargs:
+        if synapse_spark_pool_id is None:
+            raise TypeError("Missing 'synapse_spark_pool_id' argument")
+        if local_auth_enabled is None and 'localAuthEnabled' in kwargs:
             local_auth_enabled = kwargs['localAuthEnabled']
 
         _setter("machine_learning_workspace_id", machine_learning_workspace_id)
@@ -224,11 +228,11 @@ class _SynapseSparkState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'localAuthEnabled' in kwargs:
+        if local_auth_enabled is None and 'localAuthEnabled' in kwargs:
             local_auth_enabled = kwargs['localAuthEnabled']
-        if 'machineLearningWorkspaceId' in kwargs:
+        if machine_learning_workspace_id is None and 'machineLearningWorkspaceId' in kwargs:
             machine_learning_workspace_id = kwargs['machineLearningWorkspaceId']
-        if 'synapseSparkPoolId' in kwargs:
+        if synapse_spark_pool_id is None and 'synapseSparkPoolId' in kwargs:
             synapse_spark_pool_id = kwargs['synapseSparkPoolId']
 
         if description is not None:

@@ -69,9 +69,9 @@ class CassandraClusterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             default_admin_password: pulumi.Input[str],
-             delegated_management_subnet_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             default_admin_password: Optional[pulumi.Input[str]] = None,
+             delegated_management_subnet_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              authentication_method: Optional[pulumi.Input[str]] = None,
              client_certificate_pems: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              external_gossip_certificate_pems: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -85,23 +85,29 @@ class CassandraClusterArgs:
              version: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'defaultAdminPassword' in kwargs:
+        if default_admin_password is None and 'defaultAdminPassword' in kwargs:
             default_admin_password = kwargs['defaultAdminPassword']
-        if 'delegatedManagementSubnetId' in kwargs:
+        if default_admin_password is None:
+            raise TypeError("Missing 'default_admin_password' argument")
+        if delegated_management_subnet_id is None and 'delegatedManagementSubnetId' in kwargs:
             delegated_management_subnet_id = kwargs['delegatedManagementSubnetId']
-        if 'resourceGroupName' in kwargs:
+        if delegated_management_subnet_id is None:
+            raise TypeError("Missing 'delegated_management_subnet_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'authenticationMethod' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if authentication_method is None and 'authenticationMethod' in kwargs:
             authentication_method = kwargs['authenticationMethod']
-        if 'clientCertificatePems' in kwargs:
+        if client_certificate_pems is None and 'clientCertificatePems' in kwargs:
             client_certificate_pems = kwargs['clientCertificatePems']
-        if 'externalGossipCertificatePems' in kwargs:
+        if external_gossip_certificate_pems is None and 'externalGossipCertificatePems' in kwargs:
             external_gossip_certificate_pems = kwargs['externalGossipCertificatePems']
-        if 'externalSeedNodeIpAddresses' in kwargs:
+        if external_seed_node_ip_addresses is None and 'externalSeedNodeIpAddresses' in kwargs:
             external_seed_node_ip_addresses = kwargs['externalSeedNodeIpAddresses']
-        if 'hoursBetweenBackups' in kwargs:
+        if hours_between_backups is None and 'hoursBetweenBackups' in kwargs:
             hours_between_backups = kwargs['hoursBetweenBackups']
-        if 'repairEnabled' in kwargs:
+        if repair_enabled is None and 'repairEnabled' in kwargs:
             repair_enabled = kwargs['repairEnabled']
 
         _setter("default_admin_password", default_admin_password)
@@ -373,23 +379,23 @@ class _CassandraClusterState:
              version: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'authenticationMethod' in kwargs:
+        if authentication_method is None and 'authenticationMethod' in kwargs:
             authentication_method = kwargs['authenticationMethod']
-        if 'clientCertificatePems' in kwargs:
+        if client_certificate_pems is None and 'clientCertificatePems' in kwargs:
             client_certificate_pems = kwargs['clientCertificatePems']
-        if 'defaultAdminPassword' in kwargs:
+        if default_admin_password is None and 'defaultAdminPassword' in kwargs:
             default_admin_password = kwargs['defaultAdminPassword']
-        if 'delegatedManagementSubnetId' in kwargs:
+        if delegated_management_subnet_id is None and 'delegatedManagementSubnetId' in kwargs:
             delegated_management_subnet_id = kwargs['delegatedManagementSubnetId']
-        if 'externalGossipCertificatePems' in kwargs:
+        if external_gossip_certificate_pems is None and 'externalGossipCertificatePems' in kwargs:
             external_gossip_certificate_pems = kwargs['externalGossipCertificatePems']
-        if 'externalSeedNodeIpAddresses' in kwargs:
+        if external_seed_node_ip_addresses is None and 'externalSeedNodeIpAddresses' in kwargs:
             external_seed_node_ip_addresses = kwargs['externalSeedNodeIpAddresses']
-        if 'hoursBetweenBackups' in kwargs:
+        if hours_between_backups is None and 'hoursBetweenBackups' in kwargs:
             hours_between_backups = kwargs['hoursBetweenBackups']
-        if 'repairEnabled' in kwargs:
+        if repair_enabled is None and 'repairEnabled' in kwargs:
             repair_enabled = kwargs['repairEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if authentication_method is not None:

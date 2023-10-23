@@ -52,24 +52,32 @@ class EventHubArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             message_retention: pulumi.Input[int],
-             namespace_name: pulumi.Input[str],
-             partition_count: pulumi.Input[int],
-             resource_group_name: pulumi.Input[str],
+             message_retention: Optional[pulumi.Input[int]] = None,
+             namespace_name: Optional[pulumi.Input[str]] = None,
+             partition_count: Optional[pulumi.Input[int]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              capture_description: Optional[pulumi.Input['EventHubCaptureDescriptionArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'messageRetention' in kwargs:
+        if message_retention is None and 'messageRetention' in kwargs:
             message_retention = kwargs['messageRetention']
-        if 'namespaceName' in kwargs:
+        if message_retention is None:
+            raise TypeError("Missing 'message_retention' argument")
+        if namespace_name is None and 'namespaceName' in kwargs:
             namespace_name = kwargs['namespaceName']
-        if 'partitionCount' in kwargs:
+        if namespace_name is None:
+            raise TypeError("Missing 'namespace_name' argument")
+        if partition_count is None and 'partitionCount' in kwargs:
             partition_count = kwargs['partitionCount']
-        if 'resourceGroupName' in kwargs:
+        if partition_count is None:
+            raise TypeError("Missing 'partition_count' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'captureDescription' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if capture_description is None and 'captureDescription' in kwargs:
             capture_description = kwargs['captureDescription']
 
         _setter("message_retention", message_retention)
@@ -226,17 +234,17 @@ class _EventHubState:
              status: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'captureDescription' in kwargs:
+        if capture_description is None and 'captureDescription' in kwargs:
             capture_description = kwargs['captureDescription']
-        if 'messageRetention' in kwargs:
+        if message_retention is None and 'messageRetention' in kwargs:
             message_retention = kwargs['messageRetention']
-        if 'namespaceName' in kwargs:
+        if namespace_name is None and 'namespaceName' in kwargs:
             namespace_name = kwargs['namespaceName']
-        if 'partitionCount' in kwargs:
+        if partition_count is None and 'partitionCount' in kwargs:
             partition_count = kwargs['partitionCount']
-        if 'partitionIds' in kwargs:
+        if partition_ids is None and 'partitionIds' in kwargs:
             partition_ids = kwargs['partitionIds']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if capture_description is not None:

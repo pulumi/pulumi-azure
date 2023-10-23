@@ -40,23 +40,33 @@ class ProtectedFileShareArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             backup_policy_id: pulumi.Input[str],
-             recovery_vault_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             source_file_share_name: pulumi.Input[str],
-             source_storage_account_id: pulumi.Input[str],
+             backup_policy_id: Optional[pulumi.Input[str]] = None,
+             recovery_vault_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             source_file_share_name: Optional[pulumi.Input[str]] = None,
+             source_storage_account_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'backupPolicyId' in kwargs:
+        if backup_policy_id is None and 'backupPolicyId' in kwargs:
             backup_policy_id = kwargs['backupPolicyId']
-        if 'recoveryVaultName' in kwargs:
+        if backup_policy_id is None:
+            raise TypeError("Missing 'backup_policy_id' argument")
+        if recovery_vault_name is None and 'recoveryVaultName' in kwargs:
             recovery_vault_name = kwargs['recoveryVaultName']
-        if 'resourceGroupName' in kwargs:
+        if recovery_vault_name is None:
+            raise TypeError("Missing 'recovery_vault_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'sourceFileShareName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if source_file_share_name is None and 'sourceFileShareName' in kwargs:
             source_file_share_name = kwargs['sourceFileShareName']
-        if 'sourceStorageAccountId' in kwargs:
+        if source_file_share_name is None:
+            raise TypeError("Missing 'source_file_share_name' argument")
+        if source_storage_account_id is None and 'sourceStorageAccountId' in kwargs:
             source_storage_account_id = kwargs['sourceStorageAccountId']
+        if source_storage_account_id is None:
+            raise TypeError("Missing 'source_storage_account_id' argument")
 
         _setter("backup_policy_id", backup_policy_id)
         _setter("recovery_vault_name", recovery_vault_name)
@@ -163,15 +173,15 @@ class _ProtectedFileShareState:
              source_storage_account_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'backupPolicyId' in kwargs:
+        if backup_policy_id is None and 'backupPolicyId' in kwargs:
             backup_policy_id = kwargs['backupPolicyId']
-        if 'recoveryVaultName' in kwargs:
+        if recovery_vault_name is None and 'recoveryVaultName' in kwargs:
             recovery_vault_name = kwargs['recoveryVaultName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'sourceFileShareName' in kwargs:
+        if source_file_share_name is None and 'sourceFileShareName' in kwargs:
             source_file_share_name = kwargs['sourceFileShareName']
-        if 'sourceStorageAccountId' in kwargs:
+        if source_storage_account_id is None and 'sourceStorageAccountId' in kwargs:
             source_storage_account_id = kwargs['sourceStorageAccountId']
 
         if backup_policy_id is not None:

@@ -38,15 +38,23 @@ class SqlTriggerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             body: pulumi.Input[str],
-             container_id: pulumi.Input[str],
-             operation: pulumi.Input[str],
-             type: pulumi.Input[str],
+             body: Optional[pulumi.Input[str]] = None,
+             container_id: Optional[pulumi.Input[str]] = None,
+             operation: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'containerId' in kwargs:
+        if body is None:
+            raise TypeError("Missing 'body' argument")
+        if container_id is None and 'containerId' in kwargs:
             container_id = kwargs['containerId']
+        if container_id is None:
+            raise TypeError("Missing 'container_id' argument")
+        if operation is None:
+            raise TypeError("Missing 'operation' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("body", body)
         _setter("container_id", container_id)
@@ -150,7 +158,7 @@ class _SqlTriggerState:
              type: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'containerId' in kwargs:
+        if container_id is None and 'containerId' in kwargs:
             container_id = kwargs['containerId']
 
         if body is not None:

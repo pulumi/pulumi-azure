@@ -32,15 +32,19 @@ class BackupPolicyBlobStorageArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             retention_duration: pulumi.Input[str],
-             vault_id: pulumi.Input[str],
+             retention_duration: Optional[pulumi.Input[str]] = None,
+             vault_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'retentionDuration' in kwargs:
+        if retention_duration is None and 'retentionDuration' in kwargs:
             retention_duration = kwargs['retentionDuration']
-        if 'vaultId' in kwargs:
+        if retention_duration is None:
+            raise TypeError("Missing 'retention_duration' argument")
+        if vault_id is None and 'vaultId' in kwargs:
             vault_id = kwargs['vaultId']
+        if vault_id is None:
+            raise TypeError("Missing 'vault_id' argument")
 
         _setter("retention_duration", retention_duration)
         _setter("vault_id", vault_id)
@@ -110,9 +114,9 @@ class _BackupPolicyBlobStorageState:
              vault_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'retentionDuration' in kwargs:
+        if retention_duration is None and 'retentionDuration' in kwargs:
             retention_duration = kwargs['retentionDuration']
-        if 'vaultId' in kwargs:
+        if vault_id is None and 'vaultId' in kwargs:
             vault_id = kwargs['vaultId']
 
         if name is not None:

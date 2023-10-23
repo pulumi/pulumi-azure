@@ -50,10 +50,10 @@ class GatewayHostNameConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_management_id: pulumi.Input[str],
-             certificate_id: pulumi.Input[str],
-             gateway_name: pulumi.Input[str],
-             host_name: pulumi.Input[str],
+             api_management_id: Optional[pulumi.Input[str]] = None,
+             certificate_id: Optional[pulumi.Input[str]] = None,
+             gateway_name: Optional[pulumi.Input[str]] = None,
+             host_name: Optional[pulumi.Input[str]] = None,
              http2_enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              request_client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
@@ -61,21 +61,29 @@ class GatewayHostNameConfigurationArgs:
              tls11_enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'apiManagementId' in kwargs:
+        if api_management_id is None and 'apiManagementId' in kwargs:
             api_management_id = kwargs['apiManagementId']
-        if 'certificateId' in kwargs:
+        if api_management_id is None:
+            raise TypeError("Missing 'api_management_id' argument")
+        if certificate_id is None and 'certificateId' in kwargs:
             certificate_id = kwargs['certificateId']
-        if 'gatewayName' in kwargs:
+        if certificate_id is None:
+            raise TypeError("Missing 'certificate_id' argument")
+        if gateway_name is None and 'gatewayName' in kwargs:
             gateway_name = kwargs['gatewayName']
-        if 'hostName' in kwargs:
+        if gateway_name is None:
+            raise TypeError("Missing 'gateway_name' argument")
+        if host_name is None and 'hostName' in kwargs:
             host_name = kwargs['hostName']
-        if 'http2Enabled' in kwargs:
+        if host_name is None:
+            raise TypeError("Missing 'host_name' argument")
+        if http2_enabled is None and 'http2Enabled' in kwargs:
             http2_enabled = kwargs['http2Enabled']
-        if 'requestClientCertificateEnabled' in kwargs:
+        if request_client_certificate_enabled is None and 'requestClientCertificateEnabled' in kwargs:
             request_client_certificate_enabled = kwargs['requestClientCertificateEnabled']
-        if 'tls10Enabled' in kwargs:
+        if tls10_enabled is None and 'tls10Enabled' in kwargs:
             tls10_enabled = kwargs['tls10Enabled']
-        if 'tls11Enabled' in kwargs:
+        if tls11_enabled is None and 'tls11Enabled' in kwargs:
             tls11_enabled = kwargs['tls11Enabled']
 
         _setter("api_management_id", api_management_id)
@@ -252,21 +260,21 @@ class _GatewayHostNameConfigurationState:
              tls11_enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'apiManagementId' in kwargs:
+        if api_management_id is None and 'apiManagementId' in kwargs:
             api_management_id = kwargs['apiManagementId']
-        if 'certificateId' in kwargs:
+        if certificate_id is None and 'certificateId' in kwargs:
             certificate_id = kwargs['certificateId']
-        if 'gatewayName' in kwargs:
+        if gateway_name is None and 'gatewayName' in kwargs:
             gateway_name = kwargs['gatewayName']
-        if 'hostName' in kwargs:
+        if host_name is None and 'hostName' in kwargs:
             host_name = kwargs['hostName']
-        if 'http2Enabled' in kwargs:
+        if http2_enabled is None and 'http2Enabled' in kwargs:
             http2_enabled = kwargs['http2Enabled']
-        if 'requestClientCertificateEnabled' in kwargs:
+        if request_client_certificate_enabled is None and 'requestClientCertificateEnabled' in kwargs:
             request_client_certificate_enabled = kwargs['requestClientCertificateEnabled']
-        if 'tls10Enabled' in kwargs:
+        if tls10_enabled is None and 'tls10Enabled' in kwargs:
             tls10_enabled = kwargs['tls10Enabled']
-        if 'tls11Enabled' in kwargs:
+        if tls11_enabled is None and 'tls11Enabled' in kwargs:
             tls11_enabled = kwargs['tls11Enabled']
 
         if api_management_id is not None:

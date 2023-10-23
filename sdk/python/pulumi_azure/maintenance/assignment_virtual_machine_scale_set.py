@@ -32,15 +32,19 @@ class AssignmentVirtualMachineScaleSetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             maintenance_configuration_id: pulumi.Input[str],
-             virtual_machine_scale_set_id: pulumi.Input[str],
+             maintenance_configuration_id: Optional[pulumi.Input[str]] = None,
+             virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'maintenanceConfigurationId' in kwargs:
+        if maintenance_configuration_id is None and 'maintenanceConfigurationId' in kwargs:
             maintenance_configuration_id = kwargs['maintenanceConfigurationId']
-        if 'virtualMachineScaleSetId' in kwargs:
+        if maintenance_configuration_id is None:
+            raise TypeError("Missing 'maintenance_configuration_id' argument")
+        if virtual_machine_scale_set_id is None and 'virtualMachineScaleSetId' in kwargs:
             virtual_machine_scale_set_id = kwargs['virtualMachineScaleSetId']
+        if virtual_machine_scale_set_id is None:
+            raise TypeError("Missing 'virtual_machine_scale_set_id' argument")
 
         _setter("maintenance_configuration_id", maintenance_configuration_id)
         _setter("virtual_machine_scale_set_id", virtual_machine_scale_set_id)
@@ -110,9 +114,9 @@ class _AssignmentVirtualMachineScaleSetState:
              virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'maintenanceConfigurationId' in kwargs:
+        if maintenance_configuration_id is None and 'maintenanceConfigurationId' in kwargs:
             maintenance_configuration_id = kwargs['maintenanceConfigurationId']
-        if 'virtualMachineScaleSetId' in kwargs:
+        if virtual_machine_scale_set_id is None and 'virtualMachineScaleSetId' in kwargs:
             virtual_machine_scale_set_id = kwargs['virtualMachineScaleSetId']
 
         if location is not None:

@@ -62,19 +62,21 @@ class MonitorPlan(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             effective_date: str,
+             effective_date: Optional[str] = None,
              billing_cycle: Optional[str] = None,
              plan_id: Optional[str] = None,
              usage_type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'effectiveDate' in kwargs:
+        if effective_date is None and 'effectiveDate' in kwargs:
             effective_date = kwargs['effectiveDate']
-        if 'billingCycle' in kwargs:
+        if effective_date is None:
+            raise TypeError("Missing 'effective_date' argument")
+        if billing_cycle is None and 'billingCycle' in kwargs:
             billing_cycle = kwargs['billingCycle']
-        if 'planId' in kwargs:
+        if plan_id is None and 'planId' in kwargs:
             plan_id = kwargs['planId']
-        if 'usageType' in kwargs:
+        if usage_type is None and 'usageType' in kwargs:
             usage_type = kwargs['usageType']
 
         _setter("effective_date", effective_date)
@@ -162,18 +164,26 @@ class MonitorUser(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             email: str,
-             first_name: str,
-             last_name: str,
-             phone_number: str,
+             email: Optional[str] = None,
+             first_name: Optional[str] = None,
+             last_name: Optional[str] = None,
+             phone_number: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'firstName' in kwargs:
+        if email is None:
+            raise TypeError("Missing 'email' argument")
+        if first_name is None and 'firstName' in kwargs:
             first_name = kwargs['firstName']
-        if 'lastName' in kwargs:
+        if first_name is None:
+            raise TypeError("Missing 'first_name' argument")
+        if last_name is None and 'lastName' in kwargs:
             last_name = kwargs['lastName']
-        if 'phoneNumber' in kwargs:
+        if last_name is None:
+            raise TypeError("Missing 'last_name' argument")
+        if phone_number is None and 'phoneNumber' in kwargs:
             phone_number = kwargs['phoneNumber']
+        if phone_number is None:
+            raise TypeError("Missing 'phone_number' argument")
 
         _setter("email", email)
         _setter("first_name", first_name)
@@ -233,11 +243,17 @@ class TagRuleLogTagFilter(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action: str,
-             name: str,
-             value: str,
+             action: Optional[str] = None,
+             name: Optional[str] = None,
+             value: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("action", action)
         _setter("name", name)
@@ -288,11 +304,17 @@ class TagRuleMetricTagFilter(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action: str,
-             name: str,
-             value: str,
+             action: Optional[str] = None,
+             name: Optional[str] = None,
+             value: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("action", action)
         _setter("name", name)

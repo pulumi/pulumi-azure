@@ -38,22 +38,30 @@ class ManagedInstanceActiveDirectoryAdministratorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             login_username: pulumi.Input[str],
-             managed_instance_id: pulumi.Input[str],
-             object_id: pulumi.Input[str],
-             tenant_id: pulumi.Input[str],
+             login_username: Optional[pulumi.Input[str]] = None,
+             managed_instance_id: Optional[pulumi.Input[str]] = None,
+             object_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
              azuread_authentication_only: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'loginUsername' in kwargs:
+        if login_username is None and 'loginUsername' in kwargs:
             login_username = kwargs['loginUsername']
-        if 'managedInstanceId' in kwargs:
+        if login_username is None:
+            raise TypeError("Missing 'login_username' argument")
+        if managed_instance_id is None and 'managedInstanceId' in kwargs:
             managed_instance_id = kwargs['managedInstanceId']
-        if 'objectId' in kwargs:
+        if managed_instance_id is None:
+            raise TypeError("Missing 'managed_instance_id' argument")
+        if object_id is None and 'objectId' in kwargs:
             object_id = kwargs['objectId']
-        if 'tenantId' in kwargs:
+        if object_id is None:
+            raise TypeError("Missing 'object_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
-        if 'azureadAuthenticationOnly' in kwargs:
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if azuread_authentication_only is None and 'azureadAuthenticationOnly' in kwargs:
             azuread_authentication_only = kwargs['azureadAuthenticationOnly']
 
         _setter("login_username", login_username)
@@ -158,15 +166,15 @@ class _ManagedInstanceActiveDirectoryAdministratorState:
              tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'azureadAuthenticationOnly' in kwargs:
+        if azuread_authentication_only is None and 'azureadAuthenticationOnly' in kwargs:
             azuread_authentication_only = kwargs['azureadAuthenticationOnly']
-        if 'loginUsername' in kwargs:
+        if login_username is None and 'loginUsername' in kwargs:
             login_username = kwargs['loginUsername']
-        if 'managedInstanceId' in kwargs:
+        if managed_instance_id is None and 'managedInstanceId' in kwargs:
             managed_instance_id = kwargs['managedInstanceId']
-        if 'objectId' in kwargs:
+        if object_id is None and 'objectId' in kwargs:
             object_id = kwargs['objectId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         if azuread_authentication_only is not None:

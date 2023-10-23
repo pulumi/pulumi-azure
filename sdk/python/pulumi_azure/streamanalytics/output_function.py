@@ -47,29 +47,39 @@ class OutputFunctionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_key: pulumi.Input[str],
-             function_app: pulumi.Input[str],
-             function_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             stream_analytics_job_name: pulumi.Input[str],
+             api_key: Optional[pulumi.Input[str]] = None,
+             function_app: Optional[pulumi.Input[str]] = None,
+             function_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
              batch_max_count: Optional[pulumi.Input[int]] = None,
              batch_max_in_bytes: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'apiKey' in kwargs:
+        if api_key is None and 'apiKey' in kwargs:
             api_key = kwargs['apiKey']
-        if 'functionApp' in kwargs:
+        if api_key is None:
+            raise TypeError("Missing 'api_key' argument")
+        if function_app is None and 'functionApp' in kwargs:
             function_app = kwargs['functionApp']
-        if 'functionName' in kwargs:
+        if function_app is None:
+            raise TypeError("Missing 'function_app' argument")
+        if function_name is None and 'functionName' in kwargs:
             function_name = kwargs['functionName']
-        if 'resourceGroupName' in kwargs:
+        if function_name is None:
+            raise TypeError("Missing 'function_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'streamAnalyticsJobName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if stream_analytics_job_name is None and 'streamAnalyticsJobName' in kwargs:
             stream_analytics_job_name = kwargs['streamAnalyticsJobName']
-        if 'batchMaxCount' in kwargs:
+        if stream_analytics_job_name is None:
+            raise TypeError("Missing 'stream_analytics_job_name' argument")
+        if batch_max_count is None and 'batchMaxCount' in kwargs:
             batch_max_count = kwargs['batchMaxCount']
-        if 'batchMaxInBytes' in kwargs:
+        if batch_max_in_bytes is None and 'batchMaxInBytes' in kwargs:
             batch_max_in_bytes = kwargs['batchMaxInBytes']
 
         _setter("api_key", api_key)
@@ -227,19 +237,19 @@ class _OutputFunctionState:
              stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'apiKey' in kwargs:
+        if api_key is None and 'apiKey' in kwargs:
             api_key = kwargs['apiKey']
-        if 'batchMaxCount' in kwargs:
+        if batch_max_count is None and 'batchMaxCount' in kwargs:
             batch_max_count = kwargs['batchMaxCount']
-        if 'batchMaxInBytes' in kwargs:
+        if batch_max_in_bytes is None and 'batchMaxInBytes' in kwargs:
             batch_max_in_bytes = kwargs['batchMaxInBytes']
-        if 'functionApp' in kwargs:
+        if function_app is None and 'functionApp' in kwargs:
             function_app = kwargs['functionApp']
-        if 'functionName' in kwargs:
+        if function_name is None and 'functionName' in kwargs:
             function_name = kwargs['functionName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'streamAnalyticsJobName' in kwargs:
+        if stream_analytics_job_name is None and 'streamAnalyticsJobName' in kwargs:
             stream_analytics_job_name = kwargs['streamAnalyticsJobName']
 
         if api_key is not None:

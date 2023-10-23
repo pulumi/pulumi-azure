@@ -31,12 +31,16 @@ class CertificateContactsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             contacts: pulumi.Input[Sequence[pulumi.Input['CertificateContactsContactArgs']]],
-             key_vault_id: pulumi.Input[str],
+             contacts: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateContactsContactArgs']]]] = None,
+             key_vault_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'keyVaultId' in kwargs:
+        if contacts is None:
+            raise TypeError("Missing 'contacts' argument")
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
+        if key_vault_id is None:
+            raise TypeError("Missing 'key_vault_id' argument")
 
         _setter("contacts", contacts)
         _setter("key_vault_id", key_vault_id)
@@ -88,7 +92,7 @@ class _CertificateContactsState:
              key_vault_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'keyVaultId' in kwargs:
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
 
         if contacts is not None:

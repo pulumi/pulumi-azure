@@ -53,7 +53,7 @@ class PipelineArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_factory_id: pulumi.Input[str],
+             data_factory_id: Optional[pulumi.Input[str]] = None,
              activities_json: Optional[pulumi.Input[str]] = None,
              annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              concurrency: Optional[pulumi.Input[int]] = None,
@@ -65,11 +65,13 @@ class PipelineArgs:
              variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'activitiesJson' in kwargs:
+        if data_factory_id is None:
+            raise TypeError("Missing 'data_factory_id' argument")
+        if activities_json is None and 'activitiesJson' in kwargs:
             activities_json = kwargs['activitiesJson']
-        if 'moniterMetricsAfterDuration' in kwargs:
+        if moniter_metrics_after_duration is None and 'moniterMetricsAfterDuration' in kwargs:
             moniter_metrics_after_duration = kwargs['moniterMetricsAfterDuration']
 
         _setter("data_factory_id", data_factory_id)
@@ -267,11 +269,11 @@ class _PipelineState:
              variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'activitiesJson' in kwargs:
+        if activities_json is None and 'activitiesJson' in kwargs:
             activities_json = kwargs['activitiesJson']
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'moniterMetricsAfterDuration' in kwargs:
+        if moniter_metrics_after_duration is None and 'moniterMetricsAfterDuration' in kwargs:
             moniter_metrics_after_duration = kwargs['moniterMetricsAfterDuration']
 
         if activities_json is not None:

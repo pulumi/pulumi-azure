@@ -34,13 +34,17 @@ class ActionCustomArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             body: pulumi.Input[str],
-             logic_app_id: pulumi.Input[str],
+             body: Optional[pulumi.Input[str]] = None,
+             logic_app_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'logicAppId' in kwargs:
+        if body is None:
+            raise TypeError("Missing 'body' argument")
+        if logic_app_id is None and 'logicAppId' in kwargs:
             logic_app_id = kwargs['logicAppId']
+        if logic_app_id is None:
+            raise TypeError("Missing 'logic_app_id' argument")
 
         _setter("body", body)
         _setter("logic_app_id", logic_app_id)
@@ -114,7 +118,7 @@ class _ActionCustomState:
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'logicAppId' in kwargs:
+        if logic_app_id is None and 'logicAppId' in kwargs:
             logic_app_id = kwargs['logicAppId']
 
         if body is not None:

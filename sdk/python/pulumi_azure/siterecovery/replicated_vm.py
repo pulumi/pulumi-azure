@@ -95,15 +95,15 @@ class ReplicatedVMArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             recovery_replication_policy_id: pulumi.Input[str],
-             recovery_vault_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             source_recovery_fabric_name: pulumi.Input[str],
-             source_recovery_protection_container_name: pulumi.Input[str],
-             source_vm_id: pulumi.Input[str],
-             target_recovery_fabric_id: pulumi.Input[str],
-             target_recovery_protection_container_id: pulumi.Input[str],
-             target_resource_group_id: pulumi.Input[str],
+             recovery_replication_policy_id: Optional[pulumi.Input[str]] = None,
+             recovery_vault_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             source_recovery_fabric_name: Optional[pulumi.Input[str]] = None,
+             source_recovery_protection_container_name: Optional[pulumi.Input[str]] = None,
+             source_vm_id: Optional[pulumi.Input[str]] = None,
+             target_recovery_fabric_id: Optional[pulumi.Input[str]] = None,
+             target_recovery_protection_container_id: Optional[pulumi.Input[str]] = None,
+             target_resource_group_id: Optional[pulumi.Input[str]] = None,
              managed_disks: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatedVMManagedDiskArgs']]]] = None,
              multi_vm_group_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
@@ -120,49 +120,67 @@ class ReplicatedVMArgs:
              unmanaged_disks: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatedVMUnmanagedDiskArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'recoveryReplicationPolicyId' in kwargs:
+        if recovery_replication_policy_id is None and 'recoveryReplicationPolicyId' in kwargs:
             recovery_replication_policy_id = kwargs['recoveryReplicationPolicyId']
-        if 'recoveryVaultName' in kwargs:
+        if recovery_replication_policy_id is None:
+            raise TypeError("Missing 'recovery_replication_policy_id' argument")
+        if recovery_vault_name is None and 'recoveryVaultName' in kwargs:
             recovery_vault_name = kwargs['recoveryVaultName']
-        if 'resourceGroupName' in kwargs:
+        if recovery_vault_name is None:
+            raise TypeError("Missing 'recovery_vault_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'sourceRecoveryFabricName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if source_recovery_fabric_name is None and 'sourceRecoveryFabricName' in kwargs:
             source_recovery_fabric_name = kwargs['sourceRecoveryFabricName']
-        if 'sourceRecoveryProtectionContainerName' in kwargs:
+        if source_recovery_fabric_name is None:
+            raise TypeError("Missing 'source_recovery_fabric_name' argument")
+        if source_recovery_protection_container_name is None and 'sourceRecoveryProtectionContainerName' in kwargs:
             source_recovery_protection_container_name = kwargs['sourceRecoveryProtectionContainerName']
-        if 'sourceVmId' in kwargs:
+        if source_recovery_protection_container_name is None:
+            raise TypeError("Missing 'source_recovery_protection_container_name' argument")
+        if source_vm_id is None and 'sourceVmId' in kwargs:
             source_vm_id = kwargs['sourceVmId']
-        if 'targetRecoveryFabricId' in kwargs:
+        if source_vm_id is None:
+            raise TypeError("Missing 'source_vm_id' argument")
+        if target_recovery_fabric_id is None and 'targetRecoveryFabricId' in kwargs:
             target_recovery_fabric_id = kwargs['targetRecoveryFabricId']
-        if 'targetRecoveryProtectionContainerId' in kwargs:
+        if target_recovery_fabric_id is None:
+            raise TypeError("Missing 'target_recovery_fabric_id' argument")
+        if target_recovery_protection_container_id is None and 'targetRecoveryProtectionContainerId' in kwargs:
             target_recovery_protection_container_id = kwargs['targetRecoveryProtectionContainerId']
-        if 'targetResourceGroupId' in kwargs:
+        if target_recovery_protection_container_id is None:
+            raise TypeError("Missing 'target_recovery_protection_container_id' argument")
+        if target_resource_group_id is None and 'targetResourceGroupId' in kwargs:
             target_resource_group_id = kwargs['targetResourceGroupId']
-        if 'managedDisks' in kwargs:
+        if target_resource_group_id is None:
+            raise TypeError("Missing 'target_resource_group_id' argument")
+        if managed_disks is None and 'managedDisks' in kwargs:
             managed_disks = kwargs['managedDisks']
-        if 'multiVmGroupName' in kwargs:
+        if multi_vm_group_name is None and 'multiVmGroupName' in kwargs:
             multi_vm_group_name = kwargs['multiVmGroupName']
-        if 'networkInterfaces' in kwargs:
+        if network_interfaces is None and 'networkInterfaces' in kwargs:
             network_interfaces = kwargs['networkInterfaces']
-        if 'targetAvailabilitySetId' in kwargs:
+        if target_availability_set_id is None and 'targetAvailabilitySetId' in kwargs:
             target_availability_set_id = kwargs['targetAvailabilitySetId']
-        if 'targetBootDiagnosticStorageAccountId' in kwargs:
+        if target_boot_diagnostic_storage_account_id is None and 'targetBootDiagnosticStorageAccountId' in kwargs:
             target_boot_diagnostic_storage_account_id = kwargs['targetBootDiagnosticStorageAccountId']
-        if 'targetCapacityReservationGroupId' in kwargs:
+        if target_capacity_reservation_group_id is None and 'targetCapacityReservationGroupId' in kwargs:
             target_capacity_reservation_group_id = kwargs['targetCapacityReservationGroupId']
-        if 'targetEdgeZone' in kwargs:
+        if target_edge_zone is None and 'targetEdgeZone' in kwargs:
             target_edge_zone = kwargs['targetEdgeZone']
-        if 'targetNetworkId' in kwargs:
+        if target_network_id is None and 'targetNetworkId' in kwargs:
             target_network_id = kwargs['targetNetworkId']
-        if 'targetProximityPlacementGroupId' in kwargs:
+        if target_proximity_placement_group_id is None and 'targetProximityPlacementGroupId' in kwargs:
             target_proximity_placement_group_id = kwargs['targetProximityPlacementGroupId']
-        if 'targetVirtualMachineScaleSetId' in kwargs:
+        if target_virtual_machine_scale_set_id is None and 'targetVirtualMachineScaleSetId' in kwargs:
             target_virtual_machine_scale_set_id = kwargs['targetVirtualMachineScaleSetId']
-        if 'targetZone' in kwargs:
+        if target_zone is None and 'targetZone' in kwargs:
             target_zone = kwargs['targetZone']
-        if 'testNetworkId' in kwargs:
+        if test_network_id is None and 'testNetworkId' in kwargs:
             test_network_id = kwargs['testNetworkId']
-        if 'unmanagedDisks' in kwargs:
+        if unmanaged_disks is None and 'unmanagedDisks' in kwargs:
             unmanaged_disks = kwargs['unmanagedDisks']
 
         _setter("recovery_replication_policy_id", recovery_replication_policy_id)
@@ -588,49 +606,49 @@ class _ReplicatedVMState:
              unmanaged_disks: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatedVMUnmanagedDiskArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'managedDisks' in kwargs:
+        if managed_disks is None and 'managedDisks' in kwargs:
             managed_disks = kwargs['managedDisks']
-        if 'multiVmGroupName' in kwargs:
+        if multi_vm_group_name is None and 'multiVmGroupName' in kwargs:
             multi_vm_group_name = kwargs['multiVmGroupName']
-        if 'networkInterfaces' in kwargs:
+        if network_interfaces is None and 'networkInterfaces' in kwargs:
             network_interfaces = kwargs['networkInterfaces']
-        if 'recoveryReplicationPolicyId' in kwargs:
+        if recovery_replication_policy_id is None and 'recoveryReplicationPolicyId' in kwargs:
             recovery_replication_policy_id = kwargs['recoveryReplicationPolicyId']
-        if 'recoveryVaultName' in kwargs:
+        if recovery_vault_name is None and 'recoveryVaultName' in kwargs:
             recovery_vault_name = kwargs['recoveryVaultName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'sourceRecoveryFabricName' in kwargs:
+        if source_recovery_fabric_name is None and 'sourceRecoveryFabricName' in kwargs:
             source_recovery_fabric_name = kwargs['sourceRecoveryFabricName']
-        if 'sourceRecoveryProtectionContainerName' in kwargs:
+        if source_recovery_protection_container_name is None and 'sourceRecoveryProtectionContainerName' in kwargs:
             source_recovery_protection_container_name = kwargs['sourceRecoveryProtectionContainerName']
-        if 'sourceVmId' in kwargs:
+        if source_vm_id is None and 'sourceVmId' in kwargs:
             source_vm_id = kwargs['sourceVmId']
-        if 'targetAvailabilitySetId' in kwargs:
+        if target_availability_set_id is None and 'targetAvailabilitySetId' in kwargs:
             target_availability_set_id = kwargs['targetAvailabilitySetId']
-        if 'targetBootDiagnosticStorageAccountId' in kwargs:
+        if target_boot_diagnostic_storage_account_id is None and 'targetBootDiagnosticStorageAccountId' in kwargs:
             target_boot_diagnostic_storage_account_id = kwargs['targetBootDiagnosticStorageAccountId']
-        if 'targetCapacityReservationGroupId' in kwargs:
+        if target_capacity_reservation_group_id is None and 'targetCapacityReservationGroupId' in kwargs:
             target_capacity_reservation_group_id = kwargs['targetCapacityReservationGroupId']
-        if 'targetEdgeZone' in kwargs:
+        if target_edge_zone is None and 'targetEdgeZone' in kwargs:
             target_edge_zone = kwargs['targetEdgeZone']
-        if 'targetNetworkId' in kwargs:
+        if target_network_id is None and 'targetNetworkId' in kwargs:
             target_network_id = kwargs['targetNetworkId']
-        if 'targetProximityPlacementGroupId' in kwargs:
+        if target_proximity_placement_group_id is None and 'targetProximityPlacementGroupId' in kwargs:
             target_proximity_placement_group_id = kwargs['targetProximityPlacementGroupId']
-        if 'targetRecoveryFabricId' in kwargs:
+        if target_recovery_fabric_id is None and 'targetRecoveryFabricId' in kwargs:
             target_recovery_fabric_id = kwargs['targetRecoveryFabricId']
-        if 'targetRecoveryProtectionContainerId' in kwargs:
+        if target_recovery_protection_container_id is None and 'targetRecoveryProtectionContainerId' in kwargs:
             target_recovery_protection_container_id = kwargs['targetRecoveryProtectionContainerId']
-        if 'targetResourceGroupId' in kwargs:
+        if target_resource_group_id is None and 'targetResourceGroupId' in kwargs:
             target_resource_group_id = kwargs['targetResourceGroupId']
-        if 'targetVirtualMachineScaleSetId' in kwargs:
+        if target_virtual_machine_scale_set_id is None and 'targetVirtualMachineScaleSetId' in kwargs:
             target_virtual_machine_scale_set_id = kwargs['targetVirtualMachineScaleSetId']
-        if 'targetZone' in kwargs:
+        if target_zone is None and 'targetZone' in kwargs:
             target_zone = kwargs['targetZone']
-        if 'testNetworkId' in kwargs:
+        if test_network_id is None and 'testNetworkId' in kwargs:
             test_network_id = kwargs['testNetworkId']
-        if 'unmanagedDisks' in kwargs:
+        if unmanaged_disks is None and 'unmanagedDisks' in kwargs:
             unmanaged_disks = kwargs['unmanagedDisks']
 
         if managed_disks is not None:

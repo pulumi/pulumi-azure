@@ -35,15 +35,17 @@ class ContainerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             storage_account_name: pulumi.Input[str],
+             storage_account_name: Optional[pulumi.Input[str]] = None,
              container_access_type: Optional[pulumi.Input[str]] = None,
              metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'storageAccountName' in kwargs:
+        if storage_account_name is None and 'storageAccountName' in kwargs:
             storage_account_name = kwargs['storageAccountName']
-        if 'containerAccessType' in kwargs:
+        if storage_account_name is None:
+            raise TypeError("Missing 'storage_account_name' argument")
+        if container_access_type is None and 'containerAccessType' in kwargs:
             container_access_type = kwargs['containerAccessType']
 
         _setter("storage_account_name", storage_account_name)
@@ -145,15 +147,15 @@ class _ContainerState:
              storage_account_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'containerAccessType' in kwargs:
+        if container_access_type is None and 'containerAccessType' in kwargs:
             container_access_type = kwargs['containerAccessType']
-        if 'hasImmutabilityPolicy' in kwargs:
+        if has_immutability_policy is None and 'hasImmutabilityPolicy' in kwargs:
             has_immutability_policy = kwargs['hasImmutabilityPolicy']
-        if 'hasLegalHold' in kwargs:
+        if has_legal_hold is None and 'hasLegalHold' in kwargs:
             has_legal_hold = kwargs['hasLegalHold']
-        if 'resourceManagerId' in kwargs:
+        if resource_manager_id is None and 'resourceManagerId' in kwargs:
             resource_manager_id = kwargs['resourceManagerId']
-        if 'storageAccountName' in kwargs:
+        if storage_account_name is None and 'storageAccountName' in kwargs:
             storage_account_name = kwargs['storageAccountName']
 
         if container_access_type is not None:

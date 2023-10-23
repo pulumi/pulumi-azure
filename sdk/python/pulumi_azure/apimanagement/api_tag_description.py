@@ -35,17 +35,19 @@ class ApiTagDescriptionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_tag_id: pulumi.Input[str],
+             api_tag_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              external_documentation_description: Optional[pulumi.Input[str]] = None,
              external_documentation_url: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'apiTagId' in kwargs:
+        if api_tag_id is None and 'apiTagId' in kwargs:
             api_tag_id = kwargs['apiTagId']
-        if 'externalDocumentationDescription' in kwargs:
+        if api_tag_id is None:
+            raise TypeError("Missing 'api_tag_id' argument")
+        if external_documentation_description is None and 'externalDocumentationDescription' in kwargs:
             external_documentation_description = kwargs['externalDocumentationDescription']
-        if 'externalDocumentationUrl' in kwargs:
+        if external_documentation_url is None and 'externalDocumentationUrl' in kwargs:
             external_documentation_url = kwargs['externalDocumentationUrl']
 
         _setter("api_tag_id", api_tag_id)
@@ -135,11 +137,11 @@ class _ApiTagDescriptionState:
              external_documentation_url: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'apiTagId' in kwargs:
+        if api_tag_id is None and 'apiTagId' in kwargs:
             api_tag_id = kwargs['apiTagId']
-        if 'externalDocumentationDescription' in kwargs:
+        if external_documentation_description is None and 'externalDocumentationDescription' in kwargs:
             external_documentation_description = kwargs['externalDocumentationDescription']
-        if 'externalDocumentationUrl' in kwargs:
+        if external_documentation_url is None and 'externalDocumentationUrl' in kwargs:
             external_documentation_url = kwargs['externalDocumentationUrl']
 
         if api_tag_id is not None:

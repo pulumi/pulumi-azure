@@ -41,22 +41,32 @@ class SqlStoredProcedureArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             account_name: pulumi.Input[str],
-             body: pulumi.Input[str],
-             container_name: pulumi.Input[str],
-             database_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             account_name: Optional[pulumi.Input[str]] = None,
+             body: Optional[pulumi.Input[str]] = None,
+             container_name: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accountName' in kwargs:
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'containerName' in kwargs:
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if body is None:
+            raise TypeError("Missing 'body' argument")
+        if container_name is None and 'containerName' in kwargs:
             container_name = kwargs['containerName']
-        if 'databaseName' in kwargs:
+        if container_name is None:
+            raise TypeError("Missing 'container_name' argument")
+        if database_name is None and 'databaseName' in kwargs:
             database_name = kwargs['databaseName']
-        if 'resourceGroupName' in kwargs:
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("account_name", account_name)
         _setter("body", body)
@@ -177,13 +187,13 @@ class _SqlStoredProcedureState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accountName' in kwargs:
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'containerName' in kwargs:
+        if container_name is None and 'containerName' in kwargs:
             container_name = kwargs['containerName']
-        if 'databaseName' in kwargs:
+        if database_name is None and 'databaseName' in kwargs:
             database_name = kwargs['databaseName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if account_name is not None:

@@ -59,9 +59,9 @@ class NetworkAttachedDataNetworkArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             dns_addresses: pulumi.Input[Sequence[pulumi.Input[str]]],
-             mobile_network_data_network_name: pulumi.Input[str],
-             mobile_network_packet_core_data_plane_id: pulumi.Input[str],
+             dns_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             mobile_network_data_network_name: Optional[pulumi.Input[str]] = None,
+             mobile_network_packet_core_data_plane_id: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              network_address_port_translation: Optional[pulumi.Input['NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -73,25 +73,31 @@ class NetworkAttachedDataNetworkArgs:
              user_plane_access_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dnsAddresses' in kwargs:
+        if dns_addresses is None and 'dnsAddresses' in kwargs:
             dns_addresses = kwargs['dnsAddresses']
-        if 'mobileNetworkDataNetworkName' in kwargs:
+        if dns_addresses is None:
+            raise TypeError("Missing 'dns_addresses' argument")
+        if mobile_network_data_network_name is None and 'mobileNetworkDataNetworkName' in kwargs:
             mobile_network_data_network_name = kwargs['mobileNetworkDataNetworkName']
-        if 'mobileNetworkPacketCoreDataPlaneId' in kwargs:
+        if mobile_network_data_network_name is None:
+            raise TypeError("Missing 'mobile_network_data_network_name' argument")
+        if mobile_network_packet_core_data_plane_id is None and 'mobileNetworkPacketCoreDataPlaneId' in kwargs:
             mobile_network_packet_core_data_plane_id = kwargs['mobileNetworkPacketCoreDataPlaneId']
-        if 'networkAddressPortTranslation' in kwargs:
+        if mobile_network_packet_core_data_plane_id is None:
+            raise TypeError("Missing 'mobile_network_packet_core_data_plane_id' argument")
+        if network_address_port_translation is None and 'networkAddressPortTranslation' in kwargs:
             network_address_port_translation = kwargs['networkAddressPortTranslation']
-        if 'userEquipmentAddressPoolPrefixes' in kwargs:
+        if user_equipment_address_pool_prefixes is None and 'userEquipmentAddressPoolPrefixes' in kwargs:
             user_equipment_address_pool_prefixes = kwargs['userEquipmentAddressPoolPrefixes']
-        if 'userEquipmentStaticAddressPoolPrefixes' in kwargs:
+        if user_equipment_static_address_pool_prefixes is None and 'userEquipmentStaticAddressPoolPrefixes' in kwargs:
             user_equipment_static_address_pool_prefixes = kwargs['userEquipmentStaticAddressPoolPrefixes']
-        if 'userPlaneAccessIpv4Address' in kwargs:
+        if user_plane_access_ipv4_address is None and 'userPlaneAccessIpv4Address' in kwargs:
             user_plane_access_ipv4_address = kwargs['userPlaneAccessIpv4Address']
-        if 'userPlaneAccessIpv4Gateway' in kwargs:
+        if user_plane_access_ipv4_gateway is None and 'userPlaneAccessIpv4Gateway' in kwargs:
             user_plane_access_ipv4_gateway = kwargs['userPlaneAccessIpv4Gateway']
-        if 'userPlaneAccessIpv4Subnet' in kwargs:
+        if user_plane_access_ipv4_subnet is None and 'userPlaneAccessIpv4Subnet' in kwargs:
             user_plane_access_ipv4_subnet = kwargs['userPlaneAccessIpv4Subnet']
-        if 'userPlaneAccessName' in kwargs:
+        if user_plane_access_name is None and 'userPlaneAccessName' in kwargs:
             user_plane_access_name = kwargs['userPlaneAccessName']
 
         _setter("dns_addresses", dns_addresses)
@@ -315,25 +321,25 @@ class _NetworkAttachedDataNetworkState:
              user_plane_access_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dnsAddresses' in kwargs:
+        if dns_addresses is None and 'dnsAddresses' in kwargs:
             dns_addresses = kwargs['dnsAddresses']
-        if 'mobileNetworkDataNetworkName' in kwargs:
+        if mobile_network_data_network_name is None and 'mobileNetworkDataNetworkName' in kwargs:
             mobile_network_data_network_name = kwargs['mobileNetworkDataNetworkName']
-        if 'mobileNetworkPacketCoreDataPlaneId' in kwargs:
+        if mobile_network_packet_core_data_plane_id is None and 'mobileNetworkPacketCoreDataPlaneId' in kwargs:
             mobile_network_packet_core_data_plane_id = kwargs['mobileNetworkPacketCoreDataPlaneId']
-        if 'networkAddressPortTranslation' in kwargs:
+        if network_address_port_translation is None and 'networkAddressPortTranslation' in kwargs:
             network_address_port_translation = kwargs['networkAddressPortTranslation']
-        if 'userEquipmentAddressPoolPrefixes' in kwargs:
+        if user_equipment_address_pool_prefixes is None and 'userEquipmentAddressPoolPrefixes' in kwargs:
             user_equipment_address_pool_prefixes = kwargs['userEquipmentAddressPoolPrefixes']
-        if 'userEquipmentStaticAddressPoolPrefixes' in kwargs:
+        if user_equipment_static_address_pool_prefixes is None and 'userEquipmentStaticAddressPoolPrefixes' in kwargs:
             user_equipment_static_address_pool_prefixes = kwargs['userEquipmentStaticAddressPoolPrefixes']
-        if 'userPlaneAccessIpv4Address' in kwargs:
+        if user_plane_access_ipv4_address is None and 'userPlaneAccessIpv4Address' in kwargs:
             user_plane_access_ipv4_address = kwargs['userPlaneAccessIpv4Address']
-        if 'userPlaneAccessIpv4Gateway' in kwargs:
+        if user_plane_access_ipv4_gateway is None and 'userPlaneAccessIpv4Gateway' in kwargs:
             user_plane_access_ipv4_gateway = kwargs['userPlaneAccessIpv4Gateway']
-        if 'userPlaneAccessIpv4Subnet' in kwargs:
+        if user_plane_access_ipv4_subnet is None and 'userPlaneAccessIpv4Subnet' in kwargs:
             user_plane_access_ipv4_subnet = kwargs['userPlaneAccessIpv4Subnet']
-        if 'userPlaneAccessName' in kwargs:
+        if user_plane_access_name is None and 'userPlaneAccessName' in kwargs:
             user_plane_access_name = kwargs['userPlaneAccessName']
 
         if dns_addresses is not None:

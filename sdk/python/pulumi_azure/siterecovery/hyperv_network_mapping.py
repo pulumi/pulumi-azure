@@ -38,21 +38,29 @@ class HypervNetworkMappingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             recovery_vault_id: pulumi.Input[str],
-             source_network_name: pulumi.Input[str],
-             source_system_center_virtual_machine_manager_name: pulumi.Input[str],
-             target_network_id: pulumi.Input[str],
+             recovery_vault_id: Optional[pulumi.Input[str]] = None,
+             source_network_name: Optional[pulumi.Input[str]] = None,
+             source_system_center_virtual_machine_manager_name: Optional[pulumi.Input[str]] = None,
+             target_network_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'recoveryVaultId' in kwargs:
+        if recovery_vault_id is None and 'recoveryVaultId' in kwargs:
             recovery_vault_id = kwargs['recoveryVaultId']
-        if 'sourceNetworkName' in kwargs:
+        if recovery_vault_id is None:
+            raise TypeError("Missing 'recovery_vault_id' argument")
+        if source_network_name is None and 'sourceNetworkName' in kwargs:
             source_network_name = kwargs['sourceNetworkName']
-        if 'sourceSystemCenterVirtualMachineManagerName' in kwargs:
+        if source_network_name is None:
+            raise TypeError("Missing 'source_network_name' argument")
+        if source_system_center_virtual_machine_manager_name is None and 'sourceSystemCenterVirtualMachineManagerName' in kwargs:
             source_system_center_virtual_machine_manager_name = kwargs['sourceSystemCenterVirtualMachineManagerName']
-        if 'targetNetworkId' in kwargs:
+        if source_system_center_virtual_machine_manager_name is None:
+            raise TypeError("Missing 'source_system_center_virtual_machine_manager_name' argument")
+        if target_network_id is None and 'targetNetworkId' in kwargs:
             target_network_id = kwargs['targetNetworkId']
+        if target_network_id is None:
+            raise TypeError("Missing 'target_network_id' argument")
 
         _setter("recovery_vault_id", recovery_vault_id)
         _setter("source_network_name", source_network_name)
@@ -156,13 +164,13 @@ class _HypervNetworkMappingState:
              target_network_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'recoveryVaultId' in kwargs:
+        if recovery_vault_id is None and 'recoveryVaultId' in kwargs:
             recovery_vault_id = kwargs['recoveryVaultId']
-        if 'sourceNetworkName' in kwargs:
+        if source_network_name is None and 'sourceNetworkName' in kwargs:
             source_network_name = kwargs['sourceNetworkName']
-        if 'sourceSystemCenterVirtualMachineManagerName' in kwargs:
+        if source_system_center_virtual_machine_manager_name is None and 'sourceSystemCenterVirtualMachineManagerName' in kwargs:
             source_system_center_virtual_machine_manager_name = kwargs['sourceSystemCenterVirtualMachineManagerName']
-        if 'targetNetworkId' in kwargs:
+        if target_network_id is None and 'targetNetworkId' in kwargs:
             target_network_id = kwargs['targetNetworkId']
 
         if name is not None:

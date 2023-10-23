@@ -92,17 +92,19 @@ class DicomServiceIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -227,12 +229,16 @@ class FhirServiceAuthenticationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             audience: pulumi.Input[str],
-             authority: pulumi.Input[str],
+             audience: Optional[pulumi.Input[str]] = None,
+             authority: Optional[pulumi.Input[str]] = None,
              smart_proxy_enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'smartProxyEnabled' in kwargs:
+        if audience is None:
+            raise TypeError("Missing 'audience' argument")
+        if authority is None:
+            raise TypeError("Missing 'authority' argument")
+        if smart_proxy_enabled is None and 'smartProxyEnabled' in kwargs:
             smart_proxy_enabled = kwargs['smartProxyEnabled']
 
         _setter("audience", audience)
@@ -300,22 +306,28 @@ class FhirServiceCorsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             allowed_headers: pulumi.Input[Sequence[pulumi.Input[str]]],
-             allowed_methods: pulumi.Input[Sequence[pulumi.Input[str]]],
-             allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
+             allowed_headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             allowed_methods: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             allowed_origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              credentials_allowed: Optional[pulumi.Input[bool]] = None,
              max_age_in_seconds: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowedHeaders' in kwargs:
+        if allowed_headers is None and 'allowedHeaders' in kwargs:
             allowed_headers = kwargs['allowedHeaders']
-        if 'allowedMethods' in kwargs:
+        if allowed_headers is None:
+            raise TypeError("Missing 'allowed_headers' argument")
+        if allowed_methods is None and 'allowedMethods' in kwargs:
             allowed_methods = kwargs['allowedMethods']
-        if 'allowedOrigins' in kwargs:
+        if allowed_methods is None:
+            raise TypeError("Missing 'allowed_methods' argument")
+        if allowed_origins is None and 'allowedOrigins' in kwargs:
             allowed_origins = kwargs['allowedOrigins']
-        if 'credentialsAllowed' in kwargs:
+        if allowed_origins is None:
+            raise TypeError("Missing 'allowed_origins' argument")
+        if credentials_allowed is None and 'credentialsAllowed' in kwargs:
             credentials_allowed = kwargs['credentialsAllowed']
-        if 'maxAgeInSeconds' in kwargs:
+        if max_age_in_seconds is None and 'maxAgeInSeconds' in kwargs:
             max_age_in_seconds = kwargs['maxAgeInSeconds']
 
         _setter("allowed_headers", allowed_headers)
@@ -408,17 +420,19 @@ class FhirServiceIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -492,14 +506,16 @@ class FhirServiceOciArtifactArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             login_server: pulumi.Input[str],
+             login_server: Optional[pulumi.Input[str]] = None,
              digest: Optional[pulumi.Input[str]] = None,
              image_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'loginServer' in kwargs:
+        if login_server is None and 'loginServer' in kwargs:
             login_server = kwargs['loginServer']
-        if 'imageName' in kwargs:
+        if login_server is None:
+            raise TypeError("Missing 'login_server' argument")
+        if image_name is None and 'imageName' in kwargs:
             image_name = kwargs['imageName']
 
         _setter("login_server", login_server)
@@ -567,17 +583,19 @@ class MedtechServiceIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -660,7 +678,7 @@ class ServiceAuthenticationConfigurationArgs:
              smart_proxy_enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'smartProxyEnabled' in kwargs:
+        if smart_proxy_enabled is None and 'smartProxyEnabled' in kwargs:
             smart_proxy_enabled = kwargs['smartProxyEnabled']
 
         if audience is not None:
@@ -741,15 +759,15 @@ class ServiceCorsConfigurationArgs:
              max_age_in_seconds: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowCredentials' in kwargs:
+        if allow_credentials is None and 'allowCredentials' in kwargs:
             allow_credentials = kwargs['allowCredentials']
-        if 'allowedHeaders' in kwargs:
+        if allowed_headers is None and 'allowedHeaders' in kwargs:
             allowed_headers = kwargs['allowedHeaders']
-        if 'allowedMethods' in kwargs:
+        if allowed_methods is None and 'allowedMethods' in kwargs:
             allowed_methods = kwargs['allowedMethods']
-        if 'allowedOrigins' in kwargs:
+        if allowed_origins is None and 'allowedOrigins' in kwargs:
             allowed_origins = kwargs['allowedOrigins']
-        if 'maxAgeInSeconds' in kwargs:
+        if max_age_in_seconds is None and 'maxAgeInSeconds' in kwargs:
             max_age_in_seconds = kwargs['maxAgeInSeconds']
 
         if allow_credentials is not None:

@@ -32,15 +32,19 @@ class DataConnectorAwsCloudTrailArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             aws_role_arn: pulumi.Input[str],
-             log_analytics_workspace_id: pulumi.Input[str],
+             aws_role_arn: Optional[pulumi.Input[str]] = None,
+             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'awsRoleArn' in kwargs:
+        if aws_role_arn is None and 'awsRoleArn' in kwargs:
             aws_role_arn = kwargs['awsRoleArn']
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if aws_role_arn is None:
+            raise TypeError("Missing 'aws_role_arn' argument")
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if log_analytics_workspace_id is None:
+            raise TypeError("Missing 'log_analytics_workspace_id' argument")
 
         _setter("aws_role_arn", aws_role_arn)
         _setter("log_analytics_workspace_id", log_analytics_workspace_id)
@@ -110,9 +114,9 @@ class _DataConnectorAwsCloudTrailState:
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'awsRoleArn' in kwargs:
+        if aws_role_arn is None and 'awsRoleArn' in kwargs:
             aws_role_arn = kwargs['awsRoleArn']
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
 
         if aws_role_arn is not None:

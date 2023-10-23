@@ -45,21 +45,27 @@ class VolumeQuotaRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             quota_size_in_kib: pulumi.Input[int],
-             quota_type: pulumi.Input[str],
-             volume_id: pulumi.Input[str],
+             quota_size_in_kib: Optional[pulumi.Input[int]] = None,
+             quota_type: Optional[pulumi.Input[str]] = None,
+             volume_id: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              quota_target: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'quotaSizeInKib' in kwargs:
+        if quota_size_in_kib is None and 'quotaSizeInKib' in kwargs:
             quota_size_in_kib = kwargs['quotaSizeInKib']
-        if 'quotaType' in kwargs:
+        if quota_size_in_kib is None:
+            raise TypeError("Missing 'quota_size_in_kib' argument")
+        if quota_type is None and 'quotaType' in kwargs:
             quota_type = kwargs['quotaType']
-        if 'volumeId' in kwargs:
+        if quota_type is None:
+            raise TypeError("Missing 'quota_type' argument")
+        if volume_id is None and 'volumeId' in kwargs:
             volume_id = kwargs['volumeId']
-        if 'quotaTarget' in kwargs:
+        if volume_id is None:
+            raise TypeError("Missing 'volume_id' argument")
+        if quota_target is None and 'quotaTarget' in kwargs:
             quota_target = kwargs['quotaTarget']
 
         _setter("quota_size_in_kib", quota_size_in_kib)
@@ -191,13 +197,13 @@ class _VolumeQuotaRuleState:
              volume_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'quotaSizeInKib' in kwargs:
+        if quota_size_in_kib is None and 'quotaSizeInKib' in kwargs:
             quota_size_in_kib = kwargs['quotaSizeInKib']
-        if 'quotaTarget' in kwargs:
+        if quota_target is None and 'quotaTarget' in kwargs:
             quota_target = kwargs['quotaTarget']
-        if 'quotaType' in kwargs:
+        if quota_type is None and 'quotaType' in kwargs:
             quota_type = kwargs['quotaType']
-        if 'volumeId' in kwargs:
+        if volume_id is None and 'volumeId' in kwargs:
             volume_id = kwargs['volumeId']
 
         if location is not None:

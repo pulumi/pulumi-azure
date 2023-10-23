@@ -40,19 +40,29 @@ class EmailTemplateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_management_name: pulumi.Input[str],
-             body: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             subject: pulumi.Input[str],
-             template_name: pulumi.Input[str],
+             api_management_name: Optional[pulumi.Input[str]] = None,
+             body: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             subject: Optional[pulumi.Input[str]] = None,
+             template_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'resourceGroupName' in kwargs:
+        if api_management_name is None:
+            raise TypeError("Missing 'api_management_name' argument")
+        if body is None:
+            raise TypeError("Missing 'body' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'templateName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if subject is None:
+            raise TypeError("Missing 'subject' argument")
+        if template_name is None and 'templateName' in kwargs:
             template_name = kwargs['templateName']
+        if template_name is None:
+            raise TypeError("Missing 'template_name' argument")
 
         _setter("api_management_name", api_management_name)
         _setter("body", body)
@@ -167,11 +177,11 @@ class _EmailTemplateState:
              title: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'templateName' in kwargs:
+        if template_name is None and 'templateName' in kwargs:
             template_name = kwargs['templateName']
 
         if api_management_name is not None:

@@ -52,8 +52,8 @@ class AccountArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             sku_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
              encryptions: Optional[pulumi.Input[Sequence[pulumi.Input['AccountEncryptionArgs']]]] = None,
              identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
              local_authentication_enabled: Optional[pulumi.Input[bool]] = None,
@@ -63,13 +63,17 @@ class AccountArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'localAuthenticationEnabled' in kwargs:
+        if sku_name is None:
+            raise TypeError("Missing 'sku_name' argument")
+        if local_authentication_enabled is None and 'localAuthenticationEnabled' in kwargs:
             local_authentication_enabled = kwargs['localAuthenticationEnabled']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
 
         _setter("resource_group_name", resource_group_name)
@@ -267,23 +271,23 @@ class _AccountState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dscPrimaryAccessKey' in kwargs:
+        if dsc_primary_access_key is None and 'dscPrimaryAccessKey' in kwargs:
             dsc_primary_access_key = kwargs['dscPrimaryAccessKey']
-        if 'dscSecondaryAccessKey' in kwargs:
+        if dsc_secondary_access_key is None and 'dscSecondaryAccessKey' in kwargs:
             dsc_secondary_access_key = kwargs['dscSecondaryAccessKey']
-        if 'dscServerEndpoint' in kwargs:
+        if dsc_server_endpoint is None and 'dscServerEndpoint' in kwargs:
             dsc_server_endpoint = kwargs['dscServerEndpoint']
-        if 'hybridServiceUrl' in kwargs:
+        if hybrid_service_url is None and 'hybridServiceUrl' in kwargs:
             hybrid_service_url = kwargs['hybridServiceUrl']
-        if 'localAuthenticationEnabled' in kwargs:
+        if local_authentication_enabled is None and 'localAuthenticationEnabled' in kwargs:
             local_authentication_enabled = kwargs['localAuthenticationEnabled']
-        if 'privateEndpointConnections' in kwargs:
+        if private_endpoint_connections is None and 'privateEndpointConnections' in kwargs:
             private_endpoint_connections = kwargs['privateEndpointConnections']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
 
         if dsc_primary_access_key is not None:

@@ -47,8 +47,8 @@ class AssessmentPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             description: pulumi.Input[str],
-             display_name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
              categories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              implementation_effort: Optional[pulumi.Input[str]] = None,
              remediation_description: Optional[pulumi.Input[str]] = None,
@@ -57,13 +57,17 @@ class AssessmentPolicyArgs:
              user_impact: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'displayName' in kwargs:
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'implementationEffort' in kwargs:
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if implementation_effort is None and 'implementationEffort' in kwargs:
             implementation_effort = kwargs['implementationEffort']
-        if 'remediationDescription' in kwargs:
+        if remediation_description is None and 'remediationDescription' in kwargs:
             remediation_description = kwargs['remediationDescription']
-        if 'userImpact' in kwargs:
+        if user_impact is None and 'userImpact' in kwargs:
             user_impact = kwargs['userImpact']
 
         _setter("description", description)
@@ -228,13 +232,13 @@ class _AssessmentPolicyState:
              user_impact: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'implementationEffort' in kwargs:
+        if implementation_effort is None and 'implementationEffort' in kwargs:
             implementation_effort = kwargs['implementationEffort']
-        if 'remediationDescription' in kwargs:
+        if remediation_description is None and 'remediationDescription' in kwargs:
             remediation_description = kwargs['remediationDescription']
-        if 'userImpact' in kwargs:
+        if user_impact is None and 'userImpact' in kwargs:
             user_impact = kwargs['userImpact']
 
         if categories is not None:

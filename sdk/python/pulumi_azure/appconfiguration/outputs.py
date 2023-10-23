@@ -68,13 +68,15 @@ class ConfigurationFeatureTargetingFilter(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             default_rollout_percentage: int,
+             default_rollout_percentage: Optional[int] = None,
              groups: Optional[Sequence['outputs.ConfigurationFeatureTargetingFilterGroup']] = None,
              users: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'defaultRolloutPercentage' in kwargs:
+        if default_rollout_percentage is None and 'defaultRolloutPercentage' in kwargs:
             default_rollout_percentage = kwargs['defaultRolloutPercentage']
+        if default_rollout_percentage is None:
+            raise TypeError("Missing 'default_rollout_percentage' argument")
 
         _setter("default_rollout_percentage", default_rollout_percentage)
         if groups is not None:
@@ -141,12 +143,16 @@ class ConfigurationFeatureTargetingFilterGroup(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             rollout_percentage: int,
+             name: Optional[str] = None,
+             rollout_percentage: Optional[int] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'rolloutPercentage' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if rollout_percentage is None and 'rolloutPercentage' in kwargs:
             rollout_percentage = kwargs['rolloutPercentage']
+        if rollout_percentage is None:
+            raise TypeError("Missing 'rollout_percentage' argument")
 
         _setter("name", name)
         _setter("rollout_percentage", rollout_percentage)
@@ -252,9 +258,9 @@ class ConfigurationStoreEncryption(dict):
              key_vault_key_identifier: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityClientId' in kwargs:
+        if identity_client_id is None and 'identityClientId' in kwargs:
             identity_client_id = kwargs['identityClientId']
-        if 'keyVaultKeyIdentifier' in kwargs:
+        if key_vault_key_identifier is None and 'keyVaultKeyIdentifier' in kwargs:
             key_vault_key_identifier = kwargs['keyVaultKeyIdentifier']
 
         if identity_client_id is not None:
@@ -325,17 +331,19 @@ class ConfigurationStoreIdentity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -423,7 +431,7 @@ class ConfigurationStorePrimaryReadKey(dict):
              secret: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
 
         if connection_string is not None:
@@ -500,7 +508,7 @@ class ConfigurationStorePrimaryWriteKey(dict):
              secret: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
 
         if connection_string is not None:
@@ -558,12 +566,16 @@ class ConfigurationStoreReplica(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             location: str,
-             name: str,
+             location: Optional[str] = None,
+             name: Optional[str] = None,
              endpoint: Optional[str] = None,
              id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if location is None:
+            raise TypeError("Missing 'location' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("location", location)
         _setter("name", name)
@@ -647,7 +659,7 @@ class ConfigurationStoreSecondaryReadKey(dict):
              secret: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
 
         if connection_string is not None:
@@ -724,7 +736,7 @@ class ConfigurationStoreSecondaryWriteKey(dict):
              secret: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
 
         if connection_string is not None:
@@ -797,21 +809,39 @@ class GetConfigurationKeysItemResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             content_type: str,
-             etag: str,
-             key: str,
-             label: str,
-             locked: bool,
-             tags: Mapping[str, str],
-             type: str,
-             value: str,
-             vault_key_reference: str,
+             content_type: Optional[str] = None,
+             etag: Optional[str] = None,
+             key: Optional[str] = None,
+             label: Optional[str] = None,
+             locked: Optional[bool] = None,
+             tags: Optional[Mapping[str, str]] = None,
+             type: Optional[str] = None,
+             value: Optional[str] = None,
+             vault_key_reference: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'contentType' in kwargs:
+        if content_type is None and 'contentType' in kwargs:
             content_type = kwargs['contentType']
-        if 'vaultKeyReference' in kwargs:
+        if content_type is None:
+            raise TypeError("Missing 'content_type' argument")
+        if etag is None:
+            raise TypeError("Missing 'etag' argument")
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if label is None:
+            raise TypeError("Missing 'label' argument")
+        if locked is None:
+            raise TypeError("Missing 'locked' argument")
+        if tags is None:
+            raise TypeError("Missing 'tags' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+        if vault_key_reference is None and 'vaultKeyReference' in kwargs:
             vault_key_reference = kwargs['vaultKeyReference']
+        if vault_key_reference is None:
+            raise TypeError("Missing 'vault_key_reference' argument")
 
         _setter("content_type", content_type)
         _setter("etag", etag)
@@ -909,14 +939,18 @@ class GetConfigurationStoreEncryptionResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             identity_client_id: str,
-             key_vault_key_identifier: str,
+             identity_client_id: Optional[str] = None,
+             key_vault_key_identifier: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityClientId' in kwargs:
+        if identity_client_id is None and 'identityClientId' in kwargs:
             identity_client_id = kwargs['identityClientId']
-        if 'keyVaultKeyIdentifier' in kwargs:
+        if identity_client_id is None:
+            raise TypeError("Missing 'identity_client_id' argument")
+        if key_vault_key_identifier is None and 'keyVaultKeyIdentifier' in kwargs:
             key_vault_key_identifier = kwargs['keyVaultKeyIdentifier']
+        if key_vault_key_identifier is None:
+            raise TypeError("Missing 'key_vault_key_identifier' argument")
 
         _setter("identity_client_id", identity_client_id)
         _setter("key_vault_key_identifier", key_vault_key_identifier)
@@ -949,18 +983,26 @@ class GetConfigurationStoreIdentityResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             identity_ids: Sequence[str],
-             principal_id: str,
-             tenant_id: str,
-             type: str,
+             identity_ids: Optional[Sequence[str]] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if identity_ids is None:
+            raise TypeError("Missing 'identity_ids' argument")
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("identity_ids", identity_ids)
         _setter("principal_id", principal_id)
@@ -1008,13 +1050,19 @@ class GetConfigurationStorePrimaryReadKeyResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             connection_string: str,
-             id: str,
-             secret: str,
+             connection_string: Optional[str] = None,
+             id: Optional[str] = None,
+             secret: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
+        if connection_string is None:
+            raise TypeError("Missing 'connection_string' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if secret is None:
+            raise TypeError("Missing 'secret' argument")
 
         _setter("connection_string", connection_string)
         _setter("id", id)
@@ -1065,13 +1113,19 @@ class GetConfigurationStorePrimaryWriteKeyResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             connection_string: str,
-             id: str,
-             secret: str,
+             connection_string: Optional[str] = None,
+             id: Optional[str] = None,
+             secret: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
+        if connection_string is None:
+            raise TypeError("Missing 'connection_string' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if secret is None:
+            raise TypeError("Missing 'secret' argument")
 
         _setter("connection_string", connection_string)
         _setter("id", id)
@@ -1125,12 +1179,20 @@ class GetConfigurationStoreReplicaResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             endpoint: str,
-             id: str,
-             location: str,
-             name: str,
+             endpoint: Optional[str] = None,
+             id: Optional[str] = None,
+             location: Optional[str] = None,
+             name: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if endpoint is None:
+            raise TypeError("Missing 'endpoint' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if location is None:
+            raise TypeError("Missing 'location' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("endpoint", endpoint)
         _setter("id", id)
@@ -1190,13 +1252,19 @@ class GetConfigurationStoreSecondaryReadKeyResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             connection_string: str,
-             id: str,
-             secret: str,
+             connection_string: Optional[str] = None,
+             id: Optional[str] = None,
+             secret: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
+        if connection_string is None:
+            raise TypeError("Missing 'connection_string' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if secret is None:
+            raise TypeError("Missing 'secret' argument")
 
         _setter("connection_string", connection_string)
         _setter("id", id)
@@ -1247,13 +1315,19 @@ class GetConfigurationStoreSecondaryWriteKeyResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             connection_string: str,
-             id: str,
-             secret: str,
+             connection_string: Optional[str] = None,
+             id: Optional[str] = None,
+             secret: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
+        if connection_string is None:
+            raise TypeError("Missing 'connection_string' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if secret is None:
+            raise TypeError("Missing 'secret' argument")
 
         _setter("connection_string", connection_string)
         _setter("id", id)

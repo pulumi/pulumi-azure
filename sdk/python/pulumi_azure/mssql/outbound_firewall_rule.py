@@ -29,12 +29,14 @@ class OutboundFirewallRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             server_id: pulumi.Input[str],
+             server_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'serverId' in kwargs:
+        if server_id is None and 'serverId' in kwargs:
             server_id = kwargs['serverId']
+        if server_id is None:
+            raise TypeError("Missing 'server_id' argument")
 
         _setter("server_id", server_id)
         if name is not None:
@@ -87,7 +89,7 @@ class _OutboundFirewallRuleState:
              server_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'serverId' in kwargs:
+        if server_id is None and 'serverId' in kwargs:
             server_id = kwargs['serverId']
 
         if name is not None:

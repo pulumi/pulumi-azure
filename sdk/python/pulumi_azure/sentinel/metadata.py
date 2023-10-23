@@ -86,10 +86,10 @@ class MetadataArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             content_id: pulumi.Input[str],
-             kind: pulumi.Input[str],
-             parent_id: pulumi.Input[str],
-             workspace_id: pulumi.Input[str],
+             content_id: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             parent_id: Optional[pulumi.Input[str]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
              author: Optional[pulumi.Input['MetadataAuthorArgs']] = None,
              category: Optional[pulumi.Input['MetadataCategoryArgs']] = None,
              content_schema_version: Optional[pulumi.Input[str]] = None,
@@ -109,29 +109,37 @@ class MetadataArgs:
              version: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'contentId' in kwargs:
+        if content_id is None and 'contentId' in kwargs:
             content_id = kwargs['contentId']
-        if 'parentId' in kwargs:
+        if content_id is None:
+            raise TypeError("Missing 'content_id' argument")
+        if kind is None:
+            raise TypeError("Missing 'kind' argument")
+        if parent_id is None and 'parentId' in kwargs:
             parent_id = kwargs['parentId']
-        if 'workspaceId' in kwargs:
+        if parent_id is None:
+            raise TypeError("Missing 'parent_id' argument")
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
-        if 'contentSchemaVersion' in kwargs:
+        if workspace_id is None:
+            raise TypeError("Missing 'workspace_id' argument")
+        if content_schema_version is None and 'contentSchemaVersion' in kwargs:
             content_schema_version = kwargs['contentSchemaVersion']
-        if 'customVersion' in kwargs:
+        if custom_version is None and 'customVersion' in kwargs:
             custom_version = kwargs['customVersion']
-        if 'firstPublishDate' in kwargs:
+        if first_publish_date is None and 'firstPublishDate' in kwargs:
             first_publish_date = kwargs['firstPublishDate']
-        if 'iconId' in kwargs:
+        if icon_id is None and 'iconId' in kwargs:
             icon_id = kwargs['iconId']
-        if 'lastPublishDate' in kwargs:
+        if last_publish_date is None and 'lastPublishDate' in kwargs:
             last_publish_date = kwargs['lastPublishDate']
-        if 'previewImages' in kwargs:
+        if preview_images is None and 'previewImages' in kwargs:
             preview_images = kwargs['previewImages']
-        if 'previewImagesDarks' in kwargs:
+        if preview_images_darks is None and 'previewImagesDarks' in kwargs:
             preview_images_darks = kwargs['previewImagesDarks']
-        if 'threatAnalysisTactics' in kwargs:
+        if threat_analysis_tactics is None and 'threatAnalysisTactics' in kwargs:
             threat_analysis_tactics = kwargs['threatAnalysisTactics']
-        if 'threatAnalysisTechniques' in kwargs:
+        if threat_analysis_techniques is None and 'threatAnalysisTechniques' in kwargs:
             threat_analysis_techniques = kwargs['threatAnalysisTechniques']
 
         _setter("content_id", content_id)
@@ -516,29 +524,29 @@ class _MetadataState:
              workspace_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'contentId' in kwargs:
+        if content_id is None and 'contentId' in kwargs:
             content_id = kwargs['contentId']
-        if 'contentSchemaVersion' in kwargs:
+        if content_schema_version is None and 'contentSchemaVersion' in kwargs:
             content_schema_version = kwargs['contentSchemaVersion']
-        if 'customVersion' in kwargs:
+        if custom_version is None and 'customVersion' in kwargs:
             custom_version = kwargs['customVersion']
-        if 'firstPublishDate' in kwargs:
+        if first_publish_date is None and 'firstPublishDate' in kwargs:
             first_publish_date = kwargs['firstPublishDate']
-        if 'iconId' in kwargs:
+        if icon_id is None and 'iconId' in kwargs:
             icon_id = kwargs['iconId']
-        if 'lastPublishDate' in kwargs:
+        if last_publish_date is None and 'lastPublishDate' in kwargs:
             last_publish_date = kwargs['lastPublishDate']
-        if 'parentId' in kwargs:
+        if parent_id is None and 'parentId' in kwargs:
             parent_id = kwargs['parentId']
-        if 'previewImages' in kwargs:
+        if preview_images is None and 'previewImages' in kwargs:
             preview_images = kwargs['previewImages']
-        if 'previewImagesDarks' in kwargs:
+        if preview_images_darks is None and 'previewImagesDarks' in kwargs:
             preview_images_darks = kwargs['previewImagesDarks']
-        if 'threatAnalysisTactics' in kwargs:
+        if threat_analysis_tactics is None and 'threatAnalysisTactics' in kwargs:
             threat_analysis_tactics = kwargs['threatAnalysisTactics']
-        if 'threatAnalysisTechniques' in kwargs:
+        if threat_analysis_techniques is None and 'threatAnalysisTechniques' in kwargs:
             threat_analysis_techniques = kwargs['threatAnalysisTechniques']
-        if 'workspaceId' in kwargs:
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
 
         if author is not None:

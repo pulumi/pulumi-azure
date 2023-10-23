@@ -37,18 +37,24 @@ class CustomDomainArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             domain_name: pulumi.Input[str],
-             web_pubsub_custom_certificate_id: pulumi.Input[str],
-             web_pubsub_id: pulumi.Input[str],
+             domain_name: Optional[pulumi.Input[str]] = None,
+             web_pubsub_custom_certificate_id: Optional[pulumi.Input[str]] = None,
+             web_pubsub_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'domainName' in kwargs:
+        if domain_name is None and 'domainName' in kwargs:
             domain_name = kwargs['domainName']
-        if 'webPubsubCustomCertificateId' in kwargs:
+        if domain_name is None:
+            raise TypeError("Missing 'domain_name' argument")
+        if web_pubsub_custom_certificate_id is None and 'webPubsubCustomCertificateId' in kwargs:
             web_pubsub_custom_certificate_id = kwargs['webPubsubCustomCertificateId']
-        if 'webPubsubId' in kwargs:
+        if web_pubsub_custom_certificate_id is None:
+            raise TypeError("Missing 'web_pubsub_custom_certificate_id' argument")
+        if web_pubsub_id is None and 'webPubsubId' in kwargs:
             web_pubsub_id = kwargs['webPubsubId']
+        if web_pubsub_id is None:
+            raise TypeError("Missing 'web_pubsub_id' argument")
 
         _setter("domain_name", domain_name)
         _setter("web_pubsub_custom_certificate_id", web_pubsub_custom_certificate_id)
@@ -139,11 +145,11 @@ class _CustomDomainState:
              web_pubsub_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'domainName' in kwargs:
+        if domain_name is None and 'domainName' in kwargs:
             domain_name = kwargs['domainName']
-        if 'webPubsubCustomCertificateId' in kwargs:
+        if web_pubsub_custom_certificate_id is None and 'webPubsubCustomCertificateId' in kwargs:
             web_pubsub_custom_certificate_id = kwargs['webPubsubCustomCertificateId']
-        if 'webPubsubId' in kwargs:
+        if web_pubsub_id is None and 'webPubsubId' in kwargs:
             web_pubsub_id = kwargs['webPubsubId']
 
         if domain_name is not None:

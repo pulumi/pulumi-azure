@@ -114,8 +114,8 @@ class LinuxFunctionAppSlotArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             function_app_id: pulumi.Input[str],
-             site_config: pulumi.Input['LinuxFunctionAppSlotSiteConfigArgs'],
+             function_app_id: Optional[pulumi.Input[str]] = None,
+             site_config: Optional[pulumi.Input['LinuxFunctionAppSlotSiteConfigArgs']] = None,
              app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              auth_settings: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsArgs']] = None,
              auth_settings_v2: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2Args']] = None,
@@ -144,51 +144,55 @@ class LinuxFunctionAppSlotArgs:
              virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'functionAppId' in kwargs:
+        if function_app_id is None and 'functionAppId' in kwargs:
             function_app_id = kwargs['functionAppId']
-        if 'siteConfig' in kwargs:
+        if function_app_id is None:
+            raise TypeError("Missing 'function_app_id' argument")
+        if site_config is None and 'siteConfig' in kwargs:
             site_config = kwargs['siteConfig']
-        if 'appSettings' in kwargs:
+        if site_config is None:
+            raise TypeError("Missing 'site_config' argument")
+        if app_settings is None and 'appSettings' in kwargs:
             app_settings = kwargs['appSettings']
-        if 'authSettings' in kwargs:
+        if auth_settings is None and 'authSettings' in kwargs:
             auth_settings = kwargs['authSettings']
-        if 'authSettingsV2' in kwargs:
+        if auth_settings_v2 is None and 'authSettingsV2' in kwargs:
             auth_settings_v2 = kwargs['authSettingsV2']
-        if 'builtinLoggingEnabled' in kwargs:
+        if builtin_logging_enabled is None and 'builtinLoggingEnabled' in kwargs:
             builtin_logging_enabled = kwargs['builtinLoggingEnabled']
-        if 'clientCertificateEnabled' in kwargs:
+        if client_certificate_enabled is None and 'clientCertificateEnabled' in kwargs:
             client_certificate_enabled = kwargs['clientCertificateEnabled']
-        if 'clientCertificateExclusionPaths' in kwargs:
+        if client_certificate_exclusion_paths is None and 'clientCertificateExclusionPaths' in kwargs:
             client_certificate_exclusion_paths = kwargs['clientCertificateExclusionPaths']
-        if 'clientCertificateMode' in kwargs:
+        if client_certificate_mode is None and 'clientCertificateMode' in kwargs:
             client_certificate_mode = kwargs['clientCertificateMode']
-        if 'connectionStrings' in kwargs:
+        if connection_strings is None and 'connectionStrings' in kwargs:
             connection_strings = kwargs['connectionStrings']
-        if 'contentShareForceDisabled' in kwargs:
+        if content_share_force_disabled is None and 'contentShareForceDisabled' in kwargs:
             content_share_force_disabled = kwargs['contentShareForceDisabled']
-        if 'dailyMemoryTimeQuota' in kwargs:
+        if daily_memory_time_quota is None and 'dailyMemoryTimeQuota' in kwargs:
             daily_memory_time_quota = kwargs['dailyMemoryTimeQuota']
-        if 'functionsExtensionVersion' in kwargs:
+        if functions_extension_version is None and 'functionsExtensionVersion' in kwargs:
             functions_extension_version = kwargs['functionsExtensionVersion']
-        if 'httpsOnly' in kwargs:
+        if https_only is None and 'httpsOnly' in kwargs:
             https_only = kwargs['httpsOnly']
-        if 'keyVaultReferenceIdentityId' in kwargs:
+        if key_vault_reference_identity_id is None and 'keyVaultReferenceIdentityId' in kwargs:
             key_vault_reference_identity_id = kwargs['keyVaultReferenceIdentityId']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'servicePlanId' in kwargs:
+        if service_plan_id is None and 'servicePlanId' in kwargs:
             service_plan_id = kwargs['servicePlanId']
-        if 'storageAccountAccessKey' in kwargs:
+        if storage_account_access_key is None and 'storageAccountAccessKey' in kwargs:
             storage_account_access_key = kwargs['storageAccountAccessKey']
-        if 'storageAccountName' in kwargs:
+        if storage_account_name is None and 'storageAccountName' in kwargs:
             storage_account_name = kwargs['storageAccountName']
-        if 'storageAccounts' in kwargs:
+        if storage_accounts is None and 'storageAccounts' in kwargs:
             storage_accounts = kwargs['storageAccounts']
-        if 'storageKeyVaultSecretId' in kwargs:
+        if storage_key_vault_secret_id is None and 'storageKeyVaultSecretId' in kwargs:
             storage_key_vault_secret_id = kwargs['storageKeyVaultSecretId']
-        if 'storageUsesManagedIdentity' in kwargs:
+        if storage_uses_managed_identity is None and 'storageUsesManagedIdentity' in kwargs:
             storage_uses_managed_identity = kwargs['storageUsesManagedIdentity']
-        if 'virtualNetworkSubnetId' in kwargs:
+        if virtual_network_subnet_id is None and 'virtualNetworkSubnetId' in kwargs:
             virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
 
         _setter("function_app_id", function_app_id)
@@ -753,67 +757,67 @@ class _LinuxFunctionAppSlotState:
              virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'appSettings' in kwargs:
+        if app_settings is None and 'appSettings' in kwargs:
             app_settings = kwargs['appSettings']
-        if 'authSettings' in kwargs:
+        if auth_settings is None and 'authSettings' in kwargs:
             auth_settings = kwargs['authSettings']
-        if 'authSettingsV2' in kwargs:
+        if auth_settings_v2 is None and 'authSettingsV2' in kwargs:
             auth_settings_v2 = kwargs['authSettingsV2']
-        if 'builtinLoggingEnabled' in kwargs:
+        if builtin_logging_enabled is None and 'builtinLoggingEnabled' in kwargs:
             builtin_logging_enabled = kwargs['builtinLoggingEnabled']
-        if 'clientCertificateEnabled' in kwargs:
+        if client_certificate_enabled is None and 'clientCertificateEnabled' in kwargs:
             client_certificate_enabled = kwargs['clientCertificateEnabled']
-        if 'clientCertificateExclusionPaths' in kwargs:
+        if client_certificate_exclusion_paths is None and 'clientCertificateExclusionPaths' in kwargs:
             client_certificate_exclusion_paths = kwargs['clientCertificateExclusionPaths']
-        if 'clientCertificateMode' in kwargs:
+        if client_certificate_mode is None and 'clientCertificateMode' in kwargs:
             client_certificate_mode = kwargs['clientCertificateMode']
-        if 'connectionStrings' in kwargs:
+        if connection_strings is None and 'connectionStrings' in kwargs:
             connection_strings = kwargs['connectionStrings']
-        if 'contentShareForceDisabled' in kwargs:
+        if content_share_force_disabled is None and 'contentShareForceDisabled' in kwargs:
             content_share_force_disabled = kwargs['contentShareForceDisabled']
-        if 'customDomainVerificationId' in kwargs:
+        if custom_domain_verification_id is None and 'customDomainVerificationId' in kwargs:
             custom_domain_verification_id = kwargs['customDomainVerificationId']
-        if 'dailyMemoryTimeQuota' in kwargs:
+        if daily_memory_time_quota is None and 'dailyMemoryTimeQuota' in kwargs:
             daily_memory_time_quota = kwargs['dailyMemoryTimeQuota']
-        if 'defaultHostname' in kwargs:
+        if default_hostname is None and 'defaultHostname' in kwargs:
             default_hostname = kwargs['defaultHostname']
-        if 'functionAppId' in kwargs:
+        if function_app_id is None and 'functionAppId' in kwargs:
             function_app_id = kwargs['functionAppId']
-        if 'functionsExtensionVersion' in kwargs:
+        if functions_extension_version is None and 'functionsExtensionVersion' in kwargs:
             functions_extension_version = kwargs['functionsExtensionVersion']
-        if 'hostingEnvironmentId' in kwargs:
+        if hosting_environment_id is None and 'hostingEnvironmentId' in kwargs:
             hosting_environment_id = kwargs['hostingEnvironmentId']
-        if 'httpsOnly' in kwargs:
+        if https_only is None and 'httpsOnly' in kwargs:
             https_only = kwargs['httpsOnly']
-        if 'keyVaultReferenceIdentityId' in kwargs:
+        if key_vault_reference_identity_id is None and 'keyVaultReferenceIdentityId' in kwargs:
             key_vault_reference_identity_id = kwargs['keyVaultReferenceIdentityId']
-        if 'outboundIpAddressLists' in kwargs:
+        if outbound_ip_address_lists is None and 'outboundIpAddressLists' in kwargs:
             outbound_ip_address_lists = kwargs['outboundIpAddressLists']
-        if 'outboundIpAddresses' in kwargs:
+        if outbound_ip_addresses is None and 'outboundIpAddresses' in kwargs:
             outbound_ip_addresses = kwargs['outboundIpAddresses']
-        if 'possibleOutboundIpAddressLists' in kwargs:
+        if possible_outbound_ip_address_lists is None and 'possibleOutboundIpAddressLists' in kwargs:
             possible_outbound_ip_address_lists = kwargs['possibleOutboundIpAddressLists']
-        if 'possibleOutboundIpAddresses' in kwargs:
+        if possible_outbound_ip_addresses is None and 'possibleOutboundIpAddresses' in kwargs:
             possible_outbound_ip_addresses = kwargs['possibleOutboundIpAddresses']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'servicePlanId' in kwargs:
+        if service_plan_id is None and 'servicePlanId' in kwargs:
             service_plan_id = kwargs['servicePlanId']
-        if 'siteConfig' in kwargs:
+        if site_config is None and 'siteConfig' in kwargs:
             site_config = kwargs['siteConfig']
-        if 'siteCredentials' in kwargs:
+        if site_credentials is None and 'siteCredentials' in kwargs:
             site_credentials = kwargs['siteCredentials']
-        if 'storageAccountAccessKey' in kwargs:
+        if storage_account_access_key is None and 'storageAccountAccessKey' in kwargs:
             storage_account_access_key = kwargs['storageAccountAccessKey']
-        if 'storageAccountName' in kwargs:
+        if storage_account_name is None and 'storageAccountName' in kwargs:
             storage_account_name = kwargs['storageAccountName']
-        if 'storageAccounts' in kwargs:
+        if storage_accounts is None and 'storageAccounts' in kwargs:
             storage_accounts = kwargs['storageAccounts']
-        if 'storageKeyVaultSecretId' in kwargs:
+        if storage_key_vault_secret_id is None and 'storageKeyVaultSecretId' in kwargs:
             storage_key_vault_secret_id = kwargs['storageKeyVaultSecretId']
-        if 'storageUsesManagedIdentity' in kwargs:
+        if storage_uses_managed_identity is None and 'storageUsesManagedIdentity' in kwargs:
             storage_uses_managed_identity = kwargs['storageUsesManagedIdentity']
-        if 'virtualNetworkSubnetId' in kwargs:
+        if virtual_network_subnet_id is None and 'virtualNetworkSubnetId' in kwargs:
             virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
 
         if app_settings is not None:

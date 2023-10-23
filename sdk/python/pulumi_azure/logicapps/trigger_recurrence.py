@@ -48,20 +48,26 @@ class TriggerRecurrenceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             frequency: pulumi.Input[str],
-             interval: pulumi.Input[int],
-             logic_app_id: pulumi.Input[str],
+             frequency: Optional[pulumi.Input[str]] = None,
+             interval: Optional[pulumi.Input[int]] = None,
+             logic_app_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              schedule: Optional[pulumi.Input['TriggerRecurrenceScheduleArgs']] = None,
              start_time: Optional[pulumi.Input[str]] = None,
              time_zone: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'logicAppId' in kwargs:
+        if frequency is None:
+            raise TypeError("Missing 'frequency' argument")
+        if interval is None:
+            raise TypeError("Missing 'interval' argument")
+        if logic_app_id is None and 'logicAppId' in kwargs:
             logic_app_id = kwargs['logicAppId']
-        if 'startTime' in kwargs:
+        if logic_app_id is None:
+            raise TypeError("Missing 'logic_app_id' argument")
+        if start_time is None and 'startTime' in kwargs:
             start_time = kwargs['startTime']
-        if 'timeZone' in kwargs:
+        if time_zone is None and 'timeZone' in kwargs:
             time_zone = kwargs['timeZone']
 
         _setter("frequency", frequency)
@@ -207,11 +213,11 @@ class _TriggerRecurrenceState:
              time_zone: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'logicAppId' in kwargs:
+        if logic_app_id is None and 'logicAppId' in kwargs:
             logic_app_id = kwargs['logicAppId']
-        if 'startTime' in kwargs:
+        if start_time is None and 'startTime' in kwargs:
             start_time = kwargs['startTime']
-        if 'timeZone' in kwargs:
+        if time_zone is None and 'timeZone' in kwargs:
             time_zone = kwargs['timeZone']
 
         if frequency is not None:

@@ -43,19 +43,25 @@ class LogProfileArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             categories: pulumi.Input[Sequence[pulumi.Input[str]]],
-             locations: pulumi.Input[Sequence[pulumi.Input[str]]],
-             retention_policy: pulumi.Input['LogProfileRetentionPolicyArgs'],
+             categories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             retention_policy: Optional[pulumi.Input['LogProfileRetentionPolicyArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              servicebus_rule_id: Optional[pulumi.Input[str]] = None,
              storage_account_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'retentionPolicy' in kwargs:
+        if categories is None:
+            raise TypeError("Missing 'categories' argument")
+        if locations is None:
+            raise TypeError("Missing 'locations' argument")
+        if retention_policy is None and 'retentionPolicy' in kwargs:
             retention_policy = kwargs['retentionPolicy']
-        if 'servicebusRuleId' in kwargs:
+        if retention_policy is None:
+            raise TypeError("Missing 'retention_policy' argument")
+        if servicebus_rule_id is None and 'servicebusRuleId' in kwargs:
             servicebus_rule_id = kwargs['servicebusRuleId']
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
 
         _setter("categories", categories)
@@ -179,11 +185,11 @@ class _LogProfileState:
              storage_account_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'retentionPolicy' in kwargs:
+        if retention_policy is None and 'retentionPolicy' in kwargs:
             retention_policy = kwargs['retentionPolicy']
-        if 'servicebusRuleId' in kwargs:
+        if servicebus_rule_id is None and 'servicebusRuleId' in kwargs:
             servicebus_rule_id = kwargs['servicebusRuleId']
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
 
         if categories is not None:

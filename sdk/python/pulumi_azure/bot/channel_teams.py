@@ -41,23 +41,27 @@ class ChannelTeamsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bot_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             bot_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              calling_web_hook: Optional[pulumi.Input[str]] = None,
              deployment_environment: Optional[pulumi.Input[str]] = None,
              enable_calling: Optional[pulumi.Input[bool]] = None,
              location: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'botName' in kwargs:
+        if bot_name is None and 'botName' in kwargs:
             bot_name = kwargs['botName']
-        if 'resourceGroupName' in kwargs:
+        if bot_name is None:
+            raise TypeError("Missing 'bot_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'callingWebHook' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if calling_web_hook is None and 'callingWebHook' in kwargs:
             calling_web_hook = kwargs['callingWebHook']
-        if 'deploymentEnvironment' in kwargs:
+        if deployment_environment is None and 'deploymentEnvironment' in kwargs:
             deployment_environment = kwargs['deploymentEnvironment']
-        if 'enableCalling' in kwargs:
+        if enable_calling is None and 'enableCalling' in kwargs:
             enable_calling = kwargs['enableCalling']
 
         _setter("bot_name", bot_name)
@@ -182,15 +186,15 @@ class _ChannelTeamsState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'botName' in kwargs:
+        if bot_name is None and 'botName' in kwargs:
             bot_name = kwargs['botName']
-        if 'callingWebHook' in kwargs:
+        if calling_web_hook is None and 'callingWebHook' in kwargs:
             calling_web_hook = kwargs['callingWebHook']
-        if 'deploymentEnvironment' in kwargs:
+        if deployment_environment is None and 'deploymentEnvironment' in kwargs:
             deployment_environment = kwargs['deploymentEnvironment']
-        if 'enableCalling' in kwargs:
+        if enable_calling is None and 'enableCalling' in kwargs:
             enable_calling = kwargs['enableCalling']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if bot_name is not None:

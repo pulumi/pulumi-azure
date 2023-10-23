@@ -46,22 +46,28 @@ class ScheduleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             lab_id: pulumi.Input[str],
-             stop_time: pulumi.Input[str],
-             time_zone: pulumi.Input[str],
+             lab_id: Optional[pulumi.Input[str]] = None,
+             stop_time: Optional[pulumi.Input[str]] = None,
+             time_zone: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              notes: Optional[pulumi.Input[str]] = None,
              recurrence: Optional[pulumi.Input['ScheduleRecurrenceArgs']] = None,
              start_time: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'labId' in kwargs:
+        if lab_id is None and 'labId' in kwargs:
             lab_id = kwargs['labId']
-        if 'stopTime' in kwargs:
+        if lab_id is None:
+            raise TypeError("Missing 'lab_id' argument")
+        if stop_time is None and 'stopTime' in kwargs:
             stop_time = kwargs['stopTime']
-        if 'timeZone' in kwargs:
+        if stop_time is None:
+            raise TypeError("Missing 'stop_time' argument")
+        if time_zone is None and 'timeZone' in kwargs:
             time_zone = kwargs['timeZone']
-        if 'startTime' in kwargs:
+        if time_zone is None:
+            raise TypeError("Missing 'time_zone' argument")
+        if start_time is None and 'startTime' in kwargs:
             start_time = kwargs['startTime']
 
         _setter("lab_id", lab_id)
@@ -203,13 +209,13 @@ class _ScheduleState:
              time_zone: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'labId' in kwargs:
+        if lab_id is None and 'labId' in kwargs:
             lab_id = kwargs['labId']
-        if 'startTime' in kwargs:
+        if start_time is None and 'startTime' in kwargs:
             start_time = kwargs['startTime']
-        if 'stopTime' in kwargs:
+        if stop_time is None and 'stopTime' in kwargs:
             stop_time = kwargs['stopTime']
-        if 'timeZone' in kwargs:
+        if time_zone is None and 'timeZone' in kwargs:
             time_zone = kwargs['timeZone']
 
         if lab_id is not None:

@@ -52,9 +52,9 @@ class VirtualNetworkPeeringArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             remote_virtual_network_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             virtual_network_name: pulumi.Input[str],
+             remote_virtual_network_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             virtual_network_name: Optional[pulumi.Input[str]] = None,
              allow_forwarded_traffic: Optional[pulumi.Input[bool]] = None,
              allow_gateway_transit: Optional[pulumi.Input[bool]] = None,
              allow_virtual_network_access: Optional[pulumi.Input[bool]] = None,
@@ -63,19 +63,25 @@ class VirtualNetworkPeeringArgs:
              use_remote_gateways: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'remoteVirtualNetworkId' in kwargs:
+        if remote_virtual_network_id is None and 'remoteVirtualNetworkId' in kwargs:
             remote_virtual_network_id = kwargs['remoteVirtualNetworkId']
-        if 'resourceGroupName' in kwargs:
+        if remote_virtual_network_id is None:
+            raise TypeError("Missing 'remote_virtual_network_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'virtualNetworkName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if virtual_network_name is None and 'virtualNetworkName' in kwargs:
             virtual_network_name = kwargs['virtualNetworkName']
-        if 'allowForwardedTraffic' in kwargs:
+        if virtual_network_name is None:
+            raise TypeError("Missing 'virtual_network_name' argument")
+        if allow_forwarded_traffic is None and 'allowForwardedTraffic' in kwargs:
             allow_forwarded_traffic = kwargs['allowForwardedTraffic']
-        if 'allowGatewayTransit' in kwargs:
+        if allow_gateway_transit is None and 'allowGatewayTransit' in kwargs:
             allow_gateway_transit = kwargs['allowGatewayTransit']
-        if 'allowVirtualNetworkAccess' in kwargs:
+        if allow_virtual_network_access is None and 'allowVirtualNetworkAccess' in kwargs:
             allow_virtual_network_access = kwargs['allowVirtualNetworkAccess']
-        if 'useRemoteGateways' in kwargs:
+        if use_remote_gateways is None and 'useRemoteGateways' in kwargs:
             use_remote_gateways = kwargs['useRemoteGateways']
 
         _setter("remote_virtual_network_id", remote_virtual_network_id)
@@ -257,19 +263,19 @@ class _VirtualNetworkPeeringState:
              virtual_network_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowForwardedTraffic' in kwargs:
+        if allow_forwarded_traffic is None and 'allowForwardedTraffic' in kwargs:
             allow_forwarded_traffic = kwargs['allowForwardedTraffic']
-        if 'allowGatewayTransit' in kwargs:
+        if allow_gateway_transit is None and 'allowGatewayTransit' in kwargs:
             allow_gateway_transit = kwargs['allowGatewayTransit']
-        if 'allowVirtualNetworkAccess' in kwargs:
+        if allow_virtual_network_access is None and 'allowVirtualNetworkAccess' in kwargs:
             allow_virtual_network_access = kwargs['allowVirtualNetworkAccess']
-        if 'remoteVirtualNetworkId' in kwargs:
+        if remote_virtual_network_id is None and 'remoteVirtualNetworkId' in kwargs:
             remote_virtual_network_id = kwargs['remoteVirtualNetworkId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'useRemoteGateways' in kwargs:
+        if use_remote_gateways is None and 'useRemoteGateways' in kwargs:
             use_remote_gateways = kwargs['useRemoteGateways']
-        if 'virtualNetworkName' in kwargs:
+        if virtual_network_name is None and 'virtualNetworkName' in kwargs:
             virtual_network_name = kwargs['virtualNetworkName']
 
         if allow_forwarded_traffic is not None:

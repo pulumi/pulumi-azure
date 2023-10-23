@@ -38,21 +38,29 @@ class FirewallRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             end_ip: pulumi.Input[str],
-             redis_cache_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             start_ip: pulumi.Input[str],
+             end_ip: Optional[pulumi.Input[str]] = None,
+             redis_cache_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             start_ip: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'endIp' in kwargs:
+        if end_ip is None and 'endIp' in kwargs:
             end_ip = kwargs['endIp']
-        if 'redisCacheName' in kwargs:
+        if end_ip is None:
+            raise TypeError("Missing 'end_ip' argument")
+        if redis_cache_name is None and 'redisCacheName' in kwargs:
             redis_cache_name = kwargs['redisCacheName']
-        if 'resourceGroupName' in kwargs:
+        if redis_cache_name is None:
+            raise TypeError("Missing 'redis_cache_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'startIp' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if start_ip is None and 'startIp' in kwargs:
             start_ip = kwargs['startIp']
+        if start_ip is None:
+            raise TypeError("Missing 'start_ip' argument")
 
         _setter("end_ip", end_ip)
         _setter("redis_cache_name", redis_cache_name)
@@ -156,13 +164,13 @@ class _FirewallRuleState:
              start_ip: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'endIp' in kwargs:
+        if end_ip is None and 'endIp' in kwargs:
             end_ip = kwargs['endIp']
-        if 'redisCacheName' in kwargs:
+        if redis_cache_name is None and 'redisCacheName' in kwargs:
             redis_cache_name = kwargs['redisCacheName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'startIp' in kwargs:
+        if start_ip is None and 'startIp' in kwargs:
             start_ip = kwargs['startIp']
 
         if end_ip is not None:

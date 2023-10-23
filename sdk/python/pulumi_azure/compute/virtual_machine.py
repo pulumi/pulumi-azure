@@ -107,10 +107,10 @@ class VirtualMachineArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             network_interface_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             resource_group_name: pulumi.Input[str],
-             storage_os_disk: pulumi.Input['VirtualMachineStorageOsDiskArgs'],
-             vm_size: pulumi.Input[str],
+             network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             storage_os_disk: Optional[pulumi.Input['VirtualMachineStorageOsDiskArgs']] = None,
+             vm_size: Optional[pulumi.Input[str]] = None,
              additional_capabilities: Optional[pulumi.Input['VirtualMachineAdditionalCapabilitiesArgs']] = None,
              availability_set_id: Optional[pulumi.Input[str]] = None,
              boot_diagnostics: Optional[pulumi.Input['VirtualMachineBootDiagnosticsArgs']] = None,
@@ -133,41 +133,49 @@ class VirtualMachineArgs:
              zones: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'networkInterfaceIds' in kwargs:
+        if network_interface_ids is None and 'networkInterfaceIds' in kwargs:
             network_interface_ids = kwargs['networkInterfaceIds']
-        if 'resourceGroupName' in kwargs:
+        if network_interface_ids is None:
+            raise TypeError("Missing 'network_interface_ids' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'storageOsDisk' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if storage_os_disk is None and 'storageOsDisk' in kwargs:
             storage_os_disk = kwargs['storageOsDisk']
-        if 'vmSize' in kwargs:
+        if storage_os_disk is None:
+            raise TypeError("Missing 'storage_os_disk' argument")
+        if vm_size is None and 'vmSize' in kwargs:
             vm_size = kwargs['vmSize']
-        if 'additionalCapabilities' in kwargs:
+        if vm_size is None:
+            raise TypeError("Missing 'vm_size' argument")
+        if additional_capabilities is None and 'additionalCapabilities' in kwargs:
             additional_capabilities = kwargs['additionalCapabilities']
-        if 'availabilitySetId' in kwargs:
+        if availability_set_id is None and 'availabilitySetId' in kwargs:
             availability_set_id = kwargs['availabilitySetId']
-        if 'bootDiagnostics' in kwargs:
+        if boot_diagnostics is None and 'bootDiagnostics' in kwargs:
             boot_diagnostics = kwargs['bootDiagnostics']
-        if 'deleteDataDisksOnTermination' in kwargs:
+        if delete_data_disks_on_termination is None and 'deleteDataDisksOnTermination' in kwargs:
             delete_data_disks_on_termination = kwargs['deleteDataDisksOnTermination']
-        if 'deleteOsDiskOnTermination' in kwargs:
+        if delete_os_disk_on_termination is None and 'deleteOsDiskOnTermination' in kwargs:
             delete_os_disk_on_termination = kwargs['deleteOsDiskOnTermination']
-        if 'licenseType' in kwargs:
+        if license_type is None and 'licenseType' in kwargs:
             license_type = kwargs['licenseType']
-        if 'osProfile' in kwargs:
+        if os_profile is None and 'osProfile' in kwargs:
             os_profile = kwargs['osProfile']
-        if 'osProfileLinuxConfig' in kwargs:
+        if os_profile_linux_config is None and 'osProfileLinuxConfig' in kwargs:
             os_profile_linux_config = kwargs['osProfileLinuxConfig']
-        if 'osProfileSecrets' in kwargs:
+        if os_profile_secrets is None and 'osProfileSecrets' in kwargs:
             os_profile_secrets = kwargs['osProfileSecrets']
-        if 'osProfileWindowsConfig' in kwargs:
+        if os_profile_windows_config is None and 'osProfileWindowsConfig' in kwargs:
             os_profile_windows_config = kwargs['osProfileWindowsConfig']
-        if 'primaryNetworkInterfaceId' in kwargs:
+        if primary_network_interface_id is None and 'primaryNetworkInterfaceId' in kwargs:
             primary_network_interface_id = kwargs['primaryNetworkInterfaceId']
-        if 'proximityPlacementGroupId' in kwargs:
+        if proximity_placement_group_id is None and 'proximityPlacementGroupId' in kwargs:
             proximity_placement_group_id = kwargs['proximityPlacementGroupId']
-        if 'storageDataDisks' in kwargs:
+        if storage_data_disks is None and 'storageDataDisks' in kwargs:
             storage_data_disks = kwargs['storageDataDisks']
-        if 'storageImageReference' in kwargs:
+        if storage_image_reference is None and 'storageImageReference' in kwargs:
             storage_image_reference = kwargs['storageImageReference']
 
         _setter("network_interface_ids", network_interface_ids)
@@ -634,41 +642,41 @@ class _VirtualMachineState:
              zones: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'additionalCapabilities' in kwargs:
+        if additional_capabilities is None and 'additionalCapabilities' in kwargs:
             additional_capabilities = kwargs['additionalCapabilities']
-        if 'availabilitySetId' in kwargs:
+        if availability_set_id is None and 'availabilitySetId' in kwargs:
             availability_set_id = kwargs['availabilitySetId']
-        if 'bootDiagnostics' in kwargs:
+        if boot_diagnostics is None and 'bootDiagnostics' in kwargs:
             boot_diagnostics = kwargs['bootDiagnostics']
-        if 'deleteDataDisksOnTermination' in kwargs:
+        if delete_data_disks_on_termination is None and 'deleteDataDisksOnTermination' in kwargs:
             delete_data_disks_on_termination = kwargs['deleteDataDisksOnTermination']
-        if 'deleteOsDiskOnTermination' in kwargs:
+        if delete_os_disk_on_termination is None and 'deleteOsDiskOnTermination' in kwargs:
             delete_os_disk_on_termination = kwargs['deleteOsDiskOnTermination']
-        if 'licenseType' in kwargs:
+        if license_type is None and 'licenseType' in kwargs:
             license_type = kwargs['licenseType']
-        if 'networkInterfaceIds' in kwargs:
+        if network_interface_ids is None and 'networkInterfaceIds' in kwargs:
             network_interface_ids = kwargs['networkInterfaceIds']
-        if 'osProfile' in kwargs:
+        if os_profile is None and 'osProfile' in kwargs:
             os_profile = kwargs['osProfile']
-        if 'osProfileLinuxConfig' in kwargs:
+        if os_profile_linux_config is None and 'osProfileLinuxConfig' in kwargs:
             os_profile_linux_config = kwargs['osProfileLinuxConfig']
-        if 'osProfileSecrets' in kwargs:
+        if os_profile_secrets is None and 'osProfileSecrets' in kwargs:
             os_profile_secrets = kwargs['osProfileSecrets']
-        if 'osProfileWindowsConfig' in kwargs:
+        if os_profile_windows_config is None and 'osProfileWindowsConfig' in kwargs:
             os_profile_windows_config = kwargs['osProfileWindowsConfig']
-        if 'primaryNetworkInterfaceId' in kwargs:
+        if primary_network_interface_id is None and 'primaryNetworkInterfaceId' in kwargs:
             primary_network_interface_id = kwargs['primaryNetworkInterfaceId']
-        if 'proximityPlacementGroupId' in kwargs:
+        if proximity_placement_group_id is None and 'proximityPlacementGroupId' in kwargs:
             proximity_placement_group_id = kwargs['proximityPlacementGroupId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'storageDataDisks' in kwargs:
+        if storage_data_disks is None and 'storageDataDisks' in kwargs:
             storage_data_disks = kwargs['storageDataDisks']
-        if 'storageImageReference' in kwargs:
+        if storage_image_reference is None and 'storageImageReference' in kwargs:
             storage_image_reference = kwargs['storageImageReference']
-        if 'storageOsDisk' in kwargs:
+        if storage_os_disk is None and 'storageOsDisk' in kwargs:
             storage_os_disk = kwargs['storageOsDisk']
-        if 'vmSize' in kwargs:
+        if vm_size is None and 'vmSize' in kwargs:
             vm_size = kwargs['vmSize']
 
         if additional_capabilities is not None:

@@ -32,13 +32,17 @@ class WatchlistItemArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             properties: pulumi.Input[Mapping[str, pulumi.Input[str]]],
-             watchlist_id: pulumi.Input[str],
+             properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             watchlist_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'watchlistId' in kwargs:
+        if properties is None:
+            raise TypeError("Missing 'properties' argument")
+        if watchlist_id is None and 'watchlistId' in kwargs:
             watchlist_id = kwargs['watchlistId']
+        if watchlist_id is None:
+            raise TypeError("Missing 'watchlist_id' argument")
 
         _setter("properties", properties)
         _setter("watchlist_id", watchlist_id)
@@ -108,7 +112,7 @@ class _WatchlistItemState:
              watchlist_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'watchlistId' in kwargs:
+        if watchlist_id is None and 'watchlistId' in kwargs:
             watchlist_id = kwargs['watchlistId']
 
         if name is not None:

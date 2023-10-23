@@ -90,8 +90,8 @@ class RegistryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             sku: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
              admin_enabled: Optional[pulumi.Input[bool]] = None,
              anonymous_pull_enabled: Optional[pulumi.Input[bool]] = None,
              data_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
@@ -111,29 +111,33 @@ class RegistryArgs:
              zone_redundancy_enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'adminEnabled' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if admin_enabled is None and 'adminEnabled' in kwargs:
             admin_enabled = kwargs['adminEnabled']
-        if 'anonymousPullEnabled' in kwargs:
+        if anonymous_pull_enabled is None and 'anonymousPullEnabled' in kwargs:
             anonymous_pull_enabled = kwargs['anonymousPullEnabled']
-        if 'dataEndpointEnabled' in kwargs:
+        if data_endpoint_enabled is None and 'dataEndpointEnabled' in kwargs:
             data_endpoint_enabled = kwargs['dataEndpointEnabled']
-        if 'exportPolicyEnabled' in kwargs:
+        if export_policy_enabled is None and 'exportPolicyEnabled' in kwargs:
             export_policy_enabled = kwargs['exportPolicyEnabled']
-        if 'networkRuleBypassOption' in kwargs:
+        if network_rule_bypass_option is None and 'networkRuleBypassOption' in kwargs:
             network_rule_bypass_option = kwargs['networkRuleBypassOption']
-        if 'networkRuleSet' in kwargs:
+        if network_rule_set is None and 'networkRuleSet' in kwargs:
             network_rule_set = kwargs['networkRuleSet']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'quarantinePolicyEnabled' in kwargs:
+        if quarantine_policy_enabled is None and 'quarantinePolicyEnabled' in kwargs:
             quarantine_policy_enabled = kwargs['quarantinePolicyEnabled']
-        if 'retentionPolicy' in kwargs:
+        if retention_policy is None and 'retentionPolicy' in kwargs:
             retention_policy = kwargs['retentionPolicy']
-        if 'trustPolicy' in kwargs:
+        if trust_policy is None and 'trustPolicy' in kwargs:
             trust_policy = kwargs['trustPolicy']
-        if 'zoneRedundancyEnabled' in kwargs:
+        if zone_redundancy_enabled is None and 'zoneRedundancyEnabled' in kwargs:
             zone_redundancy_enabled = kwargs['zoneRedundancyEnabled']
 
         _setter("resource_group_name", resource_group_name)
@@ -520,35 +524,35 @@ class _RegistryState:
              zone_redundancy_enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'adminEnabled' in kwargs:
+        if admin_enabled is None and 'adminEnabled' in kwargs:
             admin_enabled = kwargs['adminEnabled']
-        if 'adminPassword' in kwargs:
+        if admin_password is None and 'adminPassword' in kwargs:
             admin_password = kwargs['adminPassword']
-        if 'adminUsername' in kwargs:
+        if admin_username is None and 'adminUsername' in kwargs:
             admin_username = kwargs['adminUsername']
-        if 'anonymousPullEnabled' in kwargs:
+        if anonymous_pull_enabled is None and 'anonymousPullEnabled' in kwargs:
             anonymous_pull_enabled = kwargs['anonymousPullEnabled']
-        if 'dataEndpointEnabled' in kwargs:
+        if data_endpoint_enabled is None and 'dataEndpointEnabled' in kwargs:
             data_endpoint_enabled = kwargs['dataEndpointEnabled']
-        if 'exportPolicyEnabled' in kwargs:
+        if export_policy_enabled is None and 'exportPolicyEnabled' in kwargs:
             export_policy_enabled = kwargs['exportPolicyEnabled']
-        if 'loginServer' in kwargs:
+        if login_server is None and 'loginServer' in kwargs:
             login_server = kwargs['loginServer']
-        if 'networkRuleBypassOption' in kwargs:
+        if network_rule_bypass_option is None and 'networkRuleBypassOption' in kwargs:
             network_rule_bypass_option = kwargs['networkRuleBypassOption']
-        if 'networkRuleSet' in kwargs:
+        if network_rule_set is None and 'networkRuleSet' in kwargs:
             network_rule_set = kwargs['networkRuleSet']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'quarantinePolicyEnabled' in kwargs:
+        if quarantine_policy_enabled is None and 'quarantinePolicyEnabled' in kwargs:
             quarantine_policy_enabled = kwargs['quarantinePolicyEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'retentionPolicy' in kwargs:
+        if retention_policy is None and 'retentionPolicy' in kwargs:
             retention_policy = kwargs['retentionPolicy']
-        if 'trustPolicy' in kwargs:
+        if trust_policy is None and 'trustPolicy' in kwargs:
             trust_policy = kwargs['trustPolicy']
-        if 'zoneRedundancyEnabled' in kwargs:
+        if zone_redundancy_enabled is None and 'zoneRedundancyEnabled' in kwargs:
             zone_redundancy_enabled = kwargs['zoneRedundancyEnabled']
 
         if admin_enabled is not None:

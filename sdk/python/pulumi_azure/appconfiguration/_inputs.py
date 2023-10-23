@@ -42,13 +42,15 @@ class ConfigurationFeatureTargetingFilterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             default_rollout_percentage: pulumi.Input[int],
+             default_rollout_percentage: Optional[pulumi.Input[int]] = None,
              groups: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterGroupArgs']]]] = None,
              users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'defaultRolloutPercentage' in kwargs:
+        if default_rollout_percentage is None and 'defaultRolloutPercentage' in kwargs:
             default_rollout_percentage = kwargs['defaultRolloutPercentage']
+        if default_rollout_percentage is None:
+            raise TypeError("Missing 'default_rollout_percentage' argument")
 
         _setter("default_rollout_percentage", default_rollout_percentage)
         if groups is not None:
@@ -110,12 +112,16 @@ class ConfigurationFeatureTargetingFilterGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             rollout_percentage: pulumi.Input[int],
+             name: Optional[pulumi.Input[str]] = None,
+             rollout_percentage: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'rolloutPercentage' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if rollout_percentage is None and 'rolloutPercentage' in kwargs:
             rollout_percentage = kwargs['rolloutPercentage']
+        if rollout_percentage is None:
+            raise TypeError("Missing 'rollout_percentage' argument")
 
         _setter("name", name)
         _setter("rollout_percentage", rollout_percentage)
@@ -218,9 +224,9 @@ class ConfigurationStoreEncryptionArgs:
              key_vault_key_identifier: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityClientId' in kwargs:
+        if identity_client_id is None and 'identityClientId' in kwargs:
             identity_client_id = kwargs['identityClientId']
-        if 'keyVaultKeyIdentifier' in kwargs:
+        if key_vault_key_identifier is None and 'keyVaultKeyIdentifier' in kwargs:
             key_vault_key_identifier = kwargs['keyVaultKeyIdentifier']
 
         if identity_client_id is not None:
@@ -278,17 +284,19 @@ class ConfigurationStoreIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -375,7 +383,7 @@ class ConfigurationStorePrimaryReadKeyArgs:
              secret: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
 
         if connection_string is not None:
@@ -447,7 +455,7 @@ class ConfigurationStorePrimaryWriteKeyArgs:
              secret: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
 
         if connection_string is not None:
@@ -517,12 +525,16 @@ class ConfigurationStoreReplicaArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             location: pulumi.Input[str],
-             name: pulumi.Input[str],
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
              endpoint: Optional[pulumi.Input[str]] = None,
              id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if location is None:
+            raise TypeError("Missing 'location' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("location", location)
         _setter("name", name)
@@ -605,7 +617,7 @@ class ConfigurationStoreSecondaryReadKeyArgs:
              secret: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
 
         if connection_string is not None:
@@ -677,7 +689,7 @@ class ConfigurationStoreSecondaryWriteKeyArgs:
              secret: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
 
         if connection_string is not None:

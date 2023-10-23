@@ -46,7 +46,7 @@ class SpringCloudJavaDeploymentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             spring_cloud_app_id: pulumi.Input[str],
+             spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
              environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              instance_count: Optional[pulumi.Input[int]] = None,
              jvm_options: Optional[pulumi.Input[str]] = None,
@@ -55,15 +55,17 @@ class SpringCloudJavaDeploymentArgs:
              runtime_version: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'springCloudAppId' in kwargs:
+        if spring_cloud_app_id is None and 'springCloudAppId' in kwargs:
             spring_cloud_app_id = kwargs['springCloudAppId']
-        if 'environmentVariables' in kwargs:
+        if spring_cloud_app_id is None:
+            raise TypeError("Missing 'spring_cloud_app_id' argument")
+        if environment_variables is None and 'environmentVariables' in kwargs:
             environment_variables = kwargs['environmentVariables']
-        if 'instanceCount' in kwargs:
+        if instance_count is None and 'instanceCount' in kwargs:
             instance_count = kwargs['instanceCount']
-        if 'jvmOptions' in kwargs:
+        if jvm_options is None and 'jvmOptions' in kwargs:
             jvm_options = kwargs['jvmOptions']
-        if 'runtimeVersion' in kwargs:
+        if runtime_version is None and 'runtimeVersion' in kwargs:
             runtime_version = kwargs['runtimeVersion']
 
         _setter("spring_cloud_app_id", spring_cloud_app_id)
@@ -207,15 +209,15 @@ class _SpringCloudJavaDeploymentState:
              spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'environmentVariables' in kwargs:
+        if environment_variables is None and 'environmentVariables' in kwargs:
             environment_variables = kwargs['environmentVariables']
-        if 'instanceCount' in kwargs:
+        if instance_count is None and 'instanceCount' in kwargs:
             instance_count = kwargs['instanceCount']
-        if 'jvmOptions' in kwargs:
+        if jvm_options is None and 'jvmOptions' in kwargs:
             jvm_options = kwargs['jvmOptions']
-        if 'runtimeVersion' in kwargs:
+        if runtime_version is None and 'runtimeVersion' in kwargs:
             runtime_version = kwargs['runtimeVersion']
-        if 'springCloudAppId' in kwargs:
+        if spring_cloud_app_id is None and 'springCloudAppId' in kwargs:
             spring_cloud_app_id = kwargs['springCloudAppId']
 
         if environment_variables is not None:

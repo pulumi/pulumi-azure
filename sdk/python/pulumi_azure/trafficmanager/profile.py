@@ -54,10 +54,10 @@ class ProfileArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             dns_config: pulumi.Input['ProfileDnsConfigArgs'],
-             monitor_config: pulumi.Input['ProfileMonitorConfigArgs'],
-             resource_group_name: pulumi.Input[str],
-             traffic_routing_method: pulumi.Input[str],
+             dns_config: Optional[pulumi.Input['ProfileDnsConfigArgs']] = None,
+             monitor_config: Optional[pulumi.Input['ProfileMonitorConfigArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             traffic_routing_method: Optional[pulumi.Input[str]] = None,
              max_return: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
              profile_status: Optional[pulumi.Input[str]] = None,
@@ -65,19 +65,27 @@ class ProfileArgs:
              traffic_view_enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dnsConfig' in kwargs:
+        if dns_config is None and 'dnsConfig' in kwargs:
             dns_config = kwargs['dnsConfig']
-        if 'monitorConfig' in kwargs:
+        if dns_config is None:
+            raise TypeError("Missing 'dns_config' argument")
+        if monitor_config is None and 'monitorConfig' in kwargs:
             monitor_config = kwargs['monitorConfig']
-        if 'resourceGroupName' in kwargs:
+        if monitor_config is None:
+            raise TypeError("Missing 'monitor_config' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'trafficRoutingMethod' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if traffic_routing_method is None and 'trafficRoutingMethod' in kwargs:
             traffic_routing_method = kwargs['trafficRoutingMethod']
-        if 'maxReturn' in kwargs:
+        if traffic_routing_method is None:
+            raise TypeError("Missing 'traffic_routing_method' argument")
+        if max_return is None and 'maxReturn' in kwargs:
             max_return = kwargs['maxReturn']
-        if 'profileStatus' in kwargs:
+        if profile_status is None and 'profileStatus' in kwargs:
             profile_status = kwargs['profileStatus']
-        if 'trafficViewEnabled' in kwargs:
+        if traffic_view_enabled is None and 'trafficViewEnabled' in kwargs:
             traffic_view_enabled = kwargs['trafficViewEnabled']
 
         _setter("dns_config", dns_config)
@@ -262,19 +270,19 @@ class _ProfileState:
              traffic_view_enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dnsConfig' in kwargs:
+        if dns_config is None and 'dnsConfig' in kwargs:
             dns_config = kwargs['dnsConfig']
-        if 'maxReturn' in kwargs:
+        if max_return is None and 'maxReturn' in kwargs:
             max_return = kwargs['maxReturn']
-        if 'monitorConfig' in kwargs:
+        if monitor_config is None and 'monitorConfig' in kwargs:
             monitor_config = kwargs['monitorConfig']
-        if 'profileStatus' in kwargs:
+        if profile_status is None and 'profileStatus' in kwargs:
             profile_status = kwargs['profileStatus']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'trafficRoutingMethod' in kwargs:
+        if traffic_routing_method is None and 'trafficRoutingMethod' in kwargs:
             traffic_routing_method = kwargs['trafficRoutingMethod']
-        if 'trafficViewEnabled' in kwargs:
+        if traffic_view_enabled is None and 'trafficViewEnabled' in kwargs:
             traffic_view_enabled = kwargs['trafficViewEnabled']
 
         if dns_config is not None:

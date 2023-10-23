@@ -29,14 +29,18 @@ class WorkspaceApplicationGroupAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_group_id: pulumi.Input[str],
-             workspace_id: pulumi.Input[str],
+             application_group_id: Optional[pulumi.Input[str]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'applicationGroupId' in kwargs:
+        if application_group_id is None and 'applicationGroupId' in kwargs:
             application_group_id = kwargs['applicationGroupId']
-        if 'workspaceId' in kwargs:
+        if application_group_id is None:
+            raise TypeError("Missing 'application_group_id' argument")
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
+        if workspace_id is None:
+            raise TypeError("Missing 'workspace_id' argument")
 
         _setter("application_group_id", application_group_id)
         _setter("workspace_id", workspace_id)
@@ -88,9 +92,9 @@ class _WorkspaceApplicationGroupAssociationState:
              workspace_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'applicationGroupId' in kwargs:
+        if application_group_id is None and 'applicationGroupId' in kwargs:
             application_group_id = kwargs['applicationGroupId']
-        if 'workspaceId' in kwargs:
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
 
         if application_group_id is not None:

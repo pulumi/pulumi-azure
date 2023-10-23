@@ -29,14 +29,18 @@ class DiskPoolManagedDiskAttachmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             disk_pool_id: pulumi.Input[str],
-             managed_disk_id: pulumi.Input[str],
+             disk_pool_id: Optional[pulumi.Input[str]] = None,
+             managed_disk_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'diskPoolId' in kwargs:
+        if disk_pool_id is None and 'diskPoolId' in kwargs:
             disk_pool_id = kwargs['diskPoolId']
-        if 'managedDiskId' in kwargs:
+        if disk_pool_id is None:
+            raise TypeError("Missing 'disk_pool_id' argument")
+        if managed_disk_id is None and 'managedDiskId' in kwargs:
             managed_disk_id = kwargs['managedDiskId']
+        if managed_disk_id is None:
+            raise TypeError("Missing 'managed_disk_id' argument")
 
         _setter("disk_pool_id", disk_pool_id)
         _setter("managed_disk_id", managed_disk_id)
@@ -88,9 +92,9 @@ class _DiskPoolManagedDiskAttachmentState:
              managed_disk_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'diskPoolId' in kwargs:
+        if disk_pool_id is None and 'diskPoolId' in kwargs:
             disk_pool_id = kwargs['diskPoolId']
-        if 'managedDiskId' in kwargs:
+        if managed_disk_id is None and 'managedDiskId' in kwargs:
             managed_disk_id = kwargs['managedDiskId']
 
         if disk_pool_id is not None:

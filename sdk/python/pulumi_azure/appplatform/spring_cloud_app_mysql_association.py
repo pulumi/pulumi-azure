@@ -41,20 +41,30 @@ class SpringCloudAppMysqlAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database_name: pulumi.Input[str],
-             mysql_server_id: pulumi.Input[str],
-             password: pulumi.Input[str],
-             spring_cloud_app_id: pulumi.Input[str],
-             username: pulumi.Input[str],
+             database_name: Optional[pulumi.Input[str]] = None,
+             mysql_server_id: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'databaseName' in kwargs:
+        if database_name is None and 'databaseName' in kwargs:
             database_name = kwargs['databaseName']
-        if 'mysqlServerId' in kwargs:
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if mysql_server_id is None and 'mysqlServerId' in kwargs:
             mysql_server_id = kwargs['mysqlServerId']
-        if 'springCloudAppId' in kwargs:
+        if mysql_server_id is None:
+            raise TypeError("Missing 'mysql_server_id' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if spring_cloud_app_id is None and 'springCloudAppId' in kwargs:
             spring_cloud_app_id = kwargs['springCloudAppId']
+        if spring_cloud_app_id is None:
+            raise TypeError("Missing 'spring_cloud_app_id' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
 
         _setter("database_name", database_name)
         _setter("mysql_server_id", mysql_server_id)
@@ -175,11 +185,11 @@ class _SpringCloudAppMysqlAssociationState:
              username: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'databaseName' in kwargs:
+        if database_name is None and 'databaseName' in kwargs:
             database_name = kwargs['databaseName']
-        if 'mysqlServerId' in kwargs:
+        if mysql_server_id is None and 'mysqlServerId' in kwargs:
             mysql_server_id = kwargs['mysqlServerId']
-        if 'springCloudAppId' in kwargs:
+        if spring_cloud_app_id is None and 'springCloudAppId' in kwargs:
             spring_cloud_app_id = kwargs['springCloudAppId']
 
         if database_name is not None:

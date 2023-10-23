@@ -38,19 +38,25 @@ class MoverTargetEndpointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             storage_account_id: pulumi.Input[str],
-             storage_container_name: pulumi.Input[str],
-             storage_mover_id: pulumi.Input[str],
+             storage_account_id: Optional[pulumi.Input[str]] = None,
+             storage_container_name: Optional[pulumi.Input[str]] = None,
+             storage_mover_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'storageContainerName' in kwargs:
+        if storage_account_id is None:
+            raise TypeError("Missing 'storage_account_id' argument")
+        if storage_container_name is None and 'storageContainerName' in kwargs:
             storage_container_name = kwargs['storageContainerName']
-        if 'storageMoverId' in kwargs:
+        if storage_container_name is None:
+            raise TypeError("Missing 'storage_container_name' argument")
+        if storage_mover_id is None and 'storageMoverId' in kwargs:
             storage_mover_id = kwargs['storageMoverId']
+        if storage_mover_id is None:
+            raise TypeError("Missing 'storage_mover_id' argument")
 
         _setter("storage_account_id", storage_account_id)
         _setter("storage_container_name", storage_container_name)
@@ -155,11 +161,11 @@ class _MoverTargetEndpointState:
              storage_mover_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'storageContainerName' in kwargs:
+        if storage_container_name is None and 'storageContainerName' in kwargs:
             storage_container_name = kwargs['storageContainerName']
-        if 'storageMoverId' in kwargs:
+        if storage_mover_id is None and 'storageMoverId' in kwargs:
             storage_mover_id = kwargs['storageMoverId']
 
         if description is not None:

@@ -35,18 +35,24 @@ class RouteServerBgpConnectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             peer_asn: pulumi.Input[int],
-             peer_ip: pulumi.Input[str],
-             route_server_id: pulumi.Input[str],
+             peer_asn: Optional[pulumi.Input[int]] = None,
+             peer_ip: Optional[pulumi.Input[str]] = None,
+             route_server_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'peerAsn' in kwargs:
+        if peer_asn is None and 'peerAsn' in kwargs:
             peer_asn = kwargs['peerAsn']
-        if 'peerIp' in kwargs:
+        if peer_asn is None:
+            raise TypeError("Missing 'peer_asn' argument")
+        if peer_ip is None and 'peerIp' in kwargs:
             peer_ip = kwargs['peerIp']
-        if 'routeServerId' in kwargs:
+        if peer_ip is None:
+            raise TypeError("Missing 'peer_ip' argument")
+        if route_server_id is None and 'routeServerId' in kwargs:
             route_server_id = kwargs['routeServerId']
+        if route_server_id is None:
+            raise TypeError("Missing 'route_server_id' argument")
 
         _setter("peer_asn", peer_asn)
         _setter("peer_ip", peer_ip)
@@ -133,11 +139,11 @@ class _RouteServerBgpConnectionState:
              route_server_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'peerAsn' in kwargs:
+        if peer_asn is None and 'peerAsn' in kwargs:
             peer_asn = kwargs['peerAsn']
-        if 'peerIp' in kwargs:
+        if peer_ip is None and 'peerIp' in kwargs:
             peer_ip = kwargs['peerIp']
-        if 'routeServerId' in kwargs:
+        if route_server_id is None and 'routeServerId' in kwargs:
             route_server_id = kwargs['routeServerId']
 
         if name is not None:

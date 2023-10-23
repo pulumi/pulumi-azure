@@ -48,20 +48,26 @@ class ARecordArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             ttl: pulumi.Input[int],
-             zone_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             ttl: Optional[pulumi.Input[int]] = None,
+             zone_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              records: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              target_resource_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'zoneName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if ttl is None:
+            raise TypeError("Missing 'ttl' argument")
+        if zone_name is None and 'zoneName' in kwargs:
             zone_name = kwargs['zoneName']
-        if 'targetResourceId' in kwargs:
+        if zone_name is None:
+            raise TypeError("Missing 'zone_name' argument")
+        if target_resource_id is None and 'targetResourceId' in kwargs:
             target_resource_id = kwargs['targetResourceId']
 
         _setter("resource_group_name", resource_group_name)
@@ -215,11 +221,11 @@ class _ARecordState:
              zone_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'targetResourceId' in kwargs:
+        if target_resource_id is None and 'targetResourceId' in kwargs:
             target_resource_id = kwargs['targetResourceId']
-        if 'zoneName' in kwargs:
+        if zone_name is None and 'zoneName' in kwargs:
             zone_name = kwargs['zoneName']
 
         if fqdn is not None:

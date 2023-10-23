@@ -42,18 +42,22 @@ class ChannelWebChatArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bot_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             bot_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              site_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              sites: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelWebChatSiteArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'botName' in kwargs:
+        if bot_name is None and 'botName' in kwargs:
             bot_name = kwargs['botName']
-        if 'resourceGroupName' in kwargs:
+        if bot_name is None:
+            raise TypeError("Missing 'bot_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'siteNames' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if site_names is None and 'siteNames' in kwargs:
             site_names = kwargs['siteNames']
 
         _setter("bot_name", bot_name)
@@ -170,11 +174,11 @@ class _ChannelWebChatState:
              sites: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelWebChatSiteArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'botName' in kwargs:
+        if bot_name is None and 'botName' in kwargs:
             bot_name = kwargs['botName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'siteNames' in kwargs:
+        if site_names is None and 'siteNames' in kwargs:
             site_names = kwargs['siteNames']
 
         if bot_name is not None:

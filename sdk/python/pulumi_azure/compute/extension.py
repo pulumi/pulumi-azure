@@ -78,10 +78,10 @@ class ExtensionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             publisher: pulumi.Input[str],
-             type: pulumi.Input[str],
-             type_handler_version: pulumi.Input[str],
-             virtual_machine_id: pulumi.Input[str],
+             publisher: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             type_handler_version: Optional[pulumi.Input[str]] = None,
+             virtual_machine_id: Optional[pulumi.Input[str]] = None,
              auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
              automatic_upgrade_enabled: Optional[pulumi.Input[bool]] = None,
              failure_suppression_enabled: Optional[pulumi.Input[bool]] = None,
@@ -93,21 +93,29 @@ class ExtensionArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'typeHandlerVersion' in kwargs:
+        if publisher is None:
+            raise TypeError("Missing 'publisher' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if type_handler_version is None and 'typeHandlerVersion' in kwargs:
             type_handler_version = kwargs['typeHandlerVersion']
-        if 'virtualMachineId' in kwargs:
+        if type_handler_version is None:
+            raise TypeError("Missing 'type_handler_version' argument")
+        if virtual_machine_id is None and 'virtualMachineId' in kwargs:
             virtual_machine_id = kwargs['virtualMachineId']
-        if 'autoUpgradeMinorVersion' in kwargs:
+        if virtual_machine_id is None:
+            raise TypeError("Missing 'virtual_machine_id' argument")
+        if auto_upgrade_minor_version is None and 'autoUpgradeMinorVersion' in kwargs:
             auto_upgrade_minor_version = kwargs['autoUpgradeMinorVersion']
-        if 'automaticUpgradeEnabled' in kwargs:
+        if automatic_upgrade_enabled is None and 'automaticUpgradeEnabled' in kwargs:
             automatic_upgrade_enabled = kwargs['automaticUpgradeEnabled']
-        if 'failureSuppressionEnabled' in kwargs:
+        if failure_suppression_enabled is None and 'failureSuppressionEnabled' in kwargs:
             failure_suppression_enabled = kwargs['failureSuppressionEnabled']
-        if 'protectedSettings' in kwargs:
+        if protected_settings is None and 'protectedSettings' in kwargs:
             protected_settings = kwargs['protectedSettings']
-        if 'protectedSettingsFromKeyVault' in kwargs:
+        if protected_settings_from_key_vault is None and 'protectedSettingsFromKeyVault' in kwargs:
             protected_settings_from_key_vault = kwargs['protectedSettingsFromKeyVault']
-        if 'provisionAfterExtensions' in kwargs:
+        if provision_after_extensions is None and 'provisionAfterExtensions' in kwargs:
             provision_after_extensions = kwargs['provisionAfterExtensions']
 
         _setter("publisher", publisher)
@@ -384,21 +392,21 @@ class _ExtensionState:
              virtual_machine_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'autoUpgradeMinorVersion' in kwargs:
+        if auto_upgrade_minor_version is None and 'autoUpgradeMinorVersion' in kwargs:
             auto_upgrade_minor_version = kwargs['autoUpgradeMinorVersion']
-        if 'automaticUpgradeEnabled' in kwargs:
+        if automatic_upgrade_enabled is None and 'automaticUpgradeEnabled' in kwargs:
             automatic_upgrade_enabled = kwargs['automaticUpgradeEnabled']
-        if 'failureSuppressionEnabled' in kwargs:
+        if failure_suppression_enabled is None and 'failureSuppressionEnabled' in kwargs:
             failure_suppression_enabled = kwargs['failureSuppressionEnabled']
-        if 'protectedSettings' in kwargs:
+        if protected_settings is None and 'protectedSettings' in kwargs:
             protected_settings = kwargs['protectedSettings']
-        if 'protectedSettingsFromKeyVault' in kwargs:
+        if protected_settings_from_key_vault is None and 'protectedSettingsFromKeyVault' in kwargs:
             protected_settings_from_key_vault = kwargs['protectedSettingsFromKeyVault']
-        if 'provisionAfterExtensions' in kwargs:
+        if provision_after_extensions is None and 'provisionAfterExtensions' in kwargs:
             provision_after_extensions = kwargs['provisionAfterExtensions']
-        if 'typeHandlerVersion' in kwargs:
+        if type_handler_version is None and 'typeHandlerVersion' in kwargs:
             type_handler_version = kwargs['typeHandlerVersion']
-        if 'virtualMachineId' in kwargs:
+        if virtual_machine_id is None and 'virtualMachineId' in kwargs:
             virtual_machine_id = kwargs['virtualMachineId']
 
         if auto_upgrade_minor_version is not None:

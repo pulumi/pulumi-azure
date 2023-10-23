@@ -51,8 +51,8 @@ class ResourceGroupTemplateDeploymentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             deployment_mode: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             deployment_mode: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              debug_level: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              parameters_content: Optional[pulumi.Input[str]] = None,
@@ -61,17 +61,21 @@ class ResourceGroupTemplateDeploymentArgs:
              template_spec_version_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'deploymentMode' in kwargs:
+        if deployment_mode is None and 'deploymentMode' in kwargs:
             deployment_mode = kwargs['deploymentMode']
-        if 'resourceGroupName' in kwargs:
+        if deployment_mode is None:
+            raise TypeError("Missing 'deployment_mode' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'debugLevel' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if debug_level is None and 'debugLevel' in kwargs:
             debug_level = kwargs['debugLevel']
-        if 'parametersContent' in kwargs:
+        if parameters_content is None and 'parametersContent' in kwargs:
             parameters_content = kwargs['parametersContent']
-        if 'templateContent' in kwargs:
+        if template_content is None and 'templateContent' in kwargs:
             template_content = kwargs['templateContent']
-        if 'templateSpecVersionId' in kwargs:
+        if template_spec_version_id is None and 'templateSpecVersionId' in kwargs:
             template_spec_version_id = kwargs['templateSpecVersionId']
 
         _setter("deployment_mode", deployment_mode)
@@ -244,19 +248,19 @@ class _ResourceGroupTemplateDeploymentState:
              template_spec_version_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'debugLevel' in kwargs:
+        if debug_level is None and 'debugLevel' in kwargs:
             debug_level = kwargs['debugLevel']
-        if 'deploymentMode' in kwargs:
+        if deployment_mode is None and 'deploymentMode' in kwargs:
             deployment_mode = kwargs['deploymentMode']
-        if 'outputContent' in kwargs:
+        if output_content is None and 'outputContent' in kwargs:
             output_content = kwargs['outputContent']
-        if 'parametersContent' in kwargs:
+        if parameters_content is None and 'parametersContent' in kwargs:
             parameters_content = kwargs['parametersContent']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'templateContent' in kwargs:
+        if template_content is None and 'templateContent' in kwargs:
             template_content = kwargs['templateContent']
-        if 'templateSpecVersionId' in kwargs:
+        if template_spec_version_id is None and 'templateSpecVersionId' in kwargs:
             template_spec_version_id = kwargs['templateSpecVersionId']
 
         if debug_level is not None:

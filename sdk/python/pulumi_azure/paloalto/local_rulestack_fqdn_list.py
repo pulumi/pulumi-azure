@@ -38,18 +38,22 @@ class LocalRulestackFqdnListArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             fully_qualified_domain_names: pulumi.Input[Sequence[pulumi.Input[str]]],
-             rulestack_id: pulumi.Input[str],
+             fully_qualified_domain_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             rulestack_id: Optional[pulumi.Input[str]] = None,
              audit_comment: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'fullyQualifiedDomainNames' in kwargs:
+        if fully_qualified_domain_names is None and 'fullyQualifiedDomainNames' in kwargs:
             fully_qualified_domain_names = kwargs['fullyQualifiedDomainNames']
-        if 'rulestackId' in kwargs:
+        if fully_qualified_domain_names is None:
+            raise TypeError("Missing 'fully_qualified_domain_names' argument")
+        if rulestack_id is None and 'rulestackId' in kwargs:
             rulestack_id = kwargs['rulestackId']
-        if 'auditComment' in kwargs:
+        if rulestack_id is None:
+            raise TypeError("Missing 'rulestack_id' argument")
+        if audit_comment is None and 'auditComment' in kwargs:
             audit_comment = kwargs['auditComment']
 
         _setter("fully_qualified_domain_names", fully_qualified_domain_names)
@@ -156,11 +160,11 @@ class _LocalRulestackFqdnListState:
              rulestack_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'auditComment' in kwargs:
+        if audit_comment is None and 'auditComment' in kwargs:
             audit_comment = kwargs['auditComment']
-        if 'fullyQualifiedDomainNames' in kwargs:
+        if fully_qualified_domain_names is None and 'fullyQualifiedDomainNames' in kwargs:
             fully_qualified_domain_names = kwargs['fullyQualifiedDomainNames']
-        if 'rulestackId' in kwargs:
+        if rulestack_id is None and 'rulestackId' in kwargs:
             rulestack_id = kwargs['rulestackId']
 
         if audit_comment is not None:

@@ -38,20 +38,26 @@ class EventHubConsumerGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             eventhub_name: pulumi.Input[str],
-             namespace_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             eventhub_name: Optional[pulumi.Input[str]] = None,
+             namespace_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              user_metadata: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'eventhubName' in kwargs:
+        if eventhub_name is None and 'eventhubName' in kwargs:
             eventhub_name = kwargs['eventhubName']
-        if 'namespaceName' in kwargs:
+        if eventhub_name is None:
+            raise TypeError("Missing 'eventhub_name' argument")
+        if namespace_name is None and 'namespaceName' in kwargs:
             namespace_name = kwargs['namespaceName']
-        if 'resourceGroupName' in kwargs:
+        if namespace_name is None:
+            raise TypeError("Missing 'namespace_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'userMetadata' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if user_metadata is None and 'userMetadata' in kwargs:
             user_metadata = kwargs['userMetadata']
 
         _setter("eventhub_name", eventhub_name)
@@ -157,13 +163,13 @@ class _EventHubConsumerGroupState:
              user_metadata: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'eventhubName' in kwargs:
+        if eventhub_name is None and 'eventhubName' in kwargs:
             eventhub_name = kwargs['eventhubName']
-        if 'namespaceName' in kwargs:
+        if namespace_name is None and 'namespaceName' in kwargs:
             namespace_name = kwargs['namespaceName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'userMetadata' in kwargs:
+        if user_metadata is None and 'userMetadata' in kwargs:
             user_metadata = kwargs['userMetadata']
 
         if eventhub_name is not None:

@@ -56,9 +56,9 @@ class DiskEncryptionSetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             identity: pulumi.Input['DiskEncryptionSetIdentityArgs'],
-             key_vault_key_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             identity: Optional[pulumi.Input['DiskEncryptionSetIdentityArgs']] = None,
+             key_vault_key_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              auto_key_rotation_enabled: Optional[pulumi.Input[bool]] = None,
              encryption_type: Optional[pulumi.Input[str]] = None,
              federated_client_id: Optional[pulumi.Input[str]] = None,
@@ -67,15 +67,21 @@ class DiskEncryptionSetArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'keyVaultKeyId' in kwargs:
+        if identity is None:
+            raise TypeError("Missing 'identity' argument")
+        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
             key_vault_key_id = kwargs['keyVaultKeyId']
-        if 'resourceGroupName' in kwargs:
+        if key_vault_key_id is None:
+            raise TypeError("Missing 'key_vault_key_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'autoKeyRotationEnabled' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if auto_key_rotation_enabled is None and 'autoKeyRotationEnabled' in kwargs:
             auto_key_rotation_enabled = kwargs['autoKeyRotationEnabled']
-        if 'encryptionType' in kwargs:
+        if encryption_type is None and 'encryptionType' in kwargs:
             encryption_type = kwargs['encryptionType']
-        if 'federatedClientId' in kwargs:
+        if federated_client_id is None and 'federatedClientId' in kwargs:
             federated_client_id = kwargs['federatedClientId']
 
         _setter("identity", identity)
@@ -263,17 +269,17 @@ class _DiskEncryptionSetState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'autoKeyRotationEnabled' in kwargs:
+        if auto_key_rotation_enabled is None and 'autoKeyRotationEnabled' in kwargs:
             auto_key_rotation_enabled = kwargs['autoKeyRotationEnabled']
-        if 'encryptionType' in kwargs:
+        if encryption_type is None and 'encryptionType' in kwargs:
             encryption_type = kwargs['encryptionType']
-        if 'federatedClientId' in kwargs:
+        if federated_client_id is None and 'federatedClientId' in kwargs:
             federated_client_id = kwargs['federatedClientId']
-        if 'keyVaultKeyId' in kwargs:
+        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
             key_vault_key_id = kwargs['keyVaultKeyId']
-        if 'keyVaultKeyUrl' in kwargs:
+        if key_vault_key_url is None and 'keyVaultKeyUrl' in kwargs:
             key_vault_key_url = kwargs['keyVaultKeyUrl']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if auto_key_rotation_enabled is not None:

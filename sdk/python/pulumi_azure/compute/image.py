@@ -56,7 +56,7 @@ class ImageArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              data_disks: Optional[pulumi.Input[Sequence[pulumi.Input['ImageDataDiskArgs']]]] = None,
              hyper_v_generation: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
@@ -67,17 +67,19 @@ class ImageArgs:
              zone_resilient: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'dataDisks' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if data_disks is None and 'dataDisks' in kwargs:
             data_disks = kwargs['dataDisks']
-        if 'hyperVGeneration' in kwargs:
+        if hyper_v_generation is None and 'hyperVGeneration' in kwargs:
             hyper_v_generation = kwargs['hyperVGeneration']
-        if 'osDisk' in kwargs:
+        if os_disk is None and 'osDisk' in kwargs:
             os_disk = kwargs['osDisk']
-        if 'sourceVirtualMachineId' in kwargs:
+        if source_virtual_machine_id is None and 'sourceVirtualMachineId' in kwargs:
             source_virtual_machine_id = kwargs['sourceVirtualMachineId']
-        if 'zoneResilient' in kwargs:
+        if zone_resilient is None and 'zoneResilient' in kwargs:
             zone_resilient = kwargs['zoneResilient']
 
         _setter("resource_group_name", resource_group_name)
@@ -265,17 +267,17 @@ class _ImageState:
              zone_resilient: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dataDisks' in kwargs:
+        if data_disks is None and 'dataDisks' in kwargs:
             data_disks = kwargs['dataDisks']
-        if 'hyperVGeneration' in kwargs:
+        if hyper_v_generation is None and 'hyperVGeneration' in kwargs:
             hyper_v_generation = kwargs['hyperVGeneration']
-        if 'osDisk' in kwargs:
+        if os_disk is None and 'osDisk' in kwargs:
             os_disk = kwargs['osDisk']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'sourceVirtualMachineId' in kwargs:
+        if source_virtual_machine_id is None and 'sourceVirtualMachineId' in kwargs:
             source_virtual_machine_id = kwargs['sourceVirtualMachineId']
-        if 'zoneResilient' in kwargs:
+        if zone_resilient is None and 'zoneResilient' in kwargs:
             zone_resilient = kwargs['zoneResilient']
 
         if data_disks is not None:

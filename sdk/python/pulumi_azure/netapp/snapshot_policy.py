@@ -55,9 +55,9 @@ class SnapshotPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             account_name: pulumi.Input[str],
-             enabled: pulumi.Input[bool],
-             resource_group_name: pulumi.Input[str],
+             account_name: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              daily_schedule: Optional[pulumi.Input['SnapshotPolicyDailyScheduleArgs']] = None,
              hourly_schedule: Optional[pulumi.Input['SnapshotPolicyHourlyScheduleArgs']] = None,
              location: Optional[pulumi.Input[str]] = None,
@@ -67,17 +67,23 @@ class SnapshotPolicyArgs:
              weekly_schedule: Optional[pulumi.Input['SnapshotPolicyWeeklyScheduleArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accountName' in kwargs:
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'resourceGroupName' in kwargs:
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'dailySchedule' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if daily_schedule is None and 'dailySchedule' in kwargs:
             daily_schedule = kwargs['dailySchedule']
-        if 'hourlySchedule' in kwargs:
+        if hourly_schedule is None and 'hourlySchedule' in kwargs:
             hourly_schedule = kwargs['hourlySchedule']
-        if 'monthlySchedule' in kwargs:
+        if monthly_schedule is None and 'monthlySchedule' in kwargs:
             monthly_schedule = kwargs['monthlySchedule']
-        if 'weeklySchedule' in kwargs:
+        if weekly_schedule is None and 'weeklySchedule' in kwargs:
             weekly_schedule = kwargs['weeklySchedule']
 
         _setter("account_name", account_name)
@@ -273,17 +279,17 @@ class _SnapshotPolicyState:
              weekly_schedule: Optional[pulumi.Input['SnapshotPolicyWeeklyScheduleArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accountName' in kwargs:
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'dailySchedule' in kwargs:
+        if daily_schedule is None and 'dailySchedule' in kwargs:
             daily_schedule = kwargs['dailySchedule']
-        if 'hourlySchedule' in kwargs:
+        if hourly_schedule is None and 'hourlySchedule' in kwargs:
             hourly_schedule = kwargs['hourlySchedule']
-        if 'monthlySchedule' in kwargs:
+        if monthly_schedule is None and 'monthlySchedule' in kwargs:
             monthly_schedule = kwargs['monthlySchedule']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'weeklySchedule' in kwargs:
+        if weekly_schedule is None and 'weeklySchedule' in kwargs:
             weekly_schedule = kwargs['weeklySchedule']
 
         if account_name is not None:

@@ -29,12 +29,14 @@ class ExpressRouteAuthorizationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             private_cloud_id: pulumi.Input[str],
+             private_cloud_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'privateCloudId' in kwargs:
+        if private_cloud_id is None and 'privateCloudId' in kwargs:
             private_cloud_id = kwargs['privateCloudId']
+        if private_cloud_id is None:
+            raise TypeError("Missing 'private_cloud_id' argument")
 
         _setter("private_cloud_id", private_cloud_id)
         if name is not None:
@@ -95,11 +97,11 @@ class _ExpressRouteAuthorizationState:
              private_cloud_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'expressRouteAuthorizationId' in kwargs:
+        if express_route_authorization_id is None and 'expressRouteAuthorizationId' in kwargs:
             express_route_authorization_id = kwargs['expressRouteAuthorizationId']
-        if 'expressRouteAuthorizationKey' in kwargs:
+        if express_route_authorization_key is None and 'expressRouteAuthorizationKey' in kwargs:
             express_route_authorization_key = kwargs['expressRouteAuthorizationKey']
-        if 'privateCloudId' in kwargs:
+        if private_cloud_id is None and 'privateCloudId' in kwargs:
             private_cloud_id = kwargs['privateCloudId']
 
         if express_route_authorization_id is not None:

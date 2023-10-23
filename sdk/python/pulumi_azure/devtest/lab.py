@@ -40,16 +40,18 @@ class LabArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              storage_type: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'storageType' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if storage_type is None and 'storageType' in kwargs:
             storage_type = kwargs['storageType']
 
         _setter("resource_group_name", resource_group_name)
@@ -191,21 +193,21 @@ class _LabState:
              unique_identifier: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'artifactsStorageAccountId' in kwargs:
+        if artifacts_storage_account_id is None and 'artifactsStorageAccountId' in kwargs:
             artifacts_storage_account_id = kwargs['artifactsStorageAccountId']
-        if 'defaultPremiumStorageAccountId' in kwargs:
+        if default_premium_storage_account_id is None and 'defaultPremiumStorageAccountId' in kwargs:
             default_premium_storage_account_id = kwargs['defaultPremiumStorageAccountId']
-        if 'defaultStorageAccountId' in kwargs:
+        if default_storage_account_id is None and 'defaultStorageAccountId' in kwargs:
             default_storage_account_id = kwargs['defaultStorageAccountId']
-        if 'keyVaultId' in kwargs:
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
-        if 'premiumDataDiskStorageAccountId' in kwargs:
+        if premium_data_disk_storage_account_id is None and 'premiumDataDiskStorageAccountId' in kwargs:
             premium_data_disk_storage_account_id = kwargs['premiumDataDiskStorageAccountId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'storageType' in kwargs:
+        if storage_type is None and 'storageType' in kwargs:
             storage_type = kwargs['storageType']
-        if 'uniqueIdentifier' in kwargs:
+        if unique_identifier is None and 'uniqueIdentifier' in kwargs:
             unique_identifier = kwargs['uniqueIdentifier']
 
         if artifacts_storage_account_id is not None:

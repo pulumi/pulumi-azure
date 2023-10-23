@@ -54,10 +54,10 @@ class PolicyFileShareArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             backup: pulumi.Input['PolicyFileShareBackupArgs'],
-             recovery_vault_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             retention_daily: pulumi.Input['PolicyFileShareRetentionDailyArgs'],
+             backup: Optional[pulumi.Input['PolicyFileShareBackupArgs']] = None,
+             recovery_vault_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             retention_daily: Optional[pulumi.Input['PolicyFileShareRetentionDailyArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              retention_monthly: Optional[pulumi.Input['PolicyFileShareRetentionMonthlyArgs']] = None,
              retention_weekly: Optional[pulumi.Input['PolicyFileShareRetentionWeeklyArgs']] = None,
@@ -65,17 +65,25 @@ class PolicyFileShareArgs:
              timezone: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'recoveryVaultName' in kwargs:
+        if backup is None:
+            raise TypeError("Missing 'backup' argument")
+        if recovery_vault_name is None and 'recoveryVaultName' in kwargs:
             recovery_vault_name = kwargs['recoveryVaultName']
-        if 'resourceGroupName' in kwargs:
+        if recovery_vault_name is None:
+            raise TypeError("Missing 'recovery_vault_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'retentionDaily' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if retention_daily is None and 'retentionDaily' in kwargs:
             retention_daily = kwargs['retentionDaily']
-        if 'retentionMonthly' in kwargs:
+        if retention_daily is None:
+            raise TypeError("Missing 'retention_daily' argument")
+        if retention_monthly is None and 'retentionMonthly' in kwargs:
             retention_monthly = kwargs['retentionMonthly']
-        if 'retentionWeekly' in kwargs:
+        if retention_weekly is None and 'retentionWeekly' in kwargs:
             retention_weekly = kwargs['retentionWeekly']
-        if 'retentionYearly' in kwargs:
+        if retention_yearly is None and 'retentionYearly' in kwargs:
             retention_yearly = kwargs['retentionYearly']
 
         _setter("backup", backup)
@@ -256,17 +264,17 @@ class _PolicyFileShareState:
              timezone: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'recoveryVaultName' in kwargs:
+        if recovery_vault_name is None and 'recoveryVaultName' in kwargs:
             recovery_vault_name = kwargs['recoveryVaultName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'retentionDaily' in kwargs:
+        if retention_daily is None and 'retentionDaily' in kwargs:
             retention_daily = kwargs['retentionDaily']
-        if 'retentionMonthly' in kwargs:
+        if retention_monthly is None and 'retentionMonthly' in kwargs:
             retention_monthly = kwargs['retentionMonthly']
-        if 'retentionWeekly' in kwargs:
+        if retention_weekly is None and 'retentionWeekly' in kwargs:
             retention_weekly = kwargs['retentionWeekly']
-        if 'retentionYearly' in kwargs:
+        if retention_yearly is None and 'retentionYearly' in kwargs:
             retention_yearly = kwargs['retentionYearly']
 
         if backup is not None:

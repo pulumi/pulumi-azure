@@ -29,14 +29,18 @@ class ServerKeyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_vault_key_id: pulumi.Input[str],
-             server_id: pulumi.Input[str],
+             key_vault_key_id: Optional[pulumi.Input[str]] = None,
+             server_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'keyVaultKeyId' in kwargs:
+        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
             key_vault_key_id = kwargs['keyVaultKeyId']
-        if 'serverId' in kwargs:
+        if key_vault_key_id is None:
+            raise TypeError("Missing 'key_vault_key_id' argument")
+        if server_id is None and 'serverId' in kwargs:
             server_id = kwargs['serverId']
+        if server_id is None:
+            raise TypeError("Missing 'server_id' argument")
 
         _setter("key_vault_key_id", key_vault_key_id)
         _setter("server_id", server_id)
@@ -88,9 +92,9 @@ class _ServerKeyState:
              server_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'keyVaultKeyId' in kwargs:
+        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
             key_vault_key_id = kwargs['keyVaultKeyId']
-        if 'serverId' in kwargs:
+        if server_id is None and 'serverId' in kwargs:
             server_id = kwargs['serverId']
 
         if key_vault_key_id is not None:

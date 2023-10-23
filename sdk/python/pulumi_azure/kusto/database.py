@@ -41,21 +41,25 @@ class DatabaseArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cluster_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              hot_cache_period: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              soft_delete_period: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clusterName' in kwargs:
+        if cluster_name is None and 'clusterName' in kwargs:
             cluster_name = kwargs['clusterName']
-        if 'resourceGroupName' in kwargs:
+        if cluster_name is None:
+            raise TypeError("Missing 'cluster_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'hotCachePeriod' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if hot_cache_period is None and 'hotCachePeriod' in kwargs:
             hot_cache_period = kwargs['hotCachePeriod']
-        if 'softDeletePeriod' in kwargs:
+        if soft_delete_period is None and 'softDeletePeriod' in kwargs:
             soft_delete_period = kwargs['softDeletePeriod']
 
         _setter("cluster_name", cluster_name)
@@ -184,13 +188,13 @@ class _DatabaseState:
              soft_delete_period: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clusterName' in kwargs:
+        if cluster_name is None and 'clusterName' in kwargs:
             cluster_name = kwargs['clusterName']
-        if 'hotCachePeriod' in kwargs:
+        if hot_cache_period is None and 'hotCachePeriod' in kwargs:
             hot_cache_period = kwargs['hotCachePeriod']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'softDeletePeriod' in kwargs:
+        if soft_delete_period is None and 'softDeletePeriod' in kwargs:
             soft_delete_period = kwargs['softDeletePeriod']
 
         if cluster_name is not None:

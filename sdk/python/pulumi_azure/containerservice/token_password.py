@@ -34,13 +34,17 @@ class TokenPasswordArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             container_registry_token_id: pulumi.Input[str],
-             password1: pulumi.Input['TokenPasswordPassword1Args'],
+             container_registry_token_id: Optional[pulumi.Input[str]] = None,
+             password1: Optional[pulumi.Input['TokenPasswordPassword1Args']] = None,
              password2: Optional[pulumi.Input['TokenPasswordPassword2Args']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'containerRegistryTokenId' in kwargs:
+        if container_registry_token_id is None and 'containerRegistryTokenId' in kwargs:
             container_registry_token_id = kwargs['containerRegistryTokenId']
+        if container_registry_token_id is None:
+            raise TypeError("Missing 'container_registry_token_id' argument")
+        if password1 is None:
+            raise TypeError("Missing 'password1' argument")
 
         _setter("container_registry_token_id", container_registry_token_id)
         _setter("password1", password1)
@@ -110,7 +114,7 @@ class _TokenPasswordState:
              password2: Optional[pulumi.Input['TokenPasswordPassword2Args']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'containerRegistryTokenId' in kwargs:
+        if container_registry_token_id is None and 'containerRegistryTokenId' in kwargs:
             container_registry_token_id = kwargs['containerRegistryTokenId']
 
         if container_registry_token_id is not None:

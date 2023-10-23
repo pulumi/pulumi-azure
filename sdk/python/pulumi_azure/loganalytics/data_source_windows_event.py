@@ -38,21 +38,29 @@ class DataSourceWindowsEventArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             event_log_name: pulumi.Input[str],
-             event_types: pulumi.Input[Sequence[pulumi.Input[str]]],
-             resource_group_name: pulumi.Input[str],
-             workspace_name: pulumi.Input[str],
+             event_log_name: Optional[pulumi.Input[str]] = None,
+             event_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             workspace_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'eventLogName' in kwargs:
+        if event_log_name is None and 'eventLogName' in kwargs:
             event_log_name = kwargs['eventLogName']
-        if 'eventTypes' in kwargs:
+        if event_log_name is None:
+            raise TypeError("Missing 'event_log_name' argument")
+        if event_types is None and 'eventTypes' in kwargs:
             event_types = kwargs['eventTypes']
-        if 'resourceGroupName' in kwargs:
+        if event_types is None:
+            raise TypeError("Missing 'event_types' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'workspaceName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if workspace_name is None and 'workspaceName' in kwargs:
             workspace_name = kwargs['workspaceName']
+        if workspace_name is None:
+            raise TypeError("Missing 'workspace_name' argument")
 
         _setter("event_log_name", event_log_name)
         _setter("event_types", event_types)
@@ -156,13 +164,13 @@ class _DataSourceWindowsEventState:
              workspace_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'eventLogName' in kwargs:
+        if event_log_name is None and 'eventLogName' in kwargs:
             event_log_name = kwargs['eventLogName']
-        if 'eventTypes' in kwargs:
+        if event_types is None and 'eventTypes' in kwargs:
             event_types = kwargs['eventTypes']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'workspaceName' in kwargs:
+        if workspace_name is None and 'workspaceName' in kwargs:
             workspace_name = kwargs['workspaceName']
 
         if event_log_name is not None:

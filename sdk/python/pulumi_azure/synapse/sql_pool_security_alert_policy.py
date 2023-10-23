@@ -47,8 +47,8 @@ class SqlPoolSecurityAlertPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             policy_state: pulumi.Input[str],
-             sql_pool_id: pulumi.Input[str],
+             policy_state: Optional[pulumi.Input[str]] = None,
+             sql_pool_id: Optional[pulumi.Input[str]] = None,
              disabled_alerts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              email_account_admins_enabled: Optional[pulumi.Input[bool]] = None,
              email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -57,21 +57,25 @@ class SqlPoolSecurityAlertPolicyArgs:
              storage_endpoint: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'policyState' in kwargs:
+        if policy_state is None and 'policyState' in kwargs:
             policy_state = kwargs['policyState']
-        if 'sqlPoolId' in kwargs:
+        if policy_state is None:
+            raise TypeError("Missing 'policy_state' argument")
+        if sql_pool_id is None and 'sqlPoolId' in kwargs:
             sql_pool_id = kwargs['sqlPoolId']
-        if 'disabledAlerts' in kwargs:
+        if sql_pool_id is None:
+            raise TypeError("Missing 'sql_pool_id' argument")
+        if disabled_alerts is None and 'disabledAlerts' in kwargs:
             disabled_alerts = kwargs['disabledAlerts']
-        if 'emailAccountAdminsEnabled' in kwargs:
+        if email_account_admins_enabled is None and 'emailAccountAdminsEnabled' in kwargs:
             email_account_admins_enabled = kwargs['emailAccountAdminsEnabled']
-        if 'emailAddresses' in kwargs:
+        if email_addresses is None and 'emailAddresses' in kwargs:
             email_addresses = kwargs['emailAddresses']
-        if 'retentionDays' in kwargs:
+        if retention_days is None and 'retentionDays' in kwargs:
             retention_days = kwargs['retentionDays']
-        if 'storageAccountAccessKey' in kwargs:
+        if storage_account_access_key is None and 'storageAccountAccessKey' in kwargs:
             storage_account_access_key = kwargs['storageAccountAccessKey']
-        if 'storageEndpoint' in kwargs:
+        if storage_endpoint is None and 'storageEndpoint' in kwargs:
             storage_endpoint = kwargs['storageEndpoint']
 
         _setter("policy_state", policy_state)
@@ -232,21 +236,21 @@ class _SqlPoolSecurityAlertPolicyState:
              storage_endpoint: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'disabledAlerts' in kwargs:
+        if disabled_alerts is None and 'disabledAlerts' in kwargs:
             disabled_alerts = kwargs['disabledAlerts']
-        if 'emailAccountAdminsEnabled' in kwargs:
+        if email_account_admins_enabled is None and 'emailAccountAdminsEnabled' in kwargs:
             email_account_admins_enabled = kwargs['emailAccountAdminsEnabled']
-        if 'emailAddresses' in kwargs:
+        if email_addresses is None and 'emailAddresses' in kwargs:
             email_addresses = kwargs['emailAddresses']
-        if 'policyState' in kwargs:
+        if policy_state is None and 'policyState' in kwargs:
             policy_state = kwargs['policyState']
-        if 'retentionDays' in kwargs:
+        if retention_days is None and 'retentionDays' in kwargs:
             retention_days = kwargs['retentionDays']
-        if 'sqlPoolId' in kwargs:
+        if sql_pool_id is None and 'sqlPoolId' in kwargs:
             sql_pool_id = kwargs['sqlPoolId']
-        if 'storageAccountAccessKey' in kwargs:
+        if storage_account_access_key is None and 'storageAccountAccessKey' in kwargs:
             storage_account_access_key = kwargs['storageAccountAccessKey']
-        if 'storageEndpoint' in kwargs:
+        if storage_endpoint is None and 'storageEndpoint' in kwargs:
             storage_endpoint = kwargs['storageEndpoint']
 
         if disabled_alerts is not None:

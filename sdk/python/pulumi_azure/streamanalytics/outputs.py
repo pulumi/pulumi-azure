@@ -62,11 +62,13 @@ class FunctionJavaScriptUDFInput(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              configuration_parameter: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'configurationParameter' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if configuration_parameter is None and 'configurationParameter' in kwargs:
             configuration_parameter = kwargs['configurationParameter']
 
         _setter("type", type)
@@ -104,9 +106,11 @@ class FunctionJavaScriptUDFOutput(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("type", type)
 
@@ -153,11 +157,13 @@ class FunctionJavascriptUdaInput(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              configuration_parameter: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'configurationParameter' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if configuration_parameter is None and 'configurationParameter' in kwargs:
             configuration_parameter = kwargs['configurationParameter']
 
         _setter("type", type)
@@ -195,9 +201,11 @@ class FunctionJavascriptUdaOutput(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("type", type)
 
@@ -249,14 +257,16 @@ class JobIdentity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'principalId' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -331,16 +341,20 @@ class JobJobStorageAccount(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             account_key: str,
-             account_name: str,
+             account_key: Optional[str] = None,
+             account_name: Optional[str] = None,
              authentication_mode: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accountKey' in kwargs:
+        if account_key is None and 'accountKey' in kwargs:
             account_key = kwargs['accountKey']
-        if 'accountName' in kwargs:
+        if account_key is None:
+            raise TypeError("Missing 'account_key' argument")
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'authenticationMode' in kwargs:
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if authentication_mode is None and 'authenticationMode' in kwargs:
             authentication_mode = kwargs['authenticationMode']
 
         _setter("account_key", account_key)
@@ -421,13 +435,15 @@ class OutputBlobSerialization(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              encoding: Optional[str] = None,
              field_delimiter: Optional[str] = None,
              format: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'fieldDelimiter' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if field_delimiter is None and 'fieldDelimiter' in kwargs:
             field_delimiter = kwargs['fieldDelimiter']
 
         _setter("type", type)
@@ -525,13 +541,15 @@ class OutputEventHubSerialization(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              encoding: Optional[str] = None,
              field_delimiter: Optional[str] = None,
              format: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'fieldDelimiter' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if field_delimiter is None and 'fieldDelimiter' in kwargs:
             field_delimiter = kwargs['fieldDelimiter']
 
         _setter("type", type)
@@ -627,13 +645,15 @@ class OutputServiceBusQueueSerialization(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              encoding: Optional[str] = None,
              field_delimiter: Optional[str] = None,
              format: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'fieldDelimiter' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if field_delimiter is None and 'fieldDelimiter' in kwargs:
             field_delimiter = kwargs['fieldDelimiter']
 
         _setter("type", type)
@@ -729,13 +749,15 @@ class OutputServicebusTopicSerialization(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              encoding: Optional[str] = None,
              field_delimiter: Optional[str] = None,
              format: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'fieldDelimiter' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if field_delimiter is None and 'fieldDelimiter' in kwargs:
             field_delimiter = kwargs['fieldDelimiter']
 
         _setter("type", type)
@@ -826,12 +848,14 @@ class ReferenceInputBlobSerialization(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              encoding: Optional[str] = None,
              field_delimiter: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'fieldDelimiter' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if field_delimiter is None and 'fieldDelimiter' in kwargs:
             field_delimiter = kwargs['fieldDelimiter']
 
         _setter("type", type)
@@ -910,12 +934,14 @@ class StreamInputBlobSerialization(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              encoding: Optional[str] = None,
              field_delimiter: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'fieldDelimiter' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if field_delimiter is None and 'fieldDelimiter' in kwargs:
             field_delimiter = kwargs['fieldDelimiter']
 
         _setter("type", type)
@@ -994,12 +1020,14 @@ class StreamInputEventHubSerialization(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              encoding: Optional[str] = None,
              field_delimiter: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'fieldDelimiter' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if field_delimiter is None and 'fieldDelimiter' in kwargs:
             field_delimiter = kwargs['fieldDelimiter']
 
         _setter("type", type)
@@ -1078,12 +1106,14 @@ class StreamInputEventHubV2Serialization(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              encoding: Optional[str] = None,
              field_delimiter: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'fieldDelimiter' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if field_delimiter is None and 'fieldDelimiter' in kwargs:
             field_delimiter = kwargs['fieldDelimiter']
 
         _setter("type", type)
@@ -1162,12 +1192,14 @@ class StreamInputIotHubSerialization(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              encoding: Optional[str] = None,
              field_delimiter: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'fieldDelimiter' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if field_delimiter is None and 'fieldDelimiter' in kwargs:
             field_delimiter = kwargs['fieldDelimiter']
 
         _setter("type", type)
@@ -1225,15 +1257,21 @@ class GetJobIdentityResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             principal_id: str,
-             tenant_id: str,
-             type: str,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("principal_id", principal_id)
         _setter("tenant_id", tenant_id)

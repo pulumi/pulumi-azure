@@ -45,7 +45,7 @@ class ServiceInitialReplicaSetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             subnet_id: pulumi.Input[str],
+             subnet_id: Optional[pulumi.Input[str]] = None,
              domain_controller_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              external_access_ip_address: Optional[pulumi.Input[str]] = None,
              id: Optional[pulumi.Input[str]] = None,
@@ -53,13 +53,15 @@ class ServiceInitialReplicaSetArgs:
              service_status: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'domainControllerIpAddresses' in kwargs:
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+        if domain_controller_ip_addresses is None and 'domainControllerIpAddresses' in kwargs:
             domain_controller_ip_addresses = kwargs['domainControllerIpAddresses']
-        if 'externalAccessIpAddress' in kwargs:
+        if external_access_ip_address is None and 'externalAccessIpAddress' in kwargs:
             external_access_ip_address = kwargs['externalAccessIpAddress']
-        if 'serviceStatus' in kwargs:
+        if service_status is None and 'serviceStatus' in kwargs:
             service_status = kwargs['serviceStatus']
 
         _setter("subnet_id", subnet_id)
@@ -172,11 +174,11 @@ class ServiceNotificationsArgs:
              notify_global_admins: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'additionalRecipients' in kwargs:
+        if additional_recipients is None and 'additionalRecipients' in kwargs:
             additional_recipients = kwargs['additionalRecipients']
-        if 'notifyDcAdmins' in kwargs:
+        if notify_dc_admins is None and 'notifyDcAdmins' in kwargs:
             notify_dc_admins = kwargs['notifyDcAdmins']
-        if 'notifyGlobalAdmins' in kwargs:
+        if notify_global_admins is None and 'notifyGlobalAdmins' in kwargs:
             notify_global_admins = kwargs['notifyGlobalAdmins']
 
         if additional_recipients is not None:
@@ -255,26 +257,32 @@ class ServiceSecureLdapArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: pulumi.Input[bool],
-             pfx_certificate: pulumi.Input[str],
-             pfx_certificate_password: pulumi.Input[str],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             pfx_certificate: Optional[pulumi.Input[str]] = None,
+             pfx_certificate_password: Optional[pulumi.Input[str]] = None,
              certificate_expiry: Optional[pulumi.Input[str]] = None,
              certificate_thumbprint: Optional[pulumi.Input[str]] = None,
              external_access_enabled: Optional[pulumi.Input[bool]] = None,
              public_certificate: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'pfxCertificate' in kwargs:
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if pfx_certificate is None and 'pfxCertificate' in kwargs:
             pfx_certificate = kwargs['pfxCertificate']
-        if 'pfxCertificatePassword' in kwargs:
+        if pfx_certificate is None:
+            raise TypeError("Missing 'pfx_certificate' argument")
+        if pfx_certificate_password is None and 'pfxCertificatePassword' in kwargs:
             pfx_certificate_password = kwargs['pfxCertificatePassword']
-        if 'certificateExpiry' in kwargs:
+        if pfx_certificate_password is None:
+            raise TypeError("Missing 'pfx_certificate_password' argument")
+        if certificate_expiry is None and 'certificateExpiry' in kwargs:
             certificate_expiry = kwargs['certificateExpiry']
-        if 'certificateThumbprint' in kwargs:
+        if certificate_thumbprint is None and 'certificateThumbprint' in kwargs:
             certificate_thumbprint = kwargs['certificateThumbprint']
-        if 'externalAccessEnabled' in kwargs:
+        if external_access_enabled is None and 'externalAccessEnabled' in kwargs:
             external_access_enabled = kwargs['externalAccessEnabled']
-        if 'publicCertificate' in kwargs:
+        if public_certificate is None and 'publicCertificate' in kwargs:
             public_certificate = kwargs['publicCertificate']
 
         _setter("enabled", enabled)
@@ -415,19 +423,19 @@ class ServiceSecurityArgs:
              tls_v1_enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'kerberosArmoringEnabled' in kwargs:
+        if kerberos_armoring_enabled is None and 'kerberosArmoringEnabled' in kwargs:
             kerberos_armoring_enabled = kwargs['kerberosArmoringEnabled']
-        if 'kerberosRc4EncryptionEnabled' in kwargs:
+        if kerberos_rc4_encryption_enabled is None and 'kerberosRc4EncryptionEnabled' in kwargs:
             kerberos_rc4_encryption_enabled = kwargs['kerberosRc4EncryptionEnabled']
-        if 'ntlmV1Enabled' in kwargs:
+        if ntlm_v1_enabled is None and 'ntlmV1Enabled' in kwargs:
             ntlm_v1_enabled = kwargs['ntlmV1Enabled']
-        if 'syncKerberosPasswords' in kwargs:
+        if sync_kerberos_passwords is None and 'syncKerberosPasswords' in kwargs:
             sync_kerberos_passwords = kwargs['syncKerberosPasswords']
-        if 'syncNtlmPasswords' in kwargs:
+        if sync_ntlm_passwords is None and 'syncNtlmPasswords' in kwargs:
             sync_ntlm_passwords = kwargs['syncNtlmPasswords']
-        if 'syncOnPremPasswords' in kwargs:
+        if sync_on_prem_passwords is None and 'syncOnPremPasswords' in kwargs:
             sync_on_prem_passwords = kwargs['syncOnPremPasswords']
-        if 'tlsV1Enabled' in kwargs:
+        if tls_v1_enabled is None and 'tlsV1Enabled' in kwargs:
             tls_v1_enabled = kwargs['tlsV1Enabled']
 
         if kerberos_armoring_enabled is not None:

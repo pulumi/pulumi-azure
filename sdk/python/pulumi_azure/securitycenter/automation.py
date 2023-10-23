@@ -52,10 +52,10 @@ class AutomationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             actions: pulumi.Input[Sequence[pulumi.Input['AutomationActionArgs']]],
-             resource_group_name: pulumi.Input[str],
-             scopes: pulumi.Input[Sequence[pulumi.Input[str]]],
-             sources: pulumi.Input[Sequence[pulumi.Input['AutomationSourceArgs']]],
+             actions: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationActionArgs']]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             sources: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationSourceArgs']]]] = None,
              description: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              location: Optional[pulumi.Input[str]] = None,
@@ -63,8 +63,16 @@ class AutomationArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if actions is None:
+            raise TypeError("Missing 'actions' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if scopes is None:
+            raise TypeError("Missing 'scopes' argument")
+        if sources is None:
+            raise TypeError("Missing 'sources' argument")
 
         _setter("actions", actions)
         _setter("resource_group_name", resource_group_name)
@@ -240,7 +248,7 @@ class _AutomationState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if actions is not None:

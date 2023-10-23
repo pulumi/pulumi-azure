@@ -58,7 +58,7 @@ class ProviderArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              open_enclave_policy_base64: Optional[pulumi.Input[str]] = None,
@@ -70,17 +70,19 @@ class ProviderArgs:
              tpm_policy_base64: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'openEnclavePolicyBase64' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if open_enclave_policy_base64 is None and 'openEnclavePolicyBase64' in kwargs:
             open_enclave_policy_base64 = kwargs['openEnclavePolicyBase64']
-        if 'policySigningCertificateData' in kwargs:
+        if policy_signing_certificate_data is None and 'policySigningCertificateData' in kwargs:
             policy_signing_certificate_data = kwargs['policySigningCertificateData']
-        if 'sevSnpPolicyBase64' in kwargs:
+        if sev_snp_policy_base64 is None and 'sevSnpPolicyBase64' in kwargs:
             sev_snp_policy_base64 = kwargs['sevSnpPolicyBase64']
-        if 'sgxEnclavePolicyBase64' in kwargs:
+        if sgx_enclave_policy_base64 is None and 'sgxEnclavePolicyBase64' in kwargs:
             sgx_enclave_policy_base64 = kwargs['sgxEnclavePolicyBase64']
-        if 'tpmPolicyBase64' in kwargs:
+        if tpm_policy_base64 is None and 'tpmPolicyBase64' in kwargs:
             tpm_policy_base64 = kwargs['tpmPolicyBase64']
 
         _setter("resource_group_name", resource_group_name)
@@ -296,21 +298,21 @@ class _ProviderState:
              trust_model: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'attestationUri' in kwargs:
+        if attestation_uri is None and 'attestationUri' in kwargs:
             attestation_uri = kwargs['attestationUri']
-        if 'openEnclavePolicyBase64' in kwargs:
+        if open_enclave_policy_base64 is None and 'openEnclavePolicyBase64' in kwargs:
             open_enclave_policy_base64 = kwargs['openEnclavePolicyBase64']
-        if 'policySigningCertificateData' in kwargs:
+        if policy_signing_certificate_data is None and 'policySigningCertificateData' in kwargs:
             policy_signing_certificate_data = kwargs['policySigningCertificateData']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'sevSnpPolicyBase64' in kwargs:
+        if sev_snp_policy_base64 is None and 'sevSnpPolicyBase64' in kwargs:
             sev_snp_policy_base64 = kwargs['sevSnpPolicyBase64']
-        if 'sgxEnclavePolicyBase64' in kwargs:
+        if sgx_enclave_policy_base64 is None and 'sgxEnclavePolicyBase64' in kwargs:
             sgx_enclave_policy_base64 = kwargs['sgxEnclavePolicyBase64']
-        if 'tpmPolicyBase64' in kwargs:
+        if tpm_policy_base64 is None and 'tpmPolicyBase64' in kwargs:
             tpm_policy_base64 = kwargs['tpmPolicyBase64']
-        if 'trustModel' in kwargs:
+        if trust_model is None and 'trustModel' in kwargs:
             trust_model = kwargs['trustModel']
 
         if attestation_uri is not None:

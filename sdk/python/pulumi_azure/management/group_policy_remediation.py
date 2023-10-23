@@ -43,8 +43,8 @@ class GroupPolicyRemediationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             management_group_id: pulumi.Input[str],
-             policy_assignment_id: pulumi.Input[str],
+             management_group_id: Optional[pulumi.Input[str]] = None,
+             policy_assignment_id: Optional[pulumi.Input[str]] = None,
              failure_percentage: Optional[pulumi.Input[float]] = None,
              location_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
@@ -55,23 +55,27 @@ class GroupPolicyRemediationArgs:
              resource_discovery_mode: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'managementGroupId' in kwargs:
+        if management_group_id is None and 'managementGroupId' in kwargs:
             management_group_id = kwargs['managementGroupId']
-        if 'policyAssignmentId' in kwargs:
+        if management_group_id is None:
+            raise TypeError("Missing 'management_group_id' argument")
+        if policy_assignment_id is None and 'policyAssignmentId' in kwargs:
             policy_assignment_id = kwargs['policyAssignmentId']
-        if 'failurePercentage' in kwargs:
+        if policy_assignment_id is None:
+            raise TypeError("Missing 'policy_assignment_id' argument")
+        if failure_percentage is None and 'failurePercentage' in kwargs:
             failure_percentage = kwargs['failurePercentage']
-        if 'locationFilters' in kwargs:
+        if location_filters is None and 'locationFilters' in kwargs:
             location_filters = kwargs['locationFilters']
-        if 'parallelDeployments' in kwargs:
+        if parallel_deployments is None and 'parallelDeployments' in kwargs:
             parallel_deployments = kwargs['parallelDeployments']
-        if 'policyDefinitionId' in kwargs:
+        if policy_definition_id is None and 'policyDefinitionId' in kwargs:
             policy_definition_id = kwargs['policyDefinitionId']
-        if 'policyDefinitionReferenceId' in kwargs:
+        if policy_definition_reference_id is None and 'policyDefinitionReferenceId' in kwargs:
             policy_definition_reference_id = kwargs['policyDefinitionReferenceId']
-        if 'resourceCount' in kwargs:
+        if resource_count is None and 'resourceCount' in kwargs:
             resource_count = kwargs['resourceCount']
-        if 'resourceDiscoveryMode' in kwargs:
+        if resource_discovery_mode is None and 'resourceDiscoveryMode' in kwargs:
             resource_discovery_mode = kwargs['resourceDiscoveryMode']
 
         _setter("management_group_id", management_group_id)
@@ -240,23 +244,23 @@ class _GroupPolicyRemediationState:
              resource_discovery_mode: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'failurePercentage' in kwargs:
+        if failure_percentage is None and 'failurePercentage' in kwargs:
             failure_percentage = kwargs['failurePercentage']
-        if 'locationFilters' in kwargs:
+        if location_filters is None and 'locationFilters' in kwargs:
             location_filters = kwargs['locationFilters']
-        if 'managementGroupId' in kwargs:
+        if management_group_id is None and 'managementGroupId' in kwargs:
             management_group_id = kwargs['managementGroupId']
-        if 'parallelDeployments' in kwargs:
+        if parallel_deployments is None and 'parallelDeployments' in kwargs:
             parallel_deployments = kwargs['parallelDeployments']
-        if 'policyAssignmentId' in kwargs:
+        if policy_assignment_id is None and 'policyAssignmentId' in kwargs:
             policy_assignment_id = kwargs['policyAssignmentId']
-        if 'policyDefinitionId' in kwargs:
+        if policy_definition_id is None and 'policyDefinitionId' in kwargs:
             policy_definition_id = kwargs['policyDefinitionId']
-        if 'policyDefinitionReferenceId' in kwargs:
+        if policy_definition_reference_id is None and 'policyDefinitionReferenceId' in kwargs:
             policy_definition_reference_id = kwargs['policyDefinitionReferenceId']
-        if 'resourceCount' in kwargs:
+        if resource_count is None and 'resourceCount' in kwargs:
             resource_count = kwargs['resourceCount']
-        if 'resourceDiscoveryMode' in kwargs:
+        if resource_discovery_mode is None and 'resourceDiscoveryMode' in kwargs:
             resource_discovery_mode = kwargs['resourceDiscoveryMode']
 
         if failure_percentage is not None:

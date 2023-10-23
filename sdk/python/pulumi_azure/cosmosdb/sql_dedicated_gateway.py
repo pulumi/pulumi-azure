@@ -32,17 +32,23 @@ class SqlDedicatedGatewayArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cosmosdb_account_id: pulumi.Input[str],
-             instance_count: pulumi.Input[int],
-             instance_size: pulumi.Input[str],
+             cosmosdb_account_id: Optional[pulumi.Input[str]] = None,
+             instance_count: Optional[pulumi.Input[int]] = None,
+             instance_size: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'cosmosdbAccountId' in kwargs:
+        if cosmosdb_account_id is None and 'cosmosdbAccountId' in kwargs:
             cosmosdb_account_id = kwargs['cosmosdbAccountId']
-        if 'instanceCount' in kwargs:
+        if cosmosdb_account_id is None:
+            raise TypeError("Missing 'cosmosdb_account_id' argument")
+        if instance_count is None and 'instanceCount' in kwargs:
             instance_count = kwargs['instanceCount']
-        if 'instanceSize' in kwargs:
+        if instance_count is None:
+            raise TypeError("Missing 'instance_count' argument")
+        if instance_size is None and 'instanceSize' in kwargs:
             instance_size = kwargs['instanceSize']
+        if instance_size is None:
+            raise TypeError("Missing 'instance_size' argument")
 
         _setter("cosmosdb_account_id", cosmosdb_account_id)
         _setter("instance_count", instance_count)
@@ -111,11 +117,11 @@ class _SqlDedicatedGatewayState:
              instance_size: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'cosmosdbAccountId' in kwargs:
+        if cosmosdb_account_id is None and 'cosmosdbAccountId' in kwargs:
             cosmosdb_account_id = kwargs['cosmosdbAccountId']
-        if 'instanceCount' in kwargs:
+        if instance_count is None and 'instanceCount' in kwargs:
             instance_count = kwargs['instanceCount']
-        if 'instanceSize' in kwargs:
+        if instance_size is None and 'instanceSize' in kwargs:
             instance_size = kwargs['instanceSize']
 
         if cosmosdb_account_id is not None:

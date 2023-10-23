@@ -32,13 +32,15 @@ class SpringCloudApiPortalCustomDomainArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             spring_cloud_api_portal_id: pulumi.Input[str],
+             spring_cloud_api_portal_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              thumbprint: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'springCloudApiPortalId' in kwargs:
+        if spring_cloud_api_portal_id is None and 'springCloudApiPortalId' in kwargs:
             spring_cloud_api_portal_id = kwargs['springCloudApiPortalId']
+        if spring_cloud_api_portal_id is None:
+            raise TypeError("Missing 'spring_cloud_api_portal_id' argument")
 
         _setter("spring_cloud_api_portal_id", spring_cloud_api_portal_id)
         if name is not None:
@@ -109,7 +111,7 @@ class _SpringCloudApiPortalCustomDomainState:
              thumbprint: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'springCloudApiPortalId' in kwargs:
+        if spring_cloud_api_portal_id is None and 'springCloudApiPortalId' in kwargs:
             spring_cloud_api_portal_id = kwargs['springCloudApiPortalId']
 
         if name is not None:

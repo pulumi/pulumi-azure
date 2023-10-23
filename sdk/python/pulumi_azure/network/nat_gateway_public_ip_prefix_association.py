@@ -29,14 +29,18 @@ class NatGatewayPublicIpPrefixAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             nat_gateway_id: pulumi.Input[str],
-             public_ip_prefix_id: pulumi.Input[str],
+             nat_gateway_id: Optional[pulumi.Input[str]] = None,
+             public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'natGatewayId' in kwargs:
+        if nat_gateway_id is None and 'natGatewayId' in kwargs:
             nat_gateway_id = kwargs['natGatewayId']
-        if 'publicIpPrefixId' in kwargs:
+        if nat_gateway_id is None:
+            raise TypeError("Missing 'nat_gateway_id' argument")
+        if public_ip_prefix_id is None and 'publicIpPrefixId' in kwargs:
             public_ip_prefix_id = kwargs['publicIpPrefixId']
+        if public_ip_prefix_id is None:
+            raise TypeError("Missing 'public_ip_prefix_id' argument")
 
         _setter("nat_gateway_id", nat_gateway_id)
         _setter("public_ip_prefix_id", public_ip_prefix_id)
@@ -88,9 +92,9 @@ class _NatGatewayPublicIpPrefixAssociationState:
              public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'natGatewayId' in kwargs:
+        if nat_gateway_id is None and 'natGatewayId' in kwargs:
             nat_gateway_id = kwargs['natGatewayId']
-        if 'publicIpPrefixId' in kwargs:
+        if public_ip_prefix_id is None and 'publicIpPrefixId' in kwargs:
             public_ip_prefix_id = kwargs['publicIpPrefixId']
 
         if nat_gateway_id is not None:

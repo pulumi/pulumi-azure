@@ -57,8 +57,8 @@ class ServicePlanArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             allowed_regions: pulumi.Input[Sequence[pulumi.Input[str]]],
-             resource_group_name: pulumi.Input[str],
+             allowed_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              default_auto_shutdown: Optional[pulumi.Input['ServicePlanDefaultAutoShutdownArgs']] = None,
              default_connection: Optional[pulumi.Input['ServicePlanDefaultConnectionArgs']] = None,
              default_network_subnet_id: Optional[pulumi.Input[str]] = None,
@@ -69,17 +69,21 @@ class ServicePlanArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowedRegions' in kwargs:
+        if allowed_regions is None and 'allowedRegions' in kwargs:
             allowed_regions = kwargs['allowedRegions']
-        if 'resourceGroupName' in kwargs:
+        if allowed_regions is None:
+            raise TypeError("Missing 'allowed_regions' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'defaultAutoShutdown' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if default_auto_shutdown is None and 'defaultAutoShutdown' in kwargs:
             default_auto_shutdown = kwargs['defaultAutoShutdown']
-        if 'defaultConnection' in kwargs:
+        if default_connection is None and 'defaultConnection' in kwargs:
             default_connection = kwargs['defaultConnection']
-        if 'defaultNetworkSubnetId' in kwargs:
+        if default_network_subnet_id is None and 'defaultNetworkSubnetId' in kwargs:
             default_network_subnet_id = kwargs['defaultNetworkSubnetId']
-        if 'sharedGalleryId' in kwargs:
+        if shared_gallery_id is None and 'sharedGalleryId' in kwargs:
             shared_gallery_id = kwargs['sharedGalleryId']
 
         _setter("allowed_regions", allowed_regions)
@@ -280,17 +284,17 @@ class _ServicePlanState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowedRegions' in kwargs:
+        if allowed_regions is None and 'allowedRegions' in kwargs:
             allowed_regions = kwargs['allowedRegions']
-        if 'defaultAutoShutdown' in kwargs:
+        if default_auto_shutdown is None and 'defaultAutoShutdown' in kwargs:
             default_auto_shutdown = kwargs['defaultAutoShutdown']
-        if 'defaultConnection' in kwargs:
+        if default_connection is None and 'defaultConnection' in kwargs:
             default_connection = kwargs['defaultConnection']
-        if 'defaultNetworkSubnetId' in kwargs:
+        if default_network_subnet_id is None and 'defaultNetworkSubnetId' in kwargs:
             default_network_subnet_id = kwargs['defaultNetworkSubnetId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'sharedGalleryId' in kwargs:
+        if shared_gallery_id is None and 'sharedGalleryId' in kwargs:
             shared_gallery_id = kwargs['sharedGalleryId']
 
         if allowed_regions is not None:

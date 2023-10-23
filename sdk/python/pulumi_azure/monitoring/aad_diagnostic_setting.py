@@ -63,15 +63,15 @@ class AadDiagnosticSettingArgs:
              storage_account_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'enabledLogs' in kwargs:
+        if enabled_logs is None and 'enabledLogs' in kwargs:
             enabled_logs = kwargs['enabledLogs']
-        if 'eventhubAuthorizationRuleId' in kwargs:
+        if eventhub_authorization_rule_id is None and 'eventhubAuthorizationRuleId' in kwargs:
             eventhub_authorization_rule_id = kwargs['eventhubAuthorizationRuleId']
-        if 'eventhubName' in kwargs:
+        if eventhub_name is None and 'eventhubName' in kwargs:
             eventhub_name = kwargs['eventhubName']
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
 
         if enabled_logs is not None:
@@ -238,15 +238,15 @@ class _AadDiagnosticSettingState:
              storage_account_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'enabledLogs' in kwargs:
+        if enabled_logs is None and 'enabledLogs' in kwargs:
             enabled_logs = kwargs['enabledLogs']
-        if 'eventhubAuthorizationRuleId' in kwargs:
+        if eventhub_authorization_rule_id is None and 'eventhubAuthorizationRuleId' in kwargs:
             eventhub_authorization_rule_id = kwargs['eventhubAuthorizationRuleId']
-        if 'eventhubName' in kwargs:
+        if eventhub_name is None and 'eventhubName' in kwargs:
             eventhub_name = kwargs['eventhubName']
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
 
         if enabled_logs is not None:

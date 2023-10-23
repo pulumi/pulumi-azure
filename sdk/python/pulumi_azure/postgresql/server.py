@@ -94,10 +94,10 @@ class ServerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             sku_name: pulumi.Input[str],
-             ssl_enforcement_enabled: pulumi.Input[bool],
-             version: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
+             ssl_enforcement_enabled: Optional[pulumi.Input[bool]] = None,
+             version: Optional[pulumi.Input[str]] = None,
              administrator_login: Optional[pulumi.Input[str]] = None,
              administrator_login_password: Optional[pulumi.Input[str]] = None,
              auto_grow_enabled: Optional[pulumi.Input[bool]] = None,
@@ -117,37 +117,45 @@ class ServerArgs:
              threat_detection_policy: Optional[pulumi.Input['ServerThreatDetectionPolicyArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'sslEnforcementEnabled' in kwargs:
+        if sku_name is None:
+            raise TypeError("Missing 'sku_name' argument")
+        if ssl_enforcement_enabled is None and 'sslEnforcementEnabled' in kwargs:
             ssl_enforcement_enabled = kwargs['sslEnforcementEnabled']
-        if 'administratorLogin' in kwargs:
+        if ssl_enforcement_enabled is None:
+            raise TypeError("Missing 'ssl_enforcement_enabled' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
+        if administrator_login is None and 'administratorLogin' in kwargs:
             administrator_login = kwargs['administratorLogin']
-        if 'administratorLoginPassword' in kwargs:
+        if administrator_login_password is None and 'administratorLoginPassword' in kwargs:
             administrator_login_password = kwargs['administratorLoginPassword']
-        if 'autoGrowEnabled' in kwargs:
+        if auto_grow_enabled is None and 'autoGrowEnabled' in kwargs:
             auto_grow_enabled = kwargs['autoGrowEnabled']
-        if 'backupRetentionDays' in kwargs:
+        if backup_retention_days is None and 'backupRetentionDays' in kwargs:
             backup_retention_days = kwargs['backupRetentionDays']
-        if 'createMode' in kwargs:
+        if create_mode is None and 'createMode' in kwargs:
             create_mode = kwargs['createMode']
-        if 'creationSourceServerId' in kwargs:
+        if creation_source_server_id is None and 'creationSourceServerId' in kwargs:
             creation_source_server_id = kwargs['creationSourceServerId']
-        if 'geoRedundantBackupEnabled' in kwargs:
+        if geo_redundant_backup_enabled is None and 'geoRedundantBackupEnabled' in kwargs:
             geo_redundant_backup_enabled = kwargs['geoRedundantBackupEnabled']
-        if 'infrastructureEncryptionEnabled' in kwargs:
+        if infrastructure_encryption_enabled is None and 'infrastructureEncryptionEnabled' in kwargs:
             infrastructure_encryption_enabled = kwargs['infrastructureEncryptionEnabled']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'restorePointInTime' in kwargs:
+        if restore_point_in_time is None and 'restorePointInTime' in kwargs:
             restore_point_in_time = kwargs['restorePointInTime']
-        if 'sslMinimalTlsVersionEnforced' in kwargs:
+        if ssl_minimal_tls_version_enforced is None and 'sslMinimalTlsVersionEnforced' in kwargs:
             ssl_minimal_tls_version_enforced = kwargs['sslMinimalTlsVersionEnforced']
-        if 'storageMb' in kwargs:
+        if storage_mb is None and 'storageMb' in kwargs:
             storage_mb = kwargs['storageMb']
-        if 'threatDetectionPolicy' in kwargs:
+        if threat_detection_policy is None and 'threatDetectionPolicy' in kwargs:
             threat_detection_policy = kwargs['threatDetectionPolicy']
 
         _setter("resource_group_name", resource_group_name)
@@ -556,37 +564,37 @@ class _ServerState:
              version: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'administratorLogin' in kwargs:
+        if administrator_login is None and 'administratorLogin' in kwargs:
             administrator_login = kwargs['administratorLogin']
-        if 'administratorLoginPassword' in kwargs:
+        if administrator_login_password is None and 'administratorLoginPassword' in kwargs:
             administrator_login_password = kwargs['administratorLoginPassword']
-        if 'autoGrowEnabled' in kwargs:
+        if auto_grow_enabled is None and 'autoGrowEnabled' in kwargs:
             auto_grow_enabled = kwargs['autoGrowEnabled']
-        if 'backupRetentionDays' in kwargs:
+        if backup_retention_days is None and 'backupRetentionDays' in kwargs:
             backup_retention_days = kwargs['backupRetentionDays']
-        if 'createMode' in kwargs:
+        if create_mode is None and 'createMode' in kwargs:
             create_mode = kwargs['createMode']
-        if 'creationSourceServerId' in kwargs:
+        if creation_source_server_id is None and 'creationSourceServerId' in kwargs:
             creation_source_server_id = kwargs['creationSourceServerId']
-        if 'geoRedundantBackupEnabled' in kwargs:
+        if geo_redundant_backup_enabled is None and 'geoRedundantBackupEnabled' in kwargs:
             geo_redundant_backup_enabled = kwargs['geoRedundantBackupEnabled']
-        if 'infrastructureEncryptionEnabled' in kwargs:
+        if infrastructure_encryption_enabled is None and 'infrastructureEncryptionEnabled' in kwargs:
             infrastructure_encryption_enabled = kwargs['infrastructureEncryptionEnabled']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'restorePointInTime' in kwargs:
+        if restore_point_in_time is None and 'restorePointInTime' in kwargs:
             restore_point_in_time = kwargs['restorePointInTime']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'sslEnforcementEnabled' in kwargs:
+        if ssl_enforcement_enabled is None and 'sslEnforcementEnabled' in kwargs:
             ssl_enforcement_enabled = kwargs['sslEnforcementEnabled']
-        if 'sslMinimalTlsVersionEnforced' in kwargs:
+        if ssl_minimal_tls_version_enforced is None and 'sslMinimalTlsVersionEnforced' in kwargs:
             ssl_minimal_tls_version_enforced = kwargs['sslMinimalTlsVersionEnforced']
-        if 'storageMb' in kwargs:
+        if storage_mb is None and 'storageMb' in kwargs:
             storage_mb = kwargs['storageMb']
-        if 'threatDetectionPolicy' in kwargs:
+        if threat_detection_policy is None and 'threatDetectionPolicy' in kwargs:
             threat_detection_policy = kwargs['threatDetectionPolicy']
 
         if administrator_login is not None:

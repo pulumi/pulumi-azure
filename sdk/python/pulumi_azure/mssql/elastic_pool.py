@@ -63,10 +63,10 @@ class ElasticPoolArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             per_database_settings: pulumi.Input['ElasticPoolPerDatabaseSettingsArgs'],
-             resource_group_name: pulumi.Input[str],
-             server_name: pulumi.Input[str],
-             sku: pulumi.Input['ElasticPoolSkuArgs'],
+             per_database_settings: Optional[pulumi.Input['ElasticPoolPerDatabaseSettingsArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['ElasticPoolSkuArgs']] = None,
              license_type: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              maintenance_configuration_name: Optional[pulumi.Input[str]] = None,
@@ -77,21 +77,29 @@ class ElasticPoolArgs:
              zone_redundant: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'perDatabaseSettings' in kwargs:
+        if per_database_settings is None and 'perDatabaseSettings' in kwargs:
             per_database_settings = kwargs['perDatabaseSettings']
-        if 'resourceGroupName' in kwargs:
+        if per_database_settings is None:
+            raise TypeError("Missing 'per_database_settings' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serverName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if server_name is None and 'serverName' in kwargs:
             server_name = kwargs['serverName']
-        if 'licenseType' in kwargs:
+        if server_name is None:
+            raise TypeError("Missing 'server_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if license_type is None and 'licenseType' in kwargs:
             license_type = kwargs['licenseType']
-        if 'maintenanceConfigurationName' in kwargs:
+        if maintenance_configuration_name is None and 'maintenanceConfigurationName' in kwargs:
             maintenance_configuration_name = kwargs['maintenanceConfigurationName']
-        if 'maxSizeBytes' in kwargs:
+        if max_size_bytes is None and 'maxSizeBytes' in kwargs:
             max_size_bytes = kwargs['maxSizeBytes']
-        if 'maxSizeGb' in kwargs:
+        if max_size_gb is None and 'maxSizeGb' in kwargs:
             max_size_gb = kwargs['maxSizeGb']
-        if 'zoneRedundant' in kwargs:
+        if zone_redundant is None and 'zoneRedundant' in kwargs:
             zone_redundant = kwargs['zoneRedundant']
 
         _setter("per_database_settings", per_database_settings)
@@ -326,21 +334,21 @@ class _ElasticPoolState:
              zone_redundant: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'licenseType' in kwargs:
+        if license_type is None and 'licenseType' in kwargs:
             license_type = kwargs['licenseType']
-        if 'maintenanceConfigurationName' in kwargs:
+        if maintenance_configuration_name is None and 'maintenanceConfigurationName' in kwargs:
             maintenance_configuration_name = kwargs['maintenanceConfigurationName']
-        if 'maxSizeBytes' in kwargs:
+        if max_size_bytes is None and 'maxSizeBytes' in kwargs:
             max_size_bytes = kwargs['maxSizeBytes']
-        if 'maxSizeGb' in kwargs:
+        if max_size_gb is None and 'maxSizeGb' in kwargs:
             max_size_gb = kwargs['maxSizeGb']
-        if 'perDatabaseSettings' in kwargs:
+        if per_database_settings is None and 'perDatabaseSettings' in kwargs:
             per_database_settings = kwargs['perDatabaseSettings']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serverName' in kwargs:
+        if server_name is None and 'serverName' in kwargs:
             server_name = kwargs['serverName']
-        if 'zoneRedundant' in kwargs:
+        if zone_redundant is None and 'zoneRedundant' in kwargs:
             zone_redundant = kwargs['zoneRedundant']
 
         if license_type is not None:

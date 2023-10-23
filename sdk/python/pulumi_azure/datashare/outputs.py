@@ -59,14 +59,16 @@ class AccountIdentity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'principalId' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -141,15 +143,21 @@ class DatasetBlobStorageStorageAccount(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             resource_group_name: str,
-             subscription_id: str,
+             name: Optional[str] = None,
+             resource_group_name: Optional[str] = None,
+             subscription_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'subscriptionId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if subscription_id is None and 'subscriptionId' in kwargs:
             subscription_id = kwargs['subscriptionId']
+        if subscription_id is None:
+            raise TypeError("Missing 'subscription_id' argument")
 
         _setter("name", name)
         _setter("resource_group_name", resource_group_name)
@@ -217,13 +225,19 @@ class ShareSnapshotSchedule(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             recurrence: str,
-             start_time: str,
+             name: Optional[str] = None,
+             recurrence: Optional[str] = None,
+             start_time: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'startTime' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if recurrence is None:
+            raise TypeError("Missing 'recurrence' argument")
+        if start_time is None and 'startTime' in kwargs:
             start_time = kwargs['startTime']
+        if start_time is None:
+            raise TypeError("Missing 'start_time' argument")
 
         _setter("name", name)
         _setter("recurrence", recurrence)
@@ -274,15 +288,21 @@ class GetAccountIdentityResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             principal_id: str,
-             tenant_id: str,
-             type: str,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("principal_id", principal_id)
         _setter("tenant_id", tenant_id)
@@ -333,15 +353,21 @@ class GetDatasetBlobStorageStorageAccountResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             resource_group_name: str,
-             subscription_id: str,
+             name: Optional[str] = None,
+             resource_group_name: Optional[str] = None,
+             subscription_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'subscriptionId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if subscription_id is None and 'subscriptionId' in kwargs:
             subscription_id = kwargs['subscriptionId']
+        if subscription_id is None:
+            raise TypeError("Missing 'subscription_id' argument")
 
         _setter("name", name)
         _setter("resource_group_name", resource_group_name)
@@ -392,13 +418,19 @@ class GetShareSnapshotScheduleResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             recurrence: str,
-             start_time: str,
+             name: Optional[str] = None,
+             recurrence: Optional[str] = None,
+             start_time: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'startTime' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if recurrence is None:
+            raise TypeError("Missing 'recurrence' argument")
+        if start_time is None and 'startTime' in kwargs:
             start_time = kwargs['startTime']
+        if start_time is None:
+            raise TypeError("Missing 'start_time' argument")
 
         _setter("name", name)
         _setter("recurrence", recurrence)

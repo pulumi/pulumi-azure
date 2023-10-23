@@ -61,9 +61,9 @@ class PolicyVMArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             backup: pulumi.Input['PolicyVMBackupArgs'],
-             recovery_vault_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             backup: Optional[pulumi.Input['PolicyVMBackupArgs']] = None,
+             recovery_vault_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              instant_restore_resource_group: Optional[pulumi.Input['PolicyVMInstantRestoreResourceGroupArgs']] = None,
              instant_restore_retention_days: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
@@ -75,23 +75,29 @@ class PolicyVMArgs:
              timezone: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'recoveryVaultName' in kwargs:
+        if backup is None:
+            raise TypeError("Missing 'backup' argument")
+        if recovery_vault_name is None and 'recoveryVaultName' in kwargs:
             recovery_vault_name = kwargs['recoveryVaultName']
-        if 'resourceGroupName' in kwargs:
+        if recovery_vault_name is None:
+            raise TypeError("Missing 'recovery_vault_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'instantRestoreResourceGroup' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if instant_restore_resource_group is None and 'instantRestoreResourceGroup' in kwargs:
             instant_restore_resource_group = kwargs['instantRestoreResourceGroup']
-        if 'instantRestoreRetentionDays' in kwargs:
+        if instant_restore_retention_days is None and 'instantRestoreRetentionDays' in kwargs:
             instant_restore_retention_days = kwargs['instantRestoreRetentionDays']
-        if 'policyType' in kwargs:
+        if policy_type is None and 'policyType' in kwargs:
             policy_type = kwargs['policyType']
-        if 'retentionDaily' in kwargs:
+        if retention_daily is None and 'retentionDaily' in kwargs:
             retention_daily = kwargs['retentionDaily']
-        if 'retentionMonthly' in kwargs:
+        if retention_monthly is None and 'retentionMonthly' in kwargs:
             retention_monthly = kwargs['retentionMonthly']
-        if 'retentionWeekly' in kwargs:
+        if retention_weekly is None and 'retentionWeekly' in kwargs:
             retention_weekly = kwargs['retentionWeekly']
-        if 'retentionYearly' in kwargs:
+        if retention_yearly is None and 'retentionYearly' in kwargs:
             retention_yearly = kwargs['retentionYearly']
 
         _setter("backup", backup)
@@ -323,23 +329,23 @@ class _PolicyVMState:
              timezone: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'instantRestoreResourceGroup' in kwargs:
+        if instant_restore_resource_group is None and 'instantRestoreResourceGroup' in kwargs:
             instant_restore_resource_group = kwargs['instantRestoreResourceGroup']
-        if 'instantRestoreRetentionDays' in kwargs:
+        if instant_restore_retention_days is None and 'instantRestoreRetentionDays' in kwargs:
             instant_restore_retention_days = kwargs['instantRestoreRetentionDays']
-        if 'policyType' in kwargs:
+        if policy_type is None and 'policyType' in kwargs:
             policy_type = kwargs['policyType']
-        if 'recoveryVaultName' in kwargs:
+        if recovery_vault_name is None and 'recoveryVaultName' in kwargs:
             recovery_vault_name = kwargs['recoveryVaultName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'retentionDaily' in kwargs:
+        if retention_daily is None and 'retentionDaily' in kwargs:
             retention_daily = kwargs['retentionDaily']
-        if 'retentionMonthly' in kwargs:
+        if retention_monthly is None and 'retentionMonthly' in kwargs:
             retention_monthly = kwargs['retentionMonthly']
-        if 'retentionWeekly' in kwargs:
+        if retention_weekly is None and 'retentionWeekly' in kwargs:
             retention_weekly = kwargs['retentionWeekly']
-        if 'retentionYearly' in kwargs:
+        if retention_yearly is None and 'retentionYearly' in kwargs:
             retention_yearly = kwargs['retentionYearly']
 
         if backup is not None:

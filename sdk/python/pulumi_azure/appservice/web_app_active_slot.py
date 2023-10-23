@@ -29,13 +29,15 @@ class WebAppActiveSlotArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             slot_id: pulumi.Input[str],
+             slot_id: Optional[pulumi.Input[str]] = None,
              overwrite_network_config: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'slotId' in kwargs:
+        if slot_id is None and 'slotId' in kwargs:
             slot_id = kwargs['slotId']
-        if 'overwriteNetworkConfig' in kwargs:
+        if slot_id is None:
+            raise TypeError("Missing 'slot_id' argument")
+        if overwrite_network_config is None and 'overwriteNetworkConfig' in kwargs:
             overwrite_network_config = kwargs['overwriteNetworkConfig']
 
         _setter("slot_id", slot_id)
@@ -93,11 +95,11 @@ class _WebAppActiveSlotState:
              slot_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'lastSuccessfulSwap' in kwargs:
+        if last_successful_swap is None and 'lastSuccessfulSwap' in kwargs:
             last_successful_swap = kwargs['lastSuccessfulSwap']
-        if 'overwriteNetworkConfig' in kwargs:
+        if overwrite_network_config is None and 'overwriteNetworkConfig' in kwargs:
             overwrite_network_config = kwargs['overwriteNetworkConfig']
-        if 'slotId' in kwargs:
+        if slot_id is None and 'slotId' in kwargs:
             slot_id = kwargs['slotId']
 
         if last_successful_swap is not None:

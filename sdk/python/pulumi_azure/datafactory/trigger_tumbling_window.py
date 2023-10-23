@@ -70,11 +70,11 @@ class TriggerTumblingWindowArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_factory_id: pulumi.Input[str],
-             frequency: pulumi.Input[str],
-             interval: pulumi.Input[int],
-             pipeline: pulumi.Input['TriggerTumblingWindowPipelineArgs'],
-             start_time: pulumi.Input[str],
+             data_factory_id: Optional[pulumi.Input[str]] = None,
+             frequency: Optional[pulumi.Input[str]] = None,
+             interval: Optional[pulumi.Input[int]] = None,
+             pipeline: Optional[pulumi.Input['TriggerTumblingWindowPipelineArgs']] = None,
+             start_time: Optional[pulumi.Input[str]] = None,
              activated: Optional[pulumi.Input[bool]] = None,
              additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -87,17 +87,27 @@ class TriggerTumblingWindowArgs:
              trigger_dependencies: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerTumblingWindowTriggerDependencyArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'startTime' in kwargs:
+        if data_factory_id is None:
+            raise TypeError("Missing 'data_factory_id' argument")
+        if frequency is None:
+            raise TypeError("Missing 'frequency' argument")
+        if interval is None:
+            raise TypeError("Missing 'interval' argument")
+        if pipeline is None:
+            raise TypeError("Missing 'pipeline' argument")
+        if start_time is None and 'startTime' in kwargs:
             start_time = kwargs['startTime']
-        if 'additionalProperties' in kwargs:
+        if start_time is None:
+            raise TypeError("Missing 'start_time' argument")
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'endTime' in kwargs:
+        if end_time is None and 'endTime' in kwargs:
             end_time = kwargs['endTime']
-        if 'maxConcurrency' in kwargs:
+        if max_concurrency is None and 'maxConcurrency' in kwargs:
             max_concurrency = kwargs['maxConcurrency']
-        if 'triggerDependencies' in kwargs:
+        if trigger_dependencies is None and 'triggerDependencies' in kwargs:
             trigger_dependencies = kwargs['triggerDependencies']
 
         _setter("data_factory_id", data_factory_id)
@@ -381,17 +391,17 @@ class _TriggerTumblingWindowState:
              trigger_dependencies: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerTumblingWindowTriggerDependencyArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'additionalProperties' in kwargs:
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'endTime' in kwargs:
+        if end_time is None and 'endTime' in kwargs:
             end_time = kwargs['endTime']
-        if 'maxConcurrency' in kwargs:
+        if max_concurrency is None and 'maxConcurrency' in kwargs:
             max_concurrency = kwargs['maxConcurrency']
-        if 'startTime' in kwargs:
+        if start_time is None and 'startTime' in kwargs:
             start_time = kwargs['startTime']
-        if 'triggerDependencies' in kwargs:
+        if trigger_dependencies is None and 'triggerDependencies' in kwargs:
             trigger_dependencies = kwargs['triggerDependencies']
 
         if activated is not None:

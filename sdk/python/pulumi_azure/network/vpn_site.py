@@ -57,8 +57,8 @@ class VpnSiteArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             virtual_wan_id: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             virtual_wan_id: Optional[pulumi.Input[str]] = None,
              address_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              device_model: Optional[pulumi.Input[str]] = None,
              device_vendor: Optional[pulumi.Input[str]] = None,
@@ -69,17 +69,21 @@ class VpnSiteArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'virtualWanId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if virtual_wan_id is None and 'virtualWanId' in kwargs:
             virtual_wan_id = kwargs['virtualWanId']
-        if 'addressCidrs' in kwargs:
+        if virtual_wan_id is None:
+            raise TypeError("Missing 'virtual_wan_id' argument")
+        if address_cidrs is None and 'addressCidrs' in kwargs:
             address_cidrs = kwargs['addressCidrs']
-        if 'deviceModel' in kwargs:
+        if device_model is None and 'deviceModel' in kwargs:
             device_model = kwargs['deviceModel']
-        if 'deviceVendor' in kwargs:
+        if device_vendor is None and 'deviceVendor' in kwargs:
             device_vendor = kwargs['deviceVendor']
-        if 'o365Policy' in kwargs:
+        if o365_policy is None and 'o365Policy' in kwargs:
             o365_policy = kwargs['o365Policy']
 
         _setter("resource_group_name", resource_group_name)
@@ -280,17 +284,17 @@ class _VpnSiteState:
              virtual_wan_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'addressCidrs' in kwargs:
+        if address_cidrs is None and 'addressCidrs' in kwargs:
             address_cidrs = kwargs['addressCidrs']
-        if 'deviceModel' in kwargs:
+        if device_model is None and 'deviceModel' in kwargs:
             device_model = kwargs['deviceModel']
-        if 'deviceVendor' in kwargs:
+        if device_vendor is None and 'deviceVendor' in kwargs:
             device_vendor = kwargs['deviceVendor']
-        if 'o365Policy' in kwargs:
+        if o365_policy is None and 'o365Policy' in kwargs:
             o365_policy = kwargs['o365Policy']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'virtualWanId' in kwargs:
+        if virtual_wan_id is None and 'virtualWanId' in kwargs:
             virtual_wan_id = kwargs['virtualWanId']
 
         if address_cidrs is not None:

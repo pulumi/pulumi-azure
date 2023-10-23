@@ -58,8 +58,8 @@ class DatasetAzureSqlTableArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_factory_id: pulumi.Input[str],
-             linked_service_id: pulumi.Input[str],
+             data_factory_id: Optional[pulumi.Input[str]] = None,
+             linked_service_id: Optional[pulumi.Input[str]] = None,
              additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -71,13 +71,17 @@ class DatasetAzureSqlTableArgs:
              table: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'linkedServiceId' in kwargs:
+        if data_factory_id is None:
+            raise TypeError("Missing 'data_factory_id' argument")
+        if linked_service_id is None and 'linkedServiceId' in kwargs:
             linked_service_id = kwargs['linkedServiceId']
-        if 'additionalProperties' in kwargs:
+        if linked_service_id is None:
+            raise TypeError("Missing 'linked_service_id' argument")
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'schemaColumns' in kwargs:
+        if schema_columns is None and 'schemaColumns' in kwargs:
             schema_columns = kwargs['schemaColumns']
 
         _setter("data_factory_id", data_factory_id)
@@ -292,13 +296,13 @@ class _DatasetAzureSqlTableState:
              table: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'additionalProperties' in kwargs:
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'linkedServiceId' in kwargs:
+        if linked_service_id is None and 'linkedServiceId' in kwargs:
             linked_service_id = kwargs['linkedServiceId']
-        if 'schemaColumns' in kwargs:
+        if schema_columns is None and 'schemaColumns' in kwargs:
             schema_columns = kwargs['schemaColumns']
 
         if additional_properties is not None:

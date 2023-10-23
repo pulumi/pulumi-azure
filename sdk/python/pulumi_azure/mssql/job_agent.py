@@ -35,14 +35,16 @@ class JobAgentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database_id: pulumi.Input[str],
+             database_id: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'databaseId' in kwargs:
+        if database_id is None and 'databaseId' in kwargs:
             database_id = kwargs['databaseId']
+        if database_id is None:
+            raise TypeError("Missing 'database_id' argument")
 
         _setter("database_id", database_id)
         if location is not None:
@@ -131,7 +133,7 @@ class _JobAgentState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'databaseId' in kwargs:
+        if database_id is None and 'databaseId' in kwargs:
             database_id = kwargs['databaseId']
 
         if database_id is not None:

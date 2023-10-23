@@ -35,16 +35,20 @@ class ShareDirectoryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             share_name: pulumi.Input[str],
-             storage_account_name: pulumi.Input[str],
+             share_name: Optional[pulumi.Input[str]] = None,
+             storage_account_name: Optional[pulumi.Input[str]] = None,
              metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'shareName' in kwargs:
+        if share_name is None and 'shareName' in kwargs:
             share_name = kwargs['shareName']
-        if 'storageAccountName' in kwargs:
+        if share_name is None:
+            raise TypeError("Missing 'share_name' argument")
+        if storage_account_name is None and 'storageAccountName' in kwargs:
             storage_account_name = kwargs['storageAccountName']
+        if storage_account_name is None:
+            raise TypeError("Missing 'storage_account_name' argument")
 
         _setter("share_name", share_name)
         _setter("storage_account_name", storage_account_name)
@@ -132,9 +136,9 @@ class _ShareDirectoryState:
              storage_account_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'shareName' in kwargs:
+        if share_name is None and 'shareName' in kwargs:
             share_name = kwargs['shareName']
-        if 'storageAccountName' in kwargs:
+        if storage_account_name is None and 'storageAccountName' in kwargs:
             storage_account_name = kwargs['storageAccountName']
 
         if metadata is not None:

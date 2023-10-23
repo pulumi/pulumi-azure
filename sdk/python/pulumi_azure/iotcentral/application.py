@@ -57,8 +57,8 @@ class ApplicationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             sub_domain: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sub_domain: Optional[pulumi.Input[str]] = None,
              display_name: Optional[pulumi.Input[str]] = None,
              identity: Optional[pulumi.Input['ApplicationIdentityArgs']] = None,
              location: Optional[pulumi.Input[str]] = None,
@@ -69,13 +69,17 @@ class ApplicationArgs:
              template: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'subDomain' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sub_domain is None and 'subDomain' in kwargs:
             sub_domain = kwargs['subDomain']
-        if 'displayName' in kwargs:
+        if sub_domain is None:
+            raise TypeError("Missing 'sub_domain' argument")
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
 
         _setter("resource_group_name", resource_group_name)
@@ -276,13 +280,13 @@ class _ApplicationState:
              template: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'subDomain' in kwargs:
+        if sub_domain is None and 'subDomain' in kwargs:
             sub_domain = kwargs['subDomain']
 
         if display_name is not None:

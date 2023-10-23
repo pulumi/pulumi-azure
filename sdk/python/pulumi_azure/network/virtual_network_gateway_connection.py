@@ -104,9 +104,9 @@ class VirtualNetworkGatewayConnectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             type: pulumi.Input[str],
-             virtual_network_gateway_id: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             virtual_network_gateway_id: Optional[pulumi.Input[str]] = None,
              authorization_key: Optional[pulumi.Input[str]] = None,
              connection_mode: Optional[pulumi.Input[str]] = None,
              connection_protocol: Optional[pulumi.Input[str]] = None,
@@ -130,45 +130,51 @@ class VirtualNetworkGatewayConnectionArgs:
              use_policy_based_traffic_selectors: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'virtualNetworkGatewayId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if virtual_network_gateway_id is None and 'virtualNetworkGatewayId' in kwargs:
             virtual_network_gateway_id = kwargs['virtualNetworkGatewayId']
-        if 'authorizationKey' in kwargs:
+        if virtual_network_gateway_id is None:
+            raise TypeError("Missing 'virtual_network_gateway_id' argument")
+        if authorization_key is None and 'authorizationKey' in kwargs:
             authorization_key = kwargs['authorizationKey']
-        if 'connectionMode' in kwargs:
+        if connection_mode is None and 'connectionMode' in kwargs:
             connection_mode = kwargs['connectionMode']
-        if 'connectionProtocol' in kwargs:
+        if connection_protocol is None and 'connectionProtocol' in kwargs:
             connection_protocol = kwargs['connectionProtocol']
-        if 'customBgpAddresses' in kwargs:
+        if custom_bgp_addresses is None and 'customBgpAddresses' in kwargs:
             custom_bgp_addresses = kwargs['customBgpAddresses']
-        if 'dpdTimeoutSeconds' in kwargs:
+        if dpd_timeout_seconds is None and 'dpdTimeoutSeconds' in kwargs:
             dpd_timeout_seconds = kwargs['dpdTimeoutSeconds']
-        if 'egressNatRuleIds' in kwargs:
+        if egress_nat_rule_ids is None and 'egressNatRuleIds' in kwargs:
             egress_nat_rule_ids = kwargs['egressNatRuleIds']
-        if 'enableBgp' in kwargs:
+        if enable_bgp is None and 'enableBgp' in kwargs:
             enable_bgp = kwargs['enableBgp']
-        if 'expressRouteCircuitId' in kwargs:
+        if express_route_circuit_id is None and 'expressRouteCircuitId' in kwargs:
             express_route_circuit_id = kwargs['expressRouteCircuitId']
-        if 'expressRouteGatewayBypass' in kwargs:
+        if express_route_gateway_bypass is None and 'expressRouteGatewayBypass' in kwargs:
             express_route_gateway_bypass = kwargs['expressRouteGatewayBypass']
-        if 'ingressNatRuleIds' in kwargs:
+        if ingress_nat_rule_ids is None and 'ingressNatRuleIds' in kwargs:
             ingress_nat_rule_ids = kwargs['ingressNatRuleIds']
-        if 'ipsecPolicy' in kwargs:
+        if ipsec_policy is None and 'ipsecPolicy' in kwargs:
             ipsec_policy = kwargs['ipsecPolicy']
-        if 'localAzureIpAddressEnabled' in kwargs:
+        if local_azure_ip_address_enabled is None and 'localAzureIpAddressEnabled' in kwargs:
             local_azure_ip_address_enabled = kwargs['localAzureIpAddressEnabled']
-        if 'localNetworkGatewayId' in kwargs:
+        if local_network_gateway_id is None and 'localNetworkGatewayId' in kwargs:
             local_network_gateway_id = kwargs['localNetworkGatewayId']
-        if 'peerVirtualNetworkGatewayId' in kwargs:
+        if peer_virtual_network_gateway_id is None and 'peerVirtualNetworkGatewayId' in kwargs:
             peer_virtual_network_gateway_id = kwargs['peerVirtualNetworkGatewayId']
-        if 'routingWeight' in kwargs:
+        if routing_weight is None and 'routingWeight' in kwargs:
             routing_weight = kwargs['routingWeight']
-        if 'sharedKey' in kwargs:
+        if shared_key is None and 'sharedKey' in kwargs:
             shared_key = kwargs['sharedKey']
-        if 'trafficSelectorPolicy' in kwargs:
+        if traffic_selector_policy is None and 'trafficSelectorPolicy' in kwargs:
             traffic_selector_policy = kwargs['trafficSelectorPolicy']
-        if 'usePolicyBasedTrafficSelectors' in kwargs:
+        if use_policy_based_traffic_selectors is None and 'usePolicyBasedTrafficSelectors' in kwargs:
             use_policy_based_traffic_selectors = kwargs['usePolicyBasedTrafficSelectors']
 
         _setter("resource_group_name", resource_group_name)
@@ -630,45 +636,45 @@ class _VirtualNetworkGatewayConnectionState:
              virtual_network_gateway_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'authorizationKey' in kwargs:
+        if authorization_key is None and 'authorizationKey' in kwargs:
             authorization_key = kwargs['authorizationKey']
-        if 'connectionMode' in kwargs:
+        if connection_mode is None and 'connectionMode' in kwargs:
             connection_mode = kwargs['connectionMode']
-        if 'connectionProtocol' in kwargs:
+        if connection_protocol is None and 'connectionProtocol' in kwargs:
             connection_protocol = kwargs['connectionProtocol']
-        if 'customBgpAddresses' in kwargs:
+        if custom_bgp_addresses is None and 'customBgpAddresses' in kwargs:
             custom_bgp_addresses = kwargs['customBgpAddresses']
-        if 'dpdTimeoutSeconds' in kwargs:
+        if dpd_timeout_seconds is None and 'dpdTimeoutSeconds' in kwargs:
             dpd_timeout_seconds = kwargs['dpdTimeoutSeconds']
-        if 'egressNatRuleIds' in kwargs:
+        if egress_nat_rule_ids is None and 'egressNatRuleIds' in kwargs:
             egress_nat_rule_ids = kwargs['egressNatRuleIds']
-        if 'enableBgp' in kwargs:
+        if enable_bgp is None and 'enableBgp' in kwargs:
             enable_bgp = kwargs['enableBgp']
-        if 'expressRouteCircuitId' in kwargs:
+        if express_route_circuit_id is None and 'expressRouteCircuitId' in kwargs:
             express_route_circuit_id = kwargs['expressRouteCircuitId']
-        if 'expressRouteGatewayBypass' in kwargs:
+        if express_route_gateway_bypass is None and 'expressRouteGatewayBypass' in kwargs:
             express_route_gateway_bypass = kwargs['expressRouteGatewayBypass']
-        if 'ingressNatRuleIds' in kwargs:
+        if ingress_nat_rule_ids is None and 'ingressNatRuleIds' in kwargs:
             ingress_nat_rule_ids = kwargs['ingressNatRuleIds']
-        if 'ipsecPolicy' in kwargs:
+        if ipsec_policy is None and 'ipsecPolicy' in kwargs:
             ipsec_policy = kwargs['ipsecPolicy']
-        if 'localAzureIpAddressEnabled' in kwargs:
+        if local_azure_ip_address_enabled is None and 'localAzureIpAddressEnabled' in kwargs:
             local_azure_ip_address_enabled = kwargs['localAzureIpAddressEnabled']
-        if 'localNetworkGatewayId' in kwargs:
+        if local_network_gateway_id is None and 'localNetworkGatewayId' in kwargs:
             local_network_gateway_id = kwargs['localNetworkGatewayId']
-        if 'peerVirtualNetworkGatewayId' in kwargs:
+        if peer_virtual_network_gateway_id is None and 'peerVirtualNetworkGatewayId' in kwargs:
             peer_virtual_network_gateway_id = kwargs['peerVirtualNetworkGatewayId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'routingWeight' in kwargs:
+        if routing_weight is None and 'routingWeight' in kwargs:
             routing_weight = kwargs['routingWeight']
-        if 'sharedKey' in kwargs:
+        if shared_key is None and 'sharedKey' in kwargs:
             shared_key = kwargs['sharedKey']
-        if 'trafficSelectorPolicy' in kwargs:
+        if traffic_selector_policy is None and 'trafficSelectorPolicy' in kwargs:
             traffic_selector_policy = kwargs['trafficSelectorPolicy']
-        if 'usePolicyBasedTrafficSelectors' in kwargs:
+        if use_policy_based_traffic_selectors is None and 'usePolicyBasedTrafficSelectors' in kwargs:
             use_policy_based_traffic_selectors = kwargs['usePolicyBasedTrafficSelectors']
-        if 'virtualNetworkGatewayId' in kwargs:
+        if virtual_network_gateway_id is None and 'virtualNetworkGatewayId' in kwargs:
             virtual_network_gateway_id = kwargs['virtualNetworkGatewayId']
 
         if authorization_key is not None:

@@ -45,15 +45,17 @@ class GlobalVMShutdownScheduleNotificationSettingsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: pulumi.Input[bool],
+             enabled: Optional[pulumi.Input[bool]] = None,
              email: Optional[pulumi.Input[str]] = None,
              time_in_minutes: Optional[pulumi.Input[int]] = None,
              webhook_url: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'timeInMinutes' in kwargs:
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if time_in_minutes is None and 'timeInMinutes' in kwargs:
             time_in_minutes = kwargs['timeInMinutes']
-        if 'webhookUrl' in kwargs:
+        if webhook_url is None and 'webhookUrl' in kwargs:
             webhook_url = kwargs['webhookUrl']
 
         _setter("enabled", enabled)
@@ -136,12 +138,20 @@ class LinuxVirtualMachineGalleryImageReferenceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             offer: pulumi.Input[str],
-             publisher: pulumi.Input[str],
-             sku: pulumi.Input[str],
-             version: pulumi.Input[str],
+             offer: Optional[pulumi.Input[str]] = None,
+             publisher: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if offer is None:
+            raise TypeError("Missing 'offer' argument")
+        if publisher is None:
+            raise TypeError("Missing 'publisher' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
 
         _setter("offer", offer)
         _setter("publisher", publisher)
@@ -217,14 +227,18 @@ class LinuxVirtualMachineInboundNatRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             backend_port: pulumi.Input[int],
-             protocol: pulumi.Input[str],
+             backend_port: Optional[pulumi.Input[int]] = None,
+             protocol: Optional[pulumi.Input[str]] = None,
              frontend_port: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'backendPort' in kwargs:
+        if backend_port is None and 'backendPort' in kwargs:
             backend_port = kwargs['backendPort']
-        if 'frontendPort' in kwargs:
+        if backend_port is None:
+            raise TypeError("Missing 'backend_port' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if frontend_port is None and 'frontendPort' in kwargs:
             frontend_port = kwargs['frontendPort']
 
         _setter("backend_port", backend_port)
@@ -283,9 +297,11 @@ class ScheduleDailyRecurrenceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             time: pulumi.Input[str],
+             time: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if time is None:
+            raise TypeError("Missing 'time' argument")
 
         _setter("time", time)
 
@@ -316,9 +332,11 @@ class ScheduleHourlyRecurrenceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             minute: pulumi.Input[int],
+             minute: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if minute is None:
+            raise TypeError("Missing 'minute' argument")
 
         _setter("minute", minute)
 
@@ -360,9 +378,9 @@ class ScheduleNotificationSettingsArgs:
              webhook_url: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'timeInMinutes' in kwargs:
+        if time_in_minutes is None and 'timeInMinutes' in kwargs:
             time_in_minutes = kwargs['timeInMinutes']
-        if 'webhookUrl' in kwargs:
+        if webhook_url is None and 'webhookUrl' in kwargs:
             webhook_url = kwargs['webhookUrl']
 
         if status is not None:
@@ -426,11 +444,13 @@ class ScheduleWeeklyRecurrenceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             time: pulumi.Input[str],
+             time: Optional[pulumi.Input[str]] = None,
              week_days: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'weekDays' in kwargs:
+        if time is None:
+            raise TypeError("Missing 'time' argument")
+        if week_days is None and 'weekDays' in kwargs:
             week_days = kwargs['weekDays']
 
         _setter("time", time)
@@ -487,9 +507,9 @@ class VirtualNetworkSubnetArgs:
              use_public_ip_address: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'useInVirtualMachineCreation' in kwargs:
+        if use_in_virtual_machine_creation is None and 'useInVirtualMachineCreation' in kwargs:
             use_in_virtual_machine_creation = kwargs['useInVirtualMachineCreation']
-        if 'usePublicIpAddress' in kwargs:
+        if use_public_ip_address is None and 'usePublicIpAddress' in kwargs:
             use_public_ip_address = kwargs['usePublicIpAddress']
 
         if name is not None:
@@ -559,12 +579,20 @@ class WindowsVirtualMachineGalleryImageReferenceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             offer: pulumi.Input[str],
-             publisher: pulumi.Input[str],
-             sku: pulumi.Input[str],
-             version: pulumi.Input[str],
+             offer: Optional[pulumi.Input[str]] = None,
+             publisher: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if offer is None:
+            raise TypeError("Missing 'offer' argument")
+        if publisher is None:
+            raise TypeError("Missing 'publisher' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
 
         _setter("offer", offer)
         _setter("publisher", publisher)
@@ -640,14 +668,18 @@ class WindowsVirtualMachineInboundNatRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             backend_port: pulumi.Input[int],
-             protocol: pulumi.Input[str],
+             backend_port: Optional[pulumi.Input[int]] = None,
+             protocol: Optional[pulumi.Input[str]] = None,
              frontend_port: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'backendPort' in kwargs:
+        if backend_port is None and 'backendPort' in kwargs:
             backend_port = kwargs['backendPort']
-        if 'frontendPort' in kwargs:
+        if backend_port is None:
+            raise TypeError("Missing 'backend_port' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if frontend_port is None and 'frontendPort' in kwargs:
             frontend_port = kwargs['frontendPort']
 
         _setter("backend_port", backend_port)

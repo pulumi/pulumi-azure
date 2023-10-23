@@ -40,18 +40,22 @@ class ManagedPrivateEndpointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_factory_id: pulumi.Input[str],
-             target_resource_id: pulumi.Input[str],
+             data_factory_id: Optional[pulumi.Input[str]] = None,
+             target_resource_id: Optional[pulumi.Input[str]] = None,
              fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              subresource_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'targetResourceId' in kwargs:
+        if data_factory_id is None:
+            raise TypeError("Missing 'data_factory_id' argument")
+        if target_resource_id is None and 'targetResourceId' in kwargs:
             target_resource_id = kwargs['targetResourceId']
-        if 'subresourceName' in kwargs:
+        if target_resource_id is None:
+            raise TypeError("Missing 'target_resource_id' argument")
+        if subresource_name is None and 'subresourceName' in kwargs:
             subresource_name = kwargs['subresourceName']
 
         _setter("data_factory_id", data_factory_id)
@@ -162,11 +166,11 @@ class _ManagedPrivateEndpointState:
              target_resource_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'subresourceName' in kwargs:
+        if subresource_name is None and 'subresourceName' in kwargs:
             subresource_name = kwargs['subresourceName']
-        if 'targetResourceId' in kwargs:
+        if target_resource_id is None and 'targetResourceId' in kwargs:
             target_resource_id = kwargs['targetResourceId']
 
         if data_factory_id is not None:

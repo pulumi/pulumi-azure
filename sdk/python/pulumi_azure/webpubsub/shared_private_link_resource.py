@@ -42,20 +42,26 @@ class SharedPrivateLinkResourceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             subresource_name: pulumi.Input[str],
-             target_resource_id: pulumi.Input[str],
-             web_pubsub_id: pulumi.Input[str],
+             subresource_name: Optional[pulumi.Input[str]] = None,
+             target_resource_id: Optional[pulumi.Input[str]] = None,
+             web_pubsub_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              request_message: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'subresourceName' in kwargs:
+        if subresource_name is None and 'subresourceName' in kwargs:
             subresource_name = kwargs['subresourceName']
-        if 'targetResourceId' in kwargs:
+        if subresource_name is None:
+            raise TypeError("Missing 'subresource_name' argument")
+        if target_resource_id is None and 'targetResourceId' in kwargs:
             target_resource_id = kwargs['targetResourceId']
-        if 'webPubsubId' in kwargs:
+        if target_resource_id is None:
+            raise TypeError("Missing 'target_resource_id' argument")
+        if web_pubsub_id is None and 'webPubsubId' in kwargs:
             web_pubsub_id = kwargs['webPubsubId']
-        if 'requestMessage' in kwargs:
+        if web_pubsub_id is None:
+            raise TypeError("Missing 'web_pubsub_id' argument")
+        if request_message is None and 'requestMessage' in kwargs:
             request_message = kwargs['requestMessage']
 
         _setter("subresource_name", subresource_name)
@@ -173,13 +179,13 @@ class _SharedPrivateLinkResourceState:
              web_pubsub_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'requestMessage' in kwargs:
+        if request_message is None and 'requestMessage' in kwargs:
             request_message = kwargs['requestMessage']
-        if 'subresourceName' in kwargs:
+        if subresource_name is None and 'subresourceName' in kwargs:
             subresource_name = kwargs['subresourceName']
-        if 'targetResourceId' in kwargs:
+        if target_resource_id is None and 'targetResourceId' in kwargs:
             target_resource_id = kwargs['targetResourceId']
-        if 'webPubsubId' in kwargs:
+        if web_pubsub_id is None and 'webPubsubId' in kwargs:
             web_pubsub_id = kwargs['webPubsubId']
 
         if name is not None:

@@ -116,11 +116,11 @@ class PoolArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             account_name: pulumi.Input[str],
-             node_agent_sku_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             storage_image_reference: pulumi.Input['PoolStorageImageReferenceArgs'],
-             vm_size: pulumi.Input[str],
+             account_name: Optional[pulumi.Input[str]] = None,
+             node_agent_sku_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             storage_image_reference: Optional[pulumi.Input['PoolStorageImageReferenceArgs']] = None,
+             vm_size: Optional[pulumi.Input[str]] = None,
              auto_scale: Optional[pulumi.Input['PoolAutoScaleArgs']] = None,
              certificates: Optional[pulumi.Input[Sequence[pulumi.Input['PoolCertificateArgs']]]] = None,
              container_configuration: Optional[pulumi.Input['PoolContainerConfigurationArgs']] = None,
@@ -147,49 +147,59 @@ class PoolArgs:
              windows: Optional[pulumi.Input[Sequence[pulumi.Input['PoolWindowArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accountName' in kwargs:
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'nodeAgentSkuId' in kwargs:
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if node_agent_sku_id is None and 'nodeAgentSkuId' in kwargs:
             node_agent_sku_id = kwargs['nodeAgentSkuId']
-        if 'resourceGroupName' in kwargs:
+        if node_agent_sku_id is None:
+            raise TypeError("Missing 'node_agent_sku_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'storageImageReference' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if storage_image_reference is None and 'storageImageReference' in kwargs:
             storage_image_reference = kwargs['storageImageReference']
-        if 'vmSize' in kwargs:
+        if storage_image_reference is None:
+            raise TypeError("Missing 'storage_image_reference' argument")
+        if vm_size is None and 'vmSize' in kwargs:
             vm_size = kwargs['vmSize']
-        if 'autoScale' in kwargs:
+        if vm_size is None:
+            raise TypeError("Missing 'vm_size' argument")
+        if auto_scale is None and 'autoScale' in kwargs:
             auto_scale = kwargs['autoScale']
-        if 'containerConfiguration' in kwargs:
+        if container_configuration is None and 'containerConfiguration' in kwargs:
             container_configuration = kwargs['containerConfiguration']
-        if 'dataDisks' in kwargs:
+        if data_disks is None and 'dataDisks' in kwargs:
             data_disks = kwargs['dataDisks']
-        if 'diskEncryptions' in kwargs:
+        if disk_encryptions is None and 'diskEncryptions' in kwargs:
             disk_encryptions = kwargs['diskEncryptions']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'fixedScale' in kwargs:
+        if fixed_scale is None and 'fixedScale' in kwargs:
             fixed_scale = kwargs['fixedScale']
-        if 'interNodeCommunication' in kwargs:
+        if inter_node_communication is None and 'interNodeCommunication' in kwargs:
             inter_node_communication = kwargs['interNodeCommunication']
-        if 'licenseType' in kwargs:
+        if license_type is None and 'licenseType' in kwargs:
             license_type = kwargs['licenseType']
-        if 'maxTasksPerNode' in kwargs:
+        if max_tasks_per_node is None and 'maxTasksPerNode' in kwargs:
             max_tasks_per_node = kwargs['maxTasksPerNode']
-        if 'networkConfiguration' in kwargs:
+        if network_configuration is None and 'networkConfiguration' in kwargs:
             network_configuration = kwargs['networkConfiguration']
-        if 'nodePlacements' in kwargs:
+        if node_placements is None and 'nodePlacements' in kwargs:
             node_placements = kwargs['nodePlacements']
-        if 'osDiskPlacement' in kwargs:
+        if os_disk_placement is None and 'osDiskPlacement' in kwargs:
             os_disk_placement = kwargs['osDiskPlacement']
-        if 'startTask' in kwargs:
+        if start_task is None and 'startTask' in kwargs:
             start_task = kwargs['startTask']
-        if 'stopPendingResizeOperation' in kwargs:
+        if stop_pending_resize_operation is None and 'stopPendingResizeOperation' in kwargs:
             stop_pending_resize_operation = kwargs['stopPendingResizeOperation']
-        if 'targetNodeCommunicationMode' in kwargs:
+        if target_node_communication_mode is None and 'targetNodeCommunicationMode' in kwargs:
             target_node_communication_mode = kwargs['targetNodeCommunicationMode']
-        if 'taskSchedulingPolicies' in kwargs:
+        if task_scheduling_policies is None and 'taskSchedulingPolicies' in kwargs:
             task_scheduling_policies = kwargs['taskSchedulingPolicies']
-        if 'userAccounts' in kwargs:
+        if user_accounts is None and 'userAccounts' in kwargs:
             user_accounts = kwargs['userAccounts']
 
         _setter("account_name", account_name)
@@ -733,49 +743,49 @@ class _PoolState:
              windows: Optional[pulumi.Input[Sequence[pulumi.Input['PoolWindowArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accountName' in kwargs:
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'autoScale' in kwargs:
+        if auto_scale is None and 'autoScale' in kwargs:
             auto_scale = kwargs['autoScale']
-        if 'containerConfiguration' in kwargs:
+        if container_configuration is None and 'containerConfiguration' in kwargs:
             container_configuration = kwargs['containerConfiguration']
-        if 'dataDisks' in kwargs:
+        if data_disks is None and 'dataDisks' in kwargs:
             data_disks = kwargs['dataDisks']
-        if 'diskEncryptions' in kwargs:
+        if disk_encryptions is None and 'diskEncryptions' in kwargs:
             disk_encryptions = kwargs['diskEncryptions']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'fixedScale' in kwargs:
+        if fixed_scale is None and 'fixedScale' in kwargs:
             fixed_scale = kwargs['fixedScale']
-        if 'interNodeCommunication' in kwargs:
+        if inter_node_communication is None and 'interNodeCommunication' in kwargs:
             inter_node_communication = kwargs['interNodeCommunication']
-        if 'licenseType' in kwargs:
+        if license_type is None and 'licenseType' in kwargs:
             license_type = kwargs['licenseType']
-        if 'maxTasksPerNode' in kwargs:
+        if max_tasks_per_node is None and 'maxTasksPerNode' in kwargs:
             max_tasks_per_node = kwargs['maxTasksPerNode']
-        if 'networkConfiguration' in kwargs:
+        if network_configuration is None and 'networkConfiguration' in kwargs:
             network_configuration = kwargs['networkConfiguration']
-        if 'nodeAgentSkuId' in kwargs:
+        if node_agent_sku_id is None and 'nodeAgentSkuId' in kwargs:
             node_agent_sku_id = kwargs['nodeAgentSkuId']
-        if 'nodePlacements' in kwargs:
+        if node_placements is None and 'nodePlacements' in kwargs:
             node_placements = kwargs['nodePlacements']
-        if 'osDiskPlacement' in kwargs:
+        if os_disk_placement is None and 'osDiskPlacement' in kwargs:
             os_disk_placement = kwargs['osDiskPlacement']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'startTask' in kwargs:
+        if start_task is None and 'startTask' in kwargs:
             start_task = kwargs['startTask']
-        if 'stopPendingResizeOperation' in kwargs:
+        if stop_pending_resize_operation is None and 'stopPendingResizeOperation' in kwargs:
             stop_pending_resize_operation = kwargs['stopPendingResizeOperation']
-        if 'storageImageReference' in kwargs:
+        if storage_image_reference is None and 'storageImageReference' in kwargs:
             storage_image_reference = kwargs['storageImageReference']
-        if 'targetNodeCommunicationMode' in kwargs:
+        if target_node_communication_mode is None and 'targetNodeCommunicationMode' in kwargs:
             target_node_communication_mode = kwargs['targetNodeCommunicationMode']
-        if 'taskSchedulingPolicies' in kwargs:
+        if task_scheduling_policies is None and 'taskSchedulingPolicies' in kwargs:
             task_scheduling_policies = kwargs['taskSchedulingPolicies']
-        if 'userAccounts' in kwargs:
+        if user_accounts is None and 'userAccounts' in kwargs:
             user_accounts = kwargs['userAccounts']
-        if 'vmSize' in kwargs:
+        if vm_size is None and 'vmSize' in kwargs:
             vm_size = kwargs['vmSize']
 
         if account_name is not None:

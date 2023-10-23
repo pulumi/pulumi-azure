@@ -34,15 +34,19 @@ class NetappVolumeAttachmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             netapp_volume_id: pulumi.Input[str],
-             vmware_cluster_id: pulumi.Input[str],
+             netapp_volume_id: Optional[pulumi.Input[str]] = None,
+             vmware_cluster_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'netappVolumeId' in kwargs:
+        if netapp_volume_id is None and 'netappVolumeId' in kwargs:
             netapp_volume_id = kwargs['netappVolumeId']
-        if 'vmwareClusterId' in kwargs:
+        if netapp_volume_id is None:
+            raise TypeError("Missing 'netapp_volume_id' argument")
+        if vmware_cluster_id is None and 'vmwareClusterId' in kwargs:
             vmware_cluster_id = kwargs['vmwareClusterId']
+        if vmware_cluster_id is None:
+            raise TypeError("Missing 'vmware_cluster_id' argument")
 
         _setter("netapp_volume_id", netapp_volume_id)
         _setter("vmware_cluster_id", vmware_cluster_id)
@@ -116,9 +120,9 @@ class _NetappVolumeAttachmentState:
              vmware_cluster_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'netappVolumeId' in kwargs:
+        if netapp_volume_id is None and 'netappVolumeId' in kwargs:
             netapp_volume_id = kwargs['netappVolumeId']
-        if 'vmwareClusterId' in kwargs:
+        if vmware_cluster_id is None and 'vmwareClusterId' in kwargs:
             vmware_cluster_id = kwargs['vmwareClusterId']
 
         if name is not None:

@@ -64,8 +64,8 @@ class ComputeInstanceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             machine_learning_workspace_id: pulumi.Input[str],
-             virtual_machine_size: pulumi.Input[str],
+             machine_learning_workspace_id: Optional[pulumi.Input[str]] = None,
+             virtual_machine_size: Optional[pulumi.Input[str]] = None,
              assign_to_user: Optional[pulumi.Input['ComputeInstanceAssignToUserArgs']] = None,
              authorization_type: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -79,19 +79,23 @@ class ComputeInstanceArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'machineLearningWorkspaceId' in kwargs:
+        if machine_learning_workspace_id is None and 'machineLearningWorkspaceId' in kwargs:
             machine_learning_workspace_id = kwargs['machineLearningWorkspaceId']
-        if 'virtualMachineSize' in kwargs:
+        if machine_learning_workspace_id is None:
+            raise TypeError("Missing 'machine_learning_workspace_id' argument")
+        if virtual_machine_size is None and 'virtualMachineSize' in kwargs:
             virtual_machine_size = kwargs['virtualMachineSize']
-        if 'assignToUser' in kwargs:
+        if virtual_machine_size is None:
+            raise TypeError("Missing 'virtual_machine_size' argument")
+        if assign_to_user is None and 'assignToUser' in kwargs:
             assign_to_user = kwargs['assignToUser']
-        if 'authorizationType' in kwargs:
+        if authorization_type is None and 'authorizationType' in kwargs:
             authorization_type = kwargs['authorizationType']
-        if 'localAuthEnabled' in kwargs:
+        if local_auth_enabled is None and 'localAuthEnabled' in kwargs:
             local_auth_enabled = kwargs['localAuthEnabled']
-        if 'nodePublicIpEnabled' in kwargs:
+        if node_public_ip_enabled is None and 'nodePublicIpEnabled' in kwargs:
             node_public_ip_enabled = kwargs['nodePublicIpEnabled']
-        if 'subnetResourceId' in kwargs:
+        if subnet_resource_id is None and 'subnetResourceId' in kwargs:
             subnet_resource_id = kwargs['subnetResourceId']
 
         _setter("machine_learning_workspace_id", machine_learning_workspace_id)
@@ -342,19 +346,19 @@ class _ComputeInstanceState:
              virtual_machine_size: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'assignToUser' in kwargs:
+        if assign_to_user is None and 'assignToUser' in kwargs:
             assign_to_user = kwargs['assignToUser']
-        if 'authorizationType' in kwargs:
+        if authorization_type is None and 'authorizationType' in kwargs:
             authorization_type = kwargs['authorizationType']
-        if 'localAuthEnabled' in kwargs:
+        if local_auth_enabled is None and 'localAuthEnabled' in kwargs:
             local_auth_enabled = kwargs['localAuthEnabled']
-        if 'machineLearningWorkspaceId' in kwargs:
+        if machine_learning_workspace_id is None and 'machineLearningWorkspaceId' in kwargs:
             machine_learning_workspace_id = kwargs['machineLearningWorkspaceId']
-        if 'nodePublicIpEnabled' in kwargs:
+        if node_public_ip_enabled is None and 'nodePublicIpEnabled' in kwargs:
             node_public_ip_enabled = kwargs['nodePublicIpEnabled']
-        if 'subnetResourceId' in kwargs:
+        if subnet_resource_id is None and 'subnetResourceId' in kwargs:
             subnet_resource_id = kwargs['subnetResourceId']
-        if 'virtualMachineSize' in kwargs:
+        if virtual_machine_size is None and 'virtualMachineSize' in kwargs:
             virtual_machine_size = kwargs['virtualMachineSize']
 
         if assign_to_user is not None:

@@ -37,14 +37,16 @@ class MonitorTagRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             datadog_monitor_id: pulumi.Input[str],
+             datadog_monitor_id: Optional[pulumi.Input[str]] = None,
              logs: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleLogArgs']]]] = None,
              metrics: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleMetricArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'datadogMonitorId' in kwargs:
+        if datadog_monitor_id is None and 'datadogMonitorId' in kwargs:
             datadog_monitor_id = kwargs['datadogMonitorId']
+        if datadog_monitor_id is None:
+            raise TypeError("Missing 'datadog_monitor_id' argument")
 
         _setter("datadog_monitor_id", datadog_monitor_id)
         if logs is not None:
@@ -133,7 +135,7 @@ class _MonitorTagRuleState:
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'datadogMonitorId' in kwargs:
+        if datadog_monitor_id is None and 'datadogMonitorId' in kwargs:
             datadog_monitor_id = kwargs['datadogMonitorId']
 
         if datadog_monitor_id is not None:

@@ -52,8 +52,8 @@ class TrafficManagerAzureEndpointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             profile_id: pulumi.Input[str],
-             target_resource_id: pulumi.Input[str],
+             profile_id: Optional[pulumi.Input[str]] = None,
+             target_resource_id: Optional[pulumi.Input[str]] = None,
              custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerAzureEndpointCustomHeaderArgs']]]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              geo_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -63,13 +63,17 @@ class TrafficManagerAzureEndpointArgs:
              weight: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'profileId' in kwargs:
+        if profile_id is None and 'profileId' in kwargs:
             profile_id = kwargs['profileId']
-        if 'targetResourceId' in kwargs:
+        if profile_id is None:
+            raise TypeError("Missing 'profile_id' argument")
+        if target_resource_id is None and 'targetResourceId' in kwargs:
             target_resource_id = kwargs['targetResourceId']
-        if 'customHeaders' in kwargs:
+        if target_resource_id is None:
+            raise TypeError("Missing 'target_resource_id' argument")
+        if custom_headers is None and 'customHeaders' in kwargs:
             custom_headers = kwargs['customHeaders']
-        if 'geoMappings' in kwargs:
+        if geo_mappings is None and 'geoMappings' in kwargs:
             geo_mappings = kwargs['geoMappings']
 
         _setter("profile_id", profile_id)
@@ -248,13 +252,13 @@ class _TrafficManagerAzureEndpointState:
              weight: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'customHeaders' in kwargs:
+        if custom_headers is None and 'customHeaders' in kwargs:
             custom_headers = kwargs['customHeaders']
-        if 'geoMappings' in kwargs:
+        if geo_mappings is None and 'geoMappings' in kwargs:
             geo_mappings = kwargs['geoMappings']
-        if 'profileId' in kwargs:
+        if profile_id is None and 'profileId' in kwargs:
             profile_id = kwargs['profileId']
-        if 'targetResourceId' in kwargs:
+        if target_resource_id is None and 'targetResourceId' in kwargs:
             target_resource_id = kwargs['targetResourceId']
 
         if custom_headers is not None:

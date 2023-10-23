@@ -45,17 +45,23 @@ class FrontdoorRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             actions: pulumi.Input['FrontdoorRuleActionsArgs'],
-             cdn_frontdoor_rule_set_id: pulumi.Input[str],
-             order: pulumi.Input[int],
+             actions: Optional[pulumi.Input['FrontdoorRuleActionsArgs']] = None,
+             cdn_frontdoor_rule_set_id: Optional[pulumi.Input[str]] = None,
+             order: Optional[pulumi.Input[int]] = None,
              behavior_on_match: Optional[pulumi.Input[str]] = None,
              conditions: Optional[pulumi.Input['FrontdoorRuleConditionsArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'cdnFrontdoorRuleSetId' in kwargs:
+        if actions is None:
+            raise TypeError("Missing 'actions' argument")
+        if cdn_frontdoor_rule_set_id is None and 'cdnFrontdoorRuleSetId' in kwargs:
             cdn_frontdoor_rule_set_id = kwargs['cdnFrontdoorRuleSetId']
-        if 'behaviorOnMatch' in kwargs:
+        if cdn_frontdoor_rule_set_id is None:
+            raise TypeError("Missing 'cdn_frontdoor_rule_set_id' argument")
+        if order is None:
+            raise TypeError("Missing 'order' argument")
+        if behavior_on_match is None and 'behaviorOnMatch' in kwargs:
             behavior_on_match = kwargs['behaviorOnMatch']
 
         _setter("actions", actions)
@@ -187,11 +193,11 @@ class _FrontdoorRuleState:
              order: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'behaviorOnMatch' in kwargs:
+        if behavior_on_match is None and 'behaviorOnMatch' in kwargs:
             behavior_on_match = kwargs['behaviorOnMatch']
-        if 'cdnFrontdoorRuleSetId' in kwargs:
+        if cdn_frontdoor_rule_set_id is None and 'cdnFrontdoorRuleSetId' in kwargs:
             cdn_frontdoor_rule_set_id = kwargs['cdnFrontdoorRuleSetId']
-        if 'cdnFrontdoorRuleSetName' in kwargs:
+        if cdn_frontdoor_rule_set_name is None and 'cdnFrontdoorRuleSetName' in kwargs:
             cdn_frontdoor_rule_set_name = kwargs['cdnFrontdoorRuleSetName']
 
         if actions is not None:

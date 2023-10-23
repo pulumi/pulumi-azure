@@ -64,7 +64,7 @@ class DomainArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              auto_create_topic_with_first_subscription: Optional[pulumi.Input[bool]] = None,
              auto_delete_topic_with_last_subscription: Optional[pulumi.Input[bool]] = None,
              identity: Optional[pulumi.Input['DomainIdentityArgs']] = None,
@@ -79,23 +79,25 @@ class DomainArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'autoCreateTopicWithFirstSubscription' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if auto_create_topic_with_first_subscription is None and 'autoCreateTopicWithFirstSubscription' in kwargs:
             auto_create_topic_with_first_subscription = kwargs['autoCreateTopicWithFirstSubscription']
-        if 'autoDeleteTopicWithLastSubscription' in kwargs:
+        if auto_delete_topic_with_last_subscription is None and 'autoDeleteTopicWithLastSubscription' in kwargs:
             auto_delete_topic_with_last_subscription = kwargs['autoDeleteTopicWithLastSubscription']
-        if 'inboundIpRules' in kwargs:
+        if inbound_ip_rules is None and 'inboundIpRules' in kwargs:
             inbound_ip_rules = kwargs['inboundIpRules']
-        if 'inputMappingDefaultValues' in kwargs:
+        if input_mapping_default_values is None and 'inputMappingDefaultValues' in kwargs:
             input_mapping_default_values = kwargs['inputMappingDefaultValues']
-        if 'inputMappingFields' in kwargs:
+        if input_mapping_fields is None and 'inputMappingFields' in kwargs:
             input_mapping_fields = kwargs['inputMappingFields']
-        if 'inputSchema' in kwargs:
+        if input_schema is None and 'inputSchema' in kwargs:
             input_schema = kwargs['inputSchema']
-        if 'localAuthEnabled' in kwargs:
+        if local_auth_enabled is None and 'localAuthEnabled' in kwargs:
             local_auth_enabled = kwargs['localAuthEnabled']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
 
         _setter("resource_group_name", resource_group_name)
@@ -359,27 +361,27 @@ class _DomainState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'autoCreateTopicWithFirstSubscription' in kwargs:
+        if auto_create_topic_with_first_subscription is None and 'autoCreateTopicWithFirstSubscription' in kwargs:
             auto_create_topic_with_first_subscription = kwargs['autoCreateTopicWithFirstSubscription']
-        if 'autoDeleteTopicWithLastSubscription' in kwargs:
+        if auto_delete_topic_with_last_subscription is None and 'autoDeleteTopicWithLastSubscription' in kwargs:
             auto_delete_topic_with_last_subscription = kwargs['autoDeleteTopicWithLastSubscription']
-        if 'inboundIpRules' in kwargs:
+        if inbound_ip_rules is None and 'inboundIpRules' in kwargs:
             inbound_ip_rules = kwargs['inboundIpRules']
-        if 'inputMappingDefaultValues' in kwargs:
+        if input_mapping_default_values is None and 'inputMappingDefaultValues' in kwargs:
             input_mapping_default_values = kwargs['inputMappingDefaultValues']
-        if 'inputMappingFields' in kwargs:
+        if input_mapping_fields is None and 'inputMappingFields' in kwargs:
             input_mapping_fields = kwargs['inputMappingFields']
-        if 'inputSchema' in kwargs:
+        if input_schema is None and 'inputSchema' in kwargs:
             input_schema = kwargs['inputSchema']
-        if 'localAuthEnabled' in kwargs:
+        if local_auth_enabled is None and 'localAuthEnabled' in kwargs:
             local_auth_enabled = kwargs['localAuthEnabled']
-        if 'primaryAccessKey' in kwargs:
+        if primary_access_key is None and 'primaryAccessKey' in kwargs:
             primary_access_key = kwargs['primaryAccessKey']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'secondaryAccessKey' in kwargs:
+        if secondary_access_key is None and 'secondaryAccessKey' in kwargs:
             secondary_access_key = kwargs['secondaryAccessKey']
 
         if auto_create_topic_with_first_subscription is not None:

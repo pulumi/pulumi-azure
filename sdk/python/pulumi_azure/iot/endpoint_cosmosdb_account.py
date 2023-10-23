@@ -65,11 +65,11 @@ class EndpointCosmosdbAccountArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             container_name: pulumi.Input[str],
-             database_name: pulumi.Input[str],
-             endpoint_uri: pulumi.Input[str],
-             iothub_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             container_name: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             endpoint_uri: Optional[pulumi.Input[str]] = None,
+             iothub_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              authentication_type: Optional[pulumi.Input[str]] = None,
              identity_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
@@ -79,27 +79,37 @@ class EndpointCosmosdbAccountArgs:
              secondary_key: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'containerName' in kwargs:
+        if container_name is None and 'containerName' in kwargs:
             container_name = kwargs['containerName']
-        if 'databaseName' in kwargs:
+        if container_name is None:
+            raise TypeError("Missing 'container_name' argument")
+        if database_name is None and 'databaseName' in kwargs:
             database_name = kwargs['databaseName']
-        if 'endpointUri' in kwargs:
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if endpoint_uri is None and 'endpointUri' in kwargs:
             endpoint_uri = kwargs['endpointUri']
-        if 'iothubId' in kwargs:
+        if endpoint_uri is None:
+            raise TypeError("Missing 'endpoint_uri' argument")
+        if iothub_id is None and 'iothubId' in kwargs:
             iothub_id = kwargs['iothubId']
-        if 'resourceGroupName' in kwargs:
+        if iothub_id is None:
+            raise TypeError("Missing 'iothub_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'authenticationType' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if authentication_type is None and 'authenticationType' in kwargs:
             authentication_type = kwargs['authenticationType']
-        if 'identityId' in kwargs:
+        if identity_id is None and 'identityId' in kwargs:
             identity_id = kwargs['identityId']
-        if 'partitionKeyName' in kwargs:
+        if partition_key_name is None and 'partitionKeyName' in kwargs:
             partition_key_name = kwargs['partitionKeyName']
-        if 'partitionKeyTemplate' in kwargs:
+        if partition_key_template is None and 'partitionKeyTemplate' in kwargs:
             partition_key_template = kwargs['partitionKeyTemplate']
-        if 'primaryKey' in kwargs:
+        if primary_key is None and 'primaryKey' in kwargs:
             primary_key = kwargs['primaryKey']
-        if 'secondaryKey' in kwargs:
+        if secondary_key is None and 'secondaryKey' in kwargs:
             secondary_key = kwargs['secondaryKey']
 
         _setter("container_name", container_name)
@@ -341,27 +351,27 @@ class _EndpointCosmosdbAccountState:
              secondary_key: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'authenticationType' in kwargs:
+        if authentication_type is None and 'authenticationType' in kwargs:
             authentication_type = kwargs['authenticationType']
-        if 'containerName' in kwargs:
+        if container_name is None and 'containerName' in kwargs:
             container_name = kwargs['containerName']
-        if 'databaseName' in kwargs:
+        if database_name is None and 'databaseName' in kwargs:
             database_name = kwargs['databaseName']
-        if 'endpointUri' in kwargs:
+        if endpoint_uri is None and 'endpointUri' in kwargs:
             endpoint_uri = kwargs['endpointUri']
-        if 'identityId' in kwargs:
+        if identity_id is None and 'identityId' in kwargs:
             identity_id = kwargs['identityId']
-        if 'iothubId' in kwargs:
+        if iothub_id is None and 'iothubId' in kwargs:
             iothub_id = kwargs['iothubId']
-        if 'partitionKeyName' in kwargs:
+        if partition_key_name is None and 'partitionKeyName' in kwargs:
             partition_key_name = kwargs['partitionKeyName']
-        if 'partitionKeyTemplate' in kwargs:
+        if partition_key_template is None and 'partitionKeyTemplate' in kwargs:
             partition_key_template = kwargs['partitionKeyTemplate']
-        if 'primaryKey' in kwargs:
+        if primary_key is None and 'primaryKey' in kwargs:
             primary_key = kwargs['primaryKey']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'secondaryKey' in kwargs:
+        if secondary_key is None and 'secondaryKey' in kwargs:
             secondary_key = kwargs['secondaryKey']
 
         if authentication_type is not None:

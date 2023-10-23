@@ -88,14 +88,14 @@ class AuthorizationServerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_management_name: pulumi.Input[str],
-             authorization_endpoint: pulumi.Input[str],
-             authorization_methods: pulumi.Input[Sequence[pulumi.Input[str]]],
-             client_id: pulumi.Input[str],
-             client_registration_endpoint: pulumi.Input[str],
-             display_name: pulumi.Input[str],
-             grant_types: pulumi.Input[Sequence[pulumi.Input[str]]],
-             resource_group_name: pulumi.Input[str],
+             api_management_name: Optional[pulumi.Input[str]] = None,
+             authorization_endpoint: Optional[pulumi.Input[str]] = None,
+             authorization_methods: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_registration_endpoint: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             grant_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              bearer_token_sending_methods: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              client_authentication_methods: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              client_secret: Optional[pulumi.Input[str]] = None,
@@ -109,39 +109,55 @@ class AuthorizationServerArgs:
              token_endpoint: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'authorizationEndpoint' in kwargs:
+        if api_management_name is None:
+            raise TypeError("Missing 'api_management_name' argument")
+        if authorization_endpoint is None and 'authorizationEndpoint' in kwargs:
             authorization_endpoint = kwargs['authorizationEndpoint']
-        if 'authorizationMethods' in kwargs:
+        if authorization_endpoint is None:
+            raise TypeError("Missing 'authorization_endpoint' argument")
+        if authorization_methods is None and 'authorizationMethods' in kwargs:
             authorization_methods = kwargs['authorizationMethods']
-        if 'clientId' in kwargs:
+        if authorization_methods is None:
+            raise TypeError("Missing 'authorization_methods' argument")
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientRegistrationEndpoint' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_registration_endpoint is None and 'clientRegistrationEndpoint' in kwargs:
             client_registration_endpoint = kwargs['clientRegistrationEndpoint']
-        if 'displayName' in kwargs:
+        if client_registration_endpoint is None:
+            raise TypeError("Missing 'client_registration_endpoint' argument")
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'grantTypes' in kwargs:
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if grant_types is None and 'grantTypes' in kwargs:
             grant_types = kwargs['grantTypes']
-        if 'resourceGroupName' in kwargs:
+        if grant_types is None:
+            raise TypeError("Missing 'grant_types' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'bearerTokenSendingMethods' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if bearer_token_sending_methods is None and 'bearerTokenSendingMethods' in kwargs:
             bearer_token_sending_methods = kwargs['bearerTokenSendingMethods']
-        if 'clientAuthenticationMethods' in kwargs:
+        if client_authentication_methods is None and 'clientAuthenticationMethods' in kwargs:
             client_authentication_methods = kwargs['clientAuthenticationMethods']
-        if 'clientSecret' in kwargs:
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'defaultScope' in kwargs:
+        if default_scope is None and 'defaultScope' in kwargs:
             default_scope = kwargs['defaultScope']
-        if 'resourceOwnerPassword' in kwargs:
+        if resource_owner_password is None and 'resourceOwnerPassword' in kwargs:
             resource_owner_password = kwargs['resourceOwnerPassword']
-        if 'resourceOwnerUsername' in kwargs:
+        if resource_owner_username is None and 'resourceOwnerUsername' in kwargs:
             resource_owner_username = kwargs['resourceOwnerUsername']
-        if 'supportState' in kwargs:
+        if support_state is None and 'supportState' in kwargs:
             support_state = kwargs['supportState']
-        if 'tokenBodyParameters' in kwargs:
+        if token_body_parameters is None and 'tokenBodyParameters' in kwargs:
             token_body_parameters = kwargs['tokenBodyParameters']
-        if 'tokenEndpoint' in kwargs:
+        if token_endpoint is None and 'tokenEndpoint' in kwargs:
             token_endpoint = kwargs['tokenEndpoint']
 
         _setter("api_management_name", api_management_name)
@@ -506,39 +522,39 @@ class _AuthorizationServerState:
              token_endpoint: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'authorizationEndpoint' in kwargs:
+        if authorization_endpoint is None and 'authorizationEndpoint' in kwargs:
             authorization_endpoint = kwargs['authorizationEndpoint']
-        if 'authorizationMethods' in kwargs:
+        if authorization_methods is None and 'authorizationMethods' in kwargs:
             authorization_methods = kwargs['authorizationMethods']
-        if 'bearerTokenSendingMethods' in kwargs:
+        if bearer_token_sending_methods is None and 'bearerTokenSendingMethods' in kwargs:
             bearer_token_sending_methods = kwargs['bearerTokenSendingMethods']
-        if 'clientAuthenticationMethods' in kwargs:
+        if client_authentication_methods is None and 'clientAuthenticationMethods' in kwargs:
             client_authentication_methods = kwargs['clientAuthenticationMethods']
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientRegistrationEndpoint' in kwargs:
+        if client_registration_endpoint is None and 'clientRegistrationEndpoint' in kwargs:
             client_registration_endpoint = kwargs['clientRegistrationEndpoint']
-        if 'clientSecret' in kwargs:
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'defaultScope' in kwargs:
+        if default_scope is None and 'defaultScope' in kwargs:
             default_scope = kwargs['defaultScope']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'grantTypes' in kwargs:
+        if grant_types is None and 'grantTypes' in kwargs:
             grant_types = kwargs['grantTypes']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'resourceOwnerPassword' in kwargs:
+        if resource_owner_password is None and 'resourceOwnerPassword' in kwargs:
             resource_owner_password = kwargs['resourceOwnerPassword']
-        if 'resourceOwnerUsername' in kwargs:
+        if resource_owner_username is None and 'resourceOwnerUsername' in kwargs:
             resource_owner_username = kwargs['resourceOwnerUsername']
-        if 'supportState' in kwargs:
+        if support_state is None and 'supportState' in kwargs:
             support_state = kwargs['supportState']
-        if 'tokenBodyParameters' in kwargs:
+        if token_body_parameters is None and 'tokenBodyParameters' in kwargs:
             token_body_parameters = kwargs['tokenBodyParameters']
-        if 'tokenEndpoint' in kwargs:
+        if token_endpoint is None and 'tokenEndpoint' in kwargs:
             token_endpoint = kwargs['tokenEndpoint']
 
         if api_management_name is not None:

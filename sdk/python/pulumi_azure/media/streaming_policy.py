@@ -49,8 +49,8 @@ class StreamingPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             media_services_account_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             media_services_account_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              common_encryption_cbcs: Optional[pulumi.Input['StreamingPolicyCommonEncryptionCbcsArgs']] = None,
              common_encryption_cenc: Optional[pulumi.Input['StreamingPolicyCommonEncryptionCencArgs']] = None,
              default_content_key_policy_name: Optional[pulumi.Input[str]] = None,
@@ -59,19 +59,23 @@ class StreamingPolicyArgs:
              no_encryption_enabled_protocols: Optional[pulumi.Input['StreamingPolicyNoEncryptionEnabledProtocolsArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'mediaServicesAccountName' in kwargs:
+        if media_services_account_name is None and 'mediaServicesAccountName' in kwargs:
             media_services_account_name = kwargs['mediaServicesAccountName']
-        if 'resourceGroupName' in kwargs:
+        if media_services_account_name is None:
+            raise TypeError("Missing 'media_services_account_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'commonEncryptionCbcs' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if common_encryption_cbcs is None and 'commonEncryptionCbcs' in kwargs:
             common_encryption_cbcs = kwargs['commonEncryptionCbcs']
-        if 'commonEncryptionCenc' in kwargs:
+        if common_encryption_cenc is None and 'commonEncryptionCenc' in kwargs:
             common_encryption_cenc = kwargs['commonEncryptionCenc']
-        if 'defaultContentKeyPolicyName' in kwargs:
+        if default_content_key_policy_name is None and 'defaultContentKeyPolicyName' in kwargs:
             default_content_key_policy_name = kwargs['defaultContentKeyPolicyName']
-        if 'envelopeEncryption' in kwargs:
+        if envelope_encryption is None and 'envelopeEncryption' in kwargs:
             envelope_encryption = kwargs['envelopeEncryption']
-        if 'noEncryptionEnabledProtocols' in kwargs:
+        if no_encryption_enabled_protocols is None and 'noEncryptionEnabledProtocols' in kwargs:
             no_encryption_enabled_protocols = kwargs['noEncryptionEnabledProtocols']
 
         _setter("media_services_account_name", media_services_account_name)
@@ -232,19 +236,19 @@ class _StreamingPolicyState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'commonEncryptionCbcs' in kwargs:
+        if common_encryption_cbcs is None and 'commonEncryptionCbcs' in kwargs:
             common_encryption_cbcs = kwargs['commonEncryptionCbcs']
-        if 'commonEncryptionCenc' in kwargs:
+        if common_encryption_cenc is None and 'commonEncryptionCenc' in kwargs:
             common_encryption_cenc = kwargs['commonEncryptionCenc']
-        if 'defaultContentKeyPolicyName' in kwargs:
+        if default_content_key_policy_name is None and 'defaultContentKeyPolicyName' in kwargs:
             default_content_key_policy_name = kwargs['defaultContentKeyPolicyName']
-        if 'envelopeEncryption' in kwargs:
+        if envelope_encryption is None and 'envelopeEncryption' in kwargs:
             envelope_encryption = kwargs['envelopeEncryption']
-        if 'mediaServicesAccountName' in kwargs:
+        if media_services_account_name is None and 'mediaServicesAccountName' in kwargs:
             media_services_account_name = kwargs['mediaServicesAccountName']
-        if 'noEncryptionEnabledProtocols' in kwargs:
+        if no_encryption_enabled_protocols is None and 'noEncryptionEnabledProtocols' in kwargs:
             no_encryption_enabled_protocols = kwargs['noEncryptionEnabledProtocols']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if common_encryption_cbcs is not None:

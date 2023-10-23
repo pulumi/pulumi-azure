@@ -32,17 +32,23 @@ class ActiveSlotArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_service_name: pulumi.Input[str],
-             app_service_slot_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             app_service_name: Optional[pulumi.Input[str]] = None,
+             app_service_slot_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'appServiceName' in kwargs:
+        if app_service_name is None and 'appServiceName' in kwargs:
             app_service_name = kwargs['appServiceName']
-        if 'appServiceSlotName' in kwargs:
+        if app_service_name is None:
+            raise TypeError("Missing 'app_service_name' argument")
+        if app_service_slot_name is None and 'appServiceSlotName' in kwargs:
             app_service_slot_name = kwargs['appServiceSlotName']
-        if 'resourceGroupName' in kwargs:
+        if app_service_slot_name is None:
+            raise TypeError("Missing 'app_service_slot_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("app_service_name", app_service_name)
         _setter("app_service_slot_name", app_service_slot_name)
@@ -111,11 +117,11 @@ class _ActiveSlotState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'appServiceName' in kwargs:
+        if app_service_name is None and 'appServiceName' in kwargs:
             app_service_name = kwargs['appServiceName']
-        if 'appServiceSlotName' in kwargs:
+        if app_service_slot_name is None and 'appServiceSlotName' in kwargs:
             app_service_slot_name = kwargs['appServiceSlotName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if app_service_name is not None:

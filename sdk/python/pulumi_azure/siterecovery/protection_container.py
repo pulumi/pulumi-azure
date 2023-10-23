@@ -35,18 +35,24 @@ class ProtectionContainerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             recovery_fabric_name: pulumi.Input[str],
-             recovery_vault_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             recovery_fabric_name: Optional[pulumi.Input[str]] = None,
+             recovery_vault_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'recoveryFabricName' in kwargs:
+        if recovery_fabric_name is None and 'recoveryFabricName' in kwargs:
             recovery_fabric_name = kwargs['recoveryFabricName']
-        if 'recoveryVaultName' in kwargs:
+        if recovery_fabric_name is None:
+            raise TypeError("Missing 'recovery_fabric_name' argument")
+        if recovery_vault_name is None and 'recoveryVaultName' in kwargs:
             recovery_vault_name = kwargs['recoveryVaultName']
-        if 'resourceGroupName' in kwargs:
+        if recovery_vault_name is None:
+            raise TypeError("Missing 'recovery_vault_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("recovery_fabric_name", recovery_fabric_name)
         _setter("recovery_vault_name", recovery_vault_name)
@@ -133,11 +139,11 @@ class _ProtectionContainerState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'recoveryFabricName' in kwargs:
+        if recovery_fabric_name is None and 'recoveryFabricName' in kwargs:
             recovery_fabric_name = kwargs['recoveryFabricName']
-        if 'recoveryVaultName' in kwargs:
+        if recovery_vault_name is None and 'recoveryVaultName' in kwargs:
             recovery_vault_name = kwargs['recoveryVaultName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if name is not None:

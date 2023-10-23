@@ -38,19 +38,25 @@ class RegistryTokenArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             container_registry_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             scope_map_id: pulumi.Input[str],
+             container_registry_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             scope_map_id: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'containerRegistryName' in kwargs:
+        if container_registry_name is None and 'containerRegistryName' in kwargs:
             container_registry_name = kwargs['containerRegistryName']
-        if 'resourceGroupName' in kwargs:
+        if container_registry_name is None:
+            raise TypeError("Missing 'container_registry_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'scopeMapId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if scope_map_id is None and 'scopeMapId' in kwargs:
             scope_map_id = kwargs['scopeMapId']
+        if scope_map_id is None:
+            raise TypeError("Missing 'scope_map_id' argument")
 
         _setter("container_registry_name", container_registry_name)
         _setter("resource_group_name", resource_group_name)
@@ -155,11 +161,11 @@ class _RegistryTokenState:
              scope_map_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'containerRegistryName' in kwargs:
+        if container_registry_name is None and 'containerRegistryName' in kwargs:
             container_registry_name = kwargs['containerRegistryName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'scopeMapId' in kwargs:
+        if scope_map_id is None and 'scopeMapId' in kwargs:
             scope_map_id = kwargs['scopeMapId']
 
         if container_registry_name is not None:

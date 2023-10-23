@@ -47,8 +47,8 @@ class SqlPoolWorkloadClassifierArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             member_name: pulumi.Input[str],
-             workload_group_id: pulumi.Input[str],
+             member_name: Optional[pulumi.Input[str]] = None,
+             workload_group_id: Optional[pulumi.Input[str]] = None,
              context: Optional[pulumi.Input[str]] = None,
              end_time: Optional[pulumi.Input[str]] = None,
              importance: Optional[pulumi.Input[str]] = None,
@@ -57,13 +57,17 @@ class SqlPoolWorkloadClassifierArgs:
              start_time: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'memberName' in kwargs:
+        if member_name is None and 'memberName' in kwargs:
             member_name = kwargs['memberName']
-        if 'workloadGroupId' in kwargs:
+        if member_name is None:
+            raise TypeError("Missing 'member_name' argument")
+        if workload_group_id is None and 'workloadGroupId' in kwargs:
             workload_group_id = kwargs['workloadGroupId']
-        if 'endTime' in kwargs:
+        if workload_group_id is None:
+            raise TypeError("Missing 'workload_group_id' argument")
+        if end_time is None and 'endTime' in kwargs:
             end_time = kwargs['endTime']
-        if 'startTime' in kwargs:
+        if start_time is None and 'startTime' in kwargs:
             start_time = kwargs['startTime']
 
         _setter("member_name", member_name)
@@ -224,13 +228,13 @@ class _SqlPoolWorkloadClassifierState:
              workload_group_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'endTime' in kwargs:
+        if end_time is None and 'endTime' in kwargs:
             end_time = kwargs['endTime']
-        if 'memberName' in kwargs:
+        if member_name is None and 'memberName' in kwargs:
             member_name = kwargs['memberName']
-        if 'startTime' in kwargs:
+        if start_time is None and 'startTime' in kwargs:
             start_time = kwargs['startTime']
-        if 'workloadGroupId' in kwargs:
+        if workload_group_id is None and 'workloadGroupId' in kwargs:
             workload_group_id = kwargs['workloadGroupId']
 
         if context is not None:

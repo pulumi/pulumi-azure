@@ -257,8 +257,8 @@ class KubernetesClusterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             default_node_pool: pulumi.Input['KubernetesClusterDefaultNodePoolArgs'],
-             resource_group_name: pulumi.Input[str],
+             default_node_pool: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              aci_connector_linux: Optional[pulumi.Input['KubernetesClusterAciConnectorLinuxArgs']] = None,
              api_server_access_profile: Optional[pulumi.Input['KubernetesClusterApiServerAccessProfileArgs']] = None,
              api_server_authorized_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -315,109 +315,113 @@ class KubernetesClusterArgs:
              workload_identity_enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'defaultNodePool' in kwargs:
+        if default_node_pool is None and 'defaultNodePool' in kwargs:
             default_node_pool = kwargs['defaultNodePool']
-        if 'resourceGroupName' in kwargs:
+        if default_node_pool is None:
+            raise TypeError("Missing 'default_node_pool' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'aciConnectorLinux' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if aci_connector_linux is None and 'aciConnectorLinux' in kwargs:
             aci_connector_linux = kwargs['aciConnectorLinux']
-        if 'apiServerAccessProfile' in kwargs:
+        if api_server_access_profile is None and 'apiServerAccessProfile' in kwargs:
             api_server_access_profile = kwargs['apiServerAccessProfile']
-        if 'apiServerAuthorizedIpRanges' in kwargs:
+        if api_server_authorized_ip_ranges is None and 'apiServerAuthorizedIpRanges' in kwargs:
             api_server_authorized_ip_ranges = kwargs['apiServerAuthorizedIpRanges']
-        if 'autoScalerProfile' in kwargs:
+        if auto_scaler_profile is None and 'autoScalerProfile' in kwargs:
             auto_scaler_profile = kwargs['autoScalerProfile']
-        if 'automaticChannelUpgrade' in kwargs:
+        if automatic_channel_upgrade is None and 'automaticChannelUpgrade' in kwargs:
             automatic_channel_upgrade = kwargs['automaticChannelUpgrade']
-        if 'azureActiveDirectoryRoleBasedAccessControl' in kwargs:
+        if azure_active_directory_role_based_access_control is None and 'azureActiveDirectoryRoleBasedAccessControl' in kwargs:
             azure_active_directory_role_based_access_control = kwargs['azureActiveDirectoryRoleBasedAccessControl']
-        if 'azurePolicyEnabled' in kwargs:
+        if azure_policy_enabled is None and 'azurePolicyEnabled' in kwargs:
             azure_policy_enabled = kwargs['azurePolicyEnabled']
-        if 'confidentialComputing' in kwargs:
+        if confidential_computing is None and 'confidentialComputing' in kwargs:
             confidential_computing = kwargs['confidentialComputing']
-        if 'customCaTrustCertificatesBase64s' in kwargs:
+        if custom_ca_trust_certificates_base64s is None and 'customCaTrustCertificatesBase64s' in kwargs:
             custom_ca_trust_certificates_base64s = kwargs['customCaTrustCertificatesBase64s']
-        if 'diskEncryptionSetId' in kwargs:
+        if disk_encryption_set_id is None and 'diskEncryptionSetId' in kwargs:
             disk_encryption_set_id = kwargs['diskEncryptionSetId']
-        if 'dnsPrefix' in kwargs:
+        if dns_prefix is None and 'dnsPrefix' in kwargs:
             dns_prefix = kwargs['dnsPrefix']
-        if 'dnsPrefixPrivateCluster' in kwargs:
+        if dns_prefix_private_cluster is None and 'dnsPrefixPrivateCluster' in kwargs:
             dns_prefix_private_cluster = kwargs['dnsPrefixPrivateCluster']
-        if 'edgeZone' in kwargs:
+        if edge_zone is None and 'edgeZone' in kwargs:
             edge_zone = kwargs['edgeZone']
-        if 'enablePodSecurityPolicy' in kwargs:
+        if enable_pod_security_policy is None and 'enablePodSecurityPolicy' in kwargs:
             enable_pod_security_policy = kwargs['enablePodSecurityPolicy']
-        if 'httpApplicationRoutingEnabled' in kwargs:
+        if http_application_routing_enabled is None and 'httpApplicationRoutingEnabled' in kwargs:
             http_application_routing_enabled = kwargs['httpApplicationRoutingEnabled']
-        if 'httpProxyConfig' in kwargs:
+        if http_proxy_config is None and 'httpProxyConfig' in kwargs:
             http_proxy_config = kwargs['httpProxyConfig']
-        if 'imageCleanerEnabled' in kwargs:
+        if image_cleaner_enabled is None and 'imageCleanerEnabled' in kwargs:
             image_cleaner_enabled = kwargs['imageCleanerEnabled']
-        if 'imageCleanerIntervalHours' in kwargs:
+        if image_cleaner_interval_hours is None and 'imageCleanerIntervalHours' in kwargs:
             image_cleaner_interval_hours = kwargs['imageCleanerIntervalHours']
-        if 'ingressApplicationGateway' in kwargs:
+        if ingress_application_gateway is None and 'ingressApplicationGateway' in kwargs:
             ingress_application_gateway = kwargs['ingressApplicationGateway']
-        if 'keyManagementService' in kwargs:
+        if key_management_service is None and 'keyManagementService' in kwargs:
             key_management_service = kwargs['keyManagementService']
-        if 'keyVaultSecretsProvider' in kwargs:
+        if key_vault_secrets_provider is None and 'keyVaultSecretsProvider' in kwargs:
             key_vault_secrets_provider = kwargs['keyVaultSecretsProvider']
-        if 'kubeletIdentity' in kwargs:
+        if kubelet_identity is None and 'kubeletIdentity' in kwargs:
             kubelet_identity = kwargs['kubeletIdentity']
-        if 'kubernetesVersion' in kwargs:
+        if kubernetes_version is None and 'kubernetesVersion' in kwargs:
             kubernetes_version = kwargs['kubernetesVersion']
-        if 'linuxProfile' in kwargs:
+        if linux_profile is None and 'linuxProfile' in kwargs:
             linux_profile = kwargs['linuxProfile']
-        if 'localAccountDisabled' in kwargs:
+        if local_account_disabled is None and 'localAccountDisabled' in kwargs:
             local_account_disabled = kwargs['localAccountDisabled']
-        if 'maintenanceWindow' in kwargs:
+        if maintenance_window is None and 'maintenanceWindow' in kwargs:
             maintenance_window = kwargs['maintenanceWindow']
-        if 'maintenanceWindowAutoUpgrade' in kwargs:
+        if maintenance_window_auto_upgrade is None and 'maintenanceWindowAutoUpgrade' in kwargs:
             maintenance_window_auto_upgrade = kwargs['maintenanceWindowAutoUpgrade']
-        if 'maintenanceWindowNodeOs' in kwargs:
+        if maintenance_window_node_os is None and 'maintenanceWindowNodeOs' in kwargs:
             maintenance_window_node_os = kwargs['maintenanceWindowNodeOs']
-        if 'microsoftDefender' in kwargs:
+        if microsoft_defender is None and 'microsoftDefender' in kwargs:
             microsoft_defender = kwargs['microsoftDefender']
-        if 'monitorMetrics' in kwargs:
+        if monitor_metrics is None and 'monitorMetrics' in kwargs:
             monitor_metrics = kwargs['monitorMetrics']
-        if 'networkProfile' in kwargs:
+        if network_profile is None and 'networkProfile' in kwargs:
             network_profile = kwargs['networkProfile']
-        if 'nodeOsChannelUpgrade' in kwargs:
+        if node_os_channel_upgrade is None and 'nodeOsChannelUpgrade' in kwargs:
             node_os_channel_upgrade = kwargs['nodeOsChannelUpgrade']
-        if 'nodeResourceGroup' in kwargs:
+        if node_resource_group is None and 'nodeResourceGroup' in kwargs:
             node_resource_group = kwargs['nodeResourceGroup']
-        if 'oidcIssuerEnabled' in kwargs:
+        if oidc_issuer_enabled is None and 'oidcIssuerEnabled' in kwargs:
             oidc_issuer_enabled = kwargs['oidcIssuerEnabled']
-        if 'omsAgent' in kwargs:
+        if oms_agent is None and 'omsAgent' in kwargs:
             oms_agent = kwargs['omsAgent']
-        if 'openServiceMeshEnabled' in kwargs:
+        if open_service_mesh_enabled is None and 'openServiceMeshEnabled' in kwargs:
             open_service_mesh_enabled = kwargs['openServiceMeshEnabled']
-        if 'privateClusterEnabled' in kwargs:
+        if private_cluster_enabled is None and 'privateClusterEnabled' in kwargs:
             private_cluster_enabled = kwargs['privateClusterEnabled']
-        if 'privateClusterPublicFqdnEnabled' in kwargs:
+        if private_cluster_public_fqdn_enabled is None and 'privateClusterPublicFqdnEnabled' in kwargs:
             private_cluster_public_fqdn_enabled = kwargs['privateClusterPublicFqdnEnabled']
-        if 'privateDnsZoneId' in kwargs:
+        if private_dns_zone_id is None and 'privateDnsZoneId' in kwargs:
             private_dns_zone_id = kwargs['privateDnsZoneId']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'roleBasedAccessControlEnabled' in kwargs:
+        if role_based_access_control_enabled is None and 'roleBasedAccessControlEnabled' in kwargs:
             role_based_access_control_enabled = kwargs['roleBasedAccessControlEnabled']
-        if 'runCommandEnabled' in kwargs:
+        if run_command_enabled is None and 'runCommandEnabled' in kwargs:
             run_command_enabled = kwargs['runCommandEnabled']
-        if 'serviceMeshProfile' in kwargs:
+        if service_mesh_profile is None and 'serviceMeshProfile' in kwargs:
             service_mesh_profile = kwargs['serviceMeshProfile']
-        if 'servicePrincipal' in kwargs:
+        if service_principal is None and 'servicePrincipal' in kwargs:
             service_principal = kwargs['servicePrincipal']
-        if 'skuTier' in kwargs:
+        if sku_tier is None and 'skuTier' in kwargs:
             sku_tier = kwargs['skuTier']
-        if 'storageProfile' in kwargs:
+        if storage_profile is None and 'storageProfile' in kwargs:
             storage_profile = kwargs['storageProfile']
-        if 'webAppRouting' in kwargs:
+        if web_app_routing is None and 'webAppRouting' in kwargs:
             web_app_routing = kwargs['webAppRouting']
-        if 'windowsProfile' in kwargs:
+        if windows_profile is None and 'windowsProfile' in kwargs:
             windows_profile = kwargs['windowsProfile']
-        if 'workloadAutoscalerProfile' in kwargs:
+        if workload_autoscaler_profile is None and 'workloadAutoscalerProfile' in kwargs:
             workload_autoscaler_profile = kwargs['workloadAutoscalerProfile']
-        if 'workloadIdentityEnabled' in kwargs:
+        if workload_identity_enabled is None and 'workloadIdentityEnabled' in kwargs:
             workload_identity_enabled = kwargs['workloadIdentityEnabled']
 
         _setter("default_node_pool", default_node_pool)
@@ -1624,127 +1628,127 @@ class _KubernetesClusterState:
              workload_identity_enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'aciConnectorLinux' in kwargs:
+        if aci_connector_linux is None and 'aciConnectorLinux' in kwargs:
             aci_connector_linux = kwargs['aciConnectorLinux']
-        if 'apiServerAccessProfile' in kwargs:
+        if api_server_access_profile is None and 'apiServerAccessProfile' in kwargs:
             api_server_access_profile = kwargs['apiServerAccessProfile']
-        if 'apiServerAuthorizedIpRanges' in kwargs:
+        if api_server_authorized_ip_ranges is None and 'apiServerAuthorizedIpRanges' in kwargs:
             api_server_authorized_ip_ranges = kwargs['apiServerAuthorizedIpRanges']
-        if 'autoScalerProfile' in kwargs:
+        if auto_scaler_profile is None and 'autoScalerProfile' in kwargs:
             auto_scaler_profile = kwargs['autoScalerProfile']
-        if 'automaticChannelUpgrade' in kwargs:
+        if automatic_channel_upgrade is None and 'automaticChannelUpgrade' in kwargs:
             automatic_channel_upgrade = kwargs['automaticChannelUpgrade']
-        if 'azureActiveDirectoryRoleBasedAccessControl' in kwargs:
+        if azure_active_directory_role_based_access_control is None and 'azureActiveDirectoryRoleBasedAccessControl' in kwargs:
             azure_active_directory_role_based_access_control = kwargs['azureActiveDirectoryRoleBasedAccessControl']
-        if 'azurePolicyEnabled' in kwargs:
+        if azure_policy_enabled is None and 'azurePolicyEnabled' in kwargs:
             azure_policy_enabled = kwargs['azurePolicyEnabled']
-        if 'confidentialComputing' in kwargs:
+        if confidential_computing is None and 'confidentialComputing' in kwargs:
             confidential_computing = kwargs['confidentialComputing']
-        if 'customCaTrustCertificatesBase64s' in kwargs:
+        if custom_ca_trust_certificates_base64s is None and 'customCaTrustCertificatesBase64s' in kwargs:
             custom_ca_trust_certificates_base64s = kwargs['customCaTrustCertificatesBase64s']
-        if 'defaultNodePool' in kwargs:
+        if default_node_pool is None and 'defaultNodePool' in kwargs:
             default_node_pool = kwargs['defaultNodePool']
-        if 'diskEncryptionSetId' in kwargs:
+        if disk_encryption_set_id is None and 'diskEncryptionSetId' in kwargs:
             disk_encryption_set_id = kwargs['diskEncryptionSetId']
-        if 'dnsPrefix' in kwargs:
+        if dns_prefix is None and 'dnsPrefix' in kwargs:
             dns_prefix = kwargs['dnsPrefix']
-        if 'dnsPrefixPrivateCluster' in kwargs:
+        if dns_prefix_private_cluster is None and 'dnsPrefixPrivateCluster' in kwargs:
             dns_prefix_private_cluster = kwargs['dnsPrefixPrivateCluster']
-        if 'edgeZone' in kwargs:
+        if edge_zone is None and 'edgeZone' in kwargs:
             edge_zone = kwargs['edgeZone']
-        if 'enablePodSecurityPolicy' in kwargs:
+        if enable_pod_security_policy is None and 'enablePodSecurityPolicy' in kwargs:
             enable_pod_security_policy = kwargs['enablePodSecurityPolicy']
-        if 'httpApplicationRoutingEnabled' in kwargs:
+        if http_application_routing_enabled is None and 'httpApplicationRoutingEnabled' in kwargs:
             http_application_routing_enabled = kwargs['httpApplicationRoutingEnabled']
-        if 'httpApplicationRoutingZoneName' in kwargs:
+        if http_application_routing_zone_name is None and 'httpApplicationRoutingZoneName' in kwargs:
             http_application_routing_zone_name = kwargs['httpApplicationRoutingZoneName']
-        if 'httpProxyConfig' in kwargs:
+        if http_proxy_config is None and 'httpProxyConfig' in kwargs:
             http_proxy_config = kwargs['httpProxyConfig']
-        if 'imageCleanerEnabled' in kwargs:
+        if image_cleaner_enabled is None and 'imageCleanerEnabled' in kwargs:
             image_cleaner_enabled = kwargs['imageCleanerEnabled']
-        if 'imageCleanerIntervalHours' in kwargs:
+        if image_cleaner_interval_hours is None and 'imageCleanerIntervalHours' in kwargs:
             image_cleaner_interval_hours = kwargs['imageCleanerIntervalHours']
-        if 'ingressApplicationGateway' in kwargs:
+        if ingress_application_gateway is None and 'ingressApplicationGateway' in kwargs:
             ingress_application_gateway = kwargs['ingressApplicationGateway']
-        if 'keyManagementService' in kwargs:
+        if key_management_service is None and 'keyManagementService' in kwargs:
             key_management_service = kwargs['keyManagementService']
-        if 'keyVaultSecretsProvider' in kwargs:
+        if key_vault_secrets_provider is None and 'keyVaultSecretsProvider' in kwargs:
             key_vault_secrets_provider = kwargs['keyVaultSecretsProvider']
-        if 'kubeAdminConfigRaw' in kwargs:
+        if kube_admin_config_raw is None and 'kubeAdminConfigRaw' in kwargs:
             kube_admin_config_raw = kwargs['kubeAdminConfigRaw']
-        if 'kubeAdminConfigs' in kwargs:
+        if kube_admin_configs is None and 'kubeAdminConfigs' in kwargs:
             kube_admin_configs = kwargs['kubeAdminConfigs']
-        if 'kubeConfigRaw' in kwargs:
+        if kube_config_raw is None and 'kubeConfigRaw' in kwargs:
             kube_config_raw = kwargs['kubeConfigRaw']
-        if 'kubeConfigs' in kwargs:
+        if kube_configs is None and 'kubeConfigs' in kwargs:
             kube_configs = kwargs['kubeConfigs']
-        if 'kubeletIdentity' in kwargs:
+        if kubelet_identity is None and 'kubeletIdentity' in kwargs:
             kubelet_identity = kwargs['kubeletIdentity']
-        if 'kubernetesVersion' in kwargs:
+        if kubernetes_version is None and 'kubernetesVersion' in kwargs:
             kubernetes_version = kwargs['kubernetesVersion']
-        if 'linuxProfile' in kwargs:
+        if linux_profile is None and 'linuxProfile' in kwargs:
             linux_profile = kwargs['linuxProfile']
-        if 'localAccountDisabled' in kwargs:
+        if local_account_disabled is None and 'localAccountDisabled' in kwargs:
             local_account_disabled = kwargs['localAccountDisabled']
-        if 'maintenanceWindow' in kwargs:
+        if maintenance_window is None and 'maintenanceWindow' in kwargs:
             maintenance_window = kwargs['maintenanceWindow']
-        if 'maintenanceWindowAutoUpgrade' in kwargs:
+        if maintenance_window_auto_upgrade is None and 'maintenanceWindowAutoUpgrade' in kwargs:
             maintenance_window_auto_upgrade = kwargs['maintenanceWindowAutoUpgrade']
-        if 'maintenanceWindowNodeOs' in kwargs:
+        if maintenance_window_node_os is None and 'maintenanceWindowNodeOs' in kwargs:
             maintenance_window_node_os = kwargs['maintenanceWindowNodeOs']
-        if 'microsoftDefender' in kwargs:
+        if microsoft_defender is None and 'microsoftDefender' in kwargs:
             microsoft_defender = kwargs['microsoftDefender']
-        if 'monitorMetrics' in kwargs:
+        if monitor_metrics is None and 'monitorMetrics' in kwargs:
             monitor_metrics = kwargs['monitorMetrics']
-        if 'networkProfile' in kwargs:
+        if network_profile is None and 'networkProfile' in kwargs:
             network_profile = kwargs['networkProfile']
-        if 'nodeOsChannelUpgrade' in kwargs:
+        if node_os_channel_upgrade is None and 'nodeOsChannelUpgrade' in kwargs:
             node_os_channel_upgrade = kwargs['nodeOsChannelUpgrade']
-        if 'nodeResourceGroup' in kwargs:
+        if node_resource_group is None and 'nodeResourceGroup' in kwargs:
             node_resource_group = kwargs['nodeResourceGroup']
-        if 'nodeResourceGroupId' in kwargs:
+        if node_resource_group_id is None and 'nodeResourceGroupId' in kwargs:
             node_resource_group_id = kwargs['nodeResourceGroupId']
-        if 'oidcIssuerEnabled' in kwargs:
+        if oidc_issuer_enabled is None and 'oidcIssuerEnabled' in kwargs:
             oidc_issuer_enabled = kwargs['oidcIssuerEnabled']
-        if 'oidcIssuerUrl' in kwargs:
+        if oidc_issuer_url is None and 'oidcIssuerUrl' in kwargs:
             oidc_issuer_url = kwargs['oidcIssuerUrl']
-        if 'omsAgent' in kwargs:
+        if oms_agent is None and 'omsAgent' in kwargs:
             oms_agent = kwargs['omsAgent']
-        if 'openServiceMeshEnabled' in kwargs:
+        if open_service_mesh_enabled is None and 'openServiceMeshEnabled' in kwargs:
             open_service_mesh_enabled = kwargs['openServiceMeshEnabled']
-        if 'portalFqdn' in kwargs:
+        if portal_fqdn is None and 'portalFqdn' in kwargs:
             portal_fqdn = kwargs['portalFqdn']
-        if 'privateClusterEnabled' in kwargs:
+        if private_cluster_enabled is None and 'privateClusterEnabled' in kwargs:
             private_cluster_enabled = kwargs['privateClusterEnabled']
-        if 'privateClusterPublicFqdnEnabled' in kwargs:
+        if private_cluster_public_fqdn_enabled is None and 'privateClusterPublicFqdnEnabled' in kwargs:
             private_cluster_public_fqdn_enabled = kwargs['privateClusterPublicFqdnEnabled']
-        if 'privateDnsZoneId' in kwargs:
+        if private_dns_zone_id is None and 'privateDnsZoneId' in kwargs:
             private_dns_zone_id = kwargs['privateDnsZoneId']
-        if 'privateFqdn' in kwargs:
+        if private_fqdn is None and 'privateFqdn' in kwargs:
             private_fqdn = kwargs['privateFqdn']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'roleBasedAccessControlEnabled' in kwargs:
+        if role_based_access_control_enabled is None and 'roleBasedAccessControlEnabled' in kwargs:
             role_based_access_control_enabled = kwargs['roleBasedAccessControlEnabled']
-        if 'runCommandEnabled' in kwargs:
+        if run_command_enabled is None and 'runCommandEnabled' in kwargs:
             run_command_enabled = kwargs['runCommandEnabled']
-        if 'serviceMeshProfile' in kwargs:
+        if service_mesh_profile is None and 'serviceMeshProfile' in kwargs:
             service_mesh_profile = kwargs['serviceMeshProfile']
-        if 'servicePrincipal' in kwargs:
+        if service_principal is None and 'servicePrincipal' in kwargs:
             service_principal = kwargs['servicePrincipal']
-        if 'skuTier' in kwargs:
+        if sku_tier is None and 'skuTier' in kwargs:
             sku_tier = kwargs['skuTier']
-        if 'storageProfile' in kwargs:
+        if storage_profile is None and 'storageProfile' in kwargs:
             storage_profile = kwargs['storageProfile']
-        if 'webAppRouting' in kwargs:
+        if web_app_routing is None and 'webAppRouting' in kwargs:
             web_app_routing = kwargs['webAppRouting']
-        if 'windowsProfile' in kwargs:
+        if windows_profile is None and 'windowsProfile' in kwargs:
             windows_profile = kwargs['windowsProfile']
-        if 'workloadAutoscalerProfile' in kwargs:
+        if workload_autoscaler_profile is None and 'workloadAutoscalerProfile' in kwargs:
             workload_autoscaler_profile = kwargs['workloadAutoscalerProfile']
-        if 'workloadIdentityEnabled' in kwargs:
+        if workload_identity_enabled is None and 'workloadIdentityEnabled' in kwargs:
             workload_identity_enabled = kwargs['workloadIdentityEnabled']
 
         if aci_connector_linux is not None:

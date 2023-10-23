@@ -41,22 +41,30 @@ class SnapshotArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             account_name: pulumi.Input[str],
-             pool_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             volume_name: pulumi.Input[str],
+             account_name: Optional[pulumi.Input[str]] = None,
+             pool_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             volume_name: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accountName' in kwargs:
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'poolName' in kwargs:
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if pool_name is None and 'poolName' in kwargs:
             pool_name = kwargs['poolName']
-        if 'resourceGroupName' in kwargs:
+        if pool_name is None:
+            raise TypeError("Missing 'pool_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'volumeName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if volume_name is None and 'volumeName' in kwargs:
             volume_name = kwargs['volumeName']
+        if volume_name is None:
+            raise TypeError("Missing 'volume_name' argument")
 
         _setter("account_name", account_name)
         _setter("pool_name", pool_name)
@@ -178,13 +186,13 @@ class _SnapshotState:
              volume_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accountName' in kwargs:
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'poolName' in kwargs:
+        if pool_name is None and 'poolName' in kwargs:
             pool_name = kwargs['poolName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'volumeName' in kwargs:
+        if volume_name is None and 'volumeName' in kwargs:
             volume_name = kwargs['volumeName']
 
         if account_name is not None:

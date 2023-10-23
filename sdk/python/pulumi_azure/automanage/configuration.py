@@ -64,7 +64,7 @@ class ConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              antimalware: Optional[pulumi.Input['ConfigurationAntimalwareArgs']] = None,
              automation_account_enabled: Optional[pulumi.Input[bool]] = None,
              azure_security_baseline: Optional[pulumi.Input['ConfigurationAzureSecurityBaselineArgs']] = None,
@@ -79,21 +79,23 @@ class ConfigurationArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'automationAccountEnabled' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if automation_account_enabled is None and 'automationAccountEnabled' in kwargs:
             automation_account_enabled = kwargs['automationAccountEnabled']
-        if 'azureSecurityBaseline' in kwargs:
+        if azure_security_baseline is None and 'azureSecurityBaseline' in kwargs:
             azure_security_baseline = kwargs['azureSecurityBaseline']
-        if 'bootDiagnosticsEnabled' in kwargs:
+        if boot_diagnostics_enabled is None and 'bootDiagnosticsEnabled' in kwargs:
             boot_diagnostics_enabled = kwargs['bootDiagnosticsEnabled']
-        if 'defenderForCloudEnabled' in kwargs:
+        if defender_for_cloud_enabled is None and 'defenderForCloudEnabled' in kwargs:
             defender_for_cloud_enabled = kwargs['defenderForCloudEnabled']
-        if 'guestConfigurationEnabled' in kwargs:
+        if guest_configuration_enabled is None and 'guestConfigurationEnabled' in kwargs:
             guest_configuration_enabled = kwargs['guestConfigurationEnabled']
-        if 'logAnalyticsEnabled' in kwargs:
+        if log_analytics_enabled is None and 'logAnalyticsEnabled' in kwargs:
             log_analytics_enabled = kwargs['logAnalyticsEnabled']
-        if 'statusChangeAlertEnabled' in kwargs:
+        if status_change_alert_enabled is None and 'statusChangeAlertEnabled' in kwargs:
             status_change_alert_enabled = kwargs['statusChangeAlertEnabled']
 
         _setter("resource_group_name", resource_group_name)
@@ -345,21 +347,21 @@ class _ConfigurationState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'automationAccountEnabled' in kwargs:
+        if automation_account_enabled is None and 'automationAccountEnabled' in kwargs:
             automation_account_enabled = kwargs['automationAccountEnabled']
-        if 'azureSecurityBaseline' in kwargs:
+        if azure_security_baseline is None and 'azureSecurityBaseline' in kwargs:
             azure_security_baseline = kwargs['azureSecurityBaseline']
-        if 'bootDiagnosticsEnabled' in kwargs:
+        if boot_diagnostics_enabled is None and 'bootDiagnosticsEnabled' in kwargs:
             boot_diagnostics_enabled = kwargs['bootDiagnosticsEnabled']
-        if 'defenderForCloudEnabled' in kwargs:
+        if defender_for_cloud_enabled is None and 'defenderForCloudEnabled' in kwargs:
             defender_for_cloud_enabled = kwargs['defenderForCloudEnabled']
-        if 'guestConfigurationEnabled' in kwargs:
+        if guest_configuration_enabled is None and 'guestConfigurationEnabled' in kwargs:
             guest_configuration_enabled = kwargs['guestConfigurationEnabled']
-        if 'logAnalyticsEnabled' in kwargs:
+        if log_analytics_enabled is None and 'logAnalyticsEnabled' in kwargs:
             log_analytics_enabled = kwargs['logAnalyticsEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'statusChangeAlertEnabled' in kwargs:
+        if status_change_alert_enabled is None and 'statusChangeAlertEnabled' in kwargs:
             status_change_alert_enabled = kwargs['statusChangeAlertEnabled']
 
         if antimalware is not None:

@@ -87,12 +87,12 @@ class InteractiveQueryClusterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cluster_version: pulumi.Input[str],
-             component_version: pulumi.Input['InteractiveQueryClusterComponentVersionArgs'],
-             gateway: pulumi.Input['InteractiveQueryClusterGatewayArgs'],
-             resource_group_name: pulumi.Input[str],
-             roles: pulumi.Input['InteractiveQueryClusterRolesArgs'],
-             tier: pulumi.Input[str],
+             cluster_version: Optional[pulumi.Input[str]] = None,
+             component_version: Optional[pulumi.Input['InteractiveQueryClusterComponentVersionArgs']] = None,
+             gateway: Optional[pulumi.Input['InteractiveQueryClusterGatewayArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             roles: Optional[pulumi.Input['InteractiveQueryClusterRolesArgs']] = None,
+             tier: Optional[pulumi.Input[str]] = None,
              compute_isolation: Optional[pulumi.Input['InteractiveQueryClusterComputeIsolationArgs']] = None,
              disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterDiskEncryptionArgs']]]] = None,
              encryption_in_transit_enabled: Optional[pulumi.Input[bool]] = None,
@@ -109,25 +109,37 @@ class InteractiveQueryClusterArgs:
              tls_min_version: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clusterVersion' in kwargs:
+        if cluster_version is None and 'clusterVersion' in kwargs:
             cluster_version = kwargs['clusterVersion']
-        if 'componentVersion' in kwargs:
+        if cluster_version is None:
+            raise TypeError("Missing 'cluster_version' argument")
+        if component_version is None and 'componentVersion' in kwargs:
             component_version = kwargs['componentVersion']
-        if 'resourceGroupName' in kwargs:
+        if component_version is None:
+            raise TypeError("Missing 'component_version' argument")
+        if gateway is None:
+            raise TypeError("Missing 'gateway' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'computeIsolation' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if roles is None:
+            raise TypeError("Missing 'roles' argument")
+        if tier is None:
+            raise TypeError("Missing 'tier' argument")
+        if compute_isolation is None and 'computeIsolation' in kwargs:
             compute_isolation = kwargs['computeIsolation']
-        if 'diskEncryptions' in kwargs:
+        if disk_encryptions is None and 'diskEncryptions' in kwargs:
             disk_encryptions = kwargs['diskEncryptions']
-        if 'encryptionInTransitEnabled' in kwargs:
+        if encryption_in_transit_enabled is None and 'encryptionInTransitEnabled' in kwargs:
             encryption_in_transit_enabled = kwargs['encryptionInTransitEnabled']
-        if 'securityProfile' in kwargs:
+        if security_profile is None and 'securityProfile' in kwargs:
             security_profile = kwargs['securityProfile']
-        if 'storageAccountGen2' in kwargs:
+        if storage_account_gen2 is None and 'storageAccountGen2' in kwargs:
             storage_account_gen2 = kwargs['storageAccountGen2']
-        if 'storageAccounts' in kwargs:
+        if storage_accounts is None and 'storageAccounts' in kwargs:
             storage_accounts = kwargs['storageAccounts']
-        if 'tlsMinVersion' in kwargs:
+        if tls_min_version is None and 'tlsMinVersion' in kwargs:
             tls_min_version = kwargs['tlsMinVersion']
 
         _setter("cluster_version", cluster_version)
@@ -512,29 +524,29 @@ class _InteractiveQueryClusterState:
              tls_min_version: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clusterVersion' in kwargs:
+        if cluster_version is None and 'clusterVersion' in kwargs:
             cluster_version = kwargs['clusterVersion']
-        if 'componentVersion' in kwargs:
+        if component_version is None and 'componentVersion' in kwargs:
             component_version = kwargs['componentVersion']
-        if 'computeIsolation' in kwargs:
+        if compute_isolation is None and 'computeIsolation' in kwargs:
             compute_isolation = kwargs['computeIsolation']
-        if 'diskEncryptions' in kwargs:
+        if disk_encryptions is None and 'diskEncryptions' in kwargs:
             disk_encryptions = kwargs['diskEncryptions']
-        if 'encryptionInTransitEnabled' in kwargs:
+        if encryption_in_transit_enabled is None and 'encryptionInTransitEnabled' in kwargs:
             encryption_in_transit_enabled = kwargs['encryptionInTransitEnabled']
-        if 'httpsEndpoint' in kwargs:
+        if https_endpoint is None and 'httpsEndpoint' in kwargs:
             https_endpoint = kwargs['httpsEndpoint']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'securityProfile' in kwargs:
+        if security_profile is None and 'securityProfile' in kwargs:
             security_profile = kwargs['securityProfile']
-        if 'sshEndpoint' in kwargs:
+        if ssh_endpoint is None and 'sshEndpoint' in kwargs:
             ssh_endpoint = kwargs['sshEndpoint']
-        if 'storageAccountGen2' in kwargs:
+        if storage_account_gen2 is None and 'storageAccountGen2' in kwargs:
             storage_account_gen2 = kwargs['storageAccountGen2']
-        if 'storageAccounts' in kwargs:
+        if storage_accounts is None and 'storageAccounts' in kwargs:
             storage_accounts = kwargs['storageAccounts']
-        if 'tlsMinVersion' in kwargs:
+        if tls_min_version is None and 'tlsMinVersion' in kwargs:
             tls_min_version = kwargs['tlsMinVersion']
 
         if cluster_version is not None:

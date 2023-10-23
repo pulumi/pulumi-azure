@@ -47,7 +47,7 @@ class ProviderPolicy(dict):
              environment_type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'environmentType' in kwargs:
+        if environment_type is None and 'environmentType' in kwargs:
             environment_type = kwargs['environmentType']
 
         if data is not None:

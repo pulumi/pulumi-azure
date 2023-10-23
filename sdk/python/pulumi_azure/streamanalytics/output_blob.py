@@ -64,14 +64,14 @@ class OutputBlobArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             date_format: pulumi.Input[str],
-             path_pattern: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             serialization: pulumi.Input['OutputBlobSerializationArgs'],
-             storage_account_name: pulumi.Input[str],
-             storage_container_name: pulumi.Input[str],
-             stream_analytics_job_name: pulumi.Input[str],
-             time_format: pulumi.Input[str],
+             date_format: Optional[pulumi.Input[str]] = None,
+             path_pattern: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             serialization: Optional[pulumi.Input['OutputBlobSerializationArgs']] = None,
+             storage_account_name: Optional[pulumi.Input[str]] = None,
+             storage_container_name: Optional[pulumi.Input[str]] = None,
+             stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
+             time_format: Optional[pulumi.Input[str]] = None,
              authentication_mode: Optional[pulumi.Input[str]] = None,
              batch_max_wait_time: Optional[pulumi.Input[str]] = None,
              batch_min_rows: Optional[pulumi.Input[int]] = None,
@@ -79,27 +79,43 @@ class OutputBlobArgs:
              storage_account_key: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dateFormat' in kwargs:
+        if date_format is None and 'dateFormat' in kwargs:
             date_format = kwargs['dateFormat']
-        if 'pathPattern' in kwargs:
+        if date_format is None:
+            raise TypeError("Missing 'date_format' argument")
+        if path_pattern is None and 'pathPattern' in kwargs:
             path_pattern = kwargs['pathPattern']
-        if 'resourceGroupName' in kwargs:
+        if path_pattern is None:
+            raise TypeError("Missing 'path_pattern' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'storageAccountName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if serialization is None:
+            raise TypeError("Missing 'serialization' argument")
+        if storage_account_name is None and 'storageAccountName' in kwargs:
             storage_account_name = kwargs['storageAccountName']
-        if 'storageContainerName' in kwargs:
+        if storage_account_name is None:
+            raise TypeError("Missing 'storage_account_name' argument")
+        if storage_container_name is None and 'storageContainerName' in kwargs:
             storage_container_name = kwargs['storageContainerName']
-        if 'streamAnalyticsJobName' in kwargs:
+        if storage_container_name is None:
+            raise TypeError("Missing 'storage_container_name' argument")
+        if stream_analytics_job_name is None and 'streamAnalyticsJobName' in kwargs:
             stream_analytics_job_name = kwargs['streamAnalyticsJobName']
-        if 'timeFormat' in kwargs:
+        if stream_analytics_job_name is None:
+            raise TypeError("Missing 'stream_analytics_job_name' argument")
+        if time_format is None and 'timeFormat' in kwargs:
             time_format = kwargs['timeFormat']
-        if 'authenticationMode' in kwargs:
+        if time_format is None:
+            raise TypeError("Missing 'time_format' argument")
+        if authentication_mode is None and 'authenticationMode' in kwargs:
             authentication_mode = kwargs['authenticationMode']
-        if 'batchMaxWaitTime' in kwargs:
+        if batch_max_wait_time is None and 'batchMaxWaitTime' in kwargs:
             batch_max_wait_time = kwargs['batchMaxWaitTime']
-        if 'batchMinRows' in kwargs:
+        if batch_min_rows is None and 'batchMinRows' in kwargs:
             batch_min_rows = kwargs['batchMinRows']
-        if 'storageAccountKey' in kwargs:
+        if storage_account_key is None and 'storageAccountKey' in kwargs:
             storage_account_key = kwargs['storageAccountKey']
 
         _setter("date_format", date_format)
@@ -344,27 +360,27 @@ class _OutputBlobState:
              time_format: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'authenticationMode' in kwargs:
+        if authentication_mode is None and 'authenticationMode' in kwargs:
             authentication_mode = kwargs['authenticationMode']
-        if 'batchMaxWaitTime' in kwargs:
+        if batch_max_wait_time is None and 'batchMaxWaitTime' in kwargs:
             batch_max_wait_time = kwargs['batchMaxWaitTime']
-        if 'batchMinRows' in kwargs:
+        if batch_min_rows is None and 'batchMinRows' in kwargs:
             batch_min_rows = kwargs['batchMinRows']
-        if 'dateFormat' in kwargs:
+        if date_format is None and 'dateFormat' in kwargs:
             date_format = kwargs['dateFormat']
-        if 'pathPattern' in kwargs:
+        if path_pattern is None and 'pathPattern' in kwargs:
             path_pattern = kwargs['pathPattern']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'storageAccountKey' in kwargs:
+        if storage_account_key is None and 'storageAccountKey' in kwargs:
             storage_account_key = kwargs['storageAccountKey']
-        if 'storageAccountName' in kwargs:
+        if storage_account_name is None and 'storageAccountName' in kwargs:
             storage_account_name = kwargs['storageAccountName']
-        if 'storageContainerName' in kwargs:
+        if storage_container_name is None and 'storageContainerName' in kwargs:
             storage_container_name = kwargs['storageContainerName']
-        if 'streamAnalyticsJobName' in kwargs:
+        if stream_analytics_job_name is None and 'streamAnalyticsJobName' in kwargs:
             stream_analytics_job_name = kwargs['streamAnalyticsJobName']
-        if 'timeFormat' in kwargs:
+        if time_format is None and 'timeFormat' in kwargs:
             time_format = kwargs['timeFormat']
 
         if authentication_mode is not None:

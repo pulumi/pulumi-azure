@@ -52,9 +52,9 @@ class FluxConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cluster_id: pulumi.Input[str],
-             kustomizations: pulumi.Input[Sequence[pulumi.Input['FluxConfigurationKustomizationArgs']]],
-             namespace: pulumi.Input[str],
+             cluster_id: Optional[pulumi.Input[str]] = None,
+             kustomizations: Optional[pulumi.Input[Sequence[pulumi.Input['FluxConfigurationKustomizationArgs']]]] = None,
+             namespace: Optional[pulumi.Input[str]] = None,
              blob_storage: Optional[pulumi.Input['FluxConfigurationBlobStorageArgs']] = None,
              bucket: Optional[pulumi.Input['FluxConfigurationBucketArgs']] = None,
              continuous_reconciliation_enabled: Optional[pulumi.Input[bool]] = None,
@@ -63,13 +63,19 @@ class FluxConfigurationArgs:
              scope: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clusterId' in kwargs:
+        if cluster_id is None and 'clusterId' in kwargs:
             cluster_id = kwargs['clusterId']
-        if 'blobStorage' in kwargs:
+        if cluster_id is None:
+            raise TypeError("Missing 'cluster_id' argument")
+        if kustomizations is None:
+            raise TypeError("Missing 'kustomizations' argument")
+        if namespace is None:
+            raise TypeError("Missing 'namespace' argument")
+        if blob_storage is None and 'blobStorage' in kwargs:
             blob_storage = kwargs['blobStorage']
-        if 'continuousReconciliationEnabled' in kwargs:
+        if continuous_reconciliation_enabled is None and 'continuousReconciliationEnabled' in kwargs:
             continuous_reconciliation_enabled = kwargs['continuousReconciliationEnabled']
-        if 'gitRepository' in kwargs:
+        if git_repository is None and 'gitRepository' in kwargs:
             git_repository = kwargs['gitRepository']
 
         _setter("cluster_id", cluster_id)
@@ -247,13 +253,13 @@ class _FluxConfigurationState:
              scope: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'blobStorage' in kwargs:
+        if blob_storage is None and 'blobStorage' in kwargs:
             blob_storage = kwargs['blobStorage']
-        if 'clusterId' in kwargs:
+        if cluster_id is None and 'clusterId' in kwargs:
             cluster_id = kwargs['clusterId']
-        if 'continuousReconciliationEnabled' in kwargs:
+        if continuous_reconciliation_enabled is None and 'continuousReconciliationEnabled' in kwargs:
             continuous_reconciliation_enabled = kwargs['continuousReconciliationEnabled']
-        if 'gitRepository' in kwargs:
+        if git_repository is None and 'gitRepository' in kwargs:
             git_repository = kwargs['gitRepository']
 
         if blob_storage is not None:

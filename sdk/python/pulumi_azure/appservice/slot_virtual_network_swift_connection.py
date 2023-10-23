@@ -32,17 +32,23 @@ class SlotVirtualNetworkSwiftConnectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_service_id: pulumi.Input[str],
-             slot_name: pulumi.Input[str],
-             subnet_id: pulumi.Input[str],
+             app_service_id: Optional[pulumi.Input[str]] = None,
+             slot_name: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'appServiceId' in kwargs:
+        if app_service_id is None and 'appServiceId' in kwargs:
             app_service_id = kwargs['appServiceId']
-        if 'slotName' in kwargs:
+        if app_service_id is None:
+            raise TypeError("Missing 'app_service_id' argument")
+        if slot_name is None and 'slotName' in kwargs:
             slot_name = kwargs['slotName']
-        if 'subnetId' in kwargs:
+        if slot_name is None:
+            raise TypeError("Missing 'slot_name' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
 
         _setter("app_service_id", app_service_id)
         _setter("slot_name", slot_name)
@@ -111,11 +117,11 @@ class _SlotVirtualNetworkSwiftConnectionState:
              subnet_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'appServiceId' in kwargs:
+        if app_service_id is None and 'appServiceId' in kwargs:
             app_service_id = kwargs['appServiceId']
-        if 'slotName' in kwargs:
+        if slot_name is None and 'slotName' in kwargs:
             slot_name = kwargs['slotName']
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
 
         if app_service_id is not None:

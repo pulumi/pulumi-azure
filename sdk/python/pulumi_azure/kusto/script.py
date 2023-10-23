@@ -44,7 +44,7 @@ class ScriptArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database_id: pulumi.Input[str],
+             database_id: Optional[pulumi.Input[str]] = None,
              continue_on_errors_enabled: Optional[pulumi.Input[bool]] = None,
              force_an_update_when_value_changed: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
@@ -53,15 +53,17 @@ class ScriptArgs:
              url: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'databaseId' in kwargs:
+        if database_id is None and 'databaseId' in kwargs:
             database_id = kwargs['databaseId']
-        if 'continueOnErrorsEnabled' in kwargs:
+        if database_id is None:
+            raise TypeError("Missing 'database_id' argument")
+        if continue_on_errors_enabled is None and 'continueOnErrorsEnabled' in kwargs:
             continue_on_errors_enabled = kwargs['continueOnErrorsEnabled']
-        if 'forceAnUpdateWhenValueChanged' in kwargs:
+        if force_an_update_when_value_changed is None and 'forceAnUpdateWhenValueChanged' in kwargs:
             force_an_update_when_value_changed = kwargs['forceAnUpdateWhenValueChanged']
-        if 'sasToken' in kwargs:
+        if sas_token is None and 'sasToken' in kwargs:
             sas_token = kwargs['sasToken']
-        if 'scriptContent' in kwargs:
+        if script_content is None and 'scriptContent' in kwargs:
             script_content = kwargs['scriptContent']
 
         _setter("database_id", database_id)
@@ -205,15 +207,15 @@ class _ScriptState:
              url: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'continueOnErrorsEnabled' in kwargs:
+        if continue_on_errors_enabled is None and 'continueOnErrorsEnabled' in kwargs:
             continue_on_errors_enabled = kwargs['continueOnErrorsEnabled']
-        if 'databaseId' in kwargs:
+        if database_id is None and 'databaseId' in kwargs:
             database_id = kwargs['databaseId']
-        if 'forceAnUpdateWhenValueChanged' in kwargs:
+        if force_an_update_when_value_changed is None and 'forceAnUpdateWhenValueChanged' in kwargs:
             force_an_update_when_value_changed = kwargs['forceAnUpdateWhenValueChanged']
-        if 'sasToken' in kwargs:
+        if sas_token is None and 'sasToken' in kwargs:
             sas_token = kwargs['sasToken']
-        if 'scriptContent' in kwargs:
+        if script_content is None and 'scriptContent' in kwargs:
             script_content = kwargs['scriptContent']
 
         if continue_on_errors_enabled is not None:

@@ -55,9 +55,9 @@ class ScalingPlanArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             schedules: pulumi.Input[Sequence[pulumi.Input['ScalingPlanScheduleArgs']]],
-             time_zone: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             schedules: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPlanScheduleArgs']]]] = None,
+             time_zone: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              exclusion_tag: Optional[pulumi.Input[str]] = None,
              friendly_name: Optional[pulumi.Input[str]] = None,
@@ -67,15 +67,21 @@ class ScalingPlanArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'timeZone' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if schedules is None:
+            raise TypeError("Missing 'schedules' argument")
+        if time_zone is None and 'timeZone' in kwargs:
             time_zone = kwargs['timeZone']
-        if 'exclusionTag' in kwargs:
+        if time_zone is None:
+            raise TypeError("Missing 'time_zone' argument")
+        if exclusion_tag is None and 'exclusionTag' in kwargs:
             exclusion_tag = kwargs['exclusionTag']
-        if 'friendlyName' in kwargs:
+        if friendly_name is None and 'friendlyName' in kwargs:
             friendly_name = kwargs['friendlyName']
-        if 'hostPools' in kwargs:
+        if host_pools is None and 'hostPools' in kwargs:
             host_pools = kwargs['hostPools']
 
         _setter("resource_group_name", resource_group_name)
@@ -271,15 +277,15 @@ class _ScalingPlanState:
              time_zone: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'exclusionTag' in kwargs:
+        if exclusion_tag is None and 'exclusionTag' in kwargs:
             exclusion_tag = kwargs['exclusionTag']
-        if 'friendlyName' in kwargs:
+        if friendly_name is None and 'friendlyName' in kwargs:
             friendly_name = kwargs['friendlyName']
-        if 'hostPools' in kwargs:
+        if host_pools is None and 'hostPools' in kwargs:
             host_pools = kwargs['hostPools']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'timeZone' in kwargs:
+        if time_zone is None and 'timeZone' in kwargs:
             time_zone = kwargs['timeZone']
 
         if description is not None:

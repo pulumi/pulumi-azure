@@ -42,18 +42,24 @@ class CustomHostnameBindingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_service_name: pulumi.Input[str],
-             hostname: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             app_service_name: Optional[pulumi.Input[str]] = None,
+             hostname: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              ssl_state: Optional[pulumi.Input[str]] = None,
              thumbprint: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'appServiceName' in kwargs:
+        if app_service_name is None and 'appServiceName' in kwargs:
             app_service_name = kwargs['appServiceName']
-        if 'resourceGroupName' in kwargs:
+        if app_service_name is None:
+            raise TypeError("Missing 'app_service_name' argument")
+        if hostname is None:
+            raise TypeError("Missing 'hostname' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'sslState' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if ssl_state is None and 'sslState' in kwargs:
             ssl_state = kwargs['sslState']
 
         _setter("app_service_name", app_service_name)
@@ -171,13 +177,13 @@ class _CustomHostnameBindingState:
              virtual_ip: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'appServiceName' in kwargs:
+        if app_service_name is None and 'appServiceName' in kwargs:
             app_service_name = kwargs['appServiceName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'sslState' in kwargs:
+        if ssl_state is None and 'sslState' in kwargs:
             ssl_state = kwargs['sslState']
-        if 'virtualIp' in kwargs:
+        if virtual_ip is None and 'virtualIp' in kwargs:
             virtual_ip = kwargs['virtualIp']
 
         if app_service_name is not None:

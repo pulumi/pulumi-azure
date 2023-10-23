@@ -38,20 +38,26 @@ class BgpConnectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             peer_asn: pulumi.Input[int],
-             peer_ip: pulumi.Input[str],
-             virtual_hub_id: pulumi.Input[str],
+             peer_asn: Optional[pulumi.Input[int]] = None,
+             peer_ip: Optional[pulumi.Input[str]] = None,
+             virtual_hub_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              virtual_network_connection_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'peerAsn' in kwargs:
+        if peer_asn is None and 'peerAsn' in kwargs:
             peer_asn = kwargs['peerAsn']
-        if 'peerIp' in kwargs:
+        if peer_asn is None:
+            raise TypeError("Missing 'peer_asn' argument")
+        if peer_ip is None and 'peerIp' in kwargs:
             peer_ip = kwargs['peerIp']
-        if 'virtualHubId' in kwargs:
+        if peer_ip is None:
+            raise TypeError("Missing 'peer_ip' argument")
+        if virtual_hub_id is None and 'virtualHubId' in kwargs:
             virtual_hub_id = kwargs['virtualHubId']
-        if 'virtualNetworkConnectionId' in kwargs:
+        if virtual_hub_id is None:
+            raise TypeError("Missing 'virtual_hub_id' argument")
+        if virtual_network_connection_id is None and 'virtualNetworkConnectionId' in kwargs:
             virtual_network_connection_id = kwargs['virtualNetworkConnectionId']
 
         _setter("peer_asn", peer_asn)
@@ -157,13 +163,13 @@ class _BgpConnectionState:
              virtual_network_connection_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'peerAsn' in kwargs:
+        if peer_asn is None and 'peerAsn' in kwargs:
             peer_asn = kwargs['peerAsn']
-        if 'peerIp' in kwargs:
+        if peer_ip is None and 'peerIp' in kwargs:
             peer_ip = kwargs['peerIp']
-        if 'virtualHubId' in kwargs:
+        if virtual_hub_id is None and 'virtualHubId' in kwargs:
             virtual_hub_id = kwargs['virtualHubId']
-        if 'virtualNetworkConnectionId' in kwargs:
+        if virtual_network_connection_id is None and 'virtualNetworkConnectionId' in kwargs:
             virtual_network_connection_id = kwargs['virtualNetworkConnectionId']
 
         if name is not None:

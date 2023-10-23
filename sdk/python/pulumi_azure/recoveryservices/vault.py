@@ -71,8 +71,8 @@ class VaultArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             sku: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
              classic_vmware_replication_enabled: Optional[pulumi.Input[bool]] = None,
              cross_region_restore_enabled: Optional[pulumi.Input[bool]] = None,
              encryption: Optional[pulumi.Input['VaultEncryptionArgs']] = None,
@@ -87,17 +87,21 @@ class VaultArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'classicVmwareReplicationEnabled' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if classic_vmware_replication_enabled is None and 'classicVmwareReplicationEnabled' in kwargs:
             classic_vmware_replication_enabled = kwargs['classicVmwareReplicationEnabled']
-        if 'crossRegionRestoreEnabled' in kwargs:
+        if cross_region_restore_enabled is None and 'crossRegionRestoreEnabled' in kwargs:
             cross_region_restore_enabled = kwargs['crossRegionRestoreEnabled']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'softDeleteEnabled' in kwargs:
+        if soft_delete_enabled is None and 'softDeleteEnabled' in kwargs:
             soft_delete_enabled = kwargs['softDeleteEnabled']
-        if 'storageModeType' in kwargs:
+        if storage_mode_type is None and 'storageModeType' in kwargs:
             storage_mode_type = kwargs['storageModeType']
 
         _setter("resource_group_name", resource_group_name)
@@ -374,17 +378,17 @@ class _VaultState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'classicVmwareReplicationEnabled' in kwargs:
+        if classic_vmware_replication_enabled is None and 'classicVmwareReplicationEnabled' in kwargs:
             classic_vmware_replication_enabled = kwargs['classicVmwareReplicationEnabled']
-        if 'crossRegionRestoreEnabled' in kwargs:
+        if cross_region_restore_enabled is None and 'crossRegionRestoreEnabled' in kwargs:
             cross_region_restore_enabled = kwargs['crossRegionRestoreEnabled']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'softDeleteEnabled' in kwargs:
+        if soft_delete_enabled is None and 'softDeleteEnabled' in kwargs:
             soft_delete_enabled = kwargs['softDeleteEnabled']
-        if 'storageModeType' in kwargs:
+        if storage_mode_type is None and 'storageModeType' in kwargs:
             storage_mode_type = kwargs['storageModeType']
 
         if classic_vmware_replication_enabled is not None:

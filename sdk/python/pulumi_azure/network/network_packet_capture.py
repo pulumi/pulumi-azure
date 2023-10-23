@@ -54,10 +54,10 @@ class NetworkPacketCaptureArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             network_watcher_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             storage_location: pulumi.Input['NetworkPacketCaptureStorageLocationArgs'],
-             target_resource_id: pulumi.Input[str],
+             network_watcher_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             storage_location: Optional[pulumi.Input['NetworkPacketCaptureStorageLocationArgs']] = None,
+             target_resource_id: Optional[pulumi.Input[str]] = None,
              filters: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkPacketCaptureFilterArgs']]]] = None,
              maximum_bytes_per_packet: Optional[pulumi.Input[int]] = None,
              maximum_bytes_per_session: Optional[pulumi.Input[int]] = None,
@@ -65,19 +65,27 @@ class NetworkPacketCaptureArgs:
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'networkWatcherName' in kwargs:
+        if network_watcher_name is None and 'networkWatcherName' in kwargs:
             network_watcher_name = kwargs['networkWatcherName']
-        if 'resourceGroupName' in kwargs:
+        if network_watcher_name is None:
+            raise TypeError("Missing 'network_watcher_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'storageLocation' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if storage_location is None and 'storageLocation' in kwargs:
             storage_location = kwargs['storageLocation']
-        if 'targetResourceId' in kwargs:
+        if storage_location is None:
+            raise TypeError("Missing 'storage_location' argument")
+        if target_resource_id is None and 'targetResourceId' in kwargs:
             target_resource_id = kwargs['targetResourceId']
-        if 'maximumBytesPerPacket' in kwargs:
+        if target_resource_id is None:
+            raise TypeError("Missing 'target_resource_id' argument")
+        if maximum_bytes_per_packet is None and 'maximumBytesPerPacket' in kwargs:
             maximum_bytes_per_packet = kwargs['maximumBytesPerPacket']
-        if 'maximumBytesPerSession' in kwargs:
+        if maximum_bytes_per_session is None and 'maximumBytesPerSession' in kwargs:
             maximum_bytes_per_session = kwargs['maximumBytesPerSession']
-        if 'maximumCaptureDuration' in kwargs:
+        if maximum_capture_duration is None and 'maximumCaptureDuration' in kwargs:
             maximum_capture_duration = kwargs['maximumCaptureDuration']
 
         _setter("network_watcher_name", network_watcher_name)
@@ -258,19 +266,19 @@ class _NetworkPacketCaptureState:
              target_resource_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'maximumBytesPerPacket' in kwargs:
+        if maximum_bytes_per_packet is None and 'maximumBytesPerPacket' in kwargs:
             maximum_bytes_per_packet = kwargs['maximumBytesPerPacket']
-        if 'maximumBytesPerSession' in kwargs:
+        if maximum_bytes_per_session is None and 'maximumBytesPerSession' in kwargs:
             maximum_bytes_per_session = kwargs['maximumBytesPerSession']
-        if 'maximumCaptureDuration' in kwargs:
+        if maximum_capture_duration is None and 'maximumCaptureDuration' in kwargs:
             maximum_capture_duration = kwargs['maximumCaptureDuration']
-        if 'networkWatcherName' in kwargs:
+        if network_watcher_name is None and 'networkWatcherName' in kwargs:
             network_watcher_name = kwargs['networkWatcherName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'storageLocation' in kwargs:
+        if storage_location is None and 'storageLocation' in kwargs:
             storage_location = kwargs['storageLocation']
-        if 'targetResourceId' in kwargs:
+        if target_resource_id is None and 'targetResourceId' in kwargs:
             target_resource_id = kwargs['targetResourceId']
 
         if filters is not None:

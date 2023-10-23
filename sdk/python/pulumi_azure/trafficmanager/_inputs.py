@@ -32,12 +32,16 @@ class ProfileDnsConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             relative_name: pulumi.Input[str],
-             ttl: pulumi.Input[int],
+             relative_name: Optional[pulumi.Input[str]] = None,
+             ttl: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'relativeName' in kwargs:
+        if relative_name is None and 'relativeName' in kwargs:
             relative_name = kwargs['relativeName']
+        if relative_name is None:
+            raise TypeError("Missing 'relative_name' argument")
+        if ttl is None:
+            raise TypeError("Missing 'ttl' argument")
 
         _setter("relative_name", relative_name)
         _setter("ttl", ttl)
@@ -102,8 +106,8 @@ class ProfileMonitorConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             port: pulumi.Input[int],
-             protocol: pulumi.Input[str],
+             port: Optional[pulumi.Input[int]] = None,
+             protocol: Optional[pulumi.Input[str]] = None,
              custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileMonitorConfigCustomHeaderArgs']]]] = None,
              expected_status_code_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              interval_in_seconds: Optional[pulumi.Input[int]] = None,
@@ -112,15 +116,19 @@ class ProfileMonitorConfigArgs:
              tolerated_number_of_failures: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'customHeaders' in kwargs:
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if custom_headers is None and 'customHeaders' in kwargs:
             custom_headers = kwargs['customHeaders']
-        if 'expectedStatusCodeRanges' in kwargs:
+        if expected_status_code_ranges is None and 'expectedStatusCodeRanges' in kwargs:
             expected_status_code_ranges = kwargs['expectedStatusCodeRanges']
-        if 'intervalInSeconds' in kwargs:
+        if interval_in_seconds is None and 'intervalInSeconds' in kwargs:
             interval_in_seconds = kwargs['intervalInSeconds']
-        if 'timeoutInSeconds' in kwargs:
+        if timeout_in_seconds is None and 'timeoutInSeconds' in kwargs:
             timeout_in_seconds = kwargs['timeoutInSeconds']
-        if 'toleratedNumberOfFailures' in kwargs:
+        if tolerated_number_of_failures is None and 'toleratedNumberOfFailures' in kwargs:
             tolerated_number_of_failures = kwargs['toleratedNumberOfFailures']
 
         _setter("port", port)
@@ -252,10 +260,14 @@ class ProfileMonitorConfigCustomHeaderArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             value: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("name", name)
         _setter("value", value)

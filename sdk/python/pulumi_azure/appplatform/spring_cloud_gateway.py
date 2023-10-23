@@ -64,7 +64,7 @@ class SpringCloudGatewayArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             spring_cloud_service_id: pulumi.Input[str],
+             spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
              api_metadata: Optional[pulumi.Input['SpringCloudGatewayApiMetadataArgs']] = None,
              application_performance_monitoring_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              client_authorization: Optional[pulumi.Input['SpringCloudGatewayClientAuthorizationArgs']] = None,
@@ -79,23 +79,25 @@ class SpringCloudGatewayArgs:
              sso: Optional[pulumi.Input['SpringCloudGatewaySsoArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'springCloudServiceId' in kwargs:
+        if spring_cloud_service_id is None and 'springCloudServiceId' in kwargs:
             spring_cloud_service_id = kwargs['springCloudServiceId']
-        if 'apiMetadata' in kwargs:
+        if spring_cloud_service_id is None:
+            raise TypeError("Missing 'spring_cloud_service_id' argument")
+        if api_metadata is None and 'apiMetadata' in kwargs:
             api_metadata = kwargs['apiMetadata']
-        if 'applicationPerformanceMonitoringTypes' in kwargs:
+        if application_performance_monitoring_types is None and 'applicationPerformanceMonitoringTypes' in kwargs:
             application_performance_monitoring_types = kwargs['applicationPerformanceMonitoringTypes']
-        if 'clientAuthorization' in kwargs:
+        if client_authorization is None and 'clientAuthorization' in kwargs:
             client_authorization = kwargs['clientAuthorization']
-        if 'environmentVariables' in kwargs:
+        if environment_variables is None and 'environmentVariables' in kwargs:
             environment_variables = kwargs['environmentVariables']
-        if 'httpsOnly' in kwargs:
+        if https_only is None and 'httpsOnly' in kwargs:
             https_only = kwargs['httpsOnly']
-        if 'instanceCount' in kwargs:
+        if instance_count is None and 'instanceCount' in kwargs:
             instance_count = kwargs['instanceCount']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'sensitiveEnvironmentVariables' in kwargs:
+        if sensitive_environment_variables is None and 'sensitiveEnvironmentVariables' in kwargs:
             sensitive_environment_variables = kwargs['sensitiveEnvironmentVariables']
 
         _setter("spring_cloud_service_id", spring_cloud_service_id)
@@ -351,23 +353,23 @@ class _SpringCloudGatewayState:
              url: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'apiMetadata' in kwargs:
+        if api_metadata is None and 'apiMetadata' in kwargs:
             api_metadata = kwargs['apiMetadata']
-        if 'applicationPerformanceMonitoringTypes' in kwargs:
+        if application_performance_monitoring_types is None and 'applicationPerformanceMonitoringTypes' in kwargs:
             application_performance_monitoring_types = kwargs['applicationPerformanceMonitoringTypes']
-        if 'clientAuthorization' in kwargs:
+        if client_authorization is None and 'clientAuthorization' in kwargs:
             client_authorization = kwargs['clientAuthorization']
-        if 'environmentVariables' in kwargs:
+        if environment_variables is None and 'environmentVariables' in kwargs:
             environment_variables = kwargs['environmentVariables']
-        if 'httpsOnly' in kwargs:
+        if https_only is None and 'httpsOnly' in kwargs:
             https_only = kwargs['httpsOnly']
-        if 'instanceCount' in kwargs:
+        if instance_count is None and 'instanceCount' in kwargs:
             instance_count = kwargs['instanceCount']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'sensitiveEnvironmentVariables' in kwargs:
+        if sensitive_environment_variables is None and 'sensitiveEnvironmentVariables' in kwargs:
             sensitive_environment_variables = kwargs['sensitiveEnvironmentVariables']
-        if 'springCloudServiceId' in kwargs:
+        if spring_cloud_service_id is None and 'springCloudServiceId' in kwargs:
             spring_cloud_service_id = kwargs['springCloudServiceId']
 
         if api_metadata is not None:

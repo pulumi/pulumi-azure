@@ -49,25 +49,33 @@ class VirtualNetworkGatewayNatRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             external_mappings: pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayNatRuleExternalMappingArgs']]],
-             internal_mappings: pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayNatRuleInternalMappingArgs']]],
-             resource_group_name: pulumi.Input[str],
-             virtual_network_gateway_id: pulumi.Input[str],
+             external_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayNatRuleExternalMappingArgs']]]] = None,
+             internal_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayNatRuleInternalMappingArgs']]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             virtual_network_gateway_id: Optional[pulumi.Input[str]] = None,
              ip_configuration_id: Optional[pulumi.Input[str]] = None,
              mode: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'externalMappings' in kwargs:
+        if external_mappings is None and 'externalMappings' in kwargs:
             external_mappings = kwargs['externalMappings']
-        if 'internalMappings' in kwargs:
+        if external_mappings is None:
+            raise TypeError("Missing 'external_mappings' argument")
+        if internal_mappings is None and 'internalMappings' in kwargs:
             internal_mappings = kwargs['internalMappings']
-        if 'resourceGroupName' in kwargs:
+        if internal_mappings is None:
+            raise TypeError("Missing 'internal_mappings' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'virtualNetworkGatewayId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if virtual_network_gateway_id is None and 'virtualNetworkGatewayId' in kwargs:
             virtual_network_gateway_id = kwargs['virtualNetworkGatewayId']
-        if 'ipConfigurationId' in kwargs:
+        if virtual_network_gateway_id is None:
+            raise TypeError("Missing 'virtual_network_gateway_id' argument")
+        if ip_configuration_id is None and 'ipConfigurationId' in kwargs:
             ip_configuration_id = kwargs['ipConfigurationId']
 
         _setter("external_mappings", external_mappings)
@@ -226,15 +234,15 @@ class _VirtualNetworkGatewayNatRuleState:
              virtual_network_gateway_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'externalMappings' in kwargs:
+        if external_mappings is None and 'externalMappings' in kwargs:
             external_mappings = kwargs['externalMappings']
-        if 'internalMappings' in kwargs:
+        if internal_mappings is None and 'internalMappings' in kwargs:
             internal_mappings = kwargs['internalMappings']
-        if 'ipConfigurationId' in kwargs:
+        if ip_configuration_id is None and 'ipConfigurationId' in kwargs:
             ip_configuration_id = kwargs['ipConfigurationId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'virtualNetworkGatewayId' in kwargs:
+        if virtual_network_gateway_id is None and 'virtualNetworkGatewayId' in kwargs:
             virtual_network_gateway_id = kwargs['virtualNetworkGatewayId']
 
         if external_mappings is not None:

@@ -77,28 +77,40 @@ class DatabaseImportArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             administrator_login: pulumi.Input[str],
-             administrator_login_password: pulumi.Input[str],
-             authentication_type: pulumi.Input[str],
-             storage_key: pulumi.Input[str],
-             storage_key_type: pulumi.Input[str],
-             storage_uri: pulumi.Input[str],
+             administrator_login: Optional[pulumi.Input[str]] = None,
+             administrator_login_password: Optional[pulumi.Input[str]] = None,
+             authentication_type: Optional[pulumi.Input[str]] = None,
+             storage_key: Optional[pulumi.Input[str]] = None,
+             storage_key_type: Optional[pulumi.Input[str]] = None,
+             storage_uri: Optional[pulumi.Input[str]] = None,
              storage_account_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'administratorLogin' in kwargs:
+        if administrator_login is None and 'administratorLogin' in kwargs:
             administrator_login = kwargs['administratorLogin']
-        if 'administratorLoginPassword' in kwargs:
+        if administrator_login is None:
+            raise TypeError("Missing 'administrator_login' argument")
+        if administrator_login_password is None and 'administratorLoginPassword' in kwargs:
             administrator_login_password = kwargs['administratorLoginPassword']
-        if 'authenticationType' in kwargs:
+        if administrator_login_password is None:
+            raise TypeError("Missing 'administrator_login_password' argument")
+        if authentication_type is None and 'authenticationType' in kwargs:
             authentication_type = kwargs['authenticationType']
-        if 'storageKey' in kwargs:
+        if authentication_type is None:
+            raise TypeError("Missing 'authentication_type' argument")
+        if storage_key is None and 'storageKey' in kwargs:
             storage_key = kwargs['storageKey']
-        if 'storageKeyType' in kwargs:
+        if storage_key is None:
+            raise TypeError("Missing 'storage_key' argument")
+        if storage_key_type is None and 'storageKeyType' in kwargs:
             storage_key_type = kwargs['storageKeyType']
-        if 'storageUri' in kwargs:
+        if storage_key_type is None:
+            raise TypeError("Missing 'storage_key_type' argument")
+        if storage_uri is None and 'storageUri' in kwargs:
             storage_uri = kwargs['storageUri']
-        if 'storageAccountId' in kwargs:
+        if storage_uri is None:
+            raise TypeError("Missing 'storage_uri' argument")
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
 
         _setter("administrator_login", administrator_login)
@@ -224,13 +236,13 @@ class DatabaseLongTermRetentionPolicyArgs:
              yearly_retention: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'monthlyRetention' in kwargs:
+        if monthly_retention is None and 'monthlyRetention' in kwargs:
             monthly_retention = kwargs['monthlyRetention']
-        if 'weekOfYear' in kwargs:
+        if week_of_year is None and 'weekOfYear' in kwargs:
             week_of_year = kwargs['weekOfYear']
-        if 'weeklyRetention' in kwargs:
+        if weekly_retention is None and 'weeklyRetention' in kwargs:
             weekly_retention = kwargs['weeklyRetention']
-        if 'yearlyRetention' in kwargs:
+        if yearly_retention is None and 'yearlyRetention' in kwargs:
             yearly_retention = kwargs['yearlyRetention']
 
         if monthly_retention is not None:
@@ -308,13 +320,15 @@ class DatabaseShortTermRetentionPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             retention_days: pulumi.Input[int],
+             retention_days: Optional[pulumi.Input[int]] = None,
              backup_interval_in_hours: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'retentionDays' in kwargs:
+        if retention_days is None and 'retentionDays' in kwargs:
             retention_days = kwargs['retentionDays']
-        if 'backupIntervalInHours' in kwargs:
+        if retention_days is None:
+            raise TypeError("Missing 'retention_days' argument")
+        if backup_interval_in_hours is None and 'backupIntervalInHours' in kwargs:
             backup_interval_in_hours = kwargs['backupIntervalInHours']
 
         _setter("retention_days", retention_days)
@@ -387,17 +401,17 @@ class DatabaseThreatDetectionPolicyArgs:
              storage_endpoint: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'disabledAlerts' in kwargs:
+        if disabled_alerts is None and 'disabledAlerts' in kwargs:
             disabled_alerts = kwargs['disabledAlerts']
-        if 'emailAccountAdmins' in kwargs:
+        if email_account_admins is None and 'emailAccountAdmins' in kwargs:
             email_account_admins = kwargs['emailAccountAdmins']
-        if 'emailAddresses' in kwargs:
+        if email_addresses is None and 'emailAddresses' in kwargs:
             email_addresses = kwargs['emailAddresses']
-        if 'retentionDays' in kwargs:
+        if retention_days is None and 'retentionDays' in kwargs:
             retention_days = kwargs['retentionDays']
-        if 'storageAccountAccessKey' in kwargs:
+        if storage_account_access_key is None and 'storageAccountAccessKey' in kwargs:
             storage_account_access_key = kwargs['storageAccountAccessKey']
-        if 'storageEndpoint' in kwargs:
+        if storage_endpoint is None and 'storageEndpoint' in kwargs:
             storage_endpoint = kwargs['storageEndpoint']
 
         if disabled_alerts is not None:
@@ -514,9 +528,11 @@ class DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             results: pulumi.Input[Sequence[pulumi.Input[str]]],
+             results: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if results is None:
+            raise TypeError("Missing 'results' argument")
 
         _setter("results", results)
 
@@ -550,14 +566,18 @@ class ElasticPoolPerDatabaseSettingsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             max_capacity: pulumi.Input[float],
-             min_capacity: pulumi.Input[float],
+             max_capacity: Optional[pulumi.Input[float]] = None,
+             min_capacity: Optional[pulumi.Input[float]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'maxCapacity' in kwargs:
+        if max_capacity is None and 'maxCapacity' in kwargs:
             max_capacity = kwargs['maxCapacity']
-        if 'minCapacity' in kwargs:
+        if max_capacity is None:
+            raise TypeError("Missing 'max_capacity' argument")
+        if min_capacity is None and 'minCapacity' in kwargs:
             min_capacity = kwargs['minCapacity']
+        if min_capacity is None:
+            raise TypeError("Missing 'min_capacity' argument")
 
         _setter("max_capacity", max_capacity)
         _setter("min_capacity", min_capacity)
@@ -610,12 +630,18 @@ class ElasticPoolSkuArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             capacity: pulumi.Input[int],
-             name: pulumi.Input[str],
-             tier: pulumi.Input[str],
+             capacity: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tier: Optional[pulumi.Input[str]] = None,
              family: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if capacity is None:
+            raise TypeError("Missing 'capacity' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if tier is None:
+            raise TypeError("Missing 'tier' argument")
 
         _setter("capacity", capacity)
         _setter("name", name)
@@ -692,11 +718,13 @@ class FailoverGroupPartnerServerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             id: pulumi.Input[str],
+             id: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              role: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
 
         _setter("id", id)
         if location is not None:
@@ -758,11 +786,13 @@ class FailoverGroupReadWriteEndpointFailoverPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mode: pulumi.Input[str],
+             mode: Optional[pulumi.Input[str]] = None,
              grace_minutes: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'graceMinutes' in kwargs:
+        if mode is None:
+            raise TypeError("Missing 'mode' argument")
+        if grace_minutes is None and 'graceMinutes' in kwargs:
             grace_minutes = kwargs['graceMinutes']
 
         _setter("mode", mode)
@@ -823,13 +853,13 @@ class ManagedDatabaseLongTermRetentionPolicyArgs:
              yearly_retention: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'monthlyRetention' in kwargs:
+        if monthly_retention is None and 'monthlyRetention' in kwargs:
             monthly_retention = kwargs['monthlyRetention']
-        if 'weekOfYear' in kwargs:
+        if week_of_year is None and 'weekOfYear' in kwargs:
             week_of_year = kwargs['weekOfYear']
-        if 'weeklyRetention' in kwargs:
+        if weekly_retention is None and 'weeklyRetention' in kwargs:
             weekly_retention = kwargs['weeklyRetention']
-        if 'yearlyRetention' in kwargs:
+        if yearly_retention is None and 'yearlyRetention' in kwargs:
             yearly_retention = kwargs['yearlyRetention']
 
         if monthly_retention is not None:
@@ -959,11 +989,13 @@ class ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mode: pulumi.Input[str],
+             mode: Optional[pulumi.Input[str]] = None,
              grace_minutes: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'graceMinutes' in kwargs:
+        if mode is None:
+            raise TypeError("Missing 'mode' argument")
+        if grace_minutes is None and 'graceMinutes' in kwargs:
             grace_minutes = kwargs['graceMinutes']
 
         _setter("mode", mode)
@@ -1020,17 +1052,19 @@ class ManagedInstanceIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -1117,7 +1151,7 @@ class ManagedInstanceVulnerabilityAssessmentRecurringScansArgs:
              enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'emailSubscriptionAdmins' in kwargs:
+        if email_subscription_admins is None and 'emailSubscriptionAdmins' in kwargs:
             email_subscription_admins = kwargs['emailSubscriptionAdmins']
 
         if email_subscription_admins is not None:
@@ -1187,19 +1221,23 @@ class ServerAzureadAdministratorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             login_username: pulumi.Input[str],
-             object_id: pulumi.Input[str],
+             login_username: Optional[pulumi.Input[str]] = None,
+             object_id: Optional[pulumi.Input[str]] = None,
              azuread_authentication_only: Optional[pulumi.Input[bool]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'loginUsername' in kwargs:
+        if login_username is None and 'loginUsername' in kwargs:
             login_username = kwargs['loginUsername']
-        if 'objectId' in kwargs:
+        if login_username is None:
+            raise TypeError("Missing 'login_username' argument")
+        if object_id is None and 'objectId' in kwargs:
             object_id = kwargs['objectId']
-        if 'azureadAuthenticationOnly' in kwargs:
+        if object_id is None:
+            raise TypeError("Missing 'object_id' argument")
+        if azuread_authentication_only is None and 'azureadAuthenticationOnly' in kwargs:
             azuread_authentication_only = kwargs['azureadAuthenticationOnly']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("login_username", login_username)
@@ -1285,17 +1323,19 @@ class ServerIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -1384,7 +1424,7 @@ class ServerVulnerabilityAssessmentRecurringScansArgs:
              enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'emailSubscriptionAdmins' in kwargs:
+        if email_subscription_admins is None and 'emailSubscriptionAdmins' in kwargs:
             email_subscription_admins = kwargs['emailSubscriptionAdmins']
 
         if email_subscription_admins is not None:
@@ -1456,7 +1496,7 @@ class VirtualMachineAssessmentArgs:
              schedule: Optional[pulumi.Input['VirtualMachineAssessmentScheduleArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'runImmediately' in kwargs:
+        if run_immediately is None and 'runImmediately' in kwargs:
             run_immediately = kwargs['runImmediately']
 
         if enabled is not None:
@@ -1528,19 +1568,23 @@ class VirtualMachineAssessmentScheduleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             day_of_week: pulumi.Input[str],
-             start_time: pulumi.Input[str],
+             day_of_week: Optional[pulumi.Input[str]] = None,
+             start_time: Optional[pulumi.Input[str]] = None,
              monthly_occurrence: Optional[pulumi.Input[int]] = None,
              weekly_interval: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dayOfWeek' in kwargs:
+        if day_of_week is None and 'dayOfWeek' in kwargs:
             day_of_week = kwargs['dayOfWeek']
-        if 'startTime' in kwargs:
+        if day_of_week is None:
+            raise TypeError("Missing 'day_of_week' argument")
+        if start_time is None and 'startTime' in kwargs:
             start_time = kwargs['startTime']
-        if 'monthlyOccurrence' in kwargs:
+        if start_time is None:
+            raise TypeError("Missing 'start_time' argument")
+        if monthly_occurrence is None and 'monthlyOccurrence' in kwargs:
             monthly_occurrence = kwargs['monthlyOccurrence']
-        if 'weeklyInterval' in kwargs:
+        if weekly_interval is None and 'weeklyInterval' in kwargs:
             weekly_interval = kwargs['weeklyInterval']
 
         _setter("day_of_week", day_of_week)
@@ -1633,28 +1677,34 @@ class VirtualMachineAutoBackupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             retention_period_in_days: pulumi.Input[int],
-             storage_account_access_key: pulumi.Input[str],
-             storage_blob_endpoint: pulumi.Input[str],
+             retention_period_in_days: Optional[pulumi.Input[int]] = None,
+             storage_account_access_key: Optional[pulumi.Input[str]] = None,
+             storage_blob_endpoint: Optional[pulumi.Input[str]] = None,
              encryption_enabled: Optional[pulumi.Input[bool]] = None,
              encryption_password: Optional[pulumi.Input[str]] = None,
              manual_schedule: Optional[pulumi.Input['VirtualMachineAutoBackupManualScheduleArgs']] = None,
              system_databases_backup_enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'retentionPeriodInDays' in kwargs:
+        if retention_period_in_days is None and 'retentionPeriodInDays' in kwargs:
             retention_period_in_days = kwargs['retentionPeriodInDays']
-        if 'storageAccountAccessKey' in kwargs:
+        if retention_period_in_days is None:
+            raise TypeError("Missing 'retention_period_in_days' argument")
+        if storage_account_access_key is None and 'storageAccountAccessKey' in kwargs:
             storage_account_access_key = kwargs['storageAccountAccessKey']
-        if 'storageBlobEndpoint' in kwargs:
+        if storage_account_access_key is None:
+            raise TypeError("Missing 'storage_account_access_key' argument")
+        if storage_blob_endpoint is None and 'storageBlobEndpoint' in kwargs:
             storage_blob_endpoint = kwargs['storageBlobEndpoint']
-        if 'encryptionEnabled' in kwargs:
+        if storage_blob_endpoint is None:
+            raise TypeError("Missing 'storage_blob_endpoint' argument")
+        if encryption_enabled is None and 'encryptionEnabled' in kwargs:
             encryption_enabled = kwargs['encryptionEnabled']
-        if 'encryptionPassword' in kwargs:
+        if encryption_password is None and 'encryptionPassword' in kwargs:
             encryption_password = kwargs['encryptionPassword']
-        if 'manualSchedule' in kwargs:
+        if manual_schedule is None and 'manualSchedule' in kwargs:
             manual_schedule = kwargs['manualSchedule']
-        if 'systemDatabasesBackupEnabled' in kwargs:
+        if system_databases_backup_enabled is None and 'systemDatabasesBackupEnabled' in kwargs:
             system_databases_backup_enabled = kwargs['systemDatabasesBackupEnabled']
 
         _setter("retention_period_in_days", retention_period_in_days)
@@ -1782,22 +1832,30 @@ class VirtualMachineAutoBackupManualScheduleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             full_backup_frequency: pulumi.Input[str],
-             full_backup_start_hour: pulumi.Input[int],
-             full_backup_window_in_hours: pulumi.Input[int],
-             log_backup_frequency_in_minutes: pulumi.Input[int],
+             full_backup_frequency: Optional[pulumi.Input[str]] = None,
+             full_backup_start_hour: Optional[pulumi.Input[int]] = None,
+             full_backup_window_in_hours: Optional[pulumi.Input[int]] = None,
+             log_backup_frequency_in_minutes: Optional[pulumi.Input[int]] = None,
              days_of_weeks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'fullBackupFrequency' in kwargs:
+        if full_backup_frequency is None and 'fullBackupFrequency' in kwargs:
             full_backup_frequency = kwargs['fullBackupFrequency']
-        if 'fullBackupStartHour' in kwargs:
+        if full_backup_frequency is None:
+            raise TypeError("Missing 'full_backup_frequency' argument")
+        if full_backup_start_hour is None and 'fullBackupStartHour' in kwargs:
             full_backup_start_hour = kwargs['fullBackupStartHour']
-        if 'fullBackupWindowInHours' in kwargs:
+        if full_backup_start_hour is None:
+            raise TypeError("Missing 'full_backup_start_hour' argument")
+        if full_backup_window_in_hours is None and 'fullBackupWindowInHours' in kwargs:
             full_backup_window_in_hours = kwargs['fullBackupWindowInHours']
-        if 'logBackupFrequencyInMinutes' in kwargs:
+        if full_backup_window_in_hours is None:
+            raise TypeError("Missing 'full_backup_window_in_hours' argument")
+        if log_backup_frequency_in_minutes is None and 'logBackupFrequencyInMinutes' in kwargs:
             log_backup_frequency_in_minutes = kwargs['logBackupFrequencyInMinutes']
-        if 'daysOfWeeks' in kwargs:
+        if log_backup_frequency_in_minutes is None:
+            raise TypeError("Missing 'log_backup_frequency_in_minutes' argument")
+        if days_of_weeks is None and 'daysOfWeeks' in kwargs:
             days_of_weeks = kwargs['daysOfWeeks']
 
         _setter("full_backup_frequency", full_backup_frequency)
@@ -1890,17 +1948,23 @@ class VirtualMachineAutoPatchingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             day_of_week: pulumi.Input[str],
-             maintenance_window_duration_in_minutes: pulumi.Input[int],
-             maintenance_window_starting_hour: pulumi.Input[int],
+             day_of_week: Optional[pulumi.Input[str]] = None,
+             maintenance_window_duration_in_minutes: Optional[pulumi.Input[int]] = None,
+             maintenance_window_starting_hour: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dayOfWeek' in kwargs:
+        if day_of_week is None and 'dayOfWeek' in kwargs:
             day_of_week = kwargs['dayOfWeek']
-        if 'maintenanceWindowDurationInMinutes' in kwargs:
+        if day_of_week is None:
+            raise TypeError("Missing 'day_of_week' argument")
+        if maintenance_window_duration_in_minutes is None and 'maintenanceWindowDurationInMinutes' in kwargs:
             maintenance_window_duration_in_minutes = kwargs['maintenanceWindowDurationInMinutes']
-        if 'maintenanceWindowStartingHour' in kwargs:
+        if maintenance_window_duration_in_minutes is None:
+            raise TypeError("Missing 'maintenance_window_duration_in_minutes' argument")
+        if maintenance_window_starting_hour is None and 'maintenanceWindowStartingHour' in kwargs:
             maintenance_window_starting_hour = kwargs['maintenanceWindowStartingHour']
+        if maintenance_window_starting_hour is None:
+            raise TypeError("Missing 'maintenance_window_starting_hour' argument")
 
         _setter("day_of_week", day_of_week)
         _setter("maintenance_window_duration_in_minutes", maintenance_window_duration_in_minutes)
@@ -1971,23 +2035,33 @@ class VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             load_balancer_id: pulumi.Input[str],
-             private_ip_address: pulumi.Input[str],
-             probe_port: pulumi.Input[int],
-             sql_virtual_machine_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             subnet_id: pulumi.Input[str],
+             load_balancer_id: Optional[pulumi.Input[str]] = None,
+             private_ip_address: Optional[pulumi.Input[str]] = None,
+             probe_port: Optional[pulumi.Input[int]] = None,
+             sql_virtual_machine_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'loadBalancerId' in kwargs:
+        if load_balancer_id is None and 'loadBalancerId' in kwargs:
             load_balancer_id = kwargs['loadBalancerId']
-        if 'privateIpAddress' in kwargs:
+        if load_balancer_id is None:
+            raise TypeError("Missing 'load_balancer_id' argument")
+        if private_ip_address is None and 'privateIpAddress' in kwargs:
             private_ip_address = kwargs['privateIpAddress']
-        if 'probePort' in kwargs:
+        if private_ip_address is None:
+            raise TypeError("Missing 'private_ip_address' argument")
+        if probe_port is None and 'probePort' in kwargs:
             probe_port = kwargs['probePort']
-        if 'sqlVirtualMachineIds' in kwargs:
+        if probe_port is None:
+            raise TypeError("Missing 'probe_port' argument")
+        if sql_virtual_machine_ids is None and 'sqlVirtualMachineIds' in kwargs:
             sql_virtual_machine_ids = kwargs['sqlVirtualMachineIds']
-        if 'subnetId' in kwargs:
+        if sql_virtual_machine_ids is None:
+            raise TypeError("Missing 'sql_virtual_machine_ids' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
 
         _setter("load_balancer_id", load_balancer_id)
         _setter("private_ip_address", private_ip_address)
@@ -2080,17 +2154,23 @@ class VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             private_ip_address: pulumi.Input[str],
-             sql_virtual_machine_id: pulumi.Input[str],
-             subnet_id: pulumi.Input[str],
+             private_ip_address: Optional[pulumi.Input[str]] = None,
+             sql_virtual_machine_id: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'privateIpAddress' in kwargs:
+        if private_ip_address is None and 'privateIpAddress' in kwargs:
             private_ip_address = kwargs['privateIpAddress']
-        if 'sqlVirtualMachineId' in kwargs:
+        if private_ip_address is None:
+            raise TypeError("Missing 'private_ip_address' argument")
+        if sql_virtual_machine_id is None and 'sqlVirtualMachineId' in kwargs:
             sql_virtual_machine_id = kwargs['sqlVirtualMachineId']
-        if 'subnetId' in kwargs:
+        if sql_virtual_machine_id is None:
+            raise TypeError("Missing 'sql_virtual_machine_id' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
 
         _setter("private_ip_address", private_ip_address)
         _setter("sql_virtual_machine_id", sql_virtual_machine_id)
@@ -2161,19 +2241,29 @@ class VirtualMachineAvailabilityGroupListenerReplicaArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             commit: pulumi.Input[str],
-             failover_mode: pulumi.Input[str],
-             readable_secondary: pulumi.Input[str],
-             role: pulumi.Input[str],
-             sql_virtual_machine_id: pulumi.Input[str],
+             commit: Optional[pulumi.Input[str]] = None,
+             failover_mode: Optional[pulumi.Input[str]] = None,
+             readable_secondary: Optional[pulumi.Input[str]] = None,
+             role: Optional[pulumi.Input[str]] = None,
+             sql_virtual_machine_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'failoverMode' in kwargs:
+        if commit is None:
+            raise TypeError("Missing 'commit' argument")
+        if failover_mode is None and 'failoverMode' in kwargs:
             failover_mode = kwargs['failoverMode']
-        if 'readableSecondary' in kwargs:
+        if failover_mode is None:
+            raise TypeError("Missing 'failover_mode' argument")
+        if readable_secondary is None and 'readableSecondary' in kwargs:
             readable_secondary = kwargs['readableSecondary']
-        if 'sqlVirtualMachineId' in kwargs:
+        if readable_secondary is None:
+            raise TypeError("Missing 'readable_secondary' argument")
+        if role is None:
+            raise TypeError("Missing 'role' argument")
+        if sql_virtual_machine_id is None and 'sqlVirtualMachineId' in kwargs:
             sql_virtual_machine_id = kwargs['sqlVirtualMachineId']
+        if sql_virtual_machine_id is None:
+            raise TypeError("Missing 'sql_virtual_machine_id' argument")
 
         _setter("commit", commit)
         _setter("failover_mode", failover_mode)
@@ -2277,8 +2367,8 @@ class VirtualMachineGroupWsfcDomainProfileArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cluster_subnet_type: pulumi.Input[str],
-             fqdn: pulumi.Input[str],
+             cluster_subnet_type: Optional[pulumi.Input[str]] = None,
+             fqdn: Optional[pulumi.Input[str]] = None,
              cluster_bootstrap_account_name: Optional[pulumi.Input[str]] = None,
              cluster_operator_account_name: Optional[pulumi.Input[str]] = None,
              organizational_unit_path: Optional[pulumi.Input[str]] = None,
@@ -2287,19 +2377,23 @@ class VirtualMachineGroupWsfcDomainProfileArgs:
              storage_account_url: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clusterSubnetType' in kwargs:
+        if cluster_subnet_type is None and 'clusterSubnetType' in kwargs:
             cluster_subnet_type = kwargs['clusterSubnetType']
-        if 'clusterBootstrapAccountName' in kwargs:
+        if cluster_subnet_type is None:
+            raise TypeError("Missing 'cluster_subnet_type' argument")
+        if fqdn is None:
+            raise TypeError("Missing 'fqdn' argument")
+        if cluster_bootstrap_account_name is None and 'clusterBootstrapAccountName' in kwargs:
             cluster_bootstrap_account_name = kwargs['clusterBootstrapAccountName']
-        if 'clusterOperatorAccountName' in kwargs:
+        if cluster_operator_account_name is None and 'clusterOperatorAccountName' in kwargs:
             cluster_operator_account_name = kwargs['clusterOperatorAccountName']
-        if 'organizationalUnitPath' in kwargs:
+        if organizational_unit_path is None and 'organizationalUnitPath' in kwargs:
             organizational_unit_path = kwargs['organizationalUnitPath']
-        if 'sqlServiceAccountName' in kwargs:
+        if sql_service_account_name is None and 'sqlServiceAccountName' in kwargs:
             sql_service_account_name = kwargs['sqlServiceAccountName']
-        if 'storageAccountPrimaryKey' in kwargs:
+        if storage_account_primary_key is None and 'storageAccountPrimaryKey' in kwargs:
             storage_account_primary_key = kwargs['storageAccountPrimaryKey']
-        if 'storageAccountUrl' in kwargs:
+        if storage_account_url is None and 'storageAccountUrl' in kwargs:
             storage_account_url = kwargs['storageAccountUrl']
 
         _setter("cluster_subnet_type", cluster_subnet_type)
@@ -2437,18 +2531,26 @@ class VirtualMachineKeyVaultCredentialArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_vault_url: pulumi.Input[str],
-             name: pulumi.Input[str],
-             service_principal_name: pulumi.Input[str],
-             service_principal_secret: pulumi.Input[str],
+             key_vault_url: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             service_principal_name: Optional[pulumi.Input[str]] = None,
+             service_principal_secret: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'keyVaultUrl' in kwargs:
+        if key_vault_url is None and 'keyVaultUrl' in kwargs:
             key_vault_url = kwargs['keyVaultUrl']
-        if 'servicePrincipalName' in kwargs:
+        if key_vault_url is None:
+            raise TypeError("Missing 'key_vault_url' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if service_principal_name is None and 'servicePrincipalName' in kwargs:
             service_principal_name = kwargs['servicePrincipalName']
-        if 'servicePrincipalSecret' in kwargs:
+        if service_principal_name is None:
+            raise TypeError("Missing 'service_principal_name' argument")
+        if service_principal_secret is None and 'servicePrincipalSecret' in kwargs:
             service_principal_secret = kwargs['servicePrincipalSecret']
+        if service_principal_secret is None:
+            raise TypeError("Missing 'service_principal_secret' argument")
 
         _setter("key_vault_url", key_vault_url)
         _setter("name", name)
@@ -2547,17 +2649,17 @@ class VirtualMachineSqlInstanceArgs:
              min_server_memory_mb: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'adhocWorkloadsOptimizationEnabled' in kwargs:
+        if adhoc_workloads_optimization_enabled is None and 'adhocWorkloadsOptimizationEnabled' in kwargs:
             adhoc_workloads_optimization_enabled = kwargs['adhocWorkloadsOptimizationEnabled']
-        if 'instantFileInitializationEnabled' in kwargs:
+        if instant_file_initialization_enabled is None and 'instantFileInitializationEnabled' in kwargs:
             instant_file_initialization_enabled = kwargs['instantFileInitializationEnabled']
-        if 'lockPagesInMemoryEnabled' in kwargs:
+        if lock_pages_in_memory_enabled is None and 'lockPagesInMemoryEnabled' in kwargs:
             lock_pages_in_memory_enabled = kwargs['lockPagesInMemoryEnabled']
-        if 'maxDop' in kwargs:
+        if max_dop is None and 'maxDop' in kwargs:
             max_dop = kwargs['maxDop']
-        if 'maxServerMemoryMb' in kwargs:
+        if max_server_memory_mb is None and 'maxServerMemoryMb' in kwargs:
             max_server_memory_mb = kwargs['maxServerMemoryMb']
-        if 'minServerMemoryMb' in kwargs:
+        if min_server_memory_mb is None and 'minServerMemoryMb' in kwargs:
             min_server_memory_mb = kwargs['minServerMemoryMb']
 
         if adhoc_workloads_optimization_enabled is not None:
@@ -2691,25 +2793,29 @@ class VirtualMachineStorageConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             disk_type: pulumi.Input[str],
-             storage_workload_type: pulumi.Input[str],
+             disk_type: Optional[pulumi.Input[str]] = None,
+             storage_workload_type: Optional[pulumi.Input[str]] = None,
              data_settings: Optional[pulumi.Input['VirtualMachineStorageConfigurationDataSettingsArgs']] = None,
              log_settings: Optional[pulumi.Input['VirtualMachineStorageConfigurationLogSettingsArgs']] = None,
              system_db_on_data_disk_enabled: Optional[pulumi.Input[bool]] = None,
              temp_db_settings: Optional[pulumi.Input['VirtualMachineStorageConfigurationTempDbSettingsArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'diskType' in kwargs:
+        if disk_type is None and 'diskType' in kwargs:
             disk_type = kwargs['diskType']
-        if 'storageWorkloadType' in kwargs:
+        if disk_type is None:
+            raise TypeError("Missing 'disk_type' argument")
+        if storage_workload_type is None and 'storageWorkloadType' in kwargs:
             storage_workload_type = kwargs['storageWorkloadType']
-        if 'dataSettings' in kwargs:
+        if storage_workload_type is None:
+            raise TypeError("Missing 'storage_workload_type' argument")
+        if data_settings is None and 'dataSettings' in kwargs:
             data_settings = kwargs['dataSettings']
-        if 'logSettings' in kwargs:
+        if log_settings is None and 'logSettings' in kwargs:
             log_settings = kwargs['logSettings']
-        if 'systemDbOnDataDiskEnabled' in kwargs:
+        if system_db_on_data_disk_enabled is None and 'systemDbOnDataDiskEnabled' in kwargs:
             system_db_on_data_disk_enabled = kwargs['systemDbOnDataDiskEnabled']
-        if 'tempDbSettings' in kwargs:
+        if temp_db_settings is None and 'tempDbSettings' in kwargs:
             temp_db_settings = kwargs['tempDbSettings']
 
         _setter("disk_type", disk_type)
@@ -2813,12 +2919,16 @@ class VirtualMachineStorageConfigurationDataSettingsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             default_file_path: pulumi.Input[str],
-             luns: pulumi.Input[Sequence[pulumi.Input[int]]],
+             default_file_path: Optional[pulumi.Input[str]] = None,
+             luns: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'defaultFilePath' in kwargs:
+        if default_file_path is None and 'defaultFilePath' in kwargs:
             default_file_path = kwargs['defaultFilePath']
+        if default_file_path is None:
+            raise TypeError("Missing 'default_file_path' argument")
+        if luns is None:
+            raise TypeError("Missing 'luns' argument")
 
         _setter("default_file_path", default_file_path)
         _setter("luns", luns)
@@ -2865,12 +2975,16 @@ class VirtualMachineStorageConfigurationLogSettingsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             default_file_path: pulumi.Input[str],
-             luns: pulumi.Input[Sequence[pulumi.Input[int]]],
+             default_file_path: Optional[pulumi.Input[str]] = None,
+             luns: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'defaultFilePath' in kwargs:
+        if default_file_path is None and 'defaultFilePath' in kwargs:
             default_file_path = kwargs['defaultFilePath']
+        if default_file_path is None:
+            raise TypeError("Missing 'default_file_path' argument")
+        if luns is None:
+            raise TypeError("Missing 'luns' argument")
 
         _setter("default_file_path", default_file_path)
         _setter("luns", luns)
@@ -2932,8 +3046,8 @@ class VirtualMachineStorageConfigurationTempDbSettingsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             default_file_path: pulumi.Input[str],
-             luns: pulumi.Input[Sequence[pulumi.Input[int]]],
+             default_file_path: Optional[pulumi.Input[str]] = None,
+             luns: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
              data_file_count: Optional[pulumi.Input[int]] = None,
              data_file_growth_in_mb: Optional[pulumi.Input[int]] = None,
              data_file_size_mb: Optional[pulumi.Input[int]] = None,
@@ -2941,17 +3055,21 @@ class VirtualMachineStorageConfigurationTempDbSettingsArgs:
              log_file_size_mb: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'defaultFilePath' in kwargs:
+        if default_file_path is None and 'defaultFilePath' in kwargs:
             default_file_path = kwargs['defaultFilePath']
-        if 'dataFileCount' in kwargs:
+        if default_file_path is None:
+            raise TypeError("Missing 'default_file_path' argument")
+        if luns is None:
+            raise TypeError("Missing 'luns' argument")
+        if data_file_count is None and 'dataFileCount' in kwargs:
             data_file_count = kwargs['dataFileCount']
-        if 'dataFileGrowthInMb' in kwargs:
+        if data_file_growth_in_mb is None and 'dataFileGrowthInMb' in kwargs:
             data_file_growth_in_mb = kwargs['dataFileGrowthInMb']
-        if 'dataFileSizeMb' in kwargs:
+        if data_file_size_mb is None and 'dataFileSizeMb' in kwargs:
             data_file_size_mb = kwargs['dataFileSizeMb']
-        if 'logFileGrowthMb' in kwargs:
+        if log_file_growth_mb is None and 'logFileGrowthMb' in kwargs:
             log_file_growth_mb = kwargs['logFileGrowthMb']
-        if 'logFileSizeMb' in kwargs:
+        if log_file_size_mb is None and 'logFileSizeMb' in kwargs:
             log_file_size_mb = kwargs['logFileSizeMb']
 
         _setter("default_file_path", default_file_path)
@@ -3072,17 +3190,23 @@ class VirtualMachineWsfcDomainCredentialArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cluster_bootstrap_account_password: pulumi.Input[str],
-             cluster_operator_account_password: pulumi.Input[str],
-             sql_service_account_password: pulumi.Input[str],
+             cluster_bootstrap_account_password: Optional[pulumi.Input[str]] = None,
+             cluster_operator_account_password: Optional[pulumi.Input[str]] = None,
+             sql_service_account_password: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clusterBootstrapAccountPassword' in kwargs:
+        if cluster_bootstrap_account_password is None and 'clusterBootstrapAccountPassword' in kwargs:
             cluster_bootstrap_account_password = kwargs['clusterBootstrapAccountPassword']
-        if 'clusterOperatorAccountPassword' in kwargs:
+        if cluster_bootstrap_account_password is None:
+            raise TypeError("Missing 'cluster_bootstrap_account_password' argument")
+        if cluster_operator_account_password is None and 'clusterOperatorAccountPassword' in kwargs:
             cluster_operator_account_password = kwargs['clusterOperatorAccountPassword']
-        if 'sqlServiceAccountPassword' in kwargs:
+        if cluster_operator_account_password is None:
+            raise TypeError("Missing 'cluster_operator_account_password' argument")
+        if sql_service_account_password is None and 'sqlServiceAccountPassword' in kwargs:
             sql_service_account_password = kwargs['sqlServiceAccountPassword']
+        if sql_service_account_password is None:
+            raise TypeError("Missing 'sql_service_account_password' argument")
 
         _setter("cluster_bootstrap_account_password", cluster_bootstrap_account_password)
         _setter("cluster_operator_account_password", cluster_operator_account_password)

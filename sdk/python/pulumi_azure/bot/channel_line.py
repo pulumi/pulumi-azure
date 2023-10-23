@@ -37,18 +37,24 @@ class ChannelLineArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bot_name: pulumi.Input[str],
-             line_channels: pulumi.Input[Sequence[pulumi.Input['ChannelLineLineChannelArgs']]],
-             resource_group_name: pulumi.Input[str],
+             bot_name: Optional[pulumi.Input[str]] = None,
+             line_channels: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelLineLineChannelArgs']]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'botName' in kwargs:
+        if bot_name is None and 'botName' in kwargs:
             bot_name = kwargs['botName']
-        if 'lineChannels' in kwargs:
+        if bot_name is None:
+            raise TypeError("Missing 'bot_name' argument")
+        if line_channels is None and 'lineChannels' in kwargs:
             line_channels = kwargs['lineChannels']
-        if 'resourceGroupName' in kwargs:
+        if line_channels is None:
+            raise TypeError("Missing 'line_channels' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("bot_name", bot_name)
         _setter("line_channels", line_channels)
@@ -135,11 +141,11 @@ class _ChannelLineState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'botName' in kwargs:
+        if bot_name is None and 'botName' in kwargs:
             bot_name = kwargs['botName']
-        if 'lineChannels' in kwargs:
+        if line_channels is None and 'lineChannels' in kwargs:
             line_channels = kwargs['lineChannels']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if bot_name is not None:

@@ -46,23 +46,31 @@ class VirtualMachineGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             sql_image_offer: pulumi.Input[str],
-             sql_image_sku: pulumi.Input[str],
-             wsfc_domain_profile: pulumi.Input['VirtualMachineGroupWsfcDomainProfileArgs'],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sql_image_offer: Optional[pulumi.Input[str]] = None,
+             sql_image_sku: Optional[pulumi.Input[str]] = None,
+             wsfc_domain_profile: Optional[pulumi.Input['VirtualMachineGroupWsfcDomainProfileArgs']] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'sqlImageOffer' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sql_image_offer is None and 'sqlImageOffer' in kwargs:
             sql_image_offer = kwargs['sqlImageOffer']
-        if 'sqlImageSku' in kwargs:
+        if sql_image_offer is None:
+            raise TypeError("Missing 'sql_image_offer' argument")
+        if sql_image_sku is None and 'sqlImageSku' in kwargs:
             sql_image_sku = kwargs['sqlImageSku']
-        if 'wsfcDomainProfile' in kwargs:
+        if sql_image_sku is None:
+            raise TypeError("Missing 'sql_image_sku' argument")
+        if wsfc_domain_profile is None and 'wsfcDomainProfile' in kwargs:
             wsfc_domain_profile = kwargs['wsfcDomainProfile']
+        if wsfc_domain_profile is None:
+            raise TypeError("Missing 'wsfc_domain_profile' argument")
 
         _setter("resource_group_name", resource_group_name)
         _setter("sql_image_offer", sql_image_offer)
@@ -202,13 +210,13 @@ class _VirtualMachineGroupState:
              wsfc_domain_profile: Optional[pulumi.Input['VirtualMachineGroupWsfcDomainProfileArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'sqlImageOffer' in kwargs:
+        if sql_image_offer is None and 'sqlImageOffer' in kwargs:
             sql_image_offer = kwargs['sqlImageOffer']
-        if 'sqlImageSku' in kwargs:
+        if sql_image_sku is None and 'sqlImageSku' in kwargs:
             sql_image_sku = kwargs['sqlImageSku']
-        if 'wsfcDomainProfile' in kwargs:
+        if wsfc_domain_profile is None and 'wsfcDomainProfile' in kwargs:
             wsfc_domain_profile = kwargs['wsfcDomainProfile']
 
         if location is not None:

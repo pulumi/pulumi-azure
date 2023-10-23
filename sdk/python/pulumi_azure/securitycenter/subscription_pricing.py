@@ -37,13 +37,15 @@ class SubscriptionPricingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             tier: pulumi.Input[str],
+             tier: Optional[pulumi.Input[str]] = None,
              extensions: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionPricingExtensionArgs']]]] = None,
              resource_type: Optional[pulumi.Input[str]] = None,
              subplan: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceType' in kwargs:
+        if tier is None:
+            raise TypeError("Missing 'tier' argument")
+        if resource_type is None and 'resourceType' in kwargs:
             resource_type = kwargs['resourceType']
 
         _setter("tier", tier)
@@ -133,7 +135,7 @@ class _SubscriptionPricingState:
              tier: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceType' in kwargs:
+        if resource_type is None and 'resourceType' in kwargs:
             resource_type = kwargs['resourceType']
 
         if extensions is not None:

@@ -48,8 +48,8 @@ class VirtualMachineAvailabilityGroupListenerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             replicas: pulumi.Input[Sequence[pulumi.Input['VirtualMachineAvailabilityGroupListenerReplicaArgs']]],
-             sql_virtual_machine_group_id: pulumi.Input[str],
+             replicas: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineAvailabilityGroupListenerReplicaArgs']]]] = None,
+             sql_virtual_machine_group_id: Optional[pulumi.Input[str]] = None,
              availability_group_name: Optional[pulumi.Input[str]] = None,
              load_balancer_configuration: Optional[pulumi.Input['VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs']] = None,
              multi_subnet_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgs']]]] = None,
@@ -57,13 +57,17 @@ class VirtualMachineAvailabilityGroupListenerArgs:
              port: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'sqlVirtualMachineGroupId' in kwargs:
+        if replicas is None:
+            raise TypeError("Missing 'replicas' argument")
+        if sql_virtual_machine_group_id is None and 'sqlVirtualMachineGroupId' in kwargs:
             sql_virtual_machine_group_id = kwargs['sqlVirtualMachineGroupId']
-        if 'availabilityGroupName' in kwargs:
+        if sql_virtual_machine_group_id is None:
+            raise TypeError("Missing 'sql_virtual_machine_group_id' argument")
+        if availability_group_name is None and 'availabilityGroupName' in kwargs:
             availability_group_name = kwargs['availabilityGroupName']
-        if 'loadBalancerConfiguration' in kwargs:
+        if load_balancer_configuration is None and 'loadBalancerConfiguration' in kwargs:
             load_balancer_configuration = kwargs['loadBalancerConfiguration']
-        if 'multiSubnetIpConfigurations' in kwargs:
+        if multi_subnet_ip_configurations is None and 'multiSubnetIpConfigurations' in kwargs:
             multi_subnet_ip_configurations = kwargs['multiSubnetIpConfigurations']
 
         _setter("replicas", replicas)
@@ -210,13 +214,13 @@ class _VirtualMachineAvailabilityGroupListenerState:
              sql_virtual_machine_group_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'availabilityGroupName' in kwargs:
+        if availability_group_name is None and 'availabilityGroupName' in kwargs:
             availability_group_name = kwargs['availabilityGroupName']
-        if 'loadBalancerConfiguration' in kwargs:
+        if load_balancer_configuration is None and 'loadBalancerConfiguration' in kwargs:
             load_balancer_configuration = kwargs['loadBalancerConfiguration']
-        if 'multiSubnetIpConfigurations' in kwargs:
+        if multi_subnet_ip_configurations is None and 'multiSubnetIpConfigurations' in kwargs:
             multi_subnet_ip_configurations = kwargs['multiSubnetIpConfigurations']
-        if 'sqlVirtualMachineGroupId' in kwargs:
+        if sql_virtual_machine_group_id is None and 'sqlVirtualMachineGroupId' in kwargs:
             sql_virtual_machine_group_id = kwargs['sqlVirtualMachineGroupId']
 
         if availability_group_name is not None:

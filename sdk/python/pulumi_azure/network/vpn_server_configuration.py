@@ -58,8 +58,8 @@ class VpnServerConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             vpn_authentication_types: pulumi.Input[Sequence[pulumi.Input[str]]],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             vpn_authentication_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              azure_active_directory_authentications: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs']]]] = None,
              client_revoked_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationClientRevokedCertificateArgs']]]] = None,
              client_root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationClientRootCertificateArgs']]]] = None,
@@ -71,19 +71,23 @@ class VpnServerConfigurationArgs:
              vpn_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'vpnAuthenticationTypes' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if vpn_authentication_types is None and 'vpnAuthenticationTypes' in kwargs:
             vpn_authentication_types = kwargs['vpnAuthenticationTypes']
-        if 'azureActiveDirectoryAuthentications' in kwargs:
+        if vpn_authentication_types is None:
+            raise TypeError("Missing 'vpn_authentication_types' argument")
+        if azure_active_directory_authentications is None and 'azureActiveDirectoryAuthentications' in kwargs:
             azure_active_directory_authentications = kwargs['azureActiveDirectoryAuthentications']
-        if 'clientRevokedCertificates' in kwargs:
+        if client_revoked_certificates is None and 'clientRevokedCertificates' in kwargs:
             client_revoked_certificates = kwargs['clientRevokedCertificates']
-        if 'clientRootCertificates' in kwargs:
+        if client_root_certificates is None and 'clientRootCertificates' in kwargs:
             client_root_certificates = kwargs['clientRootCertificates']
-        if 'ipsecPolicy' in kwargs:
+        if ipsec_policy is None and 'ipsecPolicy' in kwargs:
             ipsec_policy = kwargs['ipsecPolicy']
-        if 'vpnProtocols' in kwargs:
+        if vpn_protocols is None and 'vpnProtocols' in kwargs:
             vpn_protocols = kwargs['vpnProtocols']
 
         _setter("resource_group_name", resource_group_name)
@@ -298,19 +302,19 @@ class _VpnServerConfigurationState:
              vpn_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'azureActiveDirectoryAuthentications' in kwargs:
+        if azure_active_directory_authentications is None and 'azureActiveDirectoryAuthentications' in kwargs:
             azure_active_directory_authentications = kwargs['azureActiveDirectoryAuthentications']
-        if 'clientRevokedCertificates' in kwargs:
+        if client_revoked_certificates is None and 'clientRevokedCertificates' in kwargs:
             client_revoked_certificates = kwargs['clientRevokedCertificates']
-        if 'clientRootCertificates' in kwargs:
+        if client_root_certificates is None and 'clientRootCertificates' in kwargs:
             client_root_certificates = kwargs['clientRootCertificates']
-        if 'ipsecPolicy' in kwargs:
+        if ipsec_policy is None and 'ipsecPolicy' in kwargs:
             ipsec_policy = kwargs['ipsecPolicy']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'vpnAuthenticationTypes' in kwargs:
+        if vpn_authentication_types is None and 'vpnAuthenticationTypes' in kwargs:
             vpn_authentication_types = kwargs['vpnAuthenticationTypes']
-        if 'vpnProtocols' in kwargs:
+        if vpn_protocols is None and 'vpnProtocols' in kwargs:
             vpn_protocols = kwargs['vpnProtocols']
 
         if azure_active_directory_authentications is not None:

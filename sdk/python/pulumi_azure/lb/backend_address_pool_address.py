@@ -42,20 +42,22 @@ class BackendAddressPoolAddressArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             backend_address_pool_id: pulumi.Input[str],
+             backend_address_pool_id: Optional[pulumi.Input[str]] = None,
              backend_address_ip_configuration_id: Optional[pulumi.Input[str]] = None,
              ip_address: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              virtual_network_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'backendAddressPoolId' in kwargs:
+        if backend_address_pool_id is None and 'backendAddressPoolId' in kwargs:
             backend_address_pool_id = kwargs['backendAddressPoolId']
-        if 'backendAddressIpConfigurationId' in kwargs:
+        if backend_address_pool_id is None:
+            raise TypeError("Missing 'backend_address_pool_id' argument")
+        if backend_address_ip_configuration_id is None and 'backendAddressIpConfigurationId' in kwargs:
             backend_address_ip_configuration_id = kwargs['backendAddressIpConfigurationId']
-        if 'ipAddress' in kwargs:
+        if ip_address is None and 'ipAddress' in kwargs:
             ip_address = kwargs['ipAddress']
-        if 'virtualNetworkId' in kwargs:
+        if virtual_network_id is None and 'virtualNetworkId' in kwargs:
             virtual_network_id = kwargs['virtualNetworkId']
 
         _setter("backend_address_pool_id", backend_address_pool_id)
@@ -171,15 +173,15 @@ class _BackendAddressPoolAddressState:
              virtual_network_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'backendAddressIpConfigurationId' in kwargs:
+        if backend_address_ip_configuration_id is None and 'backendAddressIpConfigurationId' in kwargs:
             backend_address_ip_configuration_id = kwargs['backendAddressIpConfigurationId']
-        if 'backendAddressPoolId' in kwargs:
+        if backend_address_pool_id is None and 'backendAddressPoolId' in kwargs:
             backend_address_pool_id = kwargs['backendAddressPoolId']
-        if 'inboundNatRulePortMappings' in kwargs:
+        if inbound_nat_rule_port_mappings is None and 'inboundNatRulePortMappings' in kwargs:
             inbound_nat_rule_port_mappings = kwargs['inboundNatRulePortMappings']
-        if 'ipAddress' in kwargs:
+        if ip_address is None and 'ipAddress' in kwargs:
             ip_address = kwargs['ipAddress']
-        if 'virtualNetworkId' in kwargs:
+        if virtual_network_id is None and 'virtualNetworkId' in kwargs:
             virtual_network_id = kwargs['virtualNetworkId']
 
         if backend_address_ip_configuration_id is not None:

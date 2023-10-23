@@ -51,7 +51,7 @@ class LoadBalancerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              edge_zone: Optional[pulumi.Input[str]] = None,
              frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerFrontendIpConfigurationArgs']]]] = None,
              location: Optional[pulumi.Input[str]] = None,
@@ -61,13 +61,15 @@ class LoadBalancerArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'edgeZone' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if edge_zone is None and 'edgeZone' in kwargs:
             edge_zone = kwargs['edgeZone']
-        if 'frontendIpConfigurations' in kwargs:
+        if frontend_ip_configurations is None and 'frontendIpConfigurations' in kwargs:
             frontend_ip_configurations = kwargs['frontendIpConfigurations']
-        if 'skuTier' in kwargs:
+        if sku_tier is None and 'skuTier' in kwargs:
             sku_tier = kwargs['skuTier']
 
         _setter("resource_group_name", resource_group_name)
@@ -241,17 +243,17 @@ class _LoadBalancerState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'edgeZone' in kwargs:
+        if edge_zone is None and 'edgeZone' in kwargs:
             edge_zone = kwargs['edgeZone']
-        if 'frontendIpConfigurations' in kwargs:
+        if frontend_ip_configurations is None and 'frontendIpConfigurations' in kwargs:
             frontend_ip_configurations = kwargs['frontendIpConfigurations']
-        if 'privateIpAddress' in kwargs:
+        if private_ip_address is None and 'privateIpAddress' in kwargs:
             private_ip_address = kwargs['privateIpAddress']
-        if 'privateIpAddresses' in kwargs:
+        if private_ip_addresses is None and 'privateIpAddresses' in kwargs:
             private_ip_addresses = kwargs['privateIpAddresses']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuTier' in kwargs:
+        if sku_tier is None and 'skuTier' in kwargs:
             sku_tier = kwargs['skuTier']
 
         if edge_zone is not None:

@@ -29,14 +29,18 @@ class SpringCloudActiveDeploymentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             deployment_name: pulumi.Input[str],
-             spring_cloud_app_id: pulumi.Input[str],
+             deployment_name: Optional[pulumi.Input[str]] = None,
+             spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'deploymentName' in kwargs:
+        if deployment_name is None and 'deploymentName' in kwargs:
             deployment_name = kwargs['deploymentName']
-        if 'springCloudAppId' in kwargs:
+        if deployment_name is None:
+            raise TypeError("Missing 'deployment_name' argument")
+        if spring_cloud_app_id is None and 'springCloudAppId' in kwargs:
             spring_cloud_app_id = kwargs['springCloudAppId']
+        if spring_cloud_app_id is None:
+            raise TypeError("Missing 'spring_cloud_app_id' argument")
 
         _setter("deployment_name", deployment_name)
         _setter("spring_cloud_app_id", spring_cloud_app_id)
@@ -88,9 +92,9 @@ class _SpringCloudActiveDeploymentState:
              spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'deploymentName' in kwargs:
+        if deployment_name is None and 'deploymentName' in kwargs:
             deployment_name = kwargs['deploymentName']
-        if 'springCloudAppId' in kwargs:
+        if spring_cloud_app_id is None and 'springCloudAppId' in kwargs:
             spring_cloud_app_id = kwargs['springCloudAppId']
 
         if deployment_name is not None:

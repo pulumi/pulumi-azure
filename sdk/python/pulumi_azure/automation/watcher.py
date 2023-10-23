@@ -53,10 +53,10 @@ class WatcherArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             automation_account_id: pulumi.Input[str],
-             execution_frequency_in_seconds: pulumi.Input[int],
-             script_name: pulumi.Input[str],
-             script_run_on: pulumi.Input[str],
+             automation_account_id: Optional[pulumi.Input[str]] = None,
+             execution_frequency_in_seconds: Optional[pulumi.Input[int]] = None,
+             script_name: Optional[pulumi.Input[str]] = None,
+             script_run_on: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              etag: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
@@ -65,15 +65,23 @@ class WatcherArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'automationAccountId' in kwargs:
+        if automation_account_id is None and 'automationAccountId' in kwargs:
             automation_account_id = kwargs['automationAccountId']
-        if 'executionFrequencyInSeconds' in kwargs:
+        if automation_account_id is None:
+            raise TypeError("Missing 'automation_account_id' argument")
+        if execution_frequency_in_seconds is None and 'executionFrequencyInSeconds' in kwargs:
             execution_frequency_in_seconds = kwargs['executionFrequencyInSeconds']
-        if 'scriptName' in kwargs:
+        if execution_frequency_in_seconds is None:
+            raise TypeError("Missing 'execution_frequency_in_seconds' argument")
+        if script_name is None and 'scriptName' in kwargs:
             script_name = kwargs['scriptName']
-        if 'scriptRunOn' in kwargs:
+        if script_name is None:
+            raise TypeError("Missing 'script_name' argument")
+        if script_run_on is None and 'scriptRunOn' in kwargs:
             script_run_on = kwargs['scriptRunOn']
-        if 'scriptParameters' in kwargs:
+        if script_run_on is None:
+            raise TypeError("Missing 'script_run_on' argument")
+        if script_parameters is None and 'scriptParameters' in kwargs:
             script_parameters = kwargs['scriptParameters']
 
         _setter("automation_account_id", automation_account_id)
@@ -272,15 +280,15 @@ class _WatcherState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'automationAccountId' in kwargs:
+        if automation_account_id is None and 'automationAccountId' in kwargs:
             automation_account_id = kwargs['automationAccountId']
-        if 'executionFrequencyInSeconds' in kwargs:
+        if execution_frequency_in_seconds is None and 'executionFrequencyInSeconds' in kwargs:
             execution_frequency_in_seconds = kwargs['executionFrequencyInSeconds']
-        if 'scriptName' in kwargs:
+        if script_name is None and 'scriptName' in kwargs:
             script_name = kwargs['scriptName']
-        if 'scriptParameters' in kwargs:
+        if script_parameters is None and 'scriptParameters' in kwargs:
             script_parameters = kwargs['scriptParameters']
-        if 'scriptRunOn' in kwargs:
+        if script_run_on is None and 'scriptRunOn' in kwargs:
             script_run_on = kwargs['scriptRunOn']
 
         if automation_account_id is not None:

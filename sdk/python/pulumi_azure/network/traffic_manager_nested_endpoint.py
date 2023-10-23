@@ -66,9 +66,9 @@ class TrafficManagerNestedEndpointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             minimum_child_endpoints: pulumi.Input[int],
-             profile_id: pulumi.Input[str],
-             target_resource_id: pulumi.Input[str],
+             minimum_child_endpoints: Optional[pulumi.Input[int]] = None,
+             profile_id: Optional[pulumi.Input[str]] = None,
+             target_resource_id: Optional[pulumi.Input[str]] = None,
              custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointCustomHeaderArgs']]]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              endpoint_location: Optional[pulumi.Input[str]] = None,
@@ -81,21 +81,27 @@ class TrafficManagerNestedEndpointArgs:
              weight: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'minimumChildEndpoints' in kwargs:
+        if minimum_child_endpoints is None and 'minimumChildEndpoints' in kwargs:
             minimum_child_endpoints = kwargs['minimumChildEndpoints']
-        if 'profileId' in kwargs:
+        if minimum_child_endpoints is None:
+            raise TypeError("Missing 'minimum_child_endpoints' argument")
+        if profile_id is None and 'profileId' in kwargs:
             profile_id = kwargs['profileId']
-        if 'targetResourceId' in kwargs:
+        if profile_id is None:
+            raise TypeError("Missing 'profile_id' argument")
+        if target_resource_id is None and 'targetResourceId' in kwargs:
             target_resource_id = kwargs['targetResourceId']
-        if 'customHeaders' in kwargs:
+        if target_resource_id is None:
+            raise TypeError("Missing 'target_resource_id' argument")
+        if custom_headers is None and 'customHeaders' in kwargs:
             custom_headers = kwargs['customHeaders']
-        if 'endpointLocation' in kwargs:
+        if endpoint_location is None and 'endpointLocation' in kwargs:
             endpoint_location = kwargs['endpointLocation']
-        if 'geoMappings' in kwargs:
+        if geo_mappings is None and 'geoMappings' in kwargs:
             geo_mappings = kwargs['geoMappings']
-        if 'minimumRequiredChildEndpointsIpv4' in kwargs:
+        if minimum_required_child_endpoints_ipv4 is None and 'minimumRequiredChildEndpointsIpv4' in kwargs:
             minimum_required_child_endpoints_ipv4 = kwargs['minimumRequiredChildEndpointsIpv4']
-        if 'minimumRequiredChildEndpointsIpv6' in kwargs:
+        if minimum_required_child_endpoints_ipv6 is None and 'minimumRequiredChildEndpointsIpv6' in kwargs:
             minimum_required_child_endpoints_ipv6 = kwargs['minimumRequiredChildEndpointsIpv6']
 
         _setter("minimum_child_endpoints", minimum_child_endpoints)
@@ -349,21 +355,21 @@ class _TrafficManagerNestedEndpointState:
              weight: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'customHeaders' in kwargs:
+        if custom_headers is None and 'customHeaders' in kwargs:
             custom_headers = kwargs['customHeaders']
-        if 'endpointLocation' in kwargs:
+        if endpoint_location is None and 'endpointLocation' in kwargs:
             endpoint_location = kwargs['endpointLocation']
-        if 'geoMappings' in kwargs:
+        if geo_mappings is None and 'geoMappings' in kwargs:
             geo_mappings = kwargs['geoMappings']
-        if 'minimumChildEndpoints' in kwargs:
+        if minimum_child_endpoints is None and 'minimumChildEndpoints' in kwargs:
             minimum_child_endpoints = kwargs['minimumChildEndpoints']
-        if 'minimumRequiredChildEndpointsIpv4' in kwargs:
+        if minimum_required_child_endpoints_ipv4 is None and 'minimumRequiredChildEndpointsIpv4' in kwargs:
             minimum_required_child_endpoints_ipv4 = kwargs['minimumRequiredChildEndpointsIpv4']
-        if 'minimumRequiredChildEndpointsIpv6' in kwargs:
+        if minimum_required_child_endpoints_ipv6 is None and 'minimumRequiredChildEndpointsIpv6' in kwargs:
             minimum_required_child_endpoints_ipv6 = kwargs['minimumRequiredChildEndpointsIpv6']
-        if 'profileId' in kwargs:
+        if profile_id is None and 'profileId' in kwargs:
             profile_id = kwargs['profileId']
-        if 'targetResourceId' in kwargs:
+        if target_resource_id is None and 'targetResourceId' in kwargs:
             target_resource_id = kwargs['targetResourceId']
 
         if custom_headers is not None:

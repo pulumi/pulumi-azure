@@ -67,8 +67,8 @@ class VirtualNetworkArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             address_spaces: pulumi.Input[Sequence[pulumi.Input[str]]],
-             resource_group_name: pulumi.Input[str],
+             address_spaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              bgp_community: Optional[pulumi.Input[str]] = None,
              ddos_protection_plan: Optional[pulumi.Input['VirtualNetworkDdosProtectionPlanArgs']] = None,
              dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -81,19 +81,23 @@ class VirtualNetworkArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'addressSpaces' in kwargs:
+        if address_spaces is None and 'addressSpaces' in kwargs:
             address_spaces = kwargs['addressSpaces']
-        if 'resourceGroupName' in kwargs:
+        if address_spaces is None:
+            raise TypeError("Missing 'address_spaces' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'bgpCommunity' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if bgp_community is None and 'bgpCommunity' in kwargs:
             bgp_community = kwargs['bgpCommunity']
-        if 'ddosProtectionPlan' in kwargs:
+        if ddos_protection_plan is None and 'ddosProtectionPlan' in kwargs:
             ddos_protection_plan = kwargs['ddosProtectionPlan']
-        if 'dnsServers' in kwargs:
+        if dns_servers is None and 'dnsServers' in kwargs:
             dns_servers = kwargs['dnsServers']
-        if 'edgeZone' in kwargs:
+        if edge_zone is None and 'edgeZone' in kwargs:
             edge_zone = kwargs['edgeZone']
-        if 'flowTimeoutInMinutes' in kwargs:
+        if flow_timeout_in_minutes is None and 'flowTimeoutInMinutes' in kwargs:
             flow_timeout_in_minutes = kwargs['flowTimeoutInMinutes']
 
         _setter("address_spaces", address_spaces)
@@ -342,19 +346,19 @@ class _VirtualNetworkState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'addressSpaces' in kwargs:
+        if address_spaces is None and 'addressSpaces' in kwargs:
             address_spaces = kwargs['addressSpaces']
-        if 'bgpCommunity' in kwargs:
+        if bgp_community is None and 'bgpCommunity' in kwargs:
             bgp_community = kwargs['bgpCommunity']
-        if 'ddosProtectionPlan' in kwargs:
+        if ddos_protection_plan is None and 'ddosProtectionPlan' in kwargs:
             ddos_protection_plan = kwargs['ddosProtectionPlan']
-        if 'dnsServers' in kwargs:
+        if dns_servers is None and 'dnsServers' in kwargs:
             dns_servers = kwargs['dnsServers']
-        if 'edgeZone' in kwargs:
+        if edge_zone is None and 'edgeZone' in kwargs:
             edge_zone = kwargs['edgeZone']
-        if 'flowTimeoutInMinutes' in kwargs:
+        if flow_timeout_in_minutes is None and 'flowTimeoutInMinutes' in kwargs:
             flow_timeout_in_minutes = kwargs['flowTimeoutInMinutes']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if address_spaces is not None:

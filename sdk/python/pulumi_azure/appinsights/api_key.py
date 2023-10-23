@@ -37,17 +37,19 @@ class ApiKeyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_insights_id: pulumi.Input[str],
+             application_insights_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              read_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              write_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'applicationInsightsId' in kwargs:
+        if application_insights_id is None and 'applicationInsightsId' in kwargs:
             application_insights_id = kwargs['applicationInsightsId']
-        if 'readPermissions' in kwargs:
+        if application_insights_id is None:
+            raise TypeError("Missing 'application_insights_id' argument")
+        if read_permissions is None and 'readPermissions' in kwargs:
             read_permissions = kwargs['readPermissions']
-        if 'writePermissions' in kwargs:
+        if write_permissions is None and 'writePermissions' in kwargs:
             write_permissions = kwargs['writePermissions']
 
         _setter("application_insights_id", application_insights_id)
@@ -145,13 +147,13 @@ class _ApiKeyState:
              write_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'apiKey' in kwargs:
+        if api_key is None and 'apiKey' in kwargs:
             api_key = kwargs['apiKey']
-        if 'applicationInsightsId' in kwargs:
+        if application_insights_id is None and 'applicationInsightsId' in kwargs:
             application_insights_id = kwargs['applicationInsightsId']
-        if 'readPermissions' in kwargs:
+        if read_permissions is None and 'readPermissions' in kwargs:
             read_permissions = kwargs['readPermissions']
-        if 'writePermissions' in kwargs:
+        if write_permissions is None and 'writePermissions' in kwargs:
             write_permissions = kwargs['writePermissions']
 
         if api_key is not None:

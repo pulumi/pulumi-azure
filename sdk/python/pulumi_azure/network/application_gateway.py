@@ -126,15 +126,15 @@ class ApplicationGatewayArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             backend_address_pools: pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendAddressPoolArgs']]],
-             backend_http_settings: pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingArgs']]],
-             frontend_ip_configurations: pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayFrontendIpConfigurationArgs']]],
-             frontend_ports: pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayFrontendPortArgs']]],
-             gateway_ip_configurations: pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayGatewayIpConfigurationArgs']]],
-             http_listeners: pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayHttpListenerArgs']]],
-             request_routing_rules: pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRequestRoutingRuleArgs']]],
-             resource_group_name: pulumi.Input[str],
-             sku: pulumi.Input['ApplicationGatewaySkuArgs'],
+             backend_address_pools: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendAddressPoolArgs']]]] = None,
+             backend_http_settings: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingArgs']]]] = None,
+             frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayFrontendIpConfigurationArgs']]]] = None,
+             frontend_ports: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayFrontendPortArgs']]]] = None,
+             gateway_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayGatewayIpConfigurationArgs']]]] = None,
+             http_listeners: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayHttpListenerArgs']]]] = None,
+             request_routing_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRequestRoutingRuleArgs']]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['ApplicationGatewaySkuArgs']] = None,
              authentication_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayAuthenticationCertificateArgs']]]] = None,
              autoscale_configuration: Optional[pulumi.Input['ApplicationGatewayAutoscaleConfigurationArgs']] = None,
              custom_error_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayCustomErrorConfigurationArgs']]]] = None,
@@ -161,57 +161,75 @@ class ApplicationGatewayArgs:
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'backendAddressPools' in kwargs:
+        if backend_address_pools is None and 'backendAddressPools' in kwargs:
             backend_address_pools = kwargs['backendAddressPools']
-        if 'backendHttpSettings' in kwargs:
+        if backend_address_pools is None:
+            raise TypeError("Missing 'backend_address_pools' argument")
+        if backend_http_settings is None and 'backendHttpSettings' in kwargs:
             backend_http_settings = kwargs['backendHttpSettings']
-        if 'frontendIpConfigurations' in kwargs:
+        if backend_http_settings is None:
+            raise TypeError("Missing 'backend_http_settings' argument")
+        if frontend_ip_configurations is None and 'frontendIpConfigurations' in kwargs:
             frontend_ip_configurations = kwargs['frontendIpConfigurations']
-        if 'frontendPorts' in kwargs:
+        if frontend_ip_configurations is None:
+            raise TypeError("Missing 'frontend_ip_configurations' argument")
+        if frontend_ports is None and 'frontendPorts' in kwargs:
             frontend_ports = kwargs['frontendPorts']
-        if 'gatewayIpConfigurations' in kwargs:
+        if frontend_ports is None:
+            raise TypeError("Missing 'frontend_ports' argument")
+        if gateway_ip_configurations is None and 'gatewayIpConfigurations' in kwargs:
             gateway_ip_configurations = kwargs['gatewayIpConfigurations']
-        if 'httpListeners' in kwargs:
+        if gateway_ip_configurations is None:
+            raise TypeError("Missing 'gateway_ip_configurations' argument")
+        if http_listeners is None and 'httpListeners' in kwargs:
             http_listeners = kwargs['httpListeners']
-        if 'requestRoutingRules' in kwargs:
+        if http_listeners is None:
+            raise TypeError("Missing 'http_listeners' argument")
+        if request_routing_rules is None and 'requestRoutingRules' in kwargs:
             request_routing_rules = kwargs['requestRoutingRules']
-        if 'resourceGroupName' in kwargs:
+        if request_routing_rules is None:
+            raise TypeError("Missing 'request_routing_rules' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'authenticationCertificates' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if authentication_certificates is None and 'authenticationCertificates' in kwargs:
             authentication_certificates = kwargs['authenticationCertificates']
-        if 'autoscaleConfiguration' in kwargs:
+        if autoscale_configuration is None and 'autoscaleConfiguration' in kwargs:
             autoscale_configuration = kwargs['autoscaleConfiguration']
-        if 'customErrorConfigurations' in kwargs:
+        if custom_error_configurations is None and 'customErrorConfigurations' in kwargs:
             custom_error_configurations = kwargs['customErrorConfigurations']
-        if 'enableHttp2' in kwargs:
+        if enable_http2 is None and 'enableHttp2' in kwargs:
             enable_http2 = kwargs['enableHttp2']
-        if 'fipsEnabled' in kwargs:
+        if fips_enabled is None and 'fipsEnabled' in kwargs:
             fips_enabled = kwargs['fipsEnabled']
-        if 'firewallPolicyId' in kwargs:
+        if firewall_policy_id is None and 'firewallPolicyId' in kwargs:
             firewall_policy_id = kwargs['firewallPolicyId']
-        if 'forceFirewallPolicyAssociation' in kwargs:
+        if force_firewall_policy_association is None and 'forceFirewallPolicyAssociation' in kwargs:
             force_firewall_policy_association = kwargs['forceFirewallPolicyAssociation']
-        if 'global' in kwargs:
+        if global_ is None and 'global' in kwargs:
             global_ = kwargs['global']
-        if 'privateLinkConfigurations' in kwargs:
+        if private_link_configurations is None and 'privateLinkConfigurations' in kwargs:
             private_link_configurations = kwargs['privateLinkConfigurations']
-        if 'redirectConfigurations' in kwargs:
+        if redirect_configurations is None and 'redirectConfigurations' in kwargs:
             redirect_configurations = kwargs['redirectConfigurations']
-        if 'rewriteRuleSets' in kwargs:
+        if rewrite_rule_sets is None and 'rewriteRuleSets' in kwargs:
             rewrite_rule_sets = kwargs['rewriteRuleSets']
-        if 'sslCertificates' in kwargs:
+        if ssl_certificates is None and 'sslCertificates' in kwargs:
             ssl_certificates = kwargs['sslCertificates']
-        if 'sslPolicy' in kwargs:
+        if ssl_policy is None and 'sslPolicy' in kwargs:
             ssl_policy = kwargs['sslPolicy']
-        if 'sslProfiles' in kwargs:
+        if ssl_profiles is None and 'sslProfiles' in kwargs:
             ssl_profiles = kwargs['sslProfiles']
-        if 'trustedClientCertificates' in kwargs:
+        if trusted_client_certificates is None and 'trustedClientCertificates' in kwargs:
             trusted_client_certificates = kwargs['trustedClientCertificates']
-        if 'trustedRootCertificates' in kwargs:
+        if trusted_root_certificates is None and 'trustedRootCertificates' in kwargs:
             trusted_root_certificates = kwargs['trustedRootCertificates']
-        if 'urlPathMaps' in kwargs:
+        if url_path_maps is None and 'urlPathMaps' in kwargs:
             url_path_maps = kwargs['urlPathMaps']
-        if 'wafConfiguration' in kwargs:
+        if waf_configuration is None and 'wafConfiguration' in kwargs:
             waf_configuration = kwargs['wafConfiguration']
 
         _setter("backend_address_pools", backend_address_pools)
@@ -823,59 +841,59 @@ class _ApplicationGatewayState:
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'authenticationCertificates' in kwargs:
+        if authentication_certificates is None and 'authenticationCertificates' in kwargs:
             authentication_certificates = kwargs['authenticationCertificates']
-        if 'autoscaleConfiguration' in kwargs:
+        if autoscale_configuration is None and 'autoscaleConfiguration' in kwargs:
             autoscale_configuration = kwargs['autoscaleConfiguration']
-        if 'backendAddressPools' in kwargs:
+        if backend_address_pools is None and 'backendAddressPools' in kwargs:
             backend_address_pools = kwargs['backendAddressPools']
-        if 'backendHttpSettings' in kwargs:
+        if backend_http_settings is None and 'backendHttpSettings' in kwargs:
             backend_http_settings = kwargs['backendHttpSettings']
-        if 'customErrorConfigurations' in kwargs:
+        if custom_error_configurations is None and 'customErrorConfigurations' in kwargs:
             custom_error_configurations = kwargs['customErrorConfigurations']
-        if 'enableHttp2' in kwargs:
+        if enable_http2 is None and 'enableHttp2' in kwargs:
             enable_http2 = kwargs['enableHttp2']
-        if 'fipsEnabled' in kwargs:
+        if fips_enabled is None and 'fipsEnabled' in kwargs:
             fips_enabled = kwargs['fipsEnabled']
-        if 'firewallPolicyId' in kwargs:
+        if firewall_policy_id is None and 'firewallPolicyId' in kwargs:
             firewall_policy_id = kwargs['firewallPolicyId']
-        if 'forceFirewallPolicyAssociation' in kwargs:
+        if force_firewall_policy_association is None and 'forceFirewallPolicyAssociation' in kwargs:
             force_firewall_policy_association = kwargs['forceFirewallPolicyAssociation']
-        if 'frontendIpConfigurations' in kwargs:
+        if frontend_ip_configurations is None and 'frontendIpConfigurations' in kwargs:
             frontend_ip_configurations = kwargs['frontendIpConfigurations']
-        if 'frontendPorts' in kwargs:
+        if frontend_ports is None and 'frontendPorts' in kwargs:
             frontend_ports = kwargs['frontendPorts']
-        if 'gatewayIpConfigurations' in kwargs:
+        if gateway_ip_configurations is None and 'gatewayIpConfigurations' in kwargs:
             gateway_ip_configurations = kwargs['gatewayIpConfigurations']
-        if 'global' in kwargs:
+        if global_ is None and 'global' in kwargs:
             global_ = kwargs['global']
-        if 'httpListeners' in kwargs:
+        if http_listeners is None and 'httpListeners' in kwargs:
             http_listeners = kwargs['httpListeners']
-        if 'privateEndpointConnections' in kwargs:
+        if private_endpoint_connections is None and 'privateEndpointConnections' in kwargs:
             private_endpoint_connections = kwargs['privateEndpointConnections']
-        if 'privateLinkConfigurations' in kwargs:
+        if private_link_configurations is None and 'privateLinkConfigurations' in kwargs:
             private_link_configurations = kwargs['privateLinkConfigurations']
-        if 'redirectConfigurations' in kwargs:
+        if redirect_configurations is None and 'redirectConfigurations' in kwargs:
             redirect_configurations = kwargs['redirectConfigurations']
-        if 'requestRoutingRules' in kwargs:
+        if request_routing_rules is None and 'requestRoutingRules' in kwargs:
             request_routing_rules = kwargs['requestRoutingRules']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'rewriteRuleSets' in kwargs:
+        if rewrite_rule_sets is None and 'rewriteRuleSets' in kwargs:
             rewrite_rule_sets = kwargs['rewriteRuleSets']
-        if 'sslCertificates' in kwargs:
+        if ssl_certificates is None and 'sslCertificates' in kwargs:
             ssl_certificates = kwargs['sslCertificates']
-        if 'sslPolicy' in kwargs:
+        if ssl_policy is None and 'sslPolicy' in kwargs:
             ssl_policy = kwargs['sslPolicy']
-        if 'sslProfiles' in kwargs:
+        if ssl_profiles is None and 'sslProfiles' in kwargs:
             ssl_profiles = kwargs['sslProfiles']
-        if 'trustedClientCertificates' in kwargs:
+        if trusted_client_certificates is None and 'trustedClientCertificates' in kwargs:
             trusted_client_certificates = kwargs['trustedClientCertificates']
-        if 'trustedRootCertificates' in kwargs:
+        if trusted_root_certificates is None and 'trustedRootCertificates' in kwargs:
             trusted_root_certificates = kwargs['trustedRootCertificates']
-        if 'urlPathMaps' in kwargs:
+        if url_path_maps is None and 'urlPathMaps' in kwargs:
             url_path_maps = kwargs['urlPathMaps']
-        if 'wafConfiguration' in kwargs:
+        if waf_configuration is None and 'wafConfiguration' in kwargs:
             waf_configuration = kwargs['wafConfiguration']
 
         if authentication_certificates is not None:

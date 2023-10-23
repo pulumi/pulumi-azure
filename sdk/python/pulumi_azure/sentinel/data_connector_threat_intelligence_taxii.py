@@ -55,10 +55,10 @@ class DataConnectorThreatIntelligenceTaxiiArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_root_url: pulumi.Input[str],
-             collection_id: pulumi.Input[str],
-             display_name: pulumi.Input[str],
-             log_analytics_workspace_id: pulumi.Input[str],
+             api_root_url: Optional[pulumi.Input[str]] = None,
+             collection_id: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
              lookback_date: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              password: Optional[pulumi.Input[str]] = None,
@@ -67,21 +67,29 @@ class DataConnectorThreatIntelligenceTaxiiArgs:
              user_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'apiRootUrl' in kwargs:
+        if api_root_url is None and 'apiRootUrl' in kwargs:
             api_root_url = kwargs['apiRootUrl']
-        if 'collectionId' in kwargs:
+        if api_root_url is None:
+            raise TypeError("Missing 'api_root_url' argument")
+        if collection_id is None and 'collectionId' in kwargs:
             collection_id = kwargs['collectionId']
-        if 'displayName' in kwargs:
+        if collection_id is None:
+            raise TypeError("Missing 'collection_id' argument")
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if 'lookbackDate' in kwargs:
+        if log_analytics_workspace_id is None:
+            raise TypeError("Missing 'log_analytics_workspace_id' argument")
+        if lookback_date is None and 'lookbackDate' in kwargs:
             lookback_date = kwargs['lookbackDate']
-        if 'pollingFrequency' in kwargs:
+        if polling_frequency is None and 'pollingFrequency' in kwargs:
             polling_frequency = kwargs['pollingFrequency']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
-        if 'userName' in kwargs:
+        if user_name is None and 'userName' in kwargs:
             user_name = kwargs['userName']
 
         _setter("api_root_url", api_root_url)
@@ -280,21 +288,21 @@ class _DataConnectorThreatIntelligenceTaxiiState:
              user_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'apiRootUrl' in kwargs:
+        if api_root_url is None and 'apiRootUrl' in kwargs:
             api_root_url = kwargs['apiRootUrl']
-        if 'collectionId' in kwargs:
+        if collection_id is None and 'collectionId' in kwargs:
             collection_id = kwargs['collectionId']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if 'lookbackDate' in kwargs:
+        if lookback_date is None and 'lookbackDate' in kwargs:
             lookback_date = kwargs['lookbackDate']
-        if 'pollingFrequency' in kwargs:
+        if polling_frequency is None and 'pollingFrequency' in kwargs:
             polling_frequency = kwargs['pollingFrequency']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
-        if 'userName' in kwargs:
+        if user_name is None and 'userName' in kwargs:
             user_name = kwargs['userName']
 
         if api_root_url is not None:

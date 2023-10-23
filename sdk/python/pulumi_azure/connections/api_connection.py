@@ -40,21 +40,25 @@ class ApiConnectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             managed_api_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             managed_api_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              display_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              parameter_values: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'managedApiId' in kwargs:
+        if managed_api_id is None and 'managedApiId' in kwargs:
             managed_api_id = kwargs['managedApiId']
-        if 'resourceGroupName' in kwargs:
+        if managed_api_id is None:
+            raise TypeError("Missing 'managed_api_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'displayName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'parameterValues' in kwargs:
+        if parameter_values is None and 'parameterValues' in kwargs:
             parameter_values = kwargs['parameterValues']
 
         _setter("managed_api_id", managed_api_id)
@@ -175,13 +179,13 @@ class _ApiConnectionState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'managedApiId' in kwargs:
+        if managed_api_id is None and 'managedApiId' in kwargs:
             managed_api_id = kwargs['managedApiId']
-        if 'parameterValues' in kwargs:
+        if parameter_values is None and 'parameterValues' in kwargs:
             parameter_values = kwargs['parameterValues']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if display_name is not None:

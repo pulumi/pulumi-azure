@@ -58,7 +58,7 @@ class LinkedServiceCosmosDbArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_factory_id: pulumi.Input[str],
+             data_factory_id: Optional[pulumi.Input[str]] = None,
              account_endpoint: Optional[pulumi.Input[str]] = None,
              account_key: Optional[pulumi.Input[str]] = None,
              additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -71,17 +71,19 @@ class LinkedServiceCosmosDbArgs:
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'accountEndpoint' in kwargs:
+        if data_factory_id is None:
+            raise TypeError("Missing 'data_factory_id' argument")
+        if account_endpoint is None and 'accountEndpoint' in kwargs:
             account_endpoint = kwargs['accountEndpoint']
-        if 'accountKey' in kwargs:
+        if account_key is None and 'accountKey' in kwargs:
             account_key = kwargs['accountKey']
-        if 'additionalProperties' in kwargs:
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
-        if 'integrationRuntimeName' in kwargs:
+        if integration_runtime_name is None and 'integrationRuntimeName' in kwargs:
             integration_runtime_name = kwargs['integrationRuntimeName']
 
         _setter("data_factory_id", data_factory_id)
@@ -301,17 +303,17 @@ class _LinkedServiceCosmosDbState:
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accountEndpoint' in kwargs:
+        if account_endpoint is None and 'accountEndpoint' in kwargs:
             account_endpoint = kwargs['accountEndpoint']
-        if 'accountKey' in kwargs:
+        if account_key is None and 'accountKey' in kwargs:
             account_key = kwargs['accountKey']
-        if 'additionalProperties' in kwargs:
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'integrationRuntimeName' in kwargs:
+        if integration_runtime_name is None and 'integrationRuntimeName' in kwargs:
             integration_runtime_name = kwargs['integrationRuntimeName']
 
         if account_endpoint is not None:

@@ -53,9 +53,9 @@ class QueryPackQueryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             body: pulumi.Input[str],
-             display_name: pulumi.Input[str],
-             query_pack_id: pulumi.Input[str],
+             body: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             query_pack_id: Optional[pulumi.Input[str]] = None,
              additional_settings_json: Optional[pulumi.Input[str]] = None,
              categories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -65,13 +65,19 @@ class QueryPackQueryArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'displayName' in kwargs:
+        if body is None:
+            raise TypeError("Missing 'body' argument")
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'queryPackId' in kwargs:
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if query_pack_id is None and 'queryPackId' in kwargs:
             query_pack_id = kwargs['queryPackId']
-        if 'additionalSettingsJson' in kwargs:
+        if query_pack_id is None:
+            raise TypeError("Missing 'query_pack_id' argument")
+        if additional_settings_json is None and 'additionalSettingsJson' in kwargs:
             additional_settings_json = kwargs['additionalSettingsJson']
-        if 'resourceTypes' in kwargs:
+        if resource_types is None and 'resourceTypes' in kwargs:
             resource_types = kwargs['resourceTypes']
 
         _setter("body", body)
@@ -267,13 +273,13 @@ class _QueryPackQueryState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'additionalSettingsJson' in kwargs:
+        if additional_settings_json is None and 'additionalSettingsJson' in kwargs:
             additional_settings_json = kwargs['additionalSettingsJson']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'queryPackId' in kwargs:
+        if query_pack_id is None and 'queryPackId' in kwargs:
             query_pack_id = kwargs['queryPackId']
-        if 'resourceTypes' in kwargs:
+        if resource_types is None and 'resourceTypes' in kwargs:
             resource_types = kwargs['resourceTypes']
 
         if additional_settings_json is not None:

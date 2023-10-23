@@ -118,10 +118,10 @@ class ServiceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             publisher_email: pulumi.Input[str],
-             publisher_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             sku_name: pulumi.Input[str],
+             publisher_email: Optional[pulumi.Input[str]] = None,
+             publisher_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
              additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceAdditionalLocationArgs']]]] = None,
              certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCertificateArgs']]]] = None,
              client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
@@ -147,39 +147,47 @@ class ServiceArgs:
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'publisherEmail' in kwargs:
+        if publisher_email is None and 'publisherEmail' in kwargs:
             publisher_email = kwargs['publisherEmail']
-        if 'publisherName' in kwargs:
+        if publisher_email is None:
+            raise TypeError("Missing 'publisher_email' argument")
+        if publisher_name is None and 'publisherName' in kwargs:
             publisher_name = kwargs['publisherName']
-        if 'resourceGroupName' in kwargs:
+        if publisher_name is None:
+            raise TypeError("Missing 'publisher_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'additionalLocations' in kwargs:
+        if sku_name is None:
+            raise TypeError("Missing 'sku_name' argument")
+        if additional_locations is None and 'additionalLocations' in kwargs:
             additional_locations = kwargs['additionalLocations']
-        if 'clientCertificateEnabled' in kwargs:
+        if client_certificate_enabled is None and 'clientCertificateEnabled' in kwargs:
             client_certificate_enabled = kwargs['clientCertificateEnabled']
-        if 'gatewayDisabled' in kwargs:
+        if gateway_disabled is None and 'gatewayDisabled' in kwargs:
             gateway_disabled = kwargs['gatewayDisabled']
-        if 'hostnameConfiguration' in kwargs:
+        if hostname_configuration is None and 'hostnameConfiguration' in kwargs:
             hostname_configuration = kwargs['hostnameConfiguration']
-        if 'minApiVersion' in kwargs:
+        if min_api_version is None and 'minApiVersion' in kwargs:
             min_api_version = kwargs['minApiVersion']
-        if 'notificationSenderEmail' in kwargs:
+        if notification_sender_email is None and 'notificationSenderEmail' in kwargs:
             notification_sender_email = kwargs['notificationSenderEmail']
-        if 'publicIpAddressId' in kwargs:
+        if public_ip_address_id is None and 'publicIpAddressId' in kwargs:
             public_ip_address_id = kwargs['publicIpAddressId']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'signIn' in kwargs:
+        if sign_in is None and 'signIn' in kwargs:
             sign_in = kwargs['signIn']
-        if 'signUp' in kwargs:
+        if sign_up is None and 'signUp' in kwargs:
             sign_up = kwargs['signUp']
-        if 'tenantAccess' in kwargs:
+        if tenant_access is None and 'tenantAccess' in kwargs:
             tenant_access = kwargs['tenantAccess']
-        if 'virtualNetworkConfiguration' in kwargs:
+        if virtual_network_configuration is None and 'virtualNetworkConfiguration' in kwargs:
             virtual_network_configuration = kwargs['virtualNetworkConfiguration']
-        if 'virtualNetworkType' in kwargs:
+        if virtual_network_type is None and 'virtualNetworkType' in kwargs:
             virtual_network_type = kwargs['virtualNetworkType']
 
         _setter("publisher_email", publisher_email)
@@ -736,55 +744,55 @@ class _ServiceState:
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'additionalLocations' in kwargs:
+        if additional_locations is None and 'additionalLocations' in kwargs:
             additional_locations = kwargs['additionalLocations']
-        if 'clientCertificateEnabled' in kwargs:
+        if client_certificate_enabled is None and 'clientCertificateEnabled' in kwargs:
             client_certificate_enabled = kwargs['clientCertificateEnabled']
-        if 'developerPortalUrl' in kwargs:
+        if developer_portal_url is None and 'developerPortalUrl' in kwargs:
             developer_portal_url = kwargs['developerPortalUrl']
-        if 'gatewayDisabled' in kwargs:
+        if gateway_disabled is None and 'gatewayDisabled' in kwargs:
             gateway_disabled = kwargs['gatewayDisabled']
-        if 'gatewayRegionalUrl' in kwargs:
+        if gateway_regional_url is None and 'gatewayRegionalUrl' in kwargs:
             gateway_regional_url = kwargs['gatewayRegionalUrl']
-        if 'gatewayUrl' in kwargs:
+        if gateway_url is None and 'gatewayUrl' in kwargs:
             gateway_url = kwargs['gatewayUrl']
-        if 'hostnameConfiguration' in kwargs:
+        if hostname_configuration is None and 'hostnameConfiguration' in kwargs:
             hostname_configuration = kwargs['hostnameConfiguration']
-        if 'managementApiUrl' in kwargs:
+        if management_api_url is None and 'managementApiUrl' in kwargs:
             management_api_url = kwargs['managementApiUrl']
-        if 'minApiVersion' in kwargs:
+        if min_api_version is None and 'minApiVersion' in kwargs:
             min_api_version = kwargs['minApiVersion']
-        if 'notificationSenderEmail' in kwargs:
+        if notification_sender_email is None and 'notificationSenderEmail' in kwargs:
             notification_sender_email = kwargs['notificationSenderEmail']
-        if 'portalUrl' in kwargs:
+        if portal_url is None and 'portalUrl' in kwargs:
             portal_url = kwargs['portalUrl']
-        if 'privateIpAddresses' in kwargs:
+        if private_ip_addresses is None and 'privateIpAddresses' in kwargs:
             private_ip_addresses = kwargs['privateIpAddresses']
-        if 'publicIpAddressId' in kwargs:
+        if public_ip_address_id is None and 'publicIpAddressId' in kwargs:
             public_ip_address_id = kwargs['publicIpAddressId']
-        if 'publicIpAddresses' in kwargs:
+        if public_ip_addresses is None and 'publicIpAddresses' in kwargs:
             public_ip_addresses = kwargs['publicIpAddresses']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'publisherEmail' in kwargs:
+        if publisher_email is None and 'publisherEmail' in kwargs:
             publisher_email = kwargs['publisherEmail']
-        if 'publisherName' in kwargs:
+        if publisher_name is None and 'publisherName' in kwargs:
             publisher_name = kwargs['publisherName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'scmUrl' in kwargs:
+        if scm_url is None and 'scmUrl' in kwargs:
             scm_url = kwargs['scmUrl']
-        if 'signIn' in kwargs:
+        if sign_in is None and 'signIn' in kwargs:
             sign_in = kwargs['signIn']
-        if 'signUp' in kwargs:
+        if sign_up is None and 'signUp' in kwargs:
             sign_up = kwargs['signUp']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'tenantAccess' in kwargs:
+        if tenant_access is None and 'tenantAccess' in kwargs:
             tenant_access = kwargs['tenantAccess']
-        if 'virtualNetworkConfiguration' in kwargs:
+        if virtual_network_configuration is None and 'virtualNetworkConfiguration' in kwargs:
             virtual_network_configuration = kwargs['virtualNetworkConfiguration']
-        if 'virtualNetworkType' in kwargs:
+        if virtual_network_type is None and 'virtualNetworkType' in kwargs:
             virtual_network_type = kwargs['virtualNetworkType']
 
         if additional_locations is not None:

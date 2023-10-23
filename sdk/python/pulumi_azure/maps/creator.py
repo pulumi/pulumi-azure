@@ -38,17 +38,21 @@ class CreatorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             maps_account_id: pulumi.Input[str],
-             storage_units: pulumi.Input[int],
+             maps_account_id: Optional[pulumi.Input[str]] = None,
+             storage_units: Optional[pulumi.Input[int]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'mapsAccountId' in kwargs:
+        if maps_account_id is None and 'mapsAccountId' in kwargs:
             maps_account_id = kwargs['mapsAccountId']
-        if 'storageUnits' in kwargs:
+        if maps_account_id is None:
+            raise TypeError("Missing 'maps_account_id' argument")
+        if storage_units is None and 'storageUnits' in kwargs:
             storage_units = kwargs['storageUnits']
+        if storage_units is None:
+            raise TypeError("Missing 'storage_units' argument")
 
         _setter("maps_account_id", maps_account_id)
         _setter("storage_units", storage_units)
@@ -154,9 +158,9 @@ class _CreatorState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'mapsAccountId' in kwargs:
+        if maps_account_id is None and 'mapsAccountId' in kwargs:
             maps_account_id = kwargs['mapsAccountId']
-        if 'storageUnits' in kwargs:
+        if storage_units is None and 'storageUnits' in kwargs:
             storage_units = kwargs['storageUnits']
 
         if location is not None:

@@ -52,9 +52,9 @@ class PolicySetDefinitionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             display_name: pulumi.Input[str],
-             policy_definition_references: pulumi.Input[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionReferenceArgs']]],
-             policy_type: pulumi.Input[str],
+             display_name: Optional[pulumi.Input[str]] = None,
+             policy_definition_references: Optional[pulumi.Input[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionReferenceArgs']]]] = None,
+             policy_type: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              management_group_id: Optional[pulumi.Input[str]] = None,
              metadata: Optional[pulumi.Input[str]] = None,
@@ -63,15 +63,21 @@ class PolicySetDefinitionArgs:
              policy_definition_groups: Optional[pulumi.Input[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionGroupArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'policyDefinitionReferences' in kwargs:
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if policy_definition_references is None and 'policyDefinitionReferences' in kwargs:
             policy_definition_references = kwargs['policyDefinitionReferences']
-        if 'policyType' in kwargs:
+        if policy_definition_references is None:
+            raise TypeError("Missing 'policy_definition_references' argument")
+        if policy_type is None and 'policyType' in kwargs:
             policy_type = kwargs['policyType']
-        if 'managementGroupId' in kwargs:
+        if policy_type is None:
+            raise TypeError("Missing 'policy_type' argument")
+        if management_group_id is None and 'managementGroupId' in kwargs:
             management_group_id = kwargs['managementGroupId']
-        if 'policyDefinitionGroups' in kwargs:
+        if policy_definition_groups is None and 'policyDefinitionGroups' in kwargs:
             policy_definition_groups = kwargs['policyDefinitionGroups']
 
         _setter("display_name", display_name)
@@ -249,15 +255,15 @@ class _PolicySetDefinitionState:
              policy_type: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'managementGroupId' in kwargs:
+        if management_group_id is None and 'managementGroupId' in kwargs:
             management_group_id = kwargs['managementGroupId']
-        if 'policyDefinitionGroups' in kwargs:
+        if policy_definition_groups is None and 'policyDefinitionGroups' in kwargs:
             policy_definition_groups = kwargs['policyDefinitionGroups']
-        if 'policyDefinitionReferences' in kwargs:
+        if policy_definition_references is None and 'policyDefinitionReferences' in kwargs:
             policy_definition_references = kwargs['policyDefinitionReferences']
-        if 'policyType' in kwargs:
+        if policy_type is None and 'policyType' in kwargs:
             policy_type = kwargs['policyType']
 
         if description is not None:

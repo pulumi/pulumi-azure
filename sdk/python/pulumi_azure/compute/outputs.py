@@ -250,15 +250,21 @@ class BastionHostIpConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             public_ip_address_id: str,
-             subnet_id: str,
+             name: Optional[str] = None,
+             public_ip_address_id: Optional[str] = None,
+             subnet_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'publicIpAddressId' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if public_ip_address_id is None and 'publicIpAddressId' in kwargs:
             public_ip_address_id = kwargs['publicIpAddressId']
-        if 'subnetId' in kwargs:
+        if public_ip_address_id is None:
+            raise TypeError("Missing 'public_ip_address_id' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
 
         _setter("name", name)
         _setter("public_ip_address_id", public_ip_address_id)
@@ -308,10 +314,14 @@ class CapacityReservationSku(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             capacity: int,
-             name: str,
+             capacity: Optional[int] = None,
+             name: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if capacity is None:
+            raise TypeError("Missing 'capacity' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("capacity", capacity)
         _setter("name", name)
@@ -379,17 +389,19 @@ class DiskEncryptionSetIdentity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -471,14 +483,18 @@ class ExtensionProtectedSettingsFromKeyVault(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             secret_url: str,
-             source_vault_id: str,
+             secret_url: Optional[str] = None,
+             source_vault_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'secretUrl' in kwargs:
+        if secret_url is None and 'secretUrl' in kwargs:
             secret_url = kwargs['secretUrl']
-        if 'sourceVaultId' in kwargs:
+        if secret_url is None:
+            raise TypeError("Missing 'secret_url' argument")
+        if source_vault_id is None and 'sourceVaultId' in kwargs:
             source_vault_id = kwargs['sourceVaultId']
+        if source_vault_id is None:
+            raise TypeError("Missing 'source_vault_id' argument")
 
         _setter("secret_url", secret_url)
         _setter("source_vault_id", source_vault_id)
@@ -520,11 +536,15 @@ class GalleryApplicationVersionManageAction(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             install: str,
-             remove: str,
+             install: Optional[str] = None,
+             remove: Optional[str] = None,
              update: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if install is None:
+            raise TypeError("Missing 'install' argument")
+        if remove is None:
+            raise TypeError("Missing 'remove' argument")
 
         _setter("install", install)
         _setter("remove", remove)
@@ -592,13 +612,15 @@ class GalleryApplicationVersionSource(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             media_link: str,
+             media_link: Optional[str] = None,
              default_configuration_link: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'mediaLink' in kwargs:
+        if media_link is None and 'mediaLink' in kwargs:
             media_link = kwargs['mediaLink']
-        if 'defaultConfigurationLink' in kwargs:
+        if media_link is None:
+            raise TypeError("Missing 'media_link' argument")
+        if default_configuration_link is None and 'defaultConfigurationLink' in kwargs:
             default_configuration_link = kwargs['defaultConfigurationLink']
 
         _setter("media_link", media_link)
@@ -661,14 +683,18 @@ class GalleryApplicationVersionTargetRegion(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             regional_replica_count: int,
+             name: Optional[str] = None,
+             regional_replica_count: Optional[int] = None,
              storage_account_type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'regionalReplicaCount' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if regional_replica_count is None and 'regionalReplicaCount' in kwargs:
             regional_replica_count = kwargs['regionalReplicaCount']
-        if 'storageAccountType' in kwargs:
+        if regional_replica_count is None:
+            raise TypeError("Missing 'regional_replica_count' argument")
+        if storage_account_type is None and 'storageAccountType' in kwargs:
             storage_account_type = kwargs['storageAccountType']
 
         _setter("name", name)
@@ -755,11 +781,11 @@ class ImageDataDisk(dict):
              size_gb: Optional[int] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'blobUri' in kwargs:
+        if blob_uri is None and 'blobUri' in kwargs:
             blob_uri = kwargs['blobUri']
-        if 'managedDiskId' in kwargs:
+        if managed_disk_id is None and 'managedDiskId' in kwargs:
             managed_disk_id = kwargs['managedDiskId']
-        if 'sizeGb' in kwargs:
+        if size_gb is None and 'sizeGb' in kwargs:
             size_gb = kwargs['sizeGb']
 
         if blob_uri is not None:
@@ -882,17 +908,17 @@ class ImageOsDisk(dict):
              size_gb: Optional[int] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'blobUri' in kwargs:
+        if blob_uri is None and 'blobUri' in kwargs:
             blob_uri = kwargs['blobUri']
-        if 'diskEncryptionSetId' in kwargs:
+        if disk_encryption_set_id is None and 'diskEncryptionSetId' in kwargs:
             disk_encryption_set_id = kwargs['diskEncryptionSetId']
-        if 'managedDiskId' in kwargs:
+        if managed_disk_id is None and 'managedDiskId' in kwargs:
             managed_disk_id = kwargs['managedDiskId']
-        if 'osState' in kwargs:
+        if os_state is None and 'osState' in kwargs:
             os_state = kwargs['osState']
-        if 'osType' in kwargs:
+        if os_type is None and 'osType' in kwargs:
             os_type = kwargs['osType']
-        if 'sizeGb' in kwargs:
+        if size_gb is None and 'sizeGb' in kwargs:
             size_gb = kwargs['sizeGb']
 
         if blob_uri is not None:
@@ -1001,7 +1027,7 @@ class LinuxVirtualMachineAdditionalCapabilities(dict):
              ultra_ssd_enabled: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ultraSsdEnabled' in kwargs:
+        if ultra_ssd_enabled is None and 'ultraSsdEnabled' in kwargs:
             ultra_ssd_enabled = kwargs['ultraSsdEnabled']
 
         if ultra_ssd_enabled is not None:
@@ -1052,12 +1078,16 @@ class LinuxVirtualMachineAdminSshKey(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             public_key: str,
-             username: str,
+             public_key: Optional[str] = None,
+             username: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'publicKey' in kwargs:
+        if public_key is None and 'publicKey' in kwargs:
             public_key = kwargs['publicKey']
+        if public_key is None:
+            raise TypeError("Missing 'public_key' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
 
         _setter("public_key", public_key)
         _setter("username", username)
@@ -1117,7 +1147,7 @@ class LinuxVirtualMachineBootDiagnostics(dict):
              storage_account_uri: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'storageAccountUri' in kwargs:
+        if storage_account_uri is None and 'storageAccountUri' in kwargs:
             storage_account_uri = kwargs['storageAccountUri']
 
         if storage_account_uri is not None:
@@ -1176,15 +1206,17 @@ class LinuxVirtualMachineGalleryApplication(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             version_id: str,
+             version_id: Optional[str] = None,
              configuration_blob_uri: Optional[str] = None,
              order: Optional[int] = None,
              tag: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'versionId' in kwargs:
+        if version_id is None and 'versionId' in kwargs:
             version_id = kwargs['versionId']
-        if 'configurationBlobUri' in kwargs:
+        if version_id is None:
+            raise TypeError("Missing 'version_id' argument")
+        if configuration_blob_uri is None and 'configurationBlobUri' in kwargs:
             configuration_blob_uri = kwargs['configurationBlobUri']
 
         _setter("version_id", version_id)
@@ -1274,17 +1306,19 @@ class LinuxVirtualMachineIdentity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -1411,8 +1445,8 @@ class LinuxVirtualMachineOsDisk(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             caching: str,
-             storage_account_type: str,
+             caching: Optional[str] = None,
+             storage_account_type: Optional[str] = None,
              diff_disk_settings: Optional['outputs.LinuxVirtualMachineOsDiskDiffDiskSettings'] = None,
              disk_encryption_set_id: Optional[str] = None,
              disk_size_gb: Optional[int] = None,
@@ -1422,19 +1456,23 @@ class LinuxVirtualMachineOsDisk(dict):
              write_accelerator_enabled: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'storageAccountType' in kwargs:
+        if caching is None:
+            raise TypeError("Missing 'caching' argument")
+        if storage_account_type is None and 'storageAccountType' in kwargs:
             storage_account_type = kwargs['storageAccountType']
-        if 'diffDiskSettings' in kwargs:
+        if storage_account_type is None:
+            raise TypeError("Missing 'storage_account_type' argument")
+        if diff_disk_settings is None and 'diffDiskSettings' in kwargs:
             diff_disk_settings = kwargs['diffDiskSettings']
-        if 'diskEncryptionSetId' in kwargs:
+        if disk_encryption_set_id is None and 'diskEncryptionSetId' in kwargs:
             disk_encryption_set_id = kwargs['diskEncryptionSetId']
-        if 'diskSizeGb' in kwargs:
+        if disk_size_gb is None and 'diskSizeGb' in kwargs:
             disk_size_gb = kwargs['diskSizeGb']
-        if 'secureVmDiskEncryptionSetId' in kwargs:
+        if secure_vm_disk_encryption_set_id is None and 'secureVmDiskEncryptionSetId' in kwargs:
             secure_vm_disk_encryption_set_id = kwargs['secureVmDiskEncryptionSetId']
-        if 'securityEncryptionType' in kwargs:
+        if security_encryption_type is None and 'securityEncryptionType' in kwargs:
             security_encryption_type = kwargs['securityEncryptionType']
-        if 'writeAcceleratorEnabled' in kwargs:
+        if write_accelerator_enabled is None and 'writeAcceleratorEnabled' in kwargs:
             write_accelerator_enabled = kwargs['writeAcceleratorEnabled']
 
         _setter("caching", caching)
@@ -1558,10 +1596,12 @@ class LinuxVirtualMachineOsDiskDiffDiskSettings(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             option: str,
+             option: Optional[str] = None,
              placement: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if option is None:
+            raise TypeError("Missing 'option' argument")
 
         _setter("option", option)
         if placement is not None:
@@ -1604,11 +1644,17 @@ class LinuxVirtualMachinePlan(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             product: str,
-             publisher: str,
+             name: Optional[str] = None,
+             product: Optional[str] = None,
+             publisher: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if product is None:
+            raise TypeError("Missing 'product' argument")
+        if publisher is None:
+            raise TypeError("Missing 'publisher' argument")
 
         _setter("name", name)
         _setter("product", product)
@@ -1673,7 +1719,7 @@ class LinuxVirtualMachineScaleSetAdditionalCapabilities(dict):
              ultra_ssd_enabled: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ultraSsdEnabled' in kwargs:
+        if ultra_ssd_enabled is None and 'ultraSsdEnabled' in kwargs:
             ultra_ssd_enabled = kwargs['ultraSsdEnabled']
 
         if ultra_ssd_enabled is not None:
@@ -1724,12 +1770,16 @@ class LinuxVirtualMachineScaleSetAdminSshKey(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             public_key: str,
-             username: str,
+             public_key: Optional[str] = None,
+             username: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'publicKey' in kwargs:
+        if public_key is None and 'publicKey' in kwargs:
             public_key = kwargs['publicKey']
+        if public_key is None:
+            raise TypeError("Missing 'public_key' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
 
         _setter("public_key", public_key)
         _setter("username", username)
@@ -1787,11 +1837,13 @@ class LinuxVirtualMachineScaleSetAutomaticInstanceRepair(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: bool,
+             enabled: Optional[bool] = None,
              grace_period: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'gracePeriod' in kwargs:
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if grace_period is None and 'gracePeriod' in kwargs:
             grace_period = kwargs['gracePeriod']
 
         _setter("enabled", enabled)
@@ -1851,14 +1903,18 @@ class LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             disable_automatic_rollback: bool,
-             enable_automatic_os_upgrade: bool,
+             disable_automatic_rollback: Optional[bool] = None,
+             enable_automatic_os_upgrade: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'disableAutomaticRollback' in kwargs:
+        if disable_automatic_rollback is None and 'disableAutomaticRollback' in kwargs:
             disable_automatic_rollback = kwargs['disableAutomaticRollback']
-        if 'enableAutomaticOsUpgrade' in kwargs:
+        if disable_automatic_rollback is None:
+            raise TypeError("Missing 'disable_automatic_rollback' argument")
+        if enable_automatic_os_upgrade is None and 'enableAutomaticOsUpgrade' in kwargs:
             enable_automatic_os_upgrade = kwargs['enableAutomaticOsUpgrade']
+        if enable_automatic_os_upgrade is None:
+            raise TypeError("Missing 'enable_automatic_os_upgrade' argument")
 
         _setter("disable_automatic_rollback", disable_automatic_rollback)
         _setter("enable_automatic_os_upgrade", enable_automatic_os_upgrade)
@@ -1916,7 +1972,7 @@ class LinuxVirtualMachineScaleSetBootDiagnostics(dict):
              storage_account_uri: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'storageAccountUri' in kwargs:
+        if storage_account_uri is None and 'storageAccountUri' in kwargs:
             storage_account_uri = kwargs['storageAccountUri']
 
         if storage_account_uri is not None:
@@ -2011,10 +2067,10 @@ class LinuxVirtualMachineScaleSetDataDisk(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             caching: str,
-             disk_size_gb: int,
-             lun: int,
-             storage_account_type: str,
+             caching: Optional[str] = None,
+             disk_size_gb: Optional[int] = None,
+             lun: Optional[int] = None,
+             storage_account_type: Optional[str] = None,
              create_option: Optional[str] = None,
              disk_encryption_set_id: Optional[str] = None,
              name: Optional[str] = None,
@@ -2023,19 +2079,27 @@ class LinuxVirtualMachineScaleSetDataDisk(dict):
              write_accelerator_enabled: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'diskSizeGb' in kwargs:
+        if caching is None:
+            raise TypeError("Missing 'caching' argument")
+        if disk_size_gb is None and 'diskSizeGb' in kwargs:
             disk_size_gb = kwargs['diskSizeGb']
-        if 'storageAccountType' in kwargs:
+        if disk_size_gb is None:
+            raise TypeError("Missing 'disk_size_gb' argument")
+        if lun is None:
+            raise TypeError("Missing 'lun' argument")
+        if storage_account_type is None and 'storageAccountType' in kwargs:
             storage_account_type = kwargs['storageAccountType']
-        if 'createOption' in kwargs:
+        if storage_account_type is None:
+            raise TypeError("Missing 'storage_account_type' argument")
+        if create_option is None and 'createOption' in kwargs:
             create_option = kwargs['createOption']
-        if 'diskEncryptionSetId' in kwargs:
+        if disk_encryption_set_id is None and 'diskEncryptionSetId' in kwargs:
             disk_encryption_set_id = kwargs['diskEncryptionSetId']
-        if 'ultraSsdDiskIopsReadWrite' in kwargs:
+        if ultra_ssd_disk_iops_read_write is None and 'ultraSsdDiskIopsReadWrite' in kwargs:
             ultra_ssd_disk_iops_read_write = kwargs['ultraSsdDiskIopsReadWrite']
-        if 'ultraSsdDiskMbpsReadWrite' in kwargs:
+        if ultra_ssd_disk_mbps_read_write is None and 'ultraSsdDiskMbpsReadWrite' in kwargs:
             ultra_ssd_disk_mbps_read_write = kwargs['ultraSsdDiskMbpsReadWrite']
-        if 'writeAcceleratorEnabled' in kwargs:
+        if write_accelerator_enabled is None and 'writeAcceleratorEnabled' in kwargs:
             write_accelerator_enabled = kwargs['writeAcceleratorEnabled']
 
         _setter("caching", caching)
@@ -2220,10 +2284,10 @@ class LinuxVirtualMachineScaleSetExtension(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             publisher: str,
-             type: str,
-             type_handler_version: str,
+             name: Optional[str] = None,
+             publisher: Optional[str] = None,
+             type: Optional[str] = None,
+             type_handler_version: Optional[str] = None,
              auto_upgrade_minor_version: Optional[bool] = None,
              automatic_upgrade_enabled: Optional[bool] = None,
              force_update_tag: Optional[str] = None,
@@ -2233,19 +2297,27 @@ class LinuxVirtualMachineScaleSetExtension(dict):
              settings: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'typeHandlerVersion' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if publisher is None:
+            raise TypeError("Missing 'publisher' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if type_handler_version is None and 'typeHandlerVersion' in kwargs:
             type_handler_version = kwargs['typeHandlerVersion']
-        if 'autoUpgradeMinorVersion' in kwargs:
+        if type_handler_version is None:
+            raise TypeError("Missing 'type_handler_version' argument")
+        if auto_upgrade_minor_version is None and 'autoUpgradeMinorVersion' in kwargs:
             auto_upgrade_minor_version = kwargs['autoUpgradeMinorVersion']
-        if 'automaticUpgradeEnabled' in kwargs:
+        if automatic_upgrade_enabled is None and 'automaticUpgradeEnabled' in kwargs:
             automatic_upgrade_enabled = kwargs['automaticUpgradeEnabled']
-        if 'forceUpdateTag' in kwargs:
+        if force_update_tag is None and 'forceUpdateTag' in kwargs:
             force_update_tag = kwargs['forceUpdateTag']
-        if 'protectedSettings' in kwargs:
+        if protected_settings is None and 'protectedSettings' in kwargs:
             protected_settings = kwargs['protectedSettings']
-        if 'protectedSettingsFromKeyVault' in kwargs:
+        if protected_settings_from_key_vault is None and 'protectedSettingsFromKeyVault' in kwargs:
             protected_settings_from_key_vault = kwargs['protectedSettingsFromKeyVault']
-        if 'provisionAfterExtensions' in kwargs:
+        if provision_after_extensions is None and 'provisionAfterExtensions' in kwargs:
             provision_after_extensions = kwargs['provisionAfterExtensions']
 
         _setter("name", name)
@@ -2393,14 +2465,18 @@ class LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             secret_url: str,
-             source_vault_id: str,
+             secret_url: Optional[str] = None,
+             source_vault_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'secretUrl' in kwargs:
+        if secret_url is None and 'secretUrl' in kwargs:
             secret_url = kwargs['secretUrl']
-        if 'sourceVaultId' in kwargs:
+        if secret_url is None:
+            raise TypeError("Missing 'secret_url' argument")
+        if source_vault_id is None and 'sourceVaultId' in kwargs:
             source_vault_id = kwargs['sourceVaultId']
+        if source_vault_id is None:
+            raise TypeError("Missing 'source_vault_id' argument")
 
         _setter("secret_url", secret_url)
         _setter("source_vault_id", source_vault_id)
@@ -2462,15 +2538,17 @@ class LinuxVirtualMachineScaleSetGalleryApplication(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             package_reference_id: str,
+             package_reference_id: Optional[str] = None,
              configuration_reference_blob_uri: Optional[str] = None,
              order: Optional[int] = None,
              tag: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'packageReferenceId' in kwargs:
+        if package_reference_id is None and 'packageReferenceId' in kwargs:
             package_reference_id = kwargs['packageReferenceId']
-        if 'configurationReferenceBlobUri' in kwargs:
+        if package_reference_id is None:
+            raise TypeError("Missing 'package_reference_id' argument")
+        if configuration_reference_blob_uri is None and 'configurationReferenceBlobUri' in kwargs:
             configuration_reference_blob_uri = kwargs['configurationReferenceBlobUri']
 
         _setter("package_reference_id", package_reference_id)
@@ -2560,17 +2638,19 @@ class LinuxVirtualMachineScaleSetIdentity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -2675,8 +2755,8 @@ class LinuxVirtualMachineScaleSetNetworkInterface(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ip_configurations: Sequence['outputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration'],
-             name: str,
+             ip_configurations: Optional[Sequence['outputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration']] = None,
+             name: Optional[str] = None,
              dns_servers: Optional[Sequence[str]] = None,
              enable_accelerated_networking: Optional[bool] = None,
              enable_ip_forwarding: Optional[bool] = None,
@@ -2684,15 +2764,19 @@ class LinuxVirtualMachineScaleSetNetworkInterface(dict):
              primary: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ipConfigurations' in kwargs:
+        if ip_configurations is None and 'ipConfigurations' in kwargs:
             ip_configurations = kwargs['ipConfigurations']
-        if 'dnsServers' in kwargs:
+        if ip_configurations is None:
+            raise TypeError("Missing 'ip_configurations' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if dns_servers is None and 'dnsServers' in kwargs:
             dns_servers = kwargs['dnsServers']
-        if 'enableAcceleratedNetworking' in kwargs:
+        if enable_accelerated_networking is None and 'enableAcceleratedNetworking' in kwargs:
             enable_accelerated_networking = kwargs['enableAcceleratedNetworking']
-        if 'enableIpForwarding' in kwargs:
+        if enable_ip_forwarding is None and 'enableIpForwarding' in kwargs:
             enable_ip_forwarding = kwargs['enableIpForwarding']
-        if 'networkSecurityGroupId' in kwargs:
+        if network_security_group_id is None and 'networkSecurityGroupId' in kwargs:
             network_security_group_id = kwargs['networkSecurityGroupId']
 
         _setter("ip_configurations", ip_configurations)
@@ -2842,7 +2926,7 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              application_gateway_backend_address_pool_ids: Optional[Sequence[str]] = None,
              application_security_group_ids: Optional[Sequence[str]] = None,
              load_balancer_backend_address_pool_ids: Optional[Sequence[str]] = None,
@@ -2853,17 +2937,19 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration(dict):
              version: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'applicationGatewayBackendAddressPoolIds' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if application_gateway_backend_address_pool_ids is None and 'applicationGatewayBackendAddressPoolIds' in kwargs:
             application_gateway_backend_address_pool_ids = kwargs['applicationGatewayBackendAddressPoolIds']
-        if 'applicationSecurityGroupIds' in kwargs:
+        if application_security_group_ids is None and 'applicationSecurityGroupIds' in kwargs:
             application_security_group_ids = kwargs['applicationSecurityGroupIds']
-        if 'loadBalancerBackendAddressPoolIds' in kwargs:
+        if load_balancer_backend_address_pool_ids is None and 'loadBalancerBackendAddressPoolIds' in kwargs:
             load_balancer_backend_address_pool_ids = kwargs['loadBalancerBackendAddressPoolIds']
-        if 'loadBalancerInboundNatRulesIds' in kwargs:
+        if load_balancer_inbound_nat_rules_ids is None and 'loadBalancerInboundNatRulesIds' in kwargs:
             load_balancer_inbound_nat_rules_ids = kwargs['loadBalancerInboundNatRulesIds']
-        if 'publicIpAddresses' in kwargs:
+        if public_ip_addresses is None and 'publicIpAddresses' in kwargs:
             public_ip_addresses = kwargs['publicIpAddresses']
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
 
         _setter("name", name)
@@ -3021,7 +3107,7 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress(
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              domain_name_label: Optional[str] = None,
              idle_timeout_in_minutes: Optional[int] = None,
              ip_tags: Optional[Sequence['outputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag']] = None,
@@ -3029,13 +3115,15 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress(
              version: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'domainNameLabel' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if domain_name_label is None and 'domainNameLabel' in kwargs:
             domain_name_label = kwargs['domainNameLabel']
-        if 'idleTimeoutInMinutes' in kwargs:
+        if idle_timeout_in_minutes is None and 'idleTimeoutInMinutes' in kwargs:
             idle_timeout_in_minutes = kwargs['idleTimeoutInMinutes']
-        if 'ipTags' in kwargs:
+        if ip_tags is None and 'ipTags' in kwargs:
             ip_tags = kwargs['ipTags']
-        if 'publicIpPrefixId' in kwargs:
+        if public_ip_prefix_id is None and 'publicIpPrefixId' in kwargs:
             public_ip_prefix_id = kwargs['publicIpPrefixId']
 
         _setter("name", name)
@@ -3118,10 +3206,14 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressI
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             tag: str,
-             type: str,
+             tag: Optional[str] = None,
+             type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if tag is None:
+            raise TypeError("Missing 'tag' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("tag", tag)
         _setter("type", type)
@@ -3221,8 +3313,8 @@ class LinuxVirtualMachineScaleSetOsDisk(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             caching: str,
-             storage_account_type: str,
+             caching: Optional[str] = None,
+             storage_account_type: Optional[str] = None,
              diff_disk_settings: Optional['outputs.LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings'] = None,
              disk_encryption_set_id: Optional[str] = None,
              disk_size_gb: Optional[int] = None,
@@ -3231,19 +3323,23 @@ class LinuxVirtualMachineScaleSetOsDisk(dict):
              write_accelerator_enabled: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'storageAccountType' in kwargs:
+        if caching is None:
+            raise TypeError("Missing 'caching' argument")
+        if storage_account_type is None and 'storageAccountType' in kwargs:
             storage_account_type = kwargs['storageAccountType']
-        if 'diffDiskSettings' in kwargs:
+        if storage_account_type is None:
+            raise TypeError("Missing 'storage_account_type' argument")
+        if diff_disk_settings is None and 'diffDiskSettings' in kwargs:
             diff_disk_settings = kwargs['diffDiskSettings']
-        if 'diskEncryptionSetId' in kwargs:
+        if disk_encryption_set_id is None and 'diskEncryptionSetId' in kwargs:
             disk_encryption_set_id = kwargs['diskEncryptionSetId']
-        if 'diskSizeGb' in kwargs:
+        if disk_size_gb is None and 'diskSizeGb' in kwargs:
             disk_size_gb = kwargs['diskSizeGb']
-        if 'secureVmDiskEncryptionSetId' in kwargs:
+        if secure_vm_disk_encryption_set_id is None and 'secureVmDiskEncryptionSetId' in kwargs:
             secure_vm_disk_encryption_set_id = kwargs['secureVmDiskEncryptionSetId']
-        if 'securityEncryptionType' in kwargs:
+        if security_encryption_type is None and 'securityEncryptionType' in kwargs:
             security_encryption_type = kwargs['securityEncryptionType']
-        if 'writeAcceleratorEnabled' in kwargs:
+        if write_accelerator_enabled is None and 'writeAcceleratorEnabled' in kwargs:
             write_accelerator_enabled = kwargs['writeAcceleratorEnabled']
 
         _setter("caching", caching)
@@ -3357,10 +3453,12 @@ class LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             option: str,
+             option: Optional[str] = None,
              placement: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if option is None:
+            raise TypeError("Missing 'option' argument")
 
         _setter("option", option)
         if placement is not None:
@@ -3403,11 +3501,17 @@ class LinuxVirtualMachineScaleSetPlan(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             product: str,
-             publisher: str,
+             name: Optional[str] = None,
+             product: Optional[str] = None,
+             publisher: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if product is None:
+            raise TypeError("Missing 'product' argument")
+        if publisher is None:
+            raise TypeError("Missing 'publisher' argument")
 
         _setter("name", name)
         _setter("product", product)
@@ -3494,25 +3598,33 @@ class LinuxVirtualMachineScaleSetRollingUpgradePolicy(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             max_batch_instance_percent: int,
-             max_unhealthy_instance_percent: int,
-             max_unhealthy_upgraded_instance_percent: int,
-             pause_time_between_batches: str,
+             max_batch_instance_percent: Optional[int] = None,
+             max_unhealthy_instance_percent: Optional[int] = None,
+             max_unhealthy_upgraded_instance_percent: Optional[int] = None,
+             pause_time_between_batches: Optional[str] = None,
              cross_zone_upgrades_enabled: Optional[bool] = None,
              prioritize_unhealthy_instances_enabled: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'maxBatchInstancePercent' in kwargs:
+        if max_batch_instance_percent is None and 'maxBatchInstancePercent' in kwargs:
             max_batch_instance_percent = kwargs['maxBatchInstancePercent']
-        if 'maxUnhealthyInstancePercent' in kwargs:
+        if max_batch_instance_percent is None:
+            raise TypeError("Missing 'max_batch_instance_percent' argument")
+        if max_unhealthy_instance_percent is None and 'maxUnhealthyInstancePercent' in kwargs:
             max_unhealthy_instance_percent = kwargs['maxUnhealthyInstancePercent']
-        if 'maxUnhealthyUpgradedInstancePercent' in kwargs:
+        if max_unhealthy_instance_percent is None:
+            raise TypeError("Missing 'max_unhealthy_instance_percent' argument")
+        if max_unhealthy_upgraded_instance_percent is None and 'maxUnhealthyUpgradedInstancePercent' in kwargs:
             max_unhealthy_upgraded_instance_percent = kwargs['maxUnhealthyUpgradedInstancePercent']
-        if 'pauseTimeBetweenBatches' in kwargs:
+        if max_unhealthy_upgraded_instance_percent is None:
+            raise TypeError("Missing 'max_unhealthy_upgraded_instance_percent' argument")
+        if pause_time_between_batches is None and 'pauseTimeBetweenBatches' in kwargs:
             pause_time_between_batches = kwargs['pauseTimeBetweenBatches']
-        if 'crossZoneUpgradesEnabled' in kwargs:
+        if pause_time_between_batches is None:
+            raise TypeError("Missing 'pause_time_between_batches' argument")
+        if cross_zone_upgrades_enabled is None and 'crossZoneUpgradesEnabled' in kwargs:
             cross_zone_upgrades_enabled = kwargs['crossZoneUpgradesEnabled']
-        if 'prioritizeUnhealthyInstancesEnabled' in kwargs:
+        if prioritize_unhealthy_instances_enabled is None and 'prioritizeUnhealthyInstancesEnabled' in kwargs:
             prioritize_unhealthy_instances_enabled = kwargs['prioritizeUnhealthyInstancesEnabled']
 
         _setter("max_batch_instance_percent", max_batch_instance_percent)
@@ -3611,7 +3723,7 @@ class LinuxVirtualMachineScaleSetScaleIn(dict):
              rule: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'forceDeletionEnabled' in kwargs:
+        if force_deletion_enabled is None and 'forceDeletionEnabled' in kwargs:
             force_deletion_enabled = kwargs['forceDeletionEnabled']
 
         if force_deletion_enabled is not None:
@@ -3670,12 +3782,16 @@ class LinuxVirtualMachineScaleSetSecret(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             certificates: Sequence['outputs.LinuxVirtualMachineScaleSetSecretCertificate'],
-             key_vault_id: str,
+             certificates: Optional[Sequence['outputs.LinuxVirtualMachineScaleSetSecretCertificate']] = None,
+             key_vault_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'keyVaultId' in kwargs:
+        if certificates is None:
+            raise TypeError("Missing 'certificates' argument")
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
+        if key_vault_id is None:
+            raise TypeError("Missing 'key_vault_id' argument")
 
         _setter("certificates", certificates)
         _setter("key_vault_id", key_vault_id)
@@ -3715,9 +3831,11 @@ class LinuxVirtualMachineScaleSetSecretCertificate(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             url: str,
+             url: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if url is None:
+            raise TypeError("Missing 'url' argument")
 
         _setter("url", url)
 
@@ -3757,12 +3875,20 @@ class LinuxVirtualMachineScaleSetSourceImageReference(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             offer: str,
-             publisher: str,
-             sku: str,
-             version: str,
+             offer: Optional[str] = None,
+             publisher: Optional[str] = None,
+             sku: Optional[str] = None,
+             version: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if offer is None:
+            raise TypeError("Missing 'offer' argument")
+        if publisher is None:
+            raise TypeError("Missing 'publisher' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
 
         _setter("offer", offer)
         _setter("publisher", publisher)
@@ -3865,10 +3991,12 @@ class LinuxVirtualMachineScaleSetTerminateNotification(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: bool,
+             enabled: Optional[bool] = None,
              timeout: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
 
         _setter("enabled", enabled)
         if timeout is not None:
@@ -3912,10 +4040,12 @@ class LinuxVirtualMachineScaleSetTerminationNotification(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: bool,
+             enabled: Optional[bool] = None,
              timeout: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
 
         _setter("enabled", enabled)
         if timeout is not None:
@@ -3974,12 +4104,16 @@ class LinuxVirtualMachineSecret(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             certificates: Sequence['outputs.LinuxVirtualMachineSecretCertificate'],
-             key_vault_id: str,
+             certificates: Optional[Sequence['outputs.LinuxVirtualMachineSecretCertificate']] = None,
+             key_vault_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'keyVaultId' in kwargs:
+        if certificates is None:
+            raise TypeError("Missing 'certificates' argument")
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
+        if key_vault_id is None:
+            raise TypeError("Missing 'key_vault_id' argument")
 
         _setter("certificates", certificates)
         _setter("key_vault_id", key_vault_id)
@@ -4017,9 +4151,11 @@ class LinuxVirtualMachineSecretCertificate(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             url: str,
+             url: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if url is None:
+            raise TypeError("Missing 'url' argument")
 
         _setter("url", url)
 
@@ -4057,12 +4193,20 @@ class LinuxVirtualMachineSourceImageReference(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             offer: str,
-             publisher: str,
-             sku: str,
-             version: str,
+             offer: Optional[str] = None,
+             publisher: Optional[str] = None,
+             sku: Optional[str] = None,
+             version: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if offer is None:
+            raise TypeError("Missing 'offer' argument")
+        if publisher is None:
+            raise TypeError("Missing 'publisher' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
 
         _setter("offer", offer)
         _setter("publisher", publisher)
@@ -4121,10 +4265,12 @@ class LinuxVirtualMachineTerminationNotification(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: bool,
+             enabled: Optional[bool] = None,
              timeout: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
 
         _setter("enabled", enabled)
         if timeout is not None:
@@ -4192,9 +4338,9 @@ class ManagedDiskEncryptionSettings(dict):
              key_encryption_key: Optional['outputs.ManagedDiskEncryptionSettingsKeyEncryptionKey'] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'diskEncryptionKey' in kwargs:
+        if disk_encryption_key is None and 'diskEncryptionKey' in kwargs:
             disk_encryption_key = kwargs['diskEncryptionKey']
-        if 'keyEncryptionKey' in kwargs:
+        if key_encryption_key is None and 'keyEncryptionKey' in kwargs:
             key_encryption_key = kwargs['keyEncryptionKey']
 
         if disk_encryption_key is not None:
@@ -4265,14 +4411,18 @@ class ManagedDiskEncryptionSettingsDiskEncryptionKey(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             secret_url: str,
-             source_vault_id: str,
+             secret_url: Optional[str] = None,
+             source_vault_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'secretUrl' in kwargs:
+        if secret_url is None and 'secretUrl' in kwargs:
             secret_url = kwargs['secretUrl']
-        if 'sourceVaultId' in kwargs:
+        if secret_url is None:
+            raise TypeError("Missing 'secret_url' argument")
+        if source_vault_id is None and 'sourceVaultId' in kwargs:
             source_vault_id = kwargs['sourceVaultId']
+        if source_vault_id is None:
+            raise TypeError("Missing 'source_vault_id' argument")
 
         _setter("secret_url", secret_url)
         _setter("source_vault_id", source_vault_id)
@@ -4330,14 +4480,18 @@ class ManagedDiskEncryptionSettingsKeyEncryptionKey(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_url: str,
-             source_vault_id: str,
+             key_url: Optional[str] = None,
+             source_vault_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'keyUrl' in kwargs:
+        if key_url is None and 'keyUrl' in kwargs:
             key_url = kwargs['keyUrl']
-        if 'sourceVaultId' in kwargs:
+        if key_url is None:
+            raise TypeError("Missing 'key_url' argument")
+        if source_vault_id is None and 'sourceVaultId' in kwargs:
             source_vault_id = kwargs['sourceVaultId']
+        if source_vault_id is None:
+            raise TypeError("Missing 'source_vault_id' argument")
 
         _setter("key_url", key_url)
         _setter("source_vault_id", source_vault_id)
@@ -4393,7 +4547,7 @@ class OrchestratedVirtualMachineScaleSetAdditionalCapabilities(dict):
              ultra_ssd_enabled: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ultraSsdEnabled' in kwargs:
+        if ultra_ssd_enabled is None and 'ultraSsdEnabled' in kwargs:
             ultra_ssd_enabled = kwargs['ultraSsdEnabled']
 
         if ultra_ssd_enabled is not None:
@@ -4442,11 +4596,13 @@ class OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: bool,
+             enabled: Optional[bool] = None,
              grace_period: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'gracePeriod' in kwargs:
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if grace_period is None and 'gracePeriod' in kwargs:
             grace_period = kwargs['gracePeriod']
 
         _setter("enabled", enabled)
@@ -4504,7 +4660,7 @@ class OrchestratedVirtualMachineScaleSetBootDiagnostics(dict):
              storage_account_uri: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'storageAccountUri' in kwargs:
+        if storage_account_uri is None and 'storageAccountUri' in kwargs:
             storage_account_uri = kwargs['storageAccountUri']
 
         if storage_account_uri is not None:
@@ -4584,10 +4740,10 @@ class OrchestratedVirtualMachineScaleSetDataDisk(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             caching: str,
-             disk_size_gb: int,
-             lun: int,
-             storage_account_type: str,
+             caching: Optional[str] = None,
+             disk_size_gb: Optional[int] = None,
+             lun: Optional[int] = None,
+             storage_account_type: Optional[str] = None,
              create_option: Optional[str] = None,
              disk_encryption_set_id: Optional[str] = None,
              ultra_ssd_disk_iops_read_write: Optional[int] = None,
@@ -4595,19 +4751,27 @@ class OrchestratedVirtualMachineScaleSetDataDisk(dict):
              write_accelerator_enabled: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'diskSizeGb' in kwargs:
+        if caching is None:
+            raise TypeError("Missing 'caching' argument")
+        if disk_size_gb is None and 'diskSizeGb' in kwargs:
             disk_size_gb = kwargs['diskSizeGb']
-        if 'storageAccountType' in kwargs:
+        if disk_size_gb is None:
+            raise TypeError("Missing 'disk_size_gb' argument")
+        if lun is None:
+            raise TypeError("Missing 'lun' argument")
+        if storage_account_type is None and 'storageAccountType' in kwargs:
             storage_account_type = kwargs['storageAccountType']
-        if 'createOption' in kwargs:
+        if storage_account_type is None:
+            raise TypeError("Missing 'storage_account_type' argument")
+        if create_option is None and 'createOption' in kwargs:
             create_option = kwargs['createOption']
-        if 'diskEncryptionSetId' in kwargs:
+        if disk_encryption_set_id is None and 'diskEncryptionSetId' in kwargs:
             disk_encryption_set_id = kwargs['diskEncryptionSetId']
-        if 'ultraSsdDiskIopsReadWrite' in kwargs:
+        if ultra_ssd_disk_iops_read_write is None and 'ultraSsdDiskIopsReadWrite' in kwargs:
             ultra_ssd_disk_iops_read_write = kwargs['ultraSsdDiskIopsReadWrite']
-        if 'ultraSsdDiskMbpsReadWrite' in kwargs:
+        if ultra_ssd_disk_mbps_read_write is None and 'ultraSsdDiskMbpsReadWrite' in kwargs:
             ultra_ssd_disk_mbps_read_write = kwargs['ultraSsdDiskMbpsReadWrite']
-        if 'writeAcceleratorEnabled' in kwargs:
+        if write_accelerator_enabled is None and 'writeAcceleratorEnabled' in kwargs:
             write_accelerator_enabled = kwargs['writeAcceleratorEnabled']
 
         _setter("caching", caching)
@@ -4771,10 +4935,10 @@ class OrchestratedVirtualMachineScaleSetExtension(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             publisher: str,
-             type: str,
-             type_handler_version: str,
+             name: Optional[str] = None,
+             publisher: Optional[str] = None,
+             type: Optional[str] = None,
+             type_handler_version: Optional[str] = None,
              auto_upgrade_minor_version_enabled: Optional[bool] = None,
              extensions_to_provision_after_vm_creations: Optional[Sequence[str]] = None,
              failure_suppression_enabled: Optional[bool] = None,
@@ -4784,19 +4948,27 @@ class OrchestratedVirtualMachineScaleSetExtension(dict):
              settings: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'typeHandlerVersion' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if publisher is None:
+            raise TypeError("Missing 'publisher' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if type_handler_version is None and 'typeHandlerVersion' in kwargs:
             type_handler_version = kwargs['typeHandlerVersion']
-        if 'autoUpgradeMinorVersionEnabled' in kwargs:
+        if type_handler_version is None:
+            raise TypeError("Missing 'type_handler_version' argument")
+        if auto_upgrade_minor_version_enabled is None and 'autoUpgradeMinorVersionEnabled' in kwargs:
             auto_upgrade_minor_version_enabled = kwargs['autoUpgradeMinorVersionEnabled']
-        if 'extensionsToProvisionAfterVmCreations' in kwargs:
+        if extensions_to_provision_after_vm_creations is None and 'extensionsToProvisionAfterVmCreations' in kwargs:
             extensions_to_provision_after_vm_creations = kwargs['extensionsToProvisionAfterVmCreations']
-        if 'failureSuppressionEnabled' in kwargs:
+        if failure_suppression_enabled is None and 'failureSuppressionEnabled' in kwargs:
             failure_suppression_enabled = kwargs['failureSuppressionEnabled']
-        if 'forceExtensionExecutionOnChange' in kwargs:
+        if force_extension_execution_on_change is None and 'forceExtensionExecutionOnChange' in kwargs:
             force_extension_execution_on_change = kwargs['forceExtensionExecutionOnChange']
-        if 'protectedSettings' in kwargs:
+        if protected_settings is None and 'protectedSettings' in kwargs:
             protected_settings = kwargs['protectedSettings']
-        if 'protectedSettingsFromKeyVault' in kwargs:
+        if protected_settings_from_key_vault is None and 'protectedSettingsFromKeyVault' in kwargs:
             protected_settings_from_key_vault = kwargs['protectedSettingsFromKeyVault']
 
         _setter("name", name)
@@ -4949,14 +5121,18 @@ class OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault(d
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             secret_url: str,
-             source_vault_id: str,
+             secret_url: Optional[str] = None,
+             source_vault_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'secretUrl' in kwargs:
+        if secret_url is None and 'secretUrl' in kwargs:
             secret_url = kwargs['secretUrl']
-        if 'sourceVaultId' in kwargs:
+        if secret_url is None:
+            raise TypeError("Missing 'secret_url' argument")
+        if source_vault_id is None and 'sourceVaultId' in kwargs:
             source_vault_id = kwargs['sourceVaultId']
+        if source_vault_id is None:
+            raise TypeError("Missing 'source_vault_id' argument")
 
         _setter("secret_url", secret_url)
         _setter("source_vault_id", source_vault_id)
@@ -5012,12 +5188,16 @@ class OrchestratedVirtualMachineScaleSetIdentity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             identity_ids: Sequence[str],
-             type: str,
+             identity_ids: Optional[Sequence[str]] = None,
+             type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
+        if identity_ids is None:
+            raise TypeError("Missing 'identity_ids' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("identity_ids", identity_ids)
         _setter("type", type)
@@ -5098,8 +5278,8 @@ class OrchestratedVirtualMachineScaleSetNetworkInterface(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ip_configurations: Sequence['outputs.OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration'],
-             name: str,
+             ip_configurations: Optional[Sequence['outputs.OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration']] = None,
+             name: Optional[str] = None,
              dns_servers: Optional[Sequence[str]] = None,
              enable_accelerated_networking: Optional[bool] = None,
              enable_ip_forwarding: Optional[bool] = None,
@@ -5107,15 +5287,19 @@ class OrchestratedVirtualMachineScaleSetNetworkInterface(dict):
              primary: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ipConfigurations' in kwargs:
+        if ip_configurations is None and 'ipConfigurations' in kwargs:
             ip_configurations = kwargs['ipConfigurations']
-        if 'dnsServers' in kwargs:
+        if ip_configurations is None:
+            raise TypeError("Missing 'ip_configurations' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if dns_servers is None and 'dnsServers' in kwargs:
             dns_servers = kwargs['dnsServers']
-        if 'enableAcceleratedNetworking' in kwargs:
+        if enable_accelerated_networking is None and 'enableAcceleratedNetworking' in kwargs:
             enable_accelerated_networking = kwargs['enableAcceleratedNetworking']
-        if 'enableIpForwarding' in kwargs:
+        if enable_ip_forwarding is None and 'enableIpForwarding' in kwargs:
             enable_ip_forwarding = kwargs['enableIpForwarding']
-        if 'networkSecurityGroupId' in kwargs:
+        if network_security_group_id is None and 'networkSecurityGroupId' in kwargs:
             network_security_group_id = kwargs['networkSecurityGroupId']
 
         _setter("ip_configurations", ip_configurations)
@@ -5256,7 +5440,7 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              application_gateway_backend_address_pool_ids: Optional[Sequence[str]] = None,
              application_security_group_ids: Optional[Sequence[str]] = None,
              load_balancer_backend_address_pool_ids: Optional[Sequence[str]] = None,
@@ -5266,15 +5450,17 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration(dict):
              version: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'applicationGatewayBackendAddressPoolIds' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if application_gateway_backend_address_pool_ids is None and 'applicationGatewayBackendAddressPoolIds' in kwargs:
             application_gateway_backend_address_pool_ids = kwargs['applicationGatewayBackendAddressPoolIds']
-        if 'applicationSecurityGroupIds' in kwargs:
+        if application_security_group_ids is None and 'applicationSecurityGroupIds' in kwargs:
             application_security_group_ids = kwargs['applicationSecurityGroupIds']
-        if 'loadBalancerBackendAddressPoolIds' in kwargs:
+        if load_balancer_backend_address_pool_ids is None and 'loadBalancerBackendAddressPoolIds' in kwargs:
             load_balancer_backend_address_pool_ids = kwargs['loadBalancerBackendAddressPoolIds']
-        if 'publicIpAddresses' in kwargs:
+        if public_ip_addresses is None and 'publicIpAddresses' in kwargs:
             public_ip_addresses = kwargs['publicIpAddresses']
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
 
         _setter("name", name)
@@ -5421,7 +5607,7 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpA
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              domain_name_label: Optional[str] = None,
              idle_timeout_in_minutes: Optional[int] = None,
              ip_tags: Optional[Sequence['outputs.OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag']] = None,
@@ -5430,15 +5616,17 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpA
              version: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'domainNameLabel' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if domain_name_label is None and 'domainNameLabel' in kwargs:
             domain_name_label = kwargs['domainNameLabel']
-        if 'idleTimeoutInMinutes' in kwargs:
+        if idle_timeout_in_minutes is None and 'idleTimeoutInMinutes' in kwargs:
             idle_timeout_in_minutes = kwargs['idleTimeoutInMinutes']
-        if 'ipTags' in kwargs:
+        if ip_tags is None and 'ipTags' in kwargs:
             ip_tags = kwargs['ipTags']
-        if 'publicIpPrefixId' in kwargs:
+        if public_ip_prefix_id is None and 'publicIpPrefixId' in kwargs:
             public_ip_prefix_id = kwargs['publicIpPrefixId']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
 
         _setter("name", name)
@@ -5529,10 +5717,14 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpA
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             tag: str,
-             type: str,
+             tag: Optional[str] = None,
+             type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if tag is None:
+            raise TypeError("Missing 'tag' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("tag", tag)
         _setter("type", type)
@@ -5610,23 +5802,27 @@ class OrchestratedVirtualMachineScaleSetOsDisk(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             caching: str,
-             storage_account_type: str,
+             caching: Optional[str] = None,
+             storage_account_type: Optional[str] = None,
              diff_disk_settings: Optional['outputs.OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings'] = None,
              disk_encryption_set_id: Optional[str] = None,
              disk_size_gb: Optional[int] = None,
              write_accelerator_enabled: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'storageAccountType' in kwargs:
+        if caching is None:
+            raise TypeError("Missing 'caching' argument")
+        if storage_account_type is None and 'storageAccountType' in kwargs:
             storage_account_type = kwargs['storageAccountType']
-        if 'diffDiskSettings' in kwargs:
+        if storage_account_type is None:
+            raise TypeError("Missing 'storage_account_type' argument")
+        if diff_disk_settings is None and 'diffDiskSettings' in kwargs:
             diff_disk_settings = kwargs['diffDiskSettings']
-        if 'diskEncryptionSetId' in kwargs:
+        if disk_encryption_set_id is None and 'diskEncryptionSetId' in kwargs:
             disk_encryption_set_id = kwargs['diskEncryptionSetId']
-        if 'diskSizeGb' in kwargs:
+        if disk_size_gb is None and 'diskSizeGb' in kwargs:
             disk_size_gb = kwargs['diskSizeGb']
-        if 'writeAcceleratorEnabled' in kwargs:
+        if write_accelerator_enabled is None and 'writeAcceleratorEnabled' in kwargs:
             write_accelerator_enabled = kwargs['writeAcceleratorEnabled']
 
         _setter("caching", caching)
@@ -5708,10 +5904,12 @@ class OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             option: str,
+             option: Optional[str] = None,
              placement: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if option is None:
+            raise TypeError("Missing 'option' argument")
 
         _setter("option", option)
         if placement is not None:
@@ -5782,11 +5980,11 @@ class OrchestratedVirtualMachineScaleSetOsProfile(dict):
              windows_configuration: Optional['outputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration'] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'customData' in kwargs:
+        if custom_data is None and 'customData' in kwargs:
             custom_data = kwargs['customData']
-        if 'linuxConfiguration' in kwargs:
+        if linux_configuration is None and 'linuxConfiguration' in kwargs:
             linux_configuration = kwargs['linuxConfiguration']
-        if 'windowsConfiguration' in kwargs:
+        if windows_configuration is None and 'windowsConfiguration' in kwargs:
             windows_configuration = kwargs['windowsConfiguration']
 
         if custom_data is not None:
@@ -5895,7 +6093,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             admin_username: str,
+             admin_username: Optional[str] = None,
              admin_password: Optional[str] = None,
              admin_ssh_keys: Optional[Sequence['outputs.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey']] = None,
              computer_name_prefix: Optional[str] = None,
@@ -5906,21 +6104,23 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration(dict):
              secrets: Optional[Sequence['outputs.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'adminUsername' in kwargs:
+        if admin_username is None and 'adminUsername' in kwargs:
             admin_username = kwargs['adminUsername']
-        if 'adminPassword' in kwargs:
+        if admin_username is None:
+            raise TypeError("Missing 'admin_username' argument")
+        if admin_password is None and 'adminPassword' in kwargs:
             admin_password = kwargs['adminPassword']
-        if 'adminSshKeys' in kwargs:
+        if admin_ssh_keys is None and 'adminSshKeys' in kwargs:
             admin_ssh_keys = kwargs['adminSshKeys']
-        if 'computerNamePrefix' in kwargs:
+        if computer_name_prefix is None and 'computerNamePrefix' in kwargs:
             computer_name_prefix = kwargs['computerNamePrefix']
-        if 'disablePasswordAuthentication' in kwargs:
+        if disable_password_authentication is None and 'disablePasswordAuthentication' in kwargs:
             disable_password_authentication = kwargs['disablePasswordAuthentication']
-        if 'patchAssessmentMode' in kwargs:
+        if patch_assessment_mode is None and 'patchAssessmentMode' in kwargs:
             patch_assessment_mode = kwargs['patchAssessmentMode']
-        if 'patchMode' in kwargs:
+        if patch_mode is None and 'patchMode' in kwargs:
             patch_mode = kwargs['patchMode']
-        if 'provisionVmAgent' in kwargs:
+        if provision_vm_agent is None and 'provisionVmAgent' in kwargs:
             provision_vm_agent = kwargs['provisionVmAgent']
 
         _setter("admin_username", admin_username)
@@ -6051,12 +6251,16 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey(d
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             public_key: str,
-             username: str,
+             public_key: Optional[str] = None,
+             username: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'publicKey' in kwargs:
+        if public_key is None and 'publicKey' in kwargs:
             public_key = kwargs['publicKey']
+        if public_key is None:
+            raise TypeError("Missing 'public_key' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
 
         _setter("public_key", public_key)
         _setter("username", username)
@@ -6116,12 +6320,16 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             certificates: Sequence['outputs.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate'],
-             key_vault_id: str,
+             certificates: Optional[Sequence['outputs.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate']] = None,
+             key_vault_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'keyVaultId' in kwargs:
+        if certificates is None:
+            raise TypeError("Missing 'certificates' argument")
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
+        if key_vault_id is None:
+            raise TypeError("Missing 'key_vault_id' argument")
 
         _setter("certificates", certificates)
         _setter("key_vault_id", key_vault_id)
@@ -6161,9 +6369,11 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertifi
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             url: str,
+             url: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if url is None:
+            raise TypeError("Missing 'url' argument")
 
         _setter("url", url)
 
@@ -6258,8 +6468,8 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             admin_password: str,
-             admin_username: str,
+             admin_password: Optional[str] = None,
+             admin_username: Optional[str] = None,
              computer_name_prefix: Optional[str] = None,
              enable_automatic_updates: Optional[bool] = None,
              hotpatching_enabled: Optional[bool] = None,
@@ -6271,23 +6481,27 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration(dict):
              winrm_listeners: Optional[Sequence['outputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'adminPassword' in kwargs:
+        if admin_password is None and 'adminPassword' in kwargs:
             admin_password = kwargs['adminPassword']
-        if 'adminUsername' in kwargs:
+        if admin_password is None:
+            raise TypeError("Missing 'admin_password' argument")
+        if admin_username is None and 'adminUsername' in kwargs:
             admin_username = kwargs['adminUsername']
-        if 'computerNamePrefix' in kwargs:
+        if admin_username is None:
+            raise TypeError("Missing 'admin_username' argument")
+        if computer_name_prefix is None and 'computerNamePrefix' in kwargs:
             computer_name_prefix = kwargs['computerNamePrefix']
-        if 'enableAutomaticUpdates' in kwargs:
+        if enable_automatic_updates is None and 'enableAutomaticUpdates' in kwargs:
             enable_automatic_updates = kwargs['enableAutomaticUpdates']
-        if 'hotpatchingEnabled' in kwargs:
+        if hotpatching_enabled is None and 'hotpatchingEnabled' in kwargs:
             hotpatching_enabled = kwargs['hotpatchingEnabled']
-        if 'patchAssessmentMode' in kwargs:
+        if patch_assessment_mode is None and 'patchAssessmentMode' in kwargs:
             patch_assessment_mode = kwargs['patchAssessmentMode']
-        if 'patchMode' in kwargs:
+        if patch_mode is None and 'patchMode' in kwargs:
             patch_mode = kwargs['patchMode']
-        if 'provisionVmAgent' in kwargs:
+        if provision_vm_agent is None and 'provisionVmAgent' in kwargs:
             provision_vm_agent = kwargs['provisionVmAgent']
-        if 'winrmListeners' in kwargs:
+        if winrm_listeners is None and 'winrmListeners' in kwargs:
             winrm_listeners = kwargs['winrmListeners']
 
         _setter("admin_password", admin_password)
@@ -6437,12 +6651,16 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret(dict
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             certificates: Sequence['outputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate'],
-             key_vault_id: str,
+             certificates: Optional[Sequence['outputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate']] = None,
+             key_vault_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'keyVaultId' in kwargs:
+        if certificates is None:
+            raise TypeError("Missing 'certificates' argument")
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
+        if key_vault_id is None:
+            raise TypeError("Missing 'key_vault_id' argument")
 
         _setter("certificates", certificates)
         _setter("key_vault_id", key_vault_id)
@@ -6485,10 +6703,14 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCerti
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             store: str,
-             url: str,
+             store: Optional[str] = None,
+             url: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if store is None:
+            raise TypeError("Missing 'store' argument")
+        if url is None:
+            raise TypeError("Missing 'url' argument")
 
         _setter("store", store)
         _setter("url", url)
@@ -6548,11 +6770,13 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListen
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             protocol: str,
+             protocol: Optional[str] = None,
              certificate_url: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'certificateUrl' in kwargs:
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if certificate_url is None and 'certificateUrl' in kwargs:
             certificate_url = kwargs['certificateUrl']
 
         _setter("protocol", protocol)
@@ -6598,11 +6822,17 @@ class OrchestratedVirtualMachineScaleSetPlan(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             product: str,
-             publisher: str,
+             name: Optional[str] = None,
+             product: Optional[str] = None,
+             publisher: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if product is None:
+            raise TypeError("Missing 'product' argument")
+        if publisher is None:
+            raise TypeError("Missing 'publisher' argument")
 
         _setter("name", name)
         _setter("product", product)
@@ -6673,9 +6903,9 @@ class OrchestratedVirtualMachineScaleSetPriorityMix(dict):
              regular_percentage_above_base: Optional[int] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'baseRegularCount' in kwargs:
+        if base_regular_count is None and 'baseRegularCount' in kwargs:
             base_regular_count = kwargs['baseRegularCount']
-        if 'regularPercentageAboveBase' in kwargs:
+        if regular_percentage_above_base is None and 'regularPercentageAboveBase' in kwargs:
             regular_percentage_above_base = kwargs['regularPercentageAboveBase']
 
         if base_regular_count is not None:
@@ -6723,12 +6953,20 @@ class OrchestratedVirtualMachineScaleSetSourceImageReference(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             offer: str,
-             publisher: str,
-             sku: str,
-             version: str,
+             offer: Optional[str] = None,
+             publisher: Optional[str] = None,
+             sku: Optional[str] = None,
+             version: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if offer is None:
+            raise TypeError("Missing 'offer' argument")
+        if publisher is None:
+            raise TypeError("Missing 'publisher' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
 
         _setter("offer", offer)
         _setter("publisher", publisher)
@@ -6785,10 +7023,12 @@ class OrchestratedVirtualMachineScaleSetTerminationNotification(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: bool,
+             enabled: Optional[bool] = None,
              timeout: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
 
         _setter("enabled", enabled)
         if timeout is not None:
@@ -6860,20 +7100,22 @@ class PacketCaptureFilter(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             protocol: str,
+             protocol: Optional[str] = None,
              local_ip_address: Optional[str] = None,
              local_port: Optional[str] = None,
              remote_ip_address: Optional[str] = None,
              remote_port: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'localIpAddress' in kwargs:
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if local_ip_address is None and 'localIpAddress' in kwargs:
             local_ip_address = kwargs['localIpAddress']
-        if 'localPort' in kwargs:
+        if local_port is None and 'localPort' in kwargs:
             local_port = kwargs['localPort']
-        if 'remoteIpAddress' in kwargs:
+        if remote_ip_address is None and 'remoteIpAddress' in kwargs:
             remote_ip_address = kwargs['remoteIpAddress']
-        if 'remotePort' in kwargs:
+        if remote_port is None and 'remotePort' in kwargs:
             remote_port = kwargs['remotePort']
 
         _setter("protocol", protocol)
@@ -6975,11 +7217,11 @@ class PacketCaptureStorageLocation(dict):
              storage_path: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'filePath' in kwargs:
+        if file_path is None and 'filePath' in kwargs:
             file_path = kwargs['filePath']
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'storagePath' in kwargs:
+        if storage_path is None and 'storagePath' in kwargs:
             storage_path = kwargs['storagePath']
 
         if file_path is not None:
@@ -7050,12 +7292,14 @@ class ScaleSetBootDiagnostics(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             storage_uri: str,
+             storage_uri: Optional[str] = None,
              enabled: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'storageUri' in kwargs:
+        if storage_uri is None and 'storageUri' in kwargs:
             storage_uri = kwargs['storageUri']
+        if storage_uri is None:
+            raise TypeError("Missing 'storage_uri' argument")
 
         _setter("storage_uri", storage_uri)
         if enabled is not None:
@@ -7136,23 +7380,31 @@ class ScaleSetExtension(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             publisher: str,
-             type: str,
-             type_handler_version: str,
+             name: Optional[str] = None,
+             publisher: Optional[str] = None,
+             type: Optional[str] = None,
+             type_handler_version: Optional[str] = None,
              auto_upgrade_minor_version: Optional[bool] = None,
              protected_settings: Optional[str] = None,
              provision_after_extensions: Optional[Sequence[str]] = None,
              settings: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'typeHandlerVersion' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if publisher is None:
+            raise TypeError("Missing 'publisher' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if type_handler_version is None and 'typeHandlerVersion' in kwargs:
             type_handler_version = kwargs['typeHandlerVersion']
-        if 'autoUpgradeMinorVersion' in kwargs:
+        if type_handler_version is None:
+            raise TypeError("Missing 'type_handler_version' argument")
+        if auto_upgrade_minor_version is None and 'autoUpgradeMinorVersion' in kwargs:
             auto_upgrade_minor_version = kwargs['autoUpgradeMinorVersion']
-        if 'protectedSettings' in kwargs:
+        if protected_settings is None and 'protectedSettings' in kwargs:
             protected_settings = kwargs['protectedSettings']
-        if 'provisionAfterExtensions' in kwargs:
+        if provision_after_extensions is None and 'provisionAfterExtensions' in kwargs:
             provision_after_extensions = kwargs['provisionAfterExtensions']
 
         _setter("name", name)
@@ -7297,14 +7549,16 @@ class ScaleSetIdentity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
 
         _setter("type", type)
@@ -7418,24 +7672,30 @@ class ScaleSetNetworkProfile(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ip_configurations: Sequence['outputs.ScaleSetNetworkProfileIpConfiguration'],
-             name: str,
-             primary: bool,
+             ip_configurations: Optional[Sequence['outputs.ScaleSetNetworkProfileIpConfiguration']] = None,
+             name: Optional[str] = None,
+             primary: Optional[bool] = None,
              accelerated_networking: Optional[bool] = None,
              dns_settings: Optional['outputs.ScaleSetNetworkProfileDnsSettings'] = None,
              ip_forwarding: Optional[bool] = None,
              network_security_group_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ipConfigurations' in kwargs:
+        if ip_configurations is None and 'ipConfigurations' in kwargs:
             ip_configurations = kwargs['ipConfigurations']
-        if 'acceleratedNetworking' in kwargs:
+        if ip_configurations is None:
+            raise TypeError("Missing 'ip_configurations' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if primary is None:
+            raise TypeError("Missing 'primary' argument")
+        if accelerated_networking is None and 'acceleratedNetworking' in kwargs:
             accelerated_networking = kwargs['acceleratedNetworking']
-        if 'dnsSettings' in kwargs:
+        if dns_settings is None and 'dnsSettings' in kwargs:
             dns_settings = kwargs['dnsSettings']
-        if 'ipForwarding' in kwargs:
+        if ip_forwarding is None and 'ipForwarding' in kwargs:
             ip_forwarding = kwargs['ipForwarding']
-        if 'networkSecurityGroupId' in kwargs:
+        if network_security_group_id is None and 'networkSecurityGroupId' in kwargs:
             network_security_group_id = kwargs['networkSecurityGroupId']
 
         _setter("ip_configurations", ip_configurations)
@@ -7538,11 +7798,13 @@ class ScaleSetNetworkProfileDnsSettings(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             dns_servers: Sequence[str],
+             dns_servers: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dnsServers' in kwargs:
+        if dns_servers is None and 'dnsServers' in kwargs:
             dns_servers = kwargs['dnsServers']
+        if dns_servers is None:
+            raise TypeError("Missing 'dns_servers' argument")
 
         _setter("dns_servers", dns_servers)
 
@@ -7621,9 +7883,9 @@ class ScaleSetNetworkProfileIpConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             primary: bool,
-             subnet_id: str,
+             name: Optional[str] = None,
+             primary: Optional[bool] = None,
+             subnet_id: Optional[str] = None,
              application_gateway_backend_address_pool_ids: Optional[Sequence[str]] = None,
              application_security_group_ids: Optional[Sequence[str]] = None,
              load_balancer_backend_address_pool_ids: Optional[Sequence[str]] = None,
@@ -7631,17 +7893,23 @@ class ScaleSetNetworkProfileIpConfiguration(dict):
              public_ip_address_configuration: Optional['outputs.ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration'] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'subnetId' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if primary is None:
+            raise TypeError("Missing 'primary' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'applicationGatewayBackendAddressPoolIds' in kwargs:
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+        if application_gateway_backend_address_pool_ids is None and 'applicationGatewayBackendAddressPoolIds' in kwargs:
             application_gateway_backend_address_pool_ids = kwargs['applicationGatewayBackendAddressPoolIds']
-        if 'applicationSecurityGroupIds' in kwargs:
+        if application_security_group_ids is None and 'applicationSecurityGroupIds' in kwargs:
             application_security_group_ids = kwargs['applicationSecurityGroupIds']
-        if 'loadBalancerBackendAddressPoolIds' in kwargs:
+        if load_balancer_backend_address_pool_ids is None and 'loadBalancerBackendAddressPoolIds' in kwargs:
             load_balancer_backend_address_pool_ids = kwargs['loadBalancerBackendAddressPoolIds']
-        if 'loadBalancerInboundNatRulesIds' in kwargs:
+        if load_balancer_inbound_nat_rules_ids is None and 'loadBalancerInboundNatRulesIds' in kwargs:
             load_balancer_inbound_nat_rules_ids = kwargs['loadBalancerInboundNatRulesIds']
-        if 'publicIpAddressConfiguration' in kwargs:
+        if public_ip_address_configuration is None and 'publicIpAddressConfiguration' in kwargs:
             public_ip_address_configuration = kwargs['publicIpAddressConfiguration']
 
         _setter("name", name)
@@ -7766,15 +8034,21 @@ class ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             domain_name_label: str,
-             idle_timeout: int,
-             name: str,
+             domain_name_label: Optional[str] = None,
+             idle_timeout: Optional[int] = None,
+             name: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'domainNameLabel' in kwargs:
+        if domain_name_label is None and 'domainNameLabel' in kwargs:
             domain_name_label = kwargs['domainNameLabel']
-        if 'idleTimeout' in kwargs:
+        if domain_name_label is None:
+            raise TypeError("Missing 'domain_name_label' argument")
+        if idle_timeout is None and 'idleTimeout' in kwargs:
             idle_timeout = kwargs['idleTimeout']
+        if idle_timeout is None:
+            raise TypeError("Missing 'idle_timeout' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("domain_name_label", domain_name_label)
         _setter("idle_timeout", idle_timeout)
@@ -7851,19 +8125,23 @@ class ScaleSetOsProfile(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             admin_username: str,
-             computer_name_prefix: str,
+             admin_username: Optional[str] = None,
+             computer_name_prefix: Optional[str] = None,
              admin_password: Optional[str] = None,
              custom_data: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'adminUsername' in kwargs:
+        if admin_username is None and 'adminUsername' in kwargs:
             admin_username = kwargs['adminUsername']
-        if 'computerNamePrefix' in kwargs:
+        if admin_username is None:
+            raise TypeError("Missing 'admin_username' argument")
+        if computer_name_prefix is None and 'computerNamePrefix' in kwargs:
             computer_name_prefix = kwargs['computerNamePrefix']
-        if 'adminPassword' in kwargs:
+        if computer_name_prefix is None:
+            raise TypeError("Missing 'computer_name_prefix' argument")
+        if admin_password is None and 'adminPassword' in kwargs:
             admin_password = kwargs['adminPassword']
-        if 'customData' in kwargs:
+        if custom_data is None and 'customData' in kwargs:
             custom_data = kwargs['customData']
 
         _setter("admin_username", admin_username)
@@ -7950,9 +8228,9 @@ class ScaleSetOsProfileLinuxConfig(dict):
              ssh_keys: Optional[Sequence['outputs.ScaleSetOsProfileLinuxConfigSshKey']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'disablePasswordAuthentication' in kwargs:
+        if disable_password_authentication is None and 'disablePasswordAuthentication' in kwargs:
             disable_password_authentication = kwargs['disablePasswordAuthentication']
-        if 'sshKeys' in kwargs:
+        if ssh_keys is None and 'sshKeys' in kwargs:
             ssh_keys = kwargs['sshKeys']
 
         if disable_password_authentication is not None:
@@ -8021,11 +8299,13 @@ class ScaleSetOsProfileLinuxConfigSshKey(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             path: str,
+             path: Optional[str] = None,
              key_data: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'keyData' in kwargs:
+        if path is None:
+            raise TypeError("Missing 'path' argument")
+        if key_data is None and 'keyData' in kwargs:
             key_data = kwargs['keyData']
 
         _setter("path", path)
@@ -8091,13 +8371,15 @@ class ScaleSetOsProfileSecret(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             source_vault_id: str,
+             source_vault_id: Optional[str] = None,
              vault_certificates: Optional[Sequence['outputs.ScaleSetOsProfileSecretVaultCertificate']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'sourceVaultId' in kwargs:
+        if source_vault_id is None and 'sourceVaultId' in kwargs:
             source_vault_id = kwargs['sourceVaultId']
-        if 'vaultCertificates' in kwargs:
+        if source_vault_id is None:
+            raise TypeError("Missing 'source_vault_id' argument")
+        if vault_certificates is None and 'vaultCertificates' in kwargs:
             vault_certificates = kwargs['vaultCertificates']
 
         _setter("source_vault_id", source_vault_id)
@@ -8157,13 +8439,15 @@ class ScaleSetOsProfileSecretVaultCertificate(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             certificate_url: str,
+             certificate_url: Optional[str] = None,
              certificate_store: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'certificateUrl' in kwargs:
+        if certificate_url is None and 'certificateUrl' in kwargs:
             certificate_url = kwargs['certificateUrl']
-        if 'certificateStore' in kwargs:
+        if certificate_url is None:
+            raise TypeError("Missing 'certificate_url' argument")
+        if certificate_store is None and 'certificateStore' in kwargs:
             certificate_store = kwargs['certificateStore']
 
         _setter("certificate_url", certificate_url)
@@ -8237,11 +8521,11 @@ class ScaleSetOsProfileWindowsConfig(dict):
              winrms: Optional[Sequence['outputs.ScaleSetOsProfileWindowsConfigWinrm']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'additionalUnattendConfigs' in kwargs:
+        if additional_unattend_configs is None and 'additionalUnattendConfigs' in kwargs:
             additional_unattend_configs = kwargs['additionalUnattendConfigs']
-        if 'enableAutomaticUpgrades' in kwargs:
+        if enable_automatic_upgrades is None and 'enableAutomaticUpgrades' in kwargs:
             enable_automatic_upgrades = kwargs['enableAutomaticUpgrades']
-        if 'provisionVmAgent' in kwargs:
+        if provision_vm_agent is None and 'provisionVmAgent' in kwargs:
             provision_vm_agent = kwargs['provisionVmAgent']
 
         if additional_unattend_configs is not None:
@@ -8328,16 +8612,24 @@ class ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             component: str,
-             content: str,
-             pass_: str,
-             setting_name: str,
+             component: Optional[str] = None,
+             content: Optional[str] = None,
+             pass_: Optional[str] = None,
+             setting_name: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'pass' in kwargs:
+        if component is None:
+            raise TypeError("Missing 'component' argument")
+        if content is None:
+            raise TypeError("Missing 'content' argument")
+        if pass_ is None and 'pass' in kwargs:
             pass_ = kwargs['pass']
-        if 'settingName' in kwargs:
+        if pass_ is None:
+            raise TypeError("Missing 'pass_' argument")
+        if setting_name is None and 'settingName' in kwargs:
             setting_name = kwargs['settingName']
+        if setting_name is None:
+            raise TypeError("Missing 'setting_name' argument")
 
         _setter("component", component)
         _setter("content", content)
@@ -8411,11 +8703,13 @@ class ScaleSetOsProfileWindowsConfigWinrm(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             protocol: str,
+             protocol: Optional[str] = None,
              certificate_url: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'certificateUrl' in kwargs:
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if certificate_url is None and 'certificateUrl' in kwargs:
             certificate_url = kwargs['certificateUrl']
 
         _setter("protocol", protocol)
@@ -8488,20 +8782,22 @@ class ScaleSetPacketCaptureFilter(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             protocol: str,
+             protocol: Optional[str] = None,
              local_ip_address: Optional[str] = None,
              local_port: Optional[str] = None,
              remote_ip_address: Optional[str] = None,
              remote_port: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'localIpAddress' in kwargs:
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if local_ip_address is None and 'localIpAddress' in kwargs:
             local_ip_address = kwargs['localIpAddress']
-        if 'localPort' in kwargs:
+        if local_port is None and 'localPort' in kwargs:
             local_port = kwargs['localPort']
-        if 'remoteIpAddress' in kwargs:
+        if remote_ip_address is None and 'remoteIpAddress' in kwargs:
             remote_ip_address = kwargs['remoteIpAddress']
-        if 'remotePort' in kwargs:
+        if remote_port is None and 'remotePort' in kwargs:
             remote_port = kwargs['remotePort']
 
         _setter("protocol", protocol)
@@ -8595,9 +8891,9 @@ class ScaleSetPacketCaptureMachineScope(dict):
              include_instance_ids: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'excludeInstanceIds' in kwargs:
+        if exclude_instance_ids is None and 'excludeInstanceIds' in kwargs:
             exclude_instance_ids = kwargs['excludeInstanceIds']
-        if 'includeInstanceIds' in kwargs:
+        if include_instance_ids is None and 'includeInstanceIds' in kwargs:
             include_instance_ids = kwargs['includeInstanceIds']
 
         if exclude_instance_ids is not None:
@@ -8670,11 +8966,11 @@ class ScaleSetPacketCaptureStorageLocation(dict):
              storage_path: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'filePath' in kwargs:
+        if file_path is None and 'filePath' in kwargs:
             file_path = kwargs['filePath']
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'storagePath' in kwargs:
+        if storage_path is None and 'storagePath' in kwargs:
             storage_path = kwargs['storagePath']
 
         if file_path is not None:
@@ -8731,11 +9027,17 @@ class ScaleSetPlan(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             product: str,
-             publisher: str,
+             name: Optional[str] = None,
+             product: Optional[str] = None,
+             publisher: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if product is None:
+            raise TypeError("Missing 'product' argument")
+        if publisher is None:
+            raise TypeError("Missing 'publisher' argument")
 
         _setter("name", name)
         _setter("product", product)
@@ -8818,13 +9120,13 @@ class ScaleSetRollingUpgradePolicy(dict):
              pause_time_between_batches: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'maxBatchInstancePercent' in kwargs:
+        if max_batch_instance_percent is None and 'maxBatchInstancePercent' in kwargs:
             max_batch_instance_percent = kwargs['maxBatchInstancePercent']
-        if 'maxUnhealthyInstancePercent' in kwargs:
+        if max_unhealthy_instance_percent is None and 'maxUnhealthyInstancePercent' in kwargs:
             max_unhealthy_instance_percent = kwargs['maxUnhealthyInstancePercent']
-        if 'maxUnhealthyUpgradedInstancePercent' in kwargs:
+        if max_unhealthy_upgraded_instance_percent is None and 'maxUnhealthyUpgradedInstancePercent' in kwargs:
             max_unhealthy_upgraded_instance_percent = kwargs['maxUnhealthyUpgradedInstancePercent']
-        if 'pauseTimeBetweenBatches' in kwargs:
+        if pause_time_between_batches is None and 'pauseTimeBetweenBatches' in kwargs:
             pause_time_between_batches = kwargs['pauseTimeBetweenBatches']
 
         if max_batch_instance_percent is not None:
@@ -8889,11 +9191,15 @@ class ScaleSetSku(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             capacity: int,
-             name: str,
+             capacity: Optional[int] = None,
+             name: Optional[str] = None,
              tier: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if capacity is None:
+            raise TypeError("Missing 'capacity' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("capacity", capacity)
         _setter("name", name)
@@ -8972,18 +9278,22 @@ class ScaleSetStorageProfileDataDisk(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             create_option: str,
-             lun: int,
+             create_option: Optional[str] = None,
+             lun: Optional[int] = None,
              caching: Optional[str] = None,
              disk_size_gb: Optional[int] = None,
              managed_disk_type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'createOption' in kwargs:
+        if create_option is None and 'createOption' in kwargs:
             create_option = kwargs['createOption']
-        if 'diskSizeGb' in kwargs:
+        if create_option is None:
+            raise TypeError("Missing 'create_option' argument")
+        if lun is None:
+            raise TypeError("Missing 'lun' argument")
+        if disk_size_gb is None and 'diskSizeGb' in kwargs:
             disk_size_gb = kwargs['diskSizeGb']
-        if 'managedDiskType' in kwargs:
+        if managed_disk_type is None and 'managedDiskType' in kwargs:
             managed_disk_type = kwargs['managedDiskType']
 
         _setter("create_option", create_option)
@@ -9179,7 +9489,7 @@ class ScaleSetStorageProfileOsDisk(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             create_option: str,
+             create_option: Optional[str] = None,
              caching: Optional[str] = None,
              image: Optional[str] = None,
              managed_disk_type: Optional[str] = None,
@@ -9188,13 +9498,15 @@ class ScaleSetStorageProfileOsDisk(dict):
              vhd_containers: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'createOption' in kwargs:
+        if create_option is None and 'createOption' in kwargs:
             create_option = kwargs['createOption']
-        if 'managedDiskType' in kwargs:
+        if create_option is None:
+            raise TypeError("Missing 'create_option' argument")
+        if managed_disk_type is None and 'managedDiskType' in kwargs:
             managed_disk_type = kwargs['managedDiskType']
-        if 'osType' in kwargs:
+        if os_type is None and 'osType' in kwargs:
             os_type = kwargs['osType']
-        if 'vhdContainers' in kwargs:
+        if vhd_containers is None and 'vhdContainers' in kwargs:
             vhd_containers = kwargs['vhdContainers']
 
         _setter("create_option", create_option)
@@ -9308,11 +9620,13 @@ class SharedImageGallerySharing(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             permission: str,
+             permission: Optional[str] = None,
              community_gallery: Optional['outputs.SharedImageGallerySharingCommunityGallery'] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'communityGallery' in kwargs:
+        if permission is None:
+            raise TypeError("Missing 'permission' argument")
+        if community_gallery is None and 'communityGallery' in kwargs:
             community_gallery = kwargs['communityGallery']
 
         _setter("permission", permission)
@@ -9385,17 +9699,25 @@ class SharedImageGallerySharingCommunityGallery(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             eula: str,
-             prefix: str,
-             publisher_email: str,
-             publisher_uri: str,
+             eula: Optional[str] = None,
+             prefix: Optional[str] = None,
+             publisher_email: Optional[str] = None,
+             publisher_uri: Optional[str] = None,
              name: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'publisherEmail' in kwargs:
+        if eula is None:
+            raise TypeError("Missing 'eula' argument")
+        if prefix is None:
+            raise TypeError("Missing 'prefix' argument")
+        if publisher_email is None and 'publisherEmail' in kwargs:
             publisher_email = kwargs['publisherEmail']
-        if 'publisherUri' in kwargs:
+        if publisher_email is None:
+            raise TypeError("Missing 'publisher_email' argument")
+        if publisher_uri is None and 'publisherUri' in kwargs:
             publisher_uri = kwargs['publisherUri']
+        if publisher_uri is None:
+            raise TypeError("Missing 'publisher_uri' argument")
 
         _setter("eula", eula)
         _setter("prefix", prefix)
@@ -9465,11 +9787,17 @@ class SharedImageIdentifier(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             offer: str,
-             publisher: str,
-             sku: str,
+             offer: Optional[str] = None,
+             publisher: Optional[str] = None,
+             sku: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if offer is None:
+            raise TypeError("Missing 'offer' argument")
+        if publisher is None:
+            raise TypeError("Missing 'publisher' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
 
         _setter("offer", offer)
         _setter("publisher", publisher)
@@ -9520,11 +9848,13 @@ class SharedImagePurchasePlan(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              product: Optional[str] = None,
              publisher: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
         if product is not None:
@@ -9606,20 +9936,24 @@ class SharedImageVersionTargetRegion(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             regional_replica_count: int,
+             name: Optional[str] = None,
+             regional_replica_count: Optional[int] = None,
              disk_encryption_set_id: Optional[str] = None,
              exclude_from_latest_enabled: Optional[bool] = None,
              storage_account_type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'regionalReplicaCount' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if regional_replica_count is None and 'regionalReplicaCount' in kwargs:
             regional_replica_count = kwargs['regionalReplicaCount']
-        if 'diskEncryptionSetId' in kwargs:
+        if regional_replica_count is None:
+            raise TypeError("Missing 'regional_replica_count' argument")
+        if disk_encryption_set_id is None and 'diskEncryptionSetId' in kwargs:
             disk_encryption_set_id = kwargs['diskEncryptionSetId']
-        if 'excludeFromLatestEnabled' in kwargs:
+        if exclude_from_latest_enabled is None and 'excludeFromLatestEnabled' in kwargs:
             exclude_from_latest_enabled = kwargs['excludeFromLatestEnabled']
-        if 'storageAccountType' in kwargs:
+        if storage_account_type is None and 'storageAccountType' in kwargs:
             storage_account_type = kwargs['storageAccountType']
 
         _setter("name", name)
@@ -9715,9 +10049,9 @@ class SnapshotEncryptionSettings(dict):
              key_encryption_key: Optional['outputs.SnapshotEncryptionSettingsKeyEncryptionKey'] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'diskEncryptionKey' in kwargs:
+        if disk_encryption_key is None and 'diskEncryptionKey' in kwargs:
             disk_encryption_key = kwargs['diskEncryptionKey']
-        if 'keyEncryptionKey' in kwargs:
+        if key_encryption_key is None and 'keyEncryptionKey' in kwargs:
             key_encryption_key = kwargs['keyEncryptionKey']
 
         if disk_encryption_key is not None:
@@ -9788,14 +10122,18 @@ class SnapshotEncryptionSettingsDiskEncryptionKey(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             secret_url: str,
-             source_vault_id: str,
+             secret_url: Optional[str] = None,
+             source_vault_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'secretUrl' in kwargs:
+        if secret_url is None and 'secretUrl' in kwargs:
             secret_url = kwargs['secretUrl']
-        if 'sourceVaultId' in kwargs:
+        if secret_url is None:
+            raise TypeError("Missing 'secret_url' argument")
+        if source_vault_id is None and 'sourceVaultId' in kwargs:
             source_vault_id = kwargs['sourceVaultId']
+        if source_vault_id is None:
+            raise TypeError("Missing 'source_vault_id' argument")
 
         _setter("secret_url", secret_url)
         _setter("source_vault_id", source_vault_id)
@@ -9853,14 +10191,18 @@ class SnapshotEncryptionSettingsKeyEncryptionKey(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_url: str,
-             source_vault_id: str,
+             key_url: Optional[str] = None,
+             source_vault_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'keyUrl' in kwargs:
+        if key_url is None and 'keyUrl' in kwargs:
             key_url = kwargs['keyUrl']
-        if 'sourceVaultId' in kwargs:
+        if key_url is None:
+            raise TypeError("Missing 'key_url' argument")
+        if source_vault_id is None and 'sourceVaultId' in kwargs:
             source_vault_id = kwargs['sourceVaultId']
+        if source_vault_id is None:
+            raise TypeError("Missing 'source_vault_id' argument")
 
         _setter("key_url", key_url)
         _setter("source_vault_id", source_vault_id)
@@ -9915,11 +10257,13 @@ class VirtualMachineAdditionalCapabilities(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ultra_ssd_enabled: bool,
+             ultra_ssd_enabled: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ultraSsdEnabled' in kwargs:
+        if ultra_ssd_enabled is None and 'ultraSsdEnabled' in kwargs:
             ultra_ssd_enabled = kwargs['ultraSsdEnabled']
+        if ultra_ssd_enabled is None:
+            raise TypeError("Missing 'ultra_ssd_enabled' argument")
 
         _setter("ultra_ssd_enabled", ultra_ssd_enabled)
 
@@ -9970,12 +10314,16 @@ class VirtualMachineBootDiagnostics(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: bool,
-             storage_uri: str,
+             enabled: Optional[bool] = None,
+             storage_uri: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'storageUri' in kwargs:
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if storage_uri is None and 'storageUri' in kwargs:
             storage_uri = kwargs['storageUri']
+        if storage_uri is None:
+            raise TypeError("Missing 'storage_uri' argument")
 
         _setter("enabled", enabled)
         _setter("storage_uri", storage_uri)
@@ -10044,14 +10392,16 @@ class VirtualMachineIdentity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
 
         _setter("type", type)
@@ -10139,19 +10489,23 @@ class VirtualMachineOsProfile(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             admin_username: str,
-             computer_name: str,
+             admin_username: Optional[str] = None,
+             computer_name: Optional[str] = None,
              admin_password: Optional[str] = None,
              custom_data: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'adminUsername' in kwargs:
+        if admin_username is None and 'adminUsername' in kwargs:
             admin_username = kwargs['adminUsername']
-        if 'computerName' in kwargs:
+        if admin_username is None:
+            raise TypeError("Missing 'admin_username' argument")
+        if computer_name is None and 'computerName' in kwargs:
             computer_name = kwargs['computerName']
-        if 'adminPassword' in kwargs:
+        if computer_name is None:
+            raise TypeError("Missing 'computer_name' argument")
+        if admin_password is None and 'adminPassword' in kwargs:
             admin_password = kwargs['adminPassword']
-        if 'customData' in kwargs:
+        if custom_data is None and 'customData' in kwargs:
             custom_data = kwargs['customData']
 
         _setter("admin_username", admin_username)
@@ -10232,13 +10586,15 @@ class VirtualMachineOsProfileLinuxConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             disable_password_authentication: bool,
+             disable_password_authentication: Optional[bool] = None,
              ssh_keys: Optional[Sequence['outputs.VirtualMachineOsProfileLinuxConfigSshKey']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'disablePasswordAuthentication' in kwargs:
+        if disable_password_authentication is None and 'disablePasswordAuthentication' in kwargs:
             disable_password_authentication = kwargs['disablePasswordAuthentication']
-        if 'sshKeys' in kwargs:
+        if disable_password_authentication is None:
+            raise TypeError("Missing 'disable_password_authentication' argument")
+        if ssh_keys is None and 'sshKeys' in kwargs:
             ssh_keys = kwargs['sshKeys']
 
         _setter("disable_password_authentication", disable_password_authentication)
@@ -10300,12 +10656,16 @@ class VirtualMachineOsProfileLinuxConfigSshKey(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_data: str,
-             path: str,
+             key_data: Optional[str] = None,
+             path: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'keyData' in kwargs:
+        if key_data is None and 'keyData' in kwargs:
             key_data = kwargs['keyData']
+        if key_data is None:
+            raise TypeError("Missing 'key_data' argument")
+        if path is None:
+            raise TypeError("Missing 'path' argument")
 
         _setter("key_data", key_data)
         _setter("path", path)
@@ -10367,13 +10727,15 @@ class VirtualMachineOsProfileSecret(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             source_vault_id: str,
+             source_vault_id: Optional[str] = None,
              vault_certificates: Optional[Sequence['outputs.VirtualMachineOsProfileSecretVaultCertificate']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'sourceVaultId' in kwargs:
+        if source_vault_id is None and 'sourceVaultId' in kwargs:
             source_vault_id = kwargs['sourceVaultId']
-        if 'vaultCertificates' in kwargs:
+        if source_vault_id is None:
+            raise TypeError("Missing 'source_vault_id' argument")
+        if vault_certificates is None and 'vaultCertificates' in kwargs:
             vault_certificates = kwargs['vaultCertificates']
 
         _setter("source_vault_id", source_vault_id)
@@ -10436,13 +10798,15 @@ class VirtualMachineOsProfileSecretVaultCertificate(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             certificate_url: str,
+             certificate_url: Optional[str] = None,
              certificate_store: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'certificateUrl' in kwargs:
+        if certificate_url is None and 'certificateUrl' in kwargs:
             certificate_url = kwargs['certificateUrl']
-        if 'certificateStore' in kwargs:
+        if certificate_url is None:
+            raise TypeError("Missing 'certificate_url' argument")
+        if certificate_store is None and 'certificateStore' in kwargs:
             certificate_store = kwargs['certificateStore']
 
         _setter("certificate_url", certificate_url)
@@ -10525,11 +10889,11 @@ class VirtualMachineOsProfileWindowsConfig(dict):
              winrms: Optional[Sequence['outputs.VirtualMachineOsProfileWindowsConfigWinrm']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'additionalUnattendConfigs' in kwargs:
+        if additional_unattend_configs is None and 'additionalUnattendConfigs' in kwargs:
             additional_unattend_configs = kwargs['additionalUnattendConfigs']
-        if 'enableAutomaticUpgrades' in kwargs:
+        if enable_automatic_upgrades is None and 'enableAutomaticUpgrades' in kwargs:
             enable_automatic_upgrades = kwargs['enableAutomaticUpgrades']
-        if 'provisionVmAgent' in kwargs:
+        if provision_vm_agent is None and 'provisionVmAgent' in kwargs:
             provision_vm_agent = kwargs['provisionVmAgent']
 
         if additional_unattend_configs is not None:
@@ -10628,16 +10992,24 @@ class VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             component: str,
-             content: str,
-             pass_: str,
-             setting_name: str,
+             component: Optional[str] = None,
+             content: Optional[str] = None,
+             pass_: Optional[str] = None,
+             setting_name: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'pass' in kwargs:
+        if component is None:
+            raise TypeError("Missing 'component' argument")
+        if content is None:
+            raise TypeError("Missing 'content' argument")
+        if pass_ is None and 'pass' in kwargs:
             pass_ = kwargs['pass']
-        if 'settingName' in kwargs:
+        if pass_ is None:
+            raise TypeError("Missing 'pass_' argument")
+        if setting_name is None and 'settingName' in kwargs:
             setting_name = kwargs['settingName']
+        if setting_name is None:
+            raise TypeError("Missing 'setting_name' argument")
 
         _setter("component", component)
         _setter("content", content)
@@ -10713,11 +11085,13 @@ class VirtualMachineOsProfileWindowsConfigWinrm(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             protocol: str,
+             protocol: Optional[str] = None,
              certificate_url: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'certificateUrl' in kwargs:
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if certificate_url is None and 'certificateUrl' in kwargs:
             certificate_url = kwargs['certificateUrl']
 
         _setter("protocol", protocol)
@@ -10763,11 +11137,17 @@ class VirtualMachinePlan(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             product: str,
-             publisher: str,
+             name: Optional[str] = None,
+             product: Optional[str] = None,
+             publisher: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if product is None:
+            raise TypeError("Missing 'product' argument")
+        if publisher is None:
+            raise TypeError("Missing 'publisher' argument")
 
         _setter("name", name)
         _setter("product", product)
@@ -10834,14 +11214,18 @@ class VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             secret_url: str,
-             source_vault_id: str,
+             secret_url: Optional[str] = None,
+             source_vault_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'secretUrl' in kwargs:
+        if secret_url is None and 'secretUrl' in kwargs:
             secret_url = kwargs['secretUrl']
-        if 'sourceVaultId' in kwargs:
+        if secret_url is None:
+            raise TypeError("Missing 'secret_url' argument")
+        if source_vault_id is None and 'sourceVaultId' in kwargs:
             source_vault_id = kwargs['sourceVaultId']
+        if source_vault_id is None:
+            raise TypeError("Missing 'source_vault_id' argument")
 
         _setter("secret_url", secret_url)
         _setter("source_vault_id", source_vault_id)
@@ -10936,9 +11320,9 @@ class VirtualMachineStorageDataDisk(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             create_option: str,
-             lun: int,
-             name: str,
+             create_option: Optional[str] = None,
+             lun: Optional[int] = None,
+             name: Optional[str] = None,
              caching: Optional[str] = None,
              disk_size_gb: Optional[int] = None,
              managed_disk_id: Optional[str] = None,
@@ -10947,17 +11331,23 @@ class VirtualMachineStorageDataDisk(dict):
              write_accelerator_enabled: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'createOption' in kwargs:
+        if create_option is None and 'createOption' in kwargs:
             create_option = kwargs['createOption']
-        if 'diskSizeGb' in kwargs:
+        if create_option is None:
+            raise TypeError("Missing 'create_option' argument")
+        if lun is None:
+            raise TypeError("Missing 'lun' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if disk_size_gb is None and 'diskSizeGb' in kwargs:
             disk_size_gb = kwargs['diskSizeGb']
-        if 'managedDiskId' in kwargs:
+        if managed_disk_id is None and 'managedDiskId' in kwargs:
             managed_disk_id = kwargs['managedDiskId']
-        if 'managedDiskType' in kwargs:
+        if managed_disk_type is None and 'managedDiskType' in kwargs:
             managed_disk_type = kwargs['managedDiskType']
-        if 'vhdUri' in kwargs:
+        if vhd_uri is None and 'vhdUri' in kwargs:
             vhd_uri = kwargs['vhdUri']
-        if 'writeAcceleratorEnabled' in kwargs:
+        if write_accelerator_enabled is None and 'writeAcceleratorEnabled' in kwargs:
             write_accelerator_enabled = kwargs['writeAcceleratorEnabled']
 
         _setter("create_option", create_option)
@@ -11223,8 +11613,8 @@ class VirtualMachineStorageOsDisk(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             create_option: str,
-             name: str,
+             create_option: Optional[str] = None,
+             name: Optional[str] = None,
              caching: Optional[str] = None,
              disk_size_gb: Optional[int] = None,
              image_uri: Optional[str] = None,
@@ -11235,21 +11625,25 @@ class VirtualMachineStorageOsDisk(dict):
              write_accelerator_enabled: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'createOption' in kwargs:
+        if create_option is None and 'createOption' in kwargs:
             create_option = kwargs['createOption']
-        if 'diskSizeGb' in kwargs:
+        if create_option is None:
+            raise TypeError("Missing 'create_option' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if disk_size_gb is None and 'diskSizeGb' in kwargs:
             disk_size_gb = kwargs['diskSizeGb']
-        if 'imageUri' in kwargs:
+        if image_uri is None and 'imageUri' in kwargs:
             image_uri = kwargs['imageUri']
-        if 'managedDiskId' in kwargs:
+        if managed_disk_id is None and 'managedDiskId' in kwargs:
             managed_disk_id = kwargs['managedDiskId']
-        if 'managedDiskType' in kwargs:
+        if managed_disk_type is None and 'managedDiskType' in kwargs:
             managed_disk_type = kwargs['managedDiskType']
-        if 'osType' in kwargs:
+        if os_type is None and 'osType' in kwargs:
             os_type = kwargs['osType']
-        if 'vhdUri' in kwargs:
+        if vhd_uri is None and 'vhdUri' in kwargs:
             vhd_uri = kwargs['vhdUri']
-        if 'writeAcceleratorEnabled' in kwargs:
+        if write_accelerator_enabled is None and 'writeAcceleratorEnabled' in kwargs:
             write_accelerator_enabled = kwargs['writeAcceleratorEnabled']
 
         _setter("create_option", create_option)
@@ -11390,7 +11784,7 @@ class WindowsVirtualMachineAdditionalCapabilities(dict):
              ultra_ssd_enabled: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ultraSsdEnabled' in kwargs:
+        if ultra_ssd_enabled is None and 'ultraSsdEnabled' in kwargs:
             ultra_ssd_enabled = kwargs['ultraSsdEnabled']
 
         if ultra_ssd_enabled is not None:
@@ -11422,10 +11816,14 @@ class WindowsVirtualMachineAdditionalUnattendContent(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             content: str,
-             setting: str,
+             content: Optional[str] = None,
+             setting: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if content is None:
+            raise TypeError("Missing 'content' argument")
+        if setting is None:
+            raise TypeError("Missing 'setting' argument")
 
         _setter("content", content)
         _setter("setting", setting)
@@ -11483,7 +11881,7 @@ class WindowsVirtualMachineBootDiagnostics(dict):
              storage_account_uri: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'storageAccountUri' in kwargs:
+        if storage_account_uri is None and 'storageAccountUri' in kwargs:
             storage_account_uri = kwargs['storageAccountUri']
 
         if storage_account_uri is not None:
@@ -11542,15 +11940,17 @@ class WindowsVirtualMachineGalleryApplication(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             version_id: str,
+             version_id: Optional[str] = None,
              configuration_blob_uri: Optional[str] = None,
              order: Optional[int] = None,
              tag: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'versionId' in kwargs:
+        if version_id is None and 'versionId' in kwargs:
             version_id = kwargs['versionId']
-        if 'configurationBlobUri' in kwargs:
+        if version_id is None:
+            raise TypeError("Missing 'version_id' argument")
+        if configuration_blob_uri is None and 'configurationBlobUri' in kwargs:
             configuration_blob_uri = kwargs['configurationBlobUri']
 
         _setter("version_id", version_id)
@@ -11640,17 +12040,19 @@ class WindowsVirtualMachineIdentity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -11777,8 +12179,8 @@ class WindowsVirtualMachineOsDisk(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             caching: str,
-             storage_account_type: str,
+             caching: Optional[str] = None,
+             storage_account_type: Optional[str] = None,
              diff_disk_settings: Optional['outputs.WindowsVirtualMachineOsDiskDiffDiskSettings'] = None,
              disk_encryption_set_id: Optional[str] = None,
              disk_size_gb: Optional[int] = None,
@@ -11788,19 +12190,23 @@ class WindowsVirtualMachineOsDisk(dict):
              write_accelerator_enabled: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'storageAccountType' in kwargs:
+        if caching is None:
+            raise TypeError("Missing 'caching' argument")
+        if storage_account_type is None and 'storageAccountType' in kwargs:
             storage_account_type = kwargs['storageAccountType']
-        if 'diffDiskSettings' in kwargs:
+        if storage_account_type is None:
+            raise TypeError("Missing 'storage_account_type' argument")
+        if diff_disk_settings is None and 'diffDiskSettings' in kwargs:
             diff_disk_settings = kwargs['diffDiskSettings']
-        if 'diskEncryptionSetId' in kwargs:
+        if disk_encryption_set_id is None and 'diskEncryptionSetId' in kwargs:
             disk_encryption_set_id = kwargs['diskEncryptionSetId']
-        if 'diskSizeGb' in kwargs:
+        if disk_size_gb is None and 'diskSizeGb' in kwargs:
             disk_size_gb = kwargs['diskSizeGb']
-        if 'secureVmDiskEncryptionSetId' in kwargs:
+        if secure_vm_disk_encryption_set_id is None and 'secureVmDiskEncryptionSetId' in kwargs:
             secure_vm_disk_encryption_set_id = kwargs['secureVmDiskEncryptionSetId']
-        if 'securityEncryptionType' in kwargs:
+        if security_encryption_type is None and 'securityEncryptionType' in kwargs:
             security_encryption_type = kwargs['securityEncryptionType']
-        if 'writeAcceleratorEnabled' in kwargs:
+        if write_accelerator_enabled is None and 'writeAcceleratorEnabled' in kwargs:
             write_accelerator_enabled = kwargs['writeAcceleratorEnabled']
 
         _setter("caching", caching)
@@ -11924,10 +12330,12 @@ class WindowsVirtualMachineOsDiskDiffDiskSettings(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             option: str,
+             option: Optional[str] = None,
              placement: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if option is None:
+            raise TypeError("Missing 'option' argument")
 
         _setter("option", option)
         if placement is not None:
@@ -11972,11 +12380,17 @@ class WindowsVirtualMachinePlan(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             product: str,
-             publisher: str,
+             name: Optional[str] = None,
+             product: Optional[str] = None,
+             publisher: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if product is None:
+            raise TypeError("Missing 'product' argument")
+        if publisher is None:
+            raise TypeError("Missing 'publisher' argument")
 
         _setter("name", name)
         _setter("product", product)
@@ -12043,7 +12457,7 @@ class WindowsVirtualMachineScaleSetAdditionalCapabilities(dict):
              ultra_ssd_enabled: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ultraSsdEnabled' in kwargs:
+        if ultra_ssd_enabled is None and 'ultraSsdEnabled' in kwargs:
             ultra_ssd_enabled = kwargs['ultraSsdEnabled']
 
         if ultra_ssd_enabled is not None:
@@ -12075,10 +12489,14 @@ class WindowsVirtualMachineScaleSetAdditionalUnattendContent(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             content: str,
-             setting: str,
+             content: Optional[str] = None,
+             setting: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if content is None:
+            raise TypeError("Missing 'content' argument")
+        if setting is None:
+            raise TypeError("Missing 'setting' argument")
 
         _setter("content", content)
         _setter("setting", setting)
@@ -12134,11 +12552,13 @@ class WindowsVirtualMachineScaleSetAutomaticInstanceRepair(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: bool,
+             enabled: Optional[bool] = None,
              grace_period: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'gracePeriod' in kwargs:
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if grace_period is None and 'gracePeriod' in kwargs:
             grace_period = kwargs['gracePeriod']
 
         _setter("enabled", enabled)
@@ -12198,14 +12618,18 @@ class WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             disable_automatic_rollback: bool,
-             enable_automatic_os_upgrade: bool,
+             disable_automatic_rollback: Optional[bool] = None,
+             enable_automatic_os_upgrade: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'disableAutomaticRollback' in kwargs:
+        if disable_automatic_rollback is None and 'disableAutomaticRollback' in kwargs:
             disable_automatic_rollback = kwargs['disableAutomaticRollback']
-        if 'enableAutomaticOsUpgrade' in kwargs:
+        if disable_automatic_rollback is None:
+            raise TypeError("Missing 'disable_automatic_rollback' argument")
+        if enable_automatic_os_upgrade is None and 'enableAutomaticOsUpgrade' in kwargs:
             enable_automatic_os_upgrade = kwargs['enableAutomaticOsUpgrade']
+        if enable_automatic_os_upgrade is None:
+            raise TypeError("Missing 'enable_automatic_os_upgrade' argument")
 
         _setter("disable_automatic_rollback", disable_automatic_rollback)
         _setter("enable_automatic_os_upgrade", enable_automatic_os_upgrade)
@@ -12263,7 +12687,7 @@ class WindowsVirtualMachineScaleSetBootDiagnostics(dict):
              storage_account_uri: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'storageAccountUri' in kwargs:
+        if storage_account_uri is None and 'storageAccountUri' in kwargs:
             storage_account_uri = kwargs['storageAccountUri']
 
         if storage_account_uri is not None:
@@ -12358,10 +12782,10 @@ class WindowsVirtualMachineScaleSetDataDisk(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             caching: str,
-             disk_size_gb: int,
-             lun: int,
-             storage_account_type: str,
+             caching: Optional[str] = None,
+             disk_size_gb: Optional[int] = None,
+             lun: Optional[int] = None,
+             storage_account_type: Optional[str] = None,
              create_option: Optional[str] = None,
              disk_encryption_set_id: Optional[str] = None,
              name: Optional[str] = None,
@@ -12370,19 +12794,27 @@ class WindowsVirtualMachineScaleSetDataDisk(dict):
              write_accelerator_enabled: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'diskSizeGb' in kwargs:
+        if caching is None:
+            raise TypeError("Missing 'caching' argument")
+        if disk_size_gb is None and 'diskSizeGb' in kwargs:
             disk_size_gb = kwargs['diskSizeGb']
-        if 'storageAccountType' in kwargs:
+        if disk_size_gb is None:
+            raise TypeError("Missing 'disk_size_gb' argument")
+        if lun is None:
+            raise TypeError("Missing 'lun' argument")
+        if storage_account_type is None and 'storageAccountType' in kwargs:
             storage_account_type = kwargs['storageAccountType']
-        if 'createOption' in kwargs:
+        if storage_account_type is None:
+            raise TypeError("Missing 'storage_account_type' argument")
+        if create_option is None and 'createOption' in kwargs:
             create_option = kwargs['createOption']
-        if 'diskEncryptionSetId' in kwargs:
+        if disk_encryption_set_id is None and 'diskEncryptionSetId' in kwargs:
             disk_encryption_set_id = kwargs['diskEncryptionSetId']
-        if 'ultraSsdDiskIopsReadWrite' in kwargs:
+        if ultra_ssd_disk_iops_read_write is None and 'ultraSsdDiskIopsReadWrite' in kwargs:
             ultra_ssd_disk_iops_read_write = kwargs['ultraSsdDiskIopsReadWrite']
-        if 'ultraSsdDiskMbpsReadWrite' in kwargs:
+        if ultra_ssd_disk_mbps_read_write is None and 'ultraSsdDiskMbpsReadWrite' in kwargs:
             ultra_ssd_disk_mbps_read_write = kwargs['ultraSsdDiskMbpsReadWrite']
-        if 'writeAcceleratorEnabled' in kwargs:
+        if write_accelerator_enabled is None and 'writeAcceleratorEnabled' in kwargs:
             write_accelerator_enabled = kwargs['writeAcceleratorEnabled']
 
         _setter("caching", caching)
@@ -12567,10 +12999,10 @@ class WindowsVirtualMachineScaleSetExtension(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             publisher: str,
-             type: str,
-             type_handler_version: str,
+             name: Optional[str] = None,
+             publisher: Optional[str] = None,
+             type: Optional[str] = None,
+             type_handler_version: Optional[str] = None,
              auto_upgrade_minor_version: Optional[bool] = None,
              automatic_upgrade_enabled: Optional[bool] = None,
              force_update_tag: Optional[str] = None,
@@ -12580,19 +13012,27 @@ class WindowsVirtualMachineScaleSetExtension(dict):
              settings: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'typeHandlerVersion' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if publisher is None:
+            raise TypeError("Missing 'publisher' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if type_handler_version is None and 'typeHandlerVersion' in kwargs:
             type_handler_version = kwargs['typeHandlerVersion']
-        if 'autoUpgradeMinorVersion' in kwargs:
+        if type_handler_version is None:
+            raise TypeError("Missing 'type_handler_version' argument")
+        if auto_upgrade_minor_version is None and 'autoUpgradeMinorVersion' in kwargs:
             auto_upgrade_minor_version = kwargs['autoUpgradeMinorVersion']
-        if 'automaticUpgradeEnabled' in kwargs:
+        if automatic_upgrade_enabled is None and 'automaticUpgradeEnabled' in kwargs:
             automatic_upgrade_enabled = kwargs['automaticUpgradeEnabled']
-        if 'forceUpdateTag' in kwargs:
+        if force_update_tag is None and 'forceUpdateTag' in kwargs:
             force_update_tag = kwargs['forceUpdateTag']
-        if 'protectedSettings' in kwargs:
+        if protected_settings is None and 'protectedSettings' in kwargs:
             protected_settings = kwargs['protectedSettings']
-        if 'protectedSettingsFromKeyVault' in kwargs:
+        if protected_settings_from_key_vault is None and 'protectedSettingsFromKeyVault' in kwargs:
             protected_settings_from_key_vault = kwargs['protectedSettingsFromKeyVault']
-        if 'provisionAfterExtensions' in kwargs:
+        if provision_after_extensions is None and 'provisionAfterExtensions' in kwargs:
             provision_after_extensions = kwargs['provisionAfterExtensions']
 
         _setter("name", name)
@@ -12740,14 +13180,18 @@ class WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             secret_url: str,
-             source_vault_id: str,
+             secret_url: Optional[str] = None,
+             source_vault_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'secretUrl' in kwargs:
+        if secret_url is None and 'secretUrl' in kwargs:
             secret_url = kwargs['secretUrl']
-        if 'sourceVaultId' in kwargs:
+        if secret_url is None:
+            raise TypeError("Missing 'secret_url' argument")
+        if source_vault_id is None and 'sourceVaultId' in kwargs:
             source_vault_id = kwargs['sourceVaultId']
+        if source_vault_id is None:
+            raise TypeError("Missing 'source_vault_id' argument")
 
         _setter("secret_url", secret_url)
         _setter("source_vault_id", source_vault_id)
@@ -12809,15 +13253,17 @@ class WindowsVirtualMachineScaleSetGalleryApplication(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             package_reference_id: str,
+             package_reference_id: Optional[str] = None,
              configuration_reference_blob_uri: Optional[str] = None,
              order: Optional[int] = None,
              tag: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'packageReferenceId' in kwargs:
+        if package_reference_id is None and 'packageReferenceId' in kwargs:
             package_reference_id = kwargs['packageReferenceId']
-        if 'configurationReferenceBlobUri' in kwargs:
+        if package_reference_id is None:
+            raise TypeError("Missing 'package_reference_id' argument")
+        if configuration_reference_blob_uri is None and 'configurationReferenceBlobUri' in kwargs:
             configuration_reference_blob_uri = kwargs['configurationReferenceBlobUri']
 
         _setter("package_reference_id", package_reference_id)
@@ -12907,17 +13353,19 @@ class WindowsVirtualMachineScaleSetIdentity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -13022,8 +13470,8 @@ class WindowsVirtualMachineScaleSetNetworkInterface(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ip_configurations: Sequence['outputs.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration'],
-             name: str,
+             ip_configurations: Optional[Sequence['outputs.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration']] = None,
+             name: Optional[str] = None,
              dns_servers: Optional[Sequence[str]] = None,
              enable_accelerated_networking: Optional[bool] = None,
              enable_ip_forwarding: Optional[bool] = None,
@@ -13031,15 +13479,19 @@ class WindowsVirtualMachineScaleSetNetworkInterface(dict):
              primary: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ipConfigurations' in kwargs:
+        if ip_configurations is None and 'ipConfigurations' in kwargs:
             ip_configurations = kwargs['ipConfigurations']
-        if 'dnsServers' in kwargs:
+        if ip_configurations is None:
+            raise TypeError("Missing 'ip_configurations' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if dns_servers is None and 'dnsServers' in kwargs:
             dns_servers = kwargs['dnsServers']
-        if 'enableAcceleratedNetworking' in kwargs:
+        if enable_accelerated_networking is None and 'enableAcceleratedNetworking' in kwargs:
             enable_accelerated_networking = kwargs['enableAcceleratedNetworking']
-        if 'enableIpForwarding' in kwargs:
+        if enable_ip_forwarding is None and 'enableIpForwarding' in kwargs:
             enable_ip_forwarding = kwargs['enableIpForwarding']
-        if 'networkSecurityGroupId' in kwargs:
+        if network_security_group_id is None and 'networkSecurityGroupId' in kwargs:
             network_security_group_id = kwargs['networkSecurityGroupId']
 
         _setter("ip_configurations", ip_configurations)
@@ -13189,7 +13641,7 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              application_gateway_backend_address_pool_ids: Optional[Sequence[str]] = None,
              application_security_group_ids: Optional[Sequence[str]] = None,
              load_balancer_backend_address_pool_ids: Optional[Sequence[str]] = None,
@@ -13200,17 +13652,19 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration(dict):
              version: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'applicationGatewayBackendAddressPoolIds' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if application_gateway_backend_address_pool_ids is None and 'applicationGatewayBackendAddressPoolIds' in kwargs:
             application_gateway_backend_address_pool_ids = kwargs['applicationGatewayBackendAddressPoolIds']
-        if 'applicationSecurityGroupIds' in kwargs:
+        if application_security_group_ids is None and 'applicationSecurityGroupIds' in kwargs:
             application_security_group_ids = kwargs['applicationSecurityGroupIds']
-        if 'loadBalancerBackendAddressPoolIds' in kwargs:
+        if load_balancer_backend_address_pool_ids is None and 'loadBalancerBackendAddressPoolIds' in kwargs:
             load_balancer_backend_address_pool_ids = kwargs['loadBalancerBackendAddressPoolIds']
-        if 'loadBalancerInboundNatRulesIds' in kwargs:
+        if load_balancer_inbound_nat_rules_ids is None and 'loadBalancerInboundNatRulesIds' in kwargs:
             load_balancer_inbound_nat_rules_ids = kwargs['loadBalancerInboundNatRulesIds']
-        if 'publicIpAddresses' in kwargs:
+        if public_ip_addresses is None and 'publicIpAddresses' in kwargs:
             public_ip_addresses = kwargs['publicIpAddresses']
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
 
         _setter("name", name)
@@ -13368,7 +13822,7 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddres
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              domain_name_label: Optional[str] = None,
              idle_timeout_in_minutes: Optional[int] = None,
              ip_tags: Optional[Sequence['outputs.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag']] = None,
@@ -13376,13 +13830,15 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddres
              version: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'domainNameLabel' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if domain_name_label is None and 'domainNameLabel' in kwargs:
             domain_name_label = kwargs['domainNameLabel']
-        if 'idleTimeoutInMinutes' in kwargs:
+        if idle_timeout_in_minutes is None and 'idleTimeoutInMinutes' in kwargs:
             idle_timeout_in_minutes = kwargs['idleTimeoutInMinutes']
-        if 'ipTags' in kwargs:
+        if ip_tags is None and 'ipTags' in kwargs:
             ip_tags = kwargs['ipTags']
-        if 'publicIpPrefixId' in kwargs:
+        if public_ip_prefix_id is None and 'publicIpPrefixId' in kwargs:
             public_ip_prefix_id = kwargs['publicIpPrefixId']
 
         _setter("name", name)
@@ -13465,10 +13921,14 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddres
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             tag: str,
-             type: str,
+             tag: Optional[str] = None,
+             type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if tag is None:
+            raise TypeError("Missing 'tag' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("tag", tag)
         _setter("type", type)
@@ -13568,8 +14028,8 @@ class WindowsVirtualMachineScaleSetOsDisk(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             caching: str,
-             storage_account_type: str,
+             caching: Optional[str] = None,
+             storage_account_type: Optional[str] = None,
              diff_disk_settings: Optional['outputs.WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings'] = None,
              disk_encryption_set_id: Optional[str] = None,
              disk_size_gb: Optional[int] = None,
@@ -13578,19 +14038,23 @@ class WindowsVirtualMachineScaleSetOsDisk(dict):
              write_accelerator_enabled: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'storageAccountType' in kwargs:
+        if caching is None:
+            raise TypeError("Missing 'caching' argument")
+        if storage_account_type is None and 'storageAccountType' in kwargs:
             storage_account_type = kwargs['storageAccountType']
-        if 'diffDiskSettings' in kwargs:
+        if storage_account_type is None:
+            raise TypeError("Missing 'storage_account_type' argument")
+        if diff_disk_settings is None and 'diffDiskSettings' in kwargs:
             diff_disk_settings = kwargs['diffDiskSettings']
-        if 'diskEncryptionSetId' in kwargs:
+        if disk_encryption_set_id is None and 'diskEncryptionSetId' in kwargs:
             disk_encryption_set_id = kwargs['diskEncryptionSetId']
-        if 'diskSizeGb' in kwargs:
+        if disk_size_gb is None and 'diskSizeGb' in kwargs:
             disk_size_gb = kwargs['diskSizeGb']
-        if 'secureVmDiskEncryptionSetId' in kwargs:
+        if secure_vm_disk_encryption_set_id is None and 'secureVmDiskEncryptionSetId' in kwargs:
             secure_vm_disk_encryption_set_id = kwargs['secureVmDiskEncryptionSetId']
-        if 'securityEncryptionType' in kwargs:
+        if security_encryption_type is None and 'securityEncryptionType' in kwargs:
             security_encryption_type = kwargs['securityEncryptionType']
-        if 'writeAcceleratorEnabled' in kwargs:
+        if write_accelerator_enabled is None and 'writeAcceleratorEnabled' in kwargs:
             write_accelerator_enabled = kwargs['writeAcceleratorEnabled']
 
         _setter("caching", caching)
@@ -13704,10 +14168,12 @@ class WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             option: str,
+             option: Optional[str] = None,
              placement: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if option is None:
+            raise TypeError("Missing 'option' argument")
 
         _setter("option", option)
         if placement is not None:
@@ -13750,11 +14216,17 @@ class WindowsVirtualMachineScaleSetPlan(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             product: str,
-             publisher: str,
+             name: Optional[str] = None,
+             product: Optional[str] = None,
+             publisher: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if product is None:
+            raise TypeError("Missing 'product' argument")
+        if publisher is None:
+            raise TypeError("Missing 'publisher' argument")
 
         _setter("name", name)
         _setter("product", product)
@@ -13841,25 +14313,33 @@ class WindowsVirtualMachineScaleSetRollingUpgradePolicy(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             max_batch_instance_percent: int,
-             max_unhealthy_instance_percent: int,
-             max_unhealthy_upgraded_instance_percent: int,
-             pause_time_between_batches: str,
+             max_batch_instance_percent: Optional[int] = None,
+             max_unhealthy_instance_percent: Optional[int] = None,
+             max_unhealthy_upgraded_instance_percent: Optional[int] = None,
+             pause_time_between_batches: Optional[str] = None,
              cross_zone_upgrades_enabled: Optional[bool] = None,
              prioritize_unhealthy_instances_enabled: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'maxBatchInstancePercent' in kwargs:
+        if max_batch_instance_percent is None and 'maxBatchInstancePercent' in kwargs:
             max_batch_instance_percent = kwargs['maxBatchInstancePercent']
-        if 'maxUnhealthyInstancePercent' in kwargs:
+        if max_batch_instance_percent is None:
+            raise TypeError("Missing 'max_batch_instance_percent' argument")
+        if max_unhealthy_instance_percent is None and 'maxUnhealthyInstancePercent' in kwargs:
             max_unhealthy_instance_percent = kwargs['maxUnhealthyInstancePercent']
-        if 'maxUnhealthyUpgradedInstancePercent' in kwargs:
+        if max_unhealthy_instance_percent is None:
+            raise TypeError("Missing 'max_unhealthy_instance_percent' argument")
+        if max_unhealthy_upgraded_instance_percent is None and 'maxUnhealthyUpgradedInstancePercent' in kwargs:
             max_unhealthy_upgraded_instance_percent = kwargs['maxUnhealthyUpgradedInstancePercent']
-        if 'pauseTimeBetweenBatches' in kwargs:
+        if max_unhealthy_upgraded_instance_percent is None:
+            raise TypeError("Missing 'max_unhealthy_upgraded_instance_percent' argument")
+        if pause_time_between_batches is None and 'pauseTimeBetweenBatches' in kwargs:
             pause_time_between_batches = kwargs['pauseTimeBetweenBatches']
-        if 'crossZoneUpgradesEnabled' in kwargs:
+        if pause_time_between_batches is None:
+            raise TypeError("Missing 'pause_time_between_batches' argument")
+        if cross_zone_upgrades_enabled is None and 'crossZoneUpgradesEnabled' in kwargs:
             cross_zone_upgrades_enabled = kwargs['crossZoneUpgradesEnabled']
-        if 'prioritizeUnhealthyInstancesEnabled' in kwargs:
+        if prioritize_unhealthy_instances_enabled is None and 'prioritizeUnhealthyInstancesEnabled' in kwargs:
             prioritize_unhealthy_instances_enabled = kwargs['prioritizeUnhealthyInstancesEnabled']
 
         _setter("max_batch_instance_percent", max_batch_instance_percent)
@@ -13958,7 +14438,7 @@ class WindowsVirtualMachineScaleSetScaleIn(dict):
              rule: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'forceDeletionEnabled' in kwargs:
+        if force_deletion_enabled is None and 'forceDeletionEnabled' in kwargs:
             force_deletion_enabled = kwargs['forceDeletionEnabled']
 
         if force_deletion_enabled is not None:
@@ -14017,12 +14497,16 @@ class WindowsVirtualMachineScaleSetSecret(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             certificates: Sequence['outputs.WindowsVirtualMachineScaleSetSecretCertificate'],
-             key_vault_id: str,
+             certificates: Optional[Sequence['outputs.WindowsVirtualMachineScaleSetSecretCertificate']] = None,
+             key_vault_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'keyVaultId' in kwargs:
+        if certificates is None:
+            raise TypeError("Missing 'certificates' argument")
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
+        if key_vault_id is None:
+            raise TypeError("Missing 'key_vault_id' argument")
 
         _setter("certificates", certificates)
         _setter("key_vault_id", key_vault_id)
@@ -14063,10 +14547,14 @@ class WindowsVirtualMachineScaleSetSecretCertificate(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             store: str,
-             url: str,
+             store: Optional[str] = None,
+             url: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if store is None:
+            raise TypeError("Missing 'store' argument")
+        if url is None:
+            raise TypeError("Missing 'url' argument")
 
         _setter("store", store)
         _setter("url", url)
@@ -14113,12 +14601,20 @@ class WindowsVirtualMachineScaleSetSourceImageReference(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             offer: str,
-             publisher: str,
-             sku: str,
-             version: str,
+             offer: Optional[str] = None,
+             publisher: Optional[str] = None,
+             sku: Optional[str] = None,
+             version: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if offer is None:
+            raise TypeError("Missing 'offer' argument")
+        if publisher is None:
+            raise TypeError("Missing 'publisher' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
 
         _setter("offer", offer)
         _setter("publisher", publisher)
@@ -14221,10 +14717,12 @@ class WindowsVirtualMachineScaleSetTerminateNotification(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: bool,
+             enabled: Optional[bool] = None,
              timeout: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
 
         _setter("enabled", enabled)
         if timeout is not None:
@@ -14268,10 +14766,12 @@ class WindowsVirtualMachineScaleSetTerminationNotification(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: bool,
+             enabled: Optional[bool] = None,
              timeout: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
 
         _setter("enabled", enabled)
         if timeout is not None:
@@ -14332,11 +14832,13 @@ class WindowsVirtualMachineScaleSetWinrmListener(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             protocol: str,
+             protocol: Optional[str] = None,
              certificate_url: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'certificateUrl' in kwargs:
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if certificate_url is None and 'certificateUrl' in kwargs:
             certificate_url = kwargs['certificateUrl']
 
         _setter("protocol", protocol)
@@ -14396,12 +14898,16 @@ class WindowsVirtualMachineSecret(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             certificates: Sequence['outputs.WindowsVirtualMachineSecretCertificate'],
-             key_vault_id: str,
+             certificates: Optional[Sequence['outputs.WindowsVirtualMachineSecretCertificate']] = None,
+             key_vault_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'keyVaultId' in kwargs:
+        if certificates is None:
+            raise TypeError("Missing 'certificates' argument")
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
+        if key_vault_id is None:
+            raise TypeError("Missing 'key_vault_id' argument")
 
         _setter("certificates", certificates)
         _setter("key_vault_id", key_vault_id)
@@ -14442,10 +14948,14 @@ class WindowsVirtualMachineSecretCertificate(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             store: str,
-             url: str,
+             store: Optional[str] = None,
+             url: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if store is None:
+            raise TypeError("Missing 'store' argument")
+        if url is None:
+            raise TypeError("Missing 'url' argument")
 
         _setter("store", store)
         _setter("url", url)
@@ -14492,12 +15002,20 @@ class WindowsVirtualMachineSourceImageReference(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             offer: str,
-             publisher: str,
-             sku: str,
-             version: str,
+             offer: Optional[str] = None,
+             publisher: Optional[str] = None,
+             sku: Optional[str] = None,
+             version: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if offer is None:
+            raise TypeError("Missing 'offer' argument")
+        if publisher is None:
+            raise TypeError("Missing 'publisher' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
 
         _setter("offer", offer)
         _setter("publisher", publisher)
@@ -14556,10 +15074,12 @@ class WindowsVirtualMachineTerminationNotification(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: bool,
+             enabled: Optional[bool] = None,
              timeout: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
 
         _setter("enabled", enabled)
         if timeout is not None:
@@ -14618,11 +15138,13 @@ class WindowsVirtualMachineWinrmListener(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             protocol: str,
+             protocol: Optional[str] = None,
              certificate_url: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'certificateUrl' in kwargs:
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if certificate_url is None and 'certificateUrl' in kwargs:
             certificate_url = kwargs['certificateUrl']
 
         _setter("protocol", protocol)
@@ -14666,15 +15188,21 @@ class GetBastionHostIpConfigurationResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             public_ip_address_id: str,
-             subnet_id: str,
+             name: Optional[str] = None,
+             public_ip_address_id: Optional[str] = None,
+             subnet_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'publicIpAddressId' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if public_ip_address_id is None and 'publicIpAddressId' in kwargs:
             public_ip_address_id = kwargs['publicIpAddressId']
-        if 'subnetId' in kwargs:
+        if public_ip_address_id is None:
+            raise TypeError("Missing 'public_ip_address_id' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
 
         _setter("name", name)
         _setter("public_ip_address_id", public_ip_address_id)
@@ -14725,17 +15253,23 @@ class GetConfidentialLedgerAzureadBasedServicePrincipalResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ledger_role_name: str,
-             principal_id: str,
-             tenant_id: str,
+             ledger_role_name: Optional[str] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ledgerRoleName' in kwargs:
+        if ledger_role_name is None and 'ledgerRoleName' in kwargs:
             ledger_role_name = kwargs['ledgerRoleName']
-        if 'principalId' in kwargs:
+        if ledger_role_name is None:
+            raise TypeError("Missing 'ledger_role_name' argument")
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
 
         _setter("ledger_role_name", ledger_role_name)
         _setter("principal_id", principal_id)
@@ -14783,14 +15317,18 @@ class GetConfidentialLedgerCertificateBasedSecurityPrincipalResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ledger_role_name: str,
-             pem_public_key: str,
+             ledger_role_name: Optional[str] = None,
+             pem_public_key: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ledgerRoleName' in kwargs:
+        if ledger_role_name is None and 'ledgerRoleName' in kwargs:
             ledger_role_name = kwargs['ledgerRoleName']
-        if 'pemPublicKey' in kwargs:
+        if ledger_role_name is None:
+            raise TypeError("Missing 'ledger_role_name' argument")
+        if pem_public_key is None and 'pemPublicKey' in kwargs:
             pem_public_key = kwargs['pemPublicKey']
+        if pem_public_key is None:
+            raise TypeError("Missing 'pem_public_key' argument")
 
         _setter("ledger_role_name", ledger_role_name)
         _setter("pem_public_key", pem_public_key)
@@ -14835,18 +15373,26 @@ class GetDiskEncryptionSetIdentityResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             identity_ids: Sequence[str],
-             principal_id: str,
-             tenant_id: str,
-             type: str,
+             identity_ids: Optional[Sequence[str]] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if identity_ids is None:
+            raise TypeError("Missing 'identity_ids' argument")
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("identity_ids", identity_ids)
         _setter("principal_id", principal_id)
@@ -14912,19 +15458,29 @@ class GetImageDataDiskResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             blob_uri: str,
-             caching: str,
-             lun: int,
-             managed_disk_id: str,
-             size_gb: int,
+             blob_uri: Optional[str] = None,
+             caching: Optional[str] = None,
+             lun: Optional[int] = None,
+             managed_disk_id: Optional[str] = None,
+             size_gb: Optional[int] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'blobUri' in kwargs:
+        if blob_uri is None and 'blobUri' in kwargs:
             blob_uri = kwargs['blobUri']
-        if 'managedDiskId' in kwargs:
+        if blob_uri is None:
+            raise TypeError("Missing 'blob_uri' argument")
+        if caching is None:
+            raise TypeError("Missing 'caching' argument")
+        if lun is None:
+            raise TypeError("Missing 'lun' argument")
+        if managed_disk_id is None and 'managedDiskId' in kwargs:
             managed_disk_id = kwargs['managedDiskId']
-        if 'sizeGb' in kwargs:
+        if managed_disk_id is None:
+            raise TypeError("Missing 'managed_disk_id' argument")
+        if size_gb is None and 'sizeGb' in kwargs:
             size_gb = kwargs['sizeGb']
+        if size_gb is None:
+            raise TypeError("Missing 'size_gb' argument")
 
         _setter("blob_uri", blob_uri)
         _setter("caching", caching)
@@ -15002,24 +15558,36 @@ class GetImageOsDiskResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             blob_uri: str,
-             caching: str,
-             managed_disk_id: str,
-             os_state: str,
-             os_type: str,
-             size_gb: int,
+             blob_uri: Optional[str] = None,
+             caching: Optional[str] = None,
+             managed_disk_id: Optional[str] = None,
+             os_state: Optional[str] = None,
+             os_type: Optional[str] = None,
+             size_gb: Optional[int] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'blobUri' in kwargs:
+        if blob_uri is None and 'blobUri' in kwargs:
             blob_uri = kwargs['blobUri']
-        if 'managedDiskId' in kwargs:
+        if blob_uri is None:
+            raise TypeError("Missing 'blob_uri' argument")
+        if caching is None:
+            raise TypeError("Missing 'caching' argument")
+        if managed_disk_id is None and 'managedDiskId' in kwargs:
             managed_disk_id = kwargs['managedDiskId']
-        if 'osState' in kwargs:
+        if managed_disk_id is None:
+            raise TypeError("Missing 'managed_disk_id' argument")
+        if os_state is None and 'osState' in kwargs:
             os_state = kwargs['osState']
-        if 'osType' in kwargs:
+        if os_state is None:
+            raise TypeError("Missing 'os_state' argument")
+        if os_type is None and 'osType' in kwargs:
             os_type = kwargs['osType']
-        if 'sizeGb' in kwargs:
+        if os_type is None:
+            raise TypeError("Missing 'os_type' argument")
+        if size_gb is None and 'sizeGb' in kwargs:
             size_gb = kwargs['sizeGb']
+        if size_gb is None:
+            raise TypeError("Missing 'size_gb' argument")
 
         _setter("blob_uri", blob_uri)
         _setter("caching", caching)
@@ -15106,20 +15674,32 @@ class GetImagesImageResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_disks: Sequence['outputs.GetImagesImageDataDiskResult'],
-             location: str,
-             name: str,
-             os_disks: Sequence['outputs.GetImagesImageOsDiskResult'],
-             tags: Mapping[str, str],
-             zone_resilient: bool,
+             data_disks: Optional[Sequence['outputs.GetImagesImageDataDiskResult']] = None,
+             location: Optional[str] = None,
+             name: Optional[str] = None,
+             os_disks: Optional[Sequence['outputs.GetImagesImageOsDiskResult']] = None,
+             tags: Optional[Mapping[str, str]] = None,
+             zone_resilient: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dataDisks' in kwargs:
+        if data_disks is None and 'dataDisks' in kwargs:
             data_disks = kwargs['dataDisks']
-        if 'osDisks' in kwargs:
+        if data_disks is None:
+            raise TypeError("Missing 'data_disks' argument")
+        if location is None:
+            raise TypeError("Missing 'location' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if os_disks is None and 'osDisks' in kwargs:
             os_disks = kwargs['osDisks']
-        if 'zoneResilient' in kwargs:
+        if os_disks is None:
+            raise TypeError("Missing 'os_disks' argument")
+        if tags is None:
+            raise TypeError("Missing 'tags' argument")
+        if zone_resilient is None and 'zoneResilient' in kwargs:
             zone_resilient = kwargs['zoneResilient']
+        if zone_resilient is None:
+            raise TypeError("Missing 'zone_resilient' argument")
 
         _setter("data_disks", data_disks)
         _setter("location", location)
@@ -15203,19 +15783,29 @@ class GetImagesImageDataDiskResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             blob_uri: str,
-             caching: str,
-             lun: int,
-             managed_disk_id: str,
-             size_gb: int,
+             blob_uri: Optional[str] = None,
+             caching: Optional[str] = None,
+             lun: Optional[int] = None,
+             managed_disk_id: Optional[str] = None,
+             size_gb: Optional[int] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'blobUri' in kwargs:
+        if blob_uri is None and 'blobUri' in kwargs:
             blob_uri = kwargs['blobUri']
-        if 'managedDiskId' in kwargs:
+        if blob_uri is None:
+            raise TypeError("Missing 'blob_uri' argument")
+        if caching is None:
+            raise TypeError("Missing 'caching' argument")
+        if lun is None:
+            raise TypeError("Missing 'lun' argument")
+        if managed_disk_id is None and 'managedDiskId' in kwargs:
             managed_disk_id = kwargs['managedDiskId']
-        if 'sizeGb' in kwargs:
+        if managed_disk_id is None:
+            raise TypeError("Missing 'managed_disk_id' argument")
+        if size_gb is None and 'sizeGb' in kwargs:
             size_gb = kwargs['sizeGb']
+        if size_gb is None:
+            raise TypeError("Missing 'size_gb' argument")
 
         _setter("blob_uri", blob_uri)
         _setter("caching", caching)
@@ -15296,27 +15886,41 @@ class GetImagesImageOsDiskResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             blob_uri: str,
-             caching: str,
-             disk_encryption_set_id: str,
-             managed_disk_id: str,
-             os_state: str,
-             os_type: str,
-             size_gb: int,
+             blob_uri: Optional[str] = None,
+             caching: Optional[str] = None,
+             disk_encryption_set_id: Optional[str] = None,
+             managed_disk_id: Optional[str] = None,
+             os_state: Optional[str] = None,
+             os_type: Optional[str] = None,
+             size_gb: Optional[int] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'blobUri' in kwargs:
+        if blob_uri is None and 'blobUri' in kwargs:
             blob_uri = kwargs['blobUri']
-        if 'diskEncryptionSetId' in kwargs:
+        if blob_uri is None:
+            raise TypeError("Missing 'blob_uri' argument")
+        if caching is None:
+            raise TypeError("Missing 'caching' argument")
+        if disk_encryption_set_id is None and 'diskEncryptionSetId' in kwargs:
             disk_encryption_set_id = kwargs['diskEncryptionSetId']
-        if 'managedDiskId' in kwargs:
+        if disk_encryption_set_id is None:
+            raise TypeError("Missing 'disk_encryption_set_id' argument")
+        if managed_disk_id is None and 'managedDiskId' in kwargs:
             managed_disk_id = kwargs['managedDiskId']
-        if 'osState' in kwargs:
+        if managed_disk_id is None:
+            raise TypeError("Missing 'managed_disk_id' argument")
+        if os_state is None and 'osState' in kwargs:
             os_state = kwargs['osState']
-        if 'osType' in kwargs:
+        if os_state is None:
+            raise TypeError("Missing 'os_state' argument")
+        if os_type is None and 'osType' in kwargs:
             os_type = kwargs['osType']
-        if 'sizeGb' in kwargs:
+        if os_type is None:
+            raise TypeError("Missing 'os_type' argument")
+        if size_gb is None and 'sizeGb' in kwargs:
             size_gb = kwargs['sizeGb']
+        if size_gb is None:
+            raise TypeError("Missing 'size_gb' argument")
 
         _setter("blob_uri", blob_uri)
         _setter("caching", caching)
@@ -15402,15 +16006,21 @@ class GetManagedDiskEncryptionSettingResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             disk_encryption_keys: Sequence['outputs.GetManagedDiskEncryptionSettingDiskEncryptionKeyResult'],
-             enabled: bool,
-             key_encryption_keys: Sequence['outputs.GetManagedDiskEncryptionSettingKeyEncryptionKeyResult'],
+             disk_encryption_keys: Optional[Sequence['outputs.GetManagedDiskEncryptionSettingDiskEncryptionKeyResult']] = None,
+             enabled: Optional[bool] = None,
+             key_encryption_keys: Optional[Sequence['outputs.GetManagedDiskEncryptionSettingKeyEncryptionKeyResult']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'diskEncryptionKeys' in kwargs:
+        if disk_encryption_keys is None and 'diskEncryptionKeys' in kwargs:
             disk_encryption_keys = kwargs['diskEncryptionKeys']
-        if 'keyEncryptionKeys' in kwargs:
+        if disk_encryption_keys is None:
+            raise TypeError("Missing 'disk_encryption_keys' argument")
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if key_encryption_keys is None and 'keyEncryptionKeys' in kwargs:
             key_encryption_keys = kwargs['keyEncryptionKeys']
+        if key_encryption_keys is None:
+            raise TypeError("Missing 'key_encryption_keys' argument")
 
         _setter("disk_encryption_keys", disk_encryption_keys)
         _setter("enabled", enabled)
@@ -15455,14 +16065,18 @@ class GetManagedDiskEncryptionSettingDiskEncryptionKeyResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             secret_url: str,
-             source_vault_id: str,
+             secret_url: Optional[str] = None,
+             source_vault_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'secretUrl' in kwargs:
+        if secret_url is None and 'secretUrl' in kwargs:
             secret_url = kwargs['secretUrl']
-        if 'sourceVaultId' in kwargs:
+        if secret_url is None:
+            raise TypeError("Missing 'secret_url' argument")
+        if source_vault_id is None and 'sourceVaultId' in kwargs:
             source_vault_id = kwargs['sourceVaultId']
+        if source_vault_id is None:
+            raise TypeError("Missing 'source_vault_id' argument")
 
         _setter("secret_url", secret_url)
         _setter("source_vault_id", source_vault_id)
@@ -15501,14 +16115,18 @@ class GetManagedDiskEncryptionSettingKeyEncryptionKeyResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_url: str,
-             source_vault_id: str,
+             key_url: Optional[str] = None,
+             source_vault_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'keyUrl' in kwargs:
+        if key_url is None and 'keyUrl' in kwargs:
             key_url = kwargs['keyUrl']
-        if 'sourceVaultId' in kwargs:
+        if key_url is None:
+            raise TypeError("Missing 'key_url' argument")
+        if source_vault_id is None and 'sourceVaultId' in kwargs:
             source_vault_id = kwargs['sourceVaultId']
+        if source_vault_id is None:
+            raise TypeError("Missing 'source_vault_id' argument")
 
         _setter("key_url", key_url)
         _setter("source_vault_id", source_vault_id)
@@ -15547,12 +16165,16 @@ class GetOrchestratedVirtualMachineScaleSetIdentityResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             identity_ids: Sequence[str],
-             type: str,
+             identity_ids: Optional[Sequence[str]] = None,
+             type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
+        if identity_ids is None:
+            raise TypeError("Missing 'identity_ids' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("identity_ids", identity_ids)
         _setter("type", type)
@@ -15606,25 +16228,39 @@ class GetOrchestratedVirtualMachineScaleSetNetworkInterfaceResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             accelerated_networking_enabled: bool,
-             dns_servers: Sequence[str],
-             ip_configurations: Sequence['outputs.GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationResult'],
-             ip_forwarding_enabled: bool,
-             name: str,
-             network_security_group_id: str,
-             primary: bool,
+             accelerated_networking_enabled: Optional[bool] = None,
+             dns_servers: Optional[Sequence[str]] = None,
+             ip_configurations: Optional[Sequence['outputs.GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationResult']] = None,
+             ip_forwarding_enabled: Optional[bool] = None,
+             name: Optional[str] = None,
+             network_security_group_id: Optional[str] = None,
+             primary: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'acceleratedNetworkingEnabled' in kwargs:
+        if accelerated_networking_enabled is None and 'acceleratedNetworkingEnabled' in kwargs:
             accelerated_networking_enabled = kwargs['acceleratedNetworkingEnabled']
-        if 'dnsServers' in kwargs:
+        if accelerated_networking_enabled is None:
+            raise TypeError("Missing 'accelerated_networking_enabled' argument")
+        if dns_servers is None and 'dnsServers' in kwargs:
             dns_servers = kwargs['dnsServers']
-        if 'ipConfigurations' in kwargs:
+        if dns_servers is None:
+            raise TypeError("Missing 'dns_servers' argument")
+        if ip_configurations is None and 'ipConfigurations' in kwargs:
             ip_configurations = kwargs['ipConfigurations']
-        if 'ipForwardingEnabled' in kwargs:
+        if ip_configurations is None:
+            raise TypeError("Missing 'ip_configurations' argument")
+        if ip_forwarding_enabled is None and 'ipForwardingEnabled' in kwargs:
             ip_forwarding_enabled = kwargs['ipForwardingEnabled']
-        if 'networkSecurityGroupId' in kwargs:
+        if ip_forwarding_enabled is None:
+            raise TypeError("Missing 'ip_forwarding_enabled' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if network_security_group_id is None and 'networkSecurityGroupId' in kwargs:
             network_security_group_id = kwargs['networkSecurityGroupId']
+        if network_security_group_id is None:
+            raise TypeError("Missing 'network_security_group_id' argument")
+        if primary is None:
+            raise TypeError("Missing 'primary' argument")
 
         _setter("accelerated_networking_enabled", accelerated_networking_enabled)
         _setter("dns_servers", dns_servers)
@@ -15729,29 +16365,47 @@ class GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationResult
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_gateway_backend_address_pool_ids: Sequence[str],
-             application_security_group_ids: Sequence[str],
-             load_balancer_backend_address_pool_ids: Sequence[str],
-             load_balancer_inbound_nat_rules_ids: Sequence[str],
-             name: str,
-             primary: bool,
-             public_ip_addresses: Sequence['outputs.GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressResult'],
-             subnet_id: str,
-             version: str,
+             application_gateway_backend_address_pool_ids: Optional[Sequence[str]] = None,
+             application_security_group_ids: Optional[Sequence[str]] = None,
+             load_balancer_backend_address_pool_ids: Optional[Sequence[str]] = None,
+             load_balancer_inbound_nat_rules_ids: Optional[Sequence[str]] = None,
+             name: Optional[str] = None,
+             primary: Optional[bool] = None,
+             public_ip_addresses: Optional[Sequence['outputs.GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressResult']] = None,
+             subnet_id: Optional[str] = None,
+             version: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'applicationGatewayBackendAddressPoolIds' in kwargs:
+        if application_gateway_backend_address_pool_ids is None and 'applicationGatewayBackendAddressPoolIds' in kwargs:
             application_gateway_backend_address_pool_ids = kwargs['applicationGatewayBackendAddressPoolIds']
-        if 'applicationSecurityGroupIds' in kwargs:
+        if application_gateway_backend_address_pool_ids is None:
+            raise TypeError("Missing 'application_gateway_backend_address_pool_ids' argument")
+        if application_security_group_ids is None and 'applicationSecurityGroupIds' in kwargs:
             application_security_group_ids = kwargs['applicationSecurityGroupIds']
-        if 'loadBalancerBackendAddressPoolIds' in kwargs:
+        if application_security_group_ids is None:
+            raise TypeError("Missing 'application_security_group_ids' argument")
+        if load_balancer_backend_address_pool_ids is None and 'loadBalancerBackendAddressPoolIds' in kwargs:
             load_balancer_backend_address_pool_ids = kwargs['loadBalancerBackendAddressPoolIds']
-        if 'loadBalancerInboundNatRulesIds' in kwargs:
+        if load_balancer_backend_address_pool_ids is None:
+            raise TypeError("Missing 'load_balancer_backend_address_pool_ids' argument")
+        if load_balancer_inbound_nat_rules_ids is None and 'loadBalancerInboundNatRulesIds' in kwargs:
             load_balancer_inbound_nat_rules_ids = kwargs['loadBalancerInboundNatRulesIds']
-        if 'publicIpAddresses' in kwargs:
+        if load_balancer_inbound_nat_rules_ids is None:
+            raise TypeError("Missing 'load_balancer_inbound_nat_rules_ids' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if primary is None:
+            raise TypeError("Missing 'primary' argument")
+        if public_ip_addresses is None and 'publicIpAddresses' in kwargs:
             public_ip_addresses = kwargs['publicIpAddresses']
-        if 'subnetId' in kwargs:
+        if public_ip_addresses is None:
+            raise TypeError("Missing 'public_ip_addresses' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
 
         _setter("application_gateway_backend_address_pool_ids", application_gateway_backend_address_pool_ids)
         _setter("application_security_group_ids", application_security_group_ids)
@@ -15865,22 +16519,34 @@ class GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublic
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             domain_name_label: str,
-             idle_timeout_in_minutes: int,
-             ip_tags: Sequence['outputs.GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagResult'],
-             name: str,
-             public_ip_prefix_id: str,
-             version: str,
+             domain_name_label: Optional[str] = None,
+             idle_timeout_in_minutes: Optional[int] = None,
+             ip_tags: Optional[Sequence['outputs.GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagResult']] = None,
+             name: Optional[str] = None,
+             public_ip_prefix_id: Optional[str] = None,
+             version: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'domainNameLabel' in kwargs:
+        if domain_name_label is None and 'domainNameLabel' in kwargs:
             domain_name_label = kwargs['domainNameLabel']
-        if 'idleTimeoutInMinutes' in kwargs:
+        if domain_name_label is None:
+            raise TypeError("Missing 'domain_name_label' argument")
+        if idle_timeout_in_minutes is None and 'idleTimeoutInMinutes' in kwargs:
             idle_timeout_in_minutes = kwargs['idleTimeoutInMinutes']
-        if 'ipTags' in kwargs:
+        if idle_timeout_in_minutes is None:
+            raise TypeError("Missing 'idle_timeout_in_minutes' argument")
+        if ip_tags is None and 'ipTags' in kwargs:
             ip_tags = kwargs['ipTags']
-        if 'publicIpPrefixId' in kwargs:
+        if ip_tags is None:
+            raise TypeError("Missing 'ip_tags' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if public_ip_prefix_id is None and 'publicIpPrefixId' in kwargs:
             public_ip_prefix_id = kwargs['publicIpPrefixId']
+        if public_ip_prefix_id is None:
+            raise TypeError("Missing 'public_ip_prefix_id' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
 
         _setter("domain_name_label", domain_name_label)
         _setter("idle_timeout_in_minutes", idle_timeout_in_minutes)
@@ -15955,10 +16621,14 @@ class GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublic
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             tag: str,
-             type: str,
+             tag: Optional[str] = None,
+             type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if tag is None:
+            raise TypeError("Missing 'tag' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("tag", tag)
         _setter("type", type)
@@ -16000,11 +16670,17 @@ class GetSharedImageIdentifierResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             offer: str,
-             publisher: str,
-             sku: str,
+             offer: Optional[str] = None,
+             publisher: Optional[str] = None,
+             sku: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if offer is None:
+            raise TypeError("Missing 'offer' argument")
+        if publisher is None:
+            raise TypeError("Missing 'publisher' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
 
         _setter("offer", offer)
         _setter("publisher", publisher)
@@ -16055,11 +16731,17 @@ class GetSharedImagePurchasePlanResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             product: str,
-             publisher: str,
+             name: Optional[str] = None,
+             product: Optional[str] = None,
+             publisher: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if product is None:
+            raise TypeError("Missing 'product' argument")
+        if publisher is None:
+            raise TypeError("Missing 'publisher' argument")
 
         _setter("name", name)
         _setter("product", product)
@@ -16114,15 +16796,21 @@ class GetSharedImageVersionTargetRegionResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             regional_replica_count: int,
-             storage_account_type: str,
+             name: Optional[str] = None,
+             regional_replica_count: Optional[int] = None,
+             storage_account_type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'regionalReplicaCount' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if regional_replica_count is None and 'regionalReplicaCount' in kwargs:
             regional_replica_count = kwargs['regionalReplicaCount']
-        if 'storageAccountType' in kwargs:
+        if regional_replica_count is None:
+            raise TypeError("Missing 'regional_replica_count' argument")
+        if storage_account_type is None and 'storageAccountType' in kwargs:
             storage_account_type = kwargs['storageAccountType']
+        if storage_account_type is None:
+            raise TypeError("Missing 'storage_account_type' argument")
 
         _setter("name", name)
         _setter("regional_replica_count", regional_replica_count)
@@ -16189,21 +16877,35 @@ class GetSharedImageVersionsImageResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             exclude_from_latest: bool,
-             id: str,
-             location: str,
-             managed_image_id: str,
-             name: str,
-             tags: Mapping[str, str],
-             target_regions: Sequence['outputs.GetSharedImageVersionsImageTargetRegionResult'],
+             exclude_from_latest: Optional[bool] = None,
+             id: Optional[str] = None,
+             location: Optional[str] = None,
+             managed_image_id: Optional[str] = None,
+             name: Optional[str] = None,
+             tags: Optional[Mapping[str, str]] = None,
+             target_regions: Optional[Sequence['outputs.GetSharedImageVersionsImageTargetRegionResult']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'excludeFromLatest' in kwargs:
+        if exclude_from_latest is None and 'excludeFromLatest' in kwargs:
             exclude_from_latest = kwargs['excludeFromLatest']
-        if 'managedImageId' in kwargs:
+        if exclude_from_latest is None:
+            raise TypeError("Missing 'exclude_from_latest' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if location is None:
+            raise TypeError("Missing 'location' argument")
+        if managed_image_id is None and 'managedImageId' in kwargs:
             managed_image_id = kwargs['managedImageId']
-        if 'targetRegions' in kwargs:
+        if managed_image_id is None:
+            raise TypeError("Missing 'managed_image_id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if tags is None:
+            raise TypeError("Missing 'tags' argument")
+        if target_regions is None and 'targetRegions' in kwargs:
             target_regions = kwargs['targetRegions']
+        if target_regions is None:
+            raise TypeError("Missing 'target_regions' argument")
 
         _setter("exclude_from_latest", exclude_from_latest)
         _setter("id", id)
@@ -16290,15 +16992,21 @@ class GetSharedImageVersionsImageTargetRegionResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             regional_replica_count: int,
-             storage_account_type: str,
+             name: Optional[str] = None,
+             regional_replica_count: Optional[int] = None,
+             storage_account_type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'regionalReplicaCount' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if regional_replica_count is None and 'regionalReplicaCount' in kwargs:
             regional_replica_count = kwargs['regionalReplicaCount']
-        if 'storageAccountType' in kwargs:
+        if regional_replica_count is None:
+            raise TypeError("Missing 'regional_replica_count' argument")
+        if storage_account_type is None and 'storageAccountType' in kwargs:
             storage_account_type = kwargs['storageAccountType']
+        if storage_account_type is None:
+            raise TypeError("Missing 'storage_account_type' argument")
 
         _setter("name", name)
         _setter("regional_replica_count", regional_replica_count)
@@ -16344,15 +17052,21 @@ class GetSnapshotEncryptionSettingResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             disk_encryption_keys: Sequence['outputs.GetSnapshotEncryptionSettingDiskEncryptionKeyResult'],
-             enabled: bool,
-             key_encryption_keys: Sequence['outputs.GetSnapshotEncryptionSettingKeyEncryptionKeyResult'],
+             disk_encryption_keys: Optional[Sequence['outputs.GetSnapshotEncryptionSettingDiskEncryptionKeyResult']] = None,
+             enabled: Optional[bool] = None,
+             key_encryption_keys: Optional[Sequence['outputs.GetSnapshotEncryptionSettingKeyEncryptionKeyResult']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'diskEncryptionKeys' in kwargs:
+        if disk_encryption_keys is None and 'diskEncryptionKeys' in kwargs:
             disk_encryption_keys = kwargs['diskEncryptionKeys']
-        if 'keyEncryptionKeys' in kwargs:
+        if disk_encryption_keys is None:
+            raise TypeError("Missing 'disk_encryption_keys' argument")
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if key_encryption_keys is None and 'keyEncryptionKeys' in kwargs:
             key_encryption_keys = kwargs['keyEncryptionKeys']
+        if key_encryption_keys is None:
+            raise TypeError("Missing 'key_encryption_keys' argument")
 
         _setter("disk_encryption_keys", disk_encryption_keys)
         _setter("enabled", enabled)
@@ -16387,14 +17101,18 @@ class GetSnapshotEncryptionSettingDiskEncryptionKeyResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             secret_url: str,
-             source_vault_id: str,
+             secret_url: Optional[str] = None,
+             source_vault_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'secretUrl' in kwargs:
+        if secret_url is None and 'secretUrl' in kwargs:
             secret_url = kwargs['secretUrl']
-        if 'sourceVaultId' in kwargs:
+        if secret_url is None:
+            raise TypeError("Missing 'secret_url' argument")
+        if source_vault_id is None and 'sourceVaultId' in kwargs:
             source_vault_id = kwargs['sourceVaultId']
+        if source_vault_id is None:
+            raise TypeError("Missing 'source_vault_id' argument")
 
         _setter("secret_url", secret_url)
         _setter("source_vault_id", source_vault_id)
@@ -16423,14 +17141,18 @@ class GetSnapshotEncryptionSettingKeyEncryptionKeyResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_url: str,
-             source_vault_id: str,
+             key_url: Optional[str] = None,
+             source_vault_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'keyUrl' in kwargs:
+        if key_url is None and 'keyUrl' in kwargs:
             key_url = kwargs['keyUrl']
-        if 'sourceVaultId' in kwargs:
+        if key_url is None:
+            raise TypeError("Missing 'key_url' argument")
+        if source_vault_id is None and 'sourceVaultId' in kwargs:
             source_vault_id = kwargs['sourceVaultId']
+        if source_vault_id is None:
+            raise TypeError("Missing 'source_vault_id' argument")
 
         _setter("key_url", key_url)
         _setter("source_vault_id", source_vault_id)
@@ -16469,18 +17191,26 @@ class GetVirtualMachineIdentityResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             identity_ids: Sequence[str],
-             principal_id: str,
-             tenant_id: str,
-             type: str,
+             identity_ids: Optional[Sequence[str]] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if identity_ids is None:
+            raise TypeError("Missing 'identity_ids' argument")
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("identity_ids", identity_ids)
         _setter("principal_id", principal_id)
@@ -16543,18 +17273,26 @@ class GetVirtualMachineScaleSetIdentityResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             identity_ids: Sequence[str],
-             principal_id: str,
-             tenant_id: str,
-             type: str,
+             identity_ids: Optional[Sequence[str]] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if identity_ids is None:
+            raise TypeError("Missing 'identity_ids' argument")
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("identity_ids", identity_ids)
         _setter("principal_id", principal_id)
@@ -16638,37 +17376,59 @@ class GetVirtualMachineScaleSetInstanceResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             computer_name: str,
-             instance_id: str,
-             latest_model_applied: bool,
-             name: str,
-             power_state: str,
-             private_ip_address: str,
-             private_ip_addresses: Sequence[str],
-             public_ip_address: str,
-             public_ip_addresses: Sequence[str],
-             virtual_machine_id: str,
-             zone: str,
+             computer_name: Optional[str] = None,
+             instance_id: Optional[str] = None,
+             latest_model_applied: Optional[bool] = None,
+             name: Optional[str] = None,
+             power_state: Optional[str] = None,
+             private_ip_address: Optional[str] = None,
+             private_ip_addresses: Optional[Sequence[str]] = None,
+             public_ip_address: Optional[str] = None,
+             public_ip_addresses: Optional[Sequence[str]] = None,
+             virtual_machine_id: Optional[str] = None,
+             zone: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'computerName' in kwargs:
+        if computer_name is None and 'computerName' in kwargs:
             computer_name = kwargs['computerName']
-        if 'instanceId' in kwargs:
+        if computer_name is None:
+            raise TypeError("Missing 'computer_name' argument")
+        if instance_id is None and 'instanceId' in kwargs:
             instance_id = kwargs['instanceId']
-        if 'latestModelApplied' in kwargs:
+        if instance_id is None:
+            raise TypeError("Missing 'instance_id' argument")
+        if latest_model_applied is None and 'latestModelApplied' in kwargs:
             latest_model_applied = kwargs['latestModelApplied']
-        if 'powerState' in kwargs:
+        if latest_model_applied is None:
+            raise TypeError("Missing 'latest_model_applied' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if power_state is None and 'powerState' in kwargs:
             power_state = kwargs['powerState']
-        if 'privateIpAddress' in kwargs:
+        if power_state is None:
+            raise TypeError("Missing 'power_state' argument")
+        if private_ip_address is None and 'privateIpAddress' in kwargs:
             private_ip_address = kwargs['privateIpAddress']
-        if 'privateIpAddresses' in kwargs:
+        if private_ip_address is None:
+            raise TypeError("Missing 'private_ip_address' argument")
+        if private_ip_addresses is None and 'privateIpAddresses' in kwargs:
             private_ip_addresses = kwargs['privateIpAddresses']
-        if 'publicIpAddress' in kwargs:
+        if private_ip_addresses is None:
+            raise TypeError("Missing 'private_ip_addresses' argument")
+        if public_ip_address is None and 'publicIpAddress' in kwargs:
             public_ip_address = kwargs['publicIpAddress']
-        if 'publicIpAddresses' in kwargs:
+        if public_ip_address is None:
+            raise TypeError("Missing 'public_ip_address' argument")
+        if public_ip_addresses is None and 'publicIpAddresses' in kwargs:
             public_ip_addresses = kwargs['publicIpAddresses']
-        if 'virtualMachineId' in kwargs:
+        if public_ip_addresses is None:
+            raise TypeError("Missing 'public_ip_addresses' argument")
+        if virtual_machine_id is None and 'virtualMachineId' in kwargs:
             virtual_machine_id = kwargs['virtualMachineId']
+        if virtual_machine_id is None:
+            raise TypeError("Missing 'virtual_machine_id' argument")
+        if zone is None:
+            raise TypeError("Missing 'zone' argument")
 
         _setter("computer_name", computer_name)
         _setter("instance_id", instance_id)
@@ -16803,25 +17563,39 @@ class GetVirtualMachineScaleSetNetworkInterfaceResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             dns_servers: Sequence[str],
-             enable_accelerated_networking: bool,
-             enable_ip_forwarding: bool,
-             ip_configurations: Sequence['outputs.GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationResult'],
-             name: str,
-             network_security_group_id: str,
-             primary: bool,
+             dns_servers: Optional[Sequence[str]] = None,
+             enable_accelerated_networking: Optional[bool] = None,
+             enable_ip_forwarding: Optional[bool] = None,
+             ip_configurations: Optional[Sequence['outputs.GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationResult']] = None,
+             name: Optional[str] = None,
+             network_security_group_id: Optional[str] = None,
+             primary: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dnsServers' in kwargs:
+        if dns_servers is None and 'dnsServers' in kwargs:
             dns_servers = kwargs['dnsServers']
-        if 'enableAcceleratedNetworking' in kwargs:
+        if dns_servers is None:
+            raise TypeError("Missing 'dns_servers' argument")
+        if enable_accelerated_networking is None and 'enableAcceleratedNetworking' in kwargs:
             enable_accelerated_networking = kwargs['enableAcceleratedNetworking']
-        if 'enableIpForwarding' in kwargs:
+        if enable_accelerated_networking is None:
+            raise TypeError("Missing 'enable_accelerated_networking' argument")
+        if enable_ip_forwarding is None and 'enableIpForwarding' in kwargs:
             enable_ip_forwarding = kwargs['enableIpForwarding']
-        if 'ipConfigurations' in kwargs:
+        if enable_ip_forwarding is None:
+            raise TypeError("Missing 'enable_ip_forwarding' argument")
+        if ip_configurations is None and 'ipConfigurations' in kwargs:
             ip_configurations = kwargs['ipConfigurations']
-        if 'networkSecurityGroupId' in kwargs:
+        if ip_configurations is None:
+            raise TypeError("Missing 'ip_configurations' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if network_security_group_id is None and 'networkSecurityGroupId' in kwargs:
             network_security_group_id = kwargs['networkSecurityGroupId']
+        if network_security_group_id is None:
+            raise TypeError("Missing 'network_security_group_id' argument")
+        if primary is None:
+            raise TypeError("Missing 'primary' argument")
 
         _setter("dns_servers", dns_servers)
         _setter("enable_accelerated_networking", enable_accelerated_networking)
@@ -16926,29 +17700,47 @@ class GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_gateway_backend_address_pool_ids: Sequence[str],
-             application_security_group_ids: Sequence[str],
-             load_balancer_backend_address_pool_ids: Sequence[str],
-             load_balancer_inbound_nat_rules_ids: Sequence[str],
-             name: str,
-             primary: bool,
-             public_ip_addresses: Sequence['outputs.GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressResult'],
-             subnet_id: str,
-             version: str,
+             application_gateway_backend_address_pool_ids: Optional[Sequence[str]] = None,
+             application_security_group_ids: Optional[Sequence[str]] = None,
+             load_balancer_backend_address_pool_ids: Optional[Sequence[str]] = None,
+             load_balancer_inbound_nat_rules_ids: Optional[Sequence[str]] = None,
+             name: Optional[str] = None,
+             primary: Optional[bool] = None,
+             public_ip_addresses: Optional[Sequence['outputs.GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressResult']] = None,
+             subnet_id: Optional[str] = None,
+             version: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'applicationGatewayBackendAddressPoolIds' in kwargs:
+        if application_gateway_backend_address_pool_ids is None and 'applicationGatewayBackendAddressPoolIds' in kwargs:
             application_gateway_backend_address_pool_ids = kwargs['applicationGatewayBackendAddressPoolIds']
-        if 'applicationSecurityGroupIds' in kwargs:
+        if application_gateway_backend_address_pool_ids is None:
+            raise TypeError("Missing 'application_gateway_backend_address_pool_ids' argument")
+        if application_security_group_ids is None and 'applicationSecurityGroupIds' in kwargs:
             application_security_group_ids = kwargs['applicationSecurityGroupIds']
-        if 'loadBalancerBackendAddressPoolIds' in kwargs:
+        if application_security_group_ids is None:
+            raise TypeError("Missing 'application_security_group_ids' argument")
+        if load_balancer_backend_address_pool_ids is None and 'loadBalancerBackendAddressPoolIds' in kwargs:
             load_balancer_backend_address_pool_ids = kwargs['loadBalancerBackendAddressPoolIds']
-        if 'loadBalancerInboundNatRulesIds' in kwargs:
+        if load_balancer_backend_address_pool_ids is None:
+            raise TypeError("Missing 'load_balancer_backend_address_pool_ids' argument")
+        if load_balancer_inbound_nat_rules_ids is None and 'loadBalancerInboundNatRulesIds' in kwargs:
             load_balancer_inbound_nat_rules_ids = kwargs['loadBalancerInboundNatRulesIds']
-        if 'publicIpAddresses' in kwargs:
+        if load_balancer_inbound_nat_rules_ids is None:
+            raise TypeError("Missing 'load_balancer_inbound_nat_rules_ids' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if primary is None:
+            raise TypeError("Missing 'primary' argument")
+        if public_ip_addresses is None and 'publicIpAddresses' in kwargs:
             public_ip_addresses = kwargs['publicIpAddresses']
-        if 'subnetId' in kwargs:
+        if public_ip_addresses is None:
+            raise TypeError("Missing 'public_ip_addresses' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
 
         _setter("application_gateway_backend_address_pool_ids", application_gateway_backend_address_pool_ids)
         _setter("application_security_group_ids", application_security_group_ids)
@@ -17062,22 +17854,34 @@ class GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressRes
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             domain_name_label: str,
-             idle_timeout_in_minutes: int,
-             ip_tags: Sequence['outputs.GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagResult'],
-             name: str,
-             public_ip_prefix_id: str,
-             version: str,
+             domain_name_label: Optional[str] = None,
+             idle_timeout_in_minutes: Optional[int] = None,
+             ip_tags: Optional[Sequence['outputs.GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagResult']] = None,
+             name: Optional[str] = None,
+             public_ip_prefix_id: Optional[str] = None,
+             version: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'domainNameLabel' in kwargs:
+        if domain_name_label is None and 'domainNameLabel' in kwargs:
             domain_name_label = kwargs['domainNameLabel']
-        if 'idleTimeoutInMinutes' in kwargs:
+        if domain_name_label is None:
+            raise TypeError("Missing 'domain_name_label' argument")
+        if idle_timeout_in_minutes is None and 'idleTimeoutInMinutes' in kwargs:
             idle_timeout_in_minutes = kwargs['idleTimeoutInMinutes']
-        if 'ipTags' in kwargs:
+        if idle_timeout_in_minutes is None:
+            raise TypeError("Missing 'idle_timeout_in_minutes' argument")
+        if ip_tags is None and 'ipTags' in kwargs:
             ip_tags = kwargs['ipTags']
-        if 'publicIpPrefixId' in kwargs:
+        if ip_tags is None:
+            raise TypeError("Missing 'ip_tags' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if public_ip_prefix_id is None and 'publicIpPrefixId' in kwargs:
             public_ip_prefix_id = kwargs['publicIpPrefixId']
+        if public_ip_prefix_id is None:
+            raise TypeError("Missing 'public_ip_prefix_id' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
 
         _setter("domain_name_label", domain_name_label)
         _setter("idle_timeout_in_minutes", idle_timeout_in_minutes)
@@ -17152,10 +17956,14 @@ class GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpT
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             tag: str,
-             type: str,
+             tag: Optional[str] = None,
+             type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if tag is None:
+            raise TypeError("Missing 'tag' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("tag", tag)
         _setter("type", type)

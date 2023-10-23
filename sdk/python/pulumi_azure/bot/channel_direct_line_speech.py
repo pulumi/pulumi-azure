@@ -47,29 +47,37 @@ class ChannelDirectLineSpeechArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bot_name: pulumi.Input[str],
-             cognitive_service_access_key: pulumi.Input[str],
-             cognitive_service_location: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             bot_name: Optional[pulumi.Input[str]] = None,
+             cognitive_service_access_key: Optional[pulumi.Input[str]] = None,
+             cognitive_service_location: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              cognitive_account_id: Optional[pulumi.Input[str]] = None,
              custom_speech_model_id: Optional[pulumi.Input[str]] = None,
              custom_voice_deployment_id: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'botName' in kwargs:
+        if bot_name is None and 'botName' in kwargs:
             bot_name = kwargs['botName']
-        if 'cognitiveServiceAccessKey' in kwargs:
+        if bot_name is None:
+            raise TypeError("Missing 'bot_name' argument")
+        if cognitive_service_access_key is None and 'cognitiveServiceAccessKey' in kwargs:
             cognitive_service_access_key = kwargs['cognitiveServiceAccessKey']
-        if 'cognitiveServiceLocation' in kwargs:
+        if cognitive_service_access_key is None:
+            raise TypeError("Missing 'cognitive_service_access_key' argument")
+        if cognitive_service_location is None and 'cognitiveServiceLocation' in kwargs:
             cognitive_service_location = kwargs['cognitiveServiceLocation']
-        if 'resourceGroupName' in kwargs:
+        if cognitive_service_location is None:
+            raise TypeError("Missing 'cognitive_service_location' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'cognitiveAccountId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if cognitive_account_id is None and 'cognitiveAccountId' in kwargs:
             cognitive_account_id = kwargs['cognitiveAccountId']
-        if 'customSpeechModelId' in kwargs:
+        if custom_speech_model_id is None and 'customSpeechModelId' in kwargs:
             custom_speech_model_id = kwargs['customSpeechModelId']
-        if 'customVoiceDeploymentId' in kwargs:
+        if custom_voice_deployment_id is None and 'customVoiceDeploymentId' in kwargs:
             custom_voice_deployment_id = kwargs['customVoiceDeploymentId']
 
         _setter("bot_name", bot_name)
@@ -228,19 +236,19 @@ class _ChannelDirectLineSpeechState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'botName' in kwargs:
+        if bot_name is None and 'botName' in kwargs:
             bot_name = kwargs['botName']
-        if 'cognitiveAccountId' in kwargs:
+        if cognitive_account_id is None and 'cognitiveAccountId' in kwargs:
             cognitive_account_id = kwargs['cognitiveAccountId']
-        if 'cognitiveServiceAccessKey' in kwargs:
+        if cognitive_service_access_key is None and 'cognitiveServiceAccessKey' in kwargs:
             cognitive_service_access_key = kwargs['cognitiveServiceAccessKey']
-        if 'cognitiveServiceLocation' in kwargs:
+        if cognitive_service_location is None and 'cognitiveServiceLocation' in kwargs:
             cognitive_service_location = kwargs['cognitiveServiceLocation']
-        if 'customSpeechModelId' in kwargs:
+        if custom_speech_model_id is None and 'customSpeechModelId' in kwargs:
             custom_speech_model_id = kwargs['customSpeechModelId']
-        if 'customVoiceDeploymentId' in kwargs:
+        if custom_voice_deployment_id is None and 'customVoiceDeploymentId' in kwargs:
             custom_voice_deployment_id = kwargs['customVoiceDeploymentId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if bot_name is not None:

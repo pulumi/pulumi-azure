@@ -27,12 +27,14 @@ class VirtualNetworkApplianceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             virtual_hub_id: pulumi.Input[str],
+             virtual_hub_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'virtualHubId' in kwargs:
+        if virtual_hub_id is None and 'virtualHubId' in kwargs:
             virtual_hub_id = kwargs['virtualHubId']
+        if virtual_hub_id is None:
+            raise TypeError("Missing 'virtual_hub_id' argument")
 
         _setter("virtual_hub_id", virtual_hub_id)
         if name is not None:
@@ -77,7 +79,7 @@ class _VirtualNetworkApplianceState:
              virtual_hub_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'virtualHubId' in kwargs:
+        if virtual_hub_id is None and 'virtualHubId' in kwargs:
             virtual_hub_id = kwargs['virtualHubId']
 
         if name is not None:

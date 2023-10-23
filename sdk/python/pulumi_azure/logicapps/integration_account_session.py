@@ -35,16 +35,22 @@ class IntegrationAccountSessionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             content: pulumi.Input[str],
-             integration_account_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             content: Optional[pulumi.Input[str]] = None,
+             integration_account_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'integrationAccountName' in kwargs:
+        if content is None:
+            raise TypeError("Missing 'content' argument")
+        if integration_account_name is None and 'integrationAccountName' in kwargs:
             integration_account_name = kwargs['integrationAccountName']
-        if 'resourceGroupName' in kwargs:
+        if integration_account_name is None:
+            raise TypeError("Missing 'integration_account_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("content", content)
         _setter("integration_account_name", integration_account_name)
@@ -131,9 +137,9 @@ class _IntegrationAccountSessionState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'integrationAccountName' in kwargs:
+        if integration_account_name is None and 'integrationAccountName' in kwargs:
             integration_account_name = kwargs['integrationAccountName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if content is not None:

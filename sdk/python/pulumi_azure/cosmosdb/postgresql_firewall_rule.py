@@ -35,18 +35,24 @@ class PostgresqlFirewallRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cluster_id: pulumi.Input[str],
-             end_ip_address: pulumi.Input[str],
-             start_ip_address: pulumi.Input[str],
+             cluster_id: Optional[pulumi.Input[str]] = None,
+             end_ip_address: Optional[pulumi.Input[str]] = None,
+             start_ip_address: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clusterId' in kwargs:
+        if cluster_id is None and 'clusterId' in kwargs:
             cluster_id = kwargs['clusterId']
-        if 'endIpAddress' in kwargs:
+        if cluster_id is None:
+            raise TypeError("Missing 'cluster_id' argument")
+        if end_ip_address is None and 'endIpAddress' in kwargs:
             end_ip_address = kwargs['endIpAddress']
-        if 'startIpAddress' in kwargs:
+        if end_ip_address is None:
+            raise TypeError("Missing 'end_ip_address' argument")
+        if start_ip_address is None and 'startIpAddress' in kwargs:
             start_ip_address = kwargs['startIpAddress']
+        if start_ip_address is None:
+            raise TypeError("Missing 'start_ip_address' argument")
 
         _setter("cluster_id", cluster_id)
         _setter("end_ip_address", end_ip_address)
@@ -133,11 +139,11 @@ class _PostgresqlFirewallRuleState:
              start_ip_address: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clusterId' in kwargs:
+        if cluster_id is None and 'clusterId' in kwargs:
             cluster_id = kwargs['clusterId']
-        if 'endIpAddress' in kwargs:
+        if end_ip_address is None and 'endIpAddress' in kwargs:
             end_ip_address = kwargs['endIpAddress']
-        if 'startIpAddress' in kwargs:
+        if start_ip_address is None and 'startIpAddress' in kwargs:
             start_ip_address = kwargs['startIpAddress']
 
         if cluster_id is not None:

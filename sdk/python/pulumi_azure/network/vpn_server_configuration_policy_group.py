@@ -40,16 +40,20 @@ class VpnServerConfigurationPolicyGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             policies: pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationPolicyGroupPolicyArgs']]],
-             vpn_server_configuration_id: pulumi.Input[str],
+             policies: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationPolicyGroupPolicyArgs']]]] = None,
+             vpn_server_configuration_id: Optional[pulumi.Input[str]] = None,
              is_default: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              priority: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'vpnServerConfigurationId' in kwargs:
+        if policies is None:
+            raise TypeError("Missing 'policies' argument")
+        if vpn_server_configuration_id is None and 'vpnServerConfigurationId' in kwargs:
             vpn_server_configuration_id = kwargs['vpnServerConfigurationId']
-        if 'isDefault' in kwargs:
+        if vpn_server_configuration_id is None:
+            raise TypeError("Missing 'vpn_server_configuration_id' argument")
+        if is_default is None and 'isDefault' in kwargs:
             is_default = kwargs['isDefault']
 
         _setter("policies", policies)
@@ -156,9 +160,9 @@ class _VpnServerConfigurationPolicyGroupState:
              vpn_server_configuration_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'isDefault' in kwargs:
+        if is_default is None and 'isDefault' in kwargs:
             is_default = kwargs['isDefault']
-        if 'vpnServerConfigurationId' in kwargs:
+        if vpn_server_configuration_id is None and 'vpnServerConfigurationId' in kwargs:
             vpn_server_configuration_id = kwargs['vpnServerConfigurationId']
 
         if is_default is not None:

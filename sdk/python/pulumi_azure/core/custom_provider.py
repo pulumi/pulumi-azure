@@ -46,7 +46,7 @@ class CustomProviderArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              actions: Optional[pulumi.Input[Sequence[pulumi.Input['CustomProviderActionArgs']]]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
@@ -55,9 +55,11 @@ class CustomProviderArgs:
              validations: Optional[pulumi.Input[Sequence[pulumi.Input['CustomProviderValidationArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'resourceTypes' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if resource_types is None and 'resourceTypes' in kwargs:
             resource_types = kwargs['resourceTypes']
 
         _setter("resource_group_name", resource_group_name)
@@ -201,9 +203,9 @@ class _CustomProviderState:
              validations: Optional[pulumi.Input[Sequence[pulumi.Input['CustomProviderValidationArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'resourceTypes' in kwargs:
+        if resource_types is None and 'resourceTypes' in kwargs:
             resource_types = kwargs['resourceTypes']
 
         if actions is not None:

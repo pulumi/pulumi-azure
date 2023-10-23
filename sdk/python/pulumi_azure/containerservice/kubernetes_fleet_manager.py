@@ -40,16 +40,18 @@ class KubernetesFleetManagerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              hub_profile: Optional[pulumi.Input['KubernetesFleetManagerHubProfileArgs']] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'hubProfile' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if hub_profile is None and 'hubProfile' in kwargs:
             hub_profile = kwargs['hubProfile']
 
         _setter("resource_group_name", resource_group_name)
@@ -157,9 +159,9 @@ class _KubernetesFleetManagerState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'hubProfile' in kwargs:
+        if hub_profile is None and 'hubProfile' in kwargs:
             hub_profile = kwargs['hubProfile']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if hub_profile is not None:

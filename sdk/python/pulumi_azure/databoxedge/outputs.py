@@ -104,17 +104,17 @@ class DeviceDeviceProperty(dict):
              type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'configuredRoleTypes' in kwargs:
+        if configured_role_types is None and 'configuredRoleTypes' in kwargs:
             configured_role_types = kwargs['configuredRoleTypes']
-        if 'hcsVersion' in kwargs:
+        if hcs_version is None and 'hcsVersion' in kwargs:
             hcs_version = kwargs['hcsVersion']
-        if 'nodeCount' in kwargs:
+        if node_count is None and 'nodeCount' in kwargs:
             node_count = kwargs['nodeCount']
-        if 'serialNumber' in kwargs:
+        if serial_number is None and 'serialNumber' in kwargs:
             serial_number = kwargs['serialNumber']
-        if 'softwareVersion' in kwargs:
+        if software_version is None and 'softwareVersion' in kwargs:
             software_version = kwargs['softwareVersion']
-        if 'timeZone' in kwargs:
+        if time_zone is None and 'timeZone' in kwargs:
             time_zone = kwargs['timeZone']
 
         if capacity is not None:
@@ -271,16 +271,24 @@ class OrderContact(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             company_name: str,
-             emails: Sequence[str],
-             name: str,
-             phone_number: str,
+             company_name: Optional[str] = None,
+             emails: Optional[Sequence[str]] = None,
+             name: Optional[str] = None,
+             phone_number: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'companyName' in kwargs:
+        if company_name is None and 'companyName' in kwargs:
             company_name = kwargs['companyName']
-        if 'phoneNumber' in kwargs:
+        if company_name is None:
+            raise TypeError("Missing 'company_name' argument")
+        if emails is None:
+            raise TypeError("Missing 'emails' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if phone_number is None and 'phoneNumber' in kwargs:
             phone_number = kwargs['phoneNumber']
+        if phone_number is None:
+            raise TypeError("Missing 'phone_number' argument")
 
         _setter("company_name", company_name)
         _setter("emails", emails)
@@ -372,13 +380,13 @@ class OrderReturnTracking(dict):
              tracking_url: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'carrierName' in kwargs:
+        if carrier_name is None and 'carrierName' in kwargs:
             carrier_name = kwargs['carrierName']
-        if 'serialNumber' in kwargs:
+        if serial_number is None and 'serialNumber' in kwargs:
             serial_number = kwargs['serialNumber']
-        if 'trackingId' in kwargs:
+        if tracking_id is None and 'trackingId' in kwargs:
             tracking_id = kwargs['trackingId']
-        if 'trackingUrl' in kwargs:
+        if tracking_url is None and 'trackingUrl' in kwargs:
             tracking_url = kwargs['trackingUrl']
 
         if carrier_name is not None:
@@ -466,15 +474,25 @@ class OrderShipmentAddress(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             addresses: Sequence[str],
-             city: str,
-             country: str,
-             postal_code: str,
-             state: str,
+             addresses: Optional[Sequence[str]] = None,
+             city: Optional[str] = None,
+             country: Optional[str] = None,
+             postal_code: Optional[str] = None,
+             state: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'postalCode' in kwargs:
+        if addresses is None:
+            raise TypeError("Missing 'addresses' argument")
+        if city is None:
+            raise TypeError("Missing 'city' argument")
+        if country is None:
+            raise TypeError("Missing 'country' argument")
+        if postal_code is None and 'postalCode' in kwargs:
             postal_code = kwargs['postalCode']
+        if postal_code is None:
+            raise TypeError("Missing 'postal_code' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
 
         _setter("addresses", addresses)
         _setter("city", city)
@@ -567,9 +585,9 @@ class OrderShipmentHistory(dict):
              last_update: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'additionalDetails' in kwargs:
+        if additional_details is None and 'additionalDetails' in kwargs:
             additional_details = kwargs['additionalDetails']
-        if 'lastUpdate' in kwargs:
+        if last_update is None and 'lastUpdate' in kwargs:
             last_update = kwargs['lastUpdate']
 
         if additional_details is not None:
@@ -656,13 +674,13 @@ class OrderShipmentTracking(dict):
              tracking_url: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'carrierName' in kwargs:
+        if carrier_name is None and 'carrierName' in kwargs:
             carrier_name = kwargs['carrierName']
-        if 'serialNumber' in kwargs:
+        if serial_number is None and 'serialNumber' in kwargs:
             serial_number = kwargs['serialNumber']
-        if 'trackingId' in kwargs:
+        if tracking_id is None and 'trackingId' in kwargs:
             tracking_id = kwargs['trackingId']
-        if 'trackingUrl' in kwargs:
+        if tracking_url is None and 'trackingUrl' in kwargs:
             tracking_url = kwargs['trackingUrl']
 
         if carrier_name is not None:
@@ -755,9 +773,9 @@ class OrderStatus(dict):
              last_update: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'additionalDetails' in kwargs:
+        if additional_details is None and 'additionalDetails' in kwargs:
             additional_details = kwargs['additionalDetails']
-        if 'lastUpdate' in kwargs:
+        if last_update is None and 'lastUpdate' in kwargs:
             last_update = kwargs['lastUpdate']
 
         if additional_details is not None:
@@ -846,31 +864,53 @@ class GetDeviceDevicePropertyResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             capacity: int,
-             configured_role_types: Sequence[str],
-             culture: str,
-             hcs_version: str,
-             model: str,
-             node_count: int,
-             serial_number: str,
-             software_version: str,
-             status: str,
-             time_zone: str,
-             type: str,
+             capacity: Optional[int] = None,
+             configured_role_types: Optional[Sequence[str]] = None,
+             culture: Optional[str] = None,
+             hcs_version: Optional[str] = None,
+             model: Optional[str] = None,
+             node_count: Optional[int] = None,
+             serial_number: Optional[str] = None,
+             software_version: Optional[str] = None,
+             status: Optional[str] = None,
+             time_zone: Optional[str] = None,
+             type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'configuredRoleTypes' in kwargs:
+        if capacity is None:
+            raise TypeError("Missing 'capacity' argument")
+        if configured_role_types is None and 'configuredRoleTypes' in kwargs:
             configured_role_types = kwargs['configuredRoleTypes']
-        if 'hcsVersion' in kwargs:
+        if configured_role_types is None:
+            raise TypeError("Missing 'configured_role_types' argument")
+        if culture is None:
+            raise TypeError("Missing 'culture' argument")
+        if hcs_version is None and 'hcsVersion' in kwargs:
             hcs_version = kwargs['hcsVersion']
-        if 'nodeCount' in kwargs:
+        if hcs_version is None:
+            raise TypeError("Missing 'hcs_version' argument")
+        if model is None:
+            raise TypeError("Missing 'model' argument")
+        if node_count is None and 'nodeCount' in kwargs:
             node_count = kwargs['nodeCount']
-        if 'serialNumber' in kwargs:
+        if node_count is None:
+            raise TypeError("Missing 'node_count' argument")
+        if serial_number is None and 'serialNumber' in kwargs:
             serial_number = kwargs['serialNumber']
-        if 'softwareVersion' in kwargs:
+        if serial_number is None:
+            raise TypeError("Missing 'serial_number' argument")
+        if software_version is None and 'softwareVersion' in kwargs:
             software_version = kwargs['softwareVersion']
-        if 'timeZone' in kwargs:
+        if software_version is None:
+            raise TypeError("Missing 'software_version' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if time_zone is None and 'timeZone' in kwargs:
             time_zone = kwargs['timeZone']
+        if time_zone is None:
+            raise TypeError("Missing 'time_zone' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("capacity", capacity)
         _setter("configured_role_types", configured_role_types)

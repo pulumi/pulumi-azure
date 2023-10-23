@@ -82,8 +82,8 @@ class JobArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             transformation_query: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             transformation_query: Optional[pulumi.Input[str]] = None,
              compatibility_level: Optional[pulumi.Input[str]] = None,
              content_storage_policy: Optional[pulumi.Input[str]] = None,
              data_locale: Optional[pulumi.Input[str]] = None,
@@ -101,29 +101,33 @@ class JobArgs:
              type: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'transformationQuery' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if transformation_query is None and 'transformationQuery' in kwargs:
             transformation_query = kwargs['transformationQuery']
-        if 'compatibilityLevel' in kwargs:
+        if transformation_query is None:
+            raise TypeError("Missing 'transformation_query' argument")
+        if compatibility_level is None and 'compatibilityLevel' in kwargs:
             compatibility_level = kwargs['compatibilityLevel']
-        if 'contentStoragePolicy' in kwargs:
+        if content_storage_policy is None and 'contentStoragePolicy' in kwargs:
             content_storage_policy = kwargs['contentStoragePolicy']
-        if 'dataLocale' in kwargs:
+        if data_locale is None and 'dataLocale' in kwargs:
             data_locale = kwargs['dataLocale']
-        if 'eventsLateArrivalMaxDelayInSeconds' in kwargs:
+        if events_late_arrival_max_delay_in_seconds is None and 'eventsLateArrivalMaxDelayInSeconds' in kwargs:
             events_late_arrival_max_delay_in_seconds = kwargs['eventsLateArrivalMaxDelayInSeconds']
-        if 'eventsOutOfOrderMaxDelayInSeconds' in kwargs:
+        if events_out_of_order_max_delay_in_seconds is None and 'eventsOutOfOrderMaxDelayInSeconds' in kwargs:
             events_out_of_order_max_delay_in_seconds = kwargs['eventsOutOfOrderMaxDelayInSeconds']
-        if 'eventsOutOfOrderPolicy' in kwargs:
+        if events_out_of_order_policy is None and 'eventsOutOfOrderPolicy' in kwargs:
             events_out_of_order_policy = kwargs['eventsOutOfOrderPolicy']
-        if 'jobStorageAccounts' in kwargs:
+        if job_storage_accounts is None and 'jobStorageAccounts' in kwargs:
             job_storage_accounts = kwargs['jobStorageAccounts']
-        if 'outputErrorPolicy' in kwargs:
+        if output_error_policy is None and 'outputErrorPolicy' in kwargs:
             output_error_policy = kwargs['outputErrorPolicy']
-        if 'streamAnalyticsClusterId' in kwargs:
+        if stream_analytics_cluster_id is None and 'streamAnalyticsClusterId' in kwargs:
             stream_analytics_cluster_id = kwargs['streamAnalyticsClusterId']
-        if 'streamingUnits' in kwargs:
+        if streaming_units is None and 'streamingUnits' in kwargs:
             streaming_units = kwargs['streamingUnits']
 
         _setter("resource_group_name", resource_group_name)
@@ -462,31 +466,31 @@ class _JobState:
              type: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'compatibilityLevel' in kwargs:
+        if compatibility_level is None and 'compatibilityLevel' in kwargs:
             compatibility_level = kwargs['compatibilityLevel']
-        if 'contentStoragePolicy' in kwargs:
+        if content_storage_policy is None and 'contentStoragePolicy' in kwargs:
             content_storage_policy = kwargs['contentStoragePolicy']
-        if 'dataLocale' in kwargs:
+        if data_locale is None and 'dataLocale' in kwargs:
             data_locale = kwargs['dataLocale']
-        if 'eventsLateArrivalMaxDelayInSeconds' in kwargs:
+        if events_late_arrival_max_delay_in_seconds is None and 'eventsLateArrivalMaxDelayInSeconds' in kwargs:
             events_late_arrival_max_delay_in_seconds = kwargs['eventsLateArrivalMaxDelayInSeconds']
-        if 'eventsOutOfOrderMaxDelayInSeconds' in kwargs:
+        if events_out_of_order_max_delay_in_seconds is None and 'eventsOutOfOrderMaxDelayInSeconds' in kwargs:
             events_out_of_order_max_delay_in_seconds = kwargs['eventsOutOfOrderMaxDelayInSeconds']
-        if 'eventsOutOfOrderPolicy' in kwargs:
+        if events_out_of_order_policy is None and 'eventsOutOfOrderPolicy' in kwargs:
             events_out_of_order_policy = kwargs['eventsOutOfOrderPolicy']
-        if 'jobId' in kwargs:
+        if job_id is None and 'jobId' in kwargs:
             job_id = kwargs['jobId']
-        if 'jobStorageAccounts' in kwargs:
+        if job_storage_accounts is None and 'jobStorageAccounts' in kwargs:
             job_storage_accounts = kwargs['jobStorageAccounts']
-        if 'outputErrorPolicy' in kwargs:
+        if output_error_policy is None and 'outputErrorPolicy' in kwargs:
             output_error_policy = kwargs['outputErrorPolicy']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'streamAnalyticsClusterId' in kwargs:
+        if stream_analytics_cluster_id is None and 'streamAnalyticsClusterId' in kwargs:
             stream_analytics_cluster_id = kwargs['streamAnalyticsClusterId']
-        if 'streamingUnits' in kwargs:
+        if streaming_units is None and 'streamingUnits' in kwargs:
             streaming_units = kwargs['streamingUnits']
-        if 'transformationQuery' in kwargs:
+        if transformation_query is None and 'transformationQuery' in kwargs:
             transformation_query = kwargs['transformationQuery']
 
         if compatibility_level is not None:

@@ -41,23 +41,29 @@ class VirtualHubIpArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             public_ip_address_id: pulumi.Input[str],
-             subnet_id: pulumi.Input[str],
-             virtual_hub_id: pulumi.Input[str],
+             public_ip_address_id: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             virtual_hub_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              private_ip_address: Optional[pulumi.Input[str]] = None,
              private_ip_allocation_method: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'publicIpAddressId' in kwargs:
+        if public_ip_address_id is None and 'publicIpAddressId' in kwargs:
             public_ip_address_id = kwargs['publicIpAddressId']
-        if 'subnetId' in kwargs:
+        if public_ip_address_id is None:
+            raise TypeError("Missing 'public_ip_address_id' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'virtualHubId' in kwargs:
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+        if virtual_hub_id is None and 'virtualHubId' in kwargs:
             virtual_hub_id = kwargs['virtualHubId']
-        if 'privateIpAddress' in kwargs:
+        if virtual_hub_id is None:
+            raise TypeError("Missing 'virtual_hub_id' argument")
+        if private_ip_address is None and 'privateIpAddress' in kwargs:
             private_ip_address = kwargs['privateIpAddress']
-        if 'privateIpAllocationMethod' in kwargs:
+        if private_ip_allocation_method is None and 'privateIpAllocationMethod' in kwargs:
             private_ip_allocation_method = kwargs['privateIpAllocationMethod']
 
         _setter("public_ip_address_id", public_ip_address_id)
@@ -181,15 +187,15 @@ class _VirtualHubIpState:
              virtual_hub_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'privateIpAddress' in kwargs:
+        if private_ip_address is None and 'privateIpAddress' in kwargs:
             private_ip_address = kwargs['privateIpAddress']
-        if 'privateIpAllocationMethod' in kwargs:
+        if private_ip_allocation_method is None and 'privateIpAllocationMethod' in kwargs:
             private_ip_allocation_method = kwargs['privateIpAllocationMethod']
-        if 'publicIpAddressId' in kwargs:
+        if public_ip_address_id is None and 'publicIpAddressId' in kwargs:
             public_ip_address_id = kwargs['publicIpAddressId']
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'virtualHubId' in kwargs:
+        if virtual_hub_id is None and 'virtualHubId' in kwargs:
             virtual_hub_id = kwargs['virtualHubId']
 
         if name is not None:

@@ -88,11 +88,11 @@ class WorkspaceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_insights_id: pulumi.Input[str],
-             identity: pulumi.Input['WorkspaceIdentityArgs'],
-             key_vault_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             storage_account_id: pulumi.Input[str],
+             application_insights_id: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['WorkspaceIdentityArgs']] = None,
+             key_vault_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             storage_account_id: Optional[pulumi.Input[str]] = None,
              container_registry_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              encryption: Optional[pulumi.Input['WorkspaceEncryptionArgs']] = None,
@@ -109,31 +109,41 @@ class WorkspaceArgs:
              v1_legacy_mode_enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'applicationInsightsId' in kwargs:
+        if application_insights_id is None and 'applicationInsightsId' in kwargs:
             application_insights_id = kwargs['applicationInsightsId']
-        if 'keyVaultId' in kwargs:
+        if application_insights_id is None:
+            raise TypeError("Missing 'application_insights_id' argument")
+        if identity is None:
+            raise TypeError("Missing 'identity' argument")
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
-        if 'resourceGroupName' in kwargs:
+        if key_vault_id is None:
+            raise TypeError("Missing 'key_vault_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'storageAccountId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'containerRegistryId' in kwargs:
+        if storage_account_id is None:
+            raise TypeError("Missing 'storage_account_id' argument")
+        if container_registry_id is None and 'containerRegistryId' in kwargs:
             container_registry_id = kwargs['containerRegistryId']
-        if 'friendlyName' in kwargs:
+        if friendly_name is None and 'friendlyName' in kwargs:
             friendly_name = kwargs['friendlyName']
-        if 'highBusinessImpact' in kwargs:
+        if high_business_impact is None and 'highBusinessImpact' in kwargs:
             high_business_impact = kwargs['highBusinessImpact']
-        if 'imageBuildComputeName' in kwargs:
+        if image_build_compute_name is None and 'imageBuildComputeName' in kwargs:
             image_build_compute_name = kwargs['imageBuildComputeName']
-        if 'primaryUserAssignedIdentity' in kwargs:
+        if primary_user_assigned_identity is None and 'primaryUserAssignedIdentity' in kwargs:
             primary_user_assigned_identity = kwargs['primaryUserAssignedIdentity']
-        if 'publicAccessBehindVirtualNetworkEnabled' in kwargs:
+        if public_access_behind_virtual_network_enabled is None and 'publicAccessBehindVirtualNetworkEnabled' in kwargs:
             public_access_behind_virtual_network_enabled = kwargs['publicAccessBehindVirtualNetworkEnabled']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'v1LegacyModeEnabled' in kwargs:
+        if v1_legacy_mode_enabled is None and 'v1LegacyModeEnabled' in kwargs:
             v1_legacy_mode_enabled = kwargs['v1LegacyModeEnabled']
 
         _setter("application_insights_id", application_insights_id)
@@ -515,35 +525,35 @@ class _WorkspaceState:
              workspace_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'applicationInsightsId' in kwargs:
+        if application_insights_id is None and 'applicationInsightsId' in kwargs:
             application_insights_id = kwargs['applicationInsightsId']
-        if 'containerRegistryId' in kwargs:
+        if container_registry_id is None and 'containerRegistryId' in kwargs:
             container_registry_id = kwargs['containerRegistryId']
-        if 'discoveryUrl' in kwargs:
+        if discovery_url is None and 'discoveryUrl' in kwargs:
             discovery_url = kwargs['discoveryUrl']
-        if 'friendlyName' in kwargs:
+        if friendly_name is None and 'friendlyName' in kwargs:
             friendly_name = kwargs['friendlyName']
-        if 'highBusinessImpact' in kwargs:
+        if high_business_impact is None and 'highBusinessImpact' in kwargs:
             high_business_impact = kwargs['highBusinessImpact']
-        if 'imageBuildComputeName' in kwargs:
+        if image_build_compute_name is None and 'imageBuildComputeName' in kwargs:
             image_build_compute_name = kwargs['imageBuildComputeName']
-        if 'keyVaultId' in kwargs:
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
-        if 'primaryUserAssignedIdentity' in kwargs:
+        if primary_user_assigned_identity is None and 'primaryUserAssignedIdentity' in kwargs:
             primary_user_assigned_identity = kwargs['primaryUserAssignedIdentity']
-        if 'publicAccessBehindVirtualNetworkEnabled' in kwargs:
+        if public_access_behind_virtual_network_enabled is None and 'publicAccessBehindVirtualNetworkEnabled' in kwargs:
             public_access_behind_virtual_network_enabled = kwargs['publicAccessBehindVirtualNetworkEnabled']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'v1LegacyModeEnabled' in kwargs:
+        if v1_legacy_mode_enabled is None and 'v1LegacyModeEnabled' in kwargs:
             v1_legacy_mode_enabled = kwargs['v1LegacyModeEnabled']
-        if 'workspaceId' in kwargs:
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
 
         if application_insights_id is not None:

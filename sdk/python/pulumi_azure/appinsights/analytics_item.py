@@ -41,17 +41,25 @@ class AnalyticsItemArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_insights_id: pulumi.Input[str],
-             content: pulumi.Input[str],
-             scope: pulumi.Input[str],
-             type: pulumi.Input[str],
+             application_insights_id: Optional[pulumi.Input[str]] = None,
+             content: Optional[pulumi.Input[str]] = None,
+             scope: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              function_alias: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'applicationInsightsId' in kwargs:
+        if application_insights_id is None and 'applicationInsightsId' in kwargs:
             application_insights_id = kwargs['applicationInsightsId']
-        if 'functionAlias' in kwargs:
+        if application_insights_id is None:
+            raise TypeError("Missing 'application_insights_id' argument")
+        if content is None:
+            raise TypeError("Missing 'content' argument")
+        if scope is None:
+            raise TypeError("Missing 'scope' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if function_alias is None and 'functionAlias' in kwargs:
             function_alias = kwargs['functionAlias']
 
         _setter("application_insights_id", application_insights_id)
@@ -186,13 +194,13 @@ class _AnalyticsItemState:
              version: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'applicationInsightsId' in kwargs:
+        if application_insights_id is None and 'applicationInsightsId' in kwargs:
             application_insights_id = kwargs['applicationInsightsId']
-        if 'functionAlias' in kwargs:
+        if function_alias is None and 'functionAlias' in kwargs:
             function_alias = kwargs['functionAlias']
-        if 'timeCreated' in kwargs:
+        if time_created is None and 'timeCreated' in kwargs:
             time_created = kwargs['timeCreated']
-        if 'timeModified' in kwargs:
+        if time_modified is None and 'timeModified' in kwargs:
             time_modified = kwargs['timeModified']
 
         if application_insights_id is not None:

@@ -86,14 +86,18 @@ class ActionHttpRunAfter(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action_name: str,
-             action_result: str,
+             action_name: Optional[str] = None,
+             action_result: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'actionName' in kwargs:
+        if action_name is None and 'actionName' in kwargs:
             action_name = kwargs['actionName']
-        if 'actionResult' in kwargs:
+        if action_name is None:
+            raise TypeError("Missing 'action_name' argument")
+        if action_result is None and 'actionResult' in kwargs:
             action_result = kwargs['actionResult']
+        if action_result is None:
+            raise TypeError("Missing 'action_result' argument")
 
         _setter("action_name", action_name)
         _setter("action_result", action_result)
@@ -132,10 +136,14 @@ class IntegrationAccountAgreementGuestIdentity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             qualifier: str,
-             value: str,
+             qualifier: Optional[str] = None,
+             value: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if qualifier is None:
+            raise TypeError("Missing 'qualifier' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("qualifier", qualifier)
         _setter("value", value)
@@ -174,10 +182,14 @@ class IntegrationAccountAgreementHostIdentity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             qualifier: str,
-             value: str,
+             qualifier: Optional[str] = None,
+             value: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if qualifier is None:
+            raise TypeError("Missing 'qualifier' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("qualifier", qualifier)
         _setter("value", value)
@@ -243,9 +255,9 @@ class IntegrationAccountBatchConfigurationReleaseCriteria(dict):
              recurrence: Optional['outputs.IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence'] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'batchSize' in kwargs:
+        if batch_size is None and 'batchSize' in kwargs:
             batch_size = kwargs['batchSize']
-        if 'messageCount' in kwargs:
+        if message_count is None and 'messageCount' in kwargs:
             message_count = kwargs['messageCount']
 
         if batch_size is not None:
@@ -330,19 +342,23 @@ class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             frequency: str,
-             interval: int,
+             frequency: Optional[str] = None,
+             interval: Optional[int] = None,
              end_time: Optional[str] = None,
              schedule: Optional['outputs.IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule'] = None,
              start_time: Optional[str] = None,
              time_zone: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'endTime' in kwargs:
+        if frequency is None:
+            raise TypeError("Missing 'frequency' argument")
+        if interval is None:
+            raise TypeError("Missing 'interval' argument")
+        if end_time is None and 'endTime' in kwargs:
             end_time = kwargs['endTime']
-        if 'startTime' in kwargs:
+        if start_time is None and 'startTime' in kwargs:
             start_time = kwargs['startTime']
-        if 'timeZone' in kwargs:
+        if time_zone is None and 'timeZone' in kwargs:
             time_zone = kwargs['timeZone']
 
         _setter("frequency", frequency)
@@ -457,9 +473,9 @@ class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule(dict
              week_days: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'monthDays' in kwargs:
+        if month_days is None and 'monthDays' in kwargs:
             month_days = kwargs['monthDays']
-        if 'weekDays' in kwargs:
+        if week_days is None and 'weekDays' in kwargs:
             week_days = kwargs['weekDays']
 
         if hours is not None:
@@ -531,10 +547,14 @@ class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonth
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             week: int,
-             weekday: str,
+             week: Optional[int] = None,
+             weekday: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if week is None:
+            raise TypeError("Missing 'week' argument")
+        if weekday is None:
+            raise TypeError("Missing 'weekday' argument")
 
         _setter("week", week)
         _setter("weekday", weekday)
@@ -597,16 +617,20 @@ class IntegrationAccountCertificateKeyVaultKey(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_name: str,
-             key_vault_id: str,
+             key_name: Optional[str] = None,
+             key_vault_id: Optional[str] = None,
              key_version: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'keyName' in kwargs:
+        if key_name is None and 'keyName' in kwargs:
             key_name = kwargs['keyName']
-        if 'keyVaultId' in kwargs:
+        if key_name is None:
+            raise TypeError("Missing 'key_name' argument")
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
-        if 'keyVersion' in kwargs:
+        if key_vault_id is None:
+            raise TypeError("Missing 'key_vault_id' argument")
+        if key_version is None and 'keyVersion' in kwargs:
             key_version = kwargs['keyVersion']
 
         _setter("key_name", key_name)
@@ -656,10 +680,14 @@ class IntegrationAccountPartnerBusinessIdentity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             qualifier: str,
-             value: str,
+             qualifier: Optional[str] = None,
+             value: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if qualifier is None:
+            raise TypeError("Missing 'qualifier' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("qualifier", qualifier)
         _setter("value", value)
@@ -701,11 +729,17 @@ class StandardConnectionString(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             type: str,
-             value: str,
+             name: Optional[str] = None,
+             type: Optional[str] = None,
+             value: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("name", name)
         _setter("type", type)
@@ -784,17 +818,19 @@ class StandardIdentity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -1000,45 +1036,45 @@ class StandardSiteConfig(dict):
              websockets_enabled: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'alwaysOn' in kwargs:
+        if always_on is None and 'alwaysOn' in kwargs:
             always_on = kwargs['alwaysOn']
-        if 'appScaleLimit' in kwargs:
+        if app_scale_limit is None and 'appScaleLimit' in kwargs:
             app_scale_limit = kwargs['appScaleLimit']
-        if 'autoSwapSlotName' in kwargs:
+        if auto_swap_slot_name is None and 'autoSwapSlotName' in kwargs:
             auto_swap_slot_name = kwargs['autoSwapSlotName']
-        if 'dotnetFrameworkVersion' in kwargs:
+        if dotnet_framework_version is None and 'dotnetFrameworkVersion' in kwargs:
             dotnet_framework_version = kwargs['dotnetFrameworkVersion']
-        if 'elasticInstanceMinimum' in kwargs:
+        if elastic_instance_minimum is None and 'elasticInstanceMinimum' in kwargs:
             elastic_instance_minimum = kwargs['elasticInstanceMinimum']
-        if 'ftpsState' in kwargs:
+        if ftps_state is None and 'ftpsState' in kwargs:
             ftps_state = kwargs['ftpsState']
-        if 'healthCheckPath' in kwargs:
+        if health_check_path is None and 'healthCheckPath' in kwargs:
             health_check_path = kwargs['healthCheckPath']
-        if 'http2Enabled' in kwargs:
+        if http2_enabled is None and 'http2Enabled' in kwargs:
             http2_enabled = kwargs['http2Enabled']
-        if 'ipRestrictions' in kwargs:
+        if ip_restrictions is None and 'ipRestrictions' in kwargs:
             ip_restrictions = kwargs['ipRestrictions']
-        if 'linuxFxVersion' in kwargs:
+        if linux_fx_version is None and 'linuxFxVersion' in kwargs:
             linux_fx_version = kwargs['linuxFxVersion']
-        if 'minTlsVersion' in kwargs:
+        if min_tls_version is None and 'minTlsVersion' in kwargs:
             min_tls_version = kwargs['minTlsVersion']
-        if 'preWarmedInstanceCount' in kwargs:
+        if pre_warmed_instance_count is None and 'preWarmedInstanceCount' in kwargs:
             pre_warmed_instance_count = kwargs['preWarmedInstanceCount']
-        if 'runtimeScaleMonitoringEnabled' in kwargs:
+        if runtime_scale_monitoring_enabled is None and 'runtimeScaleMonitoringEnabled' in kwargs:
             runtime_scale_monitoring_enabled = kwargs['runtimeScaleMonitoringEnabled']
-        if 'scmIpRestrictions' in kwargs:
+        if scm_ip_restrictions is None and 'scmIpRestrictions' in kwargs:
             scm_ip_restrictions = kwargs['scmIpRestrictions']
-        if 'scmMinTlsVersion' in kwargs:
+        if scm_min_tls_version is None and 'scmMinTlsVersion' in kwargs:
             scm_min_tls_version = kwargs['scmMinTlsVersion']
-        if 'scmType' in kwargs:
+        if scm_type is None and 'scmType' in kwargs:
             scm_type = kwargs['scmType']
-        if 'scmUseMainIpRestriction' in kwargs:
+        if scm_use_main_ip_restriction is None and 'scmUseMainIpRestriction' in kwargs:
             scm_use_main_ip_restriction = kwargs['scmUseMainIpRestriction']
-        if 'use32BitWorkerProcess' in kwargs:
+        if use32_bit_worker_process is None and 'use32BitWorkerProcess' in kwargs:
             use32_bit_worker_process = kwargs['use32BitWorkerProcess']
-        if 'vnetRouteAllEnabled' in kwargs:
+        if vnet_route_all_enabled is None and 'vnetRouteAllEnabled' in kwargs:
             vnet_route_all_enabled = kwargs['vnetRouteAllEnabled']
-        if 'websocketsEnabled' in kwargs:
+        if websockets_enabled is None and 'websocketsEnabled' in kwargs:
             websockets_enabled = kwargs['websocketsEnabled']
 
         if always_on is not None:
@@ -1295,13 +1331,15 @@ class StandardSiteConfigCors(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             allowed_origins: Sequence[str],
+             allowed_origins: Optional[Sequence[str]] = None,
              support_credentials: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowedOrigins' in kwargs:
+        if allowed_origins is None and 'allowedOrigins' in kwargs:
             allowed_origins = kwargs['allowedOrigins']
-        if 'supportCredentials' in kwargs:
+        if allowed_origins is None:
+            raise TypeError("Missing 'allowed_origins' argument")
+        if support_credentials is None and 'supportCredentials' in kwargs:
             support_credentials = kwargs['supportCredentials']
 
         _setter("allowed_origins", allowed_origins)
@@ -1389,11 +1427,11 @@ class StandardSiteConfigIpRestriction(dict):
              virtual_network_subnet_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ipAddress' in kwargs:
+        if ip_address is None and 'ipAddress' in kwargs:
             ip_address = kwargs['ipAddress']
-        if 'serviceTag' in kwargs:
+        if service_tag is None and 'serviceTag' in kwargs:
             service_tag = kwargs['serviceTag']
-        if 'virtualNetworkSubnetId' in kwargs:
+        if virtual_network_subnet_id is None and 'virtualNetworkSubnetId' in kwargs:
             virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
 
         if action is not None:
@@ -1522,13 +1560,13 @@ class StandardSiteConfigIpRestrictionHeaders(dict):
              x_forwarded_hosts: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'xAzureFdids' in kwargs:
+        if x_azure_fdids is None and 'xAzureFdids' in kwargs:
             x_azure_fdids = kwargs['xAzureFdids']
-        if 'xFdHealthProbe' in kwargs:
+        if x_fd_health_probe is None and 'xFdHealthProbe' in kwargs:
             x_fd_health_probe = kwargs['xFdHealthProbe']
-        if 'xForwardedFors' in kwargs:
+        if x_forwarded_fors is None and 'xForwardedFors' in kwargs:
             x_forwarded_fors = kwargs['xForwardedFors']
-        if 'xForwardedHosts' in kwargs:
+        if x_forwarded_hosts is None and 'xForwardedHosts' in kwargs:
             x_forwarded_hosts = kwargs['xForwardedHosts']
 
         if x_azure_fdids is not None:
@@ -1637,11 +1675,11 @@ class StandardSiteConfigScmIpRestriction(dict):
              virtual_network_subnet_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ipAddress' in kwargs:
+        if ip_address is None and 'ipAddress' in kwargs:
             ip_address = kwargs['ipAddress']
-        if 'serviceTag' in kwargs:
+        if service_tag is None and 'serviceTag' in kwargs:
             service_tag = kwargs['serviceTag']
-        if 'virtualNetworkSubnetId' in kwargs:
+        if virtual_network_subnet_id is None and 'virtualNetworkSubnetId' in kwargs:
             virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
 
         if action is not None:
@@ -1770,13 +1808,13 @@ class StandardSiteConfigScmIpRestrictionHeaders(dict):
              x_forwarded_hosts: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'xAzureFdids' in kwargs:
+        if x_azure_fdids is None and 'xAzureFdids' in kwargs:
             x_azure_fdids = kwargs['xAzureFdids']
-        if 'xFdHealthProbe' in kwargs:
+        if x_fd_health_probe is None and 'xFdHealthProbe' in kwargs:
             x_fd_health_probe = kwargs['xFdHealthProbe']
-        if 'xForwardedFors' in kwargs:
+        if x_forwarded_fors is None and 'xForwardedFors' in kwargs:
             x_forwarded_fors = kwargs['xForwardedFors']
-        if 'xForwardedHosts' in kwargs:
+        if x_forwarded_hosts is None and 'xForwardedHosts' in kwargs:
             x_forwarded_hosts = kwargs['xForwardedHosts']
 
         if x_azure_fdids is not None:
@@ -1911,11 +1949,11 @@ class TriggerRecurrenceSchedule(dict):
              on_these_days: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'atTheseHours' in kwargs:
+        if at_these_hours is None and 'atTheseHours' in kwargs:
             at_these_hours = kwargs['atTheseHours']
-        if 'atTheseMinutes' in kwargs:
+        if at_these_minutes is None and 'atTheseMinutes' in kwargs:
             at_these_minutes = kwargs['atTheseMinutes']
-        if 'onTheseDays' in kwargs:
+        if on_these_days is None and 'onTheseDays' in kwargs:
             on_these_days = kwargs['onTheseDays']
 
         if at_these_hours is not None:
@@ -1996,7 +2034,7 @@ class WorkflowAccessControl(dict):
              workflow_management: Optional['outputs.WorkflowAccessControlWorkflowManagement'] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'workflowManagement' in kwargs:
+        if workflow_management is None and 'workflowManagement' in kwargs:
             workflow_management = kwargs['workflowManagement']
 
         if action is not None:
@@ -2072,11 +2110,13 @@ class WorkflowAccessControlAction(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             allowed_caller_ip_address_ranges: Sequence[str],
+             allowed_caller_ip_address_ranges: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowedCallerIpAddressRanges' in kwargs:
+        if allowed_caller_ip_address_ranges is None and 'allowedCallerIpAddressRanges' in kwargs:
             allowed_caller_ip_address_ranges = kwargs['allowedCallerIpAddressRanges']
+        if allowed_caller_ip_address_ranges is None:
+            raise TypeError("Missing 'allowed_caller_ip_address_ranges' argument")
 
         _setter("allowed_caller_ip_address_ranges", allowed_caller_ip_address_ranges)
 
@@ -2120,11 +2160,13 @@ class WorkflowAccessControlContent(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             allowed_caller_ip_address_ranges: Sequence[str],
+             allowed_caller_ip_address_ranges: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowedCallerIpAddressRanges' in kwargs:
+        if allowed_caller_ip_address_ranges is None and 'allowedCallerIpAddressRanges' in kwargs:
             allowed_caller_ip_address_ranges = kwargs['allowedCallerIpAddressRanges']
+        if allowed_caller_ip_address_ranges is None:
+            raise TypeError("Missing 'allowed_caller_ip_address_ranges' argument")
 
         _setter("allowed_caller_ip_address_ranges", allowed_caller_ip_address_ranges)
 
@@ -2173,13 +2215,15 @@ class WorkflowAccessControlTrigger(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             allowed_caller_ip_address_ranges: Sequence[str],
+             allowed_caller_ip_address_ranges: Optional[Sequence[str]] = None,
              open_authentication_policies: Optional[Sequence['outputs.WorkflowAccessControlTriggerOpenAuthenticationPolicy']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowedCallerIpAddressRanges' in kwargs:
+        if allowed_caller_ip_address_ranges is None and 'allowedCallerIpAddressRanges' in kwargs:
             allowed_caller_ip_address_ranges = kwargs['allowedCallerIpAddressRanges']
-        if 'openAuthenticationPolicies' in kwargs:
+        if allowed_caller_ip_address_ranges is None:
+            raise TypeError("Missing 'allowed_caller_ip_address_ranges' argument")
+        if open_authentication_policies is None and 'openAuthenticationPolicies' in kwargs:
             open_authentication_policies = kwargs['openAuthenticationPolicies']
 
         _setter("allowed_caller_ip_address_ranges", allowed_caller_ip_address_ranges)
@@ -2220,10 +2264,14 @@ class WorkflowAccessControlTriggerOpenAuthenticationPolicy(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             claims: Sequence['outputs.WorkflowAccessControlTriggerOpenAuthenticationPolicyClaim'],
-             name: str,
+             claims: Optional[Sequence['outputs.WorkflowAccessControlTriggerOpenAuthenticationPolicyClaim']] = None,
+             name: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if claims is None:
+            raise TypeError("Missing 'claims' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("claims", claims)
         _setter("name", name)
@@ -2262,10 +2310,14 @@ class WorkflowAccessControlTriggerOpenAuthenticationPolicyClaim(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             value: str,
+             name: Optional[str] = None,
+             value: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("name", name)
         _setter("value", value)
@@ -2318,11 +2370,13 @@ class WorkflowAccessControlWorkflowManagement(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             allowed_caller_ip_address_ranges: Sequence[str],
+             allowed_caller_ip_address_ranges: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowedCallerIpAddressRanges' in kwargs:
+        if allowed_caller_ip_address_ranges is None and 'allowedCallerIpAddressRanges' in kwargs:
             allowed_caller_ip_address_ranges = kwargs['allowedCallerIpAddressRanges']
+        if allowed_caller_ip_address_ranges is None:
+            raise TypeError("Missing 'allowed_caller_ip_address_ranges' argument")
 
         _setter("allowed_caller_ip_address_ranges", allowed_caller_ip_address_ranges)
 
@@ -2381,17 +2435,19 @@ class WorkflowIdentity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -2456,11 +2512,17 @@ class GetStandardConnectionStringResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             type: str,
-             value: str,
+             name: Optional[str] = None,
+             type: Optional[str] = None,
+             value: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("name", name)
         _setter("type", type)
@@ -2508,15 +2570,21 @@ class GetStandardIdentityResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             principal_id: str,
-             tenant_id: str,
-             type: str,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("principal_id", principal_id)
         _setter("tenant_id", tenant_id)
@@ -2598,19 +2666,19 @@ class GetStandardSiteConfigResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_scale_limit: int,
-             auto_swap_slot_name: str,
-             cors: 'outputs.GetStandardSiteConfigCorsResult',
-             elastic_instance_minimum: int,
-             ftps_state: str,
-             ip_restrictions: Sequence['outputs.GetStandardSiteConfigIpRestrictionResult'],
-             linux_fx_version: str,
-             min_tls_version: str,
-             pre_warmed_instance_count: int,
-             scm_ip_restrictions: Sequence['outputs.GetStandardSiteConfigScmIpRestrictionResult'],
-             scm_min_tls_version: str,
-             scm_type: str,
-             vnet_route_all_enabled: bool,
+             app_scale_limit: Optional[int] = None,
+             auto_swap_slot_name: Optional[str] = None,
+             cors: Optional['outputs.GetStandardSiteConfigCorsResult'] = None,
+             elastic_instance_minimum: Optional[int] = None,
+             ftps_state: Optional[str] = None,
+             ip_restrictions: Optional[Sequence['outputs.GetStandardSiteConfigIpRestrictionResult']] = None,
+             linux_fx_version: Optional[str] = None,
+             min_tls_version: Optional[str] = None,
+             pre_warmed_instance_count: Optional[int] = None,
+             scm_ip_restrictions: Optional[Sequence['outputs.GetStandardSiteConfigScmIpRestrictionResult']] = None,
+             scm_min_tls_version: Optional[str] = None,
+             scm_type: Optional[str] = None,
+             vnet_route_all_enabled: Optional[bool] = None,
              always_on: Optional[bool] = None,
              dotnet_framework_version: Optional[str] = None,
              health_check_path: Optional[str] = None,
@@ -2621,45 +2689,71 @@ class GetStandardSiteConfigResult(dict):
              websockets_enabled: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'appScaleLimit' in kwargs:
+        if app_scale_limit is None and 'appScaleLimit' in kwargs:
             app_scale_limit = kwargs['appScaleLimit']
-        if 'autoSwapSlotName' in kwargs:
+        if app_scale_limit is None:
+            raise TypeError("Missing 'app_scale_limit' argument")
+        if auto_swap_slot_name is None and 'autoSwapSlotName' in kwargs:
             auto_swap_slot_name = kwargs['autoSwapSlotName']
-        if 'elasticInstanceMinimum' in kwargs:
+        if auto_swap_slot_name is None:
+            raise TypeError("Missing 'auto_swap_slot_name' argument")
+        if cors is None:
+            raise TypeError("Missing 'cors' argument")
+        if elastic_instance_minimum is None and 'elasticInstanceMinimum' in kwargs:
             elastic_instance_minimum = kwargs['elasticInstanceMinimum']
-        if 'ftpsState' in kwargs:
+        if elastic_instance_minimum is None:
+            raise TypeError("Missing 'elastic_instance_minimum' argument")
+        if ftps_state is None and 'ftpsState' in kwargs:
             ftps_state = kwargs['ftpsState']
-        if 'ipRestrictions' in kwargs:
+        if ftps_state is None:
+            raise TypeError("Missing 'ftps_state' argument")
+        if ip_restrictions is None and 'ipRestrictions' in kwargs:
             ip_restrictions = kwargs['ipRestrictions']
-        if 'linuxFxVersion' in kwargs:
+        if ip_restrictions is None:
+            raise TypeError("Missing 'ip_restrictions' argument")
+        if linux_fx_version is None and 'linuxFxVersion' in kwargs:
             linux_fx_version = kwargs['linuxFxVersion']
-        if 'minTlsVersion' in kwargs:
+        if linux_fx_version is None:
+            raise TypeError("Missing 'linux_fx_version' argument")
+        if min_tls_version is None and 'minTlsVersion' in kwargs:
             min_tls_version = kwargs['minTlsVersion']
-        if 'preWarmedInstanceCount' in kwargs:
+        if min_tls_version is None:
+            raise TypeError("Missing 'min_tls_version' argument")
+        if pre_warmed_instance_count is None and 'preWarmedInstanceCount' in kwargs:
             pre_warmed_instance_count = kwargs['preWarmedInstanceCount']
-        if 'scmIpRestrictions' in kwargs:
+        if pre_warmed_instance_count is None:
+            raise TypeError("Missing 'pre_warmed_instance_count' argument")
+        if scm_ip_restrictions is None and 'scmIpRestrictions' in kwargs:
             scm_ip_restrictions = kwargs['scmIpRestrictions']
-        if 'scmMinTlsVersion' in kwargs:
+        if scm_ip_restrictions is None:
+            raise TypeError("Missing 'scm_ip_restrictions' argument")
+        if scm_min_tls_version is None and 'scmMinTlsVersion' in kwargs:
             scm_min_tls_version = kwargs['scmMinTlsVersion']
-        if 'scmType' in kwargs:
+        if scm_min_tls_version is None:
+            raise TypeError("Missing 'scm_min_tls_version' argument")
+        if scm_type is None and 'scmType' in kwargs:
             scm_type = kwargs['scmType']
-        if 'vnetRouteAllEnabled' in kwargs:
+        if scm_type is None:
+            raise TypeError("Missing 'scm_type' argument")
+        if vnet_route_all_enabled is None and 'vnetRouteAllEnabled' in kwargs:
             vnet_route_all_enabled = kwargs['vnetRouteAllEnabled']
-        if 'alwaysOn' in kwargs:
+        if vnet_route_all_enabled is None:
+            raise TypeError("Missing 'vnet_route_all_enabled' argument")
+        if always_on is None and 'alwaysOn' in kwargs:
             always_on = kwargs['alwaysOn']
-        if 'dotnetFrameworkVersion' in kwargs:
+        if dotnet_framework_version is None and 'dotnetFrameworkVersion' in kwargs:
             dotnet_framework_version = kwargs['dotnetFrameworkVersion']
-        if 'healthCheckPath' in kwargs:
+        if health_check_path is None and 'healthCheckPath' in kwargs:
             health_check_path = kwargs['healthCheckPath']
-        if 'http2Enabled' in kwargs:
+        if http2_enabled is None and 'http2Enabled' in kwargs:
             http2_enabled = kwargs['http2Enabled']
-        if 'runtimeScaleMonitoringEnabled' in kwargs:
+        if runtime_scale_monitoring_enabled is None and 'runtimeScaleMonitoringEnabled' in kwargs:
             runtime_scale_monitoring_enabled = kwargs['runtimeScaleMonitoringEnabled']
-        if 'scmUseMainIpRestriction' in kwargs:
+        if scm_use_main_ip_restriction is None and 'scmUseMainIpRestriction' in kwargs:
             scm_use_main_ip_restriction = kwargs['scmUseMainIpRestriction']
-        if 'use32BitWorkerProcess' in kwargs:
+        if use32_bit_worker_process is None and 'use32BitWorkerProcess' in kwargs:
             use32_bit_worker_process = kwargs['use32BitWorkerProcess']
-        if 'websocketsEnabled' in kwargs:
+        if websockets_enabled is None and 'websocketsEnabled' in kwargs:
             websockets_enabled = kwargs['websocketsEnabled']
 
         _setter("app_scale_limit", app_scale_limit)
@@ -2811,13 +2905,15 @@ class GetStandardSiteConfigCorsResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             allowed_origins: Sequence[str],
+             allowed_origins: Optional[Sequence[str]] = None,
              support_credentials: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowedOrigins' in kwargs:
+        if allowed_origins is None and 'allowedOrigins' in kwargs:
             allowed_origins = kwargs['allowedOrigins']
-        if 'supportCredentials' in kwargs:
+        if allowed_origins is None:
+            raise TypeError("Missing 'allowed_origins' argument")
+        if support_credentials is None and 'supportCredentials' in kwargs:
             support_credentials = kwargs['supportCredentials']
 
         _setter("allowed_origins", allowed_origins)
@@ -2861,8 +2957,8 @@ class GetStandardSiteConfigIpRestrictionResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             headers: 'outputs.GetStandardSiteConfigIpRestrictionHeadersResult',
-             name: str,
+             headers: Optional['outputs.GetStandardSiteConfigIpRestrictionHeadersResult'] = None,
+             name: Optional[str] = None,
              action: Optional[str] = None,
              ip_address: Optional[str] = None,
              priority: Optional[int] = None,
@@ -2870,11 +2966,15 @@ class GetStandardSiteConfigIpRestrictionResult(dict):
              virtual_network_subnet_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ipAddress' in kwargs:
+        if headers is None:
+            raise TypeError("Missing 'headers' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if ip_address is None and 'ipAddress' in kwargs:
             ip_address = kwargs['ipAddress']
-        if 'serviceTag' in kwargs:
+        if service_tag is None and 'serviceTag' in kwargs:
             service_tag = kwargs['serviceTag']
-        if 'virtualNetworkSubnetId' in kwargs:
+        if virtual_network_subnet_id is None and 'virtualNetworkSubnetId' in kwargs:
             virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
 
         _setter("headers", headers)
@@ -2952,13 +3052,13 @@ class GetStandardSiteConfigIpRestrictionHeadersResult(dict):
              x_forwarded_hosts: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'xAzureFdids' in kwargs:
+        if x_azure_fdids is None and 'xAzureFdids' in kwargs:
             x_azure_fdids = kwargs['xAzureFdids']
-        if 'xFdHealthProbe' in kwargs:
+        if x_fd_health_probe is None and 'xFdHealthProbe' in kwargs:
             x_fd_health_probe = kwargs['xFdHealthProbe']
-        if 'xForwardedFors' in kwargs:
+        if x_forwarded_fors is None and 'xForwardedFors' in kwargs:
             x_forwarded_fors = kwargs['xForwardedFors']
-        if 'xForwardedHosts' in kwargs:
+        if x_forwarded_hosts is None and 'xForwardedHosts' in kwargs:
             x_forwarded_hosts = kwargs['xForwardedHosts']
 
         if x_azure_fdids is not None:
@@ -3017,8 +3117,8 @@ class GetStandardSiteConfigScmIpRestrictionResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             headers: 'outputs.GetStandardSiteConfigScmIpRestrictionHeadersResult',
-             name: str,
+             headers: Optional['outputs.GetStandardSiteConfigScmIpRestrictionHeadersResult'] = None,
+             name: Optional[str] = None,
              action: Optional[str] = None,
              ip_address: Optional[str] = None,
              priority: Optional[int] = None,
@@ -3026,11 +3126,15 @@ class GetStandardSiteConfigScmIpRestrictionResult(dict):
              virtual_network_subnet_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ipAddress' in kwargs:
+        if headers is None:
+            raise TypeError("Missing 'headers' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if ip_address is None and 'ipAddress' in kwargs:
             ip_address = kwargs['ipAddress']
-        if 'serviceTag' in kwargs:
+        if service_tag is None and 'serviceTag' in kwargs:
             service_tag = kwargs['serviceTag']
-        if 'virtualNetworkSubnetId' in kwargs:
+        if virtual_network_subnet_id is None and 'virtualNetworkSubnetId' in kwargs:
             virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
 
         _setter("headers", headers)
@@ -3108,13 +3212,13 @@ class GetStandardSiteConfigScmIpRestrictionHeadersResult(dict):
              x_forwarded_hosts: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'xAzureFdids' in kwargs:
+        if x_azure_fdids is None and 'xAzureFdids' in kwargs:
             x_azure_fdids = kwargs['xAzureFdids']
-        if 'xFdHealthProbe' in kwargs:
+        if x_fd_health_probe is None and 'xFdHealthProbe' in kwargs:
             x_fd_health_probe = kwargs['xFdHealthProbe']
-        if 'xForwardedFors' in kwargs:
+        if x_forwarded_fors is None and 'xForwardedFors' in kwargs:
             x_forwarded_fors = kwargs['xForwardedFors']
-        if 'xForwardedHosts' in kwargs:
+        if x_forwarded_hosts is None and 'xForwardedHosts' in kwargs:
             x_forwarded_hosts = kwargs['xForwardedHosts']
 
         if x_azure_fdids is not None:
@@ -3160,10 +3264,14 @@ class GetStandardSiteCredentialResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             password: str,
-             username: str,
+             password: Optional[str] = None,
+             username: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
 
         _setter("password", password)
         _setter("username", username)
@@ -3202,18 +3310,26 @@ class GetWorkflowIdentityResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             identity_ids: Sequence[str],
-             principal_id: str,
-             tenant_id: str,
-             type: str,
+             identity_ids: Optional[Sequence[str]] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if identity_ids is None:
+            raise TypeError("Missing 'identity_ids' argument")
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("identity_ids", identity_ids)
         _setter("principal_id", principal_id)

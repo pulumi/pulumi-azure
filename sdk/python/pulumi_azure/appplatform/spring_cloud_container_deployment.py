@@ -58,9 +58,9 @@ class SpringCloudContainerDeploymentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             image: pulumi.Input[str],
-             server: pulumi.Input[str],
-             spring_cloud_app_id: pulumi.Input[str],
+             image: Optional[pulumi.Input[str]] = None,
+             server: Optional[pulumi.Input[str]] = None,
+             spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
              addon_json: Optional[pulumi.Input[str]] = None,
              arguments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              commands: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -71,15 +71,21 @@ class SpringCloudContainerDeploymentArgs:
              quota: Optional[pulumi.Input['SpringCloudContainerDeploymentQuotaArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'springCloudAppId' in kwargs:
+        if image is None:
+            raise TypeError("Missing 'image' argument")
+        if server is None:
+            raise TypeError("Missing 'server' argument")
+        if spring_cloud_app_id is None and 'springCloudAppId' in kwargs:
             spring_cloud_app_id = kwargs['springCloudAppId']
-        if 'addonJson' in kwargs:
+        if spring_cloud_app_id is None:
+            raise TypeError("Missing 'spring_cloud_app_id' argument")
+        if addon_json is None and 'addonJson' in kwargs:
             addon_json = kwargs['addonJson']
-        if 'environmentVariables' in kwargs:
+        if environment_variables is None and 'environmentVariables' in kwargs:
             environment_variables = kwargs['environmentVariables']
-        if 'instanceCount' in kwargs:
+        if instance_count is None and 'instanceCount' in kwargs:
             instance_count = kwargs['instanceCount']
-        if 'languageFramework' in kwargs:
+        if language_framework is None and 'languageFramework' in kwargs:
             language_framework = kwargs['languageFramework']
 
         _setter("image", image)
@@ -293,15 +299,15 @@ class _SpringCloudContainerDeploymentState:
              spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'addonJson' in kwargs:
+        if addon_json is None and 'addonJson' in kwargs:
             addon_json = kwargs['addonJson']
-        if 'environmentVariables' in kwargs:
+        if environment_variables is None and 'environmentVariables' in kwargs:
             environment_variables = kwargs['environmentVariables']
-        if 'instanceCount' in kwargs:
+        if instance_count is None and 'instanceCount' in kwargs:
             instance_count = kwargs['instanceCount']
-        if 'languageFramework' in kwargs:
+        if language_framework is None and 'languageFramework' in kwargs:
             language_framework = kwargs['languageFramework']
-        if 'springCloudAppId' in kwargs:
+        if spring_cloud_app_id is None and 'springCloudAppId' in kwargs:
             spring_cloud_app_id = kwargs['springCloudAppId']
 
         if addon_json is not None:

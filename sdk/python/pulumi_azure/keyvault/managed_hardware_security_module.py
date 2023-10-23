@@ -64,10 +64,10 @@ class ManagedHardwareSecurityModuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             admin_object_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             resource_group_name: pulumi.Input[str],
-             sku_name: pulumi.Input[str],
-             tenant_id: pulumi.Input[str],
+             admin_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              network_acls: Optional[pulumi.Input['ManagedHardwareSecurityModuleNetworkAclsArgs']] = None,
@@ -79,25 +79,33 @@ class ManagedHardwareSecurityModuleArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'adminObjectIds' in kwargs:
+        if admin_object_ids is None and 'adminObjectIds' in kwargs:
             admin_object_ids = kwargs['adminObjectIds']
-        if 'resourceGroupName' in kwargs:
+        if admin_object_ids is None:
+            raise TypeError("Missing 'admin_object_ids' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'tenantId' in kwargs:
+        if sku_name is None:
+            raise TypeError("Missing 'sku_name' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
-        if 'networkAcls' in kwargs:
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if network_acls is None and 'networkAcls' in kwargs:
             network_acls = kwargs['networkAcls']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'purgeProtectionEnabled' in kwargs:
+        if purge_protection_enabled is None and 'purgeProtectionEnabled' in kwargs:
             purge_protection_enabled = kwargs['purgeProtectionEnabled']
-        if 'securityDomainKeyVaultCertificateIds' in kwargs:
+        if security_domain_key_vault_certificate_ids is None and 'securityDomainKeyVaultCertificateIds' in kwargs:
             security_domain_key_vault_certificate_ids = kwargs['securityDomainKeyVaultCertificateIds']
-        if 'securityDomainQuorum' in kwargs:
+        if security_domain_quorum is None and 'securityDomainQuorum' in kwargs:
             security_domain_quorum = kwargs['securityDomainQuorum']
-        if 'softDeleteRetentionDays' in kwargs:
+        if soft_delete_retention_days is None and 'softDeleteRetentionDays' in kwargs:
             soft_delete_retention_days = kwargs['softDeleteRetentionDays']
 
         _setter("admin_object_ids", admin_object_ids)
@@ -354,29 +362,29 @@ class _ManagedHardwareSecurityModuleState:
              tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'adminObjectIds' in kwargs:
+        if admin_object_ids is None and 'adminObjectIds' in kwargs:
             admin_object_ids = kwargs['adminObjectIds']
-        if 'hsmUri' in kwargs:
+        if hsm_uri is None and 'hsmUri' in kwargs:
             hsm_uri = kwargs['hsmUri']
-        if 'networkAcls' in kwargs:
+        if network_acls is None and 'networkAcls' in kwargs:
             network_acls = kwargs['networkAcls']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'purgeProtectionEnabled' in kwargs:
+        if purge_protection_enabled is None and 'purgeProtectionEnabled' in kwargs:
             purge_protection_enabled = kwargs['purgeProtectionEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'securityDomainEncryptedData' in kwargs:
+        if security_domain_encrypted_data is None and 'securityDomainEncryptedData' in kwargs:
             security_domain_encrypted_data = kwargs['securityDomainEncryptedData']
-        if 'securityDomainKeyVaultCertificateIds' in kwargs:
+        if security_domain_key_vault_certificate_ids is None and 'securityDomainKeyVaultCertificateIds' in kwargs:
             security_domain_key_vault_certificate_ids = kwargs['securityDomainKeyVaultCertificateIds']
-        if 'securityDomainQuorum' in kwargs:
+        if security_domain_quorum is None and 'securityDomainQuorum' in kwargs:
             security_domain_quorum = kwargs['securityDomainQuorum']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'softDeleteRetentionDays' in kwargs:
+        if soft_delete_retention_days is None and 'softDeleteRetentionDays' in kwargs:
             soft_delete_retention_days = kwargs['softDeleteRetentionDays']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         if admin_object_ids is not None:

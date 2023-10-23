@@ -58,9 +58,9 @@ class MonitorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             plan: pulumi.Input['MonitorPlanArgs'],
-             resource_group_name: pulumi.Input[str],
-             user: pulumi.Input['MonitorUserArgs'],
+             plan: Optional[pulumi.Input['MonitorPlanArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             user: Optional[pulumi.Input['MonitorUserArgs']] = None,
              account_creation_source: Optional[pulumi.Input[str]] = None,
              account_id: Optional[pulumi.Input[str]] = None,
              ingestion_key: Optional[pulumi.Input[str]] = None,
@@ -71,19 +71,25 @@ class MonitorArgs:
              user_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if plan is None:
+            raise TypeError("Missing 'plan' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'accountCreationSource' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if user is None:
+            raise TypeError("Missing 'user' argument")
+        if account_creation_source is None and 'accountCreationSource' in kwargs:
             account_creation_source = kwargs['accountCreationSource']
-        if 'accountId' in kwargs:
+        if account_id is None and 'accountId' in kwargs:
             account_id = kwargs['accountId']
-        if 'ingestionKey' in kwargs:
+        if ingestion_key is None and 'ingestionKey' in kwargs:
             ingestion_key = kwargs['ingestionKey']
-        if 'orgCreationSource' in kwargs:
+        if org_creation_source is None and 'orgCreationSource' in kwargs:
             org_creation_source = kwargs['orgCreationSource']
-        if 'organizationId' in kwargs:
+        if organization_id is None and 'organizationId' in kwargs:
             organization_id = kwargs['organizationId']
-        if 'userId' in kwargs:
+        if user_id is None and 'userId' in kwargs:
             user_id = kwargs['userId']
 
         _setter("plan", plan)
@@ -297,19 +303,19 @@ class _MonitorState:
              user_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accountCreationSource' in kwargs:
+        if account_creation_source is None and 'accountCreationSource' in kwargs:
             account_creation_source = kwargs['accountCreationSource']
-        if 'accountId' in kwargs:
+        if account_id is None and 'accountId' in kwargs:
             account_id = kwargs['accountId']
-        if 'ingestionKey' in kwargs:
+        if ingestion_key is None and 'ingestionKey' in kwargs:
             ingestion_key = kwargs['ingestionKey']
-        if 'orgCreationSource' in kwargs:
+        if org_creation_source is None and 'orgCreationSource' in kwargs:
             org_creation_source = kwargs['orgCreationSource']
-        if 'organizationId' in kwargs:
+        if organization_id is None and 'organizationId' in kwargs:
             organization_id = kwargs['organizationId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'userId' in kwargs:
+        if user_id is None and 'userId' in kwargs:
             user_id = kwargs['userId']
 
         if account_creation_source is not None:

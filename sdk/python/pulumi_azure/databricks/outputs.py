@@ -65,17 +65,19 @@ class AccessConnectorIdentity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -225,29 +227,29 @@ class WorkspaceCustomParameters(dict):
              vnet_address_prefix: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'machineLearningWorkspaceId' in kwargs:
+        if machine_learning_workspace_id is None and 'machineLearningWorkspaceId' in kwargs:
             machine_learning_workspace_id = kwargs['machineLearningWorkspaceId']
-        if 'natGatewayName' in kwargs:
+        if nat_gateway_name is None and 'natGatewayName' in kwargs:
             nat_gateway_name = kwargs['natGatewayName']
-        if 'noPublicIp' in kwargs:
+        if no_public_ip is None and 'noPublicIp' in kwargs:
             no_public_ip = kwargs['noPublicIp']
-        if 'privateSubnetName' in kwargs:
+        if private_subnet_name is None and 'privateSubnetName' in kwargs:
             private_subnet_name = kwargs['privateSubnetName']
-        if 'privateSubnetNetworkSecurityGroupAssociationId' in kwargs:
+        if private_subnet_network_security_group_association_id is None and 'privateSubnetNetworkSecurityGroupAssociationId' in kwargs:
             private_subnet_network_security_group_association_id = kwargs['privateSubnetNetworkSecurityGroupAssociationId']
-        if 'publicIpName' in kwargs:
+        if public_ip_name is None and 'publicIpName' in kwargs:
             public_ip_name = kwargs['publicIpName']
-        if 'publicSubnetName' in kwargs:
+        if public_subnet_name is None and 'publicSubnetName' in kwargs:
             public_subnet_name = kwargs['publicSubnetName']
-        if 'publicSubnetNetworkSecurityGroupAssociationId' in kwargs:
+        if public_subnet_network_security_group_association_id is None and 'publicSubnetNetworkSecurityGroupAssociationId' in kwargs:
             public_subnet_network_security_group_association_id = kwargs['publicSubnetNetworkSecurityGroupAssociationId']
-        if 'storageAccountName' in kwargs:
+        if storage_account_name is None and 'storageAccountName' in kwargs:
             storage_account_name = kwargs['storageAccountName']
-        if 'storageAccountSkuName' in kwargs:
+        if storage_account_sku_name is None and 'storageAccountSkuName' in kwargs:
             storage_account_sku_name = kwargs['storageAccountSkuName']
-        if 'virtualNetworkId' in kwargs:
+        if virtual_network_id is None and 'virtualNetworkId' in kwargs:
             virtual_network_id = kwargs['virtualNetworkId']
-        if 'vnetAddressPrefix' in kwargs:
+        if vnet_address_prefix is None and 'vnetAddressPrefix' in kwargs:
             vnet_address_prefix = kwargs['vnetAddressPrefix']
 
         if machine_learning_workspace_id is not None:
@@ -420,9 +422,9 @@ class WorkspaceManagedDiskIdentity(dict):
              type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         if principal_id is not None:
@@ -501,9 +503,9 @@ class WorkspaceStorageAccountIdentity(dict):
              type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         if principal_id is not None:
@@ -558,15 +560,21 @@ class GetWorkspaceManagedDiskIdentityResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             principal_id: str,
-             tenant_id: str,
-             type: str,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("principal_id", principal_id)
         _setter("tenant_id", tenant_id)
@@ -623,17 +631,27 @@ class GetWorkspacePrivateEndpointConnectionConnectionResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action_required: str,
-             description: str,
-             name: str,
-             status: str,
-             workspace_private_endpoint_id: str,
+             action_required: Optional[str] = None,
+             description: Optional[str] = None,
+             name: Optional[str] = None,
+             status: Optional[str] = None,
+             workspace_private_endpoint_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'actionRequired' in kwargs:
+        if action_required is None and 'actionRequired' in kwargs:
             action_required = kwargs['actionRequired']
-        if 'workspacePrivateEndpointId' in kwargs:
+        if action_required is None:
+            raise TypeError("Missing 'action_required' argument")
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if workspace_private_endpoint_id is None and 'workspacePrivateEndpointId' in kwargs:
             workspace_private_endpoint_id = kwargs['workspacePrivateEndpointId']
+        if workspace_private_endpoint_id is None:
+            raise TypeError("Missing 'workspace_private_endpoint_id' argument")
 
         _setter("action_required", action_required)
         _setter("description", description)
@@ -702,15 +720,21 @@ class GetWorkspaceStorageAccountIdentityResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             principal_id: str,
-             tenant_id: str,
-             type: str,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("principal_id", principal_id)
         _setter("tenant_id", tenant_id)

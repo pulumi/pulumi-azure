@@ -61,9 +61,9 @@ class EndpointStorageContainerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             container_name: pulumi.Input[str],
-             iothub_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             container_name: Optional[pulumi.Input[str]] = None,
+             iothub_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              authentication_type: Optional[pulumi.Input[str]] = None,
              batch_frequency_in_seconds: Optional[pulumi.Input[int]] = None,
              connection_string: Optional[pulumi.Input[str]] = None,
@@ -75,25 +75,31 @@ class EndpointStorageContainerArgs:
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'containerName' in kwargs:
+        if container_name is None and 'containerName' in kwargs:
             container_name = kwargs['containerName']
-        if 'iothubId' in kwargs:
+        if container_name is None:
+            raise TypeError("Missing 'container_name' argument")
+        if iothub_id is None and 'iothubId' in kwargs:
             iothub_id = kwargs['iothubId']
-        if 'resourceGroupName' in kwargs:
+        if iothub_id is None:
+            raise TypeError("Missing 'iothub_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'authenticationType' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if authentication_type is None and 'authenticationType' in kwargs:
             authentication_type = kwargs['authenticationType']
-        if 'batchFrequencyInSeconds' in kwargs:
+        if batch_frequency_in_seconds is None and 'batchFrequencyInSeconds' in kwargs:
             batch_frequency_in_seconds = kwargs['batchFrequencyInSeconds']
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
-        if 'endpointUri' in kwargs:
+        if endpoint_uri is None and 'endpointUri' in kwargs:
             endpoint_uri = kwargs['endpointUri']
-        if 'fileNameFormat' in kwargs:
+        if file_name_format is None and 'fileNameFormat' in kwargs:
             file_name_format = kwargs['fileNameFormat']
-        if 'identityId' in kwargs:
+        if identity_id is None and 'identityId' in kwargs:
             identity_id = kwargs['identityId']
-        if 'maxChunkSizeInBytes' in kwargs:
+        if max_chunk_size_in_bytes is None and 'maxChunkSizeInBytes' in kwargs:
             max_chunk_size_in_bytes = kwargs['maxChunkSizeInBytes']
 
         _setter("container_name", container_name)
@@ -329,25 +335,25 @@ class _EndpointStorageContainerState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'authenticationType' in kwargs:
+        if authentication_type is None and 'authenticationType' in kwargs:
             authentication_type = kwargs['authenticationType']
-        if 'batchFrequencyInSeconds' in kwargs:
+        if batch_frequency_in_seconds is None and 'batchFrequencyInSeconds' in kwargs:
             batch_frequency_in_seconds = kwargs['batchFrequencyInSeconds']
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
-        if 'containerName' in kwargs:
+        if container_name is None and 'containerName' in kwargs:
             container_name = kwargs['containerName']
-        if 'endpointUri' in kwargs:
+        if endpoint_uri is None and 'endpointUri' in kwargs:
             endpoint_uri = kwargs['endpointUri']
-        if 'fileNameFormat' in kwargs:
+        if file_name_format is None and 'fileNameFormat' in kwargs:
             file_name_format = kwargs['fileNameFormat']
-        if 'identityId' in kwargs:
+        if identity_id is None and 'identityId' in kwargs:
             identity_id = kwargs['identityId']
-        if 'iothubId' in kwargs:
+        if iothub_id is None and 'iothubId' in kwargs:
             iothub_id = kwargs['iothubId']
-        if 'maxChunkSizeInBytes' in kwargs:
+        if max_chunk_size_in_bytes is None and 'maxChunkSizeInBytes' in kwargs:
             max_chunk_size_in_bytes = kwargs['maxChunkSizeInBytes']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if authentication_type is not None:

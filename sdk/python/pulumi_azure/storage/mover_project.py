@@ -32,13 +32,15 @@ class MoverProjectArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             storage_mover_id: pulumi.Input[str],
+             storage_mover_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'storageMoverId' in kwargs:
+        if storage_mover_id is None and 'storageMoverId' in kwargs:
             storage_mover_id = kwargs['storageMoverId']
+        if storage_mover_id is None:
+            raise TypeError("Missing 'storage_mover_id' argument")
 
         _setter("storage_mover_id", storage_mover_id)
         if description is not None:
@@ -109,7 +111,7 @@ class _MoverProjectState:
              storage_mover_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'storageMoverId' in kwargs:
+        if storage_mover_id is None and 'storageMoverId' in kwargs:
             storage_mover_id = kwargs['storageMoverId']
 
         if description is not None:

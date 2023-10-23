@@ -58,32 +58,46 @@ class ApiOperationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_management_name: pulumi.Input[str],
-             api_name: pulumi.Input[str],
-             display_name: pulumi.Input[str],
-             method: pulumi.Input[str],
-             operation_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             url_template: pulumi.Input[str],
+             api_management_name: Optional[pulumi.Input[str]] = None,
+             api_name: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             method: Optional[pulumi.Input[str]] = None,
+             operation_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             url_template: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              request: Optional[pulumi.Input['ApiOperationRequestArgs']] = None,
              responses: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseArgs']]]] = None,
              template_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationTemplateParameterArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'apiName' in kwargs:
+        if api_management_name is None:
+            raise TypeError("Missing 'api_management_name' argument")
+        if api_name is None and 'apiName' in kwargs:
             api_name = kwargs['apiName']
-        if 'displayName' in kwargs:
+        if api_name is None:
+            raise TypeError("Missing 'api_name' argument")
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'operationId' in kwargs:
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if method is None:
+            raise TypeError("Missing 'method' argument")
+        if operation_id is None and 'operationId' in kwargs:
             operation_id = kwargs['operationId']
-        if 'resourceGroupName' in kwargs:
+        if operation_id is None:
+            raise TypeError("Missing 'operation_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'urlTemplate' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if url_template is None and 'urlTemplate' in kwargs:
             url_template = kwargs['urlTemplate']
-        if 'templateParameters' in kwargs:
+        if url_template is None:
+            raise TypeError("Missing 'url_template' argument")
+        if template_parameters is None and 'templateParameters' in kwargs:
             template_parameters = kwargs['templateParameters']
 
         _setter("api_management_name", api_management_name)
@@ -293,19 +307,19 @@ class _ApiOperationState:
              url_template: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'apiName' in kwargs:
+        if api_name is None and 'apiName' in kwargs:
             api_name = kwargs['apiName']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'operationId' in kwargs:
+        if operation_id is None and 'operationId' in kwargs:
             operation_id = kwargs['operationId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'templateParameters' in kwargs:
+        if template_parameters is None and 'templateParameters' in kwargs:
             template_parameters = kwargs['templateParameters']
-        if 'urlTemplate' in kwargs:
+        if url_template is None and 'urlTemplate' in kwargs:
             url_template = kwargs['urlTemplate']
 
         if api_management_name is not None:

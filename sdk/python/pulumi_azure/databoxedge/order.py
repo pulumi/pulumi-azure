@@ -37,18 +37,26 @@ class OrderArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             contact: pulumi.Input['OrderContactArgs'],
-             device_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             shipment_address: pulumi.Input['OrderShipmentAddressArgs'],
+             contact: Optional[pulumi.Input['OrderContactArgs']] = None,
+             device_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             shipment_address: Optional[pulumi.Input['OrderShipmentAddressArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'deviceName' in kwargs:
+        if contact is None:
+            raise TypeError("Missing 'contact' argument")
+        if device_name is None and 'deviceName' in kwargs:
             device_name = kwargs['deviceName']
-        if 'resourceGroupName' in kwargs:
+        if device_name is None:
+            raise TypeError("Missing 'device_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'shipmentAddress' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if shipment_address is None and 'shipmentAddress' in kwargs:
             shipment_address = kwargs['shipmentAddress']
+        if shipment_address is None:
+            raise TypeError("Missing 'shipment_address' argument")
 
         _setter("contact", contact)
         _setter("device_name", device_name)
@@ -158,19 +166,19 @@ class _OrderState:
              statuses: Optional[pulumi.Input[Sequence[pulumi.Input['OrderStatusArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'deviceName' in kwargs:
+        if device_name is None and 'deviceName' in kwargs:
             device_name = kwargs['deviceName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'returnTrackings' in kwargs:
+        if return_trackings is None and 'returnTrackings' in kwargs:
             return_trackings = kwargs['returnTrackings']
-        if 'serialNumber' in kwargs:
+        if serial_number is None and 'serialNumber' in kwargs:
             serial_number = kwargs['serialNumber']
-        if 'shipmentAddress' in kwargs:
+        if shipment_address is None and 'shipmentAddress' in kwargs:
             shipment_address = kwargs['shipmentAddress']
-        if 'shipmentHistories' in kwargs:
+        if shipment_histories is None and 'shipmentHistories' in kwargs:
             shipment_histories = kwargs['shipmentHistories']
-        if 'shipmentTrackings' in kwargs:
+        if shipment_trackings is None and 'shipmentTrackings' in kwargs:
             shipment_trackings = kwargs['shipmentTrackings']
 
         if contact is not None:

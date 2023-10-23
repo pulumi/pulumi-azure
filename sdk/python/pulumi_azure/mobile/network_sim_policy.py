@@ -52,10 +52,10 @@ class NetworkSimPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             default_slice_id: pulumi.Input[str],
-             mobile_network_id: pulumi.Input[str],
-             slices: pulumi.Input[Sequence[pulumi.Input['NetworkSimPolicySliceArgs']]],
-             user_equipment_aggregate_maximum_bit_rate: pulumi.Input['NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs'],
+             default_slice_id: Optional[pulumi.Input[str]] = None,
+             mobile_network_id: Optional[pulumi.Input[str]] = None,
+             slices: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSimPolicySliceArgs']]]] = None,
+             user_equipment_aggregate_maximum_bit_rate: Optional[pulumi.Input['NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs']] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              rat_frequency_selection_priority_index: Optional[pulumi.Input[int]] = None,
@@ -63,15 +63,23 @@ class NetworkSimPolicyArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'defaultSliceId' in kwargs:
+        if default_slice_id is None and 'defaultSliceId' in kwargs:
             default_slice_id = kwargs['defaultSliceId']
-        if 'mobileNetworkId' in kwargs:
+        if default_slice_id is None:
+            raise TypeError("Missing 'default_slice_id' argument")
+        if mobile_network_id is None and 'mobileNetworkId' in kwargs:
             mobile_network_id = kwargs['mobileNetworkId']
-        if 'userEquipmentAggregateMaximumBitRate' in kwargs:
+        if mobile_network_id is None:
+            raise TypeError("Missing 'mobile_network_id' argument")
+        if slices is None:
+            raise TypeError("Missing 'slices' argument")
+        if user_equipment_aggregate_maximum_bit_rate is None and 'userEquipmentAggregateMaximumBitRate' in kwargs:
             user_equipment_aggregate_maximum_bit_rate = kwargs['userEquipmentAggregateMaximumBitRate']
-        if 'ratFrequencySelectionPriorityIndex' in kwargs:
+        if user_equipment_aggregate_maximum_bit_rate is None:
+            raise TypeError("Missing 'user_equipment_aggregate_maximum_bit_rate' argument")
+        if rat_frequency_selection_priority_index is None and 'ratFrequencySelectionPriorityIndex' in kwargs:
             rat_frequency_selection_priority_index = kwargs['ratFrequencySelectionPriorityIndex']
-        if 'registrationTimerInSeconds' in kwargs:
+        if registration_timer_in_seconds is None and 'registrationTimerInSeconds' in kwargs:
             registration_timer_in_seconds = kwargs['registrationTimerInSeconds']
 
         _setter("default_slice_id", default_slice_id)
@@ -248,15 +256,15 @@ class _NetworkSimPolicyState:
              user_equipment_aggregate_maximum_bit_rate: Optional[pulumi.Input['NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'defaultSliceId' in kwargs:
+        if default_slice_id is None and 'defaultSliceId' in kwargs:
             default_slice_id = kwargs['defaultSliceId']
-        if 'mobileNetworkId' in kwargs:
+        if mobile_network_id is None and 'mobileNetworkId' in kwargs:
             mobile_network_id = kwargs['mobileNetworkId']
-        if 'ratFrequencySelectionPriorityIndex' in kwargs:
+        if rat_frequency_selection_priority_index is None and 'ratFrequencySelectionPriorityIndex' in kwargs:
             rat_frequency_selection_priority_index = kwargs['ratFrequencySelectionPriorityIndex']
-        if 'registrationTimerInSeconds' in kwargs:
+        if registration_timer_in_seconds is None and 'registrationTimerInSeconds' in kwargs:
             registration_timer_in_seconds = kwargs['registrationTimerInSeconds']
-        if 'userEquipmentAggregateMaximumBitRate' in kwargs:
+        if user_equipment_aggregate_maximum_bit_rate is None and 'userEquipmentAggregateMaximumBitRate' in kwargs:
             user_equipment_aggregate_maximum_bit_rate = kwargs['userEquipmentAggregateMaximumBitRate']
 
         if default_slice_id is not None:

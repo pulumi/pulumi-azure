@@ -49,25 +49,33 @@ class PoolArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             account_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             service_level: pulumi.Input[str],
-             size_in_tb: pulumi.Input[int],
+             account_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             service_level: Optional[pulumi.Input[str]] = None,
+             size_in_tb: Optional[pulumi.Input[int]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              qos_type: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accountName' in kwargs:
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'resourceGroupName' in kwargs:
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serviceLevel' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if service_level is None and 'serviceLevel' in kwargs:
             service_level = kwargs['serviceLevel']
-        if 'sizeInTb' in kwargs:
+        if service_level is None:
+            raise TypeError("Missing 'service_level' argument")
+        if size_in_tb is None and 'sizeInTb' in kwargs:
             size_in_tb = kwargs['sizeInTb']
-        if 'qosType' in kwargs:
+        if size_in_tb is None:
+            raise TypeError("Missing 'size_in_tb' argument")
+        if qos_type is None and 'qosType' in kwargs:
             qos_type = kwargs['qosType']
 
         _setter("account_name", account_name)
@@ -230,15 +238,15 @@ class _PoolState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accountName' in kwargs:
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'qosType' in kwargs:
+        if qos_type is None and 'qosType' in kwargs:
             qos_type = kwargs['qosType']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serviceLevel' in kwargs:
+        if service_level is None and 'serviceLevel' in kwargs:
             service_level = kwargs['serviceLevel']
-        if 'sizeInTb' in kwargs:
+        if size_in_tb is None and 'sizeInTb' in kwargs:
             size_in_tb = kwargs['sizeInTb']
 
         if account_name is not None:

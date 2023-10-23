@@ -43,18 +43,24 @@ class ActiveRoleAssignmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             principal_id: pulumi.Input[str],
-             role_definition_id: pulumi.Input[str],
-             scope: pulumi.Input[str],
+             principal_id: Optional[pulumi.Input[str]] = None,
+             role_definition_id: Optional[pulumi.Input[str]] = None,
+             scope: Optional[pulumi.Input[str]] = None,
              justification: Optional[pulumi.Input[str]] = None,
              schedule: Optional[pulumi.Input['ActiveRoleAssignmentScheduleArgs']] = None,
              ticket: Optional[pulumi.Input['ActiveRoleAssignmentTicketArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'roleDefinitionId' in kwargs:
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if role_definition_id is None and 'roleDefinitionId' in kwargs:
             role_definition_id = kwargs['roleDefinitionId']
+        if role_definition_id is None:
+            raise TypeError("Missing 'role_definition_id' argument")
+        if scope is None:
+            raise TypeError("Missing 'scope' argument")
 
         _setter("principal_id", principal_id)
         _setter("role_definition_id", role_definition_id)
@@ -181,11 +187,11 @@ class _ActiveRoleAssignmentState:
              ticket: Optional[pulumi.Input['ActiveRoleAssignmentTicketArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'principalType' in kwargs:
+        if principal_type is None and 'principalType' in kwargs:
             principal_type = kwargs['principalType']
-        if 'roleDefinitionId' in kwargs:
+        if role_definition_id is None and 'roleDefinitionId' in kwargs:
             role_definition_id = kwargs['roleDefinitionId']
 
         if justification is not None:

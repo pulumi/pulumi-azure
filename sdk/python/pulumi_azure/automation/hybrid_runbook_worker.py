@@ -38,23 +38,33 @@ class HybridRunbookWorkerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             automation_account_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             vm_resource_id: pulumi.Input[str],
-             worker_group_name: pulumi.Input[str],
-             worker_id: pulumi.Input[str],
+             automation_account_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             vm_resource_id: Optional[pulumi.Input[str]] = None,
+             worker_group_name: Optional[pulumi.Input[str]] = None,
+             worker_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'automationAccountName' in kwargs:
+        if automation_account_name is None and 'automationAccountName' in kwargs:
             automation_account_name = kwargs['automationAccountName']
-        if 'resourceGroupName' in kwargs:
+        if automation_account_name is None:
+            raise TypeError("Missing 'automation_account_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'vmResourceId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if vm_resource_id is None and 'vmResourceId' in kwargs:
             vm_resource_id = kwargs['vmResourceId']
-        if 'workerGroupName' in kwargs:
+        if vm_resource_id is None:
+            raise TypeError("Missing 'vm_resource_id' argument")
+        if worker_group_name is None and 'workerGroupName' in kwargs:
             worker_group_name = kwargs['workerGroupName']
-        if 'workerId' in kwargs:
+        if worker_group_name is None:
+            raise TypeError("Missing 'worker_group_name' argument")
+        if worker_id is None and 'workerId' in kwargs:
             worker_id = kwargs['workerId']
+        if worker_id is None:
+            raise TypeError("Missing 'worker_id' argument")
 
         _setter("automation_account_name", automation_account_name)
         _setter("resource_group_name", resource_group_name)
@@ -177,23 +187,23 @@ class _HybridRunbookWorkerState:
              worker_type: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'automationAccountName' in kwargs:
+        if automation_account_name is None and 'automationAccountName' in kwargs:
             automation_account_name = kwargs['automationAccountName']
-        if 'lastSeenDateTime' in kwargs:
+        if last_seen_date_time is None and 'lastSeenDateTime' in kwargs:
             last_seen_date_time = kwargs['lastSeenDateTime']
-        if 'registrationDateTime' in kwargs:
+        if registration_date_time is None and 'registrationDateTime' in kwargs:
             registration_date_time = kwargs['registrationDateTime']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'vmResourceId' in kwargs:
+        if vm_resource_id is None and 'vmResourceId' in kwargs:
             vm_resource_id = kwargs['vmResourceId']
-        if 'workerGroupName' in kwargs:
+        if worker_group_name is None and 'workerGroupName' in kwargs:
             worker_group_name = kwargs['workerGroupName']
-        if 'workerId' in kwargs:
+        if worker_id is None and 'workerId' in kwargs:
             worker_id = kwargs['workerId']
-        if 'workerName' in kwargs:
+        if worker_name is None and 'workerName' in kwargs:
             worker_name = kwargs['workerName']
-        if 'workerType' in kwargs:
+        if worker_type is None and 'workerType' in kwargs:
             worker_type = kwargs['workerType']
 
         if automation_account_name is not None:

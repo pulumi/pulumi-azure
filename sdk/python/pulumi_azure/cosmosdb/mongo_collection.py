@@ -53,9 +53,9 @@ class MongoCollectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             account_name: pulumi.Input[str],
-             database_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             account_name: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              analytical_storage_ttl: Optional[pulumi.Input[int]] = None,
              autoscale_settings: Optional[pulumi.Input['MongoCollectionAutoscaleSettingsArgs']] = None,
              default_ttl_seconds: Optional[pulumi.Input[int]] = None,
@@ -65,19 +65,25 @@ class MongoCollectionArgs:
              throughput: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accountName' in kwargs:
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'databaseName' in kwargs:
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if database_name is None and 'databaseName' in kwargs:
             database_name = kwargs['databaseName']
-        if 'resourceGroupName' in kwargs:
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'analyticalStorageTtl' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if analytical_storage_ttl is None and 'analyticalStorageTtl' in kwargs:
             analytical_storage_ttl = kwargs['analyticalStorageTtl']
-        if 'autoscaleSettings' in kwargs:
+        if autoscale_settings is None and 'autoscaleSettings' in kwargs:
             autoscale_settings = kwargs['autoscaleSettings']
-        if 'defaultTtlSeconds' in kwargs:
+        if default_ttl_seconds is None and 'defaultTtlSeconds' in kwargs:
             default_ttl_seconds = kwargs['defaultTtlSeconds']
-        if 'shardKey' in kwargs:
+        if shard_key is None and 'shardKey' in kwargs:
             shard_key = kwargs['shardKey']
 
         _setter("account_name", account_name)
@@ -269,21 +275,21 @@ class _MongoCollectionState:
              throughput: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accountName' in kwargs:
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'analyticalStorageTtl' in kwargs:
+        if analytical_storage_ttl is None and 'analyticalStorageTtl' in kwargs:
             analytical_storage_ttl = kwargs['analyticalStorageTtl']
-        if 'autoscaleSettings' in kwargs:
+        if autoscale_settings is None and 'autoscaleSettings' in kwargs:
             autoscale_settings = kwargs['autoscaleSettings']
-        if 'databaseName' in kwargs:
+        if database_name is None and 'databaseName' in kwargs:
             database_name = kwargs['databaseName']
-        if 'defaultTtlSeconds' in kwargs:
+        if default_ttl_seconds is None and 'defaultTtlSeconds' in kwargs:
             default_ttl_seconds = kwargs['defaultTtlSeconds']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'shardKey' in kwargs:
+        if shard_key is None and 'shardKey' in kwargs:
             shard_key = kwargs['shardKey']
-        if 'systemIndexes' in kwargs:
+        if system_indexes is None and 'systemIndexes' in kwargs:
             system_indexes = kwargs['systemIndexes']
 
         if account_name is not None:

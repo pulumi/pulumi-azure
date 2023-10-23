@@ -41,22 +41,30 @@ class ManagedStorageAccountSasTokenDefinitionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             managed_storage_account_id: pulumi.Input[str],
-             sas_template_uri: pulumi.Input[str],
-             sas_type: pulumi.Input[str],
-             validity_period: pulumi.Input[str],
+             managed_storage_account_id: Optional[pulumi.Input[str]] = None,
+             sas_template_uri: Optional[pulumi.Input[str]] = None,
+             sas_type: Optional[pulumi.Input[str]] = None,
+             validity_period: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'managedStorageAccountId' in kwargs:
+        if managed_storage_account_id is None and 'managedStorageAccountId' in kwargs:
             managed_storage_account_id = kwargs['managedStorageAccountId']
-        if 'sasTemplateUri' in kwargs:
+        if managed_storage_account_id is None:
+            raise TypeError("Missing 'managed_storage_account_id' argument")
+        if sas_template_uri is None and 'sasTemplateUri' in kwargs:
             sas_template_uri = kwargs['sasTemplateUri']
-        if 'sasType' in kwargs:
+        if sas_template_uri is None:
+            raise TypeError("Missing 'sas_template_uri' argument")
+        if sas_type is None and 'sasType' in kwargs:
             sas_type = kwargs['sasType']
-        if 'validityPeriod' in kwargs:
+        if sas_type is None:
+            raise TypeError("Missing 'sas_type' argument")
+        if validity_period is None and 'validityPeriod' in kwargs:
             validity_period = kwargs['validityPeriod']
+        if validity_period is None:
+            raise TypeError("Missing 'validity_period' argument")
 
         _setter("managed_storage_account_id", managed_storage_account_id)
         _setter("sas_template_uri", sas_template_uri)
@@ -182,15 +190,15 @@ class _ManagedStorageAccountSasTokenDefinitionState:
              validity_period: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'managedStorageAccountId' in kwargs:
+        if managed_storage_account_id is None and 'managedStorageAccountId' in kwargs:
             managed_storage_account_id = kwargs['managedStorageAccountId']
-        if 'sasTemplateUri' in kwargs:
+        if sas_template_uri is None and 'sasTemplateUri' in kwargs:
             sas_template_uri = kwargs['sasTemplateUri']
-        if 'sasType' in kwargs:
+        if sas_type is None and 'sasType' in kwargs:
             sas_type = kwargs['sasType']
-        if 'secretId' in kwargs:
+        if secret_id is None and 'secretId' in kwargs:
             secret_id = kwargs['secretId']
-        if 'validityPeriod' in kwargs:
+        if validity_period is None and 'validityPeriod' in kwargs:
             validity_period = kwargs['validityPeriod']
 
         if managed_storage_account_id is not None:

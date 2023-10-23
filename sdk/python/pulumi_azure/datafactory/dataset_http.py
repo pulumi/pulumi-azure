@@ -63,8 +63,8 @@ class DatasetHttpArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_factory_id: pulumi.Input[str],
-             linked_service_name: pulumi.Input[str],
+             data_factory_id: Optional[pulumi.Input[str]] = None,
+             linked_service_name: Optional[pulumi.Input[str]] = None,
              additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -77,19 +77,23 @@ class DatasetHttpArgs:
              schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetHttpSchemaColumnArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'linkedServiceName' in kwargs:
+        if data_factory_id is None:
+            raise TypeError("Missing 'data_factory_id' argument")
+        if linked_service_name is None and 'linkedServiceName' in kwargs:
             linked_service_name = kwargs['linkedServiceName']
-        if 'additionalProperties' in kwargs:
+        if linked_service_name is None:
+            raise TypeError("Missing 'linked_service_name' argument")
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'relativeUrl' in kwargs:
+        if relative_url is None and 'relativeUrl' in kwargs:
             relative_url = kwargs['relativeUrl']
-        if 'requestBody' in kwargs:
+        if request_body is None and 'requestBody' in kwargs:
             request_body = kwargs['requestBody']
-        if 'requestMethod' in kwargs:
+        if request_method is None and 'requestMethod' in kwargs:
             request_method = kwargs['requestMethod']
-        if 'schemaColumns' in kwargs:
+        if schema_columns is None and 'schemaColumns' in kwargs:
             schema_columns = kwargs['schemaColumns']
 
         _setter("data_factory_id", data_factory_id)
@@ -326,19 +330,19 @@ class _DatasetHttpState:
              schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetHttpSchemaColumnArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'additionalProperties' in kwargs:
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'linkedServiceName' in kwargs:
+        if linked_service_name is None and 'linkedServiceName' in kwargs:
             linked_service_name = kwargs['linkedServiceName']
-        if 'relativeUrl' in kwargs:
+        if relative_url is None and 'relativeUrl' in kwargs:
             relative_url = kwargs['relativeUrl']
-        if 'requestBody' in kwargs:
+        if request_body is None and 'requestBody' in kwargs:
             request_body = kwargs['requestBody']
-        if 'requestMethod' in kwargs:
+        if request_method is None and 'requestMethod' in kwargs:
             request_method = kwargs['requestMethod']
-        if 'schemaColumns' in kwargs:
+        if schema_columns is None and 'schemaColumns' in kwargs:
             schema_columns = kwargs['schemaColumns']
 
         if additional_properties is not None:

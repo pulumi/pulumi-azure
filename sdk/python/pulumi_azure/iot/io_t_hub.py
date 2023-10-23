@@ -81,8 +81,8 @@ class IoTHubArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             sku: pulumi.Input['IoTHubSkuArgs'],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['IoTHubSkuArgs']] = None,
              cloud_to_device: Optional[pulumi.Input['IoTHubCloudToDeviceArgs']] = None,
              endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubEndpointArgs']]]] = None,
              enrichments: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubEnrichmentArgs']]]] = None,
@@ -101,25 +101,29 @@ class IoTHubArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'cloudToDevice' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if cloud_to_device is None and 'cloudToDevice' in kwargs:
             cloud_to_device = kwargs['cloudToDevice']
-        if 'eventHubPartitionCount' in kwargs:
+        if event_hub_partition_count is None and 'eventHubPartitionCount' in kwargs:
             event_hub_partition_count = kwargs['eventHubPartitionCount']
-        if 'eventHubRetentionInDays' in kwargs:
+        if event_hub_retention_in_days is None and 'eventHubRetentionInDays' in kwargs:
             event_hub_retention_in_days = kwargs['eventHubRetentionInDays']
-        if 'fallbackRoute' in kwargs:
+        if fallback_route is None and 'fallbackRoute' in kwargs:
             fallback_route = kwargs['fallbackRoute']
-        if 'fileUpload' in kwargs:
+        if file_upload is None and 'fileUpload' in kwargs:
             file_upload = kwargs['fileUpload']
-        if 'localAuthenticationEnabled' in kwargs:
+        if local_authentication_enabled is None and 'localAuthenticationEnabled' in kwargs:
             local_authentication_enabled = kwargs['localAuthenticationEnabled']
-        if 'minTlsVersion' in kwargs:
+        if min_tls_version is None and 'minTlsVersion' in kwargs:
             min_tls_version = kwargs['minTlsVersion']
-        if 'networkRuleSets' in kwargs:
+        if network_rule_sets is None and 'networkRuleSets' in kwargs:
             network_rule_sets = kwargs['networkRuleSets']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
 
         _setter("resource_group_name", resource_group_name)
@@ -496,37 +500,37 @@ class _IoTHubState:
              type: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'cloudToDevice' in kwargs:
+        if cloud_to_device is None and 'cloudToDevice' in kwargs:
             cloud_to_device = kwargs['cloudToDevice']
-        if 'eventHubEventsEndpoint' in kwargs:
+        if event_hub_events_endpoint is None and 'eventHubEventsEndpoint' in kwargs:
             event_hub_events_endpoint = kwargs['eventHubEventsEndpoint']
-        if 'eventHubEventsNamespace' in kwargs:
+        if event_hub_events_namespace is None and 'eventHubEventsNamespace' in kwargs:
             event_hub_events_namespace = kwargs['eventHubEventsNamespace']
-        if 'eventHubEventsPath' in kwargs:
+        if event_hub_events_path is None and 'eventHubEventsPath' in kwargs:
             event_hub_events_path = kwargs['eventHubEventsPath']
-        if 'eventHubOperationsEndpoint' in kwargs:
+        if event_hub_operations_endpoint is None and 'eventHubOperationsEndpoint' in kwargs:
             event_hub_operations_endpoint = kwargs['eventHubOperationsEndpoint']
-        if 'eventHubOperationsPath' in kwargs:
+        if event_hub_operations_path is None and 'eventHubOperationsPath' in kwargs:
             event_hub_operations_path = kwargs['eventHubOperationsPath']
-        if 'eventHubPartitionCount' in kwargs:
+        if event_hub_partition_count is None and 'eventHubPartitionCount' in kwargs:
             event_hub_partition_count = kwargs['eventHubPartitionCount']
-        if 'eventHubRetentionInDays' in kwargs:
+        if event_hub_retention_in_days is None and 'eventHubRetentionInDays' in kwargs:
             event_hub_retention_in_days = kwargs['eventHubRetentionInDays']
-        if 'fallbackRoute' in kwargs:
+        if fallback_route is None and 'fallbackRoute' in kwargs:
             fallback_route = kwargs['fallbackRoute']
-        if 'fileUpload' in kwargs:
+        if file_upload is None and 'fileUpload' in kwargs:
             file_upload = kwargs['fileUpload']
-        if 'localAuthenticationEnabled' in kwargs:
+        if local_authentication_enabled is None and 'localAuthenticationEnabled' in kwargs:
             local_authentication_enabled = kwargs['localAuthenticationEnabled']
-        if 'minTlsVersion' in kwargs:
+        if min_tls_version is None and 'minTlsVersion' in kwargs:
             min_tls_version = kwargs['minTlsVersion']
-        if 'networkRuleSets' in kwargs:
+        if network_rule_sets is None and 'networkRuleSets' in kwargs:
             network_rule_sets = kwargs['networkRuleSets']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'sharedAccessPolicies' in kwargs:
+        if shared_access_policies is None and 'sharedAccessPolicies' in kwargs:
             shared_access_policies = kwargs['sharedAccessPolicies']
 
         if cloud_to_device is not None:

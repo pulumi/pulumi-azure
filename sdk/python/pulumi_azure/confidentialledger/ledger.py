@@ -46,22 +46,28 @@ class LedgerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             azuread_based_service_principals: pulumi.Input[Sequence[pulumi.Input['LedgerAzureadBasedServicePrincipalArgs']]],
-             ledger_type: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             azuread_based_service_principals: Optional[pulumi.Input[Sequence[pulumi.Input['LedgerAzureadBasedServicePrincipalArgs']]]] = None,
+             ledger_type: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              certificate_based_security_principals: Optional[pulumi.Input[Sequence[pulumi.Input['LedgerCertificateBasedSecurityPrincipalArgs']]]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'azureadBasedServicePrincipals' in kwargs:
+        if azuread_based_service_principals is None and 'azureadBasedServicePrincipals' in kwargs:
             azuread_based_service_principals = kwargs['azureadBasedServicePrincipals']
-        if 'ledgerType' in kwargs:
+        if azuread_based_service_principals is None:
+            raise TypeError("Missing 'azuread_based_service_principals' argument")
+        if ledger_type is None and 'ledgerType' in kwargs:
             ledger_type = kwargs['ledgerType']
-        if 'resourceGroupName' in kwargs:
+        if ledger_type is None:
+            raise TypeError("Missing 'ledger_type' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'certificateBasedSecurityPrincipals' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if certificate_based_security_principals is None and 'certificateBasedSecurityPrincipals' in kwargs:
             certificate_based_security_principals = kwargs['certificateBasedSecurityPrincipals']
 
         _setter("azuread_based_service_principals", azuread_based_service_principals)
@@ -211,17 +217,17 @@ class _LedgerState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'azureadBasedServicePrincipals' in kwargs:
+        if azuread_based_service_principals is None and 'azureadBasedServicePrincipals' in kwargs:
             azuread_based_service_principals = kwargs['azureadBasedServicePrincipals']
-        if 'certificateBasedSecurityPrincipals' in kwargs:
+        if certificate_based_security_principals is None and 'certificateBasedSecurityPrincipals' in kwargs:
             certificate_based_security_principals = kwargs['certificateBasedSecurityPrincipals']
-        if 'identityServiceEndpoint' in kwargs:
+        if identity_service_endpoint is None and 'identityServiceEndpoint' in kwargs:
             identity_service_endpoint = kwargs['identityServiceEndpoint']
-        if 'ledgerEndpoint' in kwargs:
+        if ledger_endpoint is None and 'ledgerEndpoint' in kwargs:
             ledger_endpoint = kwargs['ledgerEndpoint']
-        if 'ledgerType' in kwargs:
+        if ledger_type is None and 'ledgerType' in kwargs:
             ledger_type = kwargs['ledgerType']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if azuread_based_service_principals is not None:

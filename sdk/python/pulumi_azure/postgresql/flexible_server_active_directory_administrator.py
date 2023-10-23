@@ -41,26 +41,38 @@ class FlexibleServerActiveDirectoryAdministratorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             object_id: pulumi.Input[str],
-             principal_name: pulumi.Input[str],
-             principal_type: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             server_name: pulumi.Input[str],
-             tenant_id: pulumi.Input[str],
+             object_id: Optional[pulumi.Input[str]] = None,
+             principal_name: Optional[pulumi.Input[str]] = None,
+             principal_type: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'objectId' in kwargs:
+        if object_id is None and 'objectId' in kwargs:
             object_id = kwargs['objectId']
-        if 'principalName' in kwargs:
+        if object_id is None:
+            raise TypeError("Missing 'object_id' argument")
+        if principal_name is None and 'principalName' in kwargs:
             principal_name = kwargs['principalName']
-        if 'principalType' in kwargs:
+        if principal_name is None:
+            raise TypeError("Missing 'principal_name' argument")
+        if principal_type is None and 'principalType' in kwargs:
             principal_type = kwargs['principalType']
-        if 'resourceGroupName' in kwargs:
+        if principal_type is None:
+            raise TypeError("Missing 'principal_type' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serverName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if server_name is None and 'serverName' in kwargs:
             server_name = kwargs['serverName']
-        if 'tenantId' in kwargs:
+        if server_name is None:
+            raise TypeError("Missing 'server_name' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
 
         _setter("object_id", object_id)
         _setter("principal_name", principal_name)
@@ -180,17 +192,17 @@ class _FlexibleServerActiveDirectoryAdministratorState:
              tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'objectId' in kwargs:
+        if object_id is None and 'objectId' in kwargs:
             object_id = kwargs['objectId']
-        if 'principalName' in kwargs:
+        if principal_name is None and 'principalName' in kwargs:
             principal_name = kwargs['principalName']
-        if 'principalType' in kwargs:
+        if principal_type is None and 'principalType' in kwargs:
             principal_type = kwargs['principalType']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serverName' in kwargs:
+        if server_name is None and 'serverName' in kwargs:
             server_name = kwargs['serverName']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         if object_id is not None:

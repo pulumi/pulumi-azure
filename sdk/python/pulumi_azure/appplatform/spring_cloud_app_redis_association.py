@@ -38,20 +38,26 @@ class SpringCloudAppRedisAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             redis_access_key: pulumi.Input[str],
-             redis_cache_id: pulumi.Input[str],
-             spring_cloud_app_id: pulumi.Input[str],
+             redis_access_key: Optional[pulumi.Input[str]] = None,
+             redis_cache_id: Optional[pulumi.Input[str]] = None,
+             spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              ssl_enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'redisAccessKey' in kwargs:
+        if redis_access_key is None and 'redisAccessKey' in kwargs:
             redis_access_key = kwargs['redisAccessKey']
-        if 'redisCacheId' in kwargs:
+        if redis_access_key is None:
+            raise TypeError("Missing 'redis_access_key' argument")
+        if redis_cache_id is None and 'redisCacheId' in kwargs:
             redis_cache_id = kwargs['redisCacheId']
-        if 'springCloudAppId' in kwargs:
+        if redis_cache_id is None:
+            raise TypeError("Missing 'redis_cache_id' argument")
+        if spring_cloud_app_id is None and 'springCloudAppId' in kwargs:
             spring_cloud_app_id = kwargs['springCloudAppId']
-        if 'sslEnabled' in kwargs:
+        if spring_cloud_app_id is None:
+            raise TypeError("Missing 'spring_cloud_app_id' argument")
+        if ssl_enabled is None and 'sslEnabled' in kwargs:
             ssl_enabled = kwargs['sslEnabled']
 
         _setter("redis_access_key", redis_access_key)
@@ -157,13 +163,13 @@ class _SpringCloudAppRedisAssociationState:
              ssl_enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'redisAccessKey' in kwargs:
+        if redis_access_key is None and 'redisAccessKey' in kwargs:
             redis_access_key = kwargs['redisAccessKey']
-        if 'redisCacheId' in kwargs:
+        if redis_cache_id is None and 'redisCacheId' in kwargs:
             redis_cache_id = kwargs['redisCacheId']
-        if 'springCloudAppId' in kwargs:
+        if spring_cloud_app_id is None and 'springCloudAppId' in kwargs:
             spring_cloud_app_id = kwargs['springCloudAppId']
-        if 'sslEnabled' in kwargs:
+        if ssl_enabled is None and 'sslEnabled' in kwargs:
             ssl_enabled = kwargs['sslEnabled']
 
         if name is not None:

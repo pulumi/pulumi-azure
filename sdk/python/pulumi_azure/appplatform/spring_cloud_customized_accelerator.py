@@ -46,8 +46,8 @@ class SpringCloudCustomizedAcceleratorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             git_repository: pulumi.Input['SpringCloudCustomizedAcceleratorGitRepositoryArgs'],
-             spring_cloud_accelerator_id: pulumi.Input[str],
+             git_repository: Optional[pulumi.Input['SpringCloudCustomizedAcceleratorGitRepositoryArgs']] = None,
+             spring_cloud_accelerator_id: Optional[pulumi.Input[str]] = None,
              accelerator_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              description: Optional[pulumi.Input[str]] = None,
              display_name: Optional[pulumi.Input[str]] = None,
@@ -55,15 +55,19 @@ class SpringCloudCustomizedAcceleratorArgs:
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'gitRepository' in kwargs:
+        if git_repository is None and 'gitRepository' in kwargs:
             git_repository = kwargs['gitRepository']
-        if 'springCloudAcceleratorId' in kwargs:
+        if git_repository is None:
+            raise TypeError("Missing 'git_repository' argument")
+        if spring_cloud_accelerator_id is None and 'springCloudAcceleratorId' in kwargs:
             spring_cloud_accelerator_id = kwargs['springCloudAcceleratorId']
-        if 'acceleratorTags' in kwargs:
+        if spring_cloud_accelerator_id is None:
+            raise TypeError("Missing 'spring_cloud_accelerator_id' argument")
+        if accelerator_tags is None and 'acceleratorTags' in kwargs:
             accelerator_tags = kwargs['acceleratorTags']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'iconUrl' in kwargs:
+        if icon_url is None and 'iconUrl' in kwargs:
             icon_url = kwargs['iconUrl']
 
         _setter("git_repository", git_repository)
@@ -206,15 +210,15 @@ class _SpringCloudCustomizedAcceleratorState:
              spring_cloud_accelerator_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'acceleratorTags' in kwargs:
+        if accelerator_tags is None and 'acceleratorTags' in kwargs:
             accelerator_tags = kwargs['acceleratorTags']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'gitRepository' in kwargs:
+        if git_repository is None and 'gitRepository' in kwargs:
             git_repository = kwargs['gitRepository']
-        if 'iconUrl' in kwargs:
+        if icon_url is None and 'iconUrl' in kwargs:
             icon_url = kwargs['iconUrl']
-        if 'springCloudAcceleratorId' in kwargs:
+        if spring_cloud_accelerator_id is None and 'springCloudAcceleratorId' in kwargs:
             spring_cloud_accelerator_id = kwargs['springCloudAcceleratorId']
 
         if accelerator_tags is not None:

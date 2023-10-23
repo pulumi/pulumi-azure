@@ -32,16 +32,20 @@ class AccountCustomerManagedKeyInitArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cognitive_account_id: pulumi.Input[str],
-             key_vault_key_id: pulumi.Input[str],
+             cognitive_account_id: Optional[pulumi.Input[str]] = None,
+             key_vault_key_id: Optional[pulumi.Input[str]] = None,
              identity_client_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'cognitiveAccountId' in kwargs:
+        if cognitive_account_id is None and 'cognitiveAccountId' in kwargs:
             cognitive_account_id = kwargs['cognitiveAccountId']
-        if 'keyVaultKeyId' in kwargs:
+        if cognitive_account_id is None:
+            raise TypeError("Missing 'cognitive_account_id' argument")
+        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
             key_vault_key_id = kwargs['keyVaultKeyId']
-        if 'identityClientId' in kwargs:
+        if key_vault_key_id is None:
+            raise TypeError("Missing 'key_vault_key_id' argument")
+        if identity_client_id is None and 'identityClientId' in kwargs:
             identity_client_id = kwargs['identityClientId']
 
         _setter("cognitive_account_id", cognitive_account_id)
@@ -112,11 +116,11 @@ class _AccountCustomerManagedKeyState:
              key_vault_key_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'cognitiveAccountId' in kwargs:
+        if cognitive_account_id is None and 'cognitiveAccountId' in kwargs:
             cognitive_account_id = kwargs['cognitiveAccountId']
-        if 'identityClientId' in kwargs:
+        if identity_client_id is None and 'identityClientId' in kwargs:
             identity_client_id = kwargs['identityClientId']
-        if 'keyVaultKeyId' in kwargs:
+        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
             key_vault_key_id = kwargs['keyVaultKeyId']
 
         if cognitive_account_id is not None:

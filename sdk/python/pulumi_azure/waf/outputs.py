@@ -89,10 +89,10 @@ class PolicyCustomRule(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action: str,
-             match_conditions: Sequence['outputs.PolicyCustomRuleMatchCondition'],
-             priority: int,
-             rule_type: str,
+             action: Optional[str] = None,
+             match_conditions: Optional[Sequence['outputs.PolicyCustomRuleMatchCondition']] = None,
+             priority: Optional[int] = None,
+             rule_type: Optional[str] = None,
              enabled: Optional[bool] = None,
              group_rate_limit_by: Optional[str] = None,
              name: Optional[str] = None,
@@ -100,15 +100,23 @@ class PolicyCustomRule(dict):
              rate_limit_threshold: Optional[int] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'matchConditions' in kwargs:
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if match_conditions is None and 'matchConditions' in kwargs:
             match_conditions = kwargs['matchConditions']
-        if 'ruleType' in kwargs:
+        if match_conditions is None:
+            raise TypeError("Missing 'match_conditions' argument")
+        if priority is None:
+            raise TypeError("Missing 'priority' argument")
+        if rule_type is None and 'ruleType' in kwargs:
             rule_type = kwargs['ruleType']
-        if 'groupRateLimitBy' in kwargs:
+        if rule_type is None:
+            raise TypeError("Missing 'rule_type' argument")
+        if group_rate_limit_by is None and 'groupRateLimitBy' in kwargs:
             group_rate_limit_by = kwargs['groupRateLimitBy']
-        if 'rateLimitDuration' in kwargs:
+        if rate_limit_duration is None and 'rateLimitDuration' in kwargs:
             rate_limit_duration = kwargs['rateLimitDuration']
-        if 'rateLimitThreshold' in kwargs:
+        if rate_limit_threshold is None and 'rateLimitThreshold' in kwargs:
             rate_limit_threshold = kwargs['rateLimitThreshold']
 
         _setter("action", action)
@@ -246,18 +254,22 @@ class PolicyCustomRuleMatchCondition(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             match_variables: Sequence['outputs.PolicyCustomRuleMatchConditionMatchVariable'],
-             operator: str,
+             match_variables: Optional[Sequence['outputs.PolicyCustomRuleMatchConditionMatchVariable']] = None,
+             operator: Optional[str] = None,
              match_values: Optional[Sequence[str]] = None,
              negation_condition: Optional[bool] = None,
              transforms: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'matchVariables' in kwargs:
+        if match_variables is None and 'matchVariables' in kwargs:
             match_variables = kwargs['matchVariables']
-        if 'matchValues' in kwargs:
+        if match_variables is None:
+            raise TypeError("Missing 'match_variables' argument")
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if match_values is None and 'matchValues' in kwargs:
             match_values = kwargs['matchValues']
-        if 'negationCondition' in kwargs:
+        if negation_condition is None and 'negationCondition' in kwargs:
             negation_condition = kwargs['negationCondition']
 
         _setter("match_variables", match_variables)
@@ -344,12 +356,14 @@ class PolicyCustomRuleMatchConditionMatchVariable(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             variable_name: str,
+             variable_name: Optional[str] = None,
              selector: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'variableName' in kwargs:
+        if variable_name is None and 'variableName' in kwargs:
             variable_name = kwargs['variableName']
+        if variable_name is None:
+            raise TypeError("Missing 'variable_name' argument")
 
         _setter("variable_name", variable_name)
         if selector is not None:
@@ -406,12 +420,14 @@ class PolicyManagedRules(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             managed_rule_sets: Sequence['outputs.PolicyManagedRulesManagedRuleSet'],
+             managed_rule_sets: Optional[Sequence['outputs.PolicyManagedRulesManagedRuleSet']] = None,
              exclusions: Optional[Sequence['outputs.PolicyManagedRulesExclusion']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'managedRuleSets' in kwargs:
+        if managed_rule_sets is None and 'managedRuleSets' in kwargs:
             managed_rule_sets = kwargs['managedRuleSets']
+        if managed_rule_sets is None:
+            raise TypeError("Missing 'managed_rule_sets' argument")
 
         _setter("managed_rule_sets", managed_rule_sets)
         if exclusions is not None:
@@ -478,17 +494,23 @@ class PolicyManagedRulesExclusion(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             match_variable: str,
-             selector: str,
-             selector_match_operator: str,
+             match_variable: Optional[str] = None,
+             selector: Optional[str] = None,
+             selector_match_operator: Optional[str] = None,
              excluded_rule_set: Optional['outputs.PolicyManagedRulesExclusionExcludedRuleSet'] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'matchVariable' in kwargs:
+        if match_variable is None and 'matchVariable' in kwargs:
             match_variable = kwargs['matchVariable']
-        if 'selectorMatchOperator' in kwargs:
+        if match_variable is None:
+            raise TypeError("Missing 'match_variable' argument")
+        if selector is None:
+            raise TypeError("Missing 'selector' argument")
+        if selector_match_operator is None and 'selectorMatchOperator' in kwargs:
             selector_match_operator = kwargs['selectorMatchOperator']
-        if 'excludedRuleSet' in kwargs:
+        if selector_match_operator is None:
+            raise TypeError("Missing 'selector_match_operator' argument")
+        if excluded_rule_set is None and 'excludedRuleSet' in kwargs:
             excluded_rule_set = kwargs['excludedRuleSet']
 
         _setter("match_variable", match_variable)
@@ -572,7 +594,7 @@ class PolicyManagedRulesExclusionExcludedRuleSet(dict):
              version: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ruleGroups' in kwargs:
+        if rule_groups is None and 'ruleGroups' in kwargs:
             rule_groups = kwargs['ruleGroups']
 
         if rule_groups is not None:
@@ -643,13 +665,15 @@ class PolicyManagedRulesExclusionExcludedRuleSetRuleGroup(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             rule_group_name: str,
+             rule_group_name: Optional[str] = None,
              excluded_rules: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ruleGroupName' in kwargs:
+        if rule_group_name is None and 'ruleGroupName' in kwargs:
             rule_group_name = kwargs['ruleGroupName']
-        if 'excludedRules' in kwargs:
+        if rule_group_name is None:
+            raise TypeError("Missing 'rule_group_name' argument")
+        if excluded_rules is None and 'excludedRules' in kwargs:
             excluded_rules = kwargs['excludedRules']
 
         _setter("rule_group_name", rule_group_name)
@@ -710,12 +734,14 @@ class PolicyManagedRulesManagedRuleSet(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             version: str,
+             version: Optional[str] = None,
              rule_group_overrides: Optional[Sequence['outputs.PolicyManagedRulesManagedRuleSetRuleGroupOverride']] = None,
              type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ruleGroupOverrides' in kwargs:
+        if version is None:
+            raise TypeError("Missing 'version' argument")
+        if rule_group_overrides is None and 'ruleGroupOverrides' in kwargs:
             rule_group_overrides = kwargs['ruleGroupOverrides']
 
         _setter("version", version)
@@ -787,14 +813,16 @@ class PolicyManagedRulesManagedRuleSetRuleGroupOverride(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             rule_group_name: str,
+             rule_group_name: Optional[str] = None,
              disabled_rules: Optional[Sequence[str]] = None,
              rules: Optional[Sequence['outputs.PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ruleGroupName' in kwargs:
+        if rule_group_name is None and 'ruleGroupName' in kwargs:
             rule_group_name = kwargs['ruleGroupName']
-        if 'disabledRules' in kwargs:
+        if rule_group_name is None:
+            raise TypeError("Missing 'rule_group_name' argument")
+        if disabled_rules is None and 'disabledRules' in kwargs:
             disabled_rules = kwargs['disabledRules']
 
         _setter("rule_group_name", rule_group_name)
@@ -848,11 +876,13 @@ class PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             id: str,
+             id: Optional[str] = None,
              action: Optional[str] = None,
              enabled: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
 
         _setter("id", id)
         if action is not None:
@@ -951,15 +981,15 @@ class PolicyPolicySettings(dict):
              request_body_inspect_limit_in_kb: Optional[int] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'fileUploadLimitInMb' in kwargs:
+        if file_upload_limit_in_mb is None and 'fileUploadLimitInMb' in kwargs:
             file_upload_limit_in_mb = kwargs['fileUploadLimitInMb']
-        if 'logScrubbing' in kwargs:
+        if log_scrubbing is None and 'logScrubbing' in kwargs:
             log_scrubbing = kwargs['logScrubbing']
-        if 'maxRequestBodySizeInKb' in kwargs:
+        if max_request_body_size_in_kb is None and 'maxRequestBodySizeInKb' in kwargs:
             max_request_body_size_in_kb = kwargs['maxRequestBodySizeInKb']
-        if 'requestBodyCheck' in kwargs:
+        if request_body_check is None and 'requestBodyCheck' in kwargs:
             request_body_check = kwargs['requestBodyCheck']
-        if 'requestBodyInspectLimitInKb' in kwargs:
+        if request_body_inspect_limit_in_kb is None and 'requestBodyInspectLimitInKb' in kwargs:
             request_body_inspect_limit_in_kb = kwargs['requestBodyInspectLimitInKb']
 
         if enabled is not None:
@@ -1120,15 +1150,17 @@ class PolicyPolicySettingsLogScrubbingRule(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             match_variable: str,
+             match_variable: Optional[str] = None,
              enabled: Optional[bool] = None,
              selector: Optional[str] = None,
              selector_match_operator: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'matchVariable' in kwargs:
+        if match_variable is None and 'matchVariable' in kwargs:
             match_variable = kwargs['matchVariable']
-        if 'selectorMatchOperator' in kwargs:
+        if match_variable is None:
+            raise TypeError("Missing 'match_variable' argument")
+        if selector_match_operator is None and 'selectorMatchOperator' in kwargs:
             selector_match_operator = kwargs['selectorMatchOperator']
 
         _setter("match_variable", match_variable)

@@ -67,8 +67,8 @@ class LinkedServiceAzureDatabricksArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             adb_domain: pulumi.Input[str],
-             data_factory_id: pulumi.Input[str],
+             adb_domain: Optional[pulumi.Input[str]] = None,
+             data_factory_id: Optional[pulumi.Input[str]] = None,
              access_token: Optional[pulumi.Input[str]] = None,
              additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -83,25 +83,29 @@ class LinkedServiceAzureDatabricksArgs:
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'adbDomain' in kwargs:
+        if adb_domain is None and 'adbDomain' in kwargs:
             adb_domain = kwargs['adbDomain']
-        if 'dataFactoryId' in kwargs:
+        if adb_domain is None:
+            raise TypeError("Missing 'adb_domain' argument")
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'accessToken' in kwargs:
+        if data_factory_id is None:
+            raise TypeError("Missing 'data_factory_id' argument")
+        if access_token is None and 'accessToken' in kwargs:
             access_token = kwargs['accessToken']
-        if 'additionalProperties' in kwargs:
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'existingClusterId' in kwargs:
+        if existing_cluster_id is None and 'existingClusterId' in kwargs:
             existing_cluster_id = kwargs['existingClusterId']
-        if 'instancePool' in kwargs:
+        if instance_pool is None and 'instancePool' in kwargs:
             instance_pool = kwargs['instancePool']
-        if 'integrationRuntimeName' in kwargs:
+        if integration_runtime_name is None and 'integrationRuntimeName' in kwargs:
             integration_runtime_name = kwargs['integrationRuntimeName']
-        if 'keyVaultPassword' in kwargs:
+        if key_vault_password is None and 'keyVaultPassword' in kwargs:
             key_vault_password = kwargs['keyVaultPassword']
-        if 'msiWorkSpaceResourceId' in kwargs:
+        if msi_work_space_resource_id is None and 'msiWorkSpaceResourceId' in kwargs:
             msi_work_space_resource_id = kwargs['msiWorkSpaceResourceId']
-        if 'newClusterConfig' in kwargs:
+        if new_cluster_config is None and 'newClusterConfig' in kwargs:
             new_cluster_config = kwargs['newClusterConfig']
 
         _setter("adb_domain", adb_domain)
@@ -370,25 +374,25 @@ class _LinkedServiceAzureDatabricksState:
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accessToken' in kwargs:
+        if access_token is None and 'accessToken' in kwargs:
             access_token = kwargs['accessToken']
-        if 'adbDomain' in kwargs:
+        if adb_domain is None and 'adbDomain' in kwargs:
             adb_domain = kwargs['adbDomain']
-        if 'additionalProperties' in kwargs:
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'existingClusterId' in kwargs:
+        if existing_cluster_id is None and 'existingClusterId' in kwargs:
             existing_cluster_id = kwargs['existingClusterId']
-        if 'instancePool' in kwargs:
+        if instance_pool is None and 'instancePool' in kwargs:
             instance_pool = kwargs['instancePool']
-        if 'integrationRuntimeName' in kwargs:
+        if integration_runtime_name is None and 'integrationRuntimeName' in kwargs:
             integration_runtime_name = kwargs['integrationRuntimeName']
-        if 'keyVaultPassword' in kwargs:
+        if key_vault_password is None and 'keyVaultPassword' in kwargs:
             key_vault_password = kwargs['keyVaultPassword']
-        if 'msiWorkSpaceResourceId' in kwargs:
+        if msi_work_space_resource_id is None and 'msiWorkSpaceResourceId' in kwargs:
             msi_work_space_resource_id = kwargs['msiWorkSpaceResourceId']
-        if 'newClusterConfig' in kwargs:
+        if new_cluster_config is None and 'newClusterConfig' in kwargs:
             new_cluster_config = kwargs['newClusterConfig']
 
         if access_token is not None:

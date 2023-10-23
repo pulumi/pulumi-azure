@@ -58,10 +58,10 @@ class ExpressRoutePortArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bandwidth_in_gbps: pulumi.Input[int],
-             encapsulation: pulumi.Input[str],
-             peering_location: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             bandwidth_in_gbps: Optional[pulumi.Input[int]] = None,
+             encapsulation: Optional[pulumi.Input[str]] = None,
+             peering_location: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              billing_type: Optional[pulumi.Input[str]] = None,
              identity: Optional[pulumi.Input['ExpressRoutePortIdentityArgs']] = None,
              link1: Optional[pulumi.Input['ExpressRoutePortLink1Args']] = None,
@@ -71,13 +71,21 @@ class ExpressRoutePortArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'bandwidthInGbps' in kwargs:
+        if bandwidth_in_gbps is None and 'bandwidthInGbps' in kwargs:
             bandwidth_in_gbps = kwargs['bandwidthInGbps']
-        if 'peeringLocation' in kwargs:
+        if bandwidth_in_gbps is None:
+            raise TypeError("Missing 'bandwidth_in_gbps' argument")
+        if encapsulation is None:
+            raise TypeError("Missing 'encapsulation' argument")
+        if peering_location is None and 'peeringLocation' in kwargs:
             peering_location = kwargs['peeringLocation']
-        if 'resourceGroupName' in kwargs:
+        if peering_location is None:
+            raise TypeError("Missing 'peering_location' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'billingType' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if billing_type is None and 'billingType' in kwargs:
             billing_type = kwargs['billingType']
 
         _setter("bandwidth_in_gbps", bandwidth_in_gbps)
@@ -302,13 +310,13 @@ class _ExpressRoutePortState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'bandwidthInGbps' in kwargs:
+        if bandwidth_in_gbps is None and 'bandwidthInGbps' in kwargs:
             bandwidth_in_gbps = kwargs['bandwidthInGbps']
-        if 'billingType' in kwargs:
+        if billing_type is None and 'billingType' in kwargs:
             billing_type = kwargs['billingType']
-        if 'peeringLocation' in kwargs:
+        if peering_location is None and 'peeringLocation' in kwargs:
             peering_location = kwargs['peeringLocation']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if bandwidth_in_gbps is not None:

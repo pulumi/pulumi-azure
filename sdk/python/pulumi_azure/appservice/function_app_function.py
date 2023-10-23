@@ -48,8 +48,8 @@ class FunctionAppFunctionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             config_json: pulumi.Input[str],
-             function_app_id: pulumi.Input[str],
+             config_json: Optional[pulumi.Input[str]] = None,
+             function_app_id: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              files: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppFunctionFileArgs']]]] = None,
              language: Optional[pulumi.Input[str]] = None,
@@ -57,11 +57,15 @@ class FunctionAppFunctionArgs:
              test_data: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'configJson' in kwargs:
+        if config_json is None and 'configJson' in kwargs:
             config_json = kwargs['configJson']
-        if 'functionAppId' in kwargs:
+        if config_json is None:
+            raise TypeError("Missing 'config_json' argument")
+        if function_app_id is None and 'functionAppId' in kwargs:
             function_app_id = kwargs['functionAppId']
-        if 'testData' in kwargs:
+        if function_app_id is None:
+            raise TypeError("Missing 'function_app_id' argument")
+        if test_data is None and 'testData' in kwargs:
             test_data = kwargs['testData']
 
         _setter("config_json", config_json)
@@ -236,23 +240,23 @@ class _FunctionAppFunctionState:
              url: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'configJson' in kwargs:
+        if config_json is None and 'configJson' in kwargs:
             config_json = kwargs['configJson']
-        if 'configUrl' in kwargs:
+        if config_url is None and 'configUrl' in kwargs:
             config_url = kwargs['configUrl']
-        if 'functionAppId' in kwargs:
+        if function_app_id is None and 'functionAppId' in kwargs:
             function_app_id = kwargs['functionAppId']
-        if 'invocationUrl' in kwargs:
+        if invocation_url is None and 'invocationUrl' in kwargs:
             invocation_url = kwargs['invocationUrl']
-        if 'scriptRootPathUrl' in kwargs:
+        if script_root_path_url is None and 'scriptRootPathUrl' in kwargs:
             script_root_path_url = kwargs['scriptRootPathUrl']
-        if 'scriptUrl' in kwargs:
+        if script_url is None and 'scriptUrl' in kwargs:
             script_url = kwargs['scriptUrl']
-        if 'secretsFileUrl' in kwargs:
+        if secrets_file_url is None and 'secretsFileUrl' in kwargs:
             secrets_file_url = kwargs['secretsFileUrl']
-        if 'testData' in kwargs:
+        if test_data is None and 'testData' in kwargs:
             test_data = kwargs['testData']
-        if 'testDataUrl' in kwargs:
+        if test_data_url is None and 'testDataUrl' in kwargs:
             test_data_url = kwargs['testDataUrl']
 
         if config_json is not None:

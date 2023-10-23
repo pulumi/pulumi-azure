@@ -38,21 +38,31 @@ class PublicCertificateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_service_name: pulumi.Input[str],
-             blob: pulumi.Input[str],
-             certificate_location: pulumi.Input[str],
-             certificate_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             app_service_name: Optional[pulumi.Input[str]] = None,
+             blob: Optional[pulumi.Input[str]] = None,
+             certificate_location: Optional[pulumi.Input[str]] = None,
+             certificate_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'appServiceName' in kwargs:
+        if app_service_name is None and 'appServiceName' in kwargs:
             app_service_name = kwargs['appServiceName']
-        if 'certificateLocation' in kwargs:
+        if app_service_name is None:
+            raise TypeError("Missing 'app_service_name' argument")
+        if blob is None:
+            raise TypeError("Missing 'blob' argument")
+        if certificate_location is None and 'certificateLocation' in kwargs:
             certificate_location = kwargs['certificateLocation']
-        if 'certificateName' in kwargs:
+        if certificate_location is None:
+            raise TypeError("Missing 'certificate_location' argument")
+        if certificate_name is None and 'certificateName' in kwargs:
             certificate_name = kwargs['certificateName']
-        if 'resourceGroupName' in kwargs:
+        if certificate_name is None:
+            raise TypeError("Missing 'certificate_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("app_service_name", app_service_name)
         _setter("blob", blob)
@@ -159,13 +169,13 @@ class _PublicCertificateState:
              thumbprint: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'appServiceName' in kwargs:
+        if app_service_name is None and 'appServiceName' in kwargs:
             app_service_name = kwargs['appServiceName']
-        if 'certificateLocation' in kwargs:
+        if certificate_location is None and 'certificateLocation' in kwargs:
             certificate_location = kwargs['certificateLocation']
-        if 'certificateName' in kwargs:
+        if certificate_name is None and 'certificateName' in kwargs:
             certificate_name = kwargs['certificateName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if app_service_name is not None:

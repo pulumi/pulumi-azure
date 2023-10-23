@@ -76,10 +76,10 @@ class ManagedClusterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_connection_port: pulumi.Input[int],
-             http_gateway_port: pulumi.Input[int],
-             lb_rules: pulumi.Input[Sequence[pulumi.Input['ManagedClusterLbRuleArgs']]],
-             resource_group_name: pulumi.Input[str],
+             client_connection_port: Optional[pulumi.Input[int]] = None,
+             http_gateway_port: Optional[pulumi.Input[int]] = None,
+             lb_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterLbRuleArgs']]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              authentication: Optional[pulumi.Input['ManagedClusterAuthenticationArgs']] = None,
              backup_service_enabled: Optional[pulumi.Input[bool]] = None,
              custom_fabric_settings: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterCustomFabricSettingArgs']]]] = None,
@@ -95,25 +95,33 @@ class ManagedClusterArgs:
              username: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientConnectionPort' in kwargs:
+        if client_connection_port is None and 'clientConnectionPort' in kwargs:
             client_connection_port = kwargs['clientConnectionPort']
-        if 'httpGatewayPort' in kwargs:
+        if client_connection_port is None:
+            raise TypeError("Missing 'client_connection_port' argument")
+        if http_gateway_port is None and 'httpGatewayPort' in kwargs:
             http_gateway_port = kwargs['httpGatewayPort']
-        if 'lbRules' in kwargs:
+        if http_gateway_port is None:
+            raise TypeError("Missing 'http_gateway_port' argument")
+        if lb_rules is None and 'lbRules' in kwargs:
             lb_rules = kwargs['lbRules']
-        if 'resourceGroupName' in kwargs:
+        if lb_rules is None:
+            raise TypeError("Missing 'lb_rules' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'backupServiceEnabled' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if backup_service_enabled is None and 'backupServiceEnabled' in kwargs:
             backup_service_enabled = kwargs['backupServiceEnabled']
-        if 'customFabricSettings' in kwargs:
+        if custom_fabric_settings is None and 'customFabricSettings' in kwargs:
             custom_fabric_settings = kwargs['customFabricSettings']
-        if 'dnsName' in kwargs:
+        if dns_name is None and 'dnsName' in kwargs:
             dns_name = kwargs['dnsName']
-        if 'dnsServiceEnabled' in kwargs:
+        if dns_service_enabled is None and 'dnsServiceEnabled' in kwargs:
             dns_service_enabled = kwargs['dnsServiceEnabled']
-        if 'nodeTypes' in kwargs:
+        if node_types is None and 'nodeTypes' in kwargs:
             node_types = kwargs['nodeTypes']
-        if 'upgradeWave' in kwargs:
+        if upgrade_wave is None and 'upgradeWave' in kwargs:
             upgrade_wave = kwargs['upgradeWave']
 
         _setter("client_connection_port", client_connection_port)
@@ -434,25 +442,25 @@ class _ManagedClusterState:
              username: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'backupServiceEnabled' in kwargs:
+        if backup_service_enabled is None and 'backupServiceEnabled' in kwargs:
             backup_service_enabled = kwargs['backupServiceEnabled']
-        if 'clientConnectionPort' in kwargs:
+        if client_connection_port is None and 'clientConnectionPort' in kwargs:
             client_connection_port = kwargs['clientConnectionPort']
-        if 'customFabricSettings' in kwargs:
+        if custom_fabric_settings is None and 'customFabricSettings' in kwargs:
             custom_fabric_settings = kwargs['customFabricSettings']
-        if 'dnsName' in kwargs:
+        if dns_name is None and 'dnsName' in kwargs:
             dns_name = kwargs['dnsName']
-        if 'dnsServiceEnabled' in kwargs:
+        if dns_service_enabled is None and 'dnsServiceEnabled' in kwargs:
             dns_service_enabled = kwargs['dnsServiceEnabled']
-        if 'httpGatewayPort' in kwargs:
+        if http_gateway_port is None and 'httpGatewayPort' in kwargs:
             http_gateway_port = kwargs['httpGatewayPort']
-        if 'lbRules' in kwargs:
+        if lb_rules is None and 'lbRules' in kwargs:
             lb_rules = kwargs['lbRules']
-        if 'nodeTypes' in kwargs:
+        if node_types is None and 'nodeTypes' in kwargs:
             node_types = kwargs['nodeTypes']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'upgradeWave' in kwargs:
+        if upgrade_wave is None and 'upgradeWave' in kwargs:
             upgrade_wave = kwargs['upgradeWave']
 
         if authentication is not None:

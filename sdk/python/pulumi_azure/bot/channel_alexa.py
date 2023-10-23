@@ -35,18 +35,24 @@ class ChannelAlexaArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bot_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             skill_id: pulumi.Input[str],
+             bot_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             skill_id: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'botName' in kwargs:
+        if bot_name is None and 'botName' in kwargs:
             bot_name = kwargs['botName']
-        if 'resourceGroupName' in kwargs:
+        if bot_name is None:
+            raise TypeError("Missing 'bot_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skillId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if skill_id is None and 'skillId' in kwargs:
             skill_id = kwargs['skillId']
+        if skill_id is None:
+            raise TypeError("Missing 'skill_id' argument")
 
         _setter("bot_name", bot_name)
         _setter("resource_group_name", resource_group_name)
@@ -133,11 +139,11 @@ class _ChannelAlexaState:
              skill_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'botName' in kwargs:
+        if bot_name is None and 'botName' in kwargs:
             bot_name = kwargs['botName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skillId' in kwargs:
+        if skill_id is None and 'skillId' in kwargs:
             skill_id = kwargs['skillId']
 
         if bot_name is not None:

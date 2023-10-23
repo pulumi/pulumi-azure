@@ -59,8 +59,8 @@ class CacheAccessPolicyAccessRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             access: pulumi.Input[str],
-             scope: pulumi.Input[str],
+             access: Optional[pulumi.Input[str]] = None,
+             scope: Optional[pulumi.Input[str]] = None,
              anonymous_gid: Optional[pulumi.Input[int]] = None,
              anonymous_uid: Optional[pulumi.Input[int]] = None,
              filter: Optional[pulumi.Input[str]] = None,
@@ -69,15 +69,19 @@ class CacheAccessPolicyAccessRuleArgs:
              suid_enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'anonymousGid' in kwargs:
+        if access is None:
+            raise TypeError("Missing 'access' argument")
+        if scope is None:
+            raise TypeError("Missing 'scope' argument")
+        if anonymous_gid is None and 'anonymousGid' in kwargs:
             anonymous_gid = kwargs['anonymousGid']
-        if 'anonymousUid' in kwargs:
+        if anonymous_uid is None and 'anonymousUid' in kwargs:
             anonymous_uid = kwargs['anonymousUid']
-        if 'rootSquashEnabled' in kwargs:
+        if root_squash_enabled is None and 'rootSquashEnabled' in kwargs:
             root_squash_enabled = kwargs['rootSquashEnabled']
-        if 'submountAccessEnabled' in kwargs:
+        if submount_access_enabled is None and 'submountAccessEnabled' in kwargs:
             submount_access_enabled = kwargs['submountAccessEnabled']
-        if 'suidEnabled' in kwargs:
+        if suid_enabled is None and 'suidEnabled' in kwargs:
             suid_enabled = kwargs['suidEnabled']
 
         _setter("access", access)
@@ -208,11 +212,13 @@ class CacheDefaultAccessPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             access_rules: pulumi.Input[Sequence[pulumi.Input['CacheDefaultAccessPolicyAccessRuleArgs']]],
+             access_rules: Optional[pulumi.Input[Sequence[pulumi.Input['CacheDefaultAccessPolicyAccessRuleArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accessRules' in kwargs:
+        if access_rules is None and 'accessRules' in kwargs:
             access_rules = kwargs['accessRules']
+        if access_rules is None:
+            raise TypeError("Missing 'access_rules' argument")
 
         _setter("access_rules", access_rules)
 
@@ -266,8 +272,8 @@ class CacheDefaultAccessPolicyAccessRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             access: pulumi.Input[str],
-             scope: pulumi.Input[str],
+             access: Optional[pulumi.Input[str]] = None,
+             scope: Optional[pulumi.Input[str]] = None,
              anonymous_gid: Optional[pulumi.Input[int]] = None,
              anonymous_uid: Optional[pulumi.Input[int]] = None,
              filter: Optional[pulumi.Input[str]] = None,
@@ -276,15 +282,19 @@ class CacheDefaultAccessPolicyAccessRuleArgs:
              suid_enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'anonymousGid' in kwargs:
+        if access is None:
+            raise TypeError("Missing 'access' argument")
+        if scope is None:
+            raise TypeError("Missing 'scope' argument")
+        if anonymous_gid is None and 'anonymousGid' in kwargs:
             anonymous_gid = kwargs['anonymousGid']
-        if 'anonymousUid' in kwargs:
+        if anonymous_uid is None and 'anonymousUid' in kwargs:
             anonymous_uid = kwargs['anonymousUid']
-        if 'rootSquashEnabled' in kwargs:
+        if root_squash_enabled is None and 'rootSquashEnabled' in kwargs:
             root_squash_enabled = kwargs['rootSquashEnabled']
-        if 'submountAccessEnabled' in kwargs:
+        if submount_access_enabled is None and 'submountAccessEnabled' in kwargs:
             submount_access_enabled = kwargs['submountAccessEnabled']
-        if 'suidEnabled' in kwargs:
+        if suid_enabled is None and 'suidEnabled' in kwargs:
             suid_enabled = kwargs['suidEnabled']
 
         _setter("access", access)
@@ -433,24 +443,36 @@ class CacheDirectoryActiveDirectoryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cache_netbios_name: pulumi.Input[str],
-             dns_primary_ip: pulumi.Input[str],
-             domain_name: pulumi.Input[str],
-             domain_netbios_name: pulumi.Input[str],
-             password: pulumi.Input[str],
-             username: pulumi.Input[str],
+             cache_netbios_name: Optional[pulumi.Input[str]] = None,
+             dns_primary_ip: Optional[pulumi.Input[str]] = None,
+             domain_name: Optional[pulumi.Input[str]] = None,
+             domain_netbios_name: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
              dns_secondary_ip: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'cacheNetbiosName' in kwargs:
+        if cache_netbios_name is None and 'cacheNetbiosName' in kwargs:
             cache_netbios_name = kwargs['cacheNetbiosName']
-        if 'dnsPrimaryIp' in kwargs:
+        if cache_netbios_name is None:
+            raise TypeError("Missing 'cache_netbios_name' argument")
+        if dns_primary_ip is None and 'dnsPrimaryIp' in kwargs:
             dns_primary_ip = kwargs['dnsPrimaryIp']
-        if 'domainName' in kwargs:
+        if dns_primary_ip is None:
+            raise TypeError("Missing 'dns_primary_ip' argument")
+        if domain_name is None and 'domainName' in kwargs:
             domain_name = kwargs['domainName']
-        if 'domainNetbiosName' in kwargs:
+        if domain_name is None:
+            raise TypeError("Missing 'domain_name' argument")
+        if domain_netbios_name is None and 'domainNetbiosName' in kwargs:
             domain_netbios_name = kwargs['domainNetbiosName']
-        if 'dnsSecondaryIp' in kwargs:
+        if domain_netbios_name is None:
+            raise TypeError("Missing 'domain_netbios_name' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+        if dns_secondary_ip is None and 'dnsSecondaryIp' in kwargs:
             dns_secondary_ip = kwargs['dnsSecondaryIp']
 
         _setter("cache_netbios_name", cache_netbios_name)
@@ -564,14 +586,18 @@ class CacheDirectoryFlatFileArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             group_file_uri: pulumi.Input[str],
-             password_file_uri: pulumi.Input[str],
+             group_file_uri: Optional[pulumi.Input[str]] = None,
+             password_file_uri: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'groupFileUri' in kwargs:
+        if group_file_uri is None and 'groupFileUri' in kwargs:
             group_file_uri = kwargs['groupFileUri']
-        if 'passwordFileUri' in kwargs:
+        if group_file_uri is None:
+            raise TypeError("Missing 'group_file_uri' argument")
+        if password_file_uri is None and 'passwordFileUri' in kwargs:
             password_file_uri = kwargs['passwordFileUri']
+        if password_file_uri is None:
+            raise TypeError("Missing 'password_file_uri' argument")
 
         _setter("group_file_uri", group_file_uri)
         _setter("password_file_uri", password_file_uri)
@@ -630,19 +656,23 @@ class CacheDirectoryLdapArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             base_dn: pulumi.Input[str],
-             server: pulumi.Input[str],
+             base_dn: Optional[pulumi.Input[str]] = None,
+             server: Optional[pulumi.Input[str]] = None,
              bind: Optional[pulumi.Input['CacheDirectoryLdapBindArgs']] = None,
              certificate_validation_uri: Optional[pulumi.Input[str]] = None,
              download_certificate_automatically: Optional[pulumi.Input[bool]] = None,
              encrypted: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'baseDn' in kwargs:
+        if base_dn is None and 'baseDn' in kwargs:
             base_dn = kwargs['baseDn']
-        if 'certificateValidationUri' in kwargs:
+        if base_dn is None:
+            raise TypeError("Missing 'base_dn' argument")
+        if server is None:
+            raise TypeError("Missing 'server' argument")
+        if certificate_validation_uri is None and 'certificateValidationUri' in kwargs:
             certificate_validation_uri = kwargs['certificateValidationUri']
-        if 'downloadCertificateAutomatically' in kwargs:
+        if download_certificate_automatically is None and 'downloadCertificateAutomatically' in kwargs:
             download_certificate_automatically = kwargs['downloadCertificateAutomatically']
 
         _setter("base_dn", base_dn)
@@ -746,10 +776,14 @@ class CacheDirectoryLdapBindArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             dn: pulumi.Input[str],
-             password: pulumi.Input[str],
+             dn: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if dn is None:
+            raise TypeError("Missing 'dn' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
 
         _setter("dn", dn)
         _setter("password", password)
@@ -796,11 +830,13 @@ class CacheDnsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             servers: pulumi.Input[Sequence[pulumi.Input[str]]],
+             servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              search_domain: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'searchDomain' in kwargs:
+        if servers is None:
+            raise TypeError("Missing 'servers' argument")
+        if search_domain is None and 'searchDomain' in kwargs:
             search_domain = kwargs['searchDomain']
 
         _setter("servers", servers)
@@ -857,17 +893,19 @@ class CacheIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -952,19 +990,23 @@ class CacheNfsTargetNamespaceJunctionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             namespace_path: pulumi.Input[str],
-             nfs_export: pulumi.Input[str],
+             namespace_path: Optional[pulumi.Input[str]] = None,
+             nfs_export: Optional[pulumi.Input[str]] = None,
              access_policy_name: Optional[pulumi.Input[str]] = None,
              target_path: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'namespacePath' in kwargs:
+        if namespace_path is None and 'namespacePath' in kwargs:
             namespace_path = kwargs['namespacePath']
-        if 'nfsExport' in kwargs:
+        if namespace_path is None:
+            raise TypeError("Missing 'namespace_path' argument")
+        if nfs_export is None and 'nfsExport' in kwargs:
             nfs_export = kwargs['nfsExport']
-        if 'accessPolicyName' in kwargs:
+        if nfs_export is None:
+            raise TypeError("Missing 'nfs_export' argument")
+        if access_policy_name is None and 'accessPolicyName' in kwargs:
             access_policy_name = kwargs['accessPolicyName']
-        if 'targetPath' in kwargs:
+        if target_path is None and 'targetPath' in kwargs:
             target_path = kwargs['targetPath']
 
         _setter("namespace_path", namespace_path)

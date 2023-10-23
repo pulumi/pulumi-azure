@@ -33,11 +33,13 @@ class ServiceCorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
+             allowed_origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowedOrigins' in kwargs:
+        if allowed_origins is None and 'allowedOrigins' in kwargs:
             allowed_origins = kwargs['allowedOrigins']
+        if allowed_origins is None:
+            raise TypeError("Missing 'allowed_origins' argument")
 
         _setter("allowed_origins", allowed_origins)
 
@@ -77,17 +79,19 @@ class ServiceIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -172,11 +176,11 @@ class ServiceLiveTraceArgs:
              messaging_logs_enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'connectivityLogsEnabled' in kwargs:
+        if connectivity_logs_enabled is None and 'connectivityLogsEnabled' in kwargs:
             connectivity_logs_enabled = kwargs['connectivityLogsEnabled']
-        if 'httpRequestLogsEnabled' in kwargs:
+        if http_request_logs_enabled is None and 'httpRequestLogsEnabled' in kwargs:
             http_request_logs_enabled = kwargs['httpRequestLogsEnabled']
-        if 'messagingLogsEnabled' in kwargs:
+        if messaging_logs_enabled is None and 'messagingLogsEnabled' in kwargs:
             messaging_logs_enabled = kwargs['messagingLogsEnabled']
 
         if connectivity_logs_enabled is not None:
@@ -263,14 +267,16 @@ class ServiceNetworkAclPrivateEndpointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             id: pulumi.Input[str],
+             id: Optional[pulumi.Input[str]] = None,
              allowed_request_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              denied_request_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowedRequestTypes' in kwargs:
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if allowed_request_types is None and 'allowedRequestTypes' in kwargs:
             allowed_request_types = kwargs['allowedRequestTypes']
-        if 'deniedRequestTypes' in kwargs:
+        if denied_request_types is None and 'deniedRequestTypes' in kwargs:
             denied_request_types = kwargs['deniedRequestTypes']
 
         _setter("id", id)
@@ -349,9 +355,9 @@ class ServiceNetworkAclPublicNetworkArgs:
              denied_request_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowedRequestTypes' in kwargs:
+        if allowed_request_types is None and 'allowedRequestTypes' in kwargs:
             allowed_request_types = kwargs['allowedRequestTypes']
-        if 'deniedRequestTypes' in kwargs:
+        if denied_request_types is None and 'deniedRequestTypes' in kwargs:
             denied_request_types = kwargs['deniedRequestTypes']
 
         if allowed_request_types is not None:
@@ -407,10 +413,14 @@ class ServiceSkuArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             capacity: pulumi.Input[int],
-             name: pulumi.Input[str],
+             capacity: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if capacity is None:
+            raise TypeError("Missing 'capacity' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("capacity", capacity)
         _setter("name", name)
@@ -466,22 +476,30 @@ class ServiceUpstreamEndpointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             category_patterns: pulumi.Input[Sequence[pulumi.Input[str]]],
-             event_patterns: pulumi.Input[Sequence[pulumi.Input[str]]],
-             hub_patterns: pulumi.Input[Sequence[pulumi.Input[str]]],
-             url_template: pulumi.Input[str],
+             category_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             event_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             hub_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             url_template: Optional[pulumi.Input[str]] = None,
              user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'categoryPatterns' in kwargs:
+        if category_patterns is None and 'categoryPatterns' in kwargs:
             category_patterns = kwargs['categoryPatterns']
-        if 'eventPatterns' in kwargs:
+        if category_patterns is None:
+            raise TypeError("Missing 'category_patterns' argument")
+        if event_patterns is None and 'eventPatterns' in kwargs:
             event_patterns = kwargs['eventPatterns']
-        if 'hubPatterns' in kwargs:
+        if event_patterns is None:
+            raise TypeError("Missing 'event_patterns' argument")
+        if hub_patterns is None and 'hubPatterns' in kwargs:
             hub_patterns = kwargs['hubPatterns']
-        if 'urlTemplate' in kwargs:
+        if hub_patterns is None:
+            raise TypeError("Missing 'hub_patterns' argument")
+        if url_template is None and 'urlTemplate' in kwargs:
             url_template = kwargs['urlTemplate']
-        if 'userAssignedIdentityId' in kwargs:
+        if url_template is None:
+            raise TypeError("Missing 'url_template' argument")
+        if user_assigned_identity_id is None and 'userAssignedIdentityId' in kwargs:
             user_assigned_identity_id = kwargs['userAssignedIdentityId']
 
         _setter("category_patterns", category_patterns)

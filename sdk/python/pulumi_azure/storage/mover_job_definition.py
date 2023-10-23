@@ -50,10 +50,10 @@ class MoverJobDefinitionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             copy_mode: pulumi.Input[str],
-             source_name: pulumi.Input[str],
-             storage_mover_project_id: pulumi.Input[str],
-             target_name: pulumi.Input[str],
+             copy_mode: Optional[pulumi.Input[str]] = None,
+             source_name: Optional[pulumi.Input[str]] = None,
+             storage_mover_project_id: Optional[pulumi.Input[str]] = None,
+             target_name: Optional[pulumi.Input[str]] = None,
              agent_name: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
@@ -61,19 +61,27 @@ class MoverJobDefinitionArgs:
              target_sub_path: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'copyMode' in kwargs:
+        if copy_mode is None and 'copyMode' in kwargs:
             copy_mode = kwargs['copyMode']
-        if 'sourceName' in kwargs:
+        if copy_mode is None:
+            raise TypeError("Missing 'copy_mode' argument")
+        if source_name is None and 'sourceName' in kwargs:
             source_name = kwargs['sourceName']
-        if 'storageMoverProjectId' in kwargs:
+        if source_name is None:
+            raise TypeError("Missing 'source_name' argument")
+        if storage_mover_project_id is None and 'storageMoverProjectId' in kwargs:
             storage_mover_project_id = kwargs['storageMoverProjectId']
-        if 'targetName' in kwargs:
+        if storage_mover_project_id is None:
+            raise TypeError("Missing 'storage_mover_project_id' argument")
+        if target_name is None and 'targetName' in kwargs:
             target_name = kwargs['targetName']
-        if 'agentName' in kwargs:
+        if target_name is None:
+            raise TypeError("Missing 'target_name' argument")
+        if agent_name is None and 'agentName' in kwargs:
             agent_name = kwargs['agentName']
-        if 'sourceSubPath' in kwargs:
+        if source_sub_path is None and 'sourceSubPath' in kwargs:
             source_sub_path = kwargs['sourceSubPath']
-        if 'targetSubPath' in kwargs:
+        if target_sub_path is None and 'targetSubPath' in kwargs:
             target_sub_path = kwargs['targetSubPath']
 
         _setter("copy_mode", copy_mode)
@@ -250,19 +258,19 @@ class _MoverJobDefinitionState:
              target_sub_path: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'agentName' in kwargs:
+        if agent_name is None and 'agentName' in kwargs:
             agent_name = kwargs['agentName']
-        if 'copyMode' in kwargs:
+        if copy_mode is None and 'copyMode' in kwargs:
             copy_mode = kwargs['copyMode']
-        if 'sourceName' in kwargs:
+        if source_name is None and 'sourceName' in kwargs:
             source_name = kwargs['sourceName']
-        if 'sourceSubPath' in kwargs:
+        if source_sub_path is None and 'sourceSubPath' in kwargs:
             source_sub_path = kwargs['sourceSubPath']
-        if 'storageMoverProjectId' in kwargs:
+        if storage_mover_project_id is None and 'storageMoverProjectId' in kwargs:
             storage_mover_project_id = kwargs['storageMoverProjectId']
-        if 'targetName' in kwargs:
+        if target_name is None and 'targetName' in kwargs:
             target_name = kwargs['targetName']
-        if 'targetSubPath' in kwargs:
+        if target_sub_path is None and 'targetSubPath' in kwargs:
             target_sub_path = kwargs['targetSubPath']
 
         if agent_name is not None:

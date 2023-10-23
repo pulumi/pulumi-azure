@@ -46,22 +46,28 @@ class FailoverGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             partner_servers: pulumi.Input[Sequence[pulumi.Input['FailoverGroupPartnerServerArgs']]],
-             read_write_endpoint_failover_policy: pulumi.Input['FailoverGroupReadWriteEndpointFailoverPolicyArgs'],
-             server_id: pulumi.Input[str],
+             partner_servers: Optional[pulumi.Input[Sequence[pulumi.Input['FailoverGroupPartnerServerArgs']]]] = None,
+             read_write_endpoint_failover_policy: Optional[pulumi.Input['FailoverGroupReadWriteEndpointFailoverPolicyArgs']] = None,
+             server_id: Optional[pulumi.Input[str]] = None,
              databases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              readonly_endpoint_failover_policy_enabled: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'partnerServers' in kwargs:
+        if partner_servers is None and 'partnerServers' in kwargs:
             partner_servers = kwargs['partnerServers']
-        if 'readWriteEndpointFailoverPolicy' in kwargs:
+        if partner_servers is None:
+            raise TypeError("Missing 'partner_servers' argument")
+        if read_write_endpoint_failover_policy is None and 'readWriteEndpointFailoverPolicy' in kwargs:
             read_write_endpoint_failover_policy = kwargs['readWriteEndpointFailoverPolicy']
-        if 'serverId' in kwargs:
+        if read_write_endpoint_failover_policy is None:
+            raise TypeError("Missing 'read_write_endpoint_failover_policy' argument")
+        if server_id is None and 'serverId' in kwargs:
             server_id = kwargs['serverId']
-        if 'readonlyEndpointFailoverPolicyEnabled' in kwargs:
+        if server_id is None:
+            raise TypeError("Missing 'server_id' argument")
+        if readonly_endpoint_failover_policy_enabled is None and 'readonlyEndpointFailoverPolicyEnabled' in kwargs:
             readonly_endpoint_failover_policy_enabled = kwargs['readonlyEndpointFailoverPolicyEnabled']
 
         _setter("partner_servers", partner_servers)
@@ -203,13 +209,13 @@ class _FailoverGroupState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'partnerServers' in kwargs:
+        if partner_servers is None and 'partnerServers' in kwargs:
             partner_servers = kwargs['partnerServers']
-        if 'readWriteEndpointFailoverPolicy' in kwargs:
+        if read_write_endpoint_failover_policy is None and 'readWriteEndpointFailoverPolicy' in kwargs:
             read_write_endpoint_failover_policy = kwargs['readWriteEndpointFailoverPolicy']
-        if 'readonlyEndpointFailoverPolicyEnabled' in kwargs:
+        if readonly_endpoint_failover_policy_enabled is None and 'readonlyEndpointFailoverPolicyEnabled' in kwargs:
             readonly_endpoint_failover_policy_enabled = kwargs['readonlyEndpointFailoverPolicyEnabled']
-        if 'serverId' in kwargs:
+        if server_id is None and 'serverId' in kwargs:
             server_id = kwargs['serverId']
 
         if databases is not None:

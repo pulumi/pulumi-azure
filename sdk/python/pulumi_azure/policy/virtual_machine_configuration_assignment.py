@@ -37,14 +37,18 @@ class VirtualMachineConfigurationAssignmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             configuration: pulumi.Input['VirtualMachineConfigurationAssignmentConfigurationArgs'],
-             virtual_machine_id: pulumi.Input[str],
+             configuration: Optional[pulumi.Input['VirtualMachineConfigurationAssignmentConfigurationArgs']] = None,
+             virtual_machine_id: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'virtualMachineId' in kwargs:
+        if configuration is None:
+            raise TypeError("Missing 'configuration' argument")
+        if virtual_machine_id is None and 'virtualMachineId' in kwargs:
             virtual_machine_id = kwargs['virtualMachineId']
+        if virtual_machine_id is None:
+            raise TypeError("Missing 'virtual_machine_id' argument")
 
         _setter("configuration", configuration)
         _setter("virtual_machine_id", virtual_machine_id)
@@ -132,7 +136,7 @@ class _VirtualMachineConfigurationAssignmentState:
              virtual_machine_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'virtualMachineId' in kwargs:
+        if virtual_machine_id is None and 'virtualMachineId' in kwargs:
             virtual_machine_id = kwargs['virtualMachineId']
 
         if configuration is not None:

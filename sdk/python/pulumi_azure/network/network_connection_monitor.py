@@ -52,10 +52,10 @@ class NetworkConnectionMonitorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             endpoints: pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorEndpointArgs']]],
-             network_watcher_id: pulumi.Input[str],
-             test_configurations: pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorTestConfigurationArgs']]],
-             test_groups: pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorTestGroupArgs']]],
+             endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorEndpointArgs']]]] = None,
+             network_watcher_id: Optional[pulumi.Input[str]] = None,
+             test_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorTestConfigurationArgs']]]] = None,
+             test_groups: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorTestGroupArgs']]]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              notes: Optional[pulumi.Input[str]] = None,
@@ -63,13 +63,21 @@ class NetworkConnectionMonitorArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'networkWatcherId' in kwargs:
+        if endpoints is None:
+            raise TypeError("Missing 'endpoints' argument")
+        if network_watcher_id is None and 'networkWatcherId' in kwargs:
             network_watcher_id = kwargs['networkWatcherId']
-        if 'testConfigurations' in kwargs:
+        if network_watcher_id is None:
+            raise TypeError("Missing 'network_watcher_id' argument")
+        if test_configurations is None and 'testConfigurations' in kwargs:
             test_configurations = kwargs['testConfigurations']
-        if 'testGroups' in kwargs:
+        if test_configurations is None:
+            raise TypeError("Missing 'test_configurations' argument")
+        if test_groups is None and 'testGroups' in kwargs:
             test_groups = kwargs['testGroups']
-        if 'outputWorkspaceResourceIds' in kwargs:
+        if test_groups is None:
+            raise TypeError("Missing 'test_groups' argument")
+        if output_workspace_resource_ids is None and 'outputWorkspaceResourceIds' in kwargs:
             output_workspace_resource_ids = kwargs['outputWorkspaceResourceIds']
 
         _setter("endpoints", endpoints)
@@ -246,13 +254,13 @@ class _NetworkConnectionMonitorState:
              test_groups: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorTestGroupArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'networkWatcherId' in kwargs:
+        if network_watcher_id is None and 'networkWatcherId' in kwargs:
             network_watcher_id = kwargs['networkWatcherId']
-        if 'outputWorkspaceResourceIds' in kwargs:
+        if output_workspace_resource_ids is None and 'outputWorkspaceResourceIds' in kwargs:
             output_workspace_resource_ids = kwargs['outputWorkspaceResourceIds']
-        if 'testConfigurations' in kwargs:
+        if test_configurations is None and 'testConfigurations' in kwargs:
             test_configurations = kwargs['testConfigurations']
-        if 'testGroups' in kwargs:
+        if test_groups is None and 'testGroups' in kwargs:
             test_groups = kwargs['testGroups']
 
         if endpoints is not None:

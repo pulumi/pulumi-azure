@@ -47,27 +47,35 @@ class CosmosdbDataConnectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cosmosdb_container_id: pulumi.Input[str],
-             kusto_database_id: pulumi.Input[str],
-             managed_identity_id: pulumi.Input[str],
-             table_name: pulumi.Input[str],
+             cosmosdb_container_id: Optional[pulumi.Input[str]] = None,
+             kusto_database_id: Optional[pulumi.Input[str]] = None,
+             managed_identity_id: Optional[pulumi.Input[str]] = None,
+             table_name: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              mapping_rule_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              retrieval_start_date: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'cosmosdbContainerId' in kwargs:
+        if cosmosdb_container_id is None and 'cosmosdbContainerId' in kwargs:
             cosmosdb_container_id = kwargs['cosmosdbContainerId']
-        if 'kustoDatabaseId' in kwargs:
+        if cosmosdb_container_id is None:
+            raise TypeError("Missing 'cosmosdb_container_id' argument")
+        if kusto_database_id is None and 'kustoDatabaseId' in kwargs:
             kusto_database_id = kwargs['kustoDatabaseId']
-        if 'managedIdentityId' in kwargs:
+        if kusto_database_id is None:
+            raise TypeError("Missing 'kusto_database_id' argument")
+        if managed_identity_id is None and 'managedIdentityId' in kwargs:
             managed_identity_id = kwargs['managedIdentityId']
-        if 'tableName' in kwargs:
+        if managed_identity_id is None:
+            raise TypeError("Missing 'managed_identity_id' argument")
+        if table_name is None and 'tableName' in kwargs:
             table_name = kwargs['tableName']
-        if 'mappingRuleName' in kwargs:
+        if table_name is None:
+            raise TypeError("Missing 'table_name' argument")
+        if mapping_rule_name is None and 'mappingRuleName' in kwargs:
             mapping_rule_name = kwargs['mappingRuleName']
-        if 'retrievalStartDate' in kwargs:
+        if retrieval_start_date is None and 'retrievalStartDate' in kwargs:
             retrieval_start_date = kwargs['retrievalStartDate']
 
         _setter("cosmosdb_container_id", cosmosdb_container_id)
@@ -226,17 +234,17 @@ class _CosmosdbDataConnectionState:
              table_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'cosmosdbContainerId' in kwargs:
+        if cosmosdb_container_id is None and 'cosmosdbContainerId' in kwargs:
             cosmosdb_container_id = kwargs['cosmosdbContainerId']
-        if 'kustoDatabaseId' in kwargs:
+        if kusto_database_id is None and 'kustoDatabaseId' in kwargs:
             kusto_database_id = kwargs['kustoDatabaseId']
-        if 'managedIdentityId' in kwargs:
+        if managed_identity_id is None and 'managedIdentityId' in kwargs:
             managed_identity_id = kwargs['managedIdentityId']
-        if 'mappingRuleName' in kwargs:
+        if mapping_rule_name is None and 'mappingRuleName' in kwargs:
             mapping_rule_name = kwargs['mappingRuleName']
-        if 'retrievalStartDate' in kwargs:
+        if retrieval_start_date is None and 'retrievalStartDate' in kwargs:
             retrieval_start_date = kwargs['retrievalStartDate']
-        if 'tableName' in kwargs:
+        if table_name is None and 'tableName' in kwargs:
             table_name = kwargs['tableName']
 
         if cosmosdb_container_id is not None:

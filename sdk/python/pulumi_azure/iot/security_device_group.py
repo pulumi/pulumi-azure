@@ -37,17 +37,19 @@ class SecurityDeviceGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             iothub_id: pulumi.Input[str],
+             iothub_id: Optional[pulumi.Input[str]] = None,
              allow_rule: Optional[pulumi.Input['SecurityDeviceGroupAllowRuleArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              range_rules: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityDeviceGroupRangeRuleArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'iothubId' in kwargs:
+        if iothub_id is None and 'iothubId' in kwargs:
             iothub_id = kwargs['iothubId']
-        if 'allowRule' in kwargs:
+        if iothub_id is None:
+            raise TypeError("Missing 'iothub_id' argument")
+        if allow_rule is None and 'allowRule' in kwargs:
             allow_rule = kwargs['allowRule']
-        if 'rangeRules' in kwargs:
+        if range_rules is None and 'rangeRules' in kwargs:
             range_rules = kwargs['rangeRules']
 
         _setter("iothub_id", iothub_id)
@@ -137,11 +139,11 @@ class _SecurityDeviceGroupState:
              range_rules: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityDeviceGroupRangeRuleArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowRule' in kwargs:
+        if allow_rule is None and 'allowRule' in kwargs:
             allow_rule = kwargs['allowRule']
-        if 'iothubId' in kwargs:
+        if iothub_id is None and 'iothubId' in kwargs:
             iothub_id = kwargs['iothubId']
-        if 'rangeRules' in kwargs:
+        if range_rules is None and 'rangeRules' in kwargs:
             range_rules = kwargs['rangeRules']
 
         if allow_rule is not None:

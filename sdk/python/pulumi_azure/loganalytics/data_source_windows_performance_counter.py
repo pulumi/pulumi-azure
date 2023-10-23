@@ -44,27 +44,39 @@ class DataSourceWindowsPerformanceCounterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             counter_name: pulumi.Input[str],
-             instance_name: pulumi.Input[str],
-             interval_seconds: pulumi.Input[int],
-             object_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             workspace_name: pulumi.Input[str],
+             counter_name: Optional[pulumi.Input[str]] = None,
+             instance_name: Optional[pulumi.Input[str]] = None,
+             interval_seconds: Optional[pulumi.Input[int]] = None,
+             object_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             workspace_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'counterName' in kwargs:
+        if counter_name is None and 'counterName' in kwargs:
             counter_name = kwargs['counterName']
-        if 'instanceName' in kwargs:
+        if counter_name is None:
+            raise TypeError("Missing 'counter_name' argument")
+        if instance_name is None and 'instanceName' in kwargs:
             instance_name = kwargs['instanceName']
-        if 'intervalSeconds' in kwargs:
+        if instance_name is None:
+            raise TypeError("Missing 'instance_name' argument")
+        if interval_seconds is None and 'intervalSeconds' in kwargs:
             interval_seconds = kwargs['intervalSeconds']
-        if 'objectName' in kwargs:
+        if interval_seconds is None:
+            raise TypeError("Missing 'interval_seconds' argument")
+        if object_name is None and 'objectName' in kwargs:
             object_name = kwargs['objectName']
-        if 'resourceGroupName' in kwargs:
+        if object_name is None:
+            raise TypeError("Missing 'object_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'workspaceName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if workspace_name is None and 'workspaceName' in kwargs:
             workspace_name = kwargs['workspaceName']
+        if workspace_name is None:
+            raise TypeError("Missing 'workspace_name' argument")
 
         _setter("counter_name", counter_name)
         _setter("instance_name", instance_name)
@@ -202,17 +214,17 @@ class _DataSourceWindowsPerformanceCounterState:
              workspace_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'counterName' in kwargs:
+        if counter_name is None and 'counterName' in kwargs:
             counter_name = kwargs['counterName']
-        if 'instanceName' in kwargs:
+        if instance_name is None and 'instanceName' in kwargs:
             instance_name = kwargs['instanceName']
-        if 'intervalSeconds' in kwargs:
+        if interval_seconds is None and 'intervalSeconds' in kwargs:
             interval_seconds = kwargs['intervalSeconds']
-        if 'objectName' in kwargs:
+        if object_name is None and 'objectName' in kwargs:
             object_name = kwargs['objectName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'workspaceName' in kwargs:
+        if workspace_name is None and 'workspaceName' in kwargs:
             workspace_name = kwargs['workspaceName']
 
         if counter_name is not None:

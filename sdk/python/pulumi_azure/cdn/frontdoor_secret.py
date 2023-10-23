@@ -34,13 +34,17 @@ class FrontdoorSecretArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cdn_frontdoor_profile_id: pulumi.Input[str],
-             secret: pulumi.Input['FrontdoorSecretSecretArgs'],
+             cdn_frontdoor_profile_id: Optional[pulumi.Input[str]] = None,
+             secret: Optional[pulumi.Input['FrontdoorSecretSecretArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'cdnFrontdoorProfileId' in kwargs:
+        if cdn_frontdoor_profile_id is None and 'cdnFrontdoorProfileId' in kwargs:
             cdn_frontdoor_profile_id = kwargs['cdnFrontdoorProfileId']
+        if cdn_frontdoor_profile_id is None:
+            raise TypeError("Missing 'cdn_frontdoor_profile_id' argument")
+        if secret is None:
+            raise TypeError("Missing 'secret' argument")
 
         _setter("cdn_frontdoor_profile_id", cdn_frontdoor_profile_id)
         _setter("secret", secret)
@@ -114,9 +118,9 @@ class _FrontdoorSecretState:
              secret: Optional[pulumi.Input['FrontdoorSecretSecretArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'cdnFrontdoorProfileId' in kwargs:
+        if cdn_frontdoor_profile_id is None and 'cdnFrontdoorProfileId' in kwargs:
             cdn_frontdoor_profile_id = kwargs['cdnFrontdoorProfileId']
-        if 'cdnFrontdoorProfileName' in kwargs:
+        if cdn_frontdoor_profile_name is None and 'cdnFrontdoorProfileName' in kwargs:
             cdn_frontdoor_profile_name = kwargs['cdnFrontdoorProfileName']
 
         if cdn_frontdoor_profile_id is not None:

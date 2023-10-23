@@ -35,18 +35,24 @@ class DscNodeConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             automation_account_name: pulumi.Input[str],
-             content_embedded: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             automation_account_name: Optional[pulumi.Input[str]] = None,
+             content_embedded: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'automationAccountName' in kwargs:
+        if automation_account_name is None and 'automationAccountName' in kwargs:
             automation_account_name = kwargs['automationAccountName']
-        if 'contentEmbedded' in kwargs:
+        if automation_account_name is None:
+            raise TypeError("Missing 'automation_account_name' argument")
+        if content_embedded is None and 'contentEmbedded' in kwargs:
             content_embedded = kwargs['contentEmbedded']
-        if 'resourceGroupName' in kwargs:
+        if content_embedded is None:
+            raise TypeError("Missing 'content_embedded' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("automation_account_name", automation_account_name)
         _setter("content_embedded", content_embedded)
@@ -136,13 +142,13 @@ class _DscNodeConfigurationState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'automationAccountName' in kwargs:
+        if automation_account_name is None and 'automationAccountName' in kwargs:
             automation_account_name = kwargs['automationAccountName']
-        if 'configurationName' in kwargs:
+        if configuration_name is None and 'configurationName' in kwargs:
             configuration_name = kwargs['configurationName']
-        if 'contentEmbedded' in kwargs:
+        if content_embedded is None and 'contentEmbedded' in kwargs:
             content_embedded = kwargs['contentEmbedded']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if automation_account_name is not None:

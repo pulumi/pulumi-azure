@@ -38,21 +38,29 @@ class DataConnectorAwsS3Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             aws_role_arn: pulumi.Input[str],
-             destination_table: pulumi.Input[str],
-             log_analytics_workspace_id: pulumi.Input[str],
-             sqs_urls: pulumi.Input[Sequence[pulumi.Input[str]]],
+             aws_role_arn: Optional[pulumi.Input[str]] = None,
+             destination_table: Optional[pulumi.Input[str]] = None,
+             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+             sqs_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'awsRoleArn' in kwargs:
+        if aws_role_arn is None and 'awsRoleArn' in kwargs:
             aws_role_arn = kwargs['awsRoleArn']
-        if 'destinationTable' in kwargs:
+        if aws_role_arn is None:
+            raise TypeError("Missing 'aws_role_arn' argument")
+        if destination_table is None and 'destinationTable' in kwargs:
             destination_table = kwargs['destinationTable']
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if destination_table is None:
+            raise TypeError("Missing 'destination_table' argument")
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if 'sqsUrls' in kwargs:
+        if log_analytics_workspace_id is None:
+            raise TypeError("Missing 'log_analytics_workspace_id' argument")
+        if sqs_urls is None and 'sqsUrls' in kwargs:
             sqs_urls = kwargs['sqsUrls']
+        if sqs_urls is None:
+            raise TypeError("Missing 'sqs_urls' argument")
 
         _setter("aws_role_arn", aws_role_arn)
         _setter("destination_table", destination_table)
@@ -156,13 +164,13 @@ class _DataConnectorAwsS3State:
              sqs_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'awsRoleArn' in kwargs:
+        if aws_role_arn is None and 'awsRoleArn' in kwargs:
             aws_role_arn = kwargs['awsRoleArn']
-        if 'destinationTable' in kwargs:
+        if destination_table is None and 'destinationTable' in kwargs:
             destination_table = kwargs['destinationTable']
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if 'sqsUrls' in kwargs:
+        if sqs_urls is None and 'sqsUrls' in kwargs:
             sqs_urls = kwargs['sqsUrls']
 
         if aws_role_arn is not None:

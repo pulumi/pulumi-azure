@@ -29,14 +29,18 @@ class ClusterCustomerManagedKeyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_vault_key_id: pulumi.Input[str],
-             log_analytics_cluster_id: pulumi.Input[str],
+             key_vault_key_id: Optional[pulumi.Input[str]] = None,
+             log_analytics_cluster_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'keyVaultKeyId' in kwargs:
+        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
             key_vault_key_id = kwargs['keyVaultKeyId']
-        if 'logAnalyticsClusterId' in kwargs:
+        if key_vault_key_id is None:
+            raise TypeError("Missing 'key_vault_key_id' argument")
+        if log_analytics_cluster_id is None and 'logAnalyticsClusterId' in kwargs:
             log_analytics_cluster_id = kwargs['logAnalyticsClusterId']
+        if log_analytics_cluster_id is None:
+            raise TypeError("Missing 'log_analytics_cluster_id' argument")
 
         _setter("key_vault_key_id", key_vault_key_id)
         _setter("log_analytics_cluster_id", log_analytics_cluster_id)
@@ -88,9 +92,9 @@ class _ClusterCustomerManagedKeyState:
              log_analytics_cluster_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'keyVaultKeyId' in kwargs:
+        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
             key_vault_key_id = kwargs['keyVaultKeyId']
-        if 'logAnalyticsClusterId' in kwargs:
+        if log_analytics_cluster_id is None and 'logAnalyticsClusterId' in kwargs:
             log_analytics_cluster_id = kwargs['logAnalyticsClusterId']
 
         if key_vault_key_id is not None:

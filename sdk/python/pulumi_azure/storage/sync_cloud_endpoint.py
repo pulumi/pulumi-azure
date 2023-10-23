@@ -38,20 +38,26 @@ class SyncCloudEndpointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             file_share_name: pulumi.Input[str],
-             storage_account_id: pulumi.Input[str],
-             storage_sync_group_id: pulumi.Input[str],
+             file_share_name: Optional[pulumi.Input[str]] = None,
+             storage_account_id: Optional[pulumi.Input[str]] = None,
+             storage_sync_group_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              storage_account_tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'fileShareName' in kwargs:
+        if file_share_name is None and 'fileShareName' in kwargs:
             file_share_name = kwargs['fileShareName']
-        if 'storageAccountId' in kwargs:
+        if file_share_name is None:
+            raise TypeError("Missing 'file_share_name' argument")
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'storageSyncGroupId' in kwargs:
+        if storage_account_id is None:
+            raise TypeError("Missing 'storage_account_id' argument")
+        if storage_sync_group_id is None and 'storageSyncGroupId' in kwargs:
             storage_sync_group_id = kwargs['storageSyncGroupId']
-        if 'storageAccountTenantId' in kwargs:
+        if storage_sync_group_id is None:
+            raise TypeError("Missing 'storage_sync_group_id' argument")
+        if storage_account_tenant_id is None and 'storageAccountTenantId' in kwargs:
             storage_account_tenant_id = kwargs['storageAccountTenantId']
 
         _setter("file_share_name", file_share_name)
@@ -157,13 +163,13 @@ class _SyncCloudEndpointState:
              storage_sync_group_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'fileShareName' in kwargs:
+        if file_share_name is None and 'fileShareName' in kwargs:
             file_share_name = kwargs['fileShareName']
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'storageAccountTenantId' in kwargs:
+        if storage_account_tenant_id is None and 'storageAccountTenantId' in kwargs:
             storage_account_tenant_id = kwargs['storageAccountTenantId']
-        if 'storageSyncGroupId' in kwargs:
+        if storage_sync_group_id is None and 'storageSyncGroupId' in kwargs:
             storage_sync_group_id = kwargs['storageSyncGroupId']
 
         if file_share_name is not None:

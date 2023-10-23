@@ -41,24 +41,34 @@ class ContactArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             contact_profile_id: pulumi.Input[str],
-             ground_station_name: pulumi.Input[str],
-             reservation_end_time: pulumi.Input[str],
-             reservation_start_time: pulumi.Input[str],
-             spacecraft_id: pulumi.Input[str],
+             contact_profile_id: Optional[pulumi.Input[str]] = None,
+             ground_station_name: Optional[pulumi.Input[str]] = None,
+             reservation_end_time: Optional[pulumi.Input[str]] = None,
+             reservation_start_time: Optional[pulumi.Input[str]] = None,
+             spacecraft_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'contactProfileId' in kwargs:
+        if contact_profile_id is None and 'contactProfileId' in kwargs:
             contact_profile_id = kwargs['contactProfileId']
-        if 'groundStationName' in kwargs:
+        if contact_profile_id is None:
+            raise TypeError("Missing 'contact_profile_id' argument")
+        if ground_station_name is None and 'groundStationName' in kwargs:
             ground_station_name = kwargs['groundStationName']
-        if 'reservationEndTime' in kwargs:
+        if ground_station_name is None:
+            raise TypeError("Missing 'ground_station_name' argument")
+        if reservation_end_time is None and 'reservationEndTime' in kwargs:
             reservation_end_time = kwargs['reservationEndTime']
-        if 'reservationStartTime' in kwargs:
+        if reservation_end_time is None:
+            raise TypeError("Missing 'reservation_end_time' argument")
+        if reservation_start_time is None and 'reservationStartTime' in kwargs:
             reservation_start_time = kwargs['reservationStartTime']
-        if 'spacecraftId' in kwargs:
+        if reservation_start_time is None:
+            raise TypeError("Missing 'reservation_start_time' argument")
+        if spacecraft_id is None and 'spacecraftId' in kwargs:
             spacecraft_id = kwargs['spacecraftId']
+        if spacecraft_id is None:
+            raise TypeError("Missing 'spacecraft_id' argument")
 
         _setter("contact_profile_id", contact_profile_id)
         _setter("ground_station_name", ground_station_name)
@@ -179,15 +189,15 @@ class _ContactState:
              spacecraft_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'contactProfileId' in kwargs:
+        if contact_profile_id is None and 'contactProfileId' in kwargs:
             contact_profile_id = kwargs['contactProfileId']
-        if 'groundStationName' in kwargs:
+        if ground_station_name is None and 'groundStationName' in kwargs:
             ground_station_name = kwargs['groundStationName']
-        if 'reservationEndTime' in kwargs:
+        if reservation_end_time is None and 'reservationEndTime' in kwargs:
             reservation_end_time = kwargs['reservationEndTime']
-        if 'reservationStartTime' in kwargs:
+        if reservation_start_time is None and 'reservationStartTime' in kwargs:
             reservation_start_time = kwargs['reservationStartTime']
-        if 'spacecraftId' in kwargs:
+        if spacecraft_id is None and 'spacecraftId' in kwargs:
             spacecraft_id = kwargs['spacecraftId']
 
         if contact_profile_id is not None:

@@ -238,12 +238,16 @@ class AadDiagnosticSettingEnabledLog(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             category: str,
-             retention_policy: 'outputs.AadDiagnosticSettingEnabledLogRetentionPolicy',
+             category: Optional[str] = None,
+             retention_policy: Optional['outputs.AadDiagnosticSettingEnabledLogRetentionPolicy'] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'retentionPolicy' in kwargs:
+        if category is None:
+            raise TypeError("Missing 'category' argument")
+        if retention_policy is None and 'retentionPolicy' in kwargs:
             retention_policy = kwargs['retentionPolicy']
+        if retention_policy is None:
+            raise TypeError("Missing 'retention_policy' argument")
 
         _setter("category", category)
         _setter("retention_policy", retention_policy)
@@ -346,13 +350,17 @@ class AadDiagnosticSettingLog(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             category: str,
-             retention_policy: 'outputs.AadDiagnosticSettingLogRetentionPolicy',
+             category: Optional[str] = None,
+             retention_policy: Optional['outputs.AadDiagnosticSettingLogRetentionPolicy'] = None,
              enabled: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'retentionPolicy' in kwargs:
+        if category is None:
+            raise TypeError("Missing 'category' argument")
+        if retention_policy is None and 'retentionPolicy' in kwargs:
             retention_policy = kwargs['retentionPolicy']
+        if retention_policy is None:
+            raise TypeError("Missing 'retention_policy' argument")
 
         _setter("category", category)
         _setter("retention_policy", retention_policy)
@@ -467,14 +475,18 @@ class ActionGroupArmRoleReceiver(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             role_id: str,
+             name: Optional[str] = None,
+             role_id: Optional[str] = None,
              use_common_alert_schema: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'roleId' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if role_id is None and 'roleId' in kwargs:
             role_id = kwargs['roleId']
-        if 'useCommonAlertSchema' in kwargs:
+        if role_id is None:
+            raise TypeError("Missing 'role_id' argument")
+        if use_common_alert_schema is None and 'useCommonAlertSchema' in kwargs:
             use_common_alert_schema = kwargs['useCommonAlertSchema']
 
         _setter("name", name)
@@ -566,26 +578,38 @@ class ActionGroupAutomationRunbookReceiver(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             automation_account_id: str,
-             is_global_runbook: bool,
-             name: str,
-             runbook_name: str,
-             service_uri: str,
-             webhook_resource_id: str,
+             automation_account_id: Optional[str] = None,
+             is_global_runbook: Optional[bool] = None,
+             name: Optional[str] = None,
+             runbook_name: Optional[str] = None,
+             service_uri: Optional[str] = None,
+             webhook_resource_id: Optional[str] = None,
              use_common_alert_schema: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'automationAccountId' in kwargs:
+        if automation_account_id is None and 'automationAccountId' in kwargs:
             automation_account_id = kwargs['automationAccountId']
-        if 'isGlobalRunbook' in kwargs:
+        if automation_account_id is None:
+            raise TypeError("Missing 'automation_account_id' argument")
+        if is_global_runbook is None and 'isGlobalRunbook' in kwargs:
             is_global_runbook = kwargs['isGlobalRunbook']
-        if 'runbookName' in kwargs:
+        if is_global_runbook is None:
+            raise TypeError("Missing 'is_global_runbook' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if runbook_name is None and 'runbookName' in kwargs:
             runbook_name = kwargs['runbookName']
-        if 'serviceUri' in kwargs:
+        if runbook_name is None:
+            raise TypeError("Missing 'runbook_name' argument")
+        if service_uri is None and 'serviceUri' in kwargs:
             service_uri = kwargs['serviceUri']
-        if 'webhookResourceId' in kwargs:
+        if service_uri is None:
+            raise TypeError("Missing 'service_uri' argument")
+        if webhook_resource_id is None and 'webhookResourceId' in kwargs:
             webhook_resource_id = kwargs['webhookResourceId']
-        if 'useCommonAlertSchema' in kwargs:
+        if webhook_resource_id is None:
+            raise TypeError("Missing 'webhook_resource_id' argument")
+        if use_common_alert_schema is None and 'useCommonAlertSchema' in kwargs:
             use_common_alert_schema = kwargs['useCommonAlertSchema']
 
         _setter("automation_account_id", automation_account_id)
@@ -688,12 +712,16 @@ class ActionGroupAzureAppPushReceiver(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             email_address: str,
-             name: str,
+             email_address: Optional[str] = None,
+             name: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'emailAddress' in kwargs:
+        if email_address is None and 'emailAddress' in kwargs:
             email_address = kwargs['emailAddress']
+        if email_address is None:
+            raise TypeError("Missing 'email_address' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("email_address", email_address)
         _setter("name", name)
@@ -764,20 +792,28 @@ class ActionGroupAzureFunctionReceiver(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             function_app_resource_id: str,
-             function_name: str,
-             http_trigger_url: str,
-             name: str,
+             function_app_resource_id: Optional[str] = None,
+             function_name: Optional[str] = None,
+             http_trigger_url: Optional[str] = None,
+             name: Optional[str] = None,
              use_common_alert_schema: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'functionAppResourceId' in kwargs:
+        if function_app_resource_id is None and 'functionAppResourceId' in kwargs:
             function_app_resource_id = kwargs['functionAppResourceId']
-        if 'functionName' in kwargs:
+        if function_app_resource_id is None:
+            raise TypeError("Missing 'function_app_resource_id' argument")
+        if function_name is None and 'functionName' in kwargs:
             function_name = kwargs['functionName']
-        if 'httpTriggerUrl' in kwargs:
+        if function_name is None:
+            raise TypeError("Missing 'function_name' argument")
+        if http_trigger_url is None and 'httpTriggerUrl' in kwargs:
             http_trigger_url = kwargs['httpTriggerUrl']
-        if 'useCommonAlertSchema' in kwargs:
+        if http_trigger_url is None:
+            raise TypeError("Missing 'http_trigger_url' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if use_common_alert_schema is None and 'useCommonAlertSchema' in kwargs:
             use_common_alert_schema = kwargs['useCommonAlertSchema']
 
         _setter("function_app_resource_id", function_app_resource_id)
@@ -867,14 +903,18 @@ class ActionGroupEmailReceiver(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             email_address: str,
-             name: str,
+             email_address: Optional[str] = None,
+             name: Optional[str] = None,
              use_common_alert_schema: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'emailAddress' in kwargs:
+        if email_address is None and 'emailAddress' in kwargs:
             email_address = kwargs['emailAddress']
-        if 'useCommonAlertSchema' in kwargs:
+        if email_address is None:
+            raise TypeError("Missing 'email_address' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if use_common_alert_schema is None and 'useCommonAlertSchema' in kwargs:
             use_common_alert_schema = kwargs['useCommonAlertSchema']
 
         _setter("email_address", email_address)
@@ -968,7 +1008,7 @@ class ActionGroupEventHubReceiver(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              event_hub_id: Optional[str] = None,
              event_hub_name: Optional[str] = None,
              event_hub_namespace: Optional[str] = None,
@@ -977,17 +1017,19 @@ class ActionGroupEventHubReceiver(dict):
              use_common_alert_schema: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'eventHubId' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if event_hub_id is None and 'eventHubId' in kwargs:
             event_hub_id = kwargs['eventHubId']
-        if 'eventHubName' in kwargs:
+        if event_hub_name is None and 'eventHubName' in kwargs:
             event_hub_name = kwargs['eventHubName']
-        if 'eventHubNamespace' in kwargs:
+        if event_hub_namespace is None and 'eventHubNamespace' in kwargs:
             event_hub_namespace = kwargs['eventHubNamespace']
-        if 'subscriptionId' in kwargs:
+        if subscription_id is None and 'subscriptionId' in kwargs:
             subscription_id = kwargs['subscriptionId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
-        if 'useCommonAlertSchema' in kwargs:
+        if use_common_alert_schema is None and 'useCommonAlertSchema' in kwargs:
             use_common_alert_schema = kwargs['useCommonAlertSchema']
 
         _setter("name", name)
@@ -1115,19 +1157,29 @@ class ActionGroupItsmReceiver(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             connection_id: str,
-             name: str,
-             region: str,
-             ticket_configuration: str,
-             workspace_id: str,
+             connection_id: Optional[str] = None,
+             name: Optional[str] = None,
+             region: Optional[str] = None,
+             ticket_configuration: Optional[str] = None,
+             workspace_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'connectionId' in kwargs:
+        if connection_id is None and 'connectionId' in kwargs:
             connection_id = kwargs['connectionId']
-        if 'ticketConfiguration' in kwargs:
+        if connection_id is None:
+            raise TypeError("Missing 'connection_id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if region is None:
+            raise TypeError("Missing 'region' argument")
+        if ticket_configuration is None and 'ticketConfiguration' in kwargs:
             ticket_configuration = kwargs['ticketConfiguration']
-        if 'workspaceId' in kwargs:
+        if ticket_configuration is None:
+            raise TypeError("Missing 'ticket_configuration' argument")
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
+        if workspace_id is None:
+            raise TypeError("Missing 'workspace_id' argument")
 
         _setter("connection_id", connection_id)
         _setter("name", name)
@@ -1222,17 +1274,23 @@ class ActionGroupLogicAppReceiver(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             callback_url: str,
-             name: str,
-             resource_id: str,
+             callback_url: Optional[str] = None,
+             name: Optional[str] = None,
+             resource_id: Optional[str] = None,
              use_common_alert_schema: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'callbackUrl' in kwargs:
+        if callback_url is None and 'callbackUrl' in kwargs:
             callback_url = kwargs['callbackUrl']
-        if 'resourceId' in kwargs:
+        if callback_url is None:
+            raise TypeError("Missing 'callback_url' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if resource_id is None and 'resourceId' in kwargs:
             resource_id = kwargs['resourceId']
-        if 'useCommonAlertSchema' in kwargs:
+        if resource_id is None:
+            raise TypeError("Missing 'resource_id' argument")
+        if use_common_alert_schema is None and 'useCommonAlertSchema' in kwargs:
             use_common_alert_schema = kwargs['useCommonAlertSchema']
 
         _setter("callback_url", callback_url)
@@ -1313,15 +1371,21 @@ class ActionGroupSmsReceiver(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             country_code: str,
-             name: str,
-             phone_number: str,
+             country_code: Optional[str] = None,
+             name: Optional[str] = None,
+             phone_number: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'countryCode' in kwargs:
+        if country_code is None and 'countryCode' in kwargs:
             country_code = kwargs['countryCode']
-        if 'phoneNumber' in kwargs:
+        if country_code is None:
+            raise TypeError("Missing 'country_code' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if phone_number is None and 'phoneNumber' in kwargs:
             phone_number = kwargs['phoneNumber']
+        if phone_number is None:
+            raise TypeError("Missing 'phone_number' argument")
 
         _setter("country_code", country_code)
         _setter("name", name)
@@ -1391,15 +1455,21 @@ class ActionGroupVoiceReceiver(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             country_code: str,
-             name: str,
-             phone_number: str,
+             country_code: Optional[str] = None,
+             name: Optional[str] = None,
+             phone_number: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'countryCode' in kwargs:
+        if country_code is None and 'countryCode' in kwargs:
             country_code = kwargs['countryCode']
-        if 'phoneNumber' in kwargs:
+        if country_code is None:
+            raise TypeError("Missing 'country_code' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if phone_number is None and 'phoneNumber' in kwargs:
             phone_number = kwargs['phoneNumber']
+        if phone_number is None:
+            raise TypeError("Missing 'phone_number' argument")
 
         _setter("country_code", country_code)
         _setter("name", name)
@@ -1476,17 +1546,21 @@ class ActionGroupWebhookReceiver(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             service_uri: str,
+             name: Optional[str] = None,
+             service_uri: Optional[str] = None,
              aad_auth: Optional['outputs.ActionGroupWebhookReceiverAadAuth'] = None,
              use_common_alert_schema: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'serviceUri' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if service_uri is None and 'serviceUri' in kwargs:
             service_uri = kwargs['serviceUri']
-        if 'aadAuth' in kwargs:
+        if service_uri is None:
+            raise TypeError("Missing 'service_uri' argument")
+        if aad_auth is None and 'aadAuth' in kwargs:
             aad_auth = kwargs['aadAuth']
-        if 'useCommonAlertSchema' in kwargs:
+        if use_common_alert_schema is None and 'useCommonAlertSchema' in kwargs:
             use_common_alert_schema = kwargs['useCommonAlertSchema']
 
         _setter("name", name)
@@ -1572,16 +1646,18 @@ class ActionGroupWebhookReceiverAadAuth(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             object_id: str,
+             object_id: Optional[str] = None,
              identifier_uri: Optional[str] = None,
              tenant_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'objectId' in kwargs:
+        if object_id is None and 'objectId' in kwargs:
             object_id = kwargs['objectId']
-        if 'identifierUri' in kwargs:
+        if object_id is None:
+            raise TypeError("Missing 'object_id' argument")
+        if identifier_uri is None and 'identifierUri' in kwargs:
             identifier_uri = kwargs['identifierUri']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("object_id", object_id)
@@ -1679,13 +1755,13 @@ class ActionRuleActionGroupCondition(dict):
              target_resource_type: Optional['outputs.ActionRuleActionGroupConditionTargetResourceType'] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'alertContext' in kwargs:
+        if alert_context is None and 'alertContext' in kwargs:
             alert_context = kwargs['alertContext']
-        if 'alertRuleId' in kwargs:
+        if alert_rule_id is None and 'alertRuleId' in kwargs:
             alert_rule_id = kwargs['alertRuleId']
-        if 'monitorService' in kwargs:
+        if monitor_service is None and 'monitorService' in kwargs:
             monitor_service = kwargs['monitorService']
-        if 'targetResourceType' in kwargs:
+        if target_resource_type is None and 'targetResourceType' in kwargs:
             target_resource_type = kwargs['targetResourceType']
 
         if alert_context is not None:
@@ -1777,10 +1853,14 @@ class ActionRuleActionGroupConditionAlertContext(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: str,
-             values: Sequence[str],
+             operator: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("operator", operator)
         _setter("values", values)
@@ -1819,10 +1899,14 @@ class ActionRuleActionGroupConditionAlertRuleId(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: str,
-             values: Sequence[str],
+             operator: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("operator", operator)
         _setter("values", values)
@@ -1861,10 +1945,14 @@ class ActionRuleActionGroupConditionDescription(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: str,
-             values: Sequence[str],
+             operator: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("operator", operator)
         _setter("values", values)
@@ -1903,10 +1991,14 @@ class ActionRuleActionGroupConditionMonitor(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: str,
-             values: Sequence[str],
+             operator: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("operator", operator)
         _setter("values", values)
@@ -1945,10 +2037,14 @@ class ActionRuleActionGroupConditionMonitorService(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: str,
-             values: Sequence[str],
+             operator: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("operator", operator)
         _setter("values", values)
@@ -1987,10 +2083,14 @@ class ActionRuleActionGroupConditionSeverity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: str,
-             values: Sequence[str],
+             operator: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("operator", operator)
         _setter("values", values)
@@ -2029,10 +2129,14 @@ class ActionRuleActionGroupConditionTargetResourceType(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: str,
-             values: Sequence[str],
+             operator: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("operator", operator)
         _setter("values", values)
@@ -2088,12 +2192,16 @@ class ActionRuleActionGroupScope(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_ids: Sequence[str],
-             type: str,
+             resource_ids: Optional[Sequence[str]] = None,
+             type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceIds' in kwargs:
+        if resource_ids is None and 'resourceIds' in kwargs:
             resource_ids = kwargs['resourceIds']
+        if resource_ids is None:
+            raise TypeError("Missing 'resource_ids' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("resource_ids", resource_ids)
         _setter("type", type)
@@ -2179,13 +2287,13 @@ class ActionRuleSuppressionCondition(dict):
              target_resource_type: Optional['outputs.ActionRuleSuppressionConditionTargetResourceType'] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'alertContext' in kwargs:
+        if alert_context is None and 'alertContext' in kwargs:
             alert_context = kwargs['alertContext']
-        if 'alertRuleId' in kwargs:
+        if alert_rule_id is None and 'alertRuleId' in kwargs:
             alert_rule_id = kwargs['alertRuleId']
-        if 'monitorService' in kwargs:
+        if monitor_service is None and 'monitorService' in kwargs:
             monitor_service = kwargs['monitorService']
-        if 'targetResourceType' in kwargs:
+        if target_resource_type is None and 'targetResourceType' in kwargs:
             target_resource_type = kwargs['targetResourceType']
 
         if alert_context is not None:
@@ -2277,10 +2385,14 @@ class ActionRuleSuppressionConditionAlertContext(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: str,
-             values: Sequence[str],
+             operator: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("operator", operator)
         _setter("values", values)
@@ -2319,10 +2431,14 @@ class ActionRuleSuppressionConditionAlertRuleId(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: str,
-             values: Sequence[str],
+             operator: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("operator", operator)
         _setter("values", values)
@@ -2361,10 +2477,14 @@ class ActionRuleSuppressionConditionDescription(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: str,
-             values: Sequence[str],
+             operator: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("operator", operator)
         _setter("values", values)
@@ -2403,10 +2523,14 @@ class ActionRuleSuppressionConditionMonitor(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: str,
-             values: Sequence[str],
+             operator: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("operator", operator)
         _setter("values", values)
@@ -2445,10 +2569,14 @@ class ActionRuleSuppressionConditionMonitorService(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: str,
-             values: Sequence[str],
+             operator: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("operator", operator)
         _setter("values", values)
@@ -2487,10 +2615,14 @@ class ActionRuleSuppressionConditionSeverity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: str,
-             values: Sequence[str],
+             operator: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("operator", operator)
         _setter("values", values)
@@ -2529,10 +2661,14 @@ class ActionRuleSuppressionConditionTargetResourceType(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: str,
-             values: Sequence[str],
+             operator: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("operator", operator)
         _setter("values", values)
@@ -2588,12 +2724,16 @@ class ActionRuleSuppressionScope(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_ids: Sequence[str],
-             type: str,
+             resource_ids: Optional[Sequence[str]] = None,
+             type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceIds' in kwargs:
+        if resource_ids is None and 'resourceIds' in kwargs:
             resource_ids = kwargs['resourceIds']
+        if resource_ids is None:
+            raise TypeError("Missing 'resource_ids' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("resource_ids", resource_ids)
         _setter("type", type)
@@ -2649,12 +2789,14 @@ class ActionRuleSuppressionSuppression(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             recurrence_type: str,
+             recurrence_type: Optional[str] = None,
              schedule: Optional['outputs.ActionRuleSuppressionSuppressionSchedule'] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'recurrenceType' in kwargs:
+        if recurrence_type is None and 'recurrenceType' in kwargs:
             recurrence_type = kwargs['recurrenceType']
+        if recurrence_type is None:
+            raise TypeError("Missing 'recurrence_type' argument")
 
         _setter("recurrence_type", recurrence_type)
         if schedule is not None:
@@ -2723,19 +2865,23 @@ class ActionRuleSuppressionSuppressionSchedule(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             end_date_utc: str,
-             start_date_utc: str,
+             end_date_utc: Optional[str] = None,
+             start_date_utc: Optional[str] = None,
              recurrence_monthlies: Optional[Sequence[int]] = None,
              recurrence_weeklies: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'endDateUtc' in kwargs:
+        if end_date_utc is None and 'endDateUtc' in kwargs:
             end_date_utc = kwargs['endDateUtc']
-        if 'startDateUtc' in kwargs:
+        if end_date_utc is None:
+            raise TypeError("Missing 'end_date_utc' argument")
+        if start_date_utc is None and 'startDateUtc' in kwargs:
             start_date_utc = kwargs['startDateUtc']
-        if 'recurrenceMonthlies' in kwargs:
+        if start_date_utc is None:
+            raise TypeError("Missing 'start_date_utc' argument")
+        if recurrence_monthlies is None and 'recurrenceMonthlies' in kwargs:
             recurrence_monthlies = kwargs['recurrenceMonthlies']
-        if 'recurrenceWeeklies' in kwargs:
+        if recurrence_weeklies is None and 'recurrenceWeeklies' in kwargs:
             recurrence_weeklies = kwargs['recurrenceWeeklies']
 
         _setter("end_date_utc", end_date_utc)
@@ -2814,13 +2960,15 @@ class ActivityLogAlertAction(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action_group_id: str,
+             action_group_id: Optional[str] = None,
              webhook_properties: Optional[Mapping[str, str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'actionGroupId' in kwargs:
+        if action_group_id is None and 'actionGroupId' in kwargs:
             action_group_id = kwargs['actionGroupId']
-        if 'webhookProperties' in kwargs:
+        if action_group_id is None:
+            raise TypeError("Missing 'action_group_id' argument")
+        if webhook_properties is None and 'webhookProperties' in kwargs:
             webhook_properties = kwargs['webhookProperties']
 
         _setter("action_group_id", action_group_id)
@@ -2982,7 +3130,7 @@ class ActivityLogAlertCriteria(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             category: str,
+             category: Optional[str] = None,
              caller: Optional[str] = None,
              level: Optional[str] = None,
              levels: Optional[Sequence[str]] = None,
@@ -3006,37 +3154,39 @@ class ActivityLogAlertCriteria(dict):
              sub_statuses: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'operationName' in kwargs:
+        if category is None:
+            raise TypeError("Missing 'category' argument")
+        if operation_name is None and 'operationName' in kwargs:
             operation_name = kwargs['operationName']
-        if 'recommendationCategory' in kwargs:
+        if recommendation_category is None and 'recommendationCategory' in kwargs:
             recommendation_category = kwargs['recommendationCategory']
-        if 'recommendationImpact' in kwargs:
+        if recommendation_impact is None and 'recommendationImpact' in kwargs:
             recommendation_impact = kwargs['recommendationImpact']
-        if 'recommendationType' in kwargs:
+        if recommendation_type is None and 'recommendationType' in kwargs:
             recommendation_type = kwargs['recommendationType']
-        if 'resourceGroup' in kwargs:
+        if resource_group is None and 'resourceGroup' in kwargs:
             resource_group = kwargs['resourceGroup']
-        if 'resourceGroups' in kwargs:
+        if resource_groups is None and 'resourceGroups' in kwargs:
             resource_groups = kwargs['resourceGroups']
-        if 'resourceHealths' in kwargs:
+        if resource_healths is None and 'resourceHealths' in kwargs:
             resource_healths = kwargs['resourceHealths']
-        if 'resourceId' in kwargs:
+        if resource_id is None and 'resourceId' in kwargs:
             resource_id = kwargs['resourceId']
-        if 'resourceIds' in kwargs:
+        if resource_ids is None and 'resourceIds' in kwargs:
             resource_ids = kwargs['resourceIds']
-        if 'resourceProvider' in kwargs:
+        if resource_provider is None and 'resourceProvider' in kwargs:
             resource_provider = kwargs['resourceProvider']
-        if 'resourceProviders' in kwargs:
+        if resource_providers is None and 'resourceProviders' in kwargs:
             resource_providers = kwargs['resourceProviders']
-        if 'resourceType' in kwargs:
+        if resource_type is None and 'resourceType' in kwargs:
             resource_type = kwargs['resourceType']
-        if 'resourceTypes' in kwargs:
+        if resource_types is None and 'resourceTypes' in kwargs:
             resource_types = kwargs['resourceTypes']
-        if 'serviceHealths' in kwargs:
+        if service_healths is None and 'serviceHealths' in kwargs:
             service_healths = kwargs['serviceHealths']
-        if 'subStatus' in kwargs:
+        if sub_status is None and 'subStatus' in kwargs:
             sub_status = kwargs['subStatus']
-        if 'subStatuses' in kwargs:
+        if sub_statuses is None and 'subStatuses' in kwargs:
             sub_statuses = kwargs['subStatuses']
 
         _setter("category", category)
@@ -3482,23 +3632,23 @@ class AlertProcessingRuleActionGroupCondition(dict):
              target_resource_type: Optional['outputs.AlertProcessingRuleActionGroupConditionTargetResourceType'] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'alertContext' in kwargs:
+        if alert_context is None and 'alertContext' in kwargs:
             alert_context = kwargs['alertContext']
-        if 'alertRuleId' in kwargs:
+        if alert_rule_id is None and 'alertRuleId' in kwargs:
             alert_rule_id = kwargs['alertRuleId']
-        if 'alertRuleName' in kwargs:
+        if alert_rule_name is None and 'alertRuleName' in kwargs:
             alert_rule_name = kwargs['alertRuleName']
-        if 'monitorCondition' in kwargs:
+        if monitor_condition is None and 'monitorCondition' in kwargs:
             monitor_condition = kwargs['monitorCondition']
-        if 'monitorService' in kwargs:
+        if monitor_service is None and 'monitorService' in kwargs:
             monitor_service = kwargs['monitorService']
-        if 'signalType' in kwargs:
+        if signal_type is None and 'signalType' in kwargs:
             signal_type = kwargs['signalType']
-        if 'targetResource' in kwargs:
+        if target_resource is None and 'targetResource' in kwargs:
             target_resource = kwargs['targetResource']
-        if 'targetResourceGroup' in kwargs:
+        if target_resource_group is None and 'targetResourceGroup' in kwargs:
             target_resource_group = kwargs['targetResourceGroup']
-        if 'targetResourceType' in kwargs:
+        if target_resource_type is None and 'targetResourceType' in kwargs:
             target_resource_type = kwargs['targetResourceType']
 
         if alert_context is not None:
@@ -3632,10 +3782,14 @@ class AlertProcessingRuleActionGroupConditionAlertContext(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: str,
-             values: Sequence[str],
+             operator: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("operator", operator)
         _setter("values", values)
@@ -3674,10 +3828,14 @@ class AlertProcessingRuleActionGroupConditionAlertRuleId(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: str,
-             values: Sequence[str],
+             operator: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("operator", operator)
         _setter("values", values)
@@ -3716,10 +3874,14 @@ class AlertProcessingRuleActionGroupConditionAlertRuleName(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: str,
-             values: Sequence[str],
+             operator: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("operator", operator)
         _setter("values", values)
@@ -3758,10 +3920,14 @@ class AlertProcessingRuleActionGroupConditionDescription(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: str,
-             values: Sequence[str],
+             operator: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("operator", operator)
         _setter("values", values)
@@ -3800,10 +3966,14 @@ class AlertProcessingRuleActionGroupConditionMonitorCondition(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: str,
-             values: Sequence[str],
+             operator: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("operator", operator)
         _setter("values", values)
@@ -3842,10 +4012,14 @@ class AlertProcessingRuleActionGroupConditionMonitorService(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: str,
-             values: Sequence[str],
+             operator: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("operator", operator)
         _setter("values", values)
@@ -3884,10 +4058,14 @@ class AlertProcessingRuleActionGroupConditionSeverity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: str,
-             values: Sequence[str],
+             operator: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("operator", operator)
         _setter("values", values)
@@ -3926,10 +4104,14 @@ class AlertProcessingRuleActionGroupConditionSignalType(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: str,
-             values: Sequence[str],
+             operator: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("operator", operator)
         _setter("values", values)
@@ -3968,10 +4150,14 @@ class AlertProcessingRuleActionGroupConditionTargetResource(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: str,
-             values: Sequence[str],
+             operator: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("operator", operator)
         _setter("values", values)
@@ -4010,10 +4196,14 @@ class AlertProcessingRuleActionGroupConditionTargetResourceGroup(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: str,
-             values: Sequence[str],
+             operator: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("operator", operator)
         _setter("values", values)
@@ -4052,10 +4242,14 @@ class AlertProcessingRuleActionGroupConditionTargetResourceType(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: str,
-             values: Sequence[str],
+             operator: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("operator", operator)
         _setter("values", values)
@@ -4127,11 +4321,11 @@ class AlertProcessingRuleActionGroupSchedule(dict):
              time_zone: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'effectiveFrom' in kwargs:
+        if effective_from is None and 'effectiveFrom' in kwargs:
             effective_from = kwargs['effectiveFrom']
-        if 'effectiveUntil' in kwargs:
+        if effective_until is None and 'effectiveUntil' in kwargs:
             effective_until = kwargs['effectiveUntil']
-        if 'timeZone' in kwargs:
+        if time_zone is None and 'timeZone' in kwargs:
             time_zone = kwargs['timeZone']
 
         if effective_from is not None:
@@ -4270,14 +4464,18 @@ class AlertProcessingRuleActionGroupScheduleRecurrenceDaily(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             end_time: str,
-             start_time: str,
+             end_time: Optional[str] = None,
+             start_time: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'endTime' in kwargs:
+        if end_time is None and 'endTime' in kwargs:
             end_time = kwargs['endTime']
-        if 'startTime' in kwargs:
+        if end_time is None:
+            raise TypeError("Missing 'end_time' argument")
+        if start_time is None and 'startTime' in kwargs:
             start_time = kwargs['startTime']
+        if start_time is None:
+            raise TypeError("Missing 'start_time' argument")
 
         _setter("end_time", end_time)
         _setter("start_time", start_time)
@@ -4340,16 +4538,18 @@ class AlertProcessingRuleActionGroupScheduleRecurrenceMonthly(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             days_of_months: Sequence[int],
+             days_of_months: Optional[Sequence[int]] = None,
              end_time: Optional[str] = None,
              start_time: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'daysOfMonths' in kwargs:
+        if days_of_months is None and 'daysOfMonths' in kwargs:
             days_of_months = kwargs['daysOfMonths']
-        if 'endTime' in kwargs:
+        if days_of_months is None:
+            raise TypeError("Missing 'days_of_months' argument")
+        if end_time is None and 'endTime' in kwargs:
             end_time = kwargs['endTime']
-        if 'startTime' in kwargs:
+        if start_time is None and 'startTime' in kwargs:
             start_time = kwargs['startTime']
 
         _setter("days_of_months", days_of_months)
@@ -4424,16 +4624,18 @@ class AlertProcessingRuleActionGroupScheduleRecurrenceWeekly(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             days_of_weeks: Sequence[str],
+             days_of_weeks: Optional[Sequence[str]] = None,
              end_time: Optional[str] = None,
              start_time: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'daysOfWeeks' in kwargs:
+        if days_of_weeks is None and 'daysOfWeeks' in kwargs:
             days_of_weeks = kwargs['daysOfWeeks']
-        if 'endTime' in kwargs:
+        if days_of_weeks is None:
+            raise TypeError("Missing 'days_of_weeks' argument")
+        if end_time is None and 'endTime' in kwargs:
             end_time = kwargs['endTime']
-        if 'startTime' in kwargs:
+        if start_time is None and 'startTime' in kwargs:
             start_time = kwargs['startTime']
 
         _setter("days_of_weeks", days_of_weeks)
@@ -4557,23 +4759,23 @@ class AlertProcessingRuleSuppressionCondition(dict):
              target_resource_type: Optional['outputs.AlertProcessingRuleSuppressionConditionTargetResourceType'] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'alertContext' in kwargs:
+        if alert_context is None and 'alertContext' in kwargs:
             alert_context = kwargs['alertContext']
-        if 'alertRuleId' in kwargs:
+        if alert_rule_id is None and 'alertRuleId' in kwargs:
             alert_rule_id = kwargs['alertRuleId']
-        if 'alertRuleName' in kwargs:
+        if alert_rule_name is None and 'alertRuleName' in kwargs:
             alert_rule_name = kwargs['alertRuleName']
-        if 'monitorCondition' in kwargs:
+        if monitor_condition is None and 'monitorCondition' in kwargs:
             monitor_condition = kwargs['monitorCondition']
-        if 'monitorService' in kwargs:
+        if monitor_service is None and 'monitorService' in kwargs:
             monitor_service = kwargs['monitorService']
-        if 'signalType' in kwargs:
+        if signal_type is None and 'signalType' in kwargs:
             signal_type = kwargs['signalType']
-        if 'targetResource' in kwargs:
+        if target_resource is None and 'targetResource' in kwargs:
             target_resource = kwargs['targetResource']
-        if 'targetResourceGroup' in kwargs:
+        if target_resource_group is None and 'targetResourceGroup' in kwargs:
             target_resource_group = kwargs['targetResourceGroup']
-        if 'targetResourceType' in kwargs:
+        if target_resource_type is None and 'targetResourceType' in kwargs:
             target_resource_type = kwargs['targetResourceType']
 
         if alert_context is not None:
@@ -4705,10 +4907,14 @@ class AlertProcessingRuleSuppressionConditionAlertContext(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: str,
-             values: Sequence[str],
+             operator: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("operator", operator)
         _setter("values", values)
@@ -4747,10 +4953,14 @@ class AlertProcessingRuleSuppressionConditionAlertRuleId(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: str,
-             values: Sequence[str],
+             operator: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("operator", operator)
         _setter("values", values)
@@ -4789,10 +4999,14 @@ class AlertProcessingRuleSuppressionConditionAlertRuleName(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: str,
-             values: Sequence[str],
+             operator: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("operator", operator)
         _setter("values", values)
@@ -4831,10 +5045,14 @@ class AlertProcessingRuleSuppressionConditionDescription(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: str,
-             values: Sequence[str],
+             operator: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("operator", operator)
         _setter("values", values)
@@ -4873,10 +5091,14 @@ class AlertProcessingRuleSuppressionConditionMonitorCondition(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: str,
-             values: Sequence[str],
+             operator: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("operator", operator)
         _setter("values", values)
@@ -4915,10 +5137,14 @@ class AlertProcessingRuleSuppressionConditionMonitorService(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: str,
-             values: Sequence[str],
+             operator: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("operator", operator)
         _setter("values", values)
@@ -4957,10 +5183,14 @@ class AlertProcessingRuleSuppressionConditionSeverity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: str,
-             values: Sequence[str],
+             operator: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("operator", operator)
         _setter("values", values)
@@ -4999,10 +5229,14 @@ class AlertProcessingRuleSuppressionConditionSignalType(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: str,
-             values: Sequence[str],
+             operator: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("operator", operator)
         _setter("values", values)
@@ -5041,10 +5275,14 @@ class AlertProcessingRuleSuppressionConditionTargetResource(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: str,
-             values: Sequence[str],
+             operator: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("operator", operator)
         _setter("values", values)
@@ -5083,10 +5321,14 @@ class AlertProcessingRuleSuppressionConditionTargetResourceGroup(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: str,
-             values: Sequence[str],
+             operator: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("operator", operator)
         _setter("values", values)
@@ -5125,10 +5367,14 @@ class AlertProcessingRuleSuppressionConditionTargetResourceType(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: str,
-             values: Sequence[str],
+             operator: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("operator", operator)
         _setter("values", values)
@@ -5200,11 +5446,11 @@ class AlertProcessingRuleSuppressionSchedule(dict):
              time_zone: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'effectiveFrom' in kwargs:
+        if effective_from is None and 'effectiveFrom' in kwargs:
             effective_from = kwargs['effectiveFrom']
-        if 'effectiveUntil' in kwargs:
+        if effective_until is None and 'effectiveUntil' in kwargs:
             effective_until = kwargs['effectiveUntil']
-        if 'timeZone' in kwargs:
+        if time_zone is None and 'timeZone' in kwargs:
             time_zone = kwargs['timeZone']
 
         if effective_from is not None:
@@ -5343,14 +5589,18 @@ class AlertProcessingRuleSuppressionScheduleRecurrenceDaily(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             end_time: str,
-             start_time: str,
+             end_time: Optional[str] = None,
+             start_time: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'endTime' in kwargs:
+        if end_time is None and 'endTime' in kwargs:
             end_time = kwargs['endTime']
-        if 'startTime' in kwargs:
+        if end_time is None:
+            raise TypeError("Missing 'end_time' argument")
+        if start_time is None and 'startTime' in kwargs:
             start_time = kwargs['startTime']
+        if start_time is None:
+            raise TypeError("Missing 'start_time' argument")
 
         _setter("end_time", end_time)
         _setter("start_time", start_time)
@@ -5413,16 +5663,18 @@ class AlertProcessingRuleSuppressionScheduleRecurrenceMonthly(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             days_of_months: Sequence[int],
+             days_of_months: Optional[Sequence[int]] = None,
              end_time: Optional[str] = None,
              start_time: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'daysOfMonths' in kwargs:
+        if days_of_months is None and 'daysOfMonths' in kwargs:
             days_of_months = kwargs['daysOfMonths']
-        if 'endTime' in kwargs:
+        if days_of_months is None:
+            raise TypeError("Missing 'days_of_months' argument")
+        if end_time is None and 'endTime' in kwargs:
             end_time = kwargs['endTime']
-        if 'startTime' in kwargs:
+        if start_time is None and 'startTime' in kwargs:
             start_time = kwargs['startTime']
 
         _setter("days_of_months", days_of_months)
@@ -5497,16 +5749,18 @@ class AlertProcessingRuleSuppressionScheduleRecurrenceWeekly(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             days_of_weeks: Sequence[str],
+             days_of_weeks: Optional[Sequence[str]] = None,
              end_time: Optional[str] = None,
              start_time: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'daysOfWeeks' in kwargs:
+        if days_of_weeks is None and 'daysOfWeeks' in kwargs:
             days_of_weeks = kwargs['daysOfWeeks']
-        if 'endTime' in kwargs:
+        if days_of_weeks is None:
+            raise TypeError("Missing 'days_of_weeks' argument")
+        if end_time is None and 'endTime' in kwargs:
             end_time = kwargs['endTime']
-        if 'startTime' in kwargs:
+        if start_time is None and 'startTime' in kwargs:
             start_time = kwargs['startTime']
 
         _setter("days_of_weeks", days_of_weeks)
@@ -5600,7 +5854,7 @@ class AlertPrometheusRuleGroupRule(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             expression: str,
+             expression: Optional[str] = None,
              actions: Optional[Sequence['outputs.AlertPrometheusRuleGroupRuleAction']] = None,
              alert: Optional[str] = None,
              alert_resolution: Optional['outputs.AlertPrometheusRuleGroupRuleAlertResolution'] = None,
@@ -5612,9 +5866,11 @@ class AlertPrometheusRuleGroupRule(dict):
              severity: Optional[int] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'alertResolution' in kwargs:
+        if expression is None:
+            raise TypeError("Missing 'expression' argument")
+        if alert_resolution is None and 'alertResolution' in kwargs:
             alert_resolution = kwargs['alertResolution']
-        if 'for' in kwargs:
+        if for_ is None and 'for' in kwargs:
             for_ = kwargs['for']
 
         _setter("expression", expression)
@@ -5756,13 +6012,15 @@ class AlertPrometheusRuleGroupRuleAction(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action_group_id: str,
+             action_group_id: Optional[str] = None,
              action_properties: Optional[Mapping[str, str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'actionGroupId' in kwargs:
+        if action_group_id is None and 'actionGroupId' in kwargs:
             action_group_id = kwargs['actionGroupId']
-        if 'actionProperties' in kwargs:
+        if action_group_id is None:
+            raise TypeError("Missing 'action_group_id' argument")
+        if action_properties is None and 'actionProperties' in kwargs:
             action_properties = kwargs['actionProperties']
 
         _setter("action_group_id", action_group_id)
@@ -5828,9 +6086,9 @@ class AlertPrometheusRuleGroupRuleAlertResolution(dict):
              time_to_resolve: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'autoResolved' in kwargs:
+        if auto_resolved is None and 'autoResolved' in kwargs:
             auto_resolved = kwargs['autoResolved']
-        if 'timeToResolve' in kwargs:
+        if time_to_resolve is None and 'timeToResolve' in kwargs:
             time_to_resolve = kwargs['timeToResolve']
 
         if auto_resolved is not None:
@@ -5945,11 +6203,11 @@ class AutoscaleSettingNotificationEmail(dict):
              send_to_subscription_co_administrator: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'customEmails' in kwargs:
+        if custom_emails is None and 'customEmails' in kwargs:
             custom_emails = kwargs['customEmails']
-        if 'sendToSubscriptionAdministrator' in kwargs:
+        if send_to_subscription_administrator is None and 'sendToSubscriptionAdministrator' in kwargs:
             send_to_subscription_administrator = kwargs['sendToSubscriptionAdministrator']
-        if 'sendToSubscriptionCoAdministrator' in kwargs:
+        if send_to_subscription_co_administrator is None and 'sendToSubscriptionCoAdministrator' in kwargs:
             send_to_subscription_co_administrator = kwargs['sendToSubscriptionCoAdministrator']
 
         if custom_emails is not None:
@@ -6018,12 +6276,14 @@ class AutoscaleSettingNotificationWebhook(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             service_uri: str,
+             service_uri: Optional[str] = None,
              properties: Optional[Mapping[str, str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'serviceUri' in kwargs:
+        if service_uri is None and 'serviceUri' in kwargs:
             service_uri = kwargs['serviceUri']
+        if service_uri is None:
+            raise TypeError("Missing 'service_uri' argument")
 
         _setter("service_uri", service_uri)
         if properties is not None:
@@ -6082,13 +6342,15 @@ class AutoscaleSettingPredictive(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             scale_mode: str,
+             scale_mode: Optional[str] = None,
              look_ahead_time: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'scaleMode' in kwargs:
+        if scale_mode is None and 'scaleMode' in kwargs:
             scale_mode = kwargs['scaleMode']
-        if 'lookAheadTime' in kwargs:
+        if scale_mode is None:
+            raise TypeError("Missing 'scale_mode' argument")
+        if look_ahead_time is None and 'lookAheadTime' in kwargs:
             look_ahead_time = kwargs['lookAheadTime']
 
         _setter("scale_mode", scale_mode)
@@ -6155,14 +6417,18 @@ class AutoscaleSettingProfile(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             capacity: 'outputs.AutoscaleSettingProfileCapacity',
-             name: str,
+             capacity: Optional['outputs.AutoscaleSettingProfileCapacity'] = None,
+             name: Optional[str] = None,
              fixed_date: Optional['outputs.AutoscaleSettingProfileFixedDate'] = None,
              recurrence: Optional['outputs.AutoscaleSettingProfileRecurrence'] = None,
              rules: Optional[Sequence['outputs.AutoscaleSettingProfileRule']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'fixedDate' in kwargs:
+        if capacity is None:
+            raise TypeError("Missing 'capacity' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if fixed_date is None and 'fixedDate' in kwargs:
             fixed_date = kwargs['fixedDate']
 
         _setter("capacity", capacity)
@@ -6237,11 +6503,17 @@ class AutoscaleSettingProfileCapacity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             default: int,
-             maximum: int,
-             minimum: int,
+             default: Optional[int] = None,
+             maximum: Optional[int] = None,
+             minimum: Optional[int] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if default is None:
+            raise TypeError("Missing 'default' argument")
+        if maximum is None:
+            raise TypeError("Missing 'maximum' argument")
+        if minimum is None:
+            raise TypeError("Missing 'minimum' argument")
 
         _setter("default", default)
         _setter("maximum", maximum)
@@ -6294,11 +6566,15 @@ class AutoscaleSettingProfileFixedDate(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             end: str,
-             start: str,
+             end: Optional[str] = None,
+             start: Optional[str] = None,
              timezone: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if end is None:
+            raise TypeError("Missing 'end' argument")
+        if start is None:
+            raise TypeError("Missing 'start' argument")
 
         _setter("end", end)
         _setter("start", start)
@@ -6353,12 +6629,18 @@ class AutoscaleSettingProfileRecurrence(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             days: Sequence[str],
-             hours: int,
-             minutes: int,
+             days: Optional[Sequence[str]] = None,
+             hours: Optional[int] = None,
+             minutes: Optional[int] = None,
              timezone: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if days is None:
+            raise TypeError("Missing 'days' argument")
+        if hours is None:
+            raise TypeError("Missing 'hours' argument")
+        if minutes is None:
+            raise TypeError("Missing 'minutes' argument")
 
         _setter("days", days)
         _setter("hours", hours)
@@ -6435,14 +6717,18 @@ class AutoscaleSettingProfileRule(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             metric_trigger: 'outputs.AutoscaleSettingProfileRuleMetricTrigger',
-             scale_action: 'outputs.AutoscaleSettingProfileRuleScaleAction',
+             metric_trigger: Optional['outputs.AutoscaleSettingProfileRuleMetricTrigger'] = None,
+             scale_action: Optional['outputs.AutoscaleSettingProfileRuleScaleAction'] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'metricTrigger' in kwargs:
+        if metric_trigger is None and 'metricTrigger' in kwargs:
             metric_trigger = kwargs['metricTrigger']
-        if 'scaleAction' in kwargs:
+        if metric_trigger is None:
+            raise TypeError("Missing 'metric_trigger' argument")
+        if scale_action is None and 'scaleAction' in kwargs:
             scale_action = kwargs['scaleAction']
+        if scale_action is None:
+            raise TypeError("Missing 'scale_action' argument")
 
         _setter("metric_trigger", metric_trigger)
         _setter("scale_action", scale_action)
@@ -6539,32 +6825,48 @@ class AutoscaleSettingProfileRuleMetricTrigger(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             metric_name: str,
-             metric_resource_id: str,
-             operator: str,
-             statistic: str,
-             threshold: float,
-             time_aggregation: str,
-             time_grain: str,
-             time_window: str,
+             metric_name: Optional[str] = None,
+             metric_resource_id: Optional[str] = None,
+             operator: Optional[str] = None,
+             statistic: Optional[str] = None,
+             threshold: Optional[float] = None,
+             time_aggregation: Optional[str] = None,
+             time_grain: Optional[str] = None,
+             time_window: Optional[str] = None,
              dimensions: Optional[Sequence['outputs.AutoscaleSettingProfileRuleMetricTriggerDimension']] = None,
              divide_by_instance_count: Optional[bool] = None,
              metric_namespace: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'metricName' in kwargs:
+        if metric_name is None and 'metricName' in kwargs:
             metric_name = kwargs['metricName']
-        if 'metricResourceId' in kwargs:
+        if metric_name is None:
+            raise TypeError("Missing 'metric_name' argument")
+        if metric_resource_id is None and 'metricResourceId' in kwargs:
             metric_resource_id = kwargs['metricResourceId']
-        if 'timeAggregation' in kwargs:
+        if metric_resource_id is None:
+            raise TypeError("Missing 'metric_resource_id' argument")
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if statistic is None:
+            raise TypeError("Missing 'statistic' argument")
+        if threshold is None:
+            raise TypeError("Missing 'threshold' argument")
+        if time_aggregation is None and 'timeAggregation' in kwargs:
             time_aggregation = kwargs['timeAggregation']
-        if 'timeGrain' in kwargs:
+        if time_aggregation is None:
+            raise TypeError("Missing 'time_aggregation' argument")
+        if time_grain is None and 'timeGrain' in kwargs:
             time_grain = kwargs['timeGrain']
-        if 'timeWindow' in kwargs:
+        if time_grain is None:
+            raise TypeError("Missing 'time_grain' argument")
+        if time_window is None and 'timeWindow' in kwargs:
             time_window = kwargs['timeWindow']
-        if 'divideByInstanceCount' in kwargs:
+        if time_window is None:
+            raise TypeError("Missing 'time_window' argument")
+        if divide_by_instance_count is None and 'divideByInstanceCount' in kwargs:
             divide_by_instance_count = kwargs['divideByInstanceCount']
-        if 'metricNamespace' in kwargs:
+        if metric_namespace is None and 'metricNamespace' in kwargs:
             metric_namespace = kwargs['metricNamespace']
 
         _setter("metric_name", metric_name)
@@ -6693,11 +6995,17 @@ class AutoscaleSettingProfileRuleMetricTriggerDimension(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             operator: str,
-             values: Sequence[str],
+             name: Optional[str] = None,
+             operator: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("name", name)
         _setter("operator", operator)
@@ -6751,12 +7059,20 @@ class AutoscaleSettingProfileRuleScaleAction(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cooldown: str,
-             direction: str,
-             type: str,
-             value: int,
+             cooldown: Optional[str] = None,
+             direction: Optional[str] = None,
+             type: Optional[str] = None,
+             value: Optional[int] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if cooldown is None:
+            raise TypeError("Missing 'cooldown' argument")
+        if direction is None:
+            raise TypeError("Missing 'direction' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("cooldown", cooldown)
         _setter("direction", direction)
@@ -6843,18 +7159,22 @@ class DataCollectionRuleDataFlow(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             destinations: Sequence[str],
-             streams: Sequence[str],
+             destinations: Optional[Sequence[str]] = None,
+             streams: Optional[Sequence[str]] = None,
              built_in_transform: Optional[str] = None,
              output_stream: Optional[str] = None,
              transform_kql: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'builtInTransform' in kwargs:
+        if destinations is None:
+            raise TypeError("Missing 'destinations' argument")
+        if streams is None:
+            raise TypeError("Missing 'streams' argument")
+        if built_in_transform is None and 'builtInTransform' in kwargs:
             built_in_transform = kwargs['builtInTransform']
-        if 'outputStream' in kwargs:
+        if output_stream is None and 'outputStream' in kwargs:
             output_stream = kwargs['outputStream']
-        if 'transformKql' in kwargs:
+        if transform_kql is None and 'transformKql' in kwargs:
             transform_kql = kwargs['transformKql']
 
         _setter("destinations", destinations)
@@ -6991,21 +7311,21 @@ class DataCollectionRuleDataSources(dict):
              windows_firewall_logs: Optional[Sequence['outputs.DataCollectionRuleDataSourcesWindowsFirewallLog']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dataImport' in kwargs:
+        if data_import is None and 'dataImport' in kwargs:
             data_import = kwargs['dataImport']
-        if 'iisLogs' in kwargs:
+        if iis_logs is None and 'iisLogs' in kwargs:
             iis_logs = kwargs['iisLogs']
-        if 'logFiles' in kwargs:
+        if log_files is None and 'logFiles' in kwargs:
             log_files = kwargs['logFiles']
-        if 'performanceCounters' in kwargs:
+        if performance_counters is None and 'performanceCounters' in kwargs:
             performance_counters = kwargs['performanceCounters']
-        if 'platformTelemetries' in kwargs:
+        if platform_telemetries is None and 'platformTelemetries' in kwargs:
             platform_telemetries = kwargs['platformTelemetries']
-        if 'prometheusForwarders' in kwargs:
+        if prometheus_forwarders is None and 'prometheusForwarders' in kwargs:
             prometheus_forwarders = kwargs['prometheusForwarders']
-        if 'windowsEventLogs' in kwargs:
+        if windows_event_logs is None and 'windowsEventLogs' in kwargs:
             windows_event_logs = kwargs['windowsEventLogs']
-        if 'windowsFirewallLogs' in kwargs:
+        if windows_firewall_logs is None and 'windowsFirewallLogs' in kwargs:
             windows_firewall_logs = kwargs['windowsFirewallLogs']
 
         if data_import is not None:
@@ -7141,11 +7461,13 @@ class DataCollectionRuleDataSourcesDataImport(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             event_hub_data_sources: Sequence['outputs.DataCollectionRuleDataSourcesDataImportEventHubDataSource'],
+             event_hub_data_sources: Optional[Sequence['outputs.DataCollectionRuleDataSourcesDataImportEventHubDataSource']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'eventHubDataSources' in kwargs:
+        if event_hub_data_sources is None and 'eventHubDataSources' in kwargs:
             event_hub_data_sources = kwargs['eventHubDataSources']
+        if event_hub_data_sources is None:
+            raise TypeError("Missing 'event_hub_data_sources' argument")
 
         _setter("event_hub_data_sources", event_hub_data_sources)
 
@@ -7195,12 +7517,16 @@ class DataCollectionRuleDataSourcesDataImportEventHubDataSource(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             stream: str,
+             name: Optional[str] = None,
+             stream: Optional[str] = None,
              consumer_group: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'consumerGroup' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if stream is None:
+            raise TypeError("Missing 'stream' argument")
+        if consumer_group is None and 'consumerGroup' in kwargs:
             consumer_group = kwargs['consumerGroup']
 
         _setter("name", name)
@@ -7280,18 +7606,24 @@ class DataCollectionRuleDataSourcesExtension(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             extension_name: str,
-             name: str,
-             streams: Sequence[str],
+             extension_name: Optional[str] = None,
+             name: Optional[str] = None,
+             streams: Optional[Sequence[str]] = None,
              extension_json: Optional[str] = None,
              input_data_sources: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'extensionName' in kwargs:
+        if extension_name is None and 'extensionName' in kwargs:
             extension_name = kwargs['extensionName']
-        if 'extensionJson' in kwargs:
+        if extension_name is None:
+            raise TypeError("Missing 'extension_name' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if streams is None:
+            raise TypeError("Missing 'streams' argument")
+        if extension_json is None and 'extensionJson' in kwargs:
             extension_json = kwargs['extensionJson']
-        if 'inputDataSources' in kwargs:
+        if input_data_sources is None and 'inputDataSources' in kwargs:
             input_data_sources = kwargs['inputDataSources']
 
         _setter("extension_name", extension_name)
@@ -7380,12 +7712,16 @@ class DataCollectionRuleDataSourcesIisLog(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             streams: Sequence[str],
+             name: Optional[str] = None,
+             streams: Optional[Sequence[str]] = None,
              log_directories: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'logDirectories' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if streams is None:
+            raise TypeError("Missing 'streams' argument")
+        if log_directories is None and 'logDirectories' in kwargs:
             log_directories = kwargs['logDirectories']
 
         _setter("name", name)
@@ -7461,15 +7797,23 @@ class DataCollectionRuleDataSourcesLogFile(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             file_patterns: Sequence[str],
-             format: str,
-             name: str,
-             streams: Sequence[str],
+             file_patterns: Optional[Sequence[str]] = None,
+             format: Optional[str] = None,
+             name: Optional[str] = None,
+             streams: Optional[Sequence[str]] = None,
              settings: Optional['outputs.DataCollectionRuleDataSourcesLogFileSettings'] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'filePatterns' in kwargs:
+        if file_patterns is None and 'filePatterns' in kwargs:
             file_patterns = kwargs['filePatterns']
+        if file_patterns is None:
+            raise TypeError("Missing 'file_patterns' argument")
+        if format is None:
+            raise TypeError("Missing 'format' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if streams is None:
+            raise TypeError("Missing 'streams' argument")
 
         _setter("file_patterns", file_patterns)
         _setter("format", format)
@@ -7533,9 +7877,11 @@ class DataCollectionRuleDataSourcesLogFileSettings(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             text: 'outputs.DataCollectionRuleDataSourcesLogFileSettingsText',
+             text: Optional['outputs.DataCollectionRuleDataSourcesLogFileSettingsText'] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if text is None:
+            raise TypeError("Missing 'text' argument")
 
         _setter("text", text)
 
@@ -7579,11 +7925,13 @@ class DataCollectionRuleDataSourcesLogFileSettingsText(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             record_start_timestamp_format: str,
+             record_start_timestamp_format: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'recordStartTimestampFormat' in kwargs:
+        if record_start_timestamp_format is None and 'recordStartTimestampFormat' in kwargs:
             record_start_timestamp_format = kwargs['recordStartTimestampFormat']
+        if record_start_timestamp_format is None:
+            raise TypeError("Missing 'record_start_timestamp_format' argument")
 
         _setter("record_start_timestamp_format", record_start_timestamp_format)
 
@@ -7638,16 +7986,24 @@ class DataCollectionRuleDataSourcesPerformanceCounter(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             counter_specifiers: Sequence[str],
-             name: str,
-             sampling_frequency_in_seconds: int,
-             streams: Sequence[str],
+             counter_specifiers: Optional[Sequence[str]] = None,
+             name: Optional[str] = None,
+             sampling_frequency_in_seconds: Optional[int] = None,
+             streams: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'counterSpecifiers' in kwargs:
+        if counter_specifiers is None and 'counterSpecifiers' in kwargs:
             counter_specifiers = kwargs['counterSpecifiers']
-        if 'samplingFrequencyInSeconds' in kwargs:
+        if counter_specifiers is None:
+            raise TypeError("Missing 'counter_specifiers' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if sampling_frequency_in_seconds is None and 'samplingFrequencyInSeconds' in kwargs:
             sampling_frequency_in_seconds = kwargs['samplingFrequencyInSeconds']
+        if sampling_frequency_in_seconds is None:
+            raise TypeError("Missing 'sampling_frequency_in_seconds' argument")
+        if streams is None:
+            raise TypeError("Missing 'streams' argument")
 
         _setter("counter_specifiers", counter_specifiers)
         _setter("name", name)
@@ -7704,10 +8060,14 @@ class DataCollectionRuleDataSourcesPlatformTelemetry(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             streams: Sequence[str],
+             name: Optional[str] = None,
+             streams: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if streams is None:
+            raise TypeError("Missing 'streams' argument")
 
         _setter("name", name)
         _setter("streams", streams)
@@ -7766,12 +8126,16 @@ class DataCollectionRuleDataSourcesPrometheusForwarder(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             streams: Sequence[str],
+             name: Optional[str] = None,
+             streams: Optional[Sequence[str]] = None,
              label_include_filters: Optional[Sequence['outputs.DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilter']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'labelIncludeFilters' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if streams is None:
+            raise TypeError("Missing 'streams' argument")
+        if label_include_filters is None and 'labelIncludeFilters' in kwargs:
             label_include_filters = kwargs['labelIncludeFilters']
 
         _setter("name", name)
@@ -7821,10 +8185,14 @@ class DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilter(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             label: str,
-             value: str,
+             label: Optional[str] = None,
+             value: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if label is None:
+            raise TypeError("Missing 'label' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("label", label)
         _setter("value", value)
@@ -7890,16 +8258,22 @@ class DataCollectionRuleDataSourcesSyslog(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             facility_names: Sequence[str],
-             log_levels: Sequence[str],
-             name: str,
+             facility_names: Optional[Sequence[str]] = None,
+             log_levels: Optional[Sequence[str]] = None,
+             name: Optional[str] = None,
              streams: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'facilityNames' in kwargs:
+        if facility_names is None and 'facilityNames' in kwargs:
             facility_names = kwargs['facilityNames']
-        if 'logLevels' in kwargs:
+        if facility_names is None:
+            raise TypeError("Missing 'facility_names' argument")
+        if log_levels is None and 'logLevels' in kwargs:
             log_levels = kwargs['logLevels']
+        if log_levels is None:
+            raise TypeError("Missing 'log_levels' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("facility_names", facility_names)
         _setter("log_levels", log_levels)
@@ -7979,13 +8353,19 @@ class DataCollectionRuleDataSourcesWindowsEventLog(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             streams: Sequence[str],
-             x_path_queries: Sequence[str],
+             name: Optional[str] = None,
+             streams: Optional[Sequence[str]] = None,
+             x_path_queries: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'xPathQueries' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if streams is None:
+            raise TypeError("Missing 'streams' argument")
+        if x_path_queries is None and 'xPathQueries' in kwargs:
             x_path_queries = kwargs['xPathQueries']
+        if x_path_queries is None:
+            raise TypeError("Missing 'x_path_queries' argument")
 
         _setter("name", name)
         _setter("streams", streams)
@@ -8033,10 +8413,14 @@ class DataCollectionRuleDataSourcesWindowsFirewallLog(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             streams: Sequence[str],
+             name: Optional[str] = None,
+             streams: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if streams is None:
+            raise TypeError("Missing 'streams' argument")
 
         _setter("name", name)
         _setter("streams", streams)
@@ -8138,21 +8522,21 @@ class DataCollectionRuleDestinations(dict):
              storage_table_directs: Optional[Sequence['outputs.DataCollectionRuleDestinationsStorageTableDirect']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'azureMonitorMetrics' in kwargs:
+        if azure_monitor_metrics is None and 'azureMonitorMetrics' in kwargs:
             azure_monitor_metrics = kwargs['azureMonitorMetrics']
-        if 'eventHub' in kwargs:
+        if event_hub is None and 'eventHub' in kwargs:
             event_hub = kwargs['eventHub']
-        if 'eventHubDirect' in kwargs:
+        if event_hub_direct is None and 'eventHubDirect' in kwargs:
             event_hub_direct = kwargs['eventHubDirect']
-        if 'logAnalytics' in kwargs:
+        if log_analytics is None and 'logAnalytics' in kwargs:
             log_analytics = kwargs['logAnalytics']
-        if 'monitorAccounts' in kwargs:
+        if monitor_accounts is None and 'monitorAccounts' in kwargs:
             monitor_accounts = kwargs['monitorAccounts']
-        if 'storageBlobDirects' in kwargs:
+        if storage_blob_directs is None and 'storageBlobDirects' in kwargs:
             storage_blob_directs = kwargs['storageBlobDirects']
-        if 'storageBlobs' in kwargs:
+        if storage_blobs is None and 'storageBlobs' in kwargs:
             storage_blobs = kwargs['storageBlobs']
-        if 'storageTableDirects' in kwargs:
+        if storage_table_directs is None and 'storageTableDirects' in kwargs:
             storage_table_directs = kwargs['storageTableDirects']
 
         if azure_monitor_metrics is not None:
@@ -8255,9 +8639,11 @@ class DataCollectionRuleDestinationsAzureMonitorMetrics(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
 
@@ -8304,12 +8690,16 @@ class DataCollectionRuleDestinationsEventHub(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             event_hub_id: str,
-             name: str,
+             event_hub_id: Optional[str] = None,
+             name: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'eventHubId' in kwargs:
+        if event_hub_id is None and 'eventHubId' in kwargs:
             event_hub_id = kwargs['eventHubId']
+        if event_hub_id is None:
+            raise TypeError("Missing 'event_hub_id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("event_hub_id", event_hub_id)
         _setter("name", name)
@@ -8365,12 +8755,16 @@ class DataCollectionRuleDestinationsEventHubDirect(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             event_hub_id: str,
-             name: str,
+             event_hub_id: Optional[str] = None,
+             name: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'eventHubId' in kwargs:
+        if event_hub_id is None and 'eventHubId' in kwargs:
             event_hub_id = kwargs['eventHubId']
+        if event_hub_id is None:
+            raise TypeError("Missing 'event_hub_id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("event_hub_id", event_hub_id)
         _setter("name", name)
@@ -8426,12 +8820,16 @@ class DataCollectionRuleDestinationsLogAnalytic(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             workspace_resource_id: str,
+             name: Optional[str] = None,
+             workspace_resource_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'workspaceResourceId' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if workspace_resource_id is None and 'workspaceResourceId' in kwargs:
             workspace_resource_id = kwargs['workspaceResourceId']
+        if workspace_resource_id is None:
+            raise TypeError("Missing 'workspace_resource_id' argument")
 
         _setter("name", name)
         _setter("workspace_resource_id", workspace_resource_id)
@@ -8487,12 +8885,16 @@ class DataCollectionRuleDestinationsMonitorAccount(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             monitor_account_id: str,
-             name: str,
+             monitor_account_id: Optional[str] = None,
+             name: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'monitorAccountId' in kwargs:
+        if monitor_account_id is None and 'monitorAccountId' in kwargs:
             monitor_account_id = kwargs['monitorAccountId']
+        if monitor_account_id is None:
+            raise TypeError("Missing 'monitor_account_id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("monitor_account_id", monitor_account_id)
         _setter("name", name)
@@ -8553,15 +8955,21 @@ class DataCollectionRuleDestinationsStorageBlob(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             container_name: str,
-             name: str,
-             storage_account_id: str,
+             container_name: Optional[str] = None,
+             name: Optional[str] = None,
+             storage_account_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'containerName' in kwargs:
+        if container_name is None and 'containerName' in kwargs:
             container_name = kwargs['containerName']
-        if 'storageAccountId' in kwargs:
+        if container_name is None:
+            raise TypeError("Missing 'container_name' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
+        if storage_account_id is None:
+            raise TypeError("Missing 'storage_account_id' argument")
 
         _setter("container_name", container_name)
         _setter("name", name)
@@ -8631,15 +9039,21 @@ class DataCollectionRuleDestinationsStorageBlobDirect(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             container_name: str,
-             name: str,
-             storage_account_id: str,
+             container_name: Optional[str] = None,
+             name: Optional[str] = None,
+             storage_account_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'containerName' in kwargs:
+        if container_name is None and 'containerName' in kwargs:
             container_name = kwargs['containerName']
-        if 'storageAccountId' in kwargs:
+        if container_name is None:
+            raise TypeError("Missing 'container_name' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
+        if storage_account_id is None:
+            raise TypeError("Missing 'storage_account_id' argument")
 
         _setter("container_name", container_name)
         _setter("name", name)
@@ -8709,15 +9123,21 @@ class DataCollectionRuleDestinationsStorageTableDirect(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             storage_account_id: str,
-             table_name: str,
+             name: Optional[str] = None,
+             storage_account_id: Optional[str] = None,
+             table_name: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'storageAccountId' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'tableName' in kwargs:
+        if storage_account_id is None:
+            raise TypeError("Missing 'storage_account_id' argument")
+        if table_name is None and 'tableName' in kwargs:
             table_name = kwargs['tableName']
+        if table_name is None:
+            raise TypeError("Missing 'table_name' argument")
 
         _setter("name", name)
         _setter("storage_account_id", storage_account_id)
@@ -8794,17 +9214,19 @@ class DataCollectionRuleIdentity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -8884,12 +9306,16 @@ class DataCollectionRuleStreamDeclaration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             columns: Sequence['outputs.DataCollectionRuleStreamDeclarationColumn'],
-             stream_name: str,
+             columns: Optional[Sequence['outputs.DataCollectionRuleStreamDeclarationColumn']] = None,
+             stream_name: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'streamName' in kwargs:
+        if columns is None:
+            raise TypeError("Missing 'columns' argument")
+        if stream_name is None and 'streamName' in kwargs:
             stream_name = kwargs['streamName']
+        if stream_name is None:
+            raise TypeError("Missing 'stream_name' argument")
 
         _setter("columns", columns)
         _setter("stream_name", stream_name)
@@ -8928,10 +9354,14 @@ class DataCollectionRuleStreamDeclarationColumn(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             type: str,
+             name: Optional[str] = None,
+             type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("name", name)
         _setter("type", type)
@@ -9005,9 +9435,9 @@ class DiagnosticSettingEnabledLog(dict):
              retention_policy: Optional['outputs.DiagnosticSettingEnabledLogRetentionPolicy'] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'categoryGroup' in kwargs:
+        if category_group is None and 'categoryGroup' in kwargs:
             category_group = kwargs['categoryGroup']
-        if 'retentionPolicy' in kwargs:
+        if retention_policy is None and 'retentionPolicy' in kwargs:
             retention_policy = kwargs['retentionPolicy']
 
         if category is not None:
@@ -9073,10 +9503,12 @@ class DiagnosticSettingEnabledLogRetentionPolicy(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: bool,
+             enabled: Optional[bool] = None,
              days: Optional[int] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
 
         _setter("enabled", enabled)
         if days is not None:
@@ -9158,9 +9590,9 @@ class DiagnosticSettingLog(dict):
              retention_policy: Optional['outputs.DiagnosticSettingLogRetentionPolicy'] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'categoryGroup' in kwargs:
+        if category_group is None and 'categoryGroup' in kwargs:
             category_group = kwargs['categoryGroup']
-        if 'retentionPolicy' in kwargs:
+        if retention_policy is None and 'retentionPolicy' in kwargs:
             retention_policy = kwargs['retentionPolicy']
 
         if category is not None:
@@ -9236,10 +9668,12 @@ class DiagnosticSettingLogRetentionPolicy(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: bool,
+             enabled: Optional[bool] = None,
              days: Optional[int] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
 
         _setter("enabled", enabled)
         if days is not None:
@@ -9306,12 +9740,14 @@ class DiagnosticSettingMetric(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             category: str,
+             category: Optional[str] = None,
              enabled: Optional[bool] = None,
              retention_policy: Optional['outputs.DiagnosticSettingMetricRetentionPolicy'] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'retentionPolicy' in kwargs:
+        if category is None:
+            raise TypeError("Missing 'category' argument")
+        if retention_policy is None and 'retentionPolicy' in kwargs:
             retention_policy = kwargs['retentionPolicy']
 
         _setter("category", category)
@@ -9372,10 +9808,12 @@ class DiagnosticSettingMetricRetentionPolicy(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: bool,
+             enabled: Optional[bool] = None,
              days: Optional[int] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
 
         _setter("enabled", enabled)
         if days is not None:
@@ -9418,10 +9856,12 @@ class LogProfileRetentionPolicy(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: bool,
+             enabled: Optional[bool] = None,
              days: Optional[int] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
 
         _setter("enabled", enabled)
         if days is not None:
@@ -9490,19 +9930,25 @@ class LogzMonitorPlan(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             billing_cycle: str,
-             effective_date: str,
-             usage_type: str,
+             billing_cycle: Optional[str] = None,
+             effective_date: Optional[str] = None,
+             usage_type: Optional[str] = None,
              plan_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'billingCycle' in kwargs:
+        if billing_cycle is None and 'billingCycle' in kwargs:
             billing_cycle = kwargs['billingCycle']
-        if 'effectiveDate' in kwargs:
+        if billing_cycle is None:
+            raise TypeError("Missing 'billing_cycle' argument")
+        if effective_date is None and 'effectiveDate' in kwargs:
             effective_date = kwargs['effectiveDate']
-        if 'usageType' in kwargs:
+        if effective_date is None:
+            raise TypeError("Missing 'effective_date' argument")
+        if usage_type is None and 'usageType' in kwargs:
             usage_type = kwargs['usageType']
-        if 'planId' in kwargs:
+        if usage_type is None:
+            raise TypeError("Missing 'usage_type' argument")
+        if plan_id is None and 'planId' in kwargs:
             plan_id = kwargs['planId']
 
         _setter("billing_cycle", billing_cycle)
@@ -9590,18 +10036,26 @@ class LogzMonitorUser(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             email: str,
-             first_name: str,
-             last_name: str,
-             phone_number: str,
+             email: Optional[str] = None,
+             first_name: Optional[str] = None,
+             last_name: Optional[str] = None,
+             phone_number: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'firstName' in kwargs:
+        if email is None:
+            raise TypeError("Missing 'email' argument")
+        if first_name is None and 'firstName' in kwargs:
             first_name = kwargs['firstName']
-        if 'lastName' in kwargs:
+        if first_name is None:
+            raise TypeError("Missing 'first_name' argument")
+        if last_name is None and 'lastName' in kwargs:
             last_name = kwargs['lastName']
-        if 'phoneNumber' in kwargs:
+        if last_name is None:
+            raise TypeError("Missing 'last_name' argument")
+        if phone_number is None and 'phoneNumber' in kwargs:
             phone_number = kwargs['phoneNumber']
+        if phone_number is None:
+            raise TypeError("Missing 'phone_number' argument")
 
         _setter("email", email)
         _setter("first_name", first_name)
@@ -9663,11 +10117,15 @@ class LogzSubAccountTagRuleTagFilter(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action: str,
-             name: str,
+             action: Optional[str] = None,
+             name: Optional[str] = None,
              value: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("action", action)
         _setter("name", name)
@@ -9745,18 +10203,26 @@ class LogzSubAccountUser(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             email: str,
-             first_name: str,
-             last_name: str,
-             phone_number: str,
+             email: Optional[str] = None,
+             first_name: Optional[str] = None,
+             last_name: Optional[str] = None,
+             phone_number: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'firstName' in kwargs:
+        if email is None:
+            raise TypeError("Missing 'email' argument")
+        if first_name is None and 'firstName' in kwargs:
             first_name = kwargs['firstName']
-        if 'lastName' in kwargs:
+        if first_name is None:
+            raise TypeError("Missing 'first_name' argument")
+        if last_name is None and 'lastName' in kwargs:
             last_name = kwargs['lastName']
-        if 'phoneNumber' in kwargs:
+        if last_name is None:
+            raise TypeError("Missing 'last_name' argument")
+        if phone_number is None and 'phoneNumber' in kwargs:
             phone_number = kwargs['phoneNumber']
+        if phone_number is None:
+            raise TypeError("Missing 'phone_number' argument")
 
         _setter("email", email)
         _setter("first_name", first_name)
@@ -9818,11 +10284,15 @@ class LogzTagRuleTagFilter(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action: str,
-             name: str,
+             action: Optional[str] = None,
+             name: Optional[str] = None,
              value: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("action", action)
         _setter("name", name)
@@ -9890,13 +10360,15 @@ class MetricAlertAction(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action_group_id: str,
+             action_group_id: Optional[str] = None,
              webhook_properties: Optional[Mapping[str, str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'actionGroupId' in kwargs:
+        if action_group_id is None and 'actionGroupId' in kwargs:
             action_group_id = kwargs['actionGroupId']
-        if 'webhookProperties' in kwargs:
+        if action_group_id is None:
+            raise TypeError("Missing 'action_group_id' argument")
+        if webhook_properties is None and 'webhookProperties' in kwargs:
             webhook_properties = kwargs['webhookProperties']
 
         _setter("action_group_id", action_group_id)
@@ -9961,17 +10433,23 @@ class MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             component_id: str,
-             failed_location_count: int,
-             web_test_id: str,
+             component_id: Optional[str] = None,
+             failed_location_count: Optional[int] = None,
+             web_test_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'componentId' in kwargs:
+        if component_id is None and 'componentId' in kwargs:
             component_id = kwargs['componentId']
-        if 'failedLocationCount' in kwargs:
+        if component_id is None:
+            raise TypeError("Missing 'component_id' argument")
+        if failed_location_count is None and 'failedLocationCount' in kwargs:
             failed_location_count = kwargs['failedLocationCount']
-        if 'webTestId' in kwargs:
+        if failed_location_count is None:
+            raise TypeError("Missing 'failed_location_count' argument")
+        if web_test_id is None and 'webTestId' in kwargs:
             web_test_id = kwargs['webTestId']
+        if web_test_id is None:
+            raise TypeError("Missing 'web_test_id' argument")
 
         _setter("component_id", component_id)
         _setter("failed_location_count", failed_location_count)
@@ -10055,20 +10533,30 @@ class MetricAlertCriteria(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             aggregation: str,
-             metric_name: str,
-             metric_namespace: str,
-             operator: str,
-             threshold: float,
+             aggregation: Optional[str] = None,
+             metric_name: Optional[str] = None,
+             metric_namespace: Optional[str] = None,
+             operator: Optional[str] = None,
+             threshold: Optional[float] = None,
              dimensions: Optional[Sequence['outputs.MetricAlertCriteriaDimension']] = None,
              skip_metric_validation: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'metricName' in kwargs:
+        if aggregation is None:
+            raise TypeError("Missing 'aggregation' argument")
+        if metric_name is None and 'metricName' in kwargs:
             metric_name = kwargs['metricName']
-        if 'metricNamespace' in kwargs:
+        if metric_name is None:
+            raise TypeError("Missing 'metric_name' argument")
+        if metric_namespace is None and 'metricNamespace' in kwargs:
             metric_namespace = kwargs['metricNamespace']
-        if 'skipMetricValidation' in kwargs:
+        if metric_namespace is None:
+            raise TypeError("Missing 'metric_namespace' argument")
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if threshold is None:
+            raise TypeError("Missing 'threshold' argument")
+        if skip_metric_validation is None and 'skipMetricValidation' in kwargs:
             skip_metric_validation = kwargs['skipMetricValidation']
 
         _setter("aggregation", aggregation)
@@ -10158,11 +10646,17 @@ class MetricAlertCriteriaDimension(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             operator: str,
-             values: Sequence[str],
+             name: Optional[str] = None,
+             operator: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("name", name)
         _setter("operator", operator)
@@ -10263,11 +10757,11 @@ class MetricAlertDynamicCriteria(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             aggregation: str,
-             alert_sensitivity: str,
-             metric_name: str,
-             metric_namespace: str,
-             operator: str,
+             aggregation: Optional[str] = None,
+             alert_sensitivity: Optional[str] = None,
+             metric_name: Optional[str] = None,
+             metric_namespace: Optional[str] = None,
+             operator: Optional[str] = None,
              dimensions: Optional[Sequence['outputs.MetricAlertDynamicCriteriaDimension']] = None,
              evaluation_failure_count: Optional[int] = None,
              evaluation_total_count: Optional[int] = None,
@@ -10275,19 +10769,29 @@ class MetricAlertDynamicCriteria(dict):
              skip_metric_validation: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'alertSensitivity' in kwargs:
+        if aggregation is None:
+            raise TypeError("Missing 'aggregation' argument")
+        if alert_sensitivity is None and 'alertSensitivity' in kwargs:
             alert_sensitivity = kwargs['alertSensitivity']
-        if 'metricName' in kwargs:
+        if alert_sensitivity is None:
+            raise TypeError("Missing 'alert_sensitivity' argument")
+        if metric_name is None and 'metricName' in kwargs:
             metric_name = kwargs['metricName']
-        if 'metricNamespace' in kwargs:
+        if metric_name is None:
+            raise TypeError("Missing 'metric_name' argument")
+        if metric_namespace is None and 'metricNamespace' in kwargs:
             metric_namespace = kwargs['metricNamespace']
-        if 'evaluationFailureCount' in kwargs:
+        if metric_namespace is None:
+            raise TypeError("Missing 'metric_namespace' argument")
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if evaluation_failure_count is None and 'evaluationFailureCount' in kwargs:
             evaluation_failure_count = kwargs['evaluationFailureCount']
-        if 'evaluationTotalCount' in kwargs:
+        if evaluation_total_count is None and 'evaluationTotalCount' in kwargs:
             evaluation_total_count = kwargs['evaluationTotalCount']
-        if 'ignoreDataBefore' in kwargs:
+        if ignore_data_before is None and 'ignoreDataBefore' in kwargs:
             ignore_data_before = kwargs['ignoreDataBefore']
-        if 'skipMetricValidation' in kwargs:
+        if skip_metric_validation is None and 'skipMetricValidation' in kwargs:
             skip_metric_validation = kwargs['skipMetricValidation']
 
         _setter("aggregation", aggregation)
@@ -10407,11 +10911,17 @@ class MetricAlertDynamicCriteriaDimension(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             operator: str,
-             values: Sequence[str],
+             name: Optional[str] = None,
+             operator: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("name", name)
         _setter("operator", operator)
@@ -10483,16 +10993,18 @@ class ScheduledQueryRulesAlertAction(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action_groups: Sequence[str],
+             action_groups: Optional[Sequence[str]] = None,
              custom_webhook_payload: Optional[str] = None,
              email_subject: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'actionGroups' in kwargs:
+        if action_groups is None and 'actionGroups' in kwargs:
             action_groups = kwargs['actionGroups']
-        if 'customWebhookPayload' in kwargs:
+        if action_groups is None:
+            raise TypeError("Missing 'action_groups' argument")
+        if custom_webhook_payload is None and 'customWebhookPayload' in kwargs:
             custom_webhook_payload = kwargs['customWebhookPayload']
-        if 'emailSubject' in kwargs:
+        if email_subject is None and 'emailSubject' in kwargs:
             email_subject = kwargs['emailSubject']
 
         _setter("action_groups", action_groups)
@@ -10563,12 +11075,16 @@ class ScheduledQueryRulesAlertTrigger(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: str,
-             threshold: float,
+             operator: Optional[str] = None,
+             threshold: Optional[float] = None,
              metric_trigger: Optional['outputs.ScheduledQueryRulesAlertTriggerMetricTrigger'] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'metricTrigger' in kwargs:
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if threshold is None:
+            raise TypeError("Missing 'threshold' argument")
+        if metric_trigger is None and 'metricTrigger' in kwargs:
             metric_trigger = kwargs['metricTrigger']
 
         _setter("operator", operator)
@@ -10643,15 +11159,21 @@ class ScheduledQueryRulesAlertTriggerMetricTrigger(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             metric_trigger_type: str,
-             operator: str,
-             threshold: float,
+             metric_trigger_type: Optional[str] = None,
+             operator: Optional[str] = None,
+             threshold: Optional[float] = None,
              metric_column: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'metricTriggerType' in kwargs:
+        if metric_trigger_type is None and 'metricTriggerType' in kwargs:
             metric_trigger_type = kwargs['metricTriggerType']
-        if 'metricColumn' in kwargs:
+        if metric_trigger_type is None:
+            raise TypeError("Missing 'metric_trigger_type' argument")
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if threshold is None:
+            raise TypeError("Missing 'threshold' argument")
+        if metric_column is None and 'metricColumn' in kwargs:
             metric_column = kwargs['metricColumn']
 
         _setter("metric_trigger_type", metric_trigger_type)
@@ -10733,9 +11255,9 @@ class ScheduledQueryRulesAlertV2Action(dict):
              custom_properties: Optional[Mapping[str, str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'actionGroups' in kwargs:
+        if action_groups is None and 'actionGroups' in kwargs:
             action_groups = kwargs['actionGroups']
-        if 'customProperties' in kwargs:
+        if custom_properties is None and 'customProperties' in kwargs:
             custom_properties = kwargs['customProperties']
 
         if action_groups is not None:
@@ -10820,23 +11342,31 @@ class ScheduledQueryRulesAlertV2Criteria(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: str,
-             query: str,
-             threshold: float,
-             time_aggregation_method: str,
+             operator: Optional[str] = None,
+             query: Optional[str] = None,
+             threshold: Optional[float] = None,
+             time_aggregation_method: Optional[str] = None,
              dimensions: Optional[Sequence['outputs.ScheduledQueryRulesAlertV2CriteriaDimension']] = None,
              failing_periods: Optional['outputs.ScheduledQueryRulesAlertV2CriteriaFailingPeriods'] = None,
              metric_measure_column: Optional[str] = None,
              resource_id_column: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'timeAggregationMethod' in kwargs:
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if query is None:
+            raise TypeError("Missing 'query' argument")
+        if threshold is None:
+            raise TypeError("Missing 'threshold' argument")
+        if time_aggregation_method is None and 'timeAggregationMethod' in kwargs:
             time_aggregation_method = kwargs['timeAggregationMethod']
-        if 'failingPeriods' in kwargs:
+        if time_aggregation_method is None:
+            raise TypeError("Missing 'time_aggregation_method' argument")
+        if failing_periods is None and 'failingPeriods' in kwargs:
             failing_periods = kwargs['failingPeriods']
-        if 'metricMeasureColumn' in kwargs:
+        if metric_measure_column is None and 'metricMeasureColumn' in kwargs:
             metric_measure_column = kwargs['metricMeasureColumn']
-        if 'resourceIdColumn' in kwargs:
+        if resource_id_column is None and 'resourceIdColumn' in kwargs:
             resource_id_column = kwargs['resourceIdColumn']
 
         _setter("operator", operator)
@@ -10939,11 +11469,17 @@ class ScheduledQueryRulesAlertV2CriteriaDimension(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             operator: str,
-             values: Sequence[str],
+             name: Optional[str] = None,
+             operator: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("name", name)
         _setter("operator", operator)
@@ -11014,14 +11550,18 @@ class ScheduledQueryRulesAlertV2CriteriaFailingPeriods(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             minimum_failing_periods_to_trigger_alert: int,
-             number_of_evaluation_periods: int,
+             minimum_failing_periods_to_trigger_alert: Optional[int] = None,
+             number_of_evaluation_periods: Optional[int] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'minimumFailingPeriodsToTriggerAlert' in kwargs:
+        if minimum_failing_periods_to_trigger_alert is None and 'minimumFailingPeriodsToTriggerAlert' in kwargs:
             minimum_failing_periods_to_trigger_alert = kwargs['minimumFailingPeriodsToTriggerAlert']
-        if 'numberOfEvaluationPeriods' in kwargs:
+        if minimum_failing_periods_to_trigger_alert is None:
+            raise TypeError("Missing 'minimum_failing_periods_to_trigger_alert' argument")
+        if number_of_evaluation_periods is None and 'numberOfEvaluationPeriods' in kwargs:
             number_of_evaluation_periods = kwargs['numberOfEvaluationPeriods']
+        if number_of_evaluation_periods is None:
+            raise TypeError("Missing 'number_of_evaluation_periods' argument")
 
         _setter("minimum_failing_periods_to_trigger_alert", minimum_failing_periods_to_trigger_alert)
         _setter("number_of_evaluation_periods", number_of_evaluation_periods)
@@ -11081,12 +11621,16 @@ class ScheduledQueryRulesLogCriteria(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             dimensions: Sequence['outputs.ScheduledQueryRulesLogCriteriaDimension'],
-             metric_name: str,
+             dimensions: Optional[Sequence['outputs.ScheduledQueryRulesLogCriteriaDimension']] = None,
+             metric_name: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'metricName' in kwargs:
+        if dimensions is None:
+            raise TypeError("Missing 'dimensions' argument")
+        if metric_name is None and 'metricName' in kwargs:
             metric_name = kwargs['metricName']
+        if metric_name is None:
+            raise TypeError("Missing 'metric_name' argument")
 
         _setter("dimensions", dimensions)
         _setter("metric_name", metric_name)
@@ -11128,11 +11672,15 @@ class ScheduledQueryRulesLogCriteriaDimension(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             values: Sequence[str],
+             name: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
              operator: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("name", name)
         _setter("values", values)
@@ -11203,14 +11751,16 @@ class SmartDetectorAlertRuleActionGroup(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ids: Sequence[str],
+             ids: Optional[Sequence[str]] = None,
              email_subject: Optional[str] = None,
              webhook_payload: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'emailSubject' in kwargs:
+        if ids is None:
+            raise TypeError("Missing 'ids' argument")
+        if email_subject is None and 'emailSubject' in kwargs:
             email_subject = kwargs['emailSubject']
-        if 'webhookPayload' in kwargs:
+        if webhook_payload is None and 'webhookPayload' in kwargs:
             webhook_payload = kwargs['webhookPayload']
 
         _setter("ids", ids)
@@ -11264,15 +11814,21 @@ class GetActionGroupArmRoleReceiverResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             role_id: str,
-             use_common_alert_schema: bool,
+             name: Optional[str] = None,
+             role_id: Optional[str] = None,
+             use_common_alert_schema: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'roleId' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if role_id is None and 'roleId' in kwargs:
             role_id = kwargs['roleId']
-        if 'useCommonAlertSchema' in kwargs:
+        if role_id is None:
+            raise TypeError("Missing 'role_id' argument")
+        if use_common_alert_schema is None and 'useCommonAlertSchema' in kwargs:
             use_common_alert_schema = kwargs['useCommonAlertSchema']
+        if use_common_alert_schema is None:
+            raise TypeError("Missing 'use_common_alert_schema' argument")
 
         _setter("name", name)
         _setter("role_id", role_id)
@@ -11335,27 +11891,41 @@ class GetActionGroupAutomationRunbookReceiverResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             automation_account_id: str,
-             is_global_runbook: bool,
-             name: str,
-             runbook_name: str,
-             service_uri: str,
-             use_common_alert_schema: bool,
-             webhook_resource_id: str,
+             automation_account_id: Optional[str] = None,
+             is_global_runbook: Optional[bool] = None,
+             name: Optional[str] = None,
+             runbook_name: Optional[str] = None,
+             service_uri: Optional[str] = None,
+             use_common_alert_schema: Optional[bool] = None,
+             webhook_resource_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'automationAccountId' in kwargs:
+        if automation_account_id is None and 'automationAccountId' in kwargs:
             automation_account_id = kwargs['automationAccountId']
-        if 'isGlobalRunbook' in kwargs:
+        if automation_account_id is None:
+            raise TypeError("Missing 'automation_account_id' argument")
+        if is_global_runbook is None and 'isGlobalRunbook' in kwargs:
             is_global_runbook = kwargs['isGlobalRunbook']
-        if 'runbookName' in kwargs:
+        if is_global_runbook is None:
+            raise TypeError("Missing 'is_global_runbook' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if runbook_name is None and 'runbookName' in kwargs:
             runbook_name = kwargs['runbookName']
-        if 'serviceUri' in kwargs:
+        if runbook_name is None:
+            raise TypeError("Missing 'runbook_name' argument")
+        if service_uri is None and 'serviceUri' in kwargs:
             service_uri = kwargs['serviceUri']
-        if 'useCommonAlertSchema' in kwargs:
+        if service_uri is None:
+            raise TypeError("Missing 'service_uri' argument")
+        if use_common_alert_schema is None and 'useCommonAlertSchema' in kwargs:
             use_common_alert_schema = kwargs['useCommonAlertSchema']
-        if 'webhookResourceId' in kwargs:
+        if use_common_alert_schema is None:
+            raise TypeError("Missing 'use_common_alert_schema' argument")
+        if webhook_resource_id is None and 'webhookResourceId' in kwargs:
             webhook_resource_id = kwargs['webhookResourceId']
+        if webhook_resource_id is None:
+            raise TypeError("Missing 'webhook_resource_id' argument")
 
         _setter("automation_account_id", automation_account_id)
         _setter("is_global_runbook", is_global_runbook)
@@ -11439,12 +12009,16 @@ class GetActionGroupAzureAppPushReceiverResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             email_address: str,
-             name: str,
+             email_address: Optional[str] = None,
+             name: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'emailAddress' in kwargs:
+        if email_address is None and 'emailAddress' in kwargs:
             email_address = kwargs['emailAddress']
+        if email_address is None:
+            raise TypeError("Missing 'email_address' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("email_address", email_address)
         _setter("name", name)
@@ -11492,21 +12066,31 @@ class GetActionGroupAzureFunctionReceiverResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             function_app_resource_id: str,
-             function_name: str,
-             http_trigger_url: str,
-             name: str,
-             use_common_alert_schema: bool,
+             function_app_resource_id: Optional[str] = None,
+             function_name: Optional[str] = None,
+             http_trigger_url: Optional[str] = None,
+             name: Optional[str] = None,
+             use_common_alert_schema: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'functionAppResourceId' in kwargs:
+        if function_app_resource_id is None and 'functionAppResourceId' in kwargs:
             function_app_resource_id = kwargs['functionAppResourceId']
-        if 'functionName' in kwargs:
+        if function_app_resource_id is None:
+            raise TypeError("Missing 'function_app_resource_id' argument")
+        if function_name is None and 'functionName' in kwargs:
             function_name = kwargs['functionName']
-        if 'httpTriggerUrl' in kwargs:
+        if function_name is None:
+            raise TypeError("Missing 'function_name' argument")
+        if http_trigger_url is None and 'httpTriggerUrl' in kwargs:
             http_trigger_url = kwargs['httpTriggerUrl']
-        if 'useCommonAlertSchema' in kwargs:
+        if http_trigger_url is None:
+            raise TypeError("Missing 'http_trigger_url' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if use_common_alert_schema is None and 'useCommonAlertSchema' in kwargs:
             use_common_alert_schema = kwargs['useCommonAlertSchema']
+        if use_common_alert_schema is None:
+            raise TypeError("Missing 'use_common_alert_schema' argument")
 
         _setter("function_app_resource_id", function_app_resource_id)
         _setter("function_name", function_name)
@@ -11575,15 +12159,21 @@ class GetActionGroupEmailReceiverResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             email_address: str,
-             name: str,
-             use_common_alert_schema: bool,
+             email_address: Optional[str] = None,
+             name: Optional[str] = None,
+             use_common_alert_schema: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'emailAddress' in kwargs:
+        if email_address is None and 'emailAddress' in kwargs:
             email_address = kwargs['emailAddress']
-        if 'useCommonAlertSchema' in kwargs:
+        if email_address is None:
+            raise TypeError("Missing 'email_address' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if use_common_alert_schema is None and 'useCommonAlertSchema' in kwargs:
             use_common_alert_schema = kwargs['useCommonAlertSchema']
+        if use_common_alert_schema is None:
+            raise TypeError("Missing 'use_common_alert_schema' argument")
 
         _setter("email_address", email_address)
         _setter("name", name)
@@ -11646,26 +12236,38 @@ class GetActionGroupEventHubReceiverResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             event_hub_id: str,
-             event_hub_name: str,
-             event_hub_namespace: str,
-             name: str,
-             subscription_id: str,
-             tenant_id: str,
+             event_hub_id: Optional[str] = None,
+             event_hub_name: Optional[str] = None,
+             event_hub_namespace: Optional[str] = None,
+             name: Optional[str] = None,
+             subscription_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
              use_common_alert_schema: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'eventHubId' in kwargs:
+        if event_hub_id is None and 'eventHubId' in kwargs:
             event_hub_id = kwargs['eventHubId']
-        if 'eventHubName' in kwargs:
+        if event_hub_id is None:
+            raise TypeError("Missing 'event_hub_id' argument")
+        if event_hub_name is None and 'eventHubName' in kwargs:
             event_hub_name = kwargs['eventHubName']
-        if 'eventHubNamespace' in kwargs:
+        if event_hub_name is None:
+            raise TypeError("Missing 'event_hub_name' argument")
+        if event_hub_namespace is None and 'eventHubNamespace' in kwargs:
             event_hub_namespace = kwargs['eventHubNamespace']
-        if 'subscriptionId' in kwargs:
+        if event_hub_namespace is None:
+            raise TypeError("Missing 'event_hub_namespace' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if subscription_id is None and 'subscriptionId' in kwargs:
             subscription_id = kwargs['subscriptionId']
-        if 'tenantId' in kwargs:
+        if subscription_id is None:
+            raise TypeError("Missing 'subscription_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
-        if 'useCommonAlertSchema' in kwargs:
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if use_common_alert_schema is None and 'useCommonAlertSchema' in kwargs:
             use_common_alert_schema = kwargs['useCommonAlertSchema']
 
         _setter("event_hub_id", event_hub_id)
@@ -11763,19 +12365,29 @@ class GetActionGroupItsmReceiverResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             connection_id: str,
-             name: str,
-             region: str,
-             ticket_configuration: str,
-             workspace_id: str,
+             connection_id: Optional[str] = None,
+             name: Optional[str] = None,
+             region: Optional[str] = None,
+             ticket_configuration: Optional[str] = None,
+             workspace_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'connectionId' in kwargs:
+        if connection_id is None and 'connectionId' in kwargs:
             connection_id = kwargs['connectionId']
-        if 'ticketConfiguration' in kwargs:
+        if connection_id is None:
+            raise TypeError("Missing 'connection_id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if region is None:
+            raise TypeError("Missing 'region' argument")
+        if ticket_configuration is None and 'ticketConfiguration' in kwargs:
             ticket_configuration = kwargs['ticketConfiguration']
-        if 'workspaceId' in kwargs:
+        if ticket_configuration is None:
+            raise TypeError("Missing 'ticket_configuration' argument")
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
+        if workspace_id is None:
+            raise TypeError("Missing 'workspace_id' argument")
 
         _setter("connection_id", connection_id)
         _setter("name", name)
@@ -11847,18 +12459,26 @@ class GetActionGroupLogicAppReceiverResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             callback_url: str,
-             name: str,
-             resource_id: str,
-             use_common_alert_schema: bool,
+             callback_url: Optional[str] = None,
+             name: Optional[str] = None,
+             resource_id: Optional[str] = None,
+             use_common_alert_schema: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'callbackUrl' in kwargs:
+        if callback_url is None and 'callbackUrl' in kwargs:
             callback_url = kwargs['callbackUrl']
-        if 'resourceId' in kwargs:
+        if callback_url is None:
+            raise TypeError("Missing 'callback_url' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if resource_id is None and 'resourceId' in kwargs:
             resource_id = kwargs['resourceId']
-        if 'useCommonAlertSchema' in kwargs:
+        if resource_id is None:
+            raise TypeError("Missing 'resource_id' argument")
+        if use_common_alert_schema is None and 'useCommonAlertSchema' in kwargs:
             use_common_alert_schema = kwargs['useCommonAlertSchema']
+        if use_common_alert_schema is None:
+            raise TypeError("Missing 'use_common_alert_schema' argument")
 
         _setter("callback_url", callback_url)
         _setter("name", name)
@@ -11918,15 +12538,21 @@ class GetActionGroupSmsReceiverResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             country_code: str,
-             name: str,
-             phone_number: str,
+             country_code: Optional[str] = None,
+             name: Optional[str] = None,
+             phone_number: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'countryCode' in kwargs:
+        if country_code is None and 'countryCode' in kwargs:
             country_code = kwargs['countryCode']
-        if 'phoneNumber' in kwargs:
+        if country_code is None:
+            raise TypeError("Missing 'country_code' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if phone_number is None and 'phoneNumber' in kwargs:
             phone_number = kwargs['phoneNumber']
+        if phone_number is None:
+            raise TypeError("Missing 'phone_number' argument")
 
         _setter("country_code", country_code)
         _setter("name", name)
@@ -11977,15 +12603,21 @@ class GetActionGroupVoiceReceiverResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             country_code: str,
-             name: str,
-             phone_number: str,
+             country_code: Optional[str] = None,
+             name: Optional[str] = None,
+             phone_number: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'countryCode' in kwargs:
+        if country_code is None and 'countryCode' in kwargs:
             country_code = kwargs['countryCode']
-        if 'phoneNumber' in kwargs:
+        if country_code is None:
+            raise TypeError("Missing 'country_code' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if phone_number is None and 'phoneNumber' in kwargs:
             phone_number = kwargs['phoneNumber']
+        if phone_number is None:
+            raise TypeError("Missing 'phone_number' argument")
 
         _setter("country_code", country_code)
         _setter("name", name)
@@ -12038,18 +12670,26 @@ class GetActionGroupWebhookReceiverResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             aad_auths: Sequence['outputs.GetActionGroupWebhookReceiverAadAuthResult'],
-             name: str,
-             service_uri: str,
-             use_common_alert_schema: bool,
+             aad_auths: Optional[Sequence['outputs.GetActionGroupWebhookReceiverAadAuthResult']] = None,
+             name: Optional[str] = None,
+             service_uri: Optional[str] = None,
+             use_common_alert_schema: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'aadAuths' in kwargs:
+        if aad_auths is None and 'aadAuths' in kwargs:
             aad_auths = kwargs['aadAuths']
-        if 'serviceUri' in kwargs:
+        if aad_auths is None:
+            raise TypeError("Missing 'aad_auths' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if service_uri is None and 'serviceUri' in kwargs:
             service_uri = kwargs['serviceUri']
-        if 'useCommonAlertSchema' in kwargs:
+        if service_uri is None:
+            raise TypeError("Missing 'service_uri' argument")
+        if use_common_alert_schema is None and 'useCommonAlertSchema' in kwargs:
             use_common_alert_schema = kwargs['useCommonAlertSchema']
+        if use_common_alert_schema is None:
+            raise TypeError("Missing 'use_common_alert_schema' argument")
 
         _setter("aad_auths", aad_auths)
         _setter("name", name)
@@ -12104,17 +12744,23 @@ class GetActionGroupWebhookReceiverAadAuthResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             identifier_uri: str,
-             object_id: str,
-             tenant_id: str,
+             identifier_uri: Optional[str] = None,
+             object_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identifierUri' in kwargs:
+        if identifier_uri is None and 'identifierUri' in kwargs:
             identifier_uri = kwargs['identifierUri']
-        if 'objectId' in kwargs:
+        if identifier_uri is None:
+            raise TypeError("Missing 'identifier_uri' argument")
+        if object_id is None and 'objectId' in kwargs:
             object_id = kwargs['objectId']
-        if 'tenantId' in kwargs:
+        if object_id is None:
+            raise TypeError("Missing 'object_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
 
         _setter("identifier_uri", identifier_uri)
         _setter("object_id", object_id)
@@ -12165,19 +12811,29 @@ class GetDataCollectionRuleDataFlowResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             built_in_transform: str,
-             destinations: Sequence[str],
-             output_stream: str,
-             streams: Sequence[str],
-             transform_kql: str,
+             built_in_transform: Optional[str] = None,
+             destinations: Optional[Sequence[str]] = None,
+             output_stream: Optional[str] = None,
+             streams: Optional[Sequence[str]] = None,
+             transform_kql: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'builtInTransform' in kwargs:
+        if built_in_transform is None and 'builtInTransform' in kwargs:
             built_in_transform = kwargs['builtInTransform']
-        if 'outputStream' in kwargs:
+        if built_in_transform is None:
+            raise TypeError("Missing 'built_in_transform' argument")
+        if destinations is None:
+            raise TypeError("Missing 'destinations' argument")
+        if output_stream is None and 'outputStream' in kwargs:
             output_stream = kwargs['outputStream']
-        if 'transformKql' in kwargs:
+        if output_stream is None:
+            raise TypeError("Missing 'output_stream' argument")
+        if streams is None:
+            raise TypeError("Missing 'streams' argument")
+        if transform_kql is None and 'transformKql' in kwargs:
             transform_kql = kwargs['transformKql']
+        if transform_kql is None:
+            raise TypeError("Missing 'transform_kql' argument")
 
         _setter("built_in_transform", built_in_transform)
         _setter("destinations", destinations)
@@ -12267,33 +12923,49 @@ class GetDataCollectionRuleDataSourceResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_imports: Sequence['outputs.GetDataCollectionRuleDataSourceDataImportResult'],
-             extensions: Sequence['outputs.GetDataCollectionRuleDataSourceExtensionResult'],
-             iis_logs: Sequence['outputs.GetDataCollectionRuleDataSourceIisLogResult'],
-             performance_counters: Sequence['outputs.GetDataCollectionRuleDataSourcePerformanceCounterResult'],
-             prometheus_forwarders: Sequence['outputs.GetDataCollectionRuleDataSourcePrometheusForwarderResult'],
-             syslogs: Sequence['outputs.GetDataCollectionRuleDataSourceSyslogResult'],
-             windows_event_logs: Sequence['outputs.GetDataCollectionRuleDataSourceWindowsEventLogResult'],
-             windows_firewall_logs: Sequence['outputs.GetDataCollectionRuleDataSourceWindowsFirewallLogResult'],
+             data_imports: Optional[Sequence['outputs.GetDataCollectionRuleDataSourceDataImportResult']] = None,
+             extensions: Optional[Sequence['outputs.GetDataCollectionRuleDataSourceExtensionResult']] = None,
+             iis_logs: Optional[Sequence['outputs.GetDataCollectionRuleDataSourceIisLogResult']] = None,
+             performance_counters: Optional[Sequence['outputs.GetDataCollectionRuleDataSourcePerformanceCounterResult']] = None,
+             prometheus_forwarders: Optional[Sequence['outputs.GetDataCollectionRuleDataSourcePrometheusForwarderResult']] = None,
+             syslogs: Optional[Sequence['outputs.GetDataCollectionRuleDataSourceSyslogResult']] = None,
+             windows_event_logs: Optional[Sequence['outputs.GetDataCollectionRuleDataSourceWindowsEventLogResult']] = None,
+             windows_firewall_logs: Optional[Sequence['outputs.GetDataCollectionRuleDataSourceWindowsFirewallLogResult']] = None,
              log_files: Optional[Sequence['outputs.GetDataCollectionRuleDataSourceLogFileResult']] = None,
              platform_telemetries: Optional[Sequence['outputs.GetDataCollectionRuleDataSourcePlatformTelemetryResult']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dataImports' in kwargs:
+        if data_imports is None and 'dataImports' in kwargs:
             data_imports = kwargs['dataImports']
-        if 'iisLogs' in kwargs:
+        if data_imports is None:
+            raise TypeError("Missing 'data_imports' argument")
+        if extensions is None:
+            raise TypeError("Missing 'extensions' argument")
+        if iis_logs is None and 'iisLogs' in kwargs:
             iis_logs = kwargs['iisLogs']
-        if 'performanceCounters' in kwargs:
+        if iis_logs is None:
+            raise TypeError("Missing 'iis_logs' argument")
+        if performance_counters is None and 'performanceCounters' in kwargs:
             performance_counters = kwargs['performanceCounters']
-        if 'prometheusForwarders' in kwargs:
+        if performance_counters is None:
+            raise TypeError("Missing 'performance_counters' argument")
+        if prometheus_forwarders is None and 'prometheusForwarders' in kwargs:
             prometheus_forwarders = kwargs['prometheusForwarders']
-        if 'windowsEventLogs' in kwargs:
+        if prometheus_forwarders is None:
+            raise TypeError("Missing 'prometheus_forwarders' argument")
+        if syslogs is None:
+            raise TypeError("Missing 'syslogs' argument")
+        if windows_event_logs is None and 'windowsEventLogs' in kwargs:
             windows_event_logs = kwargs['windowsEventLogs']
-        if 'windowsFirewallLogs' in kwargs:
+        if windows_event_logs is None:
+            raise TypeError("Missing 'windows_event_logs' argument")
+        if windows_firewall_logs is None and 'windowsFirewallLogs' in kwargs:
             windows_firewall_logs = kwargs['windowsFirewallLogs']
-        if 'logFiles' in kwargs:
+        if windows_firewall_logs is None:
+            raise TypeError("Missing 'windows_firewall_logs' argument")
+        if log_files is None and 'logFiles' in kwargs:
             log_files = kwargs['logFiles']
-        if 'platformTelemetries' in kwargs:
+        if platform_telemetries is None and 'platformTelemetries' in kwargs:
             platform_telemetries = kwargs['platformTelemetries']
 
         _setter("data_imports", data_imports)
@@ -12404,11 +13076,13 @@ class GetDataCollectionRuleDataSourceDataImportResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             event_hub_data_sources: Sequence['outputs.GetDataCollectionRuleDataSourceDataImportEventHubDataSourceResult'],
+             event_hub_data_sources: Optional[Sequence['outputs.GetDataCollectionRuleDataSourceDataImportEventHubDataSourceResult']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'eventHubDataSources' in kwargs:
+        if event_hub_data_sources is None and 'eventHubDataSources' in kwargs:
             event_hub_data_sources = kwargs['eventHubDataSources']
+        if event_hub_data_sources is None:
+            raise TypeError("Missing 'event_hub_data_sources' argument")
 
         _setter("event_hub_data_sources", event_hub_data_sources)
 
@@ -12441,13 +13115,19 @@ class GetDataCollectionRuleDataSourceDataImportEventHubDataSourceResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             consumer_group: str,
-             name: str,
-             stream: str,
+             consumer_group: Optional[str] = None,
+             name: Optional[str] = None,
+             stream: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'consumerGroup' in kwargs:
+        if consumer_group is None and 'consumerGroup' in kwargs:
             consumer_group = kwargs['consumerGroup']
+        if consumer_group is None:
+            raise TypeError("Missing 'consumer_group' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if stream is None:
+            raise TypeError("Missing 'stream' argument")
 
         _setter("consumer_group", consumer_group)
         _setter("name", name)
@@ -12504,19 +13184,29 @@ class GetDataCollectionRuleDataSourceExtensionResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             extension_json: str,
-             extension_name: str,
-             input_data_sources: Sequence[str],
-             name: str,
-             streams: Sequence[str],
+             extension_json: Optional[str] = None,
+             extension_name: Optional[str] = None,
+             input_data_sources: Optional[Sequence[str]] = None,
+             name: Optional[str] = None,
+             streams: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'extensionJson' in kwargs:
+        if extension_json is None and 'extensionJson' in kwargs:
             extension_json = kwargs['extensionJson']
-        if 'extensionName' in kwargs:
+        if extension_json is None:
+            raise TypeError("Missing 'extension_json' argument")
+        if extension_name is None and 'extensionName' in kwargs:
             extension_name = kwargs['extensionName']
-        if 'inputDataSources' in kwargs:
+        if extension_name is None:
+            raise TypeError("Missing 'extension_name' argument")
+        if input_data_sources is None and 'inputDataSources' in kwargs:
             input_data_sources = kwargs['inputDataSources']
+        if input_data_sources is None:
+            raise TypeError("Missing 'input_data_sources' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if streams is None:
+            raise TypeError("Missing 'streams' argument")
 
         _setter("extension_json", extension_json)
         _setter("extension_name", extension_name)
@@ -12585,13 +13275,19 @@ class GetDataCollectionRuleDataSourceIisLogResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             log_directories: Sequence[str],
-             name: str,
-             streams: Sequence[str],
+             log_directories: Optional[Sequence[str]] = None,
+             name: Optional[str] = None,
+             streams: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'logDirectories' in kwargs:
+        if log_directories is None and 'logDirectories' in kwargs:
             log_directories = kwargs['logDirectories']
+        if log_directories is None:
+            raise TypeError("Missing 'log_directories' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if streams is None:
+            raise TypeError("Missing 'streams' argument")
 
         _setter("log_directories", log_directories)
         _setter("name", name)
@@ -12648,15 +13344,25 @@ class GetDataCollectionRuleDataSourceLogFileResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             file_patterns: Sequence[str],
-             format: str,
-             name: str,
-             settings: Sequence['outputs.GetDataCollectionRuleDataSourceLogFileSettingResult'],
-             streams: Sequence[str],
+             file_patterns: Optional[Sequence[str]] = None,
+             format: Optional[str] = None,
+             name: Optional[str] = None,
+             settings: Optional[Sequence['outputs.GetDataCollectionRuleDataSourceLogFileSettingResult']] = None,
+             streams: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'filePatterns' in kwargs:
+        if file_patterns is None and 'filePatterns' in kwargs:
             file_patterns = kwargs['filePatterns']
+        if file_patterns is None:
+            raise TypeError("Missing 'file_patterns' argument")
+        if format is None:
+            raise TypeError("Missing 'format' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if settings is None:
+            raise TypeError("Missing 'settings' argument")
+        if streams is None:
+            raise TypeError("Missing 'streams' argument")
 
         _setter("file_patterns", file_patterns)
         _setter("format", format)
@@ -12719,9 +13425,11 @@ class GetDataCollectionRuleDataSourceLogFileSettingResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             texts: Sequence['outputs.GetDataCollectionRuleDataSourceLogFileSettingTextResult'],
+             texts: Optional[Sequence['outputs.GetDataCollectionRuleDataSourceLogFileSettingTextResult']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if texts is None:
+            raise TypeError("Missing 'texts' argument")
 
         _setter("texts", texts)
 
@@ -12748,11 +13456,13 @@ class GetDataCollectionRuleDataSourceLogFileSettingTextResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             record_start_timestamp_format: str,
+             record_start_timestamp_format: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'recordStartTimestampFormat' in kwargs:
+        if record_start_timestamp_format is None and 'recordStartTimestampFormat' in kwargs:
             record_start_timestamp_format = kwargs['recordStartTimestampFormat']
+        if record_start_timestamp_format is None:
+            raise TypeError("Missing 'record_start_timestamp_format' argument")
 
         _setter("record_start_timestamp_format", record_start_timestamp_format)
 
@@ -12788,16 +13498,24 @@ class GetDataCollectionRuleDataSourcePerformanceCounterResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             counter_specifiers: Sequence[str],
-             name: str,
-             sampling_frequency_in_seconds: int,
-             streams: Sequence[str],
+             counter_specifiers: Optional[Sequence[str]] = None,
+             name: Optional[str] = None,
+             sampling_frequency_in_seconds: Optional[int] = None,
+             streams: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'counterSpecifiers' in kwargs:
+        if counter_specifiers is None and 'counterSpecifiers' in kwargs:
             counter_specifiers = kwargs['counterSpecifiers']
-        if 'samplingFrequencyInSeconds' in kwargs:
+        if counter_specifiers is None:
+            raise TypeError("Missing 'counter_specifiers' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if sampling_frequency_in_seconds is None and 'samplingFrequencyInSeconds' in kwargs:
             sampling_frequency_in_seconds = kwargs['samplingFrequencyInSeconds']
+        if sampling_frequency_in_seconds is None:
+            raise TypeError("Missing 'sampling_frequency_in_seconds' argument")
+        if streams is None:
+            raise TypeError("Missing 'streams' argument")
 
         _setter("counter_specifiers", counter_specifiers)
         _setter("name", name)
@@ -12854,10 +13572,14 @@ class GetDataCollectionRuleDataSourcePlatformTelemetryResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             streams: Sequence[str],
+             name: Optional[str] = None,
+             streams: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if streams is None:
+            raise TypeError("Missing 'streams' argument")
 
         _setter("name", name)
         _setter("streams", streams)
@@ -12899,13 +13621,19 @@ class GetDataCollectionRuleDataSourcePrometheusForwarderResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             label_include_filters: Sequence['outputs.GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterResult'],
-             name: str,
-             streams: Sequence[str],
+             label_include_filters: Optional[Sequence['outputs.GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterResult']] = None,
+             name: Optional[str] = None,
+             streams: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'labelIncludeFilters' in kwargs:
+        if label_include_filters is None and 'labelIncludeFilters' in kwargs:
             label_include_filters = kwargs['labelIncludeFilters']
+        if label_include_filters is None:
+            raise TypeError("Missing 'label_include_filters' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if streams is None:
+            raise TypeError("Missing 'streams' argument")
 
         _setter("label_include_filters", label_include_filters)
         _setter("name", name)
@@ -12953,10 +13681,14 @@ class GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterResult
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             label: str,
-             value: str,
+             label: Optional[str] = None,
+             value: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if label is None:
+            raise TypeError("Missing 'label' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("label", label)
         _setter("value", value)
@@ -13001,16 +13733,24 @@ class GetDataCollectionRuleDataSourceSyslogResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             facility_names: Sequence[str],
-             log_levels: Sequence[str],
-             name: str,
-             streams: Sequence[str],
+             facility_names: Optional[Sequence[str]] = None,
+             log_levels: Optional[Sequence[str]] = None,
+             name: Optional[str] = None,
+             streams: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'facilityNames' in kwargs:
+        if facility_names is None and 'facilityNames' in kwargs:
             facility_names = kwargs['facilityNames']
-        if 'logLevels' in kwargs:
+        if facility_names is None:
+            raise TypeError("Missing 'facility_names' argument")
+        if log_levels is None and 'logLevels' in kwargs:
             log_levels = kwargs['logLevels']
+        if log_levels is None:
+            raise TypeError("Missing 'log_levels' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if streams is None:
+            raise TypeError("Missing 'streams' argument")
 
         _setter("facility_names", facility_names)
         _setter("log_levels", log_levels)
@@ -13070,13 +13810,19 @@ class GetDataCollectionRuleDataSourceWindowsEventLogResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             streams: Sequence[str],
-             x_path_queries: Sequence[str],
+             name: Optional[str] = None,
+             streams: Optional[Sequence[str]] = None,
+             x_path_queries: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'xPathQueries' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if streams is None:
+            raise TypeError("Missing 'streams' argument")
+        if x_path_queries is None and 'xPathQueries' in kwargs:
             x_path_queries = kwargs['xPathQueries']
+        if x_path_queries is None:
+            raise TypeError("Missing 'x_path_queries' argument")
 
         _setter("name", name)
         _setter("streams", streams)
@@ -13124,10 +13870,14 @@ class GetDataCollectionRuleDataSourceWindowsFirewallLogResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             streams: Sequence[str],
+             name: Optional[str] = None,
+             streams: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if streams is None:
+            raise TypeError("Missing 'streams' argument")
 
         _setter("name", name)
         _setter("streams", streams)
@@ -13184,31 +13934,43 @@ class GetDataCollectionRuleDestinationResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             azure_monitor_metrics: Sequence['outputs.GetDataCollectionRuleDestinationAzureMonitorMetricResult'],
-             log_analytics: Sequence['outputs.GetDataCollectionRuleDestinationLogAnalyticResult'],
-             monitor_accounts: Sequence['outputs.GetDataCollectionRuleDestinationMonitorAccountResult'],
-             storage_blob_directs: Sequence['outputs.GetDataCollectionRuleDestinationStorageBlobDirectResult'],
-             storage_blobs: Sequence['outputs.GetDataCollectionRuleDestinationStorageBlobResult'],
-             storage_table_directs: Sequence['outputs.GetDataCollectionRuleDestinationStorageTableDirectResult'],
+             azure_monitor_metrics: Optional[Sequence['outputs.GetDataCollectionRuleDestinationAzureMonitorMetricResult']] = None,
+             log_analytics: Optional[Sequence['outputs.GetDataCollectionRuleDestinationLogAnalyticResult']] = None,
+             monitor_accounts: Optional[Sequence['outputs.GetDataCollectionRuleDestinationMonitorAccountResult']] = None,
+             storage_blob_directs: Optional[Sequence['outputs.GetDataCollectionRuleDestinationStorageBlobDirectResult']] = None,
+             storage_blobs: Optional[Sequence['outputs.GetDataCollectionRuleDestinationStorageBlobResult']] = None,
+             storage_table_directs: Optional[Sequence['outputs.GetDataCollectionRuleDestinationStorageTableDirectResult']] = None,
              event_hub: Optional['outputs.GetDataCollectionRuleDestinationEventHubResult'] = None,
              event_hub_direct: Optional['outputs.GetDataCollectionRuleDestinationEventHubDirectResult'] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'azureMonitorMetrics' in kwargs:
+        if azure_monitor_metrics is None and 'azureMonitorMetrics' in kwargs:
             azure_monitor_metrics = kwargs['azureMonitorMetrics']
-        if 'logAnalytics' in kwargs:
+        if azure_monitor_metrics is None:
+            raise TypeError("Missing 'azure_monitor_metrics' argument")
+        if log_analytics is None and 'logAnalytics' in kwargs:
             log_analytics = kwargs['logAnalytics']
-        if 'monitorAccounts' in kwargs:
+        if log_analytics is None:
+            raise TypeError("Missing 'log_analytics' argument")
+        if monitor_accounts is None and 'monitorAccounts' in kwargs:
             monitor_accounts = kwargs['monitorAccounts']
-        if 'storageBlobDirects' in kwargs:
+        if monitor_accounts is None:
+            raise TypeError("Missing 'monitor_accounts' argument")
+        if storage_blob_directs is None and 'storageBlobDirects' in kwargs:
             storage_blob_directs = kwargs['storageBlobDirects']
-        if 'storageBlobs' in kwargs:
+        if storage_blob_directs is None:
+            raise TypeError("Missing 'storage_blob_directs' argument")
+        if storage_blobs is None and 'storageBlobs' in kwargs:
             storage_blobs = kwargs['storageBlobs']
-        if 'storageTableDirects' in kwargs:
+        if storage_blobs is None:
+            raise TypeError("Missing 'storage_blobs' argument")
+        if storage_table_directs is None and 'storageTableDirects' in kwargs:
             storage_table_directs = kwargs['storageTableDirects']
-        if 'eventHub' in kwargs:
+        if storage_table_directs is None:
+            raise TypeError("Missing 'storage_table_directs' argument")
+        if event_hub is None and 'eventHub' in kwargs:
             event_hub = kwargs['eventHub']
-        if 'eventHubDirect' in kwargs:
+        if event_hub_direct is None and 'eventHubDirect' in kwargs:
             event_hub_direct = kwargs['eventHubDirect']
 
         _setter("azure_monitor_metrics", azure_monitor_metrics)
@@ -13301,9 +14063,11 @@ class GetDataCollectionRuleDestinationAzureMonitorMetricResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
 
@@ -13333,12 +14097,16 @@ class GetDataCollectionRuleDestinationEventHubResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             event_hub_id: str,
-             name: str,
+             event_hub_id: Optional[str] = None,
+             name: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'eventHubId' in kwargs:
+        if event_hub_id is None and 'eventHubId' in kwargs:
             event_hub_id = kwargs['eventHubId']
+        if event_hub_id is None:
+            raise TypeError("Missing 'event_hub_id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("event_hub_id", event_hub_id)
         _setter("name", name)
@@ -13377,12 +14145,16 @@ class GetDataCollectionRuleDestinationEventHubDirectResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             event_hub_id: str,
-             name: str,
+             event_hub_id: Optional[str] = None,
+             name: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'eventHubId' in kwargs:
+        if event_hub_id is None and 'eventHubId' in kwargs:
             event_hub_id = kwargs['eventHubId']
+        if event_hub_id is None:
+            raise TypeError("Missing 'event_hub_id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("event_hub_id", event_hub_id)
         _setter("name", name)
@@ -13421,12 +14193,16 @@ class GetDataCollectionRuleDestinationLogAnalyticResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             workspace_resource_id: str,
+             name: Optional[str] = None,
+             workspace_resource_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'workspaceResourceId' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if workspace_resource_id is None and 'workspaceResourceId' in kwargs:
             workspace_resource_id = kwargs['workspaceResourceId']
+        if workspace_resource_id is None:
+            raise TypeError("Missing 'workspace_resource_id' argument")
 
         _setter("name", name)
         _setter("workspace_resource_id", workspace_resource_id)
@@ -13465,12 +14241,16 @@ class GetDataCollectionRuleDestinationMonitorAccountResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             monitor_account_id: str,
-             name: str,
+             monitor_account_id: Optional[str] = None,
+             name: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'monitorAccountId' in kwargs:
+        if monitor_account_id is None and 'monitorAccountId' in kwargs:
             monitor_account_id = kwargs['monitorAccountId']
+        if monitor_account_id is None:
+            raise TypeError("Missing 'monitor_account_id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("monitor_account_id", monitor_account_id)
         _setter("name", name)
@@ -13512,15 +14292,21 @@ class GetDataCollectionRuleDestinationStorageBlobResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             container_name: str,
-             name: str,
-             storage_account_id: str,
+             container_name: Optional[str] = None,
+             name: Optional[str] = None,
+             storage_account_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'containerName' in kwargs:
+        if container_name is None and 'containerName' in kwargs:
             container_name = kwargs['containerName']
-        if 'storageAccountId' in kwargs:
+        if container_name is None:
+            raise TypeError("Missing 'container_name' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
+        if storage_account_id is None:
+            raise TypeError("Missing 'storage_account_id' argument")
 
         _setter("container_name", container_name)
         _setter("name", name)
@@ -13571,15 +14357,21 @@ class GetDataCollectionRuleDestinationStorageBlobDirectResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             container_name: str,
-             name: str,
-             storage_account_id: str,
+             container_name: Optional[str] = None,
+             name: Optional[str] = None,
+             storage_account_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'containerName' in kwargs:
+        if container_name is None and 'containerName' in kwargs:
             container_name = kwargs['containerName']
-        if 'storageAccountId' in kwargs:
+        if container_name is None:
+            raise TypeError("Missing 'container_name' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
+        if storage_account_id is None:
+            raise TypeError("Missing 'storage_account_id' argument")
 
         _setter("container_name", container_name)
         _setter("name", name)
@@ -13630,15 +14422,21 @@ class GetDataCollectionRuleDestinationStorageTableDirectResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             storage_account_id: str,
-             table_name: str,
+             name: Optional[str] = None,
+             storage_account_id: Optional[str] = None,
+             table_name: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'storageAccountId' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'tableName' in kwargs:
+        if storage_account_id is None:
+            raise TypeError("Missing 'storage_account_id' argument")
+        if table_name is None and 'tableName' in kwargs:
             table_name = kwargs['tableName']
+        if table_name is None:
+            raise TypeError("Missing 'table_name' argument")
 
         _setter("name", name)
         _setter("storage_account_id", storage_account_id)
@@ -13692,18 +14490,26 @@ class GetDataCollectionRuleIdentityResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             identity_ids: Sequence[str],
-             principal_id: str,
-             tenant_id: str,
-             type: str,
+             identity_ids: Optional[Sequence[str]] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if identity_ids is None:
+            raise TypeError("Missing 'identity_ids' argument")
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("identity_ids", identity_ids)
         _setter("principal_id", principal_id)
@@ -13760,12 +14566,16 @@ class GetDataCollectionRuleStreamDeclarationResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             columns: Sequence['outputs.GetDataCollectionRuleStreamDeclarationColumnResult'],
-             stream_name: str,
+             columns: Optional[Sequence['outputs.GetDataCollectionRuleStreamDeclarationColumnResult']] = None,
+             stream_name: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'streamName' in kwargs:
+        if columns is None:
+            raise TypeError("Missing 'columns' argument")
+        if stream_name is None and 'streamName' in kwargs:
             stream_name = kwargs['streamName']
+        if stream_name is None:
+            raise TypeError("Missing 'stream_name' argument")
 
         _setter("columns", columns)
         _setter("stream_name", stream_name)
@@ -13804,10 +14614,14 @@ class GetDataCollectionRuleStreamDeclarationColumnResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             type: str,
+             name: Optional[str] = None,
+             type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("name", name)
         _setter("type", type)
@@ -13846,10 +14660,14 @@ class GetLogProfileRetentionPolicyResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             days: int,
-             enabled: bool,
+             days: Optional[int] = None,
+             enabled: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if days is None:
+            raise TypeError("Missing 'days' argument")
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
 
         _setter("days", days)
         _setter("enabled", enabled)
@@ -13891,17 +14709,23 @@ class GetScheduledQueryRulesAlertActionResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action_groups: Sequence[str],
-             custom_webhook_payload: str,
-             email_subject: str,
+             action_groups: Optional[Sequence[str]] = None,
+             custom_webhook_payload: Optional[str] = None,
+             email_subject: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'actionGroups' in kwargs:
+        if action_groups is None and 'actionGroups' in kwargs:
             action_groups = kwargs['actionGroups']
-        if 'customWebhookPayload' in kwargs:
+        if action_groups is None:
+            raise TypeError("Missing 'action_groups' argument")
+        if custom_webhook_payload is None and 'customWebhookPayload' in kwargs:
             custom_webhook_payload = kwargs['customWebhookPayload']
-        if 'emailSubject' in kwargs:
+        if custom_webhook_payload is None:
+            raise TypeError("Missing 'custom_webhook_payload' argument")
+        if email_subject is None and 'emailSubject' in kwargs:
             email_subject = kwargs['emailSubject']
+        if email_subject is None:
+            raise TypeError("Missing 'email_subject' argument")
 
         _setter("action_groups", action_groups)
         _setter("custom_webhook_payload", custom_webhook_payload)
@@ -13951,13 +14775,19 @@ class GetScheduledQueryRulesAlertTriggerResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             metric_triggers: Sequence['outputs.GetScheduledQueryRulesAlertTriggerMetricTriggerResult'],
-             operator: str,
-             threshold: float,
+             metric_triggers: Optional[Sequence['outputs.GetScheduledQueryRulesAlertTriggerMetricTriggerResult']] = None,
+             operator: Optional[str] = None,
+             threshold: Optional[float] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'metricTriggers' in kwargs:
+        if metric_triggers is None and 'metricTriggers' in kwargs:
             metric_triggers = kwargs['metricTriggers']
+        if metric_triggers is None:
+            raise TypeError("Missing 'metric_triggers' argument")
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if threshold is None:
+            raise TypeError("Missing 'threshold' argument")
 
         _setter("metric_triggers", metric_triggers)
         _setter("operator", operator)
@@ -14006,16 +14836,24 @@ class GetScheduledQueryRulesAlertTriggerMetricTriggerResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             metric_column: str,
-             metric_trigger_type: str,
-             operator: str,
-             threshold: float,
+             metric_column: Optional[str] = None,
+             metric_trigger_type: Optional[str] = None,
+             operator: Optional[str] = None,
+             threshold: Optional[float] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'metricColumn' in kwargs:
+        if metric_column is None and 'metricColumn' in kwargs:
             metric_column = kwargs['metricColumn']
-        if 'metricTriggerType' in kwargs:
+        if metric_column is None:
+            raise TypeError("Missing 'metric_column' argument")
+        if metric_trigger_type is None and 'metricTriggerType' in kwargs:
             metric_trigger_type = kwargs['metricTriggerType']
+        if metric_trigger_type is None:
+            raise TypeError("Missing 'metric_trigger_type' argument")
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if threshold is None:
+            raise TypeError("Missing 'threshold' argument")
 
         _setter("metric_column", metric_column)
         _setter("metric_trigger_type", metric_trigger_type)
@@ -14066,12 +14904,16 @@ class GetScheduledQueryRulesLogCriteriaResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             dimensions: Sequence['outputs.GetScheduledQueryRulesLogCriteriaDimensionResult'],
-             metric_name: str,
+             dimensions: Optional[Sequence['outputs.GetScheduledQueryRulesLogCriteriaDimensionResult']] = None,
+             metric_name: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'metricName' in kwargs:
+        if dimensions is None:
+            raise TypeError("Missing 'dimensions' argument")
+        if metric_name is None and 'metricName' in kwargs:
             metric_name = kwargs['metricName']
+        if metric_name is None:
+            raise TypeError("Missing 'metric_name' argument")
 
         _setter("dimensions", dimensions)
         _setter("metric_name", metric_name)
@@ -14113,11 +14955,17 @@ class GetScheduledQueryRulesLogCriteriaDimensionResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             operator: str,
-             values: Sequence[str],
+             name: Optional[str] = None,
+             operator: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
 
         _setter("name", name)
         _setter("operator", operator)

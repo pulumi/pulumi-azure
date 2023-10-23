@@ -32,15 +32,21 @@ class NotificationRecipientEmailArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_management_id: pulumi.Input[str],
-             email: pulumi.Input[str],
-             notification_type: pulumi.Input[str],
+             api_management_id: Optional[pulumi.Input[str]] = None,
+             email: Optional[pulumi.Input[str]] = None,
+             notification_type: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'apiManagementId' in kwargs:
+        if api_management_id is None and 'apiManagementId' in kwargs:
             api_management_id = kwargs['apiManagementId']
-        if 'notificationType' in kwargs:
+        if api_management_id is None:
+            raise TypeError("Missing 'api_management_id' argument")
+        if email is None:
+            raise TypeError("Missing 'email' argument")
+        if notification_type is None and 'notificationType' in kwargs:
             notification_type = kwargs['notificationType']
+        if notification_type is None:
+            raise TypeError("Missing 'notification_type' argument")
 
         _setter("api_management_id", api_management_id)
         _setter("email", email)
@@ -109,9 +115,9 @@ class _NotificationRecipientEmailState:
              notification_type: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'apiManagementId' in kwargs:
+        if api_management_id is None and 'apiManagementId' in kwargs:
             api_management_id = kwargs['apiManagementId']
-        if 'notificationType' in kwargs:
+        if notification_type is None and 'notificationType' in kwargs:
             notification_type = kwargs['notificationType']
 
         if api_management_id is not None:

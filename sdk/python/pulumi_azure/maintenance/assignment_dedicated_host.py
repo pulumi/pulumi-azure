@@ -32,15 +32,19 @@ class AssignmentDedicatedHostArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             dedicated_host_id: pulumi.Input[str],
-             maintenance_configuration_id: pulumi.Input[str],
+             dedicated_host_id: Optional[pulumi.Input[str]] = None,
+             maintenance_configuration_id: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dedicatedHostId' in kwargs:
+        if dedicated_host_id is None and 'dedicatedHostId' in kwargs:
             dedicated_host_id = kwargs['dedicatedHostId']
-        if 'maintenanceConfigurationId' in kwargs:
+        if dedicated_host_id is None:
+            raise TypeError("Missing 'dedicated_host_id' argument")
+        if maintenance_configuration_id is None and 'maintenanceConfigurationId' in kwargs:
             maintenance_configuration_id = kwargs['maintenanceConfigurationId']
+        if maintenance_configuration_id is None:
+            raise TypeError("Missing 'maintenance_configuration_id' argument")
 
         _setter("dedicated_host_id", dedicated_host_id)
         _setter("maintenance_configuration_id", maintenance_configuration_id)
@@ -110,9 +114,9 @@ class _AssignmentDedicatedHostState:
              maintenance_configuration_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dedicatedHostId' in kwargs:
+        if dedicated_host_id is None and 'dedicatedHostId' in kwargs:
             dedicated_host_id = kwargs['dedicatedHostId']
-        if 'maintenanceConfigurationId' in kwargs:
+        if maintenance_configuration_id is None and 'maintenanceConfigurationId' in kwargs:
             maintenance_configuration_id = kwargs['maintenanceConfigurationId']
 
         if dedicated_host_id is not None:

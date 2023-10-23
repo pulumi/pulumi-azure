@@ -67,8 +67,8 @@ class ExpressRouteCircuitArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             sku: pulumi.Input['ExpressRouteCircuitSkuArgs'],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['ExpressRouteCircuitSkuArgs']] = None,
              allow_classic_operations: Optional[pulumi.Input[bool]] = None,
              authorization_key: Optional[pulumi.Input[str]] = None,
              bandwidth_in_gbps: Optional[pulumi.Input[float]] = None,
@@ -81,21 +81,25 @@ class ExpressRouteCircuitArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'allowClassicOperations' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if allow_classic_operations is None and 'allowClassicOperations' in kwargs:
             allow_classic_operations = kwargs['allowClassicOperations']
-        if 'authorizationKey' in kwargs:
+        if authorization_key is None and 'authorizationKey' in kwargs:
             authorization_key = kwargs['authorizationKey']
-        if 'bandwidthInGbps' in kwargs:
+        if bandwidth_in_gbps is None and 'bandwidthInGbps' in kwargs:
             bandwidth_in_gbps = kwargs['bandwidthInGbps']
-        if 'bandwidthInMbps' in kwargs:
+        if bandwidth_in_mbps is None and 'bandwidthInMbps' in kwargs:
             bandwidth_in_mbps = kwargs['bandwidthInMbps']
-        if 'expressRoutePortId' in kwargs:
+        if express_route_port_id is None and 'expressRoutePortId' in kwargs:
             express_route_port_id = kwargs['expressRoutePortId']
-        if 'peeringLocation' in kwargs:
+        if peering_location is None and 'peeringLocation' in kwargs:
             peering_location = kwargs['peeringLocation']
-        if 'serviceProviderName' in kwargs:
+        if service_provider_name is None and 'serviceProviderName' in kwargs:
             service_provider_name = kwargs['serviceProviderName']
 
         _setter("resource_group_name", resource_group_name)
@@ -348,25 +352,25 @@ class _ExpressRouteCircuitState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowClassicOperations' in kwargs:
+        if allow_classic_operations is None and 'allowClassicOperations' in kwargs:
             allow_classic_operations = kwargs['allowClassicOperations']
-        if 'authorizationKey' in kwargs:
+        if authorization_key is None and 'authorizationKey' in kwargs:
             authorization_key = kwargs['authorizationKey']
-        if 'bandwidthInGbps' in kwargs:
+        if bandwidth_in_gbps is None and 'bandwidthInGbps' in kwargs:
             bandwidth_in_gbps = kwargs['bandwidthInGbps']
-        if 'bandwidthInMbps' in kwargs:
+        if bandwidth_in_mbps is None and 'bandwidthInMbps' in kwargs:
             bandwidth_in_mbps = kwargs['bandwidthInMbps']
-        if 'expressRoutePortId' in kwargs:
+        if express_route_port_id is None and 'expressRoutePortId' in kwargs:
             express_route_port_id = kwargs['expressRoutePortId']
-        if 'peeringLocation' in kwargs:
+        if peering_location is None and 'peeringLocation' in kwargs:
             peering_location = kwargs['peeringLocation']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serviceKey' in kwargs:
+        if service_key is None and 'serviceKey' in kwargs:
             service_key = kwargs['serviceKey']
-        if 'serviceProviderName' in kwargs:
+        if service_provider_name is None and 'serviceProviderName' in kwargs:
             service_provider_name = kwargs['serviceProviderName']
-        if 'serviceProviderProvisioningState' in kwargs:
+        if service_provider_provisioning_state is None and 'serviceProviderProvisioningState' in kwargs:
             service_provider_provisioning_state = kwargs['serviceProviderProvisioningState']
 
         if allow_classic_operations is not None:

@@ -48,8 +48,8 @@ class SharedAccessPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             iothub_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             iothub_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              device_connect: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              registry_read: Optional[pulumi.Input[bool]] = None,
@@ -57,17 +57,21 @@ class SharedAccessPolicyArgs:
              service_connect: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'iothubName' in kwargs:
+        if iothub_name is None and 'iothubName' in kwargs:
             iothub_name = kwargs['iothubName']
-        if 'resourceGroupName' in kwargs:
+        if iothub_name is None:
+            raise TypeError("Missing 'iothub_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'deviceConnect' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if device_connect is None and 'deviceConnect' in kwargs:
             device_connect = kwargs['deviceConnect']
-        if 'registryRead' in kwargs:
+        if registry_read is None and 'registryRead' in kwargs:
             registry_read = kwargs['registryRead']
-        if 'registryWrite' in kwargs:
+        if registry_write is None and 'registryWrite' in kwargs:
             registry_write = kwargs['registryWrite']
-        if 'serviceConnect' in kwargs:
+        if service_connect is None and 'serviceConnect' in kwargs:
             service_connect = kwargs['serviceConnect']
 
         _setter("iothub_name", iothub_name)
@@ -234,25 +238,25 @@ class _SharedAccessPolicyState:
              service_connect: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'deviceConnect' in kwargs:
+        if device_connect is None and 'deviceConnect' in kwargs:
             device_connect = kwargs['deviceConnect']
-        if 'iothubName' in kwargs:
+        if iothub_name is None and 'iothubName' in kwargs:
             iothub_name = kwargs['iothubName']
-        if 'primaryConnectionString' in kwargs:
+        if primary_connection_string is None and 'primaryConnectionString' in kwargs:
             primary_connection_string = kwargs['primaryConnectionString']
-        if 'primaryKey' in kwargs:
+        if primary_key is None and 'primaryKey' in kwargs:
             primary_key = kwargs['primaryKey']
-        if 'registryRead' in kwargs:
+        if registry_read is None and 'registryRead' in kwargs:
             registry_read = kwargs['registryRead']
-        if 'registryWrite' in kwargs:
+        if registry_write is None and 'registryWrite' in kwargs:
             registry_write = kwargs['registryWrite']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'secondaryConnectionString' in kwargs:
+        if secondary_connection_string is None and 'secondaryConnectionString' in kwargs:
             secondary_connection_string = kwargs['secondaryConnectionString']
-        if 'secondaryKey' in kwargs:
+        if secondary_key is None and 'secondaryKey' in kwargs:
             secondary_key = kwargs['secondaryKey']
-        if 'serviceConnect' in kwargs:
+        if service_connect is None and 'serviceConnect' in kwargs:
             service_connect = kwargs['serviceConnect']
 
         if device_connect is not None:

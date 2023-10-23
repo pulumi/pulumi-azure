@@ -47,8 +47,8 @@ class ProbeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             loadbalancer_id: pulumi.Input[str],
-             port: pulumi.Input[int],
+             loadbalancer_id: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
              interval_in_seconds: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
              number_of_probes: Optional[pulumi.Input[int]] = None,
@@ -57,15 +57,19 @@ class ProbeArgs:
              request_path: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'loadbalancerId' in kwargs:
+        if loadbalancer_id is None and 'loadbalancerId' in kwargs:
             loadbalancer_id = kwargs['loadbalancerId']
-        if 'intervalInSeconds' in kwargs:
+        if loadbalancer_id is None:
+            raise TypeError("Missing 'loadbalancer_id' argument")
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if interval_in_seconds is None and 'intervalInSeconds' in kwargs:
             interval_in_seconds = kwargs['intervalInSeconds']
-        if 'numberOfProbes' in kwargs:
+        if number_of_probes is None and 'numberOfProbes' in kwargs:
             number_of_probes = kwargs['numberOfProbes']
-        if 'probeThreshold' in kwargs:
+        if probe_threshold is None and 'probeThreshold' in kwargs:
             probe_threshold = kwargs['probeThreshold']
-        if 'requestPath' in kwargs:
+        if request_path is None and 'requestPath' in kwargs:
             request_path = kwargs['requestPath']
 
         _setter("loadbalancer_id", loadbalancer_id)
@@ -229,17 +233,17 @@ class _ProbeState:
              request_path: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'intervalInSeconds' in kwargs:
+        if interval_in_seconds is None and 'intervalInSeconds' in kwargs:
             interval_in_seconds = kwargs['intervalInSeconds']
-        if 'loadBalancerRules' in kwargs:
+        if load_balancer_rules is None and 'loadBalancerRules' in kwargs:
             load_balancer_rules = kwargs['loadBalancerRules']
-        if 'loadbalancerId' in kwargs:
+        if loadbalancer_id is None and 'loadbalancerId' in kwargs:
             loadbalancer_id = kwargs['loadbalancerId']
-        if 'numberOfProbes' in kwargs:
+        if number_of_probes is None and 'numberOfProbes' in kwargs:
             number_of_probes = kwargs['numberOfProbes']
-        if 'probeThreshold' in kwargs:
+        if probe_threshold is None and 'probeThreshold' in kwargs:
             probe_threshold = kwargs['probeThreshold']
-        if 'requestPath' in kwargs:
+        if request_path is None and 'requestPath' in kwargs:
             request_path = kwargs['requestPath']
 
         if interval_in_seconds is not None:

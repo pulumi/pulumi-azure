@@ -82,10 +82,10 @@ class CacheArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cache_size_in_gb: pulumi.Input[int],
-             resource_group_name: pulumi.Input[str],
-             sku_name: pulumi.Input[str],
-             subnet_id: pulumi.Input[str],
+             cache_size_in_gb: Optional[pulumi.Input[int]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
              automatically_rotate_key_to_latest_enabled: Optional[pulumi.Input[bool]] = None,
              default_access_policy: Optional[pulumi.Input['CacheDefaultAccessPolicyArgs']] = None,
              directory_active_directory: Optional[pulumi.Input['CacheDirectoryActiveDirectoryArgs']] = None,
@@ -101,27 +101,35 @@ class CacheArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'cacheSizeInGb' in kwargs:
+        if cache_size_in_gb is None and 'cacheSizeInGb' in kwargs:
             cache_size_in_gb = kwargs['cacheSizeInGb']
-        if 'resourceGroupName' in kwargs:
+        if cache_size_in_gb is None:
+            raise TypeError("Missing 'cache_size_in_gb' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'subnetId' in kwargs:
+        if sku_name is None:
+            raise TypeError("Missing 'sku_name' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'automaticallyRotateKeyToLatestEnabled' in kwargs:
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+        if automatically_rotate_key_to_latest_enabled is None and 'automaticallyRotateKeyToLatestEnabled' in kwargs:
             automatically_rotate_key_to_latest_enabled = kwargs['automaticallyRotateKeyToLatestEnabled']
-        if 'defaultAccessPolicy' in kwargs:
+        if default_access_policy is None and 'defaultAccessPolicy' in kwargs:
             default_access_policy = kwargs['defaultAccessPolicy']
-        if 'directoryActiveDirectory' in kwargs:
+        if directory_active_directory is None and 'directoryActiveDirectory' in kwargs:
             directory_active_directory = kwargs['directoryActiveDirectory']
-        if 'directoryFlatFile' in kwargs:
+        if directory_flat_file is None and 'directoryFlatFile' in kwargs:
             directory_flat_file = kwargs['directoryFlatFile']
-        if 'directoryLdap' in kwargs:
+        if directory_ldap is None and 'directoryLdap' in kwargs:
             directory_ldap = kwargs['directoryLdap']
-        if 'keyVaultKeyId' in kwargs:
+        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
             key_vault_key_id = kwargs['keyVaultKeyId']
-        if 'ntpServer' in kwargs:
+        if ntp_server is None and 'ntpServer' in kwargs:
             ntp_server = kwargs['ntpServer']
 
         _setter("cache_size_in_gb", cache_size_in_gb)
@@ -458,29 +466,29 @@ class _CacheState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'automaticallyRotateKeyToLatestEnabled' in kwargs:
+        if automatically_rotate_key_to_latest_enabled is None and 'automaticallyRotateKeyToLatestEnabled' in kwargs:
             automatically_rotate_key_to_latest_enabled = kwargs['automaticallyRotateKeyToLatestEnabled']
-        if 'cacheSizeInGb' in kwargs:
+        if cache_size_in_gb is None and 'cacheSizeInGb' in kwargs:
             cache_size_in_gb = kwargs['cacheSizeInGb']
-        if 'defaultAccessPolicy' in kwargs:
+        if default_access_policy is None and 'defaultAccessPolicy' in kwargs:
             default_access_policy = kwargs['defaultAccessPolicy']
-        if 'directoryActiveDirectory' in kwargs:
+        if directory_active_directory is None and 'directoryActiveDirectory' in kwargs:
             directory_active_directory = kwargs['directoryActiveDirectory']
-        if 'directoryFlatFile' in kwargs:
+        if directory_flat_file is None and 'directoryFlatFile' in kwargs:
             directory_flat_file = kwargs['directoryFlatFile']
-        if 'directoryLdap' in kwargs:
+        if directory_ldap is None and 'directoryLdap' in kwargs:
             directory_ldap = kwargs['directoryLdap']
-        if 'keyVaultKeyId' in kwargs:
+        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
             key_vault_key_id = kwargs['keyVaultKeyId']
-        if 'mountAddresses' in kwargs:
+        if mount_addresses is None and 'mountAddresses' in kwargs:
             mount_addresses = kwargs['mountAddresses']
-        if 'ntpServer' in kwargs:
+        if ntp_server is None and 'ntpServer' in kwargs:
             ntp_server = kwargs['ntpServer']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
 
         if automatically_rotate_key_to_latest_enabled is not None:

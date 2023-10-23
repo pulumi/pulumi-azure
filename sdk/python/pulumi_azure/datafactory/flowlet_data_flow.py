@@ -55,9 +55,9 @@ class FlowletDataFlowArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_factory_id: pulumi.Input[str],
-             sinks: pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSinkArgs']]],
-             sources: pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSourceArgs']]],
+             data_factory_id: Optional[pulumi.Input[str]] = None,
+             sinks: Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSinkArgs']]]] = None,
+             sources: Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSourceArgs']]]] = None,
              annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              description: Optional[pulumi.Input[str]] = None,
              folder: Optional[pulumi.Input[str]] = None,
@@ -67,9 +67,15 @@ class FlowletDataFlowArgs:
              transformations: Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowTransformationArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'scriptLines' in kwargs:
+        if data_factory_id is None:
+            raise TypeError("Missing 'data_factory_id' argument")
+        if sinks is None:
+            raise TypeError("Missing 'sinks' argument")
+        if sources is None:
+            raise TypeError("Missing 'sources' argument")
+        if script_lines is None and 'scriptLines' in kwargs:
             script_lines = kwargs['scriptLines']
 
         _setter("data_factory_id", data_factory_id)
@@ -265,9 +271,9 @@ class _FlowletDataFlowState:
              transformations: Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowTransformationArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'scriptLines' in kwargs:
+        if script_lines is None and 'scriptLines' in kwargs:
             script_lines = kwargs['scriptLines']
 
         if annotations is not None:

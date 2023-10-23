@@ -53,10 +53,10 @@ class RegistryWebookArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             actions: pulumi.Input[Sequence[pulumi.Input[str]]],
-             registry_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             service_uri: pulumi.Input[str],
+             actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             registry_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             service_uri: Optional[pulumi.Input[str]] = None,
              custom_headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
@@ -65,13 +65,21 @@ class RegistryWebookArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'registryName' in kwargs:
+        if actions is None:
+            raise TypeError("Missing 'actions' argument")
+        if registry_name is None and 'registryName' in kwargs:
             registry_name = kwargs['registryName']
-        if 'resourceGroupName' in kwargs:
+        if registry_name is None:
+            raise TypeError("Missing 'registry_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serviceUri' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if service_uri is None and 'serviceUri' in kwargs:
             service_uri = kwargs['serviceUri']
-        if 'customHeaders' in kwargs:
+        if service_uri is None:
+            raise TypeError("Missing 'service_uri' argument")
+        if custom_headers is None and 'customHeaders' in kwargs:
             custom_headers = kwargs['customHeaders']
 
         _setter("actions", actions)
@@ -266,13 +274,13 @@ class _RegistryWebookState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'customHeaders' in kwargs:
+        if custom_headers is None and 'customHeaders' in kwargs:
             custom_headers = kwargs['customHeaders']
-        if 'registryName' in kwargs:
+        if registry_name is None and 'registryName' in kwargs:
             registry_name = kwargs['registryName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serviceUri' in kwargs:
+        if service_uri is None and 'serviceUri' in kwargs:
             service_uri = kwargs['serviceUri']
 
         if actions is not None:

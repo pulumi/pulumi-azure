@@ -41,24 +41,34 @@ class ChannelSmsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bot_name: pulumi.Input[str],
-             phone_number: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             sms_channel_account_security_id: pulumi.Input[str],
-             sms_channel_auth_token: pulumi.Input[str],
+             bot_name: Optional[pulumi.Input[str]] = None,
+             phone_number: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sms_channel_account_security_id: Optional[pulumi.Input[str]] = None,
+             sms_channel_auth_token: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'botName' in kwargs:
+        if bot_name is None and 'botName' in kwargs:
             bot_name = kwargs['botName']
-        if 'phoneNumber' in kwargs:
+        if bot_name is None:
+            raise TypeError("Missing 'bot_name' argument")
+        if phone_number is None and 'phoneNumber' in kwargs:
             phone_number = kwargs['phoneNumber']
-        if 'resourceGroupName' in kwargs:
+        if phone_number is None:
+            raise TypeError("Missing 'phone_number' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'smsChannelAccountSecurityId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sms_channel_account_security_id is None and 'smsChannelAccountSecurityId' in kwargs:
             sms_channel_account_security_id = kwargs['smsChannelAccountSecurityId']
-        if 'smsChannelAuthToken' in kwargs:
+        if sms_channel_account_security_id is None:
+            raise TypeError("Missing 'sms_channel_account_security_id' argument")
+        if sms_channel_auth_token is None and 'smsChannelAuthToken' in kwargs:
             sms_channel_auth_token = kwargs['smsChannelAuthToken']
+        if sms_channel_auth_token is None:
+            raise TypeError("Missing 'sms_channel_auth_token' argument")
 
         _setter("bot_name", bot_name)
         _setter("phone_number", phone_number)
@@ -179,15 +189,15 @@ class _ChannelSmsState:
              sms_channel_auth_token: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'botName' in kwargs:
+        if bot_name is None and 'botName' in kwargs:
             bot_name = kwargs['botName']
-        if 'phoneNumber' in kwargs:
+        if phone_number is None and 'phoneNumber' in kwargs:
             phone_number = kwargs['phoneNumber']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'smsChannelAccountSecurityId' in kwargs:
+        if sms_channel_account_security_id is None and 'smsChannelAccountSecurityId' in kwargs:
             sms_channel_account_security_id = kwargs['smsChannelAccountSecurityId']
-        if 'smsChannelAuthToken' in kwargs:
+        if sms_channel_auth_token is None and 'smsChannelAuthToken' in kwargs:
             sms_channel_auth_token = kwargs['smsChannelAuthToken']
 
         if bot_name is not None:

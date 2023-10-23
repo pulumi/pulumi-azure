@@ -54,9 +54,9 @@ class LogzMonitorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             plan: pulumi.Input['LogzMonitorPlanArgs'],
-             resource_group_name: pulumi.Input[str],
-             user: pulumi.Input['LogzMonitorUserArgs'],
+             plan: Optional[pulumi.Input['LogzMonitorPlanArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             user: Optional[pulumi.Input['LogzMonitorUserArgs']] = None,
              company_name: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              enterprise_app_id: Optional[pulumi.Input[str]] = None,
@@ -65,11 +65,17 @@ class LogzMonitorArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if plan is None:
+            raise TypeError("Missing 'plan' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'companyName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if user is None:
+            raise TypeError("Missing 'user' argument")
+        if company_name is None and 'companyName' in kwargs:
             company_name = kwargs['companyName']
-        if 'enterpriseAppId' in kwargs:
+        if enterprise_app_id is None and 'enterpriseAppId' in kwargs:
             enterprise_app_id = kwargs['enterpriseAppId']
 
         _setter("plan", plan)
@@ -259,15 +265,15 @@ class _LogzMonitorState:
              user: Optional[pulumi.Input['LogzMonitorUserArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'companyName' in kwargs:
+        if company_name is None and 'companyName' in kwargs:
             company_name = kwargs['companyName']
-        if 'enterpriseAppId' in kwargs:
+        if enterprise_app_id is None and 'enterpriseAppId' in kwargs:
             enterprise_app_id = kwargs['enterpriseAppId']
-        if 'logzOrganizationId' in kwargs:
+        if logz_organization_id is None and 'logzOrganizationId' in kwargs:
             logz_organization_id = kwargs['logzOrganizationId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'singleSignOnUrl' in kwargs:
+        if single_sign_on_url is None and 'singleSignOnUrl' in kwargs:
             single_sign_on_url = kwargs['singleSignOnUrl']
 
         if company_name is not None:

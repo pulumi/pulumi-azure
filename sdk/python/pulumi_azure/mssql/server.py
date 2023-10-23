@@ -80,8 +80,8 @@ class ServerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             version: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
              administrator_login: Optional[pulumi.Input[str]] = None,
              administrator_login_password: Optional[pulumi.Input[str]] = None,
              azuread_administrator: Optional[pulumi.Input['ServerAzureadAdministratorArgs']] = None,
@@ -97,25 +97,29 @@ class ServerArgs:
              transparent_data_encryption_key_vault_key_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'administratorLogin' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
+        if administrator_login is None and 'administratorLogin' in kwargs:
             administrator_login = kwargs['administratorLogin']
-        if 'administratorLoginPassword' in kwargs:
+        if administrator_login_password is None and 'administratorLoginPassword' in kwargs:
             administrator_login_password = kwargs['administratorLoginPassword']
-        if 'azureadAdministrator' in kwargs:
+        if azuread_administrator is None and 'azureadAdministrator' in kwargs:
             azuread_administrator = kwargs['azureadAdministrator']
-        if 'connectionPolicy' in kwargs:
+        if connection_policy is None and 'connectionPolicy' in kwargs:
             connection_policy = kwargs['connectionPolicy']
-        if 'minimumTlsVersion' in kwargs:
+        if minimum_tls_version is None and 'minimumTlsVersion' in kwargs:
             minimum_tls_version = kwargs['minimumTlsVersion']
-        if 'outboundNetworkRestrictionEnabled' in kwargs:
+        if outbound_network_restriction_enabled is None and 'outboundNetworkRestrictionEnabled' in kwargs:
             outbound_network_restriction_enabled = kwargs['outboundNetworkRestrictionEnabled']
-        if 'primaryUserAssignedIdentityId' in kwargs:
+        if primary_user_assigned_identity_id is None and 'primaryUserAssignedIdentityId' in kwargs:
             primary_user_assigned_identity_id = kwargs['primaryUserAssignedIdentityId']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'transparentDataEncryptionKeyVaultKeyId' in kwargs:
+        if transparent_data_encryption_key_vault_key_id is None and 'transparentDataEncryptionKeyVaultKeyId' in kwargs:
             transparent_data_encryption_key_vault_key_id = kwargs['transparentDataEncryptionKeyVaultKeyId']
 
         _setter("resource_group_name", resource_group_name)
@@ -430,29 +434,29 @@ class _ServerState:
              version: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'administratorLogin' in kwargs:
+        if administrator_login is None and 'administratorLogin' in kwargs:
             administrator_login = kwargs['administratorLogin']
-        if 'administratorLoginPassword' in kwargs:
+        if administrator_login_password is None and 'administratorLoginPassword' in kwargs:
             administrator_login_password = kwargs['administratorLoginPassword']
-        if 'azureadAdministrator' in kwargs:
+        if azuread_administrator is None and 'azureadAdministrator' in kwargs:
             azuread_administrator = kwargs['azureadAdministrator']
-        if 'connectionPolicy' in kwargs:
+        if connection_policy is None and 'connectionPolicy' in kwargs:
             connection_policy = kwargs['connectionPolicy']
-        if 'fullyQualifiedDomainName' in kwargs:
+        if fully_qualified_domain_name is None and 'fullyQualifiedDomainName' in kwargs:
             fully_qualified_domain_name = kwargs['fullyQualifiedDomainName']
-        if 'minimumTlsVersion' in kwargs:
+        if minimum_tls_version is None and 'minimumTlsVersion' in kwargs:
             minimum_tls_version = kwargs['minimumTlsVersion']
-        if 'outboundNetworkRestrictionEnabled' in kwargs:
+        if outbound_network_restriction_enabled is None and 'outboundNetworkRestrictionEnabled' in kwargs:
             outbound_network_restriction_enabled = kwargs['outboundNetworkRestrictionEnabled']
-        if 'primaryUserAssignedIdentityId' in kwargs:
+        if primary_user_assigned_identity_id is None and 'primaryUserAssignedIdentityId' in kwargs:
             primary_user_assigned_identity_id = kwargs['primaryUserAssignedIdentityId']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'restorableDroppedDatabaseIds' in kwargs:
+        if restorable_dropped_database_ids is None and 'restorableDroppedDatabaseIds' in kwargs:
             restorable_dropped_database_ids = kwargs['restorableDroppedDatabaseIds']
-        if 'transparentDataEncryptionKeyVaultKeyId' in kwargs:
+        if transparent_data_encryption_key_vault_key_id is None and 'transparentDataEncryptionKeyVaultKeyId' in kwargs:
             transparent_data_encryption_key_vault_key_id = kwargs['transparentDataEncryptionKeyVaultKeyId']
 
         if administrator_login is not None:

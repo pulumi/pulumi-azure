@@ -43,23 +43,29 @@ class ExpressRouteCircuitConnectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             address_prefix_ipv4: pulumi.Input[str],
-             peer_peering_id: pulumi.Input[str],
-             peering_id: pulumi.Input[str],
+             address_prefix_ipv4: Optional[pulumi.Input[str]] = None,
+             peer_peering_id: Optional[pulumi.Input[str]] = None,
+             peering_id: Optional[pulumi.Input[str]] = None,
              address_prefix_ipv6: Optional[pulumi.Input[str]] = None,
              authorization_key: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'addressPrefixIpv4' in kwargs:
+        if address_prefix_ipv4 is None and 'addressPrefixIpv4' in kwargs:
             address_prefix_ipv4 = kwargs['addressPrefixIpv4']
-        if 'peerPeeringId' in kwargs:
+        if address_prefix_ipv4 is None:
+            raise TypeError("Missing 'address_prefix_ipv4' argument")
+        if peer_peering_id is None and 'peerPeeringId' in kwargs:
             peer_peering_id = kwargs['peerPeeringId']
-        if 'peeringId' in kwargs:
+        if peer_peering_id is None:
+            raise TypeError("Missing 'peer_peering_id' argument")
+        if peering_id is None and 'peeringId' in kwargs:
             peering_id = kwargs['peeringId']
-        if 'addressPrefixIpv6' in kwargs:
+        if peering_id is None:
+            raise TypeError("Missing 'peering_id' argument")
+        if address_prefix_ipv6 is None and 'addressPrefixIpv6' in kwargs:
             address_prefix_ipv6 = kwargs['addressPrefixIpv6']
-        if 'authorizationKey' in kwargs:
+        if authorization_key is None and 'authorizationKey' in kwargs:
             authorization_key = kwargs['authorizationKey']
 
         _setter("address_prefix_ipv4", address_prefix_ipv4)
@@ -187,15 +193,15 @@ class _ExpressRouteCircuitConnectionState:
              peering_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'addressPrefixIpv4' in kwargs:
+        if address_prefix_ipv4 is None and 'addressPrefixIpv4' in kwargs:
             address_prefix_ipv4 = kwargs['addressPrefixIpv4']
-        if 'addressPrefixIpv6' in kwargs:
+        if address_prefix_ipv6 is None and 'addressPrefixIpv6' in kwargs:
             address_prefix_ipv6 = kwargs['addressPrefixIpv6']
-        if 'authorizationKey' in kwargs:
+        if authorization_key is None and 'authorizationKey' in kwargs:
             authorization_key = kwargs['authorizationKey']
-        if 'peerPeeringId' in kwargs:
+        if peer_peering_id is None and 'peerPeeringId' in kwargs:
             peer_peering_id = kwargs['peerPeeringId']
-        if 'peeringId' in kwargs:
+        if peering_id is None and 'peeringId' in kwargs:
             peering_id = kwargs['peeringId']
 
         if address_prefix_ipv4 is not None:

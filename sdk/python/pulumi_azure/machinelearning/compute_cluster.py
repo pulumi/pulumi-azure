@@ -67,10 +67,10 @@ class ComputeClusterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             machine_learning_workspace_id: pulumi.Input[str],
-             scale_settings: pulumi.Input['ComputeClusterScaleSettingsArgs'],
-             vm_priority: pulumi.Input[str],
-             vm_size: pulumi.Input[str],
+             machine_learning_workspace_id: Optional[pulumi.Input[str]] = None,
+             scale_settings: Optional[pulumi.Input['ComputeClusterScaleSettingsArgs']] = None,
+             vm_priority: Optional[pulumi.Input[str]] = None,
+             vm_size: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              identity: Optional[pulumi.Input['ComputeClusterIdentityArgs']] = None,
              local_auth_enabled: Optional[pulumi.Input[bool]] = None,
@@ -83,21 +83,29 @@ class ComputeClusterArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'machineLearningWorkspaceId' in kwargs:
+        if machine_learning_workspace_id is None and 'machineLearningWorkspaceId' in kwargs:
             machine_learning_workspace_id = kwargs['machineLearningWorkspaceId']
-        if 'scaleSettings' in kwargs:
+        if machine_learning_workspace_id is None:
+            raise TypeError("Missing 'machine_learning_workspace_id' argument")
+        if scale_settings is None and 'scaleSettings' in kwargs:
             scale_settings = kwargs['scaleSettings']
-        if 'vmPriority' in kwargs:
+        if scale_settings is None:
+            raise TypeError("Missing 'scale_settings' argument")
+        if vm_priority is None and 'vmPriority' in kwargs:
             vm_priority = kwargs['vmPriority']
-        if 'vmSize' in kwargs:
+        if vm_priority is None:
+            raise TypeError("Missing 'vm_priority' argument")
+        if vm_size is None and 'vmSize' in kwargs:
             vm_size = kwargs['vmSize']
-        if 'localAuthEnabled' in kwargs:
+        if vm_size is None:
+            raise TypeError("Missing 'vm_size' argument")
+        if local_auth_enabled is None and 'localAuthEnabled' in kwargs:
             local_auth_enabled = kwargs['localAuthEnabled']
-        if 'nodePublicIpEnabled' in kwargs:
+        if node_public_ip_enabled is None and 'nodePublicIpEnabled' in kwargs:
             node_public_ip_enabled = kwargs['nodePublicIpEnabled']
-        if 'sshPublicAccessEnabled' in kwargs:
+        if ssh_public_access_enabled is None and 'sshPublicAccessEnabled' in kwargs:
             ssh_public_access_enabled = kwargs['sshPublicAccessEnabled']
-        if 'subnetResourceId' in kwargs:
+        if subnet_resource_id is None and 'subnetResourceId' in kwargs:
             subnet_resource_id = kwargs['subnetResourceId']
 
         _setter("machine_learning_workspace_id", machine_learning_workspace_id)
@@ -364,21 +372,21 @@ class _ComputeClusterState:
              vm_size: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'localAuthEnabled' in kwargs:
+        if local_auth_enabled is None and 'localAuthEnabled' in kwargs:
             local_auth_enabled = kwargs['localAuthEnabled']
-        if 'machineLearningWorkspaceId' in kwargs:
+        if machine_learning_workspace_id is None and 'machineLearningWorkspaceId' in kwargs:
             machine_learning_workspace_id = kwargs['machineLearningWorkspaceId']
-        if 'nodePublicIpEnabled' in kwargs:
+        if node_public_ip_enabled is None and 'nodePublicIpEnabled' in kwargs:
             node_public_ip_enabled = kwargs['nodePublicIpEnabled']
-        if 'scaleSettings' in kwargs:
+        if scale_settings is None and 'scaleSettings' in kwargs:
             scale_settings = kwargs['scaleSettings']
-        if 'sshPublicAccessEnabled' in kwargs:
+        if ssh_public_access_enabled is None and 'sshPublicAccessEnabled' in kwargs:
             ssh_public_access_enabled = kwargs['sshPublicAccessEnabled']
-        if 'subnetResourceId' in kwargs:
+        if subnet_resource_id is None and 'subnetResourceId' in kwargs:
             subnet_resource_id = kwargs['subnetResourceId']
-        if 'vmPriority' in kwargs:
+        if vm_priority is None and 'vmPriority' in kwargs:
             vm_priority = kwargs['vmPriority']
-        if 'vmSize' in kwargs:
+        if vm_size is None and 'vmSize' in kwargs:
             vm_size = kwargs['vmSize']
 
         if description is not None:

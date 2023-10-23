@@ -40,19 +40,25 @@ class IntegrationAccountPartnerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             business_identities: pulumi.Input[Sequence[pulumi.Input['IntegrationAccountPartnerBusinessIdentityArgs']]],
-             integration_account_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             business_identities: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationAccountPartnerBusinessIdentityArgs']]]] = None,
+             integration_account_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              metadata: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'businessIdentities' in kwargs:
+        if business_identities is None and 'businessIdentities' in kwargs:
             business_identities = kwargs['businessIdentities']
-        if 'integrationAccountName' in kwargs:
+        if business_identities is None:
+            raise TypeError("Missing 'business_identities' argument")
+        if integration_account_name is None and 'integrationAccountName' in kwargs:
             integration_account_name = kwargs['integrationAccountName']
-        if 'resourceGroupName' in kwargs:
+        if integration_account_name is None:
+            raise TypeError("Missing 'integration_account_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("business_identities", business_identities)
         _setter("integration_account_name", integration_account_name)
@@ -157,11 +163,11 @@ class _IntegrationAccountPartnerState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'businessIdentities' in kwargs:
+        if business_identities is None and 'businessIdentities' in kwargs:
             business_identities = kwargs['businessIdentities']
-        if 'integrationAccountName' in kwargs:
+        if integration_account_name is None and 'integrationAccountName' in kwargs:
             integration_account_name = kwargs['integrationAccountName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if business_identities is not None:

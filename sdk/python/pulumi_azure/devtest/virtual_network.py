@@ -43,18 +43,22 @@ class VirtualNetworkArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             lab_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             lab_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              subnet: Optional[pulumi.Input['VirtualNetworkSubnetArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'labName' in kwargs:
+        if lab_name is None and 'labName' in kwargs:
             lab_name = kwargs['labName']
-        if 'resourceGroupName' in kwargs:
+        if lab_name is None:
+            raise TypeError("Missing 'lab_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("lab_name", lab_name)
         _setter("resource_group_name", resource_group_name)
@@ -182,11 +186,11 @@ class _VirtualNetworkState:
              unique_identifier: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'labName' in kwargs:
+        if lab_name is None and 'labName' in kwargs:
             lab_name = kwargs['labName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'uniqueIdentifier' in kwargs:
+        if unique_identifier is None and 'uniqueIdentifier' in kwargs:
             unique_identifier = kwargs['uniqueIdentifier']
 
         if description is not None:

@@ -53,8 +53,8 @@ class GalleryApplicationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             gallery_id: pulumi.Input[str],
-             supported_os_type: pulumi.Input[str],
+             gallery_id: Optional[pulumi.Input[str]] = None,
+             supported_os_type: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              end_of_life_date: Optional[pulumi.Input[str]] = None,
              eula: Optional[pulumi.Input[str]] = None,
@@ -65,15 +65,19 @@ class GalleryApplicationArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'galleryId' in kwargs:
+        if gallery_id is None and 'galleryId' in kwargs:
             gallery_id = kwargs['galleryId']
-        if 'supportedOsType' in kwargs:
+        if gallery_id is None:
+            raise TypeError("Missing 'gallery_id' argument")
+        if supported_os_type is None and 'supportedOsType' in kwargs:
             supported_os_type = kwargs['supportedOsType']
-        if 'endOfLifeDate' in kwargs:
+        if supported_os_type is None:
+            raise TypeError("Missing 'supported_os_type' argument")
+        if end_of_life_date is None and 'endOfLifeDate' in kwargs:
             end_of_life_date = kwargs['endOfLifeDate']
-        if 'privacyStatementUri' in kwargs:
+        if privacy_statement_uri is None and 'privacyStatementUri' in kwargs:
             privacy_statement_uri = kwargs['privacyStatementUri']
-        if 'releaseNoteUri' in kwargs:
+        if release_note_uri is None and 'releaseNoteUri' in kwargs:
             release_note_uri = kwargs['releaseNoteUri']
 
         _setter("gallery_id", gallery_id)
@@ -270,15 +274,15 @@ class _GalleryApplicationState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'endOfLifeDate' in kwargs:
+        if end_of_life_date is None and 'endOfLifeDate' in kwargs:
             end_of_life_date = kwargs['endOfLifeDate']
-        if 'galleryId' in kwargs:
+        if gallery_id is None and 'galleryId' in kwargs:
             gallery_id = kwargs['galleryId']
-        if 'privacyStatementUri' in kwargs:
+        if privacy_statement_uri is None and 'privacyStatementUri' in kwargs:
             privacy_statement_uri = kwargs['privacyStatementUri']
-        if 'releaseNoteUri' in kwargs:
+        if release_note_uri is None and 'releaseNoteUri' in kwargs:
             release_note_uri = kwargs['releaseNoteUri']
-        if 'supportedOsType' in kwargs:
+        if supported_os_type is None and 'supportedOsType' in kwargs:
             supported_os_type = kwargs['supportedOsType']
 
         if description is not None:

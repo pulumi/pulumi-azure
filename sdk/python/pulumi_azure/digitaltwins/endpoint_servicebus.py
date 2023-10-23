@@ -38,20 +38,26 @@ class EndpointServicebusArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             digital_twins_id: pulumi.Input[str],
-             servicebus_primary_connection_string: pulumi.Input[str],
-             servicebus_secondary_connection_string: pulumi.Input[str],
+             digital_twins_id: Optional[pulumi.Input[str]] = None,
+             servicebus_primary_connection_string: Optional[pulumi.Input[str]] = None,
+             servicebus_secondary_connection_string: Optional[pulumi.Input[str]] = None,
              dead_letter_storage_secret: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'digitalTwinsId' in kwargs:
+        if digital_twins_id is None and 'digitalTwinsId' in kwargs:
             digital_twins_id = kwargs['digitalTwinsId']
-        if 'servicebusPrimaryConnectionString' in kwargs:
+        if digital_twins_id is None:
+            raise TypeError("Missing 'digital_twins_id' argument")
+        if servicebus_primary_connection_string is None and 'servicebusPrimaryConnectionString' in kwargs:
             servicebus_primary_connection_string = kwargs['servicebusPrimaryConnectionString']
-        if 'servicebusSecondaryConnectionString' in kwargs:
+        if servicebus_primary_connection_string is None:
+            raise TypeError("Missing 'servicebus_primary_connection_string' argument")
+        if servicebus_secondary_connection_string is None and 'servicebusSecondaryConnectionString' in kwargs:
             servicebus_secondary_connection_string = kwargs['servicebusSecondaryConnectionString']
-        if 'deadLetterStorageSecret' in kwargs:
+        if servicebus_secondary_connection_string is None:
+            raise TypeError("Missing 'servicebus_secondary_connection_string' argument")
+        if dead_letter_storage_secret is None and 'deadLetterStorageSecret' in kwargs:
             dead_letter_storage_secret = kwargs['deadLetterStorageSecret']
 
         _setter("digital_twins_id", digital_twins_id)
@@ -157,13 +163,13 @@ class _EndpointServicebusState:
              servicebus_secondary_connection_string: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'deadLetterStorageSecret' in kwargs:
+        if dead_letter_storage_secret is None and 'deadLetterStorageSecret' in kwargs:
             dead_letter_storage_secret = kwargs['deadLetterStorageSecret']
-        if 'digitalTwinsId' in kwargs:
+        if digital_twins_id is None and 'digitalTwinsId' in kwargs:
             digital_twins_id = kwargs['digitalTwinsId']
-        if 'servicebusPrimaryConnectionString' in kwargs:
+        if servicebus_primary_connection_string is None and 'servicebusPrimaryConnectionString' in kwargs:
             servicebus_primary_connection_string = kwargs['servicebusPrimaryConnectionString']
-        if 'servicebusSecondaryConnectionString' in kwargs:
+        if servicebus_secondary_connection_string is None and 'servicebusSecondaryConnectionString' in kwargs:
             servicebus_secondary_connection_string = kwargs['servicebusSecondaryConnectionString']
 
         if dead_letter_storage_secret is not None:

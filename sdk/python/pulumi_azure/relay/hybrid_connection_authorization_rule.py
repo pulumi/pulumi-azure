@@ -44,21 +44,27 @@ class HybridConnectionAuthorizationRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             hybrid_connection_name: pulumi.Input[str],
-             namespace_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             hybrid_connection_name: Optional[pulumi.Input[str]] = None,
+             namespace_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              listen: Optional[pulumi.Input[bool]] = None,
              manage: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              send: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'hybridConnectionName' in kwargs:
+        if hybrid_connection_name is None and 'hybridConnectionName' in kwargs:
             hybrid_connection_name = kwargs['hybridConnectionName']
-        if 'namespaceName' in kwargs:
+        if hybrid_connection_name is None:
+            raise TypeError("Missing 'hybrid_connection_name' argument")
+        if namespace_name is None and 'namespaceName' in kwargs:
             namespace_name = kwargs['namespaceName']
-        if 'resourceGroupName' in kwargs:
+        if namespace_name is None:
+            raise TypeError("Missing 'namespace_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("hybrid_connection_name", hybrid_connection_name)
         _setter("namespace_name", namespace_name)
@@ -215,19 +221,19 @@ class _HybridConnectionAuthorizationRuleState:
              send: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'hybridConnectionName' in kwargs:
+        if hybrid_connection_name is None and 'hybridConnectionName' in kwargs:
             hybrid_connection_name = kwargs['hybridConnectionName']
-        if 'namespaceName' in kwargs:
+        if namespace_name is None and 'namespaceName' in kwargs:
             namespace_name = kwargs['namespaceName']
-        if 'primaryConnectionString' in kwargs:
+        if primary_connection_string is None and 'primaryConnectionString' in kwargs:
             primary_connection_string = kwargs['primaryConnectionString']
-        if 'primaryKey' in kwargs:
+        if primary_key is None and 'primaryKey' in kwargs:
             primary_key = kwargs['primaryKey']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'secondaryConnectionString' in kwargs:
+        if secondary_connection_string is None and 'secondaryConnectionString' in kwargs:
             secondary_connection_string = kwargs['secondaryConnectionString']
-        if 'secondaryKey' in kwargs:
+        if secondary_key is None and 'secondaryKey' in kwargs:
             secondary_key = kwargs['secondaryKey']
 
         if hybrid_connection_name is not None:

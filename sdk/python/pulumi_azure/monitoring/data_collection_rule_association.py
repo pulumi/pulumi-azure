@@ -42,18 +42,20 @@ class DataCollectionRuleAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             target_resource_id: pulumi.Input[str],
+             target_resource_id: Optional[pulumi.Input[str]] = None,
              data_collection_endpoint_id: Optional[pulumi.Input[str]] = None,
              data_collection_rule_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'targetResourceId' in kwargs:
+        if target_resource_id is None and 'targetResourceId' in kwargs:
             target_resource_id = kwargs['targetResourceId']
-        if 'dataCollectionEndpointId' in kwargs:
+        if target_resource_id is None:
+            raise TypeError("Missing 'target_resource_id' argument")
+        if data_collection_endpoint_id is None and 'dataCollectionEndpointId' in kwargs:
             data_collection_endpoint_id = kwargs['dataCollectionEndpointId']
-        if 'dataCollectionRuleId' in kwargs:
+        if data_collection_rule_id is None and 'dataCollectionRuleId' in kwargs:
             data_collection_rule_id = kwargs['dataCollectionRuleId']
 
         _setter("target_resource_id", target_resource_id)
@@ -169,11 +171,11 @@ class _DataCollectionRuleAssociationState:
              target_resource_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dataCollectionEndpointId' in kwargs:
+        if data_collection_endpoint_id is None and 'dataCollectionEndpointId' in kwargs:
             data_collection_endpoint_id = kwargs['dataCollectionEndpointId']
-        if 'dataCollectionRuleId' in kwargs:
+        if data_collection_rule_id is None and 'dataCollectionRuleId' in kwargs:
             data_collection_rule_id = kwargs['dataCollectionRuleId']
-        if 'targetResourceId' in kwargs:
+        if target_resource_id is None and 'targetResourceId' in kwargs:
             target_resource_id = kwargs['targetResourceId']
 
         if data_collection_endpoint_id is not None:

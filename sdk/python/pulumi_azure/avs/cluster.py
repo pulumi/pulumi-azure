@@ -35,18 +35,24 @@ class ClusterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cluster_node_count: pulumi.Input[int],
-             sku_name: pulumi.Input[str],
-             vmware_cloud_id: pulumi.Input[str],
+             cluster_node_count: Optional[pulumi.Input[int]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
+             vmware_cloud_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clusterNodeCount' in kwargs:
+        if cluster_node_count is None and 'clusterNodeCount' in kwargs:
             cluster_node_count = kwargs['clusterNodeCount']
-        if 'skuName' in kwargs:
+        if cluster_node_count is None:
+            raise TypeError("Missing 'cluster_node_count' argument")
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'vmwareCloudId' in kwargs:
+        if sku_name is None:
+            raise TypeError("Missing 'sku_name' argument")
+        if vmware_cloud_id is None and 'vmwareCloudId' in kwargs:
             vmware_cloud_id = kwargs['vmwareCloudId']
+        if vmware_cloud_id is None:
+            raise TypeError("Missing 'vmware_cloud_id' argument")
 
         _setter("cluster_node_count", cluster_node_count)
         _setter("sku_name", sku_name)
@@ -141,13 +147,13 @@ class _ClusterState:
              vmware_cloud_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clusterNodeCount' in kwargs:
+        if cluster_node_count is None and 'clusterNodeCount' in kwargs:
             cluster_node_count = kwargs['clusterNodeCount']
-        if 'clusterNumber' in kwargs:
+        if cluster_number is None and 'clusterNumber' in kwargs:
             cluster_number = kwargs['clusterNumber']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'vmwareCloudId' in kwargs:
+        if vmware_cloud_id is None and 'vmwareCloudId' in kwargs:
             vmware_cloud_id = kwargs['vmwareCloudId']
 
         if cluster_node_count is not None:

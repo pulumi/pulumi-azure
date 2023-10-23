@@ -32,16 +32,18 @@ class PolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_management_id: pulumi.Input[str],
+             api_management_id: Optional[pulumi.Input[str]] = None,
              xml_content: Optional[pulumi.Input[str]] = None,
              xml_link: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'apiManagementId' in kwargs:
+        if api_management_id is None and 'apiManagementId' in kwargs:
             api_management_id = kwargs['apiManagementId']
-        if 'xmlContent' in kwargs:
+        if api_management_id is None:
+            raise TypeError("Missing 'api_management_id' argument")
+        if xml_content is None and 'xmlContent' in kwargs:
             xml_content = kwargs['xmlContent']
-        if 'xmlLink' in kwargs:
+        if xml_link is None and 'xmlLink' in kwargs:
             xml_link = kwargs['xmlLink']
 
         _setter("api_management_id", api_management_id)
@@ -113,11 +115,11 @@ class _PolicyState:
              xml_link: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'apiManagementId' in kwargs:
+        if api_management_id is None and 'apiManagementId' in kwargs:
             api_management_id = kwargs['apiManagementId']
-        if 'xmlContent' in kwargs:
+        if xml_content is None and 'xmlContent' in kwargs:
             xml_content = kwargs['xmlContent']
-        if 'xmlLink' in kwargs:
+        if xml_link is None and 'xmlLink' in kwargs:
             xml_link = kwargs['xmlLink']
 
         if api_management_id is not None:

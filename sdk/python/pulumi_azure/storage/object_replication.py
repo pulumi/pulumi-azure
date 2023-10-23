@@ -34,15 +34,21 @@ class ObjectReplicationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             destination_storage_account_id: pulumi.Input[str],
-             rules: pulumi.Input[Sequence[pulumi.Input['ObjectReplicationRuleArgs']]],
-             source_storage_account_id: pulumi.Input[str],
+             destination_storage_account_id: Optional[pulumi.Input[str]] = None,
+             rules: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectReplicationRuleArgs']]]] = None,
+             source_storage_account_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'destinationStorageAccountId' in kwargs:
+        if destination_storage_account_id is None and 'destinationStorageAccountId' in kwargs:
             destination_storage_account_id = kwargs['destinationStorageAccountId']
-        if 'sourceStorageAccountId' in kwargs:
+        if destination_storage_account_id is None:
+            raise TypeError("Missing 'destination_storage_account_id' argument")
+        if rules is None:
+            raise TypeError("Missing 'rules' argument")
+        if source_storage_account_id is None and 'sourceStorageAccountId' in kwargs:
             source_storage_account_id = kwargs['sourceStorageAccountId']
+        if source_storage_account_id is None:
+            raise TypeError("Missing 'source_storage_account_id' argument")
 
         _setter("destination_storage_account_id", destination_storage_account_id)
         _setter("rules", rules)
@@ -119,13 +125,13 @@ class _ObjectReplicationState:
              source_storage_account_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'destinationObjectReplicationId' in kwargs:
+        if destination_object_replication_id is None and 'destinationObjectReplicationId' in kwargs:
             destination_object_replication_id = kwargs['destinationObjectReplicationId']
-        if 'destinationStorageAccountId' in kwargs:
+        if destination_storage_account_id is None and 'destinationStorageAccountId' in kwargs:
             destination_storage_account_id = kwargs['destinationStorageAccountId']
-        if 'sourceObjectReplicationId' in kwargs:
+        if source_object_replication_id is None and 'sourceObjectReplicationId' in kwargs:
             source_object_replication_id = kwargs['sourceObjectReplicationId']
-        if 'sourceStorageAccountId' in kwargs:
+        if source_storage_account_id is None and 'sourceStorageAccountId' in kwargs:
             source_storage_account_id = kwargs['sourceStorageAccountId']
 
         if destination_object_replication_id is not None:

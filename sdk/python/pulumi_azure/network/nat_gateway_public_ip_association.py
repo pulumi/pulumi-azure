@@ -29,14 +29,18 @@ class NatGatewayPublicIpAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             nat_gateway_id: pulumi.Input[str],
-             public_ip_address_id: pulumi.Input[str],
+             nat_gateway_id: Optional[pulumi.Input[str]] = None,
+             public_ip_address_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'natGatewayId' in kwargs:
+        if nat_gateway_id is None and 'natGatewayId' in kwargs:
             nat_gateway_id = kwargs['natGatewayId']
-        if 'publicIpAddressId' in kwargs:
+        if nat_gateway_id is None:
+            raise TypeError("Missing 'nat_gateway_id' argument")
+        if public_ip_address_id is None and 'publicIpAddressId' in kwargs:
             public_ip_address_id = kwargs['publicIpAddressId']
+        if public_ip_address_id is None:
+            raise TypeError("Missing 'public_ip_address_id' argument")
 
         _setter("nat_gateway_id", nat_gateway_id)
         _setter("public_ip_address_id", public_ip_address_id)
@@ -88,9 +92,9 @@ class _NatGatewayPublicIpAssociationState:
              public_ip_address_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'natGatewayId' in kwargs:
+        if nat_gateway_id is None and 'natGatewayId' in kwargs:
             nat_gateway_id = kwargs['natGatewayId']
-        if 'publicIpAddressId' in kwargs:
+        if public_ip_address_id is None and 'publicIpAddressId' in kwargs:
             public_ip_address_id = kwargs['publicIpAddressId']
 
         if nat_gateway_id is not None:

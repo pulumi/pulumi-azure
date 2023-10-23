@@ -47,7 +47,7 @@ class GroupTemplateDeploymentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             management_group_id: pulumi.Input[str],
+             management_group_id: Optional[pulumi.Input[str]] = None,
              debug_level: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
@@ -57,15 +57,17 @@ class GroupTemplateDeploymentArgs:
              template_spec_version_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'managementGroupId' in kwargs:
+        if management_group_id is None and 'managementGroupId' in kwargs:
             management_group_id = kwargs['managementGroupId']
-        if 'debugLevel' in kwargs:
+        if management_group_id is None:
+            raise TypeError("Missing 'management_group_id' argument")
+        if debug_level is None and 'debugLevel' in kwargs:
             debug_level = kwargs['debugLevel']
-        if 'parametersContent' in kwargs:
+        if parameters_content is None and 'parametersContent' in kwargs:
             parameters_content = kwargs['parametersContent']
-        if 'templateContent' in kwargs:
+        if template_content is None and 'templateContent' in kwargs:
             template_content = kwargs['templateContent']
-        if 'templateSpecVersionId' in kwargs:
+        if template_spec_version_id is None and 'templateSpecVersionId' in kwargs:
             template_spec_version_id = kwargs['templateSpecVersionId']
 
         _setter("management_group_id", management_group_id)
@@ -231,17 +233,17 @@ class _GroupTemplateDeploymentState:
              template_spec_version_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'debugLevel' in kwargs:
+        if debug_level is None and 'debugLevel' in kwargs:
             debug_level = kwargs['debugLevel']
-        if 'managementGroupId' in kwargs:
+        if management_group_id is None and 'managementGroupId' in kwargs:
             management_group_id = kwargs['managementGroupId']
-        if 'outputContent' in kwargs:
+        if output_content is None and 'outputContent' in kwargs:
             output_content = kwargs['outputContent']
-        if 'parametersContent' in kwargs:
+        if parameters_content is None and 'parametersContent' in kwargs:
             parameters_content = kwargs['parametersContent']
-        if 'templateContent' in kwargs:
+        if template_content is None and 'templateContent' in kwargs:
             template_content = kwargs['templateContent']
-        if 'templateSpecVersionId' in kwargs:
+        if template_spec_version_id is None and 'templateSpecVersionId' in kwargs:
             template_spec_version_id = kwargs['templateSpecVersionId']
 
         if debug_level is not None:

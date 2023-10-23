@@ -29,13 +29,15 @@ class VirtualNetworkDnsServersArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             virtual_network_id: pulumi.Input[str],
+             virtual_network_id: Optional[pulumi.Input[str]] = None,
              dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'virtualNetworkId' in kwargs:
+        if virtual_network_id is None and 'virtualNetworkId' in kwargs:
             virtual_network_id = kwargs['virtualNetworkId']
-        if 'dnsServers' in kwargs:
+        if virtual_network_id is None:
+            raise TypeError("Missing 'virtual_network_id' argument")
+        if dns_servers is None and 'dnsServers' in kwargs:
             dns_servers = kwargs['dnsServers']
 
         _setter("virtual_network_id", virtual_network_id)
@@ -89,9 +91,9 @@ class _VirtualNetworkDnsServersState:
              virtual_network_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dnsServers' in kwargs:
+        if dns_servers is None and 'dnsServers' in kwargs:
             dns_servers = kwargs['dnsServers']
-        if 'virtualNetworkId' in kwargs:
+        if virtual_network_id is None and 'virtualNetworkId' in kwargs:
             virtual_network_id = kwargs['virtualNetworkId']
 
         if dns_servers is not None:

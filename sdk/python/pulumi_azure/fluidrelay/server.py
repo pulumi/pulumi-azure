@@ -43,7 +43,7 @@ class ServerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              identity: Optional[pulumi.Input['ServerIdentityArgs']] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
@@ -51,9 +51,11 @@ class ServerArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'storageSku' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if storage_sku is None and 'storageSku' in kwargs:
             storage_sku = kwargs['storageSku']
 
         _setter("resource_group_name", resource_group_name)
@@ -203,21 +205,21 @@ class _ServerState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'frsTenantId' in kwargs:
+        if frs_tenant_id is None and 'frsTenantId' in kwargs:
             frs_tenant_id = kwargs['frsTenantId']
-        if 'ordererEndpoints' in kwargs:
+        if orderer_endpoints is None and 'ordererEndpoints' in kwargs:
             orderer_endpoints = kwargs['ordererEndpoints']
-        if 'primaryKey' in kwargs:
+        if primary_key is None and 'primaryKey' in kwargs:
             primary_key = kwargs['primaryKey']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'secondaryKey' in kwargs:
+        if secondary_key is None and 'secondaryKey' in kwargs:
             secondary_key = kwargs['secondaryKey']
-        if 'serviceEndpoints' in kwargs:
+        if service_endpoints is None and 'serviceEndpoints' in kwargs:
             service_endpoints = kwargs['serviceEndpoints']
-        if 'storageEndpoints' in kwargs:
+        if storage_endpoints is None and 'storageEndpoints' in kwargs:
             storage_endpoints = kwargs['storageEndpoints']
-        if 'storageSku' in kwargs:
+        if storage_sku is None and 'storageSku' in kwargs:
             storage_sku = kwargs['storageSku']
 
         if frs_tenant_id is not None:

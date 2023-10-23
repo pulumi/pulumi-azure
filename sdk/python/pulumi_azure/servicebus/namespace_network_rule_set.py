@@ -45,7 +45,7 @@ class NamespaceNetworkRuleSetInitArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             namespace_id: pulumi.Input[str],
+             namespace_id: Optional[pulumi.Input[str]] = None,
              default_action: Optional[pulumi.Input[str]] = None,
              ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgs']]]] = None,
@@ -53,17 +53,19 @@ class NamespaceNetworkRuleSetInitArgs:
              trusted_services_allowed: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'namespaceId' in kwargs:
+        if namespace_id is None and 'namespaceId' in kwargs:
             namespace_id = kwargs['namespaceId']
-        if 'defaultAction' in kwargs:
+        if namespace_id is None:
+            raise TypeError("Missing 'namespace_id' argument")
+        if default_action is None and 'defaultAction' in kwargs:
             default_action = kwargs['defaultAction']
-        if 'ipRules' in kwargs:
+        if ip_rules is None and 'ipRules' in kwargs:
             ip_rules = kwargs['ipRules']
-        if 'networkRules' in kwargs:
+        if network_rules is None and 'networkRules' in kwargs:
             network_rules = kwargs['networkRules']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'trustedServicesAllowed' in kwargs:
+        if trusted_services_allowed is None and 'trustedServicesAllowed' in kwargs:
             trusted_services_allowed = kwargs['trustedServicesAllowed']
 
         _setter("namespace_id", namespace_id)
@@ -193,17 +195,17 @@ class _NamespaceNetworkRuleSetState:
              trusted_services_allowed: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'defaultAction' in kwargs:
+        if default_action is None and 'defaultAction' in kwargs:
             default_action = kwargs['defaultAction']
-        if 'ipRules' in kwargs:
+        if ip_rules is None and 'ipRules' in kwargs:
             ip_rules = kwargs['ipRules']
-        if 'namespaceId' in kwargs:
+        if namespace_id is None and 'namespaceId' in kwargs:
             namespace_id = kwargs['namespaceId']
-        if 'networkRules' in kwargs:
+        if network_rules is None and 'networkRules' in kwargs:
             network_rules = kwargs['networkRules']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'trustedServicesAllowed' in kwargs:
+        if trusted_services_allowed is None and 'trustedServicesAllowed' in kwargs:
             trusted_services_allowed = kwargs['trustedServicesAllowed']
 
         if default_action is not None:

@@ -38,19 +38,25 @@ class NetworkManagerScopeConnectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             network_manager_id: pulumi.Input[str],
-             target_scope_id: pulumi.Input[str],
-             tenant_id: pulumi.Input[str],
+             network_manager_id: Optional[pulumi.Input[str]] = None,
+             target_scope_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'networkManagerId' in kwargs:
+        if network_manager_id is None and 'networkManagerId' in kwargs:
             network_manager_id = kwargs['networkManagerId']
-        if 'targetScopeId' in kwargs:
+        if network_manager_id is None:
+            raise TypeError("Missing 'network_manager_id' argument")
+        if target_scope_id is None and 'targetScopeId' in kwargs:
             target_scope_id = kwargs['targetScopeId']
-        if 'tenantId' in kwargs:
+        if target_scope_id is None:
+            raise TypeError("Missing 'target_scope_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
 
         _setter("network_manager_id", network_manager_id)
         _setter("target_scope_id", target_scope_id)
@@ -159,13 +165,13 @@ class _NetworkManagerScopeConnectionState:
              tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'connectionState' in kwargs:
+        if connection_state is None and 'connectionState' in kwargs:
             connection_state = kwargs['connectionState']
-        if 'networkManagerId' in kwargs:
+        if network_manager_id is None and 'networkManagerId' in kwargs:
             network_manager_id = kwargs['networkManagerId']
-        if 'targetScopeId' in kwargs:
+        if target_scope_id is None and 'targetScopeId' in kwargs:
             target_scope_id = kwargs['targetScopeId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         if connection_state is not None:

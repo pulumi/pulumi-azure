@@ -51,21 +51,29 @@ class BudgetSubscriptionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             amount: pulumi.Input[float],
-             notifications: pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionNotificationArgs']]],
-             subscription_id: pulumi.Input[str],
-             time_period: pulumi.Input['BudgetSubscriptionTimePeriodArgs'],
+             amount: Optional[pulumi.Input[float]] = None,
+             notifications: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionNotificationArgs']]]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
+             time_period: Optional[pulumi.Input['BudgetSubscriptionTimePeriodArgs']] = None,
              etag: Optional[pulumi.Input[str]] = None,
              filter: Optional[pulumi.Input['BudgetSubscriptionFilterArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              time_grain: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'subscriptionId' in kwargs:
+        if amount is None:
+            raise TypeError("Missing 'amount' argument")
+        if notifications is None:
+            raise TypeError("Missing 'notifications' argument")
+        if subscription_id is None and 'subscriptionId' in kwargs:
             subscription_id = kwargs['subscriptionId']
-        if 'timePeriod' in kwargs:
+        if subscription_id is None:
+            raise TypeError("Missing 'subscription_id' argument")
+        if time_period is None and 'timePeriod' in kwargs:
             time_period = kwargs['timePeriod']
-        if 'timeGrain' in kwargs:
+        if time_period is None:
+            raise TypeError("Missing 'time_period' argument")
+        if time_grain is None and 'timeGrain' in kwargs:
             time_grain = kwargs['timeGrain']
 
         _setter("amount", amount)
@@ -228,11 +236,11 @@ class _BudgetSubscriptionState:
              time_period: Optional[pulumi.Input['BudgetSubscriptionTimePeriodArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'subscriptionId' in kwargs:
+        if subscription_id is None and 'subscriptionId' in kwargs:
             subscription_id = kwargs['subscriptionId']
-        if 'timeGrain' in kwargs:
+        if time_grain is None and 'timeGrain' in kwargs:
             time_grain = kwargs['timeGrain']
-        if 'timePeriod' in kwargs:
+        if time_period is None and 'timePeriod' in kwargs:
             time_period = kwargs['timePeriod']
 
         if amount is not None:

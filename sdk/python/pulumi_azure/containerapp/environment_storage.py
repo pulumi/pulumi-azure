@@ -41,24 +41,34 @@ class EnvironmentStorageArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             access_key: pulumi.Input[str],
-             access_mode: pulumi.Input[str],
-             account_name: pulumi.Input[str],
-             container_app_environment_id: pulumi.Input[str],
-             share_name: pulumi.Input[str],
+             access_key: Optional[pulumi.Input[str]] = None,
+             access_mode: Optional[pulumi.Input[str]] = None,
+             account_name: Optional[pulumi.Input[str]] = None,
+             container_app_environment_id: Optional[pulumi.Input[str]] = None,
+             share_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accessKey' in kwargs:
+        if access_key is None and 'accessKey' in kwargs:
             access_key = kwargs['accessKey']
-        if 'accessMode' in kwargs:
+        if access_key is None:
+            raise TypeError("Missing 'access_key' argument")
+        if access_mode is None and 'accessMode' in kwargs:
             access_mode = kwargs['accessMode']
-        if 'accountName' in kwargs:
+        if access_mode is None:
+            raise TypeError("Missing 'access_mode' argument")
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'containerAppEnvironmentId' in kwargs:
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if container_app_environment_id is None and 'containerAppEnvironmentId' in kwargs:
             container_app_environment_id = kwargs['containerAppEnvironmentId']
-        if 'shareName' in kwargs:
+        if container_app_environment_id is None:
+            raise TypeError("Missing 'container_app_environment_id' argument")
+        if share_name is None and 'shareName' in kwargs:
             share_name = kwargs['shareName']
+        if share_name is None:
+            raise TypeError("Missing 'share_name' argument")
 
         _setter("access_key", access_key)
         _setter("access_mode", access_mode)
@@ -179,15 +189,15 @@ class _EnvironmentStorageState:
              share_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accessKey' in kwargs:
+        if access_key is None and 'accessKey' in kwargs:
             access_key = kwargs['accessKey']
-        if 'accessMode' in kwargs:
+        if access_mode is None and 'accessMode' in kwargs:
             access_mode = kwargs['accessMode']
-        if 'accountName' in kwargs:
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'containerAppEnvironmentId' in kwargs:
+        if container_app_environment_id is None and 'containerAppEnvironmentId' in kwargs:
             container_app_environment_id = kwargs['containerAppEnvironmentId']
-        if 'shareName' in kwargs:
+        if share_name is None and 'shareName' in kwargs:
             share_name = kwargs['shareName']
 
         if access_key is not None:

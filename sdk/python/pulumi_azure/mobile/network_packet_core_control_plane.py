@@ -76,10 +76,10 @@ class NetworkPacketCoreControlPlaneArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             local_diagnostics_access: pulumi.Input['NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs'],
-             resource_group_name: pulumi.Input[str],
-             site_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             sku: pulumi.Input[str],
+             local_diagnostics_access: Optional[pulumi.Input['NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             site_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
              control_plane_access_ipv4_address: Optional[pulumi.Input[str]] = None,
              control_plane_access_ipv4_gateway: Optional[pulumi.Input[str]] = None,
              control_plane_access_ipv4_subnet: Optional[pulumi.Input[str]] = None,
@@ -95,27 +95,35 @@ class NetworkPacketCoreControlPlaneArgs:
              user_equipment_mtu_in_bytes: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'localDiagnosticsAccess' in kwargs:
+        if local_diagnostics_access is None and 'localDiagnosticsAccess' in kwargs:
             local_diagnostics_access = kwargs['localDiagnosticsAccess']
-        if 'resourceGroupName' in kwargs:
+        if local_diagnostics_access is None:
+            raise TypeError("Missing 'local_diagnostics_access' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'siteIds' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if site_ids is None and 'siteIds' in kwargs:
             site_ids = kwargs['siteIds']
-        if 'controlPlaneAccessIpv4Address' in kwargs:
+        if site_ids is None:
+            raise TypeError("Missing 'site_ids' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if control_plane_access_ipv4_address is None and 'controlPlaneAccessIpv4Address' in kwargs:
             control_plane_access_ipv4_address = kwargs['controlPlaneAccessIpv4Address']
-        if 'controlPlaneAccessIpv4Gateway' in kwargs:
+        if control_plane_access_ipv4_gateway is None and 'controlPlaneAccessIpv4Gateway' in kwargs:
             control_plane_access_ipv4_gateway = kwargs['controlPlaneAccessIpv4Gateway']
-        if 'controlPlaneAccessIpv4Subnet' in kwargs:
+        if control_plane_access_ipv4_subnet is None and 'controlPlaneAccessIpv4Subnet' in kwargs:
             control_plane_access_ipv4_subnet = kwargs['controlPlaneAccessIpv4Subnet']
-        if 'controlPlaneAccessName' in kwargs:
+        if control_plane_access_name is None and 'controlPlaneAccessName' in kwargs:
             control_plane_access_name = kwargs['controlPlaneAccessName']
-        if 'coreNetworkTechnology' in kwargs:
+        if core_network_technology is None and 'coreNetworkTechnology' in kwargs:
             core_network_technology = kwargs['coreNetworkTechnology']
-        if 'interoperabilitySettingsJson' in kwargs:
+        if interoperability_settings_json is None and 'interoperabilitySettingsJson' in kwargs:
             interoperability_settings_json = kwargs['interoperabilitySettingsJson']
-        if 'softwareVersion' in kwargs:
+        if software_version is None and 'softwareVersion' in kwargs:
             software_version = kwargs['softwareVersion']
-        if 'userEquipmentMtuInBytes' in kwargs:
+        if user_equipment_mtu_in_bytes is None and 'userEquipmentMtuInBytes' in kwargs:
             user_equipment_mtu_in_bytes = kwargs['userEquipmentMtuInBytes']
 
         _setter("local_diagnostics_access", local_diagnostics_access)
@@ -436,27 +444,27 @@ class _NetworkPacketCoreControlPlaneState:
              user_equipment_mtu_in_bytes: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'controlPlaneAccessIpv4Address' in kwargs:
+        if control_plane_access_ipv4_address is None and 'controlPlaneAccessIpv4Address' in kwargs:
             control_plane_access_ipv4_address = kwargs['controlPlaneAccessIpv4Address']
-        if 'controlPlaneAccessIpv4Gateway' in kwargs:
+        if control_plane_access_ipv4_gateway is None and 'controlPlaneAccessIpv4Gateway' in kwargs:
             control_plane_access_ipv4_gateway = kwargs['controlPlaneAccessIpv4Gateway']
-        if 'controlPlaneAccessIpv4Subnet' in kwargs:
+        if control_plane_access_ipv4_subnet is None and 'controlPlaneAccessIpv4Subnet' in kwargs:
             control_plane_access_ipv4_subnet = kwargs['controlPlaneAccessIpv4Subnet']
-        if 'controlPlaneAccessName' in kwargs:
+        if control_plane_access_name is None and 'controlPlaneAccessName' in kwargs:
             control_plane_access_name = kwargs['controlPlaneAccessName']
-        if 'coreNetworkTechnology' in kwargs:
+        if core_network_technology is None and 'coreNetworkTechnology' in kwargs:
             core_network_technology = kwargs['coreNetworkTechnology']
-        if 'interoperabilitySettingsJson' in kwargs:
+        if interoperability_settings_json is None and 'interoperabilitySettingsJson' in kwargs:
             interoperability_settings_json = kwargs['interoperabilitySettingsJson']
-        if 'localDiagnosticsAccess' in kwargs:
+        if local_diagnostics_access is None and 'localDiagnosticsAccess' in kwargs:
             local_diagnostics_access = kwargs['localDiagnosticsAccess']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'siteIds' in kwargs:
+        if site_ids is None and 'siteIds' in kwargs:
             site_ids = kwargs['siteIds']
-        if 'softwareVersion' in kwargs:
+        if software_version is None and 'softwareVersion' in kwargs:
             software_version = kwargs['softwareVersion']
-        if 'userEquipmentMtuInBytes' in kwargs:
+        if user_equipment_mtu_in_bytes is None and 'userEquipmentMtuInBytes' in kwargs:
             user_equipment_mtu_in_bytes = kwargs['userEquipmentMtuInBytes']
 
         if control_plane_access_ipv4_address is not None:

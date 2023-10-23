@@ -54,7 +54,7 @@ class SpringCloudGatewayRouteConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             spring_cloud_gateway_id: pulumi.Input[str],
+             spring_cloud_gateway_id: Optional[pulumi.Input[str]] = None,
              filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              open_api: Optional[pulumi.Input['SpringCloudGatewayRouteConfigOpenApiArgs']] = None,
@@ -65,13 +65,15 @@ class SpringCloudGatewayRouteConfigArgs:
              sso_validation_enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'springCloudGatewayId' in kwargs:
+        if spring_cloud_gateway_id is None and 'springCloudGatewayId' in kwargs:
             spring_cloud_gateway_id = kwargs['springCloudGatewayId']
-        if 'openApi' in kwargs:
+        if spring_cloud_gateway_id is None:
+            raise TypeError("Missing 'spring_cloud_gateway_id' argument")
+        if open_api is None and 'openApi' in kwargs:
             open_api = kwargs['openApi']
-        if 'springCloudAppId' in kwargs:
+        if spring_cloud_app_id is None and 'springCloudAppId' in kwargs:
             spring_cloud_app_id = kwargs['springCloudAppId']
-        if 'ssoValidationEnabled' in kwargs:
+        if sso_validation_enabled is None and 'ssoValidationEnabled' in kwargs:
             sso_validation_enabled = kwargs['ssoValidationEnabled']
 
         _setter("spring_cloud_gateway_id", spring_cloud_gateway_id)
@@ -255,13 +257,13 @@ class _SpringCloudGatewayRouteConfigState:
              sso_validation_enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'openApi' in kwargs:
+        if open_api is None and 'openApi' in kwargs:
             open_api = kwargs['openApi']
-        if 'springCloudAppId' in kwargs:
+        if spring_cloud_app_id is None and 'springCloudAppId' in kwargs:
             spring_cloud_app_id = kwargs['springCloudAppId']
-        if 'springCloudGatewayId' in kwargs:
+        if spring_cloud_gateway_id is None and 'springCloudGatewayId' in kwargs:
             spring_cloud_gateway_id = kwargs['springCloudGatewayId']
-        if 'ssoValidationEnabled' in kwargs:
+        if sso_validation_enabled is None and 'ssoValidationEnabled' in kwargs:
             sso_validation_enabled = kwargs['ssoValidationEnabled']
 
         if filters is not None:

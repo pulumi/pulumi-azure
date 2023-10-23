@@ -46,8 +46,8 @@ class PolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             managed_rules: pulumi.Input['PolicyManagedRulesArgs'],
-             resource_group_name: pulumi.Input[str],
+             managed_rules: Optional[pulumi.Input['PolicyManagedRulesArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyCustomRuleArgs']]]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
@@ -55,13 +55,17 @@ class PolicyArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'managedRules' in kwargs:
+        if managed_rules is None and 'managedRules' in kwargs:
             managed_rules = kwargs['managedRules']
-        if 'resourceGroupName' in kwargs:
+        if managed_rules is None:
+            raise TypeError("Missing 'managed_rules' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'customRules' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if custom_rules is None and 'customRules' in kwargs:
             custom_rules = kwargs['customRules']
-        if 'policySettings' in kwargs:
+        if policy_settings is None and 'policySettings' in kwargs:
             policy_settings = kwargs['policySettings']
 
         _setter("managed_rules", managed_rules)
@@ -212,17 +216,17 @@ class _PolicyState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'customRules' in kwargs:
+        if custom_rules is None and 'customRules' in kwargs:
             custom_rules = kwargs['customRules']
-        if 'httpListenerIds' in kwargs:
+        if http_listener_ids is None and 'httpListenerIds' in kwargs:
             http_listener_ids = kwargs['httpListenerIds']
-        if 'managedRules' in kwargs:
+        if managed_rules is None and 'managedRules' in kwargs:
             managed_rules = kwargs['managedRules']
-        if 'pathBasedRuleIds' in kwargs:
+        if path_based_rule_ids is None and 'pathBasedRuleIds' in kwargs:
             path_based_rule_ids = kwargs['pathBasedRuleIds']
-        if 'policySettings' in kwargs:
+        if policy_settings is None and 'policySettings' in kwargs:
             policy_settings = kwargs['policySettings']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if custom_rules is not None:

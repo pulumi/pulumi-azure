@@ -100,9 +100,9 @@ class LinuxWebAppArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             service_plan_id: pulumi.Input[str],
-             site_config: pulumi.Input['LinuxWebAppSiteConfigArgs'],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             service_plan_id: Optional[pulumi.Input[str]] = None,
+             site_config: Optional[pulumi.Input['LinuxWebAppSiteConfigArgs']] = None,
              app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              auth_settings: Optional[pulumi.Input['LinuxWebAppAuthSettingsArgs']] = None,
              auth_settings_v2: Optional[pulumi.Input['LinuxWebAppAuthSettingsV2Args']] = None,
@@ -127,41 +127,47 @@ class LinuxWebAppArgs:
              zip_deploy_file: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'servicePlanId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if service_plan_id is None and 'servicePlanId' in kwargs:
             service_plan_id = kwargs['servicePlanId']
-        if 'siteConfig' in kwargs:
+        if service_plan_id is None:
+            raise TypeError("Missing 'service_plan_id' argument")
+        if site_config is None and 'siteConfig' in kwargs:
             site_config = kwargs['siteConfig']
-        if 'appSettings' in kwargs:
+        if site_config is None:
+            raise TypeError("Missing 'site_config' argument")
+        if app_settings is None and 'appSettings' in kwargs:
             app_settings = kwargs['appSettings']
-        if 'authSettings' in kwargs:
+        if auth_settings is None and 'authSettings' in kwargs:
             auth_settings = kwargs['authSettings']
-        if 'authSettingsV2' in kwargs:
+        if auth_settings_v2 is None and 'authSettingsV2' in kwargs:
             auth_settings_v2 = kwargs['authSettingsV2']
-        if 'clientAffinityEnabled' in kwargs:
+        if client_affinity_enabled is None and 'clientAffinityEnabled' in kwargs:
             client_affinity_enabled = kwargs['clientAffinityEnabled']
-        if 'clientCertificateEnabled' in kwargs:
+        if client_certificate_enabled is None and 'clientCertificateEnabled' in kwargs:
             client_certificate_enabled = kwargs['clientCertificateEnabled']
-        if 'clientCertificateExclusionPaths' in kwargs:
+        if client_certificate_exclusion_paths is None and 'clientCertificateExclusionPaths' in kwargs:
             client_certificate_exclusion_paths = kwargs['clientCertificateExclusionPaths']
-        if 'clientCertificateMode' in kwargs:
+        if client_certificate_mode is None and 'clientCertificateMode' in kwargs:
             client_certificate_mode = kwargs['clientCertificateMode']
-        if 'connectionStrings' in kwargs:
+        if connection_strings is None and 'connectionStrings' in kwargs:
             connection_strings = kwargs['connectionStrings']
-        if 'httpsOnly' in kwargs:
+        if https_only is None and 'httpsOnly' in kwargs:
             https_only = kwargs['httpsOnly']
-        if 'keyVaultReferenceIdentityId' in kwargs:
+        if key_vault_reference_identity_id is None and 'keyVaultReferenceIdentityId' in kwargs:
             key_vault_reference_identity_id = kwargs['keyVaultReferenceIdentityId']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'stickySettings' in kwargs:
+        if sticky_settings is None and 'stickySettings' in kwargs:
             sticky_settings = kwargs['stickySettings']
-        if 'storageAccounts' in kwargs:
+        if storage_accounts is None and 'storageAccounts' in kwargs:
             storage_accounts = kwargs['storageAccounts']
-        if 'virtualNetworkSubnetId' in kwargs:
+        if virtual_network_subnet_id is None and 'virtualNetworkSubnetId' in kwargs:
             virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
-        if 'zipDeployFile' in kwargs:
+        if zip_deploy_file is None and 'zipDeployFile' in kwargs:
             zip_deploy_file = kwargs['zipDeployFile']
 
         _setter("resource_group_name", resource_group_name)
@@ -659,57 +665,57 @@ class _LinuxWebAppState:
              zip_deploy_file: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'appSettings' in kwargs:
+        if app_settings is None and 'appSettings' in kwargs:
             app_settings = kwargs['appSettings']
-        if 'authSettings' in kwargs:
+        if auth_settings is None and 'authSettings' in kwargs:
             auth_settings = kwargs['authSettings']
-        if 'authSettingsV2' in kwargs:
+        if auth_settings_v2 is None and 'authSettingsV2' in kwargs:
             auth_settings_v2 = kwargs['authSettingsV2']
-        if 'clientAffinityEnabled' in kwargs:
+        if client_affinity_enabled is None and 'clientAffinityEnabled' in kwargs:
             client_affinity_enabled = kwargs['clientAffinityEnabled']
-        if 'clientCertificateEnabled' in kwargs:
+        if client_certificate_enabled is None and 'clientCertificateEnabled' in kwargs:
             client_certificate_enabled = kwargs['clientCertificateEnabled']
-        if 'clientCertificateExclusionPaths' in kwargs:
+        if client_certificate_exclusion_paths is None and 'clientCertificateExclusionPaths' in kwargs:
             client_certificate_exclusion_paths = kwargs['clientCertificateExclusionPaths']
-        if 'clientCertificateMode' in kwargs:
+        if client_certificate_mode is None and 'clientCertificateMode' in kwargs:
             client_certificate_mode = kwargs['clientCertificateMode']
-        if 'connectionStrings' in kwargs:
+        if connection_strings is None and 'connectionStrings' in kwargs:
             connection_strings = kwargs['connectionStrings']
-        if 'customDomainVerificationId' in kwargs:
+        if custom_domain_verification_id is None and 'customDomainVerificationId' in kwargs:
             custom_domain_verification_id = kwargs['customDomainVerificationId']
-        if 'defaultHostname' in kwargs:
+        if default_hostname is None and 'defaultHostname' in kwargs:
             default_hostname = kwargs['defaultHostname']
-        if 'hostingEnvironmentId' in kwargs:
+        if hosting_environment_id is None and 'hostingEnvironmentId' in kwargs:
             hosting_environment_id = kwargs['hostingEnvironmentId']
-        if 'httpsOnly' in kwargs:
+        if https_only is None and 'httpsOnly' in kwargs:
             https_only = kwargs['httpsOnly']
-        if 'keyVaultReferenceIdentityId' in kwargs:
+        if key_vault_reference_identity_id is None and 'keyVaultReferenceIdentityId' in kwargs:
             key_vault_reference_identity_id = kwargs['keyVaultReferenceIdentityId']
-        if 'outboundIpAddressLists' in kwargs:
+        if outbound_ip_address_lists is None and 'outboundIpAddressLists' in kwargs:
             outbound_ip_address_lists = kwargs['outboundIpAddressLists']
-        if 'outboundIpAddresses' in kwargs:
+        if outbound_ip_addresses is None and 'outboundIpAddresses' in kwargs:
             outbound_ip_addresses = kwargs['outboundIpAddresses']
-        if 'possibleOutboundIpAddressLists' in kwargs:
+        if possible_outbound_ip_address_lists is None and 'possibleOutboundIpAddressLists' in kwargs:
             possible_outbound_ip_address_lists = kwargs['possibleOutboundIpAddressLists']
-        if 'possibleOutboundIpAddresses' in kwargs:
+        if possible_outbound_ip_addresses is None and 'possibleOutboundIpAddresses' in kwargs:
             possible_outbound_ip_addresses = kwargs['possibleOutboundIpAddresses']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'servicePlanId' in kwargs:
+        if service_plan_id is None and 'servicePlanId' in kwargs:
             service_plan_id = kwargs['servicePlanId']
-        if 'siteConfig' in kwargs:
+        if site_config is None and 'siteConfig' in kwargs:
             site_config = kwargs['siteConfig']
-        if 'siteCredentials' in kwargs:
+        if site_credentials is None and 'siteCredentials' in kwargs:
             site_credentials = kwargs['siteCredentials']
-        if 'stickySettings' in kwargs:
+        if sticky_settings is None and 'stickySettings' in kwargs:
             sticky_settings = kwargs['stickySettings']
-        if 'storageAccounts' in kwargs:
+        if storage_accounts is None and 'storageAccounts' in kwargs:
             storage_accounts = kwargs['storageAccounts']
-        if 'virtualNetworkSubnetId' in kwargs:
+        if virtual_network_subnet_id is None and 'virtualNetworkSubnetId' in kwargs:
             virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
-        if 'zipDeployFile' in kwargs:
+        if zip_deploy_file is None and 'zipDeployFile' in kwargs:
             zip_deploy_file = kwargs['zipDeployFile']
 
         if app_settings is not None:

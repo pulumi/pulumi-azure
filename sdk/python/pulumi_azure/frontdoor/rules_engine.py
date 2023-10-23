@@ -40,17 +40,21 @@ class RulesEngineArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             frontdoor_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             frontdoor_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              rules: Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'frontdoorName' in kwargs:
+        if frontdoor_name is None and 'frontdoorName' in kwargs:
             frontdoor_name = kwargs['frontdoorName']
-        if 'resourceGroupName' in kwargs:
+        if frontdoor_name is None:
+            raise TypeError("Missing 'frontdoor_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("frontdoor_name", frontdoor_name)
         _setter("resource_group_name", resource_group_name)
@@ -159,9 +163,9 @@ class _RulesEngineState:
              rules: Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'frontdoorName' in kwargs:
+        if frontdoor_name is None and 'frontdoorName' in kwargs:
             frontdoor_name = kwargs['frontdoorName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if enabled is not None:

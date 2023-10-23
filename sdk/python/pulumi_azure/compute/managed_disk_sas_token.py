@@ -35,17 +35,23 @@ class ManagedDiskSasTokenArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             access_level: pulumi.Input[str],
-             duration_in_seconds: pulumi.Input[int],
-             managed_disk_id: pulumi.Input[str],
+             access_level: Optional[pulumi.Input[str]] = None,
+             duration_in_seconds: Optional[pulumi.Input[int]] = None,
+             managed_disk_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accessLevel' in kwargs:
+        if access_level is None and 'accessLevel' in kwargs:
             access_level = kwargs['accessLevel']
-        if 'durationInSeconds' in kwargs:
+        if access_level is None:
+            raise TypeError("Missing 'access_level' argument")
+        if duration_in_seconds is None and 'durationInSeconds' in kwargs:
             duration_in_seconds = kwargs['durationInSeconds']
-        if 'managedDiskId' in kwargs:
+        if duration_in_seconds is None:
+            raise TypeError("Missing 'duration_in_seconds' argument")
+        if managed_disk_id is None and 'managedDiskId' in kwargs:
             managed_disk_id = kwargs['managedDiskId']
+        if managed_disk_id is None:
+            raise TypeError("Missing 'managed_disk_id' argument")
 
         _setter("access_level", access_level)
         _setter("duration_in_seconds", duration_in_seconds)
@@ -124,13 +130,13 @@ class _ManagedDiskSasTokenState:
              sas_url: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accessLevel' in kwargs:
+        if access_level is None and 'accessLevel' in kwargs:
             access_level = kwargs['accessLevel']
-        if 'durationInSeconds' in kwargs:
+        if duration_in_seconds is None and 'durationInSeconds' in kwargs:
             duration_in_seconds = kwargs['durationInSeconds']
-        if 'managedDiskId' in kwargs:
+        if managed_disk_id is None and 'managedDiskId' in kwargs:
             managed_disk_id = kwargs['managedDiskId']
-        if 'sasUrl' in kwargs:
+        if sas_url is None and 'sasUrl' in kwargs:
             sas_url = kwargs['sasUrl']
 
         if access_level is not None:

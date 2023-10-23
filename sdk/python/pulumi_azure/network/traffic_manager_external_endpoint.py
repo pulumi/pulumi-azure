@@ -55,8 +55,8 @@ class TrafficManagerExternalEndpointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             profile_id: pulumi.Input[str],
-             target: pulumi.Input[str],
+             profile_id: Optional[pulumi.Input[str]] = None,
+             target: Optional[pulumi.Input[str]] = None,
              custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerExternalEndpointCustomHeaderArgs']]]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              endpoint_location: Optional[pulumi.Input[str]] = None,
@@ -67,13 +67,17 @@ class TrafficManagerExternalEndpointArgs:
              weight: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'profileId' in kwargs:
+        if profile_id is None and 'profileId' in kwargs:
             profile_id = kwargs['profileId']
-        if 'customHeaders' in kwargs:
+        if profile_id is None:
+            raise TypeError("Missing 'profile_id' argument")
+        if target is None:
+            raise TypeError("Missing 'target' argument")
+        if custom_headers is None and 'customHeaders' in kwargs:
             custom_headers = kwargs['customHeaders']
-        if 'endpointLocation' in kwargs:
+        if endpoint_location is None and 'endpointLocation' in kwargs:
             endpoint_location = kwargs['endpointLocation']
-        if 'geoMappings' in kwargs:
+        if geo_mappings is None and 'geoMappings' in kwargs:
             geo_mappings = kwargs['geoMappings']
 
         _setter("profile_id", profile_id)
@@ -270,13 +274,13 @@ class _TrafficManagerExternalEndpointState:
              weight: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'customHeaders' in kwargs:
+        if custom_headers is None and 'customHeaders' in kwargs:
             custom_headers = kwargs['customHeaders']
-        if 'endpointLocation' in kwargs:
+        if endpoint_location is None and 'endpointLocation' in kwargs:
             endpoint_location = kwargs['endpointLocation']
-        if 'geoMappings' in kwargs:
+        if geo_mappings is None and 'geoMappings' in kwargs:
             geo_mappings = kwargs['geoMappings']
-        if 'profileId' in kwargs:
+        if profile_id is None and 'profileId' in kwargs:
             profile_id = kwargs['profileId']
 
         if custom_headers is not None:

@@ -45,7 +45,7 @@ class DataLakeGen2FilesystemArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             storage_account_id: pulumi.Input[str],
+             storage_account_id: Optional[pulumi.Input[str]] = None,
              aces: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeGen2FilesystemAceArgs']]]] = None,
              group: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
@@ -53,8 +53,10 @@ class DataLakeGen2FilesystemArgs:
              properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
+        if storage_account_id is None:
+            raise TypeError("Missing 'storage_account_id' argument")
 
         _setter("storage_account_id", storage_account_id)
         if aces is not None:
@@ -183,7 +185,7 @@ class _DataLakeGen2FilesystemState:
              storage_account_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
 
         if aces is not None:

@@ -66,10 +66,10 @@ class StandardWebTestArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_insights_id: pulumi.Input[str],
-             geo_locations: pulumi.Input[Sequence[pulumi.Input[str]]],
-             request: pulumi.Input['StandardWebTestRequestArgs'],
-             resource_group_name: pulumi.Input[str],
+             application_insights_id: Optional[pulumi.Input[str]] = None,
+             geo_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             request: Optional[pulumi.Input['StandardWebTestRequestArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              frequency: Optional[pulumi.Input[int]] = None,
@@ -81,15 +81,23 @@ class StandardWebTestArgs:
              validation_rules: Optional[pulumi.Input['StandardWebTestValidationRulesArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'applicationInsightsId' in kwargs:
+        if application_insights_id is None and 'applicationInsightsId' in kwargs:
             application_insights_id = kwargs['applicationInsightsId']
-        if 'geoLocations' in kwargs:
+        if application_insights_id is None:
+            raise TypeError("Missing 'application_insights_id' argument")
+        if geo_locations is None and 'geoLocations' in kwargs:
             geo_locations = kwargs['geoLocations']
-        if 'resourceGroupName' in kwargs:
+        if geo_locations is None:
+            raise TypeError("Missing 'geo_locations' argument")
+        if request is None:
+            raise TypeError("Missing 'request' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'retryEnabled' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if retry_enabled is None and 'retryEnabled' in kwargs:
             retry_enabled = kwargs['retryEnabled']
-        if 'validationRules' in kwargs:
+        if validation_rules is None and 'validationRules' in kwargs:
             validation_rules = kwargs['validationRules']
 
         _setter("application_insights_id", application_insights_id)
@@ -346,17 +354,17 @@ class _StandardWebTestState:
              validation_rules: Optional[pulumi.Input['StandardWebTestValidationRulesArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'applicationInsightsId' in kwargs:
+        if application_insights_id is None and 'applicationInsightsId' in kwargs:
             application_insights_id = kwargs['applicationInsightsId']
-        if 'geoLocations' in kwargs:
+        if geo_locations is None and 'geoLocations' in kwargs:
             geo_locations = kwargs['geoLocations']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'retryEnabled' in kwargs:
+        if retry_enabled is None and 'retryEnabled' in kwargs:
             retry_enabled = kwargs['retryEnabled']
-        if 'syntheticMonitorId' in kwargs:
+        if synthetic_monitor_id is None and 'syntheticMonitorId' in kwargs:
             synthetic_monitor_id = kwargs['syntheticMonitorId']
-        if 'validationRules' in kwargs:
+        if validation_rules is None and 'validationRules' in kwargs:
             validation_rules = kwargs['validationRules']
 
         if application_insights_id is not None:

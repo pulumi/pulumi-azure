@@ -26,11 +26,13 @@ class AutoProvisioningArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             auto_provision: pulumi.Input[str],
+             auto_provision: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'autoProvision' in kwargs:
+        if auto_provision is None and 'autoProvision' in kwargs:
             auto_provision = kwargs['autoProvision']
+        if auto_provision is None:
+            raise TypeError("Missing 'auto_provision' argument")
 
         _setter("auto_provision", auto_provision)
 
@@ -65,7 +67,7 @@ class _AutoProvisioningState:
              auto_provision: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'autoProvision' in kwargs:
+        if auto_provision is None and 'autoProvision' in kwargs:
             auto_provision = kwargs['autoProvision']
 
         if auto_provision is not None:

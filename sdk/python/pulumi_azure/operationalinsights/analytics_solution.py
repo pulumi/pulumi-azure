@@ -46,23 +46,33 @@ class AnalyticsSolutionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             plan: pulumi.Input['AnalyticsSolutionPlanArgs'],
-             resource_group_name: pulumi.Input[str],
-             solution_name: pulumi.Input[str],
-             workspace_name: pulumi.Input[str],
-             workspace_resource_id: pulumi.Input[str],
+             plan: Optional[pulumi.Input['AnalyticsSolutionPlanArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             solution_name: Optional[pulumi.Input[str]] = None,
+             workspace_name: Optional[pulumi.Input[str]] = None,
+             workspace_resource_id: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if plan is None:
+            raise TypeError("Missing 'plan' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'solutionName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if solution_name is None and 'solutionName' in kwargs:
             solution_name = kwargs['solutionName']
-        if 'workspaceName' in kwargs:
+        if solution_name is None:
+            raise TypeError("Missing 'solution_name' argument")
+        if workspace_name is None and 'workspaceName' in kwargs:
             workspace_name = kwargs['workspaceName']
-        if 'workspaceResourceId' in kwargs:
+        if workspace_name is None:
+            raise TypeError("Missing 'workspace_name' argument")
+        if workspace_resource_id is None and 'workspaceResourceId' in kwargs:
             workspace_resource_id = kwargs['workspaceResourceId']
+        if workspace_resource_id is None:
+            raise TypeError("Missing 'workspace_resource_id' argument")
 
         _setter("plan", plan)
         _setter("resource_group_name", resource_group_name)
@@ -201,13 +211,13 @@ class _AnalyticsSolutionState:
              workspace_resource_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'solutionName' in kwargs:
+        if solution_name is None and 'solutionName' in kwargs:
             solution_name = kwargs['solutionName']
-        if 'workspaceName' in kwargs:
+        if workspace_name is None and 'workspaceName' in kwargs:
             workspace_name = kwargs['workspaceName']
-        if 'workspaceResourceId' in kwargs:
+        if workspace_resource_id is None and 'workspaceResourceId' in kwargs:
             workspace_resource_id = kwargs['workspaceResourceId']
 
         if location is not None:

@@ -43,23 +43,29 @@ class DatasetBlobStorageArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             container_name: pulumi.Input[str],
-             data_share_id: pulumi.Input[str],
-             storage_account: pulumi.Input['DatasetBlobStorageStorageAccountArgs'],
+             container_name: Optional[pulumi.Input[str]] = None,
+             data_share_id: Optional[pulumi.Input[str]] = None,
+             storage_account: Optional[pulumi.Input['DatasetBlobStorageStorageAccountArgs']] = None,
              file_path: Optional[pulumi.Input[str]] = None,
              folder_path: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'containerName' in kwargs:
+        if container_name is None and 'containerName' in kwargs:
             container_name = kwargs['containerName']
-        if 'dataShareId' in kwargs:
+        if container_name is None:
+            raise TypeError("Missing 'container_name' argument")
+        if data_share_id is None and 'dataShareId' in kwargs:
             data_share_id = kwargs['dataShareId']
-        if 'storageAccount' in kwargs:
+        if data_share_id is None:
+            raise TypeError("Missing 'data_share_id' argument")
+        if storage_account is None and 'storageAccount' in kwargs:
             storage_account = kwargs['storageAccount']
-        if 'filePath' in kwargs:
+        if storage_account is None:
+            raise TypeError("Missing 'storage_account' argument")
+        if file_path is None and 'filePath' in kwargs:
             file_path = kwargs['filePath']
-        if 'folderPath' in kwargs:
+        if folder_path is None and 'folderPath' in kwargs:
             folder_path = kwargs['folderPath']
 
         _setter("container_name", container_name)
@@ -187,17 +193,17 @@ class _DatasetBlobStorageState:
              storage_account: Optional[pulumi.Input['DatasetBlobStorageStorageAccountArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'containerName' in kwargs:
+        if container_name is None and 'containerName' in kwargs:
             container_name = kwargs['containerName']
-        if 'dataShareId' in kwargs:
+        if data_share_id is None and 'dataShareId' in kwargs:
             data_share_id = kwargs['dataShareId']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'filePath' in kwargs:
+        if file_path is None and 'filePath' in kwargs:
             file_path = kwargs['filePath']
-        if 'folderPath' in kwargs:
+        if folder_path is None and 'folderPath' in kwargs:
             folder_path = kwargs['folderPath']
-        if 'storageAccount' in kwargs:
+        if storage_account is None and 'storageAccount' in kwargs:
             storage_account = kwargs['storageAccount']
 
         if container_name is not None:

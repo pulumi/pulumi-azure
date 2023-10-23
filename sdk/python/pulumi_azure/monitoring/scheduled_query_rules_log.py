@@ -52,9 +52,9 @@ class ScheduledQueryRulesLogArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             criteria: pulumi.Input['ScheduledQueryRulesLogCriteriaArgs'],
-             data_source_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             criteria: Optional[pulumi.Input['ScheduledQueryRulesLogCriteriaArgs']] = None,
+             data_source_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              authorized_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              description: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
@@ -63,11 +63,17 @@ class ScheduledQueryRulesLogArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dataSourceId' in kwargs:
+        if criteria is None:
+            raise TypeError("Missing 'criteria' argument")
+        if data_source_id is None and 'dataSourceId' in kwargs:
             data_source_id = kwargs['dataSourceId']
-        if 'resourceGroupName' in kwargs:
+        if data_source_id is None:
+            raise TypeError("Missing 'data_source_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'authorizedResourceIds' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if authorized_resource_ids is None and 'authorizedResourceIds' in kwargs:
             authorized_resource_ids = kwargs['authorizedResourceIds']
 
         _setter("criteria", criteria)
@@ -245,11 +251,11 @@ class _ScheduledQueryRulesLogState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'authorizedResourceIds' in kwargs:
+        if authorized_resource_ids is None and 'authorizedResourceIds' in kwargs:
             authorized_resource_ids = kwargs['authorizedResourceIds']
-        if 'dataSourceId' in kwargs:
+        if data_source_id is None and 'dataSourceId' in kwargs:
             data_source_id = kwargs['dataSourceId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if authorized_resource_ids is not None:

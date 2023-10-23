@@ -46,20 +46,22 @@ class DataConnectorMicrosoftThreatIntelligenceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             log_analytics_workspace_id: pulumi.Input[str],
+             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
              bing_safety_phishing_url_lookback_date: Optional[pulumi.Input[str]] = None,
              microsoft_emerging_threat_feed_lookback_date: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if 'bingSafetyPhishingUrlLookbackDate' in kwargs:
+        if log_analytics_workspace_id is None:
+            raise TypeError("Missing 'log_analytics_workspace_id' argument")
+        if bing_safety_phishing_url_lookback_date is None and 'bingSafetyPhishingUrlLookbackDate' in kwargs:
             bing_safety_phishing_url_lookback_date = kwargs['bingSafetyPhishingUrlLookbackDate']
-        if 'microsoftEmergingThreatFeedLookbackDate' in kwargs:
+        if microsoft_emerging_threat_feed_lookback_date is None and 'microsoftEmergingThreatFeedLookbackDate' in kwargs:
             microsoft_emerging_threat_feed_lookback_date = kwargs['microsoftEmergingThreatFeedLookbackDate']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("log_analytics_workspace_id", log_analytics_workspace_id)
@@ -189,13 +191,13 @@ class _DataConnectorMicrosoftThreatIntelligenceState:
              tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'bingSafetyPhishingUrlLookbackDate' in kwargs:
+        if bing_safety_phishing_url_lookback_date is None and 'bingSafetyPhishingUrlLookbackDate' in kwargs:
             bing_safety_phishing_url_lookback_date = kwargs['bingSafetyPhishingUrlLookbackDate']
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if 'microsoftEmergingThreatFeedLookbackDate' in kwargs:
+        if microsoft_emerging_threat_feed_lookback_date is None and 'microsoftEmergingThreatFeedLookbackDate' in kwargs:
             microsoft_emerging_threat_feed_lookback_date = kwargs['microsoftEmergingThreatFeedLookbackDate']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         if bing_safety_phishing_url_lookback_date is not None:

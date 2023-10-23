@@ -64,11 +64,11 @@ class DefinitionPermission(dict):
              not_data_actions: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dataActions' in kwargs:
+        if data_actions is None and 'dataActions' in kwargs:
             data_actions = kwargs['dataActions']
-        if 'notActions' in kwargs:
+        if not_actions is None and 'notActions' in kwargs:
             not_actions = kwargs['notActions']
-        if 'notDataActions' in kwargs:
+        if not_data_actions is None and 'notDataActions' in kwargs:
             not_data_actions = kwargs['notDataActions']
 
         if actions is not None:
@@ -134,17 +134,21 @@ class GetRoleDefinitionPermissionResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             actions: Sequence[str],
-             not_actions: Sequence[str],
+             actions: Optional[Sequence[str]] = None,
+             not_actions: Optional[Sequence[str]] = None,
              data_actions: Optional[Sequence[str]] = None,
              not_data_actions: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'notActions' in kwargs:
+        if actions is None:
+            raise TypeError("Missing 'actions' argument")
+        if not_actions is None and 'notActions' in kwargs:
             not_actions = kwargs['notActions']
-        if 'dataActions' in kwargs:
+        if not_actions is None:
+            raise TypeError("Missing 'not_actions' argument")
+        if data_actions is None and 'dataActions' in kwargs:
             data_actions = kwargs['dataActions']
-        if 'notDataActions' in kwargs:
+        if not_data_actions is None and 'notDataActions' in kwargs:
             not_data_actions = kwargs['notDataActions']
 
         _setter("actions", actions)

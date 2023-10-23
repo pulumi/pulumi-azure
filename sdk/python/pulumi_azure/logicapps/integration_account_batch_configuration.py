@@ -43,22 +43,30 @@ class IntegrationAccountBatchConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             batch_group_name: pulumi.Input[str],
-             integration_account_name: pulumi.Input[str],
-             release_criteria: pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaArgs'],
-             resource_group_name: pulumi.Input[str],
+             batch_group_name: Optional[pulumi.Input[str]] = None,
+             integration_account_name: Optional[pulumi.Input[str]] = None,
+             release_criteria: Optional[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'batchGroupName' in kwargs:
+        if batch_group_name is None and 'batchGroupName' in kwargs:
             batch_group_name = kwargs['batchGroupName']
-        if 'integrationAccountName' in kwargs:
+        if batch_group_name is None:
+            raise TypeError("Missing 'batch_group_name' argument")
+        if integration_account_name is None and 'integrationAccountName' in kwargs:
             integration_account_name = kwargs['integrationAccountName']
-        if 'releaseCriteria' in kwargs:
+        if integration_account_name is None:
+            raise TypeError("Missing 'integration_account_name' argument")
+        if release_criteria is None and 'releaseCriteria' in kwargs:
             release_criteria = kwargs['releaseCriteria']
-        if 'resourceGroupName' in kwargs:
+        if release_criteria is None:
+            raise TypeError("Missing 'release_criteria' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("batch_group_name", batch_group_name)
         _setter("integration_account_name", integration_account_name)
@@ -180,13 +188,13 @@ class _IntegrationAccountBatchConfigurationState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'batchGroupName' in kwargs:
+        if batch_group_name is None and 'batchGroupName' in kwargs:
             batch_group_name = kwargs['batchGroupName']
-        if 'integrationAccountName' in kwargs:
+        if integration_account_name is None and 'integrationAccountName' in kwargs:
             integration_account_name = kwargs['integrationAccountName']
-        if 'releaseCriteria' in kwargs:
+        if release_criteria is None and 'releaseCriteria' in kwargs:
             release_criteria = kwargs['releaseCriteria']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if batch_group_name is not None:

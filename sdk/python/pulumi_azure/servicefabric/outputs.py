@@ -79,17 +79,23 @@ class ClusterAzureActiveDirectory(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_application_id: str,
-             cluster_application_id: str,
-             tenant_id: str,
+             client_application_id: Optional[str] = None,
+             cluster_application_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientApplicationId' in kwargs:
+        if client_application_id is None and 'clientApplicationId' in kwargs:
             client_application_id = kwargs['clientApplicationId']
-        if 'clusterApplicationId' in kwargs:
+        if client_application_id is None:
+            raise TypeError("Missing 'client_application_id' argument")
+        if cluster_application_id is None and 'clusterApplicationId' in kwargs:
             cluster_application_id = kwargs['clusterApplicationId']
-        if 'tenantId' in kwargs:
+        if cluster_application_id is None:
+            raise TypeError("Missing 'cluster_application_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
 
         _setter("client_application_id", client_application_id)
         _setter("cluster_application_id", cluster_application_id)
@@ -159,14 +165,18 @@ class ClusterCertificate(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             thumbprint: str,
-             x509_store_name: str,
+             thumbprint: Optional[str] = None,
+             x509_store_name: Optional[str] = None,
              thumbprint_secondary: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'x509StoreName' in kwargs:
+        if thumbprint is None:
+            raise TypeError("Missing 'thumbprint' argument")
+        if x509_store_name is None and 'x509StoreName' in kwargs:
             x509_store_name = kwargs['x509StoreName']
-        if 'thumbprintSecondary' in kwargs:
+        if x509_store_name is None:
+            raise TypeError("Missing 'x509_store_name' argument")
+        if thumbprint_secondary is None and 'thumbprintSecondary' in kwargs:
             thumbprint_secondary = kwargs['thumbprintSecondary']
 
         _setter("thumbprint", thumbprint)
@@ -235,14 +245,18 @@ class ClusterCertificateCommonNames(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             common_names: Sequence['outputs.ClusterCertificateCommonNamesCommonName'],
-             x509_store_name: str,
+             common_names: Optional[Sequence['outputs.ClusterCertificateCommonNamesCommonName']] = None,
+             x509_store_name: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'commonNames' in kwargs:
+        if common_names is None and 'commonNames' in kwargs:
             common_names = kwargs['commonNames']
-        if 'x509StoreName' in kwargs:
+        if common_names is None:
+            raise TypeError("Missing 'common_names' argument")
+        if x509_store_name is None and 'x509StoreName' in kwargs:
             x509_store_name = kwargs['x509StoreName']
+        if x509_store_name is None:
+            raise TypeError("Missing 'x509_store_name' argument")
 
         _setter("common_names", common_names)
         _setter("x509_store_name", x509_store_name)
@@ -302,13 +316,15 @@ class ClusterCertificateCommonNamesCommonName(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             certificate_common_name: str,
+             certificate_common_name: Optional[str] = None,
              certificate_issuer_thumbprint: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'certificateCommonName' in kwargs:
+        if certificate_common_name is None and 'certificateCommonName' in kwargs:
             certificate_common_name = kwargs['certificateCommonName']
-        if 'certificateIssuerThumbprint' in kwargs:
+        if certificate_common_name is None:
+            raise TypeError("Missing 'certificate_common_name' argument")
+        if certificate_issuer_thumbprint is None and 'certificateIssuerThumbprint' in kwargs:
             certificate_issuer_thumbprint = kwargs['certificateIssuerThumbprint']
 
         _setter("certificate_common_name", certificate_common_name)
@@ -377,16 +393,20 @@ class ClusterClientCertificateCommonName(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             common_name: str,
-             is_admin: bool,
+             common_name: Optional[str] = None,
+             is_admin: Optional[bool] = None,
              issuer_thumbprint: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'commonName' in kwargs:
+        if common_name is None and 'commonName' in kwargs:
             common_name = kwargs['commonName']
-        if 'isAdmin' in kwargs:
+        if common_name is None:
+            raise TypeError("Missing 'common_name' argument")
+        if is_admin is None and 'isAdmin' in kwargs:
             is_admin = kwargs['isAdmin']
-        if 'issuerThumbprint' in kwargs:
+        if is_admin is None:
+            raise TypeError("Missing 'is_admin' argument")
+        if issuer_thumbprint is None and 'issuerThumbprint' in kwargs:
             issuer_thumbprint = kwargs['issuerThumbprint']
 
         _setter("common_name", common_name)
@@ -455,12 +475,16 @@ class ClusterClientCertificateThumbprint(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             is_admin: bool,
-             thumbprint: str,
+             is_admin: Optional[bool] = None,
+             thumbprint: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'isAdmin' in kwargs:
+        if is_admin is None and 'isAdmin' in kwargs:
             is_admin = kwargs['isAdmin']
+        if is_admin is None:
+            raise TypeError("Missing 'is_admin' argument")
+        if thumbprint is None:
+            raise TypeError("Missing 'thumbprint' argument")
 
         _setter("is_admin", is_admin)
         _setter("thumbprint", thumbprint)
@@ -533,23 +557,33 @@ class ClusterDiagnosticsConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             blob_endpoint: str,
-             protected_account_key_name: str,
-             queue_endpoint: str,
-             storage_account_name: str,
-             table_endpoint: str,
+             blob_endpoint: Optional[str] = None,
+             protected_account_key_name: Optional[str] = None,
+             queue_endpoint: Optional[str] = None,
+             storage_account_name: Optional[str] = None,
+             table_endpoint: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'blobEndpoint' in kwargs:
+        if blob_endpoint is None and 'blobEndpoint' in kwargs:
             blob_endpoint = kwargs['blobEndpoint']
-        if 'protectedAccountKeyName' in kwargs:
+        if blob_endpoint is None:
+            raise TypeError("Missing 'blob_endpoint' argument")
+        if protected_account_key_name is None and 'protectedAccountKeyName' in kwargs:
             protected_account_key_name = kwargs['protectedAccountKeyName']
-        if 'queueEndpoint' in kwargs:
+        if protected_account_key_name is None:
+            raise TypeError("Missing 'protected_account_key_name' argument")
+        if queue_endpoint is None and 'queueEndpoint' in kwargs:
             queue_endpoint = kwargs['queueEndpoint']
-        if 'storageAccountName' in kwargs:
+        if queue_endpoint is None:
+            raise TypeError("Missing 'queue_endpoint' argument")
+        if storage_account_name is None and 'storageAccountName' in kwargs:
             storage_account_name = kwargs['storageAccountName']
-        if 'tableEndpoint' in kwargs:
+        if storage_account_name is None:
+            raise TypeError("Missing 'storage_account_name' argument")
+        if table_endpoint is None and 'tableEndpoint' in kwargs:
             table_endpoint = kwargs['tableEndpoint']
+        if table_endpoint is None:
+            raise TypeError("Missing 'table_endpoint' argument")
 
         _setter("blob_endpoint", blob_endpoint)
         _setter("protected_account_key_name", protected_account_key_name)
@@ -615,10 +649,12 @@ class ClusterFabricSetting(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              parameters: Optional[Mapping[str, str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
         if parameters is not None:
@@ -728,11 +764,11 @@ class ClusterNodeType(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_endpoint_port: int,
-             http_endpoint_port: int,
-             instance_count: int,
-             is_primary: bool,
-             name: str,
+             client_endpoint_port: Optional[int] = None,
+             http_endpoint_port: Optional[int] = None,
+             instance_count: Optional[int] = None,
+             is_primary: Optional[bool] = None,
+             name: Optional[str] = None,
              application_ports: Optional['outputs.ClusterNodeTypeApplicationPorts'] = None,
              capacities: Optional[Mapping[str, str]] = None,
              durability_level: Optional[str] = None,
@@ -743,27 +779,37 @@ class ClusterNodeType(dict):
              reverse_proxy_endpoint_port: Optional[int] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientEndpointPort' in kwargs:
+        if client_endpoint_port is None and 'clientEndpointPort' in kwargs:
             client_endpoint_port = kwargs['clientEndpointPort']
-        if 'httpEndpointPort' in kwargs:
+        if client_endpoint_port is None:
+            raise TypeError("Missing 'client_endpoint_port' argument")
+        if http_endpoint_port is None and 'httpEndpointPort' in kwargs:
             http_endpoint_port = kwargs['httpEndpointPort']
-        if 'instanceCount' in kwargs:
+        if http_endpoint_port is None:
+            raise TypeError("Missing 'http_endpoint_port' argument")
+        if instance_count is None and 'instanceCount' in kwargs:
             instance_count = kwargs['instanceCount']
-        if 'isPrimary' in kwargs:
+        if instance_count is None:
+            raise TypeError("Missing 'instance_count' argument")
+        if is_primary is None and 'isPrimary' in kwargs:
             is_primary = kwargs['isPrimary']
-        if 'applicationPorts' in kwargs:
+        if is_primary is None:
+            raise TypeError("Missing 'is_primary' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if application_ports is None and 'applicationPorts' in kwargs:
             application_ports = kwargs['applicationPorts']
-        if 'durabilityLevel' in kwargs:
+        if durability_level is None and 'durabilityLevel' in kwargs:
             durability_level = kwargs['durabilityLevel']
-        if 'ephemeralPorts' in kwargs:
+        if ephemeral_ports is None and 'ephemeralPorts' in kwargs:
             ephemeral_ports = kwargs['ephemeralPorts']
-        if 'isStateless' in kwargs:
+        if is_stateless is None and 'isStateless' in kwargs:
             is_stateless = kwargs['isStateless']
-        if 'multipleAvailabilityZones' in kwargs:
+        if multiple_availability_zones is None and 'multipleAvailabilityZones' in kwargs:
             multiple_availability_zones = kwargs['multipleAvailabilityZones']
-        if 'placementProperties' in kwargs:
+        if placement_properties is None and 'placementProperties' in kwargs:
             placement_properties = kwargs['placementProperties']
-        if 'reverseProxyEndpointPort' in kwargs:
+        if reverse_proxy_endpoint_port is None and 'reverseProxyEndpointPort' in kwargs:
             reverse_proxy_endpoint_port = kwargs['reverseProxyEndpointPort']
 
         _setter("client_endpoint_port", client_endpoint_port)
@@ -929,14 +975,18 @@ class ClusterNodeTypeApplicationPorts(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             end_port: int,
-             start_port: int,
+             end_port: Optional[int] = None,
+             start_port: Optional[int] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'endPort' in kwargs:
+        if end_port is None and 'endPort' in kwargs:
             end_port = kwargs['endPort']
-        if 'startPort' in kwargs:
+        if end_port is None:
+            raise TypeError("Missing 'end_port' argument")
+        if start_port is None and 'startPort' in kwargs:
             start_port = kwargs['startPort']
+        if start_port is None:
+            raise TypeError("Missing 'start_port' argument")
 
         _setter("end_port", end_port)
         _setter("start_port", start_port)
@@ -994,14 +1044,18 @@ class ClusterNodeTypeEphemeralPorts(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             end_port: int,
-             start_port: int,
+             end_port: Optional[int] = None,
+             start_port: Optional[int] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'endPort' in kwargs:
+        if end_port is None and 'endPort' in kwargs:
             end_port = kwargs['endPort']
-        if 'startPort' in kwargs:
+        if end_port is None:
+            raise TypeError("Missing 'end_port' argument")
+        if start_port is None and 'startPort' in kwargs:
             start_port = kwargs['startPort']
+        if start_port is None:
+            raise TypeError("Missing 'start_port' argument")
 
         _setter("end_port", end_port)
         _setter("start_port", start_port)
@@ -1062,14 +1116,18 @@ class ClusterReverseProxyCertificate(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             thumbprint: str,
-             x509_store_name: str,
+             thumbprint: Optional[str] = None,
+             x509_store_name: Optional[str] = None,
              thumbprint_secondary: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'x509StoreName' in kwargs:
+        if thumbprint is None:
+            raise TypeError("Missing 'thumbprint' argument")
+        if x509_store_name is None and 'x509StoreName' in kwargs:
             x509_store_name = kwargs['x509StoreName']
-        if 'thumbprintSecondary' in kwargs:
+        if x509_store_name is None:
+            raise TypeError("Missing 'x509_store_name' argument")
+        if thumbprint_secondary is None and 'thumbprintSecondary' in kwargs:
             thumbprint_secondary = kwargs['thumbprintSecondary']
 
         _setter("thumbprint", thumbprint)
@@ -1138,14 +1196,18 @@ class ClusterReverseProxyCertificateCommonNames(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             common_names: Sequence['outputs.ClusterReverseProxyCertificateCommonNamesCommonName'],
-             x509_store_name: str,
+             common_names: Optional[Sequence['outputs.ClusterReverseProxyCertificateCommonNamesCommonName']] = None,
+             x509_store_name: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'commonNames' in kwargs:
+        if common_names is None and 'commonNames' in kwargs:
             common_names = kwargs['commonNames']
-        if 'x509StoreName' in kwargs:
+        if common_names is None:
+            raise TypeError("Missing 'common_names' argument")
+        if x509_store_name is None and 'x509StoreName' in kwargs:
             x509_store_name = kwargs['x509StoreName']
+        if x509_store_name is None:
+            raise TypeError("Missing 'x509_store_name' argument")
 
         _setter("common_names", common_names)
         _setter("x509_store_name", x509_store_name)
@@ -1205,13 +1267,15 @@ class ClusterReverseProxyCertificateCommonNamesCommonName(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             certificate_common_name: str,
+             certificate_common_name: Optional[str] = None,
              certificate_issuer_thumbprint: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'certificateCommonName' in kwargs:
+        if certificate_common_name is None and 'certificateCommonName' in kwargs:
             certificate_common_name = kwargs['certificateCommonName']
-        if 'certificateIssuerThumbprint' in kwargs:
+        if certificate_common_name is None:
+            raise TypeError("Missing 'certificate_common_name' argument")
+        if certificate_issuer_thumbprint is None and 'certificateIssuerThumbprint' in kwargs:
             certificate_issuer_thumbprint = kwargs['certificateIssuerThumbprint']
 
         _setter("certificate_common_name", certificate_common_name)
@@ -1319,23 +1383,23 @@ class ClusterUpgradePolicy(dict):
              upgrade_timeout: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'deltaHealthPolicy' in kwargs:
+        if delta_health_policy is None and 'deltaHealthPolicy' in kwargs:
             delta_health_policy = kwargs['deltaHealthPolicy']
-        if 'forceRestartEnabled' in kwargs:
+        if force_restart_enabled is None and 'forceRestartEnabled' in kwargs:
             force_restart_enabled = kwargs['forceRestartEnabled']
-        if 'healthCheckRetryTimeout' in kwargs:
+        if health_check_retry_timeout is None and 'healthCheckRetryTimeout' in kwargs:
             health_check_retry_timeout = kwargs['healthCheckRetryTimeout']
-        if 'healthCheckStableDuration' in kwargs:
+        if health_check_stable_duration is None and 'healthCheckStableDuration' in kwargs:
             health_check_stable_duration = kwargs['healthCheckStableDuration']
-        if 'healthCheckWaitDuration' in kwargs:
+        if health_check_wait_duration is None and 'healthCheckWaitDuration' in kwargs:
             health_check_wait_duration = kwargs['healthCheckWaitDuration']
-        if 'healthPolicy' in kwargs:
+        if health_policy is None and 'healthPolicy' in kwargs:
             health_policy = kwargs['healthPolicy']
-        if 'upgradeDomainTimeout' in kwargs:
+        if upgrade_domain_timeout is None and 'upgradeDomainTimeout' in kwargs:
             upgrade_domain_timeout = kwargs['upgradeDomainTimeout']
-        if 'upgradeReplicaSetCheckTimeout' in kwargs:
+        if upgrade_replica_set_check_timeout is None and 'upgradeReplicaSetCheckTimeout' in kwargs:
             upgrade_replica_set_check_timeout = kwargs['upgradeReplicaSetCheckTimeout']
-        if 'upgradeTimeout' in kwargs:
+        if upgrade_timeout is None and 'upgradeTimeout' in kwargs:
             upgrade_timeout = kwargs['upgradeTimeout']
 
         if delta_health_policy is not None:
@@ -1476,11 +1540,11 @@ class ClusterUpgradePolicyDeltaHealthPolicy(dict):
              max_upgrade_domain_delta_unhealthy_nodes_percent: Optional[int] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'maxDeltaUnhealthyApplicationsPercent' in kwargs:
+        if max_delta_unhealthy_applications_percent is None and 'maxDeltaUnhealthyApplicationsPercent' in kwargs:
             max_delta_unhealthy_applications_percent = kwargs['maxDeltaUnhealthyApplicationsPercent']
-        if 'maxDeltaUnhealthyNodesPercent' in kwargs:
+        if max_delta_unhealthy_nodes_percent is None and 'maxDeltaUnhealthyNodesPercent' in kwargs:
             max_delta_unhealthy_nodes_percent = kwargs['maxDeltaUnhealthyNodesPercent']
-        if 'maxUpgradeDomainDeltaUnhealthyNodesPercent' in kwargs:
+        if max_upgrade_domain_delta_unhealthy_nodes_percent is None and 'maxUpgradeDomainDeltaUnhealthyNodesPercent' in kwargs:
             max_upgrade_domain_delta_unhealthy_nodes_percent = kwargs['maxUpgradeDomainDeltaUnhealthyNodesPercent']
 
         if max_delta_unhealthy_applications_percent is not None:
@@ -1555,9 +1619,9 @@ class ClusterUpgradePolicyHealthPolicy(dict):
              max_unhealthy_nodes_percent: Optional[int] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'maxUnhealthyApplicationsPercent' in kwargs:
+        if max_unhealthy_applications_percent is None and 'maxUnhealthyApplicationsPercent' in kwargs:
             max_unhealthy_applications_percent = kwargs['maxUnhealthyApplicationsPercent']
-        if 'maxUnhealthyNodesPercent' in kwargs:
+        if max_unhealthy_nodes_percent is None and 'maxUnhealthyNodesPercent' in kwargs:
             max_unhealthy_nodes_percent = kwargs['maxUnhealthyNodesPercent']
 
         if max_unhealthy_applications_percent is not None:
@@ -1620,7 +1684,7 @@ class ManagedClusterAuthentication(dict):
              certificates: Optional[Sequence['outputs.ManagedClusterAuthenticationCertificate']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'activeDirectory' in kwargs:
+        if active_directory is None and 'activeDirectory' in kwargs:
             active_directory = kwargs['activeDirectory']
 
         if active_directory is not None:
@@ -1686,17 +1750,23 @@ class ManagedClusterAuthenticationActiveDirectory(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_application_id: str,
-             cluster_application_id: str,
-             tenant_id: str,
+             client_application_id: Optional[str] = None,
+             cluster_application_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientApplicationId' in kwargs:
+        if client_application_id is None and 'clientApplicationId' in kwargs:
             client_application_id = kwargs['clientApplicationId']
-        if 'clusterApplicationId' in kwargs:
+        if client_application_id is None:
+            raise TypeError("Missing 'client_application_id' argument")
+        if cluster_application_id is None and 'clusterApplicationId' in kwargs:
             cluster_application_id = kwargs['clusterApplicationId']
-        if 'tenantId' in kwargs:
+        if cluster_application_id is None:
+            raise TypeError("Missing 'cluster_application_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
 
         _setter("client_application_id", client_application_id)
         _setter("cluster_application_id", cluster_application_id)
@@ -1764,12 +1834,16 @@ class ManagedClusterAuthenticationCertificate(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             thumbprint: str,
-             type: str,
+             thumbprint: Optional[str] = None,
+             type: Optional[str] = None,
              common_name: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'commonName' in kwargs:
+        if thumbprint is None:
+            raise TypeError("Missing 'thumbprint' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if common_name is None and 'commonName' in kwargs:
             common_name = kwargs['commonName']
 
         _setter("thumbprint", thumbprint)
@@ -1822,11 +1896,17 @@ class ManagedClusterCustomFabricSetting(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             parameter: str,
-             section: str,
-             value: str,
+             parameter: Optional[str] = None,
+             section: Optional[str] = None,
+             value: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if parameter is None:
+            raise TypeError("Missing 'parameter' argument")
+        if section is None:
+            raise TypeError("Missing 'section' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("parameter", parameter)
         _setter("section", section)
@@ -1906,20 +1986,28 @@ class ManagedClusterLbRule(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             backend_port: int,
-             frontend_port: int,
-             probe_protocol: str,
-             protocol: str,
+             backend_port: Optional[int] = None,
+             frontend_port: Optional[int] = None,
+             probe_protocol: Optional[str] = None,
+             protocol: Optional[str] = None,
              probe_request_path: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'backendPort' in kwargs:
+        if backend_port is None and 'backendPort' in kwargs:
             backend_port = kwargs['backendPort']
-        if 'frontendPort' in kwargs:
+        if backend_port is None:
+            raise TypeError("Missing 'backend_port' argument")
+        if frontend_port is None and 'frontendPort' in kwargs:
             frontend_port = kwargs['frontendPort']
-        if 'probeProtocol' in kwargs:
+        if frontend_port is None:
+            raise TypeError("Missing 'frontend_port' argument")
+        if probe_protocol is None and 'probeProtocol' in kwargs:
             probe_protocol = kwargs['probeProtocol']
-        if 'probeRequestPath' in kwargs:
+        if probe_protocol is None:
+            raise TypeError("Missing 'probe_protocol' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if probe_request_path is None and 'probeRequestPath' in kwargs:
             probe_request_path = kwargs['probeRequestPath']
 
         _setter("backend_port", backend_port)
@@ -2076,16 +2164,16 @@ class ManagedClusterNodeType(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_port_range: str,
-             data_disk_size_gb: int,
-             ephemeral_port_range: str,
-             name: str,
-             vm_image_offer: str,
-             vm_image_publisher: str,
-             vm_image_sku: str,
-             vm_image_version: str,
-             vm_instance_count: int,
-             vm_size: str,
+             application_port_range: Optional[str] = None,
+             data_disk_size_gb: Optional[int] = None,
+             ephemeral_port_range: Optional[str] = None,
+             name: Optional[str] = None,
+             vm_image_offer: Optional[str] = None,
+             vm_image_publisher: Optional[str] = None,
+             vm_image_sku: Optional[str] = None,
+             vm_image_version: Optional[str] = None,
+             vm_instance_count: Optional[int] = None,
+             vm_size: Optional[str] = None,
              capacities: Optional[Mapping[str, str]] = None,
              data_disk_type: Optional[str] = None,
              id: Optional[str] = None,
@@ -2096,31 +2184,51 @@ class ManagedClusterNodeType(dict):
              vm_secrets: Optional[Sequence['outputs.ManagedClusterNodeTypeVmSecret']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'applicationPortRange' in kwargs:
+        if application_port_range is None and 'applicationPortRange' in kwargs:
             application_port_range = kwargs['applicationPortRange']
-        if 'dataDiskSizeGb' in kwargs:
+        if application_port_range is None:
+            raise TypeError("Missing 'application_port_range' argument")
+        if data_disk_size_gb is None and 'dataDiskSizeGb' in kwargs:
             data_disk_size_gb = kwargs['dataDiskSizeGb']
-        if 'ephemeralPortRange' in kwargs:
+        if data_disk_size_gb is None:
+            raise TypeError("Missing 'data_disk_size_gb' argument")
+        if ephemeral_port_range is None and 'ephemeralPortRange' in kwargs:
             ephemeral_port_range = kwargs['ephemeralPortRange']
-        if 'vmImageOffer' in kwargs:
+        if ephemeral_port_range is None:
+            raise TypeError("Missing 'ephemeral_port_range' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if vm_image_offer is None and 'vmImageOffer' in kwargs:
             vm_image_offer = kwargs['vmImageOffer']
-        if 'vmImagePublisher' in kwargs:
+        if vm_image_offer is None:
+            raise TypeError("Missing 'vm_image_offer' argument")
+        if vm_image_publisher is None and 'vmImagePublisher' in kwargs:
             vm_image_publisher = kwargs['vmImagePublisher']
-        if 'vmImageSku' in kwargs:
+        if vm_image_publisher is None:
+            raise TypeError("Missing 'vm_image_publisher' argument")
+        if vm_image_sku is None and 'vmImageSku' in kwargs:
             vm_image_sku = kwargs['vmImageSku']
-        if 'vmImageVersion' in kwargs:
+        if vm_image_sku is None:
+            raise TypeError("Missing 'vm_image_sku' argument")
+        if vm_image_version is None and 'vmImageVersion' in kwargs:
             vm_image_version = kwargs['vmImageVersion']
-        if 'vmInstanceCount' in kwargs:
+        if vm_image_version is None:
+            raise TypeError("Missing 'vm_image_version' argument")
+        if vm_instance_count is None and 'vmInstanceCount' in kwargs:
             vm_instance_count = kwargs['vmInstanceCount']
-        if 'vmSize' in kwargs:
+        if vm_instance_count is None:
+            raise TypeError("Missing 'vm_instance_count' argument")
+        if vm_size is None and 'vmSize' in kwargs:
             vm_size = kwargs['vmSize']
-        if 'dataDiskType' in kwargs:
+        if vm_size is None:
+            raise TypeError("Missing 'vm_size' argument")
+        if data_disk_type is None and 'dataDiskType' in kwargs:
             data_disk_type = kwargs['dataDiskType']
-        if 'multiplePlacementGroupsEnabled' in kwargs:
+        if multiple_placement_groups_enabled is None and 'multiplePlacementGroupsEnabled' in kwargs:
             multiple_placement_groups_enabled = kwargs['multiplePlacementGroupsEnabled']
-        if 'placementProperties' in kwargs:
+        if placement_properties is None and 'placementProperties' in kwargs:
             placement_properties = kwargs['placementProperties']
-        if 'vmSecrets' in kwargs:
+        if vm_secrets is None and 'vmSecrets' in kwargs:
             vm_secrets = kwargs['vmSecrets']
 
         _setter("application_port_range", application_port_range)
@@ -2329,12 +2437,16 @@ class ManagedClusterNodeTypeVmSecret(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             certificates: Sequence['outputs.ManagedClusterNodeTypeVmSecretCertificate'],
-             vault_id: str,
+             certificates: Optional[Sequence['outputs.ManagedClusterNodeTypeVmSecretCertificate']] = None,
+             vault_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'vaultId' in kwargs:
+        if certificates is None:
+            raise TypeError("Missing 'certificates' argument")
+        if vault_id is None and 'vaultId' in kwargs:
             vault_id = kwargs['vaultId']
+        if vault_id is None:
+            raise TypeError("Missing 'vault_id' argument")
 
         _setter("certificates", certificates)
         _setter("vault_id", vault_id)
@@ -2373,10 +2485,14 @@ class ManagedClusterNodeTypeVmSecretCertificate(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             store: str,
-             url: str,
+             store: Optional[str] = None,
+             url: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if store is None:
+            raise TypeError("Missing 'store' argument")
+        if url is None:
+            raise TypeError("Missing 'url' argument")
 
         _setter("store", store)
         _setter("url", url)

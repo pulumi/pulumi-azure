@@ -45,17 +45,21 @@ class ClusterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             identity: pulumi.Input['ClusterIdentityArgs'],
-             resource_group_name: pulumi.Input[str],
+             identity: Optional[pulumi.Input['ClusterIdentityArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              size_gb: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if identity is None:
+            raise TypeError("Missing 'identity' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'sizeGb' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if size_gb is None and 'sizeGb' in kwargs:
             size_gb = kwargs['sizeGb']
 
         _setter("identity", identity)
@@ -188,11 +192,11 @@ class _ClusterState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clusterId' in kwargs:
+        if cluster_id is None and 'clusterId' in kwargs:
             cluster_id = kwargs['clusterId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'sizeGb' in kwargs:
+        if size_gb is None and 'sizeGb' in kwargs:
             size_gb = kwargs['sizeGb']
 
         if cluster_id is not None:

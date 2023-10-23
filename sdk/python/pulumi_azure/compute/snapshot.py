@@ -62,8 +62,8 @@ class SnapshotArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             create_option: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             create_option: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              disk_size_gb: Optional[pulumi.Input[int]] = None,
              encryption_settings: Optional[pulumi.Input['SnapshotEncryptionSettingsArgs']] = None,
              incremental_enabled: Optional[pulumi.Input[bool]] = None,
@@ -75,21 +75,25 @@ class SnapshotArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'createOption' in kwargs:
+        if create_option is None and 'createOption' in kwargs:
             create_option = kwargs['createOption']
-        if 'resourceGroupName' in kwargs:
+        if create_option is None:
+            raise TypeError("Missing 'create_option' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'diskSizeGb' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if disk_size_gb is None and 'diskSizeGb' in kwargs:
             disk_size_gb = kwargs['diskSizeGb']
-        if 'encryptionSettings' in kwargs:
+        if encryption_settings is None and 'encryptionSettings' in kwargs:
             encryption_settings = kwargs['encryptionSettings']
-        if 'incrementalEnabled' in kwargs:
+        if incremental_enabled is None and 'incrementalEnabled' in kwargs:
             incremental_enabled = kwargs['incrementalEnabled']
-        if 'sourceResourceId' in kwargs:
+        if source_resource_id is None and 'sourceResourceId' in kwargs:
             source_resource_id = kwargs['sourceResourceId']
-        if 'sourceUri' in kwargs:
+        if source_uri is None and 'sourceUri' in kwargs:
             source_uri = kwargs['sourceUri']
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
 
         _setter("create_option", create_option)
@@ -316,23 +320,23 @@ class _SnapshotState:
              trusted_launch_enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'createOption' in kwargs:
+        if create_option is None and 'createOption' in kwargs:
             create_option = kwargs['createOption']
-        if 'diskSizeGb' in kwargs:
+        if disk_size_gb is None and 'diskSizeGb' in kwargs:
             disk_size_gb = kwargs['diskSizeGb']
-        if 'encryptionSettings' in kwargs:
+        if encryption_settings is None and 'encryptionSettings' in kwargs:
             encryption_settings = kwargs['encryptionSettings']
-        if 'incrementalEnabled' in kwargs:
+        if incremental_enabled is None and 'incrementalEnabled' in kwargs:
             incremental_enabled = kwargs['incrementalEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'sourceResourceId' in kwargs:
+        if source_resource_id is None and 'sourceResourceId' in kwargs:
             source_resource_id = kwargs['sourceResourceId']
-        if 'sourceUri' in kwargs:
+        if source_uri is None and 'sourceUri' in kwargs:
             source_uri = kwargs['sourceUri']
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'trustedLaunchEnabled' in kwargs:
+        if trusted_launch_enabled is None and 'trustedLaunchEnabled' in kwargs:
             trusted_launch_enabled = kwargs['trustedLaunchEnabled']
 
         if create_option is not None:

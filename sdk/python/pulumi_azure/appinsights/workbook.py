@@ -60,9 +60,9 @@ class WorkbookArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_json: pulumi.Input[str],
-             display_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             data_json: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              category: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              identity: Optional[pulumi.Input['WorkbookIdentityArgs']] = None,
@@ -73,15 +73,21 @@ class WorkbookArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dataJson' in kwargs:
+        if data_json is None and 'dataJson' in kwargs:
             data_json = kwargs['dataJson']
-        if 'displayName' in kwargs:
+        if data_json is None:
+            raise TypeError("Missing 'data_json' argument")
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'resourceGroupName' in kwargs:
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'sourceId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if source_id is None and 'sourceId' in kwargs:
             source_id = kwargs['sourceId']
-        if 'storageContainerId' in kwargs:
+        if storage_container_id is None and 'storageContainerId' in kwargs:
             storage_container_id = kwargs['storageContainerId']
 
         _setter("data_json", data_json)
@@ -299,15 +305,15 @@ class _WorkbookState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dataJson' in kwargs:
+        if data_json is None and 'dataJson' in kwargs:
             data_json = kwargs['dataJson']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'sourceId' in kwargs:
+        if source_id is None and 'sourceId' in kwargs:
             source_id = kwargs['sourceId']
-        if 'storageContainerId' in kwargs:
+        if storage_container_id is None and 'storageContainerId' in kwargs:
             storage_container_id = kwargs['storageContainerId']
 
         if category is not None:

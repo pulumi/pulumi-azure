@@ -104,9 +104,9 @@ class AccountArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             kind: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             sku_name: pulumi.Input[str],
+             kind: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
              custom_question_answering_search_service_id: Optional[pulumi.Input[str]] = None,
              custom_question_answering_search_service_key: Optional[pulumi.Input[str]] = None,
              custom_subdomain_name: Optional[pulumi.Input[str]] = None,
@@ -129,37 +129,43 @@ class AccountArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if kind is None:
+            raise TypeError("Missing 'kind' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'customQuestionAnsweringSearchServiceId' in kwargs:
+        if sku_name is None:
+            raise TypeError("Missing 'sku_name' argument")
+        if custom_question_answering_search_service_id is None and 'customQuestionAnsweringSearchServiceId' in kwargs:
             custom_question_answering_search_service_id = kwargs['customQuestionAnsweringSearchServiceId']
-        if 'customQuestionAnsweringSearchServiceKey' in kwargs:
+        if custom_question_answering_search_service_key is None and 'customQuestionAnsweringSearchServiceKey' in kwargs:
             custom_question_answering_search_service_key = kwargs['customQuestionAnsweringSearchServiceKey']
-        if 'customSubdomainName' in kwargs:
+        if custom_subdomain_name is None and 'customSubdomainName' in kwargs:
             custom_subdomain_name = kwargs['customSubdomainName']
-        if 'customerManagedKey' in kwargs:
+        if customer_managed_key is None and 'customerManagedKey' in kwargs:
             customer_managed_key = kwargs['customerManagedKey']
-        if 'dynamicThrottlingEnabled' in kwargs:
+        if dynamic_throttling_enabled is None and 'dynamicThrottlingEnabled' in kwargs:
             dynamic_throttling_enabled = kwargs['dynamicThrottlingEnabled']
-        if 'localAuthEnabled' in kwargs:
+        if local_auth_enabled is None and 'localAuthEnabled' in kwargs:
             local_auth_enabled = kwargs['localAuthEnabled']
-        if 'metricsAdvisorAadClientId' in kwargs:
+        if metrics_advisor_aad_client_id is None and 'metricsAdvisorAadClientId' in kwargs:
             metrics_advisor_aad_client_id = kwargs['metricsAdvisorAadClientId']
-        if 'metricsAdvisorAadTenantId' in kwargs:
+        if metrics_advisor_aad_tenant_id is None and 'metricsAdvisorAadTenantId' in kwargs:
             metrics_advisor_aad_tenant_id = kwargs['metricsAdvisorAadTenantId']
-        if 'metricsAdvisorSuperUserName' in kwargs:
+        if metrics_advisor_super_user_name is None and 'metricsAdvisorSuperUserName' in kwargs:
             metrics_advisor_super_user_name = kwargs['metricsAdvisorSuperUserName']
-        if 'metricsAdvisorWebsiteName' in kwargs:
+        if metrics_advisor_website_name is None and 'metricsAdvisorWebsiteName' in kwargs:
             metrics_advisor_website_name = kwargs['metricsAdvisorWebsiteName']
-        if 'networkAcls' in kwargs:
+        if network_acls is None and 'networkAcls' in kwargs:
             network_acls = kwargs['networkAcls']
-        if 'outboundNetworkAccessRestricted' in kwargs:
+        if outbound_network_access_restricted is None and 'outboundNetworkAccessRestricted' in kwargs:
             outbound_network_access_restricted = kwargs['outboundNetworkAccessRestricted']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'qnaRuntimeEndpoint' in kwargs:
+        if qna_runtime_endpoint is None and 'qnaRuntimeEndpoint' in kwargs:
             qna_runtime_endpoint = kwargs['qnaRuntimeEndpoint']
 
         _setter("kind", kind)
@@ -621,41 +627,41 @@ class _AccountState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'customQuestionAnsweringSearchServiceId' in kwargs:
+        if custom_question_answering_search_service_id is None and 'customQuestionAnsweringSearchServiceId' in kwargs:
             custom_question_answering_search_service_id = kwargs['customQuestionAnsweringSearchServiceId']
-        if 'customQuestionAnsweringSearchServiceKey' in kwargs:
+        if custom_question_answering_search_service_key is None and 'customQuestionAnsweringSearchServiceKey' in kwargs:
             custom_question_answering_search_service_key = kwargs['customQuestionAnsweringSearchServiceKey']
-        if 'customSubdomainName' in kwargs:
+        if custom_subdomain_name is None and 'customSubdomainName' in kwargs:
             custom_subdomain_name = kwargs['customSubdomainName']
-        if 'customerManagedKey' in kwargs:
+        if customer_managed_key is None and 'customerManagedKey' in kwargs:
             customer_managed_key = kwargs['customerManagedKey']
-        if 'dynamicThrottlingEnabled' in kwargs:
+        if dynamic_throttling_enabled is None and 'dynamicThrottlingEnabled' in kwargs:
             dynamic_throttling_enabled = kwargs['dynamicThrottlingEnabled']
-        if 'localAuthEnabled' in kwargs:
+        if local_auth_enabled is None and 'localAuthEnabled' in kwargs:
             local_auth_enabled = kwargs['localAuthEnabled']
-        if 'metricsAdvisorAadClientId' in kwargs:
+        if metrics_advisor_aad_client_id is None and 'metricsAdvisorAadClientId' in kwargs:
             metrics_advisor_aad_client_id = kwargs['metricsAdvisorAadClientId']
-        if 'metricsAdvisorAadTenantId' in kwargs:
+        if metrics_advisor_aad_tenant_id is None and 'metricsAdvisorAadTenantId' in kwargs:
             metrics_advisor_aad_tenant_id = kwargs['metricsAdvisorAadTenantId']
-        if 'metricsAdvisorSuperUserName' in kwargs:
+        if metrics_advisor_super_user_name is None and 'metricsAdvisorSuperUserName' in kwargs:
             metrics_advisor_super_user_name = kwargs['metricsAdvisorSuperUserName']
-        if 'metricsAdvisorWebsiteName' in kwargs:
+        if metrics_advisor_website_name is None and 'metricsAdvisorWebsiteName' in kwargs:
             metrics_advisor_website_name = kwargs['metricsAdvisorWebsiteName']
-        if 'networkAcls' in kwargs:
+        if network_acls is None and 'networkAcls' in kwargs:
             network_acls = kwargs['networkAcls']
-        if 'outboundNetworkAccessRestricted' in kwargs:
+        if outbound_network_access_restricted is None and 'outboundNetworkAccessRestricted' in kwargs:
             outbound_network_access_restricted = kwargs['outboundNetworkAccessRestricted']
-        if 'primaryAccessKey' in kwargs:
+        if primary_access_key is None and 'primaryAccessKey' in kwargs:
             primary_access_key = kwargs['primaryAccessKey']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'qnaRuntimeEndpoint' in kwargs:
+        if qna_runtime_endpoint is None and 'qnaRuntimeEndpoint' in kwargs:
             qna_runtime_endpoint = kwargs['qnaRuntimeEndpoint']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'secondaryAccessKey' in kwargs:
+        if secondary_access_key is None and 'secondaryAccessKey' in kwargs:
             secondary_access_key = kwargs['secondaryAccessKey']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
 
         if custom_question_answering_search_service_id is not None:

@@ -52,8 +52,8 @@ class ManagedInstanceSecurityAlertPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             managed_instance_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             managed_instance_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              disabled_alerts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              email_account_admins_enabled: Optional[pulumi.Input[bool]] = None,
              email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -63,21 +63,25 @@ class ManagedInstanceSecurityAlertPolicyArgs:
              storage_endpoint: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'managedInstanceName' in kwargs:
+        if managed_instance_name is None and 'managedInstanceName' in kwargs:
             managed_instance_name = kwargs['managedInstanceName']
-        if 'resourceGroupName' in kwargs:
+        if managed_instance_name is None:
+            raise TypeError("Missing 'managed_instance_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'disabledAlerts' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if disabled_alerts is None and 'disabledAlerts' in kwargs:
             disabled_alerts = kwargs['disabledAlerts']
-        if 'emailAccountAdminsEnabled' in kwargs:
+        if email_account_admins_enabled is None and 'emailAccountAdminsEnabled' in kwargs:
             email_account_admins_enabled = kwargs['emailAccountAdminsEnabled']
-        if 'emailAddresses' in kwargs:
+        if email_addresses is None and 'emailAddresses' in kwargs:
             email_addresses = kwargs['emailAddresses']
-        if 'retentionDays' in kwargs:
+        if retention_days is None and 'retentionDays' in kwargs:
             retention_days = kwargs['retentionDays']
-        if 'storageAccountAccessKey' in kwargs:
+        if storage_account_access_key is None and 'storageAccountAccessKey' in kwargs:
             storage_account_access_key = kwargs['storageAccountAccessKey']
-        if 'storageEndpoint' in kwargs:
+        if storage_endpoint is None and 'storageEndpoint' in kwargs:
             storage_endpoint = kwargs['storageEndpoint']
 
         _setter("managed_instance_name", managed_instance_name)
@@ -260,21 +264,21 @@ class _ManagedInstanceSecurityAlertPolicyState:
              storage_endpoint: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'disabledAlerts' in kwargs:
+        if disabled_alerts is None and 'disabledAlerts' in kwargs:
             disabled_alerts = kwargs['disabledAlerts']
-        if 'emailAccountAdminsEnabled' in kwargs:
+        if email_account_admins_enabled is None and 'emailAccountAdminsEnabled' in kwargs:
             email_account_admins_enabled = kwargs['emailAccountAdminsEnabled']
-        if 'emailAddresses' in kwargs:
+        if email_addresses is None and 'emailAddresses' in kwargs:
             email_addresses = kwargs['emailAddresses']
-        if 'managedInstanceName' in kwargs:
+        if managed_instance_name is None and 'managedInstanceName' in kwargs:
             managed_instance_name = kwargs['managedInstanceName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'retentionDays' in kwargs:
+        if retention_days is None and 'retentionDays' in kwargs:
             retention_days = kwargs['retentionDays']
-        if 'storageAccountAccessKey' in kwargs:
+        if storage_account_access_key is None and 'storageAccountAccessKey' in kwargs:
             storage_account_access_key = kwargs['storageAccountAccessKey']
-        if 'storageEndpoint' in kwargs:
+        if storage_endpoint is None and 'storageEndpoint' in kwargs:
             storage_endpoint = kwargs['storageEndpoint']
 
         if disabled_alerts is not None:

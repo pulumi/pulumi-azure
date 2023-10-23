@@ -34,16 +34,20 @@ class JobScheduleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             start_mode: pulumi.Input[str],
-             stream_analytics_job_id: pulumi.Input[str],
+             start_mode: Optional[pulumi.Input[str]] = None,
+             stream_analytics_job_id: Optional[pulumi.Input[str]] = None,
              start_time: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'startMode' in kwargs:
+        if start_mode is None and 'startMode' in kwargs:
             start_mode = kwargs['startMode']
-        if 'streamAnalyticsJobId' in kwargs:
+        if start_mode is None:
+            raise TypeError("Missing 'start_mode' argument")
+        if stream_analytics_job_id is None and 'streamAnalyticsJobId' in kwargs:
             stream_analytics_job_id = kwargs['streamAnalyticsJobId']
-        if 'startTime' in kwargs:
+        if stream_analytics_job_id is None:
+            raise TypeError("Missing 'stream_analytics_job_id' argument")
+        if start_time is None and 'startTime' in kwargs:
             start_time = kwargs['startTime']
 
         _setter("start_mode", start_mode)
@@ -122,13 +126,13 @@ class _JobScheduleState:
              stream_analytics_job_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'lastOutputTime' in kwargs:
+        if last_output_time is None and 'lastOutputTime' in kwargs:
             last_output_time = kwargs['lastOutputTime']
-        if 'startMode' in kwargs:
+        if start_mode is None and 'startMode' in kwargs:
             start_mode = kwargs['startMode']
-        if 'startTime' in kwargs:
+        if start_time is None and 'startTime' in kwargs:
             start_time = kwargs['startTime']
-        if 'streamAnalyticsJobId' in kwargs:
+        if stream_analytics_job_id is None and 'streamAnalyticsJobId' in kwargs:
             stream_analytics_job_id = kwargs['streamAnalyticsJobId']
 
         if last_output_time is not None:

@@ -55,11 +55,11 @@ class PointToPointVpnGatewayArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             connection_configuration: pulumi.Input['PointToPointVpnGatewayConnectionConfigurationArgs'],
-             resource_group_name: pulumi.Input[str],
-             scale_unit: pulumi.Input[int],
-             virtual_hub_id: pulumi.Input[str],
-             vpn_server_configuration_id: pulumi.Input[str],
+             connection_configuration: Optional[pulumi.Input['PointToPointVpnGatewayConnectionConfigurationArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             scale_unit: Optional[pulumi.Input[int]] = None,
+             virtual_hub_id: Optional[pulumi.Input[str]] = None,
+             vpn_server_configuration_id: Optional[pulumi.Input[str]] = None,
              dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
@@ -67,19 +67,29 @@ class PointToPointVpnGatewayArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'connectionConfiguration' in kwargs:
+        if connection_configuration is None and 'connectionConfiguration' in kwargs:
             connection_configuration = kwargs['connectionConfiguration']
-        if 'resourceGroupName' in kwargs:
+        if connection_configuration is None:
+            raise TypeError("Missing 'connection_configuration' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'scaleUnit' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if scale_unit is None and 'scaleUnit' in kwargs:
             scale_unit = kwargs['scaleUnit']
-        if 'virtualHubId' in kwargs:
+        if scale_unit is None:
+            raise TypeError("Missing 'scale_unit' argument")
+        if virtual_hub_id is None and 'virtualHubId' in kwargs:
             virtual_hub_id = kwargs['virtualHubId']
-        if 'vpnServerConfigurationId' in kwargs:
+        if virtual_hub_id is None:
+            raise TypeError("Missing 'virtual_hub_id' argument")
+        if vpn_server_configuration_id is None and 'vpnServerConfigurationId' in kwargs:
             vpn_server_configuration_id = kwargs['vpnServerConfigurationId']
-        if 'dnsServers' in kwargs:
+        if vpn_server_configuration_id is None:
+            raise TypeError("Missing 'vpn_server_configuration_id' argument")
+        if dns_servers is None and 'dnsServers' in kwargs:
             dns_servers = kwargs['dnsServers']
-        if 'routingPreferenceInternetEnabled' in kwargs:
+        if routing_preference_internet_enabled is None and 'routingPreferenceInternetEnabled' in kwargs:
             routing_preference_internet_enabled = kwargs['routingPreferenceInternetEnabled']
 
         _setter("connection_configuration", connection_configuration)
@@ -273,19 +283,19 @@ class _PointToPointVpnGatewayState:
              vpn_server_configuration_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'connectionConfiguration' in kwargs:
+        if connection_configuration is None and 'connectionConfiguration' in kwargs:
             connection_configuration = kwargs['connectionConfiguration']
-        if 'dnsServers' in kwargs:
+        if dns_servers is None and 'dnsServers' in kwargs:
             dns_servers = kwargs['dnsServers']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'routingPreferenceInternetEnabled' in kwargs:
+        if routing_preference_internet_enabled is None and 'routingPreferenceInternetEnabled' in kwargs:
             routing_preference_internet_enabled = kwargs['routingPreferenceInternetEnabled']
-        if 'scaleUnit' in kwargs:
+        if scale_unit is None and 'scaleUnit' in kwargs:
             scale_unit = kwargs['scaleUnit']
-        if 'virtualHubId' in kwargs:
+        if virtual_hub_id is None and 'virtualHubId' in kwargs:
             virtual_hub_id = kwargs['virtualHubId']
-        if 'vpnServerConfigurationId' in kwargs:
+        if vpn_server_configuration_id is None and 'vpnServerConfigurationId' in kwargs:
             vpn_server_configuration_id = kwargs['vpnServerConfigurationId']
 
         if connection_configuration is not None:

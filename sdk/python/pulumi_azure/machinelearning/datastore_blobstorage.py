@@ -54,8 +54,8 @@ class DatastoreBlobstorageArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             storage_container_id: pulumi.Input[str],
-             workspace_id: pulumi.Input[str],
+             storage_container_id: Optional[pulumi.Input[str]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
              account_key: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              is_default: Optional[pulumi.Input[bool]] = None,
@@ -65,17 +65,21 @@ class DatastoreBlobstorageArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'storageContainerId' in kwargs:
+        if storage_container_id is None and 'storageContainerId' in kwargs:
             storage_container_id = kwargs['storageContainerId']
-        if 'workspaceId' in kwargs:
+        if storage_container_id is None:
+            raise TypeError("Missing 'storage_container_id' argument")
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
-        if 'accountKey' in kwargs:
+        if workspace_id is None:
+            raise TypeError("Missing 'workspace_id' argument")
+        if account_key is None and 'accountKey' in kwargs:
             account_key = kwargs['accountKey']
-        if 'isDefault' in kwargs:
+        if is_default is None and 'isDefault' in kwargs:
             is_default = kwargs['isDefault']
-        if 'serviceDataAuthIdentity' in kwargs:
+        if service_data_auth_identity is None and 'serviceDataAuthIdentity' in kwargs:
             service_data_auth_identity = kwargs['serviceDataAuthIdentity']
-        if 'sharedAccessSignature' in kwargs:
+        if shared_access_signature is None and 'sharedAccessSignature' in kwargs:
             shared_access_signature = kwargs['sharedAccessSignature']
 
         _setter("storage_container_id", storage_container_id)
@@ -262,17 +266,17 @@ class _DatastoreBlobstorageState:
              workspace_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accountKey' in kwargs:
+        if account_key is None and 'accountKey' in kwargs:
             account_key = kwargs['accountKey']
-        if 'isDefault' in kwargs:
+        if is_default is None and 'isDefault' in kwargs:
             is_default = kwargs['isDefault']
-        if 'serviceDataAuthIdentity' in kwargs:
+        if service_data_auth_identity is None and 'serviceDataAuthIdentity' in kwargs:
             service_data_auth_identity = kwargs['serviceDataAuthIdentity']
-        if 'sharedAccessSignature' in kwargs:
+        if shared_access_signature is None and 'sharedAccessSignature' in kwargs:
             shared_access_signature = kwargs['sharedAccessSignature']
-        if 'storageContainerId' in kwargs:
+        if storage_container_id is None and 'storageContainerId' in kwargs:
             storage_container_id = kwargs['storageContainerId']
-        if 'workspaceId' in kwargs:
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
 
         if account_key is not None:

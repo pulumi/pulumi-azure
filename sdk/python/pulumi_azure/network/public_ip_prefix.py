@@ -53,7 +53,7 @@ class PublicIpPrefixArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              ip_version: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
@@ -63,11 +63,13 @@ class PublicIpPrefixArgs:
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'ipVersion' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if ip_version is None and 'ipVersion' in kwargs:
             ip_version = kwargs['ipVersion']
-        if 'prefixLength' in kwargs:
+        if prefix_length is None and 'prefixLength' in kwargs:
             prefix_length = kwargs['prefixLength']
 
         _setter("resource_group_name", resource_group_name)
@@ -245,13 +247,13 @@ class _PublicIpPrefixState:
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ipPrefix' in kwargs:
+        if ip_prefix is None and 'ipPrefix' in kwargs:
             ip_prefix = kwargs['ipPrefix']
-        if 'ipVersion' in kwargs:
+        if ip_version is None and 'ipVersion' in kwargs:
             ip_version = kwargs['ipVersion']
-        if 'prefixLength' in kwargs:
+        if prefix_length is None and 'prefixLength' in kwargs:
             prefix_length = kwargs['prefixLength']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if ip_prefix is not None:

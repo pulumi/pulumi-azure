@@ -55,32 +55,48 @@ class IntegrationAccountAgreementArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             agreement_type: pulumi.Input[str],
-             content: pulumi.Input[str],
-             guest_identity: pulumi.Input['IntegrationAccountAgreementGuestIdentityArgs'],
-             guest_partner_name: pulumi.Input[str],
-             host_identity: pulumi.Input['IntegrationAccountAgreementHostIdentityArgs'],
-             host_partner_name: pulumi.Input[str],
-             integration_account_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             agreement_type: Optional[pulumi.Input[str]] = None,
+             content: Optional[pulumi.Input[str]] = None,
+             guest_identity: Optional[pulumi.Input['IntegrationAccountAgreementGuestIdentityArgs']] = None,
+             guest_partner_name: Optional[pulumi.Input[str]] = None,
+             host_identity: Optional[pulumi.Input['IntegrationAccountAgreementHostIdentityArgs']] = None,
+             host_partner_name: Optional[pulumi.Input[str]] = None,
+             integration_account_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'agreementType' in kwargs:
+        if agreement_type is None and 'agreementType' in kwargs:
             agreement_type = kwargs['agreementType']
-        if 'guestIdentity' in kwargs:
+        if agreement_type is None:
+            raise TypeError("Missing 'agreement_type' argument")
+        if content is None:
+            raise TypeError("Missing 'content' argument")
+        if guest_identity is None and 'guestIdentity' in kwargs:
             guest_identity = kwargs['guestIdentity']
-        if 'guestPartnerName' in kwargs:
+        if guest_identity is None:
+            raise TypeError("Missing 'guest_identity' argument")
+        if guest_partner_name is None and 'guestPartnerName' in kwargs:
             guest_partner_name = kwargs['guestPartnerName']
-        if 'hostIdentity' in kwargs:
+        if guest_partner_name is None:
+            raise TypeError("Missing 'guest_partner_name' argument")
+        if host_identity is None and 'hostIdentity' in kwargs:
             host_identity = kwargs['hostIdentity']
-        if 'hostPartnerName' in kwargs:
+        if host_identity is None:
+            raise TypeError("Missing 'host_identity' argument")
+        if host_partner_name is None and 'hostPartnerName' in kwargs:
             host_partner_name = kwargs['hostPartnerName']
-        if 'integrationAccountName' in kwargs:
+        if host_partner_name is None:
+            raise TypeError("Missing 'host_partner_name' argument")
+        if integration_account_name is None and 'integrationAccountName' in kwargs:
             integration_account_name = kwargs['integrationAccountName']
-        if 'resourceGroupName' in kwargs:
+        if integration_account_name is None:
+            raise TypeError("Missing 'integration_account_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("agreement_type", agreement_type)
         _setter("content", content)
@@ -270,19 +286,19 @@ class _IntegrationAccountAgreementState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'agreementType' in kwargs:
+        if agreement_type is None and 'agreementType' in kwargs:
             agreement_type = kwargs['agreementType']
-        if 'guestIdentity' in kwargs:
+        if guest_identity is None and 'guestIdentity' in kwargs:
             guest_identity = kwargs['guestIdentity']
-        if 'guestPartnerName' in kwargs:
+        if guest_partner_name is None and 'guestPartnerName' in kwargs:
             guest_partner_name = kwargs['guestPartnerName']
-        if 'hostIdentity' in kwargs:
+        if host_identity is None and 'hostIdentity' in kwargs:
             host_identity = kwargs['hostIdentity']
-        if 'hostPartnerName' in kwargs:
+        if host_partner_name is None and 'hostPartnerName' in kwargs:
             host_partner_name = kwargs['hostPartnerName']
-        if 'integrationAccountName' in kwargs:
+        if integration_account_name is None and 'integrationAccountName' in kwargs:
             integration_account_name = kwargs['integrationAccountName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if agreement_type is not None:

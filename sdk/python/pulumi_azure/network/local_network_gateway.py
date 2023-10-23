@@ -51,7 +51,7 @@ class LocalNetworkGatewayArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              address_spaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              bgp_settings: Optional[pulumi.Input['LocalNetworkGatewayBgpSettingsArgs']] = None,
              gateway_address: Optional[pulumi.Input[str]] = None,
@@ -61,15 +61,17 @@ class LocalNetworkGatewayArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'addressSpaces' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if address_spaces is None and 'addressSpaces' in kwargs:
             address_spaces = kwargs['addressSpaces']
-        if 'bgpSettings' in kwargs:
+        if bgp_settings is None and 'bgpSettings' in kwargs:
             bgp_settings = kwargs['bgpSettings']
-        if 'gatewayAddress' in kwargs:
+        if gateway_address is None and 'gatewayAddress' in kwargs:
             gateway_address = kwargs['gatewayAddress']
-        if 'gatewayFqdn' in kwargs:
+        if gateway_fqdn is None and 'gatewayFqdn' in kwargs:
             gateway_fqdn = kwargs['gatewayFqdn']
 
         _setter("resource_group_name", resource_group_name)
@@ -235,15 +237,15 @@ class _LocalNetworkGatewayState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'addressSpaces' in kwargs:
+        if address_spaces is None and 'addressSpaces' in kwargs:
             address_spaces = kwargs['addressSpaces']
-        if 'bgpSettings' in kwargs:
+        if bgp_settings is None and 'bgpSettings' in kwargs:
             bgp_settings = kwargs['bgpSettings']
-        if 'gatewayAddress' in kwargs:
+        if gateway_address is None and 'gatewayAddress' in kwargs:
             gateway_address = kwargs['gatewayAddress']
-        if 'gatewayFqdn' in kwargs:
+        if gateway_fqdn is None and 'gatewayFqdn' in kwargs:
             gateway_fqdn = kwargs['gatewayFqdn']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if address_spaces is not None:

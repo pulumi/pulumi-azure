@@ -49,8 +49,8 @@ class ExpressRouteConnectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             express_route_circuit_peering_id: pulumi.Input[str],
-             express_route_gateway_id: pulumi.Input[str],
+             express_route_circuit_peering_id: Optional[pulumi.Input[str]] = None,
+             express_route_gateway_id: Optional[pulumi.Input[str]] = None,
              authorization_key: Optional[pulumi.Input[str]] = None,
              enable_internet_security: Optional[pulumi.Input[bool]] = None,
              express_route_gateway_bypass_enabled: Optional[pulumi.Input[bool]] = None,
@@ -59,17 +59,21 @@ class ExpressRouteConnectionArgs:
              routing_weight: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'expressRouteCircuitPeeringId' in kwargs:
+        if express_route_circuit_peering_id is None and 'expressRouteCircuitPeeringId' in kwargs:
             express_route_circuit_peering_id = kwargs['expressRouteCircuitPeeringId']
-        if 'expressRouteGatewayId' in kwargs:
+        if express_route_circuit_peering_id is None:
+            raise TypeError("Missing 'express_route_circuit_peering_id' argument")
+        if express_route_gateway_id is None and 'expressRouteGatewayId' in kwargs:
             express_route_gateway_id = kwargs['expressRouteGatewayId']
-        if 'authorizationKey' in kwargs:
+        if express_route_gateway_id is None:
+            raise TypeError("Missing 'express_route_gateway_id' argument")
+        if authorization_key is None and 'authorizationKey' in kwargs:
             authorization_key = kwargs['authorizationKey']
-        if 'enableInternetSecurity' in kwargs:
+        if enable_internet_security is None and 'enableInternetSecurity' in kwargs:
             enable_internet_security = kwargs['enableInternetSecurity']
-        if 'expressRouteGatewayBypassEnabled' in kwargs:
+        if express_route_gateway_bypass_enabled is None and 'expressRouteGatewayBypassEnabled' in kwargs:
             express_route_gateway_bypass_enabled = kwargs['expressRouteGatewayBypassEnabled']
-        if 'routingWeight' in kwargs:
+        if routing_weight is None and 'routingWeight' in kwargs:
             routing_weight = kwargs['routingWeight']
 
         _setter("express_route_circuit_peering_id", express_route_circuit_peering_id)
@@ -230,17 +234,17 @@ class _ExpressRouteConnectionState:
              routing_weight: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'authorizationKey' in kwargs:
+        if authorization_key is None and 'authorizationKey' in kwargs:
             authorization_key = kwargs['authorizationKey']
-        if 'enableInternetSecurity' in kwargs:
+        if enable_internet_security is None and 'enableInternetSecurity' in kwargs:
             enable_internet_security = kwargs['enableInternetSecurity']
-        if 'expressRouteCircuitPeeringId' in kwargs:
+        if express_route_circuit_peering_id is None and 'expressRouteCircuitPeeringId' in kwargs:
             express_route_circuit_peering_id = kwargs['expressRouteCircuitPeeringId']
-        if 'expressRouteGatewayBypassEnabled' in kwargs:
+        if express_route_gateway_bypass_enabled is None and 'expressRouteGatewayBypassEnabled' in kwargs:
             express_route_gateway_bypass_enabled = kwargs['expressRouteGatewayBypassEnabled']
-        if 'expressRouteGatewayId' in kwargs:
+        if express_route_gateway_id is None and 'expressRouteGatewayId' in kwargs:
             express_route_gateway_id = kwargs['expressRouteGatewayId']
-        if 'routingWeight' in kwargs:
+        if routing_weight is None and 'routingWeight' in kwargs:
             routing_weight = kwargs['routingWeight']
 
         if authorization_key is not None:

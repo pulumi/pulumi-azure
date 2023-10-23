@@ -55,8 +55,8 @@ class ConfigurationKeyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             configuration_store_id: pulumi.Input[str],
-             key: pulumi.Input[str],
+             configuration_store_id: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input[str]] = None,
              content_type: Optional[pulumi.Input[str]] = None,
              etag: Optional[pulumi.Input[str]] = None,
              label: Optional[pulumi.Input[str]] = None,
@@ -67,11 +67,15 @@ class ConfigurationKeyArgs:
              vault_key_reference: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'configurationStoreId' in kwargs:
+        if configuration_store_id is None and 'configurationStoreId' in kwargs:
             configuration_store_id = kwargs['configurationStoreId']
-        if 'contentType' in kwargs:
+        if configuration_store_id is None:
+            raise TypeError("Missing 'configuration_store_id' argument")
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if content_type is None and 'contentType' in kwargs:
             content_type = kwargs['contentType']
-        if 'vaultKeyReference' in kwargs:
+        if vault_key_reference is None and 'vaultKeyReference' in kwargs:
             vault_key_reference = kwargs['vaultKeyReference']
 
         _setter("configuration_store_id", configuration_store_id)
@@ -272,11 +276,11 @@ class _ConfigurationKeyState:
              vault_key_reference: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'configurationStoreId' in kwargs:
+        if configuration_store_id is None and 'configurationStoreId' in kwargs:
             configuration_store_id = kwargs['configurationStoreId']
-        if 'contentType' in kwargs:
+        if content_type is None and 'contentType' in kwargs:
             content_type = kwargs['contentType']
-        if 'vaultKeyReference' in kwargs:
+        if vault_key_reference is None and 'vaultKeyReference' in kwargs:
             vault_key_reference = kwargs['vaultKeyReference']
 
         if configuration_store_id is not None:

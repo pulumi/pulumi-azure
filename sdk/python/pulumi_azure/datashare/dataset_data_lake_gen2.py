@@ -41,23 +41,29 @@ class DatasetDataLakeGen2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             file_system_name: pulumi.Input[str],
-             share_id: pulumi.Input[str],
-             storage_account_id: pulumi.Input[str],
+             file_system_name: Optional[pulumi.Input[str]] = None,
+             share_id: Optional[pulumi.Input[str]] = None,
+             storage_account_id: Optional[pulumi.Input[str]] = None,
              file_path: Optional[pulumi.Input[str]] = None,
              folder_path: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'fileSystemName' in kwargs:
+        if file_system_name is None and 'fileSystemName' in kwargs:
             file_system_name = kwargs['fileSystemName']
-        if 'shareId' in kwargs:
+        if file_system_name is None:
+            raise TypeError("Missing 'file_system_name' argument")
+        if share_id is None and 'shareId' in kwargs:
             share_id = kwargs['shareId']
-        if 'storageAccountId' in kwargs:
+        if share_id is None:
+            raise TypeError("Missing 'share_id' argument")
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'filePath' in kwargs:
+        if storage_account_id is None:
+            raise TypeError("Missing 'storage_account_id' argument")
+        if file_path is None and 'filePath' in kwargs:
             file_path = kwargs['filePath']
-        if 'folderPath' in kwargs:
+        if folder_path is None and 'folderPath' in kwargs:
             folder_path = kwargs['folderPath']
 
         _setter("file_system_name", file_system_name)
@@ -185,17 +191,17 @@ class _DatasetDataLakeGen2State:
              storage_account_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'filePath' in kwargs:
+        if file_path is None and 'filePath' in kwargs:
             file_path = kwargs['filePath']
-        if 'fileSystemName' in kwargs:
+        if file_system_name is None and 'fileSystemName' in kwargs:
             file_system_name = kwargs['fileSystemName']
-        if 'folderPath' in kwargs:
+        if folder_path is None and 'folderPath' in kwargs:
             folder_path = kwargs['folderPath']
-        if 'shareId' in kwargs:
+        if share_id is None and 'shareId' in kwargs:
             share_id = kwargs['shareId']
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
 
         if display_name is not None:

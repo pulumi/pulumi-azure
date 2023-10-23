@@ -38,20 +38,26 @@ class CertificateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             certificate_content: pulumi.Input[str],
-             iothub_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             certificate_content: Optional[pulumi.Input[str]] = None,
+             iothub_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              is_verified: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'certificateContent' in kwargs:
+        if certificate_content is None and 'certificateContent' in kwargs:
             certificate_content = kwargs['certificateContent']
-        if 'iothubName' in kwargs:
+        if certificate_content is None:
+            raise TypeError("Missing 'certificate_content' argument")
+        if iothub_name is None and 'iothubName' in kwargs:
             iothub_name = kwargs['iothubName']
-        if 'resourceGroupName' in kwargs:
+        if iothub_name is None:
+            raise TypeError("Missing 'iothub_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'isVerified' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if is_verified is None and 'isVerified' in kwargs:
             is_verified = kwargs['isVerified']
 
         _setter("certificate_content", certificate_content)
@@ -157,13 +163,13 @@ class _CertificateState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'certificateContent' in kwargs:
+        if certificate_content is None and 'certificateContent' in kwargs:
             certificate_content = kwargs['certificateContent']
-        if 'iothubName' in kwargs:
+        if iothub_name is None and 'iothubName' in kwargs:
             iothub_name = kwargs['iothubName']
-        if 'isVerified' in kwargs:
+        if is_verified is None and 'isVerified' in kwargs:
             is_verified = kwargs['isVerified']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if certificate_content is not None:

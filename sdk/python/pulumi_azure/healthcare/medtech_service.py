@@ -52,27 +52,37 @@ class MedtechServiceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             device_mapping_json: pulumi.Input[str],
-             eventhub_consumer_group_name: pulumi.Input[str],
-             eventhub_name: pulumi.Input[str],
-             eventhub_namespace_name: pulumi.Input[str],
-             workspace_id: pulumi.Input[str],
+             device_mapping_json: Optional[pulumi.Input[str]] = None,
+             eventhub_consumer_group_name: Optional[pulumi.Input[str]] = None,
+             eventhub_name: Optional[pulumi.Input[str]] = None,
+             eventhub_namespace_name: Optional[pulumi.Input[str]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
              identity: Optional[pulumi.Input['MedtechServiceIdentityArgs']] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'deviceMappingJson' in kwargs:
+        if device_mapping_json is None and 'deviceMappingJson' in kwargs:
             device_mapping_json = kwargs['deviceMappingJson']
-        if 'eventhubConsumerGroupName' in kwargs:
+        if device_mapping_json is None:
+            raise TypeError("Missing 'device_mapping_json' argument")
+        if eventhub_consumer_group_name is None and 'eventhubConsumerGroupName' in kwargs:
             eventhub_consumer_group_name = kwargs['eventhubConsumerGroupName']
-        if 'eventhubName' in kwargs:
+        if eventhub_consumer_group_name is None:
+            raise TypeError("Missing 'eventhub_consumer_group_name' argument")
+        if eventhub_name is None and 'eventhubName' in kwargs:
             eventhub_name = kwargs['eventhubName']
-        if 'eventhubNamespaceName' in kwargs:
+        if eventhub_name is None:
+            raise TypeError("Missing 'eventhub_name' argument")
+        if eventhub_namespace_name is None and 'eventhubNamespaceName' in kwargs:
             eventhub_namespace_name = kwargs['eventhubNamespaceName']
-        if 'workspaceId' in kwargs:
+        if eventhub_namespace_name is None:
+            raise TypeError("Missing 'eventhub_namespace_name' argument")
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
+        if workspace_id is None:
+            raise TypeError("Missing 'workspace_id' argument")
 
         _setter("device_mapping_json", device_mapping_json)
         _setter("eventhub_consumer_group_name", eventhub_consumer_group_name)
@@ -247,15 +257,15 @@ class _MedtechServiceState:
              workspace_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'deviceMappingJson' in kwargs:
+        if device_mapping_json is None and 'deviceMappingJson' in kwargs:
             device_mapping_json = kwargs['deviceMappingJson']
-        if 'eventhubConsumerGroupName' in kwargs:
+        if eventhub_consumer_group_name is None and 'eventhubConsumerGroupName' in kwargs:
             eventhub_consumer_group_name = kwargs['eventhubConsumerGroupName']
-        if 'eventhubName' in kwargs:
+        if eventhub_name is None and 'eventhubName' in kwargs:
             eventhub_name = kwargs['eventhubName']
-        if 'eventhubNamespaceName' in kwargs:
+        if eventhub_namespace_name is None and 'eventhubNamespaceName' in kwargs:
             eventhub_namespace_name = kwargs['eventhubNamespaceName']
-        if 'workspaceId' in kwargs:
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
 
         if device_mapping_json is not None:

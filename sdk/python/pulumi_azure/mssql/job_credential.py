@@ -35,14 +35,20 @@ class JobCredentialArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             job_agent_id: pulumi.Input[str],
-             password: pulumi.Input[str],
-             username: pulumi.Input[str],
+             job_agent_id: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'jobAgentId' in kwargs:
+        if job_agent_id is None and 'jobAgentId' in kwargs:
             job_agent_id = kwargs['jobAgentId']
+        if job_agent_id is None:
+            raise TypeError("Missing 'job_agent_id' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
 
         _setter("job_agent_id", job_agent_id)
         _setter("password", password)
@@ -129,7 +135,7 @@ class _JobCredentialState:
              username: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'jobAgentId' in kwargs:
+        if job_agent_id is None and 'jobAgentId' in kwargs:
             job_agent_id = kwargs['jobAgentId']
 
         if job_agent_id is not None:

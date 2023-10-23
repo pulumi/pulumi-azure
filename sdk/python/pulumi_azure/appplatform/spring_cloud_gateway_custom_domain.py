@@ -32,13 +32,15 @@ class SpringCloudGatewayCustomDomainArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             spring_cloud_gateway_id: pulumi.Input[str],
+             spring_cloud_gateway_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              thumbprint: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'springCloudGatewayId' in kwargs:
+        if spring_cloud_gateway_id is None and 'springCloudGatewayId' in kwargs:
             spring_cloud_gateway_id = kwargs['springCloudGatewayId']
+        if spring_cloud_gateway_id is None:
+            raise TypeError("Missing 'spring_cloud_gateway_id' argument")
 
         _setter("spring_cloud_gateway_id", spring_cloud_gateway_id)
         if name is not None:
@@ -109,7 +111,7 @@ class _SpringCloudGatewayCustomDomainState:
              thumbprint: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'springCloudGatewayId' in kwargs:
+        if spring_cloud_gateway_id is None and 'springCloudGatewayId' in kwargs:
             spring_cloud_gateway_id = kwargs['springCloudGatewayId']
 
         if name is not None:

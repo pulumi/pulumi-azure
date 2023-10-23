@@ -54,8 +54,8 @@ class InferenceClusterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             kubernetes_cluster_id: pulumi.Input[str],
-             machine_learning_workspace_id: pulumi.Input[str],
+             kubernetes_cluster_id: Optional[pulumi.Input[str]] = None,
+             machine_learning_workspace_id: Optional[pulumi.Input[str]] = None,
              cluster_purpose: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              identity: Optional[pulumi.Input['InferenceClusterIdentityArgs']] = None,
@@ -65,11 +65,15 @@ class InferenceClusterArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'kubernetesClusterId' in kwargs:
+        if kubernetes_cluster_id is None and 'kubernetesClusterId' in kwargs:
             kubernetes_cluster_id = kwargs['kubernetesClusterId']
-        if 'machineLearningWorkspaceId' in kwargs:
+        if kubernetes_cluster_id is None:
+            raise TypeError("Missing 'kubernetes_cluster_id' argument")
+        if machine_learning_workspace_id is None and 'machineLearningWorkspaceId' in kwargs:
             machine_learning_workspace_id = kwargs['machineLearningWorkspaceId']
-        if 'clusterPurpose' in kwargs:
+        if machine_learning_workspace_id is None:
+            raise TypeError("Missing 'machine_learning_workspace_id' argument")
+        if cluster_purpose is None and 'clusterPurpose' in kwargs:
             cluster_purpose = kwargs['clusterPurpose']
 
         _setter("kubernetes_cluster_id", kubernetes_cluster_id)
@@ -252,11 +256,11 @@ class _InferenceClusterState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clusterPurpose' in kwargs:
+        if cluster_purpose is None and 'clusterPurpose' in kwargs:
             cluster_purpose = kwargs['clusterPurpose']
-        if 'kubernetesClusterId' in kwargs:
+        if kubernetes_cluster_id is None and 'kubernetesClusterId' in kwargs:
             kubernetes_cluster_id = kwargs['kubernetesClusterId']
-        if 'machineLearningWorkspaceId' in kwargs:
+        if machine_learning_workspace_id is None and 'machineLearningWorkspaceId' in kwargs:
             machine_learning_workspace_id = kwargs['machineLearningWorkspaceId']
 
         if cluster_purpose is not None:

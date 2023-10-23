@@ -52,29 +52,45 @@ class StreamInputIotHubArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             endpoint: pulumi.Input[str],
-             eventhub_consumer_group_name: pulumi.Input[str],
-             iothub_namespace: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             serialization: pulumi.Input['StreamInputIotHubSerializationArgs'],
-             shared_access_policy_key: pulumi.Input[str],
-             shared_access_policy_name: pulumi.Input[str],
-             stream_analytics_job_name: pulumi.Input[str],
+             endpoint: Optional[pulumi.Input[str]] = None,
+             eventhub_consumer_group_name: Optional[pulumi.Input[str]] = None,
+             iothub_namespace: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             serialization: Optional[pulumi.Input['StreamInputIotHubSerializationArgs']] = None,
+             shared_access_policy_key: Optional[pulumi.Input[str]] = None,
+             shared_access_policy_name: Optional[pulumi.Input[str]] = None,
+             stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'eventhubConsumerGroupName' in kwargs:
+        if endpoint is None:
+            raise TypeError("Missing 'endpoint' argument")
+        if eventhub_consumer_group_name is None and 'eventhubConsumerGroupName' in kwargs:
             eventhub_consumer_group_name = kwargs['eventhubConsumerGroupName']
-        if 'iothubNamespace' in kwargs:
+        if eventhub_consumer_group_name is None:
+            raise TypeError("Missing 'eventhub_consumer_group_name' argument")
+        if iothub_namespace is None and 'iothubNamespace' in kwargs:
             iothub_namespace = kwargs['iothubNamespace']
-        if 'resourceGroupName' in kwargs:
+        if iothub_namespace is None:
+            raise TypeError("Missing 'iothub_namespace' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'sharedAccessPolicyKey' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if serialization is None:
+            raise TypeError("Missing 'serialization' argument")
+        if shared_access_policy_key is None and 'sharedAccessPolicyKey' in kwargs:
             shared_access_policy_key = kwargs['sharedAccessPolicyKey']
-        if 'sharedAccessPolicyName' in kwargs:
+        if shared_access_policy_key is None:
+            raise TypeError("Missing 'shared_access_policy_key' argument")
+        if shared_access_policy_name is None and 'sharedAccessPolicyName' in kwargs:
             shared_access_policy_name = kwargs['sharedAccessPolicyName']
-        if 'streamAnalyticsJobName' in kwargs:
+        if shared_access_policy_name is None:
+            raise TypeError("Missing 'shared_access_policy_name' argument")
+        if stream_analytics_job_name is None and 'streamAnalyticsJobName' in kwargs:
             stream_analytics_job_name = kwargs['streamAnalyticsJobName']
+        if stream_analytics_job_name is None:
+            raise TypeError("Missing 'stream_analytics_job_name' argument")
 
         _setter("endpoint", endpoint)
         _setter("eventhub_consumer_group_name", eventhub_consumer_group_name)
@@ -246,17 +262,17 @@ class _StreamInputIotHubState:
              stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'eventhubConsumerGroupName' in kwargs:
+        if eventhub_consumer_group_name is None and 'eventhubConsumerGroupName' in kwargs:
             eventhub_consumer_group_name = kwargs['eventhubConsumerGroupName']
-        if 'iothubNamespace' in kwargs:
+        if iothub_namespace is None and 'iothubNamespace' in kwargs:
             iothub_namespace = kwargs['iothubNamespace']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'sharedAccessPolicyKey' in kwargs:
+        if shared_access_policy_key is None and 'sharedAccessPolicyKey' in kwargs:
             shared_access_policy_key = kwargs['sharedAccessPolicyKey']
-        if 'sharedAccessPolicyName' in kwargs:
+        if shared_access_policy_name is None and 'sharedAccessPolicyName' in kwargs:
             shared_access_policy_name = kwargs['sharedAccessPolicyName']
-        if 'streamAnalyticsJobName' in kwargs:
+        if stream_analytics_job_name is None and 'streamAnalyticsJobName' in kwargs:
             stream_analytics_job_name = kwargs['streamAnalyticsJobName']
 
         if endpoint is not None:

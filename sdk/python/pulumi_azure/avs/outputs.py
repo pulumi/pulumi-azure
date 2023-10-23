@@ -68,13 +68,13 @@ class PrivateCloudCircuit(dict):
              secondary_subnet_cidr: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'expressRouteId' in kwargs:
+        if express_route_id is None and 'expressRouteId' in kwargs:
             express_route_id = kwargs['expressRouteId']
-        if 'expressRoutePrivatePeeringId' in kwargs:
+        if express_route_private_peering_id is None and 'expressRoutePrivatePeeringId' in kwargs:
             express_route_private_peering_id = kwargs['expressRoutePrivatePeeringId']
-        if 'primarySubnetCidr' in kwargs:
+        if primary_subnet_cidr is None and 'primarySubnetCidr' in kwargs:
             primary_subnet_cidr = kwargs['primarySubnetCidr']
-        if 'secondarySubnetCidr' in kwargs:
+        if secondary_subnet_cidr is None and 'secondarySubnetCidr' in kwargs:
             secondary_subnet_cidr = kwargs['secondarySubnetCidr']
 
         if express_route_id is not None:
@@ -139,11 +139,13 @@ class PrivateCloudManagementCluster(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             size: int,
+             size: Optional[int] = None,
              hosts: Optional[Sequence[str]] = None,
              id: Optional[int] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if size is None:
+            raise TypeError("Missing 'size' argument")
 
         _setter("size", size)
         if hosts is not None:
@@ -199,20 +201,28 @@ class GetPrivateCloudCircuitResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             express_route_id: str,
-             express_route_private_peering_id: str,
-             primary_subnet_cidr: str,
-             secondary_subnet_cidr: str,
+             express_route_id: Optional[str] = None,
+             express_route_private_peering_id: Optional[str] = None,
+             primary_subnet_cidr: Optional[str] = None,
+             secondary_subnet_cidr: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'expressRouteId' in kwargs:
+        if express_route_id is None and 'expressRouteId' in kwargs:
             express_route_id = kwargs['expressRouteId']
-        if 'expressRoutePrivatePeeringId' in kwargs:
+        if express_route_id is None:
+            raise TypeError("Missing 'express_route_id' argument")
+        if express_route_private_peering_id is None and 'expressRoutePrivatePeeringId' in kwargs:
             express_route_private_peering_id = kwargs['expressRoutePrivatePeeringId']
-        if 'primarySubnetCidr' in kwargs:
+        if express_route_private_peering_id is None:
+            raise TypeError("Missing 'express_route_private_peering_id' argument")
+        if primary_subnet_cidr is None and 'primarySubnetCidr' in kwargs:
             primary_subnet_cidr = kwargs['primarySubnetCidr']
-        if 'secondarySubnetCidr' in kwargs:
+        if primary_subnet_cidr is None:
+            raise TypeError("Missing 'primary_subnet_cidr' argument")
+        if secondary_subnet_cidr is None and 'secondarySubnetCidr' in kwargs:
             secondary_subnet_cidr = kwargs['secondarySubnetCidr']
+        if secondary_subnet_cidr is None:
+            raise TypeError("Missing 'secondary_subnet_cidr' argument")
 
         _setter("express_route_id", express_route_id)
         _setter("express_route_private_peering_id", express_route_private_peering_id)
@@ -272,11 +282,17 @@ class GetPrivateCloudManagementClusterResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             hosts: Sequence[str],
-             id: int,
-             size: int,
+             hosts: Optional[Sequence[str]] = None,
+             id: Optional[int] = None,
+             size: Optional[int] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if hosts is None:
+            raise TypeError("Missing 'hosts' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if size is None:
+            raise TypeError("Missing 'size' argument")
 
         _setter("hosts", hosts)
         _setter("id", id)

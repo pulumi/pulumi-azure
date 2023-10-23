@@ -53,13 +53,13 @@ class SubscriptionTemplateDeploymentArgs:
              template_spec_version_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'debugLevel' in kwargs:
+        if debug_level is None and 'debugLevel' in kwargs:
             debug_level = kwargs['debugLevel']
-        if 'parametersContent' in kwargs:
+        if parameters_content is None and 'parametersContent' in kwargs:
             parameters_content = kwargs['parametersContent']
-        if 'templateContent' in kwargs:
+        if template_content is None and 'templateContent' in kwargs:
             template_content = kwargs['templateContent']
-        if 'templateSpecVersionId' in kwargs:
+        if template_spec_version_id is None and 'templateSpecVersionId' in kwargs:
             template_spec_version_id = kwargs['templateSpecVersionId']
 
         if debug_level is not None:
@@ -208,15 +208,15 @@ class _SubscriptionTemplateDeploymentState:
              template_spec_version_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'debugLevel' in kwargs:
+        if debug_level is None and 'debugLevel' in kwargs:
             debug_level = kwargs['debugLevel']
-        if 'outputContent' in kwargs:
+        if output_content is None and 'outputContent' in kwargs:
             output_content = kwargs['outputContent']
-        if 'parametersContent' in kwargs:
+        if parameters_content is None and 'parametersContent' in kwargs:
             parameters_content = kwargs['parametersContent']
-        if 'templateContent' in kwargs:
+        if template_content is None and 'templateContent' in kwargs:
             template_content = kwargs['templateContent']
-        if 'templateSpecVersionId' in kwargs:
+        if template_spec_version_id is None and 'templateSpecVersionId' in kwargs:
             template_spec_version_id = kwargs['templateSpecVersionId']
 
         if debug_level is not None:

@@ -32,13 +32,17 @@ class AssignmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             lighthouse_definition_id: pulumi.Input[str],
-             scope: pulumi.Input[str],
+             lighthouse_definition_id: Optional[pulumi.Input[str]] = None,
+             scope: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'lighthouseDefinitionId' in kwargs:
+        if lighthouse_definition_id is None and 'lighthouseDefinitionId' in kwargs:
             lighthouse_definition_id = kwargs['lighthouseDefinitionId']
+        if lighthouse_definition_id is None:
+            raise TypeError("Missing 'lighthouse_definition_id' argument")
+        if scope is None:
+            raise TypeError("Missing 'scope' argument")
 
         _setter("lighthouse_definition_id", lighthouse_definition_id)
         _setter("scope", scope)
@@ -108,7 +112,7 @@ class _AssignmentState:
              scope: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'lighthouseDefinitionId' in kwargs:
+        if lighthouse_definition_id is None and 'lighthouseDefinitionId' in kwargs:
             lighthouse_definition_id = kwargs['lighthouseDefinitionId']
 
         if lighthouse_definition_id is not None:

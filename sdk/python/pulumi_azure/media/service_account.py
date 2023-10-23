@@ -55,8 +55,8 @@ class ServiceAccountArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             storage_accounts: pulumi.Input[Sequence[pulumi.Input['ServiceAccountStorageAccountArgs']]],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceAccountStorageAccountArgs']]]] = None,
              encryption: Optional[pulumi.Input['ServiceAccountEncryptionArgs']] = None,
              identity: Optional[pulumi.Input['ServiceAccountIdentityArgs']] = None,
              key_delivery_access_control: Optional[pulumi.Input['ServiceAccountKeyDeliveryAccessControlArgs']] = None,
@@ -67,15 +67,19 @@ class ServiceAccountArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'storageAccounts' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if storage_accounts is None and 'storageAccounts' in kwargs:
             storage_accounts = kwargs['storageAccounts']
-        if 'keyDeliveryAccessControl' in kwargs:
+        if storage_accounts is None:
+            raise TypeError("Missing 'storage_accounts' argument")
+        if key_delivery_access_control is None and 'keyDeliveryAccessControl' in kwargs:
             key_delivery_access_control = kwargs['keyDeliveryAccessControl']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'storageAuthenticationType' in kwargs:
+        if storage_authentication_type is None and 'storageAuthenticationType' in kwargs:
             storage_authentication_type = kwargs['storageAuthenticationType']
 
         _setter("resource_group_name", resource_group_name)
@@ -272,15 +276,15 @@ class _ServiceAccountState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'keyDeliveryAccessControl' in kwargs:
+        if key_delivery_access_control is None and 'keyDeliveryAccessControl' in kwargs:
             key_delivery_access_control = kwargs['keyDeliveryAccessControl']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'storageAccounts' in kwargs:
+        if storage_accounts is None and 'storageAccounts' in kwargs:
             storage_accounts = kwargs['storageAccounts']
-        if 'storageAuthenticationType' in kwargs:
+        if storage_authentication_type is None and 'storageAuthenticationType' in kwargs:
             storage_authentication_type = kwargs['storageAuthenticationType']
 
         if encryption is not None:

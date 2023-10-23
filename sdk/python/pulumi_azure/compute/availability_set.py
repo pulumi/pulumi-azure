@@ -51,7 +51,7 @@ class AvailabilitySetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              managed: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
@@ -61,13 +61,15 @@ class AvailabilitySetArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'platformFaultDomainCount' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if platform_fault_domain_count is None and 'platformFaultDomainCount' in kwargs:
             platform_fault_domain_count = kwargs['platformFaultDomainCount']
-        if 'platformUpdateDomainCount' in kwargs:
+        if platform_update_domain_count is None and 'platformUpdateDomainCount' in kwargs:
             platform_update_domain_count = kwargs['platformUpdateDomainCount']
-        if 'proximityPlacementGroupId' in kwargs:
+        if proximity_placement_group_id is None and 'proximityPlacementGroupId' in kwargs:
             proximity_placement_group_id = kwargs['proximityPlacementGroupId']
 
         _setter("resource_group_name", resource_group_name)
@@ -237,13 +239,13 @@ class _AvailabilitySetState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'platformFaultDomainCount' in kwargs:
+        if platform_fault_domain_count is None and 'platformFaultDomainCount' in kwargs:
             platform_fault_domain_count = kwargs['platformFaultDomainCount']
-        if 'platformUpdateDomainCount' in kwargs:
+        if platform_update_domain_count is None and 'platformUpdateDomainCount' in kwargs:
             platform_update_domain_count = kwargs['platformUpdateDomainCount']
-        if 'proximityPlacementGroupId' in kwargs:
+        if proximity_placement_group_id is None and 'proximityPlacementGroupId' in kwargs:
             proximity_placement_group_id = kwargs['proximityPlacementGroupId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if location is not None:

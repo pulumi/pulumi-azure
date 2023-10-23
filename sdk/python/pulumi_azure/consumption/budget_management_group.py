@@ -49,21 +49,29 @@ class BudgetManagementGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             amount: pulumi.Input[float],
-             management_group_id: pulumi.Input[str],
-             notifications: pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupNotificationArgs']]],
-             time_period: pulumi.Input['BudgetManagementGroupTimePeriodArgs'],
+             amount: Optional[pulumi.Input[float]] = None,
+             management_group_id: Optional[pulumi.Input[str]] = None,
+             notifications: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupNotificationArgs']]]] = None,
+             time_period: Optional[pulumi.Input['BudgetManagementGroupTimePeriodArgs']] = None,
              etag: Optional[pulumi.Input[str]] = None,
              filter: Optional[pulumi.Input['BudgetManagementGroupFilterArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              time_grain: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'managementGroupId' in kwargs:
+        if amount is None:
+            raise TypeError("Missing 'amount' argument")
+        if management_group_id is None and 'managementGroupId' in kwargs:
             management_group_id = kwargs['managementGroupId']
-        if 'timePeriod' in kwargs:
+        if management_group_id is None:
+            raise TypeError("Missing 'management_group_id' argument")
+        if notifications is None:
+            raise TypeError("Missing 'notifications' argument")
+        if time_period is None and 'timePeriod' in kwargs:
             time_period = kwargs['timePeriod']
-        if 'timeGrain' in kwargs:
+        if time_period is None:
+            raise TypeError("Missing 'time_period' argument")
+        if time_grain is None and 'timeGrain' in kwargs:
             time_grain = kwargs['timeGrain']
 
         _setter("amount", amount)
@@ -222,11 +230,11 @@ class _BudgetManagementGroupState:
              time_period: Optional[pulumi.Input['BudgetManagementGroupTimePeriodArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'managementGroupId' in kwargs:
+        if management_group_id is None and 'managementGroupId' in kwargs:
             management_group_id = kwargs['managementGroupId']
-        if 'timeGrain' in kwargs:
+        if time_grain is None and 'timeGrain' in kwargs:
             time_grain = kwargs['timeGrain']
-        if 'timePeriod' in kwargs:
+        if time_period is None and 'timePeriod' in kwargs:
             time_period = kwargs['timePeriod']
 
         if amount is not None:

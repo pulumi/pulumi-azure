@@ -35,16 +35,20 @@ class ResolverVirtualNetworkLinkArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             dns_forwarding_ruleset_id: pulumi.Input[str],
-             virtual_network_id: pulumi.Input[str],
+             dns_forwarding_ruleset_id: Optional[pulumi.Input[str]] = None,
+             virtual_network_id: Optional[pulumi.Input[str]] = None,
              metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dnsForwardingRulesetId' in kwargs:
+        if dns_forwarding_ruleset_id is None and 'dnsForwardingRulesetId' in kwargs:
             dns_forwarding_ruleset_id = kwargs['dnsForwardingRulesetId']
-        if 'virtualNetworkId' in kwargs:
+        if dns_forwarding_ruleset_id is None:
+            raise TypeError("Missing 'dns_forwarding_ruleset_id' argument")
+        if virtual_network_id is None and 'virtualNetworkId' in kwargs:
             virtual_network_id = kwargs['virtualNetworkId']
+        if virtual_network_id is None:
+            raise TypeError("Missing 'virtual_network_id' argument")
 
         _setter("dns_forwarding_ruleset_id", dns_forwarding_ruleset_id)
         _setter("virtual_network_id", virtual_network_id)
@@ -132,9 +136,9 @@ class _ResolverVirtualNetworkLinkState:
              virtual_network_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dnsForwardingRulesetId' in kwargs:
+        if dns_forwarding_ruleset_id is None and 'dnsForwardingRulesetId' in kwargs:
             dns_forwarding_ruleset_id = kwargs['dnsForwardingRulesetId']
-        if 'virtualNetworkId' in kwargs:
+        if virtual_network_id is None and 'virtualNetworkId' in kwargs:
             virtual_network_id = kwargs['virtualNetworkId']
 
         if dns_forwarding_ruleset_id is not None:

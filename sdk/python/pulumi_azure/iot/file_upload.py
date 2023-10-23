@@ -55,9 +55,9 @@ class FileUploadArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             connection_string: pulumi.Input[str],
-             container_name: pulumi.Input[str],
-             iothub_id: pulumi.Input[str],
+             connection_string: Optional[pulumi.Input[str]] = None,
+             container_name: Optional[pulumi.Input[str]] = None,
+             iothub_id: Optional[pulumi.Input[str]] = None,
              authentication_type: Optional[pulumi.Input[str]] = None,
              default_ttl: Optional[pulumi.Input[str]] = None,
              identity_id: Optional[pulumi.Input[str]] = None,
@@ -67,25 +67,31 @@ class FileUploadArgs:
              sas_ttl: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
-        if 'containerName' in kwargs:
+        if connection_string is None:
+            raise TypeError("Missing 'connection_string' argument")
+        if container_name is None and 'containerName' in kwargs:
             container_name = kwargs['containerName']
-        if 'iothubId' in kwargs:
+        if container_name is None:
+            raise TypeError("Missing 'container_name' argument")
+        if iothub_id is None and 'iothubId' in kwargs:
             iothub_id = kwargs['iothubId']
-        if 'authenticationType' in kwargs:
+        if iothub_id is None:
+            raise TypeError("Missing 'iothub_id' argument")
+        if authentication_type is None and 'authenticationType' in kwargs:
             authentication_type = kwargs['authenticationType']
-        if 'defaultTtl' in kwargs:
+        if default_ttl is None and 'defaultTtl' in kwargs:
             default_ttl = kwargs['defaultTtl']
-        if 'identityId' in kwargs:
+        if identity_id is None and 'identityId' in kwargs:
             identity_id = kwargs['identityId']
-        if 'lockDuration' in kwargs:
+        if lock_duration is None and 'lockDuration' in kwargs:
             lock_duration = kwargs['lockDuration']
-        if 'maxDeliveryCount' in kwargs:
+        if max_delivery_count is None and 'maxDeliveryCount' in kwargs:
             max_delivery_count = kwargs['maxDeliveryCount']
-        if 'notificationsEnabled' in kwargs:
+        if notifications_enabled is None and 'notificationsEnabled' in kwargs:
             notifications_enabled = kwargs['notificationsEnabled']
-        if 'sasTtl' in kwargs:
+        if sas_ttl is None and 'sasTtl' in kwargs:
             sas_ttl = kwargs['sasTtl']
 
         _setter("connection_string", connection_string)
@@ -285,25 +291,25 @@ class _FileUploadState:
              sas_ttl: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'authenticationType' in kwargs:
+        if authentication_type is None and 'authenticationType' in kwargs:
             authentication_type = kwargs['authenticationType']
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
-        if 'containerName' in kwargs:
+        if container_name is None and 'containerName' in kwargs:
             container_name = kwargs['containerName']
-        if 'defaultTtl' in kwargs:
+        if default_ttl is None and 'defaultTtl' in kwargs:
             default_ttl = kwargs['defaultTtl']
-        if 'identityId' in kwargs:
+        if identity_id is None and 'identityId' in kwargs:
             identity_id = kwargs['identityId']
-        if 'iothubId' in kwargs:
+        if iothub_id is None and 'iothubId' in kwargs:
             iothub_id = kwargs['iothubId']
-        if 'lockDuration' in kwargs:
+        if lock_duration is None and 'lockDuration' in kwargs:
             lock_duration = kwargs['lockDuration']
-        if 'maxDeliveryCount' in kwargs:
+        if max_delivery_count is None and 'maxDeliveryCount' in kwargs:
             max_delivery_count = kwargs['maxDeliveryCount']
-        if 'notificationsEnabled' in kwargs:
+        if notifications_enabled is None and 'notificationsEnabled' in kwargs:
             notifications_enabled = kwargs['notificationsEnabled']
-        if 'sasTtl' in kwargs:
+        if sas_ttl is None and 'sasTtl' in kwargs:
             sas_ttl = kwargs['sasTtl']
 
         if authentication_type is not None:

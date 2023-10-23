@@ -40,20 +40,26 @@ class SharedPrivateLinkResourceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             signalr_service_id: pulumi.Input[str],
-             sub_resource_name: pulumi.Input[str],
-             target_resource_id: pulumi.Input[str],
+             signalr_service_id: Optional[pulumi.Input[str]] = None,
+             sub_resource_name: Optional[pulumi.Input[str]] = None,
+             target_resource_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              request_message: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'signalrServiceId' in kwargs:
+        if signalr_service_id is None and 'signalrServiceId' in kwargs:
             signalr_service_id = kwargs['signalrServiceId']
-        if 'subResourceName' in kwargs:
+        if signalr_service_id is None:
+            raise TypeError("Missing 'signalr_service_id' argument")
+        if sub_resource_name is None and 'subResourceName' in kwargs:
             sub_resource_name = kwargs['subResourceName']
-        if 'targetResourceId' in kwargs:
+        if sub_resource_name is None:
+            raise TypeError("Missing 'sub_resource_name' argument")
+        if target_resource_id is None and 'targetResourceId' in kwargs:
             target_resource_id = kwargs['targetResourceId']
-        if 'requestMessage' in kwargs:
+        if target_resource_id is None:
+            raise TypeError("Missing 'target_resource_id' argument")
+        if request_message is None and 'requestMessage' in kwargs:
             request_message = kwargs['requestMessage']
 
         _setter("signalr_service_id", signalr_service_id)
@@ -167,13 +173,13 @@ class _SharedPrivateLinkResourceState:
              target_resource_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'requestMessage' in kwargs:
+        if request_message is None and 'requestMessage' in kwargs:
             request_message = kwargs['requestMessage']
-        if 'signalrServiceId' in kwargs:
+        if signalr_service_id is None and 'signalrServiceId' in kwargs:
             signalr_service_id = kwargs['signalrServiceId']
-        if 'subResourceName' in kwargs:
+        if sub_resource_name is None and 'subResourceName' in kwargs:
             sub_resource_name = kwargs['subResourceName']
-        if 'targetResourceId' in kwargs:
+        if target_resource_id is None and 'targetResourceId' in kwargs:
             target_resource_id = kwargs['targetResourceId']
 
         if name is not None:

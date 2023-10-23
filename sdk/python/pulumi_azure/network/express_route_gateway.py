@@ -44,22 +44,28 @@ class ExpressRouteGatewayArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             scale_units: pulumi.Input[int],
-             virtual_hub_id: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             scale_units: Optional[pulumi.Input[int]] = None,
+             virtual_hub_id: Optional[pulumi.Input[str]] = None,
              allow_non_virtual_wan_traffic: Optional[pulumi.Input[bool]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'scaleUnits' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if scale_units is None and 'scaleUnits' in kwargs:
             scale_units = kwargs['scaleUnits']
-        if 'virtualHubId' in kwargs:
+        if scale_units is None:
+            raise TypeError("Missing 'scale_units' argument")
+        if virtual_hub_id is None and 'virtualHubId' in kwargs:
             virtual_hub_id = kwargs['virtualHubId']
-        if 'allowNonVirtualWanTraffic' in kwargs:
+        if virtual_hub_id is None:
+            raise TypeError("Missing 'virtual_hub_id' argument")
+        if allow_non_virtual_wan_traffic is None and 'allowNonVirtualWanTraffic' in kwargs:
             allow_non_virtual_wan_traffic = kwargs['allowNonVirtualWanTraffic']
 
         _setter("resource_group_name", resource_group_name)
@@ -201,13 +207,13 @@ class _ExpressRouteGatewayState:
              virtual_hub_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowNonVirtualWanTraffic' in kwargs:
+        if allow_non_virtual_wan_traffic is None and 'allowNonVirtualWanTraffic' in kwargs:
             allow_non_virtual_wan_traffic = kwargs['allowNonVirtualWanTraffic']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'scaleUnits' in kwargs:
+        if scale_units is None and 'scaleUnits' in kwargs:
             scale_units = kwargs['scaleUnits']
-        if 'virtualHubId' in kwargs:
+        if virtual_hub_id is None and 'virtualHubId' in kwargs:
             virtual_hub_id = kwargs['virtualHubId']
 
         if allow_non_virtual_wan_traffic is not None:

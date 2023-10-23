@@ -35,16 +35,20 @@ class NetworkManagerAdminRuleCollectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             network_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             security_admin_configuration_id: pulumi.Input[str],
+             network_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             security_admin_configuration_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'networkGroupIds' in kwargs:
+        if network_group_ids is None and 'networkGroupIds' in kwargs:
             network_group_ids = kwargs['networkGroupIds']
-        if 'securityAdminConfigurationId' in kwargs:
+        if network_group_ids is None:
+            raise TypeError("Missing 'network_group_ids' argument")
+        if security_admin_configuration_id is None and 'securityAdminConfigurationId' in kwargs:
             security_admin_configuration_id = kwargs['securityAdminConfigurationId']
+        if security_admin_configuration_id is None:
+            raise TypeError("Missing 'security_admin_configuration_id' argument")
 
         _setter("network_group_ids", network_group_ids)
         _setter("security_admin_configuration_id", security_admin_configuration_id)
@@ -132,9 +136,9 @@ class _NetworkManagerAdminRuleCollectionState:
              security_admin_configuration_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'networkGroupIds' in kwargs:
+        if network_group_ids is None and 'networkGroupIds' in kwargs:
             network_group_ids = kwargs['networkGroupIds']
-        if 'securityAdminConfigurationId' in kwargs:
+        if security_admin_configuration_id is None and 'securityAdminConfigurationId' in kwargs:
             security_admin_configuration_id = kwargs['securityAdminConfigurationId']
 
         if description is not None:

@@ -69,11 +69,11 @@ class AccountEncryption(dict):
              type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'currentKeyIdentifier' in kwargs:
+        if current_key_identifier is None and 'currentKeyIdentifier' in kwargs:
             current_key_identifier = kwargs['currentKeyIdentifier']
-        if 'keyVaultKeyIdentifier' in kwargs:
+        if key_vault_key_identifier is None and 'keyVaultKeyIdentifier' in kwargs:
             key_vault_key_identifier = kwargs['keyVaultKeyIdentifier']
-        if 'managedIdentity' in kwargs:
+        if managed_identity is None and 'managedIdentity' in kwargs:
             managed_identity = kwargs['managedIdentity']
 
         if current_key_identifier is not None:
@@ -158,9 +158,9 @@ class AccountEncryptionManagedIdentity(dict):
              user_assigned_identity_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'useSystemAssignedIdentity' in kwargs:
+        if use_system_assigned_identity is None and 'useSystemAssignedIdentity' in kwargs:
             use_system_assigned_identity = kwargs['useSystemAssignedIdentity']
-        if 'userAssignedIdentityId' in kwargs:
+        if user_assigned_identity_id is None and 'userAssignedIdentityId' in kwargs:
             user_assigned_identity_id = kwargs['userAssignedIdentityId']
 
         if use_system_assigned_identity is not None:
@@ -229,17 +229,19 @@ class AccountIdentity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -323,9 +325,9 @@ class AccountKeyDeliveryAccessControl(dict):
              ip_allow_lists: Optional[Sequence[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'defaultAction' in kwargs:
+        if default_action is None and 'defaultAction' in kwargs:
             default_action = kwargs['defaultAction']
-        if 'ipAllowLists' in kwargs:
+        if ip_allow_lists is None and 'ipAllowLists' in kwargs:
             ip_allow_lists = kwargs['ipAllowLists']
 
         if default_action is not None:
@@ -391,14 +393,16 @@ class AccountStorageAccount(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             id: str,
+             id: Optional[str] = None,
              is_primary: Optional[bool] = None,
              managed_identity: Optional['outputs.AccountStorageAccountManagedIdentity'] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'isPrimary' in kwargs:
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if is_primary is None and 'isPrimary' in kwargs:
             is_primary = kwargs['isPrimary']
-        if 'managedIdentity' in kwargs:
+        if managed_identity is None and 'managedIdentity' in kwargs:
             managed_identity = kwargs['managedIdentity']
 
         _setter("id", id)
@@ -474,9 +478,9 @@ class AccountStorageAccountManagedIdentity(dict):
              user_assigned_identity_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'useSystemAssignedIdentity' in kwargs:
+        if use_system_assigned_identity is None and 'useSystemAssignedIdentity' in kwargs:
             use_system_assigned_identity = kwargs['useSystemAssignedIdentity']
-        if 'userAssignedIdentityId' in kwargs:
+        if user_assigned_identity_id is None and 'userAssignedIdentityId' in kwargs:
             user_assigned_identity_id = kwargs['userAssignedIdentityId']
 
         if use_system_assigned_identity is not None:

@@ -61,8 +61,8 @@ class SpringCloudAppArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             service_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             service_name: Optional[pulumi.Input[str]] = None,
              addon_json: Optional[pulumi.Input[str]] = None,
              custom_persistent_disks: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudAppCustomPersistentDiskArgs']]]] = None,
              https_only: Optional[pulumi.Input[bool]] = None,
@@ -75,25 +75,29 @@ class SpringCloudAppArgs:
              tls_enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serviceName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if service_name is None and 'serviceName' in kwargs:
             service_name = kwargs['serviceName']
-        if 'addonJson' in kwargs:
+        if service_name is None:
+            raise TypeError("Missing 'service_name' argument")
+        if addon_json is None and 'addonJson' in kwargs:
             addon_json = kwargs['addonJson']
-        if 'customPersistentDisks' in kwargs:
+        if custom_persistent_disks is None and 'customPersistentDisks' in kwargs:
             custom_persistent_disks = kwargs['customPersistentDisks']
-        if 'httpsOnly' in kwargs:
+        if https_only is None and 'httpsOnly' in kwargs:
             https_only = kwargs['httpsOnly']
-        if 'ingressSettings' in kwargs:
+        if ingress_settings is None and 'ingressSettings' in kwargs:
             ingress_settings = kwargs['ingressSettings']
-        if 'isPublic' in kwargs:
+        if is_public is None and 'isPublic' in kwargs:
             is_public = kwargs['isPublic']
-        if 'persistentDisk' in kwargs:
+        if persistent_disk is None and 'persistentDisk' in kwargs:
             persistent_disk = kwargs['persistentDisk']
-        if 'publicEndpointEnabled' in kwargs:
+        if public_endpoint_enabled is None and 'publicEndpointEnabled' in kwargs:
             public_endpoint_enabled = kwargs['publicEndpointEnabled']
-        if 'tlsEnabled' in kwargs:
+        if tls_enabled is None and 'tlsEnabled' in kwargs:
             tls_enabled = kwargs['tlsEnabled']
 
         _setter("resource_group_name", resource_group_name)
@@ -334,25 +338,25 @@ class _SpringCloudAppState:
              url: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'addonJson' in kwargs:
+        if addon_json is None and 'addonJson' in kwargs:
             addon_json = kwargs['addonJson']
-        if 'customPersistentDisks' in kwargs:
+        if custom_persistent_disks is None and 'customPersistentDisks' in kwargs:
             custom_persistent_disks = kwargs['customPersistentDisks']
-        if 'httpsOnly' in kwargs:
+        if https_only is None and 'httpsOnly' in kwargs:
             https_only = kwargs['httpsOnly']
-        if 'ingressSettings' in kwargs:
+        if ingress_settings is None and 'ingressSettings' in kwargs:
             ingress_settings = kwargs['ingressSettings']
-        if 'isPublic' in kwargs:
+        if is_public is None and 'isPublic' in kwargs:
             is_public = kwargs['isPublic']
-        if 'persistentDisk' in kwargs:
+        if persistent_disk is None and 'persistentDisk' in kwargs:
             persistent_disk = kwargs['persistentDisk']
-        if 'publicEndpointEnabled' in kwargs:
+        if public_endpoint_enabled is None and 'publicEndpointEnabled' in kwargs:
             public_endpoint_enabled = kwargs['publicEndpointEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serviceName' in kwargs:
+        if service_name is None and 'serviceName' in kwargs:
             service_name = kwargs['serviceName']
-        if 'tlsEnabled' in kwargs:
+        if tls_enabled is None and 'tlsEnabled' in kwargs:
             tls_enabled = kwargs['tlsEnabled']
 
         if addon_json is not None:

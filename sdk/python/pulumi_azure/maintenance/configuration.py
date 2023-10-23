@@ -57,8 +57,8 @@ class ConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             scope: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             scope: Optional[pulumi.Input[str]] = None,
              in_guest_user_patch_mode: Optional[pulumi.Input[str]] = None,
              install_patches: Optional[pulumi.Input['ConfigurationInstallPatchesArgs']] = None,
              location: Optional[pulumi.Input[str]] = None,
@@ -69,11 +69,15 @@ class ConfigurationArgs:
              window: Optional[pulumi.Input['ConfigurationWindowArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'inGuestUserPatchMode' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if scope is None:
+            raise TypeError("Missing 'scope' argument")
+        if in_guest_user_patch_mode is None and 'inGuestUserPatchMode' in kwargs:
             in_guest_user_patch_mode = kwargs['inGuestUserPatchMode']
-        if 'installPatches' in kwargs:
+        if install_patches is None and 'installPatches' in kwargs:
             install_patches = kwargs['installPatches']
 
         _setter("resource_group_name", resource_group_name)
@@ -274,11 +278,11 @@ class _ConfigurationState:
              window: Optional[pulumi.Input['ConfigurationWindowArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'inGuestUserPatchMode' in kwargs:
+        if in_guest_user_patch_mode is None and 'inGuestUserPatchMode' in kwargs:
             in_guest_user_patch_mode = kwargs['inGuestUserPatchMode']
-        if 'installPatches' in kwargs:
+        if install_patches is None and 'installPatches' in kwargs:
             install_patches = kwargs['installPatches']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if in_guest_user_patch_mode is not None:

@@ -40,22 +40,24 @@ class LogzTagRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             logz_monitor_id: pulumi.Input[str],
+             logz_monitor_id: Optional[pulumi.Input[str]] = None,
              send_aad_logs: Optional[pulumi.Input[bool]] = None,
              send_activity_logs: Optional[pulumi.Input[bool]] = None,
              send_subscription_logs: Optional[pulumi.Input[bool]] = None,
              tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['LogzTagRuleTagFilterArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'logzMonitorId' in kwargs:
+        if logz_monitor_id is None and 'logzMonitorId' in kwargs:
             logz_monitor_id = kwargs['logzMonitorId']
-        if 'sendAadLogs' in kwargs:
+        if logz_monitor_id is None:
+            raise TypeError("Missing 'logz_monitor_id' argument")
+        if send_aad_logs is None and 'sendAadLogs' in kwargs:
             send_aad_logs = kwargs['sendAadLogs']
-        if 'sendActivityLogs' in kwargs:
+        if send_activity_logs is None and 'sendActivityLogs' in kwargs:
             send_activity_logs = kwargs['sendActivityLogs']
-        if 'sendSubscriptionLogs' in kwargs:
+        if send_subscription_logs is None and 'sendSubscriptionLogs' in kwargs:
             send_subscription_logs = kwargs['sendSubscriptionLogs']
-        if 'tagFilters' in kwargs:
+        if tag_filters is None and 'tagFilters' in kwargs:
             tag_filters = kwargs['tagFilters']
 
         _setter("logz_monitor_id", logz_monitor_id)
@@ -163,15 +165,15 @@ class _LogzTagRuleState:
              tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['LogzTagRuleTagFilterArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'logzMonitorId' in kwargs:
+        if logz_monitor_id is None and 'logzMonitorId' in kwargs:
             logz_monitor_id = kwargs['logzMonitorId']
-        if 'sendAadLogs' in kwargs:
+        if send_aad_logs is None and 'sendAadLogs' in kwargs:
             send_aad_logs = kwargs['sendAadLogs']
-        if 'sendActivityLogs' in kwargs:
+        if send_activity_logs is None and 'sendActivityLogs' in kwargs:
             send_activity_logs = kwargs['sendActivityLogs']
-        if 'sendSubscriptionLogs' in kwargs:
+        if send_subscription_logs is None and 'sendSubscriptionLogs' in kwargs:
             send_subscription_logs = kwargs['sendSubscriptionLogs']
-        if 'tagFilters' in kwargs:
+        if tag_filters is None and 'tagFilters' in kwargs:
             tag_filters = kwargs['tagFilters']
 
         if logz_monitor_id is not None:

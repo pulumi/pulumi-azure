@@ -50,7 +50,7 @@ class ShareFileArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             storage_share_id: pulumi.Input[str],
+             storage_share_id: Optional[pulumi.Input[str]] = None,
              content_disposition: Optional[pulumi.Input[str]] = None,
              content_encoding: Optional[pulumi.Input[str]] = None,
              content_md5: Optional[pulumi.Input[str]] = None,
@@ -61,15 +61,17 @@ class ShareFileArgs:
              source: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'storageShareId' in kwargs:
+        if storage_share_id is None and 'storageShareId' in kwargs:
             storage_share_id = kwargs['storageShareId']
-        if 'contentDisposition' in kwargs:
+        if storage_share_id is None:
+            raise TypeError("Missing 'storage_share_id' argument")
+        if content_disposition is None and 'contentDisposition' in kwargs:
             content_disposition = kwargs['contentDisposition']
-        if 'contentEncoding' in kwargs:
+        if content_encoding is None and 'contentEncoding' in kwargs:
             content_encoding = kwargs['contentEncoding']
-        if 'contentMd5' in kwargs:
+        if content_md5 is None and 'contentMd5' in kwargs:
             content_md5 = kwargs['contentMd5']
-        if 'contentType' in kwargs:
+        if content_type is None and 'contentType' in kwargs:
             content_type = kwargs['contentType']
 
         _setter("storage_share_id", storage_share_id)
@@ -253,17 +255,17 @@ class _ShareFileState:
              storage_share_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'contentDisposition' in kwargs:
+        if content_disposition is None and 'contentDisposition' in kwargs:
             content_disposition = kwargs['contentDisposition']
-        if 'contentEncoding' in kwargs:
+        if content_encoding is None and 'contentEncoding' in kwargs:
             content_encoding = kwargs['contentEncoding']
-        if 'contentLength' in kwargs:
+        if content_length is None and 'contentLength' in kwargs:
             content_length = kwargs['contentLength']
-        if 'contentMd5' in kwargs:
+        if content_md5 is None and 'contentMd5' in kwargs:
             content_md5 = kwargs['contentMd5']
-        if 'contentType' in kwargs:
+        if content_type is None and 'contentType' in kwargs:
             content_type = kwargs['contentType']
-        if 'storageShareId' in kwargs:
+        if storage_share_id is None and 'storageShareId' in kwargs:
             storage_share_id = kwargs['storageShareId']
 
         if content_disposition is not None:

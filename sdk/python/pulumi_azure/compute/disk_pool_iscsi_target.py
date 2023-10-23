@@ -35,17 +35,21 @@ class DiskPoolIscsiTargetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             acl_mode: pulumi.Input[str],
-             disks_pool_id: pulumi.Input[str],
+             acl_mode: Optional[pulumi.Input[str]] = None,
+             disks_pool_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              target_iqn: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'aclMode' in kwargs:
+        if acl_mode is None and 'aclMode' in kwargs:
             acl_mode = kwargs['aclMode']
-        if 'disksPoolId' in kwargs:
+        if acl_mode is None:
+            raise TypeError("Missing 'acl_mode' argument")
+        if disks_pool_id is None and 'disksPoolId' in kwargs:
             disks_pool_id = kwargs['disksPoolId']
-        if 'targetIqn' in kwargs:
+        if disks_pool_id is None:
+            raise TypeError("Missing 'disks_pool_id' argument")
+        if target_iqn is None and 'targetIqn' in kwargs:
             target_iqn = kwargs['targetIqn']
 
         _setter("acl_mode", acl_mode)
@@ -142,11 +146,11 @@ class _DiskPoolIscsiTargetState:
              target_iqn: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'aclMode' in kwargs:
+        if acl_mode is None and 'aclMode' in kwargs:
             acl_mode = kwargs['aclMode']
-        if 'disksPoolId' in kwargs:
+        if disks_pool_id is None and 'disksPoolId' in kwargs:
             disks_pool_id = kwargs['disksPoolId']
-        if 'targetIqn' in kwargs:
+        if target_iqn is None and 'targetIqn' in kwargs:
             target_iqn = kwargs['targetIqn']
 
         if acl_mode is not None:

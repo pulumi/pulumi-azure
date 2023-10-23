@@ -29,14 +29,18 @@ class GetHostPoolRegistrationInfoArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             expiration_date: pulumi.Input[str],
-             hostpool_id: pulumi.Input[str],
+             expiration_date: Optional[pulumi.Input[str]] = None,
+             hostpool_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'expirationDate' in kwargs:
+        if expiration_date is None and 'expirationDate' in kwargs:
             expiration_date = kwargs['expirationDate']
-        if 'hostpoolId' in kwargs:
+        if expiration_date is None:
+            raise TypeError("Missing 'expiration_date' argument")
+        if hostpool_id is None and 'hostpoolId' in kwargs:
             hostpool_id = kwargs['hostpoolId']
+        if hostpool_id is None:
+            raise TypeError("Missing 'hostpool_id' argument")
 
         _setter("expiration_date", expiration_date)
         _setter("hostpool_id", hostpool_id)
@@ -92,9 +96,9 @@ class _GetHostPoolRegistrationInfoState:
              token: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'expirationDate' in kwargs:
+        if expiration_date is None and 'expirationDate' in kwargs:
             expiration_date = kwargs['expirationDate']
-        if 'hostpoolId' in kwargs:
+        if hostpool_id is None and 'hostpoolId' in kwargs:
             hostpool_id = kwargs['hostpoolId']
 
         if expiration_date is not None:

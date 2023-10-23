@@ -42,18 +42,22 @@ class CassandraKeyspaceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             account_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             account_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              autoscale_settings: Optional[pulumi.Input['CassandraKeyspaceAutoscaleSettingsArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              throughput: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accountName' in kwargs:
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'resourceGroupName' in kwargs:
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'autoscaleSettings' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if autoscale_settings is None and 'autoscaleSettings' in kwargs:
             autoscale_settings = kwargs['autoscaleSettings']
 
         _setter("account_name", account_name)
@@ -164,11 +168,11 @@ class _CassandraKeyspaceState:
              throughput: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accountName' in kwargs:
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'autoscaleSettings' in kwargs:
+        if autoscale_settings is None and 'autoscaleSettings' in kwargs:
             autoscale_settings = kwargs['autoscaleSettings']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if account_name is not None:

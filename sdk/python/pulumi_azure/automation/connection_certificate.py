@@ -41,22 +41,30 @@ class ConnectionCertificateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             automation_account_name: pulumi.Input[str],
-             automation_certificate_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             subscription_id: pulumi.Input[str],
+             automation_account_name: Optional[pulumi.Input[str]] = None,
+             automation_certificate_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'automationAccountName' in kwargs:
+        if automation_account_name is None and 'automationAccountName' in kwargs:
             automation_account_name = kwargs['automationAccountName']
-        if 'automationCertificateName' in kwargs:
+        if automation_account_name is None:
+            raise TypeError("Missing 'automation_account_name' argument")
+        if automation_certificate_name is None and 'automationCertificateName' in kwargs:
             automation_certificate_name = kwargs['automationCertificateName']
-        if 'resourceGroupName' in kwargs:
+        if automation_certificate_name is None:
+            raise TypeError("Missing 'automation_certificate_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'subscriptionId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if subscription_id is None and 'subscriptionId' in kwargs:
             subscription_id = kwargs['subscriptionId']
+        if subscription_id is None:
+            raise TypeError("Missing 'subscription_id' argument")
 
         _setter("automation_account_name", automation_account_name)
         _setter("automation_certificate_name", automation_certificate_name)
@@ -178,13 +186,13 @@ class _ConnectionCertificateState:
              subscription_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'automationAccountName' in kwargs:
+        if automation_account_name is None and 'automationAccountName' in kwargs:
             automation_account_name = kwargs['automationAccountName']
-        if 'automationCertificateName' in kwargs:
+        if automation_certificate_name is None and 'automationCertificateName' in kwargs:
             automation_certificate_name = kwargs['automationCertificateName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'subscriptionId' in kwargs:
+        if subscription_id is None and 'subscriptionId' in kwargs:
             subscription_id = kwargs['subscriptionId']
 
         if automation_account_name is not None:

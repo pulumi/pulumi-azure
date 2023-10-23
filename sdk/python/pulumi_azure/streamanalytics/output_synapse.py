@@ -47,20 +47,34 @@ class OutputSynapseArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database: pulumi.Input[str],
-             password: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             server: pulumi.Input[str],
-             stream_analytics_job_name: pulumi.Input[str],
-             table: pulumi.Input[str],
-             user: pulumi.Input[str],
+             database: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             server: Optional[pulumi.Input[str]] = None,
+             stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
+             table: Optional[pulumi.Input[str]] = None,
+             user: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if database is None:
+            raise TypeError("Missing 'database' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'streamAnalyticsJobName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if server is None:
+            raise TypeError("Missing 'server' argument")
+        if stream_analytics_job_name is None and 'streamAnalyticsJobName' in kwargs:
             stream_analytics_job_name = kwargs['streamAnalyticsJobName']
+        if stream_analytics_job_name is None:
+            raise TypeError("Missing 'stream_analytics_job_name' argument")
+        if table is None:
+            raise TypeError("Missing 'table' argument")
+        if user is None:
+            raise TypeError("Missing 'user' argument")
 
         _setter("database", database)
         _setter("password", password)
@@ -215,9 +229,9 @@ class _OutputSynapseState:
              user: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'streamAnalyticsJobName' in kwargs:
+        if stream_analytics_job_name is None and 'streamAnalyticsJobName' in kwargs:
             stream_analytics_job_name = kwargs['streamAnalyticsJobName']
 
         if database is not None:

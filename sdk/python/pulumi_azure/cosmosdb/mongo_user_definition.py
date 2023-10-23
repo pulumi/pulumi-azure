@@ -37,15 +37,21 @@ class MongoUserDefinitionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cosmos_mongo_database_id: pulumi.Input[str],
-             password: pulumi.Input[str],
-             username: pulumi.Input[str],
+             cosmos_mongo_database_id: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
              inherited_role_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'cosmosMongoDatabaseId' in kwargs:
+        if cosmos_mongo_database_id is None and 'cosmosMongoDatabaseId' in kwargs:
             cosmos_mongo_database_id = kwargs['cosmosMongoDatabaseId']
-        if 'inheritedRoleNames' in kwargs:
+        if cosmos_mongo_database_id is None:
+            raise TypeError("Missing 'cosmos_mongo_database_id' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+        if inherited_role_names is None and 'inheritedRoleNames' in kwargs:
             inherited_role_names = kwargs['inheritedRoleNames']
 
         _setter("cosmos_mongo_database_id", cosmos_mongo_database_id)
@@ -137,9 +143,9 @@ class _MongoUserDefinitionState:
              username: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'cosmosMongoDatabaseId' in kwargs:
+        if cosmos_mongo_database_id is None and 'cosmosMongoDatabaseId' in kwargs:
             cosmos_mongo_database_id = kwargs['cosmosMongoDatabaseId']
-        if 'inheritedRoleNames' in kwargs:
+        if inherited_role_names is None and 'inheritedRoleNames' in kwargs:
             inherited_role_names = kwargs['inheritedRoleNames']
 
         if cosmos_mongo_database_id is not None:

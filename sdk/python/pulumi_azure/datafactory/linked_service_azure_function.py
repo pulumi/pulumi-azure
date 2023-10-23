@@ -57,8 +57,8 @@ class LinkedServiceAzureFunctionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_factory_id: pulumi.Input[str],
-             url: pulumi.Input[str],
+             data_factory_id: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
              additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -69,13 +69,17 @@ class LinkedServiceAzureFunctionArgs:
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'additionalProperties' in kwargs:
+        if data_factory_id is None:
+            raise TypeError("Missing 'data_factory_id' argument")
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'integrationRuntimeName' in kwargs:
+        if integration_runtime_name is None and 'integrationRuntimeName' in kwargs:
             integration_runtime_name = kwargs['integrationRuntimeName']
-        if 'keyVaultKey' in kwargs:
+        if key_vault_key is None and 'keyVaultKey' in kwargs:
             key_vault_key = kwargs['keyVaultKey']
 
         _setter("data_factory_id", data_factory_id)
@@ -276,13 +280,13 @@ class _LinkedServiceAzureFunctionState:
              url: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'additionalProperties' in kwargs:
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'integrationRuntimeName' in kwargs:
+        if integration_runtime_name is None and 'integrationRuntimeName' in kwargs:
             integration_runtime_name = kwargs['integrationRuntimeName']
-        if 'keyVaultKey' in kwargs:
+        if key_vault_key is None and 'keyVaultKey' in kwargs:
             key_vault_key = kwargs['keyVaultKey']
 
         if additional_properties is not None:

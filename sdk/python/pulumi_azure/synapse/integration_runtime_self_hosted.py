@@ -32,13 +32,15 @@ class IntegrationRuntimeSelfHostedArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             synapse_workspace_id: pulumi.Input[str],
+             synapse_workspace_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'synapseWorkspaceId' in kwargs:
+        if synapse_workspace_id is None and 'synapseWorkspaceId' in kwargs:
             synapse_workspace_id = kwargs['synapseWorkspaceId']
+        if synapse_workspace_id is None:
+            raise TypeError("Missing 'synapse_workspace_id' argument")
 
         _setter("synapse_workspace_id", synapse_workspace_id)
         if description is not None:
@@ -117,11 +119,11 @@ class _IntegrationRuntimeSelfHostedState:
              synapse_workspace_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'authorizationKeyPrimary' in kwargs:
+        if authorization_key_primary is None and 'authorizationKeyPrimary' in kwargs:
             authorization_key_primary = kwargs['authorizationKeyPrimary']
-        if 'authorizationKeySecondary' in kwargs:
+        if authorization_key_secondary is None and 'authorizationKeySecondary' in kwargs:
             authorization_key_secondary = kwargs['authorizationKeySecondary']
-        if 'synapseWorkspaceId' in kwargs:
+        if synapse_workspace_id is None and 'synapseWorkspaceId' in kwargs:
             synapse_workspace_id = kwargs['synapseWorkspaceId']
 
         if authorization_key_primary is not None:

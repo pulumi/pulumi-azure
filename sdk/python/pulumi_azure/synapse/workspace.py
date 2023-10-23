@@ -88,8 +88,8 @@ class WorkspaceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             storage_data_lake_gen2_filesystem_id: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             storage_data_lake_gen2_filesystem_id: Optional[pulumi.Input[str]] = None,
              aad_admin: Optional[pulumi.Input['WorkspaceAadAdminArgs']] = None,
              azure_devops_repo: Optional[pulumi.Input['WorkspaceAzureDevopsRepoArgs']] = None,
              compute_subnet_id: Optional[pulumi.Input[str]] = None,
@@ -111,39 +111,43 @@ class WorkspaceArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'storageDataLakeGen2FilesystemId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if storage_data_lake_gen2_filesystem_id is None and 'storageDataLakeGen2FilesystemId' in kwargs:
             storage_data_lake_gen2_filesystem_id = kwargs['storageDataLakeGen2FilesystemId']
-        if 'aadAdmin' in kwargs:
+        if storage_data_lake_gen2_filesystem_id is None:
+            raise TypeError("Missing 'storage_data_lake_gen2_filesystem_id' argument")
+        if aad_admin is None and 'aadAdmin' in kwargs:
             aad_admin = kwargs['aadAdmin']
-        if 'azureDevopsRepo' in kwargs:
+        if azure_devops_repo is None and 'azureDevopsRepo' in kwargs:
             azure_devops_repo = kwargs['azureDevopsRepo']
-        if 'computeSubnetId' in kwargs:
+        if compute_subnet_id is None and 'computeSubnetId' in kwargs:
             compute_subnet_id = kwargs['computeSubnetId']
-        if 'customerManagedKey' in kwargs:
+        if customer_managed_key is None and 'customerManagedKey' in kwargs:
             customer_managed_key = kwargs['customerManagedKey']
-        if 'dataExfiltrationProtectionEnabled' in kwargs:
+        if data_exfiltration_protection_enabled is None and 'dataExfiltrationProtectionEnabled' in kwargs:
             data_exfiltration_protection_enabled = kwargs['dataExfiltrationProtectionEnabled']
-        if 'githubRepo' in kwargs:
+        if github_repo is None and 'githubRepo' in kwargs:
             github_repo = kwargs['githubRepo']
-        if 'linkingAllowedForAadTenantIds' in kwargs:
+        if linking_allowed_for_aad_tenant_ids is None and 'linkingAllowedForAadTenantIds' in kwargs:
             linking_allowed_for_aad_tenant_ids = kwargs['linkingAllowedForAadTenantIds']
-        if 'managedResourceGroupName' in kwargs:
+        if managed_resource_group_name is None and 'managedResourceGroupName' in kwargs:
             managed_resource_group_name = kwargs['managedResourceGroupName']
-        if 'managedVirtualNetworkEnabled' in kwargs:
+        if managed_virtual_network_enabled is None and 'managedVirtualNetworkEnabled' in kwargs:
             managed_virtual_network_enabled = kwargs['managedVirtualNetworkEnabled']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'purviewId' in kwargs:
+        if purview_id is None and 'purviewId' in kwargs:
             purview_id = kwargs['purviewId']
-        if 'sqlAadAdmin' in kwargs:
+        if sql_aad_admin is None and 'sqlAadAdmin' in kwargs:
             sql_aad_admin = kwargs['sqlAadAdmin']
-        if 'sqlAdministratorLogin' in kwargs:
+        if sql_administrator_login is None and 'sqlAdministratorLogin' in kwargs:
             sql_administrator_login = kwargs['sqlAdministratorLogin']
-        if 'sqlAdministratorLoginPassword' in kwargs:
+        if sql_administrator_login_password is None and 'sqlAdministratorLoginPassword' in kwargs:
             sql_administrator_login_password = kwargs['sqlAdministratorLoginPassword']
-        if 'sqlIdentityControlEnabled' in kwargs:
+        if sql_identity_control_enabled is None and 'sqlIdentityControlEnabled' in kwargs:
             sql_identity_control_enabled = kwargs['sqlIdentityControlEnabled']
 
         _setter("resource_group_name", resource_group_name)
@@ -542,41 +546,41 @@ class _WorkspaceState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'aadAdmin' in kwargs:
+        if aad_admin is None and 'aadAdmin' in kwargs:
             aad_admin = kwargs['aadAdmin']
-        if 'azureDevopsRepo' in kwargs:
+        if azure_devops_repo is None and 'azureDevopsRepo' in kwargs:
             azure_devops_repo = kwargs['azureDevopsRepo']
-        if 'computeSubnetId' in kwargs:
+        if compute_subnet_id is None and 'computeSubnetId' in kwargs:
             compute_subnet_id = kwargs['computeSubnetId']
-        if 'connectivityEndpoints' in kwargs:
+        if connectivity_endpoints is None and 'connectivityEndpoints' in kwargs:
             connectivity_endpoints = kwargs['connectivityEndpoints']
-        if 'customerManagedKey' in kwargs:
+        if customer_managed_key is None and 'customerManagedKey' in kwargs:
             customer_managed_key = kwargs['customerManagedKey']
-        if 'dataExfiltrationProtectionEnabled' in kwargs:
+        if data_exfiltration_protection_enabled is None and 'dataExfiltrationProtectionEnabled' in kwargs:
             data_exfiltration_protection_enabled = kwargs['dataExfiltrationProtectionEnabled']
-        if 'githubRepo' in kwargs:
+        if github_repo is None and 'githubRepo' in kwargs:
             github_repo = kwargs['githubRepo']
-        if 'linkingAllowedForAadTenantIds' in kwargs:
+        if linking_allowed_for_aad_tenant_ids is None and 'linkingAllowedForAadTenantIds' in kwargs:
             linking_allowed_for_aad_tenant_ids = kwargs['linkingAllowedForAadTenantIds']
-        if 'managedResourceGroupName' in kwargs:
+        if managed_resource_group_name is None and 'managedResourceGroupName' in kwargs:
             managed_resource_group_name = kwargs['managedResourceGroupName']
-        if 'managedVirtualNetworkEnabled' in kwargs:
+        if managed_virtual_network_enabled is None and 'managedVirtualNetworkEnabled' in kwargs:
             managed_virtual_network_enabled = kwargs['managedVirtualNetworkEnabled']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'purviewId' in kwargs:
+        if purview_id is None and 'purviewId' in kwargs:
             purview_id = kwargs['purviewId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'sqlAadAdmin' in kwargs:
+        if sql_aad_admin is None and 'sqlAadAdmin' in kwargs:
             sql_aad_admin = kwargs['sqlAadAdmin']
-        if 'sqlAdministratorLogin' in kwargs:
+        if sql_administrator_login is None and 'sqlAdministratorLogin' in kwargs:
             sql_administrator_login = kwargs['sqlAdministratorLogin']
-        if 'sqlAdministratorLoginPassword' in kwargs:
+        if sql_administrator_login_password is None and 'sqlAdministratorLoginPassword' in kwargs:
             sql_administrator_login_password = kwargs['sqlAdministratorLoginPassword']
-        if 'sqlIdentityControlEnabled' in kwargs:
+        if sql_identity_control_enabled is None and 'sqlIdentityControlEnabled' in kwargs:
             sql_identity_control_enabled = kwargs['sqlIdentityControlEnabled']
-        if 'storageDataLakeGen2FilesystemId' in kwargs:
+        if storage_data_lake_gen2_filesystem_id is None and 'storageDataLakeGen2FilesystemId' in kwargs:
             storage_data_lake_gen2_filesystem_id = kwargs['storageDataLakeGen2FilesystemId']
 
         if aad_admin is not None:

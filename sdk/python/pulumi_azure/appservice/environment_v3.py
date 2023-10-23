@@ -57,8 +57,8 @@ class EnvironmentV3Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             subnet_id: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
              allow_new_private_endpoint_connections: Optional[pulumi.Input[bool]] = None,
              cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentV3ClusterSettingArgs']]]] = None,
              dedicated_host_count: Optional[pulumi.Input[int]] = None,
@@ -68,19 +68,23 @@ class EnvironmentV3Args:
              zone_redundant: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'subnetId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'allowNewPrivateEndpointConnections' in kwargs:
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+        if allow_new_private_endpoint_connections is None and 'allowNewPrivateEndpointConnections' in kwargs:
             allow_new_private_endpoint_connections = kwargs['allowNewPrivateEndpointConnections']
-        if 'clusterSettings' in kwargs:
+        if cluster_settings is None and 'clusterSettings' in kwargs:
             cluster_settings = kwargs['clusterSettings']
-        if 'dedicatedHostCount' in kwargs:
+        if dedicated_host_count is None and 'dedicatedHostCount' in kwargs:
             dedicated_host_count = kwargs['dedicatedHostCount']
-        if 'internalLoadBalancingMode' in kwargs:
+        if internal_load_balancing_mode is None and 'internalLoadBalancingMode' in kwargs:
             internal_load_balancing_mode = kwargs['internalLoadBalancingMode']
-        if 'zoneRedundant' in kwargs:
+        if zone_redundant is None and 'zoneRedundant' in kwargs:
             zone_redundant = kwargs['zoneRedundant']
 
         _setter("resource_group_name", resource_group_name)
@@ -303,35 +307,35 @@ class _EnvironmentV3State:
              zone_redundant: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowNewPrivateEndpointConnections' in kwargs:
+        if allow_new_private_endpoint_connections is None and 'allowNewPrivateEndpointConnections' in kwargs:
             allow_new_private_endpoint_connections = kwargs['allowNewPrivateEndpointConnections']
-        if 'clusterSettings' in kwargs:
+        if cluster_settings is None and 'clusterSettings' in kwargs:
             cluster_settings = kwargs['clusterSettings']
-        if 'dedicatedHostCount' in kwargs:
+        if dedicated_host_count is None and 'dedicatedHostCount' in kwargs:
             dedicated_host_count = kwargs['dedicatedHostCount']
-        if 'dnsSuffix' in kwargs:
+        if dns_suffix is None and 'dnsSuffix' in kwargs:
             dns_suffix = kwargs['dnsSuffix']
-        if 'externalInboundIpAddresses' in kwargs:
+        if external_inbound_ip_addresses is None and 'externalInboundIpAddresses' in kwargs:
             external_inbound_ip_addresses = kwargs['externalInboundIpAddresses']
-        if 'inboundNetworkDependencies' in kwargs:
+        if inbound_network_dependencies is None and 'inboundNetworkDependencies' in kwargs:
             inbound_network_dependencies = kwargs['inboundNetworkDependencies']
-        if 'internalInboundIpAddresses' in kwargs:
+        if internal_inbound_ip_addresses is None and 'internalInboundIpAddresses' in kwargs:
             internal_inbound_ip_addresses = kwargs['internalInboundIpAddresses']
-        if 'internalLoadBalancingMode' in kwargs:
+        if internal_load_balancing_mode is None and 'internalLoadBalancingMode' in kwargs:
             internal_load_balancing_mode = kwargs['internalLoadBalancingMode']
-        if 'ipSslAddressCount' in kwargs:
+        if ip_ssl_address_count is None and 'ipSslAddressCount' in kwargs:
             ip_ssl_address_count = kwargs['ipSslAddressCount']
-        if 'linuxOutboundIpAddresses' in kwargs:
+        if linux_outbound_ip_addresses is None and 'linuxOutboundIpAddresses' in kwargs:
             linux_outbound_ip_addresses = kwargs['linuxOutboundIpAddresses']
-        if 'pricingTier' in kwargs:
+        if pricing_tier is None and 'pricingTier' in kwargs:
             pricing_tier = kwargs['pricingTier']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'windowsOutboundIpAddresses' in kwargs:
+        if windows_outbound_ip_addresses is None and 'windowsOutboundIpAddresses' in kwargs:
             windows_outbound_ip_addresses = kwargs['windowsOutboundIpAddresses']
-        if 'zoneRedundant' in kwargs:
+        if zone_redundant is None and 'zoneRedundant' in kwargs:
             zone_redundant = kwargs['zoneRedundant']
 
         if allow_new_private_endpoint_connections is not None:

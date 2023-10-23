@@ -61,8 +61,8 @@ class CassandraDatacenterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cassandra_cluster_id: pulumi.Input[str],
-             delegated_management_subnet_id: pulumi.Input[str],
+             cassandra_cluster_id: Optional[pulumi.Input[str]] = None,
+             delegated_management_subnet_id: Optional[pulumi.Input[str]] = None,
              availability_zones_enabled: Optional[pulumi.Input[bool]] = None,
              backup_storage_customer_key_uri: Optional[pulumi.Input[str]] = None,
              base64_encoded_yaml_fragment: Optional[pulumi.Input[str]] = None,
@@ -75,25 +75,29 @@ class CassandraDatacenterArgs:
              sku_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'cassandraClusterId' in kwargs:
+        if cassandra_cluster_id is None and 'cassandraClusterId' in kwargs:
             cassandra_cluster_id = kwargs['cassandraClusterId']
-        if 'delegatedManagementSubnetId' in kwargs:
+        if cassandra_cluster_id is None:
+            raise TypeError("Missing 'cassandra_cluster_id' argument")
+        if delegated_management_subnet_id is None and 'delegatedManagementSubnetId' in kwargs:
             delegated_management_subnet_id = kwargs['delegatedManagementSubnetId']
-        if 'availabilityZonesEnabled' in kwargs:
+        if delegated_management_subnet_id is None:
+            raise TypeError("Missing 'delegated_management_subnet_id' argument")
+        if availability_zones_enabled is None and 'availabilityZonesEnabled' in kwargs:
             availability_zones_enabled = kwargs['availabilityZonesEnabled']
-        if 'backupStorageCustomerKeyUri' in kwargs:
+        if backup_storage_customer_key_uri is None and 'backupStorageCustomerKeyUri' in kwargs:
             backup_storage_customer_key_uri = kwargs['backupStorageCustomerKeyUri']
-        if 'base64EncodedYamlFragment' in kwargs:
+        if base64_encoded_yaml_fragment is None and 'base64EncodedYamlFragment' in kwargs:
             base64_encoded_yaml_fragment = kwargs['base64EncodedYamlFragment']
-        if 'diskCount' in kwargs:
+        if disk_count is None and 'diskCount' in kwargs:
             disk_count = kwargs['diskCount']
-        if 'diskSku' in kwargs:
+        if disk_sku is None and 'diskSku' in kwargs:
             disk_sku = kwargs['diskSku']
-        if 'managedDiskCustomerKeyUri' in kwargs:
+        if managed_disk_customer_key_uri is None and 'managedDiskCustomerKeyUri' in kwargs:
             managed_disk_customer_key_uri = kwargs['managedDiskCustomerKeyUri']
-        if 'nodeCount' in kwargs:
+        if node_count is None and 'nodeCount' in kwargs:
             node_count = kwargs['nodeCount']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
 
         _setter("cassandra_cluster_id", cassandra_cluster_id)
@@ -330,25 +334,25 @@ class _CassandraDatacenterState:
              sku_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'availabilityZonesEnabled' in kwargs:
+        if availability_zones_enabled is None and 'availabilityZonesEnabled' in kwargs:
             availability_zones_enabled = kwargs['availabilityZonesEnabled']
-        if 'backupStorageCustomerKeyUri' in kwargs:
+        if backup_storage_customer_key_uri is None and 'backupStorageCustomerKeyUri' in kwargs:
             backup_storage_customer_key_uri = kwargs['backupStorageCustomerKeyUri']
-        if 'base64EncodedYamlFragment' in kwargs:
+        if base64_encoded_yaml_fragment is None and 'base64EncodedYamlFragment' in kwargs:
             base64_encoded_yaml_fragment = kwargs['base64EncodedYamlFragment']
-        if 'cassandraClusterId' in kwargs:
+        if cassandra_cluster_id is None and 'cassandraClusterId' in kwargs:
             cassandra_cluster_id = kwargs['cassandraClusterId']
-        if 'delegatedManagementSubnetId' in kwargs:
+        if delegated_management_subnet_id is None and 'delegatedManagementSubnetId' in kwargs:
             delegated_management_subnet_id = kwargs['delegatedManagementSubnetId']
-        if 'diskCount' in kwargs:
+        if disk_count is None and 'diskCount' in kwargs:
             disk_count = kwargs['diskCount']
-        if 'diskSku' in kwargs:
+        if disk_sku is None and 'diskSku' in kwargs:
             disk_sku = kwargs['diskSku']
-        if 'managedDiskCustomerKeyUri' in kwargs:
+        if managed_disk_customer_key_uri is None and 'managedDiskCustomerKeyUri' in kwargs:
             managed_disk_customer_key_uri = kwargs['managedDiskCustomerKeyUri']
-        if 'nodeCount' in kwargs:
+        if node_count is None and 'nodeCount' in kwargs:
             node_count = kwargs['nodeCount']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
 
         if availability_zones_enabled is not None:

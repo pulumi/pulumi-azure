@@ -103,9 +103,9 @@ class ApiArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_management_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             revision: pulumi.Input[str],
+             api_management_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             revision: Optional[pulumi.Input[str]] = None,
              api_type: Optional[pulumi.Input[str]] = None,
              contact: Optional[pulumi.Input['ApiContactArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -129,37 +129,43 @@ class ApiArgs:
              version_set_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'resourceGroupName' in kwargs:
+        if api_management_name is None:
+            raise TypeError("Missing 'api_management_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'apiType' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if revision is None:
+            raise TypeError("Missing 'revision' argument")
+        if api_type is None and 'apiType' in kwargs:
             api_type = kwargs['apiType']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'import' in kwargs:
+        if import_ is None and 'import' in kwargs:
             import_ = kwargs['import']
-        if 'oauth2Authorization' in kwargs:
+        if oauth2_authorization is None and 'oauth2Authorization' in kwargs:
             oauth2_authorization = kwargs['oauth2Authorization']
-        if 'openidAuthentication' in kwargs:
+        if openid_authentication is None and 'openidAuthentication' in kwargs:
             openid_authentication = kwargs['openidAuthentication']
-        if 'revisionDescription' in kwargs:
+        if revision_description is None and 'revisionDescription' in kwargs:
             revision_description = kwargs['revisionDescription']
-        if 'serviceUrl' in kwargs:
+        if service_url is None and 'serviceUrl' in kwargs:
             service_url = kwargs['serviceUrl']
-        if 'soapPassThrough' in kwargs:
+        if soap_pass_through is None and 'soapPassThrough' in kwargs:
             soap_pass_through = kwargs['soapPassThrough']
-        if 'sourceApiId' in kwargs:
+        if source_api_id is None and 'sourceApiId' in kwargs:
             source_api_id = kwargs['sourceApiId']
-        if 'subscriptionKeyParameterNames' in kwargs:
+        if subscription_key_parameter_names is None and 'subscriptionKeyParameterNames' in kwargs:
             subscription_key_parameter_names = kwargs['subscriptionKeyParameterNames']
-        if 'subscriptionRequired' in kwargs:
+        if subscription_required is None and 'subscriptionRequired' in kwargs:
             subscription_required = kwargs['subscriptionRequired']
-        if 'termsOfServiceUrl' in kwargs:
+        if terms_of_service_url is None and 'termsOfServiceUrl' in kwargs:
             terms_of_service_url = kwargs['termsOfServiceUrl']
-        if 'versionDescription' in kwargs:
+        if version_description is None and 'versionDescription' in kwargs:
             version_description = kwargs['versionDescription']
-        if 'versionSetId' in kwargs:
+        if version_set_id is None and 'versionSetId' in kwargs:
             version_set_id = kwargs['versionSetId']
 
         _setter("api_management_name", api_management_name)
@@ -633,41 +639,41 @@ class _ApiState:
              version_set_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'apiType' in kwargs:
+        if api_type is None and 'apiType' in kwargs:
             api_type = kwargs['apiType']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'import' in kwargs:
+        if import_ is None and 'import' in kwargs:
             import_ = kwargs['import']
-        if 'isCurrent' in kwargs:
+        if is_current is None and 'isCurrent' in kwargs:
             is_current = kwargs['isCurrent']
-        if 'isOnline' in kwargs:
+        if is_online is None and 'isOnline' in kwargs:
             is_online = kwargs['isOnline']
-        if 'oauth2Authorization' in kwargs:
+        if oauth2_authorization is None and 'oauth2Authorization' in kwargs:
             oauth2_authorization = kwargs['oauth2Authorization']
-        if 'openidAuthentication' in kwargs:
+        if openid_authentication is None and 'openidAuthentication' in kwargs:
             openid_authentication = kwargs['openidAuthentication']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'revisionDescription' in kwargs:
+        if revision_description is None and 'revisionDescription' in kwargs:
             revision_description = kwargs['revisionDescription']
-        if 'serviceUrl' in kwargs:
+        if service_url is None and 'serviceUrl' in kwargs:
             service_url = kwargs['serviceUrl']
-        if 'soapPassThrough' in kwargs:
+        if soap_pass_through is None and 'soapPassThrough' in kwargs:
             soap_pass_through = kwargs['soapPassThrough']
-        if 'sourceApiId' in kwargs:
+        if source_api_id is None and 'sourceApiId' in kwargs:
             source_api_id = kwargs['sourceApiId']
-        if 'subscriptionKeyParameterNames' in kwargs:
+        if subscription_key_parameter_names is None and 'subscriptionKeyParameterNames' in kwargs:
             subscription_key_parameter_names = kwargs['subscriptionKeyParameterNames']
-        if 'subscriptionRequired' in kwargs:
+        if subscription_required is None and 'subscriptionRequired' in kwargs:
             subscription_required = kwargs['subscriptionRequired']
-        if 'termsOfServiceUrl' in kwargs:
+        if terms_of_service_url is None and 'termsOfServiceUrl' in kwargs:
             terms_of_service_url = kwargs['termsOfServiceUrl']
-        if 'versionDescription' in kwargs:
+        if version_description is None and 'versionDescription' in kwargs:
             version_description = kwargs['versionDescription']
-        if 'versionSetId' in kwargs:
+        if version_set_id is None and 'versionSetId' in kwargs:
             version_set_id = kwargs['versionSetId']
 
         if api_management_name is not None:

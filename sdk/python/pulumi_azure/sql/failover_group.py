@@ -51,25 +51,33 @@ class FailoverGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             partner_servers: pulumi.Input[Sequence[pulumi.Input['FailoverGroupPartnerServerArgs']]],
-             read_write_endpoint_failover_policy: pulumi.Input['FailoverGroupReadWriteEndpointFailoverPolicyArgs'],
-             resource_group_name: pulumi.Input[str],
-             server_name: pulumi.Input[str],
+             partner_servers: Optional[pulumi.Input[Sequence[pulumi.Input['FailoverGroupPartnerServerArgs']]]] = None,
+             read_write_endpoint_failover_policy: Optional[pulumi.Input['FailoverGroupReadWriteEndpointFailoverPolicyArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
              databases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              readonly_endpoint_failover_policy: Optional[pulumi.Input['FailoverGroupReadonlyEndpointFailoverPolicyArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'partnerServers' in kwargs:
+        if partner_servers is None and 'partnerServers' in kwargs:
             partner_servers = kwargs['partnerServers']
-        if 'readWriteEndpointFailoverPolicy' in kwargs:
+        if partner_servers is None:
+            raise TypeError("Missing 'partner_servers' argument")
+        if read_write_endpoint_failover_policy is None and 'readWriteEndpointFailoverPolicy' in kwargs:
             read_write_endpoint_failover_policy = kwargs['readWriteEndpointFailoverPolicy']
-        if 'resourceGroupName' in kwargs:
+        if read_write_endpoint_failover_policy is None:
+            raise TypeError("Missing 'read_write_endpoint_failover_policy' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serverName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if server_name is None and 'serverName' in kwargs:
             server_name = kwargs['serverName']
-        if 'readonlyEndpointFailoverPolicy' in kwargs:
+        if server_name is None:
+            raise TypeError("Missing 'server_name' argument")
+        if readonly_endpoint_failover_policy is None and 'readonlyEndpointFailoverPolicy' in kwargs:
             readonly_endpoint_failover_policy = kwargs['readonlyEndpointFailoverPolicy']
 
         _setter("partner_servers", partner_servers)
@@ -240,15 +248,15 @@ class _FailoverGroupState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'partnerServers' in kwargs:
+        if partner_servers is None and 'partnerServers' in kwargs:
             partner_servers = kwargs['partnerServers']
-        if 'readWriteEndpointFailoverPolicy' in kwargs:
+        if read_write_endpoint_failover_policy is None and 'readWriteEndpointFailoverPolicy' in kwargs:
             read_write_endpoint_failover_policy = kwargs['readWriteEndpointFailoverPolicy']
-        if 'readonlyEndpointFailoverPolicy' in kwargs:
+        if readonly_endpoint_failover_policy is None and 'readonlyEndpointFailoverPolicy' in kwargs:
             readonly_endpoint_failover_policy = kwargs['readonlyEndpointFailoverPolicy']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serverName' in kwargs:
+        if server_name is None and 'serverName' in kwargs:
             server_name = kwargs['serverName']
 
         if databases is not None:

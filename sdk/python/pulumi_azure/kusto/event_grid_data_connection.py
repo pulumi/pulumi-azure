@@ -71,12 +71,12 @@ class EventGridDataConnectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cluster_name: pulumi.Input[str],
-             database_name: pulumi.Input[str],
-             eventhub_consumer_group_name: pulumi.Input[str],
-             eventhub_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             storage_account_id: pulumi.Input[str],
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             eventhub_consumer_group_name: Optional[pulumi.Input[str]] = None,
+             eventhub_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             storage_account_id: Optional[pulumi.Input[str]] = None,
              blob_storage_event_type: Optional[pulumi.Input[str]] = None,
              data_format: Optional[pulumi.Input[str]] = None,
              database_routing_type: Optional[pulumi.Input[str]] = None,
@@ -89,33 +89,45 @@ class EventGridDataConnectionArgs:
              table_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clusterName' in kwargs:
+        if cluster_name is None and 'clusterName' in kwargs:
             cluster_name = kwargs['clusterName']
-        if 'databaseName' in kwargs:
+        if cluster_name is None:
+            raise TypeError("Missing 'cluster_name' argument")
+        if database_name is None and 'databaseName' in kwargs:
             database_name = kwargs['databaseName']
-        if 'eventhubConsumerGroupName' in kwargs:
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if eventhub_consumer_group_name is None and 'eventhubConsumerGroupName' in kwargs:
             eventhub_consumer_group_name = kwargs['eventhubConsumerGroupName']
-        if 'eventhubId' in kwargs:
+        if eventhub_consumer_group_name is None:
+            raise TypeError("Missing 'eventhub_consumer_group_name' argument")
+        if eventhub_id is None and 'eventhubId' in kwargs:
             eventhub_id = kwargs['eventhubId']
-        if 'resourceGroupName' in kwargs:
+        if eventhub_id is None:
+            raise TypeError("Missing 'eventhub_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'storageAccountId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'blobStorageEventType' in kwargs:
+        if storage_account_id is None:
+            raise TypeError("Missing 'storage_account_id' argument")
+        if blob_storage_event_type is None and 'blobStorageEventType' in kwargs:
             blob_storage_event_type = kwargs['blobStorageEventType']
-        if 'dataFormat' in kwargs:
+        if data_format is None and 'dataFormat' in kwargs:
             data_format = kwargs['dataFormat']
-        if 'databaseRoutingType' in kwargs:
+        if database_routing_type is None and 'databaseRoutingType' in kwargs:
             database_routing_type = kwargs['databaseRoutingType']
-        if 'eventgridResourceId' in kwargs:
+        if eventgrid_resource_id is None and 'eventgridResourceId' in kwargs:
             eventgrid_resource_id = kwargs['eventgridResourceId']
-        if 'managedIdentityResourceId' in kwargs:
+        if managed_identity_resource_id is None and 'managedIdentityResourceId' in kwargs:
             managed_identity_resource_id = kwargs['managedIdentityResourceId']
-        if 'mappingRuleName' in kwargs:
+        if mapping_rule_name is None and 'mappingRuleName' in kwargs:
             mapping_rule_name = kwargs['mappingRuleName']
-        if 'skipFirstRecord' in kwargs:
+        if skip_first_record is None and 'skipFirstRecord' in kwargs:
             skip_first_record = kwargs['skipFirstRecord']
-        if 'tableName' in kwargs:
+        if table_name is None and 'tableName' in kwargs:
             table_name = kwargs['tableName']
 
         _setter("cluster_name", cluster_name)
@@ -416,33 +428,33 @@ class _EventGridDataConnectionState:
              table_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'blobStorageEventType' in kwargs:
+        if blob_storage_event_type is None and 'blobStorageEventType' in kwargs:
             blob_storage_event_type = kwargs['blobStorageEventType']
-        if 'clusterName' in kwargs:
+        if cluster_name is None and 'clusterName' in kwargs:
             cluster_name = kwargs['clusterName']
-        if 'dataFormat' in kwargs:
+        if data_format is None and 'dataFormat' in kwargs:
             data_format = kwargs['dataFormat']
-        if 'databaseName' in kwargs:
+        if database_name is None and 'databaseName' in kwargs:
             database_name = kwargs['databaseName']
-        if 'databaseRoutingType' in kwargs:
+        if database_routing_type is None and 'databaseRoutingType' in kwargs:
             database_routing_type = kwargs['databaseRoutingType']
-        if 'eventgridResourceId' in kwargs:
+        if eventgrid_resource_id is None and 'eventgridResourceId' in kwargs:
             eventgrid_resource_id = kwargs['eventgridResourceId']
-        if 'eventhubConsumerGroupName' in kwargs:
+        if eventhub_consumer_group_name is None and 'eventhubConsumerGroupName' in kwargs:
             eventhub_consumer_group_name = kwargs['eventhubConsumerGroupName']
-        if 'eventhubId' in kwargs:
+        if eventhub_id is None and 'eventhubId' in kwargs:
             eventhub_id = kwargs['eventhubId']
-        if 'managedIdentityResourceId' in kwargs:
+        if managed_identity_resource_id is None and 'managedIdentityResourceId' in kwargs:
             managed_identity_resource_id = kwargs['managedIdentityResourceId']
-        if 'mappingRuleName' in kwargs:
+        if mapping_rule_name is None and 'mappingRuleName' in kwargs:
             mapping_rule_name = kwargs['mappingRuleName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skipFirstRecord' in kwargs:
+        if skip_first_record is None and 'skipFirstRecord' in kwargs:
             skip_first_record = kwargs['skipFirstRecord']
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'tableName' in kwargs:
+        if table_name is None and 'tableName' in kwargs:
             table_name = kwargs['tableName']
 
         if blob_storage_event_type is not None:

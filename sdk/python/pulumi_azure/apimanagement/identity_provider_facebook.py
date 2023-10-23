@@ -35,20 +35,28 @@ class IdentityProviderFacebookArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_management_name: pulumi.Input[str],
-             app_id: pulumi.Input[str],
-             app_secret: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             api_management_name: Optional[pulumi.Input[str]] = None,
+             app_id: Optional[pulumi.Input[str]] = None,
+             app_secret: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'appId' in kwargs:
+        if api_management_name is None:
+            raise TypeError("Missing 'api_management_name' argument")
+        if app_id is None and 'appId' in kwargs:
             app_id = kwargs['appId']
-        if 'appSecret' in kwargs:
+        if app_id is None:
+            raise TypeError("Missing 'app_id' argument")
+        if app_secret is None and 'appSecret' in kwargs:
             app_secret = kwargs['appSecret']
-        if 'resourceGroupName' in kwargs:
+        if app_secret is None:
+            raise TypeError("Missing 'app_secret' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("api_management_name", api_management_name)
         _setter("app_id", app_id)
@@ -134,13 +142,13 @@ class _IdentityProviderFacebookState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'appId' in kwargs:
+        if app_id is None and 'appId' in kwargs:
             app_id = kwargs['appId']
-        if 'appSecret' in kwargs:
+        if app_secret is None and 'appSecret' in kwargs:
             app_secret = kwargs['appSecret']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if api_management_name is not None:

@@ -40,15 +40,23 @@ class FunctionJavascriptUdaArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             inputs: pulumi.Input[Sequence[pulumi.Input['FunctionJavascriptUdaInputArgs']]],
-             output: pulumi.Input['FunctionJavascriptUdaOutputArgs'],
-             script: pulumi.Input[str],
-             stream_analytics_job_id: pulumi.Input[str],
+             inputs: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionJavascriptUdaInputArgs']]]] = None,
+             output: Optional[pulumi.Input['FunctionJavascriptUdaOutputArgs']] = None,
+             script: Optional[pulumi.Input[str]] = None,
+             stream_analytics_job_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'streamAnalyticsJobId' in kwargs:
+        if inputs is None:
+            raise TypeError("Missing 'inputs' argument")
+        if output is None:
+            raise TypeError("Missing 'output' argument")
+        if script is None:
+            raise TypeError("Missing 'script' argument")
+        if stream_analytics_job_id is None and 'streamAnalyticsJobId' in kwargs:
             stream_analytics_job_id = kwargs['streamAnalyticsJobId']
+        if stream_analytics_job_id is None:
+            raise TypeError("Missing 'stream_analytics_job_id' argument")
 
         _setter("inputs", inputs)
         _setter("output", output)
@@ -152,7 +160,7 @@ class _FunctionJavascriptUdaState:
              stream_analytics_job_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'streamAnalyticsJobId' in kwargs:
+        if stream_analytics_job_id is None and 'streamAnalyticsJobId' in kwargs:
             stream_analytics_job_id = kwargs['streamAnalyticsJobId']
 
         if inputs is not None:

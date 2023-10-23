@@ -60,7 +60,7 @@ class ConfigurationFeatureArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             configuration_store_id: pulumi.Input[str],
+             configuration_store_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              etag: Optional[pulumi.Input[str]] = None,
@@ -74,13 +74,15 @@ class ConfigurationFeatureArgs:
              timewindow_filters: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTimewindowFilterArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'configurationStoreId' in kwargs:
+        if configuration_store_id is None and 'configurationStoreId' in kwargs:
             configuration_store_id = kwargs['configurationStoreId']
-        if 'percentageFilterValue' in kwargs:
+        if configuration_store_id is None:
+            raise TypeError("Missing 'configuration_store_id' argument")
+        if percentage_filter_value is None and 'percentageFilterValue' in kwargs:
             percentage_filter_value = kwargs['percentageFilterValue']
-        if 'targetingFilters' in kwargs:
+        if targeting_filters is None and 'targetingFilters' in kwargs:
             targeting_filters = kwargs['targetingFilters']
-        if 'timewindowFilters' in kwargs:
+        if timewindow_filters is None and 'timewindowFilters' in kwargs:
             timewindow_filters = kwargs['timewindowFilters']
 
         _setter("configuration_store_id", configuration_store_id)
@@ -310,13 +312,13 @@ class _ConfigurationFeatureState:
              timewindow_filters: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTimewindowFilterArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'configurationStoreId' in kwargs:
+        if configuration_store_id is None and 'configurationStoreId' in kwargs:
             configuration_store_id = kwargs['configurationStoreId']
-        if 'percentageFilterValue' in kwargs:
+        if percentage_filter_value is None and 'percentageFilterValue' in kwargs:
             percentage_filter_value = kwargs['percentageFilterValue']
-        if 'targetingFilters' in kwargs:
+        if targeting_filters is None and 'targetingFilters' in kwargs:
             targeting_filters = kwargs['targetingFilters']
-        if 'timewindowFilters' in kwargs:
+        if timewindow_filters is None and 'timewindowFilters' in kwargs:
             timewindow_filters = kwargs['timewindowFilters']
 
         if configuration_store_id is not None:

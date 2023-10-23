@@ -98,9 +98,9 @@ class GroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             containers: pulumi.Input[Sequence[pulumi.Input['GroupContainerArgs']]],
-             os_type: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             containers: Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerArgs']]]] = None,
+             os_type: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              diagnostics: Optional[pulumi.Input['GroupDiagnosticsArgs']] = None,
              dns_config: Optional[pulumi.Input['GroupDnsConfigArgs']] = None,
              dns_name_label: Optional[pulumi.Input[str]] = None,
@@ -122,33 +122,39 @@ class GroupArgs:
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'osType' in kwargs:
+        if containers is None:
+            raise TypeError("Missing 'containers' argument")
+        if os_type is None and 'osType' in kwargs:
             os_type = kwargs['osType']
-        if 'resourceGroupName' in kwargs:
+        if os_type is None:
+            raise TypeError("Missing 'os_type' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'dnsConfig' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if dns_config is None and 'dnsConfig' in kwargs:
             dns_config = kwargs['dnsConfig']
-        if 'dnsNameLabel' in kwargs:
+        if dns_name_label is None and 'dnsNameLabel' in kwargs:
             dns_name_label = kwargs['dnsNameLabel']
-        if 'dnsNameLabelReusePolicy' in kwargs:
+        if dns_name_label_reuse_policy is None and 'dnsNameLabelReusePolicy' in kwargs:
             dns_name_label_reuse_policy = kwargs['dnsNameLabelReusePolicy']
-        if 'exposedPorts' in kwargs:
+        if exposed_ports is None and 'exposedPorts' in kwargs:
             exposed_ports = kwargs['exposedPorts']
-        if 'imageRegistryCredentials' in kwargs:
+        if image_registry_credentials is None and 'imageRegistryCredentials' in kwargs:
             image_registry_credentials = kwargs['imageRegistryCredentials']
-        if 'initContainers' in kwargs:
+        if init_containers is None and 'initContainers' in kwargs:
             init_containers = kwargs['initContainers']
-        if 'ipAddressType' in kwargs:
+        if ip_address_type is None and 'ipAddressType' in kwargs:
             ip_address_type = kwargs['ipAddressType']
-        if 'keyVaultKeyId' in kwargs:
+        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
             key_vault_key_id = kwargs['keyVaultKeyId']
-        if 'keyVaultUserAssignedIdentityId' in kwargs:
+        if key_vault_user_assigned_identity_id is None and 'keyVaultUserAssignedIdentityId' in kwargs:
             key_vault_user_assigned_identity_id = kwargs['keyVaultUserAssignedIdentityId']
-        if 'networkProfileId' in kwargs:
+        if network_profile_id is None and 'networkProfileId' in kwargs:
             network_profile_id = kwargs['networkProfileId']
-        if 'restartPolicy' in kwargs:
+        if restart_policy is None and 'restartPolicy' in kwargs:
             restart_policy = kwargs['restartPolicy']
-        if 'subnetIds' in kwargs:
+        if subnet_ids is None and 'subnetIds' in kwargs:
             subnet_ids = kwargs['subnetIds']
 
         _setter("containers", containers)
@@ -586,35 +592,35 @@ class _GroupState:
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dnsConfig' in kwargs:
+        if dns_config is None and 'dnsConfig' in kwargs:
             dns_config = kwargs['dnsConfig']
-        if 'dnsNameLabel' in kwargs:
+        if dns_name_label is None and 'dnsNameLabel' in kwargs:
             dns_name_label = kwargs['dnsNameLabel']
-        if 'dnsNameLabelReusePolicy' in kwargs:
+        if dns_name_label_reuse_policy is None and 'dnsNameLabelReusePolicy' in kwargs:
             dns_name_label_reuse_policy = kwargs['dnsNameLabelReusePolicy']
-        if 'exposedPorts' in kwargs:
+        if exposed_ports is None and 'exposedPorts' in kwargs:
             exposed_ports = kwargs['exposedPorts']
-        if 'imageRegistryCredentials' in kwargs:
+        if image_registry_credentials is None and 'imageRegistryCredentials' in kwargs:
             image_registry_credentials = kwargs['imageRegistryCredentials']
-        if 'initContainers' in kwargs:
+        if init_containers is None and 'initContainers' in kwargs:
             init_containers = kwargs['initContainers']
-        if 'ipAddress' in kwargs:
+        if ip_address is None and 'ipAddress' in kwargs:
             ip_address = kwargs['ipAddress']
-        if 'ipAddressType' in kwargs:
+        if ip_address_type is None and 'ipAddressType' in kwargs:
             ip_address_type = kwargs['ipAddressType']
-        if 'keyVaultKeyId' in kwargs:
+        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
             key_vault_key_id = kwargs['keyVaultKeyId']
-        if 'keyVaultUserAssignedIdentityId' in kwargs:
+        if key_vault_user_assigned_identity_id is None and 'keyVaultUserAssignedIdentityId' in kwargs:
             key_vault_user_assigned_identity_id = kwargs['keyVaultUserAssignedIdentityId']
-        if 'networkProfileId' in kwargs:
+        if network_profile_id is None and 'networkProfileId' in kwargs:
             network_profile_id = kwargs['networkProfileId']
-        if 'osType' in kwargs:
+        if os_type is None and 'osType' in kwargs:
             os_type = kwargs['osType']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'restartPolicy' in kwargs:
+        if restart_policy is None and 'restartPolicy' in kwargs:
             restart_policy = kwargs['restartPolicy']
-        if 'subnetIds' in kwargs:
+        if subnet_ids is None and 'subnetIds' in kwargs:
             subnet_ids = kwargs['subnetIds']
 
         if containers is not None:

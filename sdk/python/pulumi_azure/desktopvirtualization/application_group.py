@@ -50,9 +50,9 @@ class ApplicationGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             host_pool_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             type: pulumi.Input[str],
+             host_pool_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              default_desktop_display_name: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              friendly_name: Optional[pulumi.Input[str]] = None,
@@ -61,13 +61,19 @@ class ApplicationGroupArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'hostPoolId' in kwargs:
+        if host_pool_id is None and 'hostPoolId' in kwargs:
             host_pool_id = kwargs['hostPoolId']
-        if 'resourceGroupName' in kwargs:
+        if host_pool_id is None:
+            raise TypeError("Missing 'host_pool_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'defaultDesktopDisplayName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if default_desktop_display_name is None and 'defaultDesktopDisplayName' in kwargs:
             default_desktop_display_name = kwargs['defaultDesktopDisplayName']
-        if 'friendlyName' in kwargs:
+        if friendly_name is None and 'friendlyName' in kwargs:
             friendly_name = kwargs['friendlyName']
 
         _setter("host_pool_id", host_pool_id)
@@ -245,13 +251,13 @@ class _ApplicationGroupState:
              type: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'defaultDesktopDisplayName' in kwargs:
+        if default_desktop_display_name is None and 'defaultDesktopDisplayName' in kwargs:
             default_desktop_display_name = kwargs['defaultDesktopDisplayName']
-        if 'friendlyName' in kwargs:
+        if friendly_name is None and 'friendlyName' in kwargs:
             friendly_name = kwargs['friendlyName']
-        if 'hostPoolId' in kwargs:
+        if host_pool_id is None and 'hostPoolId' in kwargs:
             host_pool_id = kwargs['hostPoolId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if default_desktop_display_name is not None:

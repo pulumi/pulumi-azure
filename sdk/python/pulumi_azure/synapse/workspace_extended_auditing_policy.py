@@ -41,7 +41,7 @@ class WorkspaceExtendedAuditingPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             synapse_workspace_id: pulumi.Input[str],
+             synapse_workspace_id: Optional[pulumi.Input[str]] = None,
              log_monitoring_enabled: Optional[pulumi.Input[bool]] = None,
              retention_in_days: Optional[pulumi.Input[int]] = None,
              storage_account_access_key: Optional[pulumi.Input[str]] = None,
@@ -49,17 +49,19 @@ class WorkspaceExtendedAuditingPolicyArgs:
              storage_endpoint: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'synapseWorkspaceId' in kwargs:
+        if synapse_workspace_id is None and 'synapseWorkspaceId' in kwargs:
             synapse_workspace_id = kwargs['synapseWorkspaceId']
-        if 'logMonitoringEnabled' in kwargs:
+        if synapse_workspace_id is None:
+            raise TypeError("Missing 'synapse_workspace_id' argument")
+        if log_monitoring_enabled is None and 'logMonitoringEnabled' in kwargs:
             log_monitoring_enabled = kwargs['logMonitoringEnabled']
-        if 'retentionInDays' in kwargs:
+        if retention_in_days is None and 'retentionInDays' in kwargs:
             retention_in_days = kwargs['retentionInDays']
-        if 'storageAccountAccessKey' in kwargs:
+        if storage_account_access_key is None and 'storageAccountAccessKey' in kwargs:
             storage_account_access_key = kwargs['storageAccountAccessKey']
-        if 'storageAccountAccessKeyIsSecondary' in kwargs:
+        if storage_account_access_key_is_secondary is None and 'storageAccountAccessKeyIsSecondary' in kwargs:
             storage_account_access_key_is_secondary = kwargs['storageAccountAccessKeyIsSecondary']
-        if 'storageEndpoint' in kwargs:
+        if storage_endpoint is None and 'storageEndpoint' in kwargs:
             storage_endpoint = kwargs['storageEndpoint']
 
         _setter("synapse_workspace_id", synapse_workspace_id)
@@ -185,17 +187,17 @@ class _WorkspaceExtendedAuditingPolicyState:
              synapse_workspace_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'logMonitoringEnabled' in kwargs:
+        if log_monitoring_enabled is None and 'logMonitoringEnabled' in kwargs:
             log_monitoring_enabled = kwargs['logMonitoringEnabled']
-        if 'retentionInDays' in kwargs:
+        if retention_in_days is None and 'retentionInDays' in kwargs:
             retention_in_days = kwargs['retentionInDays']
-        if 'storageAccountAccessKey' in kwargs:
+        if storage_account_access_key is None and 'storageAccountAccessKey' in kwargs:
             storage_account_access_key = kwargs['storageAccountAccessKey']
-        if 'storageAccountAccessKeyIsSecondary' in kwargs:
+        if storage_account_access_key_is_secondary is None and 'storageAccountAccessKeyIsSecondary' in kwargs:
             storage_account_access_key_is_secondary = kwargs['storageAccountAccessKeyIsSecondary']
-        if 'storageEndpoint' in kwargs:
+        if storage_endpoint is None and 'storageEndpoint' in kwargs:
             storage_endpoint = kwargs['storageEndpoint']
-        if 'synapseWorkspaceId' in kwargs:
+        if synapse_workspace_id is None and 'synapseWorkspaceId' in kwargs:
             synapse_workspace_id = kwargs['synapseWorkspaceId']
 
         if log_monitoring_enabled is not None:

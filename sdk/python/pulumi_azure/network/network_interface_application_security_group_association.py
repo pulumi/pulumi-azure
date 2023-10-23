@@ -29,14 +29,18 @@ class NetworkInterfaceApplicationSecurityGroupAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_security_group_id: pulumi.Input[str],
-             network_interface_id: pulumi.Input[str],
+             application_security_group_id: Optional[pulumi.Input[str]] = None,
+             network_interface_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'applicationSecurityGroupId' in kwargs:
+        if application_security_group_id is None and 'applicationSecurityGroupId' in kwargs:
             application_security_group_id = kwargs['applicationSecurityGroupId']
-        if 'networkInterfaceId' in kwargs:
+        if application_security_group_id is None:
+            raise TypeError("Missing 'application_security_group_id' argument")
+        if network_interface_id is None and 'networkInterfaceId' in kwargs:
             network_interface_id = kwargs['networkInterfaceId']
+        if network_interface_id is None:
+            raise TypeError("Missing 'network_interface_id' argument")
 
         _setter("application_security_group_id", application_security_group_id)
         _setter("network_interface_id", network_interface_id)
@@ -88,9 +92,9 @@ class _NetworkInterfaceApplicationSecurityGroupAssociationState:
              network_interface_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'applicationSecurityGroupId' in kwargs:
+        if application_security_group_id is None and 'applicationSecurityGroupId' in kwargs:
             application_security_group_id = kwargs['applicationSecurityGroupId']
-        if 'networkInterfaceId' in kwargs:
+        if network_interface_id is None and 'networkInterfaceId' in kwargs:
             network_interface_id = kwargs['networkInterfaceId']
 
         if application_security_group_id is not None:

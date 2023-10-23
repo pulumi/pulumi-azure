@@ -47,8 +47,8 @@ class ProtectedVMArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             recovery_vault_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             recovery_vault_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              backup_policy_id: Optional[pulumi.Input[str]] = None,
              exclude_disk_luns: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
              include_disk_luns: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
@@ -56,19 +56,23 @@ class ProtectedVMArgs:
              source_vm_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'recoveryVaultName' in kwargs:
+        if recovery_vault_name is None and 'recoveryVaultName' in kwargs:
             recovery_vault_name = kwargs['recoveryVaultName']
-        if 'resourceGroupName' in kwargs:
+        if recovery_vault_name is None:
+            raise TypeError("Missing 'recovery_vault_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'backupPolicyId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if backup_policy_id is None and 'backupPolicyId' in kwargs:
             backup_policy_id = kwargs['backupPolicyId']
-        if 'excludeDiskLuns' in kwargs:
+        if exclude_disk_luns is None and 'excludeDiskLuns' in kwargs:
             exclude_disk_luns = kwargs['excludeDiskLuns']
-        if 'includeDiskLuns' in kwargs:
+        if include_disk_luns is None and 'includeDiskLuns' in kwargs:
             include_disk_luns = kwargs['includeDiskLuns']
-        if 'protectionState' in kwargs:
+        if protection_state is None and 'protectionState' in kwargs:
             protection_state = kwargs['protectionState']
-        if 'sourceVmId' in kwargs:
+        if source_vm_id is None and 'sourceVmId' in kwargs:
             source_vm_id = kwargs['sourceVmId']
 
         _setter("recovery_vault_name", recovery_vault_name)
@@ -217,19 +221,19 @@ class _ProtectedVMState:
              source_vm_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'backupPolicyId' in kwargs:
+        if backup_policy_id is None and 'backupPolicyId' in kwargs:
             backup_policy_id = kwargs['backupPolicyId']
-        if 'excludeDiskLuns' in kwargs:
+        if exclude_disk_luns is None and 'excludeDiskLuns' in kwargs:
             exclude_disk_luns = kwargs['excludeDiskLuns']
-        if 'includeDiskLuns' in kwargs:
+        if include_disk_luns is None and 'includeDiskLuns' in kwargs:
             include_disk_luns = kwargs['includeDiskLuns']
-        if 'protectionState' in kwargs:
+        if protection_state is None and 'protectionState' in kwargs:
             protection_state = kwargs['protectionState']
-        if 'recoveryVaultName' in kwargs:
+        if recovery_vault_name is None and 'recoveryVaultName' in kwargs:
             recovery_vault_name = kwargs['recoveryVaultName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'sourceVmId' in kwargs:
+        if source_vm_id is None and 'sourceVmId' in kwargs:
             source_vm_id = kwargs['sourceVmId']
 
         if backup_policy_id is not None:

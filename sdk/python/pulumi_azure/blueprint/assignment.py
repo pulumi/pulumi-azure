@@ -59,9 +59,9 @@ class AssignmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             identity: pulumi.Input['AssignmentIdentityArgs'],
-             target_subscription_id: pulumi.Input[str],
-             version_id: pulumi.Input[str],
+             identity: Optional[pulumi.Input['AssignmentIdentityArgs']] = None,
+             target_subscription_id: Optional[pulumi.Input[str]] = None,
+             version_id: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              lock_exclude_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              lock_exclude_principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -71,19 +71,25 @@ class AssignmentArgs:
              resource_groups: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'targetSubscriptionId' in kwargs:
+        if identity is None:
+            raise TypeError("Missing 'identity' argument")
+        if target_subscription_id is None and 'targetSubscriptionId' in kwargs:
             target_subscription_id = kwargs['targetSubscriptionId']
-        if 'versionId' in kwargs:
+        if target_subscription_id is None:
+            raise TypeError("Missing 'target_subscription_id' argument")
+        if version_id is None and 'versionId' in kwargs:
             version_id = kwargs['versionId']
-        if 'lockExcludeActions' in kwargs:
+        if version_id is None:
+            raise TypeError("Missing 'version_id' argument")
+        if lock_exclude_actions is None and 'lockExcludeActions' in kwargs:
             lock_exclude_actions = kwargs['lockExcludeActions']
-        if 'lockExcludePrincipals' in kwargs:
+        if lock_exclude_principals is None and 'lockExcludePrincipals' in kwargs:
             lock_exclude_principals = kwargs['lockExcludePrincipals']
-        if 'lockMode' in kwargs:
+        if lock_mode is None and 'lockMode' in kwargs:
             lock_mode = kwargs['lockMode']
-        if 'parameterValues' in kwargs:
+        if parameter_values is None and 'parameterValues' in kwargs:
             parameter_values = kwargs['parameterValues']
-        if 'resourceGroups' in kwargs:
+        if resource_groups is None and 'resourceGroups' in kwargs:
             resource_groups = kwargs['resourceGroups']
 
         _setter("identity", identity)
@@ -303,23 +309,23 @@ class _AssignmentState:
              version_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'blueprintName' in kwargs:
+        if blueprint_name is None and 'blueprintName' in kwargs:
             blueprint_name = kwargs['blueprintName']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'lockExcludeActions' in kwargs:
+        if lock_exclude_actions is None and 'lockExcludeActions' in kwargs:
             lock_exclude_actions = kwargs['lockExcludeActions']
-        if 'lockExcludePrincipals' in kwargs:
+        if lock_exclude_principals is None and 'lockExcludePrincipals' in kwargs:
             lock_exclude_principals = kwargs['lockExcludePrincipals']
-        if 'lockMode' in kwargs:
+        if lock_mode is None and 'lockMode' in kwargs:
             lock_mode = kwargs['lockMode']
-        if 'parameterValues' in kwargs:
+        if parameter_values is None and 'parameterValues' in kwargs:
             parameter_values = kwargs['parameterValues']
-        if 'resourceGroups' in kwargs:
+        if resource_groups is None and 'resourceGroups' in kwargs:
             resource_groups = kwargs['resourceGroups']
-        if 'targetSubscriptionId' in kwargs:
+        if target_subscription_id is None and 'targetSubscriptionId' in kwargs:
             target_subscription_id = kwargs['targetSubscriptionId']
-        if 'versionId' in kwargs:
+        if version_id is None and 'versionId' in kwargs:
             version_id = kwargs['versionId']
 
         if blueprint_name is not None:

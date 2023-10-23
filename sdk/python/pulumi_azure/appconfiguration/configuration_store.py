@@ -69,7 +69,7 @@ class ConfigurationStoreArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              encryption: Optional[pulumi.Input['ConfigurationStoreEncryptionArgs']] = None,
              identity: Optional[pulumi.Input['ConfigurationStoreIdentityArgs']] = None,
              local_auth_enabled: Optional[pulumi.Input[bool]] = None,
@@ -83,15 +83,17 @@ class ConfigurationStoreArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'localAuthEnabled' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if local_auth_enabled is None and 'localAuthEnabled' in kwargs:
             local_auth_enabled = kwargs['localAuthEnabled']
-        if 'publicNetworkAccess' in kwargs:
+        if public_network_access is None and 'publicNetworkAccess' in kwargs:
             public_network_access = kwargs['publicNetworkAccess']
-        if 'purgeProtectionEnabled' in kwargs:
+        if purge_protection_enabled is None and 'purgeProtectionEnabled' in kwargs:
             purge_protection_enabled = kwargs['purgeProtectionEnabled']
-        if 'softDeleteRetentionDays' in kwargs:
+        if soft_delete_retention_days is None and 'softDeleteRetentionDays' in kwargs:
             soft_delete_retention_days = kwargs['softDeleteRetentionDays']
 
         _setter("resource_group_name", resource_group_name)
@@ -361,23 +363,23 @@ class _ConfigurationStoreState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'localAuthEnabled' in kwargs:
+        if local_auth_enabled is None and 'localAuthEnabled' in kwargs:
             local_auth_enabled = kwargs['localAuthEnabled']
-        if 'primaryReadKeys' in kwargs:
+        if primary_read_keys is None and 'primaryReadKeys' in kwargs:
             primary_read_keys = kwargs['primaryReadKeys']
-        if 'primaryWriteKeys' in kwargs:
+        if primary_write_keys is None and 'primaryWriteKeys' in kwargs:
             primary_write_keys = kwargs['primaryWriteKeys']
-        if 'publicNetworkAccess' in kwargs:
+        if public_network_access is None and 'publicNetworkAccess' in kwargs:
             public_network_access = kwargs['publicNetworkAccess']
-        if 'purgeProtectionEnabled' in kwargs:
+        if purge_protection_enabled is None and 'purgeProtectionEnabled' in kwargs:
             purge_protection_enabled = kwargs['purgeProtectionEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'secondaryReadKeys' in kwargs:
+        if secondary_read_keys is None and 'secondaryReadKeys' in kwargs:
             secondary_read_keys = kwargs['secondaryReadKeys']
-        if 'secondaryWriteKeys' in kwargs:
+        if secondary_write_keys is None and 'secondaryWriteKeys' in kwargs:
             secondary_write_keys = kwargs['secondaryWriteKeys']
-        if 'softDeleteRetentionDays' in kwargs:
+        if soft_delete_retention_days is None and 'softDeleteRetentionDays' in kwargs:
             soft_delete_retention_days = kwargs['softDeleteRetentionDays']
 
         if encryption is not None:

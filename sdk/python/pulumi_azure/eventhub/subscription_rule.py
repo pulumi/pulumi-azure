@@ -43,21 +43,25 @@ class SubscriptionRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             filter_type: pulumi.Input[str],
-             subscription_id: pulumi.Input[str],
+             filter_type: Optional[pulumi.Input[str]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
              action: Optional[pulumi.Input[str]] = None,
              correlation_filter: Optional[pulumi.Input['SubscriptionRuleCorrelationFilterArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              sql_filter: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'filterType' in kwargs:
+        if filter_type is None and 'filterType' in kwargs:
             filter_type = kwargs['filterType']
-        if 'subscriptionId' in kwargs:
+        if filter_type is None:
+            raise TypeError("Missing 'filter_type' argument")
+        if subscription_id is None and 'subscriptionId' in kwargs:
             subscription_id = kwargs['subscriptionId']
-        if 'correlationFilter' in kwargs:
+        if subscription_id is None:
+            raise TypeError("Missing 'subscription_id' argument")
+        if correlation_filter is None and 'correlationFilter' in kwargs:
             correlation_filter = kwargs['correlationFilter']
-        if 'sqlFilter' in kwargs:
+        if sql_filter is None and 'sqlFilter' in kwargs:
             sql_filter = kwargs['sqlFilter']
 
         _setter("filter_type", filter_type)
@@ -185,15 +189,15 @@ class _SubscriptionRuleState:
              subscription_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'correlationFilter' in kwargs:
+        if correlation_filter is None and 'correlationFilter' in kwargs:
             correlation_filter = kwargs['correlationFilter']
-        if 'filterType' in kwargs:
+        if filter_type is None and 'filterType' in kwargs:
             filter_type = kwargs['filterType']
-        if 'sqlFilter' in kwargs:
+        if sql_filter is None and 'sqlFilter' in kwargs:
             sql_filter = kwargs['sqlFilter']
-        if 'sqlFilterCompatibilityLevel' in kwargs:
+        if sql_filter_compatibility_level is None and 'sqlFilterCompatibilityLevel' in kwargs:
             sql_filter_compatibility_level = kwargs['sqlFilterCompatibilityLevel']
-        if 'subscriptionId' in kwargs:
+        if subscription_id is None and 'subscriptionId' in kwargs:
             subscription_id = kwargs['subscriptionId']
 
         if action is not None:

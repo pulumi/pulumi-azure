@@ -32,16 +32,20 @@ class StaticSiteCustomDomainArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             domain_name: pulumi.Input[str],
-             static_site_id: pulumi.Input[str],
+             domain_name: Optional[pulumi.Input[str]] = None,
+             static_site_id: Optional[pulumi.Input[str]] = None,
              validation_type: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'domainName' in kwargs:
+        if domain_name is None and 'domainName' in kwargs:
             domain_name = kwargs['domainName']
-        if 'staticSiteId' in kwargs:
+        if domain_name is None:
+            raise TypeError("Missing 'domain_name' argument")
+        if static_site_id is None and 'staticSiteId' in kwargs:
             static_site_id = kwargs['staticSiteId']
-        if 'validationType' in kwargs:
+        if static_site_id is None:
+            raise TypeError("Missing 'static_site_id' argument")
+        if validation_type is None and 'validationType' in kwargs:
             validation_type = kwargs['validationType']
 
         _setter("domain_name", domain_name)
@@ -116,13 +120,13 @@ class _StaticSiteCustomDomainState:
              validation_type: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'domainName' in kwargs:
+        if domain_name is None and 'domainName' in kwargs:
             domain_name = kwargs['domainName']
-        if 'staticSiteId' in kwargs:
+        if static_site_id is None and 'staticSiteId' in kwargs:
             static_site_id = kwargs['staticSiteId']
-        if 'validationToken' in kwargs:
+        if validation_token is None and 'validationToken' in kwargs:
             validation_token = kwargs['validationToken']
-        if 'validationType' in kwargs:
+        if validation_type is None and 'validationType' in kwargs:
             validation_type = kwargs['validationType']
 
         if domain_name is not None:

@@ -49,7 +49,7 @@ class ServerExtendedAuditingPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             server_id: pulumi.Input[str],
+             server_id: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              log_monitoring_enabled: Optional[pulumi.Input[bool]] = None,
              retention_in_days: Optional[pulumi.Input[int]] = None,
@@ -59,19 +59,21 @@ class ServerExtendedAuditingPolicyArgs:
              storage_endpoint: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'serverId' in kwargs:
+        if server_id is None and 'serverId' in kwargs:
             server_id = kwargs['serverId']
-        if 'logMonitoringEnabled' in kwargs:
+        if server_id is None:
+            raise TypeError("Missing 'server_id' argument")
+        if log_monitoring_enabled is None and 'logMonitoringEnabled' in kwargs:
             log_monitoring_enabled = kwargs['logMonitoringEnabled']
-        if 'retentionInDays' in kwargs:
+        if retention_in_days is None and 'retentionInDays' in kwargs:
             retention_in_days = kwargs['retentionInDays']
-        if 'storageAccountAccessKey' in kwargs:
+        if storage_account_access_key is None and 'storageAccountAccessKey' in kwargs:
             storage_account_access_key = kwargs['storageAccountAccessKey']
-        if 'storageAccountAccessKeyIsSecondary' in kwargs:
+        if storage_account_access_key_is_secondary is None and 'storageAccountAccessKeyIsSecondary' in kwargs:
             storage_account_access_key_is_secondary = kwargs['storageAccountAccessKeyIsSecondary']
-        if 'storageAccountSubscriptionId' in kwargs:
+        if storage_account_subscription_id is None and 'storageAccountSubscriptionId' in kwargs:
             storage_account_subscription_id = kwargs['storageAccountSubscriptionId']
-        if 'storageEndpoint' in kwargs:
+        if storage_endpoint is None and 'storageEndpoint' in kwargs:
             storage_endpoint = kwargs['storageEndpoint']
 
         _setter("server_id", server_id)
@@ -237,19 +239,19 @@ class _ServerExtendedAuditingPolicyState:
              storage_endpoint: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'logMonitoringEnabled' in kwargs:
+        if log_monitoring_enabled is None and 'logMonitoringEnabled' in kwargs:
             log_monitoring_enabled = kwargs['logMonitoringEnabled']
-        if 'retentionInDays' in kwargs:
+        if retention_in_days is None and 'retentionInDays' in kwargs:
             retention_in_days = kwargs['retentionInDays']
-        if 'serverId' in kwargs:
+        if server_id is None and 'serverId' in kwargs:
             server_id = kwargs['serverId']
-        if 'storageAccountAccessKey' in kwargs:
+        if storage_account_access_key is None and 'storageAccountAccessKey' in kwargs:
             storage_account_access_key = kwargs['storageAccountAccessKey']
-        if 'storageAccountAccessKeyIsSecondary' in kwargs:
+        if storage_account_access_key_is_secondary is None and 'storageAccountAccessKeyIsSecondary' in kwargs:
             storage_account_access_key_is_secondary = kwargs['storageAccountAccessKeyIsSecondary']
-        if 'storageAccountSubscriptionId' in kwargs:
+        if storage_account_subscription_id is None and 'storageAccountSubscriptionId' in kwargs:
             storage_account_subscription_id = kwargs['storageAccountSubscriptionId']
-        if 'storageEndpoint' in kwargs:
+        if storage_endpoint is None and 'storageEndpoint' in kwargs:
             storage_endpoint = kwargs['storageEndpoint']
 
         if enabled is not None:

@@ -52,9 +52,9 @@ class DefinitionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             display_name: pulumi.Input[str],
-             mode: pulumi.Input[str],
-             policy_type: pulumi.Input[str],
+             display_name: Optional[pulumi.Input[str]] = None,
+             mode: Optional[pulumi.Input[str]] = None,
+             policy_type: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              management_group_id: Optional[pulumi.Input[str]] = None,
              metadata: Optional[pulumi.Input[str]] = None,
@@ -63,13 +63,19 @@ class DefinitionArgs:
              policy_rule: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'policyType' in kwargs:
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if mode is None:
+            raise TypeError("Missing 'mode' argument")
+        if policy_type is None and 'policyType' in kwargs:
             policy_type = kwargs['policyType']
-        if 'managementGroupId' in kwargs:
+        if policy_type is None:
+            raise TypeError("Missing 'policy_type' argument")
+        if management_group_id is None and 'managementGroupId' in kwargs:
             management_group_id = kwargs['managementGroupId']
-        if 'policyRule' in kwargs:
+        if policy_rule is None and 'policyRule' in kwargs:
             policy_rule = kwargs['policyRule']
 
         _setter("display_name", display_name)
@@ -255,15 +261,15 @@ class _DefinitionState:
              role_definition_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'managementGroupId' in kwargs:
+        if management_group_id is None and 'managementGroupId' in kwargs:
             management_group_id = kwargs['managementGroupId']
-        if 'policyRule' in kwargs:
+        if policy_rule is None and 'policyRule' in kwargs:
             policy_rule = kwargs['policyRule']
-        if 'policyType' in kwargs:
+        if policy_type is None and 'policyType' in kwargs:
             policy_type = kwargs['policyType']
-        if 'roleDefinitionIds' in kwargs:
+        if role_definition_ids is None and 'roleDefinitionIds' in kwargs:
             role_definition_ids = kwargs['roleDefinitionIds']
 
         if description is not None:

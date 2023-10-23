@@ -62,17 +62,19 @@ class CacheIdentity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -155,16 +157,18 @@ class CachePatchSchedule(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             day_of_week: str,
+             day_of_week: Optional[str] = None,
              maintenance_window: Optional[str] = None,
              start_hour_utc: Optional[int] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dayOfWeek' in kwargs:
+        if day_of_week is None and 'dayOfWeek' in kwargs:
             day_of_week = kwargs['dayOfWeek']
-        if 'maintenanceWindow' in kwargs:
+        if day_of_week is None:
+            raise TypeError("Missing 'day_of_week' argument")
+        if maintenance_window is None and 'maintenanceWindow' in kwargs:
             maintenance_window = kwargs['maintenanceWindow']
-        if 'startHourUtc' in kwargs:
+        if start_hour_utc is None and 'startHourUtc' in kwargs:
             start_hour_utc = kwargs['startHourUtc']
 
         _setter("day_of_week", day_of_week)
@@ -328,31 +332,31 @@ class CacheRedisConfiguration(dict):
              rdb_storage_connection_string: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'aofBackupEnabled' in kwargs:
+        if aof_backup_enabled is None and 'aofBackupEnabled' in kwargs:
             aof_backup_enabled = kwargs['aofBackupEnabled']
-        if 'aofStorageConnectionString0' in kwargs:
+        if aof_storage_connection_string0 is None and 'aofStorageConnectionString0' in kwargs:
             aof_storage_connection_string0 = kwargs['aofStorageConnectionString0']
-        if 'aofStorageConnectionString1' in kwargs:
+        if aof_storage_connection_string1 is None and 'aofStorageConnectionString1' in kwargs:
             aof_storage_connection_string1 = kwargs['aofStorageConnectionString1']
-        if 'enableAuthentication' in kwargs:
+        if enable_authentication is None and 'enableAuthentication' in kwargs:
             enable_authentication = kwargs['enableAuthentication']
-        if 'maxfragmentationmemoryReserved' in kwargs:
+        if maxfragmentationmemory_reserved is None and 'maxfragmentationmemoryReserved' in kwargs:
             maxfragmentationmemory_reserved = kwargs['maxfragmentationmemoryReserved']
-        if 'maxmemoryDelta' in kwargs:
+        if maxmemory_delta is None and 'maxmemoryDelta' in kwargs:
             maxmemory_delta = kwargs['maxmemoryDelta']
-        if 'maxmemoryPolicy' in kwargs:
+        if maxmemory_policy is None and 'maxmemoryPolicy' in kwargs:
             maxmemory_policy = kwargs['maxmemoryPolicy']
-        if 'maxmemoryReserved' in kwargs:
+        if maxmemory_reserved is None and 'maxmemoryReserved' in kwargs:
             maxmemory_reserved = kwargs['maxmemoryReserved']
-        if 'notifyKeyspaceEvents' in kwargs:
+        if notify_keyspace_events is None and 'notifyKeyspaceEvents' in kwargs:
             notify_keyspace_events = kwargs['notifyKeyspaceEvents']
-        if 'rdbBackupEnabled' in kwargs:
+        if rdb_backup_enabled is None and 'rdbBackupEnabled' in kwargs:
             rdb_backup_enabled = kwargs['rdbBackupEnabled']
-        if 'rdbBackupFrequency' in kwargs:
+        if rdb_backup_frequency is None and 'rdbBackupFrequency' in kwargs:
             rdb_backup_frequency = kwargs['rdbBackupFrequency']
-        if 'rdbBackupMaxSnapshotCount' in kwargs:
+        if rdb_backup_max_snapshot_count is None and 'rdbBackupMaxSnapshotCount' in kwargs:
             rdb_backup_max_snapshot_count = kwargs['rdbBackupMaxSnapshotCount']
-        if 'rdbStorageConnectionString' in kwargs:
+        if rdb_storage_connection_string is None and 'rdbStorageConnectionString' in kwargs:
             rdb_storage_connection_string = kwargs['rdbStorageConnectionString']
 
         if aof_backup_enabled is not None:
@@ -534,11 +538,13 @@ class EnterpriseDatabaseModule(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              args: Optional[str] = None,
              version: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
         if args is not None:
@@ -588,17 +594,23 @@ class GetCachePatchScheduleResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             day_of_week: str,
-             maintenance_window: str,
-             start_hour_utc: int,
+             day_of_week: Optional[str] = None,
+             maintenance_window: Optional[str] = None,
+             start_hour_utc: Optional[int] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dayOfWeek' in kwargs:
+        if day_of_week is None and 'dayOfWeek' in kwargs:
             day_of_week = kwargs['dayOfWeek']
-        if 'maintenanceWindow' in kwargs:
+        if day_of_week is None:
+            raise TypeError("Missing 'day_of_week' argument")
+        if maintenance_window is None and 'maintenanceWindow' in kwargs:
             maintenance_window = kwargs['maintenanceWindow']
-        if 'startHourUtc' in kwargs:
+        if maintenance_window is None:
+            raise TypeError("Missing 'maintenance_window' argument")
+        if start_hour_utc is None and 'startHourUtc' in kwargs:
             start_hour_utc = kwargs['startHourUtc']
+        if start_hour_utc is None:
+            raise TypeError("Missing 'start_hour_utc' argument")
 
         _setter("day_of_week", day_of_week)
         _setter("maintenance_window", maintenance_window)
@@ -677,48 +689,76 @@ class GetCacheRedisConfigurationResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             aof_backup_enabled: bool,
-             aof_storage_connection_string0: str,
-             aof_storage_connection_string1: str,
-             enable_authentication: bool,
-             maxclients: int,
-             maxfragmentationmemory_reserved: int,
-             maxmemory_delta: int,
-             maxmemory_policy: str,
-             maxmemory_reserved: int,
-             notify_keyspace_events: str,
-             rdb_backup_enabled: bool,
-             rdb_backup_frequency: int,
-             rdb_backup_max_snapshot_count: int,
-             rdb_storage_connection_string: str,
+             aof_backup_enabled: Optional[bool] = None,
+             aof_storage_connection_string0: Optional[str] = None,
+             aof_storage_connection_string1: Optional[str] = None,
+             enable_authentication: Optional[bool] = None,
+             maxclients: Optional[int] = None,
+             maxfragmentationmemory_reserved: Optional[int] = None,
+             maxmemory_delta: Optional[int] = None,
+             maxmemory_policy: Optional[str] = None,
+             maxmemory_reserved: Optional[int] = None,
+             notify_keyspace_events: Optional[str] = None,
+             rdb_backup_enabled: Optional[bool] = None,
+             rdb_backup_frequency: Optional[int] = None,
+             rdb_backup_max_snapshot_count: Optional[int] = None,
+             rdb_storage_connection_string: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'aofBackupEnabled' in kwargs:
+        if aof_backup_enabled is None and 'aofBackupEnabled' in kwargs:
             aof_backup_enabled = kwargs['aofBackupEnabled']
-        if 'aofStorageConnectionString0' in kwargs:
+        if aof_backup_enabled is None:
+            raise TypeError("Missing 'aof_backup_enabled' argument")
+        if aof_storage_connection_string0 is None and 'aofStorageConnectionString0' in kwargs:
             aof_storage_connection_string0 = kwargs['aofStorageConnectionString0']
-        if 'aofStorageConnectionString1' in kwargs:
+        if aof_storage_connection_string0 is None:
+            raise TypeError("Missing 'aof_storage_connection_string0' argument")
+        if aof_storage_connection_string1 is None and 'aofStorageConnectionString1' in kwargs:
             aof_storage_connection_string1 = kwargs['aofStorageConnectionString1']
-        if 'enableAuthentication' in kwargs:
+        if aof_storage_connection_string1 is None:
+            raise TypeError("Missing 'aof_storage_connection_string1' argument")
+        if enable_authentication is None and 'enableAuthentication' in kwargs:
             enable_authentication = kwargs['enableAuthentication']
-        if 'maxfragmentationmemoryReserved' in kwargs:
+        if enable_authentication is None:
+            raise TypeError("Missing 'enable_authentication' argument")
+        if maxclients is None:
+            raise TypeError("Missing 'maxclients' argument")
+        if maxfragmentationmemory_reserved is None and 'maxfragmentationmemoryReserved' in kwargs:
             maxfragmentationmemory_reserved = kwargs['maxfragmentationmemoryReserved']
-        if 'maxmemoryDelta' in kwargs:
+        if maxfragmentationmemory_reserved is None:
+            raise TypeError("Missing 'maxfragmentationmemory_reserved' argument")
+        if maxmemory_delta is None and 'maxmemoryDelta' in kwargs:
             maxmemory_delta = kwargs['maxmemoryDelta']
-        if 'maxmemoryPolicy' in kwargs:
+        if maxmemory_delta is None:
+            raise TypeError("Missing 'maxmemory_delta' argument")
+        if maxmemory_policy is None and 'maxmemoryPolicy' in kwargs:
             maxmemory_policy = kwargs['maxmemoryPolicy']
-        if 'maxmemoryReserved' in kwargs:
+        if maxmemory_policy is None:
+            raise TypeError("Missing 'maxmemory_policy' argument")
+        if maxmemory_reserved is None and 'maxmemoryReserved' in kwargs:
             maxmemory_reserved = kwargs['maxmemoryReserved']
-        if 'notifyKeyspaceEvents' in kwargs:
+        if maxmemory_reserved is None:
+            raise TypeError("Missing 'maxmemory_reserved' argument")
+        if notify_keyspace_events is None and 'notifyKeyspaceEvents' in kwargs:
             notify_keyspace_events = kwargs['notifyKeyspaceEvents']
-        if 'rdbBackupEnabled' in kwargs:
+        if notify_keyspace_events is None:
+            raise TypeError("Missing 'notify_keyspace_events' argument")
+        if rdb_backup_enabled is None and 'rdbBackupEnabled' in kwargs:
             rdb_backup_enabled = kwargs['rdbBackupEnabled']
-        if 'rdbBackupFrequency' in kwargs:
+        if rdb_backup_enabled is None:
+            raise TypeError("Missing 'rdb_backup_enabled' argument")
+        if rdb_backup_frequency is None and 'rdbBackupFrequency' in kwargs:
             rdb_backup_frequency = kwargs['rdbBackupFrequency']
-        if 'rdbBackupMaxSnapshotCount' in kwargs:
+        if rdb_backup_frequency is None:
+            raise TypeError("Missing 'rdb_backup_frequency' argument")
+        if rdb_backup_max_snapshot_count is None and 'rdbBackupMaxSnapshotCount' in kwargs:
             rdb_backup_max_snapshot_count = kwargs['rdbBackupMaxSnapshotCount']
-        if 'rdbStorageConnectionString' in kwargs:
+        if rdb_backup_max_snapshot_count is None:
+            raise TypeError("Missing 'rdb_backup_max_snapshot_count' argument")
+        if rdb_storage_connection_string is None and 'rdbStorageConnectionString' in kwargs:
             rdb_storage_connection_string = kwargs['rdbStorageConnectionString']
+        if rdb_storage_connection_string is None:
+            raise TypeError("Missing 'rdb_storage_connection_string' argument")
 
         _setter("aof_backup_enabled", aof_backup_enabled)
         _setter("aof_storage_connection_string0", aof_storage_connection_string0)

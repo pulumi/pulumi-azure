@@ -29,14 +29,18 @@ class ApplicationSecurityGroupAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_security_group_id: pulumi.Input[str],
-             private_endpoint_id: pulumi.Input[str],
+             application_security_group_id: Optional[pulumi.Input[str]] = None,
+             private_endpoint_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'applicationSecurityGroupId' in kwargs:
+        if application_security_group_id is None and 'applicationSecurityGroupId' in kwargs:
             application_security_group_id = kwargs['applicationSecurityGroupId']
-        if 'privateEndpointId' in kwargs:
+        if application_security_group_id is None:
+            raise TypeError("Missing 'application_security_group_id' argument")
+        if private_endpoint_id is None and 'privateEndpointId' in kwargs:
             private_endpoint_id = kwargs['privateEndpointId']
+        if private_endpoint_id is None:
+            raise TypeError("Missing 'private_endpoint_id' argument")
 
         _setter("application_security_group_id", application_security_group_id)
         _setter("private_endpoint_id", private_endpoint_id)
@@ -88,9 +92,9 @@ class _ApplicationSecurityGroupAssociationState:
              private_endpoint_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'applicationSecurityGroupId' in kwargs:
+        if application_security_group_id is None and 'applicationSecurityGroupId' in kwargs:
             application_security_group_id = kwargs['applicationSecurityGroupId']
-        if 'privateEndpointId' in kwargs:
+        if private_endpoint_id is None and 'privateEndpointId' in kwargs:
             private_endpoint_id = kwargs['privateEndpointId']
 
         if application_security_group_id is not None:

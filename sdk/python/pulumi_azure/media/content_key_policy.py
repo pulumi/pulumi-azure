@@ -40,19 +40,25 @@ class ContentKeyPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             media_services_account_name: pulumi.Input[str],
-             policy_options: pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionArgs']]],
-             resource_group_name: pulumi.Input[str],
+             media_services_account_name: Optional[pulumi.Input[str]] = None,
+             policy_options: Optional[pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionArgs']]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'mediaServicesAccountName' in kwargs:
+        if media_services_account_name is None and 'mediaServicesAccountName' in kwargs:
             media_services_account_name = kwargs['mediaServicesAccountName']
-        if 'policyOptions' in kwargs:
+        if media_services_account_name is None:
+            raise TypeError("Missing 'media_services_account_name' argument")
+        if policy_options is None and 'policyOptions' in kwargs:
             policy_options = kwargs['policyOptions']
-        if 'resourceGroupName' in kwargs:
+        if policy_options is None:
+            raise TypeError("Missing 'policy_options' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("media_services_account_name", media_services_account_name)
         _setter("policy_options", policy_options)
@@ -157,11 +163,11 @@ class _ContentKeyPolicyState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'mediaServicesAccountName' in kwargs:
+        if media_services_account_name is None and 'mediaServicesAccountName' in kwargs:
             media_services_account_name = kwargs['mediaServicesAccountName']
-        if 'policyOptions' in kwargs:
+        if policy_options is None and 'policyOptions' in kwargs:
             policy_options = kwargs['policyOptions']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if description is not None:

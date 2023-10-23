@@ -35,16 +35,20 @@ class EmailServiceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_location: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             data_location: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dataLocation' in kwargs:
+        if data_location is None and 'dataLocation' in kwargs:
             data_location = kwargs['dataLocation']
-        if 'resourceGroupName' in kwargs:
+        if data_location is None:
+            raise TypeError("Missing 'data_location' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("data_location", data_location)
         _setter("resource_group_name", resource_group_name)
@@ -132,9 +136,9 @@ class _EmailServiceState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dataLocation' in kwargs:
+        if data_location is None and 'dataLocation' in kwargs:
             data_location = kwargs['dataLocation']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if data_location is not None:

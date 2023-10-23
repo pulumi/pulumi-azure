@@ -35,19 +35,25 @@ class GatewayCertificateAuthorityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_management_id: pulumi.Input[str],
-             certificate_name: pulumi.Input[str],
-             gateway_name: pulumi.Input[str],
+             api_management_id: Optional[pulumi.Input[str]] = None,
+             certificate_name: Optional[pulumi.Input[str]] = None,
+             gateway_name: Optional[pulumi.Input[str]] = None,
              is_trusted: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'apiManagementId' in kwargs:
+        if api_management_id is None and 'apiManagementId' in kwargs:
             api_management_id = kwargs['apiManagementId']
-        if 'certificateName' in kwargs:
+        if api_management_id is None:
+            raise TypeError("Missing 'api_management_id' argument")
+        if certificate_name is None and 'certificateName' in kwargs:
             certificate_name = kwargs['certificateName']
-        if 'gatewayName' in kwargs:
+        if certificate_name is None:
+            raise TypeError("Missing 'certificate_name' argument")
+        if gateway_name is None and 'gatewayName' in kwargs:
             gateway_name = kwargs['gatewayName']
-        if 'isTrusted' in kwargs:
+        if gateway_name is None:
+            raise TypeError("Missing 'gateway_name' argument")
+        if is_trusted is None and 'isTrusted' in kwargs:
             is_trusted = kwargs['isTrusted']
 
         _setter("api_management_id", api_management_id)
@@ -135,13 +141,13 @@ class _GatewayCertificateAuthorityState:
              is_trusted: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'apiManagementId' in kwargs:
+        if api_management_id is None and 'apiManagementId' in kwargs:
             api_management_id = kwargs['apiManagementId']
-        if 'certificateName' in kwargs:
+        if certificate_name is None and 'certificateName' in kwargs:
             certificate_name = kwargs['certificateName']
-        if 'gatewayName' in kwargs:
+        if gateway_name is None and 'gatewayName' in kwargs:
             gateway_name = kwargs['gatewayName']
-        if 'isTrusted' in kwargs:
+        if is_trusted is None and 'isTrusted' in kwargs:
             is_trusted = kwargs['isTrusted']
 
         if api_management_id is not None:

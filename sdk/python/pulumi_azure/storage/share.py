@@ -54,8 +54,8 @@ class ShareArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             quota: pulumi.Input[int],
-             storage_account_name: pulumi.Input[str],
+             quota: Optional[pulumi.Input[int]] = None,
+             storage_account_name: Optional[pulumi.Input[str]] = None,
              access_tier: Optional[pulumi.Input[str]] = None,
              acls: Optional[pulumi.Input[Sequence[pulumi.Input['ShareAclArgs']]]] = None,
              enabled_protocol: Optional[pulumi.Input[str]] = None,
@@ -63,11 +63,15 @@ class ShareArgs:
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'storageAccountName' in kwargs:
+        if quota is None:
+            raise TypeError("Missing 'quota' argument")
+        if storage_account_name is None and 'storageAccountName' in kwargs:
             storage_account_name = kwargs['storageAccountName']
-        if 'accessTier' in kwargs:
+        if storage_account_name is None:
+            raise TypeError("Missing 'storage_account_name' argument")
+        if access_tier is None and 'accessTier' in kwargs:
             access_tier = kwargs['accessTier']
-        if 'enabledProtocol' in kwargs:
+        if enabled_protocol is None and 'enabledProtocol' in kwargs:
             enabled_protocol = kwargs['enabledProtocol']
 
         _setter("quota", quota)
@@ -234,13 +238,13 @@ class _ShareState:
              url: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accessTier' in kwargs:
+        if access_tier is None and 'accessTier' in kwargs:
             access_tier = kwargs['accessTier']
-        if 'enabledProtocol' in kwargs:
+        if enabled_protocol is None and 'enabledProtocol' in kwargs:
             enabled_protocol = kwargs['enabledProtocol']
-        if 'resourceManagerId' in kwargs:
+        if resource_manager_id is None and 'resourceManagerId' in kwargs:
             resource_manager_id = kwargs['resourceManagerId']
-        if 'storageAccountName' in kwargs:
+        if storage_account_name is None and 'storageAccountName' in kwargs:
             storage_account_name = kwargs['storageAccountName']
 
         if access_tier is not None:

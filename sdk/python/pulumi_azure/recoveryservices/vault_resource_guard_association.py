@@ -34,15 +34,19 @@ class VaultResourceGuardAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_guard_id: pulumi.Input[str],
-             vault_id: pulumi.Input[str],
+             resource_guard_id: Optional[pulumi.Input[str]] = None,
+             vault_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGuardId' in kwargs:
+        if resource_guard_id is None and 'resourceGuardId' in kwargs:
             resource_guard_id = kwargs['resourceGuardId']
-        if 'vaultId' in kwargs:
+        if resource_guard_id is None:
+            raise TypeError("Missing 'resource_guard_id' argument")
+        if vault_id is None and 'vaultId' in kwargs:
             vault_id = kwargs['vaultId']
+        if vault_id is None:
+            raise TypeError("Missing 'vault_id' argument")
 
         _setter("resource_guard_id", resource_guard_id)
         _setter("vault_id", vault_id)
@@ -122,9 +126,9 @@ class _VaultResourceGuardAssociationState:
              vault_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGuardId' in kwargs:
+        if resource_guard_id is None and 'resourceGuardId' in kwargs:
             resource_guard_id = kwargs['resourceGuardId']
-        if 'vaultId' in kwargs:
+        if vault_id is None and 'vaultId' in kwargs:
             vault_id = kwargs['vaultId']
 
         if name is not None:

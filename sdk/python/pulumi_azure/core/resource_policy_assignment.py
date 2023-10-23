@@ -71,8 +71,8 @@ class ResourcePolicyAssignmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             policy_definition_id: pulumi.Input[str],
-             resource_id: pulumi.Input[str],
+             policy_definition_id: Optional[pulumi.Input[str]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              display_name: Optional[pulumi.Input[str]] = None,
              enforce: Optional[pulumi.Input[bool]] = None,
@@ -87,17 +87,21 @@ class ResourcePolicyAssignmentArgs:
              resource_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentResourceSelectorArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'policyDefinitionId' in kwargs:
+        if policy_definition_id is None and 'policyDefinitionId' in kwargs:
             policy_definition_id = kwargs['policyDefinitionId']
-        if 'resourceId' in kwargs:
+        if policy_definition_id is None:
+            raise TypeError("Missing 'policy_definition_id' argument")
+        if resource_id is None and 'resourceId' in kwargs:
             resource_id = kwargs['resourceId']
-        if 'displayName' in kwargs:
+        if resource_id is None:
+            raise TypeError("Missing 'resource_id' argument")
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'nonComplianceMessages' in kwargs:
+        if non_compliance_messages is None and 'nonComplianceMessages' in kwargs:
             non_compliance_messages = kwargs['nonComplianceMessages']
-        if 'notScopes' in kwargs:
+        if not_scopes is None and 'notScopes' in kwargs:
             not_scopes = kwargs['notScopes']
-        if 'resourceSelectors' in kwargs:
+        if resource_selectors is None and 'resourceSelectors' in kwargs:
             resource_selectors = kwargs['resourceSelectors']
 
         _setter("policy_definition_id", policy_definition_id)
@@ -374,17 +378,17 @@ class _ResourcePolicyAssignmentState:
              resource_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentResourceSelectorArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'nonComplianceMessages' in kwargs:
+        if non_compliance_messages is None and 'nonComplianceMessages' in kwargs:
             non_compliance_messages = kwargs['nonComplianceMessages']
-        if 'notScopes' in kwargs:
+        if not_scopes is None and 'notScopes' in kwargs:
             not_scopes = kwargs['notScopes']
-        if 'policyDefinitionId' in kwargs:
+        if policy_definition_id is None and 'policyDefinitionId' in kwargs:
             policy_definition_id = kwargs['policyDefinitionId']
-        if 'resourceId' in kwargs:
+        if resource_id is None and 'resourceId' in kwargs:
             resource_id = kwargs['resourceId']
-        if 'resourceSelectors' in kwargs:
+        if resource_selectors is None and 'resourceSelectors' in kwargs:
             resource_selectors = kwargs['resourceSelectors']
 
         if description is not None:

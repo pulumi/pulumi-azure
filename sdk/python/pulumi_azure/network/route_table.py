@@ -45,7 +45,7 @@ class RouteTableArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              disable_bgp_route_propagation: Optional[pulumi.Input[bool]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
@@ -53,9 +53,11 @@ class RouteTableArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'disableBgpRoutePropagation' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if disable_bgp_route_propagation is None and 'disableBgpRoutePropagation' in kwargs:
             disable_bgp_route_propagation = kwargs['disableBgpRoutePropagation']
 
         _setter("resource_group_name", resource_group_name)
@@ -189,9 +191,9 @@ class _RouteTableState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'disableBgpRoutePropagation' in kwargs:
+        if disable_bgp_route_propagation is None and 'disableBgpRoutePropagation' in kwargs:
             disable_bgp_route_propagation = kwargs['disableBgpRoutePropagation']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if disable_bgp_route_propagation is not None:

@@ -58,12 +58,12 @@ class NetworkWatcherFlowLogArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: pulumi.Input[bool],
-             network_security_group_id: pulumi.Input[str],
-             network_watcher_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             retention_policy: pulumi.Input['NetworkWatcherFlowLogRetentionPolicyArgs'],
-             storage_account_id: pulumi.Input[str],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             network_security_group_id: Optional[pulumi.Input[str]] = None,
+             network_watcher_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             retention_policy: Optional[pulumi.Input['NetworkWatcherFlowLogRetentionPolicyArgs']] = None,
+             storage_account_id: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -71,17 +71,29 @@ class NetworkWatcherFlowLogArgs:
              version: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'networkSecurityGroupId' in kwargs:
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if network_security_group_id is None and 'networkSecurityGroupId' in kwargs:
             network_security_group_id = kwargs['networkSecurityGroupId']
-        if 'networkWatcherName' in kwargs:
+        if network_security_group_id is None:
+            raise TypeError("Missing 'network_security_group_id' argument")
+        if network_watcher_name is None and 'networkWatcherName' in kwargs:
             network_watcher_name = kwargs['networkWatcherName']
-        if 'resourceGroupName' in kwargs:
+        if network_watcher_name is None:
+            raise TypeError("Missing 'network_watcher_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'retentionPolicy' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if retention_policy is None and 'retentionPolicy' in kwargs:
             retention_policy = kwargs['retentionPolicy']
-        if 'storageAccountId' in kwargs:
+        if retention_policy is None:
+            raise TypeError("Missing 'retention_policy' argument")
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'trafficAnalytics' in kwargs:
+        if storage_account_id is None:
+            raise TypeError("Missing 'storage_account_id' argument")
+        if traffic_analytics is None and 'trafficAnalytics' in kwargs:
             traffic_analytics = kwargs['trafficAnalytics']
 
         _setter("enabled", enabled)
@@ -292,17 +304,17 @@ class _NetworkWatcherFlowLogState:
              version: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'networkSecurityGroupId' in kwargs:
+        if network_security_group_id is None and 'networkSecurityGroupId' in kwargs:
             network_security_group_id = kwargs['networkSecurityGroupId']
-        if 'networkWatcherName' in kwargs:
+        if network_watcher_name is None and 'networkWatcherName' in kwargs:
             network_watcher_name = kwargs['networkWatcherName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'retentionPolicy' in kwargs:
+        if retention_policy is None and 'retentionPolicy' in kwargs:
             retention_policy = kwargs['retentionPolicy']
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'trafficAnalytics' in kwargs:
+        if traffic_analytics is None and 'trafficAnalytics' in kwargs:
             traffic_analytics = kwargs['trafficAnalytics']
 
         if enabled is not None:

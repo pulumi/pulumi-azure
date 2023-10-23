@@ -32,13 +32,15 @@ class LicationLoadBalancerFrontendArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_load_balancer_id: pulumi.Input[str],
+             application_load_balancer_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'applicationLoadBalancerId' in kwargs:
+        if application_load_balancer_id is None and 'applicationLoadBalancerId' in kwargs:
             application_load_balancer_id = kwargs['applicationLoadBalancerId']
+        if application_load_balancer_id is None:
+            raise TypeError("Missing 'application_load_balancer_id' argument")
 
         _setter("application_load_balancer_id", application_load_balancer_id)
         if name is not None:
@@ -113,9 +115,9 @@ class _LicationLoadBalancerFrontendState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'applicationLoadBalancerId' in kwargs:
+        if application_load_balancer_id is None and 'applicationLoadBalancerId' in kwargs:
             application_load_balancer_id = kwargs['applicationLoadBalancerId']
-        if 'fullyQualifiedDomainName' in kwargs:
+        if fully_qualified_domain_name is None and 'fullyQualifiedDomainName' in kwargs:
             fully_qualified_domain_name = kwargs['fullyQualifiedDomainName']
 
         if application_load_balancer_id is not None:

@@ -41,22 +41,30 @@ class BackupInstanceDiskArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             backup_policy_id: pulumi.Input[str],
-             disk_id: pulumi.Input[str],
-             snapshot_resource_group_name: pulumi.Input[str],
-             vault_id: pulumi.Input[str],
+             backup_policy_id: Optional[pulumi.Input[str]] = None,
+             disk_id: Optional[pulumi.Input[str]] = None,
+             snapshot_resource_group_name: Optional[pulumi.Input[str]] = None,
+             vault_id: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'backupPolicyId' in kwargs:
+        if backup_policy_id is None and 'backupPolicyId' in kwargs:
             backup_policy_id = kwargs['backupPolicyId']
-        if 'diskId' in kwargs:
+        if backup_policy_id is None:
+            raise TypeError("Missing 'backup_policy_id' argument")
+        if disk_id is None and 'diskId' in kwargs:
             disk_id = kwargs['diskId']
-        if 'snapshotResourceGroupName' in kwargs:
+        if disk_id is None:
+            raise TypeError("Missing 'disk_id' argument")
+        if snapshot_resource_group_name is None and 'snapshotResourceGroupName' in kwargs:
             snapshot_resource_group_name = kwargs['snapshotResourceGroupName']
-        if 'vaultId' in kwargs:
+        if snapshot_resource_group_name is None:
+            raise TypeError("Missing 'snapshot_resource_group_name' argument")
+        if vault_id is None and 'vaultId' in kwargs:
             vault_id = kwargs['vaultId']
+        if vault_id is None:
+            raise TypeError("Missing 'vault_id' argument")
 
         _setter("backup_policy_id", backup_policy_id)
         _setter("disk_id", disk_id)
@@ -178,13 +186,13 @@ class _BackupInstanceDiskState:
              vault_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'backupPolicyId' in kwargs:
+        if backup_policy_id is None and 'backupPolicyId' in kwargs:
             backup_policy_id = kwargs['backupPolicyId']
-        if 'diskId' in kwargs:
+        if disk_id is None and 'diskId' in kwargs:
             disk_id = kwargs['diskId']
-        if 'snapshotResourceGroupName' in kwargs:
+        if snapshot_resource_group_name is None and 'snapshotResourceGroupName' in kwargs:
             snapshot_resource_group_name = kwargs['snapshotResourceGroupName']
-        if 'vaultId' in kwargs:
+        if vault_id is None and 'vaultId' in kwargs:
             vault_id = kwargs['vaultId']
 
         if backup_policy_id is not None:

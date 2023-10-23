@@ -42,20 +42,24 @@ class EndpointCustomDomainArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cdn_endpoint_id: pulumi.Input[str],
-             host_name: pulumi.Input[str],
+             cdn_endpoint_id: Optional[pulumi.Input[str]] = None,
+             host_name: Optional[pulumi.Input[str]] = None,
              cdn_managed_https: Optional[pulumi.Input['EndpointCustomDomainCdnManagedHttpsArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              user_managed_https: Optional[pulumi.Input['EndpointCustomDomainUserManagedHttpsArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'cdnEndpointId' in kwargs:
+        if cdn_endpoint_id is None and 'cdnEndpointId' in kwargs:
             cdn_endpoint_id = kwargs['cdnEndpointId']
-        if 'hostName' in kwargs:
+        if cdn_endpoint_id is None:
+            raise TypeError("Missing 'cdn_endpoint_id' argument")
+        if host_name is None and 'hostName' in kwargs:
             host_name = kwargs['hostName']
-        if 'cdnManagedHttps' in kwargs:
+        if host_name is None:
+            raise TypeError("Missing 'host_name' argument")
+        if cdn_managed_https is None and 'cdnManagedHttps' in kwargs:
             cdn_managed_https = kwargs['cdnManagedHttps']
-        if 'userManagedHttps' in kwargs:
+        if user_managed_https is None and 'userManagedHttps' in kwargs:
             user_managed_https = kwargs['userManagedHttps']
 
         _setter("cdn_endpoint_id", cdn_endpoint_id)
@@ -166,13 +170,13 @@ class _EndpointCustomDomainState:
              user_managed_https: Optional[pulumi.Input['EndpointCustomDomainUserManagedHttpsArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'cdnEndpointId' in kwargs:
+        if cdn_endpoint_id is None and 'cdnEndpointId' in kwargs:
             cdn_endpoint_id = kwargs['cdnEndpointId']
-        if 'cdnManagedHttps' in kwargs:
+        if cdn_managed_https is None and 'cdnManagedHttps' in kwargs:
             cdn_managed_https = kwargs['cdnManagedHttps']
-        if 'hostName' in kwargs:
+        if host_name is None and 'hostName' in kwargs:
             host_name = kwargs['hostName']
-        if 'userManagedHttps' in kwargs:
+        if user_managed_https is None and 'userManagedHttps' in kwargs:
             user_managed_https = kwargs['userManagedHttps']
 
         if cdn_endpoint_id is not None:

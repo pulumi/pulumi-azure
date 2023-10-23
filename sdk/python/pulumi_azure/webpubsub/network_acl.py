@@ -37,19 +37,23 @@ class NetworkAclArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             public_network: pulumi.Input['NetworkAclPublicNetworkArgs'],
-             web_pubsub_id: pulumi.Input[str],
+             public_network: Optional[pulumi.Input['NetworkAclPublicNetworkArgs']] = None,
+             web_pubsub_id: Optional[pulumi.Input[str]] = None,
              default_action: Optional[pulumi.Input[str]] = None,
              private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAclPrivateEndpointArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'publicNetwork' in kwargs:
+        if public_network is None and 'publicNetwork' in kwargs:
             public_network = kwargs['publicNetwork']
-        if 'webPubsubId' in kwargs:
+        if public_network is None:
+            raise TypeError("Missing 'public_network' argument")
+        if web_pubsub_id is None and 'webPubsubId' in kwargs:
             web_pubsub_id = kwargs['webPubsubId']
-        if 'defaultAction' in kwargs:
+        if web_pubsub_id is None:
+            raise TypeError("Missing 'web_pubsub_id' argument")
+        if default_action is None and 'defaultAction' in kwargs:
             default_action = kwargs['defaultAction']
-        if 'privateEndpoints' in kwargs:
+        if private_endpoints is None and 'privateEndpoints' in kwargs:
             private_endpoints = kwargs['privateEndpoints']
 
         _setter("public_network", public_network)
@@ -138,13 +142,13 @@ class _NetworkAclState:
              web_pubsub_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'defaultAction' in kwargs:
+        if default_action is None and 'defaultAction' in kwargs:
             default_action = kwargs['defaultAction']
-        if 'privateEndpoints' in kwargs:
+        if private_endpoints is None and 'privateEndpoints' in kwargs:
             private_endpoints = kwargs['privateEndpoints']
-        if 'publicNetwork' in kwargs:
+        if public_network is None and 'publicNetwork' in kwargs:
             public_network = kwargs['publicNetwork']
-        if 'webPubsubId' in kwargs:
+        if web_pubsub_id is None and 'webPubsubId' in kwargs:
             web_pubsub_id = kwargs['webPubsubId']
 
         if default_action is not None:

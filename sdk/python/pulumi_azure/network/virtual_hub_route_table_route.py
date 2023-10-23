@@ -41,21 +41,29 @@ class VirtualHubRouteTableRouteInitArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             destinations: pulumi.Input[Sequence[pulumi.Input[str]]],
-             destinations_type: pulumi.Input[str],
-             next_hop: pulumi.Input[str],
-             route_table_id: pulumi.Input[str],
+             destinations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             destinations_type: Optional[pulumi.Input[str]] = None,
+             next_hop: Optional[pulumi.Input[str]] = None,
+             route_table_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              next_hop_type: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'destinationsType' in kwargs:
+        if destinations is None:
+            raise TypeError("Missing 'destinations' argument")
+        if destinations_type is None and 'destinationsType' in kwargs:
             destinations_type = kwargs['destinationsType']
-        if 'nextHop' in kwargs:
+        if destinations_type is None:
+            raise TypeError("Missing 'destinations_type' argument")
+        if next_hop is None and 'nextHop' in kwargs:
             next_hop = kwargs['nextHop']
-        if 'routeTableId' in kwargs:
+        if next_hop is None:
+            raise TypeError("Missing 'next_hop' argument")
+        if route_table_id is None and 'routeTableId' in kwargs:
             route_table_id = kwargs['routeTableId']
-        if 'nextHopType' in kwargs:
+        if route_table_id is None:
+            raise TypeError("Missing 'route_table_id' argument")
+        if next_hop_type is None and 'nextHopType' in kwargs:
             next_hop_type = kwargs['nextHopType']
 
         _setter("destinations", destinations)
@@ -178,13 +186,13 @@ class _VirtualHubRouteTableRouteState:
              route_table_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'destinationsType' in kwargs:
+        if destinations_type is None and 'destinationsType' in kwargs:
             destinations_type = kwargs['destinationsType']
-        if 'nextHop' in kwargs:
+        if next_hop is None and 'nextHop' in kwargs:
             next_hop = kwargs['nextHop']
-        if 'nextHopType' in kwargs:
+        if next_hop_type is None and 'nextHopType' in kwargs:
             next_hop_type = kwargs['nextHopType']
-        if 'routeTableId' in kwargs:
+        if route_table_id is None and 'routeTableId' in kwargs:
             route_table_id = kwargs['routeTableId']
 
         if destinations is not None:

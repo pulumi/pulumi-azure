@@ -40,18 +40,20 @@ class SmartDetectionRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_insights_id: pulumi.Input[str],
+             application_insights_id: Optional[pulumi.Input[str]] = None,
              additional_email_recipients: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              send_emails_to_subscription_owners: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'applicationInsightsId' in kwargs:
+        if application_insights_id is None and 'applicationInsightsId' in kwargs:
             application_insights_id = kwargs['applicationInsightsId']
-        if 'additionalEmailRecipients' in kwargs:
+        if application_insights_id is None:
+            raise TypeError("Missing 'application_insights_id' argument")
+        if additional_email_recipients is None and 'additionalEmailRecipients' in kwargs:
             additional_email_recipients = kwargs['additionalEmailRecipients']
-        if 'sendEmailsToSubscriptionOwners' in kwargs:
+        if send_emails_to_subscription_owners is None and 'sendEmailsToSubscriptionOwners' in kwargs:
             send_emails_to_subscription_owners = kwargs['sendEmailsToSubscriptionOwners']
 
         _setter("application_insights_id", application_insights_id)
@@ -163,11 +165,11 @@ class _SmartDetectionRuleState:
              send_emails_to_subscription_owners: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'additionalEmailRecipients' in kwargs:
+        if additional_email_recipients is None and 'additionalEmailRecipients' in kwargs:
             additional_email_recipients = kwargs['additionalEmailRecipients']
-        if 'applicationInsightsId' in kwargs:
+        if application_insights_id is None and 'applicationInsightsId' in kwargs:
             application_insights_id = kwargs['applicationInsightsId']
-        if 'sendEmailsToSubscriptionOwners' in kwargs:
+        if send_emails_to_subscription_owners is None and 'sendEmailsToSubscriptionOwners' in kwargs:
             send_emails_to_subscription_owners = kwargs['sendEmailsToSubscriptionOwners']
 
         if additional_email_recipients is not None:

@@ -61,10 +61,10 @@ class ServiceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             domain_name: pulumi.Input[str],
-             initial_replica_set: pulumi.Input['ServiceInitialReplicaSetArgs'],
-             resource_group_name: pulumi.Input[str],
-             sku: pulumi.Input[str],
+             domain_name: Optional[pulumi.Input[str]] = None,
+             initial_replica_set: Optional[pulumi.Input['ServiceInitialReplicaSetArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
              domain_configuration_type: Optional[pulumi.Input[str]] = None,
              filtered_sync_enabled: Optional[pulumi.Input[bool]] = None,
              location: Optional[pulumi.Input[str]] = None,
@@ -75,17 +75,25 @@ class ServiceArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'domainName' in kwargs:
+        if domain_name is None and 'domainName' in kwargs:
             domain_name = kwargs['domainName']
-        if 'initialReplicaSet' in kwargs:
+        if domain_name is None:
+            raise TypeError("Missing 'domain_name' argument")
+        if initial_replica_set is None and 'initialReplicaSet' in kwargs:
             initial_replica_set = kwargs['initialReplicaSet']
-        if 'resourceGroupName' in kwargs:
+        if initial_replica_set is None:
+            raise TypeError("Missing 'initial_replica_set' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'domainConfigurationType' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if domain_configuration_type is None and 'domainConfigurationType' in kwargs:
             domain_configuration_type = kwargs['domainConfigurationType']
-        if 'filteredSyncEnabled' in kwargs:
+        if filtered_sync_enabled is None and 'filteredSyncEnabled' in kwargs:
             filtered_sync_enabled = kwargs['filteredSyncEnabled']
-        if 'secureLdap' in kwargs:
+        if secure_ldap is None and 'secureLdap' in kwargs:
             secure_ldap = kwargs['secureLdap']
 
         _setter("domain_name", domain_name)
@@ -333,25 +341,25 @@ class _ServiceState:
              version: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'deploymentId' in kwargs:
+        if deployment_id is None and 'deploymentId' in kwargs:
             deployment_id = kwargs['deploymentId']
-        if 'domainConfigurationType' in kwargs:
+        if domain_configuration_type is None and 'domainConfigurationType' in kwargs:
             domain_configuration_type = kwargs['domainConfigurationType']
-        if 'domainName' in kwargs:
+        if domain_name is None and 'domainName' in kwargs:
             domain_name = kwargs['domainName']
-        if 'filteredSyncEnabled' in kwargs:
+        if filtered_sync_enabled is None and 'filteredSyncEnabled' in kwargs:
             filtered_sync_enabled = kwargs['filteredSyncEnabled']
-        if 'initialReplicaSet' in kwargs:
+        if initial_replica_set is None and 'initialReplicaSet' in kwargs:
             initial_replica_set = kwargs['initialReplicaSet']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'resourceId' in kwargs:
+        if resource_id is None and 'resourceId' in kwargs:
             resource_id = kwargs['resourceId']
-        if 'secureLdap' in kwargs:
+        if secure_ldap is None and 'secureLdap' in kwargs:
             secure_ldap = kwargs['secureLdap']
-        if 'syncOwner' in kwargs:
+        if sync_owner is None and 'syncOwner' in kwargs:
             sync_owner = kwargs['syncOwner']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         if deployment_id is not None:

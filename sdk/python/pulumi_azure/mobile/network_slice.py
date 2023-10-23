@@ -43,18 +43,22 @@ class NetworkSliceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mobile_network_id: pulumi.Input[str],
-             single_network_slice_selection_assistance_information: pulumi.Input['NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs'],
+             mobile_network_id: Optional[pulumi.Input[str]] = None,
+             single_network_slice_selection_assistance_information: Optional[pulumi.Input['NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'mobileNetworkId' in kwargs:
+        if mobile_network_id is None and 'mobileNetworkId' in kwargs:
             mobile_network_id = kwargs['mobileNetworkId']
-        if 'singleNetworkSliceSelectionAssistanceInformation' in kwargs:
+        if mobile_network_id is None:
+            raise TypeError("Missing 'mobile_network_id' argument")
+        if single_network_slice_selection_assistance_information is None and 'singleNetworkSliceSelectionAssistanceInformation' in kwargs:
             single_network_slice_selection_assistance_information = kwargs['singleNetworkSliceSelectionAssistanceInformation']
+        if single_network_slice_selection_assistance_information is None:
+            raise TypeError("Missing 'single_network_slice_selection_assistance_information' argument")
 
         _setter("mobile_network_id", mobile_network_id)
         _setter("single_network_slice_selection_assistance_information", single_network_slice_selection_assistance_information)
@@ -178,9 +182,9 @@ class _NetworkSliceState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'mobileNetworkId' in kwargs:
+        if mobile_network_id is None and 'mobileNetworkId' in kwargs:
             mobile_network_id = kwargs['mobileNetworkId']
-        if 'singleNetworkSliceSelectionAssistanceInformation' in kwargs:
+        if single_network_slice_selection_assistance_information is None and 'singleNetworkSliceSelectionAssistanceInformation' in kwargs:
             single_network_slice_selection_assistance_information = kwargs['singleNetworkSliceSelectionAssistanceInformation']
 
         if description is not None:

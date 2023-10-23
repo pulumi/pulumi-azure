@@ -43,11 +43,11 @@ class ManagementGroupArgs:
              subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'parentManagementGroupId' in kwargs:
+        if parent_management_group_id is None and 'parentManagementGroupId' in kwargs:
             parent_management_group_id = kwargs['parentManagementGroupId']
-        if 'subscriptionIds' in kwargs:
+        if subscription_ids is None and 'subscriptionIds' in kwargs:
             subscription_ids = kwargs['subscriptionIds']
 
         if display_name is not None:
@@ -142,11 +142,11 @@ class _ManagementGroupState:
              subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'parentManagementGroupId' in kwargs:
+        if parent_management_group_id is None and 'parentManagementGroupId' in kwargs:
             parent_management_group_id = kwargs['parentManagementGroupId']
-        if 'subscriptionIds' in kwargs:
+        if subscription_ids is None and 'subscriptionIds' in kwargs:
             subscription_ids = kwargs['subscriptionIds']
 
         if display_name is not None:

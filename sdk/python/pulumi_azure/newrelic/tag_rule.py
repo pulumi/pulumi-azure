@@ -46,7 +46,7 @@ class TagRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             monitor_id: pulumi.Input[str],
+             monitor_id: Optional[pulumi.Input[str]] = None,
              activity_log_enabled: Optional[pulumi.Input[bool]] = None,
              azure_active_directory_log_enabled: Optional[pulumi.Input[bool]] = None,
              log_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['TagRuleLogTagFilterArgs']]]] = None,
@@ -55,19 +55,21 @@ class TagRuleArgs:
              subscription_log_enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'monitorId' in kwargs:
+        if monitor_id is None and 'monitorId' in kwargs:
             monitor_id = kwargs['monitorId']
-        if 'activityLogEnabled' in kwargs:
+        if monitor_id is None:
+            raise TypeError("Missing 'monitor_id' argument")
+        if activity_log_enabled is None and 'activityLogEnabled' in kwargs:
             activity_log_enabled = kwargs['activityLogEnabled']
-        if 'azureActiveDirectoryLogEnabled' in kwargs:
+        if azure_active_directory_log_enabled is None and 'azureActiveDirectoryLogEnabled' in kwargs:
             azure_active_directory_log_enabled = kwargs['azureActiveDirectoryLogEnabled']
-        if 'logTagFilters' in kwargs:
+        if log_tag_filters is None and 'logTagFilters' in kwargs:
             log_tag_filters = kwargs['logTagFilters']
-        if 'metricEnabled' in kwargs:
+        if metric_enabled is None and 'metricEnabled' in kwargs:
             metric_enabled = kwargs['metricEnabled']
-        if 'metricTagFilters' in kwargs:
+        if metric_tag_filters is None and 'metricTagFilters' in kwargs:
             metric_tag_filters = kwargs['metricTagFilters']
-        if 'subscriptionLogEnabled' in kwargs:
+        if subscription_log_enabled is None and 'subscriptionLogEnabled' in kwargs:
             subscription_log_enabled = kwargs['subscriptionLogEnabled']
 
         _setter("monitor_id", monitor_id)
@@ -211,19 +213,19 @@ class _TagRuleState:
              subscription_log_enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'activityLogEnabled' in kwargs:
+        if activity_log_enabled is None and 'activityLogEnabled' in kwargs:
             activity_log_enabled = kwargs['activityLogEnabled']
-        if 'azureActiveDirectoryLogEnabled' in kwargs:
+        if azure_active_directory_log_enabled is None and 'azureActiveDirectoryLogEnabled' in kwargs:
             azure_active_directory_log_enabled = kwargs['azureActiveDirectoryLogEnabled']
-        if 'logTagFilters' in kwargs:
+        if log_tag_filters is None and 'logTagFilters' in kwargs:
             log_tag_filters = kwargs['logTagFilters']
-        if 'metricEnabled' in kwargs:
+        if metric_enabled is None and 'metricEnabled' in kwargs:
             metric_enabled = kwargs['metricEnabled']
-        if 'metricTagFilters' in kwargs:
+        if metric_tag_filters is None and 'metricTagFilters' in kwargs:
             metric_tag_filters = kwargs['metricTagFilters']
-        if 'monitorId' in kwargs:
+        if monitor_id is None and 'monitorId' in kwargs:
             monitor_id = kwargs['monitorId']
-        if 'subscriptionLogEnabled' in kwargs:
+        if subscription_log_enabled is None and 'subscriptionLogEnabled' in kwargs:
             subscription_log_enabled = kwargs['subscriptionLogEnabled']
 
         if activity_log_enabled is not None:

@@ -35,16 +35,20 @@ class NetworkManagerManagementGroupConnectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             management_group_id: pulumi.Input[str],
-             network_manager_id: pulumi.Input[str],
+             management_group_id: Optional[pulumi.Input[str]] = None,
+             network_manager_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'managementGroupId' in kwargs:
+        if management_group_id is None and 'managementGroupId' in kwargs:
             management_group_id = kwargs['managementGroupId']
-        if 'networkManagerId' in kwargs:
+        if management_group_id is None:
+            raise TypeError("Missing 'management_group_id' argument")
+        if network_manager_id is None and 'networkManagerId' in kwargs:
             network_manager_id = kwargs['networkManagerId']
+        if network_manager_id is None:
+            raise TypeError("Missing 'network_manager_id' argument")
 
         _setter("management_group_id", management_group_id)
         _setter("network_manager_id", network_manager_id)
@@ -136,11 +140,11 @@ class _NetworkManagerManagementGroupConnectionState:
              network_manager_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'connectionState' in kwargs:
+        if connection_state is None and 'connectionState' in kwargs:
             connection_state = kwargs['connectionState']
-        if 'managementGroupId' in kwargs:
+        if management_group_id is None and 'managementGroupId' in kwargs:
             management_group_id = kwargs['managementGroupId']
-        if 'networkManagerId' in kwargs:
+        if network_manager_id is None and 'networkManagerId' in kwargs:
             network_manager_id = kwargs['networkManagerId']
 
         if connection_state is not None:

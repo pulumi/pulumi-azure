@@ -40,21 +40,29 @@ class FlexibleServerFirewallRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             end_ip_address: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             server_name: pulumi.Input[str],
-             start_ip_address: pulumi.Input[str],
+             end_ip_address: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
+             start_ip_address: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'endIpAddress' in kwargs:
+        if end_ip_address is None and 'endIpAddress' in kwargs:
             end_ip_address = kwargs['endIpAddress']
-        if 'resourceGroupName' in kwargs:
+        if end_ip_address is None:
+            raise TypeError("Missing 'end_ip_address' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serverName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if server_name is None and 'serverName' in kwargs:
             server_name = kwargs['serverName']
-        if 'startIpAddress' in kwargs:
+        if server_name is None:
+            raise TypeError("Missing 'server_name' argument")
+        if start_ip_address is None and 'startIpAddress' in kwargs:
             start_ip_address = kwargs['startIpAddress']
+        if start_ip_address is None:
+            raise TypeError("Missing 'start_ip_address' argument")
 
         _setter("end_ip_address", end_ip_address)
         _setter("resource_group_name", resource_group_name)
@@ -162,13 +170,13 @@ class _FlexibleServerFirewallRuleState:
              start_ip_address: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'endIpAddress' in kwargs:
+        if end_ip_address is None and 'endIpAddress' in kwargs:
             end_ip_address = kwargs['endIpAddress']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serverName' in kwargs:
+        if server_name is None and 'serverName' in kwargs:
             server_name = kwargs['serverName']
-        if 'startIpAddress' in kwargs:
+        if start_ip_address is None and 'startIpAddress' in kwargs:
             start_ip_address = kwargs['startIpAddress']
 
         if end_ip_address is not None:

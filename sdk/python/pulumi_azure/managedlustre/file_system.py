@@ -63,12 +63,12 @@ class FileSystemArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             maintenance_window: pulumi.Input['FileSystemMaintenanceWindowArgs'],
-             resource_group_name: pulumi.Input[str],
-             sku_name: pulumi.Input[str],
-             storage_capacity_in_tb: pulumi.Input[int],
-             subnet_id: pulumi.Input[str],
-             zones: pulumi.Input[Sequence[pulumi.Input[str]]],
+             maintenance_window: Optional[pulumi.Input['FileSystemMaintenanceWindowArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
+             storage_capacity_in_tb: Optional[pulumi.Input[int]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              encryption_key: Optional[pulumi.Input['FileSystemEncryptionKeyArgs']] = None,
              hsm_setting: Optional[pulumi.Input['FileSystemHsmSettingArgs']] = None,
              identity: Optional[pulumi.Input['FileSystemIdentityArgs']] = None,
@@ -77,19 +77,31 @@ class FileSystemArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'maintenanceWindow' in kwargs:
+        if maintenance_window is None and 'maintenanceWindow' in kwargs:
             maintenance_window = kwargs['maintenanceWindow']
-        if 'resourceGroupName' in kwargs:
+        if maintenance_window is None:
+            raise TypeError("Missing 'maintenance_window' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'storageCapacityInTb' in kwargs:
+        if sku_name is None:
+            raise TypeError("Missing 'sku_name' argument")
+        if storage_capacity_in_tb is None and 'storageCapacityInTb' in kwargs:
             storage_capacity_in_tb = kwargs['storageCapacityInTb']
-        if 'subnetId' in kwargs:
+        if storage_capacity_in_tb is None:
+            raise TypeError("Missing 'storage_capacity_in_tb' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'encryptionKey' in kwargs:
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+        if zones is None:
+            raise TypeError("Missing 'zones' argument")
+        if encryption_key is None and 'encryptionKey' in kwargs:
             encryption_key = kwargs['encryptionKey']
-        if 'hsmSetting' in kwargs:
+        if hsm_setting is None and 'hsmSetting' in kwargs:
             hsm_setting = kwargs['hsmSetting']
 
         _setter("maintenance_window", maintenance_window)
@@ -322,19 +334,19 @@ class _FileSystemState:
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'encryptionKey' in kwargs:
+        if encryption_key is None and 'encryptionKey' in kwargs:
             encryption_key = kwargs['encryptionKey']
-        if 'hsmSetting' in kwargs:
+        if hsm_setting is None and 'hsmSetting' in kwargs:
             hsm_setting = kwargs['hsmSetting']
-        if 'maintenanceWindow' in kwargs:
+        if maintenance_window is None and 'maintenanceWindow' in kwargs:
             maintenance_window = kwargs['maintenanceWindow']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'storageCapacityInTb' in kwargs:
+        if storage_capacity_in_tb is None and 'storageCapacityInTb' in kwargs:
             storage_capacity_in_tb = kwargs['storageCapacityInTb']
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
 
         if encryption_key is not None:

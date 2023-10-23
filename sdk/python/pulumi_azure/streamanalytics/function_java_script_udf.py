@@ -43,18 +43,28 @@ class FunctionJavaScriptUDFArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             inputs: pulumi.Input[Sequence[pulumi.Input['FunctionJavaScriptUDFInputArgs']]],
-             output: pulumi.Input['FunctionJavaScriptUDFOutputArgs'],
-             resource_group_name: pulumi.Input[str],
-             script: pulumi.Input[str],
-             stream_analytics_job_name: pulumi.Input[str],
+             inputs: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionJavaScriptUDFInputArgs']]]] = None,
+             output: Optional[pulumi.Input['FunctionJavaScriptUDFOutputArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             script: Optional[pulumi.Input[str]] = None,
+             stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if inputs is None:
+            raise TypeError("Missing 'inputs' argument")
+        if output is None:
+            raise TypeError("Missing 'output' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'streamAnalyticsJobName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if script is None:
+            raise TypeError("Missing 'script' argument")
+        if stream_analytics_job_name is None and 'streamAnalyticsJobName' in kwargs:
             stream_analytics_job_name = kwargs['streamAnalyticsJobName']
+        if stream_analytics_job_name is None:
+            raise TypeError("Missing 'stream_analytics_job_name' argument")
 
         _setter("inputs", inputs)
         _setter("output", output)
@@ -175,9 +185,9 @@ class _FunctionJavaScriptUDFState:
              stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'streamAnalyticsJobName' in kwargs:
+        if stream_analytics_job_name is None and 'streamAnalyticsJobName' in kwargs:
             stream_analytics_job_name = kwargs['streamAnalyticsJobName']
 
         if inputs is not None:

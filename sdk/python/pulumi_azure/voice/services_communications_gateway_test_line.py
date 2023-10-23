@@ -41,18 +41,24 @@ class ServicesCommunicationsGatewayTestLineArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             phone_number: pulumi.Input[str],
-             purpose: pulumi.Input[str],
-             voice_services_communications_gateway_id: pulumi.Input[str],
+             phone_number: Optional[pulumi.Input[str]] = None,
+             purpose: Optional[pulumi.Input[str]] = None,
+             voice_services_communications_gateway_id: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'phoneNumber' in kwargs:
+        if phone_number is None and 'phoneNumber' in kwargs:
             phone_number = kwargs['phoneNumber']
-        if 'voiceServicesCommunicationsGatewayId' in kwargs:
+        if phone_number is None:
+            raise TypeError("Missing 'phone_number' argument")
+        if purpose is None:
+            raise TypeError("Missing 'purpose' argument")
+        if voice_services_communications_gateway_id is None and 'voiceServicesCommunicationsGatewayId' in kwargs:
             voice_services_communications_gateway_id = kwargs['voiceServicesCommunicationsGatewayId']
+        if voice_services_communications_gateway_id is None:
+            raise TypeError("Missing 'voice_services_communications_gateway_id' argument")
 
         _setter("phone_number", phone_number)
         _setter("purpose", purpose)
@@ -175,9 +181,9 @@ class _ServicesCommunicationsGatewayTestLineState:
              voice_services_communications_gateway_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'phoneNumber' in kwargs:
+        if phone_number is None and 'phoneNumber' in kwargs:
             phone_number = kwargs['phoneNumber']
-        if 'voiceServicesCommunicationsGatewayId' in kwargs:
+        if voice_services_communications_gateway_id is None and 'voiceServicesCommunicationsGatewayId' in kwargs:
             voice_services_communications_gateway_id = kwargs['voiceServicesCommunicationsGatewayId']
 
         if location is not None:

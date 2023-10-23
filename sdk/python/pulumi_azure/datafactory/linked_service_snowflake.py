@@ -52,8 +52,8 @@ class LinkedServiceSnowflakeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             connection_string: pulumi.Input[str],
-             data_factory_id: pulumi.Input[str],
+             connection_string: Optional[pulumi.Input[str]] = None,
+             data_factory_id: Optional[pulumi.Input[str]] = None,
              additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -63,15 +63,19 @@ class LinkedServiceSnowflakeArgs:
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
-        if 'dataFactoryId' in kwargs:
+        if connection_string is None:
+            raise TypeError("Missing 'connection_string' argument")
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'additionalProperties' in kwargs:
+        if data_factory_id is None:
+            raise TypeError("Missing 'data_factory_id' argument")
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'integrationRuntimeName' in kwargs:
+        if integration_runtime_name is None and 'integrationRuntimeName' in kwargs:
             integration_runtime_name = kwargs['integrationRuntimeName']
-        if 'keyVaultPassword' in kwargs:
+        if key_vault_password is None and 'keyVaultPassword' in kwargs:
             key_vault_password = kwargs['keyVaultPassword']
 
         _setter("connection_string", connection_string)
@@ -250,15 +254,15 @@ class _LinkedServiceSnowflakeState:
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'additionalProperties' in kwargs:
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'integrationRuntimeName' in kwargs:
+        if integration_runtime_name is None and 'integrationRuntimeName' in kwargs:
             integration_runtime_name = kwargs['integrationRuntimeName']
-        if 'keyVaultPassword' in kwargs:
+        if key_vault_password is None and 'keyVaultPassword' in kwargs:
             key_vault_password = kwargs['keyVaultPassword']
 
         if additional_properties is not None:

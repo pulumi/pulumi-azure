@@ -43,20 +43,26 @@ class ResolverForwardingRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             dns_forwarding_ruleset_id: pulumi.Input[str],
-             domain_name: pulumi.Input[str],
-             target_dns_servers: pulumi.Input[Sequence[pulumi.Input['ResolverForwardingRuleTargetDnsServerArgs']]],
+             dns_forwarding_ruleset_id: Optional[pulumi.Input[str]] = None,
+             domain_name: Optional[pulumi.Input[str]] = None,
+             target_dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input['ResolverForwardingRuleTargetDnsServerArgs']]]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dnsForwardingRulesetId' in kwargs:
+        if dns_forwarding_ruleset_id is None and 'dnsForwardingRulesetId' in kwargs:
             dns_forwarding_ruleset_id = kwargs['dnsForwardingRulesetId']
-        if 'domainName' in kwargs:
+        if dns_forwarding_ruleset_id is None:
+            raise TypeError("Missing 'dns_forwarding_ruleset_id' argument")
+        if domain_name is None and 'domainName' in kwargs:
             domain_name = kwargs['domainName']
-        if 'targetDnsServers' in kwargs:
+        if domain_name is None:
+            raise TypeError("Missing 'domain_name' argument")
+        if target_dns_servers is None and 'targetDnsServers' in kwargs:
             target_dns_servers = kwargs['targetDnsServers']
+        if target_dns_servers is None:
+            raise TypeError("Missing 'target_dns_servers' argument")
 
         _setter("dns_forwarding_ruleset_id", dns_forwarding_ruleset_id)
         _setter("domain_name", domain_name)
@@ -179,11 +185,11 @@ class _ResolverForwardingRuleState:
              target_dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input['ResolverForwardingRuleTargetDnsServerArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dnsForwardingRulesetId' in kwargs:
+        if dns_forwarding_ruleset_id is None and 'dnsForwardingRulesetId' in kwargs:
             dns_forwarding_ruleset_id = kwargs['dnsForwardingRulesetId']
-        if 'domainName' in kwargs:
+        if domain_name is None and 'domainName' in kwargs:
             domain_name = kwargs['domainName']
-        if 'targetDnsServers' in kwargs:
+        if target_dns_servers is None and 'targetDnsServers' in kwargs:
             target_dns_servers = kwargs['targetDnsServers']
 
         if dns_forwarding_ruleset_id is not None:

@@ -75,10 +75,14 @@ class CustomProviderActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             endpoint: pulumi.Input[str],
-             name: pulumi.Input[str],
+             endpoint: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if endpoint is None:
+            raise TypeError("Missing 'endpoint' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("endpoint", endpoint)
         _setter("name", name)
@@ -128,12 +132,16 @@ class CustomProviderResourceTypeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             endpoint: pulumi.Input[str],
-             name: pulumi.Input[str],
+             endpoint: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
              routing_type: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'routingType' in kwargs:
+        if endpoint is None:
+            raise TypeError("Missing 'endpoint' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if routing_type is None and 'routingType' in kwargs:
             routing_type = kwargs['routingType']
 
         _setter("endpoint", endpoint)
@@ -192,9 +200,11 @@ class CustomProviderValidationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             specification: pulumi.Input[str],
+             specification: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if specification is None:
+            raise TypeError("Missing 'specification' argument")
 
         _setter("specification", specification)
 
@@ -228,7 +238,7 @@ class ResourceDeploymentScriptAzureCliContainerArgs:
              container_group_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'containerGroupName' in kwargs:
+        if container_group_name is None and 'containerGroupName' in kwargs:
             container_group_name = kwargs['containerGroupName']
 
         if container_group_name is not None:
@@ -267,12 +277,14 @@ class ResourceDeploymentScriptAzureCliEnvironmentVariableArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              secure_value: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'secureValue' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if secure_value is None and 'secureValue' in kwargs:
             secure_value = kwargs['secureValue']
 
         _setter("name", name)
@@ -335,12 +347,16 @@ class ResourceDeploymentScriptAzureCliIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             type: pulumi.Input[str],
+             identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
+        if identity_ids is None:
+            raise TypeError("Missing 'identity_ids' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("identity_ids", identity_ids)
         _setter("type", type)
@@ -387,10 +403,14 @@ class ResourceDeploymentScriptAzureCliStorageAccountArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             name: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("key", key)
         _setter("name", name)
@@ -437,7 +457,7 @@ class ResourceDeploymentScriptPowerShellContainerArgs:
              container_group_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'containerGroupName' in kwargs:
+        if container_group_name is None and 'containerGroupName' in kwargs:
             container_group_name = kwargs['containerGroupName']
 
         if container_group_name is not None:
@@ -476,12 +496,14 @@ class ResourceDeploymentScriptPowerShellEnvironmentVariableArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              secure_value: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'secureValue' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if secure_value is None and 'secureValue' in kwargs:
             secure_value = kwargs['secureValue']
 
         _setter("name", name)
@@ -544,12 +566,16 @@ class ResourceDeploymentScriptPowerShellIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             type: pulumi.Input[str],
+             identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
+        if identity_ids is None:
+            raise TypeError("Missing 'identity_ids' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("identity_ids", identity_ids)
         _setter("type", type)
@@ -596,10 +622,14 @@ class ResourceDeploymentScriptPowerShellStorageAccountArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             name: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("key", key)
         _setter("name", name)
@@ -646,12 +676,16 @@ class ResourceGroupCostManagementExportExportDataOptionsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             time_frame: pulumi.Input[str],
-             type: pulumi.Input[str],
+             time_frame: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'timeFrame' in kwargs:
+        if time_frame is None and 'timeFrame' in kwargs:
             time_frame = kwargs['timeFrame']
+        if time_frame is None:
+            raise TypeError("Missing 'time_frame' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("time_frame", time_frame)
         _setter("type", type)
@@ -700,14 +734,18 @@ class ResourceGroupCostManagementExportExportDataStorageLocationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             container_id: pulumi.Input[str],
-             root_folder_path: pulumi.Input[str],
+             container_id: Optional[pulumi.Input[str]] = None,
+             root_folder_path: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'containerId' in kwargs:
+        if container_id is None and 'containerId' in kwargs:
             container_id = kwargs['containerId']
-        if 'rootFolderPath' in kwargs:
+        if container_id is None:
+            raise TypeError("Missing 'container_id' argument")
+        if root_folder_path is None and 'rootFolderPath' in kwargs:
             root_folder_path = kwargs['rootFolderPath']
+        if root_folder_path is None:
+            raise TypeError("Missing 'root_folder_path' argument")
 
         _setter("container_id", container_id)
         _setter("root_folder_path", root_folder_path)
@@ -762,12 +800,16 @@ class ResourceGroupCostManagementViewDatasetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             aggregations: pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetAggregationArgs']]],
-             granularity: pulumi.Input[str],
+             aggregations: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetAggregationArgs']]]] = None,
+             granularity: Optional[pulumi.Input[str]] = None,
              groupings: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetGroupingArgs']]]] = None,
              sortings: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetSortingArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if aggregations is None:
+            raise TypeError("Missing 'aggregations' argument")
+        if granularity is None:
+            raise TypeError("Missing 'granularity' argument")
 
         _setter("aggregations", aggregations)
         _setter("granularity", granularity)
@@ -842,12 +884,16 @@ class ResourceGroupCostManagementViewDatasetAggregationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             column_name: pulumi.Input[str],
-             name: pulumi.Input[str],
+             column_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'columnName' in kwargs:
+        if column_name is None and 'columnName' in kwargs:
             column_name = kwargs['columnName']
+        if column_name is None:
+            raise TypeError("Missing 'column_name' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("column_name", column_name)
         _setter("name", name)
@@ -894,10 +940,14 @@ class ResourceGroupCostManagementViewDatasetGroupingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             type: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("name", name)
         _setter("type", type)
@@ -944,10 +994,14 @@ class ResourceGroupCostManagementViewDatasetSortingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             direction: pulumi.Input[str],
-             name: pulumi.Input[str],
+             direction: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if direction is None:
+            raise TypeError("Missing 'direction' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("direction", direction)
         _setter("name", name)
@@ -991,9 +1045,11 @@ class ResourceGroupCostManagementViewKpiArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("type", type)
 
@@ -1027,10 +1083,14 @@ class ResourceGroupCostManagementViewPivotArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             type: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("name", name)
         _setter("type", type)
@@ -1085,17 +1145,19 @@ class ResourceGroupPolicyAssignmentIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -1174,11 +1236,13 @@ class ResourceGroupPolicyAssignmentNonComplianceMessageArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             content: pulumi.Input[str],
+             content: Optional[pulumi.Input[str]] = None,
              policy_definition_reference_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'policyDefinitionReferenceId' in kwargs:
+        if content is None:
+            raise TypeError("Missing 'content' argument")
+        if policy_definition_reference_id is None and 'policyDefinitionReferenceId' in kwargs:
             policy_definition_reference_id = kwargs['policyDefinitionReferenceId']
 
         _setter("content", content)
@@ -1227,10 +1291,12 @@ class ResourceGroupPolicyAssignmentOverrideArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             value: pulumi.Input[str],
+             value: Optional[pulumi.Input[str]] = None,
              selectors: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentOverrideSelectorArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("value", value)
         if selectors is not None:
@@ -1286,7 +1352,7 @@ class ResourceGroupPolicyAssignmentOverrideSelectorArgs:
              not_ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'notIns' in kwargs:
+        if not_ins is None and 'notIns' in kwargs:
             not_ins = kwargs['notIns']
 
         if ins is not None:
@@ -1350,10 +1416,12 @@ class ResourceGroupPolicyAssignmentResourceSelectorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             selectors: pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentResourceSelectorSelectorArgs']]],
+             selectors: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentResourceSelectorSelectorArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if selectors is None:
+            raise TypeError("Missing 'selectors' argument")
 
         _setter("selectors", selectors)
         if name is not None:
@@ -1404,12 +1472,14 @@ class ResourceGroupPolicyAssignmentResourceSelectorSelectorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             kind: pulumi.Input[str],
+             kind: Optional[pulumi.Input[str]] = None,
              ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              not_ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'notIns' in kwargs:
+        if kind is None:
+            raise TypeError("Missing 'kind' argument")
+        if not_ins is None and 'notIns' in kwargs:
             not_ins = kwargs['notIns']
 
         _setter("kind", kind)
@@ -1480,17 +1550,19 @@ class ResourcePolicyAssignmentIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -1569,11 +1641,13 @@ class ResourcePolicyAssignmentNonComplianceMessageArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             content: pulumi.Input[str],
+             content: Optional[pulumi.Input[str]] = None,
              policy_definition_reference_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'policyDefinitionReferenceId' in kwargs:
+        if content is None:
+            raise TypeError("Missing 'content' argument")
+        if policy_definition_reference_id is None and 'policyDefinitionReferenceId' in kwargs:
             policy_definition_reference_id = kwargs['policyDefinitionReferenceId']
 
         _setter("content", content)
@@ -1622,10 +1696,12 @@ class ResourcePolicyAssignmentOverrideArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             value: pulumi.Input[str],
+             value: Optional[pulumi.Input[str]] = None,
              selectors: Optional[pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentOverrideSelectorArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("value", value)
         if selectors is not None:
@@ -1681,7 +1757,7 @@ class ResourcePolicyAssignmentOverrideSelectorArgs:
              not_ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'notIns' in kwargs:
+        if not_ins is None and 'notIns' in kwargs:
             not_ins = kwargs['notIns']
 
         if ins is not None:
@@ -1745,10 +1821,12 @@ class ResourcePolicyAssignmentResourceSelectorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             selectors: pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentResourceSelectorSelectorArgs']]],
+             selectors: Optional[pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentResourceSelectorSelectorArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if selectors is None:
+            raise TypeError("Missing 'selectors' argument")
 
         _setter("selectors", selectors)
         if name is not None:
@@ -1799,12 +1877,14 @@ class ResourcePolicyAssignmentResourceSelectorSelectorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             kind: pulumi.Input[str],
+             kind: Optional[pulumi.Input[str]] = None,
              ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              not_ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'notIns' in kwargs:
+        if kind is None:
+            raise TypeError("Missing 'kind' argument")
+        if not_ins is None and 'notIns' in kwargs:
             not_ins = kwargs['notIns']
 
         _setter("kind", kind)
@@ -1866,10 +1946,14 @@ class ResourceProviderRegistrationFeatureArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             registered: pulumi.Input[bool],
+             name: Optional[pulumi.Input[str]] = None,
+             registered: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if registered is None:
+            raise TypeError("Missing 'registered' argument")
 
         _setter("name", name)
         _setter("registered", registered)
@@ -1913,12 +1997,16 @@ class SubscriptionCostManagementExportExportDataOptionsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             time_frame: pulumi.Input[str],
-             type: pulumi.Input[str],
+             time_frame: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'timeFrame' in kwargs:
+        if time_frame is None and 'timeFrame' in kwargs:
             time_frame = kwargs['timeFrame']
+        if time_frame is None:
+            raise TypeError("Missing 'time_frame' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("time_frame", time_frame)
         _setter("type", type)
@@ -1967,14 +2055,18 @@ class SubscriptionCostManagementExportExportDataStorageLocationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             container_id: pulumi.Input[str],
-             root_folder_path: pulumi.Input[str],
+             container_id: Optional[pulumi.Input[str]] = None,
+             root_folder_path: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'containerId' in kwargs:
+        if container_id is None and 'containerId' in kwargs:
             container_id = kwargs['containerId']
-        if 'rootFolderPath' in kwargs:
+        if container_id is None:
+            raise TypeError("Missing 'container_id' argument")
+        if root_folder_path is None and 'rootFolderPath' in kwargs:
             root_folder_path = kwargs['rootFolderPath']
+        if root_folder_path is None:
+            raise TypeError("Missing 'root_folder_path' argument")
 
         _setter("container_id", container_id)
         _setter("root_folder_path", root_folder_path)
@@ -2029,12 +2121,16 @@ class SubscriptionCostManagementViewDatasetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             aggregations: pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetAggregationArgs']]],
-             granularity: pulumi.Input[str],
+             aggregations: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetAggregationArgs']]]] = None,
+             granularity: Optional[pulumi.Input[str]] = None,
              groupings: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetGroupingArgs']]]] = None,
              sortings: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetSortingArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if aggregations is None:
+            raise TypeError("Missing 'aggregations' argument")
+        if granularity is None:
+            raise TypeError("Missing 'granularity' argument")
 
         _setter("aggregations", aggregations)
         _setter("granularity", granularity)
@@ -2109,12 +2205,16 @@ class SubscriptionCostManagementViewDatasetAggregationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             column_name: pulumi.Input[str],
-             name: pulumi.Input[str],
+             column_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'columnName' in kwargs:
+        if column_name is None and 'columnName' in kwargs:
             column_name = kwargs['columnName']
+        if column_name is None:
+            raise TypeError("Missing 'column_name' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("column_name", column_name)
         _setter("name", name)
@@ -2161,10 +2261,14 @@ class SubscriptionCostManagementViewDatasetGroupingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             type: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("name", name)
         _setter("type", type)
@@ -2211,10 +2315,14 @@ class SubscriptionCostManagementViewDatasetSortingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             direction: pulumi.Input[str],
-             name: pulumi.Input[str],
+             direction: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if direction is None:
+            raise TypeError("Missing 'direction' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("direction", direction)
         _setter("name", name)
@@ -2258,9 +2366,11 @@ class SubscriptionCostManagementViewKpiArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("type", type)
 
@@ -2294,10 +2404,14 @@ class SubscriptionCostManagementViewPivotArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             type: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("name", name)
         _setter("type", type)
@@ -2352,17 +2466,19 @@ class SubscriptionPolicyAssignmentIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -2441,11 +2557,13 @@ class SubscriptionPolicyAssignmentNonComplianceMessageArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             content: pulumi.Input[str],
+             content: Optional[pulumi.Input[str]] = None,
              policy_definition_reference_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'policyDefinitionReferenceId' in kwargs:
+        if content is None:
+            raise TypeError("Missing 'content' argument")
+        if policy_definition_reference_id is None and 'policyDefinitionReferenceId' in kwargs:
             policy_definition_reference_id = kwargs['policyDefinitionReferenceId']
 
         _setter("content", content)
@@ -2494,10 +2612,12 @@ class SubscriptionPolicyAssignmentOverrideArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             value: pulumi.Input[str],
+             value: Optional[pulumi.Input[str]] = None,
              selectors: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionPolicyAssignmentOverrideSelectorArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("value", value)
         if selectors is not None:
@@ -2553,7 +2673,7 @@ class SubscriptionPolicyAssignmentOverrideSelectorArgs:
              not_ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'notIns' in kwargs:
+        if not_ins is None and 'notIns' in kwargs:
             not_ins = kwargs['notIns']
 
         if ins is not None:
@@ -2617,10 +2737,12 @@ class SubscriptionPolicyAssignmentResourceSelectorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             selectors: pulumi.Input[Sequence[pulumi.Input['SubscriptionPolicyAssignmentResourceSelectorSelectorArgs']]],
+             selectors: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionPolicyAssignmentResourceSelectorSelectorArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if selectors is None:
+            raise TypeError("Missing 'selectors' argument")
 
         _setter("selectors", selectors)
         if name is not None:
@@ -2671,12 +2793,14 @@ class SubscriptionPolicyAssignmentResourceSelectorSelectorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             kind: pulumi.Input[str],
+             kind: Optional[pulumi.Input[str]] = None,
              ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              not_ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'notIns' in kwargs:
+        if kind is None:
+            raise TypeError("Missing 'kind' argument")
+        if not_ins is None and 'notIns' in kwargs:
             not_ins = kwargs['notIns']
 
         _setter("kind", kind)

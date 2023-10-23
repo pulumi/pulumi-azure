@@ -41,22 +41,30 @@ class MedtechServiceFhirDestinationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             destination_fhir_mapping_json: pulumi.Input[str],
-             destination_fhir_service_id: pulumi.Input[str],
-             destination_identity_resolution_type: pulumi.Input[str],
-             medtech_service_id: pulumi.Input[str],
+             destination_fhir_mapping_json: Optional[pulumi.Input[str]] = None,
+             destination_fhir_service_id: Optional[pulumi.Input[str]] = None,
+             destination_identity_resolution_type: Optional[pulumi.Input[str]] = None,
+             medtech_service_id: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'destinationFhirMappingJson' in kwargs:
+        if destination_fhir_mapping_json is None and 'destinationFhirMappingJson' in kwargs:
             destination_fhir_mapping_json = kwargs['destinationFhirMappingJson']
-        if 'destinationFhirServiceId' in kwargs:
+        if destination_fhir_mapping_json is None:
+            raise TypeError("Missing 'destination_fhir_mapping_json' argument")
+        if destination_fhir_service_id is None and 'destinationFhirServiceId' in kwargs:
             destination_fhir_service_id = kwargs['destinationFhirServiceId']
-        if 'destinationIdentityResolutionType' in kwargs:
+        if destination_fhir_service_id is None:
+            raise TypeError("Missing 'destination_fhir_service_id' argument")
+        if destination_identity_resolution_type is None and 'destinationIdentityResolutionType' in kwargs:
             destination_identity_resolution_type = kwargs['destinationIdentityResolutionType']
-        if 'medtechServiceId' in kwargs:
+        if destination_identity_resolution_type is None:
+            raise TypeError("Missing 'destination_identity_resolution_type' argument")
+        if medtech_service_id is None and 'medtechServiceId' in kwargs:
             medtech_service_id = kwargs['medtechServiceId']
+        if medtech_service_id is None:
+            raise TypeError("Missing 'medtech_service_id' argument")
 
         _setter("destination_fhir_mapping_json", destination_fhir_mapping_json)
         _setter("destination_fhir_service_id", destination_fhir_service_id)
@@ -178,13 +186,13 @@ class _MedtechServiceFhirDestinationState:
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'destinationFhirMappingJson' in kwargs:
+        if destination_fhir_mapping_json is None and 'destinationFhirMappingJson' in kwargs:
             destination_fhir_mapping_json = kwargs['destinationFhirMappingJson']
-        if 'destinationFhirServiceId' in kwargs:
+        if destination_fhir_service_id is None and 'destinationFhirServiceId' in kwargs:
             destination_fhir_service_id = kwargs['destinationFhirServiceId']
-        if 'destinationIdentityResolutionType' in kwargs:
+        if destination_identity_resolution_type is None and 'destinationIdentityResolutionType' in kwargs:
             destination_identity_resolution_type = kwargs['destinationIdentityResolutionType']
-        if 'medtechServiceId' in kwargs:
+        if medtech_service_id is None and 'medtechServiceId' in kwargs:
             medtech_service_id = kwargs['medtechServiceId']
 
         if destination_fhir_mapping_json is not None:

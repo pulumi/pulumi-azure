@@ -81,9 +81,9 @@ class KeyVaultArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             sku_name: pulumi.Input[str],
-             tenant_id: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
              access_policies: Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultAccessPolicyArgs']]]] = None,
              contacts: Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultContactArgs']]]] = None,
              enable_rbac_authorization: Optional[pulumi.Input[bool]] = None,
@@ -99,29 +99,35 @@ class KeyVaultArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'tenantId' in kwargs:
+        if sku_name is None:
+            raise TypeError("Missing 'sku_name' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
-        if 'accessPolicies' in kwargs:
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if access_policies is None and 'accessPolicies' in kwargs:
             access_policies = kwargs['accessPolicies']
-        if 'enableRbacAuthorization' in kwargs:
+        if enable_rbac_authorization is None and 'enableRbacAuthorization' in kwargs:
             enable_rbac_authorization = kwargs['enableRbacAuthorization']
-        if 'enabledForDeployment' in kwargs:
+        if enabled_for_deployment is None and 'enabledForDeployment' in kwargs:
             enabled_for_deployment = kwargs['enabledForDeployment']
-        if 'enabledForDiskEncryption' in kwargs:
+        if enabled_for_disk_encryption is None and 'enabledForDiskEncryption' in kwargs:
             enabled_for_disk_encryption = kwargs['enabledForDiskEncryption']
-        if 'enabledForTemplateDeployment' in kwargs:
+        if enabled_for_template_deployment is None and 'enabledForTemplateDeployment' in kwargs:
             enabled_for_template_deployment = kwargs['enabledForTemplateDeployment']
-        if 'networkAcls' in kwargs:
+        if network_acls is None and 'networkAcls' in kwargs:
             network_acls = kwargs['networkAcls']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'purgeProtectionEnabled' in kwargs:
+        if purge_protection_enabled is None and 'purgeProtectionEnabled' in kwargs:
             purge_protection_enabled = kwargs['purgeProtectionEnabled']
-        if 'softDeleteRetentionDays' in kwargs:
+        if soft_delete_retention_days is None and 'softDeleteRetentionDays' in kwargs:
             soft_delete_retention_days = kwargs['softDeleteRetentionDays']
 
         _setter("resource_group_name", resource_group_name)
@@ -445,31 +451,31 @@ class _KeyVaultState:
              vault_uri: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accessPolicies' in kwargs:
+        if access_policies is None and 'accessPolicies' in kwargs:
             access_policies = kwargs['accessPolicies']
-        if 'enableRbacAuthorization' in kwargs:
+        if enable_rbac_authorization is None and 'enableRbacAuthorization' in kwargs:
             enable_rbac_authorization = kwargs['enableRbacAuthorization']
-        if 'enabledForDeployment' in kwargs:
+        if enabled_for_deployment is None and 'enabledForDeployment' in kwargs:
             enabled_for_deployment = kwargs['enabledForDeployment']
-        if 'enabledForDiskEncryption' in kwargs:
+        if enabled_for_disk_encryption is None and 'enabledForDiskEncryption' in kwargs:
             enabled_for_disk_encryption = kwargs['enabledForDiskEncryption']
-        if 'enabledForTemplateDeployment' in kwargs:
+        if enabled_for_template_deployment is None and 'enabledForTemplateDeployment' in kwargs:
             enabled_for_template_deployment = kwargs['enabledForTemplateDeployment']
-        if 'networkAcls' in kwargs:
+        if network_acls is None and 'networkAcls' in kwargs:
             network_acls = kwargs['networkAcls']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'purgeProtectionEnabled' in kwargs:
+        if purge_protection_enabled is None and 'purgeProtectionEnabled' in kwargs:
             purge_protection_enabled = kwargs['purgeProtectionEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'softDeleteRetentionDays' in kwargs:
+        if soft_delete_retention_days is None and 'softDeleteRetentionDays' in kwargs:
             soft_delete_retention_days = kwargs['softDeleteRetentionDays']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
-        if 'vaultUri' in kwargs:
+        if vault_uri is None and 'vaultUri' in kwargs:
             vault_uri = kwargs['vaultUri']
 
         if access_policies is not None:

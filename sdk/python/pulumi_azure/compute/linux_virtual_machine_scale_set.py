@@ -225,11 +225,11 @@ class LinuxVirtualMachineScaleSetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             admin_username: pulumi.Input[str],
-             network_interfaces: pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetNetworkInterfaceArgs']]],
-             os_disk: pulumi.Input['LinuxVirtualMachineScaleSetOsDiskArgs'],
-             resource_group_name: pulumi.Input[str],
-             sku: pulumi.Input[str],
+             admin_username: Optional[pulumi.Input[str]] = None,
+             network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetNetworkInterfaceArgs']]]] = None,
+             os_disk: Optional[pulumi.Input['LinuxVirtualMachineScaleSetOsDiskArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
              additional_capabilities: Optional[pulumi.Input['LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs']] = None,
              admin_password: Optional[pulumi.Input[str]] = None,
              admin_ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetAdminSshKeyArgs']]]] = None,
@@ -282,91 +282,101 @@ class LinuxVirtualMachineScaleSetArgs:
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'adminUsername' in kwargs:
+        if admin_username is None and 'adminUsername' in kwargs:
             admin_username = kwargs['adminUsername']
-        if 'networkInterfaces' in kwargs:
+        if admin_username is None:
+            raise TypeError("Missing 'admin_username' argument")
+        if network_interfaces is None and 'networkInterfaces' in kwargs:
             network_interfaces = kwargs['networkInterfaces']
-        if 'osDisk' in kwargs:
+        if network_interfaces is None:
+            raise TypeError("Missing 'network_interfaces' argument")
+        if os_disk is None and 'osDisk' in kwargs:
             os_disk = kwargs['osDisk']
-        if 'resourceGroupName' in kwargs:
+        if os_disk is None:
+            raise TypeError("Missing 'os_disk' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'additionalCapabilities' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if additional_capabilities is None and 'additionalCapabilities' in kwargs:
             additional_capabilities = kwargs['additionalCapabilities']
-        if 'adminPassword' in kwargs:
+        if admin_password is None and 'adminPassword' in kwargs:
             admin_password = kwargs['adminPassword']
-        if 'adminSshKeys' in kwargs:
+        if admin_ssh_keys is None and 'adminSshKeys' in kwargs:
             admin_ssh_keys = kwargs['adminSshKeys']
-        if 'automaticInstanceRepair' in kwargs:
+        if automatic_instance_repair is None and 'automaticInstanceRepair' in kwargs:
             automatic_instance_repair = kwargs['automaticInstanceRepair']
-        if 'automaticOsUpgradePolicy' in kwargs:
+        if automatic_os_upgrade_policy is None and 'automaticOsUpgradePolicy' in kwargs:
             automatic_os_upgrade_policy = kwargs['automaticOsUpgradePolicy']
-        if 'bootDiagnostics' in kwargs:
+        if boot_diagnostics is None and 'bootDiagnostics' in kwargs:
             boot_diagnostics = kwargs['bootDiagnostics']
-        if 'capacityReservationGroupId' in kwargs:
+        if capacity_reservation_group_id is None and 'capacityReservationGroupId' in kwargs:
             capacity_reservation_group_id = kwargs['capacityReservationGroupId']
-        if 'computerNamePrefix' in kwargs:
+        if computer_name_prefix is None and 'computerNamePrefix' in kwargs:
             computer_name_prefix = kwargs['computerNamePrefix']
-        if 'customData' in kwargs:
+        if custom_data is None and 'customData' in kwargs:
             custom_data = kwargs['customData']
-        if 'dataDisks' in kwargs:
+        if data_disks is None and 'dataDisks' in kwargs:
             data_disks = kwargs['dataDisks']
-        if 'disablePasswordAuthentication' in kwargs:
+        if disable_password_authentication is None and 'disablePasswordAuthentication' in kwargs:
             disable_password_authentication = kwargs['disablePasswordAuthentication']
-        if 'doNotRunExtensionsOnOverprovisionedMachines' in kwargs:
+        if do_not_run_extensions_on_overprovisioned_machines is None and 'doNotRunExtensionsOnOverprovisionedMachines' in kwargs:
             do_not_run_extensions_on_overprovisioned_machines = kwargs['doNotRunExtensionsOnOverprovisionedMachines']
-        if 'edgeZone' in kwargs:
+        if edge_zone is None and 'edgeZone' in kwargs:
             edge_zone = kwargs['edgeZone']
-        if 'encryptionAtHostEnabled' in kwargs:
+        if encryption_at_host_enabled is None and 'encryptionAtHostEnabled' in kwargs:
             encryption_at_host_enabled = kwargs['encryptionAtHostEnabled']
-        if 'evictionPolicy' in kwargs:
+        if eviction_policy is None and 'evictionPolicy' in kwargs:
             eviction_policy = kwargs['evictionPolicy']
-        if 'extensionOperationsEnabled' in kwargs:
+        if extension_operations_enabled is None and 'extensionOperationsEnabled' in kwargs:
             extension_operations_enabled = kwargs['extensionOperationsEnabled']
-        if 'extensionsTimeBudget' in kwargs:
+        if extensions_time_budget is None and 'extensionsTimeBudget' in kwargs:
             extensions_time_budget = kwargs['extensionsTimeBudget']
-        if 'galleryApplication' in kwargs:
+        if gallery_application is None and 'galleryApplication' in kwargs:
             gallery_application = kwargs['galleryApplication']
-        if 'galleryApplications' in kwargs:
+        if gallery_applications is None and 'galleryApplications' in kwargs:
             gallery_applications = kwargs['galleryApplications']
-        if 'healthProbeId' in kwargs:
+        if health_probe_id is None and 'healthProbeId' in kwargs:
             health_probe_id = kwargs['healthProbeId']
-        if 'hostGroupId' in kwargs:
+        if host_group_id is None and 'hostGroupId' in kwargs:
             host_group_id = kwargs['hostGroupId']
-        if 'maxBidPrice' in kwargs:
+        if max_bid_price is None and 'maxBidPrice' in kwargs:
             max_bid_price = kwargs['maxBidPrice']
-        if 'platformFaultDomainCount' in kwargs:
+        if platform_fault_domain_count is None and 'platformFaultDomainCount' in kwargs:
             platform_fault_domain_count = kwargs['platformFaultDomainCount']
-        if 'provisionVmAgent' in kwargs:
+        if provision_vm_agent is None and 'provisionVmAgent' in kwargs:
             provision_vm_agent = kwargs['provisionVmAgent']
-        if 'proximityPlacementGroupId' in kwargs:
+        if proximity_placement_group_id is None and 'proximityPlacementGroupId' in kwargs:
             proximity_placement_group_id = kwargs['proximityPlacementGroupId']
-        if 'rollingUpgradePolicy' in kwargs:
+        if rolling_upgrade_policy is None and 'rollingUpgradePolicy' in kwargs:
             rolling_upgrade_policy = kwargs['rollingUpgradePolicy']
-        if 'scaleIn' in kwargs:
+        if scale_in is None and 'scaleIn' in kwargs:
             scale_in = kwargs['scaleIn']
-        if 'scaleInPolicy' in kwargs:
+        if scale_in_policy is None and 'scaleInPolicy' in kwargs:
             scale_in_policy = kwargs['scaleInPolicy']
-        if 'secureBootEnabled' in kwargs:
+        if secure_boot_enabled is None and 'secureBootEnabled' in kwargs:
             secure_boot_enabled = kwargs['secureBootEnabled']
-        if 'singlePlacementGroup' in kwargs:
+        if single_placement_group is None and 'singlePlacementGroup' in kwargs:
             single_placement_group = kwargs['singlePlacementGroup']
-        if 'sourceImageId' in kwargs:
+        if source_image_id is None and 'sourceImageId' in kwargs:
             source_image_id = kwargs['sourceImageId']
-        if 'sourceImageReference' in kwargs:
+        if source_image_reference is None and 'sourceImageReference' in kwargs:
             source_image_reference = kwargs['sourceImageReference']
-        if 'spotRestore' in kwargs:
+        if spot_restore is None and 'spotRestore' in kwargs:
             spot_restore = kwargs['spotRestore']
-        if 'terminateNotification' in kwargs:
+        if terminate_notification is None and 'terminateNotification' in kwargs:
             terminate_notification = kwargs['terminateNotification']
-        if 'terminationNotification' in kwargs:
+        if termination_notification is None and 'terminationNotification' in kwargs:
             termination_notification = kwargs['terminationNotification']
-        if 'upgradeMode' in kwargs:
+        if upgrade_mode is None and 'upgradeMode' in kwargs:
             upgrade_mode = kwargs['upgradeMode']
-        if 'userData' in kwargs:
+        if user_data is None and 'userData' in kwargs:
             user_data = kwargs['userData']
-        if 'vtpmEnabled' in kwargs:
+        if vtpm_enabled is None and 'vtpmEnabled' in kwargs:
             vtpm_enabled = kwargs['vtpmEnabled']
-        if 'zoneBalance' in kwargs:
+        if zone_balance is None and 'zoneBalance' in kwargs:
             zone_balance = kwargs['zoneBalance']
 
         _setter("admin_username", admin_username)
@@ -1456,93 +1466,93 @@ class _LinuxVirtualMachineScaleSetState:
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'additionalCapabilities' in kwargs:
+        if additional_capabilities is None and 'additionalCapabilities' in kwargs:
             additional_capabilities = kwargs['additionalCapabilities']
-        if 'adminPassword' in kwargs:
+        if admin_password is None and 'adminPassword' in kwargs:
             admin_password = kwargs['adminPassword']
-        if 'adminSshKeys' in kwargs:
+        if admin_ssh_keys is None and 'adminSshKeys' in kwargs:
             admin_ssh_keys = kwargs['adminSshKeys']
-        if 'adminUsername' in kwargs:
+        if admin_username is None and 'adminUsername' in kwargs:
             admin_username = kwargs['adminUsername']
-        if 'automaticInstanceRepair' in kwargs:
+        if automatic_instance_repair is None and 'automaticInstanceRepair' in kwargs:
             automatic_instance_repair = kwargs['automaticInstanceRepair']
-        if 'automaticOsUpgradePolicy' in kwargs:
+        if automatic_os_upgrade_policy is None and 'automaticOsUpgradePolicy' in kwargs:
             automatic_os_upgrade_policy = kwargs['automaticOsUpgradePolicy']
-        if 'bootDiagnostics' in kwargs:
+        if boot_diagnostics is None and 'bootDiagnostics' in kwargs:
             boot_diagnostics = kwargs['bootDiagnostics']
-        if 'capacityReservationGroupId' in kwargs:
+        if capacity_reservation_group_id is None and 'capacityReservationGroupId' in kwargs:
             capacity_reservation_group_id = kwargs['capacityReservationGroupId']
-        if 'computerNamePrefix' in kwargs:
+        if computer_name_prefix is None and 'computerNamePrefix' in kwargs:
             computer_name_prefix = kwargs['computerNamePrefix']
-        if 'customData' in kwargs:
+        if custom_data is None and 'customData' in kwargs:
             custom_data = kwargs['customData']
-        if 'dataDisks' in kwargs:
+        if data_disks is None and 'dataDisks' in kwargs:
             data_disks = kwargs['dataDisks']
-        if 'disablePasswordAuthentication' in kwargs:
+        if disable_password_authentication is None and 'disablePasswordAuthentication' in kwargs:
             disable_password_authentication = kwargs['disablePasswordAuthentication']
-        if 'doNotRunExtensionsOnOverprovisionedMachines' in kwargs:
+        if do_not_run_extensions_on_overprovisioned_machines is None and 'doNotRunExtensionsOnOverprovisionedMachines' in kwargs:
             do_not_run_extensions_on_overprovisioned_machines = kwargs['doNotRunExtensionsOnOverprovisionedMachines']
-        if 'edgeZone' in kwargs:
+        if edge_zone is None and 'edgeZone' in kwargs:
             edge_zone = kwargs['edgeZone']
-        if 'encryptionAtHostEnabled' in kwargs:
+        if encryption_at_host_enabled is None and 'encryptionAtHostEnabled' in kwargs:
             encryption_at_host_enabled = kwargs['encryptionAtHostEnabled']
-        if 'evictionPolicy' in kwargs:
+        if eviction_policy is None and 'evictionPolicy' in kwargs:
             eviction_policy = kwargs['evictionPolicy']
-        if 'extensionOperationsEnabled' in kwargs:
+        if extension_operations_enabled is None and 'extensionOperationsEnabled' in kwargs:
             extension_operations_enabled = kwargs['extensionOperationsEnabled']
-        if 'extensionsTimeBudget' in kwargs:
+        if extensions_time_budget is None and 'extensionsTimeBudget' in kwargs:
             extensions_time_budget = kwargs['extensionsTimeBudget']
-        if 'galleryApplication' in kwargs:
+        if gallery_application is None and 'galleryApplication' in kwargs:
             gallery_application = kwargs['galleryApplication']
-        if 'galleryApplications' in kwargs:
+        if gallery_applications is None and 'galleryApplications' in kwargs:
             gallery_applications = kwargs['galleryApplications']
-        if 'healthProbeId' in kwargs:
+        if health_probe_id is None and 'healthProbeId' in kwargs:
             health_probe_id = kwargs['healthProbeId']
-        if 'hostGroupId' in kwargs:
+        if host_group_id is None and 'hostGroupId' in kwargs:
             host_group_id = kwargs['hostGroupId']
-        if 'maxBidPrice' in kwargs:
+        if max_bid_price is None and 'maxBidPrice' in kwargs:
             max_bid_price = kwargs['maxBidPrice']
-        if 'networkInterfaces' in kwargs:
+        if network_interfaces is None and 'networkInterfaces' in kwargs:
             network_interfaces = kwargs['networkInterfaces']
-        if 'osDisk' in kwargs:
+        if os_disk is None and 'osDisk' in kwargs:
             os_disk = kwargs['osDisk']
-        if 'platformFaultDomainCount' in kwargs:
+        if platform_fault_domain_count is None and 'platformFaultDomainCount' in kwargs:
             platform_fault_domain_count = kwargs['platformFaultDomainCount']
-        if 'provisionVmAgent' in kwargs:
+        if provision_vm_agent is None and 'provisionVmAgent' in kwargs:
             provision_vm_agent = kwargs['provisionVmAgent']
-        if 'proximityPlacementGroupId' in kwargs:
+        if proximity_placement_group_id is None and 'proximityPlacementGroupId' in kwargs:
             proximity_placement_group_id = kwargs['proximityPlacementGroupId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'rollingUpgradePolicy' in kwargs:
+        if rolling_upgrade_policy is None and 'rollingUpgradePolicy' in kwargs:
             rolling_upgrade_policy = kwargs['rollingUpgradePolicy']
-        if 'scaleIn' in kwargs:
+        if scale_in is None and 'scaleIn' in kwargs:
             scale_in = kwargs['scaleIn']
-        if 'scaleInPolicy' in kwargs:
+        if scale_in_policy is None and 'scaleInPolicy' in kwargs:
             scale_in_policy = kwargs['scaleInPolicy']
-        if 'secureBootEnabled' in kwargs:
+        if secure_boot_enabled is None and 'secureBootEnabled' in kwargs:
             secure_boot_enabled = kwargs['secureBootEnabled']
-        if 'singlePlacementGroup' in kwargs:
+        if single_placement_group is None and 'singlePlacementGroup' in kwargs:
             single_placement_group = kwargs['singlePlacementGroup']
-        if 'sourceImageId' in kwargs:
+        if source_image_id is None and 'sourceImageId' in kwargs:
             source_image_id = kwargs['sourceImageId']
-        if 'sourceImageReference' in kwargs:
+        if source_image_reference is None and 'sourceImageReference' in kwargs:
             source_image_reference = kwargs['sourceImageReference']
-        if 'spotRestore' in kwargs:
+        if spot_restore is None and 'spotRestore' in kwargs:
             spot_restore = kwargs['spotRestore']
-        if 'terminateNotification' in kwargs:
+        if terminate_notification is None and 'terminateNotification' in kwargs:
             terminate_notification = kwargs['terminateNotification']
-        if 'terminationNotification' in kwargs:
+        if termination_notification is None and 'terminationNotification' in kwargs:
             termination_notification = kwargs['terminationNotification']
-        if 'uniqueId' in kwargs:
+        if unique_id is None and 'uniqueId' in kwargs:
             unique_id = kwargs['uniqueId']
-        if 'upgradeMode' in kwargs:
+        if upgrade_mode is None and 'upgradeMode' in kwargs:
             upgrade_mode = kwargs['upgradeMode']
-        if 'userData' in kwargs:
+        if user_data is None and 'userData' in kwargs:
             user_data = kwargs['userData']
-        if 'vtpmEnabled' in kwargs:
+        if vtpm_enabled is None and 'vtpmEnabled' in kwargs:
             vtpm_enabled = kwargs['vtpmEnabled']
-        if 'zoneBalance' in kwargs:
+        if zone_balance is None and 'zoneBalance' in kwargs:
             zone_balance = kwargs['zoneBalance']
 
         if additional_capabilities is not None:

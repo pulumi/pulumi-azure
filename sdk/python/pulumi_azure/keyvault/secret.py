@@ -46,8 +46,8 @@ class SecretArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_vault_id: pulumi.Input[str],
-             value: pulumi.Input[str],
+             key_vault_id: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
              content_type: Optional[pulumi.Input[str]] = None,
              expiration_date: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
@@ -55,13 +55,17 @@ class SecretArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'keyVaultId' in kwargs:
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
-        if 'contentType' in kwargs:
+        if key_vault_id is None:
+            raise TypeError("Missing 'key_vault_id' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+        if content_type is None and 'contentType' in kwargs:
             content_type = kwargs['contentType']
-        if 'expirationDate' in kwargs:
+        if expiration_date is None and 'expirationDate' in kwargs:
             expiration_date = kwargs['expirationDate']
-        if 'notBeforeDate' in kwargs:
+        if not_before_date is None and 'notBeforeDate' in kwargs:
             not_before_date = kwargs['notBeforeDate']
 
         _setter("key_vault_id", key_vault_id)
@@ -224,19 +228,19 @@ class _SecretState:
              versionless_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'contentType' in kwargs:
+        if content_type is None and 'contentType' in kwargs:
             content_type = kwargs['contentType']
-        if 'expirationDate' in kwargs:
+        if expiration_date is None and 'expirationDate' in kwargs:
             expiration_date = kwargs['expirationDate']
-        if 'keyVaultId' in kwargs:
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
-        if 'notBeforeDate' in kwargs:
+        if not_before_date is None and 'notBeforeDate' in kwargs:
             not_before_date = kwargs['notBeforeDate']
-        if 'resourceId' in kwargs:
+        if resource_id is None and 'resourceId' in kwargs:
             resource_id = kwargs['resourceId']
-        if 'resourceVersionlessId' in kwargs:
+        if resource_versionless_id is None and 'resourceVersionlessId' in kwargs:
             resource_versionless_id = kwargs['resourceVersionlessId']
-        if 'versionlessId' in kwargs:
+        if versionless_id is None and 'versionlessId' in kwargs:
             versionless_id = kwargs['versionlessId']
 
         if content_type is not None:

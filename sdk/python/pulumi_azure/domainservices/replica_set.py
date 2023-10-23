@@ -32,15 +32,19 @@ class ReplicaSetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             domain_service_id: pulumi.Input[str],
-             subnet_id: pulumi.Input[str],
+             domain_service_id: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'domainServiceId' in kwargs:
+        if domain_service_id is None and 'domainServiceId' in kwargs:
             domain_service_id = kwargs['domainServiceId']
-        if 'subnetId' in kwargs:
+        if domain_service_id is None:
+            raise TypeError("Missing 'domain_service_id' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
 
         _setter("domain_service_id", domain_service_id)
         _setter("subnet_id", subnet_id)
@@ -122,15 +126,15 @@ class _ReplicaSetState:
              subnet_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'domainControllerIpAddresses' in kwargs:
+        if domain_controller_ip_addresses is None and 'domainControllerIpAddresses' in kwargs:
             domain_controller_ip_addresses = kwargs['domainControllerIpAddresses']
-        if 'domainServiceId' in kwargs:
+        if domain_service_id is None and 'domainServiceId' in kwargs:
             domain_service_id = kwargs['domainServiceId']
-        if 'externalAccessIpAddress' in kwargs:
+        if external_access_ip_address is None and 'externalAccessIpAddress' in kwargs:
             external_access_ip_address = kwargs['externalAccessIpAddress']
-        if 'serviceStatus' in kwargs:
+        if service_status is None and 'serviceStatus' in kwargs:
             service_status = kwargs['serviceStatus']
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
 
         if domain_controller_ip_addresses is not None:

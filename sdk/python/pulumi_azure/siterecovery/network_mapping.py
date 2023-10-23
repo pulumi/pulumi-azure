@@ -44,27 +44,39 @@ class NetworkMappingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             recovery_vault_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             source_network_id: pulumi.Input[str],
-             source_recovery_fabric_name: pulumi.Input[str],
-             target_network_id: pulumi.Input[str],
-             target_recovery_fabric_name: pulumi.Input[str],
+             recovery_vault_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             source_network_id: Optional[pulumi.Input[str]] = None,
+             source_recovery_fabric_name: Optional[pulumi.Input[str]] = None,
+             target_network_id: Optional[pulumi.Input[str]] = None,
+             target_recovery_fabric_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'recoveryVaultName' in kwargs:
+        if recovery_vault_name is None and 'recoveryVaultName' in kwargs:
             recovery_vault_name = kwargs['recoveryVaultName']
-        if 'resourceGroupName' in kwargs:
+        if recovery_vault_name is None:
+            raise TypeError("Missing 'recovery_vault_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'sourceNetworkId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if source_network_id is None and 'sourceNetworkId' in kwargs:
             source_network_id = kwargs['sourceNetworkId']
-        if 'sourceRecoveryFabricName' in kwargs:
+        if source_network_id is None:
+            raise TypeError("Missing 'source_network_id' argument")
+        if source_recovery_fabric_name is None and 'sourceRecoveryFabricName' in kwargs:
             source_recovery_fabric_name = kwargs['sourceRecoveryFabricName']
-        if 'targetNetworkId' in kwargs:
+        if source_recovery_fabric_name is None:
+            raise TypeError("Missing 'source_recovery_fabric_name' argument")
+        if target_network_id is None and 'targetNetworkId' in kwargs:
             target_network_id = kwargs['targetNetworkId']
-        if 'targetRecoveryFabricName' in kwargs:
+        if target_network_id is None:
+            raise TypeError("Missing 'target_network_id' argument")
+        if target_recovery_fabric_name is None and 'targetRecoveryFabricName' in kwargs:
             target_recovery_fabric_name = kwargs['targetRecoveryFabricName']
+        if target_recovery_fabric_name is None:
+            raise TypeError("Missing 'target_recovery_fabric_name' argument")
 
         _setter("recovery_vault_name", recovery_vault_name)
         _setter("resource_group_name", resource_group_name)
@@ -202,17 +214,17 @@ class _NetworkMappingState:
              target_recovery_fabric_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'recoveryVaultName' in kwargs:
+        if recovery_vault_name is None and 'recoveryVaultName' in kwargs:
             recovery_vault_name = kwargs['recoveryVaultName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'sourceNetworkId' in kwargs:
+        if source_network_id is None and 'sourceNetworkId' in kwargs:
             source_network_id = kwargs['sourceNetworkId']
-        if 'sourceRecoveryFabricName' in kwargs:
+        if source_recovery_fabric_name is None and 'sourceRecoveryFabricName' in kwargs:
             source_recovery_fabric_name = kwargs['sourceRecoveryFabricName']
-        if 'targetNetworkId' in kwargs:
+        if target_network_id is None and 'targetNetworkId' in kwargs:
             target_network_id = kwargs['targetNetworkId']
-        if 'targetRecoveryFabricName' in kwargs:
+        if target_recovery_fabric_name is None and 'targetRecoveryFabricName' in kwargs:
             target_recovery_fabric_name = kwargs['targetRecoveryFabricName']
 
         if name is not None:

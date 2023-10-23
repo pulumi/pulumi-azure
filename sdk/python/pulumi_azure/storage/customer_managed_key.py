@@ -43,8 +43,8 @@ class CustomerManagedKeyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_name: pulumi.Input[str],
-             storage_account_id: pulumi.Input[str],
+             key_name: Optional[pulumi.Input[str]] = None,
+             storage_account_id: Optional[pulumi.Input[str]] = None,
              federated_identity_client_id: Optional[pulumi.Input[str]] = None,
              key_vault_id: Optional[pulumi.Input[str]] = None,
              key_vault_uri: Optional[pulumi.Input[str]] = None,
@@ -52,19 +52,23 @@ class CustomerManagedKeyArgs:
              user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'keyName' in kwargs:
+        if key_name is None and 'keyName' in kwargs:
             key_name = kwargs['keyName']
-        if 'storageAccountId' in kwargs:
+        if key_name is None:
+            raise TypeError("Missing 'key_name' argument")
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'federatedIdentityClientId' in kwargs:
+        if storage_account_id is None:
+            raise TypeError("Missing 'storage_account_id' argument")
+        if federated_identity_client_id is None and 'federatedIdentityClientId' in kwargs:
             federated_identity_client_id = kwargs['federatedIdentityClientId']
-        if 'keyVaultId' in kwargs:
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
-        if 'keyVaultUri' in kwargs:
+        if key_vault_uri is None and 'keyVaultUri' in kwargs:
             key_vault_uri = kwargs['keyVaultUri']
-        if 'keyVersion' in kwargs:
+        if key_version is None and 'keyVersion' in kwargs:
             key_version = kwargs['keyVersion']
-        if 'userAssignedIdentityId' in kwargs:
+        if user_assigned_identity_id is None and 'userAssignedIdentityId' in kwargs:
             user_assigned_identity_id = kwargs['userAssignedIdentityId']
 
         _setter("key_name", key_name)
@@ -203,19 +207,19 @@ class _CustomerManagedKeyState:
              user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'federatedIdentityClientId' in kwargs:
+        if federated_identity_client_id is None and 'federatedIdentityClientId' in kwargs:
             federated_identity_client_id = kwargs['federatedIdentityClientId']
-        if 'keyName' in kwargs:
+        if key_name is None and 'keyName' in kwargs:
             key_name = kwargs['keyName']
-        if 'keyVaultId' in kwargs:
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
-        if 'keyVaultUri' in kwargs:
+        if key_vault_uri is None and 'keyVaultUri' in kwargs:
             key_vault_uri = kwargs['keyVaultUri']
-        if 'keyVersion' in kwargs:
+        if key_version is None and 'keyVersion' in kwargs:
             key_version = kwargs['keyVersion']
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'userAssignedIdentityId' in kwargs:
+        if user_assigned_identity_id is None and 'userAssignedIdentityId' in kwargs:
             user_assigned_identity_id = kwargs['userAssignedIdentityId']
 
         if federated_identity_client_id is not None:

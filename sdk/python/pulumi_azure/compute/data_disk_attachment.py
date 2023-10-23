@@ -41,21 +41,29 @@ class DataDiskAttachmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             caching: pulumi.Input[str],
-             lun: pulumi.Input[int],
-             managed_disk_id: pulumi.Input[str],
-             virtual_machine_id: pulumi.Input[str],
+             caching: Optional[pulumi.Input[str]] = None,
+             lun: Optional[pulumi.Input[int]] = None,
+             managed_disk_id: Optional[pulumi.Input[str]] = None,
+             virtual_machine_id: Optional[pulumi.Input[str]] = None,
              create_option: Optional[pulumi.Input[str]] = None,
              write_accelerator_enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'managedDiskId' in kwargs:
+        if caching is None:
+            raise TypeError("Missing 'caching' argument")
+        if lun is None:
+            raise TypeError("Missing 'lun' argument")
+        if managed_disk_id is None and 'managedDiskId' in kwargs:
             managed_disk_id = kwargs['managedDiskId']
-        if 'virtualMachineId' in kwargs:
+        if managed_disk_id is None:
+            raise TypeError("Missing 'managed_disk_id' argument")
+        if virtual_machine_id is None and 'virtualMachineId' in kwargs:
             virtual_machine_id = kwargs['virtualMachineId']
-        if 'createOption' in kwargs:
+        if virtual_machine_id is None:
+            raise TypeError("Missing 'virtual_machine_id' argument")
+        if create_option is None and 'createOption' in kwargs:
             create_option = kwargs['createOption']
-        if 'writeAcceleratorEnabled' in kwargs:
+        if write_accelerator_enabled is None and 'writeAcceleratorEnabled' in kwargs:
             write_accelerator_enabled = kwargs['writeAcceleratorEnabled']
 
         _setter("caching", caching)
@@ -178,13 +186,13 @@ class _DataDiskAttachmentState:
              write_accelerator_enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'createOption' in kwargs:
+        if create_option is None and 'createOption' in kwargs:
             create_option = kwargs['createOption']
-        if 'managedDiskId' in kwargs:
+        if managed_disk_id is None and 'managedDiskId' in kwargs:
             managed_disk_id = kwargs['managedDiskId']
-        if 'virtualMachineId' in kwargs:
+        if virtual_machine_id is None and 'virtualMachineId' in kwargs:
             virtual_machine_id = kwargs['virtualMachineId']
-        if 'writeAcceleratorEnabled' in kwargs:
+        if write_accelerator_enabled is None and 'writeAcceleratorEnabled' in kwargs:
             write_accelerator_enabled = kwargs['writeAcceleratorEnabled']
 
         if caching is not None:

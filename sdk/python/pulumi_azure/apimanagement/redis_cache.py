@@ -41,21 +41,25 @@ class RedisCacheArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_management_id: pulumi.Input[str],
-             connection_string: pulumi.Input[str],
+             api_management_id: Optional[pulumi.Input[str]] = None,
+             connection_string: Optional[pulumi.Input[str]] = None,
              cache_location: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              redis_cache_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'apiManagementId' in kwargs:
+        if api_management_id is None and 'apiManagementId' in kwargs:
             api_management_id = kwargs['apiManagementId']
-        if 'connectionString' in kwargs:
+        if api_management_id is None:
+            raise TypeError("Missing 'api_management_id' argument")
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
-        if 'cacheLocation' in kwargs:
+        if connection_string is None:
+            raise TypeError("Missing 'connection_string' argument")
+        if cache_location is None and 'cacheLocation' in kwargs:
             cache_location = kwargs['cacheLocation']
-        if 'redisCacheId' in kwargs:
+        if redis_cache_id is None and 'redisCacheId' in kwargs:
             redis_cache_id = kwargs['redisCacheId']
 
         _setter("api_management_id", api_management_id)
@@ -180,13 +184,13 @@ class _RedisCacheState:
              redis_cache_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'apiManagementId' in kwargs:
+        if api_management_id is None and 'apiManagementId' in kwargs:
             api_management_id = kwargs['apiManagementId']
-        if 'cacheLocation' in kwargs:
+        if cache_location is None and 'cacheLocation' in kwargs:
             cache_location = kwargs['cacheLocation']
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
-        if 'redisCacheId' in kwargs:
+        if redis_cache_id is None and 'redisCacheId' in kwargs:
             redis_cache_id = kwargs['redisCacheId']
 
         if api_management_id is not None:

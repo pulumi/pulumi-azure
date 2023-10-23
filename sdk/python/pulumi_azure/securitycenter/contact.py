@@ -38,17 +38,23 @@ class ContactArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             alert_notifications: pulumi.Input[bool],
-             alerts_to_admins: pulumi.Input[bool],
-             email: pulumi.Input[str],
+             alert_notifications: Optional[pulumi.Input[bool]] = None,
+             alerts_to_admins: Optional[pulumi.Input[bool]] = None,
+             email: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              phone: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'alertNotifications' in kwargs:
+        if alert_notifications is None and 'alertNotifications' in kwargs:
             alert_notifications = kwargs['alertNotifications']
-        if 'alertsToAdmins' in kwargs:
+        if alert_notifications is None:
+            raise TypeError("Missing 'alert_notifications' argument")
+        if alerts_to_admins is None and 'alertsToAdmins' in kwargs:
             alerts_to_admins = kwargs['alertsToAdmins']
+        if alerts_to_admins is None:
+            raise TypeError("Missing 'alerts_to_admins' argument")
+        if email is None:
+            raise TypeError("Missing 'email' argument")
 
         _setter("alert_notifications", alert_notifications)
         _setter("alerts_to_admins", alerts_to_admins)
@@ -153,9 +159,9 @@ class _ContactState:
              phone: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'alertNotifications' in kwargs:
+        if alert_notifications is None and 'alertNotifications' in kwargs:
             alert_notifications = kwargs['alertNotifications']
-        if 'alertsToAdmins' in kwargs:
+        if alerts_to_admins is None and 'alertsToAdmins' in kwargs:
             alerts_to_admins = kwargs['alertsToAdmins']
 
         if alert_notifications is not None:

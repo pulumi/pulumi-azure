@@ -45,7 +45,7 @@ class DataConnectorOffice365Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             log_analytics_workspace_id: pulumi.Input[str],
+             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
              exchange_enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              sharepoint_enabled: Optional[pulumi.Input[bool]] = None,
@@ -53,15 +53,17 @@ class DataConnectorOffice365Args:
              tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if 'exchangeEnabled' in kwargs:
+        if log_analytics_workspace_id is None:
+            raise TypeError("Missing 'log_analytics_workspace_id' argument")
+        if exchange_enabled is None and 'exchangeEnabled' in kwargs:
             exchange_enabled = kwargs['exchangeEnabled']
-        if 'sharepointEnabled' in kwargs:
+        if sharepoint_enabled is None and 'sharepointEnabled' in kwargs:
             sharepoint_enabled = kwargs['sharepointEnabled']
-        if 'teamsEnabled' in kwargs:
+        if teams_enabled is None and 'teamsEnabled' in kwargs:
             teams_enabled = kwargs['teamsEnabled']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("log_analytics_workspace_id", log_analytics_workspace_id)
@@ -195,15 +197,15 @@ class _DataConnectorOffice365State:
              tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'exchangeEnabled' in kwargs:
+        if exchange_enabled is None and 'exchangeEnabled' in kwargs:
             exchange_enabled = kwargs['exchangeEnabled']
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if 'sharepointEnabled' in kwargs:
+        if sharepoint_enabled is None and 'sharepointEnabled' in kwargs:
             sharepoint_enabled = kwargs['sharepointEnabled']
-        if 'teamsEnabled' in kwargs:
+        if teams_enabled is None and 'teamsEnabled' in kwargs:
             teams_enabled = kwargs['teamsEnabled']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         if exchange_enabled is not None:

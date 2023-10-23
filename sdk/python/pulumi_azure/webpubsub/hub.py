@@ -45,20 +45,22 @@ class HubArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             web_pubsub_id: pulumi.Input[str],
+             web_pubsub_id: Optional[pulumi.Input[str]] = None,
              anonymous_connections_enabled: Optional[pulumi.Input[bool]] = None,
              event_handlers: Optional[pulumi.Input[Sequence[pulumi.Input['HubEventHandlerArgs']]]] = None,
              event_listeners: Optional[pulumi.Input[Sequence[pulumi.Input['HubEventListenerArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'webPubsubId' in kwargs:
+        if web_pubsub_id is None and 'webPubsubId' in kwargs:
             web_pubsub_id = kwargs['webPubsubId']
-        if 'anonymousConnectionsEnabled' in kwargs:
+        if web_pubsub_id is None:
+            raise TypeError("Missing 'web_pubsub_id' argument")
+        if anonymous_connections_enabled is None and 'anonymousConnectionsEnabled' in kwargs:
             anonymous_connections_enabled = kwargs['anonymousConnectionsEnabled']
-        if 'eventHandlers' in kwargs:
+        if event_handlers is None and 'eventHandlers' in kwargs:
             event_handlers = kwargs['eventHandlers']
-        if 'eventListeners' in kwargs:
+        if event_listeners is None and 'eventListeners' in kwargs:
             event_listeners = kwargs['eventListeners']
 
         _setter("web_pubsub_id", web_pubsub_id)
@@ -176,13 +178,13 @@ class _HubState:
              web_pubsub_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'anonymousConnectionsEnabled' in kwargs:
+        if anonymous_connections_enabled is None and 'anonymousConnectionsEnabled' in kwargs:
             anonymous_connections_enabled = kwargs['anonymousConnectionsEnabled']
-        if 'eventHandlers' in kwargs:
+        if event_handlers is None and 'eventHandlers' in kwargs:
             event_handlers = kwargs['eventHandlers']
-        if 'eventListeners' in kwargs:
+        if event_listeners is None and 'eventListeners' in kwargs:
             event_listeners = kwargs['eventListeners']
-        if 'webPubsubId' in kwargs:
+        if web_pubsub_id is None and 'webPubsubId' in kwargs:
             web_pubsub_id = kwargs['webPubsubId']
 
         if anonymous_connections_enabled is not None:

@@ -38,17 +38,21 @@ class ClusterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             streaming_capacity: pulumi.Input[int],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             streaming_capacity: Optional[pulumi.Input[int]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'streamingCapacity' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if streaming_capacity is None and 'streamingCapacity' in kwargs:
             streaming_capacity = kwargs['streamingCapacity']
+        if streaming_capacity is None:
+            raise TypeError("Missing 'streaming_capacity' argument")
 
         _setter("resource_group_name", resource_group_name)
         _setter("streaming_capacity", streaming_capacity)
@@ -154,9 +158,9 @@ class _ClusterState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'streamingCapacity' in kwargs:
+        if streaming_capacity is None and 'streamingCapacity' in kwargs:
             streaming_capacity = kwargs['streamingCapacity']
 
         if location is not None:

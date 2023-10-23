@@ -37,17 +37,19 @@ class ManagedDatabaseArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             managed_instance_id: pulumi.Input[str],
+             managed_instance_id: Optional[pulumi.Input[str]] = None,
              long_term_retention_policy: Optional[pulumi.Input['ManagedDatabaseLongTermRetentionPolicyArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              short_term_retention_days: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'managedInstanceId' in kwargs:
+        if managed_instance_id is None and 'managedInstanceId' in kwargs:
             managed_instance_id = kwargs['managedInstanceId']
-        if 'longTermRetentionPolicy' in kwargs:
+        if managed_instance_id is None:
+            raise TypeError("Missing 'managed_instance_id' argument")
+        if long_term_retention_policy is None and 'longTermRetentionPolicy' in kwargs:
             long_term_retention_policy = kwargs['longTermRetentionPolicy']
-        if 'shortTermRetentionDays' in kwargs:
+        if short_term_retention_days is None and 'shortTermRetentionDays' in kwargs:
             short_term_retention_days = kwargs['shortTermRetentionDays']
 
         _setter("managed_instance_id", managed_instance_id)
@@ -137,11 +139,11 @@ class _ManagedDatabaseState:
              short_term_retention_days: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'longTermRetentionPolicy' in kwargs:
+        if long_term_retention_policy is None and 'longTermRetentionPolicy' in kwargs:
             long_term_retention_policy = kwargs['longTermRetentionPolicy']
-        if 'managedInstanceId' in kwargs:
+        if managed_instance_id is None and 'managedInstanceId' in kwargs:
             managed_instance_id = kwargs['managedInstanceId']
-        if 'shortTermRetentionDays' in kwargs:
+        if short_term_retention_days is None and 'shortTermRetentionDays' in kwargs:
             short_term_retention_days = kwargs['shortTermRetentionDays']
 
         if long_term_retention_policy is not None:

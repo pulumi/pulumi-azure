@@ -47,28 +47,40 @@ class ConnectionServicePrincipalArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_id: pulumi.Input[str],
-             automation_account_name: pulumi.Input[str],
-             certificate_thumbprint: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             subscription_id: pulumi.Input[str],
-             tenant_id: pulumi.Input[str],
+             application_id: Optional[pulumi.Input[str]] = None,
+             automation_account_name: Optional[pulumi.Input[str]] = None,
+             certificate_thumbprint: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'applicationId' in kwargs:
+        if application_id is None and 'applicationId' in kwargs:
             application_id = kwargs['applicationId']
-        if 'automationAccountName' in kwargs:
+        if application_id is None:
+            raise TypeError("Missing 'application_id' argument")
+        if automation_account_name is None and 'automationAccountName' in kwargs:
             automation_account_name = kwargs['automationAccountName']
-        if 'certificateThumbprint' in kwargs:
+        if automation_account_name is None:
+            raise TypeError("Missing 'automation_account_name' argument")
+        if certificate_thumbprint is None and 'certificateThumbprint' in kwargs:
             certificate_thumbprint = kwargs['certificateThumbprint']
-        if 'resourceGroupName' in kwargs:
+        if certificate_thumbprint is None:
+            raise TypeError("Missing 'certificate_thumbprint' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'subscriptionId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if subscription_id is None and 'subscriptionId' in kwargs:
             subscription_id = kwargs['subscriptionId']
-        if 'tenantId' in kwargs:
+        if subscription_id is None:
+            raise TypeError("Missing 'subscription_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
 
         _setter("application_id", application_id)
         _setter("automation_account_name", automation_account_name)
@@ -224,17 +236,17 @@ class _ConnectionServicePrincipalState:
              tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'applicationId' in kwargs:
+        if application_id is None and 'applicationId' in kwargs:
             application_id = kwargs['applicationId']
-        if 'automationAccountName' in kwargs:
+        if automation_account_name is None and 'automationAccountName' in kwargs:
             automation_account_name = kwargs['automationAccountName']
-        if 'certificateThumbprint' in kwargs:
+        if certificate_thumbprint is None and 'certificateThumbprint' in kwargs:
             certificate_thumbprint = kwargs['certificateThumbprint']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'subscriptionId' in kwargs:
+        if subscription_id is None and 'subscriptionId' in kwargs:
             subscription_id = kwargs['subscriptionId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         if application_id is not None:

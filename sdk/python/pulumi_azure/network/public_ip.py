@@ -88,8 +88,8 @@ class PublicIpArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             allocation_method: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             allocation_method: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              ddos_protection_mode: Optional[pulumi.Input[str]] = None,
              ddos_protection_plan_id: Optional[pulumi.Input[str]] = None,
              domain_name_label: Optional[pulumi.Input[str]] = None,
@@ -107,29 +107,33 @@ class PublicIpArgs:
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allocationMethod' in kwargs:
+        if allocation_method is None and 'allocationMethod' in kwargs:
             allocation_method = kwargs['allocationMethod']
-        if 'resourceGroupName' in kwargs:
+        if allocation_method is None:
+            raise TypeError("Missing 'allocation_method' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'ddosProtectionMode' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if ddos_protection_mode is None and 'ddosProtectionMode' in kwargs:
             ddos_protection_mode = kwargs['ddosProtectionMode']
-        if 'ddosProtectionPlanId' in kwargs:
+        if ddos_protection_plan_id is None and 'ddosProtectionPlanId' in kwargs:
             ddos_protection_plan_id = kwargs['ddosProtectionPlanId']
-        if 'domainNameLabel' in kwargs:
+        if domain_name_label is None and 'domainNameLabel' in kwargs:
             domain_name_label = kwargs['domainNameLabel']
-        if 'edgeZone' in kwargs:
+        if edge_zone is None and 'edgeZone' in kwargs:
             edge_zone = kwargs['edgeZone']
-        if 'idleTimeoutInMinutes' in kwargs:
+        if idle_timeout_in_minutes is None and 'idleTimeoutInMinutes' in kwargs:
             idle_timeout_in_minutes = kwargs['idleTimeoutInMinutes']
-        if 'ipTags' in kwargs:
+        if ip_tags is None and 'ipTags' in kwargs:
             ip_tags = kwargs['ipTags']
-        if 'ipVersion' in kwargs:
+        if ip_version is None and 'ipVersion' in kwargs:
             ip_version = kwargs['ipVersion']
-        if 'publicIpPrefixId' in kwargs:
+        if public_ip_prefix_id is None and 'publicIpPrefixId' in kwargs:
             public_ip_prefix_id = kwargs['publicIpPrefixId']
-        if 'reverseFqdn' in kwargs:
+        if reverse_fqdn is None and 'reverseFqdn' in kwargs:
             reverse_fqdn = kwargs['reverseFqdn']
-        if 'skuTier' in kwargs:
+        if sku_tier is None and 'skuTier' in kwargs:
             sku_tier = kwargs['skuTier']
 
         _setter("allocation_method", allocation_method)
@@ -488,31 +492,31 @@ class _PublicIpState:
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allocationMethod' in kwargs:
+        if allocation_method is None and 'allocationMethod' in kwargs:
             allocation_method = kwargs['allocationMethod']
-        if 'ddosProtectionMode' in kwargs:
+        if ddos_protection_mode is None and 'ddosProtectionMode' in kwargs:
             ddos_protection_mode = kwargs['ddosProtectionMode']
-        if 'ddosProtectionPlanId' in kwargs:
+        if ddos_protection_plan_id is None and 'ddosProtectionPlanId' in kwargs:
             ddos_protection_plan_id = kwargs['ddosProtectionPlanId']
-        if 'domainNameLabel' in kwargs:
+        if domain_name_label is None and 'domainNameLabel' in kwargs:
             domain_name_label = kwargs['domainNameLabel']
-        if 'edgeZone' in kwargs:
+        if edge_zone is None and 'edgeZone' in kwargs:
             edge_zone = kwargs['edgeZone']
-        if 'idleTimeoutInMinutes' in kwargs:
+        if idle_timeout_in_minutes is None and 'idleTimeoutInMinutes' in kwargs:
             idle_timeout_in_minutes = kwargs['idleTimeoutInMinutes']
-        if 'ipAddress' in kwargs:
+        if ip_address is None and 'ipAddress' in kwargs:
             ip_address = kwargs['ipAddress']
-        if 'ipTags' in kwargs:
+        if ip_tags is None and 'ipTags' in kwargs:
             ip_tags = kwargs['ipTags']
-        if 'ipVersion' in kwargs:
+        if ip_version is None and 'ipVersion' in kwargs:
             ip_version = kwargs['ipVersion']
-        if 'publicIpPrefixId' in kwargs:
+        if public_ip_prefix_id is None and 'publicIpPrefixId' in kwargs:
             public_ip_prefix_id = kwargs['publicIpPrefixId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'reverseFqdn' in kwargs:
+        if reverse_fqdn is None and 'reverseFqdn' in kwargs:
             reverse_fqdn = kwargs['reverseFqdn']
-        if 'skuTier' in kwargs:
+        if sku_tier is None and 'skuTier' in kwargs:
             sku_tier = kwargs['skuTier']
 
         if allocation_method is not None:

@@ -44,26 +44,34 @@ class OutputCosmosdbArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             container_name: pulumi.Input[str],
-             cosmosdb_account_key: pulumi.Input[str],
-             cosmosdb_sql_database_id: pulumi.Input[str],
-             stream_analytics_job_id: pulumi.Input[str],
+             container_name: Optional[pulumi.Input[str]] = None,
+             cosmosdb_account_key: Optional[pulumi.Input[str]] = None,
+             cosmosdb_sql_database_id: Optional[pulumi.Input[str]] = None,
+             stream_analytics_job_id: Optional[pulumi.Input[str]] = None,
              document_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              partition_key: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'containerName' in kwargs:
+        if container_name is None and 'containerName' in kwargs:
             container_name = kwargs['containerName']
-        if 'cosmosdbAccountKey' in kwargs:
+        if container_name is None:
+            raise TypeError("Missing 'container_name' argument")
+        if cosmosdb_account_key is None and 'cosmosdbAccountKey' in kwargs:
             cosmosdb_account_key = kwargs['cosmosdbAccountKey']
-        if 'cosmosdbSqlDatabaseId' in kwargs:
+        if cosmosdb_account_key is None:
+            raise TypeError("Missing 'cosmosdb_account_key' argument")
+        if cosmosdb_sql_database_id is None and 'cosmosdbSqlDatabaseId' in kwargs:
             cosmosdb_sql_database_id = kwargs['cosmosdbSqlDatabaseId']
-        if 'streamAnalyticsJobId' in kwargs:
+        if cosmosdb_sql_database_id is None:
+            raise TypeError("Missing 'cosmosdb_sql_database_id' argument")
+        if stream_analytics_job_id is None and 'streamAnalyticsJobId' in kwargs:
             stream_analytics_job_id = kwargs['streamAnalyticsJobId']
-        if 'documentId' in kwargs:
+        if stream_analytics_job_id is None:
+            raise TypeError("Missing 'stream_analytics_job_id' argument")
+        if document_id is None and 'documentId' in kwargs:
             document_id = kwargs['documentId']
-        if 'partitionKey' in kwargs:
+        if partition_key is None and 'partitionKey' in kwargs:
             partition_key = kwargs['partitionKey']
 
         _setter("container_name", container_name)
@@ -204,17 +212,17 @@ class _OutputCosmosdbState:
              stream_analytics_job_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'containerName' in kwargs:
+        if container_name is None and 'containerName' in kwargs:
             container_name = kwargs['containerName']
-        if 'cosmosdbAccountKey' in kwargs:
+        if cosmosdb_account_key is None and 'cosmosdbAccountKey' in kwargs:
             cosmosdb_account_key = kwargs['cosmosdbAccountKey']
-        if 'cosmosdbSqlDatabaseId' in kwargs:
+        if cosmosdb_sql_database_id is None and 'cosmosdbSqlDatabaseId' in kwargs:
             cosmosdb_sql_database_id = kwargs['cosmosdbSqlDatabaseId']
-        if 'documentId' in kwargs:
+        if document_id is None and 'documentId' in kwargs:
             document_id = kwargs['documentId']
-        if 'partitionKey' in kwargs:
+        if partition_key is None and 'partitionKey' in kwargs:
             partition_key = kwargs['partitionKey']
-        if 'streamAnalyticsJobId' in kwargs:
+        if stream_analytics_job_id is None and 'streamAnalyticsJobId' in kwargs:
             stream_analytics_job_id = kwargs['streamAnalyticsJobId']
 
         if container_name is not None:

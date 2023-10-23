@@ -52,9 +52,9 @@ class WorkbookTemplateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             galleries: pulumi.Input[Sequence[pulumi.Input['WorkbookTemplateGalleryArgs']]],
-             resource_group_name: pulumi.Input[str],
-             template_data: pulumi.Input[str],
+             galleries: Optional[pulumi.Input[Sequence[pulumi.Input['WorkbookTemplateGalleryArgs']]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             template_data: Optional[pulumi.Input[str]] = None,
              author: Optional[pulumi.Input[str]] = None,
              localized: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
@@ -63,10 +63,16 @@ class WorkbookTemplateArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if galleries is None:
+            raise TypeError("Missing 'galleries' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'templateData' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if template_data is None and 'templateData' in kwargs:
             template_data = kwargs['templateData']
+        if template_data is None:
+            raise TypeError("Missing 'template_data' argument")
 
         _setter("galleries", galleries)
         _setter("resource_group_name", resource_group_name)
@@ -243,9 +249,9 @@ class _WorkbookTemplateState:
              template_data: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'templateData' in kwargs:
+        if template_data is None and 'templateData' in kwargs:
             template_data = kwargs['templateData']
 
         if author is not None:

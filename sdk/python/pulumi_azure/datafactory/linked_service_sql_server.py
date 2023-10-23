@@ -58,7 +58,7 @@ class LinkedServiceSqlServerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_factory_id: pulumi.Input[str],
+             data_factory_id: Optional[pulumi.Input[str]] = None,
              additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              connection_string: Optional[pulumi.Input[str]] = None,
@@ -71,19 +71,21 @@ class LinkedServiceSqlServerArgs:
              user_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'additionalProperties' in kwargs:
+        if data_factory_id is None:
+            raise TypeError("Missing 'data_factory_id' argument")
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
-        if 'integrationRuntimeName' in kwargs:
+        if integration_runtime_name is None and 'integrationRuntimeName' in kwargs:
             integration_runtime_name = kwargs['integrationRuntimeName']
-        if 'keyVaultConnectionString' in kwargs:
+        if key_vault_connection_string is None and 'keyVaultConnectionString' in kwargs:
             key_vault_connection_string = kwargs['keyVaultConnectionString']
-        if 'keyVaultPassword' in kwargs:
+        if key_vault_password is None and 'keyVaultPassword' in kwargs:
             key_vault_password = kwargs['keyVaultPassword']
-        if 'userName' in kwargs:
+        if user_name is None and 'userName' in kwargs:
             user_name = kwargs['userName']
 
         _setter("data_factory_id", data_factory_id)
@@ -299,19 +301,19 @@ class _LinkedServiceSqlServerState:
              user_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'additionalProperties' in kwargs:
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'integrationRuntimeName' in kwargs:
+        if integration_runtime_name is None and 'integrationRuntimeName' in kwargs:
             integration_runtime_name = kwargs['integrationRuntimeName']
-        if 'keyVaultConnectionString' in kwargs:
+        if key_vault_connection_string is None and 'keyVaultConnectionString' in kwargs:
             key_vault_connection_string = kwargs['keyVaultConnectionString']
-        if 'keyVaultPassword' in kwargs:
+        if key_vault_password is None and 'keyVaultPassword' in kwargs:
             key_vault_password = kwargs['keyVaultPassword']
-        if 'userName' in kwargs:
+        if user_name is None and 'userName' in kwargs:
             user_name = kwargs['userName']
 
         if additional_properties is not None:

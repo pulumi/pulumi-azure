@@ -34,15 +34,19 @@ class RoutingIntentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             routing_policies: pulumi.Input[Sequence[pulumi.Input['RoutingIntentRoutingPolicyArgs']]],
-             virtual_hub_id: pulumi.Input[str],
+             routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingIntentRoutingPolicyArgs']]]] = None,
+             virtual_hub_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'routingPolicies' in kwargs:
+        if routing_policies is None and 'routingPolicies' in kwargs:
             routing_policies = kwargs['routingPolicies']
-        if 'virtualHubId' in kwargs:
+        if routing_policies is None:
+            raise TypeError("Missing 'routing_policies' argument")
+        if virtual_hub_id is None and 'virtualHubId' in kwargs:
             virtual_hub_id = kwargs['virtualHubId']
+        if virtual_hub_id is None:
+            raise TypeError("Missing 'virtual_hub_id' argument")
 
         _setter("routing_policies", routing_policies)
         _setter("virtual_hub_id", virtual_hub_id)
@@ -112,9 +116,9 @@ class _RoutingIntentState:
              virtual_hub_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'routingPolicies' in kwargs:
+        if routing_policies is None and 'routingPolicies' in kwargs:
             routing_policies = kwargs['routingPolicies']
-        if 'virtualHubId' in kwargs:
+        if virtual_hub_id is None and 'virtualHubId' in kwargs:
             virtual_hub_id = kwargs['virtualHubId']
 
         if name is not None:

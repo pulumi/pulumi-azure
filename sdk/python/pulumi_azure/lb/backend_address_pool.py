@@ -37,17 +37,19 @@ class BackendAddressPoolArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             loadbalancer_id: pulumi.Input[str],
+             loadbalancer_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tunnel_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolTunnelInterfaceArgs']]]] = None,
              virtual_network_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'loadbalancerId' in kwargs:
+        if loadbalancer_id is None and 'loadbalancerId' in kwargs:
             loadbalancer_id = kwargs['loadbalancerId']
-        if 'tunnelInterfaces' in kwargs:
+        if loadbalancer_id is None:
+            raise TypeError("Missing 'loadbalancer_id' argument")
+        if tunnel_interfaces is None and 'tunnelInterfaces' in kwargs:
             tunnel_interfaces = kwargs['tunnelInterfaces']
-        if 'virtualNetworkId' in kwargs:
+        if virtual_network_id is None and 'virtualNetworkId' in kwargs:
             virtual_network_id = kwargs['virtualNetworkId']
 
         _setter("loadbalancer_id", loadbalancer_id)
@@ -153,19 +155,19 @@ class _BackendAddressPoolState:
              virtual_network_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'backendIpConfigurations' in kwargs:
+        if backend_ip_configurations is None and 'backendIpConfigurations' in kwargs:
             backend_ip_configurations = kwargs['backendIpConfigurations']
-        if 'inboundNatRules' in kwargs:
+        if inbound_nat_rules is None and 'inboundNatRules' in kwargs:
             inbound_nat_rules = kwargs['inboundNatRules']
-        if 'loadBalancingRules' in kwargs:
+        if load_balancing_rules is None and 'loadBalancingRules' in kwargs:
             load_balancing_rules = kwargs['loadBalancingRules']
-        if 'loadbalancerId' in kwargs:
+        if loadbalancer_id is None and 'loadbalancerId' in kwargs:
             loadbalancer_id = kwargs['loadbalancerId']
-        if 'outboundRules' in kwargs:
+        if outbound_rules is None and 'outboundRules' in kwargs:
             outbound_rules = kwargs['outboundRules']
-        if 'tunnelInterfaces' in kwargs:
+        if tunnel_interfaces is None and 'tunnelInterfaces' in kwargs:
             tunnel_interfaces = kwargs['tunnelInterfaces']
-        if 'virtualNetworkId' in kwargs:
+        if virtual_network_id is None and 'virtualNetworkId' in kwargs:
             virtual_network_id = kwargs['virtualNetworkId']
 
         if backend_ip_configurations is not None:

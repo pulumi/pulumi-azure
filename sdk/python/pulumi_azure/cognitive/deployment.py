@@ -40,16 +40,22 @@ class DeploymentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cognitive_account_id: pulumi.Input[str],
-             model: pulumi.Input['DeploymentModelArgs'],
-             scale: pulumi.Input['DeploymentScaleArgs'],
+             cognitive_account_id: Optional[pulumi.Input[str]] = None,
+             model: Optional[pulumi.Input['DeploymentModelArgs']] = None,
+             scale: Optional[pulumi.Input['DeploymentScaleArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              rai_policy_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'cognitiveAccountId' in kwargs:
+        if cognitive_account_id is None and 'cognitiveAccountId' in kwargs:
             cognitive_account_id = kwargs['cognitiveAccountId']
-        if 'raiPolicyName' in kwargs:
+        if cognitive_account_id is None:
+            raise TypeError("Missing 'cognitive_account_id' argument")
+        if model is None:
+            raise TypeError("Missing 'model' argument")
+        if scale is None:
+            raise TypeError("Missing 'scale' argument")
+        if rai_policy_name is None and 'raiPolicyName' in kwargs:
             rai_policy_name = kwargs['raiPolicyName']
 
         _setter("cognitive_account_id", cognitive_account_id)
@@ -155,9 +161,9 @@ class _DeploymentState:
              scale: Optional[pulumi.Input['DeploymentScaleArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'cognitiveAccountId' in kwargs:
+        if cognitive_account_id is None and 'cognitiveAccountId' in kwargs:
             cognitive_account_id = kwargs['cognitiveAccountId']
-        if 'raiPolicyName' in kwargs:
+        if rai_policy_name is None and 'raiPolicyName' in kwargs:
             rai_policy_name = kwargs['raiPolicyName']
 
         if cognitive_account_id is not None:

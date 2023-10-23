@@ -55,17 +55,23 @@ class LedgerAzureadBasedServicePrincipal(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ledger_role_name: str,
-             principal_id: str,
-             tenant_id: str,
+             ledger_role_name: Optional[str] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ledgerRoleName' in kwargs:
+        if ledger_role_name is None and 'ledgerRoleName' in kwargs:
             ledger_role_name = kwargs['ledgerRoleName']
-        if 'principalId' in kwargs:
+        if ledger_role_name is None:
+            raise TypeError("Missing 'ledger_role_name' argument")
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
 
         _setter("ledger_role_name", ledger_role_name)
         _setter("principal_id", principal_id)
@@ -132,14 +138,18 @@ class LedgerCertificateBasedSecurityPrincipal(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ledger_role_name: str,
-             pem_public_key: str,
+             ledger_role_name: Optional[str] = None,
+             pem_public_key: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ledgerRoleName' in kwargs:
+        if ledger_role_name is None and 'ledgerRoleName' in kwargs:
             ledger_role_name = kwargs['ledgerRoleName']
-        if 'pemPublicKey' in kwargs:
+        if ledger_role_name is None:
+            raise TypeError("Missing 'ledger_role_name' argument")
+        if pem_public_key is None and 'pemPublicKey' in kwargs:
             pem_public_key = kwargs['pemPublicKey']
+        if pem_public_key is None:
+            raise TypeError("Missing 'pem_public_key' argument")
 
         _setter("ledger_role_name", ledger_role_name)
         _setter("pem_public_key", pem_public_key)

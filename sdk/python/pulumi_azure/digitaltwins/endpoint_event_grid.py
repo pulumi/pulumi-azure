@@ -41,23 +41,31 @@ class EndpointEventGridArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             digital_twins_id: pulumi.Input[str],
-             eventgrid_topic_endpoint: pulumi.Input[str],
-             eventgrid_topic_primary_access_key: pulumi.Input[str],
-             eventgrid_topic_secondary_access_key: pulumi.Input[str],
+             digital_twins_id: Optional[pulumi.Input[str]] = None,
+             eventgrid_topic_endpoint: Optional[pulumi.Input[str]] = None,
+             eventgrid_topic_primary_access_key: Optional[pulumi.Input[str]] = None,
+             eventgrid_topic_secondary_access_key: Optional[pulumi.Input[str]] = None,
              dead_letter_storage_secret: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'digitalTwinsId' in kwargs:
+        if digital_twins_id is None and 'digitalTwinsId' in kwargs:
             digital_twins_id = kwargs['digitalTwinsId']
-        if 'eventgridTopicEndpoint' in kwargs:
+        if digital_twins_id is None:
+            raise TypeError("Missing 'digital_twins_id' argument")
+        if eventgrid_topic_endpoint is None and 'eventgridTopicEndpoint' in kwargs:
             eventgrid_topic_endpoint = kwargs['eventgridTopicEndpoint']
-        if 'eventgridTopicPrimaryAccessKey' in kwargs:
+        if eventgrid_topic_endpoint is None:
+            raise TypeError("Missing 'eventgrid_topic_endpoint' argument")
+        if eventgrid_topic_primary_access_key is None and 'eventgridTopicPrimaryAccessKey' in kwargs:
             eventgrid_topic_primary_access_key = kwargs['eventgridTopicPrimaryAccessKey']
-        if 'eventgridTopicSecondaryAccessKey' in kwargs:
+        if eventgrid_topic_primary_access_key is None:
+            raise TypeError("Missing 'eventgrid_topic_primary_access_key' argument")
+        if eventgrid_topic_secondary_access_key is None and 'eventgridTopicSecondaryAccessKey' in kwargs:
             eventgrid_topic_secondary_access_key = kwargs['eventgridTopicSecondaryAccessKey']
-        if 'deadLetterStorageSecret' in kwargs:
+        if eventgrid_topic_secondary_access_key is None:
+            raise TypeError("Missing 'eventgrid_topic_secondary_access_key' argument")
+        if dead_letter_storage_secret is None and 'deadLetterStorageSecret' in kwargs:
             dead_letter_storage_secret = kwargs['deadLetterStorageSecret']
 
         _setter("digital_twins_id", digital_twins_id)
@@ -180,15 +188,15 @@ class _EndpointEventGridState:
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'deadLetterStorageSecret' in kwargs:
+        if dead_letter_storage_secret is None and 'deadLetterStorageSecret' in kwargs:
             dead_letter_storage_secret = kwargs['deadLetterStorageSecret']
-        if 'digitalTwinsId' in kwargs:
+        if digital_twins_id is None and 'digitalTwinsId' in kwargs:
             digital_twins_id = kwargs['digitalTwinsId']
-        if 'eventgridTopicEndpoint' in kwargs:
+        if eventgrid_topic_endpoint is None and 'eventgridTopicEndpoint' in kwargs:
             eventgrid_topic_endpoint = kwargs['eventgridTopicEndpoint']
-        if 'eventgridTopicPrimaryAccessKey' in kwargs:
+        if eventgrid_topic_primary_access_key is None and 'eventgridTopicPrimaryAccessKey' in kwargs:
             eventgrid_topic_primary_access_key = kwargs['eventgridTopicPrimaryAccessKey']
-        if 'eventgridTopicSecondaryAccessKey' in kwargs:
+        if eventgrid_topic_secondary_access_key is None and 'eventgridTopicSecondaryAccessKey' in kwargs:
             eventgrid_topic_secondary_access_key = kwargs['eventgridTopicSecondaryAccessKey']
 
         if dead_letter_storage_secret is not None:

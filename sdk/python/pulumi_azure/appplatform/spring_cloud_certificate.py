@@ -41,23 +41,27 @@ class SpringCloudCertificateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             service_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             service_name: Optional[pulumi.Input[str]] = None,
              certificate_content: Optional[pulumi.Input[str]] = None,
              exclude_private_key: Optional[pulumi.Input[bool]] = None,
              key_vault_certificate_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serviceName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if service_name is None and 'serviceName' in kwargs:
             service_name = kwargs['serviceName']
-        if 'certificateContent' in kwargs:
+        if service_name is None:
+            raise TypeError("Missing 'service_name' argument")
+        if certificate_content is None and 'certificateContent' in kwargs:
             certificate_content = kwargs['certificateContent']
-        if 'excludePrivateKey' in kwargs:
+        if exclude_private_key is None and 'excludePrivateKey' in kwargs:
             exclude_private_key = kwargs['excludePrivateKey']
-        if 'keyVaultCertificateId' in kwargs:
+        if key_vault_certificate_id is None and 'keyVaultCertificateId' in kwargs:
             key_vault_certificate_id = kwargs['keyVaultCertificateId']
 
         _setter("resource_group_name", resource_group_name)
@@ -186,15 +190,15 @@ class _SpringCloudCertificateState:
              thumbprint: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'certificateContent' in kwargs:
+        if certificate_content is None and 'certificateContent' in kwargs:
             certificate_content = kwargs['certificateContent']
-        if 'excludePrivateKey' in kwargs:
+        if exclude_private_key is None and 'excludePrivateKey' in kwargs:
             exclude_private_key = kwargs['excludePrivateKey']
-        if 'keyVaultCertificateId' in kwargs:
+        if key_vault_certificate_id is None and 'keyVaultCertificateId' in kwargs:
             key_vault_certificate_id = kwargs['keyVaultCertificateId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serviceName' in kwargs:
+        if service_name is None and 'serviceName' in kwargs:
             service_name = kwargs['serviceName']
 
         if certificate_content is not None:

@@ -41,7 +41,7 @@ class RoleAssignmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             principal_id: pulumi.Input[str],
+             principal_id: Optional[pulumi.Input[str]] = None,
              condition: Optional[pulumi.Input[str]] = None,
              condition_version: Optional[pulumi.Input[str]] = None,
              delegated_managed_identity_resource_id: Optional[pulumi.Input[str]] = None,
@@ -52,17 +52,19 @@ class RoleAssignmentArgs:
              skip_service_principal_aad_check: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'conditionVersion' in kwargs:
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if condition_version is None and 'conditionVersion' in kwargs:
             condition_version = kwargs['conditionVersion']
-        if 'delegatedManagedIdentityResourceId' in kwargs:
+        if delegated_managed_identity_resource_id is None and 'delegatedManagedIdentityResourceId' in kwargs:
             delegated_managed_identity_resource_id = kwargs['delegatedManagedIdentityResourceId']
-        if 'roleDefinitionId' in kwargs:
+        if role_definition_id is None and 'roleDefinitionId' in kwargs:
             role_definition_id = kwargs['roleDefinitionId']
-        if 'roleDefinitionName' in kwargs:
+        if role_definition_name is None and 'roleDefinitionName' in kwargs:
             role_definition_name = kwargs['roleDefinitionName']
-        if 'skipServicePrincipalAadCheck' in kwargs:
+        if skip_service_principal_aad_check is None and 'skipServicePrincipalAadCheck' in kwargs:
             skip_service_principal_aad_check = kwargs['skipServicePrincipalAadCheck']
 
         _setter("principal_id", principal_id)
@@ -209,19 +211,19 @@ class _RoleAssignmentState:
              skip_service_principal_aad_check: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'conditionVersion' in kwargs:
+        if condition_version is None and 'conditionVersion' in kwargs:
             condition_version = kwargs['conditionVersion']
-        if 'delegatedManagedIdentityResourceId' in kwargs:
+        if delegated_managed_identity_resource_id is None and 'delegatedManagedIdentityResourceId' in kwargs:
             delegated_managed_identity_resource_id = kwargs['delegatedManagedIdentityResourceId']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'principalType' in kwargs:
+        if principal_type is None and 'principalType' in kwargs:
             principal_type = kwargs['principalType']
-        if 'roleDefinitionId' in kwargs:
+        if role_definition_id is None and 'roleDefinitionId' in kwargs:
             role_definition_id = kwargs['roleDefinitionId']
-        if 'roleDefinitionName' in kwargs:
+        if role_definition_name is None and 'roleDefinitionName' in kwargs:
             role_definition_name = kwargs['roleDefinitionName']
-        if 'skipServicePrincipalAadCheck' in kwargs:
+        if skip_service_principal_aad_check is None and 'skipServicePrincipalAadCheck' in kwargs:
             skip_service_principal_aad_check = kwargs['skipServicePrincipalAadCheck']
 
         if condition is not None:

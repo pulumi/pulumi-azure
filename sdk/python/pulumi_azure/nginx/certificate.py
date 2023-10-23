@@ -38,21 +38,29 @@ class CertificateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             certificate_virtual_path: pulumi.Input[str],
-             key_vault_secret_id: pulumi.Input[str],
-             key_virtual_path: pulumi.Input[str],
-             nginx_deployment_id: pulumi.Input[str],
+             certificate_virtual_path: Optional[pulumi.Input[str]] = None,
+             key_vault_secret_id: Optional[pulumi.Input[str]] = None,
+             key_virtual_path: Optional[pulumi.Input[str]] = None,
+             nginx_deployment_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'certificateVirtualPath' in kwargs:
+        if certificate_virtual_path is None and 'certificateVirtualPath' in kwargs:
             certificate_virtual_path = kwargs['certificateVirtualPath']
-        if 'keyVaultSecretId' in kwargs:
+        if certificate_virtual_path is None:
+            raise TypeError("Missing 'certificate_virtual_path' argument")
+        if key_vault_secret_id is None and 'keyVaultSecretId' in kwargs:
             key_vault_secret_id = kwargs['keyVaultSecretId']
-        if 'keyVirtualPath' in kwargs:
+        if key_vault_secret_id is None:
+            raise TypeError("Missing 'key_vault_secret_id' argument")
+        if key_virtual_path is None and 'keyVirtualPath' in kwargs:
             key_virtual_path = kwargs['keyVirtualPath']
-        if 'nginxDeploymentId' in kwargs:
+        if key_virtual_path is None:
+            raise TypeError("Missing 'key_virtual_path' argument")
+        if nginx_deployment_id is None and 'nginxDeploymentId' in kwargs:
             nginx_deployment_id = kwargs['nginxDeploymentId']
+        if nginx_deployment_id is None:
+            raise TypeError("Missing 'nginx_deployment_id' argument")
 
         _setter("certificate_virtual_path", certificate_virtual_path)
         _setter("key_vault_secret_id", key_vault_secret_id)
@@ -156,13 +164,13 @@ class _CertificateState:
              nginx_deployment_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'certificateVirtualPath' in kwargs:
+        if certificate_virtual_path is None and 'certificateVirtualPath' in kwargs:
             certificate_virtual_path = kwargs['certificateVirtualPath']
-        if 'keyVaultSecretId' in kwargs:
+        if key_vault_secret_id is None and 'keyVaultSecretId' in kwargs:
             key_vault_secret_id = kwargs['keyVaultSecretId']
-        if 'keyVirtualPath' in kwargs:
+        if key_virtual_path is None and 'keyVirtualPath' in kwargs:
             key_virtual_path = kwargs['keyVirtualPath']
-        if 'nginxDeploymentId' in kwargs:
+        if nginx_deployment_id is None and 'nginxDeploymentId' in kwargs:
             nginx_deployment_id = kwargs['nginxDeploymentId']
 
         if certificate_virtual_path is not None:

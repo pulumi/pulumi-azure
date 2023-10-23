@@ -37,16 +37,20 @@ class GatewayArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_management_id: pulumi.Input[str],
-             location_data: pulumi.Input['GatewayLocationDataArgs'],
+             api_management_id: Optional[pulumi.Input[str]] = None,
+             location_data: Optional[pulumi.Input['GatewayLocationDataArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'apiManagementId' in kwargs:
+        if api_management_id is None and 'apiManagementId' in kwargs:
             api_management_id = kwargs['apiManagementId']
-        if 'locationData' in kwargs:
+        if api_management_id is None:
+            raise TypeError("Missing 'api_management_id' argument")
+        if location_data is None and 'locationData' in kwargs:
             location_data = kwargs['locationData']
+        if location_data is None:
+            raise TypeError("Missing 'location_data' argument")
 
         _setter("api_management_id", api_management_id)
         _setter("location_data", location_data)
@@ -134,9 +138,9 @@ class _GatewayState:
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'apiManagementId' in kwargs:
+        if api_management_id is None and 'apiManagementId' in kwargs:
             api_management_id = kwargs['apiManagementId']
-        if 'locationData' in kwargs:
+        if location_data is None and 'locationData' in kwargs:
             location_data = kwargs['locationData']
 
         if api_management_id is not None:

@@ -38,19 +38,25 @@ class BackupInstanceBlogStorageArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             backup_policy_id: pulumi.Input[str],
-             storage_account_id: pulumi.Input[str],
-             vault_id: pulumi.Input[str],
+             backup_policy_id: Optional[pulumi.Input[str]] = None,
+             storage_account_id: Optional[pulumi.Input[str]] = None,
+             vault_id: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'backupPolicyId' in kwargs:
+        if backup_policy_id is None and 'backupPolicyId' in kwargs:
             backup_policy_id = kwargs['backupPolicyId']
-        if 'storageAccountId' in kwargs:
+        if backup_policy_id is None:
+            raise TypeError("Missing 'backup_policy_id' argument")
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'vaultId' in kwargs:
+        if storage_account_id is None:
+            raise TypeError("Missing 'storage_account_id' argument")
+        if vault_id is None and 'vaultId' in kwargs:
             vault_id = kwargs['vaultId']
+        if vault_id is None:
+            raise TypeError("Missing 'vault_id' argument")
 
         _setter("backup_policy_id", backup_policy_id)
         _setter("storage_account_id", storage_account_id)
@@ -155,11 +161,11 @@ class _BackupInstanceBlogStorageState:
              vault_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'backupPolicyId' in kwargs:
+        if backup_policy_id is None and 'backupPolicyId' in kwargs:
             backup_policy_id = kwargs['backupPolicyId']
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'vaultId' in kwargs:
+        if vault_id is None and 'vaultId' in kwargs:
             vault_id = kwargs['vaultId']
 
         if backup_policy_id is not None:

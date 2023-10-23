@@ -46,24 +46,30 @@ class VpnGatewayConnectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             remote_vpn_site_id: pulumi.Input[str],
-             vpn_gateway_id: pulumi.Input[str],
-             vpn_links: pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkArgs']]],
+             remote_vpn_site_id: Optional[pulumi.Input[str]] = None,
+             vpn_gateway_id: Optional[pulumi.Input[str]] = None,
+             vpn_links: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkArgs']]]] = None,
              internet_security_enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              routing: Optional[pulumi.Input['VpnGatewayConnectionRoutingArgs']] = None,
              traffic_selector_policies: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionTrafficSelectorPolicyArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'remoteVpnSiteId' in kwargs:
+        if remote_vpn_site_id is None and 'remoteVpnSiteId' in kwargs:
             remote_vpn_site_id = kwargs['remoteVpnSiteId']
-        if 'vpnGatewayId' in kwargs:
+        if remote_vpn_site_id is None:
+            raise TypeError("Missing 'remote_vpn_site_id' argument")
+        if vpn_gateway_id is None and 'vpnGatewayId' in kwargs:
             vpn_gateway_id = kwargs['vpnGatewayId']
-        if 'vpnLinks' in kwargs:
+        if vpn_gateway_id is None:
+            raise TypeError("Missing 'vpn_gateway_id' argument")
+        if vpn_links is None and 'vpnLinks' in kwargs:
             vpn_links = kwargs['vpnLinks']
-        if 'internetSecurityEnabled' in kwargs:
+        if vpn_links is None:
+            raise TypeError("Missing 'vpn_links' argument")
+        if internet_security_enabled is None and 'internetSecurityEnabled' in kwargs:
             internet_security_enabled = kwargs['internetSecurityEnabled']
-        if 'trafficSelectorPolicies' in kwargs:
+        if traffic_selector_policies is None and 'trafficSelectorPolicies' in kwargs:
             traffic_selector_policies = kwargs['trafficSelectorPolicies']
 
         _setter("remote_vpn_site_id", remote_vpn_site_id)
@@ -205,15 +211,15 @@ class _VpnGatewayConnectionState:
              vpn_links: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'internetSecurityEnabled' in kwargs:
+        if internet_security_enabled is None and 'internetSecurityEnabled' in kwargs:
             internet_security_enabled = kwargs['internetSecurityEnabled']
-        if 'remoteVpnSiteId' in kwargs:
+        if remote_vpn_site_id is None and 'remoteVpnSiteId' in kwargs:
             remote_vpn_site_id = kwargs['remoteVpnSiteId']
-        if 'trafficSelectorPolicies' in kwargs:
+        if traffic_selector_policies is None and 'trafficSelectorPolicies' in kwargs:
             traffic_selector_policies = kwargs['trafficSelectorPolicies']
-        if 'vpnGatewayId' in kwargs:
+        if vpn_gateway_id is None and 'vpnGatewayId' in kwargs:
             vpn_gateway_id = kwargs['vpnGatewayId']
-        if 'vpnLinks' in kwargs:
+        if vpn_links is None and 'vpnLinks' in kwargs:
             vpn_links = kwargs['vpnLinks']
 
         if internet_security_enabled is not None:

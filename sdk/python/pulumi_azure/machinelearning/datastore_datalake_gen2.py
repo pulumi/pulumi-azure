@@ -53,8 +53,8 @@ class DatastoreDatalakeGen2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             storage_container_id: pulumi.Input[str],
-             workspace_id: pulumi.Input[str],
+             storage_container_id: Optional[pulumi.Input[str]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
              authority_url: Optional[pulumi.Input[str]] = None,
              client_id: Optional[pulumi.Input[str]] = None,
              client_secret: Optional[pulumi.Input[str]] = None,
@@ -65,19 +65,23 @@ class DatastoreDatalakeGen2Args:
              tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'storageContainerId' in kwargs:
+        if storage_container_id is None and 'storageContainerId' in kwargs:
             storage_container_id = kwargs['storageContainerId']
-        if 'workspaceId' in kwargs:
+        if storage_container_id is None:
+            raise TypeError("Missing 'storage_container_id' argument")
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
-        if 'authorityUrl' in kwargs:
+        if workspace_id is None:
+            raise TypeError("Missing 'workspace_id' argument")
+        if authority_url is None and 'authorityUrl' in kwargs:
             authority_url = kwargs['authorityUrl']
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecret' in kwargs:
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'serviceDataIdentity' in kwargs:
+        if service_data_identity is None and 'serviceDataIdentity' in kwargs:
             service_data_identity = kwargs['serviceDataIdentity']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("storage_container_id", storage_container_id)
@@ -278,21 +282,21 @@ class _DatastoreDatalakeGen2State:
              workspace_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'authorityUrl' in kwargs:
+        if authority_url is None and 'authorityUrl' in kwargs:
             authority_url = kwargs['authorityUrl']
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'clientSecret' in kwargs:
+        if client_secret is None and 'clientSecret' in kwargs:
             client_secret = kwargs['clientSecret']
-        if 'isDefault' in kwargs:
+        if is_default is None and 'isDefault' in kwargs:
             is_default = kwargs['isDefault']
-        if 'serviceDataIdentity' in kwargs:
+        if service_data_identity is None and 'serviceDataIdentity' in kwargs:
             service_data_identity = kwargs['serviceDataIdentity']
-        if 'storageContainerId' in kwargs:
+        if storage_container_id is None and 'storageContainerId' in kwargs:
             storage_container_id = kwargs['storageContainerId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
-        if 'workspaceId' in kwargs:
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
 
         if authority_url is not None:

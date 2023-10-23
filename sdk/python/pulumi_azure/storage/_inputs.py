@@ -80,13 +80,15 @@ class AccountAzureFilesAuthenticationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             directory_type: pulumi.Input[str],
+             directory_type: Optional[pulumi.Input[str]] = None,
              active_directory: Optional[pulumi.Input['AccountAzureFilesAuthenticationActiveDirectoryArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'directoryType' in kwargs:
+        if directory_type is None and 'directoryType' in kwargs:
             directory_type = kwargs['directoryType']
-        if 'activeDirectory' in kwargs:
+        if directory_type is None:
+            raise TypeError("Missing 'directory_type' argument")
+        if active_directory is None and 'activeDirectory' in kwargs:
             active_directory = kwargs['activeDirectory']
 
         _setter("directory_type", directory_type)
@@ -147,25 +149,29 @@ class AccountAzureFilesAuthenticationActiveDirectoryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             domain_guid: pulumi.Input[str],
-             domain_name: pulumi.Input[str],
+             domain_guid: Optional[pulumi.Input[str]] = None,
+             domain_name: Optional[pulumi.Input[str]] = None,
              domain_sid: Optional[pulumi.Input[str]] = None,
              forest_name: Optional[pulumi.Input[str]] = None,
              netbios_domain_name: Optional[pulumi.Input[str]] = None,
              storage_sid: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'domainGuid' in kwargs:
+        if domain_guid is None and 'domainGuid' in kwargs:
             domain_guid = kwargs['domainGuid']
-        if 'domainName' in kwargs:
+        if domain_guid is None:
+            raise TypeError("Missing 'domain_guid' argument")
+        if domain_name is None and 'domainName' in kwargs:
             domain_name = kwargs['domainName']
-        if 'domainSid' in kwargs:
+        if domain_name is None:
+            raise TypeError("Missing 'domain_name' argument")
+        if domain_sid is None and 'domainSid' in kwargs:
             domain_sid = kwargs['domainSid']
-        if 'forestName' in kwargs:
+        if forest_name is None and 'forestName' in kwargs:
             forest_name = kwargs['forestName']
-        if 'netbiosDomainName' in kwargs:
+        if netbios_domain_name is None and 'netbiosDomainName' in kwargs:
             netbios_domain_name = kwargs['netbiosDomainName']
-        if 'storageSid' in kwargs:
+        if storage_sid is None and 'storageSid' in kwargs:
             storage_sid = kwargs['storageSid']
 
         _setter("domain_guid", domain_guid)
@@ -311,23 +317,23 @@ class AccountBlobPropertiesArgs:
              versioning_enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'changeFeedEnabled' in kwargs:
+        if change_feed_enabled is None and 'changeFeedEnabled' in kwargs:
             change_feed_enabled = kwargs['changeFeedEnabled']
-        if 'changeFeedRetentionInDays' in kwargs:
+        if change_feed_retention_in_days is None and 'changeFeedRetentionInDays' in kwargs:
             change_feed_retention_in_days = kwargs['changeFeedRetentionInDays']
-        if 'containerDeleteRetentionPolicy' in kwargs:
+        if container_delete_retention_policy is None and 'containerDeleteRetentionPolicy' in kwargs:
             container_delete_retention_policy = kwargs['containerDeleteRetentionPolicy']
-        if 'corsRules' in kwargs:
+        if cors_rules is None and 'corsRules' in kwargs:
             cors_rules = kwargs['corsRules']
-        if 'defaultServiceVersion' in kwargs:
+        if default_service_version is None and 'defaultServiceVersion' in kwargs:
             default_service_version = kwargs['defaultServiceVersion']
-        if 'deleteRetentionPolicy' in kwargs:
+        if delete_retention_policy is None and 'deleteRetentionPolicy' in kwargs:
             delete_retention_policy = kwargs['deleteRetentionPolicy']
-        if 'lastAccessTimeEnabled' in kwargs:
+        if last_access_time_enabled is None and 'lastAccessTimeEnabled' in kwargs:
             last_access_time_enabled = kwargs['lastAccessTimeEnabled']
-        if 'restorePolicy' in kwargs:
+        if restore_policy is None and 'restorePolicy' in kwargs:
             restore_policy = kwargs['restorePolicy']
-        if 'versioningEnabled' in kwargs:
+        if versioning_enabled is None and 'versioningEnabled' in kwargs:
             versioning_enabled = kwargs['versioningEnabled']
 
         if change_feed_enabled is not None:
@@ -529,23 +535,33 @@ class AccountBlobPropertiesCorsRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             allowed_headers: pulumi.Input[Sequence[pulumi.Input[str]]],
-             allowed_methods: pulumi.Input[Sequence[pulumi.Input[str]]],
-             allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
-             exposed_headers: pulumi.Input[Sequence[pulumi.Input[str]]],
-             max_age_in_seconds: pulumi.Input[int],
+             allowed_headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             allowed_methods: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             allowed_origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             exposed_headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             max_age_in_seconds: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowedHeaders' in kwargs:
+        if allowed_headers is None and 'allowedHeaders' in kwargs:
             allowed_headers = kwargs['allowedHeaders']
-        if 'allowedMethods' in kwargs:
+        if allowed_headers is None:
+            raise TypeError("Missing 'allowed_headers' argument")
+        if allowed_methods is None and 'allowedMethods' in kwargs:
             allowed_methods = kwargs['allowedMethods']
-        if 'allowedOrigins' in kwargs:
+        if allowed_methods is None:
+            raise TypeError("Missing 'allowed_methods' argument")
+        if allowed_origins is None and 'allowedOrigins' in kwargs:
             allowed_origins = kwargs['allowedOrigins']
-        if 'exposedHeaders' in kwargs:
+        if allowed_origins is None:
+            raise TypeError("Missing 'allowed_origins' argument")
+        if exposed_headers is None and 'exposedHeaders' in kwargs:
             exposed_headers = kwargs['exposedHeaders']
-        if 'maxAgeInSeconds' in kwargs:
+        if exposed_headers is None:
+            raise TypeError("Missing 'exposed_headers' argument")
+        if max_age_in_seconds is None and 'maxAgeInSeconds' in kwargs:
             max_age_in_seconds = kwargs['maxAgeInSeconds']
+        if max_age_in_seconds is None:
+            raise TypeError("Missing 'max_age_in_seconds' argument")
 
         _setter("allowed_headers", allowed_headers)
         _setter("allowed_methods", allowed_methods)
@@ -663,9 +679,11 @@ class AccountBlobPropertiesRestorePolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             days: pulumi.Input[int],
+             days: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if days is None:
+            raise TypeError("Missing 'days' argument")
 
         _setter("days", days)
 
@@ -699,11 +717,13 @@ class AccountCustomDomainArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              use_subdomain: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'useSubdomain' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if use_subdomain is None and 'useSubdomain' in kwargs:
             use_subdomain = kwargs['useSubdomain']
 
         _setter("name", name)
@@ -754,14 +774,18 @@ class AccountCustomerManagedKeyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_vault_key_id: pulumi.Input[str],
-             user_assigned_identity_id: pulumi.Input[str],
+             key_vault_key_id: Optional[pulumi.Input[str]] = None,
+             user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'keyVaultKeyId' in kwargs:
+        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
             key_vault_key_id = kwargs['keyVaultKeyId']
-        if 'userAssignedIdentityId' in kwargs:
+        if key_vault_key_id is None:
+            raise TypeError("Missing 'key_vault_key_id' argument")
+        if user_assigned_identity_id is None and 'userAssignedIdentityId' in kwargs:
             user_assigned_identity_id = kwargs['userAssignedIdentityId']
+        if user_assigned_identity_id is None:
+            raise TypeError("Missing 'user_assigned_identity_id' argument")
 
         _setter("key_vault_key_id", key_vault_key_id)
         _setter("user_assigned_identity_id", user_assigned_identity_id)
@@ -820,17 +844,19 @@ class AccountIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -914,15 +940,21 @@ class AccountImmutabilityPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             allow_protected_append_writes: pulumi.Input[bool],
-             period_since_creation_in_days: pulumi.Input[int],
-             state: pulumi.Input[str],
+             allow_protected_append_writes: Optional[pulumi.Input[bool]] = None,
+             period_since_creation_in_days: Optional[pulumi.Input[int]] = None,
+             state: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowProtectedAppendWrites' in kwargs:
+        if allow_protected_append_writes is None and 'allowProtectedAppendWrites' in kwargs:
             allow_protected_append_writes = kwargs['allowProtectedAppendWrites']
-        if 'periodSinceCreationInDays' in kwargs:
+        if allow_protected_append_writes is None:
+            raise TypeError("Missing 'allow_protected_append_writes' argument")
+        if period_since_creation_in_days is None and 'periodSinceCreationInDays' in kwargs:
             period_since_creation_in_days = kwargs['periodSinceCreationInDays']
+        if period_since_creation_in_days is None:
+            raise TypeError("Missing 'period_since_creation_in_days' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
 
         _setter("allow_protected_append_writes", allow_protected_append_writes)
         _setter("period_since_creation_in_days", period_since_creation_in_days)
@@ -999,20 +1031,22 @@ class AccountNetworkRulesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             default_action: pulumi.Input[str],
+             default_action: Optional[pulumi.Input[str]] = None,
              bypasses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              private_link_accesses: Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessArgs']]]] = None,
              virtual_network_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'defaultAction' in kwargs:
+        if default_action is None and 'defaultAction' in kwargs:
             default_action = kwargs['defaultAction']
-        if 'ipRules' in kwargs:
+        if default_action is None:
+            raise TypeError("Missing 'default_action' argument")
+        if ip_rules is None and 'ipRules' in kwargs:
             ip_rules = kwargs['ipRules']
-        if 'privateLinkAccesses' in kwargs:
+        if private_link_accesses is None and 'privateLinkAccesses' in kwargs:
             private_link_accesses = kwargs['privateLinkAccesses']
-        if 'virtualNetworkSubnetIds' in kwargs:
+        if virtual_network_subnet_ids is None and 'virtualNetworkSubnetIds' in kwargs:
             virtual_network_subnet_ids = kwargs['virtualNetworkSubnetIds']
 
         _setter("default_action", default_action)
@@ -1111,13 +1145,15 @@ class AccountNetworkRulesPrivateLinkAccessArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             endpoint_resource_id: pulumi.Input[str],
+             endpoint_resource_id: Optional[pulumi.Input[str]] = None,
              endpoint_tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'endpointResourceId' in kwargs:
+        if endpoint_resource_id is None and 'endpointResourceId' in kwargs:
             endpoint_resource_id = kwargs['endpointResourceId']
-        if 'endpointTenantId' in kwargs:
+        if endpoint_resource_id is None:
+            raise TypeError("Missing 'endpoint_resource_id' argument")
+        if endpoint_tenant_id is None and 'endpointTenantId' in kwargs:
             endpoint_tenant_id = kwargs['endpointTenantId']
 
         _setter("endpoint_resource_id", endpoint_resource_id)
@@ -1166,13 +1202,15 @@ class AccountNetworkRulesPrivateLinkAccessRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             endpoint_resource_id: pulumi.Input[str],
+             endpoint_resource_id: Optional[pulumi.Input[str]] = None,
              endpoint_tenant_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'endpointResourceId' in kwargs:
+        if endpoint_resource_id is None and 'endpointResourceId' in kwargs:
             endpoint_resource_id = kwargs['endpointResourceId']
-        if 'endpointTenantId' in kwargs:
+        if endpoint_resource_id is None:
+            raise TypeError("Missing 'endpoint_resource_id' argument")
+        if endpoint_tenant_id is None and 'endpointTenantId' in kwargs:
             endpoint_tenant_id = kwargs['endpointTenantId']
 
         _setter("endpoint_resource_id", endpoint_resource_id)
@@ -1233,11 +1271,11 @@ class AccountQueuePropertiesArgs:
              minute_metrics: Optional[pulumi.Input['AccountQueuePropertiesMinuteMetricsArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'corsRules' in kwargs:
+        if cors_rules is None and 'corsRules' in kwargs:
             cors_rules = kwargs['corsRules']
-        if 'hourMetrics' in kwargs:
+        if hour_metrics is None and 'hourMetrics' in kwargs:
             hour_metrics = kwargs['hourMetrics']
-        if 'minuteMetrics' in kwargs:
+        if minute_metrics is None and 'minuteMetrics' in kwargs:
             minute_metrics = kwargs['minuteMetrics']
 
         if cors_rules is not None:
@@ -1325,23 +1363,33 @@ class AccountQueuePropertiesCorsRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             allowed_headers: pulumi.Input[Sequence[pulumi.Input[str]]],
-             allowed_methods: pulumi.Input[Sequence[pulumi.Input[str]]],
-             allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
-             exposed_headers: pulumi.Input[Sequence[pulumi.Input[str]]],
-             max_age_in_seconds: pulumi.Input[int],
+             allowed_headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             allowed_methods: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             allowed_origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             exposed_headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             max_age_in_seconds: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowedHeaders' in kwargs:
+        if allowed_headers is None and 'allowedHeaders' in kwargs:
             allowed_headers = kwargs['allowedHeaders']
-        if 'allowedMethods' in kwargs:
+        if allowed_headers is None:
+            raise TypeError("Missing 'allowed_headers' argument")
+        if allowed_methods is None and 'allowedMethods' in kwargs:
             allowed_methods = kwargs['allowedMethods']
-        if 'allowedOrigins' in kwargs:
+        if allowed_methods is None:
+            raise TypeError("Missing 'allowed_methods' argument")
+        if allowed_origins is None and 'allowedOrigins' in kwargs:
             allowed_origins = kwargs['allowedOrigins']
-        if 'exposedHeaders' in kwargs:
+        if allowed_origins is None:
+            raise TypeError("Missing 'allowed_origins' argument")
+        if exposed_headers is None and 'exposedHeaders' in kwargs:
             exposed_headers = kwargs['exposedHeaders']
-        if 'maxAgeInSeconds' in kwargs:
+        if exposed_headers is None:
+            raise TypeError("Missing 'exposed_headers' argument")
+        if max_age_in_seconds is None and 'maxAgeInSeconds' in kwargs:
             max_age_in_seconds = kwargs['maxAgeInSeconds']
+        if max_age_in_seconds is None:
+            raise TypeError("Missing 'max_age_in_seconds' argument")
 
         _setter("allowed_headers", allowed_headers)
         _setter("allowed_methods", allowed_methods)
@@ -1434,15 +1482,19 @@ class AccountQueuePropertiesHourMetricsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: pulumi.Input[bool],
-             version: pulumi.Input[str],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             version: Optional[pulumi.Input[str]] = None,
              include_apis: Optional[pulumi.Input[bool]] = None,
              retention_policy_days: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'includeApis' in kwargs:
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
+        if include_apis is None and 'includeApis' in kwargs:
             include_apis = kwargs['includeApis']
-        if 'retentionPolicyDays' in kwargs:
+        if retention_policy_days is None and 'retentionPolicyDays' in kwargs:
             retention_policy_days = kwargs['retentionPolicyDays']
 
         _setter("enabled", enabled)
@@ -1527,14 +1579,22 @@ class AccountQueuePropertiesLoggingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             delete: pulumi.Input[bool],
-             read: pulumi.Input[bool],
-             version: pulumi.Input[str],
-             write: pulumi.Input[bool],
+             delete: Optional[pulumi.Input[bool]] = None,
+             read: Optional[pulumi.Input[bool]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             write: Optional[pulumi.Input[bool]] = None,
              retention_policy_days: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'retentionPolicyDays' in kwargs:
+        if delete is None:
+            raise TypeError("Missing 'delete' argument")
+        if read is None:
+            raise TypeError("Missing 'read' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
+        if write is None:
+            raise TypeError("Missing 'write' argument")
+        if retention_policy_days is None and 'retentionPolicyDays' in kwargs:
             retention_policy_days = kwargs['retentionPolicyDays']
 
         _setter("delete", delete)
@@ -1628,15 +1688,19 @@ class AccountQueuePropertiesMinuteMetricsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: pulumi.Input[bool],
-             version: pulumi.Input[str],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             version: Optional[pulumi.Input[str]] = None,
              include_apis: Optional[pulumi.Input[bool]] = None,
              retention_policy_days: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'includeApis' in kwargs:
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
+        if include_apis is None and 'includeApis' in kwargs:
             include_apis = kwargs['includeApis']
-        if 'retentionPolicyDays' in kwargs:
+        if retention_policy_days is None and 'retentionPolicyDays' in kwargs:
             retention_policy_days = kwargs['retentionPolicyDays']
 
         _setter("enabled", enabled)
@@ -1720,9 +1784,9 @@ class AccountRoutingArgs:
              publish_microsoft_endpoints: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'publishInternetEndpoints' in kwargs:
+        if publish_internet_endpoints is None and 'publishInternetEndpoints' in kwargs:
             publish_internet_endpoints = kwargs['publishInternetEndpoints']
-        if 'publishMicrosoftEndpoints' in kwargs:
+        if publish_microsoft_endpoints is None and 'publishMicrosoftEndpoints' in kwargs:
             publish_microsoft_endpoints = kwargs['publishMicrosoftEndpoints']
 
         if choice is not None:
@@ -1786,13 +1850,15 @@ class AccountSasPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             expiration_period: pulumi.Input[str],
+             expiration_period: Optional[pulumi.Input[str]] = None,
              expiration_action: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'expirationPeriod' in kwargs:
+        if expiration_period is None and 'expirationPeriod' in kwargs:
             expiration_period = kwargs['expirationPeriod']
-        if 'expirationAction' in kwargs:
+        if expiration_period is None:
+            raise TypeError("Missing 'expiration_period' argument")
+        if expiration_action is None and 'expirationAction' in kwargs:
             expiration_action = kwargs['expirationAction']
 
         _setter("expiration_period", expiration_period)
@@ -1849,9 +1915,9 @@ class AccountSharePropertiesArgs:
              smb: Optional[pulumi.Input['AccountSharePropertiesSmbArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'corsRules' in kwargs:
+        if cors_rules is None and 'corsRules' in kwargs:
             cors_rules = kwargs['corsRules']
-        if 'retentionPolicy' in kwargs:
+        if retention_policy is None and 'retentionPolicy' in kwargs:
             retention_policy = kwargs['retentionPolicy']
 
         if cors_rules is not None:
@@ -1925,23 +1991,33 @@ class AccountSharePropertiesCorsRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             allowed_headers: pulumi.Input[Sequence[pulumi.Input[str]]],
-             allowed_methods: pulumi.Input[Sequence[pulumi.Input[str]]],
-             allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
-             exposed_headers: pulumi.Input[Sequence[pulumi.Input[str]]],
-             max_age_in_seconds: pulumi.Input[int],
+             allowed_headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             allowed_methods: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             allowed_origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             exposed_headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             max_age_in_seconds: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowedHeaders' in kwargs:
+        if allowed_headers is None and 'allowedHeaders' in kwargs:
             allowed_headers = kwargs['allowedHeaders']
-        if 'allowedMethods' in kwargs:
+        if allowed_headers is None:
+            raise TypeError("Missing 'allowed_headers' argument")
+        if allowed_methods is None and 'allowedMethods' in kwargs:
             allowed_methods = kwargs['allowedMethods']
-        if 'allowedOrigins' in kwargs:
+        if allowed_methods is None:
+            raise TypeError("Missing 'allowed_methods' argument")
+        if allowed_origins is None and 'allowedOrigins' in kwargs:
             allowed_origins = kwargs['allowedOrigins']
-        if 'exposedHeaders' in kwargs:
+        if allowed_origins is None:
+            raise TypeError("Missing 'allowed_origins' argument")
+        if exposed_headers is None and 'exposedHeaders' in kwargs:
             exposed_headers = kwargs['exposedHeaders']
-        if 'maxAgeInSeconds' in kwargs:
+        if exposed_headers is None:
+            raise TypeError("Missing 'exposed_headers' argument")
+        if max_age_in_seconds is None and 'maxAgeInSeconds' in kwargs:
             max_age_in_seconds = kwargs['maxAgeInSeconds']
+        if max_age_in_seconds is None:
+            raise TypeError("Missing 'max_age_in_seconds' argument")
 
         _setter("allowed_headers", allowed_headers)
         _setter("allowed_methods", allowed_methods)
@@ -2078,13 +2154,13 @@ class AccountSharePropertiesSmbArgs:
              versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'authenticationTypes' in kwargs:
+        if authentication_types is None and 'authenticationTypes' in kwargs:
             authentication_types = kwargs['authenticationTypes']
-        if 'channelEncryptionTypes' in kwargs:
+        if channel_encryption_types is None and 'channelEncryptionTypes' in kwargs:
             channel_encryption_types = kwargs['channelEncryptionTypes']
-        if 'kerberosTicketEncryptionTypes' in kwargs:
+        if kerberos_ticket_encryption_types is None and 'kerberosTicketEncryptionTypes' in kwargs:
             kerberos_ticket_encryption_types = kwargs['kerberosTicketEncryptionTypes']
-        if 'multichannelEnabled' in kwargs:
+        if multichannel_enabled is None and 'multichannelEnabled' in kwargs:
             multichannel_enabled = kwargs['multichannelEnabled']
 
         if authentication_types is not None:
@@ -2180,9 +2256,9 @@ class AccountStaticWebsiteArgs:
              index_document: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'error404Document' in kwargs:
+        if error404_document is None and 'error404Document' in kwargs:
             error404_document = kwargs['error404Document']
-        if 'indexDocument' in kwargs:
+        if index_document is None and 'indexDocument' in kwargs:
             index_document = kwargs['indexDocument']
 
         if error404_document is not None:
@@ -2247,19 +2323,31 @@ class BlobInventoryPolicyRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             format: pulumi.Input[str],
-             name: pulumi.Input[str],
-             schedule: pulumi.Input[str],
-             schema_fields: pulumi.Input[Sequence[pulumi.Input[str]]],
-             scope: pulumi.Input[str],
-             storage_container_name: pulumi.Input[str],
+             format: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             schedule: Optional[pulumi.Input[str]] = None,
+             schema_fields: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             scope: Optional[pulumi.Input[str]] = None,
+             storage_container_name: Optional[pulumi.Input[str]] = None,
              filter: Optional[pulumi.Input['BlobInventoryPolicyRuleFilterArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'schemaFields' in kwargs:
+        if format is None:
+            raise TypeError("Missing 'format' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if schedule is None:
+            raise TypeError("Missing 'schedule' argument")
+        if schema_fields is None and 'schemaFields' in kwargs:
             schema_fields = kwargs['schemaFields']
-        if 'storageContainerName' in kwargs:
+        if schema_fields is None:
+            raise TypeError("Missing 'schema_fields' argument")
+        if scope is None:
+            raise TypeError("Missing 'scope' argument")
+        if storage_container_name is None and 'storageContainerName' in kwargs:
             storage_container_name = kwargs['storageContainerName']
+        if storage_container_name is None:
+            raise TypeError("Missing 'storage_container_name' argument")
 
         _setter("format", format)
         _setter("name", name)
@@ -2392,7 +2480,7 @@ class BlobInventoryPolicyRuleFilterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             blob_types: pulumi.Input[Sequence[pulumi.Input[str]]],
+             blob_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              exclude_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              include_blob_versions: Optional[pulumi.Input[bool]] = None,
              include_deleted: Optional[pulumi.Input[bool]] = None,
@@ -2400,17 +2488,19 @@ class BlobInventoryPolicyRuleFilterArgs:
              prefix_matches: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'blobTypes' in kwargs:
+        if blob_types is None and 'blobTypes' in kwargs:
             blob_types = kwargs['blobTypes']
-        if 'excludePrefixes' in kwargs:
+        if blob_types is None:
+            raise TypeError("Missing 'blob_types' argument")
+        if exclude_prefixes is None and 'excludePrefixes' in kwargs:
             exclude_prefixes = kwargs['excludePrefixes']
-        if 'includeBlobVersions' in kwargs:
+        if include_blob_versions is None and 'includeBlobVersions' in kwargs:
             include_blob_versions = kwargs['includeBlobVersions']
-        if 'includeDeleted' in kwargs:
+        if include_deleted is None and 'includeDeleted' in kwargs:
             include_deleted = kwargs['includeDeleted']
-        if 'includeSnapshots' in kwargs:
+        if include_snapshots is None and 'includeSnapshots' in kwargs:
             include_snapshots = kwargs['includeSnapshots']
-        if 'prefixMatches' in kwargs:
+        if prefix_matches is None and 'prefixMatches' in kwargs:
             prefix_matches = kwargs['prefixMatches']
 
         _setter("blob_types", blob_types)
@@ -2531,12 +2621,16 @@ class DataLakeGen2FilesystemAceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             permissions: pulumi.Input[str],
-             type: pulumi.Input[str],
+             permissions: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              id: Optional[pulumi.Input[str]] = None,
              scope: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if permissions is None:
+            raise TypeError("Missing 'permissions' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("permissions", permissions)
         _setter("type", type)
@@ -2618,12 +2712,16 @@ class DataLakeGen2PathAceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             permissions: pulumi.Input[str],
-             type: pulumi.Input[str],
+             permissions: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              id: Optional[pulumi.Input[str]] = None,
              scope: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if permissions is None:
+            raise TypeError("Missing 'permissions' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("permissions", permissions)
         _setter("type", type)
@@ -2698,13 +2796,19 @@ class LocalUserPermissionScopeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             permissions: pulumi.Input['LocalUserPermissionScopePermissionsArgs'],
-             resource_name: pulumi.Input[str],
-             service: pulumi.Input[str],
+             permissions: Optional[pulumi.Input['LocalUserPermissionScopePermissionsArgs']] = None,
+             resource_name: Optional[pulumi.Input[str]] = None,
+             service: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceName' in kwargs:
+        if permissions is None:
+            raise TypeError("Missing 'permissions' argument")
+        if resource_name is None and 'resourceName' in kwargs:
             resource_name = kwargs['resourceName']
+        if resource_name is None:
+            raise TypeError("Missing 'resource_name' argument")
+        if service is None:
+            raise TypeError("Missing 'service' argument")
 
         _setter("permissions", permissions)
         _setter("resource_name", resource_name)
@@ -2870,10 +2974,12 @@ class LocalUserSshAuthorizedKeyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
 
         _setter("key", key)
         if description is not None:
@@ -2927,12 +3033,20 @@ class ManagementPolicyRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             actions: pulumi.Input['ManagementPolicyRuleActionsArgs'],
-             enabled: pulumi.Input[bool],
-             filters: pulumi.Input['ManagementPolicyRuleFiltersArgs'],
-             name: pulumi.Input[str],
+             actions: Optional[pulumi.Input['ManagementPolicyRuleActionsArgs']] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             filters: Optional[pulumi.Input['ManagementPolicyRuleFiltersArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if actions is None:
+            raise TypeError("Missing 'actions' argument")
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if filters is None:
+            raise TypeError("Missing 'filters' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("actions", actions)
         _setter("enabled", enabled)
@@ -3013,7 +3127,7 @@ class ManagementPolicyRuleActionsArgs:
              version: Optional[pulumi.Input['ManagementPolicyRuleActionsVersionArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'baseBlob' in kwargs:
+        if base_blob is None and 'baseBlob' in kwargs:
             base_blob = kwargs['baseBlob']
 
         if base_blob is not None:
@@ -3127,27 +3241,27 @@ class ManagementPolicyRuleActionsBaseBlobArgs:
              tier_to_cool_after_days_since_modification_greater_than: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'autoTierToHotFromCoolEnabled' in kwargs:
+        if auto_tier_to_hot_from_cool_enabled is None and 'autoTierToHotFromCoolEnabled' in kwargs:
             auto_tier_to_hot_from_cool_enabled = kwargs['autoTierToHotFromCoolEnabled']
-        if 'deleteAfterDaysSinceCreationGreaterThan' in kwargs:
+        if delete_after_days_since_creation_greater_than is None and 'deleteAfterDaysSinceCreationGreaterThan' in kwargs:
             delete_after_days_since_creation_greater_than = kwargs['deleteAfterDaysSinceCreationGreaterThan']
-        if 'deleteAfterDaysSinceLastAccessTimeGreaterThan' in kwargs:
+        if delete_after_days_since_last_access_time_greater_than is None and 'deleteAfterDaysSinceLastAccessTimeGreaterThan' in kwargs:
             delete_after_days_since_last_access_time_greater_than = kwargs['deleteAfterDaysSinceLastAccessTimeGreaterThan']
-        if 'deleteAfterDaysSinceModificationGreaterThan' in kwargs:
+        if delete_after_days_since_modification_greater_than is None and 'deleteAfterDaysSinceModificationGreaterThan' in kwargs:
             delete_after_days_since_modification_greater_than = kwargs['deleteAfterDaysSinceModificationGreaterThan']
-        if 'tierToArchiveAfterDaysSinceCreationGreaterThan' in kwargs:
+        if tier_to_archive_after_days_since_creation_greater_than is None and 'tierToArchiveAfterDaysSinceCreationGreaterThan' in kwargs:
             tier_to_archive_after_days_since_creation_greater_than = kwargs['tierToArchiveAfterDaysSinceCreationGreaterThan']
-        if 'tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan' in kwargs:
+        if tier_to_archive_after_days_since_last_access_time_greater_than is None and 'tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan' in kwargs:
             tier_to_archive_after_days_since_last_access_time_greater_than = kwargs['tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan']
-        if 'tierToArchiveAfterDaysSinceLastTierChangeGreaterThan' in kwargs:
+        if tier_to_archive_after_days_since_last_tier_change_greater_than is None and 'tierToArchiveAfterDaysSinceLastTierChangeGreaterThan' in kwargs:
             tier_to_archive_after_days_since_last_tier_change_greater_than = kwargs['tierToArchiveAfterDaysSinceLastTierChangeGreaterThan']
-        if 'tierToArchiveAfterDaysSinceModificationGreaterThan' in kwargs:
+        if tier_to_archive_after_days_since_modification_greater_than is None and 'tierToArchiveAfterDaysSinceModificationGreaterThan' in kwargs:
             tier_to_archive_after_days_since_modification_greater_than = kwargs['tierToArchiveAfterDaysSinceModificationGreaterThan']
-        if 'tierToCoolAfterDaysSinceCreationGreaterThan' in kwargs:
+        if tier_to_cool_after_days_since_creation_greater_than is None and 'tierToCoolAfterDaysSinceCreationGreaterThan' in kwargs:
             tier_to_cool_after_days_since_creation_greater_than = kwargs['tierToCoolAfterDaysSinceCreationGreaterThan']
-        if 'tierToCoolAfterDaysSinceLastAccessTimeGreaterThan' in kwargs:
+        if tier_to_cool_after_days_since_last_access_time_greater_than is None and 'tierToCoolAfterDaysSinceLastAccessTimeGreaterThan' in kwargs:
             tier_to_cool_after_days_since_last_access_time_greater_than = kwargs['tierToCoolAfterDaysSinceLastAccessTimeGreaterThan']
-        if 'tierToCoolAfterDaysSinceModificationGreaterThan' in kwargs:
+        if tier_to_cool_after_days_since_modification_greater_than is None and 'tierToCoolAfterDaysSinceModificationGreaterThan' in kwargs:
             tier_to_cool_after_days_since_modification_greater_than = kwargs['tierToCoolAfterDaysSinceModificationGreaterThan']
 
         if auto_tier_to_hot_from_cool_enabled is not None:
@@ -3345,13 +3459,13 @@ class ManagementPolicyRuleActionsSnapshotArgs:
              tier_to_archive_after_days_since_last_tier_change_greater_than: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'changeTierToArchiveAfterDaysSinceCreation' in kwargs:
+        if change_tier_to_archive_after_days_since_creation is None and 'changeTierToArchiveAfterDaysSinceCreation' in kwargs:
             change_tier_to_archive_after_days_since_creation = kwargs['changeTierToArchiveAfterDaysSinceCreation']
-        if 'changeTierToCoolAfterDaysSinceCreation' in kwargs:
+        if change_tier_to_cool_after_days_since_creation is None and 'changeTierToCoolAfterDaysSinceCreation' in kwargs:
             change_tier_to_cool_after_days_since_creation = kwargs['changeTierToCoolAfterDaysSinceCreation']
-        if 'deleteAfterDaysSinceCreationGreaterThan' in kwargs:
+        if delete_after_days_since_creation_greater_than is None and 'deleteAfterDaysSinceCreationGreaterThan' in kwargs:
             delete_after_days_since_creation_greater_than = kwargs['deleteAfterDaysSinceCreationGreaterThan']
-        if 'tierToArchiveAfterDaysSinceLastTierChangeGreaterThan' in kwargs:
+        if tier_to_archive_after_days_since_last_tier_change_greater_than is None and 'tierToArchiveAfterDaysSinceLastTierChangeGreaterThan' in kwargs:
             tier_to_archive_after_days_since_last_tier_change_greater_than = kwargs['tierToArchiveAfterDaysSinceLastTierChangeGreaterThan']
 
         if change_tier_to_archive_after_days_since_creation is not None:
@@ -3441,13 +3555,13 @@ class ManagementPolicyRuleActionsVersionArgs:
              tier_to_archive_after_days_since_last_tier_change_greater_than: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'changeTierToArchiveAfterDaysSinceCreation' in kwargs:
+        if change_tier_to_archive_after_days_since_creation is None and 'changeTierToArchiveAfterDaysSinceCreation' in kwargs:
             change_tier_to_archive_after_days_since_creation = kwargs['changeTierToArchiveAfterDaysSinceCreation']
-        if 'changeTierToCoolAfterDaysSinceCreation' in kwargs:
+        if change_tier_to_cool_after_days_since_creation is None and 'changeTierToCoolAfterDaysSinceCreation' in kwargs:
             change_tier_to_cool_after_days_since_creation = kwargs['changeTierToCoolAfterDaysSinceCreation']
-        if 'deleteAfterDaysSinceCreation' in kwargs:
+        if delete_after_days_since_creation is None and 'deleteAfterDaysSinceCreation' in kwargs:
             delete_after_days_since_creation = kwargs['deleteAfterDaysSinceCreation']
-        if 'tierToArchiveAfterDaysSinceLastTierChangeGreaterThan' in kwargs:
+        if tier_to_archive_after_days_since_last_tier_change_greater_than is None and 'tierToArchiveAfterDaysSinceLastTierChangeGreaterThan' in kwargs:
             tier_to_archive_after_days_since_last_tier_change_greater_than = kwargs['tierToArchiveAfterDaysSinceLastTierChangeGreaterThan']
 
         if change_tier_to_archive_after_days_since_creation is not None:
@@ -3530,16 +3644,18 @@ class ManagementPolicyRuleFiltersArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             blob_types: pulumi.Input[Sequence[pulumi.Input[str]]],
+             blob_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              match_blob_index_tags: Optional[pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleFiltersMatchBlobIndexTagArgs']]]] = None,
              prefix_matches: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'blobTypes' in kwargs:
+        if blob_types is None and 'blobTypes' in kwargs:
             blob_types = kwargs['blobTypes']
-        if 'matchBlobIndexTags' in kwargs:
+        if blob_types is None:
+            raise TypeError("Missing 'blob_types' argument")
+        if match_blob_index_tags is None and 'matchBlobIndexTags' in kwargs:
             match_blob_index_tags = kwargs['matchBlobIndexTags']
-        if 'prefixMatches' in kwargs:
+        if prefix_matches is None and 'prefixMatches' in kwargs:
             prefix_matches = kwargs['prefixMatches']
 
         _setter("blob_types", blob_types)
@@ -3607,11 +3723,15 @@ class ManagementPolicyRuleFiltersMatchBlobIndexTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             value: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
              operation: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("name", name)
         _setter("value", value)
@@ -3680,20 +3800,24 @@ class ObjectReplicationRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             destination_container_name: pulumi.Input[str],
-             source_container_name: pulumi.Input[str],
+             destination_container_name: Optional[pulumi.Input[str]] = None,
+             source_container_name: Optional[pulumi.Input[str]] = None,
              copy_blobs_created_after: Optional[pulumi.Input[str]] = None,
              filter_out_blobs_with_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'destinationContainerName' in kwargs:
+        if destination_container_name is None and 'destinationContainerName' in kwargs:
             destination_container_name = kwargs['destinationContainerName']
-        if 'sourceContainerName' in kwargs:
+        if destination_container_name is None:
+            raise TypeError("Missing 'destination_container_name' argument")
+        if source_container_name is None and 'sourceContainerName' in kwargs:
             source_container_name = kwargs['sourceContainerName']
-        if 'copyBlobsCreatedAfter' in kwargs:
+        if source_container_name is None:
+            raise TypeError("Missing 'source_container_name' argument")
+        if copy_blobs_created_after is None and 'copyBlobsCreatedAfter' in kwargs:
             copy_blobs_created_after = kwargs['copyBlobsCreatedAfter']
-        if 'filterOutBlobsWithPrefixes' in kwargs:
+        if filter_out_blobs_with_prefixes is None and 'filterOutBlobsWithPrefixes' in kwargs:
             filter_out_blobs_with_prefixes = kwargs['filterOutBlobsWithPrefixes']
 
         _setter("destination_container_name", destination_container_name)
@@ -3780,11 +3904,13 @@ class ShareAclArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             id: pulumi.Input[str],
+             id: Optional[pulumi.Input[str]] = None,
              access_policies: Optional[pulumi.Input[Sequence[pulumi.Input['ShareAclAccessPolicyArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accessPolicies' in kwargs:
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if access_policies is None and 'accessPolicies' in kwargs:
             access_policies = kwargs['accessPolicies']
 
         _setter("id", id)
@@ -3838,11 +3964,13 @@ class ShareAclAccessPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             permissions: pulumi.Input[str],
+             permissions: Optional[pulumi.Input[str]] = None,
              expiry: Optional[pulumi.Input[str]] = None,
              start: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if permissions is None:
+            raise TypeError("Missing 'permissions' argument")
 
         _setter("permissions", permissions)
         if expiry is not None:
@@ -3906,11 +4034,13 @@ class TableAclArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             id: pulumi.Input[str],
+             id: Optional[pulumi.Input[str]] = None,
              access_policies: Optional[pulumi.Input[Sequence[pulumi.Input['TableAclAccessPolicyArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accessPolicies' in kwargs:
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if access_policies is None and 'accessPolicies' in kwargs:
             access_policies = kwargs['accessPolicies']
 
         _setter("id", id)
@@ -3962,11 +4092,17 @@ class TableAclAccessPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             expiry: pulumi.Input[str],
-             permissions: pulumi.Input[str],
-             start: pulumi.Input[str],
+             expiry: Optional[pulumi.Input[str]] = None,
+             permissions: Optional[pulumi.Input[str]] = None,
+             start: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if expiry is None:
+            raise TypeError("Missing 'expiry' argument")
+        if permissions is None:
+            raise TypeError("Missing 'permissions' argument")
+        if start is None:
+            raise TypeError("Missing 'start' argument")
 
         _setter("expiry", expiry)
         _setter("permissions", permissions)
@@ -4041,14 +4177,26 @@ class GetAccountBlobContainerSASPermissionsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             add: bool,
-             create: bool,
-             delete: bool,
-             list: bool,
-             read: bool,
-             write: bool,
+             add: Optional[bool] = None,
+             create: Optional[bool] = None,
+             delete: Optional[bool] = None,
+             list: Optional[bool] = None,
+             read: Optional[bool] = None,
+             write: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if add is None:
+            raise TypeError("Missing 'add' argument")
+        if create is None:
+            raise TypeError("Missing 'create' argument")
+        if delete is None:
+            raise TypeError("Missing 'delete' argument")
+        if list is None:
+            raise TypeError("Missing 'list' argument")
+        if read is None:
+            raise TypeError("Missing 'read' argument")
+        if write is None:
+            raise TypeError("Missing 'write' argument")
 
         _setter("add", add)
         _setter("create", create)
@@ -4177,18 +4325,38 @@ class GetAccountSASPermissionsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             add: bool,
-             create: bool,
-             delete: bool,
-             filter: bool,
-             list: bool,
-             process: bool,
-             read: bool,
-             tag: bool,
-             update: bool,
-             write: bool,
+             add: Optional[bool] = None,
+             create: Optional[bool] = None,
+             delete: Optional[bool] = None,
+             filter: Optional[bool] = None,
+             list: Optional[bool] = None,
+             process: Optional[bool] = None,
+             read: Optional[bool] = None,
+             tag: Optional[bool] = None,
+             update: Optional[bool] = None,
+             write: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if add is None:
+            raise TypeError("Missing 'add' argument")
+        if create is None:
+            raise TypeError("Missing 'create' argument")
+        if delete is None:
+            raise TypeError("Missing 'delete' argument")
+        if filter is None:
+            raise TypeError("Missing 'filter' argument")
+        if list is None:
+            raise TypeError("Missing 'list' argument")
+        if process is None:
+            raise TypeError("Missing 'process' argument")
+        if read is None:
+            raise TypeError("Missing 'read' argument")
+        if tag is None:
+            raise TypeError("Missing 'tag' argument")
+        if update is None:
+            raise TypeError("Missing 'update' argument")
+        if write is None:
+            raise TypeError("Missing 'write' argument")
 
         _setter("add", add)
         _setter("create", create)
@@ -4345,11 +4513,17 @@ class GetAccountSASResourceTypesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             container: bool,
-             object: bool,
-             service: bool,
+             container: Optional[bool] = None,
+             object: Optional[bool] = None,
+             service: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if container is None:
+            raise TypeError("Missing 'container' argument")
+        if object is None:
+            raise TypeError("Missing 'object' argument")
+        if service is None:
+            raise TypeError("Missing 'service' argument")
 
         _setter("container", container)
         _setter("object", object)
@@ -4415,12 +4589,20 @@ class GetAccountSASServicesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             blob: bool,
-             file: bool,
-             queue: bool,
-             table: bool,
+             blob: Optional[bool] = None,
+             file: Optional[bool] = None,
+             queue: Optional[bool] = None,
+             table: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if blob is None:
+            raise TypeError("Missing 'blob' argument")
+        if file is None:
+            raise TypeError("Missing 'file' argument")
+        if queue is None:
+            raise TypeError("Missing 'queue' argument")
+        if table is None:
+            raise TypeError("Missing 'table' argument")
 
         _setter("blob", blob)
         _setter("file", file)
@@ -4493,12 +4675,16 @@ class GetShareAclArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             access_policies: Sequence['GetShareAclAccessPolicyArgs'],
-             id: str,
+             access_policies: Optional[Sequence['GetShareAclAccessPolicyArgs']] = None,
+             id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accessPolicies' in kwargs:
+        if access_policies is None and 'accessPolicies' in kwargs:
             access_policies = kwargs['accessPolicies']
+        if access_policies is None:
+            raise TypeError("Missing 'access_policies' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
 
         _setter("access_policies", access_policies)
         _setter("id", id)
@@ -4548,11 +4734,17 @@ class GetShareAclAccessPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             expiry: str,
-             permissions: str,
-             start: str,
+             expiry: Optional[str] = None,
+             permissions: Optional[str] = None,
+             start: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if expiry is None:
+            raise TypeError("Missing 'expiry' argument")
+        if permissions is None:
+            raise TypeError("Missing 'permissions' argument")
+        if start is None:
+            raise TypeError("Missing 'start' argument")
 
         _setter("expiry", expiry)
         _setter("permissions", permissions)

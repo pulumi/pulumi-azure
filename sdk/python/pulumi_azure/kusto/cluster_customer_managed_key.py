@@ -38,22 +38,28 @@ class ClusterCustomerManagedKeyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cluster_id: pulumi.Input[str],
-             key_name: pulumi.Input[str],
-             key_vault_id: pulumi.Input[str],
+             cluster_id: Optional[pulumi.Input[str]] = None,
+             key_name: Optional[pulumi.Input[str]] = None,
+             key_vault_id: Optional[pulumi.Input[str]] = None,
              key_version: Optional[pulumi.Input[str]] = None,
              user_identity: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clusterId' in kwargs:
+        if cluster_id is None and 'clusterId' in kwargs:
             cluster_id = kwargs['clusterId']
-        if 'keyName' in kwargs:
+        if cluster_id is None:
+            raise TypeError("Missing 'cluster_id' argument")
+        if key_name is None and 'keyName' in kwargs:
             key_name = kwargs['keyName']
-        if 'keyVaultId' in kwargs:
+        if key_name is None:
+            raise TypeError("Missing 'key_name' argument")
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
-        if 'keyVersion' in kwargs:
+        if key_vault_id is None:
+            raise TypeError("Missing 'key_vault_id' argument")
+        if key_version is None and 'keyVersion' in kwargs:
             key_version = kwargs['keyVersion']
-        if 'userIdentity' in kwargs:
+        if user_identity is None and 'userIdentity' in kwargs:
             user_identity = kwargs['userIdentity']
 
         _setter("cluster_id", cluster_id)
@@ -159,15 +165,15 @@ class _ClusterCustomerManagedKeyState:
              user_identity: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clusterId' in kwargs:
+        if cluster_id is None and 'clusterId' in kwargs:
             cluster_id = kwargs['clusterId']
-        if 'keyName' in kwargs:
+        if key_name is None and 'keyName' in kwargs:
             key_name = kwargs['keyName']
-        if 'keyVaultId' in kwargs:
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
-        if 'keyVersion' in kwargs:
+        if key_version is None and 'keyVersion' in kwargs:
             key_version = kwargs['keyVersion']
-        if 'userIdentity' in kwargs:
+        if user_identity is None and 'userIdentity' in kwargs:
             user_identity = kwargs['userIdentity']
 
         if cluster_id is not None:

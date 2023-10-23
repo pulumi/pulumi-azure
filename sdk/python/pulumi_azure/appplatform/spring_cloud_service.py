@@ -70,7 +70,7 @@ class SpringCloudServiceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              build_agent_pool_size: Optional[pulumi.Input[str]] = None,
              config_server_git_setting: Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingArgs']] = None,
              container_registries: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudServiceContainerRegistryArgs']]]] = None,
@@ -87,23 +87,25 @@ class SpringCloudServiceArgs:
              zone_redundant: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'buildAgentPoolSize' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if build_agent_pool_size is None and 'buildAgentPoolSize' in kwargs:
             build_agent_pool_size = kwargs['buildAgentPoolSize']
-        if 'configServerGitSetting' in kwargs:
+        if config_server_git_setting is None and 'configServerGitSetting' in kwargs:
             config_server_git_setting = kwargs['configServerGitSetting']
-        if 'containerRegistries' in kwargs:
+        if container_registries is None and 'containerRegistries' in kwargs:
             container_registries = kwargs['containerRegistries']
-        if 'defaultBuildService' in kwargs:
+        if default_build_service is None and 'defaultBuildService' in kwargs:
             default_build_service = kwargs['defaultBuildService']
-        if 'logStreamPublicEndpointEnabled' in kwargs:
+        if log_stream_public_endpoint_enabled is None and 'logStreamPublicEndpointEnabled' in kwargs:
             log_stream_public_endpoint_enabled = kwargs['logStreamPublicEndpointEnabled']
-        if 'serviceRegistryEnabled' in kwargs:
+        if service_registry_enabled is None and 'serviceRegistryEnabled' in kwargs:
             service_registry_enabled = kwargs['serviceRegistryEnabled']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'zoneRedundant' in kwargs:
+        if zone_redundant is None and 'zoneRedundant' in kwargs:
             zone_redundant = kwargs['zoneRedundant']
 
         _setter("resource_group_name", resource_group_name)
@@ -403,29 +405,29 @@ class _SpringCloudServiceState:
              zone_redundant: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'buildAgentPoolSize' in kwargs:
+        if build_agent_pool_size is None and 'buildAgentPoolSize' in kwargs:
             build_agent_pool_size = kwargs['buildAgentPoolSize']
-        if 'configServerGitSetting' in kwargs:
+        if config_server_git_setting is None and 'configServerGitSetting' in kwargs:
             config_server_git_setting = kwargs['configServerGitSetting']
-        if 'containerRegistries' in kwargs:
+        if container_registries is None and 'containerRegistries' in kwargs:
             container_registries = kwargs['containerRegistries']
-        if 'defaultBuildService' in kwargs:
+        if default_build_service is None and 'defaultBuildService' in kwargs:
             default_build_service = kwargs['defaultBuildService']
-        if 'logStreamPublicEndpointEnabled' in kwargs:
+        if log_stream_public_endpoint_enabled is None and 'logStreamPublicEndpointEnabled' in kwargs:
             log_stream_public_endpoint_enabled = kwargs['logStreamPublicEndpointEnabled']
-        if 'outboundPublicIpAddresses' in kwargs:
+        if outbound_public_ip_addresses is None and 'outboundPublicIpAddresses' in kwargs:
             outbound_public_ip_addresses = kwargs['outboundPublicIpAddresses']
-        if 'requiredNetworkTrafficRules' in kwargs:
+        if required_network_traffic_rules is None and 'requiredNetworkTrafficRules' in kwargs:
             required_network_traffic_rules = kwargs['requiredNetworkTrafficRules']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serviceRegistryEnabled' in kwargs:
+        if service_registry_enabled is None and 'serviceRegistryEnabled' in kwargs:
             service_registry_enabled = kwargs['serviceRegistryEnabled']
-        if 'serviceRegistryId' in kwargs:
+        if service_registry_id is None and 'serviceRegistryId' in kwargs:
             service_registry_id = kwargs['serviceRegistryId']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'zoneRedundant' in kwargs:
+        if zone_redundant is None and 'zoneRedundant' in kwargs:
             zone_redundant = kwargs['zoneRedundant']
 
         if build_agent_pool_size is not None:

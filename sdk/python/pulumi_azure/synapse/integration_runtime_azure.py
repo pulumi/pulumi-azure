@@ -44,7 +44,7 @@ class IntegrationRuntimeAzureArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             synapse_workspace_id: pulumi.Input[str],
+             synapse_workspace_id: Optional[pulumi.Input[str]] = None,
              compute_type: Optional[pulumi.Input[str]] = None,
              core_count: Optional[pulumi.Input[int]] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -53,13 +53,15 @@ class IntegrationRuntimeAzureArgs:
              time_to_live_min: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'synapseWorkspaceId' in kwargs:
+        if synapse_workspace_id is None and 'synapseWorkspaceId' in kwargs:
             synapse_workspace_id = kwargs['synapseWorkspaceId']
-        if 'computeType' in kwargs:
+        if synapse_workspace_id is None:
+            raise TypeError("Missing 'synapse_workspace_id' argument")
+        if compute_type is None and 'computeType' in kwargs:
             compute_type = kwargs['computeType']
-        if 'coreCount' in kwargs:
+        if core_count is None and 'coreCount' in kwargs:
             core_count = kwargs['coreCount']
-        if 'timeToLiveMin' in kwargs:
+        if time_to_live_min is None and 'timeToLiveMin' in kwargs:
             time_to_live_min = kwargs['timeToLiveMin']
 
         _setter("synapse_workspace_id", synapse_workspace_id)
@@ -203,13 +205,13 @@ class _IntegrationRuntimeAzureState:
              time_to_live_min: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'computeType' in kwargs:
+        if compute_type is None and 'computeType' in kwargs:
             compute_type = kwargs['computeType']
-        if 'coreCount' in kwargs:
+        if core_count is None and 'coreCount' in kwargs:
             core_count = kwargs['coreCount']
-        if 'synapseWorkspaceId' in kwargs:
+        if synapse_workspace_id is None and 'synapseWorkspaceId' in kwargs:
             synapse_workspace_id = kwargs['synapseWorkspaceId']
-        if 'timeToLiveMin' in kwargs:
+        if time_to_live_min is None and 'timeToLiveMin' in kwargs:
             time_to_live_min = kwargs['timeToLiveMin']
 
         if compute_type is not None:

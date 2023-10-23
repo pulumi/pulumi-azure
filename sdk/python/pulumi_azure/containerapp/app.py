@@ -58,10 +58,10 @@ class AppArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             container_app_environment_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             revision_mode: pulumi.Input[str],
-             template: pulumi.Input['AppTemplateArgs'],
+             container_app_environment_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             revision_mode: Optional[pulumi.Input[str]] = None,
+             template: Optional[pulumi.Input['AppTemplateArgs']] = None,
              dapr: Optional[pulumi.Input['AppDaprArgs']] = None,
              identity: Optional[pulumi.Input['AppIdentityArgs']] = None,
              ingress: Optional[pulumi.Input['AppIngressArgs']] = None,
@@ -71,12 +71,20 @@ class AppArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'containerAppEnvironmentId' in kwargs:
+        if container_app_environment_id is None and 'containerAppEnvironmentId' in kwargs:
             container_app_environment_id = kwargs['containerAppEnvironmentId']
-        if 'resourceGroupName' in kwargs:
+        if container_app_environment_id is None:
+            raise TypeError("Missing 'container_app_environment_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'revisionMode' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if revision_mode is None and 'revisionMode' in kwargs:
             revision_mode = kwargs['revisionMode']
+        if revision_mode is None:
+            raise TypeError("Missing 'revision_mode' argument")
+        if template is None:
+            raise TypeError("Missing 'template' argument")
 
         _setter("container_app_environment_id", container_app_environment_id)
         _setter("resource_group_name", resource_group_name)
@@ -308,19 +316,19 @@ class _AppState:
              template: Optional[pulumi.Input['AppTemplateArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'containerAppEnvironmentId' in kwargs:
+        if container_app_environment_id is None and 'containerAppEnvironmentId' in kwargs:
             container_app_environment_id = kwargs['containerAppEnvironmentId']
-        if 'customDomainVerificationId' in kwargs:
+        if custom_domain_verification_id is None and 'customDomainVerificationId' in kwargs:
             custom_domain_verification_id = kwargs['customDomainVerificationId']
-        if 'latestRevisionFqdn' in kwargs:
+        if latest_revision_fqdn is None and 'latestRevisionFqdn' in kwargs:
             latest_revision_fqdn = kwargs['latestRevisionFqdn']
-        if 'latestRevisionName' in kwargs:
+        if latest_revision_name is None and 'latestRevisionName' in kwargs:
             latest_revision_name = kwargs['latestRevisionName']
-        if 'outboundIpAddresses' in kwargs:
+        if outbound_ip_addresses is None and 'outboundIpAddresses' in kwargs:
             outbound_ip_addresses = kwargs['outboundIpAddresses']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'revisionMode' in kwargs:
+        if revision_mode is None and 'revisionMode' in kwargs:
             revision_mode = kwargs['revisionMode']
 
         if container_app_environment_id is not None:

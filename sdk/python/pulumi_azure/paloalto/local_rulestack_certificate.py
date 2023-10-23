@@ -43,7 +43,7 @@ class LocalRulestackCertificateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             rulestack_id: pulumi.Input[str],
+             rulestack_id: Optional[pulumi.Input[str]] = None,
              audit_comment: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              key_vault_certificate_id: Optional[pulumi.Input[str]] = None,
@@ -51,13 +51,15 @@ class LocalRulestackCertificateArgs:
              self_signed: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'rulestackId' in kwargs:
+        if rulestack_id is None and 'rulestackId' in kwargs:
             rulestack_id = kwargs['rulestackId']
-        if 'auditComment' in kwargs:
+        if rulestack_id is None:
+            raise TypeError("Missing 'rulestack_id' argument")
+        if audit_comment is None and 'auditComment' in kwargs:
             audit_comment = kwargs['auditComment']
-        if 'keyVaultCertificateId' in kwargs:
+        if key_vault_certificate_id is None and 'keyVaultCertificateId' in kwargs:
             key_vault_certificate_id = kwargs['keyVaultCertificateId']
-        if 'selfSigned' in kwargs:
+        if self_signed is None and 'selfSigned' in kwargs:
             self_signed = kwargs['selfSigned']
 
         _setter("rulestack_id", rulestack_id)
@@ -187,13 +189,13 @@ class _LocalRulestackCertificateState:
              self_signed: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'auditComment' in kwargs:
+        if audit_comment is None and 'auditComment' in kwargs:
             audit_comment = kwargs['auditComment']
-        if 'keyVaultCertificateId' in kwargs:
+        if key_vault_certificate_id is None and 'keyVaultCertificateId' in kwargs:
             key_vault_certificate_id = kwargs['keyVaultCertificateId']
-        if 'rulestackId' in kwargs:
+        if rulestack_id is None and 'rulestackId' in kwargs:
             rulestack_id = kwargs['rulestackId']
-        if 'selfSigned' in kwargs:
+        if self_signed is None and 'selfSigned' in kwargs:
             self_signed = kwargs['selfSigned']
 
         if audit_comment is not None:

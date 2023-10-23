@@ -38,19 +38,25 @@ class NetworkManagerDeploymentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             configuration_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             network_manager_id: pulumi.Input[str],
-             scope_access: pulumi.Input[str],
+             configuration_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             network_manager_id: Optional[pulumi.Input[str]] = None,
+             scope_access: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'configurationIds' in kwargs:
+        if configuration_ids is None and 'configurationIds' in kwargs:
             configuration_ids = kwargs['configurationIds']
-        if 'networkManagerId' in kwargs:
+        if configuration_ids is None:
+            raise TypeError("Missing 'configuration_ids' argument")
+        if network_manager_id is None and 'networkManagerId' in kwargs:
             network_manager_id = kwargs['networkManagerId']
-        if 'scopeAccess' in kwargs:
+        if network_manager_id is None:
+            raise TypeError("Missing 'network_manager_id' argument")
+        if scope_access is None and 'scopeAccess' in kwargs:
             scope_access = kwargs['scopeAccess']
+        if scope_access is None:
+            raise TypeError("Missing 'scope_access' argument")
 
         _setter("configuration_ids", configuration_ids)
         _setter("network_manager_id", network_manager_id)
@@ -155,11 +161,11 @@ class _NetworkManagerDeploymentState:
              triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'configurationIds' in kwargs:
+        if configuration_ids is None and 'configurationIds' in kwargs:
             configuration_ids = kwargs['configurationIds']
-        if 'networkManagerId' in kwargs:
+        if network_manager_id is None and 'networkManagerId' in kwargs:
             network_manager_id = kwargs['networkManagerId']
-        if 'scopeAccess' in kwargs:
+        if scope_access is None and 'scopeAccess' in kwargs:
             scope_access = kwargs['scopeAccess']
 
         if configuration_ids is not None:

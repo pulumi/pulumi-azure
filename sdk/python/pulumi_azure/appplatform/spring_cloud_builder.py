@@ -37,16 +37,22 @@ class SpringCloudBuilderArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             build_pack_groups: pulumi.Input[Sequence[pulumi.Input['SpringCloudBuilderBuildPackGroupArgs']]],
-             spring_cloud_service_id: pulumi.Input[str],
-             stack: pulumi.Input['SpringCloudBuilderStackArgs'],
+             build_pack_groups: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudBuilderBuildPackGroupArgs']]]] = None,
+             spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
+             stack: Optional[pulumi.Input['SpringCloudBuilderStackArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'buildPackGroups' in kwargs:
+        if build_pack_groups is None and 'buildPackGroups' in kwargs:
             build_pack_groups = kwargs['buildPackGroups']
-        if 'springCloudServiceId' in kwargs:
+        if build_pack_groups is None:
+            raise TypeError("Missing 'build_pack_groups' argument")
+        if spring_cloud_service_id is None and 'springCloudServiceId' in kwargs:
             spring_cloud_service_id = kwargs['springCloudServiceId']
+        if spring_cloud_service_id is None:
+            raise TypeError("Missing 'spring_cloud_service_id' argument")
+        if stack is None:
+            raise TypeError("Missing 'stack' argument")
 
         _setter("build_pack_groups", build_pack_groups)
         _setter("spring_cloud_service_id", spring_cloud_service_id)
@@ -133,9 +139,9 @@ class _SpringCloudBuilderState:
              stack: Optional[pulumi.Input['SpringCloudBuilderStackArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'buildPackGroups' in kwargs:
+        if build_pack_groups is None and 'buildPackGroups' in kwargs:
             build_pack_groups = kwargs['buildPackGroups']
-        if 'springCloudServiceId' in kwargs:
+        if spring_cloud_service_id is None and 'springCloudServiceId' in kwargs:
             spring_cloud_service_id = kwargs['springCloudServiceId']
 
         if build_pack_groups is not None:

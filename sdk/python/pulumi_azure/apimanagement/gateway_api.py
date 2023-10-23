@@ -29,14 +29,18 @@ class GatewayApiArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_id: pulumi.Input[str],
-             gateway_id: pulumi.Input[str],
+             api_id: Optional[pulumi.Input[str]] = None,
+             gateway_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'apiId' in kwargs:
+        if api_id is None and 'apiId' in kwargs:
             api_id = kwargs['apiId']
-        if 'gatewayId' in kwargs:
+        if api_id is None:
+            raise TypeError("Missing 'api_id' argument")
+        if gateway_id is None and 'gatewayId' in kwargs:
             gateway_id = kwargs['gatewayId']
+        if gateway_id is None:
+            raise TypeError("Missing 'gateway_id' argument")
 
         _setter("api_id", api_id)
         _setter("gateway_id", gateway_id)
@@ -88,9 +92,9 @@ class _GatewayApiState:
              gateway_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'apiId' in kwargs:
+        if api_id is None and 'apiId' in kwargs:
             api_id = kwargs['apiId']
-        if 'gatewayId' in kwargs:
+        if gateway_id is None and 'gatewayId' in kwargs:
             gateway_id = kwargs['gatewayId']
 
         if api_id is not None:

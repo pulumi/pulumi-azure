@@ -46,26 +46,36 @@ class CacheBlobNfsTargetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cache_name: pulumi.Input[str],
-             namespace_path: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             storage_container_id: pulumi.Input[str],
-             usage_model: pulumi.Input[str],
+             cache_name: Optional[pulumi.Input[str]] = None,
+             namespace_path: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             storage_container_id: Optional[pulumi.Input[str]] = None,
+             usage_model: Optional[pulumi.Input[str]] = None,
              access_policy_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'cacheName' in kwargs:
+        if cache_name is None and 'cacheName' in kwargs:
             cache_name = kwargs['cacheName']
-        if 'namespacePath' in kwargs:
+        if cache_name is None:
+            raise TypeError("Missing 'cache_name' argument")
+        if namespace_path is None and 'namespacePath' in kwargs:
             namespace_path = kwargs['namespacePath']
-        if 'resourceGroupName' in kwargs:
+        if namespace_path is None:
+            raise TypeError("Missing 'namespace_path' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'storageContainerId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if storage_container_id is None and 'storageContainerId' in kwargs:
             storage_container_id = kwargs['storageContainerId']
-        if 'usageModel' in kwargs:
+        if storage_container_id is None:
+            raise TypeError("Missing 'storage_container_id' argument")
+        if usage_model is None and 'usageModel' in kwargs:
             usage_model = kwargs['usageModel']
-        if 'accessPolicyName' in kwargs:
+        if usage_model is None:
+            raise TypeError("Missing 'usage_model' argument")
+        if access_policy_name is None and 'accessPolicyName' in kwargs:
             access_policy_name = kwargs['accessPolicyName']
 
         _setter("cache_name", cache_name)
@@ -209,17 +219,17 @@ class _CacheBlobNfsTargetState:
              usage_model: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accessPolicyName' in kwargs:
+        if access_policy_name is None and 'accessPolicyName' in kwargs:
             access_policy_name = kwargs['accessPolicyName']
-        if 'cacheName' in kwargs:
+        if cache_name is None and 'cacheName' in kwargs:
             cache_name = kwargs['cacheName']
-        if 'namespacePath' in kwargs:
+        if namespace_path is None and 'namespacePath' in kwargs:
             namespace_path = kwargs['namespacePath']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'storageContainerId' in kwargs:
+        if storage_container_id is None and 'storageContainerId' in kwargs:
             storage_container_id = kwargs['storageContainerId']
-        if 'usageModel' in kwargs:
+        if usage_model is None and 'usageModel' in kwargs:
             usage_model = kwargs['usageModel']
 
         if access_policy_name is not None:

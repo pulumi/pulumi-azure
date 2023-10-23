@@ -50,21 +50,27 @@ class SystemTopicArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             source_arm_resource_id: pulumi.Input[str],
-             topic_type: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             source_arm_resource_id: Optional[pulumi.Input[str]] = None,
+             topic_type: Optional[pulumi.Input[str]] = None,
              identity: Optional[pulumi.Input['SystemTopicIdentityArgs']] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'sourceArmResourceId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if source_arm_resource_id is None and 'sourceArmResourceId' in kwargs:
             source_arm_resource_id = kwargs['sourceArmResourceId']
-        if 'topicType' in kwargs:
+        if source_arm_resource_id is None:
+            raise TypeError("Missing 'source_arm_resource_id' argument")
+        if topic_type is None and 'topicType' in kwargs:
             topic_type = kwargs['topicType']
+        if topic_type is None:
+            raise TypeError("Missing 'topic_type' argument")
 
         _setter("resource_group_name", resource_group_name)
         _setter("source_arm_resource_id", source_arm_resource_id)
@@ -217,13 +223,13 @@ class _SystemTopicState:
              topic_type: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'metricArmResourceId' in kwargs:
+        if metric_arm_resource_id is None and 'metricArmResourceId' in kwargs:
             metric_arm_resource_id = kwargs['metricArmResourceId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'sourceArmResourceId' in kwargs:
+        if source_arm_resource_id is None and 'sourceArmResourceId' in kwargs:
             source_arm_resource_id = kwargs['sourceArmResourceId']
-        if 'topicType' in kwargs:
+        if topic_type is None and 'topicType' in kwargs:
             topic_type = kwargs['topicType']
 
         if identity is not None:

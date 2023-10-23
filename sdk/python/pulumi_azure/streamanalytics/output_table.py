@@ -53,33 +53,49 @@ class OutputTableArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             batch_size: pulumi.Input[int],
-             partition_key: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             row_key: pulumi.Input[str],
-             storage_account_key: pulumi.Input[str],
-             storage_account_name: pulumi.Input[str],
-             stream_analytics_job_name: pulumi.Input[str],
-             table: pulumi.Input[str],
+             batch_size: Optional[pulumi.Input[int]] = None,
+             partition_key: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             row_key: Optional[pulumi.Input[str]] = None,
+             storage_account_key: Optional[pulumi.Input[str]] = None,
+             storage_account_name: Optional[pulumi.Input[str]] = None,
+             stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
+             table: Optional[pulumi.Input[str]] = None,
              columns_to_removes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'batchSize' in kwargs:
+        if batch_size is None and 'batchSize' in kwargs:
             batch_size = kwargs['batchSize']
-        if 'partitionKey' in kwargs:
+        if batch_size is None:
+            raise TypeError("Missing 'batch_size' argument")
+        if partition_key is None and 'partitionKey' in kwargs:
             partition_key = kwargs['partitionKey']
-        if 'resourceGroupName' in kwargs:
+        if partition_key is None:
+            raise TypeError("Missing 'partition_key' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'rowKey' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if row_key is None and 'rowKey' in kwargs:
             row_key = kwargs['rowKey']
-        if 'storageAccountKey' in kwargs:
+        if row_key is None:
+            raise TypeError("Missing 'row_key' argument")
+        if storage_account_key is None and 'storageAccountKey' in kwargs:
             storage_account_key = kwargs['storageAccountKey']
-        if 'storageAccountName' in kwargs:
+        if storage_account_key is None:
+            raise TypeError("Missing 'storage_account_key' argument")
+        if storage_account_name is None and 'storageAccountName' in kwargs:
             storage_account_name = kwargs['storageAccountName']
-        if 'streamAnalyticsJobName' in kwargs:
+        if storage_account_name is None:
+            raise TypeError("Missing 'storage_account_name' argument")
+        if stream_analytics_job_name is None and 'streamAnalyticsJobName' in kwargs:
             stream_analytics_job_name = kwargs['streamAnalyticsJobName']
-        if 'columnsToRemoves' in kwargs:
+        if stream_analytics_job_name is None:
+            raise TypeError("Missing 'stream_analytics_job_name' argument")
+        if table is None:
+            raise TypeError("Missing 'table' argument")
+        if columns_to_removes is None and 'columnsToRemoves' in kwargs:
             columns_to_removes = kwargs['columnsToRemoves']
 
         _setter("batch_size", batch_size)
@@ -270,21 +286,21 @@ class _OutputTableState:
              table: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'batchSize' in kwargs:
+        if batch_size is None and 'batchSize' in kwargs:
             batch_size = kwargs['batchSize']
-        if 'columnsToRemoves' in kwargs:
+        if columns_to_removes is None and 'columnsToRemoves' in kwargs:
             columns_to_removes = kwargs['columnsToRemoves']
-        if 'partitionKey' in kwargs:
+        if partition_key is None and 'partitionKey' in kwargs:
             partition_key = kwargs['partitionKey']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'rowKey' in kwargs:
+        if row_key is None and 'rowKey' in kwargs:
             row_key = kwargs['rowKey']
-        if 'storageAccountKey' in kwargs:
+        if storage_account_key is None and 'storageAccountKey' in kwargs:
             storage_account_key = kwargs['storageAccountKey']
-        if 'storageAccountName' in kwargs:
+        if storage_account_name is None and 'storageAccountName' in kwargs:
             storage_account_name = kwargs['storageAccountName']
-        if 'streamAnalyticsJobName' in kwargs:
+        if stream_analytics_job_name is None and 'streamAnalyticsJobName' in kwargs:
             stream_analytics_job_name = kwargs['streamAnalyticsJobName']
 
         if batch_size is not None:

@@ -60,10 +60,10 @@ class TriggerCustomEventArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_factory_id: pulumi.Input[str],
-             eventgrid_topic_id: pulumi.Input[str],
-             events: pulumi.Input[Sequence[pulumi.Input[str]]],
-             pipelines: pulumi.Input[Sequence[pulumi.Input['TriggerCustomEventPipelineArgs']]],
+             data_factory_id: Optional[pulumi.Input[str]] = None,
+             eventgrid_topic_id: Optional[pulumi.Input[str]] = None,
+             events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             pipelines: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerCustomEventPipelineArgs']]]] = None,
              activated: Optional[pulumi.Input[bool]] = None,
              additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -73,15 +73,23 @@ class TriggerCustomEventArgs:
              subject_ends_with: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'eventgridTopicId' in kwargs:
+        if data_factory_id is None:
+            raise TypeError("Missing 'data_factory_id' argument")
+        if eventgrid_topic_id is None and 'eventgridTopicId' in kwargs:
             eventgrid_topic_id = kwargs['eventgridTopicId']
-        if 'additionalProperties' in kwargs:
+        if eventgrid_topic_id is None:
+            raise TypeError("Missing 'eventgrid_topic_id' argument")
+        if events is None:
+            raise TypeError("Missing 'events' argument")
+        if pipelines is None:
+            raise TypeError("Missing 'pipelines' argument")
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'subjectBeginsWith' in kwargs:
+        if subject_begins_with is None and 'subjectBeginsWith' in kwargs:
             subject_begins_with = kwargs['subjectBeginsWith']
-        if 'subjectEndsWith' in kwargs:
+        if subject_ends_with is None and 'subjectEndsWith' in kwargs:
             subject_ends_with = kwargs['subjectEndsWith']
 
         _setter("data_factory_id", data_factory_id)
@@ -298,15 +306,15 @@ class _TriggerCustomEventState:
              subject_ends_with: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'additionalProperties' in kwargs:
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'eventgridTopicId' in kwargs:
+        if eventgrid_topic_id is None and 'eventgridTopicId' in kwargs:
             eventgrid_topic_id = kwargs['eventgridTopicId']
-        if 'subjectBeginsWith' in kwargs:
+        if subject_begins_with is None and 'subjectBeginsWith' in kwargs:
             subject_begins_with = kwargs['subjectBeginsWith']
-        if 'subjectEndsWith' in kwargs:
+        if subject_ends_with is None and 'subjectEndsWith' in kwargs:
             subject_ends_with = kwargs['subjectEndsWith']
 
         if activated is not None:

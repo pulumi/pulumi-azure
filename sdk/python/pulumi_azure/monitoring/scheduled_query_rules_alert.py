@@ -77,13 +77,13 @@ class ScheduledQueryRulesAlertArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action: pulumi.Input['ScheduledQueryRulesAlertActionArgs'],
-             data_source_id: pulumi.Input[str],
-             frequency: pulumi.Input[int],
-             query: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             time_window: pulumi.Input[int],
-             trigger: pulumi.Input['ScheduledQueryRulesAlertTriggerArgs'],
+             action: Optional[pulumi.Input['ScheduledQueryRulesAlertActionArgs']] = None,
+             data_source_id: Optional[pulumi.Input[str]] = None,
+             frequency: Optional[pulumi.Input[int]] = None,
+             query: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             time_window: Optional[pulumi.Input[int]] = None,
+             trigger: Optional[pulumi.Input['ScheduledQueryRulesAlertTriggerArgs']] = None,
              authorized_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              auto_mitigation_enabled: Optional[pulumi.Input[bool]] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -96,17 +96,31 @@ class ScheduledQueryRulesAlertArgs:
              throttling: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dataSourceId' in kwargs:
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if data_source_id is None and 'dataSourceId' in kwargs:
             data_source_id = kwargs['dataSourceId']
-        if 'resourceGroupName' in kwargs:
+        if data_source_id is None:
+            raise TypeError("Missing 'data_source_id' argument")
+        if frequency is None:
+            raise TypeError("Missing 'frequency' argument")
+        if query is None:
+            raise TypeError("Missing 'query' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'timeWindow' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if time_window is None and 'timeWindow' in kwargs:
             time_window = kwargs['timeWindow']
-        if 'authorizedResourceIds' in kwargs:
+        if time_window is None:
+            raise TypeError("Missing 'time_window' argument")
+        if trigger is None:
+            raise TypeError("Missing 'trigger' argument")
+        if authorized_resource_ids is None and 'authorizedResourceIds' in kwargs:
             authorized_resource_ids = kwargs['authorizedResourceIds']
-        if 'autoMitigationEnabled' in kwargs:
+        if auto_mitigation_enabled is None and 'autoMitigationEnabled' in kwargs:
             auto_mitigation_enabled = kwargs['autoMitigationEnabled']
-        if 'queryType' in kwargs:
+        if query_type is None and 'queryType' in kwargs:
             query_type = kwargs['queryType']
 
         _setter("action", action)
@@ -426,17 +440,17 @@ class _ScheduledQueryRulesAlertState:
              trigger: Optional[pulumi.Input['ScheduledQueryRulesAlertTriggerArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'authorizedResourceIds' in kwargs:
+        if authorized_resource_ids is None and 'authorizedResourceIds' in kwargs:
             authorized_resource_ids = kwargs['authorizedResourceIds']
-        if 'autoMitigationEnabled' in kwargs:
+        if auto_mitigation_enabled is None and 'autoMitigationEnabled' in kwargs:
             auto_mitigation_enabled = kwargs['autoMitigationEnabled']
-        if 'dataSourceId' in kwargs:
+        if data_source_id is None and 'dataSourceId' in kwargs:
             data_source_id = kwargs['dataSourceId']
-        if 'queryType' in kwargs:
+        if query_type is None and 'queryType' in kwargs:
             query_type = kwargs['queryType']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'timeWindow' in kwargs:
+        if time_window is None and 'timeWindow' in kwargs:
             time_window = kwargs['timeWindow']
 
         if action is not None:

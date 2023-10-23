@@ -49,21 +49,29 @@ class ResourceBridgeApplianceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             distro: pulumi.Input[str],
-             identity: pulumi.Input['ResourceBridgeApplianceIdentityArgs'],
-             infrastructure_provider: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             distro: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ResourceBridgeApplianceIdentityArgs']] = None,
+             infrastructure_provider: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              public_key_base64: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'infrastructureProvider' in kwargs:
+        if distro is None:
+            raise TypeError("Missing 'distro' argument")
+        if identity is None:
+            raise TypeError("Missing 'identity' argument")
+        if infrastructure_provider is None and 'infrastructureProvider' in kwargs:
             infrastructure_provider = kwargs['infrastructureProvider']
-        if 'resourceGroupName' in kwargs:
+        if infrastructure_provider is None:
+            raise TypeError("Missing 'infrastructure_provider' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'publicKeyBase64' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if public_key_base64 is None and 'publicKeyBase64' in kwargs:
             public_key_base64 = kwargs['publicKeyBase64']
 
         _setter("distro", distro)
@@ -222,11 +230,11 @@ class _ResourceBridgeApplianceState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'infrastructureProvider' in kwargs:
+        if infrastructure_provider is None and 'infrastructureProvider' in kwargs:
             infrastructure_provider = kwargs['infrastructureProvider']
-        if 'publicKeyBase64' in kwargs:
+        if public_key_base64 is None and 'publicKeyBase64' in kwargs:
             public_key_base64 = kwargs['publicKeyBase64']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if distro is not None:

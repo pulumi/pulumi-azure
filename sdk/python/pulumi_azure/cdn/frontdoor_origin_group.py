@@ -45,23 +45,27 @@ class FrontdoorOriginGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cdn_frontdoor_profile_id: pulumi.Input[str],
-             load_balancing: pulumi.Input['FrontdoorOriginGroupLoadBalancingArgs'],
+             cdn_frontdoor_profile_id: Optional[pulumi.Input[str]] = None,
+             load_balancing: Optional[pulumi.Input['FrontdoorOriginGroupLoadBalancingArgs']] = None,
              health_probe: Optional[pulumi.Input['FrontdoorOriginGroupHealthProbeArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              restore_traffic_time_to_healed_or_new_endpoint_in_minutes: Optional[pulumi.Input[int]] = None,
              session_affinity_enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'cdnFrontdoorProfileId' in kwargs:
+        if cdn_frontdoor_profile_id is None and 'cdnFrontdoorProfileId' in kwargs:
             cdn_frontdoor_profile_id = kwargs['cdnFrontdoorProfileId']
-        if 'loadBalancing' in kwargs:
+        if cdn_frontdoor_profile_id is None:
+            raise TypeError("Missing 'cdn_frontdoor_profile_id' argument")
+        if load_balancing is None and 'loadBalancing' in kwargs:
             load_balancing = kwargs['loadBalancing']
-        if 'healthProbe' in kwargs:
+        if load_balancing is None:
+            raise TypeError("Missing 'load_balancing' argument")
+        if health_probe is None and 'healthProbe' in kwargs:
             health_probe = kwargs['healthProbe']
-        if 'restoreTrafficTimeToHealedOrNewEndpointInMinutes' in kwargs:
+        if restore_traffic_time_to_healed_or_new_endpoint_in_minutes is None and 'restoreTrafficTimeToHealedOrNewEndpointInMinutes' in kwargs:
             restore_traffic_time_to_healed_or_new_endpoint_in_minutes = kwargs['restoreTrafficTimeToHealedOrNewEndpointInMinutes']
-        if 'sessionAffinityEnabled' in kwargs:
+        if session_affinity_enabled is None and 'sessionAffinityEnabled' in kwargs:
             session_affinity_enabled = kwargs['sessionAffinityEnabled']
 
         _setter("cdn_frontdoor_profile_id", cdn_frontdoor_profile_id)
@@ -190,15 +194,15 @@ class _FrontdoorOriginGroupState:
              session_affinity_enabled: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'cdnFrontdoorProfileId' in kwargs:
+        if cdn_frontdoor_profile_id is None and 'cdnFrontdoorProfileId' in kwargs:
             cdn_frontdoor_profile_id = kwargs['cdnFrontdoorProfileId']
-        if 'healthProbe' in kwargs:
+        if health_probe is None and 'healthProbe' in kwargs:
             health_probe = kwargs['healthProbe']
-        if 'loadBalancing' in kwargs:
+        if load_balancing is None and 'loadBalancing' in kwargs:
             load_balancing = kwargs['loadBalancing']
-        if 'restoreTrafficTimeToHealedOrNewEndpointInMinutes' in kwargs:
+        if restore_traffic_time_to_healed_or_new_endpoint_in_minutes is None and 'restoreTrafficTimeToHealedOrNewEndpointInMinutes' in kwargs:
             restore_traffic_time_to_healed_or_new_endpoint_in_minutes = kwargs['restoreTrafficTimeToHealedOrNewEndpointInMinutes']
-        if 'sessionAffinityEnabled' in kwargs:
+        if session_affinity_enabled is None and 'sessionAffinityEnabled' in kwargs:
             session_affinity_enabled = kwargs['sessionAffinityEnabled']
 
         if cdn_frontdoor_profile_id is not None:

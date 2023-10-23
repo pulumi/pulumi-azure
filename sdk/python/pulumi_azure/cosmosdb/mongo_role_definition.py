@@ -39,17 +39,21 @@ class MongoRoleDefinitionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cosmos_mongo_database_id: pulumi.Input[str],
-             role_name: pulumi.Input[str],
+             cosmos_mongo_database_id: Optional[pulumi.Input[str]] = None,
+             role_name: Optional[pulumi.Input[str]] = None,
              inherited_role_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              privileges: Optional[pulumi.Input[Sequence[pulumi.Input['MongoRoleDefinitionPrivilegeArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'cosmosMongoDatabaseId' in kwargs:
+        if cosmos_mongo_database_id is None and 'cosmosMongoDatabaseId' in kwargs:
             cosmos_mongo_database_id = kwargs['cosmosMongoDatabaseId']
-        if 'roleName' in kwargs:
+        if cosmos_mongo_database_id is None:
+            raise TypeError("Missing 'cosmos_mongo_database_id' argument")
+        if role_name is None and 'roleName' in kwargs:
             role_name = kwargs['roleName']
-        if 'inheritedRoleNames' in kwargs:
+        if role_name is None:
+            raise TypeError("Missing 'role_name' argument")
+        if inherited_role_names is None and 'inheritedRoleNames' in kwargs:
             inherited_role_names = kwargs['inheritedRoleNames']
 
         _setter("cosmos_mongo_database_id", cosmos_mongo_database_id)
@@ -142,11 +146,11 @@ class _MongoRoleDefinitionState:
              role_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'cosmosMongoDatabaseId' in kwargs:
+        if cosmos_mongo_database_id is None and 'cosmosMongoDatabaseId' in kwargs:
             cosmos_mongo_database_id = kwargs['cosmosMongoDatabaseId']
-        if 'inheritedRoleNames' in kwargs:
+        if inherited_role_names is None and 'inheritedRoleNames' in kwargs:
             inherited_role_names = kwargs['inheritedRoleNames']
-        if 'roleName' in kwargs:
+        if role_name is None and 'roleName' in kwargs:
             role_name = kwargs['roleName']
 
         if cosmos_mongo_database_id is not None:

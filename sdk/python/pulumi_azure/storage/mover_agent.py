@@ -38,19 +38,25 @@ class MoverAgentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             arc_virtual_machine_id: pulumi.Input[str],
-             arc_virtual_machine_uuid: pulumi.Input[str],
-             storage_mover_id: pulumi.Input[str],
+             arc_virtual_machine_id: Optional[pulumi.Input[str]] = None,
+             arc_virtual_machine_uuid: Optional[pulumi.Input[str]] = None,
+             storage_mover_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'arcVirtualMachineId' in kwargs:
+        if arc_virtual_machine_id is None and 'arcVirtualMachineId' in kwargs:
             arc_virtual_machine_id = kwargs['arcVirtualMachineId']
-        if 'arcVirtualMachineUuid' in kwargs:
+        if arc_virtual_machine_id is None:
+            raise TypeError("Missing 'arc_virtual_machine_id' argument")
+        if arc_virtual_machine_uuid is None and 'arcVirtualMachineUuid' in kwargs:
             arc_virtual_machine_uuid = kwargs['arcVirtualMachineUuid']
-        if 'storageMoverId' in kwargs:
+        if arc_virtual_machine_uuid is None:
+            raise TypeError("Missing 'arc_virtual_machine_uuid' argument")
+        if storage_mover_id is None and 'storageMoverId' in kwargs:
             storage_mover_id = kwargs['storageMoverId']
+        if storage_mover_id is None:
+            raise TypeError("Missing 'storage_mover_id' argument")
 
         _setter("arc_virtual_machine_id", arc_virtual_machine_id)
         _setter("arc_virtual_machine_uuid", arc_virtual_machine_uuid)
@@ -155,11 +161,11 @@ class _MoverAgentState:
              storage_mover_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'arcVirtualMachineId' in kwargs:
+        if arc_virtual_machine_id is None and 'arcVirtualMachineId' in kwargs:
             arc_virtual_machine_id = kwargs['arcVirtualMachineId']
-        if 'arcVirtualMachineUuid' in kwargs:
+        if arc_virtual_machine_uuid is None and 'arcVirtualMachineUuid' in kwargs:
             arc_virtual_machine_uuid = kwargs['arcVirtualMachineUuid']
-        if 'storageMoverId' in kwargs:
+        if storage_mover_id is None and 'storageMoverId' in kwargs:
             storage_mover_id = kwargs['storageMoverId']
 
         if arc_virtual_machine_id is not None:

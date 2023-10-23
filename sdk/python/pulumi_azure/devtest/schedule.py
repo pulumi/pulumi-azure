@@ -61,11 +61,11 @@ class ScheduleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             lab_name: pulumi.Input[str],
-             notification_settings: pulumi.Input['ScheduleNotificationSettingsArgs'],
-             resource_group_name: pulumi.Input[str],
-             task_type: pulumi.Input[str],
-             time_zone_id: pulumi.Input[str],
+             lab_name: Optional[pulumi.Input[str]] = None,
+             notification_settings: Optional[pulumi.Input['ScheduleNotificationSettingsArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             task_type: Optional[pulumi.Input[str]] = None,
+             time_zone_id: Optional[pulumi.Input[str]] = None,
              daily_recurrence: Optional[pulumi.Input['ScheduleDailyRecurrenceArgs']] = None,
              hourly_recurrence: Optional[pulumi.Input['ScheduleHourlyRecurrenceArgs']] = None,
              location: Optional[pulumi.Input[str]] = None,
@@ -75,21 +75,31 @@ class ScheduleArgs:
              weekly_recurrence: Optional[pulumi.Input['ScheduleWeeklyRecurrenceArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'labName' in kwargs:
+        if lab_name is None and 'labName' in kwargs:
             lab_name = kwargs['labName']
-        if 'notificationSettings' in kwargs:
+        if lab_name is None:
+            raise TypeError("Missing 'lab_name' argument")
+        if notification_settings is None and 'notificationSettings' in kwargs:
             notification_settings = kwargs['notificationSettings']
-        if 'resourceGroupName' in kwargs:
+        if notification_settings is None:
+            raise TypeError("Missing 'notification_settings' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'taskType' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if task_type is None and 'taskType' in kwargs:
             task_type = kwargs['taskType']
-        if 'timeZoneId' in kwargs:
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if time_zone_id is None and 'timeZoneId' in kwargs:
             time_zone_id = kwargs['timeZoneId']
-        if 'dailyRecurrence' in kwargs:
+        if time_zone_id is None:
+            raise TypeError("Missing 'time_zone_id' argument")
+        if daily_recurrence is None and 'dailyRecurrence' in kwargs:
             daily_recurrence = kwargs['dailyRecurrence']
-        if 'hourlyRecurrence' in kwargs:
+        if hourly_recurrence is None and 'hourlyRecurrence' in kwargs:
             hourly_recurrence = kwargs['hourlyRecurrence']
-        if 'weeklyRecurrence' in kwargs:
+        if weekly_recurrence is None and 'weeklyRecurrence' in kwargs:
             weekly_recurrence = kwargs['weeklyRecurrence']
 
         _setter("lab_name", lab_name)
@@ -319,21 +329,21 @@ class _ScheduleState:
              weekly_recurrence: Optional[pulumi.Input['ScheduleWeeklyRecurrenceArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dailyRecurrence' in kwargs:
+        if daily_recurrence is None and 'dailyRecurrence' in kwargs:
             daily_recurrence = kwargs['dailyRecurrence']
-        if 'hourlyRecurrence' in kwargs:
+        if hourly_recurrence is None and 'hourlyRecurrence' in kwargs:
             hourly_recurrence = kwargs['hourlyRecurrence']
-        if 'labName' in kwargs:
+        if lab_name is None and 'labName' in kwargs:
             lab_name = kwargs['labName']
-        if 'notificationSettings' in kwargs:
+        if notification_settings is None and 'notificationSettings' in kwargs:
             notification_settings = kwargs['notificationSettings']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'taskType' in kwargs:
+        if task_type is None and 'taskType' in kwargs:
             task_type = kwargs['taskType']
-        if 'timeZoneId' in kwargs:
+        if time_zone_id is None and 'timeZoneId' in kwargs:
             time_zone_id = kwargs['timeZoneId']
-        if 'weeklyRecurrence' in kwargs:
+        if weekly_recurrence is None and 'weeklyRecurrence' in kwargs:
             weekly_recurrence = kwargs['weeklyRecurrence']
 
         if daily_recurrence is not None:

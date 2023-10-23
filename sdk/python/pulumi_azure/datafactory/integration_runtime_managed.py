@@ -61,8 +61,8 @@ class IntegrationRuntimeManagedArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_factory_id: pulumi.Input[str],
-             node_size: pulumi.Input[str],
+             data_factory_id: Optional[pulumi.Input[str]] = None,
+             node_size: Optional[pulumi.Input[str]] = None,
              catalog_info: Optional[pulumi.Input['IntegrationRuntimeManagedCatalogInfoArgs']] = None,
              custom_setup_script: Optional[pulumi.Input['IntegrationRuntimeManagedCustomSetupScriptArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -75,21 +75,25 @@ class IntegrationRuntimeManagedArgs:
              vnet_integration: Optional[pulumi.Input['IntegrationRuntimeManagedVnetIntegrationArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'nodeSize' in kwargs:
+        if data_factory_id is None:
+            raise TypeError("Missing 'data_factory_id' argument")
+        if node_size is None and 'nodeSize' in kwargs:
             node_size = kwargs['nodeSize']
-        if 'catalogInfo' in kwargs:
+        if node_size is None:
+            raise TypeError("Missing 'node_size' argument")
+        if catalog_info is None and 'catalogInfo' in kwargs:
             catalog_info = kwargs['catalogInfo']
-        if 'customSetupScript' in kwargs:
+        if custom_setup_script is None and 'customSetupScript' in kwargs:
             custom_setup_script = kwargs['customSetupScript']
-        if 'licenseType' in kwargs:
+        if license_type is None and 'licenseType' in kwargs:
             license_type = kwargs['licenseType']
-        if 'maxParallelExecutionsPerNode' in kwargs:
+        if max_parallel_executions_per_node is None and 'maxParallelExecutionsPerNode' in kwargs:
             max_parallel_executions_per_node = kwargs['maxParallelExecutionsPerNode']
-        if 'numberOfNodes' in kwargs:
+        if number_of_nodes is None and 'numberOfNodes' in kwargs:
             number_of_nodes = kwargs['numberOfNodes']
-        if 'vnetIntegration' in kwargs:
+        if vnet_integration is None and 'vnetIntegration' in kwargs:
             vnet_integration = kwargs['vnetIntegration']
 
         _setter("data_factory_id", data_factory_id)
@@ -322,21 +326,21 @@ class _IntegrationRuntimeManagedState:
              vnet_integration: Optional[pulumi.Input['IntegrationRuntimeManagedVnetIntegrationArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'catalogInfo' in kwargs:
+        if catalog_info is None and 'catalogInfo' in kwargs:
             catalog_info = kwargs['catalogInfo']
-        if 'customSetupScript' in kwargs:
+        if custom_setup_script is None and 'customSetupScript' in kwargs:
             custom_setup_script = kwargs['customSetupScript']
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'licenseType' in kwargs:
+        if license_type is None and 'licenseType' in kwargs:
             license_type = kwargs['licenseType']
-        if 'maxParallelExecutionsPerNode' in kwargs:
+        if max_parallel_executions_per_node is None and 'maxParallelExecutionsPerNode' in kwargs:
             max_parallel_executions_per_node = kwargs['maxParallelExecutionsPerNode']
-        if 'nodeSize' in kwargs:
+        if node_size is None and 'nodeSize' in kwargs:
             node_size = kwargs['nodeSize']
-        if 'numberOfNodes' in kwargs:
+        if number_of_nodes is None and 'numberOfNodes' in kwargs:
             number_of_nodes = kwargs['numberOfNodes']
-        if 'vnetIntegration' in kwargs:
+        if vnet_integration is None and 'vnetIntegration' in kwargs:
             vnet_integration = kwargs['vnetIntegration']
 
         if catalog_info is not None:

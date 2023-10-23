@@ -60,16 +60,20 @@ class NamespaceCustomerManagedKey(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             identity_id: str,
-             key_vault_key_id: str,
+             identity_id: Optional[str] = None,
+             key_vault_key_id: Optional[str] = None,
              infrastructure_encryption_enabled: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityId' in kwargs:
+        if identity_id is None and 'identityId' in kwargs:
             identity_id = kwargs['identityId']
-        if 'keyVaultKeyId' in kwargs:
+        if identity_id is None:
+            raise TypeError("Missing 'identity_id' argument")
+        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
             key_vault_key_id = kwargs['keyVaultKeyId']
-        if 'infrastructureEncryptionEnabled' in kwargs:
+        if key_vault_key_id is None:
+            raise TypeError("Missing 'key_vault_key_id' argument")
+        if infrastructure_encryption_enabled is None and 'infrastructureEncryptionEnabled' in kwargs:
             infrastructure_encryption_enabled = kwargs['infrastructureEncryptionEnabled']
 
         _setter("identity_id", identity_id)
@@ -148,17 +152,19 @@ class NamespaceIdentity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -262,15 +268,15 @@ class NamespaceNetworkRuleSet(dict):
              trusted_services_allowed: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'defaultAction' in kwargs:
+        if default_action is None and 'defaultAction' in kwargs:
             default_action = kwargs['defaultAction']
-        if 'ipRules' in kwargs:
+        if ip_rules is None and 'ipRules' in kwargs:
             ip_rules = kwargs['ipRules']
-        if 'networkRules' in kwargs:
+        if network_rules is None and 'networkRules' in kwargs:
             network_rules = kwargs['networkRules']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'trustedServicesAllowed' in kwargs:
+        if trusted_services_allowed is None and 'trustedServicesAllowed' in kwargs:
             trusted_services_allowed = kwargs['trustedServicesAllowed']
 
         if default_action is not None:
@@ -361,13 +367,15 @@ class NamespaceNetworkRuleSetNetworkRule(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             subnet_id: str,
+             subnet_id: Optional[str] = None,
              ignore_missing_vnet_service_endpoint: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'ignoreMissingVnetServiceEndpoint' in kwargs:
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+        if ignore_missing_vnet_service_endpoint is None and 'ignoreMissingVnetServiceEndpoint' in kwargs:
             ignore_missing_vnet_service_endpoint = kwargs['ignoreMissingVnetServiceEndpoint']
 
         _setter("subnet_id", subnet_id)
@@ -439,11 +447,11 @@ class SubscriptionClientScopedSubscription(dict):
              is_client_scoped_subscription_shareable: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'isClientScopedSubscriptionDurable' in kwargs:
+        if is_client_scoped_subscription_durable is None and 'isClientScopedSubscriptionDurable' in kwargs:
             is_client_scoped_subscription_durable = kwargs['isClientScopedSubscriptionDurable']
-        if 'isClientScopedSubscriptionShareable' in kwargs:
+        if is_client_scoped_subscription_shareable is None and 'isClientScopedSubscriptionShareable' in kwargs:
             is_client_scoped_subscription_shareable = kwargs['isClientScopedSubscriptionShareable']
 
         if client_id is not None:
@@ -558,17 +566,17 @@ class SubscriptionRuleCorrelationFilter(dict):
              to: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'contentType' in kwargs:
+        if content_type is None and 'contentType' in kwargs:
             content_type = kwargs['contentType']
-        if 'correlationId' in kwargs:
+        if correlation_id is None and 'correlationId' in kwargs:
             correlation_id = kwargs['correlationId']
-        if 'messageId' in kwargs:
+        if message_id is None and 'messageId' in kwargs:
             message_id = kwargs['messageId']
-        if 'replyTo' in kwargs:
+        if reply_to is None and 'replyTo' in kwargs:
             reply_to = kwargs['replyTo']
-        if 'replyToSessionId' in kwargs:
+        if reply_to_session_id is None and 'replyToSessionId' in kwargs:
             reply_to_session_id = kwargs['replyToSessionId']
-        if 'sessionId' in kwargs:
+        if session_id is None and 'sessionId' in kwargs:
             session_id = kwargs['sessionId']
 
         if content_type is not None:

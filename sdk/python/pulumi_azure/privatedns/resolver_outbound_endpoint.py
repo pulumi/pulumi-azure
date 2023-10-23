@@ -38,17 +38,21 @@ class ResolverOutboundEndpointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             private_dns_resolver_id: pulumi.Input[str],
-             subnet_id: pulumi.Input[str],
+             private_dns_resolver_id: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'privateDnsResolverId' in kwargs:
+        if private_dns_resolver_id is None and 'privateDnsResolverId' in kwargs:
             private_dns_resolver_id = kwargs['privateDnsResolverId']
-        if 'subnetId' in kwargs:
+        if private_dns_resolver_id is None:
+            raise TypeError("Missing 'private_dns_resolver_id' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
 
         _setter("private_dns_resolver_id", private_dns_resolver_id)
         _setter("subnet_id", subnet_id)
@@ -154,9 +158,9 @@ class _ResolverOutboundEndpointState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'privateDnsResolverId' in kwargs:
+        if private_dns_resolver_id is None and 'privateDnsResolverId' in kwargs:
             private_dns_resolver_id = kwargs['privateDnsResolverId']
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
 
         if location is not None:

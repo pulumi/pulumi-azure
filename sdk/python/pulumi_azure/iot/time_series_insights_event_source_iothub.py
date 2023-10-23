@@ -53,31 +53,43 @@ class TimeSeriesInsightsEventSourceIothubArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             consumer_group_name: pulumi.Input[str],
-             environment_id: pulumi.Input[str],
-             event_source_resource_id: pulumi.Input[str],
-             iothub_name: pulumi.Input[str],
-             shared_access_key: pulumi.Input[str],
-             shared_access_key_name: pulumi.Input[str],
+             consumer_group_name: Optional[pulumi.Input[str]] = None,
+             environment_id: Optional[pulumi.Input[str]] = None,
+             event_source_resource_id: Optional[pulumi.Input[str]] = None,
+             iothub_name: Optional[pulumi.Input[str]] = None,
+             shared_access_key: Optional[pulumi.Input[str]] = None,
+             shared_access_key_name: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              timestamp_property_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'consumerGroupName' in kwargs:
+        if consumer_group_name is None and 'consumerGroupName' in kwargs:
             consumer_group_name = kwargs['consumerGroupName']
-        if 'environmentId' in kwargs:
+        if consumer_group_name is None:
+            raise TypeError("Missing 'consumer_group_name' argument")
+        if environment_id is None and 'environmentId' in kwargs:
             environment_id = kwargs['environmentId']
-        if 'eventSourceResourceId' in kwargs:
+        if environment_id is None:
+            raise TypeError("Missing 'environment_id' argument")
+        if event_source_resource_id is None and 'eventSourceResourceId' in kwargs:
             event_source_resource_id = kwargs['eventSourceResourceId']
-        if 'iothubName' in kwargs:
+        if event_source_resource_id is None:
+            raise TypeError("Missing 'event_source_resource_id' argument")
+        if iothub_name is None and 'iothubName' in kwargs:
             iothub_name = kwargs['iothubName']
-        if 'sharedAccessKey' in kwargs:
+        if iothub_name is None:
+            raise TypeError("Missing 'iothub_name' argument")
+        if shared_access_key is None and 'sharedAccessKey' in kwargs:
             shared_access_key = kwargs['sharedAccessKey']
-        if 'sharedAccessKeyName' in kwargs:
+        if shared_access_key is None:
+            raise TypeError("Missing 'shared_access_key' argument")
+        if shared_access_key_name is None and 'sharedAccessKeyName' in kwargs:
             shared_access_key_name = kwargs['sharedAccessKeyName']
-        if 'timestampPropertyName' in kwargs:
+        if shared_access_key_name is None:
+            raise TypeError("Missing 'shared_access_key_name' argument")
+        if timestamp_property_name is None and 'timestampPropertyName' in kwargs:
             timestamp_property_name = kwargs['timestampPropertyName']
 
         _setter("consumer_group_name", consumer_group_name)
@@ -270,19 +282,19 @@ class _TimeSeriesInsightsEventSourceIothubState:
              timestamp_property_name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'consumerGroupName' in kwargs:
+        if consumer_group_name is None and 'consumerGroupName' in kwargs:
             consumer_group_name = kwargs['consumerGroupName']
-        if 'environmentId' in kwargs:
+        if environment_id is None and 'environmentId' in kwargs:
             environment_id = kwargs['environmentId']
-        if 'eventSourceResourceId' in kwargs:
+        if event_source_resource_id is None and 'eventSourceResourceId' in kwargs:
             event_source_resource_id = kwargs['eventSourceResourceId']
-        if 'iothubName' in kwargs:
+        if iothub_name is None and 'iothubName' in kwargs:
             iothub_name = kwargs['iothubName']
-        if 'sharedAccessKey' in kwargs:
+        if shared_access_key is None and 'sharedAccessKey' in kwargs:
             shared_access_key = kwargs['sharedAccessKey']
-        if 'sharedAccessKeyName' in kwargs:
+        if shared_access_key_name is None and 'sharedAccessKeyName' in kwargs:
             shared_access_key_name = kwargs['sharedAccessKeyName']
-        if 'timestampPropertyName' in kwargs:
+        if timestamp_property_name is None and 'timestampPropertyName' in kwargs:
             timestamp_property_name = kwargs['timestampPropertyName']
 
         if consumer_group_name is not None:

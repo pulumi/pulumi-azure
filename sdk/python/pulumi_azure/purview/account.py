@@ -48,8 +48,8 @@ class AccountArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             identity: pulumi.Input['AccountIdentityArgs'],
-             resource_group_name: pulumi.Input[str],
+             identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              managed_resource_group_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
@@ -57,11 +57,15 @@ class AccountArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if identity is None:
+            raise TypeError("Missing 'identity' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'managedResourceGroupName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if managed_resource_group_name is None and 'managedResourceGroupName' in kwargs:
             managed_resource_group_name = kwargs['managedResourceGroupName']
-        if 'publicNetworkEnabled' in kwargs:
+        if public_network_enabled is None and 'publicNetworkEnabled' in kwargs:
             public_network_enabled = kwargs['publicNetworkEnabled']
 
         _setter("identity", identity)
@@ -232,23 +236,23 @@ class _AccountState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'atlasKafkaEndpointPrimaryConnectionString' in kwargs:
+        if atlas_kafka_endpoint_primary_connection_string is None and 'atlasKafkaEndpointPrimaryConnectionString' in kwargs:
             atlas_kafka_endpoint_primary_connection_string = kwargs['atlasKafkaEndpointPrimaryConnectionString']
-        if 'atlasKafkaEndpointSecondaryConnectionString' in kwargs:
+        if atlas_kafka_endpoint_secondary_connection_string is None and 'atlasKafkaEndpointSecondaryConnectionString' in kwargs:
             atlas_kafka_endpoint_secondary_connection_string = kwargs['atlasKafkaEndpointSecondaryConnectionString']
-        if 'catalogEndpoint' in kwargs:
+        if catalog_endpoint is None and 'catalogEndpoint' in kwargs:
             catalog_endpoint = kwargs['catalogEndpoint']
-        if 'guardianEndpoint' in kwargs:
+        if guardian_endpoint is None and 'guardianEndpoint' in kwargs:
             guardian_endpoint = kwargs['guardianEndpoint']
-        if 'managedResourceGroupName' in kwargs:
+        if managed_resource_group_name is None and 'managedResourceGroupName' in kwargs:
             managed_resource_group_name = kwargs['managedResourceGroupName']
-        if 'managedResources' in kwargs:
+        if managed_resources is None and 'managedResources' in kwargs:
             managed_resources = kwargs['managedResources']
-        if 'publicNetworkEnabled' in kwargs:
+        if public_network_enabled is None and 'publicNetworkEnabled' in kwargs:
             public_network_enabled = kwargs['publicNetworkEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'scanEndpoint' in kwargs:
+        if scan_endpoint is None and 'scanEndpoint' in kwargs:
             scan_endpoint = kwargs['scanEndpoint']
 
         if atlas_kafka_endpoint_primary_connection_string is not None:

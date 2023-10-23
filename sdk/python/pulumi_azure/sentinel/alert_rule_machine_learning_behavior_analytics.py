@@ -35,16 +35,20 @@ class AlertRuleMachineLearningBehaviorAnalyticsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             alert_rule_template_guid: pulumi.Input[str],
-             log_analytics_workspace_id: pulumi.Input[str],
+             alert_rule_template_guid: Optional[pulumi.Input[str]] = None,
+             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'alertRuleTemplateGuid' in kwargs:
+        if alert_rule_template_guid is None and 'alertRuleTemplateGuid' in kwargs:
             alert_rule_template_guid = kwargs['alertRuleTemplateGuid']
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if alert_rule_template_guid is None:
+            raise TypeError("Missing 'alert_rule_template_guid' argument")
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if log_analytics_workspace_id is None:
+            raise TypeError("Missing 'log_analytics_workspace_id' argument")
 
         _setter("alert_rule_template_guid", alert_rule_template_guid)
         _setter("log_analytics_workspace_id", log_analytics_workspace_id)
@@ -132,9 +136,9 @@ class _AlertRuleMachineLearningBehaviorAnalyticsState:
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'alertRuleTemplateGuid' in kwargs:
+        if alert_rule_template_guid is None and 'alertRuleTemplateGuid' in kwargs:
             alert_rule_template_guid = kwargs['alertRuleTemplateGuid']
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
 
         if alert_rule_template_guid is not None:

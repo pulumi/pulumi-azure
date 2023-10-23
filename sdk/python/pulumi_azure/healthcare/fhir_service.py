@@ -64,9 +64,9 @@ class FhirServiceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             authentication: pulumi.Input['FhirServiceAuthenticationArgs'],
-             resource_group_name: pulumi.Input[str],
-             workspace_id: pulumi.Input[str],
+             authentication: Optional[pulumi.Input['FhirServiceAuthenticationArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
              access_policy_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              configuration_export_storage_account_name: Optional[pulumi.Input[str]] = None,
              container_registry_login_server_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -79,17 +79,23 @@ class FhirServiceArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if authentication is None:
+            raise TypeError("Missing 'authentication' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'workspaceId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
-        if 'accessPolicyObjectIds' in kwargs:
+        if workspace_id is None:
+            raise TypeError("Missing 'workspace_id' argument")
+        if access_policy_object_ids is None and 'accessPolicyObjectIds' in kwargs:
             access_policy_object_ids = kwargs['accessPolicyObjectIds']
-        if 'configurationExportStorageAccountName' in kwargs:
+        if configuration_export_storage_account_name is None and 'configurationExportStorageAccountName' in kwargs:
             configuration_export_storage_account_name = kwargs['configurationExportStorageAccountName']
-        if 'containerRegistryLoginServerUrls' in kwargs:
+        if container_registry_login_server_urls is None and 'containerRegistryLoginServerUrls' in kwargs:
             container_registry_login_server_urls = kwargs['containerRegistryLoginServerUrls']
-        if 'ociArtifacts' in kwargs:
+        if oci_artifacts is None and 'ociArtifacts' in kwargs:
             oci_artifacts = kwargs['ociArtifacts']
 
         _setter("authentication", authentication)
@@ -343,19 +349,19 @@ class _FhirServiceState:
              workspace_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accessPolicyObjectIds' in kwargs:
+        if access_policy_object_ids is None and 'accessPolicyObjectIds' in kwargs:
             access_policy_object_ids = kwargs['accessPolicyObjectIds']
-        if 'configurationExportStorageAccountName' in kwargs:
+        if configuration_export_storage_account_name is None and 'configurationExportStorageAccountName' in kwargs:
             configuration_export_storage_account_name = kwargs['configurationExportStorageAccountName']
-        if 'containerRegistryLoginServerUrls' in kwargs:
+        if container_registry_login_server_urls is None and 'containerRegistryLoginServerUrls' in kwargs:
             container_registry_login_server_urls = kwargs['containerRegistryLoginServerUrls']
-        if 'ociArtifacts' in kwargs:
+        if oci_artifacts is None and 'ociArtifacts' in kwargs:
             oci_artifacts = kwargs['ociArtifacts']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'workspaceId' in kwargs:
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
 
         if access_policy_object_ids is not None:

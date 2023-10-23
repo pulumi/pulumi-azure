@@ -44,8 +44,8 @@ class ProjectArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             dev_center_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             dev_center_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              maximum_dev_boxes_per_user: Optional[pulumi.Input[int]] = None,
@@ -53,11 +53,15 @@ class ProjectArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'devCenterId' in kwargs:
+        if dev_center_id is None and 'devCenterId' in kwargs:
             dev_center_id = kwargs['devCenterId']
-        if 'resourceGroupName' in kwargs:
+        if dev_center_id is None:
+            raise TypeError("Missing 'dev_center_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'maximumDevBoxesPerUser' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if maximum_dev_boxes_per_user is None and 'maximumDevBoxesPerUser' in kwargs:
             maximum_dev_boxes_per_user = kwargs['maximumDevBoxesPerUser']
 
         _setter("dev_center_id", dev_center_id)
@@ -204,13 +208,13 @@ class _ProjectState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'devCenterId' in kwargs:
+        if dev_center_id is None and 'devCenterId' in kwargs:
             dev_center_id = kwargs['devCenterId']
-        if 'devCenterUri' in kwargs:
+        if dev_center_uri is None and 'devCenterUri' in kwargs:
             dev_center_uri = kwargs['devCenterUri']
-        if 'maximumDevBoxesPerUser' in kwargs:
+        if maximum_dev_boxes_per_user is None and 'maximumDevBoxesPerUser' in kwargs:
             maximum_dev_boxes_per_user = kwargs['maximumDevBoxesPerUser']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if description is not None:

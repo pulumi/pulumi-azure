@@ -85,8 +85,8 @@ class DatabaseArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             server_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
              collation: Optional[pulumi.Input[str]] = None,
              create_mode: Optional[pulumi.Input[str]] = None,
              edition: Optional[pulumi.Input[str]] = None,
@@ -107,35 +107,39 @@ class DatabaseArgs:
              zone_redundant: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serverName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if server_name is None and 'serverName' in kwargs:
             server_name = kwargs['serverName']
-        if 'createMode' in kwargs:
+        if server_name is None:
+            raise TypeError("Missing 'server_name' argument")
+        if create_mode is None and 'createMode' in kwargs:
             create_mode = kwargs['createMode']
-        if 'elasticPoolName' in kwargs:
+        if elastic_pool_name is None and 'elasticPoolName' in kwargs:
             elastic_pool_name = kwargs['elasticPoolName']
-        if 'import' in kwargs:
+        if import_ is None and 'import' in kwargs:
             import_ = kwargs['import']
-        if 'maxSizeBytes' in kwargs:
+        if max_size_bytes is None and 'maxSizeBytes' in kwargs:
             max_size_bytes = kwargs['maxSizeBytes']
-        if 'maxSizeGb' in kwargs:
+        if max_size_gb is None and 'maxSizeGb' in kwargs:
             max_size_gb = kwargs['maxSizeGb']
-        if 'readScale' in kwargs:
+        if read_scale is None and 'readScale' in kwargs:
             read_scale = kwargs['readScale']
-        if 'requestedServiceObjectiveId' in kwargs:
+        if requested_service_objective_id is None and 'requestedServiceObjectiveId' in kwargs:
             requested_service_objective_id = kwargs['requestedServiceObjectiveId']
-        if 'requestedServiceObjectiveName' in kwargs:
+        if requested_service_objective_name is None and 'requestedServiceObjectiveName' in kwargs:
             requested_service_objective_name = kwargs['requestedServiceObjectiveName']
-        if 'restorePointInTime' in kwargs:
+        if restore_point_in_time is None and 'restorePointInTime' in kwargs:
             restore_point_in_time = kwargs['restorePointInTime']
-        if 'sourceDatabaseDeletionDate' in kwargs:
+        if source_database_deletion_date is None and 'sourceDatabaseDeletionDate' in kwargs:
             source_database_deletion_date = kwargs['sourceDatabaseDeletionDate']
-        if 'sourceDatabaseId' in kwargs:
+        if source_database_id is None and 'sourceDatabaseId' in kwargs:
             source_database_id = kwargs['sourceDatabaseId']
-        if 'threatDetectionPolicy' in kwargs:
+        if threat_detection_policy is None and 'threatDetectionPolicy' in kwargs:
             threat_detection_policy = kwargs['threatDetectionPolicy']
-        if 'zoneRedundant' in kwargs:
+        if zone_redundant is None and 'zoneRedundant' in kwargs:
             zone_redundant = kwargs['zoneRedundant']
 
         _setter("resource_group_name", resource_group_name)
@@ -521,39 +525,39 @@ class _DatabaseState:
              zone_redundant: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'createMode' in kwargs:
+        if create_mode is None and 'createMode' in kwargs:
             create_mode = kwargs['createMode']
-        if 'creationDate' in kwargs:
+        if creation_date is None and 'creationDate' in kwargs:
             creation_date = kwargs['creationDate']
-        if 'defaultSecondaryLocation' in kwargs:
+        if default_secondary_location is None and 'defaultSecondaryLocation' in kwargs:
             default_secondary_location = kwargs['defaultSecondaryLocation']
-        if 'elasticPoolName' in kwargs:
+        if elastic_pool_name is None and 'elasticPoolName' in kwargs:
             elastic_pool_name = kwargs['elasticPoolName']
-        if 'import' in kwargs:
+        if import_ is None and 'import' in kwargs:
             import_ = kwargs['import']
-        if 'maxSizeBytes' in kwargs:
+        if max_size_bytes is None and 'maxSizeBytes' in kwargs:
             max_size_bytes = kwargs['maxSizeBytes']
-        if 'maxSizeGb' in kwargs:
+        if max_size_gb is None and 'maxSizeGb' in kwargs:
             max_size_gb = kwargs['maxSizeGb']
-        if 'readScale' in kwargs:
+        if read_scale is None and 'readScale' in kwargs:
             read_scale = kwargs['readScale']
-        if 'requestedServiceObjectiveId' in kwargs:
+        if requested_service_objective_id is None and 'requestedServiceObjectiveId' in kwargs:
             requested_service_objective_id = kwargs['requestedServiceObjectiveId']
-        if 'requestedServiceObjectiveName' in kwargs:
+        if requested_service_objective_name is None and 'requestedServiceObjectiveName' in kwargs:
             requested_service_objective_name = kwargs['requestedServiceObjectiveName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'restorePointInTime' in kwargs:
+        if restore_point_in_time is None and 'restorePointInTime' in kwargs:
             restore_point_in_time = kwargs['restorePointInTime']
-        if 'serverName' in kwargs:
+        if server_name is None and 'serverName' in kwargs:
             server_name = kwargs['serverName']
-        if 'sourceDatabaseDeletionDate' in kwargs:
+        if source_database_deletion_date is None and 'sourceDatabaseDeletionDate' in kwargs:
             source_database_deletion_date = kwargs['sourceDatabaseDeletionDate']
-        if 'sourceDatabaseId' in kwargs:
+        if source_database_id is None and 'sourceDatabaseId' in kwargs:
             source_database_id = kwargs['sourceDatabaseId']
-        if 'threatDetectionPolicy' in kwargs:
+        if threat_detection_policy is None and 'threatDetectionPolicy' in kwargs:
             threat_detection_policy = kwargs['threatDetectionPolicy']
-        if 'zoneRedundant' in kwargs:
+        if zone_redundant is None and 'zoneRedundant' in kwargs:
             zone_redundant = kwargs['zoneRedundant']
 
         if collation is not None:

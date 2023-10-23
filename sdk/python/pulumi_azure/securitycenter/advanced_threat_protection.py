@@ -29,12 +29,16 @@ class AdvancedThreatProtectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: pulumi.Input[bool],
-             target_resource_id: pulumi.Input[str],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             target_resource_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'targetResourceId' in kwargs:
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if target_resource_id is None and 'targetResourceId' in kwargs:
             target_resource_id = kwargs['targetResourceId']
+        if target_resource_id is None:
+            raise TypeError("Missing 'target_resource_id' argument")
 
         _setter("enabled", enabled)
         _setter("target_resource_id", target_resource_id)
@@ -86,7 +90,7 @@ class _AdvancedThreatProtectionState:
              target_resource_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'targetResourceId' in kwargs:
+        if target_resource_id is None and 'targetResourceId' in kwargs:
             target_resource_id = kwargs['targetResourceId']
 
         if enabled is not None:

@@ -42,16 +42,18 @@ class CertifiateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_vault_id: pulumi.Input[str],
+             key_vault_id: Optional[pulumi.Input[str]] = None,
              certificate: Optional[pulumi.Input['CertifiateCertificateArgs']] = None,
              certificate_policy: Optional[pulumi.Input['CertifiateCertificatePolicyArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'keyVaultId' in kwargs:
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
-        if 'certificatePolicy' in kwargs:
+        if key_vault_id is None:
+            raise TypeError("Missing 'key_vault_id' argument")
+        if certificate_policy is None and 'certificatePolicy' in kwargs:
             certificate_policy = kwargs['certificatePolicy']
 
         _setter("key_vault_id", key_vault_id)
@@ -203,25 +205,25 @@ class _CertifiateState:
              versionless_secret_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'certificateAttributes' in kwargs:
+        if certificate_attributes is None and 'certificateAttributes' in kwargs:
             certificate_attributes = kwargs['certificateAttributes']
-        if 'certificateData' in kwargs:
+        if certificate_data is None and 'certificateData' in kwargs:
             certificate_data = kwargs['certificateData']
-        if 'certificateDataBase64' in kwargs:
+        if certificate_data_base64 is None and 'certificateDataBase64' in kwargs:
             certificate_data_base64 = kwargs['certificateDataBase64']
-        if 'certificatePolicy' in kwargs:
+        if certificate_policy is None and 'certificatePolicy' in kwargs:
             certificate_policy = kwargs['certificatePolicy']
-        if 'keyVaultId' in kwargs:
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
-        if 'resourceManagerId' in kwargs:
+        if resource_manager_id is None and 'resourceManagerId' in kwargs:
             resource_manager_id = kwargs['resourceManagerId']
-        if 'resourceManagerVersionlessId' in kwargs:
+        if resource_manager_versionless_id is None and 'resourceManagerVersionlessId' in kwargs:
             resource_manager_versionless_id = kwargs['resourceManagerVersionlessId']
-        if 'secretId' in kwargs:
+        if secret_id is None and 'secretId' in kwargs:
             secret_id = kwargs['secretId']
-        if 'versionlessId' in kwargs:
+        if versionless_id is None and 'versionlessId' in kwargs:
             versionless_id = kwargs['versionlessId']
-        if 'versionlessSecretId' in kwargs:
+        if versionless_secret_id is None and 'versionlessSecretId' in kwargs:
             versionless_secret_id = kwargs['versionlessSecretId']
 
         if certificate is not None:

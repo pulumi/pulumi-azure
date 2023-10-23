@@ -57,9 +57,9 @@ class LinkServiceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             load_balancer_frontend_ip_configuration_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             nat_ip_configurations: pulumi.Input[Sequence[pulumi.Input['LinkServiceNatIpConfigurationArgs']]],
-             resource_group_name: pulumi.Input[str],
+             load_balancer_frontend_ip_configuration_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             nat_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['LinkServiceNatIpConfigurationArgs']]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              auto_approval_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              enable_proxy_protocol: Optional[pulumi.Input[bool]] = None,
              fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -69,17 +69,23 @@ class LinkServiceArgs:
              visibility_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'loadBalancerFrontendIpConfigurationIds' in kwargs:
+        if load_balancer_frontend_ip_configuration_ids is None and 'loadBalancerFrontendIpConfigurationIds' in kwargs:
             load_balancer_frontend_ip_configuration_ids = kwargs['loadBalancerFrontendIpConfigurationIds']
-        if 'natIpConfigurations' in kwargs:
+        if load_balancer_frontend_ip_configuration_ids is None:
+            raise TypeError("Missing 'load_balancer_frontend_ip_configuration_ids' argument")
+        if nat_ip_configurations is None and 'natIpConfigurations' in kwargs:
             nat_ip_configurations = kwargs['natIpConfigurations']
-        if 'resourceGroupName' in kwargs:
+        if nat_ip_configurations is None:
+            raise TypeError("Missing 'nat_ip_configurations' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'autoApprovalSubscriptionIds' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if auto_approval_subscription_ids is None and 'autoApprovalSubscriptionIds' in kwargs:
             auto_approval_subscription_ids = kwargs['autoApprovalSubscriptionIds']
-        if 'enableProxyProtocol' in kwargs:
+        if enable_proxy_protocol is None and 'enableProxyProtocol' in kwargs:
             enable_proxy_protocol = kwargs['enableProxyProtocol']
-        if 'visibilitySubscriptionIds' in kwargs:
+        if visibility_subscription_ids is None and 'visibilitySubscriptionIds' in kwargs:
             visibility_subscription_ids = kwargs['visibilitySubscriptionIds']
 
         _setter("load_balancer_frontend_ip_configuration_ids", load_balancer_frontend_ip_configuration_ids)
@@ -283,17 +289,17 @@ class _LinkServiceState:
              visibility_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'autoApprovalSubscriptionIds' in kwargs:
+        if auto_approval_subscription_ids is None and 'autoApprovalSubscriptionIds' in kwargs:
             auto_approval_subscription_ids = kwargs['autoApprovalSubscriptionIds']
-        if 'enableProxyProtocol' in kwargs:
+        if enable_proxy_protocol is None and 'enableProxyProtocol' in kwargs:
             enable_proxy_protocol = kwargs['enableProxyProtocol']
-        if 'loadBalancerFrontendIpConfigurationIds' in kwargs:
+        if load_balancer_frontend_ip_configuration_ids is None and 'loadBalancerFrontendIpConfigurationIds' in kwargs:
             load_balancer_frontend_ip_configuration_ids = kwargs['loadBalancerFrontendIpConfigurationIds']
-        if 'natIpConfigurations' in kwargs:
+        if nat_ip_configurations is None and 'natIpConfigurations' in kwargs:
             nat_ip_configurations = kwargs['natIpConfigurations']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'visibilitySubscriptionIds' in kwargs:
+        if visibility_subscription_ids is None and 'visibilitySubscriptionIds' in kwargs:
             visibility_subscription_ids = kwargs['visibilitySubscriptionIds']
 
         if alias is not None:

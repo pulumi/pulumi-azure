@@ -73,18 +73,24 @@ class LinkServiceNatIpConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             primary: bool,
-             subnet_id: str,
+             name: Optional[str] = None,
+             primary: Optional[bool] = None,
+             subnet_id: Optional[str] = None,
              private_ip_address: Optional[str] = None,
              private_ip_address_version: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'subnetId' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if primary is None:
+            raise TypeError("Missing 'primary' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'privateIpAddress' in kwargs:
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+        if private_ip_address is None and 'privateIpAddress' in kwargs:
             private_ip_address = kwargs['privateIpAddress']
-        if 'privateIpAddressVersion' in kwargs:
+        if private_ip_address_version is None and 'privateIpAddressVersion' in kwargs:
             private_ip_address_version = kwargs['privateIpAddressVersion']
 
         _setter("name", name)
@@ -155,10 +161,14 @@ class MxRecordRecord(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             exchange: str,
-             preference: int,
+             exchange: Optional[str] = None,
+             preference: Optional[int] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if exchange is None:
+            raise TypeError("Missing 'exchange' argument")
+        if preference is None:
+            raise TypeError("Missing 'preference' argument")
 
         _setter("exchange", exchange)
         _setter("preference", preference)
@@ -214,12 +224,14 @@ class ResolverForwardingRuleTargetDnsServer(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ip_address: str,
+             ip_address: Optional[str] = None,
              port: Optional[int] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ipAddress' in kwargs:
+        if ip_address is None and 'ipAddress' in kwargs:
             ip_address = kwargs['ipAddress']
+        if ip_address is None:
+            raise TypeError("Missing 'ip_address' argument")
 
         _setter("ip_address", ip_address)
         if port is not None:
@@ -283,16 +295,18 @@ class ResolverInboundEndpointIpConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             subnet_id: str,
+             subnet_id: Optional[str] = None,
              private_ip_address: Optional[str] = None,
              private_ip_allocation_method: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'privateIpAddress' in kwargs:
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+        if private_ip_address is None and 'privateIpAddress' in kwargs:
             private_ip_address = kwargs['privateIpAddress']
-        if 'privateIpAllocationMethod' in kwargs:
+        if private_ip_allocation_method is None and 'privateIpAllocationMethod' in kwargs:
             private_ip_allocation_method = kwargs['privateIpAllocationMethod']
 
         _setter("subnet_id", subnet_id)
@@ -349,12 +363,20 @@ class SRVRecordRecord(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             port: int,
-             priority: int,
-             target: str,
-             weight: int,
+             port: Optional[int] = None,
+             priority: Optional[int] = None,
+             target: Optional[str] = None,
+             weight: Optional[int] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if priority is None:
+            raise TypeError("Missing 'priority' argument")
+        if target is None:
+            raise TypeError("Missing 'target' argument")
+        if weight is None:
+            raise TypeError("Missing 'weight' argument")
 
         _setter("port", port)
         _setter("priority", priority)
@@ -408,9 +430,11 @@ class TxtRecordRecord(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             value: str,
+             value: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("value", value)
 
@@ -491,7 +515,7 @@ class ZoneSoaRecord(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             email: str,
+             email: Optional[str] = None,
              expire_time: Optional[int] = None,
              fqdn: Optional[str] = None,
              host_name: Optional[str] = None,
@@ -503,17 +527,19 @@ class ZoneSoaRecord(dict):
              ttl: Optional[int] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'expireTime' in kwargs:
+        if email is None:
+            raise TypeError("Missing 'email' argument")
+        if expire_time is None and 'expireTime' in kwargs:
             expire_time = kwargs['expireTime']
-        if 'hostName' in kwargs:
+        if host_name is None and 'hostName' in kwargs:
             host_name = kwargs['hostName']
-        if 'minimumTtl' in kwargs:
+        if minimum_ttl is None and 'minimumTtl' in kwargs:
             minimum_ttl = kwargs['minimumTtl']
-        if 'refreshTime' in kwargs:
+        if refresh_time is None and 'refreshTime' in kwargs:
             refresh_time = kwargs['refreshTime']
-        if 'retryTime' in kwargs:
+        if retry_time is None and 'retryTime' in kwargs:
             retry_time = kwargs['retryTime']
-        if 'serialNumber' in kwargs:
+        if serial_number is None and 'serialNumber' in kwargs:
             serial_number = kwargs['serialNumber']
 
         _setter("email", email)
@@ -634,10 +660,14 @@ class GetMxRecordRecordResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             exchange: str,
-             preference: int,
+             exchange: Optional[str] = None,
+             preference: Optional[int] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if exchange is None:
+            raise TypeError("Missing 'exchange' argument")
+        if preference is None:
+            raise TypeError("Missing 'preference' argument")
 
         _setter("exchange", exchange)
         _setter("preference", preference)
@@ -676,12 +706,16 @@ class GetResolverForwardingRuleTargetDnsServerResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ip_address: str,
-             port: int,
+             ip_address: Optional[str] = None,
+             port: Optional[int] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ipAddress' in kwargs:
+        if ip_address is None and 'ipAddress' in kwargs:
             ip_address = kwargs['ipAddress']
+        if ip_address is None:
+            raise TypeError("Missing 'ip_address' argument")
+        if port is None:
+            raise TypeError("Missing 'port' argument")
 
         _setter("ip_address", ip_address)
         _setter("port", port)
@@ -723,17 +757,23 @@ class GetResolverInboundEndpointIpConfigurationResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             private_ip_address: str,
-             private_ip_allocation_method: str,
-             subnet_id: str,
+             private_ip_address: Optional[str] = None,
+             private_ip_allocation_method: Optional[str] = None,
+             subnet_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'privateIpAddress' in kwargs:
+        if private_ip_address is None and 'privateIpAddress' in kwargs:
             private_ip_address = kwargs['privateIpAddress']
-        if 'privateIpAllocationMethod' in kwargs:
+        if private_ip_address is None:
+            raise TypeError("Missing 'private_ip_address' argument")
+        if private_ip_allocation_method is None and 'privateIpAllocationMethod' in kwargs:
             private_ip_allocation_method = kwargs['privateIpAllocationMethod']
-        if 'subnetId' in kwargs:
+        if private_ip_allocation_method is None:
+            raise TypeError("Missing 'private_ip_allocation_method' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
 
         _setter("private_ip_address", private_ip_address)
         _setter("private_ip_allocation_method", private_ip_allocation_method)
@@ -787,12 +827,20 @@ class GetSrvRecordRecordResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             port: int,
-             priority: int,
-             target: str,
-             weight: int,
+             port: Optional[int] = None,
+             priority: Optional[int] = None,
+             target: Optional[str] = None,
+             weight: Optional[int] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if priority is None:
+            raise TypeError("Missing 'priority' argument")
+        if target is None:
+            raise TypeError("Missing 'target' argument")
+        if weight is None:
+            raise TypeError("Missing 'weight' argument")
 
         _setter("port", port)
         _setter("priority", priority)
@@ -846,9 +894,11 @@ class GetTxtRecordRecordResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             value: str,
+             value: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("value", value)
 

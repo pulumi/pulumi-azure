@@ -39,7 +39,7 @@ class ActiveRoleAssignmentScheduleArgs:
              start_date_time: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'startDateTime' in kwargs:
+        if start_date_time is None and 'startDateTime' in kwargs:
             start_date_time = kwargs['startDateTime']
 
         if expiration is not None:
@@ -97,11 +97,11 @@ class ActiveRoleAssignmentScheduleExpirationArgs:
              end_date_time: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'durationDays' in kwargs:
+        if duration_days is None and 'durationDays' in kwargs:
             duration_days = kwargs['durationDays']
-        if 'durationHours' in kwargs:
+        if duration_hours is None and 'durationHours' in kwargs:
             duration_hours = kwargs['durationHours']
-        if 'endDateTime' in kwargs:
+        if end_date_time is None and 'endDateTime' in kwargs:
             end_date_time = kwargs['endDateTime']
 
         if duration_days is not None:
@@ -221,7 +221,7 @@ class EligibleRoleAssignmentScheduleArgs:
              start_date_time: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'startDateTime' in kwargs:
+        if start_date_time is None and 'startDateTime' in kwargs:
             start_date_time = kwargs['startDateTime']
 
         if expiration is not None:
@@ -279,11 +279,11 @@ class EligibleRoleAssignmentScheduleExpirationArgs:
              end_date_time: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'durationDays' in kwargs:
+        if duration_days is None and 'durationDays' in kwargs:
             duration_days = kwargs['durationDays']
-        if 'durationHours' in kwargs:
+        if duration_hours is None and 'durationHours' in kwargs:
             duration_hours = kwargs['durationHours']
-        if 'endDateTime' in kwargs:
+        if end_date_time is None and 'endDateTime' in kwargs:
             end_date_time = kwargs['endDateTime']
 
         if duration_days is not None:

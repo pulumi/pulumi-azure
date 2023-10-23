@@ -35,18 +35,24 @@ class NamespaceSchemaGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             namespace_id: pulumi.Input[str],
-             schema_compatibility: pulumi.Input[str],
-             schema_type: pulumi.Input[str],
+             namespace_id: Optional[pulumi.Input[str]] = None,
+             schema_compatibility: Optional[pulumi.Input[str]] = None,
+             schema_type: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'namespaceId' in kwargs:
+        if namespace_id is None and 'namespaceId' in kwargs:
             namespace_id = kwargs['namespaceId']
-        if 'schemaCompatibility' in kwargs:
+        if namespace_id is None:
+            raise TypeError("Missing 'namespace_id' argument")
+        if schema_compatibility is None and 'schemaCompatibility' in kwargs:
             schema_compatibility = kwargs['schemaCompatibility']
-        if 'schemaType' in kwargs:
+        if schema_compatibility is None:
+            raise TypeError("Missing 'schema_compatibility' argument")
+        if schema_type is None and 'schemaType' in kwargs:
             schema_type = kwargs['schemaType']
+        if schema_type is None:
+            raise TypeError("Missing 'schema_type' argument")
 
         _setter("namespace_id", namespace_id)
         _setter("schema_compatibility", schema_compatibility)
@@ -133,11 +139,11 @@ class _NamespaceSchemaGroupState:
              schema_type: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'namespaceId' in kwargs:
+        if namespace_id is None and 'namespaceId' in kwargs:
             namespace_id = kwargs['namespaceId']
-        if 'schemaCompatibility' in kwargs:
+        if schema_compatibility is None and 'schemaCompatibility' in kwargs:
             schema_compatibility = kwargs['schemaCompatibility']
-        if 'schemaType' in kwargs:
+        if schema_type is None and 'schemaType' in kwargs:
             schema_type = kwargs['schemaType']
 
         if name is not None:

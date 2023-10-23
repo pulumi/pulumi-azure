@@ -114,17 +114,19 @@ class DicomServiceIdentity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -242,12 +244,16 @@ class FhirServiceAuthentication(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             audience: str,
-             authority: str,
+             audience: Optional[str] = None,
+             authority: Optional[str] = None,
              smart_proxy_enabled: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'smartProxyEnabled' in kwargs:
+        if audience is None:
+            raise TypeError("Missing 'audience' argument")
+        if authority is None:
+            raise TypeError("Missing 'authority' argument")
+        if smart_proxy_enabled is None and 'smartProxyEnabled' in kwargs:
             smart_proxy_enabled = kwargs['smartProxyEnabled']
 
         _setter("audience", audience)
@@ -328,22 +334,28 @@ class FhirServiceCors(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             allowed_headers: Sequence[str],
-             allowed_methods: Sequence[str],
-             allowed_origins: Sequence[str],
+             allowed_headers: Optional[Sequence[str]] = None,
+             allowed_methods: Optional[Sequence[str]] = None,
+             allowed_origins: Optional[Sequence[str]] = None,
              credentials_allowed: Optional[bool] = None,
              max_age_in_seconds: Optional[int] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowedHeaders' in kwargs:
+        if allowed_headers is None and 'allowedHeaders' in kwargs:
             allowed_headers = kwargs['allowedHeaders']
-        if 'allowedMethods' in kwargs:
+        if allowed_headers is None:
+            raise TypeError("Missing 'allowed_headers' argument")
+        if allowed_methods is None and 'allowedMethods' in kwargs:
             allowed_methods = kwargs['allowedMethods']
-        if 'allowedOrigins' in kwargs:
+        if allowed_methods is None:
+            raise TypeError("Missing 'allowed_methods' argument")
+        if allowed_origins is None and 'allowedOrigins' in kwargs:
             allowed_origins = kwargs['allowedOrigins']
-        if 'credentialsAllowed' in kwargs:
+        if allowed_origins is None:
+            raise TypeError("Missing 'allowed_origins' argument")
+        if credentials_allowed is None and 'credentialsAllowed' in kwargs:
             credentials_allowed = kwargs['credentialsAllowed']
-        if 'maxAgeInSeconds' in kwargs:
+        if max_age_in_seconds is None and 'maxAgeInSeconds' in kwargs:
             max_age_in_seconds = kwargs['maxAgeInSeconds']
 
         _setter("allowed_headers", allowed_headers)
@@ -437,17 +449,19 @@ class FhirServiceIdentity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -524,14 +538,16 @@ class FhirServiceOciArtifact(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             login_server: str,
+             login_server: Optional[str] = None,
              digest: Optional[str] = None,
              image_name: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'loginServer' in kwargs:
+        if login_server is None and 'loginServer' in kwargs:
             login_server = kwargs['loginServer']
-        if 'imageName' in kwargs:
+        if login_server is None:
+            raise TypeError("Missing 'login_server' argument")
+        if image_name is None and 'imageName' in kwargs:
             image_name = kwargs['imageName']
 
         _setter("login_server", login_server)
@@ -608,17 +624,19 @@ class MedtechServiceIdentity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -702,7 +720,7 @@ class ServiceAuthenticationConfiguration(dict):
              smart_proxy_enabled: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'smartProxyEnabled' in kwargs:
+        if smart_proxy_enabled is None and 'smartProxyEnabled' in kwargs:
             smart_proxy_enabled = kwargs['smartProxyEnabled']
 
         if audience is not None:
@@ -796,15 +814,15 @@ class ServiceCorsConfiguration(dict):
              max_age_in_seconds: Optional[int] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowCredentials' in kwargs:
+        if allow_credentials is None and 'allowCredentials' in kwargs:
             allow_credentials = kwargs['allowCredentials']
-        if 'allowedHeaders' in kwargs:
+        if allowed_headers is None and 'allowedHeaders' in kwargs:
             allowed_headers = kwargs['allowedHeaders']
-        if 'allowedMethods' in kwargs:
+        if allowed_methods is None and 'allowedMethods' in kwargs:
             allowed_methods = kwargs['allowedMethods']
-        if 'allowedOrigins' in kwargs:
+        if allowed_origins is None and 'allowedOrigins' in kwargs:
             allowed_origins = kwargs['allowedOrigins']
-        if 'maxAgeInSeconds' in kwargs:
+        if max_age_in_seconds is None and 'maxAgeInSeconds' in kwargs:
             max_age_in_seconds = kwargs['maxAgeInSeconds']
 
         if allow_credentials is not None:
@@ -919,10 +937,14 @@ class GetDicomServiceAuthenticationResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             audiences: Sequence[str],
-             authority: str,
+             audiences: Optional[Sequence[str]] = None,
+             authority: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if audiences is None:
+            raise TypeError("Missing 'audiences' argument")
+        if authority is None:
+            raise TypeError("Missing 'authority' argument")
 
         _setter("audiences", audiences)
         _setter("authority", authority)
@@ -958,18 +980,26 @@ class GetDicomServiceIdentityResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             identity_ids: Sequence[str],
-             principal_id: str,
-             tenant_id: str,
-             type: str,
+             identity_ids: Optional[Sequence[str]] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if identity_ids is None:
+            raise TypeError("Missing 'identity_ids' argument")
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("identity_ids", identity_ids)
         _setter("principal_id", principal_id)
@@ -1014,10 +1044,14 @@ class GetDicomServicePrivateEndpointResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             id: str,
-             name: str,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("id", id)
         _setter("name", name)
@@ -1057,13 +1091,19 @@ class GetFhirServiceAuthenticationResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             audience: str,
-             authority: str,
-             smart_proxy_enabled: bool,
+             audience: Optional[str] = None,
+             authority: Optional[str] = None,
+             smart_proxy_enabled: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'smartProxyEnabled' in kwargs:
+        if audience is None:
+            raise TypeError("Missing 'audience' argument")
+        if authority is None:
+            raise TypeError("Missing 'authority' argument")
+        if smart_proxy_enabled is None and 'smartProxyEnabled' in kwargs:
             smart_proxy_enabled = kwargs['smartProxyEnabled']
+        if smart_proxy_enabled is None:
+            raise TypeError("Missing 'smart_proxy_enabled' argument")
 
         _setter("audience", audience)
         _setter("authority", authority)
@@ -1114,23 +1154,33 @@ class GetFhirServiceCorResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             allowed_headers: Sequence[str],
-             allowed_methods: Sequence[str],
-             allowed_origins: Sequence[str],
-             credentials_allowed: bool,
-             max_age_in_seconds: int,
+             allowed_headers: Optional[Sequence[str]] = None,
+             allowed_methods: Optional[Sequence[str]] = None,
+             allowed_origins: Optional[Sequence[str]] = None,
+             credentials_allowed: Optional[bool] = None,
+             max_age_in_seconds: Optional[int] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowedHeaders' in kwargs:
+        if allowed_headers is None and 'allowedHeaders' in kwargs:
             allowed_headers = kwargs['allowedHeaders']
-        if 'allowedMethods' in kwargs:
+        if allowed_headers is None:
+            raise TypeError("Missing 'allowed_headers' argument")
+        if allowed_methods is None and 'allowedMethods' in kwargs:
             allowed_methods = kwargs['allowedMethods']
-        if 'allowedOrigins' in kwargs:
+        if allowed_methods is None:
+            raise TypeError("Missing 'allowed_methods' argument")
+        if allowed_origins is None and 'allowedOrigins' in kwargs:
             allowed_origins = kwargs['allowedOrigins']
-        if 'credentialsAllowed' in kwargs:
+        if allowed_origins is None:
+            raise TypeError("Missing 'allowed_origins' argument")
+        if credentials_allowed is None and 'credentialsAllowed' in kwargs:
             credentials_allowed = kwargs['credentialsAllowed']
-        if 'maxAgeInSeconds' in kwargs:
+        if credentials_allowed is None:
+            raise TypeError("Missing 'credentials_allowed' argument")
+        if max_age_in_seconds is None and 'maxAgeInSeconds' in kwargs:
             max_age_in_seconds = kwargs['maxAgeInSeconds']
+        if max_age_in_seconds is None:
+            raise TypeError("Missing 'max_age_in_seconds' argument")
 
         _setter("allowed_headers", allowed_headers)
         _setter("allowed_methods", allowed_methods)
@@ -1201,18 +1251,26 @@ class GetFhirServiceIdentityResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             identity_ids: Sequence[str],
-             principal_id: str,
-             tenant_id: str,
-             type: str,
+             identity_ids: Optional[Sequence[str]] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if identity_ids is None:
+            raise TypeError("Missing 'identity_ids' argument")
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("identity_ids", identity_ids)
         _setter("principal_id", principal_id)
@@ -1271,18 +1329,26 @@ class GetMedtechServiceIdentityResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             identity_ids: Sequence[str],
-             principal_id: str,
-             tenant_id: str,
-             type: str,
+             identity_ids: Optional[Sequence[str]] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if identity_ids is None:
+            raise TypeError("Missing 'identity_ids' argument")
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("identity_ids", identity_ids)
         _setter("principal_id", principal_id)
@@ -1339,13 +1405,19 @@ class GetServiceAuthenticationConfigurationResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             audience: str,
-             authority: str,
-             smart_proxy_enabled: bool,
+             audience: Optional[str] = None,
+             authority: Optional[str] = None,
+             smart_proxy_enabled: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'smartProxyEnabled' in kwargs:
+        if audience is None:
+            raise TypeError("Missing 'audience' argument")
+        if authority is None:
+            raise TypeError("Missing 'authority' argument")
+        if smart_proxy_enabled is None and 'smartProxyEnabled' in kwargs:
             smart_proxy_enabled = kwargs['smartProxyEnabled']
+        if smart_proxy_enabled is None:
+            raise TypeError("Missing 'smart_proxy_enabled' argument")
 
         _setter("audience", audience)
         _setter("authority", authority)
@@ -1402,23 +1474,33 @@ class GetServiceCorsConfigurationResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             allow_credentials: bool,
-             allowed_headers: Sequence[str],
-             allowed_methods: Sequence[str],
-             allowed_origins: Sequence[str],
-             max_age_in_seconds: int,
+             allow_credentials: Optional[bool] = None,
+             allowed_headers: Optional[Sequence[str]] = None,
+             allowed_methods: Optional[Sequence[str]] = None,
+             allowed_origins: Optional[Sequence[str]] = None,
+             max_age_in_seconds: Optional[int] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'allowCredentials' in kwargs:
+        if allow_credentials is None and 'allowCredentials' in kwargs:
             allow_credentials = kwargs['allowCredentials']
-        if 'allowedHeaders' in kwargs:
+        if allow_credentials is None:
+            raise TypeError("Missing 'allow_credentials' argument")
+        if allowed_headers is None and 'allowedHeaders' in kwargs:
             allowed_headers = kwargs['allowedHeaders']
-        if 'allowedMethods' in kwargs:
+        if allowed_headers is None:
+            raise TypeError("Missing 'allowed_headers' argument")
+        if allowed_methods is None and 'allowedMethods' in kwargs:
             allowed_methods = kwargs['allowedMethods']
-        if 'allowedOrigins' in kwargs:
+        if allowed_methods is None:
+            raise TypeError("Missing 'allowed_methods' argument")
+        if allowed_origins is None and 'allowedOrigins' in kwargs:
             allowed_origins = kwargs['allowedOrigins']
-        if 'maxAgeInSeconds' in kwargs:
+        if allowed_origins is None:
+            raise TypeError("Missing 'allowed_origins' argument")
+        if max_age_in_seconds is None and 'maxAgeInSeconds' in kwargs:
             max_age_in_seconds = kwargs['maxAgeInSeconds']
+        if max_age_in_seconds is None:
+            raise TypeError("Missing 'max_age_in_seconds' argument")
 
         _setter("allow_credentials", allow_credentials)
         _setter("allowed_headers", allowed_headers)

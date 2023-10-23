@@ -32,13 +32,15 @@ class NetworkManagerNetworkGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             network_manager_id: pulumi.Input[str],
+             network_manager_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'networkManagerId' in kwargs:
+        if network_manager_id is None and 'networkManagerId' in kwargs:
             network_manager_id = kwargs['networkManagerId']
+        if network_manager_id is None:
+            raise TypeError("Missing 'network_manager_id' argument")
 
         _setter("network_manager_id", network_manager_id)
         if description is not None:
@@ -109,7 +111,7 @@ class _NetworkManagerNetworkGroupState:
              network_manager_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'networkManagerId' in kwargs:
+        if network_manager_id is None and 'networkManagerId' in kwargs:
             network_manager_id = kwargs['networkManagerId']
 
         if description is not None:

@@ -61,10 +61,10 @@ class BackendArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_management_name: pulumi.Input[str],
-             protocol: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             url: pulumi.Input[str],
+             api_management_name: Optional[pulumi.Input[str]] = None,
+             protocol: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
              credentials: Optional[pulumi.Input['BackendCredentialsArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
@@ -75,13 +75,21 @@ class BackendArgs:
              tls: Optional[pulumi.Input['BackendTlsArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'resourceGroupName' in kwargs:
+        if api_management_name is None:
+            raise TypeError("Missing 'api_management_name' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'resourceId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+        if resource_id is None and 'resourceId' in kwargs:
             resource_id = kwargs['resourceId']
-        if 'serviceFabricCluster' in kwargs:
+        if service_fabric_cluster is None and 'serviceFabricCluster' in kwargs:
             service_fabric_cluster = kwargs['serviceFabricCluster']
 
         _setter("api_management_name", api_management_name)
@@ -312,13 +320,13 @@ class _BackendState:
              url: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'resourceId' in kwargs:
+        if resource_id is None and 'resourceId' in kwargs:
             resource_id = kwargs['resourceId']
-        if 'serviceFabricCluster' in kwargs:
+        if service_fabric_cluster is None and 'serviceFabricCluster' in kwargs:
             service_fabric_cluster = kwargs['serviceFabricCluster']
 
         if api_management_name is not None:

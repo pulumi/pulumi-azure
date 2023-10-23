@@ -34,12 +34,16 @@ class SourceControlTokenArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             token: pulumi.Input[str],
-             type: pulumi.Input[str],
+             token: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              token_secret: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'tokenSecret' in kwargs:
+        if token is None:
+            raise TypeError("Missing 'token' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if token_secret is None and 'tokenSecret' in kwargs:
             token_secret = kwargs['tokenSecret']
 
         _setter("token", token)
@@ -114,7 +118,7 @@ class _SourceControlTokenState:
              type: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'tokenSecret' in kwargs:
+        if token_secret is None and 'tokenSecret' in kwargs:
             token_secret = kwargs['tokenSecret']
 
         if token is not None:

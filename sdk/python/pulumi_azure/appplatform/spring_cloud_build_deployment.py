@@ -46,8 +46,8 @@ class SpringCloudBuildDeploymentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             build_result_id: pulumi.Input[str],
-             spring_cloud_app_id: pulumi.Input[str],
+             build_result_id: Optional[pulumi.Input[str]] = None,
+             spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
              addon_json: Optional[pulumi.Input[str]] = None,
              environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              instance_count: Optional[pulumi.Input[int]] = None,
@@ -55,15 +55,19 @@ class SpringCloudBuildDeploymentArgs:
              quota: Optional[pulumi.Input['SpringCloudBuildDeploymentQuotaArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'buildResultId' in kwargs:
+        if build_result_id is None and 'buildResultId' in kwargs:
             build_result_id = kwargs['buildResultId']
-        if 'springCloudAppId' in kwargs:
+        if build_result_id is None:
+            raise TypeError("Missing 'build_result_id' argument")
+        if spring_cloud_app_id is None and 'springCloudAppId' in kwargs:
             spring_cloud_app_id = kwargs['springCloudAppId']
-        if 'addonJson' in kwargs:
+        if spring_cloud_app_id is None:
+            raise TypeError("Missing 'spring_cloud_app_id' argument")
+        if addon_json is None and 'addonJson' in kwargs:
             addon_json = kwargs['addonJson']
-        if 'environmentVariables' in kwargs:
+        if environment_variables is None and 'environmentVariables' in kwargs:
             environment_variables = kwargs['environmentVariables']
-        if 'instanceCount' in kwargs:
+        if instance_count is None and 'instanceCount' in kwargs:
             instance_count = kwargs['instanceCount']
 
         _setter("build_result_id", build_result_id)
@@ -206,15 +210,15 @@ class _SpringCloudBuildDeploymentState:
              spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'addonJson' in kwargs:
+        if addon_json is None and 'addonJson' in kwargs:
             addon_json = kwargs['addonJson']
-        if 'buildResultId' in kwargs:
+        if build_result_id is None and 'buildResultId' in kwargs:
             build_result_id = kwargs['buildResultId']
-        if 'environmentVariables' in kwargs:
+        if environment_variables is None and 'environmentVariables' in kwargs:
             environment_variables = kwargs['environmentVariables']
-        if 'instanceCount' in kwargs:
+        if instance_count is None and 'instanceCount' in kwargs:
             instance_count = kwargs['instanceCount']
-        if 'springCloudAppId' in kwargs:
+        if spring_cloud_app_id is None and 'springCloudAppId' in kwargs:
             spring_cloud_app_id = kwargs['springCloudAppId']
 
         if addon_json is not None:

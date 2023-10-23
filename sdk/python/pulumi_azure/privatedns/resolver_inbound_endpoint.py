@@ -40,17 +40,21 @@ class ResolverInboundEndpointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ip_configurations: pulumi.Input[Sequence[pulumi.Input['ResolverInboundEndpointIpConfigurationArgs']]],
-             private_dns_resolver_id: pulumi.Input[str],
+             ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ResolverInboundEndpointIpConfigurationArgs']]]] = None,
+             private_dns_resolver_id: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ipConfigurations' in kwargs:
+        if ip_configurations is None and 'ipConfigurations' in kwargs:
             ip_configurations = kwargs['ipConfigurations']
-        if 'privateDnsResolverId' in kwargs:
+        if ip_configurations is None:
+            raise TypeError("Missing 'ip_configurations' argument")
+        if private_dns_resolver_id is None and 'privateDnsResolverId' in kwargs:
             private_dns_resolver_id = kwargs['privateDnsResolverId']
+        if private_dns_resolver_id is None:
+            raise TypeError("Missing 'private_dns_resolver_id' argument")
 
         _setter("ip_configurations", ip_configurations)
         _setter("private_dns_resolver_id", private_dns_resolver_id)
@@ -156,9 +160,9 @@ class _ResolverInboundEndpointState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'ipConfigurations' in kwargs:
+        if ip_configurations is None and 'ipConfigurations' in kwargs:
             ip_configurations = kwargs['ipConfigurations']
-        if 'privateDnsResolverId' in kwargs:
+        if private_dns_resolver_id is None and 'privateDnsResolverId' in kwargs:
             private_dns_resolver_id = kwargs['privateDnsResolverId']
 
         if ip_configurations is not None:

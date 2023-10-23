@@ -65,19 +65,23 @@ class VaultEncryption(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             infrastructure_encryption_enabled: bool,
-             key_id: str,
+             infrastructure_encryption_enabled: Optional[bool] = None,
+             key_id: Optional[str] = None,
              use_system_assigned_identity: Optional[bool] = None,
              user_assigned_identity_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'infrastructureEncryptionEnabled' in kwargs:
+        if infrastructure_encryption_enabled is None and 'infrastructureEncryptionEnabled' in kwargs:
             infrastructure_encryption_enabled = kwargs['infrastructureEncryptionEnabled']
-        if 'keyId' in kwargs:
+        if infrastructure_encryption_enabled is None:
+            raise TypeError("Missing 'infrastructure_encryption_enabled' argument")
+        if key_id is None and 'keyId' in kwargs:
             key_id = kwargs['keyId']
-        if 'useSystemAssignedIdentity' in kwargs:
+        if key_id is None:
+            raise TypeError("Missing 'key_id' argument")
+        if use_system_assigned_identity is None and 'useSystemAssignedIdentity' in kwargs:
             use_system_assigned_identity = kwargs['useSystemAssignedIdentity']
-        if 'userAssignedIdentityId' in kwargs:
+        if user_assigned_identity_id is None and 'userAssignedIdentityId' in kwargs:
             user_assigned_identity_id = kwargs['userAssignedIdentityId']
 
         _setter("infrastructure_encryption_enabled", infrastructure_encryption_enabled)
@@ -170,17 +174,19 @@ class VaultIdentity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -266,9 +272,9 @@ class VaultMonitoring(dict):
              alerts_for_critical_operation_failures_enabled: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'alertsForAllJobFailuresEnabled' in kwargs:
+        if alerts_for_all_job_failures_enabled is None and 'alertsForAllJobFailuresEnabled' in kwargs:
             alerts_for_all_job_failures_enabled = kwargs['alertsForAllJobFailuresEnabled']
-        if 'alertsForCriticalOperationFailuresEnabled' in kwargs:
+        if alerts_for_critical_operation_failures_enabled is None and 'alertsForCriticalOperationFailuresEnabled' in kwargs:
             alerts_for_critical_operation_failures_enabled = kwargs['alertsForCriticalOperationFailuresEnabled']
 
         if alerts_for_all_job_failures_enabled is not None:

@@ -40,15 +40,19 @@ class LogzSubAccountArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             logz_monitor_id: pulumi.Input[str],
-             user: pulumi.Input['LogzSubAccountUserArgs'],
+             logz_monitor_id: Optional[pulumi.Input[str]] = None,
+             user: Optional[pulumi.Input['LogzSubAccountUserArgs']] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'logzMonitorId' in kwargs:
+        if logz_monitor_id is None and 'logzMonitorId' in kwargs:
             logz_monitor_id = kwargs['logzMonitorId']
+        if logz_monitor_id is None:
+            raise TypeError("Missing 'logz_monitor_id' argument")
+        if user is None:
+            raise TypeError("Missing 'user' argument")
 
         _setter("logz_monitor_id", logz_monitor_id)
         _setter("user", user)
@@ -154,7 +158,7 @@ class _LogzSubAccountState:
              user: Optional[pulumi.Input['LogzSubAccountUserArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'logzMonitorId' in kwargs:
+        if logz_monitor_id is None and 'logzMonitorId' in kwargs:
             logz_monitor_id = kwargs['logzMonitorId']
 
         if enabled is not None:

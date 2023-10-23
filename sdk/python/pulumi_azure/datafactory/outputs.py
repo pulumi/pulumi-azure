@@ -132,10 +132,12 @@ class CustomDatasetLinkedService(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              parameters: Optional[Mapping[str, str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
         if parameters is not None:
@@ -211,7 +213,7 @@ class DataFlowSink(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              dataset: Optional['outputs.DataFlowSinkDataset'] = None,
              description: Optional[str] = None,
              flowlet: Optional['outputs.DataFlowSinkFlowlet'] = None,
@@ -220,11 +222,13 @@ class DataFlowSink(dict):
              schema_linked_service: Optional['outputs.DataFlowSinkSchemaLinkedService'] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'linkedService' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if linked_service is None and 'linkedService' in kwargs:
             linked_service = kwargs['linkedService']
-        if 'rejectedLinkedService' in kwargs:
+        if rejected_linked_service is None and 'rejectedLinkedService' in kwargs:
             rejected_linked_service = kwargs['rejectedLinkedService']
-        if 'schemaLinkedService' in kwargs:
+        if schema_linked_service is None and 'schemaLinkedService' in kwargs:
             schema_linked_service = kwargs['schemaLinkedService']
 
         _setter("name", name)
@@ -315,10 +319,12 @@ class DataFlowSinkDataset(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              parameters: Optional[Mapping[str, str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
         if parameters is not None:
@@ -378,12 +384,14 @@ class DataFlowSinkFlowlet(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              dataset_parameters: Optional[str] = None,
              parameters: Optional[Mapping[str, str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'datasetParameters' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if dataset_parameters is None and 'datasetParameters' in kwargs:
             dataset_parameters = kwargs['datasetParameters']
 
         _setter("name", name)
@@ -434,10 +442,12 @@ class DataFlowSinkLinkedService(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              parameters: Optional[Mapping[str, str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
         if parameters is not None:
@@ -477,10 +487,12 @@ class DataFlowSinkRejectedLinkedService(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              parameters: Optional[Mapping[str, str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
         if parameters is not None:
@@ -520,10 +532,12 @@ class DataFlowSinkSchemaLinkedService(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              parameters: Optional[Mapping[str, str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
         if parameters is not None:
@@ -599,7 +613,7 @@ class DataFlowSource(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              dataset: Optional['outputs.DataFlowSourceDataset'] = None,
              description: Optional[str] = None,
              flowlet: Optional['outputs.DataFlowSourceFlowlet'] = None,
@@ -608,11 +622,13 @@ class DataFlowSource(dict):
              schema_linked_service: Optional['outputs.DataFlowSourceSchemaLinkedService'] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'linkedService' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if linked_service is None and 'linkedService' in kwargs:
             linked_service = kwargs['linkedService']
-        if 'rejectedLinkedService' in kwargs:
+        if rejected_linked_service is None and 'rejectedLinkedService' in kwargs:
             rejected_linked_service = kwargs['rejectedLinkedService']
-        if 'schemaLinkedService' in kwargs:
+        if schema_linked_service is None and 'schemaLinkedService' in kwargs:
             schema_linked_service = kwargs['schemaLinkedService']
 
         _setter("name", name)
@@ -703,10 +719,12 @@ class DataFlowSourceDataset(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              parameters: Optional[Mapping[str, str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
         if parameters is not None:
@@ -766,12 +784,14 @@ class DataFlowSourceFlowlet(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              dataset_parameters: Optional[str] = None,
              parameters: Optional[Mapping[str, str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'datasetParameters' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if dataset_parameters is None and 'datasetParameters' in kwargs:
             dataset_parameters = kwargs['datasetParameters']
 
         _setter("name", name)
@@ -822,10 +842,12 @@ class DataFlowSourceLinkedService(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              parameters: Optional[Mapping[str, str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
         if parameters is not None:
@@ -865,10 +887,12 @@ class DataFlowSourceRejectedLinkedService(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              parameters: Optional[Mapping[str, str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
         if parameters is not None:
@@ -908,10 +932,12 @@ class DataFlowSourceSchemaLinkedService(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              parameters: Optional[Mapping[str, str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
         if parameters is not None:
@@ -977,14 +1003,16 @@ class DataFlowTransformation(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              dataset: Optional['outputs.DataFlowTransformationDataset'] = None,
              description: Optional[str] = None,
              flowlet: Optional['outputs.DataFlowTransformationFlowlet'] = None,
              linked_service: Optional['outputs.DataFlowTransformationLinkedService'] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'linkedService' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if linked_service is None and 'linkedService' in kwargs:
             linked_service = kwargs['linkedService']
 
         _setter("name", name)
@@ -1055,10 +1083,12 @@ class DataFlowTransformationDataset(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              parameters: Optional[Mapping[str, str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
         if parameters is not None:
@@ -1118,12 +1148,14 @@ class DataFlowTransformationFlowlet(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              dataset_parameters: Optional[str] = None,
              parameters: Optional[Mapping[str, str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'datasetParameters' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if dataset_parameters is None and 'datasetParameters' in kwargs:
             dataset_parameters = kwargs['datasetParameters']
 
         _setter("name", name)
@@ -1174,10 +1206,12 @@ class DataFlowTransformationLinkedService(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              parameters: Optional[Mapping[str, str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
         if parameters is not None:
@@ -1220,11 +1254,13 @@ class DatasetAzureBlobSchemaColumn(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              description: Optional[str] = None,
              type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
         if description is not None:
@@ -1277,11 +1313,13 @@ class DatasetAzureSqlTableSchemaColumn(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              description: Optional[str] = None,
              type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
         if description is not None:
@@ -1364,7 +1402,7 @@ class DatasetBinaryAzureBlobStorageLocation(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             container: str,
+             container: Optional[str] = None,
              dynamic_container_enabled: Optional[bool] = None,
              dynamic_filename_enabled: Optional[bool] = None,
              dynamic_path_enabled: Optional[bool] = None,
@@ -1372,11 +1410,13 @@ class DatasetBinaryAzureBlobStorageLocation(dict):
              path: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dynamicContainerEnabled' in kwargs:
+        if container is None:
+            raise TypeError("Missing 'container' argument")
+        if dynamic_container_enabled is None and 'dynamicContainerEnabled' in kwargs:
             dynamic_container_enabled = kwargs['dynamicContainerEnabled']
-        if 'dynamicFilenameEnabled' in kwargs:
+        if dynamic_filename_enabled is None and 'dynamicFilenameEnabled' in kwargs:
             dynamic_filename_enabled = kwargs['dynamicFilenameEnabled']
-        if 'dynamicPathEnabled' in kwargs:
+        if dynamic_path_enabled is None and 'dynamicPathEnabled' in kwargs:
             dynamic_path_enabled = kwargs['dynamicPathEnabled']
 
         _setter("container", container)
@@ -1457,10 +1497,12 @@ class DatasetBinaryCompression(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              level: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("type", type)
         if level is not None:
@@ -1530,18 +1572,24 @@ class DatasetBinaryHttpServerLocation(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             filename: str,
-             path: str,
-             relative_url: str,
+             filename: Optional[str] = None,
+             path: Optional[str] = None,
+             relative_url: Optional[str] = None,
              dynamic_filename_enabled: Optional[bool] = None,
              dynamic_path_enabled: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'relativeUrl' in kwargs:
+        if filename is None:
+            raise TypeError("Missing 'filename' argument")
+        if path is None:
+            raise TypeError("Missing 'path' argument")
+        if relative_url is None and 'relativeUrl' in kwargs:
             relative_url = kwargs['relativeUrl']
-        if 'dynamicFilenameEnabled' in kwargs:
+        if relative_url is None:
+            raise TypeError("Missing 'relative_url' argument")
+        if dynamic_filename_enabled is None and 'dynamicFilenameEnabled' in kwargs:
             dynamic_filename_enabled = kwargs['dynamicFilenameEnabled']
-        if 'dynamicPathEnabled' in kwargs:
+        if dynamic_path_enabled is None and 'dynamicPathEnabled' in kwargs:
             dynamic_path_enabled = kwargs['dynamicPathEnabled']
 
         _setter("filename", filename)
@@ -1635,15 +1683,19 @@ class DatasetBinarySftpServerLocation(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             filename: str,
-             path: str,
+             filename: Optional[str] = None,
+             path: Optional[str] = None,
              dynamic_filename_enabled: Optional[bool] = None,
              dynamic_path_enabled: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dynamicFilenameEnabled' in kwargs:
+        if filename is None:
+            raise TypeError("Missing 'filename' argument")
+        if path is None:
+            raise TypeError("Missing 'path' argument")
+        if dynamic_filename_enabled is None and 'dynamicFilenameEnabled' in kwargs:
             dynamic_filename_enabled = kwargs['dynamicFilenameEnabled']
-        if 'dynamicPathEnabled' in kwargs:
+        if dynamic_path_enabled is None and 'dynamicPathEnabled' in kwargs:
             dynamic_path_enabled = kwargs['dynamicPathEnabled']
 
         _setter("filename", filename)
@@ -1706,11 +1758,13 @@ class DatasetCosmosDBApiSchemaColumn(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              description: Optional[str] = None,
              type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
         if description is not None:
@@ -1803,13 +1857,13 @@ class DatasetDelimitedTextAzureBlobFsLocation(dict):
              path: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dynamicFileSystemEnabled' in kwargs:
+        if dynamic_file_system_enabled is None and 'dynamicFileSystemEnabled' in kwargs:
             dynamic_file_system_enabled = kwargs['dynamicFileSystemEnabled']
-        if 'dynamicFilenameEnabled' in kwargs:
+        if dynamic_filename_enabled is None and 'dynamicFilenameEnabled' in kwargs:
             dynamic_filename_enabled = kwargs['dynamicFilenameEnabled']
-        if 'dynamicPathEnabled' in kwargs:
+        if dynamic_path_enabled is None and 'dynamicPathEnabled' in kwargs:
             dynamic_path_enabled = kwargs['dynamicPathEnabled']
-        if 'fileSystem' in kwargs:
+        if file_system is None and 'fileSystem' in kwargs:
             file_system = kwargs['fileSystem']
 
         if dynamic_file_system_enabled is not None:
@@ -1924,7 +1978,7 @@ class DatasetDelimitedTextAzureBlobStorageLocation(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             container: str,
+             container: Optional[str] = None,
              dynamic_container_enabled: Optional[bool] = None,
              dynamic_filename_enabled: Optional[bool] = None,
              dynamic_path_enabled: Optional[bool] = None,
@@ -1932,11 +1986,13 @@ class DatasetDelimitedTextAzureBlobStorageLocation(dict):
              path: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dynamicContainerEnabled' in kwargs:
+        if container is None:
+            raise TypeError("Missing 'container' argument")
+        if dynamic_container_enabled is None and 'dynamicContainerEnabled' in kwargs:
             dynamic_container_enabled = kwargs['dynamicContainerEnabled']
-        if 'dynamicFilenameEnabled' in kwargs:
+        if dynamic_filename_enabled is None and 'dynamicFilenameEnabled' in kwargs:
             dynamic_filename_enabled = kwargs['dynamicFilenameEnabled']
-        if 'dynamicPathEnabled' in kwargs:
+        if dynamic_path_enabled is None and 'dynamicPathEnabled' in kwargs:
             dynamic_path_enabled = kwargs['dynamicPathEnabled']
 
         _setter("container", container)
@@ -2047,18 +2103,24 @@ class DatasetDelimitedTextHttpServerLocation(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             filename: str,
-             path: str,
-             relative_url: str,
+             filename: Optional[str] = None,
+             path: Optional[str] = None,
+             relative_url: Optional[str] = None,
              dynamic_filename_enabled: Optional[bool] = None,
              dynamic_path_enabled: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'relativeUrl' in kwargs:
+        if filename is None:
+            raise TypeError("Missing 'filename' argument")
+        if path is None:
+            raise TypeError("Missing 'path' argument")
+        if relative_url is None and 'relativeUrl' in kwargs:
             relative_url = kwargs['relativeUrl']
-        if 'dynamicFilenameEnabled' in kwargs:
+        if relative_url is None:
+            raise TypeError("Missing 'relative_url' argument")
+        if dynamic_filename_enabled is None and 'dynamicFilenameEnabled' in kwargs:
             dynamic_filename_enabled = kwargs['dynamicFilenameEnabled']
-        if 'dynamicPathEnabled' in kwargs:
+        if dynamic_path_enabled is None and 'dynamicPathEnabled' in kwargs:
             dynamic_path_enabled = kwargs['dynamicPathEnabled']
 
         _setter("filename", filename)
@@ -2130,11 +2192,13 @@ class DatasetDelimitedTextSchemaColumn(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              description: Optional[str] = None,
              type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
         if description is not None:
@@ -2187,11 +2251,13 @@ class DatasetHttpSchemaColumn(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              description: Optional[str] = None,
              type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
         if description is not None:
@@ -2274,19 +2340,25 @@ class DatasetJsonAzureBlobStorageLocation(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             container: str,
-             filename: str,
-             path: str,
+             container: Optional[str] = None,
+             filename: Optional[str] = None,
+             path: Optional[str] = None,
              dynamic_container_enabled: Optional[bool] = None,
              dynamic_filename_enabled: Optional[bool] = None,
              dynamic_path_enabled: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dynamicContainerEnabled' in kwargs:
+        if container is None:
+            raise TypeError("Missing 'container' argument")
+        if filename is None:
+            raise TypeError("Missing 'filename' argument")
+        if path is None:
+            raise TypeError("Missing 'path' argument")
+        if dynamic_container_enabled is None and 'dynamicContainerEnabled' in kwargs:
             dynamic_container_enabled = kwargs['dynamicContainerEnabled']
-        if 'dynamicFilenameEnabled' in kwargs:
+        if dynamic_filename_enabled is None and 'dynamicFilenameEnabled' in kwargs:
             dynamic_filename_enabled = kwargs['dynamicFilenameEnabled']
-        if 'dynamicPathEnabled' in kwargs:
+        if dynamic_path_enabled is None and 'dynamicPathEnabled' in kwargs:
             dynamic_path_enabled = kwargs['dynamicPathEnabled']
 
         _setter("container", container)
@@ -2395,18 +2467,24 @@ class DatasetJsonHttpServerLocation(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             filename: str,
-             path: str,
-             relative_url: str,
+             filename: Optional[str] = None,
+             path: Optional[str] = None,
+             relative_url: Optional[str] = None,
              dynamic_filename_enabled: Optional[bool] = None,
              dynamic_path_enabled: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'relativeUrl' in kwargs:
+        if filename is None:
+            raise TypeError("Missing 'filename' argument")
+        if path is None:
+            raise TypeError("Missing 'path' argument")
+        if relative_url is None and 'relativeUrl' in kwargs:
             relative_url = kwargs['relativeUrl']
-        if 'dynamicFilenameEnabled' in kwargs:
+        if relative_url is None:
+            raise TypeError("Missing 'relative_url' argument")
+        if dynamic_filename_enabled is None and 'dynamicFilenameEnabled' in kwargs:
             dynamic_filename_enabled = kwargs['dynamicFilenameEnabled']
-        if 'dynamicPathEnabled' in kwargs:
+        if dynamic_path_enabled is None and 'dynamicPathEnabled' in kwargs:
             dynamic_path_enabled = kwargs['dynamicPathEnabled']
 
         _setter("filename", filename)
@@ -2478,11 +2556,13 @@ class DatasetJsonSchemaColumn(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              description: Optional[str] = None,
              type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
         if description is not None:
@@ -2535,11 +2615,13 @@ class DatasetMysqlSchemaColumn(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              description: Optional[str] = None,
              type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
         if description is not None:
@@ -2632,13 +2714,13 @@ class DatasetParquetAzureBlobFsLocation(dict):
              path: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dynamicFileSystemEnabled' in kwargs:
+        if dynamic_file_system_enabled is None and 'dynamicFileSystemEnabled' in kwargs:
             dynamic_file_system_enabled = kwargs['dynamicFileSystemEnabled']
-        if 'dynamicFilenameEnabled' in kwargs:
+        if dynamic_filename_enabled is None and 'dynamicFilenameEnabled' in kwargs:
             dynamic_filename_enabled = kwargs['dynamicFilenameEnabled']
-        if 'dynamicPathEnabled' in kwargs:
+        if dynamic_path_enabled is None and 'dynamicPathEnabled' in kwargs:
             dynamic_path_enabled = kwargs['dynamicPathEnabled']
-        if 'fileSystem' in kwargs:
+        if file_system is None and 'fileSystem' in kwargs:
             file_system = kwargs['fileSystem']
 
         if dynamic_file_system_enabled is not None:
@@ -2753,7 +2835,7 @@ class DatasetParquetAzureBlobStorageLocation(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             container: str,
+             container: Optional[str] = None,
              dynamic_container_enabled: Optional[bool] = None,
              dynamic_filename_enabled: Optional[bool] = None,
              dynamic_path_enabled: Optional[bool] = None,
@@ -2761,11 +2843,13 @@ class DatasetParquetAzureBlobStorageLocation(dict):
              path: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'dynamicContainerEnabled' in kwargs:
+        if container is None:
+            raise TypeError("Missing 'container' argument")
+        if dynamic_container_enabled is None and 'dynamicContainerEnabled' in kwargs:
             dynamic_container_enabled = kwargs['dynamicContainerEnabled']
-        if 'dynamicFilenameEnabled' in kwargs:
+        if dynamic_filename_enabled is None and 'dynamicFilenameEnabled' in kwargs:
             dynamic_filename_enabled = kwargs['dynamicFilenameEnabled']
-        if 'dynamicPathEnabled' in kwargs:
+        if dynamic_path_enabled is None and 'dynamicPathEnabled' in kwargs:
             dynamic_path_enabled = kwargs['dynamicPathEnabled']
 
         _setter("container", container)
@@ -2876,18 +2960,22 @@ class DatasetParquetHttpServerLocation(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             filename: str,
-             relative_url: str,
+             filename: Optional[str] = None,
+             relative_url: Optional[str] = None,
              dynamic_filename_enabled: Optional[bool] = None,
              dynamic_path_enabled: Optional[bool] = None,
              path: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'relativeUrl' in kwargs:
+        if filename is None:
+            raise TypeError("Missing 'filename' argument")
+        if relative_url is None and 'relativeUrl' in kwargs:
             relative_url = kwargs['relativeUrl']
-        if 'dynamicFilenameEnabled' in kwargs:
+        if relative_url is None:
+            raise TypeError("Missing 'relative_url' argument")
+        if dynamic_filename_enabled is None and 'dynamicFilenameEnabled' in kwargs:
             dynamic_filename_enabled = kwargs['dynamicFilenameEnabled']
-        if 'dynamicPathEnabled' in kwargs:
+        if dynamic_path_enabled is None and 'dynamicPathEnabled' in kwargs:
             dynamic_path_enabled = kwargs['dynamicPathEnabled']
 
         _setter("filename", filename)
@@ -2960,11 +3048,13 @@ class DatasetParquetSchemaColumn(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              description: Optional[str] = None,
              type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
         if description is not None:
@@ -3017,11 +3107,13 @@ class DatasetPostgresqlSchemaColumn(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              description: Optional[str] = None,
              type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
         if description is not None:
@@ -3077,12 +3169,14 @@ class DatasetSnowflakeSchemaColumn(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              precision: Optional[int] = None,
              scale: Optional[int] = None,
              type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
         if precision is not None:
@@ -3145,11 +3239,13 @@ class DatasetSqlServerTableSchemaColumn(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              description: Optional[str] = None,
              type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
         if description is not None:
@@ -3240,25 +3336,35 @@ class FactoryGithubConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             account_name: str,
-             branch_name: str,
-             git_url: str,
-             repository_name: str,
-             root_folder: str,
+             account_name: Optional[str] = None,
+             branch_name: Optional[str] = None,
+             git_url: Optional[str] = None,
+             repository_name: Optional[str] = None,
+             root_folder: Optional[str] = None,
              publishing_enabled: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accountName' in kwargs:
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'branchName' in kwargs:
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if branch_name is None and 'branchName' in kwargs:
             branch_name = kwargs['branchName']
-        if 'gitUrl' in kwargs:
+        if branch_name is None:
+            raise TypeError("Missing 'branch_name' argument")
+        if git_url is None and 'gitUrl' in kwargs:
             git_url = kwargs['gitUrl']
-        if 'repositoryName' in kwargs:
+        if git_url is None:
+            raise TypeError("Missing 'git_url' argument")
+        if repository_name is None and 'repositoryName' in kwargs:
             repository_name = kwargs['repositoryName']
-        if 'rootFolder' in kwargs:
+        if repository_name is None:
+            raise TypeError("Missing 'repository_name' argument")
+        if root_folder is None and 'rootFolder' in kwargs:
             root_folder = kwargs['rootFolder']
-        if 'publishingEnabled' in kwargs:
+        if root_folder is None:
+            raise TypeError("Missing 'root_folder' argument")
+        if publishing_enabled is None and 'publishingEnabled' in kwargs:
             publishing_enabled = kwargs['publishingEnabled']
 
         _setter("account_name", account_name)
@@ -3342,11 +3448,17 @@ class FactoryGlobalParameter(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             type: str,
-             value: str,
+             name: Optional[str] = None,
+             type: Optional[str] = None,
+             value: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("name", name)
         _setter("type", type)
@@ -3425,17 +3537,19 @@ class FactoryIdentity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -3542,28 +3656,40 @@ class FactoryVstsConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             account_name: str,
-             branch_name: str,
-             project_name: str,
-             repository_name: str,
-             root_folder: str,
-             tenant_id: str,
+             account_name: Optional[str] = None,
+             branch_name: Optional[str] = None,
+             project_name: Optional[str] = None,
+             repository_name: Optional[str] = None,
+             root_folder: Optional[str] = None,
+             tenant_id: Optional[str] = None,
              publishing_enabled: Optional[bool] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accountName' in kwargs:
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'branchName' in kwargs:
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if branch_name is None and 'branchName' in kwargs:
             branch_name = kwargs['branchName']
-        if 'projectName' in kwargs:
+        if branch_name is None:
+            raise TypeError("Missing 'branch_name' argument")
+        if project_name is None and 'projectName' in kwargs:
             project_name = kwargs['projectName']
-        if 'repositoryName' in kwargs:
+        if project_name is None:
+            raise TypeError("Missing 'project_name' argument")
+        if repository_name is None and 'repositoryName' in kwargs:
             repository_name = kwargs['repositoryName']
-        if 'rootFolder' in kwargs:
+        if repository_name is None:
+            raise TypeError("Missing 'repository_name' argument")
+        if root_folder is None and 'rootFolder' in kwargs:
             root_folder = kwargs['rootFolder']
-        if 'tenantId' in kwargs:
+        if root_folder is None:
+            raise TypeError("Missing 'root_folder' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
-        if 'publishingEnabled' in kwargs:
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if publishing_enabled is None and 'publishingEnabled' in kwargs:
             publishing_enabled = kwargs['publishingEnabled']
 
         _setter("account_name", account_name)
@@ -3685,7 +3811,7 @@ class FlowletDataFlowSink(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              dataset: Optional['outputs.FlowletDataFlowSinkDataset'] = None,
              description: Optional[str] = None,
              flowlet: Optional['outputs.FlowletDataFlowSinkFlowlet'] = None,
@@ -3694,11 +3820,13 @@ class FlowletDataFlowSink(dict):
              schema_linked_service: Optional['outputs.FlowletDataFlowSinkSchemaLinkedService'] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'linkedService' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if linked_service is None and 'linkedService' in kwargs:
             linked_service = kwargs['linkedService']
-        if 'rejectedLinkedService' in kwargs:
+        if rejected_linked_service is None and 'rejectedLinkedService' in kwargs:
             rejected_linked_service = kwargs['rejectedLinkedService']
-        if 'schemaLinkedService' in kwargs:
+        if schema_linked_service is None and 'schemaLinkedService' in kwargs:
             schema_linked_service = kwargs['schemaLinkedService']
 
         _setter("name", name)
@@ -3789,10 +3917,12 @@ class FlowletDataFlowSinkDataset(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              parameters: Optional[Mapping[str, str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
         if parameters is not None:
@@ -3852,12 +3982,14 @@ class FlowletDataFlowSinkFlowlet(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              dataset_parameters: Optional[str] = None,
              parameters: Optional[Mapping[str, str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'datasetParameters' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if dataset_parameters is None and 'datasetParameters' in kwargs:
             dataset_parameters = kwargs['datasetParameters']
 
         _setter("name", name)
@@ -3908,10 +4040,12 @@ class FlowletDataFlowSinkLinkedService(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              parameters: Optional[Mapping[str, str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
         if parameters is not None:
@@ -3951,10 +4085,12 @@ class FlowletDataFlowSinkRejectedLinkedService(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              parameters: Optional[Mapping[str, str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
         if parameters is not None:
@@ -3994,10 +4130,12 @@ class FlowletDataFlowSinkSchemaLinkedService(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              parameters: Optional[Mapping[str, str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
         if parameters is not None:
@@ -4073,7 +4211,7 @@ class FlowletDataFlowSource(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              dataset: Optional['outputs.FlowletDataFlowSourceDataset'] = None,
              description: Optional[str] = None,
              flowlet: Optional['outputs.FlowletDataFlowSourceFlowlet'] = None,
@@ -4082,11 +4220,13 @@ class FlowletDataFlowSource(dict):
              schema_linked_service: Optional['outputs.FlowletDataFlowSourceSchemaLinkedService'] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'linkedService' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if linked_service is None and 'linkedService' in kwargs:
             linked_service = kwargs['linkedService']
-        if 'rejectedLinkedService' in kwargs:
+        if rejected_linked_service is None and 'rejectedLinkedService' in kwargs:
             rejected_linked_service = kwargs['rejectedLinkedService']
-        if 'schemaLinkedService' in kwargs:
+        if schema_linked_service is None and 'schemaLinkedService' in kwargs:
             schema_linked_service = kwargs['schemaLinkedService']
 
         _setter("name", name)
@@ -4177,10 +4317,12 @@ class FlowletDataFlowSourceDataset(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              parameters: Optional[Mapping[str, str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
         if parameters is not None:
@@ -4240,12 +4382,14 @@ class FlowletDataFlowSourceFlowlet(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              dataset_parameters: Optional[str] = None,
              parameters: Optional[Mapping[str, str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'datasetParameters' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if dataset_parameters is None and 'datasetParameters' in kwargs:
             dataset_parameters = kwargs['datasetParameters']
 
         _setter("name", name)
@@ -4296,10 +4440,12 @@ class FlowletDataFlowSourceLinkedService(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              parameters: Optional[Mapping[str, str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
         if parameters is not None:
@@ -4339,10 +4485,12 @@ class FlowletDataFlowSourceRejectedLinkedService(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              parameters: Optional[Mapping[str, str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
         if parameters is not None:
@@ -4382,10 +4530,12 @@ class FlowletDataFlowSourceSchemaLinkedService(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              parameters: Optional[Mapping[str, str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
         if parameters is not None:
@@ -4451,14 +4601,16 @@ class FlowletDataFlowTransformation(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              dataset: Optional['outputs.FlowletDataFlowTransformationDataset'] = None,
              description: Optional[str] = None,
              flowlet: Optional['outputs.FlowletDataFlowTransformationFlowlet'] = None,
              linked_service: Optional['outputs.FlowletDataFlowTransformationLinkedService'] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'linkedService' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if linked_service is None and 'linkedService' in kwargs:
             linked_service = kwargs['linkedService']
 
         _setter("name", name)
@@ -4529,10 +4681,12 @@ class FlowletDataFlowTransformationDataset(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              parameters: Optional[Mapping[str, str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
         if parameters is not None:
@@ -4592,12 +4746,14 @@ class FlowletDataFlowTransformationFlowlet(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              dataset_parameters: Optional[str] = None,
              parameters: Optional[Mapping[str, str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'datasetParameters' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if dataset_parameters is None and 'datasetParameters' in kwargs:
             dataset_parameters = kwargs['datasetParameters']
 
         _setter("name", name)
@@ -4648,10 +4804,12 @@ class FlowletDataFlowTransformationLinkedService(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              parameters: Optional[Mapping[str, str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
         if parameters is not None:
@@ -4720,19 +4878,21 @@ class IntegrationRuntimeManagedCatalogInfo(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             server_endpoint: str,
+             server_endpoint: Optional[str] = None,
              administrator_login: Optional[str] = None,
              administrator_password: Optional[str] = None,
              pricing_tier: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'serverEndpoint' in kwargs:
+        if server_endpoint is None and 'serverEndpoint' in kwargs:
             server_endpoint = kwargs['serverEndpoint']
-        if 'administratorLogin' in kwargs:
+        if server_endpoint is None:
+            raise TypeError("Missing 'server_endpoint' argument")
+        if administrator_login is None and 'administratorLogin' in kwargs:
             administrator_login = kwargs['administratorLogin']
-        if 'administratorPassword' in kwargs:
+        if administrator_password is None and 'administratorPassword' in kwargs:
             administrator_password = kwargs['administratorPassword']
-        if 'pricingTier' in kwargs:
+        if pricing_tier is None and 'pricingTier' in kwargs:
             pricing_tier = kwargs['pricingTier']
 
         _setter("server_endpoint", server_endpoint)
@@ -4812,14 +4972,18 @@ class IntegrationRuntimeManagedCustomSetupScript(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             blob_container_uri: str,
-             sas_token: str,
+             blob_container_uri: Optional[str] = None,
+             sas_token: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'blobContainerUri' in kwargs:
+        if blob_container_uri is None and 'blobContainerUri' in kwargs:
             blob_container_uri = kwargs['blobContainerUri']
-        if 'sasToken' in kwargs:
+        if blob_container_uri is None:
+            raise TypeError("Missing 'blob_container_uri' argument")
+        if sas_token is None and 'sasToken' in kwargs:
             sas_token = kwargs['sasToken']
+        if sas_token is None:
+            raise TypeError("Missing 'sas_token' argument")
 
         _setter("blob_container_uri", blob_container_uri)
         _setter("sas_token", sas_token)
@@ -4877,14 +5041,18 @@ class IntegrationRuntimeManagedVnetIntegration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             subnet_name: str,
-             vnet_id: str,
+             subnet_name: Optional[str] = None,
+             vnet_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'subnetName' in kwargs:
+        if subnet_name is None and 'subnetName' in kwargs:
             subnet_name = kwargs['subnetName']
-        if 'vnetId' in kwargs:
+        if subnet_name is None:
+            raise TypeError("Missing 'subnet_name' argument")
+        if vnet_id is None and 'vnetId' in kwargs:
             vnet_id = kwargs['vnetId']
+        if vnet_id is None:
+            raise TypeError("Missing 'vnet_id' argument")
 
         _setter("subnet_name", subnet_name)
         _setter("vnet_id", vnet_id)
@@ -4941,11 +5109,13 @@ class IntegrationRuntimeSelfHostedRbacAuthorization(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_id: str,
+             resource_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceId' in kwargs:
+        if resource_id is None and 'resourceId' in kwargs:
             resource_id = kwargs['resourceId']
+        if resource_id is None:
+            raise TypeError("Missing 'resource_id' argument")
 
         _setter("resource_id", resource_id)
 
@@ -5018,7 +5188,7 @@ class IntegrationRuntimeSsisCatalogInfo(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             server_endpoint: str,
+             server_endpoint: Optional[str] = None,
              administrator_login: Optional[str] = None,
              administrator_password: Optional[str] = None,
              dual_standby_pair_name: Optional[str] = None,
@@ -5026,17 +5196,19 @@ class IntegrationRuntimeSsisCatalogInfo(dict):
              pricing_tier: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'serverEndpoint' in kwargs:
+        if server_endpoint is None and 'serverEndpoint' in kwargs:
             server_endpoint = kwargs['serverEndpoint']
-        if 'administratorLogin' in kwargs:
+        if server_endpoint is None:
+            raise TypeError("Missing 'server_endpoint' argument")
+        if administrator_login is None and 'administratorLogin' in kwargs:
             administrator_login = kwargs['administratorLogin']
-        if 'administratorPassword' in kwargs:
+        if administrator_password is None and 'administratorPassword' in kwargs:
             administrator_password = kwargs['administratorPassword']
-        if 'dualStandbyPairName' in kwargs:
+        if dual_standby_pair_name is None and 'dualStandbyPairName' in kwargs:
             dual_standby_pair_name = kwargs['dualStandbyPairName']
-        if 'elasticPoolName' in kwargs:
+        if elastic_pool_name is None and 'elasticPoolName' in kwargs:
             elastic_pool_name = kwargs['elasticPoolName']
-        if 'pricingTier' in kwargs:
+        if pricing_tier is None and 'pricingTier' in kwargs:
             pricing_tier = kwargs['pricingTier']
 
         _setter("server_endpoint", server_endpoint)
@@ -5136,14 +5308,18 @@ class IntegrationRuntimeSsisCustomSetupScript(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             blob_container_uri: str,
-             sas_token: str,
+             blob_container_uri: Optional[str] = None,
+             sas_token: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'blobContainerUri' in kwargs:
+        if blob_container_uri is None and 'blobContainerUri' in kwargs:
             blob_container_uri = kwargs['blobContainerUri']
-        if 'sasToken' in kwargs:
+        if blob_container_uri is None:
+            raise TypeError("Missing 'blob_container_uri' argument")
+        if sas_token is None and 'sasToken' in kwargs:
             sas_token = kwargs['sasToken']
+        if sas_token is None:
+            raise TypeError("Missing 'sas_token' argument")
 
         _setter("blob_container_uri", blob_container_uri)
         _setter("sas_token", sas_token)
@@ -5215,9 +5391,9 @@ class IntegrationRuntimeSsisExpressCustomSetup(dict):
              powershell_version: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'commandKeys' in kwargs:
+        if command_keys is None and 'commandKeys' in kwargs:
             command_keys = kwargs['commandKeys']
-        if 'powershellVersion' in kwargs:
+        if powershell_version is None and 'powershellVersion' in kwargs:
             powershell_version = kwargs['powershellVersion']
 
         if command_keys is not None:
@@ -5308,17 +5484,21 @@ class IntegrationRuntimeSsisExpressCustomSetupCommandKey(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             target_name: str,
-             user_name: str,
+             target_name: Optional[str] = None,
+             user_name: Optional[str] = None,
              key_vault_password: Optional['outputs.IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword'] = None,
              password: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'targetName' in kwargs:
+        if target_name is None and 'targetName' in kwargs:
             target_name = kwargs['targetName']
-        if 'userName' in kwargs:
+        if target_name is None:
+            raise TypeError("Missing 'target_name' argument")
+        if user_name is None and 'userName' in kwargs:
             user_name = kwargs['userName']
-        if 'keyVaultPassword' in kwargs:
+        if user_name is None:
+            raise TypeError("Missing 'user_name' argument")
+        if key_vault_password is None and 'keyVaultPassword' in kwargs:
             key_vault_password = kwargs['keyVaultPassword']
 
         _setter("target_name", target_name)
@@ -5405,17 +5585,21 @@ class IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             linked_service_name: str,
-             secret_name: str,
+             linked_service_name: Optional[str] = None,
+             secret_name: Optional[str] = None,
              parameters: Optional[Mapping[str, str]] = None,
              secret_version: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'linkedServiceName' in kwargs:
+        if linked_service_name is None and 'linkedServiceName' in kwargs:
             linked_service_name = kwargs['linkedServiceName']
-        if 'secretName' in kwargs:
+        if linked_service_name is None:
+            raise TypeError("Missing 'linked_service_name' argument")
+        if secret_name is None and 'secretName' in kwargs:
             secret_name = kwargs['secretName']
-        if 'secretVersion' in kwargs:
+        if secret_name is None:
+            raise TypeError("Missing 'secret_name' argument")
+        if secret_version is None and 'secretVersion' in kwargs:
             secret_version = kwargs['secretVersion']
 
         _setter("linked_service_name", linked_service_name)
@@ -5495,12 +5679,14 @@ class IntegrationRuntimeSsisExpressCustomSetupComponent(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              key_vault_license: Optional['outputs.IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense'] = None,
              license: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'keyVaultLicense' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if key_vault_license is None and 'keyVaultLicense' in kwargs:
             key_vault_license = kwargs['keyVaultLicense']
 
         _setter("name", name)
@@ -5578,17 +5764,21 @@ class IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             linked_service_name: str,
-             secret_name: str,
+             linked_service_name: Optional[str] = None,
+             secret_name: Optional[str] = None,
              parameters: Optional[Mapping[str, str]] = None,
              secret_version: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'linkedServiceName' in kwargs:
+        if linked_service_name is None and 'linkedServiceName' in kwargs:
             linked_service_name = kwargs['linkedServiceName']
-        if 'secretName' in kwargs:
+        if linked_service_name is None:
+            raise TypeError("Missing 'linked_service_name' argument")
+        if secret_name is None and 'secretName' in kwargs:
             secret_name = kwargs['secretName']
-        if 'secretVersion' in kwargs:
+        if secret_name is None:
+            raise TypeError("Missing 'secret_name' argument")
+        if secret_version is None and 'secretVersion' in kwargs:
             secret_version = kwargs['secretVersion']
 
         _setter("linked_service_name", linked_service_name)
@@ -5662,11 +5852,13 @@ class IntegrationRuntimeSsisExpressVnetIntegration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             subnet_id: str,
+             subnet_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
 
         _setter("subnet_id", subnet_id)
 
@@ -5713,12 +5905,16 @@ class IntegrationRuntimeSsisPackageStore(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             linked_service_name: str,
-             name: str,
+             linked_service_name: Optional[str] = None,
+             name: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'linkedServiceName' in kwargs:
+        if linked_service_name is None and 'linkedServiceName' in kwargs:
             linked_service_name = kwargs['linkedServiceName']
+        if linked_service_name is None:
+            raise TypeError("Missing 'linked_service_name' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("linked_service_name", linked_service_name)
         _setter("name", name)
@@ -5779,15 +5975,19 @@ class IntegrationRuntimeSsisProxy(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             self_hosted_integration_runtime_name: str,
-             staging_storage_linked_service_name: str,
+             self_hosted_integration_runtime_name: Optional[str] = None,
+             staging_storage_linked_service_name: Optional[str] = None,
              path: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'selfHostedIntegrationRuntimeName' in kwargs:
+        if self_hosted_integration_runtime_name is None and 'selfHostedIntegrationRuntimeName' in kwargs:
             self_hosted_integration_runtime_name = kwargs['selfHostedIntegrationRuntimeName']
-        if 'stagingStorageLinkedServiceName' in kwargs:
+        if self_hosted_integration_runtime_name is None:
+            raise TypeError("Missing 'self_hosted_integration_runtime_name' argument")
+        if staging_storage_linked_service_name is None and 'stagingStorageLinkedServiceName' in kwargs:
             staging_storage_linked_service_name = kwargs['stagingStorageLinkedServiceName']
+        if staging_storage_linked_service_name is None:
+            raise TypeError("Missing 'staging_storage_linked_service_name' argument")
 
         _setter("self_hosted_integration_runtime_name", self_hosted_integration_runtime_name)
         _setter("staging_storage_linked_service_name", staging_storage_linked_service_name)
@@ -5873,13 +6073,13 @@ class IntegrationRuntimeSsisVnetIntegration(dict):
              vnet_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'publicIps' in kwargs:
+        if public_ips is None and 'publicIps' in kwargs:
             public_ips = kwargs['publicIps']
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'subnetName' in kwargs:
+        if subnet_name is None and 'subnetName' in kwargs:
             subnet_name = kwargs['subnetName']
-        if 'vnetId' in kwargs:
+        if vnet_id is None and 'vnetId' in kwargs:
             vnet_id = kwargs['vnetId']
 
         if public_ips is not None:
@@ -5943,10 +6143,12 @@ class LinkedCustomServiceIntegrationRuntime(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              parameters: Optional[Mapping[str, str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
         if parameters is not None:
@@ -6005,14 +6207,18 @@ class LinkedServiceAzureBlobStorageKeyVaultSasToken(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             linked_service_name: str,
-             secret_name: str,
+             linked_service_name: Optional[str] = None,
+             secret_name: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'linkedServiceName' in kwargs:
+        if linked_service_name is None and 'linkedServiceName' in kwargs:
             linked_service_name = kwargs['linkedServiceName']
-        if 'secretName' in kwargs:
+        if linked_service_name is None:
+            raise TypeError("Missing 'linked_service_name' argument")
+        if secret_name is None and 'secretName' in kwargs:
             secret_name = kwargs['secretName']
+        if secret_name is None:
+            raise TypeError("Missing 'secret_name' argument")
 
         _setter("linked_service_name", linked_service_name)
         _setter("secret_name", secret_name)
@@ -6070,14 +6276,18 @@ class LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKey(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             linked_service_name: str,
-             secret_name: str,
+             linked_service_name: Optional[str] = None,
+             secret_name: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'linkedServiceName' in kwargs:
+        if linked_service_name is None and 'linkedServiceName' in kwargs:
             linked_service_name = kwargs['linkedServiceName']
-        if 'secretName' in kwargs:
+        if linked_service_name is None:
+            raise TypeError("Missing 'linked_service_name' argument")
+        if secret_name is None and 'secretName' in kwargs:
             secret_name = kwargs['secretName']
+        if secret_name is None:
+            raise TypeError("Missing 'secret_name' argument")
 
         _setter("linked_service_name", linked_service_name)
         _setter("secret_name", secret_name)
@@ -6145,19 +6355,23 @@ class LinkedServiceAzureDatabricksInstancePool(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cluster_version: str,
-             instance_pool_id: str,
+             cluster_version: Optional[str] = None,
+             instance_pool_id: Optional[str] = None,
              max_number_of_workers: Optional[int] = None,
              min_number_of_workers: Optional[int] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clusterVersion' in kwargs:
+        if cluster_version is None and 'clusterVersion' in kwargs:
             cluster_version = kwargs['clusterVersion']
-        if 'instancePoolId' in kwargs:
+        if cluster_version is None:
+            raise TypeError("Missing 'cluster_version' argument")
+        if instance_pool_id is None and 'instancePoolId' in kwargs:
             instance_pool_id = kwargs['instancePoolId']
-        if 'maxNumberOfWorkers' in kwargs:
+        if instance_pool_id is None:
+            raise TypeError("Missing 'instance_pool_id' argument")
+        if max_number_of_workers is None and 'maxNumberOfWorkers' in kwargs:
             max_number_of_workers = kwargs['maxNumberOfWorkers']
-        if 'minNumberOfWorkers' in kwargs:
+        if min_number_of_workers is None and 'minNumberOfWorkers' in kwargs:
             min_number_of_workers = kwargs['minNumberOfWorkers']
 
         _setter("cluster_version", cluster_version)
@@ -6236,14 +6450,18 @@ class LinkedServiceAzureDatabricksKeyVaultPassword(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             linked_service_name: str,
-             secret_name: str,
+             linked_service_name: Optional[str] = None,
+             secret_name: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'linkedServiceName' in kwargs:
+        if linked_service_name is None and 'linkedServiceName' in kwargs:
             linked_service_name = kwargs['linkedServiceName']
-        if 'secretName' in kwargs:
+        if linked_service_name is None:
+            raise TypeError("Missing 'linked_service_name' argument")
+        if secret_name is None and 'secretName' in kwargs:
             secret_name = kwargs['secretName']
+        if secret_name is None:
+            raise TypeError("Missing 'secret_name' argument")
 
         _setter("linked_service_name", linked_service_name)
         _setter("secret_name", secret_name)
@@ -6341,8 +6559,8 @@ class LinkedServiceAzureDatabricksNewClusterConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cluster_version: str,
-             node_type: str,
+             cluster_version: Optional[str] = None,
+             node_type: Optional[str] = None,
              custom_tags: Optional[Mapping[str, str]] = None,
              driver_node_type: Optional[str] = None,
              init_scripts: Optional[Sequence[str]] = None,
@@ -6353,25 +6571,29 @@ class LinkedServiceAzureDatabricksNewClusterConfig(dict):
              spark_environment_variables: Optional[Mapping[str, str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clusterVersion' in kwargs:
+        if cluster_version is None and 'clusterVersion' in kwargs:
             cluster_version = kwargs['clusterVersion']
-        if 'nodeType' in kwargs:
+        if cluster_version is None:
+            raise TypeError("Missing 'cluster_version' argument")
+        if node_type is None and 'nodeType' in kwargs:
             node_type = kwargs['nodeType']
-        if 'customTags' in kwargs:
+        if node_type is None:
+            raise TypeError("Missing 'node_type' argument")
+        if custom_tags is None and 'customTags' in kwargs:
             custom_tags = kwargs['customTags']
-        if 'driverNodeType' in kwargs:
+        if driver_node_type is None and 'driverNodeType' in kwargs:
             driver_node_type = kwargs['driverNodeType']
-        if 'initScripts' in kwargs:
+        if init_scripts is None and 'initScripts' in kwargs:
             init_scripts = kwargs['initScripts']
-        if 'logDestination' in kwargs:
+        if log_destination is None and 'logDestination' in kwargs:
             log_destination = kwargs['logDestination']
-        if 'maxNumberOfWorkers' in kwargs:
+        if max_number_of_workers is None and 'maxNumberOfWorkers' in kwargs:
             max_number_of_workers = kwargs['maxNumberOfWorkers']
-        if 'minNumberOfWorkers' in kwargs:
+        if min_number_of_workers is None and 'minNumberOfWorkers' in kwargs:
             min_number_of_workers = kwargs['minNumberOfWorkers']
-        if 'sparkConfig' in kwargs:
+        if spark_config is None and 'sparkConfig' in kwargs:
             spark_config = kwargs['sparkConfig']
-        if 'sparkEnvironmentVariables' in kwargs:
+        if spark_environment_variables is None and 'sparkEnvironmentVariables' in kwargs:
             spark_environment_variables = kwargs['sparkEnvironmentVariables']
 
         _setter("cluster_version", cluster_version)
@@ -6510,14 +6732,18 @@ class LinkedServiceAzureFileStorageKeyVaultPassword(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             linked_service_name: str,
-             secret_name: str,
+             linked_service_name: Optional[str] = None,
+             secret_name: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'linkedServiceName' in kwargs:
+        if linked_service_name is None and 'linkedServiceName' in kwargs:
             linked_service_name = kwargs['linkedServiceName']
-        if 'secretName' in kwargs:
+        if linked_service_name is None:
+            raise TypeError("Missing 'linked_service_name' argument")
+        if secret_name is None and 'secretName' in kwargs:
             secret_name = kwargs['secretName']
+        if secret_name is None:
+            raise TypeError("Missing 'secret_name' argument")
 
         _setter("linked_service_name", linked_service_name)
         _setter("secret_name", secret_name)
@@ -6575,14 +6801,18 @@ class LinkedServiceAzureFunctionKeyVaultKey(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             linked_service_name: str,
-             secret_name: str,
+             linked_service_name: Optional[str] = None,
+             secret_name: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'linkedServiceName' in kwargs:
+        if linked_service_name is None and 'linkedServiceName' in kwargs:
             linked_service_name = kwargs['linkedServiceName']
-        if 'secretName' in kwargs:
+        if linked_service_name is None:
+            raise TypeError("Missing 'linked_service_name' argument")
+        if secret_name is None and 'secretName' in kwargs:
             secret_name = kwargs['secretName']
+        if secret_name is None:
+            raise TypeError("Missing 'secret_name' argument")
 
         _setter("linked_service_name", linked_service_name)
         _setter("secret_name", secret_name)
@@ -6640,14 +6870,18 @@ class LinkedServiceAzureSqlDatabaseKeyVaultConnectionString(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             linked_service_name: str,
-             secret_name: str,
+             linked_service_name: Optional[str] = None,
+             secret_name: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'linkedServiceName' in kwargs:
+        if linked_service_name is None and 'linkedServiceName' in kwargs:
             linked_service_name = kwargs['linkedServiceName']
-        if 'secretName' in kwargs:
+        if linked_service_name is None:
+            raise TypeError("Missing 'linked_service_name' argument")
+        if secret_name is None and 'secretName' in kwargs:
             secret_name = kwargs['secretName']
+        if secret_name is None:
+            raise TypeError("Missing 'secret_name' argument")
 
         _setter("linked_service_name", linked_service_name)
         _setter("secret_name", secret_name)
@@ -6705,14 +6939,18 @@ class LinkedServiceAzureSqlDatabaseKeyVaultPassword(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             linked_service_name: str,
-             secret_name: str,
+             linked_service_name: Optional[str] = None,
+             secret_name: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'linkedServiceName' in kwargs:
+        if linked_service_name is None and 'linkedServiceName' in kwargs:
             linked_service_name = kwargs['linkedServiceName']
-        if 'secretName' in kwargs:
+        if linked_service_name is None:
+            raise TypeError("Missing 'linked_service_name' argument")
+        if secret_name is None and 'secretName' in kwargs:
             secret_name = kwargs['secretName']
+        if secret_name is None:
+            raise TypeError("Missing 'secret_name' argument")
 
         _setter("linked_service_name", linked_service_name)
         _setter("secret_name", secret_name)
@@ -6751,10 +6989,14 @@ class LinkedServiceOdataBasicAuthentication(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             password: str,
-             username: str,
+             password: Optional[str] = None,
+             username: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
 
         _setter("password", password)
         _setter("username", username)
@@ -6793,10 +7035,14 @@ class LinkedServiceOdbcBasicAuthentication(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             password: str,
-             username: str,
+             password: Optional[str] = None,
+             username: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
 
         _setter("password", password)
         _setter("username", username)
@@ -6854,14 +7100,18 @@ class LinkedServiceSnowflakeKeyVaultPassword(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             linked_service_name: str,
-             secret_name: str,
+             linked_service_name: Optional[str] = None,
+             secret_name: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'linkedServiceName' in kwargs:
+        if linked_service_name is None and 'linkedServiceName' in kwargs:
             linked_service_name = kwargs['linkedServiceName']
-        if 'secretName' in kwargs:
+        if linked_service_name is None:
+            raise TypeError("Missing 'linked_service_name' argument")
+        if secret_name is None and 'secretName' in kwargs:
             secret_name = kwargs['secretName']
+        if secret_name is None:
+            raise TypeError("Missing 'secret_name' argument")
 
         _setter("linked_service_name", linked_service_name)
         _setter("secret_name", secret_name)
@@ -6919,14 +7169,18 @@ class LinkedServiceSqlServerKeyVaultConnectionString(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             linked_service_name: str,
-             secret_name: str,
+             linked_service_name: Optional[str] = None,
+             secret_name: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'linkedServiceName' in kwargs:
+        if linked_service_name is None and 'linkedServiceName' in kwargs:
             linked_service_name = kwargs['linkedServiceName']
-        if 'secretName' in kwargs:
+        if linked_service_name is None:
+            raise TypeError("Missing 'linked_service_name' argument")
+        if secret_name is None and 'secretName' in kwargs:
             secret_name = kwargs['secretName']
+        if secret_name is None:
+            raise TypeError("Missing 'secret_name' argument")
 
         _setter("linked_service_name", linked_service_name)
         _setter("secret_name", secret_name)
@@ -6984,14 +7238,18 @@ class LinkedServiceSqlServerKeyVaultPassword(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             linked_service_name: str,
-             secret_name: str,
+             linked_service_name: Optional[str] = None,
+             secret_name: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'linkedServiceName' in kwargs:
+        if linked_service_name is None and 'linkedServiceName' in kwargs:
             linked_service_name = kwargs['linkedServiceName']
-        if 'secretName' in kwargs:
+        if linked_service_name is None:
+            raise TypeError("Missing 'linked_service_name' argument")
+        if secret_name is None and 'secretName' in kwargs:
             secret_name = kwargs['secretName']
+        if secret_name is None:
+            raise TypeError("Missing 'secret_name' argument")
 
         _setter("linked_service_name", linked_service_name)
         _setter("secret_name", secret_name)
@@ -7049,14 +7307,18 @@ class LinkedServiceSynapseKeyVaultPassword(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             linked_service_name: str,
-             secret_name: str,
+             linked_service_name: Optional[str] = None,
+             secret_name: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'linkedServiceName' in kwargs:
+        if linked_service_name is None and 'linkedServiceName' in kwargs:
             linked_service_name = kwargs['linkedServiceName']
-        if 'secretName' in kwargs:
+        if linked_service_name is None:
+            raise TypeError("Missing 'linked_service_name' argument")
+        if secret_name is None and 'secretName' in kwargs:
             secret_name = kwargs['secretName']
+        if secret_name is None:
+            raise TypeError("Missing 'secret_name' argument")
 
         _setter("linked_service_name", linked_service_name)
         _setter("secret_name", secret_name)
@@ -7095,10 +7357,12 @@ class TriggerBlobEventPipeline(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              parameters: Optional[Mapping[str, str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
         if parameters is not None:
@@ -7138,10 +7402,12 @@ class TriggerCustomEventPipeline(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              parameters: Optional[Mapping[str, str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
         if parameters is not None:
@@ -7181,10 +7447,12 @@ class TriggerSchedulePipeline(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              parameters: Optional[Mapping[str, str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
         if parameters is not None:
@@ -7259,9 +7527,9 @@ class TriggerScheduleSchedule(dict):
              monthlies: Optional[Sequence['outputs.TriggerScheduleScheduleMonthly']] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'daysOfMonths' in kwargs:
+        if days_of_months is None and 'daysOfMonths' in kwargs:
             days_of_months = kwargs['daysOfMonths']
-        if 'daysOfWeeks' in kwargs:
+        if days_of_weeks is None and 'daysOfWeeks' in kwargs:
             days_of_weeks = kwargs['daysOfWeeks']
 
         if days_of_months is not None:
@@ -7333,10 +7601,12 @@ class TriggerScheduleScheduleMonthly(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             weekday: str,
+             weekday: Optional[str] = None,
              week: Optional[int] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if weekday is None:
+            raise TypeError("Missing 'weekday' argument")
 
         _setter("weekday", weekday)
         if week is not None:
@@ -7376,10 +7646,12 @@ class TriggerTumblingWindowPipeline(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              parameters: Optional[Mapping[str, str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
         if parameters is not None:
@@ -7419,10 +7691,12 @@ class TriggerTumblingWindowRetry(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             count: int,
+             count: Optional[int] = None,
              interval: Optional[int] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
+        if count is None:
+            raise TypeError("Missing 'count' argument")
 
         _setter("count", count)
         if interval is not None:
@@ -7487,7 +7761,7 @@ class TriggerTumblingWindowTriggerDependency(dict):
              trigger_name: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'triggerName' in kwargs:
+        if trigger_name is None and 'triggerName' in kwargs:
             trigger_name = kwargs['triggerName']
 
         if offset is not None:
@@ -7548,23 +7822,33 @@ class GetFactoryGithubConfigurationResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             account_name: str,
-             branch_name: str,
-             git_url: str,
-             repository_name: str,
-             root_folder: str,
+             account_name: Optional[str] = None,
+             branch_name: Optional[str] = None,
+             git_url: Optional[str] = None,
+             repository_name: Optional[str] = None,
+             root_folder: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accountName' in kwargs:
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'branchName' in kwargs:
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if branch_name is None and 'branchName' in kwargs:
             branch_name = kwargs['branchName']
-        if 'gitUrl' in kwargs:
+        if branch_name is None:
+            raise TypeError("Missing 'branch_name' argument")
+        if git_url is None and 'gitUrl' in kwargs:
             git_url = kwargs['gitUrl']
-        if 'repositoryName' in kwargs:
+        if git_url is None:
+            raise TypeError("Missing 'git_url' argument")
+        if repository_name is None and 'repositoryName' in kwargs:
             repository_name = kwargs['repositoryName']
-        if 'rootFolder' in kwargs:
+        if repository_name is None:
+            raise TypeError("Missing 'repository_name' argument")
+        if root_folder is None and 'rootFolder' in kwargs:
             root_folder = kwargs['rootFolder']
+        if root_folder is None:
+            raise TypeError("Missing 'root_folder' argument")
 
         _setter("account_name", account_name)
         _setter("branch_name", branch_name)
@@ -7636,18 +7920,26 @@ class GetFactoryIdentityResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             identity_ids: Sequence[str],
-             principal_id: str,
-             tenant_id: str,
-             type: str,
+             identity_ids: Optional[Sequence[str]] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             type: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if identity_ids is None:
+            raise TypeError("Missing 'identity_ids' argument")
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("identity_ids", identity_ids)
         _setter("principal_id", principal_id)
@@ -7716,26 +8008,38 @@ class GetFactoryVstsConfigurationResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             account_name: str,
-             branch_name: str,
-             project_name: str,
-             repository_name: str,
-             root_folder: str,
-             tenant_id: str,
+             account_name: Optional[str] = None,
+             branch_name: Optional[str] = None,
+             project_name: Optional[str] = None,
+             repository_name: Optional[str] = None,
+             root_folder: Optional[str] = None,
+             tenant_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'accountName' in kwargs:
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'branchName' in kwargs:
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if branch_name is None and 'branchName' in kwargs:
             branch_name = kwargs['branchName']
-        if 'projectName' in kwargs:
+        if branch_name is None:
+            raise TypeError("Missing 'branch_name' argument")
+        if project_name is None and 'projectName' in kwargs:
             project_name = kwargs['projectName']
-        if 'repositoryName' in kwargs:
+        if project_name is None:
+            raise TypeError("Missing 'project_name' argument")
+        if repository_name is None and 'repositoryName' in kwargs:
             repository_name = kwargs['repositoryName']
-        if 'rootFolder' in kwargs:
+        if repository_name is None:
+            raise TypeError("Missing 'repository_name' argument")
+        if root_folder is None and 'rootFolder' in kwargs:
             root_folder = kwargs['rootFolder']
-        if 'tenantId' in kwargs:
+        if root_folder is None:
+            raise TypeError("Missing 'root_folder' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
 
         _setter("account_name", account_name)
         _setter("branch_name", branch_name)

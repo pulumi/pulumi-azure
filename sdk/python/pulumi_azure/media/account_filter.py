@@ -43,23 +43,27 @@ class AccountFilterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             media_services_account_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             media_services_account_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              first_quality_bitrate: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
              presentation_time_range: Optional[pulumi.Input['AccountFilterPresentationTimeRangeArgs']] = None,
              track_selections: Optional[pulumi.Input[Sequence[pulumi.Input['AccountFilterTrackSelectionArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'mediaServicesAccountName' in kwargs:
+        if media_services_account_name is None and 'mediaServicesAccountName' in kwargs:
             media_services_account_name = kwargs['mediaServicesAccountName']
-        if 'resourceGroupName' in kwargs:
+        if media_services_account_name is None:
+            raise TypeError("Missing 'media_services_account_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'firstQualityBitrate' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if first_quality_bitrate is None and 'firstQualityBitrate' in kwargs:
             first_quality_bitrate = kwargs['firstQualityBitrate']
-        if 'presentationTimeRange' in kwargs:
+        if presentation_time_range is None and 'presentationTimeRange' in kwargs:
             presentation_time_range = kwargs['presentationTimeRange']
-        if 'trackSelections' in kwargs:
+        if track_selections is None and 'trackSelections' in kwargs:
             track_selections = kwargs['trackSelections']
 
         _setter("media_services_account_name", media_services_account_name)
@@ -184,15 +188,15 @@ class _AccountFilterState:
              track_selections: Optional[pulumi.Input[Sequence[pulumi.Input['AccountFilterTrackSelectionArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'firstQualityBitrate' in kwargs:
+        if first_quality_bitrate is None and 'firstQualityBitrate' in kwargs:
             first_quality_bitrate = kwargs['firstQualityBitrate']
-        if 'mediaServicesAccountName' in kwargs:
+        if media_services_account_name is None and 'mediaServicesAccountName' in kwargs:
             media_services_account_name = kwargs['mediaServicesAccountName']
-        if 'presentationTimeRange' in kwargs:
+        if presentation_time_range is None and 'presentationTimeRange' in kwargs:
             presentation_time_range = kwargs['presentationTimeRange']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'trackSelections' in kwargs:
+        if track_selections is None and 'trackSelections' in kwargs:
             track_selections = kwargs['trackSelections']
 
         if first_quality_bitrate is not None:

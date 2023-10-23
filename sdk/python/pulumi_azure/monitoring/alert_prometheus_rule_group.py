@@ -55,9 +55,9 @@ class AlertPrometheusRuleGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             rules: pulumi.Input[Sequence[pulumi.Input['AlertPrometheusRuleGroupRuleArgs']]],
-             scopes: pulumi.Input[Sequence[pulumi.Input[str]]],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             rules: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPrometheusRuleGroupRuleArgs']]]] = None,
+             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              cluster_name: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              interval: Optional[pulumi.Input[str]] = None,
@@ -67,11 +67,17 @@ class AlertPrometheusRuleGroupArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'clusterName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if rules is None:
+            raise TypeError("Missing 'rules' argument")
+        if scopes is None:
+            raise TypeError("Missing 'scopes' argument")
+        if cluster_name is None and 'clusterName' in kwargs:
             cluster_name = kwargs['clusterName']
-        if 'ruleGroupEnabled' in kwargs:
+        if rule_group_enabled is None and 'ruleGroupEnabled' in kwargs:
             rule_group_enabled = kwargs['ruleGroupEnabled']
 
         _setter("resource_group_name", resource_group_name)
@@ -267,11 +273,11 @@ class _AlertPrometheusRuleGroupState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None,
              **kwargs):
-        if 'clusterName' in kwargs:
+        if cluster_name is None and 'clusterName' in kwargs:
             cluster_name = kwargs['clusterName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'ruleGroupEnabled' in kwargs:
+        if rule_group_enabled is None and 'ruleGroupEnabled' in kwargs:
             rule_group_enabled = kwargs['ruleGroupEnabled']
 
         if cluster_name is not None:
