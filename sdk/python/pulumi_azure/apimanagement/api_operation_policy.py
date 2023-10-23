@@ -47,7 +47,21 @@ class ApiOperationPolicyArgs:
              resource_group_name: pulumi.Input[str],
              xml_content: Optional[pulumi.Input[str]] = None,
              xml_link: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if 'apiName' in kwargs:
+            api_name = kwargs['apiName']
+        if 'operationId' in kwargs:
+            operation_id = kwargs['operationId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'xmlContent' in kwargs:
+            xml_content = kwargs['xmlContent']
+        if 'xmlLink' in kwargs:
+            xml_link = kwargs['xmlLink']
+
         _setter("api_management_name", api_management_name)
         _setter("api_name", api_name)
         _setter("operation_id", operation_id)
@@ -166,7 +180,21 @@ class _ApiOperationPolicyState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              xml_content: Optional[pulumi.Input[str]] = None,
              xml_link: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if 'apiName' in kwargs:
+            api_name = kwargs['apiName']
+        if 'operationId' in kwargs:
+            operation_id = kwargs['operationId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'xmlContent' in kwargs:
+            xml_content = kwargs['xmlContent']
+        if 'xmlLink' in kwargs:
+            xml_link = kwargs['xmlLink']
+
         if api_management_name is not None:
             _setter("api_management_name", api_management_name)
         if api_name is not None:

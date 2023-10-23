@@ -49,7 +49,17 @@ class SpringCloudDevToolPortalArgs:
              name: Optional[pulumi.Input[str]] = None,
              public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
              sso: Optional[pulumi.Input['SpringCloudDevToolPortalSsoArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'springCloudServiceId' in kwargs:
+            spring_cloud_service_id = kwargs['springCloudServiceId']
+        if 'applicationAcceleratorEnabled' in kwargs:
+            application_accelerator_enabled = kwargs['applicationAcceleratorEnabled']
+        if 'applicationLiveViewEnabled' in kwargs:
+            application_live_view_enabled = kwargs['applicationLiveViewEnabled']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+
         _setter("spring_cloud_service_id", spring_cloud_service_id)
         if application_accelerator_enabled is not None:
             _setter("application_accelerator_enabled", application_accelerator_enabled)
@@ -171,7 +181,17 @@ class _SpringCloudDevToolPortalState:
              public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
              spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
              sso: Optional[pulumi.Input['SpringCloudDevToolPortalSsoArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationAcceleratorEnabled' in kwargs:
+            application_accelerator_enabled = kwargs['applicationAcceleratorEnabled']
+        if 'applicationLiveViewEnabled' in kwargs:
+            application_live_view_enabled = kwargs['applicationLiveViewEnabled']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'springCloudServiceId' in kwargs:
+            spring_cloud_service_id = kwargs['springCloudServiceId']
+
         if application_accelerator_enabled is not None:
             _setter("application_accelerator_enabled", application_accelerator_enabled)
         if application_live_view_enabled is not None:

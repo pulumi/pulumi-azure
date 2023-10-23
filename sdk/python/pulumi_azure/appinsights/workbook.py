@@ -71,7 +71,19 @@ class WorkbookArgs:
              source_id: Optional[pulumi.Input[str]] = None,
              storage_container_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataJson' in kwargs:
+            data_json = kwargs['dataJson']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'sourceId' in kwargs:
+            source_id = kwargs['sourceId']
+        if 'storageContainerId' in kwargs:
+            storage_container_id = kwargs['storageContainerId']
+
         _setter("data_json", data_json)
         _setter("display_name", display_name)
         _setter("resource_group_name", resource_group_name)
@@ -285,7 +297,19 @@ class _WorkbookState:
              source_id: Optional[pulumi.Input[str]] = None,
              storage_container_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataJson' in kwargs:
+            data_json = kwargs['dataJson']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'sourceId' in kwargs:
+            source_id = kwargs['sourceId']
+        if 'storageContainerId' in kwargs:
+            storage_container_id = kwargs['storageContainerId']
+
         if category is not None:
             _setter("category", category)
         if data_json is not None:

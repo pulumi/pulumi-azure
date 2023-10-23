@@ -101,7 +101,7 @@ public class NetworkManagerAdminRuleCollection extends com.pulumi.resources.Cust
      * A description of the Network Manager Admin Rule Collection.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -115,7 +115,7 @@ public class NetworkManagerAdminRuleCollection extends com.pulumi.resources.Cust
      * Specifies the name which should be used for this Network Manager Admin Rule Collection. Changing this forces a new Network Manager Admin Rule Collection to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -129,7 +129,7 @@ public class NetworkManagerAdminRuleCollection extends com.pulumi.resources.Cust
      * A list of Network Group ID which this Network Manager Admin Rule Collection applies to.
      * 
      */
-    @Export(name="networkGroupIds", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="networkGroupIds", type=List.class, parameters={String.class})
     private Output<List<String>> networkGroupIds;
 
     /**
@@ -143,7 +143,7 @@ public class NetworkManagerAdminRuleCollection extends com.pulumi.resources.Cust
      * Specifies the ID of the Network Manager Security Admin Configuration. Changing this forces a new Network Manager Admin Rule Collection to be created.
      * 
      */
-    @Export(name="securityAdminConfigurationId", refs={String.class}, tree="[0]")
+    @Export(name="securityAdminConfigurationId", type=String.class, parameters={})
     private Output<String> securityAdminConfigurationId;
 
     /**

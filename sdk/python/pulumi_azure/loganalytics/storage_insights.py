@@ -51,7 +51,21 @@ class StorageInsightsArgs:
              blob_container_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              table_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if 'storageAccountKey' in kwargs:
+            storage_account_key = kwargs['storageAccountKey']
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+        if 'blobContainerNames' in kwargs:
+            blob_container_names = kwargs['blobContainerNames']
+        if 'tableNames' in kwargs:
+            table_names = kwargs['tableNames']
+
         _setter("resource_group_name", resource_group_name)
         _setter("storage_account_id", storage_account_id)
         _setter("storage_account_key", storage_account_key)
@@ -188,7 +202,21 @@ class _StorageInsightsState:
              storage_account_key: Optional[pulumi.Input[str]] = None,
              table_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'blobContainerNames' in kwargs:
+            blob_container_names = kwargs['blobContainerNames']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if 'storageAccountKey' in kwargs:
+            storage_account_key = kwargs['storageAccountKey']
+        if 'tableNames' in kwargs:
+            table_names = kwargs['tableNames']
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+
         if blob_container_names is not None:
             _setter("blob_container_names", blob_container_names)
         if name is not None:

@@ -49,7 +49,19 @@ class DatasetBlobStorageArgs:
              file_path: Optional[pulumi.Input[str]] = None,
              folder_path: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+        if 'dataShareId' in kwargs:
+            data_share_id = kwargs['dataShareId']
+        if 'storageAccount' in kwargs:
+            storage_account = kwargs['storageAccount']
+        if 'filePath' in kwargs:
+            file_path = kwargs['filePath']
+        if 'folderPath' in kwargs:
+            folder_path = kwargs['folderPath']
+
         _setter("container_name", container_name)
         _setter("data_share_id", data_share_id)
         _setter("storage_account", storage_account)
@@ -173,7 +185,21 @@ class _DatasetBlobStorageState:
              folder_path: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              storage_account: Optional[pulumi.Input['DatasetBlobStorageStorageAccountArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+        if 'dataShareId' in kwargs:
+            data_share_id = kwargs['dataShareId']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'filePath' in kwargs:
+            file_path = kwargs['filePath']
+        if 'folderPath' in kwargs:
+            folder_path = kwargs['folderPath']
+        if 'storageAccount' in kwargs:
+            storage_account = kwargs['storageAccount']
+
         if container_name is not None:
             _setter("container_name", container_name)
         if data_share_id is not None:

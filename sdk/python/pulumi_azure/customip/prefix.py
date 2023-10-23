@@ -73,7 +73,21 @@ class PrefixArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              wan_validation_signed_message: Optional[pulumi.Input[str]] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'commissioningEnabled' in kwargs:
+            commissioning_enabled = kwargs['commissioningEnabled']
+        if 'internetAdvertisingDisabled' in kwargs:
+            internet_advertising_disabled = kwargs['internetAdvertisingDisabled']
+        if 'parentCustomIpPrefixId' in kwargs:
+            parent_custom_ip_prefix_id = kwargs['parentCustomIpPrefixId']
+        if 'roaValidityEndDate' in kwargs:
+            roa_validity_end_date = kwargs['roaValidityEndDate']
+        if 'wanValidationSignedMessage' in kwargs:
+            wan_validation_signed_message = kwargs['wanValidationSignedMessage']
+
         _setter("cidr", cidr)
         _setter("resource_group_name", resource_group_name)
         if commissioning_enabled is not None:
@@ -296,7 +310,21 @@ class _PrefixState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              wan_validation_signed_message: Optional[pulumi.Input[str]] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'commissioningEnabled' in kwargs:
+            commissioning_enabled = kwargs['commissioningEnabled']
+        if 'internetAdvertisingDisabled' in kwargs:
+            internet_advertising_disabled = kwargs['internetAdvertisingDisabled']
+        if 'parentCustomIpPrefixId' in kwargs:
+            parent_custom_ip_prefix_id = kwargs['parentCustomIpPrefixId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'roaValidityEndDate' in kwargs:
+            roa_validity_end_date = kwargs['roaValidityEndDate']
+        if 'wanValidationSignedMessage' in kwargs:
+            wan_validation_signed_message = kwargs['wanValidationSignedMessage']
+
         if cidr is not None:
             _setter("cidr", cidr)
         if commissioning_enabled is not None:

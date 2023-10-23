@@ -100,7 +100,7 @@ public class ApplicationGroup extends com.pulumi.resources.CustomResource {
      * Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`.
      * 
      */
-    @Export(name="defaultDesktopDisplayName", refs={String.class}, tree="[0]")
+    @Export(name="defaultDesktopDisplayName", type=String.class, parameters={})
     private Output</* @Nullable */ String> defaultDesktopDisplayName;
 
     /**
@@ -114,7 +114,7 @@ public class ApplicationGroup extends com.pulumi.resources.CustomResource {
      * Option to set a description for the Virtual Desktop Application Group.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -128,7 +128,7 @@ public class ApplicationGroup extends com.pulumi.resources.CustomResource {
      * Option to set a friendly name for the Virtual Desktop Application Group.
      * 
      */
-    @Export(name="friendlyName", refs={String.class}, tree="[0]")
+    @Export(name="friendlyName", type=String.class, parameters={})
     private Output</* @Nullable */ String> friendlyName;
 
     /**
@@ -142,7 +142,7 @@ public class ApplicationGroup extends com.pulumi.resources.CustomResource {
      * Resource ID for a Virtual Desktop Host Pool to associate with the Virtual Desktop Application Group. Changing the name forces a new resource to be created.
      * 
      */
-    @Export(name="hostPoolId", refs={String.class}, tree="[0]")
+    @Export(name="hostPoolId", type=String.class, parameters={})
     private Output<String> hostPoolId;
 
     /**
@@ -156,7 +156,7 @@ public class ApplicationGroup extends com.pulumi.resources.CustomResource {
      * The location/region where the Virtual Desktop Application Group is located. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -170,7 +170,7 @@ public class ApplicationGroup extends com.pulumi.resources.CustomResource {
      * The name of the Virtual Desktop Application Group. Changing the name forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -184,7 +184,7 @@ public class ApplicationGroup extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the Virtual Desktop Application Group. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -198,7 +198,7 @@ public class ApplicationGroup extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -212,7 +212,7 @@ public class ApplicationGroup extends com.pulumi.resources.CustomResource {
      * Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="type", refs={String.class}, tree="[0]")
+    @Export(name="type", type=String.class, parameters={})
     private Output<String> type;
 
     /**

@@ -41,7 +41,17 @@ class ApplicationNetworkRuleSetArgs:
              apply_to_device: Optional[pulumi.Input[bool]] = None,
              default_action: Optional[pulumi.Input[str]] = None,
              ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationNetworkRuleSetIpRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'iotcentralApplicationId' in kwargs:
+            iotcentral_application_id = kwargs['iotcentralApplicationId']
+        if 'applyToDevice' in kwargs:
+            apply_to_device = kwargs['applyToDevice']
+        if 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if 'ipRules' in kwargs:
+            ip_rules = kwargs['ipRules']
+
         _setter("iotcentral_application_id", iotcentral_application_id)
         if apply_to_device is not None:
             _setter("apply_to_device", apply_to_device)
@@ -127,7 +137,17 @@ class _ApplicationNetworkRuleSetState:
              default_action: Optional[pulumi.Input[str]] = None,
              iotcentral_application_id: Optional[pulumi.Input[str]] = None,
              ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationNetworkRuleSetIpRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applyToDevice' in kwargs:
+            apply_to_device = kwargs['applyToDevice']
+        if 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if 'iotcentralApplicationId' in kwargs:
+            iotcentral_application_id = kwargs['iotcentralApplicationId']
+        if 'ipRules' in kwargs:
+            ip_rules = kwargs['ipRules']
+
         if apply_to_device is not None:
             _setter("apply_to_device", apply_to_device)
         if default_action is not None:

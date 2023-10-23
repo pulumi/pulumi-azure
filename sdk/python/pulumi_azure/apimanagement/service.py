@@ -145,7 +145,43 @@ class ServiceArgs:
              virtual_network_configuration: Optional[pulumi.Input['ServiceVirtualNetworkConfigurationArgs']] = None,
              virtual_network_type: Optional[pulumi.Input[str]] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'publisherEmail' in kwargs:
+            publisher_email = kwargs['publisherEmail']
+        if 'publisherName' in kwargs:
+            publisher_name = kwargs['publisherName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'additionalLocations' in kwargs:
+            additional_locations = kwargs['additionalLocations']
+        if 'clientCertificateEnabled' in kwargs:
+            client_certificate_enabled = kwargs['clientCertificateEnabled']
+        if 'gatewayDisabled' in kwargs:
+            gateway_disabled = kwargs['gatewayDisabled']
+        if 'hostnameConfiguration' in kwargs:
+            hostname_configuration = kwargs['hostnameConfiguration']
+        if 'minApiVersion' in kwargs:
+            min_api_version = kwargs['minApiVersion']
+        if 'notificationSenderEmail' in kwargs:
+            notification_sender_email = kwargs['notificationSenderEmail']
+        if 'publicIpAddressId' in kwargs:
+            public_ip_address_id = kwargs['publicIpAddressId']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'signIn' in kwargs:
+            sign_in = kwargs['signIn']
+        if 'signUp' in kwargs:
+            sign_up = kwargs['signUp']
+        if 'tenantAccess' in kwargs:
+            tenant_access = kwargs['tenantAccess']
+        if 'virtualNetworkConfiguration' in kwargs:
+            virtual_network_configuration = kwargs['virtualNetworkConfiguration']
+        if 'virtualNetworkType' in kwargs:
+            virtual_network_type = kwargs['virtualNetworkType']
+
         _setter("publisher_email", publisher_email)
         _setter("publisher_name", publisher_name)
         _setter("resource_group_name", resource_group_name)
@@ -698,7 +734,59 @@ class _ServiceState:
              virtual_network_configuration: Optional[pulumi.Input['ServiceVirtualNetworkConfigurationArgs']] = None,
              virtual_network_type: Optional[pulumi.Input[str]] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalLocations' in kwargs:
+            additional_locations = kwargs['additionalLocations']
+        if 'clientCertificateEnabled' in kwargs:
+            client_certificate_enabled = kwargs['clientCertificateEnabled']
+        if 'developerPortalUrl' in kwargs:
+            developer_portal_url = kwargs['developerPortalUrl']
+        if 'gatewayDisabled' in kwargs:
+            gateway_disabled = kwargs['gatewayDisabled']
+        if 'gatewayRegionalUrl' in kwargs:
+            gateway_regional_url = kwargs['gatewayRegionalUrl']
+        if 'gatewayUrl' in kwargs:
+            gateway_url = kwargs['gatewayUrl']
+        if 'hostnameConfiguration' in kwargs:
+            hostname_configuration = kwargs['hostnameConfiguration']
+        if 'managementApiUrl' in kwargs:
+            management_api_url = kwargs['managementApiUrl']
+        if 'minApiVersion' in kwargs:
+            min_api_version = kwargs['minApiVersion']
+        if 'notificationSenderEmail' in kwargs:
+            notification_sender_email = kwargs['notificationSenderEmail']
+        if 'portalUrl' in kwargs:
+            portal_url = kwargs['portalUrl']
+        if 'privateIpAddresses' in kwargs:
+            private_ip_addresses = kwargs['privateIpAddresses']
+        if 'publicIpAddressId' in kwargs:
+            public_ip_address_id = kwargs['publicIpAddressId']
+        if 'publicIpAddresses' in kwargs:
+            public_ip_addresses = kwargs['publicIpAddresses']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'publisherEmail' in kwargs:
+            publisher_email = kwargs['publisherEmail']
+        if 'publisherName' in kwargs:
+            publisher_name = kwargs['publisherName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'scmUrl' in kwargs:
+            scm_url = kwargs['scmUrl']
+        if 'signIn' in kwargs:
+            sign_in = kwargs['signIn']
+        if 'signUp' in kwargs:
+            sign_up = kwargs['signUp']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'tenantAccess' in kwargs:
+            tenant_access = kwargs['tenantAccess']
+        if 'virtualNetworkConfiguration' in kwargs:
+            virtual_network_configuration = kwargs['virtualNetworkConfiguration']
+        if 'virtualNetworkType' in kwargs:
+            virtual_network_type = kwargs['virtualNetworkType']
+
         if additional_locations is not None:
             _setter("additional_locations", additional_locations)
         if certificates is not None:

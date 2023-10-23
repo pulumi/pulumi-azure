@@ -133,7 +133,7 @@ public class FrontdoorSecret extends com.pulumi.resources.CustomResource {
      * The Resource ID of the Front Door Profile. Changing this forces a new Front Door Secret to be created.
      * 
      */
-    @Export(name="cdnFrontdoorProfileId", refs={String.class}, tree="[0]")
+    @Export(name="cdnFrontdoorProfileId", type=String.class, parameters={})
     private Output<String> cdnFrontdoorProfileId;
 
     /**
@@ -147,7 +147,7 @@ public class FrontdoorSecret extends com.pulumi.resources.CustomResource {
      * The name of the Front Door Profile containing this Front Door Secret.
      * 
      */
-    @Export(name="cdnFrontdoorProfileName", refs={String.class}, tree="[0]")
+    @Export(name="cdnFrontdoorProfileName", type=String.class, parameters={})
     private Output<String> cdnFrontdoorProfileName;
 
     /**
@@ -161,7 +161,7 @@ public class FrontdoorSecret extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Front Door Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Front Door Secret to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -175,7 +175,7 @@ public class FrontdoorSecret extends com.pulumi.resources.CustomResource {
      * A `secret` block as defined below. Changing this forces a new Front Door Secret to be created.
      * 
      */
-    @Export(name="secret", refs={FrontdoorSecretSecret.class}, tree="[0]")
+    @Export(name="secret", type=FrontdoorSecretSecret.class, parameters={})
     private Output<FrontdoorSecretSecret> secret;
 
     /**

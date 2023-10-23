@@ -59,7 +59,21 @@ class IntegrationRuntimeRuleArgs:
              name: Optional[pulumi.Input[str]] = None,
              time_to_live_min: Optional[pulumi.Input[int]] = None,
              virtual_network_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'cleanupEnabled' in kwargs:
+            cleanup_enabled = kwargs['cleanupEnabled']
+        if 'computeType' in kwargs:
+            compute_type = kwargs['computeType']
+        if 'coreCount' in kwargs:
+            core_count = kwargs['coreCount']
+        if 'timeToLiveMin' in kwargs:
+            time_to_live_min = kwargs['timeToLiveMin']
+        if 'virtualNetworkEnabled' in kwargs:
+            virtual_network_enabled = kwargs['virtualNetworkEnabled']
+
         _setter("data_factory_id", data_factory_id)
         if cleanup_enabled is not None:
             _setter("cleanup_enabled", cleanup_enabled)
@@ -235,7 +249,21 @@ class _IntegrationRuntimeRuleState:
              name: Optional[pulumi.Input[str]] = None,
              time_to_live_min: Optional[pulumi.Input[int]] = None,
              virtual_network_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cleanupEnabled' in kwargs:
+            cleanup_enabled = kwargs['cleanupEnabled']
+        if 'computeType' in kwargs:
+            compute_type = kwargs['computeType']
+        if 'coreCount' in kwargs:
+            core_count = kwargs['coreCount']
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'timeToLiveMin' in kwargs:
+            time_to_live_min = kwargs['timeToLiveMin']
+        if 'virtualNetworkEnabled' in kwargs:
+            virtual_network_enabled = kwargs['virtualNetworkEnabled']
+
         if cleanup_enabled is not None:
             _setter("cleanup_enabled", cleanup_enabled)
         if compute_type is not None:

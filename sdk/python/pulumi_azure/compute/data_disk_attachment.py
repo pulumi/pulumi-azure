@@ -47,7 +47,17 @@ class DataDiskAttachmentArgs:
              virtual_machine_id: pulumi.Input[str],
              create_option: Optional[pulumi.Input[str]] = None,
              write_accelerator_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'managedDiskId' in kwargs:
+            managed_disk_id = kwargs['managedDiskId']
+        if 'virtualMachineId' in kwargs:
+            virtual_machine_id = kwargs['virtualMachineId']
+        if 'createOption' in kwargs:
+            create_option = kwargs['createOption']
+        if 'writeAcceleratorEnabled' in kwargs:
+            write_accelerator_enabled = kwargs['writeAcceleratorEnabled']
+
         _setter("caching", caching)
         _setter("lun", lun)
         _setter("managed_disk_id", managed_disk_id)
@@ -166,7 +176,17 @@ class _DataDiskAttachmentState:
              managed_disk_id: Optional[pulumi.Input[str]] = None,
              virtual_machine_id: Optional[pulumi.Input[str]] = None,
              write_accelerator_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createOption' in kwargs:
+            create_option = kwargs['createOption']
+        if 'managedDiskId' in kwargs:
+            managed_disk_id = kwargs['managedDiskId']
+        if 'virtualMachineId' in kwargs:
+            virtual_machine_id = kwargs['virtualMachineId']
+        if 'writeAcceleratorEnabled' in kwargs:
+            write_accelerator_enabled = kwargs['writeAcceleratorEnabled']
+
         if caching is not None:
             _setter("caching", caching)
         if create_option is not None:

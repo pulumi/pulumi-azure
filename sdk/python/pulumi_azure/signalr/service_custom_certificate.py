@@ -39,7 +39,13 @@ class ServiceCustomCertificateArgs:
              custom_certificate_id: pulumi.Input[str],
              signalr_service_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customCertificateId' in kwargs:
+            custom_certificate_id = kwargs['customCertificateId']
+        if 'signalrServiceId' in kwargs:
+            signalr_service_id = kwargs['signalrServiceId']
+
         _setter("custom_certificate_id", custom_certificate_id)
         _setter("signalr_service_id", signalr_service_id)
         if name is not None:
@@ -118,7 +124,15 @@ class _ServiceCustomCertificateState:
              custom_certificate_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              signalr_service_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateVersion' in kwargs:
+            certificate_version = kwargs['certificateVersion']
+        if 'customCertificateId' in kwargs:
+            custom_certificate_id = kwargs['customCertificateId']
+        if 'signalrServiceId' in kwargs:
+            signalr_service_id = kwargs['signalrServiceId']
+
         if certificate_version is not None:
             _setter("certificate_version", certificate_version)
         if custom_certificate_id is not None:

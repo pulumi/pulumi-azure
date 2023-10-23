@@ -144,7 +144,7 @@ public class CustomDomain extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
      * 
      */
-    @Export(name="domainName", refs={String.class}, tree="[0]")
+    @Export(name="domainName", type=String.class, parameters={})
     private Output<String> domainName;
 
     /**
@@ -160,7 +160,7 @@ public class CustomDomain extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -174,7 +174,7 @@ public class CustomDomain extends com.pulumi.resources.CustomResource {
      * Specifies the Web PubSub Custom Certificate ID of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="webPubsubCustomCertificateId", refs={String.class}, tree="[0]")
+    @Export(name="webPubsubCustomCertificateId", type=String.class, parameters={})
     private Output<String> webPubsubCustomCertificateId;
 
     /**
@@ -188,7 +188,7 @@ public class CustomDomain extends com.pulumi.resources.CustomResource {
      * Specifies the Web PubSub ID of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="webPubsubId", refs={String.class}, tree="[0]")
+    @Export(name="webPubsubId", type=String.class, parameters={})
     private Output<String> webPubsubId;
 
     /**

@@ -61,7 +61,17 @@ class MonitorArgs:
              monitoring_enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'datadogOrganization' in kwargs:
+            datadog_organization = kwargs['datadogOrganization']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'monitoringEnabled' in kwargs:
+            monitoring_enabled = kwargs['monitoringEnabled']
+
         _setter("datadog_organization", datadog_organization)
         _setter("resource_group_name", resource_group_name)
         _setter("sku_name", sku_name)
@@ -238,7 +248,19 @@ class _MonitorState:
              sku_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              user: Optional[pulumi.Input['MonitorUserArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'datadogOrganization' in kwargs:
+            datadog_organization = kwargs['datadogOrganization']
+        if 'marketplaceSubscriptionStatus' in kwargs:
+            marketplace_subscription_status = kwargs['marketplaceSubscriptionStatus']
+        if 'monitoringEnabled' in kwargs:
+            monitoring_enabled = kwargs['monitoringEnabled']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+
         if datadog_organization is not None:
             _setter("datadog_organization", datadog_organization)
         if identity is not None:

@@ -35,7 +35,13 @@ class DiskPoolIscsiTargetLunArgs:
              disk_pool_managed_disk_attachment_id: pulumi.Input[str],
              iscsi_target_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'diskPoolManagedDiskAttachmentId' in kwargs:
+            disk_pool_managed_disk_attachment_id = kwargs['diskPoolManagedDiskAttachmentId']
+        if 'iscsiTargetId' in kwargs:
+            iscsi_target_id = kwargs['iscsiTargetId']
+
         _setter("disk_pool_managed_disk_attachment_id", disk_pool_managed_disk_attachment_id)
         _setter("iscsi_target_id", iscsi_target_id)
         if name is not None:
@@ -106,7 +112,13 @@ class _DiskPoolIscsiTargetLunState:
              iscsi_target_id: Optional[pulumi.Input[str]] = None,
              lun: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'diskPoolManagedDiskAttachmentId' in kwargs:
+            disk_pool_managed_disk_attachment_id = kwargs['diskPoolManagedDiskAttachmentId']
+        if 'iscsiTargetId' in kwargs:
+            iscsi_target_id = kwargs['iscsiTargetId']
+
         if disk_pool_managed_disk_attachment_id is not None:
             _setter("disk_pool_managed_disk_attachment_id", disk_pool_managed_disk_attachment_id)
         if iscsi_target_id is not None:

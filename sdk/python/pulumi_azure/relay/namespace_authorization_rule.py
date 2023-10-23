@@ -47,7 +47,13 @@ class NamespaceAuthorizationRuleArgs:
              manage: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              send: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         _setter("namespace_name", namespace_name)
         _setter("resource_group_name", resource_group_name)
         if listen is not None:
@@ -184,7 +190,21 @@ class _NamespaceAuthorizationRuleState:
              secondary_connection_string: Optional[pulumi.Input[str]] = None,
              secondary_key: Optional[pulumi.Input[str]] = None,
              send: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if 'primaryConnectionString' in kwargs:
+            primary_connection_string = kwargs['primaryConnectionString']
+        if 'primaryKey' in kwargs:
+            primary_key = kwargs['primaryKey']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'secondaryConnectionString' in kwargs:
+            secondary_connection_string = kwargs['secondaryConnectionString']
+        if 'secondaryKey' in kwargs:
+            secondary_key = kwargs['secondaryKey']
+
         if listen is not None:
             _setter("listen", listen)
         if manage is not None:

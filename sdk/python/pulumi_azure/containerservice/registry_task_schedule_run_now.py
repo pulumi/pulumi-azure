@@ -27,7 +27,11 @@ class RegistryTaskScheduleRunNowArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              container_registry_task_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerRegistryTaskId' in kwargs:
+            container_registry_task_id = kwargs['containerRegistryTaskId']
+
         _setter("container_registry_task_id", container_registry_task_id)
 
     @property
@@ -59,7 +63,11 @@ class _RegistryTaskScheduleRunNowState:
     def _configure(
              _setter: Callable[[Any, Any], None],
              container_registry_task_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerRegistryTaskId' in kwargs:
+            container_registry_task_id = kwargs['containerRegistryTaskId']
+
         if container_registry_task_id is not None:
             _setter("container_registry_task_id", container_registry_task_id)
 

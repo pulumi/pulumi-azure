@@ -97,7 +97,31 @@ class ChannelsRegistrationArgs:
              public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
              streaming_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'microsoftAppId' in kwargs:
+            microsoft_app_id = kwargs['microsoftAppId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'cmkKeyVaultUrl' in kwargs:
+            cmk_key_vault_url = kwargs['cmkKeyVaultUrl']
+        if 'developerAppInsightsApiKey' in kwargs:
+            developer_app_insights_api_key = kwargs['developerAppInsightsApiKey']
+        if 'developerAppInsightsApplicationId' in kwargs:
+            developer_app_insights_application_id = kwargs['developerAppInsightsApplicationId']
+        if 'developerAppInsightsKey' in kwargs:
+            developer_app_insights_key = kwargs['developerAppInsightsKey']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'iconUrl' in kwargs:
+            icon_url = kwargs['iconUrl']
+        if 'isolatedNetworkEnabled' in kwargs:
+            isolated_network_enabled = kwargs['isolatedNetworkEnabled']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'streamingEndpointEnabled' in kwargs:
+            streaming_endpoint_enabled = kwargs['streamingEndpointEnabled']
+
         _setter("microsoft_app_id", microsoft_app_id)
         _setter("resource_group_name", resource_group_name)
         _setter("sku", sku)
@@ -433,7 +457,31 @@ class _ChannelsRegistrationState:
              sku: Optional[pulumi.Input[str]] = None,
              streaming_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cmkKeyVaultUrl' in kwargs:
+            cmk_key_vault_url = kwargs['cmkKeyVaultUrl']
+        if 'developerAppInsightsApiKey' in kwargs:
+            developer_app_insights_api_key = kwargs['developerAppInsightsApiKey']
+        if 'developerAppInsightsApplicationId' in kwargs:
+            developer_app_insights_application_id = kwargs['developerAppInsightsApplicationId']
+        if 'developerAppInsightsKey' in kwargs:
+            developer_app_insights_key = kwargs['developerAppInsightsKey']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'iconUrl' in kwargs:
+            icon_url = kwargs['iconUrl']
+        if 'isolatedNetworkEnabled' in kwargs:
+            isolated_network_enabled = kwargs['isolatedNetworkEnabled']
+        if 'microsoftAppId' in kwargs:
+            microsoft_app_id = kwargs['microsoftAppId']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'streamingEndpointEnabled' in kwargs:
+            streaming_endpoint_enabled = kwargs['streamingEndpointEnabled']
+
         if cmk_key_vault_url is not None:
             _setter("cmk_key_vault_url", cmk_key_vault_url)
         if description is not None:

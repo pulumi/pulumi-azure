@@ -41,7 +41,13 @@ class GatewayArgs:
              location_data: pulumi.Input['GatewayLocationDataArgs'],
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementId' in kwargs:
+            api_management_id = kwargs['apiManagementId']
+        if 'locationData' in kwargs:
+            location_data = kwargs['locationData']
+
         _setter("api_management_id", api_management_id)
         _setter("location_data", location_data)
         if description is not None:
@@ -126,7 +132,13 @@ class _GatewayState:
              description: Optional[pulumi.Input[str]] = None,
              location_data: Optional[pulumi.Input['GatewayLocationDataArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementId' in kwargs:
+            api_management_id = kwargs['apiManagementId']
+        if 'locationData' in kwargs:
+            location_data = kwargs['locationData']
+
         if api_management_id is not None:
             _setter("api_management_id", api_management_id)
         if description is not None:

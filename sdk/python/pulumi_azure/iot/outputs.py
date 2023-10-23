@@ -79,7 +79,13 @@ class IoTHubCloudToDevice(dict):
              default_ttl: Optional[str] = None,
              feedbacks: Optional[Sequence['outputs.IoTHubCloudToDeviceFeedback']] = None,
              max_delivery_count: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultTtl' in kwargs:
+            default_ttl = kwargs['defaultTtl']
+        if 'maxDeliveryCount' in kwargs:
+            max_delivery_count = kwargs['maxDeliveryCount']
+
         if default_ttl is not None:
             _setter("default_ttl", default_ttl)
         if feedbacks is not None:
@@ -156,7 +162,15 @@ class IoTHubCloudToDeviceFeedback(dict):
              lock_duration: Optional[str] = None,
              max_delivery_count: Optional[int] = None,
              time_to_live: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lockDuration' in kwargs:
+            lock_duration = kwargs['lockDuration']
+        if 'maxDeliveryCount' in kwargs:
+            max_delivery_count = kwargs['maxDeliveryCount']
+        if 'timeToLive' in kwargs:
+            time_to_live = kwargs['timeToLive']
+
         if lock_duration is not None:
             _setter("lock_duration", lock_duration)
         if max_delivery_count is not None:
@@ -291,7 +305,29 @@ class IoTHubEndpoint(dict):
              identity_id: Optional[str] = None,
              max_chunk_size_in_bytes: Optional[int] = None,
              resource_group_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+        if 'batchFrequencyInSeconds' in kwargs:
+            batch_frequency_in_seconds = kwargs['batchFrequencyInSeconds']
+        if 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+        if 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+        if 'endpointUri' in kwargs:
+            endpoint_uri = kwargs['endpointUri']
+        if 'entityPath' in kwargs:
+            entity_path = kwargs['entityPath']
+        if 'fileNameFormat' in kwargs:
+            file_name_format = kwargs['fileNameFormat']
+        if 'identityId' in kwargs:
+            identity_id = kwargs['identityId']
+        if 'maxChunkSizeInBytes' in kwargs:
+            max_chunk_size_in_bytes = kwargs['maxChunkSizeInBytes']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         _setter("name", name)
         _setter("type", type)
         if authentication_type is not None:
@@ -466,7 +502,11 @@ class IoTHubEnrichment(dict):
              endpoint_names: Sequence[str],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endpointNames' in kwargs:
+            endpoint_names = kwargs['endpointNames']
+
         _setter("endpoint_names", endpoint_names)
         _setter("key", key)
         _setter("value", value)
@@ -540,7 +580,11 @@ class IoTHubFallbackRoute(dict):
              enabled: Optional[bool] = None,
              endpoint_names: Optional[Sequence[str]] = None,
              source: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endpointNames' in kwargs:
+            endpoint_names = kwargs['endpointNames']
+
         if condition is not None:
             _setter("condition", condition)
         if enabled is not None:
@@ -665,7 +709,25 @@ class IoTHubFileUpload(dict):
              max_delivery_count: Optional[int] = None,
              notifications: Optional[bool] = None,
              sas_ttl: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+        if 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+        if 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+        if 'defaultTtl' in kwargs:
+            default_ttl = kwargs['defaultTtl']
+        if 'identityId' in kwargs:
+            identity_id = kwargs['identityId']
+        if 'lockDuration' in kwargs:
+            lock_duration = kwargs['lockDuration']
+        if 'maxDeliveryCount' in kwargs:
+            max_delivery_count = kwargs['maxDeliveryCount']
+        if 'sasTtl' in kwargs:
+            sas_ttl = kwargs['sasTtl']
+
         _setter("connection_string", connection_string)
         _setter("container_name", container_name)
         if authentication_type is not None:
@@ -810,7 +872,15 @@ class IoTHubIdentity(dict):
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -898,7 +968,15 @@ class IoTHubNetworkRuleSet(dict):
              apply_to_builtin_eventhub_endpoint: Optional[bool] = None,
              default_action: Optional[str] = None,
              ip_rules: Optional[Sequence['outputs.IoTHubNetworkRuleSetIpRule']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applyToBuiltinEventhubEndpoint' in kwargs:
+            apply_to_builtin_eventhub_endpoint = kwargs['applyToBuiltinEventhubEndpoint']
+        if 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if 'ipRules' in kwargs:
+            ip_rules = kwargs['ipRules']
+
         if apply_to_builtin_eventhub_endpoint is not None:
             _setter("apply_to_builtin_eventhub_endpoint", apply_to_builtin_eventhub_endpoint)
         if default_action is not None:
@@ -971,7 +1049,11 @@ class IoTHubNetworkRuleSetIpRule(dict):
              ip_mask: str,
              name: str,
              action: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipMask' in kwargs:
+            ip_mask = kwargs['ipMask']
+
         _setter("ip_mask", ip_mask)
         _setter("name", name)
         if action is not None:
@@ -1050,7 +1132,11 @@ class IoTHubRoute(dict):
              name: str,
              source: str,
              condition: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endpointNames' in kwargs:
+            endpoint_names = kwargs['endpointNames']
+
         _setter("enabled", enabled)
         _setter("endpoint_names", endpoint_names)
         _setter("name", name)
@@ -1147,7 +1233,15 @@ class IoTHubSharedAccessPolicy(dict):
              permissions: Optional[str] = None,
              primary_key: Optional[str] = None,
              secondary_key: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if 'primaryKey' in kwargs:
+            primary_key = kwargs['primaryKey']
+        if 'secondaryKey' in kwargs:
+            secondary_key = kwargs['secondaryKey']
+
         if key_name is not None:
             _setter("key_name", key_name)
         if permissions is not None:
@@ -1211,7 +1305,9 @@ class IoTHubSku(dict):
              _setter: Callable[[Any, Any], None],
              capacity: int,
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("capacity", capacity)
         _setter("name", name)
 
@@ -1284,7 +1380,15 @@ class IotHubDeviceUpdateAccountIdentity(dict):
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -1364,7 +1468,11 @@ class IotHubDeviceUpdateInstanceDiagnosticStorageAccount(dict):
              _setter: Callable[[Any, Any], None],
              connection_string: str,
              id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+
         _setter("connection_string", connection_string)
         _setter("id", id)
 
@@ -1429,7 +1537,11 @@ class IotHubDpsIpFilterRule(dict):
              ip_mask: str,
              name: str,
              target: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipMask' in kwargs:
+            ip_mask = kwargs['ipMask']
+
         _setter("action", action)
         _setter("ip_mask", ip_mask)
         _setter("name", name)
@@ -1521,7 +1633,15 @@ class IotHubDpsLinkedHub(dict):
              allocation_weight: Optional[int] = None,
              apply_allocation_policy: Optional[bool] = None,
              hostname: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+        if 'allocationWeight' in kwargs:
+            allocation_weight = kwargs['allocationWeight']
+        if 'applyAllocationPolicy' in kwargs:
+            apply_allocation_policy = kwargs['applyAllocationPolicy']
+
         _setter("connection_string", connection_string)
         _setter("location", location)
         if allocation_weight is not None:
@@ -1591,7 +1711,9 @@ class IotHubDpsSku(dict):
              _setter: Callable[[Any, Any], None],
              capacity: int,
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("capacity", capacity)
         _setter("name", name)
 
@@ -1662,7 +1784,17 @@ class SecurityDeviceGroupAllowRule(dict):
              connection_to_ips_not_alloweds: Optional[Sequence[str]] = None,
              local_users_not_alloweds: Optional[Sequence[str]] = None,
              processes_not_alloweds: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectionFromIpsNotAlloweds' in kwargs:
+            connection_from_ips_not_alloweds = kwargs['connectionFromIpsNotAlloweds']
+        if 'connectionToIpsNotAlloweds' in kwargs:
+            connection_to_ips_not_alloweds = kwargs['connectionToIpsNotAlloweds']
+        if 'localUsersNotAlloweds' in kwargs:
+            local_users_not_alloweds = kwargs['localUsersNotAlloweds']
+        if 'processesNotAlloweds' in kwargs:
+            processes_not_alloweds = kwargs['processesNotAlloweds']
+
         if connection_from_ips_not_alloweds is not None:
             _setter("connection_from_ips_not_alloweds", connection_from_ips_not_alloweds)
         if connection_to_ips_not_alloweds is not None:
@@ -1732,7 +1864,9 @@ class SecurityDeviceGroupRangeRule(dict):
              max: int,
              min: int,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("duration", duration)
         _setter("max", max)
         _setter("min", min)
@@ -1809,7 +1943,13 @@ class SecuritySolutionAdditionalWorkspace(dict):
              _setter: Callable[[Any, Any], None],
              data_types: Sequence[str],
              workspace_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataTypes' in kwargs:
+            data_types = kwargs['dataTypes']
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+
         _setter("data_types", data_types)
         _setter("workspace_id", workspace_id)
 
@@ -1950,7 +2090,39 @@ class SecuritySolutionRecommendationsEnabled(dict):
              privileged_docker_options: Optional[bool] = None,
              shared_credentials: Optional[bool] = None,
              vulnerable_tls_cipher_suite: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'acrAuthentication' in kwargs:
+            acr_authentication = kwargs['acrAuthentication']
+        if 'agentSendUnutilizedMsg' in kwargs:
+            agent_send_unutilized_msg = kwargs['agentSendUnutilizedMsg']
+        if 'edgeHubMemOptimize' in kwargs:
+            edge_hub_mem_optimize = kwargs['edgeHubMemOptimize']
+        if 'edgeLoggingOption' in kwargs:
+            edge_logging_option = kwargs['edgeLoggingOption']
+        if 'inconsistentModuleSettings' in kwargs:
+            inconsistent_module_settings = kwargs['inconsistentModuleSettings']
+        if 'installAgent' in kwargs:
+            install_agent = kwargs['installAgent']
+        if 'ipFilterDenyAll' in kwargs:
+            ip_filter_deny_all = kwargs['ipFilterDenyAll']
+        if 'ipFilterPermissiveRule' in kwargs:
+            ip_filter_permissive_rule = kwargs['ipFilterPermissiveRule']
+        if 'openPorts' in kwargs:
+            open_ports = kwargs['openPorts']
+        if 'permissiveFirewallPolicy' in kwargs:
+            permissive_firewall_policy = kwargs['permissiveFirewallPolicy']
+        if 'permissiveInputFirewallRules' in kwargs:
+            permissive_input_firewall_rules = kwargs['permissiveInputFirewallRules']
+        if 'permissiveOutputFirewallRules' in kwargs:
+            permissive_output_firewall_rules = kwargs['permissiveOutputFirewallRules']
+        if 'privilegedDockerOptions' in kwargs:
+            privileged_docker_options = kwargs['privilegedDockerOptions']
+        if 'sharedCredentials' in kwargs:
+            shared_credentials = kwargs['sharedCredentials']
+        if 'vulnerableTlsCipherSuite' in kwargs:
+            vulnerable_tls_cipher_suite = kwargs['vulnerableTlsCipherSuite']
+
         if acr_authentication is not None:
             _setter("acr_authentication", acr_authentication)
         if agent_send_unutilized_msg is not None:
@@ -2132,7 +2304,9 @@ class TimeSeriesInsightsGen2EnvironmentStorage(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("name", name)
 
@@ -2172,7 +2346,9 @@ class TimeSeriesInsightsReferenceDataSetKeyProperty(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("type", type)
 
@@ -2220,7 +2396,15 @@ class GetIotHubIdentityResult(dict):
              principal_id: str,
              tenant_id: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("identity_ids", identity_ids)
         _setter("principal_id", principal_id)
         _setter("tenant_id", tenant_id)

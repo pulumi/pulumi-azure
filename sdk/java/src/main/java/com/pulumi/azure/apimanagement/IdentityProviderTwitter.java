@@ -81,7 +81,7 @@ public class IdentityProviderTwitter extends com.pulumi.resources.CustomResource
      * App Consumer API key for Twitter.
      * 
      */
-    @Export(name="apiKey", refs={String.class}, tree="[0]")
+    @Export(name="apiKey", type=String.class, parameters={})
     private Output<String> apiKey;
 
     /**
@@ -95,7 +95,7 @@ public class IdentityProviderTwitter extends com.pulumi.resources.CustomResource
      * The Name of the API Management Service where this Twitter Identity Provider should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="apiManagementName", refs={String.class}, tree="[0]")
+    @Export(name="apiManagementName", type=String.class, parameters={})
     private Output<String> apiManagementName;
 
     /**
@@ -109,7 +109,7 @@ public class IdentityProviderTwitter extends com.pulumi.resources.CustomResource
      * App Consumer API secret key for Twitter.
      * 
      */
-    @Export(name="apiSecretKey", refs={String.class}, tree="[0]")
+    @Export(name="apiSecretKey", type=String.class, parameters={})
     private Output<String> apiSecretKey;
 
     /**
@@ -123,7 +123,7 @@ public class IdentityProviderTwitter extends com.pulumi.resources.CustomResource
      * The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**

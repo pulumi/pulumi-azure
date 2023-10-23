@@ -81,7 +81,7 @@ public class ReplicationPolicy extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** The value of `application_consistent_snapshot_frequency_in_minutes` must be less than or equal to the value of `recovery_point_retention_in_minutes`.
      * 
      */
-    @Export(name="applicationConsistentSnapshotFrequencyInMinutes", refs={Integer.class}, tree="[0]")
+    @Export(name="applicationConsistentSnapshotFrequencyInMinutes", type=Integer.class, parameters={})
     private Output<Integer> applicationConsistentSnapshotFrequencyInMinutes;
 
     /**
@@ -97,7 +97,7 @@ public class ReplicationPolicy extends com.pulumi.resources.CustomResource {
      * The name of the replication policy. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -111,7 +111,7 @@ public class ReplicationPolicy extends com.pulumi.resources.CustomResource {
      * The duration in minutes for which the recovery points need to be stored.
      * 
      */
-    @Export(name="recoveryPointRetentionInMinutes", refs={Integer.class}, tree="[0]")
+    @Export(name="recoveryPointRetentionInMinutes", type=Integer.class, parameters={})
     private Output<Integer> recoveryPointRetentionInMinutes;
 
     /**
@@ -125,7 +125,7 @@ public class ReplicationPolicy extends com.pulumi.resources.CustomResource {
      * The name of the vault that should be updated. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="recoveryVaultName", refs={String.class}, tree="[0]")
+    @Export(name="recoveryVaultName", type=String.class, parameters={})
     private Output<String> recoveryVaultName;
 
     /**
@@ -139,7 +139,7 @@ public class ReplicationPolicy extends com.pulumi.resources.CustomResource {
      * Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**

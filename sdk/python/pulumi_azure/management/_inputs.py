@@ -47,7 +47,15 @@ class GroupPolicyAssignmentIdentityArgs:
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -126,7 +134,11 @@ class GroupPolicyAssignmentNonComplianceMessageArgs:
              _setter: Callable[[Any, Any], None],
              content: pulumi.Input[str],
              policy_definition_reference_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyDefinitionReferenceId' in kwargs:
+            policy_definition_reference_id = kwargs['policyDefinitionReferenceId']
+
         _setter("content", content)
         if policy_definition_reference_id is not None:
             _setter("policy_definition_reference_id", policy_definition_reference_id)
@@ -175,7 +187,9 @@ class GroupPolicyAssignmentOverrideArgs:
              _setter: Callable[[Any, Any], None],
              value: pulumi.Input[str],
              selectors: Optional[pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentOverrideSelectorArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("value", value)
         if selectors is not None:
             _setter("selectors", selectors)
@@ -228,7 +242,11 @@ class GroupPolicyAssignmentOverrideSelectorArgs:
              ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              kind: Optional[pulumi.Input[str]] = None,
              not_ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'notIns' in kwargs:
+            not_ins = kwargs['notIns']
+
         if ins is not None:
             _setter("ins", ins)
         if kind is not None:
@@ -292,7 +310,9 @@ class GroupPolicyAssignmentResourceSelectorArgs:
              _setter: Callable[[Any, Any], None],
              selectors: pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentResourceSelectorSelectorArgs']]],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("selectors", selectors)
         if name is not None:
             _setter("name", name)
@@ -345,7 +365,11 @@ class GroupPolicyAssignmentResourceSelectorSelectorArgs:
              kind: pulumi.Input[str],
              ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              not_ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'notIns' in kwargs:
+            not_ins = kwargs['notIns']
+
         _setter("kind", kind)
         if ins is not None:
             _setter("ins", ins)

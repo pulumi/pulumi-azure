@@ -119,7 +119,7 @@ public class SpringCloudGateway extends com.pulumi.resources.CustomResource {
      * A `api_metadata` block as defined below.
      * 
      */
-    @Export(name="apiMetadata", refs={SpringCloudGatewayApiMetadata.class}, tree="[0]")
+    @Export(name="apiMetadata", type=SpringCloudGatewayApiMetadata.class, parameters={})
     private Output</* @Nullable */ SpringCloudGatewayApiMetadata> apiMetadata;
 
     /**
@@ -133,7 +133,7 @@ public class SpringCloudGateway extends com.pulumi.resources.CustomResource {
      * Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
      * 
      */
-    @Export(name="applicationPerformanceMonitoringTypes", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="applicationPerformanceMonitoringTypes", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> applicationPerformanceMonitoringTypes;
 
     /**
@@ -147,7 +147,7 @@ public class SpringCloudGateway extends com.pulumi.resources.CustomResource {
      * A `client_authorization` block as defined below.
      * 
      */
-    @Export(name="clientAuthorization", refs={SpringCloudGatewayClientAuthorization.class}, tree="[0]")
+    @Export(name="clientAuthorization", type=SpringCloudGatewayClientAuthorization.class, parameters={})
     private Output</* @Nullable */ SpringCloudGatewayClientAuthorization> clientAuthorization;
 
     /**
@@ -161,7 +161,7 @@ public class SpringCloudGateway extends com.pulumi.resources.CustomResource {
      * A `cors` block as defined below.
      * 
      */
-    @Export(name="cors", refs={SpringCloudGatewayCors.class}, tree="[0]")
+    @Export(name="cors", type=SpringCloudGatewayCors.class, parameters={})
     private Output</* @Nullable */ SpringCloudGatewayCors> cors;
 
     /**
@@ -175,7 +175,7 @@ public class SpringCloudGateway extends com.pulumi.resources.CustomResource {
      * Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="environmentVariables", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="environmentVariables", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> environmentVariables;
 
     /**
@@ -189,7 +189,7 @@ public class SpringCloudGateway extends com.pulumi.resources.CustomResource {
      * is only https is allowed?
      * 
      */
-    @Export(name="httpsOnly", refs={Boolean.class}, tree="[0]")
+    @Export(name="httpsOnly", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> httpsOnly;
 
     /**
@@ -203,7 +203,7 @@ public class SpringCloudGateway extends com.pulumi.resources.CustomResource {
      * Specifies the required instance count of the Spring Cloud Gateway. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
      * 
      */
-    @Export(name="instanceCount", refs={Integer.class}, tree="[0]")
+    @Export(name="instanceCount", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> instanceCount;
 
     /**
@@ -217,7 +217,7 @@ public class SpringCloudGateway extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -231,7 +231,7 @@ public class SpringCloudGateway extends com.pulumi.resources.CustomResource {
      * Indicates whether the Spring Cloud Gateway exposes endpoint.
      * 
      */
-    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
@@ -245,7 +245,7 @@ public class SpringCloudGateway extends com.pulumi.resources.CustomResource {
      * A `quota` block as defined below.
      * 
      */
-    @Export(name="quota", refs={SpringCloudGatewayQuota.class}, tree="[0]")
+    @Export(name="quota", type=SpringCloudGatewayQuota.class, parameters={})
     private Output<SpringCloudGatewayQuota> quota;
 
     /**
@@ -259,7 +259,7 @@ public class SpringCloudGateway extends com.pulumi.resources.CustomResource {
      * Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="sensitiveEnvironmentVariables", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="sensitiveEnvironmentVariables", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> sensitiveEnvironmentVariables;
 
     /**
@@ -273,7 +273,7 @@ public class SpringCloudGateway extends com.pulumi.resources.CustomResource {
      * The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Gateway to be created.
      * 
      */
-    @Export(name="springCloudServiceId", refs={String.class}, tree="[0]")
+    @Export(name="springCloudServiceId", type=String.class, parameters={})
     private Output<String> springCloudServiceId;
 
     /**
@@ -287,7 +287,7 @@ public class SpringCloudGateway extends com.pulumi.resources.CustomResource {
      * A `sso` block as defined below.
      * 
      */
-    @Export(name="sso", refs={SpringCloudGatewaySso.class}, tree="[0]")
+    @Export(name="sso", type=SpringCloudGatewaySso.class, parameters={})
     private Output</* @Nullable */ SpringCloudGatewaySso> sso;
 
     /**
@@ -301,7 +301,7 @@ public class SpringCloudGateway extends com.pulumi.resources.CustomResource {
      * URL of the Spring Cloud Gateway, exposed when &#39;public_network_access_enabled&#39; is true.
      * 
      */
-    @Export(name="url", refs={String.class}, tree="[0]")
+    @Export(name="url", type=String.class, parameters={})
     private Output<String> url;
 
     /**

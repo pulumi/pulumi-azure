@@ -53,7 +53,17 @@ class CassandraTableArgs:
              default_ttl: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
              throughput: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cassandraKeyspaceId' in kwargs:
+            cassandra_keyspace_id = kwargs['cassandraKeyspaceId']
+        if 'analyticalStorageTtl' in kwargs:
+            analytical_storage_ttl = kwargs['analyticalStorageTtl']
+        if 'autoscaleSettings' in kwargs:
+            autoscale_settings = kwargs['autoscaleSettings']
+        if 'defaultTtl' in kwargs:
+            default_ttl = kwargs['defaultTtl']
+
         _setter("cassandra_keyspace_id", cassandra_keyspace_id)
         _setter("schema", schema)
         if analytical_storage_ttl is not None:
@@ -188,7 +198,17 @@ class _CassandraTableState:
              name: Optional[pulumi.Input[str]] = None,
              schema: Optional[pulumi.Input['CassandraTableSchemaArgs']] = None,
              throughput: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'analyticalStorageTtl' in kwargs:
+            analytical_storage_ttl = kwargs['analyticalStorageTtl']
+        if 'autoscaleSettings' in kwargs:
+            autoscale_settings = kwargs['autoscaleSettings']
+        if 'cassandraKeyspaceId' in kwargs:
+            cassandra_keyspace_id = kwargs['cassandraKeyspaceId']
+        if 'defaultTtl' in kwargs:
+            default_ttl = kwargs['defaultTtl']
+
         if analytical_storage_ttl is not None:
             _setter("analytical_storage_ttl", analytical_storage_ttl)
         if autoscale_settings is not None:

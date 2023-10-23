@@ -42,7 +42,13 @@ class ClusterExtensionIdentityArgs:
              type: pulumi.Input[str],
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if principal_id is not None:
             _setter("principal_id", principal_id)
@@ -109,7 +115,13 @@ class ClusterIdentityArgs:
              type: pulumi.Input[str],
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if principal_id is not None:
             _setter("principal_id", principal_id)
@@ -192,7 +204,23 @@ class FluxConfigurationBlobStorageArgs:
              service_principal: Optional[pulumi.Input['FluxConfigurationBlobStorageServicePrincipalArgs']] = None,
              sync_interval_in_seconds: Optional[pulumi.Input[int]] = None,
              timeout_in_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerId' in kwargs:
+            container_id = kwargs['containerId']
+        if 'accountKey' in kwargs:
+            account_key = kwargs['accountKey']
+        if 'localAuthReference' in kwargs:
+            local_auth_reference = kwargs['localAuthReference']
+        if 'sasToken' in kwargs:
+            sas_token = kwargs['sasToken']
+        if 'servicePrincipal' in kwargs:
+            service_principal = kwargs['servicePrincipal']
+        if 'syncIntervalInSeconds' in kwargs:
+            sync_interval_in_seconds = kwargs['syncIntervalInSeconds']
+        if 'timeoutInSeconds' in kwargs:
+            timeout_in_seconds = kwargs['timeoutInSeconds']
+
         _setter("container_id", container_id)
         if account_key is not None:
             _setter("account_key", account_key)
@@ -327,7 +355,21 @@ class FluxConfigurationBlobStorageServicePrincipalArgs:
              client_certificate_password: Optional[pulumi.Input[str]] = None,
              client_certificate_send_chain: Optional[pulumi.Input[bool]] = None,
              client_secret: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if 'clientCertificateBase64' in kwargs:
+            client_certificate_base64 = kwargs['clientCertificateBase64']
+        if 'clientCertificatePassword' in kwargs:
+            client_certificate_password = kwargs['clientCertificatePassword']
+        if 'clientCertificateSendChain' in kwargs:
+            client_certificate_send_chain = kwargs['clientCertificateSendChain']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+
         _setter("client_id", client_id)
         _setter("tenant_id", tenant_id)
         if client_certificate_base64 is not None:
@@ -455,7 +497,23 @@ class FluxConfigurationBucketArgs:
              sync_interval_in_seconds: Optional[pulumi.Input[int]] = None,
              timeout_in_seconds: Optional[pulumi.Input[int]] = None,
              tls_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if 'accessKey' in kwargs:
+            access_key = kwargs['accessKey']
+        if 'localAuthReference' in kwargs:
+            local_auth_reference = kwargs['localAuthReference']
+        if 'secretKeyBase64' in kwargs:
+            secret_key_base64 = kwargs['secretKeyBase64']
+        if 'syncIntervalInSeconds' in kwargs:
+            sync_interval_in_seconds = kwargs['syncIntervalInSeconds']
+        if 'timeoutInSeconds' in kwargs:
+            timeout_in_seconds = kwargs['timeoutInSeconds']
+        if 'tlsEnabled' in kwargs:
+            tls_enabled = kwargs['tlsEnabled']
+
         _setter("bucket_name", bucket_name)
         _setter("url", url)
         if access_key is not None:
@@ -623,7 +681,29 @@ class FluxConfigurationGitRepositoryArgs:
              ssh_private_key_base64: Optional[pulumi.Input[str]] = None,
              sync_interval_in_seconds: Optional[pulumi.Input[int]] = None,
              timeout_in_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'referenceType' in kwargs:
+            reference_type = kwargs['referenceType']
+        if 'referenceValue' in kwargs:
+            reference_value = kwargs['referenceValue']
+        if 'httpsCaCertBase64' in kwargs:
+            https_ca_cert_base64 = kwargs['httpsCaCertBase64']
+        if 'httpsKeyBase64' in kwargs:
+            https_key_base64 = kwargs['httpsKeyBase64']
+        if 'httpsUser' in kwargs:
+            https_user = kwargs['httpsUser']
+        if 'localAuthReference' in kwargs:
+            local_auth_reference = kwargs['localAuthReference']
+        if 'sshKnownHostsBase64' in kwargs:
+            ssh_known_hosts_base64 = kwargs['sshKnownHostsBase64']
+        if 'sshPrivateKeyBase64' in kwargs:
+            ssh_private_key_base64 = kwargs['sshPrivateKeyBase64']
+        if 'syncIntervalInSeconds' in kwargs:
+            sync_interval_in_seconds = kwargs['syncIntervalInSeconds']
+        if 'timeoutInSeconds' in kwargs:
+            timeout_in_seconds = kwargs['timeoutInSeconds']
+
         _setter("reference_type", reference_type)
         _setter("reference_value", reference_value)
         _setter("url", url)
@@ -820,7 +900,21 @@ class FluxConfigurationKustomizationArgs:
              retry_interval_in_seconds: Optional[pulumi.Input[int]] = None,
              sync_interval_in_seconds: Optional[pulumi.Input[int]] = None,
              timeout_in_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dependsOns' in kwargs:
+            depends_ons = kwargs['dependsOns']
+        if 'garbageCollectionEnabled' in kwargs:
+            garbage_collection_enabled = kwargs['garbageCollectionEnabled']
+        if 'recreatingEnabled' in kwargs:
+            recreating_enabled = kwargs['recreatingEnabled']
+        if 'retryIntervalInSeconds' in kwargs:
+            retry_interval_in_seconds = kwargs['retryIntervalInSeconds']
+        if 'syncIntervalInSeconds' in kwargs:
+            sync_interval_in_seconds = kwargs['syncIntervalInSeconds']
+        if 'timeoutInSeconds' in kwargs:
+            timeout_in_seconds = kwargs['timeoutInSeconds']
+
         _setter("name", name)
         if depends_ons is not None:
             _setter("depends_ons", depends_ons)

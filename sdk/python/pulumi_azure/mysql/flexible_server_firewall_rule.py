@@ -45,7 +45,17 @@ class FlexibleServerFirewallRuleArgs:
              server_name: pulumi.Input[str],
              start_ip_address: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endIpAddress' in kwargs:
+            end_ip_address = kwargs['endIpAddress']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if 'startIpAddress' in kwargs:
+            start_ip_address = kwargs['startIpAddress']
+
         _setter("end_ip_address", end_ip_address)
         _setter("resource_group_name", resource_group_name)
         _setter("server_name", server_name)
@@ -150,7 +160,17 @@ class _FlexibleServerFirewallRuleState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              server_name: Optional[pulumi.Input[str]] = None,
              start_ip_address: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endIpAddress' in kwargs:
+            end_ip_address = kwargs['endIpAddress']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if 'startIpAddress' in kwargs:
+            start_ip_address = kwargs['startIpAddress']
+
         if end_ip_address is not None:
             _setter("end_ip_address", end_ip_address)
         if name is not None:

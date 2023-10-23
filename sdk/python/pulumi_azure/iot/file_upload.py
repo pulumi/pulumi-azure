@@ -65,7 +65,29 @@ class FileUploadArgs:
              max_delivery_count: Optional[pulumi.Input[int]] = None,
              notifications_enabled: Optional[pulumi.Input[bool]] = None,
              sas_ttl: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+        if 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+        if 'iothubId' in kwargs:
+            iothub_id = kwargs['iothubId']
+        if 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+        if 'defaultTtl' in kwargs:
+            default_ttl = kwargs['defaultTtl']
+        if 'identityId' in kwargs:
+            identity_id = kwargs['identityId']
+        if 'lockDuration' in kwargs:
+            lock_duration = kwargs['lockDuration']
+        if 'maxDeliveryCount' in kwargs:
+            max_delivery_count = kwargs['maxDeliveryCount']
+        if 'notificationsEnabled' in kwargs:
+            notifications_enabled = kwargs['notificationsEnabled']
+        if 'sasTtl' in kwargs:
+            sas_ttl = kwargs['sasTtl']
+
         _setter("connection_string", connection_string)
         _setter("container_name", container_name)
         _setter("iothub_id", iothub_id)
@@ -261,7 +283,29 @@ class _FileUploadState:
              max_delivery_count: Optional[pulumi.Input[int]] = None,
              notifications_enabled: Optional[pulumi.Input[bool]] = None,
              sas_ttl: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+        if 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+        if 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+        if 'defaultTtl' in kwargs:
+            default_ttl = kwargs['defaultTtl']
+        if 'identityId' in kwargs:
+            identity_id = kwargs['identityId']
+        if 'iothubId' in kwargs:
+            iothub_id = kwargs['iothubId']
+        if 'lockDuration' in kwargs:
+            lock_duration = kwargs['lockDuration']
+        if 'maxDeliveryCount' in kwargs:
+            max_delivery_count = kwargs['maxDeliveryCount']
+        if 'notificationsEnabled' in kwargs:
+            notifications_enabled = kwargs['notificationsEnabled']
+        if 'sasTtl' in kwargs:
+            sas_ttl = kwargs['sasTtl']
+
         if authentication_type is not None:
             _setter("authentication_type", authentication_type)
         if connection_string is not None:

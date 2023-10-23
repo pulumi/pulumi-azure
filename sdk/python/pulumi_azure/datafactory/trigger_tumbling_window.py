@@ -85,7 +85,21 @@ class TriggerTumblingWindowArgs:
              name: Optional[pulumi.Input[str]] = None,
              retry: Optional[pulumi.Input['TriggerTumblingWindowRetryArgs']] = None,
              trigger_dependencies: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerTumblingWindowTriggerDependencyArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if 'maxConcurrency' in kwargs:
+            max_concurrency = kwargs['maxConcurrency']
+        if 'triggerDependencies' in kwargs:
+            trigger_dependencies = kwargs['triggerDependencies']
+
         _setter("data_factory_id", data_factory_id)
         _setter("frequency", frequency)
         _setter("interval", interval)
@@ -365,7 +379,21 @@ class _TriggerTumblingWindowState:
              retry: Optional[pulumi.Input['TriggerTumblingWindowRetryArgs']] = None,
              start_time: Optional[pulumi.Input[str]] = None,
              trigger_dependencies: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerTumblingWindowTriggerDependencyArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if 'maxConcurrency' in kwargs:
+            max_concurrency = kwargs['maxConcurrency']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if 'triggerDependencies' in kwargs:
+            trigger_dependencies = kwargs['triggerDependencies']
+
         if activated is not None:
             _setter("activated", activated)
         if additional_properties is not None:

@@ -47,7 +47,17 @@ class BackendAddressPoolAddressArgs:
              ip_address: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              virtual_network_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backendAddressPoolId' in kwargs:
+            backend_address_pool_id = kwargs['backendAddressPoolId']
+        if 'backendAddressIpConfigurationId' in kwargs:
+            backend_address_ip_configuration_id = kwargs['backendAddressIpConfigurationId']
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'virtualNetworkId' in kwargs:
+            virtual_network_id = kwargs['virtualNetworkId']
+
         _setter("backend_address_pool_id", backend_address_pool_id)
         if backend_address_ip_configuration_id is not None:
             _setter("backend_address_ip_configuration_id", backend_address_ip_configuration_id)
@@ -159,7 +169,19 @@ class _BackendAddressPoolAddressState:
              ip_address: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              virtual_network_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backendAddressIpConfigurationId' in kwargs:
+            backend_address_ip_configuration_id = kwargs['backendAddressIpConfigurationId']
+        if 'backendAddressPoolId' in kwargs:
+            backend_address_pool_id = kwargs['backendAddressPoolId']
+        if 'inboundNatRulePortMappings' in kwargs:
+            inbound_nat_rule_port_mappings = kwargs['inboundNatRulePortMappings']
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'virtualNetworkId' in kwargs:
+            virtual_network_id = kwargs['virtualNetworkId']
+
         if backend_address_ip_configuration_id is not None:
             _setter("backend_address_ip_configuration_id", backend_address_ip_configuration_id)
         if backend_address_pool_id is not None:

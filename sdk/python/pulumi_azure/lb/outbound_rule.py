@@ -57,7 +57,21 @@ class OutboundRuleArgs:
              frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['OutboundRuleFrontendIpConfigurationArgs']]]] = None,
              idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backendAddressPoolId' in kwargs:
+            backend_address_pool_id = kwargs['backendAddressPoolId']
+        if 'loadbalancerId' in kwargs:
+            loadbalancer_id = kwargs['loadbalancerId']
+        if 'allocatedOutboundPorts' in kwargs:
+            allocated_outbound_ports = kwargs['allocatedOutboundPorts']
+        if 'enableTcpReset' in kwargs:
+            enable_tcp_reset = kwargs['enableTcpReset']
+        if 'frontendIpConfigurations' in kwargs:
+            frontend_ip_configurations = kwargs['frontendIpConfigurations']
+        if 'idleTimeoutInMinutes' in kwargs:
+            idle_timeout_in_minutes = kwargs['idleTimeoutInMinutes']
+
         _setter("backend_address_pool_id", backend_address_pool_id)
         _setter("loadbalancer_id", loadbalancer_id)
         _setter("protocol", protocol)
@@ -213,7 +227,21 @@ class _OutboundRuleState:
              loadbalancer_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              protocol: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allocatedOutboundPorts' in kwargs:
+            allocated_outbound_ports = kwargs['allocatedOutboundPorts']
+        if 'backendAddressPoolId' in kwargs:
+            backend_address_pool_id = kwargs['backendAddressPoolId']
+        if 'enableTcpReset' in kwargs:
+            enable_tcp_reset = kwargs['enableTcpReset']
+        if 'frontendIpConfigurations' in kwargs:
+            frontend_ip_configurations = kwargs['frontendIpConfigurations']
+        if 'idleTimeoutInMinutes' in kwargs:
+            idle_timeout_in_minutes = kwargs['idleTimeoutInMinutes']
+        if 'loadbalancerId' in kwargs:
+            loadbalancer_id = kwargs['loadbalancerId']
+
         if allocated_outbound_ports is not None:
             _setter("allocated_outbound_ports", allocated_outbound_ports)
         if backend_address_pool_id is not None:

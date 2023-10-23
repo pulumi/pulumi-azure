@@ -39,7 +39,13 @@ class NetworkManagerAdminRuleCollectionArgs:
              security_admin_configuration_id: pulumi.Input[str],
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkGroupIds' in kwargs:
+            network_group_ids = kwargs['networkGroupIds']
+        if 'securityAdminConfigurationId' in kwargs:
+            security_admin_configuration_id = kwargs['securityAdminConfigurationId']
+
         _setter("network_group_ids", network_group_ids)
         _setter("security_admin_configuration_id", security_admin_configuration_id)
         if description is not None:
@@ -124,7 +130,13 @@ class _NetworkManagerAdminRuleCollectionState:
              name: Optional[pulumi.Input[str]] = None,
              network_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              security_admin_configuration_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkGroupIds' in kwargs:
+            network_group_ids = kwargs['networkGroupIds']
+        if 'securityAdminConfigurationId' in kwargs:
+            security_admin_configuration_id = kwargs['securityAdminConfigurationId']
+
         if description is not None:
             _setter("description", description)
         if name is not None:

@@ -101,7 +101,37 @@ class LinkedServiceAzureBlobStorageArgs:
              storage_kind: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              use_managed_identity: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+        if 'connectionStringInsecure' in kwargs:
+            connection_string_insecure = kwargs['connectionStringInsecure']
+        if 'integrationRuntimeName' in kwargs:
+            integration_runtime_name = kwargs['integrationRuntimeName']
+        if 'keyVaultSasToken' in kwargs:
+            key_vault_sas_token = kwargs['keyVaultSasToken']
+        if 'sasUri' in kwargs:
+            sas_uri = kwargs['sasUri']
+        if 'serviceEndpoint' in kwargs:
+            service_endpoint = kwargs['serviceEndpoint']
+        if 'servicePrincipalId' in kwargs:
+            service_principal_id = kwargs['servicePrincipalId']
+        if 'servicePrincipalKey' in kwargs:
+            service_principal_key = kwargs['servicePrincipalKey']
+        if 'servicePrincipalLinkedKeyVaultKey' in kwargs:
+            service_principal_linked_key_vault_key = kwargs['servicePrincipalLinkedKeyVaultKey']
+        if 'storageKind' in kwargs:
+            storage_kind = kwargs['storageKind']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if 'useManagedIdentity' in kwargs:
+            use_managed_identity = kwargs['useManagedIdentity']
+
         _setter("data_factory_id", data_factory_id)
         if additional_properties is not None:
             _setter("additional_properties", additional_properties)
@@ -447,7 +477,37 @@ class _LinkedServiceAzureBlobStorageState:
              storage_kind: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              use_managed_identity: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+        if 'connectionStringInsecure' in kwargs:
+            connection_string_insecure = kwargs['connectionStringInsecure']
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'integrationRuntimeName' in kwargs:
+            integration_runtime_name = kwargs['integrationRuntimeName']
+        if 'keyVaultSasToken' in kwargs:
+            key_vault_sas_token = kwargs['keyVaultSasToken']
+        if 'sasUri' in kwargs:
+            sas_uri = kwargs['sasUri']
+        if 'serviceEndpoint' in kwargs:
+            service_endpoint = kwargs['serviceEndpoint']
+        if 'servicePrincipalId' in kwargs:
+            service_principal_id = kwargs['servicePrincipalId']
+        if 'servicePrincipalKey' in kwargs:
+            service_principal_key = kwargs['servicePrincipalKey']
+        if 'servicePrincipalLinkedKeyVaultKey' in kwargs:
+            service_principal_linked_key_vault_key = kwargs['servicePrincipalLinkedKeyVaultKey']
+        if 'storageKind' in kwargs:
+            storage_kind = kwargs['storageKind']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if 'useManagedIdentity' in kwargs:
+            use_managed_identity = kwargs['useManagedIdentity']
+
         if additional_properties is not None:
             _setter("additional_properties", additional_properties)
         if annotations is not None:

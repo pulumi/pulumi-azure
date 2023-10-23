@@ -47,7 +47,17 @@ class DataExportRuleArgs:
              workspace_resource_id: pulumi.Input[str],
              enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationResourceId' in kwargs:
+            destination_resource_id = kwargs['destinationResourceId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'tableNames' in kwargs:
+            table_names = kwargs['tableNames']
+        if 'workspaceResourceId' in kwargs:
+            workspace_resource_id = kwargs['workspaceResourceId']
+
         _setter("destination_resource_id", destination_resource_id)
         _setter("resource_group_name", resource_group_name)
         _setter("table_names", table_names)
@@ -170,7 +180,19 @@ class _DataExportRuleState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              table_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              workspace_resource_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationResourceId' in kwargs:
+            destination_resource_id = kwargs['destinationResourceId']
+        if 'exportRuleId' in kwargs:
+            export_rule_id = kwargs['exportRuleId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'tableNames' in kwargs:
+            table_names = kwargs['tableNames']
+        if 'workspaceResourceId' in kwargs:
+            workspace_resource_id = kwargs['workspaceResourceId']
+
         if destination_resource_id is not None:
             _setter("destination_resource_id", destination_resource_id)
         if enabled is not None:

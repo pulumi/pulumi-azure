@@ -120,7 +120,37 @@ class GroupArgs:
              subnet_ids: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'osType' in kwargs:
+            os_type = kwargs['osType']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'dnsConfig' in kwargs:
+            dns_config = kwargs['dnsConfig']
+        if 'dnsNameLabel' in kwargs:
+            dns_name_label = kwargs['dnsNameLabel']
+        if 'dnsNameLabelReusePolicy' in kwargs:
+            dns_name_label_reuse_policy = kwargs['dnsNameLabelReusePolicy']
+        if 'exposedPorts' in kwargs:
+            exposed_ports = kwargs['exposedPorts']
+        if 'imageRegistryCredentials' in kwargs:
+            image_registry_credentials = kwargs['imageRegistryCredentials']
+        if 'initContainers' in kwargs:
+            init_containers = kwargs['initContainers']
+        if 'ipAddressType' in kwargs:
+            ip_address_type = kwargs['ipAddressType']
+        if 'keyVaultKeyId' in kwargs:
+            key_vault_key_id = kwargs['keyVaultKeyId']
+        if 'keyVaultUserAssignedIdentityId' in kwargs:
+            key_vault_user_assigned_identity_id = kwargs['keyVaultUserAssignedIdentityId']
+        if 'networkProfileId' in kwargs:
+            network_profile_id = kwargs['networkProfileId']
+        if 'restartPolicy' in kwargs:
+            restart_policy = kwargs['restartPolicy']
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+
         _setter("containers", containers)
         _setter("os_type", os_type)
         _setter("resource_group_name", resource_group_name)
@@ -554,7 +584,39 @@ class _GroupState:
              subnet_ids: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsConfig' in kwargs:
+            dns_config = kwargs['dnsConfig']
+        if 'dnsNameLabel' in kwargs:
+            dns_name_label = kwargs['dnsNameLabel']
+        if 'dnsNameLabelReusePolicy' in kwargs:
+            dns_name_label_reuse_policy = kwargs['dnsNameLabelReusePolicy']
+        if 'exposedPorts' in kwargs:
+            exposed_ports = kwargs['exposedPorts']
+        if 'imageRegistryCredentials' in kwargs:
+            image_registry_credentials = kwargs['imageRegistryCredentials']
+        if 'initContainers' in kwargs:
+            init_containers = kwargs['initContainers']
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'ipAddressType' in kwargs:
+            ip_address_type = kwargs['ipAddressType']
+        if 'keyVaultKeyId' in kwargs:
+            key_vault_key_id = kwargs['keyVaultKeyId']
+        if 'keyVaultUserAssignedIdentityId' in kwargs:
+            key_vault_user_assigned_identity_id = kwargs['keyVaultUserAssignedIdentityId']
+        if 'networkProfileId' in kwargs:
+            network_profile_id = kwargs['networkProfileId']
+        if 'osType' in kwargs:
+            os_type = kwargs['osType']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'restartPolicy' in kwargs:
+            restart_policy = kwargs['restartPolicy']
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+
         if containers is not None:
             _setter("containers", containers)
         if diagnostics is not None:

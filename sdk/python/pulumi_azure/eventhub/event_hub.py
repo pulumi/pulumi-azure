@@ -59,7 +59,19 @@ class EventHubArgs:
              capture_description: Optional[pulumi.Input['EventHubCaptureDescriptionArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'messageRetention' in kwargs:
+            message_retention = kwargs['messageRetention']
+        if 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if 'partitionCount' in kwargs:
+            partition_count = kwargs['partitionCount']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'captureDescription' in kwargs:
+            capture_description = kwargs['captureDescription']
+
         _setter("message_retention", message_retention)
         _setter("namespace_name", namespace_name)
         _setter("partition_count", partition_count)
@@ -212,7 +224,21 @@ class _EventHubState:
              partition_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'captureDescription' in kwargs:
+            capture_description = kwargs['captureDescription']
+        if 'messageRetention' in kwargs:
+            message_retention = kwargs['messageRetention']
+        if 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if 'partitionCount' in kwargs:
+            partition_count = kwargs['partitionCount']
+        if 'partitionIds' in kwargs:
+            partition_ids = kwargs['partitionIds']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if capture_description is not None:
             _setter("capture_description", capture_description)
         if message_retention is not None:

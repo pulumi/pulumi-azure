@@ -111,7 +111,41 @@ class VolumeArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              throughput_in_mibps: Optional[pulumi.Input[float]] = None,
              zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'poolName' in kwargs:
+            pool_name = kwargs['poolName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serviceLevel' in kwargs:
+            service_level = kwargs['serviceLevel']
+        if 'storageQuotaInGb' in kwargs:
+            storage_quota_in_gb = kwargs['storageQuotaInGb']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'volumePath' in kwargs:
+            volume_path = kwargs['volumePath']
+        if 'azureVmwareDataStoreEnabled' in kwargs:
+            azure_vmware_data_store_enabled = kwargs['azureVmwareDataStoreEnabled']
+        if 'createFromSnapshotResourceId' in kwargs:
+            create_from_snapshot_resource_id = kwargs['createFromSnapshotResourceId']
+        if 'dataProtectionReplication' in kwargs:
+            data_protection_replication = kwargs['dataProtectionReplication']
+        if 'dataProtectionSnapshotPolicy' in kwargs:
+            data_protection_snapshot_policy = kwargs['dataProtectionSnapshotPolicy']
+        if 'exportPolicyRules' in kwargs:
+            export_policy_rules = kwargs['exportPolicyRules']
+        if 'networkFeatures' in kwargs:
+            network_features = kwargs['networkFeatures']
+        if 'securityStyle' in kwargs:
+            security_style = kwargs['securityStyle']
+        if 'snapshotDirectoryVisible' in kwargs:
+            snapshot_directory_visible = kwargs['snapshotDirectoryVisible']
+        if 'throughputInMibps' in kwargs:
+            throughput_in_mibps = kwargs['throughputInMibps']
+
         _setter("account_name", account_name)
         _setter("pool_name", pool_name)
         _setter("resource_group_name", resource_group_name)
@@ -505,7 +539,43 @@ class _VolumeState:
              throughput_in_mibps: Optional[pulumi.Input[float]] = None,
              volume_path: Optional[pulumi.Input[str]] = None,
              zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'azureVmwareDataStoreEnabled' in kwargs:
+            azure_vmware_data_store_enabled = kwargs['azureVmwareDataStoreEnabled']
+        if 'createFromSnapshotResourceId' in kwargs:
+            create_from_snapshot_resource_id = kwargs['createFromSnapshotResourceId']
+        if 'dataProtectionReplication' in kwargs:
+            data_protection_replication = kwargs['dataProtectionReplication']
+        if 'dataProtectionSnapshotPolicy' in kwargs:
+            data_protection_snapshot_policy = kwargs['dataProtectionSnapshotPolicy']
+        if 'exportPolicyRules' in kwargs:
+            export_policy_rules = kwargs['exportPolicyRules']
+        if 'mountIpAddresses' in kwargs:
+            mount_ip_addresses = kwargs['mountIpAddresses']
+        if 'networkFeatures' in kwargs:
+            network_features = kwargs['networkFeatures']
+        if 'poolName' in kwargs:
+            pool_name = kwargs['poolName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'securityStyle' in kwargs:
+            security_style = kwargs['securityStyle']
+        if 'serviceLevel' in kwargs:
+            service_level = kwargs['serviceLevel']
+        if 'snapshotDirectoryVisible' in kwargs:
+            snapshot_directory_visible = kwargs['snapshotDirectoryVisible']
+        if 'storageQuotaInGb' in kwargs:
+            storage_quota_in_gb = kwargs['storageQuotaInGb']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'throughputInMibps' in kwargs:
+            throughput_in_mibps = kwargs['throughputInMibps']
+        if 'volumePath' in kwargs:
+            volume_path = kwargs['volumePath']
+
         if account_name is not None:
             _setter("account_name", account_name)
         if azure_vmware_data_store_enabled is not None:

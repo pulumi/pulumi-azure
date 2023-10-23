@@ -59,7 +59,11 @@ class BudgetManagementGroupFilterArgs:
              dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupFilterDimensionArgs']]]] = None,
              not_: Optional[pulumi.Input['BudgetManagementGroupFilterNotArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupFilterTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'not' in kwargs:
+            not_ = kwargs['not']
+
         if dimensions is not None:
             _setter("dimensions", dimensions)
         if not_ is not None:
@@ -133,7 +137,9 @@ class BudgetManagementGroupFilterDimensionArgs:
              name: pulumi.Input[str],
              values: pulumi.Input[Sequence[pulumi.Input[str]]],
              operator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("values", values)
         if operator is not None:
@@ -195,7 +201,9 @@ class BudgetManagementGroupFilterNotArgs:
              _setter: Callable[[Any, Any], None],
              dimension: Optional[pulumi.Input['BudgetManagementGroupFilterNotDimensionArgs']] = None,
              tag: Optional[pulumi.Input['BudgetManagementGroupFilterNotTagArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if dimension is not None:
             _setter("dimension", dimension)
         if tag is not None:
@@ -249,7 +257,9 @@ class BudgetManagementGroupFilterNotDimensionArgs:
              name: pulumi.Input[str],
              values: pulumi.Input[Sequence[pulumi.Input[str]]],
              operator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("values", values)
         if operator is not None:
@@ -315,7 +325,9 @@ class BudgetManagementGroupFilterNotTagArgs:
              name: pulumi.Input[str],
              values: pulumi.Input[Sequence[pulumi.Input[str]]],
              operator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("values", values)
         if operator is not None:
@@ -381,7 +393,9 @@ class BudgetManagementGroupFilterTagArgs:
              name: pulumi.Input[str],
              values: pulumi.Input[Sequence[pulumi.Input[str]]],
              operator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("values", values)
         if operator is not None:
@@ -455,7 +469,13 @@ class BudgetManagementGroupNotificationArgs:
              threshold: pulumi.Input[int],
              enabled: Optional[pulumi.Input[bool]] = None,
              threshold_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contactEmails' in kwargs:
+            contact_emails = kwargs['contactEmails']
+        if 'thresholdType' in kwargs:
+            threshold_type = kwargs['thresholdType']
+
         _setter("contact_emails", contact_emails)
         _setter("operator", operator)
         _setter("threshold", threshold)
@@ -544,7 +564,13 @@ class BudgetManagementGroupTimePeriodArgs:
              _setter: Callable[[Any, Any], None],
              start_date: pulumi.Input[str],
              end_date: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'startDate' in kwargs:
+            start_date = kwargs['startDate']
+        if 'endDate' in kwargs:
+            end_date = kwargs['endDate']
+
         _setter("start_date", start_date)
         if end_date is not None:
             _setter("end_date", end_date)
@@ -597,7 +623,11 @@ class BudgetResourceGroupFilterArgs:
              dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetResourceGroupFilterDimensionArgs']]]] = None,
              not_: Optional[pulumi.Input['BudgetResourceGroupFilterNotArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetResourceGroupFilterTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'not' in kwargs:
+            not_ = kwargs['not']
+
         if dimensions is not None:
             _setter("dimensions", dimensions)
         if not_ is not None:
@@ -671,7 +701,9 @@ class BudgetResourceGroupFilterDimensionArgs:
              name: pulumi.Input[str],
              values: pulumi.Input[Sequence[pulumi.Input[str]]],
              operator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("values", values)
         if operator is not None:
@@ -733,7 +765,9 @@ class BudgetResourceGroupFilterNotArgs:
              _setter: Callable[[Any, Any], None],
              dimension: Optional[pulumi.Input['BudgetResourceGroupFilterNotDimensionArgs']] = None,
              tag: Optional[pulumi.Input['BudgetResourceGroupFilterNotTagArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if dimension is not None:
             _setter("dimension", dimension)
         if tag is not None:
@@ -787,7 +821,9 @@ class BudgetResourceGroupFilterNotDimensionArgs:
              name: pulumi.Input[str],
              values: pulumi.Input[Sequence[pulumi.Input[str]]],
              operator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("values", values)
         if operator is not None:
@@ -853,7 +889,9 @@ class BudgetResourceGroupFilterNotTagArgs:
              name: pulumi.Input[str],
              values: pulumi.Input[Sequence[pulumi.Input[str]]],
              operator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("values", values)
         if operator is not None:
@@ -919,7 +957,9 @@ class BudgetResourceGroupFilterTagArgs:
              name: pulumi.Input[str],
              values: pulumi.Input[Sequence[pulumi.Input[str]]],
              operator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("values", values)
         if operator is not None:
@@ -1003,7 +1043,17 @@ class BudgetResourceGroupNotificationArgs:
              contact_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              threshold_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contactEmails' in kwargs:
+            contact_emails = kwargs['contactEmails']
+        if 'contactGroups' in kwargs:
+            contact_groups = kwargs['contactGroups']
+        if 'contactRoles' in kwargs:
+            contact_roles = kwargs['contactRoles']
+        if 'thresholdType' in kwargs:
+            threshold_type = kwargs['thresholdType']
+
         _setter("operator", operator)
         _setter("threshold", threshold)
         if contact_emails is not None:
@@ -1123,7 +1173,13 @@ class BudgetResourceGroupTimePeriodArgs:
              _setter: Callable[[Any, Any], None],
              start_date: pulumi.Input[str],
              end_date: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'startDate' in kwargs:
+            start_date = kwargs['startDate']
+        if 'endDate' in kwargs:
+            end_date = kwargs['endDate']
+
         _setter("start_date", start_date)
         if end_date is not None:
             _setter("end_date", end_date)
@@ -1176,7 +1232,11 @@ class BudgetSubscriptionFilterArgs:
              dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionFilterDimensionArgs']]]] = None,
              not_: Optional[pulumi.Input['BudgetSubscriptionFilterNotArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionFilterTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'not' in kwargs:
+            not_ = kwargs['not']
+
         if dimensions is not None:
             _setter("dimensions", dimensions)
         if not_ is not None:
@@ -1250,7 +1310,9 @@ class BudgetSubscriptionFilterDimensionArgs:
              name: pulumi.Input[str],
              values: pulumi.Input[Sequence[pulumi.Input[str]]],
              operator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("values", values)
         if operator is not None:
@@ -1312,7 +1374,9 @@ class BudgetSubscriptionFilterNotArgs:
              _setter: Callable[[Any, Any], None],
              dimension: Optional[pulumi.Input['BudgetSubscriptionFilterNotDimensionArgs']] = None,
              tag: Optional[pulumi.Input['BudgetSubscriptionFilterNotTagArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if dimension is not None:
             _setter("dimension", dimension)
         if tag is not None:
@@ -1366,7 +1430,9 @@ class BudgetSubscriptionFilterNotDimensionArgs:
              name: pulumi.Input[str],
              values: pulumi.Input[Sequence[pulumi.Input[str]]],
              operator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("values", values)
         if operator is not None:
@@ -1432,7 +1498,9 @@ class BudgetSubscriptionFilterNotTagArgs:
              name: pulumi.Input[str],
              values: pulumi.Input[Sequence[pulumi.Input[str]]],
              operator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("values", values)
         if operator is not None:
@@ -1498,7 +1566,9 @@ class BudgetSubscriptionFilterTagArgs:
              name: pulumi.Input[str],
              values: pulumi.Input[Sequence[pulumi.Input[str]]],
              operator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("values", values)
         if operator is not None:
@@ -1582,7 +1652,17 @@ class BudgetSubscriptionNotificationArgs:
              contact_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              threshold_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contactEmails' in kwargs:
+            contact_emails = kwargs['contactEmails']
+        if 'contactGroups' in kwargs:
+            contact_groups = kwargs['contactGroups']
+        if 'contactRoles' in kwargs:
+            contact_roles = kwargs['contactRoles']
+        if 'thresholdType' in kwargs:
+            threshold_type = kwargs['thresholdType']
+
         _setter("operator", operator)
         _setter("threshold", threshold)
         if contact_emails is not None:
@@ -1702,7 +1782,13 @@ class BudgetSubscriptionTimePeriodArgs:
              _setter: Callable[[Any, Any], None],
              start_date: pulumi.Input[str],
              end_date: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'startDate' in kwargs:
+            start_date = kwargs['startDate']
+        if 'endDate' in kwargs:
+            end_date = kwargs['endDate']
+
         _setter("start_date", start_date)
         if end_date is not None:
             _setter("end_date", end_date)

@@ -87,7 +87,7 @@ public class SharedAccessPolicy extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE** At least one of `registry_read`, `registry_write`, `service_connect`, `device_connect` permissions must be set to `true`.
      * 
      */
-    @Export(name="deviceConnect", refs={Boolean.class}, tree="[0]")
+    @Export(name="deviceConnect", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> deviceConnect;
 
     /**
@@ -103,7 +103,7 @@ public class SharedAccessPolicy extends com.pulumi.resources.CustomResource {
      * The name of the IoTHub to which this Shared Access Policy belongs. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="iothubName", refs={String.class}, tree="[0]")
+    @Export(name="iothubName", type=String.class, parameters={})
     private Output<String> iothubName;
 
     /**
@@ -117,7 +117,7 @@ public class SharedAccessPolicy extends com.pulumi.resources.CustomResource {
      * Specifies the name of the IotHub Shared Access Policy resource. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -131,7 +131,7 @@ public class SharedAccessPolicy extends com.pulumi.resources.CustomResource {
      * The primary connection string of the Shared Access Policy.
      * 
      */
-    @Export(name="primaryConnectionString", refs={String.class}, tree="[0]")
+    @Export(name="primaryConnectionString", type=String.class, parameters={})
     private Output<String> primaryConnectionString;
 
     /**
@@ -145,7 +145,7 @@ public class SharedAccessPolicy extends com.pulumi.resources.CustomResource {
      * The primary key used to create the authentication token.
      * 
      */
-    @Export(name="primaryKey", refs={String.class}, tree="[0]")
+    @Export(name="primaryKey", type=String.class, parameters={})
     private Output<String> primaryKey;
 
     /**
@@ -159,7 +159,7 @@ public class SharedAccessPolicy extends com.pulumi.resources.CustomResource {
      * Adds `RegistryRead` permission to this Shared Access Account. It allows read access to the identity registry.
      * 
      */
-    @Export(name="registryRead", refs={Boolean.class}, tree="[0]")
+    @Export(name="registryRead", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> registryRead;
 
     /**
@@ -175,7 +175,7 @@ public class SharedAccessPolicy extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE** When `registry_write` is set to `true`, `registry_read` must also be set to true. This is a limitation of the Azure REST API
      * 
      */
-    @Export(name="registryWrite", refs={Boolean.class}, tree="[0]")
+    @Export(name="registryWrite", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> registryWrite;
 
     /**
@@ -191,7 +191,7 @@ public class SharedAccessPolicy extends com.pulumi.resources.CustomResource {
      * The name of the resource group under which the IotHub Shared Access Policy resource has to be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -205,7 +205,7 @@ public class SharedAccessPolicy extends com.pulumi.resources.CustomResource {
      * The secondary connection string of the Shared Access Policy.
      * 
      */
-    @Export(name="secondaryConnectionString", refs={String.class}, tree="[0]")
+    @Export(name="secondaryConnectionString", type=String.class, parameters={})
     private Output<String> secondaryConnectionString;
 
     /**
@@ -219,7 +219,7 @@ public class SharedAccessPolicy extends com.pulumi.resources.CustomResource {
      * The secondary key used to create the authentication token.
      * 
      */
-    @Export(name="secondaryKey", refs={String.class}, tree="[0]")
+    @Export(name="secondaryKey", type=String.class, parameters={})
     private Output<String> secondaryKey;
 
     /**
@@ -233,7 +233,7 @@ public class SharedAccessPolicy extends com.pulumi.resources.CustomResource {
      * Adds `ServiceConnect` permission to this Shared Access Account. It allows sending and receiving on the cloud-side endpoints.
      * 
      */
-    @Export(name="serviceConnect", refs={Boolean.class}, tree="[0]")
+    @Export(name="serviceConnect", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> serviceConnect;
 
     /**

@@ -122,7 +122,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
      * 
      */
-    @Export(name="accessKeyMetadataWritesEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="accessKeyMetadataWritesEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> accessKeyMetadataWritesEnabled;
 
     /**
@@ -136,7 +136,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * An `analytical_storage` block as defined below.
      * 
      */
-    @Export(name="analyticalStorage", refs={AccountAnalyticalStorage.class}, tree="[0]")
+    @Export(name="analyticalStorage", type=AccountAnalyticalStorage.class, parameters={})
     private Output<AccountAnalyticalStorage> analyticalStorage;
 
     /**
@@ -150,7 +150,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Enabling and then disabling analytical storage forces a new resource to be created.
      * 
      */
-    @Export(name="analyticalStorageEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="analyticalStorageEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> analyticalStorageEnabled;
 
     /**
@@ -164,7 +164,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * A `backup` block as defined below.
      * 
      */
-    @Export(name="backup", refs={AccountBackup.class}, tree="[0]")
+    @Export(name="backup", type=AccountBackup.class, parameters={})
     private Output<AccountBackup> backup;
 
     /**
@@ -178,7 +178,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
      * 
      */
-    @Export(name="capabilities", refs={List.class,AccountCapability.class}, tree="[0,1]")
+    @Export(name="capabilities", type=List.class, parameters={AccountCapability.class})
     private Output<List<AccountCapability>> capabilities;
 
     /**
@@ -192,7 +192,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * A `capacity` block as defined below.
      * 
      */
-    @Export(name="capacity", refs={AccountCapacity.class}, tree="[0]")
+    @Export(name="capacity", type=AccountCapacity.class, parameters={})
     private Output<AccountCapacity> capacity;
 
     /**
@@ -206,7 +206,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * A list of connection strings available for this CosmosDB account.
      * 
      */
-    @Export(name="connectionStrings", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="connectionStrings", type=List.class, parameters={String.class})
     private Output<List<String>> connectionStrings;
 
     /**
@@ -220,7 +220,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
      * 
      */
-    @Export(name="consistencyPolicy", refs={AccountConsistencyPolicy.class}, tree="[0]")
+    @Export(name="consistencyPolicy", type=AccountConsistencyPolicy.class, parameters={})
     private Output<AccountConsistencyPolicy> consistencyPolicy;
 
     /**
@@ -234,7 +234,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * A `cors_rule` block as defined below.
      * 
      */
-    @Export(name="corsRule", refs={AccountCorsRule.class}, tree="[0]")
+    @Export(name="corsRule", type=AccountCorsRule.class, parameters={})
     private Output</* @Nullable */ AccountCorsRule> corsRule;
 
     /**
@@ -250,7 +250,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** `create_mode` only works when `backup.type` is `Continuous`.
      * 
      */
-    @Export(name="createMode", refs={String.class}, tree="[0]")
+    @Export(name="createMode", type=String.class, parameters={})
     private Output<String> createMode;
 
     /**
@@ -266,7 +266,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
      * 
      */
-    @Export(name="defaultIdentityType", refs={String.class}, tree="[0]")
+    @Export(name="defaultIdentityType", type=String.class, parameters={})
     private Output</* @Nullable */ String> defaultIdentityType;
 
     /**
@@ -280,7 +280,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Enable automatic failover for this Cosmos DB account.
      * 
      */
-    @Export(name="enableAutomaticFailover", refs={Boolean.class}, tree="[0]")
+    @Export(name="enableAutomaticFailover", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enableAutomaticFailover;
 
     /**
@@ -294,7 +294,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="enableFreeTier", refs={Boolean.class}, tree="[0]")
+    @Export(name="enableFreeTier", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enableFreeTier;
 
     /**
@@ -308,7 +308,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Enable multiple write locations for this Cosmos DB account.
      * 
      */
-    @Export(name="enableMultipleWriteLocations", refs={Boolean.class}, tree="[0]")
+    @Export(name="enableMultipleWriteLocations", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enableMultipleWriteLocations;
 
     /**
@@ -322,7 +322,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The endpoint used to connect to the CosmosDB account.
      * 
      */
-    @Export(name="endpoint", refs={String.class}, tree="[0]")
+    @Export(name="endpoint", type=String.class, parameters={})
     private Output<String> endpoint;
 
     /**
@@ -336,7 +336,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location. Value is a `geo_location` block as defined below.
      * 
      */
-    @Export(name="geoLocations", refs={List.class,AccountGeoLocation.class}, tree="[0,1]")
+    @Export(name="geoLocations", type=List.class, parameters={AccountGeoLocation.class})
     private Output<List<AccountGeoLocation>> geoLocations;
 
     /**
@@ -350,7 +350,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", refs={AccountIdentity.class}, tree="[0]")
+    @Export(name="identity", type=AccountIdentity.class, parameters={})
     private Output</* @Nullable */ AccountIdentity> identity;
 
     /**
@@ -368,7 +368,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** To enable the &#34;Accept connections from within public Azure datacenters&#34; behavior, you should add `0.0.0.0` to the list, see the [documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-global-azure-datacenters-or-other-sources-within-azure) for more details.
      * 
      */
-    @Export(name="ipRangeFilter", refs={String.class}, tree="[0]")
+    @Export(name="ipRangeFilter", type=String.class, parameters={})
     private Output</* @Nullable */ String> ipRangeFilter;
 
     /**
@@ -386,7 +386,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Enables virtual network filtering for this Cosmos DB account.
      * 
      */
-    @Export(name="isVirtualNetworkFilterEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="isVirtualNetworkFilterEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> isVirtualNetworkFilterEnabled;
 
     /**
@@ -404,7 +404,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
      * 
      */
-    @Export(name="keyVaultKeyId", refs={String.class}, tree="[0]")
+    @Export(name="keyVaultKeyId", type=String.class, parameters={})
     private Output</* @Nullable */ String> keyVaultKeyId;
 
     /**
@@ -422,7 +422,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB`, `MongoDB` and `Parse`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="kind", refs={String.class}, tree="[0]")
+    @Export(name="kind", type=String.class, parameters={})
     private Output</* @Nullable */ String> kind;
 
     /**
@@ -436,7 +436,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
      * 
      */
-    @Export(name="localAuthenticationDisabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="localAuthenticationDisabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> localAuthenticationDisabled;
 
     /**
@@ -450,7 +450,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -464,7 +464,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
      * 
      */
-    @Export(name="mongoServerVersion", refs={String.class}, tree="[0]")
+    @Export(name="mongoServerVersion", type=String.class, parameters={})
     private Output<String> mongoServerVersion;
 
     /**
@@ -478,7 +478,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -492,7 +492,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * If Azure services can bypass ACLs. Defaults to `false`.
      * 
      */
-    @Export(name="networkAclBypassForAzureServices", refs={Boolean.class}, tree="[0]")
+    @Export(name="networkAclBypassForAzureServices", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> networkAclBypassForAzureServices;
 
     /**
@@ -506,7 +506,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
      * 
      */
-    @Export(name="networkAclBypassIds", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="networkAclBypassIds", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> networkAclBypassIds;
 
     /**
@@ -520,7 +520,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Specifies the Offer Type to use for this CosmosDB Account; currently, this can only be set to `Standard`.
      * 
      */
-    @Export(name="offerType", refs={String.class}, tree="[0]")
+    @Export(name="offerType", type=String.class, parameters={})
     private Output<String> offerType;
 
     /**
@@ -534,7 +534,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The Primary key for the CosmosDB Account.
      * 
      */
-    @Export(name="primaryKey", refs={String.class}, tree="[0]")
+    @Export(name="primaryKey", type=String.class, parameters={})
     private Output<String> primaryKey;
 
     /**
@@ -548,7 +548,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Primary Mongodb connection string for the CosmosDB Account.
      * 
      */
-    @Export(name="primaryMongodbConnectionString", refs={String.class}, tree="[0]")
+    @Export(name="primaryMongodbConnectionString", type=String.class, parameters={})
     private Output<String> primaryMongodbConnectionString;
 
     /**
@@ -562,7 +562,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The Primary read-only Key for the CosmosDB Account.
      * 
      */
-    @Export(name="primaryReadonlyKey", refs={String.class}, tree="[0]")
+    @Export(name="primaryReadonlyKey", type=String.class, parameters={})
     private Output<String> primaryReadonlyKey;
 
     /**
@@ -576,7 +576,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Primary readonly Mongodb connection string for the CosmosDB Account.
      * 
      */
-    @Export(name="primaryReadonlyMongodbConnectionString", refs={String.class}, tree="[0]")
+    @Export(name="primaryReadonlyMongodbConnectionString", type=String.class, parameters={})
     private Output<String> primaryReadonlyMongodbConnectionString;
 
     /**
@@ -590,7 +590,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Primary readonly SQL connection string for the CosmosDB Account.
      * 
      */
-    @Export(name="primaryReadonlySqlConnectionString", refs={String.class}, tree="[0]")
+    @Export(name="primaryReadonlySqlConnectionString", type=String.class, parameters={})
     private Output<String> primaryReadonlySqlConnectionString;
 
     /**
@@ -604,7 +604,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Primary SQL connection string for the CosmosDB Account.
      * 
      */
-    @Export(name="primarySqlConnectionString", refs={String.class}, tree="[0]")
+    @Export(name="primarySqlConnectionString", type=String.class, parameters={})
     private Output<String> primarySqlConnectionString;
 
     /**
@@ -618,7 +618,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
      * 
      */
-    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
@@ -632,7 +632,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * A list of read endpoints available for this CosmosDB account.
      * 
      */
-    @Export(name="readEndpoints", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="readEndpoints", type=List.class, parameters={String.class})
     private Output<List<String>> readEndpoints;
 
     /**
@@ -646,7 +646,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -662,7 +662,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** `restore` should be set when `create_mode` is `Restore`.
      * 
      */
-    @Export(name="restore", refs={AccountRestore.class}, tree="[0]")
+    @Export(name="restore", type=AccountRestore.class, parameters={})
     private Output</* @Nullable */ AccountRestore> restore;
 
     /**
@@ -678,7 +678,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The Secondary key for the CosmosDB Account.
      * 
      */
-    @Export(name="secondaryKey", refs={String.class}, tree="[0]")
+    @Export(name="secondaryKey", type=String.class, parameters={})
     private Output<String> secondaryKey;
 
     /**
@@ -692,7 +692,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Secondary Mongodb connection string for the CosmosDB Account.
      * 
      */
-    @Export(name="secondaryMongodbConnectionString", refs={String.class}, tree="[0]")
+    @Export(name="secondaryMongodbConnectionString", type=String.class, parameters={})
     private Output<String> secondaryMongodbConnectionString;
 
     /**
@@ -706,7 +706,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The Secondary read-only key for the CosmosDB Account.
      * 
      */
-    @Export(name="secondaryReadonlyKey", refs={String.class}, tree="[0]")
+    @Export(name="secondaryReadonlyKey", type=String.class, parameters={})
     private Output<String> secondaryReadonlyKey;
 
     /**
@@ -720,7 +720,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Secondary readonly Mongodb connection string for the CosmosDB Account.
      * 
      */
-    @Export(name="secondaryReadonlyMongodbConnectionString", refs={String.class}, tree="[0]")
+    @Export(name="secondaryReadonlyMongodbConnectionString", type=String.class, parameters={})
     private Output<String> secondaryReadonlyMongodbConnectionString;
 
     /**
@@ -734,7 +734,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Secondary readonly SQL connection string for the CosmosDB Account.
      * 
      */
-    @Export(name="secondaryReadonlySqlConnectionString", refs={String.class}, tree="[0]")
+    @Export(name="secondaryReadonlySqlConnectionString", type=String.class, parameters={})
     private Output<String> secondaryReadonlySqlConnectionString;
 
     /**
@@ -748,7 +748,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Secondary SQL connection string for the CosmosDB Account.
      * 
      */
-    @Export(name="secondarySqlConnectionString", refs={String.class}, tree="[0]")
+    @Export(name="secondarySqlConnectionString", type=String.class, parameters={})
     private Output<String> secondarySqlConnectionString;
 
     /**
@@ -762,7 +762,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -776,7 +776,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
      * 
      */
-    @Export(name="virtualNetworkRules", refs={List.class,AccountVirtualNetworkRule.class}, tree="[0,1]")
+    @Export(name="virtualNetworkRules", type=List.class, parameters={AccountVirtualNetworkRule.class})
     private Output</* @Nullable */ List<AccountVirtualNetworkRule>> virtualNetworkRules;
 
     /**
@@ -790,7 +790,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * A list of write endpoints available for this CosmosDB account.
      * 
      */
-    @Export(name="writeEndpoints", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="writeEndpoints", type=List.class, parameters={String.class})
     private Output<List<String>> writeEndpoints;
 
     /**

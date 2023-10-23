@@ -55,7 +55,19 @@ class ProbeArgs:
              probe_threshold: Optional[pulumi.Input[int]] = None,
              protocol: Optional[pulumi.Input[str]] = None,
              request_path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'loadbalancerId' in kwargs:
+            loadbalancer_id = kwargs['loadbalancerId']
+        if 'intervalInSeconds' in kwargs:
+            interval_in_seconds = kwargs['intervalInSeconds']
+        if 'numberOfProbes' in kwargs:
+            number_of_probes = kwargs['numberOfProbes']
+        if 'probeThreshold' in kwargs:
+            probe_threshold = kwargs['probeThreshold']
+        if 'requestPath' in kwargs:
+            request_path = kwargs['requestPath']
+
         _setter("loadbalancer_id", loadbalancer_id)
         _setter("port", port)
         if interval_in_seconds is not None:
@@ -215,7 +227,21 @@ class _ProbeState:
              probe_threshold: Optional[pulumi.Input[int]] = None,
              protocol: Optional[pulumi.Input[str]] = None,
              request_path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'intervalInSeconds' in kwargs:
+            interval_in_seconds = kwargs['intervalInSeconds']
+        if 'loadBalancerRules' in kwargs:
+            load_balancer_rules = kwargs['loadBalancerRules']
+        if 'loadbalancerId' in kwargs:
+            loadbalancer_id = kwargs['loadbalancerId']
+        if 'numberOfProbes' in kwargs:
+            number_of_probes = kwargs['numberOfProbes']
+        if 'probeThreshold' in kwargs:
+            probe_threshold = kwargs['probeThreshold']
+        if 'requestPath' in kwargs:
+            request_path = kwargs['requestPath']
+
         if interval_in_seconds is not None:
             _setter("interval_in_seconds", interval_in_seconds)
         if load_balancer_rules is not None:

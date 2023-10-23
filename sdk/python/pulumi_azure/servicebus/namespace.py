@@ -78,7 +78,23 @@ class NamespaceArgs:
              public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zone_redundant: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'customerManagedKey' in kwargs:
+            customer_managed_key = kwargs['customerManagedKey']
+        if 'localAuthEnabled' in kwargs:
+            local_auth_enabled = kwargs['localAuthEnabled']
+        if 'minimumTlsVersion' in kwargs:
+            minimum_tls_version = kwargs['minimumTlsVersion']
+        if 'networkRuleSet' in kwargs:
+            network_rule_set = kwargs['networkRuleSet']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'zoneRedundant' in kwargs:
+            zone_redundant = kwargs['zoneRedundant']
+
         _setter("resource_group_name", resource_group_name)
         _setter("sku", sku)
         if capacity is not None:
@@ -347,7 +363,31 @@ class _NamespaceState:
              sku: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zone_redundant: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customerManagedKey' in kwargs:
+            customer_managed_key = kwargs['customerManagedKey']
+        if 'defaultPrimaryConnectionString' in kwargs:
+            default_primary_connection_string = kwargs['defaultPrimaryConnectionString']
+        if 'defaultPrimaryKey' in kwargs:
+            default_primary_key = kwargs['defaultPrimaryKey']
+        if 'defaultSecondaryConnectionString' in kwargs:
+            default_secondary_connection_string = kwargs['defaultSecondaryConnectionString']
+        if 'defaultSecondaryKey' in kwargs:
+            default_secondary_key = kwargs['defaultSecondaryKey']
+        if 'localAuthEnabled' in kwargs:
+            local_auth_enabled = kwargs['localAuthEnabled']
+        if 'minimumTlsVersion' in kwargs:
+            minimum_tls_version = kwargs['minimumTlsVersion']
+        if 'networkRuleSet' in kwargs:
+            network_rule_set = kwargs['networkRuleSet']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'zoneRedundant' in kwargs:
+            zone_redundant = kwargs['zoneRedundant']
+
         if capacity is not None:
             _setter("capacity", capacity)
         if customer_managed_key is not None:

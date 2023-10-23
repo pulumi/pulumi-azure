@@ -63,7 +63,15 @@ class LogzMonitorArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'companyName' in kwargs:
+            company_name = kwargs['companyName']
+        if 'enterpriseAppId' in kwargs:
+            enterprise_app_id = kwargs['enterpriseAppId']
+
         _setter("plan", plan)
         _setter("resource_group_name", resource_group_name)
         _setter("user", user)
@@ -249,7 +257,19 @@ class _LogzMonitorState:
              single_sign_on_url: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              user: Optional[pulumi.Input['LogzMonitorUserArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'companyName' in kwargs:
+            company_name = kwargs['companyName']
+        if 'enterpriseAppId' in kwargs:
+            enterprise_app_id = kwargs['enterpriseAppId']
+        if 'logzOrganizationId' in kwargs:
+            logz_organization_id = kwargs['logzOrganizationId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'singleSignOnUrl' in kwargs:
+            single_sign_on_url = kwargs['singleSignOnUrl']
+
         if company_name is not None:
             _setter("company_name", company_name)
         if enabled is not None:

@@ -45,7 +45,17 @@ class BackupPolicyDiskArgs:
              vault_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
              retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPolicyDiskRetentionRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backupRepeatingTimeIntervals' in kwargs:
+            backup_repeating_time_intervals = kwargs['backupRepeatingTimeIntervals']
+        if 'defaultRetentionDuration' in kwargs:
+            default_retention_duration = kwargs['defaultRetentionDuration']
+        if 'vaultId' in kwargs:
+            vault_id = kwargs['vaultId']
+        if 'retentionRules' in kwargs:
+            retention_rules = kwargs['retentionRules']
+
         _setter("backup_repeating_time_intervals", backup_repeating_time_intervals)
         _setter("default_retention_duration", default_retention_duration)
         _setter("vault_id", vault_id)
@@ -147,7 +157,17 @@ class _BackupPolicyDiskState:
              name: Optional[pulumi.Input[str]] = None,
              retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPolicyDiskRetentionRuleArgs']]]] = None,
              vault_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backupRepeatingTimeIntervals' in kwargs:
+            backup_repeating_time_intervals = kwargs['backupRepeatingTimeIntervals']
+        if 'defaultRetentionDuration' in kwargs:
+            default_retention_duration = kwargs['defaultRetentionDuration']
+        if 'retentionRules' in kwargs:
+            retention_rules = kwargs['retentionRules']
+        if 'vaultId' in kwargs:
+            vault_id = kwargs['vaultId']
+
         if backup_repeating_time_intervals is not None:
             _setter("backup_repeating_time_intervals", backup_repeating_time_intervals)
         if default_retention_duration is not None:

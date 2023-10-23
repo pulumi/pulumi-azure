@@ -100,7 +100,7 @@ public class SecurityPartnerProvider extends com.pulumi.resources.CustomResource
      * The Azure Region where the Security Partner Provider should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -114,7 +114,7 @@ public class SecurityPartnerProvider extends com.pulumi.resources.CustomResource
      * The name which should be used for this Security Partner Provider. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -128,7 +128,7 @@ public class SecurityPartnerProvider extends com.pulumi.resources.CustomResource
      * The name of the Resource Group where the Security Partner Provider should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -142,7 +142,7 @@ public class SecurityPartnerProvider extends com.pulumi.resources.CustomResource
      * The security provider name. Possible values are `ZScaler`, `IBoss` and `Checkpoint` is allowed. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="securityProviderName", refs={String.class}, tree="[0]")
+    @Export(name="securityProviderName", type=String.class, parameters={})
     private Output<String> securityProviderName;
 
     /**
@@ -156,7 +156,7 @@ public class SecurityPartnerProvider extends com.pulumi.resources.CustomResource
      * A mapping of tags which should be assigned to the Security Partner Provider.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -170,7 +170,7 @@ public class SecurityPartnerProvider extends com.pulumi.resources.CustomResource
      * The ID of the Virtual Hub within which this Security Partner Provider should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="virtualHubId", refs={String.class}, tree="[0]")
+    @Export(name="virtualHubId", type=String.class, parameters={})
     private Output</* @Nullable */ String> virtualHubId;
 
     /**

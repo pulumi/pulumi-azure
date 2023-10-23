@@ -79,7 +79,23 @@ class WorkflowArgs:
              workflow_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              workflow_schema: Optional[pulumi.Input[str]] = None,
              workflow_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'accessControl' in kwargs:
+            access_control = kwargs['accessControl']
+        if 'integrationServiceEnvironmentId' in kwargs:
+            integration_service_environment_id = kwargs['integrationServiceEnvironmentId']
+        if 'logicAppIntegrationAccountId' in kwargs:
+            logic_app_integration_account_id = kwargs['logicAppIntegrationAccountId']
+        if 'workflowParameters' in kwargs:
+            workflow_parameters = kwargs['workflowParameters']
+        if 'workflowSchema' in kwargs:
+            workflow_schema = kwargs['workflowSchema']
+        if 'workflowVersion' in kwargs:
+            workflow_version = kwargs['workflowVersion']
+
         _setter("resource_group_name", resource_group_name)
         if access_control is not None:
             _setter("access_control", access_control)
@@ -351,7 +367,33 @@ class _WorkflowState:
              workflow_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              workflow_schema: Optional[pulumi.Input[str]] = None,
              workflow_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessControl' in kwargs:
+            access_control = kwargs['accessControl']
+        if 'accessEndpoint' in kwargs:
+            access_endpoint = kwargs['accessEndpoint']
+        if 'connectorEndpointIpAddresses' in kwargs:
+            connector_endpoint_ip_addresses = kwargs['connectorEndpointIpAddresses']
+        if 'connectorOutboundIpAddresses' in kwargs:
+            connector_outbound_ip_addresses = kwargs['connectorOutboundIpAddresses']
+        if 'integrationServiceEnvironmentId' in kwargs:
+            integration_service_environment_id = kwargs['integrationServiceEnvironmentId']
+        if 'logicAppIntegrationAccountId' in kwargs:
+            logic_app_integration_account_id = kwargs['logicAppIntegrationAccountId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'workflowEndpointIpAddresses' in kwargs:
+            workflow_endpoint_ip_addresses = kwargs['workflowEndpointIpAddresses']
+        if 'workflowOutboundIpAddresses' in kwargs:
+            workflow_outbound_ip_addresses = kwargs['workflowOutboundIpAddresses']
+        if 'workflowParameters' in kwargs:
+            workflow_parameters = kwargs['workflowParameters']
+        if 'workflowSchema' in kwargs:
+            workflow_schema = kwargs['workflowSchema']
+        if 'workflowVersion' in kwargs:
+            workflow_version = kwargs['workflowVersion']
+
         if access_control is not None:
             _setter("access_control", access_control)
         if access_endpoint is not None:

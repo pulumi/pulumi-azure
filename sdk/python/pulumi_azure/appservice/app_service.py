@@ -105,7 +105,35 @@ class AppServiceArgs:
              source_control: Optional[pulumi.Input['AppServiceSourceControlArgs']] = None,
              storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['AppServiceStorageAccountArgs']]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appServicePlanId' in kwargs:
+            app_service_plan_id = kwargs['appServicePlanId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'appSettings' in kwargs:
+            app_settings = kwargs['appSettings']
+        if 'authSettings' in kwargs:
+            auth_settings = kwargs['authSettings']
+        if 'clientAffinityEnabled' in kwargs:
+            client_affinity_enabled = kwargs['clientAffinityEnabled']
+        if 'clientCertEnabled' in kwargs:
+            client_cert_enabled = kwargs['clientCertEnabled']
+        if 'clientCertMode' in kwargs:
+            client_cert_mode = kwargs['clientCertMode']
+        if 'connectionStrings' in kwargs:
+            connection_strings = kwargs['connectionStrings']
+        if 'httpsOnly' in kwargs:
+            https_only = kwargs['httpsOnly']
+        if 'keyVaultReferenceIdentityId' in kwargs:
+            key_vault_reference_identity_id = kwargs['keyVaultReferenceIdentityId']
+        if 'siteConfig' in kwargs:
+            site_config = kwargs['siteConfig']
+        if 'sourceControl' in kwargs:
+            source_control = kwargs['sourceControl']
+        if 'storageAccounts' in kwargs:
+            storage_accounts = kwargs['storageAccounts']
+
         _setter("app_service_plan_id", app_service_plan_id)
         _setter("resource_group_name", resource_group_name)
         if app_settings is not None:
@@ -506,7 +534,49 @@ class _AppServiceState:
              source_control: Optional[pulumi.Input['AppServiceSourceControlArgs']] = None,
              storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['AppServiceStorageAccountArgs']]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appServicePlanId' in kwargs:
+            app_service_plan_id = kwargs['appServicePlanId']
+        if 'appSettings' in kwargs:
+            app_settings = kwargs['appSettings']
+        if 'authSettings' in kwargs:
+            auth_settings = kwargs['authSettings']
+        if 'clientAffinityEnabled' in kwargs:
+            client_affinity_enabled = kwargs['clientAffinityEnabled']
+        if 'clientCertEnabled' in kwargs:
+            client_cert_enabled = kwargs['clientCertEnabled']
+        if 'clientCertMode' in kwargs:
+            client_cert_mode = kwargs['clientCertMode']
+        if 'connectionStrings' in kwargs:
+            connection_strings = kwargs['connectionStrings']
+        if 'customDomainVerificationId' in kwargs:
+            custom_domain_verification_id = kwargs['customDomainVerificationId']
+        if 'defaultSiteHostname' in kwargs:
+            default_site_hostname = kwargs['defaultSiteHostname']
+        if 'httpsOnly' in kwargs:
+            https_only = kwargs['httpsOnly']
+        if 'keyVaultReferenceIdentityId' in kwargs:
+            key_vault_reference_identity_id = kwargs['keyVaultReferenceIdentityId']
+        if 'outboundIpAddressLists' in kwargs:
+            outbound_ip_address_lists = kwargs['outboundIpAddressLists']
+        if 'outboundIpAddresses' in kwargs:
+            outbound_ip_addresses = kwargs['outboundIpAddresses']
+        if 'possibleOutboundIpAddressLists' in kwargs:
+            possible_outbound_ip_address_lists = kwargs['possibleOutboundIpAddressLists']
+        if 'possibleOutboundIpAddresses' in kwargs:
+            possible_outbound_ip_addresses = kwargs['possibleOutboundIpAddresses']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'siteConfig' in kwargs:
+            site_config = kwargs['siteConfig']
+        if 'siteCredentials' in kwargs:
+            site_credentials = kwargs['siteCredentials']
+        if 'sourceControl' in kwargs:
+            source_control = kwargs['sourceControl']
+        if 'storageAccounts' in kwargs:
+            storage_accounts = kwargs['storageAccounts']
+
         if app_service_plan_id is not None:
             _setter("app_service_plan_id", app_service_plan_id)
         if app_settings is not None:

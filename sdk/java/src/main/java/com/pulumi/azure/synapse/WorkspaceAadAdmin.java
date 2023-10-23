@@ -143,7 +143,7 @@ public class WorkspaceAadAdmin extends com.pulumi.resources.CustomResource {
      * The login name of the Azure AD Administrator of this Synapse Workspace.
      * 
      */
-    @Export(name="login", refs={String.class}, tree="[0]")
+    @Export(name="login", type=String.class, parameters={})
     private Output<String> login;
 
     /**
@@ -157,7 +157,7 @@ public class WorkspaceAadAdmin extends com.pulumi.resources.CustomResource {
      * The object id of the Azure AD Administrator of this Synapse Workspace.
      * 
      */
-    @Export(name="objectId", refs={String.class}, tree="[0]")
+    @Export(name="objectId", type=String.class, parameters={})
     private Output<String> objectId;
 
     /**
@@ -171,7 +171,7 @@ public class WorkspaceAadAdmin extends com.pulumi.resources.CustomResource {
      * The ID of the Synapse Workspace where the Azure AD Administrator should be configured.
      * 
      */
-    @Export(name="synapseWorkspaceId", refs={String.class}, tree="[0]")
+    @Export(name="synapseWorkspaceId", type=String.class, parameters={})
     private Output<String> synapseWorkspaceId;
 
     /**
@@ -185,7 +185,7 @@ public class WorkspaceAadAdmin extends com.pulumi.resources.CustomResource {
      * The tenant id of the Azure AD Administrator of this Synapse Workspace.
      * 
      */
-    @Export(name="tenantId", refs={String.class}, tree="[0]")
+    @Export(name="tenantId", type=String.class, parameters={})
     private Output<String> tenantId;
 
     /**

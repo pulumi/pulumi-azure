@@ -43,7 +43,17 @@ class FirewallRuleArgs:
              resource_group_name: pulumi.Input[str],
              start_ip: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endIp' in kwargs:
+            end_ip = kwargs['endIp']
+        if 'redisCacheName' in kwargs:
+            redis_cache_name = kwargs['redisCacheName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'startIp' in kwargs:
+            start_ip = kwargs['startIp']
+
         _setter("end_ip", end_ip)
         _setter("redis_cache_name", redis_cache_name)
         _setter("resource_group_name", resource_group_name)
@@ -144,7 +154,17 @@ class _FirewallRuleState:
              redis_cache_name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              start_ip: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endIp' in kwargs:
+            end_ip = kwargs['endIp']
+        if 'redisCacheName' in kwargs:
+            redis_cache_name = kwargs['redisCacheName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'startIp' in kwargs:
+            start_ip = kwargs['startIp']
+
         if end_ip is not None:
             _setter("end_ip", end_ip)
         if name is not None:

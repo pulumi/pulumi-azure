@@ -66,7 +66,11 @@ class AccountEncryptionArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              key_vault_key_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyVaultKeyId' in kwargs:
+            key_vault_key_id = kwargs['keyVaultKeyId']
+
         _setter("key_vault_key_id", key_vault_key_id)
 
     @property
@@ -111,7 +115,15 @@ class AccountIdentityArgs:
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -190,7 +202,9 @@ class AccountKeyVaultReferenceArgs:
              _setter: Callable[[Any, Any], None],
              id: pulumi.Input[str],
              url: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("id", id)
         _setter("url", url)
 
@@ -240,7 +254,13 @@ class AccountNetworkProfileArgs:
              _setter: Callable[[Any, Any], None],
              account_access: Optional[pulumi.Input['AccountNetworkProfileAccountAccessArgs']] = None,
              node_management_access: Optional[pulumi.Input['AccountNetworkProfileNodeManagementAccessArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountAccess' in kwargs:
+            account_access = kwargs['accountAccess']
+        if 'nodeManagementAccess' in kwargs:
+            node_management_access = kwargs['nodeManagementAccess']
+
         if account_access is not None:
             _setter("account_access", account_access)
         if node_management_access is not None:
@@ -292,7 +312,13 @@ class AccountNetworkProfileAccountAccessArgs:
              _setter: Callable[[Any, Any], None],
              default_action: Optional[pulumi.Input[str]] = None,
              ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkProfileAccountAccessIpRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if 'ipRules' in kwargs:
+            ip_rules = kwargs['ipRules']
+
         if default_action is not None:
             _setter("default_action", default_action)
         if ip_rules is not None:
@@ -342,7 +368,11 @@ class AccountNetworkProfileAccountAccessIpRuleArgs:
              _setter: Callable[[Any, Any], None],
              ip_range: pulumi.Input[str],
              action: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipRange' in kwargs:
+            ip_range = kwargs['ipRange']
+
         _setter("ip_range", ip_range)
         if action is not None:
             _setter("action", action)
@@ -391,7 +421,13 @@ class AccountNetworkProfileNodeManagementAccessArgs:
              _setter: Callable[[Any, Any], None],
              default_action: Optional[pulumi.Input[str]] = None,
              ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkProfileNodeManagementAccessIpRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if 'ipRules' in kwargs:
+            ip_rules = kwargs['ipRules']
+
         if default_action is not None:
             _setter("default_action", default_action)
         if ip_rules is not None:
@@ -441,7 +477,11 @@ class AccountNetworkProfileNodeManagementAccessIpRuleArgs:
              _setter: Callable[[Any, Any], None],
              ip_range: pulumi.Input[str],
              action: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipRange' in kwargs:
+            ip_range = kwargs['ipRange']
+
         _setter("ip_range", ip_range)
         if action is not None:
             _setter("action", action)
@@ -490,7 +530,11 @@ class PoolAutoScaleArgs:
              _setter: Callable[[Any, Any], None],
              formula: pulumi.Input[str],
              evaluation_interval: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'evaluationInterval' in kwargs:
+            evaluation_interval = kwargs['evaluationInterval']
+
         _setter("formula", formula)
         if evaluation_interval is not None:
             _setter("evaluation_interval", evaluation_interval)
@@ -549,7 +593,13 @@ class PoolCertificateArgs:
              store_location: pulumi.Input[str],
              store_name: Optional[pulumi.Input[str]] = None,
              visibilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storeLocation' in kwargs:
+            store_location = kwargs['storeLocation']
+        if 'storeName' in kwargs:
+            store_name = kwargs['storeName']
+
         _setter("id", id)
         _setter("store_location", store_location)
         if store_name is not None:
@@ -631,7 +681,13 @@ class PoolContainerConfigurationArgs:
              container_image_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              container_registries: Optional[pulumi.Input[Sequence[pulumi.Input['PoolContainerConfigurationContainerRegistryArgs']]]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerImageNames' in kwargs:
+            container_image_names = kwargs['containerImageNames']
+        if 'containerRegistries' in kwargs:
+            container_registries = kwargs['containerRegistries']
+
         if container_image_names is not None:
             _setter("container_image_names", container_image_names)
         if container_registries is not None:
@@ -703,7 +759,15 @@ class PoolContainerConfigurationContainerRegistryArgs:
              password: Optional[pulumi.Input[str]] = None,
              user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
              user_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'registryServer' in kwargs:
+            registry_server = kwargs['registryServer']
+        if 'userAssignedIdentityId' in kwargs:
+            user_assigned_identity_id = kwargs['userAssignedIdentityId']
+        if 'userName' in kwargs:
+            user_name = kwargs['userName']
+
         _setter("registry_server", registry_server)
         if password is not None:
             _setter("password", password)
@@ -788,7 +852,13 @@ class PoolDataDiskArgs:
              lun: pulumi.Input[int],
              caching: Optional[pulumi.Input[str]] = None,
              storage_account_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'diskSizeGb' in kwargs:
+            disk_size_gb = kwargs['diskSizeGb']
+        if 'storageAccountType' in kwargs:
+            storage_account_type = kwargs['storageAccountType']
+
         _setter("disk_size_gb", disk_size_gb)
         _setter("lun", lun)
         if caching is not None:
@@ -860,7 +930,11 @@ class PoolDiskEncryptionArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              disk_encryption_target: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'diskEncryptionTarget' in kwargs:
+            disk_encryption_target = kwargs['diskEncryptionTarget']
+
         _setter("disk_encryption_target", disk_encryption_target)
 
     @property
@@ -925,7 +999,21 @@ class PoolExtensionArgs:
              provision_after_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              settings_json: Optional[pulumi.Input[str]] = None,
              type_handler_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoUpgradeMinorVersion' in kwargs:
+            auto_upgrade_minor_version = kwargs['autoUpgradeMinorVersion']
+        if 'automaticUpgradeEnabled' in kwargs:
+            automatic_upgrade_enabled = kwargs['automaticUpgradeEnabled']
+        if 'protectedSettings' in kwargs:
+            protected_settings = kwargs['protectedSettings']
+        if 'provisionAfterExtensions' in kwargs:
+            provision_after_extensions = kwargs['provisionAfterExtensions']
+        if 'settingsJson' in kwargs:
+            settings_json = kwargs['settingsJson']
+        if 'typeHandlerVersion' in kwargs:
+            type_handler_version = kwargs['typeHandlerVersion']
+
         _setter("name", name)
         _setter("publisher", publisher)
         _setter("type", type)
@@ -1080,7 +1168,17 @@ class PoolFixedScaleArgs:
              resize_timeout: Optional[pulumi.Input[str]] = None,
              target_dedicated_nodes: Optional[pulumi.Input[int]] = None,
              target_low_priority_nodes: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'nodeDeallocationMethod' in kwargs:
+            node_deallocation_method = kwargs['nodeDeallocationMethod']
+        if 'resizeTimeout' in kwargs:
+            resize_timeout = kwargs['resizeTimeout']
+        if 'targetDedicatedNodes' in kwargs:
+            target_dedicated_nodes = kwargs['targetDedicatedNodes']
+        if 'targetLowPriorityNodes' in kwargs:
+            target_low_priority_nodes = kwargs['targetLowPriorityNodes']
+
         if node_deallocation_method is not None:
             _setter("node_deallocation_method", node_deallocation_method)
         if resize_timeout is not None:
@@ -1158,7 +1256,11 @@ class PoolIdentityArgs:
              _setter: Callable[[Any, Any], None],
              identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
              type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+
         _setter("identity_ids", identity_ids)
         _setter("type", type)
 
@@ -1214,7 +1316,17 @@ class PoolMountArgs:
              azure_file_shares: Optional[pulumi.Input[Sequence[pulumi.Input['PoolMountAzureFileShareArgs']]]] = None,
              cifs_mounts: Optional[pulumi.Input[Sequence[pulumi.Input['PoolMountCifsMountArgs']]]] = None,
              nfs_mounts: Optional[pulumi.Input[Sequence[pulumi.Input['PoolMountNfsMountArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azureBlobFileSystem' in kwargs:
+            azure_blob_file_system = kwargs['azureBlobFileSystem']
+        if 'azureFileShares' in kwargs:
+            azure_file_shares = kwargs['azureFileShares']
+        if 'cifsMounts' in kwargs:
+            cifs_mounts = kwargs['cifsMounts']
+        if 'nfsMounts' in kwargs:
+            nfs_mounts = kwargs['nfsMounts']
+
         if azure_blob_file_system is not None:
             _setter("azure_blob_file_system", azure_blob_file_system)
         if azure_file_shares is not None:
@@ -1312,7 +1424,23 @@ class PoolMountAzureBlobFileSystemArgs:
              blobfuse_options: Optional[pulumi.Input[str]] = None,
              identity_id: Optional[pulumi.Input[str]] = None,
              sas_key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+        if 'relativeMountPath' in kwargs:
+            relative_mount_path = kwargs['relativeMountPath']
+        if 'accountKey' in kwargs:
+            account_key = kwargs['accountKey']
+        if 'blobfuseOptions' in kwargs:
+            blobfuse_options = kwargs['blobfuseOptions']
+        if 'identityId' in kwargs:
+            identity_id = kwargs['identityId']
+        if 'sasKey' in kwargs:
+            sas_key = kwargs['sasKey']
+
         _setter("account_name", account_name)
         _setter("container_name", container_name)
         _setter("relative_mount_path", relative_mount_path)
@@ -1441,7 +1569,19 @@ class PoolMountAzureFileShareArgs:
              azure_file_url: pulumi.Input[str],
              relative_mount_path: pulumi.Input[str],
              mount_options: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountKey' in kwargs:
+            account_key = kwargs['accountKey']
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'azureFileUrl' in kwargs:
+            azure_file_url = kwargs['azureFileUrl']
+        if 'relativeMountPath' in kwargs:
+            relative_mount_path = kwargs['relativeMountPath']
+        if 'mountOptions' in kwargs:
+            mount_options = kwargs['mountOptions']
+
         _setter("account_key", account_key)
         _setter("account_name", account_name)
         _setter("azure_file_url", azure_file_url)
@@ -1541,7 +1681,15 @@ class PoolMountCifsMountArgs:
              source: pulumi.Input[str],
              user_name: pulumi.Input[str],
              mount_options: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'relativeMountPath' in kwargs:
+            relative_mount_path = kwargs['relativeMountPath']
+        if 'userName' in kwargs:
+            user_name = kwargs['userName']
+        if 'mountOptions' in kwargs:
+            mount_options = kwargs['mountOptions']
+
         _setter("password", password)
         _setter("relative_mount_path", relative_mount_path)
         _setter("source", source)
@@ -1633,7 +1781,13 @@ class PoolMountNfsMountArgs:
              relative_mount_path: pulumi.Input[str],
              source: pulumi.Input[str],
              mount_options: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'relativeMountPath' in kwargs:
+            relative_mount_path = kwargs['relativeMountPath']
+        if 'mountOptions' in kwargs:
+            mount_options = kwargs['mountOptions']
+
         _setter("relative_mount_path", relative_mount_path)
         _setter("source", source)
         if mount_options is not None:
@@ -1711,7 +1865,21 @@ class PoolNetworkConfigurationArgs:
              public_address_provisioning_type: Optional[pulumi.Input[str]] = None,
              public_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'acceleratedNetworkingEnabled' in kwargs:
+            accelerated_networking_enabled = kwargs['acceleratedNetworkingEnabled']
+        if 'dynamicVnetAssignmentScope' in kwargs:
+            dynamic_vnet_assignment_scope = kwargs['dynamicVnetAssignmentScope']
+        if 'endpointConfigurations' in kwargs:
+            endpoint_configurations = kwargs['endpointConfigurations']
+        if 'publicAddressProvisioningType' in kwargs:
+            public_address_provisioning_type = kwargs['publicAddressProvisioningType']
+        if 'publicIps' in kwargs:
+            public_ips = kwargs['publicIps']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         if accelerated_networking_enabled is not None:
             _setter("accelerated_networking_enabled", accelerated_networking_enabled)
         if dynamic_vnet_assignment_scope is not None:
@@ -1829,7 +1997,15 @@ class PoolNetworkConfigurationEndpointConfigurationArgs:
              name: pulumi.Input[str],
              protocol: pulumi.Input[str],
              network_security_group_rules: Optional[pulumi.Input[Sequence[pulumi.Input['PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backendPort' in kwargs:
+            backend_port = kwargs['backendPort']
+        if 'frontendPortRange' in kwargs:
+            frontend_port_range = kwargs['frontendPortRange']
+        if 'networkSecurityGroupRules' in kwargs:
+            network_security_group_rules = kwargs['networkSecurityGroupRules']
+
         _setter("backend_port", backend_port)
         _setter("frontend_port_range", frontend_port_range)
         _setter("name", name)
@@ -1925,7 +2101,13 @@ class PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs:
              priority: pulumi.Input[int],
              source_address_prefix: pulumi.Input[str],
              source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sourceAddressPrefix' in kwargs:
+            source_address_prefix = kwargs['sourceAddressPrefix']
+        if 'sourcePortRanges' in kwargs:
+            source_port_ranges = kwargs['sourcePortRanges']
+
         _setter("access", access)
         _setter("priority", priority)
         _setter("source_address_prefix", source_address_prefix)
@@ -1996,7 +2178,9 @@ class PoolNodePlacementArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              policy: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if policy is not None:
             _setter("policy", policy)
 
@@ -2052,7 +2236,21 @@ class PoolStartTaskArgs:
              resource_files: Optional[pulumi.Input[Sequence[pulumi.Input['PoolStartTaskResourceFileArgs']]]] = None,
              task_retry_maximum: Optional[pulumi.Input[int]] = None,
              wait_for_success: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'commandLine' in kwargs:
+            command_line = kwargs['commandLine']
+        if 'userIdentity' in kwargs:
+            user_identity = kwargs['userIdentity']
+        if 'commonEnvironmentProperties' in kwargs:
+            common_environment_properties = kwargs['commonEnvironmentProperties']
+        if 'resourceFiles' in kwargs:
+            resource_files = kwargs['resourceFiles']
+        if 'taskRetryMaximum' in kwargs:
+            task_retry_maximum = kwargs['taskRetryMaximum']
+        if 'waitForSuccess' in kwargs:
+            wait_for_success = kwargs['waitForSuccess']
+
         _setter("command_line", command_line)
         _setter("user_identity", user_identity)
         if common_environment_properties is not None:
@@ -2178,7 +2376,15 @@ class PoolStartTaskContainerArgs:
              registries: Optional[pulumi.Input[Sequence[pulumi.Input['PoolStartTaskContainerRegistryArgs']]]] = None,
              run_options: Optional[pulumi.Input[str]] = None,
              working_directory: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'imageName' in kwargs:
+            image_name = kwargs['imageName']
+        if 'runOptions' in kwargs:
+            run_options = kwargs['runOptions']
+        if 'workingDirectory' in kwargs:
+            working_directory = kwargs['workingDirectory']
+
         _setter("image_name", image_name)
         if registries is not None:
             _setter("registries", registries)
@@ -2263,7 +2469,15 @@ class PoolStartTaskContainerRegistryArgs:
              password: Optional[pulumi.Input[str]] = None,
              user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
              user_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'registryServer' in kwargs:
+            registry_server = kwargs['registryServer']
+        if 'userAssignedIdentityId' in kwargs:
+            user_assigned_identity_id = kwargs['userAssignedIdentityId']
+        if 'userName' in kwargs:
+            user_name = kwargs['userName']
+
         _setter("registry_server", registry_server)
         if password is not None:
             _setter("password", password)
@@ -2362,7 +2576,23 @@ class PoolStartTaskResourceFileArgs:
              http_url: Optional[pulumi.Input[str]] = None,
              storage_container_url: Optional[pulumi.Input[str]] = None,
              user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoStorageContainerName' in kwargs:
+            auto_storage_container_name = kwargs['autoStorageContainerName']
+        if 'blobPrefix' in kwargs:
+            blob_prefix = kwargs['blobPrefix']
+        if 'fileMode' in kwargs:
+            file_mode = kwargs['fileMode']
+        if 'filePath' in kwargs:
+            file_path = kwargs['filePath']
+        if 'httpUrl' in kwargs:
+            http_url = kwargs['httpUrl']
+        if 'storageContainerUrl' in kwargs:
+            storage_container_url = kwargs['storageContainerUrl']
+        if 'userAssignedIdentityId' in kwargs:
+            user_assigned_identity_id = kwargs['userAssignedIdentityId']
+
         if auto_storage_container_name is not None:
             _setter("auto_storage_container_name", auto_storage_container_name)
         if blob_prefix is not None:
@@ -2486,7 +2716,13 @@ class PoolStartTaskUserIdentityArgs:
              _setter: Callable[[Any, Any], None],
              auto_user: Optional[pulumi.Input['PoolStartTaskUserIdentityAutoUserArgs']] = None,
              user_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoUser' in kwargs:
+            auto_user = kwargs['autoUser']
+        if 'userName' in kwargs:
+            user_name = kwargs['userName']
+
         if auto_user is not None:
             _setter("auto_user", auto_user)
         if user_name is not None:
@@ -2538,7 +2774,11 @@ class PoolStartTaskUserIdentityAutoUserArgs:
              _setter: Callable[[Any, Any], None],
              elevation_level: Optional[pulumi.Input[str]] = None,
              scope: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'elevationLevel' in kwargs:
+            elevation_level = kwargs['elevationLevel']
+
         if elevation_level is not None:
             _setter("elevation_level", elevation_level)
         if scope is not None:
@@ -2602,7 +2842,9 @@ class PoolStorageImageReferenceArgs:
              publisher: Optional[pulumi.Input[str]] = None,
              sku: Optional[pulumi.Input[str]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
             _setter("id", id)
         if offer is not None:
@@ -2692,7 +2934,11 @@ class PoolTaskSchedulingPolicyArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              node_fill_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'nodeFillType' in kwargs:
+            node_fill_type = kwargs['nodeFillType']
+
         if node_fill_type is not None:
             _setter("node_fill_type", node_fill_type)
 
@@ -2740,7 +2986,15 @@ class PoolUserAccountArgs:
              password: pulumi.Input[str],
              linux_user_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['PoolUserAccountLinuxUserConfigurationArgs']]]] = None,
              windows_user_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['PoolUserAccountWindowsUserConfigurationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'elevationLevel' in kwargs:
+            elevation_level = kwargs['elevationLevel']
+        if 'linuxUserConfigurations' in kwargs:
+            linux_user_configurations = kwargs['linuxUserConfigurations']
+        if 'windowsUserConfigurations' in kwargs:
+            windows_user_configurations = kwargs['windowsUserConfigurations']
+
         _setter("elevation_level", elevation_level)
         _setter("name", name)
         _setter("password", password)
@@ -2833,7 +3087,11 @@ class PoolUserAccountLinuxUserConfigurationArgs:
              gid: Optional[pulumi.Input[int]] = None,
              ssh_private_key: Optional[pulumi.Input[str]] = None,
              uid: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sshPrivateKey' in kwargs:
+            ssh_private_key = kwargs['sshPrivateKey']
+
         if gid is not None:
             _setter("gid", gid)
         if ssh_private_key is not None:
@@ -2893,7 +3151,11 @@ class PoolUserAccountWindowsUserConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              login_mode: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'loginMode' in kwargs:
+            login_mode = kwargs['loginMode']
+
         _setter("login_mode", login_mode)
 
     @property
@@ -2924,7 +3186,11 @@ class PoolWindowArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              enable_automatic_updates: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'enableAutomaticUpdates' in kwargs:
+            enable_automatic_updates = kwargs['enableAutomaticUpdates']
+
         if enable_automatic_updates is not None:
             _setter("enable_automatic_updates", enable_automatic_updates)
 
@@ -2956,7 +3222,11 @@ class GetAccountEncryptionArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              key_vault_key_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyVaultKeyId' in kwargs:
+            key_vault_key_id = kwargs['keyVaultKeyId']
+
         _setter("key_vault_key_id", key_vault_key_id)
 
     @property

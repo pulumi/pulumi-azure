@@ -47,7 +47,15 @@ class CustomHostnameBindingArgs:
              resource_group_name: pulumi.Input[str],
              ssl_state: Optional[pulumi.Input[str]] = None,
              thumbprint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appServiceName' in kwargs:
+            app_service_name = kwargs['appServiceName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'sslState' in kwargs:
+            ssl_state = kwargs['sslState']
+
         _setter("app_service_name", app_service_name)
         _setter("hostname", hostname)
         _setter("resource_group_name", resource_group_name)
@@ -161,7 +169,17 @@ class _CustomHostnameBindingState:
              ssl_state: Optional[pulumi.Input[str]] = None,
              thumbprint: Optional[pulumi.Input[str]] = None,
              virtual_ip: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appServiceName' in kwargs:
+            app_service_name = kwargs['appServiceName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'sslState' in kwargs:
+            ssl_state = kwargs['sslState']
+        if 'virtualIp' in kwargs:
+            virtual_ip = kwargs['virtualIp']
+
         if app_service_name is not None:
             _setter("app_service_name", app_service_name)
         if hostname is not None:

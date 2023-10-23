@@ -47,7 +47,19 @@ class RouteArgs:
              route_table_name: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
              next_hop_in_ip_address: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addressPrefix' in kwargs:
+            address_prefix = kwargs['addressPrefix']
+        if 'nextHopType' in kwargs:
+            next_hop_type = kwargs['nextHopType']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'routeTableName' in kwargs:
+            route_table_name = kwargs['routeTableName']
+        if 'nextHopInIpAddress' in kwargs:
+            next_hop_in_ip_address = kwargs['nextHopInIpAddress']
+
         _setter("address_prefix", address_prefix)
         _setter("next_hop_type", next_hop_type)
         _setter("resource_group_name", resource_group_name)
@@ -166,7 +178,19 @@ class _RouteState:
              next_hop_type: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              route_table_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addressPrefix' in kwargs:
+            address_prefix = kwargs['addressPrefix']
+        if 'nextHopInIpAddress' in kwargs:
+            next_hop_in_ip_address = kwargs['nextHopInIpAddress']
+        if 'nextHopType' in kwargs:
+            next_hop_type = kwargs['nextHopType']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'routeTableName' in kwargs:
+            route_table_name = kwargs['routeTableName']
+
         if address_prefix is not None:
             _setter("address_prefix", address_prefix)
         if name is not None:

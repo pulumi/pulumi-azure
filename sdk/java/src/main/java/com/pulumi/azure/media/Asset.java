@@ -91,7 +91,7 @@ public class Asset extends com.pulumi.resources.CustomResource {
      * The alternate ID of the Asset.
      * 
      */
-    @Export(name="alternateId", refs={String.class}, tree="[0]")
+    @Export(name="alternateId", type=String.class, parameters={})
     private Output</* @Nullable */ String> alternateId;
 
     /**
@@ -105,7 +105,7 @@ public class Asset extends com.pulumi.resources.CustomResource {
      * The name of the asset blob container. Changing this forces a new Media Asset to be created.
      * 
      */
-    @Export(name="container", refs={String.class}, tree="[0]")
+    @Export(name="container", type=String.class, parameters={})
     private Output<String> container;
 
     /**
@@ -119,7 +119,7 @@ public class Asset extends com.pulumi.resources.CustomResource {
      * The Asset description.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -133,7 +133,7 @@ public class Asset extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Media Services Account. Changing this forces a new Media Asset to be created.
      * 
      */
-    @Export(name="mediaServicesAccountName", refs={String.class}, tree="[0]")
+    @Export(name="mediaServicesAccountName", type=String.class, parameters={})
     private Output<String> mediaServicesAccountName;
 
     /**
@@ -147,7 +147,7 @@ public class Asset extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Media Asset. Changing this forces a new Media Asset to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -161,7 +161,7 @@ public class Asset extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Media Asset should exist. Changing this forces a new Media Asset to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -175,7 +175,7 @@ public class Asset extends com.pulumi.resources.CustomResource {
      * The name of the storage account where to store the media asset. Changing this forces a new Media Asset to be created.
      * 
      */
-    @Export(name="storageAccountName", refs={String.class}, tree="[0]")
+    @Export(name="storageAccountName", type=String.class, parameters={})
     private Output<String> storageAccountName;
 
     /**

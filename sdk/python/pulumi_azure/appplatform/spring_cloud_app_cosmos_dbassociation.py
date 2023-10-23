@@ -63,7 +63,27 @@ class SpringCloudAppCosmosDBAssociationArgs:
              cosmosdb_mongo_database_name: Optional[pulumi.Input[str]] = None,
              cosmosdb_sql_database_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiType' in kwargs:
+            api_type = kwargs['apiType']
+        if 'cosmosdbAccessKey' in kwargs:
+            cosmosdb_access_key = kwargs['cosmosdbAccessKey']
+        if 'cosmosdbAccountId' in kwargs:
+            cosmosdb_account_id = kwargs['cosmosdbAccountId']
+        if 'springCloudAppId' in kwargs:
+            spring_cloud_app_id = kwargs['springCloudAppId']
+        if 'cosmosdbCassandraKeyspaceName' in kwargs:
+            cosmosdb_cassandra_keyspace_name = kwargs['cosmosdbCassandraKeyspaceName']
+        if 'cosmosdbGremlinDatabaseName' in kwargs:
+            cosmosdb_gremlin_database_name = kwargs['cosmosdbGremlinDatabaseName']
+        if 'cosmosdbGremlinGraphName' in kwargs:
+            cosmosdb_gremlin_graph_name = kwargs['cosmosdbGremlinGraphName']
+        if 'cosmosdbMongoDatabaseName' in kwargs:
+            cosmosdb_mongo_database_name = kwargs['cosmosdbMongoDatabaseName']
+        if 'cosmosdbSqlDatabaseName' in kwargs:
+            cosmosdb_sql_database_name = kwargs['cosmosdbSqlDatabaseName']
+
         _setter("api_type", api_type)
         _setter("cosmosdb_access_key", cosmosdb_access_key)
         _setter("cosmosdb_account_id", cosmosdb_account_id)
@@ -254,7 +274,27 @@ class _SpringCloudAppCosmosDBAssociationState:
              cosmosdb_sql_database_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiType' in kwargs:
+            api_type = kwargs['apiType']
+        if 'cosmosdbAccessKey' in kwargs:
+            cosmosdb_access_key = kwargs['cosmosdbAccessKey']
+        if 'cosmosdbAccountId' in kwargs:
+            cosmosdb_account_id = kwargs['cosmosdbAccountId']
+        if 'cosmosdbCassandraKeyspaceName' in kwargs:
+            cosmosdb_cassandra_keyspace_name = kwargs['cosmosdbCassandraKeyspaceName']
+        if 'cosmosdbGremlinDatabaseName' in kwargs:
+            cosmosdb_gremlin_database_name = kwargs['cosmosdbGremlinDatabaseName']
+        if 'cosmosdbGremlinGraphName' in kwargs:
+            cosmosdb_gremlin_graph_name = kwargs['cosmosdbGremlinGraphName']
+        if 'cosmosdbMongoDatabaseName' in kwargs:
+            cosmosdb_mongo_database_name = kwargs['cosmosdbMongoDatabaseName']
+        if 'cosmosdbSqlDatabaseName' in kwargs:
+            cosmosdb_sql_database_name = kwargs['cosmosdbSqlDatabaseName']
+        if 'springCloudAppId' in kwargs:
+            spring_cloud_app_id = kwargs['springCloudAppId']
+
         if api_type is not None:
             _setter("api_type", api_type)
         if cosmosdb_access_key is not None:

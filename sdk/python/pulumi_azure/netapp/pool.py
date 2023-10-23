@@ -57,7 +57,19 @@ class PoolArgs:
              name: Optional[pulumi.Input[str]] = None,
              qos_type: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serviceLevel' in kwargs:
+            service_level = kwargs['serviceLevel']
+        if 'sizeInTb' in kwargs:
+            size_in_tb = kwargs['sizeInTb']
+        if 'qosType' in kwargs:
+            qos_type = kwargs['qosType']
+
         _setter("account_name", account_name)
         _setter("resource_group_name", resource_group_name)
         _setter("service_level", service_level)
@@ -216,7 +228,19 @@ class _PoolState:
              service_level: Optional[pulumi.Input[str]] = None,
              size_in_tb: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'qosType' in kwargs:
+            qos_type = kwargs['qosType']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serviceLevel' in kwargs:
+            service_level = kwargs['serviceLevel']
+        if 'sizeInTb' in kwargs:
+            size_in_tb = kwargs['sizeInTb']
+
         if account_name is not None:
             _setter("account_name", account_name)
         if location is not None:

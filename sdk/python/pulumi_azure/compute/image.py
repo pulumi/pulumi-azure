@@ -65,7 +65,21 @@ class ImageArgs:
              source_virtual_machine_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zone_resilient: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'dataDisks' in kwargs:
+            data_disks = kwargs['dataDisks']
+        if 'hyperVGeneration' in kwargs:
+            hyper_v_generation = kwargs['hyperVGeneration']
+        if 'osDisk' in kwargs:
+            os_disk = kwargs['osDisk']
+        if 'sourceVirtualMachineId' in kwargs:
+            source_virtual_machine_id = kwargs['sourceVirtualMachineId']
+        if 'zoneResilient' in kwargs:
+            zone_resilient = kwargs['zoneResilient']
+
         _setter("resource_group_name", resource_group_name)
         if data_disks is not None:
             _setter("data_disks", data_disks)
@@ -249,7 +263,21 @@ class _ImageState:
              source_virtual_machine_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zone_resilient: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataDisks' in kwargs:
+            data_disks = kwargs['dataDisks']
+        if 'hyperVGeneration' in kwargs:
+            hyper_v_generation = kwargs['hyperVGeneration']
+        if 'osDisk' in kwargs:
+            os_disk = kwargs['osDisk']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'sourceVirtualMachineId' in kwargs:
+            source_virtual_machine_id = kwargs['sourceVirtualMachineId']
+        if 'zoneResilient' in kwargs:
+            zone_resilient = kwargs['zoneResilient']
+
         if data_disks is not None:
             _setter("data_disks", data_disks)
         if hyper_v_generation is not None:

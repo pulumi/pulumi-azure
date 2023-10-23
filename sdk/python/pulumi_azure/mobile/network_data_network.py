@@ -43,7 +43,11 @@ class NetworkDataNetworkArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mobileNetworkId' in kwargs:
+            mobile_network_id = kwargs['mobileNetworkId']
+
         _setter("mobile_network_id", mobile_network_id)
         if description is not None:
             _setter("description", description)
@@ -147,7 +151,11 @@ class _NetworkDataNetworkState:
              mobile_network_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mobileNetworkId' in kwargs:
+            mobile_network_id = kwargs['mobileNetworkId']
+
         if description is not None:
             _setter("description", description)
         if location is not None:

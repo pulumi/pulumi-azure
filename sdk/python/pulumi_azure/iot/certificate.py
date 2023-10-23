@@ -43,7 +43,17 @@ class CertificateArgs:
              resource_group_name: pulumi.Input[str],
              is_verified: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateContent' in kwargs:
+            certificate_content = kwargs['certificateContent']
+        if 'iothubName' in kwargs:
+            iothub_name = kwargs['iothubName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'isVerified' in kwargs:
+            is_verified = kwargs['isVerified']
+
         _setter("certificate_content", certificate_content)
         _setter("iothub_name", iothub_name)
         _setter("resource_group_name", resource_group_name)
@@ -145,7 +155,17 @@ class _CertificateState:
              is_verified: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateContent' in kwargs:
+            certificate_content = kwargs['certificateContent']
+        if 'iothubName' in kwargs:
+            iothub_name = kwargs['iothubName']
+        if 'isVerified' in kwargs:
+            is_verified = kwargs['isVerified']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if certificate_content is not None:
             _setter("certificate_content", certificate_content)
         if iothub_name is not None:

@@ -69,7 +69,15 @@ class AccessConnectorIdentity(dict):
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -215,7 +223,33 @@ class WorkspaceCustomParameters(dict):
              storage_account_sku_name: Optional[str] = None,
              virtual_network_id: Optional[str] = None,
              vnet_address_prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'machineLearningWorkspaceId' in kwargs:
+            machine_learning_workspace_id = kwargs['machineLearningWorkspaceId']
+        if 'natGatewayName' in kwargs:
+            nat_gateway_name = kwargs['natGatewayName']
+        if 'noPublicIp' in kwargs:
+            no_public_ip = kwargs['noPublicIp']
+        if 'privateSubnetName' in kwargs:
+            private_subnet_name = kwargs['privateSubnetName']
+        if 'privateSubnetNetworkSecurityGroupAssociationId' in kwargs:
+            private_subnet_network_security_group_association_id = kwargs['privateSubnetNetworkSecurityGroupAssociationId']
+        if 'publicIpName' in kwargs:
+            public_ip_name = kwargs['publicIpName']
+        if 'publicSubnetName' in kwargs:
+            public_subnet_name = kwargs['publicSubnetName']
+        if 'publicSubnetNetworkSecurityGroupAssociationId' in kwargs:
+            public_subnet_network_security_group_association_id = kwargs['publicSubnetNetworkSecurityGroupAssociationId']
+        if 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+        if 'storageAccountSkuName' in kwargs:
+            storage_account_sku_name = kwargs['storageAccountSkuName']
+        if 'virtualNetworkId' in kwargs:
+            virtual_network_id = kwargs['virtualNetworkId']
+        if 'vnetAddressPrefix' in kwargs:
+            vnet_address_prefix = kwargs['vnetAddressPrefix']
+
         if machine_learning_workspace_id is not None:
             _setter("machine_learning_workspace_id", machine_learning_workspace_id)
         if nat_gateway_name is not None:
@@ -384,7 +418,13 @@ class WorkspaceManagedDiskIdentity(dict):
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if principal_id is not None:
             _setter("principal_id", principal_id)
         if tenant_id is not None:
@@ -459,7 +499,13 @@ class WorkspaceStorageAccountIdentity(dict):
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if principal_id is not None:
             _setter("principal_id", principal_id)
         if tenant_id is not None:
@@ -515,7 +561,13 @@ class GetWorkspaceManagedDiskIdentityResult(dict):
              principal_id: str,
              tenant_id: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("principal_id", principal_id)
         _setter("tenant_id", tenant_id)
         _setter("type", type)
@@ -576,7 +628,13 @@ class GetWorkspacePrivateEndpointConnectionConnectionResult(dict):
              name: str,
              status: str,
              workspace_private_endpoint_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionRequired' in kwargs:
+            action_required = kwargs['actionRequired']
+        if 'workspacePrivateEndpointId' in kwargs:
+            workspace_private_endpoint_id = kwargs['workspacePrivateEndpointId']
+
         _setter("action_required", action_required)
         _setter("description", description)
         _setter("name", name)
@@ -647,7 +705,13 @@ class GetWorkspaceStorageAccountIdentityResult(dict):
              principal_id: str,
              tenant_id: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("principal_id", principal_id)
         _setter("tenant_id", tenant_id)
         _setter("type", type)

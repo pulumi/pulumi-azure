@@ -49,7 +49,15 @@ class GremlinDatabaseArgs:
              autoscale_settings: Optional[pulumi.Input['GremlinDatabaseAutoscaleSettingsArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              throughput: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'autoscaleSettings' in kwargs:
+            autoscale_settings = kwargs['autoscaleSettings']
+
         _setter("account_name", account_name)
         _setter("resource_group_name", resource_group_name)
         if autoscale_settings is not None:
@@ -160,7 +168,15 @@ class _GremlinDatabaseState:
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              throughput: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'autoscaleSettings' in kwargs:
+            autoscale_settings = kwargs['autoscaleSettings']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if account_name is not None:
             _setter("account_name", account_name)
         if autoscale_settings is not None:

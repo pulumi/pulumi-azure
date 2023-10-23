@@ -101,7 +101,7 @@ public class DiskPool extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Disk Pool should exist. Changing this forces a new Disk Pool to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -115,7 +115,7 @@ public class DiskPool extends com.pulumi.resources.CustomResource {
      * The name of the Disk Pool. Changing this forces a new Disk Pool to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -129,7 +129,7 @@ public class DiskPool extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Disk Pool should exist. Changing this forces a new Disk Pool to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -143,7 +143,7 @@ public class DiskPool extends com.pulumi.resources.CustomResource {
      * The SKU of the Disk Pool. Possible values are `Basic_B1`, `Standard_S1` and `Premium_P1`. Changing this forces a new Disk Pool to be created.
      * 
      */
-    @Export(name="skuName", refs={String.class}, tree="[0]")
+    @Export(name="skuName", type=String.class, parameters={})
     private Output<String> skuName;
 
     /**
@@ -157,7 +157,7 @@ public class DiskPool extends com.pulumi.resources.CustomResource {
      * The ID of the Subnet where the Disk Pool should be created. Changing this forces a new Disk Pool to be created.
      * 
      */
-    @Export(name="subnetId", refs={String.class}, tree="[0]")
+    @Export(name="subnetId", type=String.class, parameters={})
     private Output<String> subnetId;
 
     /**
@@ -171,7 +171,7 @@ public class DiskPool extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Disk Pool.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -185,7 +185,7 @@ public class DiskPool extends com.pulumi.resources.CustomResource {
      * Specifies a list of Availability Zones in which this Disk Pool should be located. Changing this forces a new Disk Pool to be created.
      * 
      */
-    @Export(name="zones", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="zones", type=List.class, parameters={String.class})
     private Output<List<String>> zones;
 
     /**

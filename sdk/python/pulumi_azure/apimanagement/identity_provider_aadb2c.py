@@ -67,7 +67,29 @@ class IdentityProviderAadb2cArgs:
              signup_policy: pulumi.Input[str],
              password_reset_policy: Optional[pulumi.Input[str]] = None,
              profile_editing_policy: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedTenant' in kwargs:
+            allowed_tenant = kwargs['allowedTenant']
+        if 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'signinPolicy' in kwargs:
+            signin_policy = kwargs['signinPolicy']
+        if 'signinTenant' in kwargs:
+            signin_tenant = kwargs['signinTenant']
+        if 'signupPolicy' in kwargs:
+            signup_policy = kwargs['signupPolicy']
+        if 'passwordResetPolicy' in kwargs:
+            password_reset_policy = kwargs['passwordResetPolicy']
+        if 'profileEditingPolicy' in kwargs:
+            profile_editing_policy = kwargs['profileEditingPolicy']
+
         _setter("allowed_tenant", allowed_tenant)
         _setter("api_management_name", api_management_name)
         _setter("authority", authority)
@@ -271,7 +293,29 @@ class _IdentityProviderAadb2cState:
              signin_policy: Optional[pulumi.Input[str]] = None,
              signin_tenant: Optional[pulumi.Input[str]] = None,
              signup_policy: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedTenant' in kwargs:
+            allowed_tenant = kwargs['allowedTenant']
+        if 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'passwordResetPolicy' in kwargs:
+            password_reset_policy = kwargs['passwordResetPolicy']
+        if 'profileEditingPolicy' in kwargs:
+            profile_editing_policy = kwargs['profileEditingPolicy']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'signinPolicy' in kwargs:
+            signin_policy = kwargs['signinPolicy']
+        if 'signinTenant' in kwargs:
+            signin_tenant = kwargs['signinTenant']
+        if 'signupPolicy' in kwargs:
+            signup_policy = kwargs['signupPolicy']
+
         if allowed_tenant is not None:
             _setter("allowed_tenant", allowed_tenant)
         if api_management_name is not None:

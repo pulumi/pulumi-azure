@@ -89,7 +89,37 @@ class VirtualMachineArgs:
              storage_configuration: Optional[pulumi.Input['VirtualMachineStorageConfigurationArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              wsfc_domain_credential: Optional[pulumi.Input['VirtualMachineWsfcDomainCredentialArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'virtualMachineId' in kwargs:
+            virtual_machine_id = kwargs['virtualMachineId']
+        if 'autoBackup' in kwargs:
+            auto_backup = kwargs['autoBackup']
+        if 'autoPatching' in kwargs:
+            auto_patching = kwargs['autoPatching']
+        if 'keyVaultCredential' in kwargs:
+            key_vault_credential = kwargs['keyVaultCredential']
+        if 'rServicesEnabled' in kwargs:
+            r_services_enabled = kwargs['rServicesEnabled']
+        if 'sqlConnectivityPort' in kwargs:
+            sql_connectivity_port = kwargs['sqlConnectivityPort']
+        if 'sqlConnectivityType' in kwargs:
+            sql_connectivity_type = kwargs['sqlConnectivityType']
+        if 'sqlConnectivityUpdatePassword' in kwargs:
+            sql_connectivity_update_password = kwargs['sqlConnectivityUpdatePassword']
+        if 'sqlConnectivityUpdateUsername' in kwargs:
+            sql_connectivity_update_username = kwargs['sqlConnectivityUpdateUsername']
+        if 'sqlInstance' in kwargs:
+            sql_instance = kwargs['sqlInstance']
+        if 'sqlLicenseType' in kwargs:
+            sql_license_type = kwargs['sqlLicenseType']
+        if 'sqlVirtualMachineGroupId' in kwargs:
+            sql_virtual_machine_group_id = kwargs['sqlVirtualMachineGroupId']
+        if 'storageConfiguration' in kwargs:
+            storage_configuration = kwargs['storageConfiguration']
+        if 'wsfcDomainCredential' in kwargs:
+            wsfc_domain_credential = kwargs['wsfcDomainCredential']
+
         _setter("virtual_machine_id", virtual_machine_id)
         if assessment is not None:
             _setter("assessment", assessment)
@@ -391,7 +421,37 @@ class _VirtualMachineState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              virtual_machine_id: Optional[pulumi.Input[str]] = None,
              wsfc_domain_credential: Optional[pulumi.Input['VirtualMachineWsfcDomainCredentialArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoBackup' in kwargs:
+            auto_backup = kwargs['autoBackup']
+        if 'autoPatching' in kwargs:
+            auto_patching = kwargs['autoPatching']
+        if 'keyVaultCredential' in kwargs:
+            key_vault_credential = kwargs['keyVaultCredential']
+        if 'rServicesEnabled' in kwargs:
+            r_services_enabled = kwargs['rServicesEnabled']
+        if 'sqlConnectivityPort' in kwargs:
+            sql_connectivity_port = kwargs['sqlConnectivityPort']
+        if 'sqlConnectivityType' in kwargs:
+            sql_connectivity_type = kwargs['sqlConnectivityType']
+        if 'sqlConnectivityUpdatePassword' in kwargs:
+            sql_connectivity_update_password = kwargs['sqlConnectivityUpdatePassword']
+        if 'sqlConnectivityUpdateUsername' in kwargs:
+            sql_connectivity_update_username = kwargs['sqlConnectivityUpdateUsername']
+        if 'sqlInstance' in kwargs:
+            sql_instance = kwargs['sqlInstance']
+        if 'sqlLicenseType' in kwargs:
+            sql_license_type = kwargs['sqlLicenseType']
+        if 'sqlVirtualMachineGroupId' in kwargs:
+            sql_virtual_machine_group_id = kwargs['sqlVirtualMachineGroupId']
+        if 'storageConfiguration' in kwargs:
+            storage_configuration = kwargs['storageConfiguration']
+        if 'virtualMachineId' in kwargs:
+            virtual_machine_id = kwargs['virtualMachineId']
+        if 'wsfcDomainCredential' in kwargs:
+            wsfc_domain_credential = kwargs['wsfcDomainCredential']
+
         if assessment is not None:
             _setter("assessment", assessment)
         if auto_backup is not None:

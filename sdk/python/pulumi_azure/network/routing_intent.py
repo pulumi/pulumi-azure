@@ -37,7 +37,13 @@ class RoutingIntentArgs:
              routing_policies: pulumi.Input[Sequence[pulumi.Input['RoutingIntentRoutingPolicyArgs']]],
              virtual_hub_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'routingPolicies' in kwargs:
+            routing_policies = kwargs['routingPolicies']
+        if 'virtualHubId' in kwargs:
+            virtual_hub_id = kwargs['virtualHubId']
+
         _setter("routing_policies", routing_policies)
         _setter("virtual_hub_id", virtual_hub_id)
         if name is not None:
@@ -104,7 +110,13 @@ class _RoutingIntentState:
              name: Optional[pulumi.Input[str]] = None,
              routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingIntentRoutingPolicyArgs']]]] = None,
              virtual_hub_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'routingPolicies' in kwargs:
+            routing_policies = kwargs['routingPolicies']
+        if 'virtualHubId' in kwargs:
+            virtual_hub_id = kwargs['virtualHubId']
+
         if name is not None:
             _setter("name", name)
         if routing_policies is not None:

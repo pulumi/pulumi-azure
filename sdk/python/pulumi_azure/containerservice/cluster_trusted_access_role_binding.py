@@ -39,7 +39,13 @@ class ClusterTrustedAccessRoleBindingArgs:
              roles: pulumi.Input[Sequence[pulumi.Input[str]]],
              source_resource_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'kubernetesClusterId' in kwargs:
+            kubernetes_cluster_id = kwargs['kubernetesClusterId']
+        if 'sourceResourceId' in kwargs:
+            source_resource_id = kwargs['sourceResourceId']
+
         _setter("kubernetes_cluster_id", kubernetes_cluster_id)
         _setter("roles", roles)
         _setter("source_resource_id", source_resource_id)
@@ -123,7 +129,13 @@ class _ClusterTrustedAccessRoleBindingState:
              name: Optional[pulumi.Input[str]] = None,
              roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              source_resource_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'kubernetesClusterId' in kwargs:
+            kubernetes_cluster_id = kwargs['kubernetesClusterId']
+        if 'sourceResourceId' in kwargs:
+            source_resource_id = kwargs['sourceResourceId']
+
         if kubernetes_cluster_id is not None:
             _setter("kubernetes_cluster_id", kubernetes_cluster_id)
         if name is not None:

@@ -105,7 +105,37 @@ class ManagedInstanceArgs:
              storage_account_type: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              timezone_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'administratorLogin' in kwargs:
+            administrator_login = kwargs['administratorLogin']
+        if 'administratorLoginPassword' in kwargs:
+            administrator_login_password = kwargs['administratorLoginPassword']
+        if 'licenseType' in kwargs:
+            license_type = kwargs['licenseType']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'storageSizeInGb' in kwargs:
+            storage_size_in_gb = kwargs['storageSizeInGb']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'dnsZonePartnerId' in kwargs:
+            dns_zone_partner_id = kwargs['dnsZonePartnerId']
+        if 'maintenanceConfigurationName' in kwargs:
+            maintenance_configuration_name = kwargs['maintenanceConfigurationName']
+        if 'minimumTlsVersion' in kwargs:
+            minimum_tls_version = kwargs['minimumTlsVersion']
+        if 'proxyOverride' in kwargs:
+            proxy_override = kwargs['proxyOverride']
+        if 'publicDataEndpointEnabled' in kwargs:
+            public_data_endpoint_enabled = kwargs['publicDataEndpointEnabled']
+        if 'storageAccountType' in kwargs:
+            storage_account_type = kwargs['storageAccountType']
+        if 'timezoneId' in kwargs:
+            timezone_id = kwargs['timezoneId']
+
         _setter("administrator_login", administrator_login)
         _setter("administrator_login_password", administrator_login_password)
         _setter("license_type", license_type)
@@ -476,7 +506,37 @@ class _ManagedInstanceState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              timezone_id: Optional[pulumi.Input[str]] = None,
              vcores: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'administratorLogin' in kwargs:
+            administrator_login = kwargs['administratorLogin']
+        if 'administratorLoginPassword' in kwargs:
+            administrator_login_password = kwargs['administratorLoginPassword']
+        if 'dnsZonePartnerId' in kwargs:
+            dns_zone_partner_id = kwargs['dnsZonePartnerId']
+        if 'licenseType' in kwargs:
+            license_type = kwargs['licenseType']
+        if 'maintenanceConfigurationName' in kwargs:
+            maintenance_configuration_name = kwargs['maintenanceConfigurationName']
+        if 'minimumTlsVersion' in kwargs:
+            minimum_tls_version = kwargs['minimumTlsVersion']
+        if 'proxyOverride' in kwargs:
+            proxy_override = kwargs['proxyOverride']
+        if 'publicDataEndpointEnabled' in kwargs:
+            public_data_endpoint_enabled = kwargs['publicDataEndpointEnabled']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'storageAccountType' in kwargs:
+            storage_account_type = kwargs['storageAccountType']
+        if 'storageSizeInGb' in kwargs:
+            storage_size_in_gb = kwargs['storageSizeInGb']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'timezoneId' in kwargs:
+            timezone_id = kwargs['timezoneId']
+
         if administrator_login is not None:
             _setter("administrator_login", administrator_login)
         if administrator_login_password is not None:

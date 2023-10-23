@@ -45,7 +45,15 @@ class ManagedPrivateEndpointArgs:
              fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              subresource_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+        if 'subresourceName' in kwargs:
+            subresource_name = kwargs['subresourceName']
+
         _setter("data_factory_id", data_factory_id)
         _setter("target_resource_id", target_resource_id)
         if fqdns is not None:
@@ -152,7 +160,15 @@ class _ManagedPrivateEndpointState:
              name: Optional[pulumi.Input[str]] = None,
              subresource_name: Optional[pulumi.Input[str]] = None,
              target_resource_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'subresourceName' in kwargs:
+            subresource_name = kwargs['subresourceName']
+        if 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+
         if data_factory_id is not None:
             _setter("data_factory_id", data_factory_id)
         if fqdns is not None:

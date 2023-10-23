@@ -39,7 +39,13 @@ class IntegrationAccountSessionArgs:
              integration_account_name: pulumi.Input[str],
              resource_group_name: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'integrationAccountName' in kwargs:
+            integration_account_name = kwargs['integrationAccountName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         _setter("content", content)
         _setter("integration_account_name", integration_account_name)
         _setter("resource_group_name", resource_group_name)
@@ -123,7 +129,13 @@ class _IntegrationAccountSessionState:
              integration_account_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'integrationAccountName' in kwargs:
+            integration_account_name = kwargs['integrationAccountName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if content is not None:
             _setter("content", content)
         if integration_account_name is not None:

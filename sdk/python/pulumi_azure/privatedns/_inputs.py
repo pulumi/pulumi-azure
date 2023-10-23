@@ -52,7 +52,15 @@ class LinkServiceNatIpConfigurationArgs:
              subnet_id: pulumi.Input[str],
              private_ip_address: Optional[pulumi.Input[str]] = None,
              private_ip_address_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if 'privateIpAddressVersion' in kwargs:
+            private_ip_address_version = kwargs['privateIpAddressVersion']
+
         _setter("name", name)
         _setter("primary", primary)
         _setter("subnet_id", subnet_id)
@@ -143,7 +151,9 @@ class MxRecordRecordArgs:
              _setter: Callable[[Any, Any], None],
              exchange: pulumi.Input[str],
              preference: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("exchange", exchange)
         _setter("preference", preference)
 
@@ -191,7 +201,11 @@ class ResolverForwardingRuleTargetDnsServerArgs:
              _setter: Callable[[Any, Any], None],
              ip_address: pulumi.Input[str],
              port: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+
         _setter("ip_address", ip_address)
         if port is not None:
             _setter("port", port)
@@ -244,7 +258,15 @@ class ResolverInboundEndpointIpConfigurationArgs:
              subnet_id: pulumi.Input[str],
              private_ip_address: Optional[pulumi.Input[str]] = None,
              private_ip_allocation_method: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if 'privateIpAllocationMethod' in kwargs:
+            private_ip_allocation_method = kwargs['privateIpAllocationMethod']
+
         _setter("subnet_id", subnet_id)
         if private_ip_address is not None:
             _setter("private_ip_address", private_ip_address)
@@ -315,7 +337,9 @@ class SRVRecordRecordArgs:
              priority: pulumi.Input[int],
              target: pulumi.Input[str],
              weight: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("port", port)
         _setter("priority", priority)
         _setter("target", target)
@@ -385,7 +409,9 @@ class TxtRecordRecordArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("value", value)
 
     @property
@@ -452,7 +478,21 @@ class ZoneSoaRecordArgs:
              serial_number: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              ttl: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expireTime' in kwargs:
+            expire_time = kwargs['expireTime']
+        if 'hostName' in kwargs:
+            host_name = kwargs['hostName']
+        if 'minimumTtl' in kwargs:
+            minimum_ttl = kwargs['minimumTtl']
+        if 'refreshTime' in kwargs:
+            refresh_time = kwargs['refreshTime']
+        if 'retryTime' in kwargs:
+            retry_time = kwargs['retryTime']
+        if 'serialNumber' in kwargs:
+            serial_number = kwargs['serialNumber']
+
         _setter("email", email)
         if expire_time is not None:
             _setter("expire_time", expire_time)

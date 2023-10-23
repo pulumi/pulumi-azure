@@ -101,7 +101,35 @@ class RegistryTaskArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              timeout_in_seconds: Optional[pulumi.Input[int]] = None,
              timer_triggers: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryTaskTimerTriggerArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerRegistryId' in kwargs:
+            container_registry_id = kwargs['containerRegistryId']
+        if 'agentPoolName' in kwargs:
+            agent_pool_name = kwargs['agentPoolName']
+        if 'agentSetting' in kwargs:
+            agent_setting = kwargs['agentSetting']
+        if 'baseImageTrigger' in kwargs:
+            base_image_trigger = kwargs['baseImageTrigger']
+        if 'dockerStep' in kwargs:
+            docker_step = kwargs['dockerStep']
+        if 'encodedStep' in kwargs:
+            encoded_step = kwargs['encodedStep']
+        if 'fileStep' in kwargs:
+            file_step = kwargs['fileStep']
+        if 'isSystemTask' in kwargs:
+            is_system_task = kwargs['isSystemTask']
+        if 'logTemplate' in kwargs:
+            log_template = kwargs['logTemplate']
+        if 'registryCredential' in kwargs:
+            registry_credential = kwargs['registryCredential']
+        if 'sourceTriggers' in kwargs:
+            source_triggers = kwargs['sourceTriggers']
+        if 'timeoutInSeconds' in kwargs:
+            timeout_in_seconds = kwargs['timeoutInSeconds']
+        if 'timerTriggers' in kwargs:
+            timer_triggers = kwargs['timerTriggers']
+
         _setter("container_registry_id", container_registry_id)
         if agent_pool_name is not None:
             _setter("agent_pool_name", agent_pool_name)
@@ -447,7 +475,35 @@ class _RegistryTaskState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              timeout_in_seconds: Optional[pulumi.Input[int]] = None,
              timer_triggers: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryTaskTimerTriggerArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'agentPoolName' in kwargs:
+            agent_pool_name = kwargs['agentPoolName']
+        if 'agentSetting' in kwargs:
+            agent_setting = kwargs['agentSetting']
+        if 'baseImageTrigger' in kwargs:
+            base_image_trigger = kwargs['baseImageTrigger']
+        if 'containerRegistryId' in kwargs:
+            container_registry_id = kwargs['containerRegistryId']
+        if 'dockerStep' in kwargs:
+            docker_step = kwargs['dockerStep']
+        if 'encodedStep' in kwargs:
+            encoded_step = kwargs['encodedStep']
+        if 'fileStep' in kwargs:
+            file_step = kwargs['fileStep']
+        if 'isSystemTask' in kwargs:
+            is_system_task = kwargs['isSystemTask']
+        if 'logTemplate' in kwargs:
+            log_template = kwargs['logTemplate']
+        if 'registryCredential' in kwargs:
+            registry_credential = kwargs['registryCredential']
+        if 'sourceTriggers' in kwargs:
+            source_triggers = kwargs['sourceTriggers']
+        if 'timeoutInSeconds' in kwargs:
+            timeout_in_seconds = kwargs['timeoutInSeconds']
+        if 'timerTriggers' in kwargs:
+            timer_triggers = kwargs['timerTriggers']
+
         if agent_pool_name is not None:
             _setter("agent_pool_name", agent_pool_name)
         if agent_setting is not None:

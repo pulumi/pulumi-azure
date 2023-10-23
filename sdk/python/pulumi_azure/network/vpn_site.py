@@ -67,7 +67,21 @@ class VpnSiteArgs:
              name: Optional[pulumi.Input[str]] = None,
              o365_policy: Optional[pulumi.Input['VpnSiteO365PolicyArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'virtualWanId' in kwargs:
+            virtual_wan_id = kwargs['virtualWanId']
+        if 'addressCidrs' in kwargs:
+            address_cidrs = kwargs['addressCidrs']
+        if 'deviceModel' in kwargs:
+            device_model = kwargs['deviceModel']
+        if 'deviceVendor' in kwargs:
+            device_vendor = kwargs['deviceVendor']
+        if 'o365Policy' in kwargs:
+            o365_policy = kwargs['o365Policy']
+
         _setter("resource_group_name", resource_group_name)
         _setter("virtual_wan_id", virtual_wan_id)
         if address_cidrs is not None:
@@ -264,7 +278,21 @@ class _VpnSiteState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              virtual_wan_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addressCidrs' in kwargs:
+            address_cidrs = kwargs['addressCidrs']
+        if 'deviceModel' in kwargs:
+            device_model = kwargs['deviceModel']
+        if 'deviceVendor' in kwargs:
+            device_vendor = kwargs['deviceVendor']
+        if 'o365Policy' in kwargs:
+            o365_policy = kwargs['o365Policy']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'virtualWanId' in kwargs:
+            virtual_wan_id = kwargs['virtualWanId']
+
         if address_cidrs is not None:
             _setter("address_cidrs", address_cidrs)
         if device_model is not None:

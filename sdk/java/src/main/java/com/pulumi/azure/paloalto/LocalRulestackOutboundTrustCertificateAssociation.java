@@ -73,7 +73,7 @@ public class LocalRulestackOutboundTrustCertificateAssociation extends com.pulum
      * The ID of the Certificate to use as the Outbound Trust Certificate. Changing this forces a new Palo Alto Networks Rulestack Outbound Trust Certificate Association to be created.
      * 
      */
-    @Export(name="certificateId", refs={String.class}, tree="[0]")
+    @Export(name="certificateId", type=String.class, parameters={})
     private Output<String> certificateId;
 
     /**

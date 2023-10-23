@@ -106,7 +106,7 @@ public class OutboundRule extends com.pulumi.resources.CustomResource {
      * The number of outbound ports to be used for NAT. Defaults to `1024`.
      * 
      */
-    @Export(name="allocatedOutboundPorts", refs={Integer.class}, tree="[0]")
+    @Export(name="allocatedOutboundPorts", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> allocatedOutboundPorts;
 
     /**
@@ -120,7 +120,7 @@ public class OutboundRule extends com.pulumi.resources.CustomResource {
      * The ID of the Backend Address Pool. Outbound traffic is randomly load balanced across IPs in the backend IPs.
      * 
      */
-    @Export(name="backendAddressPoolId", refs={String.class}, tree="[0]")
+    @Export(name="backendAddressPoolId", type=String.class, parameters={})
     private Output<String> backendAddressPoolId;
 
     /**
@@ -134,7 +134,7 @@ public class OutboundRule extends com.pulumi.resources.CustomResource {
      * Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
      * 
      */
-    @Export(name="enableTcpReset", refs={Boolean.class}, tree="[0]")
+    @Export(name="enableTcpReset", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enableTcpReset;
 
     /**
@@ -148,7 +148,7 @@ public class OutboundRule extends com.pulumi.resources.CustomResource {
      * One or more `frontend_ip_configuration` blocks as defined below.
      * 
      */
-    @Export(name="frontendIpConfigurations", refs={List.class,OutboundRuleFrontendIpConfiguration.class}, tree="[0,1]")
+    @Export(name="frontendIpConfigurations", type=List.class, parameters={OutboundRuleFrontendIpConfiguration.class})
     private Output</* @Nullable */ List<OutboundRuleFrontendIpConfiguration>> frontendIpConfigurations;
 
     /**
@@ -162,7 +162,7 @@ public class OutboundRule extends com.pulumi.resources.CustomResource {
      * The timeout for the TCP idle connection Defaults to `4`.
      * 
      */
-    @Export(name="idleTimeoutInMinutes", refs={Integer.class}, tree="[0]")
+    @Export(name="idleTimeoutInMinutes", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> idleTimeoutInMinutes;
 
     /**
@@ -176,7 +176,7 @@ public class OutboundRule extends com.pulumi.resources.CustomResource {
      * The ID of the Load Balancer in which to create the Outbound Rule. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="loadbalancerId", refs={String.class}, tree="[0]")
+    @Export(name="loadbalancerId", type=String.class, parameters={})
     private Output<String> loadbalancerId;
 
     /**
@@ -190,7 +190,7 @@ public class OutboundRule extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -204,7 +204,7 @@ public class OutboundRule extends com.pulumi.resources.CustomResource {
      * The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
      * 
      */
-    @Export(name="protocol", refs={String.class}, tree="[0]")
+    @Export(name="protocol", type=String.class, parameters={})
     private Output<String> protocol;
 
     /**

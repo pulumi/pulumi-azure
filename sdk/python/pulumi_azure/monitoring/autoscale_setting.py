@@ -61,7 +61,13 @@ class AutoscaleSettingArgs:
              notification: Optional[pulumi.Input['AutoscaleSettingNotificationArgs']] = None,
              predictive: Optional[pulumi.Input['AutoscaleSettingPredictiveArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+
         _setter("profiles", profiles)
         _setter("resource_group_name", resource_group_name)
         _setter("target_resource_id", target_resource_id)
@@ -235,7 +241,13 @@ class _AutoscaleSettingState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              target_resource_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if location is not None:

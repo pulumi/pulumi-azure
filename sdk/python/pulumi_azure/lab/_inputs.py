@@ -59,7 +59,17 @@ class LabAutoShutdownArgs:
              idle_delay: Optional[pulumi.Input[str]] = None,
              no_connect_delay: Optional[pulumi.Input[str]] = None,
              shutdown_on_idle: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'disconnectDelay' in kwargs:
+            disconnect_delay = kwargs['disconnectDelay']
+        if 'idleDelay' in kwargs:
+            idle_delay = kwargs['idleDelay']
+        if 'noConnectDelay' in kwargs:
+            no_connect_delay = kwargs['noConnectDelay']
+        if 'shutdownOnIdle' in kwargs:
+            shutdown_on_idle = kwargs['shutdownOnIdle']
+
         if disconnect_delay is not None:
             _setter("disconnect_delay", disconnect_delay)
         if idle_delay is not None:
@@ -147,7 +157,13 @@ class LabConnectionSettingArgs:
              _setter: Callable[[Any, Any], None],
              client_rdp_access: Optional[pulumi.Input[str]] = None,
              client_ssh_access: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientRdpAccess' in kwargs:
+            client_rdp_access = kwargs['clientRdpAccess']
+        if 'clientSshAccess' in kwargs:
+            client_ssh_access = kwargs['clientSshAccess']
+
         if client_rdp_access is not None:
             _setter("client_rdp_access", client_rdp_access)
         if client_ssh_access is not None:
@@ -205,7 +221,15 @@ class LabNetworkArgs:
              load_balancer_id: Optional[pulumi.Input[str]] = None,
              public_ip_id: Optional[pulumi.Input[str]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'loadBalancerId' in kwargs:
+            load_balancer_id = kwargs['loadBalancerId']
+        if 'publicIpId' in kwargs:
+            public_ip_id = kwargs['publicIpId']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         if load_balancer_id is not None:
             _setter("load_balancer_id", load_balancer_id)
         if public_ip_id is not None:
@@ -281,7 +305,19 @@ class LabRosterArgs:
              lti_client_id: Optional[pulumi.Input[str]] = None,
              lti_context_id: Optional[pulumi.Input[str]] = None,
              lti_roster_endpoint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activeDirectoryGroupId' in kwargs:
+            active_directory_group_id = kwargs['activeDirectoryGroupId']
+        if 'lmsInstance' in kwargs:
+            lms_instance = kwargs['lmsInstance']
+        if 'ltiClientId' in kwargs:
+            lti_client_id = kwargs['ltiClientId']
+        if 'ltiContextId' in kwargs:
+            lti_context_id = kwargs['ltiContextId']
+        if 'ltiRosterEndpoint' in kwargs:
+            lti_roster_endpoint = kwargs['ltiRosterEndpoint']
+
         if active_directory_group_id is not None:
             _setter("active_directory_group_id", active_directory_group_id)
         if lms_instance is not None:
@@ -373,7 +409,13 @@ class LabSecurityArgs:
              _setter: Callable[[Any, Any], None],
              open_access_enabled: pulumi.Input[bool],
              registration_code: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'openAccessEnabled' in kwargs:
+            open_access_enabled = kwargs['openAccessEnabled']
+        if 'registrationCode' in kwargs:
+            registration_code = kwargs['registrationCode']
+
         _setter("open_access_enabled", open_access_enabled)
         if registration_code is not None:
             _setter("registration_code", registration_code)
@@ -446,7 +488,23 @@ class LabVirtualMachineArgs:
              non_admin_user: Optional[pulumi.Input['LabVirtualMachineNonAdminUserArgs']] = None,
              shared_password_enabled: Optional[pulumi.Input[bool]] = None,
              usage_quota: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adminUser' in kwargs:
+            admin_user = kwargs['adminUser']
+        if 'imageReference' in kwargs:
+            image_reference = kwargs['imageReference']
+        if 'additionalCapabilityGpuDriversInstalled' in kwargs:
+            additional_capability_gpu_drivers_installed = kwargs['additionalCapabilityGpuDriversInstalled']
+        if 'createOption' in kwargs:
+            create_option = kwargs['createOption']
+        if 'nonAdminUser' in kwargs:
+            non_admin_user = kwargs['nonAdminUser']
+        if 'sharedPasswordEnabled' in kwargs:
+            shared_password_enabled = kwargs['sharedPasswordEnabled']
+        if 'usageQuota' in kwargs:
+            usage_quota = kwargs['usageQuota']
+
         _setter("admin_user", admin_user)
         _setter("image_reference", image_reference)
         _setter("sku", sku)
@@ -577,7 +635,9 @@ class LabVirtualMachineAdminUserArgs:
              _setter: Callable[[Any, Any], None],
              password: pulumi.Input[str],
              username: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("password", password)
         _setter("username", username)
 
@@ -637,7 +697,9 @@ class LabVirtualMachineImageReferenceArgs:
              publisher: Optional[pulumi.Input[str]] = None,
              sku: Optional[pulumi.Input[str]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
             _setter("id", id)
         if offer is not None:
@@ -729,7 +791,9 @@ class LabVirtualMachineNonAdminUserArgs:
              _setter: Callable[[Any, Any], None],
              password: pulumi.Input[str],
              username: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("password", password)
         _setter("username", username)
 
@@ -779,7 +843,9 @@ class LabVirtualMachineSkuArgs:
              _setter: Callable[[Any, Any], None],
              capacity: pulumi.Input[int],
              name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("capacity", capacity)
         _setter("name", name)
 
@@ -837,7 +903,13 @@ class ScheduleRecurrenceArgs:
              frequency: pulumi.Input[str],
              interval: Optional[pulumi.Input[int]] = None,
              week_days: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expirationDate' in kwargs:
+            expiration_date = kwargs['expirationDate']
+        if 'weekDays' in kwargs:
+            week_days = kwargs['weekDays']
+
         _setter("expiration_date", expiration_date)
         _setter("frequency", frequency)
         if interval is not None:
@@ -923,7 +995,17 @@ class ServicePlanDefaultAutoShutdownArgs:
              idle_delay: Optional[pulumi.Input[str]] = None,
              no_connect_delay: Optional[pulumi.Input[str]] = None,
              shutdown_on_idle: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'disconnectDelay' in kwargs:
+            disconnect_delay = kwargs['disconnectDelay']
+        if 'idleDelay' in kwargs:
+            idle_delay = kwargs['idleDelay']
+        if 'noConnectDelay' in kwargs:
+            no_connect_delay = kwargs['noConnectDelay']
+        if 'shutdownOnIdle' in kwargs:
+            shutdown_on_idle = kwargs['shutdownOnIdle']
+
         if disconnect_delay is not None:
             _setter("disconnect_delay", disconnect_delay)
         if idle_delay is not None:
@@ -1019,7 +1101,17 @@ class ServicePlanDefaultConnectionArgs:
              client_ssh_access: Optional[pulumi.Input[str]] = None,
              web_rdp_access: Optional[pulumi.Input[str]] = None,
              web_ssh_access: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientRdpAccess' in kwargs:
+            client_rdp_access = kwargs['clientRdpAccess']
+        if 'clientSshAccess' in kwargs:
+            client_ssh_access = kwargs['clientSshAccess']
+        if 'webRdpAccess' in kwargs:
+            web_rdp_access = kwargs['webRdpAccess']
+        if 'webSshAccess' in kwargs:
+            web_ssh_access = kwargs['webSshAccess']
+
         if client_rdp_access is not None:
             _setter("client_rdp_access", client_rdp_access)
         if client_ssh_access is not None:
@@ -1113,7 +1205,9 @@ class ServicePlanSupportArgs:
              instructions: Optional[pulumi.Input[str]] = None,
              phone: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if email is not None:
             _setter("email", email)
         if instructions is not None:

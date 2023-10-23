@@ -70,7 +70,7 @@ namespace Pulumi.Azure.Mobile
     ///                     {
     ///                         Direction = "Uplink",
     ///                         Name = "IP-to-server",
-    ///                         Ports = new[] {},
+    ///                         Ports = new() { },
     ///                         Protocols = new[]
     ///                         {
     ///                             "ip",

@@ -61,7 +61,25 @@ class ServerSecurityAlertPolicyArgs:
              retention_days: Optional[pulumi.Input[int]] = None,
              storage_account_access_key: Optional[pulumi.Input[str]] = None,
              storage_endpoint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if 'disabledAlerts' in kwargs:
+            disabled_alerts = kwargs['disabledAlerts']
+        if 'emailAccountAdmins' in kwargs:
+            email_account_admins = kwargs['emailAccountAdmins']
+        if 'emailAddresses' in kwargs:
+            email_addresses = kwargs['emailAddresses']
+        if 'retentionDays' in kwargs:
+            retention_days = kwargs['retentionDays']
+        if 'storageAccountAccessKey' in kwargs:
+            storage_account_access_key = kwargs['storageAccountAccessKey']
+        if 'storageEndpoint' in kwargs:
+            storage_endpoint = kwargs['storageEndpoint']
+
         _setter("resource_group_name", resource_group_name)
         _setter("server_name", server_name)
         _setter("state", state)
@@ -239,7 +257,25 @@ class _ServerSecurityAlertPolicyState:
              state: Optional[pulumi.Input[str]] = None,
              storage_account_access_key: Optional[pulumi.Input[str]] = None,
              storage_endpoint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'disabledAlerts' in kwargs:
+            disabled_alerts = kwargs['disabledAlerts']
+        if 'emailAccountAdmins' in kwargs:
+            email_account_admins = kwargs['emailAccountAdmins']
+        if 'emailAddresses' in kwargs:
+            email_addresses = kwargs['emailAddresses']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'retentionDays' in kwargs:
+            retention_days = kwargs['retentionDays']
+        if 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if 'storageAccountAccessKey' in kwargs:
+            storage_account_access_key = kwargs['storageAccountAccessKey']
+        if 'storageEndpoint' in kwargs:
+            storage_endpoint = kwargs['storageEndpoint']
+
         if disabled_alerts is not None:
             _setter("disabled_alerts", disabled_alerts)
         if email_account_admins is not None:

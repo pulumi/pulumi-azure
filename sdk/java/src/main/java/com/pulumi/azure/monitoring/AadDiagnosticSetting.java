@@ -116,7 +116,7 @@ public class AadDiagnosticSetting extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** At least one `log` or `enabled_log` block must be specified. At least one type of Log must be enabled.
      * 
      */
-    @Export(name="enabledLogs", refs={List.class,AadDiagnosticSettingEnabledLog.class}, tree="[0,1]")
+    @Export(name="enabledLogs", type=List.class, parameters={AadDiagnosticSettingEnabledLog.class})
     private Output<List<AadDiagnosticSettingEnabledLog>> enabledLogs;
 
     /**
@@ -134,7 +134,7 @@ public class AadDiagnosticSetting extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** This can be sourced from the `azure.eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `azure.eventhub.AuthorizationRule` resource.
      * 
      */
-    @Export(name="eventhubAuthorizationRuleId", refs={String.class}, tree="[0]")
+    @Export(name="eventhubAuthorizationRuleId", type=String.class, parameters={})
     private Output</* @Nullable */ String> eventhubAuthorizationRuleId;
 
     /**
@@ -150,7 +150,7 @@ public class AadDiagnosticSetting extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Event Hub where Diagnostics Data should be sent. If not specified, the default Event Hub will be used. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="eventhubName", refs={String.class}, tree="[0]")
+    @Export(name="eventhubName", type=String.class, parameters={})
     private Output</* @Nullable */ String> eventhubName;
 
     /**
@@ -164,7 +164,7 @@ public class AadDiagnosticSetting extends com.pulumi.resources.CustomResource {
      * Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
      * 
      */
-    @Export(name="logAnalyticsWorkspaceId", refs={String.class}, tree="[0]")
+    @Export(name="logAnalyticsWorkspaceId", type=String.class, parameters={})
     private Output</* @Nullable */ String> logAnalyticsWorkspaceId;
 
     /**
@@ -184,7 +184,7 @@ public class AadDiagnosticSetting extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider. */
-    @Export(name="logs", refs={List.class,AadDiagnosticSettingLog.class}, tree="[0,1]")
+    @Export(name="logs", type=List.class, parameters={AadDiagnosticSettingLog.class})
     private Output<List<AadDiagnosticSettingLog>> logs;
 
     /**
@@ -200,7 +200,7 @@ public class AadDiagnosticSetting extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Monitor Azure Active Directory Diagnostic Setting. Changing this forces a new Monitor Azure Active Directory Diagnostic Setting to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -216,7 +216,7 @@ public class AadDiagnosticSetting extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** One of `eventhub_authorization_rule_id`, `log_analytics_workspace_id` and `storage_account_id` must be specified.
      * 
      */
-    @Export(name="storageAccountId", refs={String.class}, tree="[0]")
+    @Export(name="storageAccountId", type=String.class, parameters={})
     private Output</* @Nullable */ String> storageAccountId;
 
     /**

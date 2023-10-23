@@ -102,7 +102,7 @@ public class SubnetServiceEndpointStoragePolicy extends com.pulumi.resources.Cus
      * A `definition` block as defined below
      * 
      */
-    @Export(name="definition", refs={SubnetServiceEndpointStoragePolicyDefinition.class}, tree="[0]")
+    @Export(name="definition", type=SubnetServiceEndpointStoragePolicyDefinition.class, parameters={})
     private Output</* @Nullable */ SubnetServiceEndpointStoragePolicyDefinition> definition;
 
     /**
@@ -116,7 +116,7 @@ public class SubnetServiceEndpointStoragePolicy extends com.pulumi.resources.Cus
      * The Azure Region where the Subnet Service Endpoint Storage Policy should exist. Changing this forces a new Subnet Service Endpoint Storage Policy to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -130,7 +130,7 @@ public class SubnetServiceEndpointStoragePolicy extends com.pulumi.resources.Cus
      * The name which should be used for this Subnet Service Endpoint Storage Policy. Changing this forces a new Subnet Service Endpoint Storage Policy to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -144,7 +144,7 @@ public class SubnetServiceEndpointStoragePolicy extends com.pulumi.resources.Cus
      * The name of the Resource Group where the Subnet Service Endpoint Storage Policy should exist. Changing this forces a new Subnet Service Endpoint Storage Policy to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -158,7 +158,7 @@ public class SubnetServiceEndpointStoragePolicy extends com.pulumi.resources.Cus
      * A mapping of tags which should be assigned to the Subnet Service Endpoint Storage Policy.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

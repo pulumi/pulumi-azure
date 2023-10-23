@@ -75,7 +75,23 @@ class FileSystemArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maintenanceWindow' in kwargs:
+            maintenance_window = kwargs['maintenanceWindow']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'storageCapacityInTb' in kwargs:
+            storage_capacity_in_tb = kwargs['storageCapacityInTb']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'encryptionKey' in kwargs:
+            encryption_key = kwargs['encryptionKey']
+        if 'hsmSetting' in kwargs:
+            hsm_setting = kwargs['hsmSetting']
+
         _setter("maintenance_window", maintenance_window)
         _setter("resource_group_name", resource_group_name)
         _setter("sku_name", sku_name)
@@ -304,7 +320,23 @@ class _FileSystemState:
              subnet_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'encryptionKey' in kwargs:
+            encryption_key = kwargs['encryptionKey']
+        if 'hsmSetting' in kwargs:
+            hsm_setting = kwargs['hsmSetting']
+        if 'maintenanceWindow' in kwargs:
+            maintenance_window = kwargs['maintenanceWindow']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'storageCapacityInTb' in kwargs:
+            storage_capacity_in_tb = kwargs['storageCapacityInTb']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         if encryption_key is not None:
             _setter("encryption_key", encryption_key)
         if hsm_setting is not None:

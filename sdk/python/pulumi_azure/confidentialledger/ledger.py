@@ -53,7 +53,17 @@ class LedgerArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azureadBasedServicePrincipals' in kwargs:
+            azuread_based_service_principals = kwargs['azureadBasedServicePrincipals']
+        if 'ledgerType' in kwargs:
+            ledger_type = kwargs['ledgerType']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'certificateBasedSecurityPrincipals' in kwargs:
+            certificate_based_security_principals = kwargs['certificateBasedSecurityPrincipals']
+
         _setter("azuread_based_service_principals", azuread_based_service_principals)
         _setter("ledger_type", ledger_type)
         _setter("resource_group_name", resource_group_name)
@@ -199,7 +209,21 @@ class _LedgerState:
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azureadBasedServicePrincipals' in kwargs:
+            azuread_based_service_principals = kwargs['azureadBasedServicePrincipals']
+        if 'certificateBasedSecurityPrincipals' in kwargs:
+            certificate_based_security_principals = kwargs['certificateBasedSecurityPrincipals']
+        if 'identityServiceEndpoint' in kwargs:
+            identity_service_endpoint = kwargs['identityServiceEndpoint']
+        if 'ledgerEndpoint' in kwargs:
+            ledger_endpoint = kwargs['ledgerEndpoint']
+        if 'ledgerType' in kwargs:
+            ledger_type = kwargs['ledgerType']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if azuread_based_service_principals is not None:
             _setter("azuread_based_service_principals", azuread_based_service_principals)
         if certificate_based_security_principals is not None:

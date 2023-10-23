@@ -75,7 +75,21 @@ class TriggerBlobEventArgs:
              description: Optional[pulumi.Input[str]] = None,
              ignore_empty_blobs: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if 'blobPathBeginsWith' in kwargs:
+            blob_path_begins_with = kwargs['blobPathBeginsWith']
+        if 'blobPathEndsWith' in kwargs:
+            blob_path_ends_with = kwargs['blobPathEndsWith']
+        if 'ignoreEmptyBlobs' in kwargs:
+            ignore_empty_blobs = kwargs['ignoreEmptyBlobs']
+
         _setter("data_factory_id", data_factory_id)
         _setter("events", events)
         _setter("pipelines", pipelines)
@@ -306,7 +320,21 @@ class _TriggerBlobEventState:
              name: Optional[pulumi.Input[str]] = None,
              pipelines: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerBlobEventPipelineArgs']]]] = None,
              storage_account_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if 'blobPathBeginsWith' in kwargs:
+            blob_path_begins_with = kwargs['blobPathBeginsWith']
+        if 'blobPathEndsWith' in kwargs:
+            blob_path_ends_with = kwargs['blobPathEndsWith']
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'ignoreEmptyBlobs' in kwargs:
+            ignore_empty_blobs = kwargs['ignoreEmptyBlobs']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+
         if activated is not None:
             _setter("activated", activated)
         if additional_properties is not None:

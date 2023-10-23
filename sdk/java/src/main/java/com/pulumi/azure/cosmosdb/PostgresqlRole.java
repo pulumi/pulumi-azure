@@ -80,7 +80,7 @@ public class PostgresqlRole extends com.pulumi.resources.CustomResource {
      * The resource ID of the Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="clusterId", refs={String.class}, tree="[0]")
+    @Export(name="clusterId", type=String.class, parameters={})
     private Output<String> clusterId;
 
     /**
@@ -94,7 +94,7 @@ public class PostgresqlRole extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Azure Cosmos DB for PostgreSQL Role. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -108,7 +108,7 @@ public class PostgresqlRole extends com.pulumi.resources.CustomResource {
      * The password of the Azure Cosmos DB for PostgreSQL Role. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="password", refs={String.class}, tree="[0]")
+    @Export(name="password", type=String.class, parameters={})
     private Output<String> password;
 
     /**

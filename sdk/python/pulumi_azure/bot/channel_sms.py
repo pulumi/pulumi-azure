@@ -47,7 +47,19 @@ class ChannelSmsArgs:
              sms_channel_account_security_id: pulumi.Input[str],
              sms_channel_auth_token: pulumi.Input[str],
              location: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'botName' in kwargs:
+            bot_name = kwargs['botName']
+        if 'phoneNumber' in kwargs:
+            phone_number = kwargs['phoneNumber']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'smsChannelAccountSecurityId' in kwargs:
+            sms_channel_account_security_id = kwargs['smsChannelAccountSecurityId']
+        if 'smsChannelAuthToken' in kwargs:
+            sms_channel_auth_token = kwargs['smsChannelAuthToken']
+
         _setter("bot_name", bot_name)
         _setter("phone_number", phone_number)
         _setter("resource_group_name", resource_group_name)
@@ -165,7 +177,19 @@ class _ChannelSmsState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              sms_channel_account_security_id: Optional[pulumi.Input[str]] = None,
              sms_channel_auth_token: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'botName' in kwargs:
+            bot_name = kwargs['botName']
+        if 'phoneNumber' in kwargs:
+            phone_number = kwargs['phoneNumber']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'smsChannelAccountSecurityId' in kwargs:
+            sms_channel_account_security_id = kwargs['smsChannelAccountSecurityId']
+        if 'smsChannelAuthToken' in kwargs:
+            sms_channel_auth_token = kwargs['smsChannelAuthToken']
+
         if bot_name is not None:
             _setter("bot_name", bot_name)
         if location is not None:

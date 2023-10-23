@@ -67,7 +67,19 @@ class CacheAccessPolicyAccessRuleArgs:
              root_squash_enabled: Optional[pulumi.Input[bool]] = None,
              submount_access_enabled: Optional[pulumi.Input[bool]] = None,
              suid_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'anonymousGid' in kwargs:
+            anonymous_gid = kwargs['anonymousGid']
+        if 'anonymousUid' in kwargs:
+            anonymous_uid = kwargs['anonymousUid']
+        if 'rootSquashEnabled' in kwargs:
+            root_squash_enabled = kwargs['rootSquashEnabled']
+        if 'submountAccessEnabled' in kwargs:
+            submount_access_enabled = kwargs['submountAccessEnabled']
+        if 'suidEnabled' in kwargs:
+            suid_enabled = kwargs['suidEnabled']
+
         _setter("access", access)
         _setter("scope", scope)
         if anonymous_gid is not None:
@@ -197,7 +209,11 @@ class CacheDefaultAccessPolicyArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              access_rules: pulumi.Input[Sequence[pulumi.Input['CacheDefaultAccessPolicyAccessRuleArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessRules' in kwargs:
+            access_rules = kwargs['accessRules']
+
         _setter("access_rules", access_rules)
 
     @property
@@ -258,7 +274,19 @@ class CacheDefaultAccessPolicyAccessRuleArgs:
              root_squash_enabled: Optional[pulumi.Input[bool]] = None,
              submount_access_enabled: Optional[pulumi.Input[bool]] = None,
              suid_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'anonymousGid' in kwargs:
+            anonymous_gid = kwargs['anonymousGid']
+        if 'anonymousUid' in kwargs:
+            anonymous_uid = kwargs['anonymousUid']
+        if 'rootSquashEnabled' in kwargs:
+            root_squash_enabled = kwargs['rootSquashEnabled']
+        if 'submountAccessEnabled' in kwargs:
+            submount_access_enabled = kwargs['submountAccessEnabled']
+        if 'suidEnabled' in kwargs:
+            suid_enabled = kwargs['suidEnabled']
+
         _setter("access", access)
         _setter("scope", scope)
         if anonymous_gid is not None:
@@ -412,7 +440,19 @@ class CacheDirectoryActiveDirectoryArgs:
              password: pulumi.Input[str],
              username: pulumi.Input[str],
              dns_secondary_ip: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cacheNetbiosName' in kwargs:
+            cache_netbios_name = kwargs['cacheNetbiosName']
+        if 'dnsPrimaryIp' in kwargs:
+            dns_primary_ip = kwargs['dnsPrimaryIp']
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'domainNetbiosName' in kwargs:
+            domain_netbios_name = kwargs['domainNetbiosName']
+        if 'dnsSecondaryIp' in kwargs:
+            dns_secondary_ip = kwargs['dnsSecondaryIp']
+
         _setter("cache_netbios_name", cache_netbios_name)
         _setter("dns_primary_ip", dns_primary_ip)
         _setter("domain_name", domain_name)
@@ -526,7 +566,13 @@ class CacheDirectoryFlatFileArgs:
              _setter: Callable[[Any, Any], None],
              group_file_uri: pulumi.Input[str],
              password_file_uri: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupFileUri' in kwargs:
+            group_file_uri = kwargs['groupFileUri']
+        if 'passwordFileUri' in kwargs:
+            password_file_uri = kwargs['passwordFileUri']
+
         _setter("group_file_uri", group_file_uri)
         _setter("password_file_uri", password_file_uri)
 
@@ -590,7 +636,15 @@ class CacheDirectoryLdapArgs:
              certificate_validation_uri: Optional[pulumi.Input[str]] = None,
              download_certificate_automatically: Optional[pulumi.Input[bool]] = None,
              encrypted: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'baseDn' in kwargs:
+            base_dn = kwargs['baseDn']
+        if 'certificateValidationUri' in kwargs:
+            certificate_validation_uri = kwargs['certificateValidationUri']
+        if 'downloadCertificateAutomatically' in kwargs:
+            download_certificate_automatically = kwargs['downloadCertificateAutomatically']
+
         _setter("base_dn", base_dn)
         _setter("server", server)
         if bind is not None:
@@ -694,7 +748,9 @@ class CacheDirectoryLdapBindArgs:
              _setter: Callable[[Any, Any], None],
              dn: pulumi.Input[str],
              password: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("dn", dn)
         _setter("password", password)
 
@@ -742,7 +798,11 @@ class CacheDnsArgs:
              _setter: Callable[[Any, Any], None],
              servers: pulumi.Input[Sequence[pulumi.Input[str]]],
              search_domain: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'searchDomain' in kwargs:
+            search_domain = kwargs['searchDomain']
+
         _setter("servers", servers)
         if search_domain is not None:
             _setter("search_domain", search_domain)
@@ -801,7 +861,15 @@ class CacheIdentityArgs:
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -888,7 +956,17 @@ class CacheNfsTargetNamespaceJunctionArgs:
              nfs_export: pulumi.Input[str],
              access_policy_name: Optional[pulumi.Input[str]] = None,
              target_path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'namespacePath' in kwargs:
+            namespace_path = kwargs['namespacePath']
+        if 'nfsExport' in kwargs:
+            nfs_export = kwargs['nfsExport']
+        if 'accessPolicyName' in kwargs:
+            access_policy_name = kwargs['accessPolicyName']
+        if 'targetPath' in kwargs:
+            target_path = kwargs['targetPath']
+
         _setter("namespace_path", namespace_path)
         _setter("nfs_export", nfs_export)
         if access_policy_name is not None:

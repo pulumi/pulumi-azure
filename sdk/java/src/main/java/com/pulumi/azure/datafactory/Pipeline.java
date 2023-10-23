@@ -122,7 +122,7 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
      * A JSON object that contains the activities that will be associated with the Data Factory Pipeline.
      * 
      */
-    @Export(name="activitiesJson", refs={String.class}, tree="[0]")
+    @Export(name="activitiesJson", type=String.class, parameters={})
     private Output</* @Nullable */ String> activitiesJson;
 
     /**
@@ -136,7 +136,7 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
      * List of tags that can be used for describing the Data Factory Pipeline.
      * 
      */
-    @Export(name="annotations", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="annotations", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> annotations;
 
     /**
@@ -150,7 +150,7 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
      * The max number of concurrent runs for the Data Factory Pipeline. Must be between `1` and `50`.
      * 
      */
-    @Export(name="concurrency", refs={Integer.class}, tree="[0]")
+    @Export(name="concurrency", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> concurrency;
 
     /**
@@ -164,7 +164,7 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      * 
      */
-    @Export(name="dataFactoryId", refs={String.class}, tree="[0]")
+    @Export(name="dataFactoryId", type=String.class, parameters={})
     private Output<String> dataFactoryId;
 
     /**
@@ -178,7 +178,7 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
      * The description for the Data Factory Pipeline.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -192,7 +192,7 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
      * The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
      * 
      */
-    @Export(name="folder", refs={String.class}, tree="[0]")
+    @Export(name="folder", type=String.class, parameters={})
     private Output</* @Nullable */ String> folder;
 
     /**
@@ -206,7 +206,7 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
      * The TimeSpan value after which an Azure Monitoring Metric is fired.
      * 
      */
-    @Export(name="moniterMetricsAfterDuration", refs={String.class}, tree="[0]")
+    @Export(name="moniterMetricsAfterDuration", type=String.class, parameters={})
     private Output</* @Nullable */ String> moniterMetricsAfterDuration;
 
     /**
@@ -220,7 +220,7 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -234,7 +234,7 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
      * A map of parameters to associate with the Data Factory Pipeline.
      * 
      */
-    @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="parameters", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> parameters;
 
     /**
@@ -248,7 +248,7 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
      * A map of variables to associate with the Data Factory Pipeline.
      * 
      */
-    @Export(name="variables", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="variables", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> variables;
 
     /**

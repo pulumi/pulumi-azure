@@ -47,7 +47,19 @@ class EndpointEventGridArgs:
              eventgrid_topic_secondary_access_key: pulumi.Input[str],
              dead_letter_storage_secret: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'digitalTwinsId' in kwargs:
+            digital_twins_id = kwargs['digitalTwinsId']
+        if 'eventgridTopicEndpoint' in kwargs:
+            eventgrid_topic_endpoint = kwargs['eventgridTopicEndpoint']
+        if 'eventgridTopicPrimaryAccessKey' in kwargs:
+            eventgrid_topic_primary_access_key = kwargs['eventgridTopicPrimaryAccessKey']
+        if 'eventgridTopicSecondaryAccessKey' in kwargs:
+            eventgrid_topic_secondary_access_key = kwargs['eventgridTopicSecondaryAccessKey']
+        if 'deadLetterStorageSecret' in kwargs:
+            dead_letter_storage_secret = kwargs['deadLetterStorageSecret']
+
         _setter("digital_twins_id", digital_twins_id)
         _setter("eventgrid_topic_endpoint", eventgrid_topic_endpoint)
         _setter("eventgrid_topic_primary_access_key", eventgrid_topic_primary_access_key)
@@ -166,7 +178,19 @@ class _EndpointEventGridState:
              eventgrid_topic_primary_access_key: Optional[pulumi.Input[str]] = None,
              eventgrid_topic_secondary_access_key: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deadLetterStorageSecret' in kwargs:
+            dead_letter_storage_secret = kwargs['deadLetterStorageSecret']
+        if 'digitalTwinsId' in kwargs:
+            digital_twins_id = kwargs['digitalTwinsId']
+        if 'eventgridTopicEndpoint' in kwargs:
+            eventgrid_topic_endpoint = kwargs['eventgridTopicEndpoint']
+        if 'eventgridTopicPrimaryAccessKey' in kwargs:
+            eventgrid_topic_primary_access_key = kwargs['eventgridTopicPrimaryAccessKey']
+        if 'eventgridTopicSecondaryAccessKey' in kwargs:
+            eventgrid_topic_secondary_access_key = kwargs['eventgridTopicSecondaryAccessKey']
+
         if dead_letter_storage_secret is not None:
             _setter("dead_letter_storage_secret", dead_letter_storage_secret)
         if digital_twins_id is not None:

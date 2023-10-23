@@ -45,7 +45,15 @@ class SmartDetectionRuleArgs:
              enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              send_emails_to_subscription_owners: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationInsightsId' in kwargs:
+            application_insights_id = kwargs['applicationInsightsId']
+        if 'additionalEmailRecipients' in kwargs:
+            additional_email_recipients = kwargs['additionalEmailRecipients']
+        if 'sendEmailsToSubscriptionOwners' in kwargs:
+            send_emails_to_subscription_owners = kwargs['sendEmailsToSubscriptionOwners']
+
         _setter("application_insights_id", application_insights_id)
         if additional_email_recipients is not None:
             _setter("additional_email_recipients", additional_email_recipients)
@@ -153,7 +161,15 @@ class _SmartDetectionRuleState:
              enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              send_emails_to_subscription_owners: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalEmailRecipients' in kwargs:
+            additional_email_recipients = kwargs['additionalEmailRecipients']
+        if 'applicationInsightsId' in kwargs:
+            application_insights_id = kwargs['applicationInsightsId']
+        if 'sendEmailsToSubscriptionOwners' in kwargs:
+            send_emails_to_subscription_owners = kwargs['sendEmailsToSubscriptionOwners']
+
         if additional_email_recipients is not None:
             _setter("additional_email_recipients", additional_email_recipients)
         if application_insights_id is not None:

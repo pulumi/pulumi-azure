@@ -79,7 +79,7 @@ public class ExpressRoutePortAuthorization extends com.pulumi.resources.CustomRe
      * The Authorization Key.
      * 
      */
-    @Export(name="authorizationKey", refs={String.class}, tree="[0]")
+    @Export(name="authorizationKey", type=String.class, parameters={})
     private Output<String> authorizationKey;
 
     /**
@@ -93,7 +93,7 @@ public class ExpressRoutePortAuthorization extends com.pulumi.resources.CustomRe
      * The authorization use status.
      * 
      */
-    @Export(name="authorizationUseStatus", refs={String.class}, tree="[0]")
+    @Export(name="authorizationUseStatus", type=String.class, parameters={})
     private Output<String> authorizationUseStatus;
 
     /**
@@ -107,7 +107,7 @@ public class ExpressRoutePortAuthorization extends com.pulumi.resources.CustomRe
      * The name of the Express Route Port in which to create the Authorization. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="expressRoutePortName", refs={String.class}, tree="[0]")
+    @Export(name="expressRoutePortName", type=String.class, parameters={})
     private Output<String> expressRoutePortName;
 
     /**
@@ -121,7 +121,7 @@ public class ExpressRoutePortAuthorization extends com.pulumi.resources.CustomRe
      * The name of the ExpressRoute Port. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -135,7 +135,7 @@ public class ExpressRoutePortAuthorization extends com.pulumi.resources.CustomRe
      * The name of the resource group in which to create the ExpressRoute Port. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**

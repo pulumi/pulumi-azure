@@ -85,7 +85,27 @@ class SpringCloudServiceArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              trace: Optional[pulumi.Input['SpringCloudServiceTraceArgs']] = None,
              zone_redundant: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'buildAgentPoolSize' in kwargs:
+            build_agent_pool_size = kwargs['buildAgentPoolSize']
+        if 'configServerGitSetting' in kwargs:
+            config_server_git_setting = kwargs['configServerGitSetting']
+        if 'containerRegistries' in kwargs:
+            container_registries = kwargs['containerRegistries']
+        if 'defaultBuildService' in kwargs:
+            default_build_service = kwargs['defaultBuildService']
+        if 'logStreamPublicEndpointEnabled' in kwargs:
+            log_stream_public_endpoint_enabled = kwargs['logStreamPublicEndpointEnabled']
+        if 'serviceRegistryEnabled' in kwargs:
+            service_registry_enabled = kwargs['serviceRegistryEnabled']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'zoneRedundant' in kwargs:
+            zone_redundant = kwargs['zoneRedundant']
+
         _setter("resource_group_name", resource_group_name)
         if build_agent_pool_size is not None:
             _setter("build_agent_pool_size", build_agent_pool_size)
@@ -381,7 +401,33 @@ class _SpringCloudServiceState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              trace: Optional[pulumi.Input['SpringCloudServiceTraceArgs']] = None,
              zone_redundant: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'buildAgentPoolSize' in kwargs:
+            build_agent_pool_size = kwargs['buildAgentPoolSize']
+        if 'configServerGitSetting' in kwargs:
+            config_server_git_setting = kwargs['configServerGitSetting']
+        if 'containerRegistries' in kwargs:
+            container_registries = kwargs['containerRegistries']
+        if 'defaultBuildService' in kwargs:
+            default_build_service = kwargs['defaultBuildService']
+        if 'logStreamPublicEndpointEnabled' in kwargs:
+            log_stream_public_endpoint_enabled = kwargs['logStreamPublicEndpointEnabled']
+        if 'outboundPublicIpAddresses' in kwargs:
+            outbound_public_ip_addresses = kwargs['outboundPublicIpAddresses']
+        if 'requiredNetworkTrafficRules' in kwargs:
+            required_network_traffic_rules = kwargs['requiredNetworkTrafficRules']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serviceRegistryEnabled' in kwargs:
+            service_registry_enabled = kwargs['serviceRegistryEnabled']
+        if 'serviceRegistryId' in kwargs:
+            service_registry_id = kwargs['serviceRegistryId']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'zoneRedundant' in kwargs:
+            zone_redundant = kwargs['zoneRedundant']
+
         if build_agent_pool_size is not None:
             _setter("build_agent_pool_size", build_agent_pool_size)
         if config_server_git_setting is not None:

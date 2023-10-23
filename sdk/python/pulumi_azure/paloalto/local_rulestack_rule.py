@@ -103,7 +103,25 @@ class LocalRulestackRuleArgs:
              protocol: Optional[pulumi.Input[str]] = None,
              protocol_ports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'rulestackId' in kwargs:
+            rulestack_id = kwargs['rulestackId']
+        if 'auditComment' in kwargs:
+            audit_comment = kwargs['auditComment']
+        if 'decryptionRuleType' in kwargs:
+            decryption_rule_type = kwargs['decryptionRuleType']
+        if 'inspectionCertificateId' in kwargs:
+            inspection_certificate_id = kwargs['inspectionCertificateId']
+        if 'loggingEnabled' in kwargs:
+            logging_enabled = kwargs['loggingEnabled']
+        if 'negateDestination' in kwargs:
+            negate_destination = kwargs['negateDestination']
+        if 'negateSource' in kwargs:
+            negate_source = kwargs['negateSource']
+        if 'protocolPorts' in kwargs:
+            protocol_ports = kwargs['protocolPorts']
+
         _setter("action", action)
         _setter("applications", applications)
         _setter("destination", destination)
@@ -458,7 +476,25 @@ class _LocalRulestackRuleState:
              rulestack_id: Optional[pulumi.Input[str]] = None,
              source: Optional[pulumi.Input['LocalRulestackRuleSourceArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'auditComment' in kwargs:
+            audit_comment = kwargs['auditComment']
+        if 'decryptionRuleType' in kwargs:
+            decryption_rule_type = kwargs['decryptionRuleType']
+        if 'inspectionCertificateId' in kwargs:
+            inspection_certificate_id = kwargs['inspectionCertificateId']
+        if 'loggingEnabled' in kwargs:
+            logging_enabled = kwargs['loggingEnabled']
+        if 'negateDestination' in kwargs:
+            negate_destination = kwargs['negateDestination']
+        if 'negateSource' in kwargs:
+            negate_source = kwargs['negateSource']
+        if 'protocolPorts' in kwargs:
+            protocol_ports = kwargs['protocolPorts']
+        if 'rulestackId' in kwargs:
+            rulestack_id = kwargs['rulestackId']
+
         if action is not None:
             _setter("action", action)
         if applications is not None:

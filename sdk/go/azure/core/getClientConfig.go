@@ -4,8 +4,12 @@
 package core
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access the configuration of the AzureRM provider.
@@ -56,4 +60,65 @@ type GetClientConfigResult struct {
 	SubscriptionId string `pulumi:"subscriptionId"`
 	// is set to the Azure Tenant ID.
 	TenantId string `pulumi:"tenantId"`
+}
+
+func GetClientConfigOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetClientConfigResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetClientConfigResult, error) {
+		r, err := GetClientConfig(ctx, opts...)
+		var s GetClientConfigResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(GetClientConfigResultOutput)
+}
+
+// A collection of values returned by getClientConfig.
+type GetClientConfigResultOutput struct{ *pulumi.OutputState }
+
+func (GetClientConfigResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClientConfigResult)(nil)).Elem()
+}
+
+func (o GetClientConfigResultOutput) ToGetClientConfigResultOutput() GetClientConfigResultOutput {
+	return o
+}
+
+func (o GetClientConfigResultOutput) ToGetClientConfigResultOutputWithContext(ctx context.Context) GetClientConfigResultOutput {
+	return o
+}
+
+func (o GetClientConfigResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetClientConfigResult] {
+	return pulumix.Output[GetClientConfigResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// is set to the Azure Client ID (Application Object ID).
+func (o GetClientConfigResultOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClientConfigResult) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetClientConfigResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClientConfigResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// is set to the Azure Object ID.
+func (o GetClientConfigResultOutput) ObjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClientConfigResult) string { return v.ObjectId }).(pulumi.StringOutput)
+}
+
+// is set to the Azure Subscription ID.
+func (o GetClientConfigResultOutput) SubscriptionId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClientConfigResult) string { return v.SubscriptionId }).(pulumi.StringOutput)
+}
+
+// is set to the Azure Tenant ID.
+func (o GetClientConfigResultOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClientConfigResult) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetClientConfigResultOutput{})
 }

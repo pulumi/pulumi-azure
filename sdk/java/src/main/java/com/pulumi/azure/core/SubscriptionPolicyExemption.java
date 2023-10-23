@@ -87,7 +87,7 @@ public class SubscriptionPolicyExemption extends com.pulumi.resources.CustomReso
      * A description to use for this Policy Exemption.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -101,7 +101,7 @@ public class SubscriptionPolicyExemption extends com.pulumi.resources.CustomReso
      * A friendly display name to use for this Policy Exemption.
      * 
      */
-    @Export(name="displayName", refs={String.class}, tree="[0]")
+    @Export(name="displayName", type=String.class, parameters={})
     private Output</* @Nullable */ String> displayName;
 
     /**
@@ -115,7 +115,7 @@ public class SubscriptionPolicyExemption extends com.pulumi.resources.CustomReso
      * The category of this policy exemption. Possible values are `Waiver` and `Mitigated`.
      * 
      */
-    @Export(name="exemptionCategory", refs={String.class}, tree="[0]")
+    @Export(name="exemptionCategory", type=String.class, parameters={})
     private Output<String> exemptionCategory;
 
     /**
@@ -129,7 +129,7 @@ public class SubscriptionPolicyExemption extends com.pulumi.resources.CustomReso
      * The expiration date and time in UTC ISO 8601 format of this policy exemption.
      * 
      */
-    @Export(name="expiresOn", refs={String.class}, tree="[0]")
+    @Export(name="expiresOn", type=String.class, parameters={})
     private Output</* @Nullable */ String> expiresOn;
 
     /**
@@ -143,7 +143,7 @@ public class SubscriptionPolicyExemption extends com.pulumi.resources.CustomReso
      * The metadata for this policy exemption. This is a JSON string representing additional metadata that should be stored with the policy exemption.
      * 
      */
-    @Export(name="metadata", refs={String.class}, tree="[0]")
+    @Export(name="metadata", type=String.class, parameters={})
     private Output<String> metadata;
 
     /**
@@ -157,7 +157,7 @@ public class SubscriptionPolicyExemption extends com.pulumi.resources.CustomReso
      * The name of the Policy Exemption. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -171,7 +171,7 @@ public class SubscriptionPolicyExemption extends com.pulumi.resources.CustomReso
      * The ID of the Policy Assignment to be exempted at the specified Scope. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="policyAssignmentId", refs={String.class}, tree="[0]")
+    @Export(name="policyAssignmentId", type=String.class, parameters={})
     private Output<String> policyAssignmentId;
 
     /**
@@ -185,7 +185,7 @@ public class SubscriptionPolicyExemption extends com.pulumi.resources.CustomReso
      * The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
      * 
      */
-    @Export(name="policyDefinitionReferenceIds", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="policyDefinitionReferenceIds", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> policyDefinitionReferenceIds;
 
     /**
@@ -199,7 +199,7 @@ public class SubscriptionPolicyExemption extends com.pulumi.resources.CustomReso
      * The Subscription ID where the Policy Exemption should be applied. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="subscriptionId", refs={String.class}, tree="[0]")
+    @Export(name="subscriptionId", type=String.class, parameters={})
     private Output<String> subscriptionId;
 
     /**

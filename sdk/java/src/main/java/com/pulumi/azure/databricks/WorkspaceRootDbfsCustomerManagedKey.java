@@ -29,7 +29,7 @@ public class WorkspaceRootDbfsCustomerManagedKey extends com.pulumi.resources.Cu
      * The resource ID of the Key Vault Key to be used.
      * 
      */
-    @Export(name="keyVaultKeyId", refs={String.class}, tree="[0]")
+    @Export(name="keyVaultKeyId", type=String.class, parameters={})
     private Output<String> keyVaultKeyId;
 
     /**
@@ -43,7 +43,7 @@ public class WorkspaceRootDbfsCustomerManagedKey extends com.pulumi.resources.Cu
      * The resource ID of the Databricks Workspace.
      * 
      */
-    @Export(name="workspaceId", refs={String.class}, tree="[0]")
+    @Export(name="workspaceId", type=String.class, parameters={})
     private Output<String> workspaceId;
 
     /**

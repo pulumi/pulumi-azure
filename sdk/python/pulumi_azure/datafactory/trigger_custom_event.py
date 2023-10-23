@@ -71,7 +71,19 @@ class TriggerCustomEventArgs:
              name: Optional[pulumi.Input[str]] = None,
              subject_begins_with: Optional[pulumi.Input[str]] = None,
              subject_ends_with: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'eventgridTopicId' in kwargs:
+            eventgrid_topic_id = kwargs['eventgridTopicId']
+        if 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if 'subjectBeginsWith' in kwargs:
+            subject_begins_with = kwargs['subjectBeginsWith']
+        if 'subjectEndsWith' in kwargs:
+            subject_ends_with = kwargs['subjectEndsWith']
+
         _setter("data_factory_id", data_factory_id)
         _setter("eventgrid_topic_id", eventgrid_topic_id)
         _setter("events", events)
@@ -284,7 +296,19 @@ class _TriggerCustomEventState:
              pipelines: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerCustomEventPipelineArgs']]]] = None,
              subject_begins_with: Optional[pulumi.Input[str]] = None,
              subject_ends_with: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'eventgridTopicId' in kwargs:
+            eventgrid_topic_id = kwargs['eventgridTopicId']
+        if 'subjectBeginsWith' in kwargs:
+            subject_begins_with = kwargs['subjectBeginsWith']
+        if 'subjectEndsWith' in kwargs:
+            subject_ends_with = kwargs['subjectEndsWith']
+
         if activated is not None:
             _setter("activated", activated)
         if additional_properties is not None:

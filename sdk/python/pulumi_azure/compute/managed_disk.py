@@ -198,7 +198,69 @@ class ManagedDiskArgs:
              trusted_launch_enabled: Optional[pulumi.Input[bool]] = None,
              upload_size_bytes: Optional[pulumi.Input[int]] = None,
              zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createOption' in kwargs:
+            create_option = kwargs['createOption']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'storageAccountType' in kwargs:
+            storage_account_type = kwargs['storageAccountType']
+        if 'diskAccessId' in kwargs:
+            disk_access_id = kwargs['diskAccessId']
+        if 'diskEncryptionSetId' in kwargs:
+            disk_encryption_set_id = kwargs['diskEncryptionSetId']
+        if 'diskIopsReadOnly' in kwargs:
+            disk_iops_read_only = kwargs['diskIopsReadOnly']
+        if 'diskIopsReadWrite' in kwargs:
+            disk_iops_read_write = kwargs['diskIopsReadWrite']
+        if 'diskMbpsReadOnly' in kwargs:
+            disk_mbps_read_only = kwargs['diskMbpsReadOnly']
+        if 'diskMbpsReadWrite' in kwargs:
+            disk_mbps_read_write = kwargs['diskMbpsReadWrite']
+        if 'diskSizeGb' in kwargs:
+            disk_size_gb = kwargs['diskSizeGb']
+        if 'edgeZone' in kwargs:
+            edge_zone = kwargs['edgeZone']
+        if 'encryptionSettings' in kwargs:
+            encryption_settings = kwargs['encryptionSettings']
+        if 'galleryImageReferenceId' in kwargs:
+            gallery_image_reference_id = kwargs['galleryImageReferenceId']
+        if 'hyperVGeneration' in kwargs:
+            hyper_v_generation = kwargs['hyperVGeneration']
+        if 'imageReferenceId' in kwargs:
+            image_reference_id = kwargs['imageReferenceId']
+        if 'logicalSectorSize' in kwargs:
+            logical_sector_size = kwargs['logicalSectorSize']
+        if 'maxShares' in kwargs:
+            max_shares = kwargs['maxShares']
+        if 'networkAccessPolicy' in kwargs:
+            network_access_policy = kwargs['networkAccessPolicy']
+        if 'onDemandBurstingEnabled' in kwargs:
+            on_demand_bursting_enabled = kwargs['onDemandBurstingEnabled']
+        if 'optimizedFrequentAttachEnabled' in kwargs:
+            optimized_frequent_attach_enabled = kwargs['optimizedFrequentAttachEnabled']
+        if 'osType' in kwargs:
+            os_type = kwargs['osType']
+        if 'performancePlusEnabled' in kwargs:
+            performance_plus_enabled = kwargs['performancePlusEnabled']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'secureVmDiskEncryptionSetId' in kwargs:
+            secure_vm_disk_encryption_set_id = kwargs['secureVmDiskEncryptionSetId']
+        if 'securityType' in kwargs:
+            security_type = kwargs['securityType']
+        if 'sourceResourceId' in kwargs:
+            source_resource_id = kwargs['sourceResourceId']
+        if 'sourceUri' in kwargs:
+            source_uri = kwargs['sourceUri']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if 'trustedLaunchEnabled' in kwargs:
+            trusted_launch_enabled = kwargs['trustedLaunchEnabled']
+        if 'uploadSizeBytes' in kwargs:
+            upload_size_bytes = kwargs['uploadSizeBytes']
+
         _setter("create_option", create_option)
         _setter("resource_group_name", resource_group_name)
         _setter("storage_account_type", storage_account_type)
@@ -902,7 +964,69 @@ class _ManagedDiskState:
              trusted_launch_enabled: Optional[pulumi.Input[bool]] = None,
              upload_size_bytes: Optional[pulumi.Input[int]] = None,
              zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createOption' in kwargs:
+            create_option = kwargs['createOption']
+        if 'diskAccessId' in kwargs:
+            disk_access_id = kwargs['diskAccessId']
+        if 'diskEncryptionSetId' in kwargs:
+            disk_encryption_set_id = kwargs['diskEncryptionSetId']
+        if 'diskIopsReadOnly' in kwargs:
+            disk_iops_read_only = kwargs['diskIopsReadOnly']
+        if 'diskIopsReadWrite' in kwargs:
+            disk_iops_read_write = kwargs['diskIopsReadWrite']
+        if 'diskMbpsReadOnly' in kwargs:
+            disk_mbps_read_only = kwargs['diskMbpsReadOnly']
+        if 'diskMbpsReadWrite' in kwargs:
+            disk_mbps_read_write = kwargs['diskMbpsReadWrite']
+        if 'diskSizeGb' in kwargs:
+            disk_size_gb = kwargs['diskSizeGb']
+        if 'edgeZone' in kwargs:
+            edge_zone = kwargs['edgeZone']
+        if 'encryptionSettings' in kwargs:
+            encryption_settings = kwargs['encryptionSettings']
+        if 'galleryImageReferenceId' in kwargs:
+            gallery_image_reference_id = kwargs['galleryImageReferenceId']
+        if 'hyperVGeneration' in kwargs:
+            hyper_v_generation = kwargs['hyperVGeneration']
+        if 'imageReferenceId' in kwargs:
+            image_reference_id = kwargs['imageReferenceId']
+        if 'logicalSectorSize' in kwargs:
+            logical_sector_size = kwargs['logicalSectorSize']
+        if 'maxShares' in kwargs:
+            max_shares = kwargs['maxShares']
+        if 'networkAccessPolicy' in kwargs:
+            network_access_policy = kwargs['networkAccessPolicy']
+        if 'onDemandBurstingEnabled' in kwargs:
+            on_demand_bursting_enabled = kwargs['onDemandBurstingEnabled']
+        if 'optimizedFrequentAttachEnabled' in kwargs:
+            optimized_frequent_attach_enabled = kwargs['optimizedFrequentAttachEnabled']
+        if 'osType' in kwargs:
+            os_type = kwargs['osType']
+        if 'performancePlusEnabled' in kwargs:
+            performance_plus_enabled = kwargs['performancePlusEnabled']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'secureVmDiskEncryptionSetId' in kwargs:
+            secure_vm_disk_encryption_set_id = kwargs['secureVmDiskEncryptionSetId']
+        if 'securityType' in kwargs:
+            security_type = kwargs['securityType']
+        if 'sourceResourceId' in kwargs:
+            source_resource_id = kwargs['sourceResourceId']
+        if 'sourceUri' in kwargs:
+            source_uri = kwargs['sourceUri']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if 'storageAccountType' in kwargs:
+            storage_account_type = kwargs['storageAccountType']
+        if 'trustedLaunchEnabled' in kwargs:
+            trusted_launch_enabled = kwargs['trustedLaunchEnabled']
+        if 'uploadSizeBytes' in kwargs:
+            upload_size_bytes = kwargs['uploadSizeBytes']
+
         if create_option is not None:
             _setter("create_option", create_option)
         if disk_access_id is not None:

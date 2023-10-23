@@ -86,7 +86,7 @@ public class IntegrationRuntimeSsis extends com.pulumi.resources.CustomResource 
      * A `catalog_info` block as defined below.
      * 
      */
-    @Export(name="catalogInfo", refs={IntegrationRuntimeSsisCatalogInfo.class}, tree="[0]")
+    @Export(name="catalogInfo", type=IntegrationRuntimeSsisCatalogInfo.class, parameters={})
     private Output</* @Nullable */ IntegrationRuntimeSsisCatalogInfo> catalogInfo;
 
     /**
@@ -100,7 +100,7 @@ public class IntegrationRuntimeSsis extends com.pulumi.resources.CustomResource 
      * A `custom_setup_script` block as defined below.
      * 
      */
-    @Export(name="customSetupScript", refs={IntegrationRuntimeSsisCustomSetupScript.class}, tree="[0]")
+    @Export(name="customSetupScript", type=IntegrationRuntimeSsisCustomSetupScript.class, parameters={})
     private Output</* @Nullable */ IntegrationRuntimeSsisCustomSetupScript> customSetupScript;
 
     /**
@@ -114,7 +114,7 @@ public class IntegrationRuntimeSsis extends com.pulumi.resources.CustomResource 
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      * 
      */
-    @Export(name="dataFactoryId", refs={String.class}, tree="[0]")
+    @Export(name="dataFactoryId", type=String.class, parameters={})
     private Output<String> dataFactoryId;
 
     /**
@@ -128,7 +128,7 @@ public class IntegrationRuntimeSsis extends com.pulumi.resources.CustomResource 
      * Integration runtime description.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -142,7 +142,7 @@ public class IntegrationRuntimeSsis extends com.pulumi.resources.CustomResource 
      * The Azure-SSIS Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
      * 
      */
-    @Export(name="edition", refs={String.class}, tree="[0]")
+    @Export(name="edition", type=String.class, parameters={})
     private Output</* @Nullable */ String> edition;
 
     /**
@@ -156,7 +156,7 @@ public class IntegrationRuntimeSsis extends com.pulumi.resources.CustomResource 
      * An `express_custom_setup` block as defined below.
      * 
      */
-    @Export(name="expressCustomSetup", refs={IntegrationRuntimeSsisExpressCustomSetup.class}, tree="[0]")
+    @Export(name="expressCustomSetup", type=IntegrationRuntimeSsisExpressCustomSetup.class, parameters={})
     private Output</* @Nullable */ IntegrationRuntimeSsisExpressCustomSetup> expressCustomSetup;
 
     /**
@@ -170,7 +170,7 @@ public class IntegrationRuntimeSsis extends com.pulumi.resources.CustomResource 
      * A `express_vnet_integration` block as defined below.
      * 
      */
-    @Export(name="expressVnetIntegration", refs={IntegrationRuntimeSsisExpressVnetIntegration.class}, tree="[0]")
+    @Export(name="expressVnetIntegration", type=IntegrationRuntimeSsisExpressVnetIntegration.class, parameters={})
     private Output</* @Nullable */ IntegrationRuntimeSsisExpressVnetIntegration> expressVnetIntegration;
 
     /**
@@ -184,7 +184,7 @@ public class IntegrationRuntimeSsis extends com.pulumi.resources.CustomResource 
      * The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
      * 
      */
-    @Export(name="licenseType", refs={String.class}, tree="[0]")
+    @Export(name="licenseType", type=String.class, parameters={})
     private Output</* @Nullable */ String> licenseType;
 
     /**
@@ -198,7 +198,7 @@ public class IntegrationRuntimeSsis extends com.pulumi.resources.CustomResource 
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -212,7 +212,7 @@ public class IntegrationRuntimeSsis extends com.pulumi.resources.CustomResource 
      * Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
      * 
      */
-    @Export(name="maxParallelExecutionsPerNode", refs={Integer.class}, tree="[0]")
+    @Export(name="maxParallelExecutionsPerNode", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> maxParallelExecutionsPerNode;
 
     /**
@@ -226,7 +226,7 @@ public class IntegrationRuntimeSsis extends com.pulumi.resources.CustomResource 
      * Specifies the name of the Azure-SSIS Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -240,7 +240,7 @@ public class IntegrationRuntimeSsis extends com.pulumi.resources.CustomResource 
      * The size of the nodes on which the Azure-SSIS Integration Runtime runs. Valid values are: `Standard_D2_v3`, `Standard_D4_v3`, `Standard_D8_v3`, `Standard_D16_v3`, `Standard_D32_v3`, `Standard_D64_v3`, `Standard_E2_v3`, `Standard_E4_v3`, `Standard_E8_v3`, `Standard_E16_v3`, `Standard_E32_v3`, `Standard_E64_v3`, `Standard_D1_v2`, `Standard_D2_v2`, `Standard_D3_v2`, `Standard_D4_v2`, `Standard_A4_v2` and `Standard_A8_v2`
      * 
      */
-    @Export(name="nodeSize", refs={String.class}, tree="[0]")
+    @Export(name="nodeSize", type=String.class, parameters={})
     private Output<String> nodeSize;
 
     /**
@@ -254,7 +254,7 @@ public class IntegrationRuntimeSsis extends com.pulumi.resources.CustomResource 
      * Number of nodes for the Azure-SSIS Integration Runtime. Max is `10`. Defaults to `1`.
      * 
      */
-    @Export(name="numberOfNodes", refs={Integer.class}, tree="[0]")
+    @Export(name="numberOfNodes", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> numberOfNodes;
 
     /**
@@ -268,7 +268,7 @@ public class IntegrationRuntimeSsis extends com.pulumi.resources.CustomResource 
      * One or more `package_store` block as defined below.
      * 
      */
-    @Export(name="packageStores", refs={List.class,IntegrationRuntimeSsisPackageStore.class}, tree="[0,1]")
+    @Export(name="packageStores", type=List.class, parameters={IntegrationRuntimeSsisPackageStore.class})
     private Output</* @Nullable */ List<IntegrationRuntimeSsisPackageStore>> packageStores;
 
     /**
@@ -282,7 +282,7 @@ public class IntegrationRuntimeSsis extends com.pulumi.resources.CustomResource 
      * A `proxy` block as defined below.
      * 
      */
-    @Export(name="proxy", refs={IntegrationRuntimeSsisProxy.class}, tree="[0]")
+    @Export(name="proxy", type=IntegrationRuntimeSsisProxy.class, parameters={})
     private Output</* @Nullable */ IntegrationRuntimeSsisProxy> proxy;
 
     /**
@@ -296,7 +296,7 @@ public class IntegrationRuntimeSsis extends com.pulumi.resources.CustomResource 
      * A `vnet_integration` block as defined below.
      * 
      */
-    @Export(name="vnetIntegration", refs={IntegrationRuntimeSsisVnetIntegration.class}, tree="[0]")
+    @Export(name="vnetIntegration", type=IntegrationRuntimeSsisVnetIntegration.class, parameters={})
     private Output</* @Nullable */ IntegrationRuntimeSsisVnetIntegration> vnetIntegration;
 
     /**

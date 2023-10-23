@@ -128,7 +128,7 @@ public class CNameRecord extends com.pulumi.resources.CustomResource {
      * The FQDN of the DNS CName Record.
      * 
      */
-    @Export(name="fqdn", refs={String.class}, tree="[0]")
+    @Export(name="fqdn", type=String.class, parameters={})
     private Output<String> fqdn;
 
     /**
@@ -142,7 +142,7 @@ public class CNameRecord extends com.pulumi.resources.CustomResource {
      * The name of the DNS CNAME Record. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -156,7 +156,7 @@ public class CNameRecord extends com.pulumi.resources.CustomResource {
      * The target of the CNAME.
      * 
      */
-    @Export(name="record", refs={String.class}, tree="[0]")
+    @Export(name="record", type=String.class, parameters={})
     private Output</* @Nullable */ String> record;
 
     /**
@@ -170,7 +170,7 @@ public class CNameRecord extends com.pulumi.resources.CustomResource {
      * Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -186,7 +186,7 @@ public class CNameRecord extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** either `record` OR `target_resource_id` must be specified, but not both.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -202,7 +202,7 @@ public class CNameRecord extends com.pulumi.resources.CustomResource {
      * The Azure resource id of the target object. Conflicts with `record`.
      * 
      */
-    @Export(name="targetResourceId", refs={String.class}, tree="[0]")
+    @Export(name="targetResourceId", type=String.class, parameters={})
     private Output</* @Nullable */ String> targetResourceId;
 
     /**
@@ -216,7 +216,7 @@ public class CNameRecord extends com.pulumi.resources.CustomResource {
      * The Time To Live (TTL) of the DNS record in seconds.
      * 
      */
-    @Export(name="ttl", refs={Integer.class}, tree="[0]")
+    @Export(name="ttl", type=Integer.class, parameters={})
     private Output<Integer> ttl;
 
     /**
@@ -230,7 +230,7 @@ public class CNameRecord extends com.pulumi.resources.CustomResource {
      * Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="zoneName", refs={String.class}, tree="[0]")
+    @Export(name="zoneName", type=String.class, parameters={})
     private Output<String> zoneName;
 
     /**

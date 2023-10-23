@@ -45,7 +45,13 @@ class TransformArgs:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              outputs: Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mediaServicesAccountName' in kwargs:
+            media_services_account_name = kwargs['mediaServicesAccountName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         _setter("media_services_account_name", media_services_account_name)
         _setter("resource_group_name", resource_group_name)
         if description is not None:
@@ -148,7 +154,13 @@ class _TransformState:
              name: Optional[pulumi.Input[str]] = None,
              outputs: Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputArgs']]]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mediaServicesAccountName' in kwargs:
+            media_services_account_name = kwargs['mediaServicesAccountName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if description is not None:
             _setter("description", description)
         if media_services_account_name is not None:

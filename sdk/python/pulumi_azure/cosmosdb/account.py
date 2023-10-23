@@ -161,7 +161,53 @@ class AccountArgs:
              restore: Optional[pulumi.Input['AccountRestoreArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'consistencyPolicy' in kwargs:
+            consistency_policy = kwargs['consistencyPolicy']
+        if 'geoLocations' in kwargs:
+            geo_locations = kwargs['geoLocations']
+        if 'offerType' in kwargs:
+            offer_type = kwargs['offerType']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'accessKeyMetadataWritesEnabled' in kwargs:
+            access_key_metadata_writes_enabled = kwargs['accessKeyMetadataWritesEnabled']
+        if 'analyticalStorage' in kwargs:
+            analytical_storage = kwargs['analyticalStorage']
+        if 'analyticalStorageEnabled' in kwargs:
+            analytical_storage_enabled = kwargs['analyticalStorageEnabled']
+        if 'corsRule' in kwargs:
+            cors_rule = kwargs['corsRule']
+        if 'createMode' in kwargs:
+            create_mode = kwargs['createMode']
+        if 'defaultIdentityType' in kwargs:
+            default_identity_type = kwargs['defaultIdentityType']
+        if 'enableAutomaticFailover' in kwargs:
+            enable_automatic_failover = kwargs['enableAutomaticFailover']
+        if 'enableFreeTier' in kwargs:
+            enable_free_tier = kwargs['enableFreeTier']
+        if 'enableMultipleWriteLocations' in kwargs:
+            enable_multiple_write_locations = kwargs['enableMultipleWriteLocations']
+        if 'ipRangeFilter' in kwargs:
+            ip_range_filter = kwargs['ipRangeFilter']
+        if 'isVirtualNetworkFilterEnabled' in kwargs:
+            is_virtual_network_filter_enabled = kwargs['isVirtualNetworkFilterEnabled']
+        if 'keyVaultKeyId' in kwargs:
+            key_vault_key_id = kwargs['keyVaultKeyId']
+        if 'localAuthenticationDisabled' in kwargs:
+            local_authentication_disabled = kwargs['localAuthenticationDisabled']
+        if 'mongoServerVersion' in kwargs:
+            mongo_server_version = kwargs['mongoServerVersion']
+        if 'networkAclBypassForAzureServices' in kwargs:
+            network_acl_bypass_for_azure_services = kwargs['networkAclBypassForAzureServices']
+        if 'networkAclBypassIds' in kwargs:
+            network_acl_bypass_ids = kwargs['networkAclBypassIds']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'virtualNetworkRules' in kwargs:
+            virtual_network_rules = kwargs['virtualNetworkRules']
+
         _setter("consistency_policy", consistency_policy)
         _setter("geo_locations", geo_locations)
         _setter("offer_type", offer_type)
@@ -818,7 +864,83 @@ class _AccountState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]]] = None,
              write_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessKeyMetadataWritesEnabled' in kwargs:
+            access_key_metadata_writes_enabled = kwargs['accessKeyMetadataWritesEnabled']
+        if 'analyticalStorage' in kwargs:
+            analytical_storage = kwargs['analyticalStorage']
+        if 'analyticalStorageEnabled' in kwargs:
+            analytical_storage_enabled = kwargs['analyticalStorageEnabled']
+        if 'connectionStrings' in kwargs:
+            connection_strings = kwargs['connectionStrings']
+        if 'consistencyPolicy' in kwargs:
+            consistency_policy = kwargs['consistencyPolicy']
+        if 'corsRule' in kwargs:
+            cors_rule = kwargs['corsRule']
+        if 'createMode' in kwargs:
+            create_mode = kwargs['createMode']
+        if 'defaultIdentityType' in kwargs:
+            default_identity_type = kwargs['defaultIdentityType']
+        if 'enableAutomaticFailover' in kwargs:
+            enable_automatic_failover = kwargs['enableAutomaticFailover']
+        if 'enableFreeTier' in kwargs:
+            enable_free_tier = kwargs['enableFreeTier']
+        if 'enableMultipleWriteLocations' in kwargs:
+            enable_multiple_write_locations = kwargs['enableMultipleWriteLocations']
+        if 'geoLocations' in kwargs:
+            geo_locations = kwargs['geoLocations']
+        if 'ipRangeFilter' in kwargs:
+            ip_range_filter = kwargs['ipRangeFilter']
+        if 'isVirtualNetworkFilterEnabled' in kwargs:
+            is_virtual_network_filter_enabled = kwargs['isVirtualNetworkFilterEnabled']
+        if 'keyVaultKeyId' in kwargs:
+            key_vault_key_id = kwargs['keyVaultKeyId']
+        if 'localAuthenticationDisabled' in kwargs:
+            local_authentication_disabled = kwargs['localAuthenticationDisabled']
+        if 'mongoServerVersion' in kwargs:
+            mongo_server_version = kwargs['mongoServerVersion']
+        if 'networkAclBypassForAzureServices' in kwargs:
+            network_acl_bypass_for_azure_services = kwargs['networkAclBypassForAzureServices']
+        if 'networkAclBypassIds' in kwargs:
+            network_acl_bypass_ids = kwargs['networkAclBypassIds']
+        if 'offerType' in kwargs:
+            offer_type = kwargs['offerType']
+        if 'primaryKey' in kwargs:
+            primary_key = kwargs['primaryKey']
+        if 'primaryMongodbConnectionString' in kwargs:
+            primary_mongodb_connection_string = kwargs['primaryMongodbConnectionString']
+        if 'primaryReadonlyKey' in kwargs:
+            primary_readonly_key = kwargs['primaryReadonlyKey']
+        if 'primaryReadonlyMongodbConnectionString' in kwargs:
+            primary_readonly_mongodb_connection_string = kwargs['primaryReadonlyMongodbConnectionString']
+        if 'primaryReadonlySqlConnectionString' in kwargs:
+            primary_readonly_sql_connection_string = kwargs['primaryReadonlySqlConnectionString']
+        if 'primarySqlConnectionString' in kwargs:
+            primary_sql_connection_string = kwargs['primarySqlConnectionString']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'readEndpoints' in kwargs:
+            read_endpoints = kwargs['readEndpoints']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'secondaryKey' in kwargs:
+            secondary_key = kwargs['secondaryKey']
+        if 'secondaryMongodbConnectionString' in kwargs:
+            secondary_mongodb_connection_string = kwargs['secondaryMongodbConnectionString']
+        if 'secondaryReadonlyKey' in kwargs:
+            secondary_readonly_key = kwargs['secondaryReadonlyKey']
+        if 'secondaryReadonlyMongodbConnectionString' in kwargs:
+            secondary_readonly_mongodb_connection_string = kwargs['secondaryReadonlyMongodbConnectionString']
+        if 'secondaryReadonlySqlConnectionString' in kwargs:
+            secondary_readonly_sql_connection_string = kwargs['secondaryReadonlySqlConnectionString']
+        if 'secondarySqlConnectionString' in kwargs:
+            secondary_sql_connection_string = kwargs['secondarySqlConnectionString']
+        if 'virtualNetworkRules' in kwargs:
+            virtual_network_rules = kwargs['virtualNetworkRules']
+        if 'writeEndpoints' in kwargs:
+            write_endpoints = kwargs['writeEndpoints']
+
         if access_key_metadata_writes_enabled is not None:
             _setter("access_key_metadata_writes_enabled", access_key_metadata_writes_enabled)
         if analytical_storage is not None:

@@ -125,7 +125,45 @@ class LinuxWebAppArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
              zip_deploy_file: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'servicePlanId' in kwargs:
+            service_plan_id = kwargs['servicePlanId']
+        if 'siteConfig' in kwargs:
+            site_config = kwargs['siteConfig']
+        if 'appSettings' in kwargs:
+            app_settings = kwargs['appSettings']
+        if 'authSettings' in kwargs:
+            auth_settings = kwargs['authSettings']
+        if 'authSettingsV2' in kwargs:
+            auth_settings_v2 = kwargs['authSettingsV2']
+        if 'clientAffinityEnabled' in kwargs:
+            client_affinity_enabled = kwargs['clientAffinityEnabled']
+        if 'clientCertificateEnabled' in kwargs:
+            client_certificate_enabled = kwargs['clientCertificateEnabled']
+        if 'clientCertificateExclusionPaths' in kwargs:
+            client_certificate_exclusion_paths = kwargs['clientCertificateExclusionPaths']
+        if 'clientCertificateMode' in kwargs:
+            client_certificate_mode = kwargs['clientCertificateMode']
+        if 'connectionStrings' in kwargs:
+            connection_strings = kwargs['connectionStrings']
+        if 'httpsOnly' in kwargs:
+            https_only = kwargs['httpsOnly']
+        if 'keyVaultReferenceIdentityId' in kwargs:
+            key_vault_reference_identity_id = kwargs['keyVaultReferenceIdentityId']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'stickySettings' in kwargs:
+            sticky_settings = kwargs['stickySettings']
+        if 'storageAccounts' in kwargs:
+            storage_accounts = kwargs['storageAccounts']
+        if 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+        if 'zipDeployFile' in kwargs:
+            zip_deploy_file = kwargs['zipDeployFile']
+
         _setter("resource_group_name", resource_group_name)
         _setter("service_plan_id", service_plan_id)
         _setter("site_config", site_config)
@@ -619,7 +657,61 @@ class _LinuxWebAppState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
              zip_deploy_file: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appSettings' in kwargs:
+            app_settings = kwargs['appSettings']
+        if 'authSettings' in kwargs:
+            auth_settings = kwargs['authSettings']
+        if 'authSettingsV2' in kwargs:
+            auth_settings_v2 = kwargs['authSettingsV2']
+        if 'clientAffinityEnabled' in kwargs:
+            client_affinity_enabled = kwargs['clientAffinityEnabled']
+        if 'clientCertificateEnabled' in kwargs:
+            client_certificate_enabled = kwargs['clientCertificateEnabled']
+        if 'clientCertificateExclusionPaths' in kwargs:
+            client_certificate_exclusion_paths = kwargs['clientCertificateExclusionPaths']
+        if 'clientCertificateMode' in kwargs:
+            client_certificate_mode = kwargs['clientCertificateMode']
+        if 'connectionStrings' in kwargs:
+            connection_strings = kwargs['connectionStrings']
+        if 'customDomainVerificationId' in kwargs:
+            custom_domain_verification_id = kwargs['customDomainVerificationId']
+        if 'defaultHostname' in kwargs:
+            default_hostname = kwargs['defaultHostname']
+        if 'hostingEnvironmentId' in kwargs:
+            hosting_environment_id = kwargs['hostingEnvironmentId']
+        if 'httpsOnly' in kwargs:
+            https_only = kwargs['httpsOnly']
+        if 'keyVaultReferenceIdentityId' in kwargs:
+            key_vault_reference_identity_id = kwargs['keyVaultReferenceIdentityId']
+        if 'outboundIpAddressLists' in kwargs:
+            outbound_ip_address_lists = kwargs['outboundIpAddressLists']
+        if 'outboundIpAddresses' in kwargs:
+            outbound_ip_addresses = kwargs['outboundIpAddresses']
+        if 'possibleOutboundIpAddressLists' in kwargs:
+            possible_outbound_ip_address_lists = kwargs['possibleOutboundIpAddressLists']
+        if 'possibleOutboundIpAddresses' in kwargs:
+            possible_outbound_ip_addresses = kwargs['possibleOutboundIpAddresses']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'servicePlanId' in kwargs:
+            service_plan_id = kwargs['servicePlanId']
+        if 'siteConfig' in kwargs:
+            site_config = kwargs['siteConfig']
+        if 'siteCredentials' in kwargs:
+            site_credentials = kwargs['siteCredentials']
+        if 'stickySettings' in kwargs:
+            sticky_settings = kwargs['stickySettings']
+        if 'storageAccounts' in kwargs:
+            storage_accounts = kwargs['storageAccounts']
+        if 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+        if 'zipDeployFile' in kwargs:
+            zip_deploy_file = kwargs['zipDeployFile']
+
         if app_settings is not None:
             _setter("app_settings", app_settings)
         if auth_settings is not None:

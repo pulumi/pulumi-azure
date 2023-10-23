@@ -107,7 +107,35 @@ class WorkspaceArgs:
              sku_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              v1_legacy_mode_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationInsightsId' in kwargs:
+            application_insights_id = kwargs['applicationInsightsId']
+        if 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if 'containerRegistryId' in kwargs:
+            container_registry_id = kwargs['containerRegistryId']
+        if 'friendlyName' in kwargs:
+            friendly_name = kwargs['friendlyName']
+        if 'highBusinessImpact' in kwargs:
+            high_business_impact = kwargs['highBusinessImpact']
+        if 'imageBuildComputeName' in kwargs:
+            image_build_compute_name = kwargs['imageBuildComputeName']
+        if 'primaryUserAssignedIdentity' in kwargs:
+            primary_user_assigned_identity = kwargs['primaryUserAssignedIdentity']
+        if 'publicAccessBehindVirtualNetworkEnabled' in kwargs:
+            public_access_behind_virtual_network_enabled = kwargs['publicAccessBehindVirtualNetworkEnabled']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'v1LegacyModeEnabled' in kwargs:
+            v1_legacy_mode_enabled = kwargs['v1LegacyModeEnabled']
+
         _setter("application_insights_id", application_insights_id)
         _setter("identity", identity)
         _setter("key_vault_id", key_vault_id)
@@ -485,7 +513,39 @@ class _WorkspaceState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              v1_legacy_mode_enabled: Optional[pulumi.Input[bool]] = None,
              workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationInsightsId' in kwargs:
+            application_insights_id = kwargs['applicationInsightsId']
+        if 'containerRegistryId' in kwargs:
+            container_registry_id = kwargs['containerRegistryId']
+        if 'discoveryUrl' in kwargs:
+            discovery_url = kwargs['discoveryUrl']
+        if 'friendlyName' in kwargs:
+            friendly_name = kwargs['friendlyName']
+        if 'highBusinessImpact' in kwargs:
+            high_business_impact = kwargs['highBusinessImpact']
+        if 'imageBuildComputeName' in kwargs:
+            image_build_compute_name = kwargs['imageBuildComputeName']
+        if 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if 'primaryUserAssignedIdentity' in kwargs:
+            primary_user_assigned_identity = kwargs['primaryUserAssignedIdentity']
+        if 'publicAccessBehindVirtualNetworkEnabled' in kwargs:
+            public_access_behind_virtual_network_enabled = kwargs['publicAccessBehindVirtualNetworkEnabled']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if 'v1LegacyModeEnabled' in kwargs:
+            v1_legacy_mode_enabled = kwargs['v1LegacyModeEnabled']
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+
         if application_insights_id is not None:
             _setter("application_insights_id", application_insights_id)
         if container_registry_id is not None:

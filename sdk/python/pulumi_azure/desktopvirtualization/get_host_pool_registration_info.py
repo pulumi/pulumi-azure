@@ -31,7 +31,13 @@ class GetHostPoolRegistrationInfoArgs:
              _setter: Callable[[Any, Any], None],
              expiration_date: pulumi.Input[str],
              hostpool_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expirationDate' in kwargs:
+            expiration_date = kwargs['expirationDate']
+        if 'hostpoolId' in kwargs:
+            hostpool_id = kwargs['hostpoolId']
+
         _setter("expiration_date", expiration_date)
         _setter("hostpool_id", hostpool_id)
 
@@ -84,7 +90,13 @@ class _GetHostPoolRegistrationInfoState:
              expiration_date: Optional[pulumi.Input[str]] = None,
              hostpool_id: Optional[pulumi.Input[str]] = None,
              token: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expirationDate' in kwargs:
+            expiration_date = kwargs['expirationDate']
+        if 'hostpoolId' in kwargs:
+            hostpool_id = kwargs['hostpoolId']
+
         if expiration_date is not None:
             _setter("expiration_date", expiration_date)
         if hostpool_id is not None:

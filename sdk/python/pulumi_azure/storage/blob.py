@@ -84,7 +84,25 @@ class BlobArgs:
              source: Optional[pulumi.Input[Union[pulumi.Asset, pulumi.Archive]]] = None,
              source_content: Optional[pulumi.Input[str]] = None,
              source_uri: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+        if 'storageContainerName' in kwargs:
+            storage_container_name = kwargs['storageContainerName']
+        if 'accessTier' in kwargs:
+            access_tier = kwargs['accessTier']
+        if 'cacheControl' in kwargs:
+            cache_control = kwargs['cacheControl']
+        if 'contentMd5' in kwargs:
+            content_md5 = kwargs['contentMd5']
+        if 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if 'sourceContent' in kwargs:
+            source_content = kwargs['sourceContent']
+        if 'sourceUri' in kwargs:
+            source_uri = kwargs['sourceUri']
+
         _setter("storage_account_name", storage_account_name)
         _setter("storage_container_name", storage_container_name)
         _setter("type", type)
@@ -362,7 +380,25 @@ class _BlobState:
              storage_container_name: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessTier' in kwargs:
+            access_tier = kwargs['accessTier']
+        if 'cacheControl' in kwargs:
+            cache_control = kwargs['cacheControl']
+        if 'contentMd5' in kwargs:
+            content_md5 = kwargs['contentMd5']
+        if 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if 'sourceContent' in kwargs:
+            source_content = kwargs['sourceContent']
+        if 'sourceUri' in kwargs:
+            source_uri = kwargs['sourceUri']
+        if 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+        if 'storageContainerName' in kwargs:
+            storage_container_name = kwargs['storageContainerName']
+
         if access_tier is not None:
             _setter("access_tier", access_tier)
         if cache_control is not None:

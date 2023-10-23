@@ -47,7 +47,19 @@ class ApplicationArgs:
              default_version: Optional[pulumi.Input[str]] = None,
              display_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'allowUpdates' in kwargs:
+            allow_updates = kwargs['allowUpdates']
+        if 'defaultVersion' in kwargs:
+            default_version = kwargs['defaultVersion']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+
         _setter("account_name", account_name)
         _setter("resource_group_name", resource_group_name)
         if allow_updates is not None:
@@ -168,7 +180,19 @@ class _ApplicationState:
              display_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'allowUpdates' in kwargs:
+            allow_updates = kwargs['allowUpdates']
+        if 'defaultVersion' in kwargs:
+            default_version = kwargs['defaultVersion']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if account_name is not None:
             _setter("account_name", account_name)
         if allow_updates is not None:

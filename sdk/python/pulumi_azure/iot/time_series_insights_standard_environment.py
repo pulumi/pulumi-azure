@@ -55,7 +55,19 @@ class TimeSeriesInsightsStandardEnvironmentArgs:
              partition_key: Optional[pulumi.Input[str]] = None,
              storage_limit_exceeded_behavior: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataRetentionTime' in kwargs:
+            data_retention_time = kwargs['dataRetentionTime']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'partitionKey' in kwargs:
+            partition_key = kwargs['partitionKey']
+        if 'storageLimitExceededBehavior' in kwargs:
+            storage_limit_exceeded_behavior = kwargs['storageLimitExceededBehavior']
+
         _setter("data_retention_time", data_retention_time)
         _setter("resource_group_name", resource_group_name)
         _setter("sku_name", sku_name)
@@ -211,7 +223,19 @@ class _TimeSeriesInsightsStandardEnvironmentState:
              sku_name: Optional[pulumi.Input[str]] = None,
              storage_limit_exceeded_behavior: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataRetentionTime' in kwargs:
+            data_retention_time = kwargs['dataRetentionTime']
+        if 'partitionKey' in kwargs:
+            partition_key = kwargs['partitionKey']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'storageLimitExceededBehavior' in kwargs:
+            storage_limit_exceeded_behavior = kwargs['storageLimitExceededBehavior']
+
         if data_retention_time is not None:
             _setter("data_retention_time", data_retention_time)
         if location is not None:

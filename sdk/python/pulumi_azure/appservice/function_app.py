@@ -117,7 +117,39 @@ class FunctionAppArgs:
              source_control: Optional[pulumi.Input['FunctionAppSourceControlArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appServicePlanId' in kwargs:
+            app_service_plan_id = kwargs['appServicePlanId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'storageAccountAccessKey' in kwargs:
+            storage_account_access_key = kwargs['storageAccountAccessKey']
+        if 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+        if 'appSettings' in kwargs:
+            app_settings = kwargs['appSettings']
+        if 'authSettings' in kwargs:
+            auth_settings = kwargs['authSettings']
+        if 'clientCertMode' in kwargs:
+            client_cert_mode = kwargs['clientCertMode']
+        if 'connectionStrings' in kwargs:
+            connection_strings = kwargs['connectionStrings']
+        if 'dailyMemoryTimeQuota' in kwargs:
+            daily_memory_time_quota = kwargs['dailyMemoryTimeQuota']
+        if 'enableBuiltinLogging' in kwargs:
+            enable_builtin_logging = kwargs['enableBuiltinLogging']
+        if 'httpsOnly' in kwargs:
+            https_only = kwargs['httpsOnly']
+        if 'keyVaultReferenceIdentityId' in kwargs:
+            key_vault_reference_identity_id = kwargs['keyVaultReferenceIdentityId']
+        if 'osType' in kwargs:
+            os_type = kwargs['osType']
+        if 'siteConfig' in kwargs:
+            site_config = kwargs['siteConfig']
+        if 'sourceControl' in kwargs:
+            source_control = kwargs['sourceControl']
+
         _setter("app_service_plan_id", app_service_plan_id)
         _setter("resource_group_name", resource_group_name)
         _setter("storage_account_access_key", storage_account_access_key)
@@ -546,7 +578,49 @@ class _FunctionAppState:
              storage_account_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appServicePlanId' in kwargs:
+            app_service_plan_id = kwargs['appServicePlanId']
+        if 'appSettings' in kwargs:
+            app_settings = kwargs['appSettings']
+        if 'authSettings' in kwargs:
+            auth_settings = kwargs['authSettings']
+        if 'clientCertMode' in kwargs:
+            client_cert_mode = kwargs['clientCertMode']
+        if 'connectionStrings' in kwargs:
+            connection_strings = kwargs['connectionStrings']
+        if 'customDomainVerificationId' in kwargs:
+            custom_domain_verification_id = kwargs['customDomainVerificationId']
+        if 'dailyMemoryTimeQuota' in kwargs:
+            daily_memory_time_quota = kwargs['dailyMemoryTimeQuota']
+        if 'defaultHostname' in kwargs:
+            default_hostname = kwargs['defaultHostname']
+        if 'enableBuiltinLogging' in kwargs:
+            enable_builtin_logging = kwargs['enableBuiltinLogging']
+        if 'httpsOnly' in kwargs:
+            https_only = kwargs['httpsOnly']
+        if 'keyVaultReferenceIdentityId' in kwargs:
+            key_vault_reference_identity_id = kwargs['keyVaultReferenceIdentityId']
+        if 'osType' in kwargs:
+            os_type = kwargs['osType']
+        if 'outboundIpAddresses' in kwargs:
+            outbound_ip_addresses = kwargs['outboundIpAddresses']
+        if 'possibleOutboundIpAddresses' in kwargs:
+            possible_outbound_ip_addresses = kwargs['possibleOutboundIpAddresses']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'siteConfig' in kwargs:
+            site_config = kwargs['siteConfig']
+        if 'siteCredentials' in kwargs:
+            site_credentials = kwargs['siteCredentials']
+        if 'sourceControl' in kwargs:
+            source_control = kwargs['sourceControl']
+        if 'storageAccountAccessKey' in kwargs:
+            storage_account_access_key = kwargs['storageAccountAccessKey']
+        if 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+
         if app_service_plan_id is not None:
             _setter("app_service_plan_id", app_service_plan_id)
         if app_settings is not None:

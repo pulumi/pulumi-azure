@@ -63,7 +63,23 @@ class AlertRuleAnomalyDuplicateArgs:
              prioritized_exclude_observations: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgs']]]] = None,
              single_select_observations: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateSingleSelectObservationArgs']]]] = None,
              threshold_observations: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateThresholdObservationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'builtInRuleId' in kwargs:
+            built_in_rule_id = kwargs['builtInRuleId']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if 'multiSelectObservations' in kwargs:
+            multi_select_observations = kwargs['multiSelectObservations']
+        if 'prioritizedExcludeObservations' in kwargs:
+            prioritized_exclude_observations = kwargs['prioritizedExcludeObservations']
+        if 'singleSelectObservations' in kwargs:
+            single_select_observations = kwargs['singleSelectObservations']
+        if 'thresholdObservations' in kwargs:
+            threshold_observations = kwargs['thresholdObservations']
+
         _setter("built_in_rule_id", built_in_rule_id)
         _setter("display_name", display_name)
         _setter("enabled", enabled)
@@ -279,7 +295,33 @@ class _AlertRuleAnomalyDuplicateState:
              tactics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              techniques: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              threshold_observations: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateThresholdObservationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'anomalySettingsVersion' in kwargs:
+            anomaly_settings_version = kwargs['anomalySettingsVersion']
+        if 'anomalyVersion' in kwargs:
+            anomaly_version = kwargs['anomalyVersion']
+        if 'builtInRuleId' in kwargs:
+            built_in_rule_id = kwargs['builtInRuleId']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'isDefaultSettings' in kwargs:
+            is_default_settings = kwargs['isDefaultSettings']
+        if 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if 'multiSelectObservations' in kwargs:
+            multi_select_observations = kwargs['multiSelectObservations']
+        if 'prioritizedExcludeObservations' in kwargs:
+            prioritized_exclude_observations = kwargs['prioritizedExcludeObservations']
+        if 'requiredDataConnectors' in kwargs:
+            required_data_connectors = kwargs['requiredDataConnectors']
+        if 'settingsDefinitionId' in kwargs:
+            settings_definition_id = kwargs['settingsDefinitionId']
+        if 'singleSelectObservations' in kwargs:
+            single_select_observations = kwargs['singleSelectObservations']
+        if 'thresholdObservations' in kwargs:
+            threshold_observations = kwargs['thresholdObservations']
+
         if anomaly_settings_version is not None:
             _setter("anomaly_settings_version", anomaly_settings_version)
         if anomaly_version is not None:

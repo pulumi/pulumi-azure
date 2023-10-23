@@ -96,7 +96,7 @@ public class CustomHostnameBinding extends com.pulumi.resources.CustomResource {
      * The name of the App Service in which to add the Custom Hostname Binding. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="appServiceName", refs={String.class}, tree="[0]")
+    @Export(name="appServiceName", type=String.class, parameters={})
     private Output<String> appServiceName;
 
     /**
@@ -112,7 +112,7 @@ public class CustomHostnameBinding extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** A CNAME needs to be configured from this Hostname to the Azure Website - otherwise Azure will reject the Hostname Binding.
      * 
      */
-    @Export(name="hostname", refs={String.class}, tree="[0]")
+    @Export(name="hostname", type=String.class, parameters={})
     private Output<String> hostname;
 
     /**
@@ -128,7 +128,7 @@ public class CustomHostnameBinding extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which the App Service exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -142,7 +142,7 @@ public class CustomHostnameBinding extends com.pulumi.resources.CustomResource {
      * The SSL type. Possible values are `IpBasedEnabled` and `SniEnabled`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="sslState", refs={String.class}, tree="[0]")
+    @Export(name="sslState", type=String.class, parameters={})
     private Output<String> sslState;
 
     /**
@@ -158,7 +158,7 @@ public class CustomHostnameBinding extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** `thumbprint` must be specified when `ssl_state` is set.
      * 
      */
-    @Export(name="thumbprint", refs={String.class}, tree="[0]")
+    @Export(name="thumbprint", type=String.class, parameters={})
     private Output<String> thumbprint;
 
     /**
@@ -174,7 +174,7 @@ public class CustomHostnameBinding extends com.pulumi.resources.CustomResource {
      * The virtual IP address assigned to the hostname if IP based SSL is enabled.
      * 
      */
-    @Export(name="virtualIp", refs={String.class}, tree="[0]")
+    @Export(name="virtualIp", type=String.class, parameters={})
     private Output<String> virtualIp;
 
     /**

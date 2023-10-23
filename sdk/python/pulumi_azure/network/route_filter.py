@@ -45,7 +45,11 @@ class RouteFilterArgs:
              name: Optional[pulumi.Input[str]] = None,
              rule: Optional[pulumi.Input['RouteFilterRuleArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         _setter("resource_group_name", resource_group_name)
         if location is not None:
             _setter("location", location)
@@ -149,7 +153,11 @@ class _RouteFilterState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              rule: Optional[pulumi.Input['RouteFilterRuleArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if location is not None:
             _setter("location", location)
         if name is not None:

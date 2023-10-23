@@ -87,7 +87,37 @@ class EventGridDataConnectionArgs:
              name: Optional[pulumi.Input[str]] = None,
              skip_first_record: Optional[pulumi.Input[bool]] = None,
              table_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'eventhubConsumerGroupName' in kwargs:
+            eventhub_consumer_group_name = kwargs['eventhubConsumerGroupName']
+        if 'eventhubId' in kwargs:
+            eventhub_id = kwargs['eventhubId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if 'blobStorageEventType' in kwargs:
+            blob_storage_event_type = kwargs['blobStorageEventType']
+        if 'dataFormat' in kwargs:
+            data_format = kwargs['dataFormat']
+        if 'databaseRoutingType' in kwargs:
+            database_routing_type = kwargs['databaseRoutingType']
+        if 'eventgridResourceId' in kwargs:
+            eventgrid_resource_id = kwargs['eventgridResourceId']
+        if 'managedIdentityResourceId' in kwargs:
+            managed_identity_resource_id = kwargs['managedIdentityResourceId']
+        if 'mappingRuleName' in kwargs:
+            mapping_rule_name = kwargs['mappingRuleName']
+        if 'skipFirstRecord' in kwargs:
+            skip_first_record = kwargs['skipFirstRecord']
+        if 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+
         _setter("cluster_name", cluster_name)
         _setter("database_name", database_name)
         _setter("eventhub_consumer_group_name", eventhub_consumer_group_name)
@@ -384,7 +414,37 @@ class _EventGridDataConnectionState:
              skip_first_record: Optional[pulumi.Input[bool]] = None,
              storage_account_id: Optional[pulumi.Input[str]] = None,
              table_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'blobStorageEventType' in kwargs:
+            blob_storage_event_type = kwargs['blobStorageEventType']
+        if 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if 'dataFormat' in kwargs:
+            data_format = kwargs['dataFormat']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'databaseRoutingType' in kwargs:
+            database_routing_type = kwargs['databaseRoutingType']
+        if 'eventgridResourceId' in kwargs:
+            eventgrid_resource_id = kwargs['eventgridResourceId']
+        if 'eventhubConsumerGroupName' in kwargs:
+            eventhub_consumer_group_name = kwargs['eventhubConsumerGroupName']
+        if 'eventhubId' in kwargs:
+            eventhub_id = kwargs['eventhubId']
+        if 'managedIdentityResourceId' in kwargs:
+            managed_identity_resource_id = kwargs['managedIdentityResourceId']
+        if 'mappingRuleName' in kwargs:
+            mapping_rule_name = kwargs['mappingRuleName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skipFirstRecord' in kwargs:
+            skip_first_record = kwargs['skipFirstRecord']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+
         if blob_storage_event_type is not None:
             _setter("blob_storage_event_type", blob_storage_event_type)
         if cluster_name is not None:

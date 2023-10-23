@@ -43,7 +43,19 @@ class ClusterCustomerManagedKeyArgs:
              key_vault_id: pulumi.Input[str],
              key_version: Optional[pulumi.Input[str]] = None,
              user_identity: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterId' in kwargs:
+            cluster_id = kwargs['clusterId']
+        if 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if 'keyVersion' in kwargs:
+            key_version = kwargs['keyVersion']
+        if 'userIdentity' in kwargs:
+            user_identity = kwargs['userIdentity']
+
         _setter("cluster_id", cluster_id)
         _setter("key_name", key_name)
         _setter("key_vault_id", key_vault_id)
@@ -145,7 +157,19 @@ class _ClusterCustomerManagedKeyState:
              key_vault_id: Optional[pulumi.Input[str]] = None,
              key_version: Optional[pulumi.Input[str]] = None,
              user_identity: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterId' in kwargs:
+            cluster_id = kwargs['clusterId']
+        if 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if 'keyVersion' in kwargs:
+            key_version = kwargs['keyVersion']
+        if 'userIdentity' in kwargs:
+            user_identity = kwargs['userIdentity']
+
         if cluster_id is not None:
             _setter("cluster_id", cluster_id)
         if key_name is not None:

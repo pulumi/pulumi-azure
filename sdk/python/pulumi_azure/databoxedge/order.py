@@ -41,7 +41,15 @@ class OrderArgs:
              device_name: pulumi.Input[str],
              resource_group_name: pulumi.Input[str],
              shipment_address: pulumi.Input['OrderShipmentAddressArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deviceName' in kwargs:
+            device_name = kwargs['deviceName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'shipmentAddress' in kwargs:
+            shipment_address = kwargs['shipmentAddress']
+
         _setter("contact", contact)
         _setter("device_name", device_name)
         _setter("resource_group_name", resource_group_name)
@@ -148,7 +156,23 @@ class _OrderState:
              shipment_histories: Optional[pulumi.Input[Sequence[pulumi.Input['OrderShipmentHistoryArgs']]]] = None,
              shipment_trackings: Optional[pulumi.Input[Sequence[pulumi.Input['OrderShipmentTrackingArgs']]]] = None,
              statuses: Optional[pulumi.Input[Sequence[pulumi.Input['OrderStatusArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deviceName' in kwargs:
+            device_name = kwargs['deviceName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'returnTrackings' in kwargs:
+            return_trackings = kwargs['returnTrackings']
+        if 'serialNumber' in kwargs:
+            serial_number = kwargs['serialNumber']
+        if 'shipmentAddress' in kwargs:
+            shipment_address = kwargs['shipmentAddress']
+        if 'shipmentHistories' in kwargs:
+            shipment_histories = kwargs['shipmentHistories']
+        if 'shipmentTrackings' in kwargs:
+            shipment_trackings = kwargs['shipmentTrackings']
+
         if contact is not None:
             _setter("contact", contact)
         if device_name is not None:

@@ -39,7 +39,15 @@ class HybridRunbookWorkerGroupArgs:
              resource_group_name: pulumi.Input[str],
              credential_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'automationAccountName' in kwargs:
+            automation_account_name = kwargs['automationAccountName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'credentialName' in kwargs:
+            credential_name = kwargs['credentialName']
+
         _setter("automation_account_name", automation_account_name)
         _setter("resource_group_name", resource_group_name)
         if credential_name is not None:
@@ -124,7 +132,15 @@ class _HybridRunbookWorkerGroupState:
              credential_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'automationAccountName' in kwargs:
+            automation_account_name = kwargs['automationAccountName']
+        if 'credentialName' in kwargs:
+            credential_name = kwargs['credentialName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if automation_account_name is not None:
             _setter("automation_account_name", automation_account_name)
         if credential_name is not None:

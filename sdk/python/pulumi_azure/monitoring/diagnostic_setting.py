@@ -91,7 +91,25 @@ class DiagnosticSettingArgs:
              name: Optional[pulumi.Input[str]] = None,
              partner_solution_id: Optional[pulumi.Input[str]] = None,
              storage_account_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+        if 'enabledLogs' in kwargs:
+            enabled_logs = kwargs['enabledLogs']
+        if 'eventhubAuthorizationRuleId' in kwargs:
+            eventhub_authorization_rule_id = kwargs['eventhubAuthorizationRuleId']
+        if 'eventhubName' in kwargs:
+            eventhub_name = kwargs['eventhubName']
+        if 'logAnalyticsDestinationType' in kwargs:
+            log_analytics_destination_type = kwargs['logAnalyticsDestinationType']
+        if 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if 'partnerSolutionId' in kwargs:
+            partner_solution_id = kwargs['partnerSolutionId']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+
         _setter("target_resource_id", target_resource_id)
         if enabled_logs is not None:
             _setter("enabled_logs", enabled_logs)
@@ -353,7 +371,25 @@ class _DiagnosticSettingState:
              partner_solution_id: Optional[pulumi.Input[str]] = None,
              storage_account_id: Optional[pulumi.Input[str]] = None,
              target_resource_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'enabledLogs' in kwargs:
+            enabled_logs = kwargs['enabledLogs']
+        if 'eventhubAuthorizationRuleId' in kwargs:
+            eventhub_authorization_rule_id = kwargs['eventhubAuthorizationRuleId']
+        if 'eventhubName' in kwargs:
+            eventhub_name = kwargs['eventhubName']
+        if 'logAnalyticsDestinationType' in kwargs:
+            log_analytics_destination_type = kwargs['logAnalyticsDestinationType']
+        if 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if 'partnerSolutionId' in kwargs:
+            partner_solution_id = kwargs['partnerSolutionId']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+
         if enabled_logs is not None:
             _setter("enabled_logs", enabled_logs)
         if eventhub_authorization_rule_id is not None:

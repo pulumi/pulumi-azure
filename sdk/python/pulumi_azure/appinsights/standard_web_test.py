@@ -79,7 +79,19 @@ class StandardWebTestArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              timeout: Optional[pulumi.Input[int]] = None,
              validation_rules: Optional[pulumi.Input['StandardWebTestValidationRulesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationInsightsId' in kwargs:
+            application_insights_id = kwargs['applicationInsightsId']
+        if 'geoLocations' in kwargs:
+            geo_locations = kwargs['geoLocations']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'retryEnabled' in kwargs:
+            retry_enabled = kwargs['retryEnabled']
+        if 'validationRules' in kwargs:
+            validation_rules = kwargs['validationRules']
+
         _setter("application_insights_id", application_insights_id)
         _setter("geo_locations", geo_locations)
         _setter("request", request)
@@ -332,7 +344,21 @@ class _StandardWebTestState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              timeout: Optional[pulumi.Input[int]] = None,
              validation_rules: Optional[pulumi.Input['StandardWebTestValidationRulesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationInsightsId' in kwargs:
+            application_insights_id = kwargs['applicationInsightsId']
+        if 'geoLocations' in kwargs:
+            geo_locations = kwargs['geoLocations']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'retryEnabled' in kwargs:
+            retry_enabled = kwargs['retryEnabled']
+        if 'syntheticMonitorId' in kwargs:
+            synthetic_monitor_id = kwargs['syntheticMonitorId']
+        if 'validationRules' in kwargs:
+            validation_rules = kwargs['validationRules']
+
         if application_insights_id is not None:
             _setter("application_insights_id", application_insights_id)
         if description is not None:

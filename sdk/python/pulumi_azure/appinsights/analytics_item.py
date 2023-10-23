@@ -47,7 +47,13 @@ class AnalyticsItemArgs:
              type: pulumi.Input[str],
              function_alias: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationInsightsId' in kwargs:
+            application_insights_id = kwargs['applicationInsightsId']
+        if 'functionAlias' in kwargs:
+            function_alias = kwargs['functionAlias']
+
         _setter("application_insights_id", application_insights_id)
         _setter("content", content)
         _setter("scope", scope)
@@ -178,7 +184,17 @@ class _AnalyticsItemState:
              time_modified: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationInsightsId' in kwargs:
+            application_insights_id = kwargs['applicationInsightsId']
+        if 'functionAlias' in kwargs:
+            function_alias = kwargs['functionAlias']
+        if 'timeCreated' in kwargs:
+            time_created = kwargs['timeCreated']
+        if 'timeModified' in kwargs:
+            time_modified = kwargs['timeModified']
+
         if application_insights_id is not None:
             _setter("application_insights_id", application_insights_id)
         if content is not None:

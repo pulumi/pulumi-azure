@@ -159,7 +159,61 @@ class ApplicationGatewayArgs:
              url_path_maps: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayUrlPathMapArgs']]]] = None,
              waf_configuration: Optional[pulumi.Input['ApplicationGatewayWafConfigurationArgs']] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backendAddressPools' in kwargs:
+            backend_address_pools = kwargs['backendAddressPools']
+        if 'backendHttpSettings' in kwargs:
+            backend_http_settings = kwargs['backendHttpSettings']
+        if 'frontendIpConfigurations' in kwargs:
+            frontend_ip_configurations = kwargs['frontendIpConfigurations']
+        if 'frontendPorts' in kwargs:
+            frontend_ports = kwargs['frontendPorts']
+        if 'gatewayIpConfigurations' in kwargs:
+            gateway_ip_configurations = kwargs['gatewayIpConfigurations']
+        if 'httpListeners' in kwargs:
+            http_listeners = kwargs['httpListeners']
+        if 'requestRoutingRules' in kwargs:
+            request_routing_rules = kwargs['requestRoutingRules']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'authenticationCertificates' in kwargs:
+            authentication_certificates = kwargs['authenticationCertificates']
+        if 'autoscaleConfiguration' in kwargs:
+            autoscale_configuration = kwargs['autoscaleConfiguration']
+        if 'customErrorConfigurations' in kwargs:
+            custom_error_configurations = kwargs['customErrorConfigurations']
+        if 'enableHttp2' in kwargs:
+            enable_http2 = kwargs['enableHttp2']
+        if 'fipsEnabled' in kwargs:
+            fips_enabled = kwargs['fipsEnabled']
+        if 'firewallPolicyId' in kwargs:
+            firewall_policy_id = kwargs['firewallPolicyId']
+        if 'forceFirewallPolicyAssociation' in kwargs:
+            force_firewall_policy_association = kwargs['forceFirewallPolicyAssociation']
+        if 'global' in kwargs:
+            global_ = kwargs['global']
+        if 'privateLinkConfigurations' in kwargs:
+            private_link_configurations = kwargs['privateLinkConfigurations']
+        if 'redirectConfigurations' in kwargs:
+            redirect_configurations = kwargs['redirectConfigurations']
+        if 'rewriteRuleSets' in kwargs:
+            rewrite_rule_sets = kwargs['rewriteRuleSets']
+        if 'sslCertificates' in kwargs:
+            ssl_certificates = kwargs['sslCertificates']
+        if 'sslPolicy' in kwargs:
+            ssl_policy = kwargs['sslPolicy']
+        if 'sslProfiles' in kwargs:
+            ssl_profiles = kwargs['sslProfiles']
+        if 'trustedClientCertificates' in kwargs:
+            trusted_client_certificates = kwargs['trustedClientCertificates']
+        if 'trustedRootCertificates' in kwargs:
+            trusted_root_certificates = kwargs['trustedRootCertificates']
+        if 'urlPathMaps' in kwargs:
+            url_path_maps = kwargs['urlPathMaps']
+        if 'wafConfiguration' in kwargs:
+            waf_configuration = kwargs['wafConfiguration']
+
         _setter("backend_address_pools", backend_address_pools)
         _setter("backend_http_settings", backend_http_settings)
         _setter("frontend_ip_configurations", frontend_ip_configurations)
@@ -767,7 +821,63 @@ class _ApplicationGatewayState:
              url_path_maps: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayUrlPathMapArgs']]]] = None,
              waf_configuration: Optional[pulumi.Input['ApplicationGatewayWafConfigurationArgs']] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authenticationCertificates' in kwargs:
+            authentication_certificates = kwargs['authenticationCertificates']
+        if 'autoscaleConfiguration' in kwargs:
+            autoscale_configuration = kwargs['autoscaleConfiguration']
+        if 'backendAddressPools' in kwargs:
+            backend_address_pools = kwargs['backendAddressPools']
+        if 'backendHttpSettings' in kwargs:
+            backend_http_settings = kwargs['backendHttpSettings']
+        if 'customErrorConfigurations' in kwargs:
+            custom_error_configurations = kwargs['customErrorConfigurations']
+        if 'enableHttp2' in kwargs:
+            enable_http2 = kwargs['enableHttp2']
+        if 'fipsEnabled' in kwargs:
+            fips_enabled = kwargs['fipsEnabled']
+        if 'firewallPolicyId' in kwargs:
+            firewall_policy_id = kwargs['firewallPolicyId']
+        if 'forceFirewallPolicyAssociation' in kwargs:
+            force_firewall_policy_association = kwargs['forceFirewallPolicyAssociation']
+        if 'frontendIpConfigurations' in kwargs:
+            frontend_ip_configurations = kwargs['frontendIpConfigurations']
+        if 'frontendPorts' in kwargs:
+            frontend_ports = kwargs['frontendPorts']
+        if 'gatewayIpConfigurations' in kwargs:
+            gateway_ip_configurations = kwargs['gatewayIpConfigurations']
+        if 'global' in kwargs:
+            global_ = kwargs['global']
+        if 'httpListeners' in kwargs:
+            http_listeners = kwargs['httpListeners']
+        if 'privateEndpointConnections' in kwargs:
+            private_endpoint_connections = kwargs['privateEndpointConnections']
+        if 'privateLinkConfigurations' in kwargs:
+            private_link_configurations = kwargs['privateLinkConfigurations']
+        if 'redirectConfigurations' in kwargs:
+            redirect_configurations = kwargs['redirectConfigurations']
+        if 'requestRoutingRules' in kwargs:
+            request_routing_rules = kwargs['requestRoutingRules']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'rewriteRuleSets' in kwargs:
+            rewrite_rule_sets = kwargs['rewriteRuleSets']
+        if 'sslCertificates' in kwargs:
+            ssl_certificates = kwargs['sslCertificates']
+        if 'sslPolicy' in kwargs:
+            ssl_policy = kwargs['sslPolicy']
+        if 'sslProfiles' in kwargs:
+            ssl_profiles = kwargs['sslProfiles']
+        if 'trustedClientCertificates' in kwargs:
+            trusted_client_certificates = kwargs['trustedClientCertificates']
+        if 'trustedRootCertificates' in kwargs:
+            trusted_root_certificates = kwargs['trustedRootCertificates']
+        if 'urlPathMaps' in kwargs:
+            url_path_maps = kwargs['urlPathMaps']
+        if 'wafConfiguration' in kwargs:
+            waf_configuration = kwargs['wafConfiguration']
+
         if authentication_certificates is not None:
             _setter("authentication_certificates", authentication_certificates)
         if autoscale_configuration is not None:

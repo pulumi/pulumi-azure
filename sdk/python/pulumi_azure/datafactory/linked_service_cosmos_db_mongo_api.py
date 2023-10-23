@@ -65,7 +65,19 @@ class LinkedServiceCosmosDbMongoApiArgs:
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              server_version_is32_or_higher: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+        if 'integrationRuntimeName' in kwargs:
+            integration_runtime_name = kwargs['integrationRuntimeName']
+        if 'serverVersionIs32OrHigher' in kwargs:
+            server_version_is32_or_higher = kwargs['serverVersionIs32OrHigher']
+
         _setter("data_factory_id", data_factory_id)
         if additional_properties is not None:
             _setter("additional_properties", additional_properties)
@@ -263,7 +275,19 @@ class _LinkedServiceCosmosDbMongoApiState:
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              server_version_is32_or_higher: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'integrationRuntimeName' in kwargs:
+            integration_runtime_name = kwargs['integrationRuntimeName']
+        if 'serverVersionIs32OrHigher' in kwargs:
+            server_version_is32_or_higher = kwargs['serverVersionIs32OrHigher']
+
         if additional_properties is not None:
             _setter("additional_properties", additional_properties)
         if annotations is not None:

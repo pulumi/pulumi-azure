@@ -55,7 +55,15 @@ class AccountArgs:
              name: Optional[pulumi.Input[str]] = None,
              public_network_enabled: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'managedResourceGroupName' in kwargs:
+            managed_resource_group_name = kwargs['managedResourceGroupName']
+        if 'publicNetworkEnabled' in kwargs:
+            public_network_enabled = kwargs['publicNetworkEnabled']
+
         _setter("identity", identity)
         _setter("resource_group_name", resource_group_name)
         if location is not None:
@@ -222,7 +230,27 @@ class _AccountState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              scan_endpoint: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'atlasKafkaEndpointPrimaryConnectionString' in kwargs:
+            atlas_kafka_endpoint_primary_connection_string = kwargs['atlasKafkaEndpointPrimaryConnectionString']
+        if 'atlasKafkaEndpointSecondaryConnectionString' in kwargs:
+            atlas_kafka_endpoint_secondary_connection_string = kwargs['atlasKafkaEndpointSecondaryConnectionString']
+        if 'catalogEndpoint' in kwargs:
+            catalog_endpoint = kwargs['catalogEndpoint']
+        if 'guardianEndpoint' in kwargs:
+            guardian_endpoint = kwargs['guardianEndpoint']
+        if 'managedResourceGroupName' in kwargs:
+            managed_resource_group_name = kwargs['managedResourceGroupName']
+        if 'managedResources' in kwargs:
+            managed_resources = kwargs['managedResources']
+        if 'publicNetworkEnabled' in kwargs:
+            public_network_enabled = kwargs['publicNetworkEnabled']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'scanEndpoint' in kwargs:
+            scan_endpoint = kwargs['scanEndpoint']
+
         if atlas_kafka_endpoint_primary_connection_string is not None:
             _setter("atlas_kafka_endpoint_primary_connection_string", atlas_kafka_endpoint_primary_connection_string)
         if atlas_kafka_endpoint_secondary_connection_string is not None:

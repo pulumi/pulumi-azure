@@ -83,7 +83,7 @@ public class EventGridTopic extends com.pulumi.resources.CustomResource {
      * The Endpoint associated with the EventGrid Topic.
      * 
      */
-    @Export(name="endpoint", refs={String.class}, tree="[0]")
+    @Export(name="endpoint", type=String.class, parameters={})
     private Output<String> endpoint;
 
     /**
@@ -97,7 +97,7 @@ public class EventGridTopic extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", refs={EventGridTopicIdentity.class}, tree="[0]")
+    @Export(name="identity", type=EventGridTopicIdentity.class, parameters={})
     private Output</* @Nullable */ EventGridTopicIdentity> identity;
 
     /**
@@ -111,7 +111,7 @@ public class EventGridTopic extends com.pulumi.resources.CustomResource {
      * One or more `inbound_ip_rule` blocks as defined below.
      * 
      */
-    @Export(name="inboundIpRules", refs={List.class,EventGridTopicInboundIpRule.class}, tree="[0,1]")
+    @Export(name="inboundIpRules", type=List.class, parameters={EventGridTopicInboundIpRule.class})
     private Output</* @Nullable */ List<EventGridTopicInboundIpRule>> inboundIpRules;
 
     /**
@@ -125,7 +125,7 @@ public class EventGridTopic extends com.pulumi.resources.CustomResource {
      * A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="inputMappingDefaultValues", refs={EventGridTopicInputMappingDefaultValues.class}, tree="[0]")
+    @Export(name="inputMappingDefaultValues", type=EventGridTopicInputMappingDefaultValues.class, parameters={})
     private Output</* @Nullable */ EventGridTopicInputMappingDefaultValues> inputMappingDefaultValues;
 
     /**
@@ -139,7 +139,7 @@ public class EventGridTopic extends com.pulumi.resources.CustomResource {
      * A `input_mapping_fields` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="inputMappingFields", refs={EventGridTopicInputMappingFields.class}, tree="[0]")
+    @Export(name="inputMappingFields", type=EventGridTopicInputMappingFields.class, parameters={})
     private Output</* @Nullable */ EventGridTopicInputMappingFields> inputMappingFields;
 
     /**
@@ -153,7 +153,7 @@ public class EventGridTopic extends com.pulumi.resources.CustomResource {
      * Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="inputSchema", refs={String.class}, tree="[0]")
+    @Export(name="inputSchema", type=String.class, parameters={})
     private Output</* @Nullable */ String> inputSchema;
 
     /**
@@ -167,7 +167,7 @@ public class EventGridTopic extends com.pulumi.resources.CustomResource {
      * Whether local authentication methods is enabled for the EventGrid Topic. Defaults to `true`.
      * 
      */
-    @Export(name="localAuthEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="localAuthEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> localAuthEnabled;
 
     /**
@@ -181,7 +181,7 @@ public class EventGridTopic extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -195,7 +195,7 @@ public class EventGridTopic extends com.pulumi.resources.CustomResource {
      * Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -209,7 +209,7 @@ public class EventGridTopic extends com.pulumi.resources.CustomResource {
      * The Primary Shared Access Key associated with the EventGrid Topic.
      * 
      */
-    @Export(name="primaryAccessKey", refs={String.class}, tree="[0]")
+    @Export(name="primaryAccessKey", type=String.class, parameters={})
     private Output<String> primaryAccessKey;
 
     /**
@@ -223,7 +223,7 @@ public class EventGridTopic extends com.pulumi.resources.CustomResource {
      * Whether or not public network access is allowed for this server. Defaults to `true`.
      * 
      */
-    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
@@ -237,7 +237,7 @@ public class EventGridTopic extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which the EventGrid Topic exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -251,7 +251,7 @@ public class EventGridTopic extends com.pulumi.resources.CustomResource {
      * The Secondary Shared Access Key associated with the EventGrid Topic.
      * 
      */
-    @Export(name="secondaryAccessKey", refs={String.class}, tree="[0]")
+    @Export(name="secondaryAccessKey", type=String.class, parameters={})
     private Output<String> secondaryAccessKey;
 
     /**
@@ -265,7 +265,7 @@ public class EventGridTopic extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

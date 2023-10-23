@@ -57,7 +57,17 @@ class RouteServerArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'publicIpAddressId' in kwargs:
+            public_ip_address_id = kwargs['publicIpAddressId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'branchToBranchTrafficEnabled' in kwargs:
+            branch_to_branch_traffic_enabled = kwargs['branchToBranchTrafficEnabled']
+
         _setter("public_ip_address_id", public_ip_address_id)
         _setter("resource_group_name", resource_group_name)
         _setter("sku", sku)
@@ -225,7 +235,23 @@ class _RouteServerState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              virtual_router_asn: Optional[pulumi.Input[int]] = None,
              virtual_router_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'branchToBranchTrafficEnabled' in kwargs:
+            branch_to_branch_traffic_enabled = kwargs['branchToBranchTrafficEnabled']
+        if 'publicIpAddressId' in kwargs:
+            public_ip_address_id = kwargs['publicIpAddressId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'routingState' in kwargs:
+            routing_state = kwargs['routingState']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'virtualRouterAsn' in kwargs:
+            virtual_router_asn = kwargs['virtualRouterAsn']
+        if 'virtualRouterIps' in kwargs:
+            virtual_router_ips = kwargs['virtualRouterIps']
+
         if branch_to_branch_traffic_enabled is not None:
             _setter("branch_to_branch_traffic_enabled", branch_to_branch_traffic_enabled)
         if location is not None:

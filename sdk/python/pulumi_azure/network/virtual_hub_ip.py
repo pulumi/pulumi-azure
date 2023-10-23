@@ -47,7 +47,19 @@ class VirtualHubIpArgs:
              name: Optional[pulumi.Input[str]] = None,
              private_ip_address: Optional[pulumi.Input[str]] = None,
              private_ip_allocation_method: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'publicIpAddressId' in kwargs:
+            public_ip_address_id = kwargs['publicIpAddressId']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'virtualHubId' in kwargs:
+            virtual_hub_id = kwargs['virtualHubId']
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if 'privateIpAllocationMethod' in kwargs:
+            private_ip_allocation_method = kwargs['privateIpAllocationMethod']
+
         _setter("public_ip_address_id", public_ip_address_id)
         _setter("subnet_id", subnet_id)
         _setter("virtual_hub_id", virtual_hub_id)
@@ -167,7 +179,19 @@ class _VirtualHubIpState:
              public_ip_address_id: Optional[pulumi.Input[str]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
              virtual_hub_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if 'privateIpAllocationMethod' in kwargs:
+            private_ip_allocation_method = kwargs['privateIpAllocationMethod']
+        if 'publicIpAddressId' in kwargs:
+            public_ip_address_id = kwargs['publicIpAddressId']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'virtualHubId' in kwargs:
+            virtual_hub_id = kwargs['virtualHubId']
+
         if name is not None:
             _setter("name", name)
         if private_ip_address is not None:

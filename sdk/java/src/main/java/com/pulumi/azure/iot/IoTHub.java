@@ -193,7 +193,7 @@ public class IoTHub extends com.pulumi.resources.CustomResource {
      * A `cloud_to_device` block as defined below.
      * 
      */
-    @Export(name="cloudToDevice", refs={IoTHubCloudToDevice.class}, tree="[0]")
+    @Export(name="cloudToDevice", type=IoTHubCloudToDevice.class, parameters={})
     private Output<IoTHubCloudToDevice> cloudToDevice;
 
     /**
@@ -207,7 +207,7 @@ public class IoTHub extends com.pulumi.resources.CustomResource {
      * An `endpoint` block as defined below.
      * 
      */
-    @Export(name="endpoints", refs={List.class,IoTHubEndpoint.class}, tree="[0,1]")
+    @Export(name="endpoints", type=List.class, parameters={IoTHubEndpoint.class})
     private Output<List<IoTHubEndpoint>> endpoints;
 
     /**
@@ -221,7 +221,7 @@ public class IoTHub extends com.pulumi.resources.CustomResource {
      * A `enrichment` block as defined below.
      * 
      */
-    @Export(name="enrichments", refs={List.class,IoTHubEnrichment.class}, tree="[0,1]")
+    @Export(name="enrichments", type=List.class, parameters={IoTHubEnrichment.class})
     private Output<List<IoTHubEnrichment>> enrichments;
 
     /**
@@ -235,7 +235,7 @@ public class IoTHub extends com.pulumi.resources.CustomResource {
      * The EventHub compatible endpoint for events data
      * 
      */
-    @Export(name="eventHubEventsEndpoint", refs={String.class}, tree="[0]")
+    @Export(name="eventHubEventsEndpoint", type=String.class, parameters={})
     private Output<String> eventHubEventsEndpoint;
 
     /**
@@ -249,7 +249,7 @@ public class IoTHub extends com.pulumi.resources.CustomResource {
      * The EventHub namespace for events data
      * 
      */
-    @Export(name="eventHubEventsNamespace", refs={String.class}, tree="[0]")
+    @Export(name="eventHubEventsNamespace", type=String.class, parameters={})
     private Output<String> eventHubEventsNamespace;
 
     /**
@@ -263,7 +263,7 @@ public class IoTHub extends com.pulumi.resources.CustomResource {
      * The EventHub compatible path for events data
      * 
      */
-    @Export(name="eventHubEventsPath", refs={String.class}, tree="[0]")
+    @Export(name="eventHubEventsPath", type=String.class, parameters={})
     private Output<String> eventHubEventsPath;
 
     /**
@@ -277,7 +277,7 @@ public class IoTHub extends com.pulumi.resources.CustomResource {
      * The EventHub compatible endpoint for operational data
      * 
      */
-    @Export(name="eventHubOperationsEndpoint", refs={String.class}, tree="[0]")
+    @Export(name="eventHubOperationsEndpoint", type=String.class, parameters={})
     private Output<String> eventHubOperationsEndpoint;
 
     /**
@@ -291,7 +291,7 @@ public class IoTHub extends com.pulumi.resources.CustomResource {
      * The EventHub compatible path for operational data
      * 
      */
-    @Export(name="eventHubOperationsPath", refs={String.class}, tree="[0]")
+    @Export(name="eventHubOperationsPath", type=String.class, parameters={})
     private Output<String> eventHubOperationsPath;
 
     /**
@@ -305,7 +305,7 @@ public class IoTHub extends com.pulumi.resources.CustomResource {
      * The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
      * 
      */
-    @Export(name="eventHubPartitionCount", refs={Integer.class}, tree="[0]")
+    @Export(name="eventHubPartitionCount", type=Integer.class, parameters={})
     private Output<Integer> eventHubPartitionCount;
 
     /**
@@ -319,7 +319,7 @@ public class IoTHub extends com.pulumi.resources.CustomResource {
      * The event hub retention to use in days. Must be between `1` and `7`.
      * 
      */
-    @Export(name="eventHubRetentionInDays", refs={Integer.class}, tree="[0]")
+    @Export(name="eventHubRetentionInDays", type=Integer.class, parameters={})
     private Output<Integer> eventHubRetentionInDays;
 
     /**
@@ -335,7 +335,7 @@ public class IoTHub extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** If `fallback_route` isn&#39;t explicitly specified, the fallback route wouldn&#39;t be enabled by default.
      * 
      */
-    @Export(name="fallbackRoute", refs={IoTHubFallbackRoute.class}, tree="[0]")
+    @Export(name="fallbackRoute", type=IoTHubFallbackRoute.class, parameters={})
     private Output<IoTHubFallbackRoute> fallbackRoute;
 
     /**
@@ -351,7 +351,7 @@ public class IoTHub extends com.pulumi.resources.CustomResource {
      * A `file_upload` block as defined below.
      * 
      */
-    @Export(name="fileUpload", refs={IoTHubFileUpload.class}, tree="[0]")
+    @Export(name="fileUpload", type=IoTHubFileUpload.class, parameters={})
     private Output</* @Nullable */ IoTHubFileUpload> fileUpload;
 
     /**
@@ -365,7 +365,7 @@ public class IoTHub extends com.pulumi.resources.CustomResource {
      * The hostname of the IotHub Resource.
      * 
      */
-    @Export(name="hostname", refs={String.class}, tree="[0]")
+    @Export(name="hostname", type=String.class, parameters={})
     private Output<String> hostname;
 
     /**
@@ -379,7 +379,7 @@ public class IoTHub extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", refs={IoTHubIdentity.class}, tree="[0]")
+    @Export(name="identity", type=IoTHubIdentity.class, parameters={})
     private Output</* @Nullable */ IoTHubIdentity> identity;
 
     /**
@@ -393,7 +393,7 @@ public class IoTHub extends com.pulumi.resources.CustomResource {
      * If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
      * 
      */
-    @Export(name="localAuthenticationEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="localAuthenticationEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> localAuthenticationEnabled;
 
     /**
@@ -407,7 +407,7 @@ public class IoTHub extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -421,7 +421,7 @@ public class IoTHub extends com.pulumi.resources.CustomResource {
      * Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="minTlsVersion", refs={String.class}, tree="[0]")
+    @Export(name="minTlsVersion", type=String.class, parameters={})
     private Output</* @Nullable */ String> minTlsVersion;
 
     /**
@@ -435,7 +435,7 @@ public class IoTHub extends com.pulumi.resources.CustomResource {
      * Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -449,7 +449,7 @@ public class IoTHub extends com.pulumi.resources.CustomResource {
      * A `network_rule_set` block as defined below.
      * 
      */
-    @Export(name="networkRuleSets", refs={List.class,IoTHubNetworkRuleSet.class}, tree="[0,1]")
+    @Export(name="networkRuleSets", type=List.class, parameters={IoTHubNetworkRuleSet.class})
     private Output</* @Nullable */ List<IoTHubNetworkRuleSet>> networkRuleSets;
 
     /**
@@ -463,7 +463,7 @@ public class IoTHub extends com.pulumi.resources.CustomResource {
      * Is the IotHub resource accessible from a public network?
      * 
      */
-    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
@@ -477,7 +477,7 @@ public class IoTHub extends com.pulumi.resources.CustomResource {
      * The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -491,7 +491,7 @@ public class IoTHub extends com.pulumi.resources.CustomResource {
      * A `route` block as defined below.
      * 
      */
-    @Export(name="routes", refs={List.class,IoTHubRoute.class}, tree="[0,1]")
+    @Export(name="routes", type=List.class, parameters={IoTHubRoute.class})
     private Output<List<IoTHubRoute>> routes;
 
     /**
@@ -505,7 +505,7 @@ public class IoTHub extends com.pulumi.resources.CustomResource {
      * One or more `shared_access_policy` blocks as defined below.
      * 
      */
-    @Export(name="sharedAccessPolicies", refs={List.class,IoTHubSharedAccessPolicy.class}, tree="[0,1]")
+    @Export(name="sharedAccessPolicies", type=List.class, parameters={IoTHubSharedAccessPolicy.class})
     private Output<List<IoTHubSharedAccessPolicy>> sharedAccessPolicies;
 
     /**
@@ -519,7 +519,7 @@ public class IoTHub extends com.pulumi.resources.CustomResource {
      * A `sku` block as defined below.
      * 
      */
-    @Export(name="sku", refs={IoTHubSku.class}, tree="[0]")
+    @Export(name="sku", type=IoTHubSku.class, parameters={})
     private Output<IoTHubSku> sku;
 
     /**
@@ -533,7 +533,7 @@ public class IoTHub extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -547,7 +547,7 @@ public class IoTHub extends com.pulumi.resources.CustomResource {
      * The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
      * 
      */
-    @Export(name="type", refs={String.class}, tree="[0]")
+    @Export(name="type", type=String.class, parameters={})
     private Output<String> type;
 
     /**

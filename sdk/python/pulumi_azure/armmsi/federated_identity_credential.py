@@ -47,7 +47,13 @@ class FederatedIdentityCredentialArgs:
              resource_group_name: pulumi.Input[str],
              subject: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'parentId' in kwargs:
+            parent_id = kwargs['parentId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         _setter("audience", audience)
         _setter("issuer", issuer)
         _setter("parent_id", parent_id)
@@ -165,7 +171,13 @@ class _FederatedIdentityCredentialState:
              parent_id: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              subject: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'parentId' in kwargs:
+            parent_id = kwargs['parentId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if audience is not None:
             _setter("audience", audience)
         if issuer is not None:

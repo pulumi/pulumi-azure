@@ -35,7 +35,15 @@ class AccountCustomerManagedKeyInitArgs:
              cognitive_account_id: pulumi.Input[str],
              key_vault_key_id: pulumi.Input[str],
              identity_client_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cognitiveAccountId' in kwargs:
+            cognitive_account_id = kwargs['cognitiveAccountId']
+        if 'keyVaultKeyId' in kwargs:
+            key_vault_key_id = kwargs['keyVaultKeyId']
+        if 'identityClientId' in kwargs:
+            identity_client_id = kwargs['identityClientId']
+
         _setter("cognitive_account_id", cognitive_account_id)
         _setter("key_vault_key_id", key_vault_key_id)
         if identity_client_id is not None:
@@ -102,7 +110,15 @@ class _AccountCustomerManagedKeyState:
              cognitive_account_id: Optional[pulumi.Input[str]] = None,
              identity_client_id: Optional[pulumi.Input[str]] = None,
              key_vault_key_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cognitiveAccountId' in kwargs:
+            cognitive_account_id = kwargs['cognitiveAccountId']
+        if 'identityClientId' in kwargs:
+            identity_client_id = kwargs['identityClientId']
+        if 'keyVaultKeyId' in kwargs:
+            key_vault_key_id = kwargs['keyVaultKeyId']
+
         if cognitive_account_id is not None:
             _setter("cognitive_account_id", cognitive_account_id)
         if identity_client_id is not None:

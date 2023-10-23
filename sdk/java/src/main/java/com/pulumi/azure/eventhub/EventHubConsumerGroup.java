@@ -94,7 +94,7 @@ public class EventHubConsumerGroup extends com.pulumi.resources.CustomResource {
      * Specifies the name of the EventHub. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="eventhubName", refs={String.class}, tree="[0]")
+    @Export(name="eventhubName", type=String.class, parameters={})
     private Output<String> eventhubName;
 
     /**
@@ -108,7 +108,7 @@ public class EventHubConsumerGroup extends com.pulumi.resources.CustomResource {
      * Specifies the name of the EventHub Consumer Group resource. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -122,7 +122,7 @@ public class EventHubConsumerGroup extends com.pulumi.resources.CustomResource {
      * Specifies the name of the grandparent EventHub Namespace. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="namespaceName", refs={String.class}, tree="[0]")
+    @Export(name="namespaceName", type=String.class, parameters={})
     private Output<String> namespaceName;
 
     /**
@@ -136,7 +136,7 @@ public class EventHubConsumerGroup extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which the EventHub Consumer Group&#39;s grandparent Namespace exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -150,7 +150,7 @@ public class EventHubConsumerGroup extends com.pulumi.resources.CustomResource {
      * Specifies the user metadata.
      * 
      */
-    @Export(name="userMetadata", refs={String.class}, tree="[0]")
+    @Export(name="userMetadata", type=String.class, parameters={})
     private Output</* @Nullable */ String> userMetadata;
 
     /**

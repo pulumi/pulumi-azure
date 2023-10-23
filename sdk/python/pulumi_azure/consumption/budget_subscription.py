@@ -59,7 +59,15 @@ class BudgetSubscriptionArgs:
              filter: Optional[pulumi.Input['BudgetSubscriptionFilterArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              time_grain: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+        if 'timePeriod' in kwargs:
+            time_period = kwargs['timePeriod']
+        if 'timeGrain' in kwargs:
+            time_grain = kwargs['timeGrain']
+
         _setter("amount", amount)
         _setter("notifications", notifications)
         _setter("subscription_id", subscription_id)
@@ -218,7 +226,15 @@ class _BudgetSubscriptionState:
              subscription_id: Optional[pulumi.Input[str]] = None,
              time_grain: Optional[pulumi.Input[str]] = None,
              time_period: Optional[pulumi.Input['BudgetSubscriptionTimePeriodArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+        if 'timeGrain' in kwargs:
+            time_grain = kwargs['timeGrain']
+        if 'timePeriod' in kwargs:
+            time_period = kwargs['timePeriod']
+
         if amount is not None:
             _setter("amount", amount)
         if etag is not None:

@@ -79,7 +79,31 @@ class EventhubDataConnectionArgs:
              mapping_rule_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              table_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if 'consumerGroup' in kwargs:
+            consumer_group = kwargs['consumerGroup']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'eventhubId' in kwargs:
+            eventhub_id = kwargs['eventhubId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'dataFormat' in kwargs:
+            data_format = kwargs['dataFormat']
+        if 'databaseRoutingType' in kwargs:
+            database_routing_type = kwargs['databaseRoutingType']
+        if 'eventSystemProperties' in kwargs:
+            event_system_properties = kwargs['eventSystemProperties']
+        if 'identityId' in kwargs:
+            identity_id = kwargs['identityId']
+        if 'mappingRuleName' in kwargs:
+            mapping_rule_name = kwargs['mappingRuleName']
+        if 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+
         _setter("cluster_name", cluster_name)
         _setter("consumer_group", consumer_group)
         _setter("database_name", database_name)
@@ -341,7 +365,31 @@ class _EventhubDataConnectionState:
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              table_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if 'consumerGroup' in kwargs:
+            consumer_group = kwargs['consumerGroup']
+        if 'dataFormat' in kwargs:
+            data_format = kwargs['dataFormat']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'databaseRoutingType' in kwargs:
+            database_routing_type = kwargs['databaseRoutingType']
+        if 'eventSystemProperties' in kwargs:
+            event_system_properties = kwargs['eventSystemProperties']
+        if 'eventhubId' in kwargs:
+            eventhub_id = kwargs['eventhubId']
+        if 'identityId' in kwargs:
+            identity_id = kwargs['identityId']
+        if 'mappingRuleName' in kwargs:
+            mapping_rule_name = kwargs['mappingRuleName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+
         if cluster_name is not None:
             _setter("cluster_name", cluster_name)
         if compression is not None:

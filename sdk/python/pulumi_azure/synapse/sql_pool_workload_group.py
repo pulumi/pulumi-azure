@@ -55,7 +55,21 @@ class SqlPoolWorkloadGroupArgs:
              min_resource_percent_per_request: Optional[pulumi.Input[float]] = None,
              name: Optional[pulumi.Input[str]] = None,
              query_execution_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxResourcePercent' in kwargs:
+            max_resource_percent = kwargs['maxResourcePercent']
+        if 'minResourcePercent' in kwargs:
+            min_resource_percent = kwargs['minResourcePercent']
+        if 'sqlPoolId' in kwargs:
+            sql_pool_id = kwargs['sqlPoolId']
+        if 'maxResourcePercentPerRequest' in kwargs:
+            max_resource_percent_per_request = kwargs['maxResourcePercentPerRequest']
+        if 'minResourcePercentPerRequest' in kwargs:
+            min_resource_percent_per_request = kwargs['minResourcePercentPerRequest']
+        if 'queryExecutionTimeoutInSeconds' in kwargs:
+            query_execution_timeout_in_seconds = kwargs['queryExecutionTimeoutInSeconds']
+
         _setter("max_resource_percent", max_resource_percent)
         _setter("min_resource_percent", min_resource_percent)
         _setter("sql_pool_id", sql_pool_id)
@@ -211,7 +225,21 @@ class _SqlPoolWorkloadGroupState:
              name: Optional[pulumi.Input[str]] = None,
              query_execution_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
              sql_pool_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxResourcePercent' in kwargs:
+            max_resource_percent = kwargs['maxResourcePercent']
+        if 'maxResourcePercentPerRequest' in kwargs:
+            max_resource_percent_per_request = kwargs['maxResourcePercentPerRequest']
+        if 'minResourcePercent' in kwargs:
+            min_resource_percent = kwargs['minResourcePercent']
+        if 'minResourcePercentPerRequest' in kwargs:
+            min_resource_percent_per_request = kwargs['minResourcePercentPerRequest']
+        if 'queryExecutionTimeoutInSeconds' in kwargs:
+            query_execution_timeout_in_seconds = kwargs['queryExecutionTimeoutInSeconds']
+        if 'sqlPoolId' in kwargs:
+            sql_pool_id = kwargs['sqlPoolId']
+
         if importance is not None:
             _setter("importance", importance)
         if max_resource_percent is not None:

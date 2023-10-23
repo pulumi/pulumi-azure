@@ -126,7 +126,7 @@ public class ClusterCustomerManagedKey extends com.pulumi.resources.CustomResour
      * The ID of the Key Vault Key to use for encryption.
      * 
      */
-    @Export(name="keyVaultKeyId", refs={String.class}, tree="[0]")
+    @Export(name="keyVaultKeyId", type=String.class, parameters={})
     private Output<String> keyVaultKeyId;
 
     /**
@@ -140,7 +140,7 @@ public class ClusterCustomerManagedKey extends com.pulumi.resources.CustomResour
      * The ID of the Log Analytics Cluster. Changing this forces a new Log Analytics Cluster Customer Managed Key to be created.
      * 
      */
-    @Export(name="logAnalyticsClusterId", refs={String.class}, tree="[0]")
+    @Export(name="logAnalyticsClusterId", type=String.class, parameters={})
     private Output<String> logAnalyticsClusterId;
 
     /**

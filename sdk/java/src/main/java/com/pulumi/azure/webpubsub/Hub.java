@@ -133,7 +133,7 @@ public class Hub extends com.pulumi.resources.CustomResource {
      * Possible values are `true`, `false`.
      * 
      */
-    @Export(name="anonymousConnectionsEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="anonymousConnectionsEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> anonymousConnectionsEnabled;
 
     /**
@@ -150,7 +150,7 @@ public class Hub extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** User can change the order of `event_handler` to change the priority accordingly.
      * 
      */
-    @Export(name="eventHandlers", refs={List.class,HubEventHandler.class}, tree="[0,1]")
+    @Export(name="eventHandlers", type=List.class, parameters={HubEventHandler.class})
     private Output</* @Nullable */ List<HubEventHandler>> eventHandlers;
 
     /**
@@ -168,7 +168,7 @@ public class Hub extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:**  The managed identity of Web PubSub service must be enabled and the identity must have the &#34;Azure Event Hubs Data sender&#34; role to access the Event Hub.
      * 
      */
-    @Export(name="eventListeners", refs={List.class,HubEventListener.class}, tree="[0,1]")
+    @Export(name="eventListeners", type=List.class, parameters={HubEventListener.class})
     private Output</* @Nullable */ List<HubEventListener>> eventListeners;
 
     /**
@@ -184,7 +184,7 @@ public class Hub extends com.pulumi.resources.CustomResource {
      * The name of the Web Pubsub hub service. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -198,7 +198,7 @@ public class Hub extends com.pulumi.resources.CustomResource {
      * Specifies the id of the Web Pubsub. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="webPubsubId", refs={String.class}, tree="[0]")
+    @Export(name="webPubsubId", type=String.class, parameters={})
     private Output<String> webPubsubId;
 
     /**

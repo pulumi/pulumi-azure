@@ -135,7 +135,7 @@ public class Job extends com.pulumi.resources.CustomResource {
      * Optional customer supplied description of the Job.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -149,7 +149,7 @@ public class Job extends com.pulumi.resources.CustomResource {
      * A `input_asset` block as defined below. Changing this forces a new Media Job to be created.
      * 
      */
-    @Export(name="inputAsset", refs={JobInputAsset.class}, tree="[0]")
+    @Export(name="inputAsset", type=JobInputAsset.class, parameters={})
     private Output<JobInputAsset> inputAsset;
 
     /**
@@ -163,7 +163,7 @@ public class Job extends com.pulumi.resources.CustomResource {
      * The Media Services account name. Changing this forces a new Transform to be created.
      * 
      */
-    @Export(name="mediaServicesAccountName", refs={String.class}, tree="[0]")
+    @Export(name="mediaServicesAccountName", type=String.class, parameters={})
     private Output<String> mediaServicesAccountName;
 
     /**
@@ -177,7 +177,7 @@ public class Job extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Media Job. Changing this forces a new Media Job to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -191,7 +191,7 @@ public class Job extends com.pulumi.resources.CustomResource {
      * One or more `output_asset` blocks as defined below. Changing this forces a new Media Job to be created.
      * 
      */
-    @Export(name="outputAssets", refs={List.class,JobOutputAsset.class}, tree="[0,1]")
+    @Export(name="outputAssets", type=List.class, parameters={JobOutputAsset.class})
     private Output<List<JobOutputAsset>> outputAssets;
 
     /**
@@ -205,7 +205,7 @@ public class Job extends com.pulumi.resources.CustomResource {
      * Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created. Possible values are `High`, `Normal` and `Low`.
      * 
      */
-    @Export(name="priority", refs={String.class}, tree="[0]")
+    @Export(name="priority", type=String.class, parameters={})
     private Output</* @Nullable */ String> priority;
 
     /**
@@ -219,7 +219,7 @@ public class Job extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Media Job should exist. Changing this forces a new Media Job to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -233,7 +233,7 @@ public class Job extends com.pulumi.resources.CustomResource {
      * The Transform name. Changing this forces a new Media Job to be created.
      * 
      */
-    @Export(name="transformName", refs={String.class}, tree="[0]")
+    @Export(name="transformName", type=String.class, parameters={})
     private Output<String> transformName;
 
     /**

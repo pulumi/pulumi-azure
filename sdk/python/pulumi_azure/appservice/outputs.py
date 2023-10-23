@@ -660,7 +660,15 @@ class AppConnectionAuthentication(dict):
              principal_id: Optional[str] = None,
              secret: Optional[str] = None,
              subscription_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+
         _setter("type", type)
         if certificate is not None:
             _setter("certificate", certificate)
@@ -764,7 +772,11 @@ class AppConnectionSecretStore(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              key_vault_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+
         _setter("key_vault_id", key_vault_id)
 
     @property
@@ -876,7 +888,25 @@ class AppServiceAuthSettings(dict):
              token_store_enabled: Optional[bool] = None,
              twitter: Optional['outputs.AppServiceAuthSettingsTwitter'] = None,
              unauthenticated_client_action: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activeDirectory' in kwargs:
+            active_directory = kwargs['activeDirectory']
+        if 'additionalLoginParams' in kwargs:
+            additional_login_params = kwargs['additionalLoginParams']
+        if 'allowedExternalRedirectUrls' in kwargs:
+            allowed_external_redirect_urls = kwargs['allowedExternalRedirectUrls']
+        if 'defaultProvider' in kwargs:
+            default_provider = kwargs['defaultProvider']
+        if 'runtimeVersion' in kwargs:
+            runtime_version = kwargs['runtimeVersion']
+        if 'tokenRefreshExtensionHours' in kwargs:
+            token_refresh_extension_hours = kwargs['tokenRefreshExtensionHours']
+        if 'tokenStoreEnabled' in kwargs:
+            token_store_enabled = kwargs['tokenStoreEnabled']
+        if 'unauthenticatedClientAction' in kwargs:
+            unauthenticated_client_action = kwargs['unauthenticatedClientAction']
+
         _setter("enabled", enabled)
         if active_directory is not None:
             _setter("active_directory", active_directory)
@@ -1064,7 +1094,15 @@ class AppServiceAuthSettingsActiveDirectory(dict):
              client_id: str,
              allowed_audiences: Optional[Sequence[str]] = None,
              client_secret: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+
         _setter("client_id", client_id)
         if allowed_audiences is not None:
             _setter("allowed_audiences", allowed_audiences)
@@ -1140,7 +1178,15 @@ class AppServiceAuthSettingsFacebook(dict):
              app_id: str,
              app_secret: str,
              oauth_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'appSecret' in kwargs:
+            app_secret = kwargs['appSecret']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("app_id", app_id)
         _setter("app_secret", app_secret)
         if oauth_scopes is not None:
@@ -1215,7 +1261,15 @@ class AppServiceAuthSettingsGoogle(dict):
              client_id: str,
              client_secret: str,
              oauth_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret", client_secret)
         if oauth_scopes is not None:
@@ -1290,7 +1344,15 @@ class AppServiceAuthSettingsMicrosoft(dict):
              client_id: str,
              client_secret: str,
              oauth_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret", client_secret)
         if oauth_scopes is not None:
@@ -1359,7 +1421,13 @@ class AppServiceAuthSettingsTwitter(dict):
              _setter: Callable[[Any, Any], None],
              consumer_key: str,
              consumer_secret: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'consumerKey' in kwargs:
+            consumer_key = kwargs['consumerKey']
+        if 'consumerSecret' in kwargs:
+            consumer_secret = kwargs['consumerSecret']
+
         _setter("consumer_key", consumer_key)
         _setter("consumer_secret", consumer_secret)
 
@@ -1424,7 +1492,11 @@ class AppServiceBackup(dict):
              schedule: 'outputs.AppServiceBackupSchedule',
              storage_account_url: str,
              enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageAccountUrl' in kwargs:
+            storage_account_url = kwargs['storageAccountUrl']
+
         _setter("name", name)
         _setter("schedule", schedule)
         _setter("storage_account_url", storage_account_url)
@@ -1520,7 +1592,19 @@ class AppServiceBackupSchedule(dict):
              keep_at_least_one_backup: Optional[bool] = None,
              retention_period_in_days: Optional[int] = None,
              start_time: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'frequencyInterval' in kwargs:
+            frequency_interval = kwargs['frequencyInterval']
+        if 'frequencyUnit' in kwargs:
+            frequency_unit = kwargs['frequencyUnit']
+        if 'keepAtLeastOneBackup' in kwargs:
+            keep_at_least_one_backup = kwargs['keepAtLeastOneBackup']
+        if 'retentionPeriodInDays' in kwargs:
+            retention_period_in_days = kwargs['retentionPeriodInDays']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         _setter("frequency_interval", frequency_interval)
         _setter("frequency_unit", frequency_unit)
         if keep_at_least_one_backup is not None:
@@ -1594,7 +1678,9 @@ class AppServiceConnectionString(dict):
              name: str,
              type: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("type", type)
         _setter("value", value)
@@ -1674,7 +1760,15 @@ class AppServiceIdentity(dict):
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -1768,7 +1862,17 @@ class AppServiceLogs(dict):
              detailed_error_messages_enabled: Optional[bool] = None,
              failed_request_tracing_enabled: Optional[bool] = None,
              http_logs: Optional['outputs.AppServiceLogsHttpLogs'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationLogs' in kwargs:
+            application_logs = kwargs['applicationLogs']
+        if 'detailedErrorMessagesEnabled' in kwargs:
+            detailed_error_messages_enabled = kwargs['detailedErrorMessagesEnabled']
+        if 'failedRequestTracingEnabled' in kwargs:
+            failed_request_tracing_enabled = kwargs['failedRequestTracingEnabled']
+        if 'httpLogs' in kwargs:
+            http_logs = kwargs['httpLogs']
+
         if application_logs is not None:
             _setter("application_logs", application_logs)
         if detailed_error_messages_enabled is not None:
@@ -1849,7 +1953,13 @@ class AppServiceLogsApplicationLogs(dict):
              _setter: Callable[[Any, Any], None],
              azure_blob_storage: Optional['outputs.AppServiceLogsApplicationLogsAzureBlobStorage'] = None,
              file_system_level: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azureBlobStorage' in kwargs:
+            azure_blob_storage = kwargs['azureBlobStorage']
+        if 'fileSystemLevel' in kwargs:
+            file_system_level = kwargs['fileSystemLevel']
+
         if azure_blob_storage is not None:
             _setter("azure_blob_storage", azure_blob_storage)
         if file_system_level is not None:
@@ -1914,7 +2024,13 @@ class AppServiceLogsApplicationLogsAzureBlobStorage(dict):
              level: str,
              retention_in_days: int,
              sas_url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'retentionInDays' in kwargs:
+            retention_in_days = kwargs['retentionInDays']
+        if 'sasUrl' in kwargs:
+            sas_url = kwargs['sasUrl']
+
         _setter("level", level)
         _setter("retention_in_days", retention_in_days)
         _setter("sas_url", sas_url)
@@ -1982,7 +2098,13 @@ class AppServiceLogsHttpLogs(dict):
              _setter: Callable[[Any, Any], None],
              azure_blob_storage: Optional['outputs.AppServiceLogsHttpLogsAzureBlobStorage'] = None,
              file_system: Optional['outputs.AppServiceLogsHttpLogsFileSystem'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azureBlobStorage' in kwargs:
+            azure_blob_storage = kwargs['azureBlobStorage']
+        if 'fileSystem' in kwargs:
+            file_system = kwargs['fileSystem']
+
         if azure_blob_storage is not None:
             _setter("azure_blob_storage", azure_blob_storage)
         if file_system is not None:
@@ -2043,7 +2165,13 @@ class AppServiceLogsHttpLogsAzureBlobStorage(dict):
              _setter: Callable[[Any, Any], None],
              retention_in_days: int,
              sas_url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'retentionInDays' in kwargs:
+            retention_in_days = kwargs['retentionInDays']
+        if 'sasUrl' in kwargs:
+            sas_url = kwargs['sasUrl']
+
         _setter("retention_in_days", retention_in_days)
         _setter("sas_url", sas_url)
 
@@ -2102,7 +2230,13 @@ class AppServiceLogsHttpLogsFileSystem(dict):
              _setter: Callable[[Any, Any], None],
              retention_in_days: int,
              retention_in_mb: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'retentionInDays' in kwargs:
+            retention_in_days = kwargs['retentionInDays']
+        if 'retentionInMb' in kwargs:
+            retention_in_mb = kwargs['retentionInMb']
+
         _setter("retention_in_days", retention_in_days)
         _setter("retention_in_mb", retention_in_mb)
 
@@ -2348,7 +2482,69 @@ class AppServiceSiteConfig(dict):
              vnet_route_all_enabled: Optional[bool] = None,
              websockets_enabled: Optional[bool] = None,
              windows_fx_version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'acrUseManagedIdentityCredentials' in kwargs:
+            acr_use_managed_identity_credentials = kwargs['acrUseManagedIdentityCredentials']
+        if 'acrUserManagedIdentityClientId' in kwargs:
+            acr_user_managed_identity_client_id = kwargs['acrUserManagedIdentityClientId']
+        if 'alwaysOn' in kwargs:
+            always_on = kwargs['alwaysOn']
+        if 'appCommandLine' in kwargs:
+            app_command_line = kwargs['appCommandLine']
+        if 'autoSwapSlotName' in kwargs:
+            auto_swap_slot_name = kwargs['autoSwapSlotName']
+        if 'defaultDocuments' in kwargs:
+            default_documents = kwargs['defaultDocuments']
+        if 'dotnetFrameworkVersion' in kwargs:
+            dotnet_framework_version = kwargs['dotnetFrameworkVersion']
+        if 'ftpsState' in kwargs:
+            ftps_state = kwargs['ftpsState']
+        if 'healthCheckPath' in kwargs:
+            health_check_path = kwargs['healthCheckPath']
+        if 'http2Enabled' in kwargs:
+            http2_enabled = kwargs['http2Enabled']
+        if 'ipRestrictions' in kwargs:
+            ip_restrictions = kwargs['ipRestrictions']
+        if 'javaContainer' in kwargs:
+            java_container = kwargs['javaContainer']
+        if 'javaContainerVersion' in kwargs:
+            java_container_version = kwargs['javaContainerVersion']
+        if 'javaVersion' in kwargs:
+            java_version = kwargs['javaVersion']
+        if 'linuxFxVersion' in kwargs:
+            linux_fx_version = kwargs['linuxFxVersion']
+        if 'localMysqlEnabled' in kwargs:
+            local_mysql_enabled = kwargs['localMysqlEnabled']
+        if 'managedPipelineMode' in kwargs:
+            managed_pipeline_mode = kwargs['managedPipelineMode']
+        if 'minTlsVersion' in kwargs:
+            min_tls_version = kwargs['minTlsVersion']
+        if 'numberOfWorkers' in kwargs:
+            number_of_workers = kwargs['numberOfWorkers']
+        if 'phpVersion' in kwargs:
+            php_version = kwargs['phpVersion']
+        if 'pythonVersion' in kwargs:
+            python_version = kwargs['pythonVersion']
+        if 'remoteDebuggingEnabled' in kwargs:
+            remote_debugging_enabled = kwargs['remoteDebuggingEnabled']
+        if 'remoteDebuggingVersion' in kwargs:
+            remote_debugging_version = kwargs['remoteDebuggingVersion']
+        if 'scmIpRestrictions' in kwargs:
+            scm_ip_restrictions = kwargs['scmIpRestrictions']
+        if 'scmType' in kwargs:
+            scm_type = kwargs['scmType']
+        if 'scmUseMainIpRestriction' in kwargs:
+            scm_use_main_ip_restriction = kwargs['scmUseMainIpRestriction']
+        if 'use32BitWorkerProcess' in kwargs:
+            use32_bit_worker_process = kwargs['use32BitWorkerProcess']
+        if 'vnetRouteAllEnabled' in kwargs:
+            vnet_route_all_enabled = kwargs['vnetRouteAllEnabled']
+        if 'websocketsEnabled' in kwargs:
+            websockets_enabled = kwargs['websocketsEnabled']
+        if 'windowsFxVersion' in kwargs:
+            windows_fx_version = kwargs['windowsFxVersion']
+
         if acr_use_managed_identity_credentials is not None:
             _setter("acr_use_managed_identity_credentials", acr_use_managed_identity_credentials)
         if acr_user_managed_identity_client_id is not None:
@@ -2712,7 +2908,13 @@ class AppServiceSiteConfigCors(dict):
              _setter: Callable[[Any, Any], None],
              allowed_origins: Sequence[str],
              support_credentials: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedOrigins' in kwargs:
+            allowed_origins = kwargs['allowedOrigins']
+        if 'supportCredentials' in kwargs:
+            support_credentials = kwargs['supportCredentials']
+
         _setter("allowed_origins", allowed_origins)
         if support_credentials is not None:
             _setter("support_credentials", support_credentials)
@@ -2796,7 +2998,15 @@ class AppServiceSiteConfigIpRestriction(dict):
              priority: Optional[int] = None,
              service_tag: Optional[str] = None,
              virtual_network_subnet_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'serviceTag' in kwargs:
+            service_tag = kwargs['serviceTag']
+        if 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+
         if action is not None:
             _setter("action", action)
         if headers is not None:
@@ -2921,7 +3131,17 @@ class AppServiceSiteConfigIpRestrictionHeaders(dict):
              x_fd_health_probe: Optional[str] = None,
              x_forwarded_fors: Optional[Sequence[str]] = None,
              x_forwarded_hosts: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'xAzureFdids' in kwargs:
+            x_azure_fdids = kwargs['xAzureFdids']
+        if 'xFdHealthProbe' in kwargs:
+            x_fd_health_probe = kwargs['xFdHealthProbe']
+        if 'xForwardedFors' in kwargs:
+            x_forwarded_fors = kwargs['xForwardedFors']
+        if 'xForwardedHosts' in kwargs:
+            x_forwarded_hosts = kwargs['xForwardedHosts']
+
         if x_azure_fdids is not None:
             _setter("x_azure_fdids", x_azure_fdids)
         if x_fd_health_probe is not None:
@@ -3026,7 +3246,15 @@ class AppServiceSiteConfigScmIpRestriction(dict):
              priority: Optional[int] = None,
              service_tag: Optional[str] = None,
              virtual_network_subnet_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'serviceTag' in kwargs:
+            service_tag = kwargs['serviceTag']
+        if 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+
         if action is not None:
             _setter("action", action)
         if headers is not None:
@@ -3151,7 +3379,17 @@ class AppServiceSiteConfigScmIpRestrictionHeaders(dict):
              x_fd_health_probe: Optional[str] = None,
              x_forwarded_fors: Optional[Sequence[str]] = None,
              x_forwarded_hosts: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'xAzureFdids' in kwargs:
+            x_azure_fdids = kwargs['xAzureFdids']
+        if 'xFdHealthProbe' in kwargs:
+            x_fd_health_probe = kwargs['xFdHealthProbe']
+        if 'xForwardedFors' in kwargs:
+            x_forwarded_fors = kwargs['xForwardedFors']
+        if 'xForwardedHosts' in kwargs:
+            x_forwarded_hosts = kwargs['xForwardedHosts']
+
         if x_azure_fdids is not None:
             _setter("x_azure_fdids", x_azure_fdids)
         if x_fd_health_probe is not None:
@@ -3213,7 +3451,9 @@ class AppServiceSiteCredential(dict):
              _setter: Callable[[Any, Any], None],
              password: Optional[str] = None,
              username: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if password is not None:
             _setter("password", password)
         if username is not None:
@@ -3290,7 +3530,17 @@ class AppServiceSourceControl(dict):
              repo_url: Optional[str] = None,
              rollback_enabled: Optional[bool] = None,
              use_mercurial: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'manualIntegration' in kwargs:
+            manual_integration = kwargs['manualIntegration']
+        if 'repoUrl' in kwargs:
+            repo_url = kwargs['repoUrl']
+        if 'rollbackEnabled' in kwargs:
+            rollback_enabled = kwargs['rollbackEnabled']
+        if 'useMercurial' in kwargs:
+            use_mercurial = kwargs['useMercurial']
+
         if branch is not None:
             _setter("branch", branch)
         if manual_integration is not None:
@@ -3401,7 +3651,17 @@ class AppServiceStorageAccount(dict):
              share_name: str,
              type: str,
              mount_path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessKey' in kwargs:
+            access_key = kwargs['accessKey']
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'shareName' in kwargs:
+            share_name = kwargs['shareName']
+        if 'mountPath' in kwargs:
+            mount_path = kwargs['mountPath']
+
         _setter("access_key", access_key)
         _setter("account_name", account_name)
         _setter("name", name)
@@ -3509,7 +3769,17 @@ class CertificateOrderCertificate(dict):
              key_vault_id: Optional[str] = None,
              key_vault_secret_name: Optional[str] = None,
              provisioning_state: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateName' in kwargs:
+            certificate_name = kwargs['certificateName']
+        if 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if 'keyVaultSecretName' in kwargs:
+            key_vault_secret_name = kwargs['keyVaultSecretName']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+
         if certificate_name is not None:
             _setter("certificate_name", certificate_name)
         if key_vault_id is not None:
@@ -3612,7 +3882,15 @@ class ConnectionAuthentication(dict):
              principal_id: Optional[str] = None,
              secret: Optional[str] = None,
              subscription_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+
         _setter("type", type)
         if certificate is not None:
             _setter("certificate", certificate)
@@ -3716,7 +3994,11 @@ class ConnectionSecretStore(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              key_vault_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+
         _setter("key_vault_id", key_vault_id)
 
     @property
@@ -3747,7 +4029,9 @@ class EnvironmentClusterSetting(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -3787,7 +4071,9 @@ class EnvironmentV3ClusterSetting(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -3848,7 +4134,11 @@ class EnvironmentV3InboundNetworkDependency(dict):
              description: Optional[str] = None,
              ip_addresses: Optional[Sequence[str]] = None,
              ports: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddresses' in kwargs:
+            ip_addresses = kwargs['ipAddresses']
+
         if description is not None:
             _setter("description", description)
         if ip_addresses is not None:
@@ -3981,7 +4271,25 @@ class FunctionAppAuthSettings(dict):
              token_store_enabled: Optional[bool] = None,
              twitter: Optional['outputs.FunctionAppAuthSettingsTwitter'] = None,
              unauthenticated_client_action: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activeDirectory' in kwargs:
+            active_directory = kwargs['activeDirectory']
+        if 'additionalLoginParams' in kwargs:
+            additional_login_params = kwargs['additionalLoginParams']
+        if 'allowedExternalRedirectUrls' in kwargs:
+            allowed_external_redirect_urls = kwargs['allowedExternalRedirectUrls']
+        if 'defaultProvider' in kwargs:
+            default_provider = kwargs['defaultProvider']
+        if 'runtimeVersion' in kwargs:
+            runtime_version = kwargs['runtimeVersion']
+        if 'tokenRefreshExtensionHours' in kwargs:
+            token_refresh_extension_hours = kwargs['tokenRefreshExtensionHours']
+        if 'tokenStoreEnabled' in kwargs:
+            token_store_enabled = kwargs['tokenStoreEnabled']
+        if 'unauthenticatedClientAction' in kwargs:
+            unauthenticated_client_action = kwargs['unauthenticatedClientAction']
+
         _setter("enabled", enabled)
         if active_directory is not None:
             _setter("active_directory", active_directory)
@@ -4169,7 +4477,15 @@ class FunctionAppAuthSettingsActiveDirectory(dict):
              client_id: str,
              allowed_audiences: Optional[Sequence[str]] = None,
              client_secret: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+
         _setter("client_id", client_id)
         if allowed_audiences is not None:
             _setter("allowed_audiences", allowed_audiences)
@@ -4245,7 +4561,15 @@ class FunctionAppAuthSettingsFacebook(dict):
              app_id: str,
              app_secret: str,
              oauth_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'appSecret' in kwargs:
+            app_secret = kwargs['appSecret']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("app_id", app_id)
         _setter("app_secret", app_secret)
         if oauth_scopes is not None:
@@ -4320,7 +4644,15 @@ class FunctionAppAuthSettingsGoogle(dict):
              client_id: str,
              client_secret: str,
              oauth_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret", client_secret)
         if oauth_scopes is not None:
@@ -4395,7 +4727,15 @@ class FunctionAppAuthSettingsMicrosoft(dict):
              client_id: str,
              client_secret: str,
              oauth_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret", client_secret)
         if oauth_scopes is not None:
@@ -4464,7 +4804,13 @@ class FunctionAppAuthSettingsTwitter(dict):
              _setter: Callable[[Any, Any], None],
              consumer_key: str,
              consumer_secret: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'consumerKey' in kwargs:
+            consumer_key = kwargs['consumerKey']
+        if 'consumerSecret' in kwargs:
+            consumer_secret = kwargs['consumerSecret']
+
         _setter("consumer_key", consumer_key)
         _setter("consumer_secret", consumer_secret)
 
@@ -4508,7 +4854,9 @@ class FunctionAppConnectionString(dict):
              name: str,
              type: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("type", type)
         _setter("value", value)
@@ -4557,7 +4905,9 @@ class FunctionAppFunctionFile(dict):
              _setter: Callable[[Any, Any], None],
              content: str,
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("content", content)
         _setter("name", name)
 
@@ -4628,7 +4978,15 @@ class FunctionAppIdentity(dict):
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -4833,7 +5191,49 @@ class FunctionAppSiteConfig(dict):
              use32_bit_worker_process: Optional[bool] = None,
              vnet_route_all_enabled: Optional[bool] = None,
              websockets_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alwaysOn' in kwargs:
+            always_on = kwargs['alwaysOn']
+        if 'appScaleLimit' in kwargs:
+            app_scale_limit = kwargs['appScaleLimit']
+        if 'autoSwapSlotName' in kwargs:
+            auto_swap_slot_name = kwargs['autoSwapSlotName']
+        if 'dotnetFrameworkVersion' in kwargs:
+            dotnet_framework_version = kwargs['dotnetFrameworkVersion']
+        if 'elasticInstanceMinimum' in kwargs:
+            elastic_instance_minimum = kwargs['elasticInstanceMinimum']
+        if 'ftpsState' in kwargs:
+            ftps_state = kwargs['ftpsState']
+        if 'healthCheckPath' in kwargs:
+            health_check_path = kwargs['healthCheckPath']
+        if 'http2Enabled' in kwargs:
+            http2_enabled = kwargs['http2Enabled']
+        if 'ipRestrictions' in kwargs:
+            ip_restrictions = kwargs['ipRestrictions']
+        if 'javaVersion' in kwargs:
+            java_version = kwargs['javaVersion']
+        if 'linuxFxVersion' in kwargs:
+            linux_fx_version = kwargs['linuxFxVersion']
+        if 'minTlsVersion' in kwargs:
+            min_tls_version = kwargs['minTlsVersion']
+        if 'preWarmedInstanceCount' in kwargs:
+            pre_warmed_instance_count = kwargs['preWarmedInstanceCount']
+        if 'runtimeScaleMonitoringEnabled' in kwargs:
+            runtime_scale_monitoring_enabled = kwargs['runtimeScaleMonitoringEnabled']
+        if 'scmIpRestrictions' in kwargs:
+            scm_ip_restrictions = kwargs['scmIpRestrictions']
+        if 'scmType' in kwargs:
+            scm_type = kwargs['scmType']
+        if 'scmUseMainIpRestriction' in kwargs:
+            scm_use_main_ip_restriction = kwargs['scmUseMainIpRestriction']
+        if 'use32BitWorkerProcess' in kwargs:
+            use32_bit_worker_process = kwargs['use32BitWorkerProcess']
+        if 'vnetRouteAllEnabled' in kwargs:
+            vnet_route_all_enabled = kwargs['vnetRouteAllEnabled']
+        if 'websocketsEnabled' in kwargs:
+            websockets_enabled = kwargs['websocketsEnabled']
+
         if always_on is not None:
             _setter("always_on", always_on)
         if app_scale_limit is not None:
@@ -5093,7 +5493,13 @@ class FunctionAppSiteConfigCors(dict):
              _setter: Callable[[Any, Any], None],
              allowed_origins: Sequence[str],
              support_credentials: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedOrigins' in kwargs:
+            allowed_origins = kwargs['allowedOrigins']
+        if 'supportCredentials' in kwargs:
+            support_credentials = kwargs['supportCredentials']
+
         _setter("allowed_origins", allowed_origins)
         if support_credentials is not None:
             _setter("support_credentials", support_credentials)
@@ -5177,7 +5583,15 @@ class FunctionAppSiteConfigIpRestriction(dict):
              priority: Optional[int] = None,
              service_tag: Optional[str] = None,
              virtual_network_subnet_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'serviceTag' in kwargs:
+            service_tag = kwargs['serviceTag']
+        if 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+
         if action is not None:
             _setter("action", action)
         if headers is not None:
@@ -5302,7 +5716,17 @@ class FunctionAppSiteConfigIpRestrictionHeaders(dict):
              x_fd_health_probe: Optional[str] = None,
              x_forwarded_fors: Optional[Sequence[str]] = None,
              x_forwarded_hosts: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'xAzureFdids' in kwargs:
+            x_azure_fdids = kwargs['xAzureFdids']
+        if 'xFdHealthProbe' in kwargs:
+            x_fd_health_probe = kwargs['xFdHealthProbe']
+        if 'xForwardedFors' in kwargs:
+            x_forwarded_fors = kwargs['xForwardedFors']
+        if 'xForwardedHosts' in kwargs:
+            x_forwarded_hosts = kwargs['xForwardedHosts']
+
         if x_azure_fdids is not None:
             _setter("x_azure_fdids", x_azure_fdids)
         if x_fd_health_probe is not None:
@@ -5407,7 +5831,15 @@ class FunctionAppSiteConfigScmIpRestriction(dict):
              priority: Optional[int] = None,
              service_tag: Optional[str] = None,
              virtual_network_subnet_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'serviceTag' in kwargs:
+            service_tag = kwargs['serviceTag']
+        if 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+
         if action is not None:
             _setter("action", action)
         if headers is not None:
@@ -5532,7 +5964,17 @@ class FunctionAppSiteConfigScmIpRestrictionHeaders(dict):
              x_fd_health_probe: Optional[str] = None,
              x_forwarded_fors: Optional[Sequence[str]] = None,
              x_forwarded_hosts: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'xAzureFdids' in kwargs:
+            x_azure_fdids = kwargs['xAzureFdids']
+        if 'xFdHealthProbe' in kwargs:
+            x_fd_health_probe = kwargs['xFdHealthProbe']
+        if 'xForwardedFors' in kwargs:
+            x_forwarded_fors = kwargs['xForwardedFors']
+        if 'xForwardedHosts' in kwargs:
+            x_forwarded_hosts = kwargs['xForwardedHosts']
+
         if x_azure_fdids is not None:
             _setter("x_azure_fdids", x_azure_fdids)
         if x_fd_health_probe is not None:
@@ -5594,7 +6036,9 @@ class FunctionAppSiteCredential(dict):
              _setter: Callable[[Any, Any], None],
              password: Optional[str] = None,
              username: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if password is not None:
             _setter("password", password)
         if username is not None:
@@ -5717,7 +6161,25 @@ class FunctionAppSlotAuthSettings(dict):
              token_store_enabled: Optional[bool] = None,
              twitter: Optional['outputs.FunctionAppSlotAuthSettingsTwitter'] = None,
              unauthenticated_client_action: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activeDirectory' in kwargs:
+            active_directory = kwargs['activeDirectory']
+        if 'additionalLoginParams' in kwargs:
+            additional_login_params = kwargs['additionalLoginParams']
+        if 'allowedExternalRedirectUrls' in kwargs:
+            allowed_external_redirect_urls = kwargs['allowedExternalRedirectUrls']
+        if 'defaultProvider' in kwargs:
+            default_provider = kwargs['defaultProvider']
+        if 'runtimeVersion' in kwargs:
+            runtime_version = kwargs['runtimeVersion']
+        if 'tokenRefreshExtensionHours' in kwargs:
+            token_refresh_extension_hours = kwargs['tokenRefreshExtensionHours']
+        if 'tokenStoreEnabled' in kwargs:
+            token_store_enabled = kwargs['tokenStoreEnabled']
+        if 'unauthenticatedClientAction' in kwargs:
+            unauthenticated_client_action = kwargs['unauthenticatedClientAction']
+
         _setter("enabled", enabled)
         if active_directory is not None:
             _setter("active_directory", active_directory)
@@ -5905,7 +6367,15 @@ class FunctionAppSlotAuthSettingsActiveDirectory(dict):
              client_id: str,
              allowed_audiences: Optional[Sequence[str]] = None,
              client_secret: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+
         _setter("client_id", client_id)
         if allowed_audiences is not None:
             _setter("allowed_audiences", allowed_audiences)
@@ -5981,7 +6451,15 @@ class FunctionAppSlotAuthSettingsFacebook(dict):
              app_id: str,
              app_secret: str,
              oauth_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'appSecret' in kwargs:
+            app_secret = kwargs['appSecret']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("app_id", app_id)
         _setter("app_secret", app_secret)
         if oauth_scopes is not None:
@@ -6056,7 +6534,15 @@ class FunctionAppSlotAuthSettingsGoogle(dict):
              client_id: str,
              client_secret: str,
              oauth_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret", client_secret)
         if oauth_scopes is not None:
@@ -6131,7 +6617,15 @@ class FunctionAppSlotAuthSettingsMicrosoft(dict):
              client_id: str,
              client_secret: str,
              oauth_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret", client_secret)
         if oauth_scopes is not None:
@@ -6200,7 +6694,13 @@ class FunctionAppSlotAuthSettingsTwitter(dict):
              _setter: Callable[[Any, Any], None],
              consumer_key: str,
              consumer_secret: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'consumerKey' in kwargs:
+            consumer_key = kwargs['consumerKey']
+        if 'consumerSecret' in kwargs:
+            consumer_secret = kwargs['consumerSecret']
+
         _setter("consumer_key", consumer_key)
         _setter("consumer_secret", consumer_secret)
 
@@ -6244,7 +6744,9 @@ class FunctionAppSlotConnectionString(dict):
              name: str,
              type: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("type", type)
         _setter("value", value)
@@ -6324,7 +6826,15 @@ class FunctionAppSlotIdentity(dict):
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -6525,7 +7035,49 @@ class FunctionAppSlotSiteConfig(dict):
              use32_bit_worker_process: Optional[bool] = None,
              vnet_route_all_enabled: Optional[bool] = None,
              websockets_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alwaysOn' in kwargs:
+            always_on = kwargs['alwaysOn']
+        if 'appScaleLimit' in kwargs:
+            app_scale_limit = kwargs['appScaleLimit']
+        if 'autoSwapSlotName' in kwargs:
+            auto_swap_slot_name = kwargs['autoSwapSlotName']
+        if 'dotnetFrameworkVersion' in kwargs:
+            dotnet_framework_version = kwargs['dotnetFrameworkVersion']
+        if 'elasticInstanceMinimum' in kwargs:
+            elastic_instance_minimum = kwargs['elasticInstanceMinimum']
+        if 'ftpsState' in kwargs:
+            ftps_state = kwargs['ftpsState']
+        if 'healthCheckPath' in kwargs:
+            health_check_path = kwargs['healthCheckPath']
+        if 'http2Enabled' in kwargs:
+            http2_enabled = kwargs['http2Enabled']
+        if 'ipRestrictions' in kwargs:
+            ip_restrictions = kwargs['ipRestrictions']
+        if 'javaVersion' in kwargs:
+            java_version = kwargs['javaVersion']
+        if 'linuxFxVersion' in kwargs:
+            linux_fx_version = kwargs['linuxFxVersion']
+        if 'minTlsVersion' in kwargs:
+            min_tls_version = kwargs['minTlsVersion']
+        if 'preWarmedInstanceCount' in kwargs:
+            pre_warmed_instance_count = kwargs['preWarmedInstanceCount']
+        if 'runtimeScaleMonitoringEnabled' in kwargs:
+            runtime_scale_monitoring_enabled = kwargs['runtimeScaleMonitoringEnabled']
+        if 'scmIpRestrictions' in kwargs:
+            scm_ip_restrictions = kwargs['scmIpRestrictions']
+        if 'scmType' in kwargs:
+            scm_type = kwargs['scmType']
+        if 'scmUseMainIpRestriction' in kwargs:
+            scm_use_main_ip_restriction = kwargs['scmUseMainIpRestriction']
+        if 'use32BitWorkerProcess' in kwargs:
+            use32_bit_worker_process = kwargs['use32BitWorkerProcess']
+        if 'vnetRouteAllEnabled' in kwargs:
+            vnet_route_all_enabled = kwargs['vnetRouteAllEnabled']
+        if 'websocketsEnabled' in kwargs:
+            websockets_enabled = kwargs['websocketsEnabled']
+
         if always_on is not None:
             _setter("always_on", always_on)
         if app_scale_limit is not None:
@@ -6781,7 +7333,13 @@ class FunctionAppSlotSiteConfigCors(dict):
              _setter: Callable[[Any, Any], None],
              allowed_origins: Sequence[str],
              support_credentials: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedOrigins' in kwargs:
+            allowed_origins = kwargs['allowedOrigins']
+        if 'supportCredentials' in kwargs:
+            support_credentials = kwargs['supportCredentials']
+
         _setter("allowed_origins", allowed_origins)
         if support_credentials is not None:
             _setter("support_credentials", support_credentials)
@@ -6865,7 +7423,15 @@ class FunctionAppSlotSiteConfigIpRestriction(dict):
              priority: Optional[int] = None,
              service_tag: Optional[str] = None,
              virtual_network_subnet_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'serviceTag' in kwargs:
+            service_tag = kwargs['serviceTag']
+        if 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+
         if action is not None:
             _setter("action", action)
         if headers is not None:
@@ -6990,7 +7556,17 @@ class FunctionAppSlotSiteConfigIpRestrictionHeaders(dict):
              x_fd_health_probe: Optional[str] = None,
              x_forwarded_fors: Optional[Sequence[str]] = None,
              x_forwarded_hosts: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'xAzureFdids' in kwargs:
+            x_azure_fdids = kwargs['xAzureFdids']
+        if 'xFdHealthProbe' in kwargs:
+            x_fd_health_probe = kwargs['xFdHealthProbe']
+        if 'xForwardedFors' in kwargs:
+            x_forwarded_fors = kwargs['xForwardedFors']
+        if 'xForwardedHosts' in kwargs:
+            x_forwarded_hosts = kwargs['xForwardedHosts']
+
         if x_azure_fdids is not None:
             _setter("x_azure_fdids", x_azure_fdids)
         if x_fd_health_probe is not None:
@@ -7095,7 +7671,15 @@ class FunctionAppSlotSiteConfigScmIpRestriction(dict):
              priority: Optional[int] = None,
              service_tag: Optional[str] = None,
              virtual_network_subnet_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'serviceTag' in kwargs:
+            service_tag = kwargs['serviceTag']
+        if 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+
         if action is not None:
             _setter("action", action)
         if headers is not None:
@@ -7220,7 +7804,17 @@ class FunctionAppSlotSiteConfigScmIpRestrictionHeaders(dict):
              x_fd_health_probe: Optional[str] = None,
              x_forwarded_fors: Optional[Sequence[str]] = None,
              x_forwarded_hosts: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'xAzureFdids' in kwargs:
+            x_azure_fdids = kwargs['xAzureFdids']
+        if 'xFdHealthProbe' in kwargs:
+            x_fd_health_probe = kwargs['xFdHealthProbe']
+        if 'xForwardedFors' in kwargs:
+            x_forwarded_fors = kwargs['xForwardedFors']
+        if 'xForwardedHosts' in kwargs:
+            x_forwarded_hosts = kwargs['xForwardedHosts']
+
         if x_azure_fdids is not None:
             _setter("x_azure_fdids", x_azure_fdids)
         if x_fd_health_probe is not None:
@@ -7282,7 +7876,9 @@ class FunctionAppSlotSiteCredential(dict):
              _setter: Callable[[Any, Any], None],
              password: Optional[str] = None,
              username: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if password is not None:
             _setter("password", password)
         if username is not None:
@@ -7359,7 +7955,17 @@ class FunctionAppSourceControl(dict):
              repo_url: Optional[str] = None,
              rollback_enabled: Optional[bool] = None,
              use_mercurial: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'manualIntegration' in kwargs:
+            manual_integration = kwargs['manualIntegration']
+        if 'repoUrl' in kwargs:
+            repo_url = kwargs['repoUrl']
+        if 'rollbackEnabled' in kwargs:
+            rollback_enabled = kwargs['rollbackEnabled']
+        if 'useMercurial' in kwargs:
+            use_mercurial = kwargs['useMercurial']
+
         if branch is not None:
             _setter("branch", branch)
         if manual_integration is not None:
@@ -7518,7 +8124,25 @@ class LinuxFunctionAppAuthSettings(dict):
              token_store_enabled: Optional[bool] = None,
              twitter: Optional['outputs.LinuxFunctionAppAuthSettingsTwitter'] = None,
              unauthenticated_client_action: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activeDirectory' in kwargs:
+            active_directory = kwargs['activeDirectory']
+        if 'additionalLoginParameters' in kwargs:
+            additional_login_parameters = kwargs['additionalLoginParameters']
+        if 'allowedExternalRedirectUrls' in kwargs:
+            allowed_external_redirect_urls = kwargs['allowedExternalRedirectUrls']
+        if 'defaultProvider' in kwargs:
+            default_provider = kwargs['defaultProvider']
+        if 'runtimeVersion' in kwargs:
+            runtime_version = kwargs['runtimeVersion']
+        if 'tokenRefreshExtensionHours' in kwargs:
+            token_refresh_extension_hours = kwargs['tokenRefreshExtensionHours']
+        if 'tokenStoreEnabled' in kwargs:
+            token_store_enabled = kwargs['tokenStoreEnabled']
+        if 'unauthenticatedClientAction' in kwargs:
+            unauthenticated_client_action = kwargs['unauthenticatedClientAction']
+
         _setter("enabled", enabled)
         if active_directory is not None:
             _setter("active_directory", active_directory)
@@ -7726,7 +8350,17 @@ class LinuxFunctionAppAuthSettingsActiveDirectory(dict):
              allowed_audiences: Optional[Sequence[str]] = None,
              client_secret: Optional[str] = None,
              client_secret_setting_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+
         _setter("client_id", client_id)
         if allowed_audiences is not None:
             _setter("allowed_audiences", allowed_audiences)
@@ -7820,7 +8454,17 @@ class LinuxFunctionAppAuthSettingsFacebook(dict):
              app_secret: Optional[str] = None,
              app_secret_setting_name: Optional[str] = None,
              oauth_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'appSecret' in kwargs:
+            app_secret = kwargs['appSecret']
+        if 'appSecretSettingName' in kwargs:
+            app_secret_setting_name = kwargs['appSecretSettingName']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("app_id", app_id)
         if app_secret is not None:
             _setter("app_secret", app_secret)
@@ -7912,7 +8556,17 @@ class LinuxFunctionAppAuthSettingsGithub(dict):
              client_secret: Optional[str] = None,
              client_secret_setting_name: Optional[str] = None,
              oauth_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("client_id", client_id)
         if client_secret is not None:
             _setter("client_secret", client_secret)
@@ -8004,7 +8658,17 @@ class LinuxFunctionAppAuthSettingsGoogle(dict):
              client_secret: Optional[str] = None,
              client_secret_setting_name: Optional[str] = None,
              oauth_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("client_id", client_id)
         if client_secret is not None:
             _setter("client_secret", client_secret)
@@ -8096,7 +8760,17 @@ class LinuxFunctionAppAuthSettingsMicrosoft(dict):
              client_secret: Optional[str] = None,
              client_secret_setting_name: Optional[str] = None,
              oauth_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("client_id", client_id)
         if client_secret is not None:
             _setter("client_secret", client_secret)
@@ -8182,7 +8856,15 @@ class LinuxFunctionAppAuthSettingsTwitter(dict):
              consumer_key: str,
              consumer_secret: Optional[str] = None,
              consumer_secret_setting_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'consumerKey' in kwargs:
+            consumer_key = kwargs['consumerKey']
+        if 'consumerSecret' in kwargs:
+            consumer_secret = kwargs['consumerSecret']
+        if 'consumerSecretSettingName' in kwargs:
+            consumer_secret_setting_name = kwargs['consumerSecretSettingName']
+
         _setter("consumer_key", consumer_key)
         if consumer_secret is not None:
             _setter("consumer_secret", consumer_secret)
@@ -8376,7 +9058,51 @@ class LinuxFunctionAppAuthSettingsV2(dict):
              runtime_version: Optional[str] = None,
              twitter_v2: Optional['outputs.LinuxFunctionAppAuthSettingsV2TwitterV2'] = None,
              unauthenticated_action: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activeDirectoryV2' in kwargs:
+            active_directory_v2 = kwargs['activeDirectoryV2']
+        if 'appleV2' in kwargs:
+            apple_v2 = kwargs['appleV2']
+        if 'authEnabled' in kwargs:
+            auth_enabled = kwargs['authEnabled']
+        if 'azureStaticWebAppV2' in kwargs:
+            azure_static_web_app_v2 = kwargs['azureStaticWebAppV2']
+        if 'configFilePath' in kwargs:
+            config_file_path = kwargs['configFilePath']
+        if 'customOidcV2s' in kwargs:
+            custom_oidc_v2s = kwargs['customOidcV2s']
+        if 'defaultProvider' in kwargs:
+            default_provider = kwargs['defaultProvider']
+        if 'excludedPaths' in kwargs:
+            excluded_paths = kwargs['excludedPaths']
+        if 'facebookV2' in kwargs:
+            facebook_v2 = kwargs['facebookV2']
+        if 'forwardProxyConvention' in kwargs:
+            forward_proxy_convention = kwargs['forwardProxyConvention']
+        if 'forwardProxyCustomHostHeaderName' in kwargs:
+            forward_proxy_custom_host_header_name = kwargs['forwardProxyCustomHostHeaderName']
+        if 'forwardProxyCustomSchemeHeaderName' in kwargs:
+            forward_proxy_custom_scheme_header_name = kwargs['forwardProxyCustomSchemeHeaderName']
+        if 'githubV2' in kwargs:
+            github_v2 = kwargs['githubV2']
+        if 'googleV2' in kwargs:
+            google_v2 = kwargs['googleV2']
+        if 'httpRouteApiPrefix' in kwargs:
+            http_route_api_prefix = kwargs['httpRouteApiPrefix']
+        if 'microsoftV2' in kwargs:
+            microsoft_v2 = kwargs['microsoftV2']
+        if 'requireAuthentication' in kwargs:
+            require_authentication = kwargs['requireAuthentication']
+        if 'requireHttps' in kwargs:
+            require_https = kwargs['requireHttps']
+        if 'runtimeVersion' in kwargs:
+            runtime_version = kwargs['runtimeVersion']
+        if 'twitterV2' in kwargs:
+            twitter_v2 = kwargs['twitterV2']
+        if 'unauthenticatedAction' in kwargs:
+            unauthenticated_action = kwargs['unauthenticatedAction']
+
         _setter("login", login)
         if active_directory_v2 is not None:
             _setter("active_directory_v2", active_directory_v2)
@@ -8706,7 +9432,33 @@ class LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2(dict):
              jwt_allowed_groups: Optional[Sequence[str]] = None,
              login_parameters: Optional[Mapping[str, str]] = None,
              www_authentication_disabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'tenantAuthEndpoint' in kwargs:
+            tenant_auth_endpoint = kwargs['tenantAuthEndpoint']
+        if 'allowedApplications' in kwargs:
+            allowed_applications = kwargs['allowedApplications']
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'allowedGroups' in kwargs:
+            allowed_groups = kwargs['allowedGroups']
+        if 'allowedIdentities' in kwargs:
+            allowed_identities = kwargs['allowedIdentities']
+        if 'clientSecretCertificateThumbprint' in kwargs:
+            client_secret_certificate_thumbprint = kwargs['clientSecretCertificateThumbprint']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'jwtAllowedClientApplications' in kwargs:
+            jwt_allowed_client_applications = kwargs['jwtAllowedClientApplications']
+        if 'jwtAllowedGroups' in kwargs:
+            jwt_allowed_groups = kwargs['jwtAllowedGroups']
+        if 'loginParameters' in kwargs:
+            login_parameters = kwargs['loginParameters']
+        if 'wwwAuthenticationDisabled' in kwargs:
+            www_authentication_disabled = kwargs['wwwAuthenticationDisabled']
+
         _setter("client_id", client_id)
         _setter("tenant_auth_endpoint", tenant_auth_endpoint)
         if allowed_applications is not None:
@@ -8875,7 +9627,15 @@ class LinuxFunctionAppAuthSettingsV2AppleV2(dict):
              client_id: str,
              client_secret_setting_name: str,
              login_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret_setting_name", client_secret_setting_name)
         if login_scopes is not None:
@@ -8938,7 +9698,11 @@ class LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              client_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+
         _setter("client_id", client_id)
 
     @property
@@ -9038,7 +9802,27 @@ class LinuxFunctionAppAuthSettingsV2CustomOidcV2(dict):
              name_claim_type: Optional[str] = None,
              scopes: Optional[Sequence[str]] = None,
              token_endpoint: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'openidConfigurationEndpoint' in kwargs:
+            openid_configuration_endpoint = kwargs['openidConfigurationEndpoint']
+        if 'authorisationEndpoint' in kwargs:
+            authorisation_endpoint = kwargs['authorisationEndpoint']
+        if 'certificationUri' in kwargs:
+            certification_uri = kwargs['certificationUri']
+        if 'clientCredentialMethod' in kwargs:
+            client_credential_method = kwargs['clientCredentialMethod']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'issuerEndpoint' in kwargs:
+            issuer_endpoint = kwargs['issuerEndpoint']
+        if 'nameClaimType' in kwargs:
+            name_claim_type = kwargs['nameClaimType']
+        if 'tokenEndpoint' in kwargs:
+            token_endpoint = kwargs['tokenEndpoint']
+
         _setter("client_id", client_id)
         _setter("name", name)
         _setter("openid_configuration_endpoint", openid_configuration_endpoint)
@@ -9200,7 +9984,17 @@ class LinuxFunctionAppAuthSettingsV2FacebookV2(dict):
              app_secret_setting_name: str,
              graph_api_version: Optional[str] = None,
              login_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'appSecretSettingName' in kwargs:
+            app_secret_setting_name = kwargs['appSecretSettingName']
+        if 'graphApiVersion' in kwargs:
+            graph_api_version = kwargs['graphApiVersion']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("app_id", app_id)
         _setter("app_secret_setting_name", app_secret_setting_name)
         if graph_api_version is not None:
@@ -9287,7 +10081,15 @@ class LinuxFunctionAppAuthSettingsV2GithubV2(dict):
              client_id: str,
              client_secret_setting_name: str,
              login_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret_setting_name", client_secret_setting_name)
         if login_scopes is not None:
@@ -9370,7 +10172,17 @@ class LinuxFunctionAppAuthSettingsV2GoogleV2(dict):
              client_secret_setting_name: str,
              allowed_audiences: Optional[Sequence[str]] = None,
              login_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret_setting_name", client_secret_setting_name)
         if allowed_audiences is not None:
@@ -9507,7 +10319,31 @@ class LinuxFunctionAppAuthSettingsV2Login(dict):
              token_store_path: Optional[str] = None,
              token_store_sas_setting_name: Optional[str] = None,
              validate_nonce: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedExternalRedirectUrls' in kwargs:
+            allowed_external_redirect_urls = kwargs['allowedExternalRedirectUrls']
+        if 'cookieExpirationConvention' in kwargs:
+            cookie_expiration_convention = kwargs['cookieExpirationConvention']
+        if 'cookieExpirationTime' in kwargs:
+            cookie_expiration_time = kwargs['cookieExpirationTime']
+        if 'logoutEndpoint' in kwargs:
+            logout_endpoint = kwargs['logoutEndpoint']
+        if 'nonceExpirationTime' in kwargs:
+            nonce_expiration_time = kwargs['nonceExpirationTime']
+        if 'preserveUrlFragmentsForLogins' in kwargs:
+            preserve_url_fragments_for_logins = kwargs['preserveUrlFragmentsForLogins']
+        if 'tokenRefreshExtensionTime' in kwargs:
+            token_refresh_extension_time = kwargs['tokenRefreshExtensionTime']
+        if 'tokenStoreEnabled' in kwargs:
+            token_store_enabled = kwargs['tokenStoreEnabled']
+        if 'tokenStorePath' in kwargs:
+            token_store_path = kwargs['tokenStorePath']
+        if 'tokenStoreSasSettingName' in kwargs:
+            token_store_sas_setting_name = kwargs['tokenStoreSasSettingName']
+        if 'validateNonce' in kwargs:
+            validate_nonce = kwargs['validateNonce']
+
         if allowed_external_redirect_urls is not None:
             _setter("allowed_external_redirect_urls", allowed_external_redirect_urls)
         if cookie_expiration_convention is not None:
@@ -9674,7 +10510,17 @@ class LinuxFunctionAppAuthSettingsV2MicrosoftV2(dict):
              client_secret_setting_name: str,
              allowed_audiences: Optional[Sequence[str]] = None,
              login_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret_setting_name", client_secret_setting_name)
         if allowed_audiences is not None:
@@ -9757,7 +10603,13 @@ class LinuxFunctionAppAuthSettingsV2TwitterV2(dict):
              _setter: Callable[[Any, Any], None],
              consumer_key: str,
              consumer_secret_setting_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'consumerKey' in kwargs:
+            consumer_key = kwargs['consumerKey']
+        if 'consumerSecretSettingName' in kwargs:
+            consumer_secret_setting_name = kwargs['consumerSecretSettingName']
+
         _setter("consumer_key", consumer_key)
         _setter("consumer_secret_setting_name", consumer_secret_setting_name)
 
@@ -9824,7 +10676,11 @@ class LinuxFunctionAppBackup(dict):
              schedule: 'outputs.LinuxFunctionAppBackupSchedule',
              storage_account_url: str,
              enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageAccountUrl' in kwargs:
+            storage_account_url = kwargs['storageAccountUrl']
+
         _setter("name", name)
         _setter("schedule", schedule)
         _setter("storage_account_url", storage_account_url)
@@ -9927,7 +10783,21 @@ class LinuxFunctionAppBackupSchedule(dict):
              last_execution_time: Optional[str] = None,
              retention_period_days: Optional[int] = None,
              start_time: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'frequencyInterval' in kwargs:
+            frequency_interval = kwargs['frequencyInterval']
+        if 'frequencyUnit' in kwargs:
+            frequency_unit = kwargs['frequencyUnit']
+        if 'keepAtLeastOneBackup' in kwargs:
+            keep_at_least_one_backup = kwargs['keepAtLeastOneBackup']
+        if 'lastExecutionTime' in kwargs:
+            last_execution_time = kwargs['lastExecutionTime']
+        if 'retentionPeriodDays' in kwargs:
+            retention_period_days = kwargs['retentionPeriodDays']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         _setter("frequency_interval", frequency_interval)
         _setter("frequency_unit", frequency_unit)
         if keep_at_least_one_backup is not None:
@@ -10010,7 +10880,9 @@ class LinuxFunctionAppConnectionString(dict):
              name: str,
              type: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("type", type)
         _setter("value", value)
@@ -10090,7 +10962,15 @@ class LinuxFunctionAppIdentity(dict):
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -10377,7 +11257,79 @@ class LinuxFunctionAppSiteConfig(dict):
              vnet_route_all_enabled: Optional[bool] = None,
              websockets_enabled: Optional[bool] = None,
              worker_count: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alwaysOn' in kwargs:
+            always_on = kwargs['alwaysOn']
+        if 'apiDefinitionUrl' in kwargs:
+            api_definition_url = kwargs['apiDefinitionUrl']
+        if 'apiManagementApiId' in kwargs:
+            api_management_api_id = kwargs['apiManagementApiId']
+        if 'appCommandLine' in kwargs:
+            app_command_line = kwargs['appCommandLine']
+        if 'appScaleLimit' in kwargs:
+            app_scale_limit = kwargs['appScaleLimit']
+        if 'appServiceLogs' in kwargs:
+            app_service_logs = kwargs['appServiceLogs']
+        if 'applicationInsightsConnectionString' in kwargs:
+            application_insights_connection_string = kwargs['applicationInsightsConnectionString']
+        if 'applicationInsightsKey' in kwargs:
+            application_insights_key = kwargs['applicationInsightsKey']
+        if 'applicationStack' in kwargs:
+            application_stack = kwargs['applicationStack']
+        if 'containerRegistryManagedIdentityClientId' in kwargs:
+            container_registry_managed_identity_client_id = kwargs['containerRegistryManagedIdentityClientId']
+        if 'containerRegistryUseManagedIdentity' in kwargs:
+            container_registry_use_managed_identity = kwargs['containerRegistryUseManagedIdentity']
+        if 'defaultDocuments' in kwargs:
+            default_documents = kwargs['defaultDocuments']
+        if 'detailedErrorLoggingEnabled' in kwargs:
+            detailed_error_logging_enabled = kwargs['detailedErrorLoggingEnabled']
+        if 'elasticInstanceMinimum' in kwargs:
+            elastic_instance_minimum = kwargs['elasticInstanceMinimum']
+        if 'ftpsState' in kwargs:
+            ftps_state = kwargs['ftpsState']
+        if 'healthCheckEvictionTimeInMin' in kwargs:
+            health_check_eviction_time_in_min = kwargs['healthCheckEvictionTimeInMin']
+        if 'healthCheckPath' in kwargs:
+            health_check_path = kwargs['healthCheckPath']
+        if 'http2Enabled' in kwargs:
+            http2_enabled = kwargs['http2Enabled']
+        if 'ipRestrictions' in kwargs:
+            ip_restrictions = kwargs['ipRestrictions']
+        if 'linuxFxVersion' in kwargs:
+            linux_fx_version = kwargs['linuxFxVersion']
+        if 'loadBalancingMode' in kwargs:
+            load_balancing_mode = kwargs['loadBalancingMode']
+        if 'managedPipelineMode' in kwargs:
+            managed_pipeline_mode = kwargs['managedPipelineMode']
+        if 'minimumTlsVersion' in kwargs:
+            minimum_tls_version = kwargs['minimumTlsVersion']
+        if 'preWarmedInstanceCount' in kwargs:
+            pre_warmed_instance_count = kwargs['preWarmedInstanceCount']
+        if 'remoteDebuggingEnabled' in kwargs:
+            remote_debugging_enabled = kwargs['remoteDebuggingEnabled']
+        if 'remoteDebuggingVersion' in kwargs:
+            remote_debugging_version = kwargs['remoteDebuggingVersion']
+        if 'runtimeScaleMonitoringEnabled' in kwargs:
+            runtime_scale_monitoring_enabled = kwargs['runtimeScaleMonitoringEnabled']
+        if 'scmIpRestrictions' in kwargs:
+            scm_ip_restrictions = kwargs['scmIpRestrictions']
+        if 'scmMinimumTlsVersion' in kwargs:
+            scm_minimum_tls_version = kwargs['scmMinimumTlsVersion']
+        if 'scmType' in kwargs:
+            scm_type = kwargs['scmType']
+        if 'scmUseMainIpRestriction' in kwargs:
+            scm_use_main_ip_restriction = kwargs['scmUseMainIpRestriction']
+        if 'use32BitWorker' in kwargs:
+            use32_bit_worker = kwargs['use32BitWorker']
+        if 'vnetRouteAllEnabled' in kwargs:
+            vnet_route_all_enabled = kwargs['vnetRouteAllEnabled']
+        if 'websocketsEnabled' in kwargs:
+            websockets_enabled = kwargs['websocketsEnabled']
+        if 'workerCount' in kwargs:
+            worker_count = kwargs['workerCount']
+
         if always_on is not None:
             _setter("always_on", always_on)
         if api_definition_url is not None:
@@ -10777,7 +11729,13 @@ class LinuxFunctionAppSiteConfigAppServiceLogs(dict):
              _setter: Callable[[Any, Any], None],
              disk_quota_mb: Optional[int] = None,
              retention_period_days: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'diskQuotaMb' in kwargs:
+            disk_quota_mb = kwargs['diskQuotaMb']
+        if 'retentionPeriodDays' in kwargs:
+            retention_period_days = kwargs['retentionPeriodDays']
+
         if disk_quota_mb is not None:
             _setter("disk_quota_mb", disk_quota_mb)
         if retention_period_days is not None:
@@ -10874,7 +11832,23 @@ class LinuxFunctionAppSiteConfigApplicationStack(dict):
              python_version: Optional[str] = None,
              use_custom_runtime: Optional[bool] = None,
              use_dotnet_isolated_runtime: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dotnetVersion' in kwargs:
+            dotnet_version = kwargs['dotnetVersion']
+        if 'javaVersion' in kwargs:
+            java_version = kwargs['javaVersion']
+        if 'nodeVersion' in kwargs:
+            node_version = kwargs['nodeVersion']
+        if 'powershellCoreVersion' in kwargs:
+            powershell_core_version = kwargs['powershellCoreVersion']
+        if 'pythonVersion' in kwargs:
+            python_version = kwargs['pythonVersion']
+        if 'useCustomRuntime' in kwargs:
+            use_custom_runtime = kwargs['useCustomRuntime']
+        if 'useDotnetIsolatedRuntime' in kwargs:
+            use_dotnet_isolated_runtime = kwargs['useDotnetIsolatedRuntime']
+
         if dockers is not None:
             _setter("dockers", dockers)
         if dotnet_version is not None:
@@ -11017,7 +11991,19 @@ class LinuxFunctionAppSiteConfigApplicationStackDocker(dict):
              registry_url: str,
              registry_password: Optional[str] = None,
              registry_username: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'imageName' in kwargs:
+            image_name = kwargs['imageName']
+        if 'imageTag' in kwargs:
+            image_tag = kwargs['imageTag']
+        if 'registryUrl' in kwargs:
+            registry_url = kwargs['registryUrl']
+        if 'registryPassword' in kwargs:
+            registry_password = kwargs['registryPassword']
+        if 'registryUsername' in kwargs:
+            registry_username = kwargs['registryUsername']
+
         _setter("image_name", image_name)
         _setter("image_tag", image_tag)
         _setter("registry_url", registry_url)
@@ -11109,7 +12095,13 @@ class LinuxFunctionAppSiteConfigCors(dict):
              _setter: Callable[[Any, Any], None],
              allowed_origins: Optional[Sequence[str]] = None,
              support_credentials: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedOrigins' in kwargs:
+            allowed_origins = kwargs['allowedOrigins']
+        if 'supportCredentials' in kwargs:
+            support_credentials = kwargs['supportCredentials']
+
         if allowed_origins is not None:
             _setter("allowed_origins", allowed_origins)
         if support_credentials is not None:
@@ -11194,7 +12186,15 @@ class LinuxFunctionAppSiteConfigIpRestriction(dict):
              priority: Optional[int] = None,
              service_tag: Optional[str] = None,
              virtual_network_subnet_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'serviceTag' in kwargs:
+            service_tag = kwargs['serviceTag']
+        if 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+
         if action is not None:
             _setter("action", action)
         if headers is not None:
@@ -11319,7 +12319,17 @@ class LinuxFunctionAppSiteConfigIpRestrictionHeaders(dict):
              x_fd_health_probe: Optional[str] = None,
              x_forwarded_fors: Optional[Sequence[str]] = None,
              x_forwarded_hosts: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'xAzureFdids' in kwargs:
+            x_azure_fdids = kwargs['xAzureFdids']
+        if 'xFdHealthProbe' in kwargs:
+            x_fd_health_probe = kwargs['xFdHealthProbe']
+        if 'xForwardedFors' in kwargs:
+            x_forwarded_fors = kwargs['xForwardedFors']
+        if 'xForwardedHosts' in kwargs:
+            x_forwarded_hosts = kwargs['xForwardedHosts']
+
         if x_azure_fdids is not None:
             _setter("x_azure_fdids", x_azure_fdids)
         if x_fd_health_probe is not None:
@@ -11424,7 +12434,15 @@ class LinuxFunctionAppSiteConfigScmIpRestriction(dict):
              priority: Optional[int] = None,
              service_tag: Optional[str] = None,
              virtual_network_subnet_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'serviceTag' in kwargs:
+            service_tag = kwargs['serviceTag']
+        if 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+
         if action is not None:
             _setter("action", action)
         if headers is not None:
@@ -11549,7 +12567,17 @@ class LinuxFunctionAppSiteConfigScmIpRestrictionHeaders(dict):
              x_fd_health_probe: Optional[str] = None,
              x_forwarded_fors: Optional[Sequence[str]] = None,
              x_forwarded_hosts: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'xAzureFdids' in kwargs:
+            x_azure_fdids = kwargs['xAzureFdids']
+        if 'xFdHealthProbe' in kwargs:
+            x_fd_health_probe = kwargs['xFdHealthProbe']
+        if 'xForwardedFors' in kwargs:
+            x_forwarded_fors = kwargs['xForwardedFors']
+        if 'xForwardedHosts' in kwargs:
+            x_forwarded_hosts = kwargs['xForwardedHosts']
+
         if x_azure_fdids is not None:
             _setter("x_azure_fdids", x_azure_fdids)
         if x_fd_health_probe is not None:
@@ -11611,7 +12639,9 @@ class LinuxFunctionAppSiteCredential(dict):
              _setter: Callable[[Any, Any], None],
              name: Optional[str] = None,
              password: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if password is not None:
@@ -11740,7 +12770,25 @@ class LinuxFunctionAppSlotAuthSettings(dict):
              token_store_enabled: Optional[bool] = None,
              twitter: Optional['outputs.LinuxFunctionAppSlotAuthSettingsTwitter'] = None,
              unauthenticated_client_action: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activeDirectory' in kwargs:
+            active_directory = kwargs['activeDirectory']
+        if 'additionalLoginParameters' in kwargs:
+            additional_login_parameters = kwargs['additionalLoginParameters']
+        if 'allowedExternalRedirectUrls' in kwargs:
+            allowed_external_redirect_urls = kwargs['allowedExternalRedirectUrls']
+        if 'defaultProvider' in kwargs:
+            default_provider = kwargs['defaultProvider']
+        if 'runtimeVersion' in kwargs:
+            runtime_version = kwargs['runtimeVersion']
+        if 'tokenRefreshExtensionHours' in kwargs:
+            token_refresh_extension_hours = kwargs['tokenRefreshExtensionHours']
+        if 'tokenStoreEnabled' in kwargs:
+            token_store_enabled = kwargs['tokenStoreEnabled']
+        if 'unauthenticatedClientAction' in kwargs:
+            unauthenticated_client_action = kwargs['unauthenticatedClientAction']
+
         _setter("enabled", enabled)
         if active_directory is not None:
             _setter("active_directory", active_directory)
@@ -11948,7 +12996,17 @@ class LinuxFunctionAppSlotAuthSettingsActiveDirectory(dict):
              allowed_audiences: Optional[Sequence[str]] = None,
              client_secret: Optional[str] = None,
              client_secret_setting_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+
         _setter("client_id", client_id)
         if allowed_audiences is not None:
             _setter("allowed_audiences", allowed_audiences)
@@ -12042,7 +13100,17 @@ class LinuxFunctionAppSlotAuthSettingsFacebook(dict):
              app_secret: Optional[str] = None,
              app_secret_setting_name: Optional[str] = None,
              oauth_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'appSecret' in kwargs:
+            app_secret = kwargs['appSecret']
+        if 'appSecretSettingName' in kwargs:
+            app_secret_setting_name = kwargs['appSecretSettingName']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("app_id", app_id)
         if app_secret is not None:
             _setter("app_secret", app_secret)
@@ -12134,7 +13202,17 @@ class LinuxFunctionAppSlotAuthSettingsGithub(dict):
              client_secret: Optional[str] = None,
              client_secret_setting_name: Optional[str] = None,
              oauth_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("client_id", client_id)
         if client_secret is not None:
             _setter("client_secret", client_secret)
@@ -12226,7 +13304,17 @@ class LinuxFunctionAppSlotAuthSettingsGoogle(dict):
              client_secret: Optional[str] = None,
              client_secret_setting_name: Optional[str] = None,
              oauth_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("client_id", client_id)
         if client_secret is not None:
             _setter("client_secret", client_secret)
@@ -12318,7 +13406,17 @@ class LinuxFunctionAppSlotAuthSettingsMicrosoft(dict):
              client_secret: Optional[str] = None,
              client_secret_setting_name: Optional[str] = None,
              oauth_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("client_id", client_id)
         if client_secret is not None:
             _setter("client_secret", client_secret)
@@ -12404,7 +13502,15 @@ class LinuxFunctionAppSlotAuthSettingsTwitter(dict):
              consumer_key: str,
              consumer_secret: Optional[str] = None,
              consumer_secret_setting_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'consumerKey' in kwargs:
+            consumer_key = kwargs['consumerKey']
+        if 'consumerSecret' in kwargs:
+            consumer_secret = kwargs['consumerSecret']
+        if 'consumerSecretSettingName' in kwargs:
+            consumer_secret_setting_name = kwargs['consumerSecretSettingName']
+
         _setter("consumer_key", consumer_key)
         if consumer_secret is not None:
             _setter("consumer_secret", consumer_secret)
@@ -12598,7 +13704,51 @@ class LinuxFunctionAppSlotAuthSettingsV2(dict):
              runtime_version: Optional[str] = None,
              twitter_v2: Optional['outputs.LinuxFunctionAppSlotAuthSettingsV2TwitterV2'] = None,
              unauthenticated_action: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activeDirectoryV2' in kwargs:
+            active_directory_v2 = kwargs['activeDirectoryV2']
+        if 'appleV2' in kwargs:
+            apple_v2 = kwargs['appleV2']
+        if 'authEnabled' in kwargs:
+            auth_enabled = kwargs['authEnabled']
+        if 'azureStaticWebAppV2' in kwargs:
+            azure_static_web_app_v2 = kwargs['azureStaticWebAppV2']
+        if 'configFilePath' in kwargs:
+            config_file_path = kwargs['configFilePath']
+        if 'customOidcV2s' in kwargs:
+            custom_oidc_v2s = kwargs['customOidcV2s']
+        if 'defaultProvider' in kwargs:
+            default_provider = kwargs['defaultProvider']
+        if 'excludedPaths' in kwargs:
+            excluded_paths = kwargs['excludedPaths']
+        if 'facebookV2' in kwargs:
+            facebook_v2 = kwargs['facebookV2']
+        if 'forwardProxyConvention' in kwargs:
+            forward_proxy_convention = kwargs['forwardProxyConvention']
+        if 'forwardProxyCustomHostHeaderName' in kwargs:
+            forward_proxy_custom_host_header_name = kwargs['forwardProxyCustomHostHeaderName']
+        if 'forwardProxyCustomSchemeHeaderName' in kwargs:
+            forward_proxy_custom_scheme_header_name = kwargs['forwardProxyCustomSchemeHeaderName']
+        if 'githubV2' in kwargs:
+            github_v2 = kwargs['githubV2']
+        if 'googleV2' in kwargs:
+            google_v2 = kwargs['googleV2']
+        if 'httpRouteApiPrefix' in kwargs:
+            http_route_api_prefix = kwargs['httpRouteApiPrefix']
+        if 'microsoftV2' in kwargs:
+            microsoft_v2 = kwargs['microsoftV2']
+        if 'requireAuthentication' in kwargs:
+            require_authentication = kwargs['requireAuthentication']
+        if 'requireHttps' in kwargs:
+            require_https = kwargs['requireHttps']
+        if 'runtimeVersion' in kwargs:
+            runtime_version = kwargs['runtimeVersion']
+        if 'twitterV2' in kwargs:
+            twitter_v2 = kwargs['twitterV2']
+        if 'unauthenticatedAction' in kwargs:
+            unauthenticated_action = kwargs['unauthenticatedAction']
+
         _setter("login", login)
         if active_directory_v2 is not None:
             _setter("active_directory_v2", active_directory_v2)
@@ -12928,7 +14078,33 @@ class LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
              jwt_allowed_groups: Optional[Sequence[str]] = None,
              login_parameters: Optional[Mapping[str, str]] = None,
              www_authentication_disabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'tenantAuthEndpoint' in kwargs:
+            tenant_auth_endpoint = kwargs['tenantAuthEndpoint']
+        if 'allowedApplications' in kwargs:
+            allowed_applications = kwargs['allowedApplications']
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'allowedGroups' in kwargs:
+            allowed_groups = kwargs['allowedGroups']
+        if 'allowedIdentities' in kwargs:
+            allowed_identities = kwargs['allowedIdentities']
+        if 'clientSecretCertificateThumbprint' in kwargs:
+            client_secret_certificate_thumbprint = kwargs['clientSecretCertificateThumbprint']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'jwtAllowedClientApplications' in kwargs:
+            jwt_allowed_client_applications = kwargs['jwtAllowedClientApplications']
+        if 'jwtAllowedGroups' in kwargs:
+            jwt_allowed_groups = kwargs['jwtAllowedGroups']
+        if 'loginParameters' in kwargs:
+            login_parameters = kwargs['loginParameters']
+        if 'wwwAuthenticationDisabled' in kwargs:
+            www_authentication_disabled = kwargs['wwwAuthenticationDisabled']
+
         _setter("client_id", client_id)
         _setter("tenant_auth_endpoint", tenant_auth_endpoint)
         if allowed_applications is not None:
@@ -13097,7 +14273,15 @@ class LinuxFunctionAppSlotAuthSettingsV2AppleV2(dict):
              client_id: str,
              client_secret_setting_name: str,
              login_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret_setting_name", client_secret_setting_name)
         if login_scopes is not None:
@@ -13160,7 +14344,11 @@ class LinuxFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              client_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+
         _setter("client_id", client_id)
 
     @property
@@ -13260,7 +14448,27 @@ class LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2(dict):
              name_claim_type: Optional[str] = None,
              scopes: Optional[Sequence[str]] = None,
              token_endpoint: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'openidConfigurationEndpoint' in kwargs:
+            openid_configuration_endpoint = kwargs['openidConfigurationEndpoint']
+        if 'authorisationEndpoint' in kwargs:
+            authorisation_endpoint = kwargs['authorisationEndpoint']
+        if 'certificationUri' in kwargs:
+            certification_uri = kwargs['certificationUri']
+        if 'clientCredentialMethod' in kwargs:
+            client_credential_method = kwargs['clientCredentialMethod']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'issuerEndpoint' in kwargs:
+            issuer_endpoint = kwargs['issuerEndpoint']
+        if 'nameClaimType' in kwargs:
+            name_claim_type = kwargs['nameClaimType']
+        if 'tokenEndpoint' in kwargs:
+            token_endpoint = kwargs['tokenEndpoint']
+
         _setter("client_id", client_id)
         _setter("name", name)
         _setter("openid_configuration_endpoint", openid_configuration_endpoint)
@@ -13422,7 +14630,17 @@ class LinuxFunctionAppSlotAuthSettingsV2FacebookV2(dict):
              app_secret_setting_name: str,
              graph_api_version: Optional[str] = None,
              login_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'appSecretSettingName' in kwargs:
+            app_secret_setting_name = kwargs['appSecretSettingName']
+        if 'graphApiVersion' in kwargs:
+            graph_api_version = kwargs['graphApiVersion']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("app_id", app_id)
         _setter("app_secret_setting_name", app_secret_setting_name)
         if graph_api_version is not None:
@@ -13509,7 +14727,15 @@ class LinuxFunctionAppSlotAuthSettingsV2GithubV2(dict):
              client_id: str,
              client_secret_setting_name: str,
              login_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret_setting_name", client_secret_setting_name)
         if login_scopes is not None:
@@ -13592,7 +14818,17 @@ class LinuxFunctionAppSlotAuthSettingsV2GoogleV2(dict):
              client_secret_setting_name: str,
              allowed_audiences: Optional[Sequence[str]] = None,
              login_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret_setting_name", client_secret_setting_name)
         if allowed_audiences is not None:
@@ -13729,7 +14965,31 @@ class LinuxFunctionAppSlotAuthSettingsV2Login(dict):
              token_store_path: Optional[str] = None,
              token_store_sas_setting_name: Optional[str] = None,
              validate_nonce: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedExternalRedirectUrls' in kwargs:
+            allowed_external_redirect_urls = kwargs['allowedExternalRedirectUrls']
+        if 'cookieExpirationConvention' in kwargs:
+            cookie_expiration_convention = kwargs['cookieExpirationConvention']
+        if 'cookieExpirationTime' in kwargs:
+            cookie_expiration_time = kwargs['cookieExpirationTime']
+        if 'logoutEndpoint' in kwargs:
+            logout_endpoint = kwargs['logoutEndpoint']
+        if 'nonceExpirationTime' in kwargs:
+            nonce_expiration_time = kwargs['nonceExpirationTime']
+        if 'preserveUrlFragmentsForLogins' in kwargs:
+            preserve_url_fragments_for_logins = kwargs['preserveUrlFragmentsForLogins']
+        if 'tokenRefreshExtensionTime' in kwargs:
+            token_refresh_extension_time = kwargs['tokenRefreshExtensionTime']
+        if 'tokenStoreEnabled' in kwargs:
+            token_store_enabled = kwargs['tokenStoreEnabled']
+        if 'tokenStorePath' in kwargs:
+            token_store_path = kwargs['tokenStorePath']
+        if 'tokenStoreSasSettingName' in kwargs:
+            token_store_sas_setting_name = kwargs['tokenStoreSasSettingName']
+        if 'validateNonce' in kwargs:
+            validate_nonce = kwargs['validateNonce']
+
         if allowed_external_redirect_urls is not None:
             _setter("allowed_external_redirect_urls", allowed_external_redirect_urls)
         if cookie_expiration_convention is not None:
@@ -13896,7 +15156,17 @@ class LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2(dict):
              client_secret_setting_name: str,
              allowed_audiences: Optional[Sequence[str]] = None,
              login_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret_setting_name", client_secret_setting_name)
         if allowed_audiences is not None:
@@ -13979,7 +15249,13 @@ class LinuxFunctionAppSlotAuthSettingsV2TwitterV2(dict):
              _setter: Callable[[Any, Any], None],
              consumer_key: str,
              consumer_secret_setting_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'consumerKey' in kwargs:
+            consumer_key = kwargs['consumerKey']
+        if 'consumerSecretSettingName' in kwargs:
+            consumer_secret_setting_name = kwargs['consumerSecretSettingName']
+
         _setter("consumer_key", consumer_key)
         _setter("consumer_secret_setting_name", consumer_secret_setting_name)
 
@@ -14046,7 +15322,11 @@ class LinuxFunctionAppSlotBackup(dict):
              schedule: 'outputs.LinuxFunctionAppSlotBackupSchedule',
              storage_account_url: str,
              enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageAccountUrl' in kwargs:
+            storage_account_url = kwargs['storageAccountUrl']
+
         _setter("name", name)
         _setter("schedule", schedule)
         _setter("storage_account_url", storage_account_url)
@@ -14150,7 +15430,21 @@ class LinuxFunctionAppSlotBackupSchedule(dict):
              last_execution_time: Optional[str] = None,
              retention_period_days: Optional[int] = None,
              start_time: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'frequencyInterval' in kwargs:
+            frequency_interval = kwargs['frequencyInterval']
+        if 'frequencyUnit' in kwargs:
+            frequency_unit = kwargs['frequencyUnit']
+        if 'keepAtLeastOneBackup' in kwargs:
+            keep_at_least_one_backup = kwargs['keepAtLeastOneBackup']
+        if 'lastExecutionTime' in kwargs:
+            last_execution_time = kwargs['lastExecutionTime']
+        if 'retentionPeriodDays' in kwargs:
+            retention_period_days = kwargs['retentionPeriodDays']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         _setter("frequency_interval", frequency_interval)
         _setter("frequency_unit", frequency_unit)
         if keep_at_least_one_backup is not None:
@@ -14236,7 +15530,9 @@ class LinuxFunctionAppSlotConnectionString(dict):
              name: str,
              type: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("type", type)
         _setter("value", value)
@@ -14316,7 +15612,15 @@ class LinuxFunctionAppSlotIdentity(dict):
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -14608,7 +15912,81 @@ class LinuxFunctionAppSlotSiteConfig(dict):
              vnet_route_all_enabled: Optional[bool] = None,
              websockets_enabled: Optional[bool] = None,
              worker_count: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alwaysOn' in kwargs:
+            always_on = kwargs['alwaysOn']
+        if 'apiDefinitionUrl' in kwargs:
+            api_definition_url = kwargs['apiDefinitionUrl']
+        if 'apiManagementApiId' in kwargs:
+            api_management_api_id = kwargs['apiManagementApiId']
+        if 'appCommandLine' in kwargs:
+            app_command_line = kwargs['appCommandLine']
+        if 'appScaleLimit' in kwargs:
+            app_scale_limit = kwargs['appScaleLimit']
+        if 'appServiceLogs' in kwargs:
+            app_service_logs = kwargs['appServiceLogs']
+        if 'applicationInsightsConnectionString' in kwargs:
+            application_insights_connection_string = kwargs['applicationInsightsConnectionString']
+        if 'applicationInsightsKey' in kwargs:
+            application_insights_key = kwargs['applicationInsightsKey']
+        if 'applicationStack' in kwargs:
+            application_stack = kwargs['applicationStack']
+        if 'autoSwapSlotName' in kwargs:
+            auto_swap_slot_name = kwargs['autoSwapSlotName']
+        if 'containerRegistryManagedIdentityClientId' in kwargs:
+            container_registry_managed_identity_client_id = kwargs['containerRegistryManagedIdentityClientId']
+        if 'containerRegistryUseManagedIdentity' in kwargs:
+            container_registry_use_managed_identity = kwargs['containerRegistryUseManagedIdentity']
+        if 'defaultDocuments' in kwargs:
+            default_documents = kwargs['defaultDocuments']
+        if 'detailedErrorLoggingEnabled' in kwargs:
+            detailed_error_logging_enabled = kwargs['detailedErrorLoggingEnabled']
+        if 'elasticInstanceMinimum' in kwargs:
+            elastic_instance_minimum = kwargs['elasticInstanceMinimum']
+        if 'ftpsState' in kwargs:
+            ftps_state = kwargs['ftpsState']
+        if 'healthCheckEvictionTimeInMin' in kwargs:
+            health_check_eviction_time_in_min = kwargs['healthCheckEvictionTimeInMin']
+        if 'healthCheckPath' in kwargs:
+            health_check_path = kwargs['healthCheckPath']
+        if 'http2Enabled' in kwargs:
+            http2_enabled = kwargs['http2Enabled']
+        if 'ipRestrictions' in kwargs:
+            ip_restrictions = kwargs['ipRestrictions']
+        if 'linuxFxVersion' in kwargs:
+            linux_fx_version = kwargs['linuxFxVersion']
+        if 'loadBalancingMode' in kwargs:
+            load_balancing_mode = kwargs['loadBalancingMode']
+        if 'managedPipelineMode' in kwargs:
+            managed_pipeline_mode = kwargs['managedPipelineMode']
+        if 'minimumTlsVersion' in kwargs:
+            minimum_tls_version = kwargs['minimumTlsVersion']
+        if 'preWarmedInstanceCount' in kwargs:
+            pre_warmed_instance_count = kwargs['preWarmedInstanceCount']
+        if 'remoteDebuggingEnabled' in kwargs:
+            remote_debugging_enabled = kwargs['remoteDebuggingEnabled']
+        if 'remoteDebuggingVersion' in kwargs:
+            remote_debugging_version = kwargs['remoteDebuggingVersion']
+        if 'runtimeScaleMonitoringEnabled' in kwargs:
+            runtime_scale_monitoring_enabled = kwargs['runtimeScaleMonitoringEnabled']
+        if 'scmIpRestrictions' in kwargs:
+            scm_ip_restrictions = kwargs['scmIpRestrictions']
+        if 'scmMinimumTlsVersion' in kwargs:
+            scm_minimum_tls_version = kwargs['scmMinimumTlsVersion']
+        if 'scmType' in kwargs:
+            scm_type = kwargs['scmType']
+        if 'scmUseMainIpRestriction' in kwargs:
+            scm_use_main_ip_restriction = kwargs['scmUseMainIpRestriction']
+        if 'use32BitWorker' in kwargs:
+            use32_bit_worker = kwargs['use32BitWorker']
+        if 'vnetRouteAllEnabled' in kwargs:
+            vnet_route_all_enabled = kwargs['vnetRouteAllEnabled']
+        if 'websocketsEnabled' in kwargs:
+            websockets_enabled = kwargs['websocketsEnabled']
+        if 'workerCount' in kwargs:
+            worker_count = kwargs['workerCount']
+
         if always_on is not None:
             _setter("always_on", always_on)
         if api_definition_url is not None:
@@ -15023,7 +16401,13 @@ class LinuxFunctionAppSlotSiteConfigAppServiceLogs(dict):
              _setter: Callable[[Any, Any], None],
              disk_quota_mb: Optional[int] = None,
              retention_period_days: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'diskQuotaMb' in kwargs:
+            disk_quota_mb = kwargs['diskQuotaMb']
+        if 'retentionPeriodDays' in kwargs:
+            retention_period_days = kwargs['retentionPeriodDays']
+
         if disk_quota_mb is not None:
             _setter("disk_quota_mb", disk_quota_mb)
         if retention_period_days is not None:
@@ -15120,7 +16504,23 @@ class LinuxFunctionAppSlotSiteConfigApplicationStack(dict):
              python_version: Optional[str] = None,
              use_custom_runtime: Optional[bool] = None,
              use_dotnet_isolated_runtime: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dotnetVersion' in kwargs:
+            dotnet_version = kwargs['dotnetVersion']
+        if 'javaVersion' in kwargs:
+            java_version = kwargs['javaVersion']
+        if 'nodeVersion' in kwargs:
+            node_version = kwargs['nodeVersion']
+        if 'powershellCoreVersion' in kwargs:
+            powershell_core_version = kwargs['powershellCoreVersion']
+        if 'pythonVersion' in kwargs:
+            python_version = kwargs['pythonVersion']
+        if 'useCustomRuntime' in kwargs:
+            use_custom_runtime = kwargs['useCustomRuntime']
+        if 'useDotnetIsolatedRuntime' in kwargs:
+            use_dotnet_isolated_runtime = kwargs['useDotnetIsolatedRuntime']
+
         if dockers is not None:
             _setter("dockers", dockers)
         if dotnet_version is not None:
@@ -15263,7 +16663,19 @@ class LinuxFunctionAppSlotSiteConfigApplicationStackDocker(dict):
              registry_url: str,
              registry_password: Optional[str] = None,
              registry_username: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'imageName' in kwargs:
+            image_name = kwargs['imageName']
+        if 'imageTag' in kwargs:
+            image_tag = kwargs['imageTag']
+        if 'registryUrl' in kwargs:
+            registry_url = kwargs['registryUrl']
+        if 'registryPassword' in kwargs:
+            registry_password = kwargs['registryPassword']
+        if 'registryUsername' in kwargs:
+            registry_username = kwargs['registryUsername']
+
         _setter("image_name", image_name)
         _setter("image_tag", image_tag)
         _setter("registry_url", registry_url)
@@ -15355,7 +16767,13 @@ class LinuxFunctionAppSlotSiteConfigCors(dict):
              _setter: Callable[[Any, Any], None],
              allowed_origins: Optional[Sequence[str]] = None,
              support_credentials: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedOrigins' in kwargs:
+            allowed_origins = kwargs['allowedOrigins']
+        if 'supportCredentials' in kwargs:
+            support_credentials = kwargs['supportCredentials']
+
         if allowed_origins is not None:
             _setter("allowed_origins", allowed_origins)
         if support_credentials is not None:
@@ -15440,7 +16858,15 @@ class LinuxFunctionAppSlotSiteConfigIpRestriction(dict):
              priority: Optional[int] = None,
              service_tag: Optional[str] = None,
              virtual_network_subnet_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'serviceTag' in kwargs:
+            service_tag = kwargs['serviceTag']
+        if 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+
         if action is not None:
             _setter("action", action)
         if headers is not None:
@@ -15565,7 +16991,17 @@ class LinuxFunctionAppSlotSiteConfigIpRestrictionHeaders(dict):
              x_fd_health_probe: Optional[str] = None,
              x_forwarded_fors: Optional[Sequence[str]] = None,
              x_forwarded_hosts: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'xAzureFdids' in kwargs:
+            x_azure_fdids = kwargs['xAzureFdids']
+        if 'xFdHealthProbe' in kwargs:
+            x_fd_health_probe = kwargs['xFdHealthProbe']
+        if 'xForwardedFors' in kwargs:
+            x_forwarded_fors = kwargs['xForwardedFors']
+        if 'xForwardedHosts' in kwargs:
+            x_forwarded_hosts = kwargs['xForwardedHosts']
+
         if x_azure_fdids is not None:
             _setter("x_azure_fdids", x_azure_fdids)
         if x_fd_health_probe is not None:
@@ -15670,7 +17106,15 @@ class LinuxFunctionAppSlotSiteConfigScmIpRestriction(dict):
              priority: Optional[int] = None,
              service_tag: Optional[str] = None,
              virtual_network_subnet_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'serviceTag' in kwargs:
+            service_tag = kwargs['serviceTag']
+        if 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+
         if action is not None:
             _setter("action", action)
         if headers is not None:
@@ -15795,7 +17239,17 @@ class LinuxFunctionAppSlotSiteConfigScmIpRestrictionHeaders(dict):
              x_fd_health_probe: Optional[str] = None,
              x_forwarded_fors: Optional[Sequence[str]] = None,
              x_forwarded_hosts: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'xAzureFdids' in kwargs:
+            x_azure_fdids = kwargs['xAzureFdids']
+        if 'xFdHealthProbe' in kwargs:
+            x_fd_health_probe = kwargs['xFdHealthProbe']
+        if 'xForwardedFors' in kwargs:
+            x_forwarded_fors = kwargs['xForwardedFors']
+        if 'xForwardedHosts' in kwargs:
+            x_forwarded_hosts = kwargs['xForwardedHosts']
+
         if x_azure_fdids is not None:
             _setter("x_azure_fdids", x_azure_fdids)
         if x_fd_health_probe is not None:
@@ -15857,7 +17311,9 @@ class LinuxFunctionAppSlotSiteCredential(dict):
              _setter: Callable[[Any, Any], None],
              name: Optional[str] = None,
              password: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if password is not None:
@@ -15938,7 +17394,17 @@ class LinuxFunctionAppSlotStorageAccount(dict):
              share_name: str,
              type: str,
              mount_path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessKey' in kwargs:
+            access_key = kwargs['accessKey']
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'shareName' in kwargs:
+            share_name = kwargs['shareName']
+        if 'mountPath' in kwargs:
+            mount_path = kwargs['mountPath']
+
         _setter("access_key", access_key)
         _setter("account_name", account_name)
         _setter("name", name)
@@ -16034,7 +17500,13 @@ class LinuxFunctionAppStickySettings(dict):
              _setter: Callable[[Any, Any], None],
              app_setting_names: Optional[Sequence[str]] = None,
              connection_string_names: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appSettingNames' in kwargs:
+            app_setting_names = kwargs['appSettingNames']
+        if 'connectionStringNames' in kwargs:
+            connection_string_names = kwargs['connectionStringNames']
+
         if app_setting_names is not None:
             _setter("app_setting_names", app_setting_names)
         if connection_string_names is not None:
@@ -16115,7 +17587,17 @@ class LinuxFunctionAppStorageAccount(dict):
              share_name: str,
              type: str,
              mount_path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessKey' in kwargs:
+            access_key = kwargs['accessKey']
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'shareName' in kwargs:
+            share_name = kwargs['shareName']
+        if 'mountPath' in kwargs:
+            mount_path = kwargs['mountPath']
+
         _setter("access_key", access_key)
         _setter("account_name", account_name)
         _setter("name", name)
@@ -16279,7 +17761,25 @@ class LinuxWebAppAuthSettings(dict):
              token_store_enabled: Optional[bool] = None,
              twitter: Optional['outputs.LinuxWebAppAuthSettingsTwitter'] = None,
              unauthenticated_client_action: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activeDirectory' in kwargs:
+            active_directory = kwargs['activeDirectory']
+        if 'additionalLoginParameters' in kwargs:
+            additional_login_parameters = kwargs['additionalLoginParameters']
+        if 'allowedExternalRedirectUrls' in kwargs:
+            allowed_external_redirect_urls = kwargs['allowedExternalRedirectUrls']
+        if 'defaultProvider' in kwargs:
+            default_provider = kwargs['defaultProvider']
+        if 'runtimeVersion' in kwargs:
+            runtime_version = kwargs['runtimeVersion']
+        if 'tokenRefreshExtensionHours' in kwargs:
+            token_refresh_extension_hours = kwargs['tokenRefreshExtensionHours']
+        if 'tokenStoreEnabled' in kwargs:
+            token_store_enabled = kwargs['tokenStoreEnabled']
+        if 'unauthenticatedClientAction' in kwargs:
+            unauthenticated_client_action = kwargs['unauthenticatedClientAction']
+
         _setter("enabled", enabled)
         if active_directory is not None:
             _setter("active_directory", active_directory)
@@ -16487,7 +17987,17 @@ class LinuxWebAppAuthSettingsActiveDirectory(dict):
              allowed_audiences: Optional[Sequence[str]] = None,
              client_secret: Optional[str] = None,
              client_secret_setting_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+
         _setter("client_id", client_id)
         if allowed_audiences is not None:
             _setter("allowed_audiences", allowed_audiences)
@@ -16581,7 +18091,17 @@ class LinuxWebAppAuthSettingsFacebook(dict):
              app_secret: Optional[str] = None,
              app_secret_setting_name: Optional[str] = None,
              oauth_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'appSecret' in kwargs:
+            app_secret = kwargs['appSecret']
+        if 'appSecretSettingName' in kwargs:
+            app_secret_setting_name = kwargs['appSecretSettingName']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("app_id", app_id)
         if app_secret is not None:
             _setter("app_secret", app_secret)
@@ -16673,7 +18193,17 @@ class LinuxWebAppAuthSettingsGithub(dict):
              client_secret: Optional[str] = None,
              client_secret_setting_name: Optional[str] = None,
              oauth_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("client_id", client_id)
         if client_secret is not None:
             _setter("client_secret", client_secret)
@@ -16765,7 +18295,17 @@ class LinuxWebAppAuthSettingsGoogle(dict):
              client_secret: Optional[str] = None,
              client_secret_setting_name: Optional[str] = None,
              oauth_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("client_id", client_id)
         if client_secret is not None:
             _setter("client_secret", client_secret)
@@ -16857,7 +18397,17 @@ class LinuxWebAppAuthSettingsMicrosoft(dict):
              client_secret: Optional[str] = None,
              client_secret_setting_name: Optional[str] = None,
              oauth_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("client_id", client_id)
         if client_secret is not None:
             _setter("client_secret", client_secret)
@@ -16943,7 +18493,15 @@ class LinuxWebAppAuthSettingsTwitter(dict):
              consumer_key: str,
              consumer_secret: Optional[str] = None,
              consumer_secret_setting_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'consumerKey' in kwargs:
+            consumer_key = kwargs['consumerKey']
+        if 'consumerSecret' in kwargs:
+            consumer_secret = kwargs['consumerSecret']
+        if 'consumerSecretSettingName' in kwargs:
+            consumer_secret_setting_name = kwargs['consumerSecretSettingName']
+
         _setter("consumer_key", consumer_key)
         if consumer_secret is not None:
             _setter("consumer_secret", consumer_secret)
@@ -17137,7 +18695,51 @@ class LinuxWebAppAuthSettingsV2(dict):
              runtime_version: Optional[str] = None,
              twitter_v2: Optional['outputs.LinuxWebAppAuthSettingsV2TwitterV2'] = None,
              unauthenticated_action: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activeDirectoryV2' in kwargs:
+            active_directory_v2 = kwargs['activeDirectoryV2']
+        if 'appleV2' in kwargs:
+            apple_v2 = kwargs['appleV2']
+        if 'authEnabled' in kwargs:
+            auth_enabled = kwargs['authEnabled']
+        if 'azureStaticWebAppV2' in kwargs:
+            azure_static_web_app_v2 = kwargs['azureStaticWebAppV2']
+        if 'configFilePath' in kwargs:
+            config_file_path = kwargs['configFilePath']
+        if 'customOidcV2s' in kwargs:
+            custom_oidc_v2s = kwargs['customOidcV2s']
+        if 'defaultProvider' in kwargs:
+            default_provider = kwargs['defaultProvider']
+        if 'excludedPaths' in kwargs:
+            excluded_paths = kwargs['excludedPaths']
+        if 'facebookV2' in kwargs:
+            facebook_v2 = kwargs['facebookV2']
+        if 'forwardProxyConvention' in kwargs:
+            forward_proxy_convention = kwargs['forwardProxyConvention']
+        if 'forwardProxyCustomHostHeaderName' in kwargs:
+            forward_proxy_custom_host_header_name = kwargs['forwardProxyCustomHostHeaderName']
+        if 'forwardProxyCustomSchemeHeaderName' in kwargs:
+            forward_proxy_custom_scheme_header_name = kwargs['forwardProxyCustomSchemeHeaderName']
+        if 'githubV2' in kwargs:
+            github_v2 = kwargs['githubV2']
+        if 'googleV2' in kwargs:
+            google_v2 = kwargs['googleV2']
+        if 'httpRouteApiPrefix' in kwargs:
+            http_route_api_prefix = kwargs['httpRouteApiPrefix']
+        if 'microsoftV2' in kwargs:
+            microsoft_v2 = kwargs['microsoftV2']
+        if 'requireAuthentication' in kwargs:
+            require_authentication = kwargs['requireAuthentication']
+        if 'requireHttps' in kwargs:
+            require_https = kwargs['requireHttps']
+        if 'runtimeVersion' in kwargs:
+            runtime_version = kwargs['runtimeVersion']
+        if 'twitterV2' in kwargs:
+            twitter_v2 = kwargs['twitterV2']
+        if 'unauthenticatedAction' in kwargs:
+            unauthenticated_action = kwargs['unauthenticatedAction']
+
         _setter("login", login)
         if active_directory_v2 is not None:
             _setter("active_directory_v2", active_directory_v2)
@@ -17467,7 +19069,33 @@ class LinuxWebAppAuthSettingsV2ActiveDirectoryV2(dict):
              jwt_allowed_groups: Optional[Sequence[str]] = None,
              login_parameters: Optional[Mapping[str, str]] = None,
              www_authentication_disabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'tenantAuthEndpoint' in kwargs:
+            tenant_auth_endpoint = kwargs['tenantAuthEndpoint']
+        if 'allowedApplications' in kwargs:
+            allowed_applications = kwargs['allowedApplications']
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'allowedGroups' in kwargs:
+            allowed_groups = kwargs['allowedGroups']
+        if 'allowedIdentities' in kwargs:
+            allowed_identities = kwargs['allowedIdentities']
+        if 'clientSecretCertificateThumbprint' in kwargs:
+            client_secret_certificate_thumbprint = kwargs['clientSecretCertificateThumbprint']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'jwtAllowedClientApplications' in kwargs:
+            jwt_allowed_client_applications = kwargs['jwtAllowedClientApplications']
+        if 'jwtAllowedGroups' in kwargs:
+            jwt_allowed_groups = kwargs['jwtAllowedGroups']
+        if 'loginParameters' in kwargs:
+            login_parameters = kwargs['loginParameters']
+        if 'wwwAuthenticationDisabled' in kwargs:
+            www_authentication_disabled = kwargs['wwwAuthenticationDisabled']
+
         _setter("client_id", client_id)
         _setter("tenant_auth_endpoint", tenant_auth_endpoint)
         if allowed_applications is not None:
@@ -17636,7 +19264,15 @@ class LinuxWebAppAuthSettingsV2AppleV2(dict):
              client_id: str,
              client_secret_setting_name: str,
              login_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret_setting_name", client_secret_setting_name)
         if login_scopes is not None:
@@ -17699,7 +19335,11 @@ class LinuxWebAppAuthSettingsV2AzureStaticWebAppV2(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              client_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+
         _setter("client_id", client_id)
 
     @property
@@ -17798,7 +19438,27 @@ class LinuxWebAppAuthSettingsV2CustomOidcV2(dict):
              name_claim_type: Optional[str] = None,
              scopes: Optional[Sequence[str]] = None,
              token_endpoint: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'openidConfigurationEndpoint' in kwargs:
+            openid_configuration_endpoint = kwargs['openidConfigurationEndpoint']
+        if 'authorisationEndpoint' in kwargs:
+            authorisation_endpoint = kwargs['authorisationEndpoint']
+        if 'certificationUri' in kwargs:
+            certification_uri = kwargs['certificationUri']
+        if 'clientCredentialMethod' in kwargs:
+            client_credential_method = kwargs['clientCredentialMethod']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'issuerEndpoint' in kwargs:
+            issuer_endpoint = kwargs['issuerEndpoint']
+        if 'nameClaimType' in kwargs:
+            name_claim_type = kwargs['nameClaimType']
+        if 'tokenEndpoint' in kwargs:
+            token_endpoint = kwargs['tokenEndpoint']
+
         _setter("client_id", client_id)
         _setter("name", name)
         _setter("openid_configuration_endpoint", openid_configuration_endpoint)
@@ -17957,7 +19617,17 @@ class LinuxWebAppAuthSettingsV2FacebookV2(dict):
              app_secret_setting_name: str,
              graph_api_version: Optional[str] = None,
              login_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'appSecretSettingName' in kwargs:
+            app_secret_setting_name = kwargs['appSecretSettingName']
+        if 'graphApiVersion' in kwargs:
+            graph_api_version = kwargs['graphApiVersion']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("app_id", app_id)
         _setter("app_secret_setting_name", app_secret_setting_name)
         if graph_api_version is not None:
@@ -18044,7 +19714,15 @@ class LinuxWebAppAuthSettingsV2GithubV2(dict):
              client_id: str,
              client_secret_setting_name: str,
              login_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret_setting_name", client_secret_setting_name)
         if login_scopes is not None:
@@ -18127,7 +19805,17 @@ class LinuxWebAppAuthSettingsV2GoogleV2(dict):
              client_secret_setting_name: str,
              allowed_audiences: Optional[Sequence[str]] = None,
              login_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret_setting_name", client_secret_setting_name)
         if allowed_audiences is not None:
@@ -18264,7 +19952,31 @@ class LinuxWebAppAuthSettingsV2Login(dict):
              token_store_path: Optional[str] = None,
              token_store_sas_setting_name: Optional[str] = None,
              validate_nonce: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedExternalRedirectUrls' in kwargs:
+            allowed_external_redirect_urls = kwargs['allowedExternalRedirectUrls']
+        if 'cookieExpirationConvention' in kwargs:
+            cookie_expiration_convention = kwargs['cookieExpirationConvention']
+        if 'cookieExpirationTime' in kwargs:
+            cookie_expiration_time = kwargs['cookieExpirationTime']
+        if 'logoutEndpoint' in kwargs:
+            logout_endpoint = kwargs['logoutEndpoint']
+        if 'nonceExpirationTime' in kwargs:
+            nonce_expiration_time = kwargs['nonceExpirationTime']
+        if 'preserveUrlFragmentsForLogins' in kwargs:
+            preserve_url_fragments_for_logins = kwargs['preserveUrlFragmentsForLogins']
+        if 'tokenRefreshExtensionTime' in kwargs:
+            token_refresh_extension_time = kwargs['tokenRefreshExtensionTime']
+        if 'tokenStoreEnabled' in kwargs:
+            token_store_enabled = kwargs['tokenStoreEnabled']
+        if 'tokenStorePath' in kwargs:
+            token_store_path = kwargs['tokenStorePath']
+        if 'tokenStoreSasSettingName' in kwargs:
+            token_store_sas_setting_name = kwargs['tokenStoreSasSettingName']
+        if 'validateNonce' in kwargs:
+            validate_nonce = kwargs['validateNonce']
+
         if allowed_external_redirect_urls is not None:
             _setter("allowed_external_redirect_urls", allowed_external_redirect_urls)
         if cookie_expiration_convention is not None:
@@ -18431,7 +20143,17 @@ class LinuxWebAppAuthSettingsV2MicrosoftV2(dict):
              client_secret_setting_name: str,
              allowed_audiences: Optional[Sequence[str]] = None,
              login_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret_setting_name", client_secret_setting_name)
         if allowed_audiences is not None:
@@ -18514,7 +20236,13 @@ class LinuxWebAppAuthSettingsV2TwitterV2(dict):
              _setter: Callable[[Any, Any], None],
              consumer_key: str,
              consumer_secret_setting_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'consumerKey' in kwargs:
+            consumer_key = kwargs['consumerKey']
+        if 'consumerSecretSettingName' in kwargs:
+            consumer_secret_setting_name = kwargs['consumerSecretSettingName']
+
         _setter("consumer_key", consumer_key)
         _setter("consumer_secret_setting_name", consumer_secret_setting_name)
 
@@ -18581,7 +20309,11 @@ class LinuxWebAppBackup(dict):
              schedule: 'outputs.LinuxWebAppBackupSchedule',
              storage_account_url: str,
              enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageAccountUrl' in kwargs:
+            storage_account_url = kwargs['storageAccountUrl']
+
         _setter("name", name)
         _setter("schedule", schedule)
         _setter("storage_account_url", storage_account_url)
@@ -18684,7 +20416,21 @@ class LinuxWebAppBackupSchedule(dict):
              last_execution_time: Optional[str] = None,
              retention_period_days: Optional[int] = None,
              start_time: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'frequencyInterval' in kwargs:
+            frequency_interval = kwargs['frequencyInterval']
+        if 'frequencyUnit' in kwargs:
+            frequency_unit = kwargs['frequencyUnit']
+        if 'keepAtLeastOneBackup' in kwargs:
+            keep_at_least_one_backup = kwargs['keepAtLeastOneBackup']
+        if 'lastExecutionTime' in kwargs:
+            last_execution_time = kwargs['lastExecutionTime']
+        if 'retentionPeriodDays' in kwargs:
+            retention_period_days = kwargs['retentionPeriodDays']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         _setter("frequency_interval", frequency_interval)
         _setter("frequency_unit", frequency_unit)
         if keep_at_least_one_backup is not None:
@@ -18767,7 +20513,9 @@ class LinuxWebAppConnectionString(dict):
              name: str,
              type: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("type", type)
         _setter("value", value)
@@ -18847,7 +20595,15 @@ class LinuxWebAppIdentity(dict):
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -18941,7 +20697,17 @@ class LinuxWebAppLogs(dict):
              detailed_error_messages: Optional[bool] = None,
              failed_request_tracing: Optional[bool] = None,
              http_logs: Optional['outputs.LinuxWebAppLogsHttpLogs'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationLogs' in kwargs:
+            application_logs = kwargs['applicationLogs']
+        if 'detailedErrorMessages' in kwargs:
+            detailed_error_messages = kwargs['detailedErrorMessages']
+        if 'failedRequestTracing' in kwargs:
+            failed_request_tracing = kwargs['failedRequestTracing']
+        if 'httpLogs' in kwargs:
+            http_logs = kwargs['httpLogs']
+
         if application_logs is not None:
             _setter("application_logs", application_logs)
         if detailed_error_messages is not None:
@@ -19022,7 +20788,13 @@ class LinuxWebAppLogsApplicationLogs(dict):
              _setter: Callable[[Any, Any], None],
              file_system_level: str,
              azure_blob_storage: Optional['outputs.LinuxWebAppLogsApplicationLogsAzureBlobStorage'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fileSystemLevel' in kwargs:
+            file_system_level = kwargs['fileSystemLevel']
+        if 'azureBlobStorage' in kwargs:
+            azure_blob_storage = kwargs['azureBlobStorage']
+
         _setter("file_system_level", file_system_level)
         if azure_blob_storage is not None:
             _setter("azure_blob_storage", azure_blob_storage)
@@ -19086,7 +20858,13 @@ class LinuxWebAppLogsApplicationLogsAzureBlobStorage(dict):
              level: str,
              retention_in_days: int,
              sas_url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'retentionInDays' in kwargs:
+            retention_in_days = kwargs['retentionInDays']
+        if 'sasUrl' in kwargs:
+            sas_url = kwargs['sasUrl']
+
         _setter("level", level)
         _setter("retention_in_days", retention_in_days)
         _setter("sas_url", sas_url)
@@ -19154,7 +20932,13 @@ class LinuxWebAppLogsHttpLogs(dict):
              _setter: Callable[[Any, Any], None],
              azure_blob_storage: Optional['outputs.LinuxWebAppLogsHttpLogsAzureBlobStorage'] = None,
              file_system: Optional['outputs.LinuxWebAppLogsHttpLogsFileSystem'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azureBlobStorage' in kwargs:
+            azure_blob_storage = kwargs['azureBlobStorage']
+        if 'fileSystem' in kwargs:
+            file_system = kwargs['fileSystem']
+
         if azure_blob_storage is not None:
             _setter("azure_blob_storage", azure_blob_storage)
         if file_system is not None:
@@ -19215,7 +20999,13 @@ class LinuxWebAppLogsHttpLogsAzureBlobStorage(dict):
              _setter: Callable[[Any, Any], None],
              sas_url: str,
              retention_in_days: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sasUrl' in kwargs:
+            sas_url = kwargs['sasUrl']
+        if 'retentionInDays' in kwargs:
+            retention_in_days = kwargs['retentionInDays']
+
         _setter("sas_url", sas_url)
         if retention_in_days is not None:
             _setter("retention_in_days", retention_in_days)
@@ -19275,7 +21065,13 @@ class LinuxWebAppLogsHttpLogsFileSystem(dict):
              _setter: Callable[[Any, Any], None],
              retention_in_days: int,
              retention_in_mb: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'retentionInDays' in kwargs:
+            retention_in_days = kwargs['retentionInDays']
+        if 'retentionInMb' in kwargs:
+            retention_in_mb = kwargs['retentionInMb']
+
         _setter("retention_in_days", retention_in_days)
         _setter("retention_in_mb", retention_in_mb)
 
@@ -19510,7 +21306,71 @@ class LinuxWebAppSiteConfig(dict):
              vnet_route_all_enabled: Optional[bool] = None,
              websockets_enabled: Optional[bool] = None,
              worker_count: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alwaysOn' in kwargs:
+            always_on = kwargs['alwaysOn']
+        if 'apiDefinitionUrl' in kwargs:
+            api_definition_url = kwargs['apiDefinitionUrl']
+        if 'apiManagementApiId' in kwargs:
+            api_management_api_id = kwargs['apiManagementApiId']
+        if 'appCommandLine' in kwargs:
+            app_command_line = kwargs['appCommandLine']
+        if 'applicationStack' in kwargs:
+            application_stack = kwargs['applicationStack']
+        if 'autoHealEnabled' in kwargs:
+            auto_heal_enabled = kwargs['autoHealEnabled']
+        if 'autoHealSetting' in kwargs:
+            auto_heal_setting = kwargs['autoHealSetting']
+        if 'containerRegistryManagedIdentityClientId' in kwargs:
+            container_registry_managed_identity_client_id = kwargs['containerRegistryManagedIdentityClientId']
+        if 'containerRegistryUseManagedIdentity' in kwargs:
+            container_registry_use_managed_identity = kwargs['containerRegistryUseManagedIdentity']
+        if 'defaultDocuments' in kwargs:
+            default_documents = kwargs['defaultDocuments']
+        if 'detailedErrorLoggingEnabled' in kwargs:
+            detailed_error_logging_enabled = kwargs['detailedErrorLoggingEnabled']
+        if 'ftpsState' in kwargs:
+            ftps_state = kwargs['ftpsState']
+        if 'healthCheckEvictionTimeInMin' in kwargs:
+            health_check_eviction_time_in_min = kwargs['healthCheckEvictionTimeInMin']
+        if 'healthCheckPath' in kwargs:
+            health_check_path = kwargs['healthCheckPath']
+        if 'http2Enabled' in kwargs:
+            http2_enabled = kwargs['http2Enabled']
+        if 'ipRestrictions' in kwargs:
+            ip_restrictions = kwargs['ipRestrictions']
+        if 'linuxFxVersion' in kwargs:
+            linux_fx_version = kwargs['linuxFxVersion']
+        if 'loadBalancingMode' in kwargs:
+            load_balancing_mode = kwargs['loadBalancingMode']
+        if 'localMysqlEnabled' in kwargs:
+            local_mysql_enabled = kwargs['localMysqlEnabled']
+        if 'managedPipelineMode' in kwargs:
+            managed_pipeline_mode = kwargs['managedPipelineMode']
+        if 'minimumTlsVersion' in kwargs:
+            minimum_tls_version = kwargs['minimumTlsVersion']
+        if 'remoteDebuggingEnabled' in kwargs:
+            remote_debugging_enabled = kwargs['remoteDebuggingEnabled']
+        if 'remoteDebuggingVersion' in kwargs:
+            remote_debugging_version = kwargs['remoteDebuggingVersion']
+        if 'scmIpRestrictions' in kwargs:
+            scm_ip_restrictions = kwargs['scmIpRestrictions']
+        if 'scmMinimumTlsVersion' in kwargs:
+            scm_minimum_tls_version = kwargs['scmMinimumTlsVersion']
+        if 'scmType' in kwargs:
+            scm_type = kwargs['scmType']
+        if 'scmUseMainIpRestriction' in kwargs:
+            scm_use_main_ip_restriction = kwargs['scmUseMainIpRestriction']
+        if 'use32BitWorker' in kwargs:
+            use32_bit_worker = kwargs['use32BitWorker']
+        if 'vnetRouteAllEnabled' in kwargs:
+            vnet_route_all_enabled = kwargs['vnetRouteAllEnabled']
+        if 'websocketsEnabled' in kwargs:
+            websockets_enabled = kwargs['websocketsEnabled']
+        if 'workerCount' in kwargs:
+            worker_count = kwargs['workerCount']
+
         if always_on is not None:
             _setter("always_on", always_on)
         if api_definition_url is not None:
@@ -19947,7 +21807,39 @@ class LinuxWebAppSiteConfigApplicationStack(dict):
              php_version: Optional[str] = None,
              python_version: Optional[str] = None,
              ruby_version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dockerImage' in kwargs:
+            docker_image = kwargs['dockerImage']
+        if 'dockerImageName' in kwargs:
+            docker_image_name = kwargs['dockerImageName']
+        if 'dockerImageTag' in kwargs:
+            docker_image_tag = kwargs['dockerImageTag']
+        if 'dockerRegistryPassword' in kwargs:
+            docker_registry_password = kwargs['dockerRegistryPassword']
+        if 'dockerRegistryUrl' in kwargs:
+            docker_registry_url = kwargs['dockerRegistryUrl']
+        if 'dockerRegistryUsername' in kwargs:
+            docker_registry_username = kwargs['dockerRegistryUsername']
+        if 'dotnetVersion' in kwargs:
+            dotnet_version = kwargs['dotnetVersion']
+        if 'goVersion' in kwargs:
+            go_version = kwargs['goVersion']
+        if 'javaServer' in kwargs:
+            java_server = kwargs['javaServer']
+        if 'javaServerVersion' in kwargs:
+            java_server_version = kwargs['javaServerVersion']
+        if 'javaVersion' in kwargs:
+            java_version = kwargs['javaVersion']
+        if 'nodeVersion' in kwargs:
+            node_version = kwargs['nodeVersion']
+        if 'phpVersion' in kwargs:
+            php_version = kwargs['phpVersion']
+        if 'pythonVersion' in kwargs:
+            python_version = kwargs['pythonVersion']
+        if 'rubyVersion' in kwargs:
+            ruby_version = kwargs['rubyVersion']
+
         if docker_image is not None:
             _setter("docker_image", docker_image)
         if docker_image_name is not None:
@@ -20129,7 +22021,9 @@ class LinuxWebAppSiteConfigAutoHealSetting(dict):
              _setter: Callable[[Any, Any], None],
              action: Optional['outputs.LinuxWebAppSiteConfigAutoHealSettingAction'] = None,
              trigger: Optional['outputs.LinuxWebAppSiteConfigAutoHealSettingTrigger'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if action is not None:
             _setter("action", action)
         if trigger is not None:
@@ -20190,7 +22084,13 @@ class LinuxWebAppSiteConfigAutoHealSettingAction(dict):
              _setter: Callable[[Any, Any], None],
              action_type: str,
              minimum_process_execution_time: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionType' in kwargs:
+            action_type = kwargs['actionType']
+        if 'minimumProcessExecutionTime' in kwargs:
+            minimum_process_execution_time = kwargs['minimumProcessExecutionTime']
+
         _setter("action_type", action_type)
         if minimum_process_execution_time is not None:
             _setter("minimum_process_execution_time", minimum_process_execution_time)
@@ -20254,7 +22154,13 @@ class LinuxWebAppSiteConfigAutoHealSettingTrigger(dict):
              requests: Optional['outputs.LinuxWebAppSiteConfigAutoHealSettingTriggerRequests'] = None,
              slow_requests: Optional[Sequence['outputs.LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest']] = None,
              status_codes: Optional[Sequence['outputs.LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'slowRequests' in kwargs:
+            slow_requests = kwargs['slowRequests']
+        if 'statusCodes' in kwargs:
+            status_codes = kwargs['statusCodes']
+
         if requests is not None:
             _setter("requests", requests)
         if slow_requests is not None:
@@ -20306,7 +22212,9 @@ class LinuxWebAppSiteConfigAutoHealSettingTriggerRequests(dict):
              _setter: Callable[[Any, Any], None],
              count: int,
              interval: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("count", count)
         _setter("interval", interval)
 
@@ -20371,7 +22279,11 @@ class LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest(dict):
              interval: str,
              time_taken: str,
              path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'timeTaken' in kwargs:
+            time_taken = kwargs['timeTaken']
+
         _setter("count", count)
         _setter("interval", interval)
         _setter("time_taken", time_taken)
@@ -20467,7 +22379,15 @@ class LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode(dict):
              path: Optional[str] = None,
              sub_status: Optional[int] = None,
              win32_status_code: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'statusCodeRange' in kwargs:
+            status_code_range = kwargs['statusCodeRange']
+        if 'subStatus' in kwargs:
+            sub_status = kwargs['subStatus']
+        if 'win32StatusCode' in kwargs:
+            win32_status_code = kwargs['win32StatusCode']
+
         _setter("count", count)
         _setter("interval", interval)
         _setter("status_code_range", status_code_range)
@@ -20565,7 +22485,13 @@ class LinuxWebAppSiteConfigCors(dict):
              _setter: Callable[[Any, Any], None],
              allowed_origins: Optional[Sequence[str]] = None,
              support_credentials: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedOrigins' in kwargs:
+            allowed_origins = kwargs['allowedOrigins']
+        if 'supportCredentials' in kwargs:
+            support_credentials = kwargs['supportCredentials']
+
         if allowed_origins is not None:
             _setter("allowed_origins", allowed_origins)
         if support_credentials is not None:
@@ -20650,7 +22576,15 @@ class LinuxWebAppSiteConfigIpRestriction(dict):
              priority: Optional[int] = None,
              service_tag: Optional[str] = None,
              virtual_network_subnet_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'serviceTag' in kwargs:
+            service_tag = kwargs['serviceTag']
+        if 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+
         if action is not None:
             _setter("action", action)
         if headers is not None:
@@ -20775,7 +22709,17 @@ class LinuxWebAppSiteConfigIpRestrictionHeaders(dict):
              x_fd_health_probe: Optional[str] = None,
              x_forwarded_fors: Optional[Sequence[str]] = None,
              x_forwarded_hosts: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'xAzureFdids' in kwargs:
+            x_azure_fdids = kwargs['xAzureFdids']
+        if 'xFdHealthProbe' in kwargs:
+            x_fd_health_probe = kwargs['xFdHealthProbe']
+        if 'xForwardedFors' in kwargs:
+            x_forwarded_fors = kwargs['xForwardedFors']
+        if 'xForwardedHosts' in kwargs:
+            x_forwarded_hosts = kwargs['xForwardedHosts']
+
         if x_azure_fdids is not None:
             _setter("x_azure_fdids", x_azure_fdids)
         if x_fd_health_probe is not None:
@@ -20880,7 +22824,15 @@ class LinuxWebAppSiteConfigScmIpRestriction(dict):
              priority: Optional[int] = None,
              service_tag: Optional[str] = None,
              virtual_network_subnet_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'serviceTag' in kwargs:
+            service_tag = kwargs['serviceTag']
+        if 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+
         if action is not None:
             _setter("action", action)
         if headers is not None:
@@ -21005,7 +22957,17 @@ class LinuxWebAppSiteConfigScmIpRestrictionHeaders(dict):
              x_fd_health_probe: Optional[str] = None,
              x_forwarded_fors: Optional[Sequence[str]] = None,
              x_forwarded_hosts: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'xAzureFdids' in kwargs:
+            x_azure_fdids = kwargs['xAzureFdids']
+        if 'xFdHealthProbe' in kwargs:
+            x_fd_health_probe = kwargs['xFdHealthProbe']
+        if 'xForwardedFors' in kwargs:
+            x_forwarded_fors = kwargs['xForwardedFors']
+        if 'xForwardedHosts' in kwargs:
+            x_forwarded_hosts = kwargs['xForwardedHosts']
+
         if x_azure_fdids is not None:
             _setter("x_azure_fdids", x_azure_fdids)
         if x_fd_health_probe is not None:
@@ -21066,7 +23028,9 @@ class LinuxWebAppSiteCredential(dict):
              _setter: Callable[[Any, Any], None],
              name: Optional[str] = None,
              password: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if password is not None:
@@ -21192,7 +23156,25 @@ class LinuxWebAppSlotAuthSettings(dict):
              token_store_enabled: Optional[bool] = None,
              twitter: Optional['outputs.LinuxWebAppSlotAuthSettingsTwitter'] = None,
              unauthenticated_client_action: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activeDirectory' in kwargs:
+            active_directory = kwargs['activeDirectory']
+        if 'additionalLoginParameters' in kwargs:
+            additional_login_parameters = kwargs['additionalLoginParameters']
+        if 'allowedExternalRedirectUrls' in kwargs:
+            allowed_external_redirect_urls = kwargs['allowedExternalRedirectUrls']
+        if 'defaultProvider' in kwargs:
+            default_provider = kwargs['defaultProvider']
+        if 'runtimeVersion' in kwargs:
+            runtime_version = kwargs['runtimeVersion']
+        if 'tokenRefreshExtensionHours' in kwargs:
+            token_refresh_extension_hours = kwargs['tokenRefreshExtensionHours']
+        if 'tokenStoreEnabled' in kwargs:
+            token_store_enabled = kwargs['tokenStoreEnabled']
+        if 'unauthenticatedClientAction' in kwargs:
+            unauthenticated_client_action = kwargs['unauthenticatedClientAction']
+
         _setter("enabled", enabled)
         if active_directory is not None:
             _setter("active_directory", active_directory)
@@ -21400,7 +23382,17 @@ class LinuxWebAppSlotAuthSettingsActiveDirectory(dict):
              allowed_audiences: Optional[Sequence[str]] = None,
              client_secret: Optional[str] = None,
              client_secret_setting_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+
         _setter("client_id", client_id)
         if allowed_audiences is not None:
             _setter("allowed_audiences", allowed_audiences)
@@ -21494,7 +23486,17 @@ class LinuxWebAppSlotAuthSettingsFacebook(dict):
              app_secret: Optional[str] = None,
              app_secret_setting_name: Optional[str] = None,
              oauth_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'appSecret' in kwargs:
+            app_secret = kwargs['appSecret']
+        if 'appSecretSettingName' in kwargs:
+            app_secret_setting_name = kwargs['appSecretSettingName']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("app_id", app_id)
         if app_secret is not None:
             _setter("app_secret", app_secret)
@@ -21586,7 +23588,17 @@ class LinuxWebAppSlotAuthSettingsGithub(dict):
              client_secret: Optional[str] = None,
              client_secret_setting_name: Optional[str] = None,
              oauth_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("client_id", client_id)
         if client_secret is not None:
             _setter("client_secret", client_secret)
@@ -21678,7 +23690,17 @@ class LinuxWebAppSlotAuthSettingsGoogle(dict):
              client_secret: Optional[str] = None,
              client_secret_setting_name: Optional[str] = None,
              oauth_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("client_id", client_id)
         if client_secret is not None:
             _setter("client_secret", client_secret)
@@ -21770,7 +23792,17 @@ class LinuxWebAppSlotAuthSettingsMicrosoft(dict):
              client_secret: Optional[str] = None,
              client_secret_setting_name: Optional[str] = None,
              oauth_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("client_id", client_id)
         if client_secret is not None:
             _setter("client_secret", client_secret)
@@ -21856,7 +23888,15 @@ class LinuxWebAppSlotAuthSettingsTwitter(dict):
              consumer_key: str,
              consumer_secret: Optional[str] = None,
              consumer_secret_setting_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'consumerKey' in kwargs:
+            consumer_key = kwargs['consumerKey']
+        if 'consumerSecret' in kwargs:
+            consumer_secret = kwargs['consumerSecret']
+        if 'consumerSecretSettingName' in kwargs:
+            consumer_secret_setting_name = kwargs['consumerSecretSettingName']
+
         _setter("consumer_key", consumer_key)
         if consumer_secret is not None:
             _setter("consumer_secret", consumer_secret)
@@ -22050,7 +24090,51 @@ class LinuxWebAppSlotAuthSettingsV2(dict):
              runtime_version: Optional[str] = None,
              twitter_v2: Optional['outputs.LinuxWebAppSlotAuthSettingsV2TwitterV2'] = None,
              unauthenticated_action: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activeDirectoryV2' in kwargs:
+            active_directory_v2 = kwargs['activeDirectoryV2']
+        if 'appleV2' in kwargs:
+            apple_v2 = kwargs['appleV2']
+        if 'authEnabled' in kwargs:
+            auth_enabled = kwargs['authEnabled']
+        if 'azureStaticWebAppV2' in kwargs:
+            azure_static_web_app_v2 = kwargs['azureStaticWebAppV2']
+        if 'configFilePath' in kwargs:
+            config_file_path = kwargs['configFilePath']
+        if 'customOidcV2s' in kwargs:
+            custom_oidc_v2s = kwargs['customOidcV2s']
+        if 'defaultProvider' in kwargs:
+            default_provider = kwargs['defaultProvider']
+        if 'excludedPaths' in kwargs:
+            excluded_paths = kwargs['excludedPaths']
+        if 'facebookV2' in kwargs:
+            facebook_v2 = kwargs['facebookV2']
+        if 'forwardProxyConvention' in kwargs:
+            forward_proxy_convention = kwargs['forwardProxyConvention']
+        if 'forwardProxyCustomHostHeaderName' in kwargs:
+            forward_proxy_custom_host_header_name = kwargs['forwardProxyCustomHostHeaderName']
+        if 'forwardProxyCustomSchemeHeaderName' in kwargs:
+            forward_proxy_custom_scheme_header_name = kwargs['forwardProxyCustomSchemeHeaderName']
+        if 'githubV2' in kwargs:
+            github_v2 = kwargs['githubV2']
+        if 'googleV2' in kwargs:
+            google_v2 = kwargs['googleV2']
+        if 'httpRouteApiPrefix' in kwargs:
+            http_route_api_prefix = kwargs['httpRouteApiPrefix']
+        if 'microsoftV2' in kwargs:
+            microsoft_v2 = kwargs['microsoftV2']
+        if 'requireAuthentication' in kwargs:
+            require_authentication = kwargs['requireAuthentication']
+        if 'requireHttps' in kwargs:
+            require_https = kwargs['requireHttps']
+        if 'runtimeVersion' in kwargs:
+            runtime_version = kwargs['runtimeVersion']
+        if 'twitterV2' in kwargs:
+            twitter_v2 = kwargs['twitterV2']
+        if 'unauthenticatedAction' in kwargs:
+            unauthenticated_action = kwargs['unauthenticatedAction']
+
         _setter("login", login)
         if active_directory_v2 is not None:
             _setter("active_directory_v2", active_directory_v2)
@@ -22380,7 +24464,33 @@ class LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
              jwt_allowed_groups: Optional[Sequence[str]] = None,
              login_parameters: Optional[Mapping[str, str]] = None,
              www_authentication_disabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'tenantAuthEndpoint' in kwargs:
+            tenant_auth_endpoint = kwargs['tenantAuthEndpoint']
+        if 'allowedApplications' in kwargs:
+            allowed_applications = kwargs['allowedApplications']
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'allowedGroups' in kwargs:
+            allowed_groups = kwargs['allowedGroups']
+        if 'allowedIdentities' in kwargs:
+            allowed_identities = kwargs['allowedIdentities']
+        if 'clientSecretCertificateThumbprint' in kwargs:
+            client_secret_certificate_thumbprint = kwargs['clientSecretCertificateThumbprint']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'jwtAllowedClientApplications' in kwargs:
+            jwt_allowed_client_applications = kwargs['jwtAllowedClientApplications']
+        if 'jwtAllowedGroups' in kwargs:
+            jwt_allowed_groups = kwargs['jwtAllowedGroups']
+        if 'loginParameters' in kwargs:
+            login_parameters = kwargs['loginParameters']
+        if 'wwwAuthenticationDisabled' in kwargs:
+            www_authentication_disabled = kwargs['wwwAuthenticationDisabled']
+
         _setter("client_id", client_id)
         _setter("tenant_auth_endpoint", tenant_auth_endpoint)
         if allowed_applications is not None:
@@ -22549,7 +24659,15 @@ class LinuxWebAppSlotAuthSettingsV2AppleV2(dict):
              client_id: str,
              client_secret_setting_name: str,
              login_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret_setting_name", client_secret_setting_name)
         if login_scopes is not None:
@@ -22612,7 +24730,11 @@ class LinuxWebAppSlotAuthSettingsV2AzureStaticWebAppV2(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              client_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+
         _setter("client_id", client_id)
 
     @property
@@ -22711,7 +24833,27 @@ class LinuxWebAppSlotAuthSettingsV2CustomOidcV2(dict):
              name_claim_type: Optional[str] = None,
              scopes: Optional[Sequence[str]] = None,
              token_endpoint: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'openidConfigurationEndpoint' in kwargs:
+            openid_configuration_endpoint = kwargs['openidConfigurationEndpoint']
+        if 'authorisationEndpoint' in kwargs:
+            authorisation_endpoint = kwargs['authorisationEndpoint']
+        if 'certificationUri' in kwargs:
+            certification_uri = kwargs['certificationUri']
+        if 'clientCredentialMethod' in kwargs:
+            client_credential_method = kwargs['clientCredentialMethod']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'issuerEndpoint' in kwargs:
+            issuer_endpoint = kwargs['issuerEndpoint']
+        if 'nameClaimType' in kwargs:
+            name_claim_type = kwargs['nameClaimType']
+        if 'tokenEndpoint' in kwargs:
+            token_endpoint = kwargs['tokenEndpoint']
+
         _setter("client_id", client_id)
         _setter("name", name)
         _setter("openid_configuration_endpoint", openid_configuration_endpoint)
@@ -22870,7 +25012,17 @@ class LinuxWebAppSlotAuthSettingsV2FacebookV2(dict):
              app_secret_setting_name: str,
              graph_api_version: Optional[str] = None,
              login_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'appSecretSettingName' in kwargs:
+            app_secret_setting_name = kwargs['appSecretSettingName']
+        if 'graphApiVersion' in kwargs:
+            graph_api_version = kwargs['graphApiVersion']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("app_id", app_id)
         _setter("app_secret_setting_name", app_secret_setting_name)
         if graph_api_version is not None:
@@ -22957,7 +25109,15 @@ class LinuxWebAppSlotAuthSettingsV2GithubV2(dict):
              client_id: str,
              client_secret_setting_name: str,
              login_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret_setting_name", client_secret_setting_name)
         if login_scopes is not None:
@@ -23040,7 +25200,17 @@ class LinuxWebAppSlotAuthSettingsV2GoogleV2(dict):
              client_secret_setting_name: str,
              allowed_audiences: Optional[Sequence[str]] = None,
              login_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret_setting_name", client_secret_setting_name)
         if allowed_audiences is not None:
@@ -23177,7 +25347,31 @@ class LinuxWebAppSlotAuthSettingsV2Login(dict):
              token_store_path: Optional[str] = None,
              token_store_sas_setting_name: Optional[str] = None,
              validate_nonce: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedExternalRedirectUrls' in kwargs:
+            allowed_external_redirect_urls = kwargs['allowedExternalRedirectUrls']
+        if 'cookieExpirationConvention' in kwargs:
+            cookie_expiration_convention = kwargs['cookieExpirationConvention']
+        if 'cookieExpirationTime' in kwargs:
+            cookie_expiration_time = kwargs['cookieExpirationTime']
+        if 'logoutEndpoint' in kwargs:
+            logout_endpoint = kwargs['logoutEndpoint']
+        if 'nonceExpirationTime' in kwargs:
+            nonce_expiration_time = kwargs['nonceExpirationTime']
+        if 'preserveUrlFragmentsForLogins' in kwargs:
+            preserve_url_fragments_for_logins = kwargs['preserveUrlFragmentsForLogins']
+        if 'tokenRefreshExtensionTime' in kwargs:
+            token_refresh_extension_time = kwargs['tokenRefreshExtensionTime']
+        if 'tokenStoreEnabled' in kwargs:
+            token_store_enabled = kwargs['tokenStoreEnabled']
+        if 'tokenStorePath' in kwargs:
+            token_store_path = kwargs['tokenStorePath']
+        if 'tokenStoreSasSettingName' in kwargs:
+            token_store_sas_setting_name = kwargs['tokenStoreSasSettingName']
+        if 'validateNonce' in kwargs:
+            validate_nonce = kwargs['validateNonce']
+
         if allowed_external_redirect_urls is not None:
             _setter("allowed_external_redirect_urls", allowed_external_redirect_urls)
         if cookie_expiration_convention is not None:
@@ -23344,7 +25538,17 @@ class LinuxWebAppSlotAuthSettingsV2MicrosoftV2(dict):
              client_secret_setting_name: str,
              allowed_audiences: Optional[Sequence[str]] = None,
              login_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret_setting_name", client_secret_setting_name)
         if allowed_audiences is not None:
@@ -23427,7 +25631,13 @@ class LinuxWebAppSlotAuthSettingsV2TwitterV2(dict):
              _setter: Callable[[Any, Any], None],
              consumer_key: str,
              consumer_secret_setting_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'consumerKey' in kwargs:
+            consumer_key = kwargs['consumerKey']
+        if 'consumerSecretSettingName' in kwargs:
+            consumer_secret_setting_name = kwargs['consumerSecretSettingName']
+
         _setter("consumer_key", consumer_key)
         _setter("consumer_secret_setting_name", consumer_secret_setting_name)
 
@@ -23494,7 +25704,11 @@ class LinuxWebAppSlotBackup(dict):
              schedule: 'outputs.LinuxWebAppSlotBackupSchedule',
              storage_account_url: str,
              enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageAccountUrl' in kwargs:
+            storage_account_url = kwargs['storageAccountUrl']
+
         _setter("name", name)
         _setter("schedule", schedule)
         _setter("storage_account_url", storage_account_url)
@@ -23597,7 +25811,21 @@ class LinuxWebAppSlotBackupSchedule(dict):
              last_execution_time: Optional[str] = None,
              retention_period_days: Optional[int] = None,
              start_time: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'frequencyInterval' in kwargs:
+            frequency_interval = kwargs['frequencyInterval']
+        if 'frequencyUnit' in kwargs:
+            frequency_unit = kwargs['frequencyUnit']
+        if 'keepAtLeastOneBackup' in kwargs:
+            keep_at_least_one_backup = kwargs['keepAtLeastOneBackup']
+        if 'lastExecutionTime' in kwargs:
+            last_execution_time = kwargs['lastExecutionTime']
+        if 'retentionPeriodDays' in kwargs:
+            retention_period_days = kwargs['retentionPeriodDays']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         _setter("frequency_interval", frequency_interval)
         _setter("frequency_unit", frequency_unit)
         if keep_at_least_one_backup is not None:
@@ -23680,7 +25908,9 @@ class LinuxWebAppSlotConnectionString(dict):
              name: str,
              type: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("type", type)
         _setter("value", value)
@@ -23760,7 +25990,15 @@ class LinuxWebAppSlotIdentity(dict):
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -23854,7 +26092,17 @@ class LinuxWebAppSlotLogs(dict):
              detailed_error_messages: Optional[bool] = None,
              failed_request_tracing: Optional[bool] = None,
              http_logs: Optional['outputs.LinuxWebAppSlotLogsHttpLogs'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationLogs' in kwargs:
+            application_logs = kwargs['applicationLogs']
+        if 'detailedErrorMessages' in kwargs:
+            detailed_error_messages = kwargs['detailedErrorMessages']
+        if 'failedRequestTracing' in kwargs:
+            failed_request_tracing = kwargs['failedRequestTracing']
+        if 'httpLogs' in kwargs:
+            http_logs = kwargs['httpLogs']
+
         if application_logs is not None:
             _setter("application_logs", application_logs)
         if detailed_error_messages is not None:
@@ -23935,7 +26183,13 @@ class LinuxWebAppSlotLogsApplicationLogs(dict):
              _setter: Callable[[Any, Any], None],
              file_system_level: str,
              azure_blob_storage: Optional['outputs.LinuxWebAppSlotLogsApplicationLogsAzureBlobStorage'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fileSystemLevel' in kwargs:
+            file_system_level = kwargs['fileSystemLevel']
+        if 'azureBlobStorage' in kwargs:
+            azure_blob_storage = kwargs['azureBlobStorage']
+
         _setter("file_system_level", file_system_level)
         if azure_blob_storage is not None:
             _setter("azure_blob_storage", azure_blob_storage)
@@ -23999,7 +26253,13 @@ class LinuxWebAppSlotLogsApplicationLogsAzureBlobStorage(dict):
              level: str,
              retention_in_days: int,
              sas_url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'retentionInDays' in kwargs:
+            retention_in_days = kwargs['retentionInDays']
+        if 'sasUrl' in kwargs:
+            sas_url = kwargs['sasUrl']
+
         _setter("level", level)
         _setter("retention_in_days", retention_in_days)
         _setter("sas_url", sas_url)
@@ -24067,7 +26327,13 @@ class LinuxWebAppSlotLogsHttpLogs(dict):
              _setter: Callable[[Any, Any], None],
              azure_blob_storage: Optional['outputs.LinuxWebAppSlotLogsHttpLogsAzureBlobStorage'] = None,
              file_system: Optional['outputs.LinuxWebAppSlotLogsHttpLogsFileSystem'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azureBlobStorage' in kwargs:
+            azure_blob_storage = kwargs['azureBlobStorage']
+        if 'fileSystem' in kwargs:
+            file_system = kwargs['fileSystem']
+
         if azure_blob_storage is not None:
             _setter("azure_blob_storage", azure_blob_storage)
         if file_system is not None:
@@ -24128,7 +26394,13 @@ class LinuxWebAppSlotLogsHttpLogsAzureBlobStorage(dict):
              _setter: Callable[[Any, Any], None],
              sas_url: str,
              retention_in_days: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sasUrl' in kwargs:
+            sas_url = kwargs['sasUrl']
+        if 'retentionInDays' in kwargs:
+            retention_in_days = kwargs['retentionInDays']
+
         _setter("sas_url", sas_url)
         if retention_in_days is not None:
             _setter("retention_in_days", retention_in_days)
@@ -24188,7 +26460,13 @@ class LinuxWebAppSlotLogsHttpLogsFileSystem(dict):
              _setter: Callable[[Any, Any], None],
              retention_in_days: int,
              retention_in_mb: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'retentionInDays' in kwargs:
+            retention_in_days = kwargs['retentionInDays']
+        if 'retentionInMb' in kwargs:
+            retention_in_mb = kwargs['retentionInMb']
+
         _setter("retention_in_days", retention_in_days)
         _setter("retention_in_mb", retention_in_mb)
 
@@ -24429,7 +26707,73 @@ class LinuxWebAppSlotSiteConfig(dict):
              vnet_route_all_enabled: Optional[bool] = None,
              websockets_enabled: Optional[bool] = None,
              worker_count: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alwaysOn' in kwargs:
+            always_on = kwargs['alwaysOn']
+        if 'apiDefinitionUrl' in kwargs:
+            api_definition_url = kwargs['apiDefinitionUrl']
+        if 'apiManagementApiId' in kwargs:
+            api_management_api_id = kwargs['apiManagementApiId']
+        if 'appCommandLine' in kwargs:
+            app_command_line = kwargs['appCommandLine']
+        if 'applicationStack' in kwargs:
+            application_stack = kwargs['applicationStack']
+        if 'autoHealEnabled' in kwargs:
+            auto_heal_enabled = kwargs['autoHealEnabled']
+        if 'autoHealSetting' in kwargs:
+            auto_heal_setting = kwargs['autoHealSetting']
+        if 'autoSwapSlotName' in kwargs:
+            auto_swap_slot_name = kwargs['autoSwapSlotName']
+        if 'containerRegistryManagedIdentityClientId' in kwargs:
+            container_registry_managed_identity_client_id = kwargs['containerRegistryManagedIdentityClientId']
+        if 'containerRegistryUseManagedIdentity' in kwargs:
+            container_registry_use_managed_identity = kwargs['containerRegistryUseManagedIdentity']
+        if 'defaultDocuments' in kwargs:
+            default_documents = kwargs['defaultDocuments']
+        if 'detailedErrorLoggingEnabled' in kwargs:
+            detailed_error_logging_enabled = kwargs['detailedErrorLoggingEnabled']
+        if 'ftpsState' in kwargs:
+            ftps_state = kwargs['ftpsState']
+        if 'healthCheckEvictionTimeInMin' in kwargs:
+            health_check_eviction_time_in_min = kwargs['healthCheckEvictionTimeInMin']
+        if 'healthCheckPath' in kwargs:
+            health_check_path = kwargs['healthCheckPath']
+        if 'http2Enabled' in kwargs:
+            http2_enabled = kwargs['http2Enabled']
+        if 'ipRestrictions' in kwargs:
+            ip_restrictions = kwargs['ipRestrictions']
+        if 'linuxFxVersion' in kwargs:
+            linux_fx_version = kwargs['linuxFxVersion']
+        if 'loadBalancingMode' in kwargs:
+            load_balancing_mode = kwargs['loadBalancingMode']
+        if 'localMysqlEnabled' in kwargs:
+            local_mysql_enabled = kwargs['localMysqlEnabled']
+        if 'managedPipelineMode' in kwargs:
+            managed_pipeline_mode = kwargs['managedPipelineMode']
+        if 'minimumTlsVersion' in kwargs:
+            minimum_tls_version = kwargs['minimumTlsVersion']
+        if 'remoteDebuggingEnabled' in kwargs:
+            remote_debugging_enabled = kwargs['remoteDebuggingEnabled']
+        if 'remoteDebuggingVersion' in kwargs:
+            remote_debugging_version = kwargs['remoteDebuggingVersion']
+        if 'scmIpRestrictions' in kwargs:
+            scm_ip_restrictions = kwargs['scmIpRestrictions']
+        if 'scmMinimumTlsVersion' in kwargs:
+            scm_minimum_tls_version = kwargs['scmMinimumTlsVersion']
+        if 'scmType' in kwargs:
+            scm_type = kwargs['scmType']
+        if 'scmUseMainIpRestriction' in kwargs:
+            scm_use_main_ip_restriction = kwargs['scmUseMainIpRestriction']
+        if 'use32BitWorker' in kwargs:
+            use32_bit_worker = kwargs['use32BitWorker']
+        if 'vnetRouteAllEnabled' in kwargs:
+            vnet_route_all_enabled = kwargs['vnetRouteAllEnabled']
+        if 'websocketsEnabled' in kwargs:
+            websockets_enabled = kwargs['websocketsEnabled']
+        if 'workerCount' in kwargs:
+            worker_count = kwargs['workerCount']
+
         if always_on is not None:
             _setter("always_on", always_on)
         if api_definition_url is not None:
@@ -24876,7 +27220,39 @@ class LinuxWebAppSlotSiteConfigApplicationStack(dict):
              php_version: Optional[str] = None,
              python_version: Optional[str] = None,
              ruby_version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dockerImage' in kwargs:
+            docker_image = kwargs['dockerImage']
+        if 'dockerImageName' in kwargs:
+            docker_image_name = kwargs['dockerImageName']
+        if 'dockerImageTag' in kwargs:
+            docker_image_tag = kwargs['dockerImageTag']
+        if 'dockerRegistryPassword' in kwargs:
+            docker_registry_password = kwargs['dockerRegistryPassword']
+        if 'dockerRegistryUrl' in kwargs:
+            docker_registry_url = kwargs['dockerRegistryUrl']
+        if 'dockerRegistryUsername' in kwargs:
+            docker_registry_username = kwargs['dockerRegistryUsername']
+        if 'dotnetVersion' in kwargs:
+            dotnet_version = kwargs['dotnetVersion']
+        if 'goVersion' in kwargs:
+            go_version = kwargs['goVersion']
+        if 'javaServer' in kwargs:
+            java_server = kwargs['javaServer']
+        if 'javaServerVersion' in kwargs:
+            java_server_version = kwargs['javaServerVersion']
+        if 'javaVersion' in kwargs:
+            java_version = kwargs['javaVersion']
+        if 'nodeVersion' in kwargs:
+            node_version = kwargs['nodeVersion']
+        if 'phpVersion' in kwargs:
+            php_version = kwargs['phpVersion']
+        if 'pythonVersion' in kwargs:
+            python_version = kwargs['pythonVersion']
+        if 'rubyVersion' in kwargs:
+            ruby_version = kwargs['rubyVersion']
+
         if docker_image is not None:
             _setter("docker_image", docker_image)
         if docker_image_name is not None:
@@ -25058,7 +27434,9 @@ class LinuxWebAppSlotSiteConfigAutoHealSetting(dict):
              _setter: Callable[[Any, Any], None],
              action: Optional['outputs.LinuxWebAppSlotSiteConfigAutoHealSettingAction'] = None,
              trigger: Optional['outputs.LinuxWebAppSlotSiteConfigAutoHealSettingTrigger'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if action is not None:
             _setter("action", action)
         if trigger is not None:
@@ -25119,7 +27497,13 @@ class LinuxWebAppSlotSiteConfigAutoHealSettingAction(dict):
              _setter: Callable[[Any, Any], None],
              action_type: str,
              minimum_process_execution_time: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionType' in kwargs:
+            action_type = kwargs['actionType']
+        if 'minimumProcessExecutionTime' in kwargs:
+            minimum_process_execution_time = kwargs['minimumProcessExecutionTime']
+
         _setter("action_type", action_type)
         if minimum_process_execution_time is not None:
             _setter("minimum_process_execution_time", minimum_process_execution_time)
@@ -25183,7 +27567,13 @@ class LinuxWebAppSlotSiteConfigAutoHealSettingTrigger(dict):
              requests: Optional['outputs.LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequests'] = None,
              slow_requests: Optional[Sequence['outputs.LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest']] = None,
              status_codes: Optional[Sequence['outputs.LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'slowRequests' in kwargs:
+            slow_requests = kwargs['slowRequests']
+        if 'statusCodes' in kwargs:
+            status_codes = kwargs['statusCodes']
+
         if requests is not None:
             _setter("requests", requests)
         if slow_requests is not None:
@@ -25235,7 +27625,9 @@ class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequests(dict):
              _setter: Callable[[Any, Any], None],
              count: int,
              interval: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("count", count)
         _setter("interval", interval)
 
@@ -25300,7 +27692,11 @@ class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest(dict):
              interval: str,
              time_taken: str,
              path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'timeTaken' in kwargs:
+            time_taken = kwargs['timeTaken']
+
         _setter("count", count)
         _setter("interval", interval)
         _setter("time_taken", time_taken)
@@ -25396,7 +27792,15 @@ class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode(dict):
              path: Optional[str] = None,
              sub_status: Optional[int] = None,
              win32_status_code: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'statusCodeRange' in kwargs:
+            status_code_range = kwargs['statusCodeRange']
+        if 'subStatus' in kwargs:
+            sub_status = kwargs['subStatus']
+        if 'win32StatusCode' in kwargs:
+            win32_status_code = kwargs['win32StatusCode']
+
         _setter("count", count)
         _setter("interval", interval)
         _setter("status_code_range", status_code_range)
@@ -25494,7 +27898,13 @@ class LinuxWebAppSlotSiteConfigCors(dict):
              _setter: Callable[[Any, Any], None],
              allowed_origins: Optional[Sequence[str]] = None,
              support_credentials: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedOrigins' in kwargs:
+            allowed_origins = kwargs['allowedOrigins']
+        if 'supportCredentials' in kwargs:
+            support_credentials = kwargs['supportCredentials']
+
         if allowed_origins is not None:
             _setter("allowed_origins", allowed_origins)
         if support_credentials is not None:
@@ -25579,7 +27989,15 @@ class LinuxWebAppSlotSiteConfigIpRestriction(dict):
              priority: Optional[int] = None,
              service_tag: Optional[str] = None,
              virtual_network_subnet_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'serviceTag' in kwargs:
+            service_tag = kwargs['serviceTag']
+        if 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+
         if action is not None:
             _setter("action", action)
         if headers is not None:
@@ -25704,7 +28122,17 @@ class LinuxWebAppSlotSiteConfigIpRestrictionHeaders(dict):
              x_fd_health_probe: Optional[str] = None,
              x_forwarded_fors: Optional[Sequence[str]] = None,
              x_forwarded_hosts: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'xAzureFdids' in kwargs:
+            x_azure_fdids = kwargs['xAzureFdids']
+        if 'xFdHealthProbe' in kwargs:
+            x_fd_health_probe = kwargs['xFdHealthProbe']
+        if 'xForwardedFors' in kwargs:
+            x_forwarded_fors = kwargs['xForwardedFors']
+        if 'xForwardedHosts' in kwargs:
+            x_forwarded_hosts = kwargs['xForwardedHosts']
+
         if x_azure_fdids is not None:
             _setter("x_azure_fdids", x_azure_fdids)
         if x_fd_health_probe is not None:
@@ -25809,7 +28237,15 @@ class LinuxWebAppSlotSiteConfigScmIpRestriction(dict):
              priority: Optional[int] = None,
              service_tag: Optional[str] = None,
              virtual_network_subnet_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'serviceTag' in kwargs:
+            service_tag = kwargs['serviceTag']
+        if 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+
         if action is not None:
             _setter("action", action)
         if headers is not None:
@@ -25934,7 +28370,17 @@ class LinuxWebAppSlotSiteConfigScmIpRestrictionHeaders(dict):
              x_fd_health_probe: Optional[str] = None,
              x_forwarded_fors: Optional[Sequence[str]] = None,
              x_forwarded_hosts: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'xAzureFdids' in kwargs:
+            x_azure_fdids = kwargs['xAzureFdids']
+        if 'xFdHealthProbe' in kwargs:
+            x_fd_health_probe = kwargs['xFdHealthProbe']
+        if 'xForwardedFors' in kwargs:
+            x_forwarded_fors = kwargs['xForwardedFors']
+        if 'xForwardedHosts' in kwargs:
+            x_forwarded_hosts = kwargs['xForwardedHosts']
+
         if x_azure_fdids is not None:
             _setter("x_azure_fdids", x_azure_fdids)
         if x_fd_health_probe is not None:
@@ -25995,7 +28441,9 @@ class LinuxWebAppSlotSiteCredential(dict):
              _setter: Callable[[Any, Any], None],
              name: Optional[str] = None,
              password: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if password is not None:
@@ -26073,7 +28521,17 @@ class LinuxWebAppSlotStorageAccount(dict):
              share_name: str,
              type: str,
              mount_path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessKey' in kwargs:
+            access_key = kwargs['accessKey']
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'shareName' in kwargs:
+            share_name = kwargs['shareName']
+        if 'mountPath' in kwargs:
+            mount_path = kwargs['mountPath']
+
         _setter("access_key", access_key)
         _setter("account_name", account_name)
         _setter("name", name)
@@ -26169,7 +28627,13 @@ class LinuxWebAppStickySettings(dict):
              _setter: Callable[[Any, Any], None],
              app_setting_names: Optional[Sequence[str]] = None,
              connection_string_names: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appSettingNames' in kwargs:
+            app_setting_names = kwargs['appSettingNames']
+        if 'connectionStringNames' in kwargs:
+            connection_string_names = kwargs['connectionStringNames']
+
         if app_setting_names is not None:
             _setter("app_setting_names", app_setting_names)
         if connection_string_names is not None:
@@ -26250,7 +28714,17 @@ class LinuxWebAppStorageAccount(dict):
              share_name: str,
              type: str,
              mount_path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessKey' in kwargs:
+            access_key = kwargs['accessKey']
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'shareName' in kwargs:
+            share_name = kwargs['shareName']
+        if 'mountPath' in kwargs:
+            mount_path = kwargs['mountPath']
+
         _setter("access_key", access_key)
         _setter("account_name", account_name)
         _setter("name", name)
@@ -26331,7 +28805,9 @@ class PlanSku(dict):
              size: str,
              tier: str,
              capacity: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("size", size)
         _setter("tier", tier)
         if capacity is not None:
@@ -26462,7 +28938,25 @@ class SlotAuthSettings(dict):
              token_store_enabled: Optional[bool] = None,
              twitter: Optional['outputs.SlotAuthSettingsTwitter'] = None,
              unauthenticated_client_action: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activeDirectory' in kwargs:
+            active_directory = kwargs['activeDirectory']
+        if 'additionalLoginParams' in kwargs:
+            additional_login_params = kwargs['additionalLoginParams']
+        if 'allowedExternalRedirectUrls' in kwargs:
+            allowed_external_redirect_urls = kwargs['allowedExternalRedirectUrls']
+        if 'defaultProvider' in kwargs:
+            default_provider = kwargs['defaultProvider']
+        if 'runtimeVersion' in kwargs:
+            runtime_version = kwargs['runtimeVersion']
+        if 'tokenRefreshExtensionHours' in kwargs:
+            token_refresh_extension_hours = kwargs['tokenRefreshExtensionHours']
+        if 'tokenStoreEnabled' in kwargs:
+            token_store_enabled = kwargs['tokenStoreEnabled']
+        if 'unauthenticatedClientAction' in kwargs:
+            unauthenticated_client_action = kwargs['unauthenticatedClientAction']
+
         _setter("enabled", enabled)
         if active_directory is not None:
             _setter("active_directory", active_directory)
@@ -26650,7 +29144,15 @@ class SlotAuthSettingsActiveDirectory(dict):
              client_id: str,
              allowed_audiences: Optional[Sequence[str]] = None,
              client_secret: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+
         _setter("client_id", client_id)
         if allowed_audiences is not None:
             _setter("allowed_audiences", allowed_audiences)
@@ -26726,7 +29228,15 @@ class SlotAuthSettingsFacebook(dict):
              app_id: str,
              app_secret: str,
              oauth_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'appSecret' in kwargs:
+            app_secret = kwargs['appSecret']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("app_id", app_id)
         _setter("app_secret", app_secret)
         if oauth_scopes is not None:
@@ -26801,7 +29311,15 @@ class SlotAuthSettingsGoogle(dict):
              client_id: str,
              client_secret: str,
              oauth_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret", client_secret)
         if oauth_scopes is not None:
@@ -26876,7 +29394,15 @@ class SlotAuthSettingsMicrosoft(dict):
              client_id: str,
              client_secret: str,
              oauth_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret", client_secret)
         if oauth_scopes is not None:
@@ -26945,7 +29471,13 @@ class SlotAuthSettingsTwitter(dict):
              _setter: Callable[[Any, Any], None],
              consumer_key: str,
              consumer_secret: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'consumerKey' in kwargs:
+            consumer_key = kwargs['consumerKey']
+        if 'consumerSecret' in kwargs:
+            consumer_secret = kwargs['consumerSecret']
+
         _setter("consumer_key", consumer_key)
         _setter("consumer_secret", consumer_secret)
 
@@ -26989,7 +29521,9 @@ class SlotConnectionString(dict):
              name: str,
              type: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("type", type)
         _setter("value", value)
@@ -27069,7 +29603,15 @@ class SlotIdentity(dict):
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -27163,7 +29705,17 @@ class SlotLogs(dict):
              detailed_error_messages_enabled: Optional[bool] = None,
              failed_request_tracing_enabled: Optional[bool] = None,
              http_logs: Optional['outputs.SlotLogsHttpLogs'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationLogs' in kwargs:
+            application_logs = kwargs['applicationLogs']
+        if 'detailedErrorMessagesEnabled' in kwargs:
+            detailed_error_messages_enabled = kwargs['detailedErrorMessagesEnabled']
+        if 'failedRequestTracingEnabled' in kwargs:
+            failed_request_tracing_enabled = kwargs['failedRequestTracingEnabled']
+        if 'httpLogs' in kwargs:
+            http_logs = kwargs['httpLogs']
+
         if application_logs is not None:
             _setter("application_logs", application_logs)
         if detailed_error_messages_enabled is not None:
@@ -27244,7 +29796,13 @@ class SlotLogsApplicationLogs(dict):
              _setter: Callable[[Any, Any], None],
              azure_blob_storage: Optional['outputs.SlotLogsApplicationLogsAzureBlobStorage'] = None,
              file_system_level: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azureBlobStorage' in kwargs:
+            azure_blob_storage = kwargs['azureBlobStorage']
+        if 'fileSystemLevel' in kwargs:
+            file_system_level = kwargs['fileSystemLevel']
+
         if azure_blob_storage is not None:
             _setter("azure_blob_storage", azure_blob_storage)
         if file_system_level is not None:
@@ -27309,7 +29867,13 @@ class SlotLogsApplicationLogsAzureBlobStorage(dict):
              level: str,
              retention_in_days: int,
              sas_url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'retentionInDays' in kwargs:
+            retention_in_days = kwargs['retentionInDays']
+        if 'sasUrl' in kwargs:
+            sas_url = kwargs['sasUrl']
+
         _setter("level", level)
         _setter("retention_in_days", retention_in_days)
         _setter("sas_url", sas_url)
@@ -27377,7 +29941,13 @@ class SlotLogsHttpLogs(dict):
              _setter: Callable[[Any, Any], None],
              azure_blob_storage: Optional['outputs.SlotLogsHttpLogsAzureBlobStorage'] = None,
              file_system: Optional['outputs.SlotLogsHttpLogsFileSystem'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azureBlobStorage' in kwargs:
+            azure_blob_storage = kwargs['azureBlobStorage']
+        if 'fileSystem' in kwargs:
+            file_system = kwargs['fileSystem']
+
         if azure_blob_storage is not None:
             _setter("azure_blob_storage", azure_blob_storage)
         if file_system is not None:
@@ -27438,7 +30008,13 @@ class SlotLogsHttpLogsAzureBlobStorage(dict):
              _setter: Callable[[Any, Any], None],
              retention_in_days: int,
              sas_url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'retentionInDays' in kwargs:
+            retention_in_days = kwargs['retentionInDays']
+        if 'sasUrl' in kwargs:
+            sas_url = kwargs['sasUrl']
+
         _setter("retention_in_days", retention_in_days)
         _setter("sas_url", sas_url)
 
@@ -27497,7 +30073,13 @@ class SlotLogsHttpLogsFileSystem(dict):
              _setter: Callable[[Any, Any], None],
              retention_in_days: int,
              retention_in_mb: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'retentionInDays' in kwargs:
+            retention_in_days = kwargs['retentionInDays']
+        if 'retentionInMb' in kwargs:
+            retention_in_mb = kwargs['retentionInMb']
+
         _setter("retention_in_days", retention_in_days)
         _setter("retention_in_mb", retention_in_mb)
 
@@ -27742,7 +30324,69 @@ class SlotSiteConfig(dict):
              vnet_route_all_enabled: Optional[bool] = None,
              websockets_enabled: Optional[bool] = None,
              windows_fx_version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'acrUseManagedIdentityCredentials' in kwargs:
+            acr_use_managed_identity_credentials = kwargs['acrUseManagedIdentityCredentials']
+        if 'acrUserManagedIdentityClientId' in kwargs:
+            acr_user_managed_identity_client_id = kwargs['acrUserManagedIdentityClientId']
+        if 'alwaysOn' in kwargs:
+            always_on = kwargs['alwaysOn']
+        if 'appCommandLine' in kwargs:
+            app_command_line = kwargs['appCommandLine']
+        if 'autoSwapSlotName' in kwargs:
+            auto_swap_slot_name = kwargs['autoSwapSlotName']
+        if 'defaultDocuments' in kwargs:
+            default_documents = kwargs['defaultDocuments']
+        if 'dotnetFrameworkVersion' in kwargs:
+            dotnet_framework_version = kwargs['dotnetFrameworkVersion']
+        if 'ftpsState' in kwargs:
+            ftps_state = kwargs['ftpsState']
+        if 'healthCheckPath' in kwargs:
+            health_check_path = kwargs['healthCheckPath']
+        if 'http2Enabled' in kwargs:
+            http2_enabled = kwargs['http2Enabled']
+        if 'ipRestrictions' in kwargs:
+            ip_restrictions = kwargs['ipRestrictions']
+        if 'javaContainer' in kwargs:
+            java_container = kwargs['javaContainer']
+        if 'javaContainerVersion' in kwargs:
+            java_container_version = kwargs['javaContainerVersion']
+        if 'javaVersion' in kwargs:
+            java_version = kwargs['javaVersion']
+        if 'linuxFxVersion' in kwargs:
+            linux_fx_version = kwargs['linuxFxVersion']
+        if 'localMysqlEnabled' in kwargs:
+            local_mysql_enabled = kwargs['localMysqlEnabled']
+        if 'managedPipelineMode' in kwargs:
+            managed_pipeline_mode = kwargs['managedPipelineMode']
+        if 'minTlsVersion' in kwargs:
+            min_tls_version = kwargs['minTlsVersion']
+        if 'numberOfWorkers' in kwargs:
+            number_of_workers = kwargs['numberOfWorkers']
+        if 'phpVersion' in kwargs:
+            php_version = kwargs['phpVersion']
+        if 'pythonVersion' in kwargs:
+            python_version = kwargs['pythonVersion']
+        if 'remoteDebuggingEnabled' in kwargs:
+            remote_debugging_enabled = kwargs['remoteDebuggingEnabled']
+        if 'remoteDebuggingVersion' in kwargs:
+            remote_debugging_version = kwargs['remoteDebuggingVersion']
+        if 'scmIpRestrictions' in kwargs:
+            scm_ip_restrictions = kwargs['scmIpRestrictions']
+        if 'scmType' in kwargs:
+            scm_type = kwargs['scmType']
+        if 'scmUseMainIpRestriction' in kwargs:
+            scm_use_main_ip_restriction = kwargs['scmUseMainIpRestriction']
+        if 'use32BitWorkerProcess' in kwargs:
+            use32_bit_worker_process = kwargs['use32BitWorkerProcess']
+        if 'vnetRouteAllEnabled' in kwargs:
+            vnet_route_all_enabled = kwargs['vnetRouteAllEnabled']
+        if 'websocketsEnabled' in kwargs:
+            websockets_enabled = kwargs['websocketsEnabled']
+        if 'windowsFxVersion' in kwargs:
+            windows_fx_version = kwargs['windowsFxVersion']
+
         if acr_use_managed_identity_credentials is not None:
             _setter("acr_use_managed_identity_credentials", acr_use_managed_identity_credentials)
         if acr_user_managed_identity_client_id is not None:
@@ -28103,7 +30747,13 @@ class SlotSiteConfigCors(dict):
              _setter: Callable[[Any, Any], None],
              allowed_origins: Sequence[str],
              support_credentials: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedOrigins' in kwargs:
+            allowed_origins = kwargs['allowedOrigins']
+        if 'supportCredentials' in kwargs:
+            support_credentials = kwargs['supportCredentials']
+
         _setter("allowed_origins", allowed_origins)
         if support_credentials is not None:
             _setter("support_credentials", support_credentials)
@@ -28187,7 +30837,15 @@ class SlotSiteConfigIpRestriction(dict):
              priority: Optional[int] = None,
              service_tag: Optional[str] = None,
              virtual_network_subnet_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'serviceTag' in kwargs:
+            service_tag = kwargs['serviceTag']
+        if 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+
         if action is not None:
             _setter("action", action)
         if headers is not None:
@@ -28312,7 +30970,17 @@ class SlotSiteConfigIpRestrictionHeaders(dict):
              x_fd_health_probe: Optional[str] = None,
              x_forwarded_fors: Optional[Sequence[str]] = None,
              x_forwarded_hosts: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'xAzureFdids' in kwargs:
+            x_azure_fdids = kwargs['xAzureFdids']
+        if 'xFdHealthProbe' in kwargs:
+            x_fd_health_probe = kwargs['xFdHealthProbe']
+        if 'xForwardedFors' in kwargs:
+            x_forwarded_fors = kwargs['xForwardedFors']
+        if 'xForwardedHosts' in kwargs:
+            x_forwarded_hosts = kwargs['xForwardedHosts']
+
         if x_azure_fdids is not None:
             _setter("x_azure_fdids", x_azure_fdids)
         if x_fd_health_probe is not None:
@@ -28417,7 +31085,15 @@ class SlotSiteConfigScmIpRestriction(dict):
              priority: Optional[int] = None,
              service_tag: Optional[str] = None,
              virtual_network_subnet_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'serviceTag' in kwargs:
+            service_tag = kwargs['serviceTag']
+        if 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+
         if action is not None:
             _setter("action", action)
         if headers is not None:
@@ -28542,7 +31218,17 @@ class SlotSiteConfigScmIpRestrictionHeaders(dict):
              x_fd_health_probe: Optional[str] = None,
              x_forwarded_fors: Optional[Sequence[str]] = None,
              x_forwarded_hosts: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'xAzureFdids' in kwargs:
+            x_azure_fdids = kwargs['xAzureFdids']
+        if 'xFdHealthProbe' in kwargs:
+            x_fd_health_probe = kwargs['xFdHealthProbe']
+        if 'xForwardedFors' in kwargs:
+            x_forwarded_fors = kwargs['xForwardedFors']
+        if 'xForwardedHosts' in kwargs:
+            x_forwarded_hosts = kwargs['xForwardedHosts']
+
         if x_azure_fdids is not None:
             _setter("x_azure_fdids", x_azure_fdids)
         if x_fd_health_probe is not None:
@@ -28604,7 +31290,9 @@ class SlotSiteCredential(dict):
              _setter: Callable[[Any, Any], None],
              password: Optional[str] = None,
              username: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if password is not None:
             _setter("password", password)
         if username is not None:
@@ -28685,7 +31373,17 @@ class SlotStorageAccount(dict):
              share_name: str,
              type: str,
              mount_path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessKey' in kwargs:
+            access_key = kwargs['accessKey']
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'shareName' in kwargs:
+            share_name = kwargs['shareName']
+        if 'mountPath' in kwargs:
+            mount_path = kwargs['mountPath']
+
         _setter("access_key", access_key)
         _setter("account_name", account_name)
         _setter("name", name)
@@ -28792,7 +31490,17 @@ class SourceControlGithubActionConfiguration(dict):
              container_configuration: Optional['outputs.SourceControlGithubActionConfigurationContainerConfiguration'] = None,
              generate_workflow_file: Optional[bool] = None,
              linux_action: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'codeConfiguration' in kwargs:
+            code_configuration = kwargs['codeConfiguration']
+        if 'containerConfiguration' in kwargs:
+            container_configuration = kwargs['containerConfiguration']
+        if 'generateWorkflowFile' in kwargs:
+            generate_workflow_file = kwargs['generateWorkflowFile']
+        if 'linuxAction' in kwargs:
+            linux_action = kwargs['linuxAction']
+
         if code_configuration is not None:
             _setter("code_configuration", code_configuration)
         if container_configuration is not None:
@@ -28870,7 +31578,13 @@ class SourceControlGithubActionConfigurationCodeConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              runtime_stack: str,
              runtime_version: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'runtimeStack' in kwargs:
+            runtime_stack = kwargs['runtimeStack']
+        if 'runtimeVersion' in kwargs:
+            runtime_version = kwargs['runtimeVersion']
+
         _setter("runtime_stack", runtime_stack)
         _setter("runtime_version", runtime_version)
 
@@ -28941,7 +31655,17 @@ class SourceControlGithubActionConfigurationContainerConfiguration(dict):
              registry_url: str,
              registry_password: Optional[str] = None,
              registry_username: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'imageName' in kwargs:
+            image_name = kwargs['imageName']
+        if 'registryUrl' in kwargs:
+            registry_url = kwargs['registryUrl']
+        if 'registryPassword' in kwargs:
+            registry_password = kwargs['registryPassword']
+        if 'registryUsername' in kwargs:
+            registry_username = kwargs['registryUsername']
+
         _setter("image_name", image_name)
         _setter("registry_url", registry_url)
         if registry_password is not None:
@@ -29032,7 +31756,17 @@ class SourceControlSlotGithubActionConfiguration(dict):
              container_configuration: Optional['outputs.SourceControlSlotGithubActionConfigurationContainerConfiguration'] = None,
              generate_workflow_file: Optional[bool] = None,
              linux_action: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'codeConfiguration' in kwargs:
+            code_configuration = kwargs['codeConfiguration']
+        if 'containerConfiguration' in kwargs:
+            container_configuration = kwargs['containerConfiguration']
+        if 'generateWorkflowFile' in kwargs:
+            generate_workflow_file = kwargs['generateWorkflowFile']
+        if 'linuxAction' in kwargs:
+            linux_action = kwargs['linuxAction']
+
         if code_configuration is not None:
             _setter("code_configuration", code_configuration)
         if container_configuration is not None:
@@ -29113,7 +31847,13 @@ class SourceControlSlotGithubActionConfigurationCodeConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              runtime_stack: str,
              runtime_version: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'runtimeStack' in kwargs:
+            runtime_stack = kwargs['runtimeStack']
+        if 'runtimeVersion' in kwargs:
+            runtime_version = kwargs['runtimeVersion']
+
         _setter("runtime_stack", runtime_stack)
         _setter("runtime_version", runtime_version)
 
@@ -29184,7 +31924,17 @@ class SourceControlSlotGithubActionConfigurationContainerConfiguration(dict):
              registry_url: str,
              registry_password: Optional[str] = None,
              registry_username: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'imageName' in kwargs:
+            image_name = kwargs['imageName']
+        if 'registryUrl' in kwargs:
+            registry_url = kwargs['registryUrl']
+        if 'registryPassword' in kwargs:
+            registry_password = kwargs['registryPassword']
+        if 'registryUsername' in kwargs:
+            registry_username = kwargs['registryUsername']
+
         _setter("image_name", image_name)
         _setter("registry_url", registry_url)
         if registry_password is not None:
@@ -29272,7 +32022,15 @@ class StaticSiteIdentity(dict):
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -29417,7 +32175,25 @@ class WindowsFunctionAppAuthSettings(dict):
              token_store_enabled: Optional[bool] = None,
              twitter: Optional['outputs.WindowsFunctionAppAuthSettingsTwitter'] = None,
              unauthenticated_client_action: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activeDirectory' in kwargs:
+            active_directory = kwargs['activeDirectory']
+        if 'additionalLoginParameters' in kwargs:
+            additional_login_parameters = kwargs['additionalLoginParameters']
+        if 'allowedExternalRedirectUrls' in kwargs:
+            allowed_external_redirect_urls = kwargs['allowedExternalRedirectUrls']
+        if 'defaultProvider' in kwargs:
+            default_provider = kwargs['defaultProvider']
+        if 'runtimeVersion' in kwargs:
+            runtime_version = kwargs['runtimeVersion']
+        if 'tokenRefreshExtensionHours' in kwargs:
+            token_refresh_extension_hours = kwargs['tokenRefreshExtensionHours']
+        if 'tokenStoreEnabled' in kwargs:
+            token_store_enabled = kwargs['tokenStoreEnabled']
+        if 'unauthenticatedClientAction' in kwargs:
+            unauthenticated_client_action = kwargs['unauthenticatedClientAction']
+
         _setter("enabled", enabled)
         if active_directory is not None:
             _setter("active_directory", active_directory)
@@ -29625,7 +32401,17 @@ class WindowsFunctionAppAuthSettingsActiveDirectory(dict):
              allowed_audiences: Optional[Sequence[str]] = None,
              client_secret: Optional[str] = None,
              client_secret_setting_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+
         _setter("client_id", client_id)
         if allowed_audiences is not None:
             _setter("allowed_audiences", allowed_audiences)
@@ -29719,7 +32505,17 @@ class WindowsFunctionAppAuthSettingsFacebook(dict):
              app_secret: Optional[str] = None,
              app_secret_setting_name: Optional[str] = None,
              oauth_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'appSecret' in kwargs:
+            app_secret = kwargs['appSecret']
+        if 'appSecretSettingName' in kwargs:
+            app_secret_setting_name = kwargs['appSecretSettingName']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("app_id", app_id)
         if app_secret is not None:
             _setter("app_secret", app_secret)
@@ -29811,7 +32607,17 @@ class WindowsFunctionAppAuthSettingsGithub(dict):
              client_secret: Optional[str] = None,
              client_secret_setting_name: Optional[str] = None,
              oauth_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("client_id", client_id)
         if client_secret is not None:
             _setter("client_secret", client_secret)
@@ -29903,7 +32709,17 @@ class WindowsFunctionAppAuthSettingsGoogle(dict):
              client_secret: Optional[str] = None,
              client_secret_setting_name: Optional[str] = None,
              oauth_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("client_id", client_id)
         if client_secret is not None:
             _setter("client_secret", client_secret)
@@ -29995,7 +32811,17 @@ class WindowsFunctionAppAuthSettingsMicrosoft(dict):
              client_secret: Optional[str] = None,
              client_secret_setting_name: Optional[str] = None,
              oauth_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("client_id", client_id)
         if client_secret is not None:
             _setter("client_secret", client_secret)
@@ -30081,7 +32907,15 @@ class WindowsFunctionAppAuthSettingsTwitter(dict):
              consumer_key: str,
              consumer_secret: Optional[str] = None,
              consumer_secret_setting_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'consumerKey' in kwargs:
+            consumer_key = kwargs['consumerKey']
+        if 'consumerSecret' in kwargs:
+            consumer_secret = kwargs['consumerSecret']
+        if 'consumerSecretSettingName' in kwargs:
+            consumer_secret_setting_name = kwargs['consumerSecretSettingName']
+
         _setter("consumer_key", consumer_key)
         if consumer_secret is not None:
             _setter("consumer_secret", consumer_secret)
@@ -30275,7 +33109,51 @@ class WindowsFunctionAppAuthSettingsV2(dict):
              runtime_version: Optional[str] = None,
              twitter_v2: Optional['outputs.WindowsFunctionAppAuthSettingsV2TwitterV2'] = None,
              unauthenticated_action: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activeDirectoryV2' in kwargs:
+            active_directory_v2 = kwargs['activeDirectoryV2']
+        if 'appleV2' in kwargs:
+            apple_v2 = kwargs['appleV2']
+        if 'authEnabled' in kwargs:
+            auth_enabled = kwargs['authEnabled']
+        if 'azureStaticWebAppV2' in kwargs:
+            azure_static_web_app_v2 = kwargs['azureStaticWebAppV2']
+        if 'configFilePath' in kwargs:
+            config_file_path = kwargs['configFilePath']
+        if 'customOidcV2s' in kwargs:
+            custom_oidc_v2s = kwargs['customOidcV2s']
+        if 'defaultProvider' in kwargs:
+            default_provider = kwargs['defaultProvider']
+        if 'excludedPaths' in kwargs:
+            excluded_paths = kwargs['excludedPaths']
+        if 'facebookV2' in kwargs:
+            facebook_v2 = kwargs['facebookV2']
+        if 'forwardProxyConvention' in kwargs:
+            forward_proxy_convention = kwargs['forwardProxyConvention']
+        if 'forwardProxyCustomHostHeaderName' in kwargs:
+            forward_proxy_custom_host_header_name = kwargs['forwardProxyCustomHostHeaderName']
+        if 'forwardProxyCustomSchemeHeaderName' in kwargs:
+            forward_proxy_custom_scheme_header_name = kwargs['forwardProxyCustomSchemeHeaderName']
+        if 'githubV2' in kwargs:
+            github_v2 = kwargs['githubV2']
+        if 'googleV2' in kwargs:
+            google_v2 = kwargs['googleV2']
+        if 'httpRouteApiPrefix' in kwargs:
+            http_route_api_prefix = kwargs['httpRouteApiPrefix']
+        if 'microsoftV2' in kwargs:
+            microsoft_v2 = kwargs['microsoftV2']
+        if 'requireAuthentication' in kwargs:
+            require_authentication = kwargs['requireAuthentication']
+        if 'requireHttps' in kwargs:
+            require_https = kwargs['requireHttps']
+        if 'runtimeVersion' in kwargs:
+            runtime_version = kwargs['runtimeVersion']
+        if 'twitterV2' in kwargs:
+            twitter_v2 = kwargs['twitterV2']
+        if 'unauthenticatedAction' in kwargs:
+            unauthenticated_action = kwargs['unauthenticatedAction']
+
         _setter("login", login)
         if active_directory_v2 is not None:
             _setter("active_directory_v2", active_directory_v2)
@@ -30605,7 +33483,33 @@ class WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2(dict):
              jwt_allowed_groups: Optional[Sequence[str]] = None,
              login_parameters: Optional[Mapping[str, str]] = None,
              www_authentication_disabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'tenantAuthEndpoint' in kwargs:
+            tenant_auth_endpoint = kwargs['tenantAuthEndpoint']
+        if 'allowedApplications' in kwargs:
+            allowed_applications = kwargs['allowedApplications']
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'allowedGroups' in kwargs:
+            allowed_groups = kwargs['allowedGroups']
+        if 'allowedIdentities' in kwargs:
+            allowed_identities = kwargs['allowedIdentities']
+        if 'clientSecretCertificateThumbprint' in kwargs:
+            client_secret_certificate_thumbprint = kwargs['clientSecretCertificateThumbprint']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'jwtAllowedClientApplications' in kwargs:
+            jwt_allowed_client_applications = kwargs['jwtAllowedClientApplications']
+        if 'jwtAllowedGroups' in kwargs:
+            jwt_allowed_groups = kwargs['jwtAllowedGroups']
+        if 'loginParameters' in kwargs:
+            login_parameters = kwargs['loginParameters']
+        if 'wwwAuthenticationDisabled' in kwargs:
+            www_authentication_disabled = kwargs['wwwAuthenticationDisabled']
+
         _setter("client_id", client_id)
         _setter("tenant_auth_endpoint", tenant_auth_endpoint)
         if allowed_applications is not None:
@@ -30774,7 +33678,15 @@ class WindowsFunctionAppAuthSettingsV2AppleV2(dict):
              client_id: str,
              client_secret_setting_name: str,
              login_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret_setting_name", client_secret_setting_name)
         if login_scopes is not None:
@@ -30837,7 +33749,11 @@ class WindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              client_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+
         _setter("client_id", client_id)
 
     @property
@@ -30937,7 +33853,27 @@ class WindowsFunctionAppAuthSettingsV2CustomOidcV2(dict):
              name_claim_type: Optional[str] = None,
              scopes: Optional[Sequence[str]] = None,
              token_endpoint: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'openidConfigurationEndpoint' in kwargs:
+            openid_configuration_endpoint = kwargs['openidConfigurationEndpoint']
+        if 'authorisationEndpoint' in kwargs:
+            authorisation_endpoint = kwargs['authorisationEndpoint']
+        if 'certificationUri' in kwargs:
+            certification_uri = kwargs['certificationUri']
+        if 'clientCredentialMethod' in kwargs:
+            client_credential_method = kwargs['clientCredentialMethod']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'issuerEndpoint' in kwargs:
+            issuer_endpoint = kwargs['issuerEndpoint']
+        if 'nameClaimType' in kwargs:
+            name_claim_type = kwargs['nameClaimType']
+        if 'tokenEndpoint' in kwargs:
+            token_endpoint = kwargs['tokenEndpoint']
+
         _setter("client_id", client_id)
         _setter("name", name)
         _setter("openid_configuration_endpoint", openid_configuration_endpoint)
@@ -31099,7 +34035,17 @@ class WindowsFunctionAppAuthSettingsV2FacebookV2(dict):
              app_secret_setting_name: str,
              graph_api_version: Optional[str] = None,
              login_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'appSecretSettingName' in kwargs:
+            app_secret_setting_name = kwargs['appSecretSettingName']
+        if 'graphApiVersion' in kwargs:
+            graph_api_version = kwargs['graphApiVersion']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("app_id", app_id)
         _setter("app_secret_setting_name", app_secret_setting_name)
         if graph_api_version is not None:
@@ -31186,7 +34132,15 @@ class WindowsFunctionAppAuthSettingsV2GithubV2(dict):
              client_id: str,
              client_secret_setting_name: str,
              login_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret_setting_name", client_secret_setting_name)
         if login_scopes is not None:
@@ -31269,7 +34223,17 @@ class WindowsFunctionAppAuthSettingsV2GoogleV2(dict):
              client_secret_setting_name: str,
              allowed_audiences: Optional[Sequence[str]] = None,
              login_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret_setting_name", client_secret_setting_name)
         if allowed_audiences is not None:
@@ -31406,7 +34370,31 @@ class WindowsFunctionAppAuthSettingsV2Login(dict):
              token_store_path: Optional[str] = None,
              token_store_sas_setting_name: Optional[str] = None,
              validate_nonce: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedExternalRedirectUrls' in kwargs:
+            allowed_external_redirect_urls = kwargs['allowedExternalRedirectUrls']
+        if 'cookieExpirationConvention' in kwargs:
+            cookie_expiration_convention = kwargs['cookieExpirationConvention']
+        if 'cookieExpirationTime' in kwargs:
+            cookie_expiration_time = kwargs['cookieExpirationTime']
+        if 'logoutEndpoint' in kwargs:
+            logout_endpoint = kwargs['logoutEndpoint']
+        if 'nonceExpirationTime' in kwargs:
+            nonce_expiration_time = kwargs['nonceExpirationTime']
+        if 'preserveUrlFragmentsForLogins' in kwargs:
+            preserve_url_fragments_for_logins = kwargs['preserveUrlFragmentsForLogins']
+        if 'tokenRefreshExtensionTime' in kwargs:
+            token_refresh_extension_time = kwargs['tokenRefreshExtensionTime']
+        if 'tokenStoreEnabled' in kwargs:
+            token_store_enabled = kwargs['tokenStoreEnabled']
+        if 'tokenStorePath' in kwargs:
+            token_store_path = kwargs['tokenStorePath']
+        if 'tokenStoreSasSettingName' in kwargs:
+            token_store_sas_setting_name = kwargs['tokenStoreSasSettingName']
+        if 'validateNonce' in kwargs:
+            validate_nonce = kwargs['validateNonce']
+
         if allowed_external_redirect_urls is not None:
             _setter("allowed_external_redirect_urls", allowed_external_redirect_urls)
         if cookie_expiration_convention is not None:
@@ -31573,7 +34561,17 @@ class WindowsFunctionAppAuthSettingsV2MicrosoftV2(dict):
              client_secret_setting_name: str,
              allowed_audiences: Optional[Sequence[str]] = None,
              login_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret_setting_name", client_secret_setting_name)
         if allowed_audiences is not None:
@@ -31656,7 +34654,13 @@ class WindowsFunctionAppAuthSettingsV2TwitterV2(dict):
              _setter: Callable[[Any, Any], None],
              consumer_key: str,
              consumer_secret_setting_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'consumerKey' in kwargs:
+            consumer_key = kwargs['consumerKey']
+        if 'consumerSecretSettingName' in kwargs:
+            consumer_secret_setting_name = kwargs['consumerSecretSettingName']
+
         _setter("consumer_key", consumer_key)
         _setter("consumer_secret_setting_name", consumer_secret_setting_name)
 
@@ -31723,7 +34727,11 @@ class WindowsFunctionAppBackup(dict):
              schedule: 'outputs.WindowsFunctionAppBackupSchedule',
              storage_account_url: str,
              enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageAccountUrl' in kwargs:
+            storage_account_url = kwargs['storageAccountUrl']
+
         _setter("name", name)
         _setter("schedule", schedule)
         _setter("storage_account_url", storage_account_url)
@@ -31826,7 +34834,21 @@ class WindowsFunctionAppBackupSchedule(dict):
              last_execution_time: Optional[str] = None,
              retention_period_days: Optional[int] = None,
              start_time: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'frequencyInterval' in kwargs:
+            frequency_interval = kwargs['frequencyInterval']
+        if 'frequencyUnit' in kwargs:
+            frequency_unit = kwargs['frequencyUnit']
+        if 'keepAtLeastOneBackup' in kwargs:
+            keep_at_least_one_backup = kwargs['keepAtLeastOneBackup']
+        if 'lastExecutionTime' in kwargs:
+            last_execution_time = kwargs['lastExecutionTime']
+        if 'retentionPeriodDays' in kwargs:
+            retention_period_days = kwargs['retentionPeriodDays']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         _setter("frequency_interval", frequency_interval)
         _setter("frequency_unit", frequency_unit)
         if keep_at_least_one_backup is not None:
@@ -31909,7 +34931,9 @@ class WindowsFunctionAppConnectionString(dict):
              name: str,
              type: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("type", type)
         _setter("value", value)
@@ -31989,7 +35013,15 @@ class WindowsFunctionAppIdentity(dict):
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -32264,7 +35296,75 @@ class WindowsFunctionAppSiteConfig(dict):
              websockets_enabled: Optional[bool] = None,
              windows_fx_version: Optional[str] = None,
              worker_count: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alwaysOn' in kwargs:
+            always_on = kwargs['alwaysOn']
+        if 'apiDefinitionUrl' in kwargs:
+            api_definition_url = kwargs['apiDefinitionUrl']
+        if 'apiManagementApiId' in kwargs:
+            api_management_api_id = kwargs['apiManagementApiId']
+        if 'appCommandLine' in kwargs:
+            app_command_line = kwargs['appCommandLine']
+        if 'appScaleLimit' in kwargs:
+            app_scale_limit = kwargs['appScaleLimit']
+        if 'appServiceLogs' in kwargs:
+            app_service_logs = kwargs['appServiceLogs']
+        if 'applicationInsightsConnectionString' in kwargs:
+            application_insights_connection_string = kwargs['applicationInsightsConnectionString']
+        if 'applicationInsightsKey' in kwargs:
+            application_insights_key = kwargs['applicationInsightsKey']
+        if 'applicationStack' in kwargs:
+            application_stack = kwargs['applicationStack']
+        if 'defaultDocuments' in kwargs:
+            default_documents = kwargs['defaultDocuments']
+        if 'detailedErrorLoggingEnabled' in kwargs:
+            detailed_error_logging_enabled = kwargs['detailedErrorLoggingEnabled']
+        if 'elasticInstanceMinimum' in kwargs:
+            elastic_instance_minimum = kwargs['elasticInstanceMinimum']
+        if 'ftpsState' in kwargs:
+            ftps_state = kwargs['ftpsState']
+        if 'healthCheckEvictionTimeInMin' in kwargs:
+            health_check_eviction_time_in_min = kwargs['healthCheckEvictionTimeInMin']
+        if 'healthCheckPath' in kwargs:
+            health_check_path = kwargs['healthCheckPath']
+        if 'http2Enabled' in kwargs:
+            http2_enabled = kwargs['http2Enabled']
+        if 'ipRestrictions' in kwargs:
+            ip_restrictions = kwargs['ipRestrictions']
+        if 'loadBalancingMode' in kwargs:
+            load_balancing_mode = kwargs['loadBalancingMode']
+        if 'managedPipelineMode' in kwargs:
+            managed_pipeline_mode = kwargs['managedPipelineMode']
+        if 'minimumTlsVersion' in kwargs:
+            minimum_tls_version = kwargs['minimumTlsVersion']
+        if 'preWarmedInstanceCount' in kwargs:
+            pre_warmed_instance_count = kwargs['preWarmedInstanceCount']
+        if 'remoteDebuggingEnabled' in kwargs:
+            remote_debugging_enabled = kwargs['remoteDebuggingEnabled']
+        if 'remoteDebuggingVersion' in kwargs:
+            remote_debugging_version = kwargs['remoteDebuggingVersion']
+        if 'runtimeScaleMonitoringEnabled' in kwargs:
+            runtime_scale_monitoring_enabled = kwargs['runtimeScaleMonitoringEnabled']
+        if 'scmIpRestrictions' in kwargs:
+            scm_ip_restrictions = kwargs['scmIpRestrictions']
+        if 'scmMinimumTlsVersion' in kwargs:
+            scm_minimum_tls_version = kwargs['scmMinimumTlsVersion']
+        if 'scmType' in kwargs:
+            scm_type = kwargs['scmType']
+        if 'scmUseMainIpRestriction' in kwargs:
+            scm_use_main_ip_restriction = kwargs['scmUseMainIpRestriction']
+        if 'use32BitWorker' in kwargs:
+            use32_bit_worker = kwargs['use32BitWorker']
+        if 'vnetRouteAllEnabled' in kwargs:
+            vnet_route_all_enabled = kwargs['vnetRouteAllEnabled']
+        if 'websocketsEnabled' in kwargs:
+            websockets_enabled = kwargs['websocketsEnabled']
+        if 'windowsFxVersion' in kwargs:
+            windows_fx_version = kwargs['windowsFxVersion']
+        if 'workerCount' in kwargs:
+            worker_count = kwargs['workerCount']
+
         if always_on is not None:
             _setter("always_on", always_on)
         if api_definition_url is not None:
@@ -32644,7 +35744,13 @@ class WindowsFunctionAppSiteConfigAppServiceLogs(dict):
              _setter: Callable[[Any, Any], None],
              disk_quota_mb: Optional[int] = None,
              retention_period_days: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'diskQuotaMb' in kwargs:
+            disk_quota_mb = kwargs['diskQuotaMb']
+        if 'retentionPeriodDays' in kwargs:
+            retention_period_days = kwargs['retentionPeriodDays']
+
         if disk_quota_mb is not None:
             _setter("disk_quota_mb", disk_quota_mb)
         if retention_period_days is not None:
@@ -32733,7 +35839,21 @@ class WindowsFunctionAppSiteConfigApplicationStack(dict):
              powershell_core_version: Optional[str] = None,
              use_custom_runtime: Optional[bool] = None,
              use_dotnet_isolated_runtime: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dotnetVersion' in kwargs:
+            dotnet_version = kwargs['dotnetVersion']
+        if 'javaVersion' in kwargs:
+            java_version = kwargs['javaVersion']
+        if 'nodeVersion' in kwargs:
+            node_version = kwargs['nodeVersion']
+        if 'powershellCoreVersion' in kwargs:
+            powershell_core_version = kwargs['powershellCoreVersion']
+        if 'useCustomRuntime' in kwargs:
+            use_custom_runtime = kwargs['useCustomRuntime']
+        if 'useDotnetIsolatedRuntime' in kwargs:
+            use_dotnet_isolated_runtime = kwargs['useDotnetIsolatedRuntime']
+
         if dotnet_version is not None:
             _setter("dotnet_version", dotnet_version)
         if java_version is not None:
@@ -32836,7 +35956,13 @@ class WindowsFunctionAppSiteConfigCors(dict):
              _setter: Callable[[Any, Any], None],
              allowed_origins: Optional[Sequence[str]] = None,
              support_credentials: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedOrigins' in kwargs:
+            allowed_origins = kwargs['allowedOrigins']
+        if 'supportCredentials' in kwargs:
+            support_credentials = kwargs['supportCredentials']
+
         if allowed_origins is not None:
             _setter("allowed_origins", allowed_origins)
         if support_credentials is not None:
@@ -32921,7 +36047,15 @@ class WindowsFunctionAppSiteConfigIpRestriction(dict):
              priority: Optional[int] = None,
              service_tag: Optional[str] = None,
              virtual_network_subnet_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'serviceTag' in kwargs:
+            service_tag = kwargs['serviceTag']
+        if 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+
         if action is not None:
             _setter("action", action)
         if headers is not None:
@@ -33046,7 +36180,17 @@ class WindowsFunctionAppSiteConfigIpRestrictionHeaders(dict):
              x_fd_health_probe: Optional[str] = None,
              x_forwarded_fors: Optional[Sequence[str]] = None,
              x_forwarded_hosts: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'xAzureFdids' in kwargs:
+            x_azure_fdids = kwargs['xAzureFdids']
+        if 'xFdHealthProbe' in kwargs:
+            x_fd_health_probe = kwargs['xFdHealthProbe']
+        if 'xForwardedFors' in kwargs:
+            x_forwarded_fors = kwargs['xForwardedFors']
+        if 'xForwardedHosts' in kwargs:
+            x_forwarded_hosts = kwargs['xForwardedHosts']
+
         if x_azure_fdids is not None:
             _setter("x_azure_fdids", x_azure_fdids)
         if x_fd_health_probe is not None:
@@ -33151,7 +36295,15 @@ class WindowsFunctionAppSiteConfigScmIpRestriction(dict):
              priority: Optional[int] = None,
              service_tag: Optional[str] = None,
              virtual_network_subnet_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'serviceTag' in kwargs:
+            service_tag = kwargs['serviceTag']
+        if 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+
         if action is not None:
             _setter("action", action)
         if headers is not None:
@@ -33276,7 +36428,17 @@ class WindowsFunctionAppSiteConfigScmIpRestrictionHeaders(dict):
              x_fd_health_probe: Optional[str] = None,
              x_forwarded_fors: Optional[Sequence[str]] = None,
              x_forwarded_hosts: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'xAzureFdids' in kwargs:
+            x_azure_fdids = kwargs['xAzureFdids']
+        if 'xFdHealthProbe' in kwargs:
+            x_fd_health_probe = kwargs['xFdHealthProbe']
+        if 'xForwardedFors' in kwargs:
+            x_forwarded_fors = kwargs['xForwardedFors']
+        if 'xForwardedHosts' in kwargs:
+            x_forwarded_hosts = kwargs['xForwardedHosts']
+
         if x_azure_fdids is not None:
             _setter("x_azure_fdids", x_azure_fdids)
         if x_fd_health_probe is not None:
@@ -33338,7 +36500,9 @@ class WindowsFunctionAppSiteCredential(dict):
              _setter: Callable[[Any, Any], None],
              name: Optional[str] = None,
              password: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if password is not None:
@@ -33467,7 +36631,25 @@ class WindowsFunctionAppSlotAuthSettings(dict):
              token_store_enabled: Optional[bool] = None,
              twitter: Optional['outputs.WindowsFunctionAppSlotAuthSettingsTwitter'] = None,
              unauthenticated_client_action: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activeDirectory' in kwargs:
+            active_directory = kwargs['activeDirectory']
+        if 'additionalLoginParameters' in kwargs:
+            additional_login_parameters = kwargs['additionalLoginParameters']
+        if 'allowedExternalRedirectUrls' in kwargs:
+            allowed_external_redirect_urls = kwargs['allowedExternalRedirectUrls']
+        if 'defaultProvider' in kwargs:
+            default_provider = kwargs['defaultProvider']
+        if 'runtimeVersion' in kwargs:
+            runtime_version = kwargs['runtimeVersion']
+        if 'tokenRefreshExtensionHours' in kwargs:
+            token_refresh_extension_hours = kwargs['tokenRefreshExtensionHours']
+        if 'tokenStoreEnabled' in kwargs:
+            token_store_enabled = kwargs['tokenStoreEnabled']
+        if 'unauthenticatedClientAction' in kwargs:
+            unauthenticated_client_action = kwargs['unauthenticatedClientAction']
+
         _setter("enabled", enabled)
         if active_directory is not None:
             _setter("active_directory", active_directory)
@@ -33675,7 +36857,17 @@ class WindowsFunctionAppSlotAuthSettingsActiveDirectory(dict):
              allowed_audiences: Optional[Sequence[str]] = None,
              client_secret: Optional[str] = None,
              client_secret_setting_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+
         _setter("client_id", client_id)
         if allowed_audiences is not None:
             _setter("allowed_audiences", allowed_audiences)
@@ -33769,7 +36961,17 @@ class WindowsFunctionAppSlotAuthSettingsFacebook(dict):
              app_secret: Optional[str] = None,
              app_secret_setting_name: Optional[str] = None,
              oauth_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'appSecret' in kwargs:
+            app_secret = kwargs['appSecret']
+        if 'appSecretSettingName' in kwargs:
+            app_secret_setting_name = kwargs['appSecretSettingName']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("app_id", app_id)
         if app_secret is not None:
             _setter("app_secret", app_secret)
@@ -33861,7 +37063,17 @@ class WindowsFunctionAppSlotAuthSettingsGithub(dict):
              client_secret: Optional[str] = None,
              client_secret_setting_name: Optional[str] = None,
              oauth_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("client_id", client_id)
         if client_secret is not None:
             _setter("client_secret", client_secret)
@@ -33953,7 +37165,17 @@ class WindowsFunctionAppSlotAuthSettingsGoogle(dict):
              client_secret: Optional[str] = None,
              client_secret_setting_name: Optional[str] = None,
              oauth_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("client_id", client_id)
         if client_secret is not None:
             _setter("client_secret", client_secret)
@@ -34045,7 +37267,17 @@ class WindowsFunctionAppSlotAuthSettingsMicrosoft(dict):
              client_secret: Optional[str] = None,
              client_secret_setting_name: Optional[str] = None,
              oauth_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("client_id", client_id)
         if client_secret is not None:
             _setter("client_secret", client_secret)
@@ -34131,7 +37363,15 @@ class WindowsFunctionAppSlotAuthSettingsTwitter(dict):
              consumer_key: str,
              consumer_secret: Optional[str] = None,
              consumer_secret_setting_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'consumerKey' in kwargs:
+            consumer_key = kwargs['consumerKey']
+        if 'consumerSecret' in kwargs:
+            consumer_secret = kwargs['consumerSecret']
+        if 'consumerSecretSettingName' in kwargs:
+            consumer_secret_setting_name = kwargs['consumerSecretSettingName']
+
         _setter("consumer_key", consumer_key)
         if consumer_secret is not None:
             _setter("consumer_secret", consumer_secret)
@@ -34325,7 +37565,51 @@ class WindowsFunctionAppSlotAuthSettingsV2(dict):
              runtime_version: Optional[str] = None,
              twitter_v2: Optional['outputs.WindowsFunctionAppSlotAuthSettingsV2TwitterV2'] = None,
              unauthenticated_action: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activeDirectoryV2' in kwargs:
+            active_directory_v2 = kwargs['activeDirectoryV2']
+        if 'appleV2' in kwargs:
+            apple_v2 = kwargs['appleV2']
+        if 'authEnabled' in kwargs:
+            auth_enabled = kwargs['authEnabled']
+        if 'azureStaticWebAppV2' in kwargs:
+            azure_static_web_app_v2 = kwargs['azureStaticWebAppV2']
+        if 'configFilePath' in kwargs:
+            config_file_path = kwargs['configFilePath']
+        if 'customOidcV2s' in kwargs:
+            custom_oidc_v2s = kwargs['customOidcV2s']
+        if 'defaultProvider' in kwargs:
+            default_provider = kwargs['defaultProvider']
+        if 'excludedPaths' in kwargs:
+            excluded_paths = kwargs['excludedPaths']
+        if 'facebookV2' in kwargs:
+            facebook_v2 = kwargs['facebookV2']
+        if 'forwardProxyConvention' in kwargs:
+            forward_proxy_convention = kwargs['forwardProxyConvention']
+        if 'forwardProxyCustomHostHeaderName' in kwargs:
+            forward_proxy_custom_host_header_name = kwargs['forwardProxyCustomHostHeaderName']
+        if 'forwardProxyCustomSchemeHeaderName' in kwargs:
+            forward_proxy_custom_scheme_header_name = kwargs['forwardProxyCustomSchemeHeaderName']
+        if 'githubV2' in kwargs:
+            github_v2 = kwargs['githubV2']
+        if 'googleV2' in kwargs:
+            google_v2 = kwargs['googleV2']
+        if 'httpRouteApiPrefix' in kwargs:
+            http_route_api_prefix = kwargs['httpRouteApiPrefix']
+        if 'microsoftV2' in kwargs:
+            microsoft_v2 = kwargs['microsoftV2']
+        if 'requireAuthentication' in kwargs:
+            require_authentication = kwargs['requireAuthentication']
+        if 'requireHttps' in kwargs:
+            require_https = kwargs['requireHttps']
+        if 'runtimeVersion' in kwargs:
+            runtime_version = kwargs['runtimeVersion']
+        if 'twitterV2' in kwargs:
+            twitter_v2 = kwargs['twitterV2']
+        if 'unauthenticatedAction' in kwargs:
+            unauthenticated_action = kwargs['unauthenticatedAction']
+
         _setter("login", login)
         if active_directory_v2 is not None:
             _setter("active_directory_v2", active_directory_v2)
@@ -34655,7 +37939,33 @@ class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
              jwt_allowed_groups: Optional[Sequence[str]] = None,
              login_parameters: Optional[Mapping[str, str]] = None,
              www_authentication_disabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'tenantAuthEndpoint' in kwargs:
+            tenant_auth_endpoint = kwargs['tenantAuthEndpoint']
+        if 'allowedApplications' in kwargs:
+            allowed_applications = kwargs['allowedApplications']
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'allowedGroups' in kwargs:
+            allowed_groups = kwargs['allowedGroups']
+        if 'allowedIdentities' in kwargs:
+            allowed_identities = kwargs['allowedIdentities']
+        if 'clientSecretCertificateThumbprint' in kwargs:
+            client_secret_certificate_thumbprint = kwargs['clientSecretCertificateThumbprint']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'jwtAllowedClientApplications' in kwargs:
+            jwt_allowed_client_applications = kwargs['jwtAllowedClientApplications']
+        if 'jwtAllowedGroups' in kwargs:
+            jwt_allowed_groups = kwargs['jwtAllowedGroups']
+        if 'loginParameters' in kwargs:
+            login_parameters = kwargs['loginParameters']
+        if 'wwwAuthenticationDisabled' in kwargs:
+            www_authentication_disabled = kwargs['wwwAuthenticationDisabled']
+
         _setter("client_id", client_id)
         _setter("tenant_auth_endpoint", tenant_auth_endpoint)
         if allowed_applications is not None:
@@ -34824,7 +38134,15 @@ class WindowsFunctionAppSlotAuthSettingsV2AppleV2(dict):
              client_id: str,
              client_secret_setting_name: str,
              login_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret_setting_name", client_secret_setting_name)
         if login_scopes is not None:
@@ -34887,7 +38205,11 @@ class WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              client_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+
         _setter("client_id", client_id)
 
     @property
@@ -34987,7 +38309,27 @@ class WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2(dict):
              name_claim_type: Optional[str] = None,
              scopes: Optional[Sequence[str]] = None,
              token_endpoint: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'openidConfigurationEndpoint' in kwargs:
+            openid_configuration_endpoint = kwargs['openidConfigurationEndpoint']
+        if 'authorisationEndpoint' in kwargs:
+            authorisation_endpoint = kwargs['authorisationEndpoint']
+        if 'certificationUri' in kwargs:
+            certification_uri = kwargs['certificationUri']
+        if 'clientCredentialMethod' in kwargs:
+            client_credential_method = kwargs['clientCredentialMethod']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'issuerEndpoint' in kwargs:
+            issuer_endpoint = kwargs['issuerEndpoint']
+        if 'nameClaimType' in kwargs:
+            name_claim_type = kwargs['nameClaimType']
+        if 'tokenEndpoint' in kwargs:
+            token_endpoint = kwargs['tokenEndpoint']
+
         _setter("client_id", client_id)
         _setter("name", name)
         _setter("openid_configuration_endpoint", openid_configuration_endpoint)
@@ -35149,7 +38491,17 @@ class WindowsFunctionAppSlotAuthSettingsV2FacebookV2(dict):
              app_secret_setting_name: str,
              graph_api_version: Optional[str] = None,
              login_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'appSecretSettingName' in kwargs:
+            app_secret_setting_name = kwargs['appSecretSettingName']
+        if 'graphApiVersion' in kwargs:
+            graph_api_version = kwargs['graphApiVersion']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("app_id", app_id)
         _setter("app_secret_setting_name", app_secret_setting_name)
         if graph_api_version is not None:
@@ -35236,7 +38588,15 @@ class WindowsFunctionAppSlotAuthSettingsV2GithubV2(dict):
              client_id: str,
              client_secret_setting_name: str,
              login_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret_setting_name", client_secret_setting_name)
         if login_scopes is not None:
@@ -35319,7 +38679,17 @@ class WindowsFunctionAppSlotAuthSettingsV2GoogleV2(dict):
              client_secret_setting_name: str,
              allowed_audiences: Optional[Sequence[str]] = None,
              login_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret_setting_name", client_secret_setting_name)
         if allowed_audiences is not None:
@@ -35456,7 +38826,31 @@ class WindowsFunctionAppSlotAuthSettingsV2Login(dict):
              token_store_path: Optional[str] = None,
              token_store_sas_setting_name: Optional[str] = None,
              validate_nonce: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedExternalRedirectUrls' in kwargs:
+            allowed_external_redirect_urls = kwargs['allowedExternalRedirectUrls']
+        if 'cookieExpirationConvention' in kwargs:
+            cookie_expiration_convention = kwargs['cookieExpirationConvention']
+        if 'cookieExpirationTime' in kwargs:
+            cookie_expiration_time = kwargs['cookieExpirationTime']
+        if 'logoutEndpoint' in kwargs:
+            logout_endpoint = kwargs['logoutEndpoint']
+        if 'nonceExpirationTime' in kwargs:
+            nonce_expiration_time = kwargs['nonceExpirationTime']
+        if 'preserveUrlFragmentsForLogins' in kwargs:
+            preserve_url_fragments_for_logins = kwargs['preserveUrlFragmentsForLogins']
+        if 'tokenRefreshExtensionTime' in kwargs:
+            token_refresh_extension_time = kwargs['tokenRefreshExtensionTime']
+        if 'tokenStoreEnabled' in kwargs:
+            token_store_enabled = kwargs['tokenStoreEnabled']
+        if 'tokenStorePath' in kwargs:
+            token_store_path = kwargs['tokenStorePath']
+        if 'tokenStoreSasSettingName' in kwargs:
+            token_store_sas_setting_name = kwargs['tokenStoreSasSettingName']
+        if 'validateNonce' in kwargs:
+            validate_nonce = kwargs['validateNonce']
+
         if allowed_external_redirect_urls is not None:
             _setter("allowed_external_redirect_urls", allowed_external_redirect_urls)
         if cookie_expiration_convention is not None:
@@ -35623,7 +39017,17 @@ class WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2(dict):
              client_secret_setting_name: str,
              allowed_audiences: Optional[Sequence[str]] = None,
              login_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret_setting_name", client_secret_setting_name)
         if allowed_audiences is not None:
@@ -35706,7 +39110,13 @@ class WindowsFunctionAppSlotAuthSettingsV2TwitterV2(dict):
              _setter: Callable[[Any, Any], None],
              consumer_key: str,
              consumer_secret_setting_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'consumerKey' in kwargs:
+            consumer_key = kwargs['consumerKey']
+        if 'consumerSecretSettingName' in kwargs:
+            consumer_secret_setting_name = kwargs['consumerSecretSettingName']
+
         _setter("consumer_key", consumer_key)
         _setter("consumer_secret_setting_name", consumer_secret_setting_name)
 
@@ -35773,7 +39183,11 @@ class WindowsFunctionAppSlotBackup(dict):
              schedule: 'outputs.WindowsFunctionAppSlotBackupSchedule',
              storage_account_url: str,
              enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageAccountUrl' in kwargs:
+            storage_account_url = kwargs['storageAccountUrl']
+
         _setter("name", name)
         _setter("schedule", schedule)
         _setter("storage_account_url", storage_account_url)
@@ -35877,7 +39291,21 @@ class WindowsFunctionAppSlotBackupSchedule(dict):
              last_execution_time: Optional[str] = None,
              retention_period_days: Optional[int] = None,
              start_time: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'frequencyInterval' in kwargs:
+            frequency_interval = kwargs['frequencyInterval']
+        if 'frequencyUnit' in kwargs:
+            frequency_unit = kwargs['frequencyUnit']
+        if 'keepAtLeastOneBackup' in kwargs:
+            keep_at_least_one_backup = kwargs['keepAtLeastOneBackup']
+        if 'lastExecutionTime' in kwargs:
+            last_execution_time = kwargs['lastExecutionTime']
+        if 'retentionPeriodDays' in kwargs:
+            retention_period_days = kwargs['retentionPeriodDays']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         _setter("frequency_interval", frequency_interval)
         _setter("frequency_unit", frequency_unit)
         if keep_at_least_one_backup is not None:
@@ -35963,7 +39391,9 @@ class WindowsFunctionAppSlotConnectionString(dict):
              name: str,
              type: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("type", type)
         _setter("value", value)
@@ -36043,7 +39473,15 @@ class WindowsFunctionAppSlotIdentity(dict):
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -36323,7 +39761,77 @@ class WindowsFunctionAppSlotSiteConfig(dict):
              websockets_enabled: Optional[bool] = None,
              windows_fx_version: Optional[str] = None,
              worker_count: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alwaysOn' in kwargs:
+            always_on = kwargs['alwaysOn']
+        if 'apiDefinitionUrl' in kwargs:
+            api_definition_url = kwargs['apiDefinitionUrl']
+        if 'apiManagementApiId' in kwargs:
+            api_management_api_id = kwargs['apiManagementApiId']
+        if 'appCommandLine' in kwargs:
+            app_command_line = kwargs['appCommandLine']
+        if 'appScaleLimit' in kwargs:
+            app_scale_limit = kwargs['appScaleLimit']
+        if 'appServiceLogs' in kwargs:
+            app_service_logs = kwargs['appServiceLogs']
+        if 'applicationInsightsConnectionString' in kwargs:
+            application_insights_connection_string = kwargs['applicationInsightsConnectionString']
+        if 'applicationInsightsKey' in kwargs:
+            application_insights_key = kwargs['applicationInsightsKey']
+        if 'applicationStack' in kwargs:
+            application_stack = kwargs['applicationStack']
+        if 'autoSwapSlotName' in kwargs:
+            auto_swap_slot_name = kwargs['autoSwapSlotName']
+        if 'defaultDocuments' in kwargs:
+            default_documents = kwargs['defaultDocuments']
+        if 'detailedErrorLoggingEnabled' in kwargs:
+            detailed_error_logging_enabled = kwargs['detailedErrorLoggingEnabled']
+        if 'elasticInstanceMinimum' in kwargs:
+            elastic_instance_minimum = kwargs['elasticInstanceMinimum']
+        if 'ftpsState' in kwargs:
+            ftps_state = kwargs['ftpsState']
+        if 'healthCheckEvictionTimeInMin' in kwargs:
+            health_check_eviction_time_in_min = kwargs['healthCheckEvictionTimeInMin']
+        if 'healthCheckPath' in kwargs:
+            health_check_path = kwargs['healthCheckPath']
+        if 'http2Enabled' in kwargs:
+            http2_enabled = kwargs['http2Enabled']
+        if 'ipRestrictions' in kwargs:
+            ip_restrictions = kwargs['ipRestrictions']
+        if 'loadBalancingMode' in kwargs:
+            load_balancing_mode = kwargs['loadBalancingMode']
+        if 'managedPipelineMode' in kwargs:
+            managed_pipeline_mode = kwargs['managedPipelineMode']
+        if 'minimumTlsVersion' in kwargs:
+            minimum_tls_version = kwargs['minimumTlsVersion']
+        if 'preWarmedInstanceCount' in kwargs:
+            pre_warmed_instance_count = kwargs['preWarmedInstanceCount']
+        if 'remoteDebuggingEnabled' in kwargs:
+            remote_debugging_enabled = kwargs['remoteDebuggingEnabled']
+        if 'remoteDebuggingVersion' in kwargs:
+            remote_debugging_version = kwargs['remoteDebuggingVersion']
+        if 'runtimeScaleMonitoringEnabled' in kwargs:
+            runtime_scale_monitoring_enabled = kwargs['runtimeScaleMonitoringEnabled']
+        if 'scmIpRestrictions' in kwargs:
+            scm_ip_restrictions = kwargs['scmIpRestrictions']
+        if 'scmMinimumTlsVersion' in kwargs:
+            scm_minimum_tls_version = kwargs['scmMinimumTlsVersion']
+        if 'scmType' in kwargs:
+            scm_type = kwargs['scmType']
+        if 'scmUseMainIpRestriction' in kwargs:
+            scm_use_main_ip_restriction = kwargs['scmUseMainIpRestriction']
+        if 'use32BitWorker' in kwargs:
+            use32_bit_worker = kwargs['use32BitWorker']
+        if 'vnetRouteAllEnabled' in kwargs:
+            vnet_route_all_enabled = kwargs['vnetRouteAllEnabled']
+        if 'websocketsEnabled' in kwargs:
+            websockets_enabled = kwargs['websocketsEnabled']
+        if 'windowsFxVersion' in kwargs:
+            windows_fx_version = kwargs['windowsFxVersion']
+        if 'workerCount' in kwargs:
+            worker_count = kwargs['workerCount']
+
         if always_on is not None:
             _setter("always_on", always_on)
         if api_definition_url is not None:
@@ -36718,7 +40226,13 @@ class WindowsFunctionAppSlotSiteConfigAppServiceLogs(dict):
              _setter: Callable[[Any, Any], None],
              disk_quota_mb: Optional[int] = None,
              retention_period_days: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'diskQuotaMb' in kwargs:
+            disk_quota_mb = kwargs['diskQuotaMb']
+        if 'retentionPeriodDays' in kwargs:
+            retention_period_days = kwargs['retentionPeriodDays']
+
         if disk_quota_mb is not None:
             _setter("disk_quota_mb", disk_quota_mb)
         if retention_period_days is not None:
@@ -36805,7 +40319,21 @@ class WindowsFunctionAppSlotSiteConfigApplicationStack(dict):
              powershell_core_version: Optional[str] = None,
              use_custom_runtime: Optional[bool] = None,
              use_dotnet_isolated_runtime: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dotnetVersion' in kwargs:
+            dotnet_version = kwargs['dotnetVersion']
+        if 'javaVersion' in kwargs:
+            java_version = kwargs['javaVersion']
+        if 'nodeVersion' in kwargs:
+            node_version = kwargs['nodeVersion']
+        if 'powershellCoreVersion' in kwargs:
+            powershell_core_version = kwargs['powershellCoreVersion']
+        if 'useCustomRuntime' in kwargs:
+            use_custom_runtime = kwargs['useCustomRuntime']
+        if 'useDotnetIsolatedRuntime' in kwargs:
+            use_dotnet_isolated_runtime = kwargs['useDotnetIsolatedRuntime']
+
         if dotnet_version is not None:
             _setter("dotnet_version", dotnet_version)
         if java_version is not None:
@@ -36906,7 +40434,13 @@ class WindowsFunctionAppSlotSiteConfigCors(dict):
              _setter: Callable[[Any, Any], None],
              allowed_origins: Optional[Sequence[str]] = None,
              support_credentials: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedOrigins' in kwargs:
+            allowed_origins = kwargs['allowedOrigins']
+        if 'supportCredentials' in kwargs:
+            support_credentials = kwargs['supportCredentials']
+
         if allowed_origins is not None:
             _setter("allowed_origins", allowed_origins)
         if support_credentials is not None:
@@ -36991,7 +40525,15 @@ class WindowsFunctionAppSlotSiteConfigIpRestriction(dict):
              priority: Optional[int] = None,
              service_tag: Optional[str] = None,
              virtual_network_subnet_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'serviceTag' in kwargs:
+            service_tag = kwargs['serviceTag']
+        if 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+
         if action is not None:
             _setter("action", action)
         if headers is not None:
@@ -37116,7 +40658,17 @@ class WindowsFunctionAppSlotSiteConfigIpRestrictionHeaders(dict):
              x_fd_health_probe: Optional[str] = None,
              x_forwarded_fors: Optional[Sequence[str]] = None,
              x_forwarded_hosts: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'xAzureFdids' in kwargs:
+            x_azure_fdids = kwargs['xAzureFdids']
+        if 'xFdHealthProbe' in kwargs:
+            x_fd_health_probe = kwargs['xFdHealthProbe']
+        if 'xForwardedFors' in kwargs:
+            x_forwarded_fors = kwargs['xForwardedFors']
+        if 'xForwardedHosts' in kwargs:
+            x_forwarded_hosts = kwargs['xForwardedHosts']
+
         if x_azure_fdids is not None:
             _setter("x_azure_fdids", x_azure_fdids)
         if x_fd_health_probe is not None:
@@ -37221,7 +40773,15 @@ class WindowsFunctionAppSlotSiteConfigScmIpRestriction(dict):
              priority: Optional[int] = None,
              service_tag: Optional[str] = None,
              virtual_network_subnet_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'serviceTag' in kwargs:
+            service_tag = kwargs['serviceTag']
+        if 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+
         if action is not None:
             _setter("action", action)
         if headers is not None:
@@ -37346,7 +40906,17 @@ class WindowsFunctionAppSlotSiteConfigScmIpRestrictionHeaders(dict):
              x_fd_health_probe: Optional[str] = None,
              x_forwarded_fors: Optional[Sequence[str]] = None,
              x_forwarded_hosts: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'xAzureFdids' in kwargs:
+            x_azure_fdids = kwargs['xAzureFdids']
+        if 'xFdHealthProbe' in kwargs:
+            x_fd_health_probe = kwargs['xFdHealthProbe']
+        if 'xForwardedFors' in kwargs:
+            x_forwarded_fors = kwargs['xForwardedFors']
+        if 'xForwardedHosts' in kwargs:
+            x_forwarded_hosts = kwargs['xForwardedHosts']
+
         if x_azure_fdids is not None:
             _setter("x_azure_fdids", x_azure_fdids)
         if x_fd_health_probe is not None:
@@ -37408,7 +40978,9 @@ class WindowsFunctionAppSlotSiteCredential(dict):
              _setter: Callable[[Any, Any], None],
              name: Optional[str] = None,
              password: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if password is not None:
@@ -37489,7 +41061,17 @@ class WindowsFunctionAppSlotStorageAccount(dict):
              share_name: str,
              type: str,
              mount_path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessKey' in kwargs:
+            access_key = kwargs['accessKey']
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'shareName' in kwargs:
+            share_name = kwargs['shareName']
+        if 'mountPath' in kwargs:
+            mount_path = kwargs['mountPath']
+
         _setter("access_key", access_key)
         _setter("account_name", account_name)
         _setter("name", name)
@@ -37585,7 +41167,13 @@ class WindowsFunctionAppStickySettings(dict):
              _setter: Callable[[Any, Any], None],
              app_setting_names: Optional[Sequence[str]] = None,
              connection_string_names: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appSettingNames' in kwargs:
+            app_setting_names = kwargs['appSettingNames']
+        if 'connectionStringNames' in kwargs:
+            connection_string_names = kwargs['connectionStringNames']
+
         if app_setting_names is not None:
             _setter("app_setting_names", app_setting_names)
         if connection_string_names is not None:
@@ -37666,7 +41254,17 @@ class WindowsFunctionAppStorageAccount(dict):
              share_name: str,
              type: str,
              mount_path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessKey' in kwargs:
+            access_key = kwargs['accessKey']
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'shareName' in kwargs:
+            share_name = kwargs['shareName']
+        if 'mountPath' in kwargs:
+            mount_path = kwargs['mountPath']
+
         _setter("access_key", access_key)
         _setter("account_name", account_name)
         _setter("name", name)
@@ -37830,7 +41428,25 @@ class WindowsWebAppAuthSettings(dict):
              token_store_enabled: Optional[bool] = None,
              twitter: Optional['outputs.WindowsWebAppAuthSettingsTwitter'] = None,
              unauthenticated_client_action: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activeDirectory' in kwargs:
+            active_directory = kwargs['activeDirectory']
+        if 'additionalLoginParameters' in kwargs:
+            additional_login_parameters = kwargs['additionalLoginParameters']
+        if 'allowedExternalRedirectUrls' in kwargs:
+            allowed_external_redirect_urls = kwargs['allowedExternalRedirectUrls']
+        if 'defaultProvider' in kwargs:
+            default_provider = kwargs['defaultProvider']
+        if 'runtimeVersion' in kwargs:
+            runtime_version = kwargs['runtimeVersion']
+        if 'tokenRefreshExtensionHours' in kwargs:
+            token_refresh_extension_hours = kwargs['tokenRefreshExtensionHours']
+        if 'tokenStoreEnabled' in kwargs:
+            token_store_enabled = kwargs['tokenStoreEnabled']
+        if 'unauthenticatedClientAction' in kwargs:
+            unauthenticated_client_action = kwargs['unauthenticatedClientAction']
+
         _setter("enabled", enabled)
         if active_directory is not None:
             _setter("active_directory", active_directory)
@@ -38038,7 +41654,17 @@ class WindowsWebAppAuthSettingsActiveDirectory(dict):
              allowed_audiences: Optional[Sequence[str]] = None,
              client_secret: Optional[str] = None,
              client_secret_setting_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+
         _setter("client_id", client_id)
         if allowed_audiences is not None:
             _setter("allowed_audiences", allowed_audiences)
@@ -38132,7 +41758,17 @@ class WindowsWebAppAuthSettingsFacebook(dict):
              app_secret: Optional[str] = None,
              app_secret_setting_name: Optional[str] = None,
              oauth_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'appSecret' in kwargs:
+            app_secret = kwargs['appSecret']
+        if 'appSecretSettingName' in kwargs:
+            app_secret_setting_name = kwargs['appSecretSettingName']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("app_id", app_id)
         if app_secret is not None:
             _setter("app_secret", app_secret)
@@ -38224,7 +41860,17 @@ class WindowsWebAppAuthSettingsGithub(dict):
              client_secret: Optional[str] = None,
              client_secret_setting_name: Optional[str] = None,
              oauth_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("client_id", client_id)
         if client_secret is not None:
             _setter("client_secret", client_secret)
@@ -38316,7 +41962,17 @@ class WindowsWebAppAuthSettingsGoogle(dict):
              client_secret: Optional[str] = None,
              client_secret_setting_name: Optional[str] = None,
              oauth_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("client_id", client_id)
         if client_secret is not None:
             _setter("client_secret", client_secret)
@@ -38408,7 +42064,17 @@ class WindowsWebAppAuthSettingsMicrosoft(dict):
              client_secret: Optional[str] = None,
              client_secret_setting_name: Optional[str] = None,
              oauth_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("client_id", client_id)
         if client_secret is not None:
             _setter("client_secret", client_secret)
@@ -38494,7 +42160,15 @@ class WindowsWebAppAuthSettingsTwitter(dict):
              consumer_key: str,
              consumer_secret: Optional[str] = None,
              consumer_secret_setting_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'consumerKey' in kwargs:
+            consumer_key = kwargs['consumerKey']
+        if 'consumerSecret' in kwargs:
+            consumer_secret = kwargs['consumerSecret']
+        if 'consumerSecretSettingName' in kwargs:
+            consumer_secret_setting_name = kwargs['consumerSecretSettingName']
+
         _setter("consumer_key", consumer_key)
         if consumer_secret is not None:
             _setter("consumer_secret", consumer_secret)
@@ -38688,7 +42362,51 @@ class WindowsWebAppAuthSettingsV2(dict):
              runtime_version: Optional[str] = None,
              twitter_v2: Optional['outputs.WindowsWebAppAuthSettingsV2TwitterV2'] = None,
              unauthenticated_action: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activeDirectoryV2' in kwargs:
+            active_directory_v2 = kwargs['activeDirectoryV2']
+        if 'appleV2' in kwargs:
+            apple_v2 = kwargs['appleV2']
+        if 'authEnabled' in kwargs:
+            auth_enabled = kwargs['authEnabled']
+        if 'azureStaticWebAppV2' in kwargs:
+            azure_static_web_app_v2 = kwargs['azureStaticWebAppV2']
+        if 'configFilePath' in kwargs:
+            config_file_path = kwargs['configFilePath']
+        if 'customOidcV2s' in kwargs:
+            custom_oidc_v2s = kwargs['customOidcV2s']
+        if 'defaultProvider' in kwargs:
+            default_provider = kwargs['defaultProvider']
+        if 'excludedPaths' in kwargs:
+            excluded_paths = kwargs['excludedPaths']
+        if 'facebookV2' in kwargs:
+            facebook_v2 = kwargs['facebookV2']
+        if 'forwardProxyConvention' in kwargs:
+            forward_proxy_convention = kwargs['forwardProxyConvention']
+        if 'forwardProxyCustomHostHeaderName' in kwargs:
+            forward_proxy_custom_host_header_name = kwargs['forwardProxyCustomHostHeaderName']
+        if 'forwardProxyCustomSchemeHeaderName' in kwargs:
+            forward_proxy_custom_scheme_header_name = kwargs['forwardProxyCustomSchemeHeaderName']
+        if 'githubV2' in kwargs:
+            github_v2 = kwargs['githubV2']
+        if 'googleV2' in kwargs:
+            google_v2 = kwargs['googleV2']
+        if 'httpRouteApiPrefix' in kwargs:
+            http_route_api_prefix = kwargs['httpRouteApiPrefix']
+        if 'microsoftV2' in kwargs:
+            microsoft_v2 = kwargs['microsoftV2']
+        if 'requireAuthentication' in kwargs:
+            require_authentication = kwargs['requireAuthentication']
+        if 'requireHttps' in kwargs:
+            require_https = kwargs['requireHttps']
+        if 'runtimeVersion' in kwargs:
+            runtime_version = kwargs['runtimeVersion']
+        if 'twitterV2' in kwargs:
+            twitter_v2 = kwargs['twitterV2']
+        if 'unauthenticatedAction' in kwargs:
+            unauthenticated_action = kwargs['unauthenticatedAction']
+
         _setter("login", login)
         if active_directory_v2 is not None:
             _setter("active_directory_v2", active_directory_v2)
@@ -39018,7 +42736,33 @@ class WindowsWebAppAuthSettingsV2ActiveDirectoryV2(dict):
              jwt_allowed_groups: Optional[Sequence[str]] = None,
              login_parameters: Optional[Mapping[str, str]] = None,
              www_authentication_disabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'tenantAuthEndpoint' in kwargs:
+            tenant_auth_endpoint = kwargs['tenantAuthEndpoint']
+        if 'allowedApplications' in kwargs:
+            allowed_applications = kwargs['allowedApplications']
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'allowedGroups' in kwargs:
+            allowed_groups = kwargs['allowedGroups']
+        if 'allowedIdentities' in kwargs:
+            allowed_identities = kwargs['allowedIdentities']
+        if 'clientSecretCertificateThumbprint' in kwargs:
+            client_secret_certificate_thumbprint = kwargs['clientSecretCertificateThumbprint']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'jwtAllowedClientApplications' in kwargs:
+            jwt_allowed_client_applications = kwargs['jwtAllowedClientApplications']
+        if 'jwtAllowedGroups' in kwargs:
+            jwt_allowed_groups = kwargs['jwtAllowedGroups']
+        if 'loginParameters' in kwargs:
+            login_parameters = kwargs['loginParameters']
+        if 'wwwAuthenticationDisabled' in kwargs:
+            www_authentication_disabled = kwargs['wwwAuthenticationDisabled']
+
         _setter("client_id", client_id)
         _setter("tenant_auth_endpoint", tenant_auth_endpoint)
         if allowed_applications is not None:
@@ -39187,7 +42931,15 @@ class WindowsWebAppAuthSettingsV2AppleV2(dict):
              client_id: str,
              client_secret_setting_name: str,
              login_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret_setting_name", client_secret_setting_name)
         if login_scopes is not None:
@@ -39250,7 +43002,11 @@ class WindowsWebAppAuthSettingsV2AzureStaticWebAppV2(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              client_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+
         _setter("client_id", client_id)
 
     @property
@@ -39350,7 +43106,27 @@ class WindowsWebAppAuthSettingsV2CustomOidcV2(dict):
              name_claim_type: Optional[str] = None,
              scopes: Optional[Sequence[str]] = None,
              token_endpoint: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'openidConfigurationEndpoint' in kwargs:
+            openid_configuration_endpoint = kwargs['openidConfigurationEndpoint']
+        if 'authorisationEndpoint' in kwargs:
+            authorisation_endpoint = kwargs['authorisationEndpoint']
+        if 'certificationUri' in kwargs:
+            certification_uri = kwargs['certificationUri']
+        if 'clientCredentialMethod' in kwargs:
+            client_credential_method = kwargs['clientCredentialMethod']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'issuerEndpoint' in kwargs:
+            issuer_endpoint = kwargs['issuerEndpoint']
+        if 'nameClaimType' in kwargs:
+            name_claim_type = kwargs['nameClaimType']
+        if 'tokenEndpoint' in kwargs:
+            token_endpoint = kwargs['tokenEndpoint']
+
         _setter("client_id", client_id)
         _setter("name", name)
         _setter("openid_configuration_endpoint", openid_configuration_endpoint)
@@ -39512,7 +43288,17 @@ class WindowsWebAppAuthSettingsV2FacebookV2(dict):
              app_secret_setting_name: str,
              graph_api_version: Optional[str] = None,
              login_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'appSecretSettingName' in kwargs:
+            app_secret_setting_name = kwargs['appSecretSettingName']
+        if 'graphApiVersion' in kwargs:
+            graph_api_version = kwargs['graphApiVersion']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("app_id", app_id)
         _setter("app_secret_setting_name", app_secret_setting_name)
         if graph_api_version is not None:
@@ -39599,7 +43385,15 @@ class WindowsWebAppAuthSettingsV2GithubV2(dict):
              client_id: str,
              client_secret_setting_name: str,
              login_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret_setting_name", client_secret_setting_name)
         if login_scopes is not None:
@@ -39682,7 +43476,17 @@ class WindowsWebAppAuthSettingsV2GoogleV2(dict):
              client_secret_setting_name: str,
              allowed_audiences: Optional[Sequence[str]] = None,
              login_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret_setting_name", client_secret_setting_name)
         if allowed_audiences is not None:
@@ -39819,7 +43623,31 @@ class WindowsWebAppAuthSettingsV2Login(dict):
              token_store_path: Optional[str] = None,
              token_store_sas_setting_name: Optional[str] = None,
              validate_nonce: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedExternalRedirectUrls' in kwargs:
+            allowed_external_redirect_urls = kwargs['allowedExternalRedirectUrls']
+        if 'cookieExpirationConvention' in kwargs:
+            cookie_expiration_convention = kwargs['cookieExpirationConvention']
+        if 'cookieExpirationTime' in kwargs:
+            cookie_expiration_time = kwargs['cookieExpirationTime']
+        if 'logoutEndpoint' in kwargs:
+            logout_endpoint = kwargs['logoutEndpoint']
+        if 'nonceExpirationTime' in kwargs:
+            nonce_expiration_time = kwargs['nonceExpirationTime']
+        if 'preserveUrlFragmentsForLogins' in kwargs:
+            preserve_url_fragments_for_logins = kwargs['preserveUrlFragmentsForLogins']
+        if 'tokenRefreshExtensionTime' in kwargs:
+            token_refresh_extension_time = kwargs['tokenRefreshExtensionTime']
+        if 'tokenStoreEnabled' in kwargs:
+            token_store_enabled = kwargs['tokenStoreEnabled']
+        if 'tokenStorePath' in kwargs:
+            token_store_path = kwargs['tokenStorePath']
+        if 'tokenStoreSasSettingName' in kwargs:
+            token_store_sas_setting_name = kwargs['tokenStoreSasSettingName']
+        if 'validateNonce' in kwargs:
+            validate_nonce = kwargs['validateNonce']
+
         if allowed_external_redirect_urls is not None:
             _setter("allowed_external_redirect_urls", allowed_external_redirect_urls)
         if cookie_expiration_convention is not None:
@@ -39986,7 +43814,17 @@ class WindowsWebAppAuthSettingsV2MicrosoftV2(dict):
              client_secret_setting_name: str,
              allowed_audiences: Optional[Sequence[str]] = None,
              login_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret_setting_name", client_secret_setting_name)
         if allowed_audiences is not None:
@@ -40069,7 +43907,13 @@ class WindowsWebAppAuthSettingsV2TwitterV2(dict):
              _setter: Callable[[Any, Any], None],
              consumer_key: str,
              consumer_secret_setting_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'consumerKey' in kwargs:
+            consumer_key = kwargs['consumerKey']
+        if 'consumerSecretSettingName' in kwargs:
+            consumer_secret_setting_name = kwargs['consumerSecretSettingName']
+
         _setter("consumer_key", consumer_key)
         _setter("consumer_secret_setting_name", consumer_secret_setting_name)
 
@@ -40136,7 +43980,11 @@ class WindowsWebAppBackup(dict):
              schedule: 'outputs.WindowsWebAppBackupSchedule',
              storage_account_url: str,
              enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageAccountUrl' in kwargs:
+            storage_account_url = kwargs['storageAccountUrl']
+
         _setter("name", name)
         _setter("schedule", schedule)
         _setter("storage_account_url", storage_account_url)
@@ -40239,7 +44087,21 @@ class WindowsWebAppBackupSchedule(dict):
              last_execution_time: Optional[str] = None,
              retention_period_days: Optional[int] = None,
              start_time: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'frequencyInterval' in kwargs:
+            frequency_interval = kwargs['frequencyInterval']
+        if 'frequencyUnit' in kwargs:
+            frequency_unit = kwargs['frequencyUnit']
+        if 'keepAtLeastOneBackup' in kwargs:
+            keep_at_least_one_backup = kwargs['keepAtLeastOneBackup']
+        if 'lastExecutionTime' in kwargs:
+            last_execution_time = kwargs['lastExecutionTime']
+        if 'retentionPeriodDays' in kwargs:
+            retention_period_days = kwargs['retentionPeriodDays']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         _setter("frequency_interval", frequency_interval)
         _setter("frequency_unit", frequency_unit)
         if keep_at_least_one_backup is not None:
@@ -40322,7 +44184,9 @@ class WindowsWebAppConnectionString(dict):
              name: str,
              type: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("type", type)
         _setter("value", value)
@@ -40402,7 +44266,15 @@ class WindowsWebAppIdentity(dict):
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -40496,7 +44368,17 @@ class WindowsWebAppLogs(dict):
              detailed_error_messages: Optional[bool] = None,
              failed_request_tracing: Optional[bool] = None,
              http_logs: Optional['outputs.WindowsWebAppLogsHttpLogs'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationLogs' in kwargs:
+            application_logs = kwargs['applicationLogs']
+        if 'detailedErrorMessages' in kwargs:
+            detailed_error_messages = kwargs['detailedErrorMessages']
+        if 'failedRequestTracing' in kwargs:
+            failed_request_tracing = kwargs['failedRequestTracing']
+        if 'httpLogs' in kwargs:
+            http_logs = kwargs['httpLogs']
+
         if application_logs is not None:
             _setter("application_logs", application_logs)
         if detailed_error_messages is not None:
@@ -40577,7 +44459,13 @@ class WindowsWebAppLogsApplicationLogs(dict):
              _setter: Callable[[Any, Any], None],
              file_system_level: str,
              azure_blob_storage: Optional['outputs.WindowsWebAppLogsApplicationLogsAzureBlobStorage'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fileSystemLevel' in kwargs:
+            file_system_level = kwargs['fileSystemLevel']
+        if 'azureBlobStorage' in kwargs:
+            azure_blob_storage = kwargs['azureBlobStorage']
+
         _setter("file_system_level", file_system_level)
         if azure_blob_storage is not None:
             _setter("azure_blob_storage", azure_blob_storage)
@@ -40641,7 +44529,13 @@ class WindowsWebAppLogsApplicationLogsAzureBlobStorage(dict):
              level: str,
              retention_in_days: int,
              sas_url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'retentionInDays' in kwargs:
+            retention_in_days = kwargs['retentionInDays']
+        if 'sasUrl' in kwargs:
+            sas_url = kwargs['sasUrl']
+
         _setter("level", level)
         _setter("retention_in_days", retention_in_days)
         _setter("sas_url", sas_url)
@@ -40709,7 +44603,13 @@ class WindowsWebAppLogsHttpLogs(dict):
              _setter: Callable[[Any, Any], None],
              azure_blob_storage: Optional['outputs.WindowsWebAppLogsHttpLogsAzureBlobStorage'] = None,
              file_system: Optional['outputs.WindowsWebAppLogsHttpLogsFileSystem'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azureBlobStorage' in kwargs:
+            azure_blob_storage = kwargs['azureBlobStorage']
+        if 'fileSystem' in kwargs:
+            file_system = kwargs['fileSystem']
+
         if azure_blob_storage is not None:
             _setter("azure_blob_storage", azure_blob_storage)
         if file_system is not None:
@@ -40770,7 +44670,13 @@ class WindowsWebAppLogsHttpLogsAzureBlobStorage(dict):
              _setter: Callable[[Any, Any], None],
              sas_url: str,
              retention_in_days: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sasUrl' in kwargs:
+            sas_url = kwargs['sasUrl']
+        if 'retentionInDays' in kwargs:
+            retention_in_days = kwargs['retentionInDays']
+
         _setter("sas_url", sas_url)
         if retention_in_days is not None:
             _setter("retention_in_days", retention_in_days)
@@ -40830,7 +44736,13 @@ class WindowsWebAppLogsHttpLogsFileSystem(dict):
              _setter: Callable[[Any, Any], None],
              retention_in_days: int,
              retention_in_mb: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'retentionInDays' in kwargs:
+            retention_in_days = kwargs['retentionInDays']
+        if 'retentionInMb' in kwargs:
+            retention_in_mb = kwargs['retentionInMb']
+
         _setter("retention_in_days", retention_in_days)
         _setter("retention_in_mb", retention_in_mb)
 
@@ -41076,7 +44988,75 @@ class WindowsWebAppSiteConfig(dict):
              websockets_enabled: Optional[bool] = None,
              windows_fx_version: Optional[str] = None,
              worker_count: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alwaysOn' in kwargs:
+            always_on = kwargs['alwaysOn']
+        if 'apiDefinitionUrl' in kwargs:
+            api_definition_url = kwargs['apiDefinitionUrl']
+        if 'apiManagementApiId' in kwargs:
+            api_management_api_id = kwargs['apiManagementApiId']
+        if 'appCommandLine' in kwargs:
+            app_command_line = kwargs['appCommandLine']
+        if 'applicationStack' in kwargs:
+            application_stack = kwargs['applicationStack']
+        if 'autoHealEnabled' in kwargs:
+            auto_heal_enabled = kwargs['autoHealEnabled']
+        if 'autoHealSetting' in kwargs:
+            auto_heal_setting = kwargs['autoHealSetting']
+        if 'containerRegistryManagedIdentityClientId' in kwargs:
+            container_registry_managed_identity_client_id = kwargs['containerRegistryManagedIdentityClientId']
+        if 'containerRegistryUseManagedIdentity' in kwargs:
+            container_registry_use_managed_identity = kwargs['containerRegistryUseManagedIdentity']
+        if 'defaultDocuments' in kwargs:
+            default_documents = kwargs['defaultDocuments']
+        if 'detailedErrorLoggingEnabled' in kwargs:
+            detailed_error_logging_enabled = kwargs['detailedErrorLoggingEnabled']
+        if 'ftpsState' in kwargs:
+            ftps_state = kwargs['ftpsState']
+        if 'healthCheckEvictionTimeInMin' in kwargs:
+            health_check_eviction_time_in_min = kwargs['healthCheckEvictionTimeInMin']
+        if 'healthCheckPath' in kwargs:
+            health_check_path = kwargs['healthCheckPath']
+        if 'http2Enabled' in kwargs:
+            http2_enabled = kwargs['http2Enabled']
+        if 'ipRestrictions' in kwargs:
+            ip_restrictions = kwargs['ipRestrictions']
+        if 'linuxFxVersion' in kwargs:
+            linux_fx_version = kwargs['linuxFxVersion']
+        if 'loadBalancingMode' in kwargs:
+            load_balancing_mode = kwargs['loadBalancingMode']
+        if 'localMysqlEnabled' in kwargs:
+            local_mysql_enabled = kwargs['localMysqlEnabled']
+        if 'managedPipelineMode' in kwargs:
+            managed_pipeline_mode = kwargs['managedPipelineMode']
+        if 'minimumTlsVersion' in kwargs:
+            minimum_tls_version = kwargs['minimumTlsVersion']
+        if 'remoteDebuggingEnabled' in kwargs:
+            remote_debugging_enabled = kwargs['remoteDebuggingEnabled']
+        if 'remoteDebuggingVersion' in kwargs:
+            remote_debugging_version = kwargs['remoteDebuggingVersion']
+        if 'scmIpRestrictions' in kwargs:
+            scm_ip_restrictions = kwargs['scmIpRestrictions']
+        if 'scmMinimumTlsVersion' in kwargs:
+            scm_minimum_tls_version = kwargs['scmMinimumTlsVersion']
+        if 'scmType' in kwargs:
+            scm_type = kwargs['scmType']
+        if 'scmUseMainIpRestriction' in kwargs:
+            scm_use_main_ip_restriction = kwargs['scmUseMainIpRestriction']
+        if 'use32BitWorker' in kwargs:
+            use32_bit_worker = kwargs['use32BitWorker']
+        if 'virtualApplications' in kwargs:
+            virtual_applications = kwargs['virtualApplications']
+        if 'vnetRouteAllEnabled' in kwargs:
+            vnet_route_all_enabled = kwargs['vnetRouteAllEnabled']
+        if 'websocketsEnabled' in kwargs:
+            websockets_enabled = kwargs['websocketsEnabled']
+        if 'windowsFxVersion' in kwargs:
+            windows_fx_version = kwargs['windowsFxVersion']
+        if 'workerCount' in kwargs:
+            worker_count = kwargs['workerCount']
+
         if always_on is not None:
             _setter("always_on", always_on)
         if api_definition_url is not None:
@@ -41558,7 +45538,45 @@ class WindowsWebAppSiteConfigApplicationStack(dict):
              python: Optional[bool] = None,
              python_version: Optional[str] = None,
              tomcat_version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'currentStack' in kwargs:
+            current_stack = kwargs['currentStack']
+        if 'dockerContainerName' in kwargs:
+            docker_container_name = kwargs['dockerContainerName']
+        if 'dockerContainerRegistry' in kwargs:
+            docker_container_registry = kwargs['dockerContainerRegistry']
+        if 'dockerContainerTag' in kwargs:
+            docker_container_tag = kwargs['dockerContainerTag']
+        if 'dockerImageName' in kwargs:
+            docker_image_name = kwargs['dockerImageName']
+        if 'dockerRegistryPassword' in kwargs:
+            docker_registry_password = kwargs['dockerRegistryPassword']
+        if 'dockerRegistryUrl' in kwargs:
+            docker_registry_url = kwargs['dockerRegistryUrl']
+        if 'dockerRegistryUsername' in kwargs:
+            docker_registry_username = kwargs['dockerRegistryUsername']
+        if 'dotnetCoreVersion' in kwargs:
+            dotnet_core_version = kwargs['dotnetCoreVersion']
+        if 'dotnetVersion' in kwargs:
+            dotnet_version = kwargs['dotnetVersion']
+        if 'javaContainer' in kwargs:
+            java_container = kwargs['javaContainer']
+        if 'javaContainerVersion' in kwargs:
+            java_container_version = kwargs['javaContainerVersion']
+        if 'javaEmbeddedServerEnabled' in kwargs:
+            java_embedded_server_enabled = kwargs['javaEmbeddedServerEnabled']
+        if 'javaVersion' in kwargs:
+            java_version = kwargs['javaVersion']
+        if 'nodeVersion' in kwargs:
+            node_version = kwargs['nodeVersion']
+        if 'phpVersion' in kwargs:
+            php_version = kwargs['phpVersion']
+        if 'pythonVersion' in kwargs:
+            python_version = kwargs['pythonVersion']
+        if 'tomcatVersion' in kwargs:
+            tomcat_version = kwargs['tomcatVersion']
+
         if current_stack is not None:
             _setter("current_stack", current_stack)
         if docker_container_name is not None:
@@ -41784,7 +45802,9 @@ class WindowsWebAppSiteConfigAutoHealSetting(dict):
              _setter: Callable[[Any, Any], None],
              action: 'outputs.WindowsWebAppSiteConfigAutoHealSettingAction',
              trigger: 'outputs.WindowsWebAppSiteConfigAutoHealSettingTrigger',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("action", action)
         _setter("trigger", trigger)
 
@@ -41849,7 +45869,15 @@ class WindowsWebAppSiteConfigAutoHealSettingAction(dict):
              action_type: str,
              custom_action: Optional['outputs.WindowsWebAppSiteConfigAutoHealSettingActionCustomAction'] = None,
              minimum_process_execution_time: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionType' in kwargs:
+            action_type = kwargs['actionType']
+        if 'customAction' in kwargs:
+            custom_action = kwargs['customAction']
+        if 'minimumProcessExecutionTime' in kwargs:
+            minimum_process_execution_time = kwargs['minimumProcessExecutionTime']
+
         _setter("action_type", action_type)
         if custom_action is not None:
             _setter("custom_action", custom_action)
@@ -41900,7 +45928,9 @@ class WindowsWebAppSiteConfigAutoHealSettingActionCustomAction(dict):
              _setter: Callable[[Any, Any], None],
              executable: str,
              parameters: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("executable", executable)
         if parameters is not None:
             _setter("parameters", parameters)
@@ -41970,7 +46000,15 @@ class WindowsWebAppSiteConfigAutoHealSettingTrigger(dict):
              requests: Optional['outputs.WindowsWebAppSiteConfigAutoHealSettingTriggerRequests'] = None,
              slow_requests: Optional[Sequence['outputs.WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest']] = None,
              status_codes: Optional[Sequence['outputs.WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateMemoryKb' in kwargs:
+            private_memory_kb = kwargs['privateMemoryKb']
+        if 'slowRequests' in kwargs:
+            slow_requests = kwargs['slowRequests']
+        if 'statusCodes' in kwargs:
+            status_codes = kwargs['statusCodes']
+
         if private_memory_kb is not None:
             _setter("private_memory_kb", private_memory_kb)
         if requests is not None:
@@ -42032,7 +46070,9 @@ class WindowsWebAppSiteConfigAutoHealSettingTriggerRequests(dict):
              _setter: Callable[[Any, Any], None],
              count: int,
              interval: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("count", count)
         _setter("interval", interval)
 
@@ -42097,7 +46137,11 @@ class WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest(dict):
              interval: str,
              time_taken: str,
              path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'timeTaken' in kwargs:
+            time_taken = kwargs['timeTaken']
+
         _setter("count", count)
         _setter("interval", interval)
         _setter("time_taken", time_taken)
@@ -42193,7 +46237,15 @@ class WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode(dict):
              path: Optional[str] = None,
              sub_status: Optional[int] = None,
              win32_status_code: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'statusCodeRange' in kwargs:
+            status_code_range = kwargs['statusCodeRange']
+        if 'subStatus' in kwargs:
+            sub_status = kwargs['subStatus']
+        if 'win32StatusCode' in kwargs:
+            win32_status_code = kwargs['win32StatusCode']
+
         _setter("count", count)
         _setter("interval", interval)
         _setter("status_code_range", status_code_range)
@@ -42291,7 +46343,13 @@ class WindowsWebAppSiteConfigCors(dict):
              _setter: Callable[[Any, Any], None],
              allowed_origins: Optional[Sequence[str]] = None,
              support_credentials: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedOrigins' in kwargs:
+            allowed_origins = kwargs['allowedOrigins']
+        if 'supportCredentials' in kwargs:
+            support_credentials = kwargs['supportCredentials']
+
         if allowed_origins is not None:
             _setter("allowed_origins", allowed_origins)
         if support_credentials is not None:
@@ -42376,7 +46434,15 @@ class WindowsWebAppSiteConfigIpRestriction(dict):
              priority: Optional[int] = None,
              service_tag: Optional[str] = None,
              virtual_network_subnet_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'serviceTag' in kwargs:
+            service_tag = kwargs['serviceTag']
+        if 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+
         if action is not None:
             _setter("action", action)
         if headers is not None:
@@ -42501,7 +46567,17 @@ class WindowsWebAppSiteConfigIpRestrictionHeaders(dict):
              x_fd_health_probe: Optional[str] = None,
              x_forwarded_fors: Optional[Sequence[str]] = None,
              x_forwarded_hosts: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'xAzureFdids' in kwargs:
+            x_azure_fdids = kwargs['xAzureFdids']
+        if 'xFdHealthProbe' in kwargs:
+            x_fd_health_probe = kwargs['xFdHealthProbe']
+        if 'xForwardedFors' in kwargs:
+            x_forwarded_fors = kwargs['xForwardedFors']
+        if 'xForwardedHosts' in kwargs:
+            x_forwarded_hosts = kwargs['xForwardedHosts']
+
         if x_azure_fdids is not None:
             _setter("x_azure_fdids", x_azure_fdids)
         if x_fd_health_probe is not None:
@@ -42606,7 +46682,15 @@ class WindowsWebAppSiteConfigScmIpRestriction(dict):
              priority: Optional[int] = None,
              service_tag: Optional[str] = None,
              virtual_network_subnet_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'serviceTag' in kwargs:
+            service_tag = kwargs['serviceTag']
+        if 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+
         if action is not None:
             _setter("action", action)
         if headers is not None:
@@ -42731,7 +46815,17 @@ class WindowsWebAppSiteConfigScmIpRestrictionHeaders(dict):
              x_fd_health_probe: Optional[str] = None,
              x_forwarded_fors: Optional[Sequence[str]] = None,
              x_forwarded_hosts: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'xAzureFdids' in kwargs:
+            x_azure_fdids = kwargs['xAzureFdids']
+        if 'xFdHealthProbe' in kwargs:
+            x_fd_health_probe = kwargs['xFdHealthProbe']
+        if 'xForwardedFors' in kwargs:
+            x_forwarded_fors = kwargs['xForwardedFors']
+        if 'xForwardedHosts' in kwargs:
+            x_forwarded_hosts = kwargs['xForwardedHosts']
+
         if x_azure_fdids is not None:
             _setter("x_azure_fdids", x_azure_fdids)
         if x_fd_health_probe is not None:
@@ -42822,7 +46916,15 @@ class WindowsWebAppSiteConfigVirtualApplication(dict):
              preload: bool,
              virtual_path: str,
              virtual_directories: Optional[Sequence['outputs.WindowsWebAppSiteConfigVirtualApplicationVirtualDirectory']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'physicalPath' in kwargs:
+            physical_path = kwargs['physicalPath']
+        if 'virtualPath' in kwargs:
+            virtual_path = kwargs['virtualPath']
+        if 'virtualDirectories' in kwargs:
+            virtual_directories = kwargs['virtualDirectories']
+
         _setter("physical_path", physical_path)
         _setter("preload", preload)
         _setter("virtual_path", virtual_path)
@@ -42900,7 +47002,13 @@ class WindowsWebAppSiteConfigVirtualApplicationVirtualDirectory(dict):
              _setter: Callable[[Any, Any], None],
              physical_path: Optional[str] = None,
              virtual_path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'physicalPath' in kwargs:
+            physical_path = kwargs['physicalPath']
+        if 'virtualPath' in kwargs:
+            virtual_path = kwargs['virtualPath']
+
         if physical_path is not None:
             _setter("physical_path", physical_path)
         if virtual_path is not None:
@@ -42942,7 +47050,9 @@ class WindowsWebAppSiteCredential(dict):
              _setter: Callable[[Any, Any], None],
              name: Optional[str] = None,
              password: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if password is not None:
@@ -43071,7 +47181,25 @@ class WindowsWebAppSlotAuthSettings(dict):
              token_store_enabled: Optional[bool] = None,
              twitter: Optional['outputs.WindowsWebAppSlotAuthSettingsTwitter'] = None,
              unauthenticated_client_action: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activeDirectory' in kwargs:
+            active_directory = kwargs['activeDirectory']
+        if 'additionalLoginParameters' in kwargs:
+            additional_login_parameters = kwargs['additionalLoginParameters']
+        if 'allowedExternalRedirectUrls' in kwargs:
+            allowed_external_redirect_urls = kwargs['allowedExternalRedirectUrls']
+        if 'defaultProvider' in kwargs:
+            default_provider = kwargs['defaultProvider']
+        if 'runtimeVersion' in kwargs:
+            runtime_version = kwargs['runtimeVersion']
+        if 'tokenRefreshExtensionHours' in kwargs:
+            token_refresh_extension_hours = kwargs['tokenRefreshExtensionHours']
+        if 'tokenStoreEnabled' in kwargs:
+            token_store_enabled = kwargs['tokenStoreEnabled']
+        if 'unauthenticatedClientAction' in kwargs:
+            unauthenticated_client_action = kwargs['unauthenticatedClientAction']
+
         _setter("enabled", enabled)
         if active_directory is not None:
             _setter("active_directory", active_directory)
@@ -43279,7 +47407,17 @@ class WindowsWebAppSlotAuthSettingsActiveDirectory(dict):
              allowed_audiences: Optional[Sequence[str]] = None,
              client_secret: Optional[str] = None,
              client_secret_setting_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+
         _setter("client_id", client_id)
         if allowed_audiences is not None:
             _setter("allowed_audiences", allowed_audiences)
@@ -43373,7 +47511,17 @@ class WindowsWebAppSlotAuthSettingsFacebook(dict):
              app_secret: Optional[str] = None,
              app_secret_setting_name: Optional[str] = None,
              oauth_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'appSecret' in kwargs:
+            app_secret = kwargs['appSecret']
+        if 'appSecretSettingName' in kwargs:
+            app_secret_setting_name = kwargs['appSecretSettingName']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("app_id", app_id)
         if app_secret is not None:
             _setter("app_secret", app_secret)
@@ -43465,7 +47613,17 @@ class WindowsWebAppSlotAuthSettingsGithub(dict):
              client_secret: Optional[str] = None,
              client_secret_setting_name: Optional[str] = None,
              oauth_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("client_id", client_id)
         if client_secret is not None:
             _setter("client_secret", client_secret)
@@ -43557,7 +47715,17 @@ class WindowsWebAppSlotAuthSettingsGoogle(dict):
              client_secret: Optional[str] = None,
              client_secret_setting_name: Optional[str] = None,
              oauth_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("client_id", client_id)
         if client_secret is not None:
             _setter("client_secret", client_secret)
@@ -43649,7 +47817,17 @@ class WindowsWebAppSlotAuthSettingsMicrosoft(dict):
              client_secret: Optional[str] = None,
              client_secret_setting_name: Optional[str] = None,
              oauth_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("client_id", client_id)
         if client_secret is not None:
             _setter("client_secret", client_secret)
@@ -43735,7 +47913,15 @@ class WindowsWebAppSlotAuthSettingsTwitter(dict):
              consumer_key: str,
              consumer_secret: Optional[str] = None,
              consumer_secret_setting_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'consumerKey' in kwargs:
+            consumer_key = kwargs['consumerKey']
+        if 'consumerSecret' in kwargs:
+            consumer_secret = kwargs['consumerSecret']
+        if 'consumerSecretSettingName' in kwargs:
+            consumer_secret_setting_name = kwargs['consumerSecretSettingName']
+
         _setter("consumer_key", consumer_key)
         if consumer_secret is not None:
             _setter("consumer_secret", consumer_secret)
@@ -43929,7 +48115,51 @@ class WindowsWebAppSlotAuthSettingsV2(dict):
              runtime_version: Optional[str] = None,
              twitter_v2: Optional['outputs.WindowsWebAppSlotAuthSettingsV2TwitterV2'] = None,
              unauthenticated_action: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activeDirectoryV2' in kwargs:
+            active_directory_v2 = kwargs['activeDirectoryV2']
+        if 'appleV2' in kwargs:
+            apple_v2 = kwargs['appleV2']
+        if 'authEnabled' in kwargs:
+            auth_enabled = kwargs['authEnabled']
+        if 'azureStaticWebAppV2' in kwargs:
+            azure_static_web_app_v2 = kwargs['azureStaticWebAppV2']
+        if 'configFilePath' in kwargs:
+            config_file_path = kwargs['configFilePath']
+        if 'customOidcV2s' in kwargs:
+            custom_oidc_v2s = kwargs['customOidcV2s']
+        if 'defaultProvider' in kwargs:
+            default_provider = kwargs['defaultProvider']
+        if 'excludedPaths' in kwargs:
+            excluded_paths = kwargs['excludedPaths']
+        if 'facebookV2' in kwargs:
+            facebook_v2 = kwargs['facebookV2']
+        if 'forwardProxyConvention' in kwargs:
+            forward_proxy_convention = kwargs['forwardProxyConvention']
+        if 'forwardProxyCustomHostHeaderName' in kwargs:
+            forward_proxy_custom_host_header_name = kwargs['forwardProxyCustomHostHeaderName']
+        if 'forwardProxyCustomSchemeHeaderName' in kwargs:
+            forward_proxy_custom_scheme_header_name = kwargs['forwardProxyCustomSchemeHeaderName']
+        if 'githubV2' in kwargs:
+            github_v2 = kwargs['githubV2']
+        if 'googleV2' in kwargs:
+            google_v2 = kwargs['googleV2']
+        if 'httpRouteApiPrefix' in kwargs:
+            http_route_api_prefix = kwargs['httpRouteApiPrefix']
+        if 'microsoftV2' in kwargs:
+            microsoft_v2 = kwargs['microsoftV2']
+        if 'requireAuthentication' in kwargs:
+            require_authentication = kwargs['requireAuthentication']
+        if 'requireHttps' in kwargs:
+            require_https = kwargs['requireHttps']
+        if 'runtimeVersion' in kwargs:
+            runtime_version = kwargs['runtimeVersion']
+        if 'twitterV2' in kwargs:
+            twitter_v2 = kwargs['twitterV2']
+        if 'unauthenticatedAction' in kwargs:
+            unauthenticated_action = kwargs['unauthenticatedAction']
+
         _setter("login", login)
         if active_directory_v2 is not None:
             _setter("active_directory_v2", active_directory_v2)
@@ -44259,7 +48489,33 @@ class WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
              jwt_allowed_groups: Optional[Sequence[str]] = None,
              login_parameters: Optional[Mapping[str, str]] = None,
              www_authentication_disabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'tenantAuthEndpoint' in kwargs:
+            tenant_auth_endpoint = kwargs['tenantAuthEndpoint']
+        if 'allowedApplications' in kwargs:
+            allowed_applications = kwargs['allowedApplications']
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'allowedGroups' in kwargs:
+            allowed_groups = kwargs['allowedGroups']
+        if 'allowedIdentities' in kwargs:
+            allowed_identities = kwargs['allowedIdentities']
+        if 'clientSecretCertificateThumbprint' in kwargs:
+            client_secret_certificate_thumbprint = kwargs['clientSecretCertificateThumbprint']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'jwtAllowedClientApplications' in kwargs:
+            jwt_allowed_client_applications = kwargs['jwtAllowedClientApplications']
+        if 'jwtAllowedGroups' in kwargs:
+            jwt_allowed_groups = kwargs['jwtAllowedGroups']
+        if 'loginParameters' in kwargs:
+            login_parameters = kwargs['loginParameters']
+        if 'wwwAuthenticationDisabled' in kwargs:
+            www_authentication_disabled = kwargs['wwwAuthenticationDisabled']
+
         _setter("client_id", client_id)
         _setter("tenant_auth_endpoint", tenant_auth_endpoint)
         if allowed_applications is not None:
@@ -44428,7 +48684,15 @@ class WindowsWebAppSlotAuthSettingsV2AppleV2(dict):
              client_id: str,
              client_secret_setting_name: str,
              login_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret_setting_name", client_secret_setting_name)
         if login_scopes is not None:
@@ -44491,7 +48755,11 @@ class WindowsWebAppSlotAuthSettingsV2AzureStaticWebAppV2(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              client_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+
         _setter("client_id", client_id)
 
     @property
@@ -44590,7 +48858,27 @@ class WindowsWebAppSlotAuthSettingsV2CustomOidcV2(dict):
              name_claim_type: Optional[str] = None,
              scopes: Optional[Sequence[str]] = None,
              token_endpoint: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'openidConfigurationEndpoint' in kwargs:
+            openid_configuration_endpoint = kwargs['openidConfigurationEndpoint']
+        if 'authorisationEndpoint' in kwargs:
+            authorisation_endpoint = kwargs['authorisationEndpoint']
+        if 'certificationUri' in kwargs:
+            certification_uri = kwargs['certificationUri']
+        if 'clientCredentialMethod' in kwargs:
+            client_credential_method = kwargs['clientCredentialMethod']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'issuerEndpoint' in kwargs:
+            issuer_endpoint = kwargs['issuerEndpoint']
+        if 'nameClaimType' in kwargs:
+            name_claim_type = kwargs['nameClaimType']
+        if 'tokenEndpoint' in kwargs:
+            token_endpoint = kwargs['tokenEndpoint']
+
         _setter("client_id", client_id)
         _setter("name", name)
         _setter("openid_configuration_endpoint", openid_configuration_endpoint)
@@ -44749,7 +49037,17 @@ class WindowsWebAppSlotAuthSettingsV2FacebookV2(dict):
              app_secret_setting_name: str,
              graph_api_version: Optional[str] = None,
              login_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'appSecretSettingName' in kwargs:
+            app_secret_setting_name = kwargs['appSecretSettingName']
+        if 'graphApiVersion' in kwargs:
+            graph_api_version = kwargs['graphApiVersion']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("app_id", app_id)
         _setter("app_secret_setting_name", app_secret_setting_name)
         if graph_api_version is not None:
@@ -44836,7 +49134,15 @@ class WindowsWebAppSlotAuthSettingsV2GithubV2(dict):
              client_id: str,
              client_secret_setting_name: str,
              login_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret_setting_name", client_secret_setting_name)
         if login_scopes is not None:
@@ -44919,7 +49225,17 @@ class WindowsWebAppSlotAuthSettingsV2GoogleV2(dict):
              client_secret_setting_name: str,
              allowed_audiences: Optional[Sequence[str]] = None,
              login_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret_setting_name", client_secret_setting_name)
         if allowed_audiences is not None:
@@ -45056,7 +49372,31 @@ class WindowsWebAppSlotAuthSettingsV2Login(dict):
              token_store_path: Optional[str] = None,
              token_store_sas_setting_name: Optional[str] = None,
              validate_nonce: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedExternalRedirectUrls' in kwargs:
+            allowed_external_redirect_urls = kwargs['allowedExternalRedirectUrls']
+        if 'cookieExpirationConvention' in kwargs:
+            cookie_expiration_convention = kwargs['cookieExpirationConvention']
+        if 'cookieExpirationTime' in kwargs:
+            cookie_expiration_time = kwargs['cookieExpirationTime']
+        if 'logoutEndpoint' in kwargs:
+            logout_endpoint = kwargs['logoutEndpoint']
+        if 'nonceExpirationTime' in kwargs:
+            nonce_expiration_time = kwargs['nonceExpirationTime']
+        if 'preserveUrlFragmentsForLogins' in kwargs:
+            preserve_url_fragments_for_logins = kwargs['preserveUrlFragmentsForLogins']
+        if 'tokenRefreshExtensionTime' in kwargs:
+            token_refresh_extension_time = kwargs['tokenRefreshExtensionTime']
+        if 'tokenStoreEnabled' in kwargs:
+            token_store_enabled = kwargs['tokenStoreEnabled']
+        if 'tokenStorePath' in kwargs:
+            token_store_path = kwargs['tokenStorePath']
+        if 'tokenStoreSasSettingName' in kwargs:
+            token_store_sas_setting_name = kwargs['tokenStoreSasSettingName']
+        if 'validateNonce' in kwargs:
+            validate_nonce = kwargs['validateNonce']
+
         if allowed_external_redirect_urls is not None:
             _setter("allowed_external_redirect_urls", allowed_external_redirect_urls)
         if cookie_expiration_convention is not None:
@@ -45223,7 +49563,17 @@ class WindowsWebAppSlotAuthSettingsV2MicrosoftV2(dict):
              client_secret_setting_name: str,
              allowed_audiences: Optional[Sequence[str]] = None,
              login_scopes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret_setting_name", client_secret_setting_name)
         if allowed_audiences is not None:
@@ -45306,7 +49656,13 @@ class WindowsWebAppSlotAuthSettingsV2TwitterV2(dict):
              _setter: Callable[[Any, Any], None],
              consumer_key: str,
              consumer_secret_setting_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'consumerKey' in kwargs:
+            consumer_key = kwargs['consumerKey']
+        if 'consumerSecretSettingName' in kwargs:
+            consumer_secret_setting_name = kwargs['consumerSecretSettingName']
+
         _setter("consumer_key", consumer_key)
         _setter("consumer_secret_setting_name", consumer_secret_setting_name)
 
@@ -45373,7 +49729,11 @@ class WindowsWebAppSlotBackup(dict):
              schedule: 'outputs.WindowsWebAppSlotBackupSchedule',
              storage_account_url: str,
              enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageAccountUrl' in kwargs:
+            storage_account_url = kwargs['storageAccountUrl']
+
         _setter("name", name)
         _setter("schedule", schedule)
         _setter("storage_account_url", storage_account_url)
@@ -45476,7 +49836,21 @@ class WindowsWebAppSlotBackupSchedule(dict):
              last_execution_time: Optional[str] = None,
              retention_period_days: Optional[int] = None,
              start_time: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'frequencyInterval' in kwargs:
+            frequency_interval = kwargs['frequencyInterval']
+        if 'frequencyUnit' in kwargs:
+            frequency_unit = kwargs['frequencyUnit']
+        if 'keepAtLeastOneBackup' in kwargs:
+            keep_at_least_one_backup = kwargs['keepAtLeastOneBackup']
+        if 'lastExecutionTime' in kwargs:
+            last_execution_time = kwargs['lastExecutionTime']
+        if 'retentionPeriodDays' in kwargs:
+            retention_period_days = kwargs['retentionPeriodDays']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         _setter("frequency_interval", frequency_interval)
         _setter("frequency_unit", frequency_unit)
         if keep_at_least_one_backup is not None:
@@ -45559,7 +49933,9 @@ class WindowsWebAppSlotConnectionString(dict):
              name: str,
              type: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("type", type)
         _setter("value", value)
@@ -45639,7 +50015,15 @@ class WindowsWebAppSlotIdentity(dict):
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -45733,7 +50117,17 @@ class WindowsWebAppSlotLogs(dict):
              detailed_error_messages: Optional[bool] = None,
              failed_request_tracing: Optional[bool] = None,
              http_logs: Optional['outputs.WindowsWebAppSlotLogsHttpLogs'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationLogs' in kwargs:
+            application_logs = kwargs['applicationLogs']
+        if 'detailedErrorMessages' in kwargs:
+            detailed_error_messages = kwargs['detailedErrorMessages']
+        if 'failedRequestTracing' in kwargs:
+            failed_request_tracing = kwargs['failedRequestTracing']
+        if 'httpLogs' in kwargs:
+            http_logs = kwargs['httpLogs']
+
         if application_logs is not None:
             _setter("application_logs", application_logs)
         if detailed_error_messages is not None:
@@ -45814,7 +50208,13 @@ class WindowsWebAppSlotLogsApplicationLogs(dict):
              _setter: Callable[[Any, Any], None],
              file_system_level: str,
              azure_blob_storage: Optional['outputs.WindowsWebAppSlotLogsApplicationLogsAzureBlobStorage'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fileSystemLevel' in kwargs:
+            file_system_level = kwargs['fileSystemLevel']
+        if 'azureBlobStorage' in kwargs:
+            azure_blob_storage = kwargs['azureBlobStorage']
+
         _setter("file_system_level", file_system_level)
         if azure_blob_storage is not None:
             _setter("azure_blob_storage", azure_blob_storage)
@@ -45878,7 +50278,13 @@ class WindowsWebAppSlotLogsApplicationLogsAzureBlobStorage(dict):
              level: str,
              retention_in_days: int,
              sas_url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'retentionInDays' in kwargs:
+            retention_in_days = kwargs['retentionInDays']
+        if 'sasUrl' in kwargs:
+            sas_url = kwargs['sasUrl']
+
         _setter("level", level)
         _setter("retention_in_days", retention_in_days)
         _setter("sas_url", sas_url)
@@ -45946,7 +50352,13 @@ class WindowsWebAppSlotLogsHttpLogs(dict):
              _setter: Callable[[Any, Any], None],
              azure_blob_storage: Optional['outputs.WindowsWebAppSlotLogsHttpLogsAzureBlobStorage'] = None,
              file_system: Optional['outputs.WindowsWebAppSlotLogsHttpLogsFileSystem'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azureBlobStorage' in kwargs:
+            azure_blob_storage = kwargs['azureBlobStorage']
+        if 'fileSystem' in kwargs:
+            file_system = kwargs['fileSystem']
+
         if azure_blob_storage is not None:
             _setter("azure_blob_storage", azure_blob_storage)
         if file_system is not None:
@@ -46007,7 +50419,13 @@ class WindowsWebAppSlotLogsHttpLogsAzureBlobStorage(dict):
              _setter: Callable[[Any, Any], None],
              sas_url: str,
              retention_in_days: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sasUrl' in kwargs:
+            sas_url = kwargs['sasUrl']
+        if 'retentionInDays' in kwargs:
+            retention_in_days = kwargs['retentionInDays']
+
         _setter("sas_url", sas_url)
         if retention_in_days is not None:
             _setter("retention_in_days", retention_in_days)
@@ -46067,7 +50485,13 @@ class WindowsWebAppSlotLogsHttpLogsFileSystem(dict):
              _setter: Callable[[Any, Any], None],
              retention_in_days: int,
              retention_in_mb: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'retentionInDays' in kwargs:
+            retention_in_days = kwargs['retentionInDays']
+        if 'retentionInMb' in kwargs:
+            retention_in_mb = kwargs['retentionInMb']
+
         _setter("retention_in_days", retention_in_days)
         _setter("retention_in_mb", retention_in_mb)
 
@@ -46314,7 +50738,75 @@ class WindowsWebAppSlotSiteConfig(dict):
              websockets_enabled: Optional[bool] = None,
              windows_fx_version: Optional[str] = None,
              worker_count: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alwaysOn' in kwargs:
+            always_on = kwargs['alwaysOn']
+        if 'apiDefinitionUrl' in kwargs:
+            api_definition_url = kwargs['apiDefinitionUrl']
+        if 'apiManagementApiId' in kwargs:
+            api_management_api_id = kwargs['apiManagementApiId']
+        if 'appCommandLine' in kwargs:
+            app_command_line = kwargs['appCommandLine']
+        if 'applicationStack' in kwargs:
+            application_stack = kwargs['applicationStack']
+        if 'autoHealEnabled' in kwargs:
+            auto_heal_enabled = kwargs['autoHealEnabled']
+        if 'autoHealSetting' in kwargs:
+            auto_heal_setting = kwargs['autoHealSetting']
+        if 'autoSwapSlotName' in kwargs:
+            auto_swap_slot_name = kwargs['autoSwapSlotName']
+        if 'containerRegistryManagedIdentityClientId' in kwargs:
+            container_registry_managed_identity_client_id = kwargs['containerRegistryManagedIdentityClientId']
+        if 'containerRegistryUseManagedIdentity' in kwargs:
+            container_registry_use_managed_identity = kwargs['containerRegistryUseManagedIdentity']
+        if 'defaultDocuments' in kwargs:
+            default_documents = kwargs['defaultDocuments']
+        if 'detailedErrorLoggingEnabled' in kwargs:
+            detailed_error_logging_enabled = kwargs['detailedErrorLoggingEnabled']
+        if 'ftpsState' in kwargs:
+            ftps_state = kwargs['ftpsState']
+        if 'healthCheckEvictionTimeInMin' in kwargs:
+            health_check_eviction_time_in_min = kwargs['healthCheckEvictionTimeInMin']
+        if 'healthCheckPath' in kwargs:
+            health_check_path = kwargs['healthCheckPath']
+        if 'http2Enabled' in kwargs:
+            http2_enabled = kwargs['http2Enabled']
+        if 'ipRestrictions' in kwargs:
+            ip_restrictions = kwargs['ipRestrictions']
+        if 'loadBalancingMode' in kwargs:
+            load_balancing_mode = kwargs['loadBalancingMode']
+        if 'localMysqlEnabled' in kwargs:
+            local_mysql_enabled = kwargs['localMysqlEnabled']
+        if 'managedPipelineMode' in kwargs:
+            managed_pipeline_mode = kwargs['managedPipelineMode']
+        if 'minimumTlsVersion' in kwargs:
+            minimum_tls_version = kwargs['minimumTlsVersion']
+        if 'remoteDebuggingEnabled' in kwargs:
+            remote_debugging_enabled = kwargs['remoteDebuggingEnabled']
+        if 'remoteDebuggingVersion' in kwargs:
+            remote_debugging_version = kwargs['remoteDebuggingVersion']
+        if 'scmIpRestrictions' in kwargs:
+            scm_ip_restrictions = kwargs['scmIpRestrictions']
+        if 'scmMinimumTlsVersion' in kwargs:
+            scm_minimum_tls_version = kwargs['scmMinimumTlsVersion']
+        if 'scmType' in kwargs:
+            scm_type = kwargs['scmType']
+        if 'scmUseMainIpRestriction' in kwargs:
+            scm_use_main_ip_restriction = kwargs['scmUseMainIpRestriction']
+        if 'use32BitWorker' in kwargs:
+            use32_bit_worker = kwargs['use32BitWorker']
+        if 'virtualApplications' in kwargs:
+            virtual_applications = kwargs['virtualApplications']
+        if 'vnetRouteAllEnabled' in kwargs:
+            vnet_route_all_enabled = kwargs['vnetRouteAllEnabled']
+        if 'websocketsEnabled' in kwargs:
+            websockets_enabled = kwargs['websocketsEnabled']
+        if 'windowsFxVersion' in kwargs:
+            windows_fx_version = kwargs['windowsFxVersion']
+        if 'workerCount' in kwargs:
+            worker_count = kwargs['workerCount']
+
         if always_on is not None:
             _setter("always_on", always_on)
         if api_definition_url is not None:
@@ -46791,7 +51283,45 @@ class WindowsWebAppSlotSiteConfigApplicationStack(dict):
              python: Optional[bool] = None,
              python_version: Optional[str] = None,
              tomcat_version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'currentStack' in kwargs:
+            current_stack = kwargs['currentStack']
+        if 'dockerContainerName' in kwargs:
+            docker_container_name = kwargs['dockerContainerName']
+        if 'dockerContainerRegistry' in kwargs:
+            docker_container_registry = kwargs['dockerContainerRegistry']
+        if 'dockerContainerTag' in kwargs:
+            docker_container_tag = kwargs['dockerContainerTag']
+        if 'dockerImageName' in kwargs:
+            docker_image_name = kwargs['dockerImageName']
+        if 'dockerRegistryPassword' in kwargs:
+            docker_registry_password = kwargs['dockerRegistryPassword']
+        if 'dockerRegistryUrl' in kwargs:
+            docker_registry_url = kwargs['dockerRegistryUrl']
+        if 'dockerRegistryUsername' in kwargs:
+            docker_registry_username = kwargs['dockerRegistryUsername']
+        if 'dotnetCoreVersion' in kwargs:
+            dotnet_core_version = kwargs['dotnetCoreVersion']
+        if 'dotnetVersion' in kwargs:
+            dotnet_version = kwargs['dotnetVersion']
+        if 'javaContainer' in kwargs:
+            java_container = kwargs['javaContainer']
+        if 'javaContainerVersion' in kwargs:
+            java_container_version = kwargs['javaContainerVersion']
+        if 'javaEmbeddedServerEnabled' in kwargs:
+            java_embedded_server_enabled = kwargs['javaEmbeddedServerEnabled']
+        if 'javaVersion' in kwargs:
+            java_version = kwargs['javaVersion']
+        if 'nodeVersion' in kwargs:
+            node_version = kwargs['nodeVersion']
+        if 'phpVersion' in kwargs:
+            php_version = kwargs['phpVersion']
+        if 'pythonVersion' in kwargs:
+            python_version = kwargs['pythonVersion']
+        if 'tomcatVersion' in kwargs:
+            tomcat_version = kwargs['tomcatVersion']
+
         if current_stack is not None:
             _setter("current_stack", current_stack)
         if docker_container_name is not None:
@@ -47009,7 +51539,9 @@ class WindowsWebAppSlotSiteConfigAutoHealSetting(dict):
              _setter: Callable[[Any, Any], None],
              action: 'outputs.WindowsWebAppSlotSiteConfigAutoHealSettingAction',
              trigger: 'outputs.WindowsWebAppSlotSiteConfigAutoHealSettingTrigger',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("action", action)
         _setter("trigger", trigger)
 
@@ -47074,7 +51606,15 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingAction(dict):
              action_type: str,
              custom_action: Optional['outputs.WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomAction'] = None,
              minimum_process_execution_time: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionType' in kwargs:
+            action_type = kwargs['actionType']
+        if 'customAction' in kwargs:
+            custom_action = kwargs['customAction']
+        if 'minimumProcessExecutionTime' in kwargs:
+            minimum_process_execution_time = kwargs['minimumProcessExecutionTime']
+
         _setter("action_type", action_type)
         if custom_action is not None:
             _setter("custom_action", custom_action)
@@ -47125,7 +51665,9 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomAction(dict):
              _setter: Callable[[Any, Any], None],
              executable: str,
              parameters: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("executable", executable)
         if parameters is not None:
             _setter("parameters", parameters)
@@ -47195,7 +51737,15 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingTrigger(dict):
              requests: Optional['outputs.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequests'] = None,
              slow_requests: Optional[Sequence['outputs.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest']] = None,
              status_codes: Optional[Sequence['outputs.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateMemoryKb' in kwargs:
+            private_memory_kb = kwargs['privateMemoryKb']
+        if 'slowRequests' in kwargs:
+            slow_requests = kwargs['slowRequests']
+        if 'statusCodes' in kwargs:
+            status_codes = kwargs['statusCodes']
+
         if private_memory_kb is not None:
             _setter("private_memory_kb", private_memory_kb)
         if requests is not None:
@@ -47257,7 +51807,9 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequests(dict):
              _setter: Callable[[Any, Any], None],
              count: int,
              interval: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("count", count)
         _setter("interval", interval)
 
@@ -47322,7 +51874,11 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest(dict):
              interval: str,
              time_taken: str,
              path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'timeTaken' in kwargs:
+            time_taken = kwargs['timeTaken']
+
         _setter("count", count)
         _setter("interval", interval)
         _setter("time_taken", time_taken)
@@ -47418,7 +51974,15 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode(dict):
              path: Optional[str] = None,
              sub_status: Optional[int] = None,
              win32_status_code: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'statusCodeRange' in kwargs:
+            status_code_range = kwargs['statusCodeRange']
+        if 'subStatus' in kwargs:
+            sub_status = kwargs['subStatus']
+        if 'win32StatusCode' in kwargs:
+            win32_status_code = kwargs['win32StatusCode']
+
         _setter("count", count)
         _setter("interval", interval)
         _setter("status_code_range", status_code_range)
@@ -47516,7 +52080,13 @@ class WindowsWebAppSlotSiteConfigCors(dict):
              _setter: Callable[[Any, Any], None],
              allowed_origins: Optional[Sequence[str]] = None,
              support_credentials: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedOrigins' in kwargs:
+            allowed_origins = kwargs['allowedOrigins']
+        if 'supportCredentials' in kwargs:
+            support_credentials = kwargs['supportCredentials']
+
         if allowed_origins is not None:
             _setter("allowed_origins", allowed_origins)
         if support_credentials is not None:
@@ -47601,7 +52171,15 @@ class WindowsWebAppSlotSiteConfigIpRestriction(dict):
              priority: Optional[int] = None,
              service_tag: Optional[str] = None,
              virtual_network_subnet_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'serviceTag' in kwargs:
+            service_tag = kwargs['serviceTag']
+        if 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+
         if action is not None:
             _setter("action", action)
         if headers is not None:
@@ -47726,7 +52304,17 @@ class WindowsWebAppSlotSiteConfigIpRestrictionHeaders(dict):
              x_fd_health_probe: Optional[str] = None,
              x_forwarded_fors: Optional[Sequence[str]] = None,
              x_forwarded_hosts: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'xAzureFdids' in kwargs:
+            x_azure_fdids = kwargs['xAzureFdids']
+        if 'xFdHealthProbe' in kwargs:
+            x_fd_health_probe = kwargs['xFdHealthProbe']
+        if 'xForwardedFors' in kwargs:
+            x_forwarded_fors = kwargs['xForwardedFors']
+        if 'xForwardedHosts' in kwargs:
+            x_forwarded_hosts = kwargs['xForwardedHosts']
+
         if x_azure_fdids is not None:
             _setter("x_azure_fdids", x_azure_fdids)
         if x_fd_health_probe is not None:
@@ -47831,7 +52419,15 @@ class WindowsWebAppSlotSiteConfigScmIpRestriction(dict):
              priority: Optional[int] = None,
              service_tag: Optional[str] = None,
              virtual_network_subnet_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'serviceTag' in kwargs:
+            service_tag = kwargs['serviceTag']
+        if 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+
         if action is not None:
             _setter("action", action)
         if headers is not None:
@@ -47956,7 +52552,17 @@ class WindowsWebAppSlotSiteConfigScmIpRestrictionHeaders(dict):
              x_fd_health_probe: Optional[str] = None,
              x_forwarded_fors: Optional[Sequence[str]] = None,
              x_forwarded_hosts: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'xAzureFdids' in kwargs:
+            x_azure_fdids = kwargs['xAzureFdids']
+        if 'xFdHealthProbe' in kwargs:
+            x_fd_health_probe = kwargs['xFdHealthProbe']
+        if 'xForwardedFors' in kwargs:
+            x_forwarded_fors = kwargs['xForwardedFors']
+        if 'xForwardedHosts' in kwargs:
+            x_forwarded_hosts = kwargs['xForwardedHosts']
+
         if x_azure_fdids is not None:
             _setter("x_azure_fdids", x_azure_fdids)
         if x_fd_health_probe is not None:
@@ -48047,7 +52653,15 @@ class WindowsWebAppSlotSiteConfigVirtualApplication(dict):
              preload: bool,
              virtual_path: str,
              virtual_directories: Optional[Sequence['outputs.WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectory']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'physicalPath' in kwargs:
+            physical_path = kwargs['physicalPath']
+        if 'virtualPath' in kwargs:
+            virtual_path = kwargs['virtualPath']
+        if 'virtualDirectories' in kwargs:
+            virtual_directories = kwargs['virtualDirectories']
+
         _setter("physical_path", physical_path)
         _setter("preload", preload)
         _setter("virtual_path", virtual_path)
@@ -48125,7 +52739,13 @@ class WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectory(dict):
              _setter: Callable[[Any, Any], None],
              physical_path: Optional[str] = None,
              virtual_path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'physicalPath' in kwargs:
+            physical_path = kwargs['physicalPath']
+        if 'virtualPath' in kwargs:
+            virtual_path = kwargs['virtualPath']
+
         if physical_path is not None:
             _setter("physical_path", physical_path)
         if virtual_path is not None:
@@ -48166,7 +52786,9 @@ class WindowsWebAppSlotSiteCredential(dict):
              _setter: Callable[[Any, Any], None],
              name: Optional[str] = None,
              password: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if password is not None:
@@ -48244,7 +52866,17 @@ class WindowsWebAppSlotStorageAccount(dict):
              share_name: str,
              type: str,
              mount_path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessKey' in kwargs:
+            access_key = kwargs['accessKey']
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'shareName' in kwargs:
+            share_name = kwargs['shareName']
+        if 'mountPath' in kwargs:
+            mount_path = kwargs['mountPath']
+
         _setter("access_key", access_key)
         _setter("account_name", account_name)
         _setter("name", name)
@@ -48340,7 +52972,13 @@ class WindowsWebAppStickySettings(dict):
              _setter: Callable[[Any, Any], None],
              app_setting_names: Optional[Sequence[str]] = None,
              connection_string_names: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appSettingNames' in kwargs:
+            app_setting_names = kwargs['appSettingNames']
+        if 'connectionStringNames' in kwargs:
+            connection_string_names = kwargs['connectionStringNames']
+
         if app_setting_names is not None:
             _setter("app_setting_names", app_setting_names)
         if connection_string_names is not None:
@@ -48421,7 +53059,17 @@ class WindowsWebAppStorageAccount(dict):
              share_name: str,
              type: str,
              mount_path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessKey' in kwargs:
+            access_key = kwargs['accessKey']
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'shareName' in kwargs:
+            share_name = kwargs['shareName']
+        if 'mountPath' in kwargs:
+            mount_path = kwargs['mountPath']
+
         _setter("access_key", access_key)
         _setter("account_name", account_name)
         _setter("name", name)
@@ -48502,7 +53150,9 @@ class GetAppServiceConnectionStringResult(dict):
              name: str,
              type: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("type", type)
         _setter("value", value)
@@ -48551,7 +53201,9 @@ class GetAppServiceEnvironmentClusterSettingResult(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -48595,7 +53247,9 @@ class GetAppServicePlanSkuResult(dict):
              capacity: int,
              size: str,
              tier: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("capacity", capacity)
         _setter("size", size)
         _setter("tier", tier)
@@ -48756,7 +53410,67 @@ class GetAppServiceSiteConfigResult(dict):
              vnet_route_all_enabled: bool,
              websockets_enabled: bool,
              windows_fx_version: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'acrUseManagedIdentityCredentials' in kwargs:
+            acr_use_managed_identity_credentials = kwargs['acrUseManagedIdentityCredentials']
+        if 'acrUserManagedIdentityClientId' in kwargs:
+            acr_user_managed_identity_client_id = kwargs['acrUserManagedIdentityClientId']
+        if 'alwaysOn' in kwargs:
+            always_on = kwargs['alwaysOn']
+        if 'appCommandLine' in kwargs:
+            app_command_line = kwargs['appCommandLine']
+        if 'defaultDocuments' in kwargs:
+            default_documents = kwargs['defaultDocuments']
+        if 'dotnetFrameworkVersion' in kwargs:
+            dotnet_framework_version = kwargs['dotnetFrameworkVersion']
+        if 'ftpsState' in kwargs:
+            ftps_state = kwargs['ftpsState']
+        if 'healthCheckPath' in kwargs:
+            health_check_path = kwargs['healthCheckPath']
+        if 'http2Enabled' in kwargs:
+            http2_enabled = kwargs['http2Enabled']
+        if 'ipRestrictions' in kwargs:
+            ip_restrictions = kwargs['ipRestrictions']
+        if 'javaContainer' in kwargs:
+            java_container = kwargs['javaContainer']
+        if 'javaContainerVersion' in kwargs:
+            java_container_version = kwargs['javaContainerVersion']
+        if 'javaVersion' in kwargs:
+            java_version = kwargs['javaVersion']
+        if 'linuxFxVersion' in kwargs:
+            linux_fx_version = kwargs['linuxFxVersion']
+        if 'localMysqlEnabled' in kwargs:
+            local_mysql_enabled = kwargs['localMysqlEnabled']
+        if 'managedPipelineMode' in kwargs:
+            managed_pipeline_mode = kwargs['managedPipelineMode']
+        if 'minTlsVersion' in kwargs:
+            min_tls_version = kwargs['minTlsVersion']
+        if 'numberOfWorkers' in kwargs:
+            number_of_workers = kwargs['numberOfWorkers']
+        if 'phpVersion' in kwargs:
+            php_version = kwargs['phpVersion']
+        if 'pythonVersion' in kwargs:
+            python_version = kwargs['pythonVersion']
+        if 'remoteDebuggingEnabled' in kwargs:
+            remote_debugging_enabled = kwargs['remoteDebuggingEnabled']
+        if 'remoteDebuggingVersion' in kwargs:
+            remote_debugging_version = kwargs['remoteDebuggingVersion']
+        if 'scmIpRestrictions' in kwargs:
+            scm_ip_restrictions = kwargs['scmIpRestrictions']
+        if 'scmType' in kwargs:
+            scm_type = kwargs['scmType']
+        if 'scmUseMainIpRestriction' in kwargs:
+            scm_use_main_ip_restriction = kwargs['scmUseMainIpRestriction']
+        if 'use32BitWorkerProcess' in kwargs:
+            use32_bit_worker_process = kwargs['use32BitWorkerProcess']
+        if 'vnetRouteAllEnabled' in kwargs:
+            vnet_route_all_enabled = kwargs['vnetRouteAllEnabled']
+        if 'websocketsEnabled' in kwargs:
+            websockets_enabled = kwargs['websocketsEnabled']
+        if 'windowsFxVersion' in kwargs:
+            windows_fx_version = kwargs['windowsFxVersion']
+
         _setter("acr_use_managed_identity_credentials", acr_use_managed_identity_credentials)
         _setter("acr_user_managed_identity_client_id", acr_user_managed_identity_client_id)
         _setter("always_on", always_on)
@@ -49048,7 +53762,13 @@ class GetAppServiceSiteConfigCorResult(dict):
              _setter: Callable[[Any, Any], None],
              allowed_origins: Sequence[str],
              support_credentials: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedOrigins' in kwargs:
+            allowed_origins = kwargs['allowedOrigins']
+        if 'supportCredentials' in kwargs:
+            support_credentials = kwargs['supportCredentials']
+
         _setter("allowed_origins", allowed_origins)
         _setter("support_credentials", support_credentials)
 
@@ -49107,7 +53827,15 @@ class GetAppServiceSiteConfigIpRestrictionResult(dict):
              priority: int,
              service_tag: str,
              virtual_network_subnet_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'serviceTag' in kwargs:
+            service_tag = kwargs['serviceTag']
+        if 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+
         _setter("action", action)
         _setter("headers", headers)
         _setter("ip_address", ip_address)
@@ -49191,7 +53919,17 @@ class GetAppServiceSiteConfigIpRestrictionHeadersResult(dict):
              x_fd_health_probes: Sequence[str],
              x_forwarded_fors: Sequence[str],
              x_forwarded_hosts: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'xAzureFdids' in kwargs:
+            x_azure_fdids = kwargs['xAzureFdids']
+        if 'xFdHealthProbes' in kwargs:
+            x_fd_health_probes = kwargs['xFdHealthProbes']
+        if 'xForwardedFors' in kwargs:
+            x_forwarded_fors = kwargs['xForwardedFors']
+        if 'xForwardedHosts' in kwargs:
+            x_forwarded_hosts = kwargs['xForwardedHosts']
+
         _setter("x_azure_fdids", x_azure_fdids)
         _setter("x_fd_health_probes", x_fd_health_probes)
         _setter("x_forwarded_fors", x_forwarded_fors)
@@ -49256,7 +53994,15 @@ class GetAppServiceSiteConfigScmIpRestrictionResult(dict):
              priority: int,
              service_tag: str,
              virtual_network_subnet_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'serviceTag' in kwargs:
+            service_tag = kwargs['serviceTag']
+        if 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+
         _setter("action", action)
         _setter("headers", headers)
         _setter("ip_address", ip_address)
@@ -49340,7 +54086,17 @@ class GetAppServiceSiteConfigScmIpRestrictionHeadersResult(dict):
              x_fd_health_probes: Sequence[str],
              x_forwarded_fors: Sequence[str],
              x_forwarded_hosts: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'xAzureFdids' in kwargs:
+            x_azure_fdids = kwargs['xAzureFdids']
+        if 'xFdHealthProbes' in kwargs:
+            x_fd_health_probes = kwargs['xFdHealthProbes']
+        if 'xForwardedFors' in kwargs:
+            x_forwarded_fors = kwargs['xForwardedFors']
+        if 'xForwardedHosts' in kwargs:
+            x_forwarded_hosts = kwargs['xForwardedHosts']
+
         _setter("x_azure_fdids", x_azure_fdids)
         _setter("x_fd_health_probes", x_fd_health_probes)
         _setter("x_forwarded_fors", x_forwarded_fors)
@@ -49382,7 +54138,9 @@ class GetAppServiceSiteCredentialResult(dict):
              _setter: Callable[[Any, Any], None],
              password: str,
              username: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("password", password)
         _setter("username", username)
 
@@ -49428,7 +54186,17 @@ class GetAppServiceSourceControlResult(dict):
              repo_url: str,
              rollback_enabled: bool,
              use_mercurial: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'manualIntegration' in kwargs:
+            manual_integration = kwargs['manualIntegration']
+        if 'repoUrl' in kwargs:
+            repo_url = kwargs['repoUrl']
+        if 'rollbackEnabled' in kwargs:
+            rollback_enabled = kwargs['rollbackEnabled']
+        if 'useMercurial' in kwargs:
+            use_mercurial = kwargs['useMercurial']
+
         _setter("branch", branch)
         _setter("manual_integration", manual_integration)
         _setter("repo_url", repo_url)
@@ -49503,7 +54271,17 @@ class GetCertificateOrderCertificateResult(dict):
              key_vault_id: str,
              key_vault_secret_name: str,
              provisioning_state: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateName' in kwargs:
+            certificate_name = kwargs['certificateName']
+        if 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if 'keyVaultSecretName' in kwargs:
+            key_vault_secret_name = kwargs['keyVaultSecretName']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+
         _setter("certificate_name", certificate_name)
         _setter("key_vault_id", key_vault_id)
         _setter("key_vault_secret_name", key_vault_secret_name)
@@ -49561,7 +54339,9 @@ class GetEnvironmentV3ClusterSettingResult(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -49605,7 +54385,11 @@ class GetEnvironmentV3InboundNetworkDependencyResult(dict):
              description: str,
              ip_addresses: Sequence[str],
              ports: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddresses' in kwargs:
+            ip_addresses = kwargs['ipAddresses']
+
         _setter("description", description)
         _setter("ip_addresses", ip_addresses)
         _setter("ports", ports)
@@ -49658,7 +54442,9 @@ class GetFunctionAppConnectionStringResult(dict):
              name: str,
              type: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("type", type)
         _setter("value", value)
@@ -49715,7 +54501,15 @@ class GetFunctionAppIdentityResult(dict):
              principal_id: str,
              tenant_id: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("identity_ids", identity_ids)
         _setter("principal_id", principal_id)
         _setter("tenant_id", tenant_id)
@@ -49847,7 +54641,49 @@ class GetFunctionAppSiteConfigResult(dict):
              use32_bit_worker_process: bool,
              vnet_route_all_enabled: bool,
              websockets_enabled: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alwaysOn' in kwargs:
+            always_on = kwargs['alwaysOn']
+        if 'appScaleLimit' in kwargs:
+            app_scale_limit = kwargs['appScaleLimit']
+        if 'autoSwapSlotName' in kwargs:
+            auto_swap_slot_name = kwargs['autoSwapSlotName']
+        if 'dotnetFrameworkVersion' in kwargs:
+            dotnet_framework_version = kwargs['dotnetFrameworkVersion']
+        if 'elasticInstanceMinimum' in kwargs:
+            elastic_instance_minimum = kwargs['elasticInstanceMinimum']
+        if 'ftpsState' in kwargs:
+            ftps_state = kwargs['ftpsState']
+        if 'healthCheckPath' in kwargs:
+            health_check_path = kwargs['healthCheckPath']
+        if 'http2Enabled' in kwargs:
+            http2_enabled = kwargs['http2Enabled']
+        if 'ipRestrictions' in kwargs:
+            ip_restrictions = kwargs['ipRestrictions']
+        if 'javaVersion' in kwargs:
+            java_version = kwargs['javaVersion']
+        if 'linuxFxVersion' in kwargs:
+            linux_fx_version = kwargs['linuxFxVersion']
+        if 'minTlsVersion' in kwargs:
+            min_tls_version = kwargs['minTlsVersion']
+        if 'preWarmedInstanceCount' in kwargs:
+            pre_warmed_instance_count = kwargs['preWarmedInstanceCount']
+        if 'runtimeScaleMonitoringEnabled' in kwargs:
+            runtime_scale_monitoring_enabled = kwargs['runtimeScaleMonitoringEnabled']
+        if 'scmIpRestrictions' in kwargs:
+            scm_ip_restrictions = kwargs['scmIpRestrictions']
+        if 'scmType' in kwargs:
+            scm_type = kwargs['scmType']
+        if 'scmUseMainIpRestriction' in kwargs:
+            scm_use_main_ip_restriction = kwargs['scmUseMainIpRestriction']
+        if 'use32BitWorkerProcess' in kwargs:
+            use32_bit_worker_process = kwargs['use32BitWorkerProcess']
+        if 'vnetRouteAllEnabled' in kwargs:
+            vnet_route_all_enabled = kwargs['vnetRouteAllEnabled']
+        if 'websocketsEnabled' in kwargs:
+            websockets_enabled = kwargs['websocketsEnabled']
+
         _setter("always_on", always_on)
         _setter("app_scale_limit", app_scale_limit)
         _setter("auto_swap_slot_name", auto_swap_slot_name)
@@ -50048,7 +54884,13 @@ class GetFunctionAppSiteConfigCorsResult(dict):
              _setter: Callable[[Any, Any], None],
              allowed_origins: Sequence[str],
              support_credentials: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedOrigins' in kwargs:
+            allowed_origins = kwargs['allowedOrigins']
+        if 'supportCredentials' in kwargs:
+            support_credentials = kwargs['supportCredentials']
+
         _setter("allowed_origins", allowed_origins)
         if support_credentials is not None:
             _setter("support_credentials", support_credentials)
@@ -50102,7 +54944,15 @@ class GetFunctionAppSiteConfigIpRestrictionResult(dict):
              priority: int,
              service_tag: str,
              virtual_network_subnet_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'serviceTag' in kwargs:
+            service_tag = kwargs['serviceTag']
+        if 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+
         _setter("action", action)
         _setter("headers", headers)
         _setter("ip_address", ip_address)
@@ -50186,7 +55036,17 @@ class GetFunctionAppSiteConfigIpRestrictionHeadersResult(dict):
              x_fd_health_probes: Sequence[str],
              x_forwarded_fors: Sequence[str],
              x_forwarded_hosts: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'xAzureFdids' in kwargs:
+            x_azure_fdids = kwargs['xAzureFdids']
+        if 'xFdHealthProbes' in kwargs:
+            x_fd_health_probes = kwargs['xFdHealthProbes']
+        if 'xForwardedFors' in kwargs:
+            x_forwarded_fors = kwargs['xForwardedFors']
+        if 'xForwardedHosts' in kwargs:
+            x_forwarded_hosts = kwargs['xForwardedHosts']
+
         _setter("x_azure_fdids", x_azure_fdids)
         _setter("x_fd_health_probes", x_fd_health_probes)
         _setter("x_forwarded_fors", x_forwarded_fors)
@@ -50251,7 +55111,15 @@ class GetFunctionAppSiteConfigScmIpRestrictionResult(dict):
              priority: int,
              service_tag: str,
              virtual_network_subnet_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'serviceTag' in kwargs:
+            service_tag = kwargs['serviceTag']
+        if 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+
         _setter("action", action)
         _setter("headers", headers)
         _setter("ip_address", ip_address)
@@ -50335,7 +55203,17 @@ class GetFunctionAppSiteConfigScmIpRestrictionHeadersResult(dict):
              x_fd_health_probes: Sequence[str],
              x_forwarded_fors: Sequence[str],
              x_forwarded_hosts: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'xAzureFdids' in kwargs:
+            x_azure_fdids = kwargs['xAzureFdids']
+        if 'xFdHealthProbes' in kwargs:
+            x_fd_health_probes = kwargs['xFdHealthProbes']
+        if 'xForwardedFors' in kwargs:
+            x_forwarded_fors = kwargs['xForwardedFors']
+        if 'xForwardedHosts' in kwargs:
+            x_forwarded_hosts = kwargs['xForwardedHosts']
+
         _setter("x_azure_fdids", x_azure_fdids)
         _setter("x_fd_health_probes", x_fd_health_probes)
         _setter("x_forwarded_fors", x_forwarded_fors)
@@ -50381,7 +55259,9 @@ class GetFunctionAppSiteCredentialResult(dict):
              _setter: Callable[[Any, Any], None],
              password: str,
              username: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("password", password)
         _setter("username", username)
 
@@ -50433,7 +55313,17 @@ class GetFunctionAppSourceControlResult(dict):
              repo_url: str,
              rollback_enabled: bool,
              use_mercurial: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'manualIntegration' in kwargs:
+            manual_integration = kwargs['manualIntegration']
+        if 'repoUrl' in kwargs:
+            repo_url = kwargs['repoUrl']
+        if 'rollbackEnabled' in kwargs:
+            rollback_enabled = kwargs['rollbackEnabled']
+        if 'useMercurial' in kwargs:
+            use_mercurial = kwargs['useMercurial']
+
         _setter("branch", branch)
         _setter("manual_integration", manual_integration)
         _setter("repo_url", repo_url)
@@ -50552,7 +55442,25 @@ class GetLinuxFunctionAppAuthSettingResult(dict):
              token_store_enabled: bool,
              twitters: Sequence['outputs.GetLinuxFunctionAppAuthSettingTwitterResult'],
              unauthenticated_client_action: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activeDirectories' in kwargs:
+            active_directories = kwargs['activeDirectories']
+        if 'additionalLoginParameters' in kwargs:
+            additional_login_parameters = kwargs['additionalLoginParameters']
+        if 'allowedExternalRedirectUrls' in kwargs:
+            allowed_external_redirect_urls = kwargs['allowedExternalRedirectUrls']
+        if 'defaultProvider' in kwargs:
+            default_provider = kwargs['defaultProvider']
+        if 'runtimeVersion' in kwargs:
+            runtime_version = kwargs['runtimeVersion']
+        if 'tokenRefreshExtensionHours' in kwargs:
+            token_refresh_extension_hours = kwargs['tokenRefreshExtensionHours']
+        if 'tokenStoreEnabled' in kwargs:
+            token_store_enabled = kwargs['tokenStoreEnabled']
+        if 'unauthenticatedClientAction' in kwargs:
+            unauthenticated_client_action = kwargs['unauthenticatedClientAction']
+
         _setter("active_directories", active_directories)
         _setter("additional_login_parameters", additional_login_parameters)
         _setter("allowed_external_redirect_urls", allowed_external_redirect_urls)
@@ -50717,7 +55625,17 @@ class GetLinuxFunctionAppAuthSettingActiveDirectoryResult(dict):
              client_id: str,
              client_secret: str,
              client_secret_setting_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+
         _setter("allowed_audiences", allowed_audiences)
         _setter("client_id", client_id)
         _setter("client_secret", client_secret)
@@ -50783,7 +55701,17 @@ class GetLinuxFunctionAppAuthSettingFacebookResult(dict):
              app_secret: str,
              app_secret_setting_name: str,
              oauth_scopes: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'appSecret' in kwargs:
+            app_secret = kwargs['appSecret']
+        if 'appSecretSettingName' in kwargs:
+            app_secret_setting_name = kwargs['appSecretSettingName']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("app_id", app_id)
         _setter("app_secret", app_secret)
         _setter("app_secret_setting_name", app_secret_setting_name)
@@ -50849,7 +55777,17 @@ class GetLinuxFunctionAppAuthSettingGithubResult(dict):
              client_secret: str,
              client_secret_setting_name: str,
              oauth_scopes: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret", client_secret)
         _setter("client_secret_setting_name", client_secret_setting_name)
@@ -50915,7 +55853,17 @@ class GetLinuxFunctionAppAuthSettingGoogleResult(dict):
              client_secret: str,
              client_secret_setting_name: str,
              oauth_scopes: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret", client_secret)
         _setter("client_secret_setting_name", client_secret_setting_name)
@@ -50981,7 +55929,17 @@ class GetLinuxFunctionAppAuthSettingMicrosoftResult(dict):
              client_secret: str,
              client_secret_setting_name: str,
              oauth_scopes: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret", client_secret)
         _setter("client_secret_setting_name", client_secret_setting_name)
@@ -51043,7 +56001,15 @@ class GetLinuxFunctionAppAuthSettingTwitterResult(dict):
              consumer_key: str,
              consumer_secret: str,
              consumer_secret_setting_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'consumerKey' in kwargs:
+            consumer_key = kwargs['consumerKey']
+        if 'consumerSecret' in kwargs:
+            consumer_secret = kwargs['consumerSecret']
+        if 'consumerSecretSettingName' in kwargs:
+            consumer_secret_setting_name = kwargs['consumerSecretSettingName']
+
         _setter("consumer_key", consumer_key)
         _setter("consumer_secret", consumer_secret)
         _setter("consumer_secret_setting_name", consumer_secret_setting_name)
@@ -51172,7 +56138,51 @@ class GetLinuxFunctionAppAuthSettingsV2Result(dict):
              runtime_version: str,
              twitter_v2s: Sequence['outputs.GetLinuxFunctionAppAuthSettingsV2TwitterV2Result'],
              unauthenticated_action: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activeDirectoryV2s' in kwargs:
+            active_directory_v2s = kwargs['activeDirectoryV2s']
+        if 'appleV2s' in kwargs:
+            apple_v2s = kwargs['appleV2s']
+        if 'authEnabled' in kwargs:
+            auth_enabled = kwargs['authEnabled']
+        if 'azureStaticWebAppV2s' in kwargs:
+            azure_static_web_app_v2s = kwargs['azureStaticWebAppV2s']
+        if 'configFilePath' in kwargs:
+            config_file_path = kwargs['configFilePath']
+        if 'customOidcV2s' in kwargs:
+            custom_oidc_v2s = kwargs['customOidcV2s']
+        if 'defaultProvider' in kwargs:
+            default_provider = kwargs['defaultProvider']
+        if 'excludedPaths' in kwargs:
+            excluded_paths = kwargs['excludedPaths']
+        if 'facebookV2s' in kwargs:
+            facebook_v2s = kwargs['facebookV2s']
+        if 'forwardProxyConvention' in kwargs:
+            forward_proxy_convention = kwargs['forwardProxyConvention']
+        if 'forwardProxyCustomHostHeaderName' in kwargs:
+            forward_proxy_custom_host_header_name = kwargs['forwardProxyCustomHostHeaderName']
+        if 'forwardProxyCustomSchemeHeaderName' in kwargs:
+            forward_proxy_custom_scheme_header_name = kwargs['forwardProxyCustomSchemeHeaderName']
+        if 'githubV2s' in kwargs:
+            github_v2s = kwargs['githubV2s']
+        if 'googleV2s' in kwargs:
+            google_v2s = kwargs['googleV2s']
+        if 'httpRouteApiPrefix' in kwargs:
+            http_route_api_prefix = kwargs['httpRouteApiPrefix']
+        if 'microsoftV2s' in kwargs:
+            microsoft_v2s = kwargs['microsoftV2s']
+        if 'requireAuthentication' in kwargs:
+            require_authentication = kwargs['requireAuthentication']
+        if 'requireHttps' in kwargs:
+            require_https = kwargs['requireHttps']
+        if 'runtimeVersion' in kwargs:
+            runtime_version = kwargs['runtimeVersion']
+        if 'twitterV2s' in kwargs:
+            twitter_v2s = kwargs['twitterV2s']
+        if 'unauthenticatedAction' in kwargs:
+            unauthenticated_action = kwargs['unauthenticatedAction']
+
         _setter("active_directory_v2s", active_directory_v2s)
         _setter("apple_v2s", apple_v2s)
         _setter("auth_enabled", auth_enabled)
@@ -51432,7 +56442,33 @@ class GetLinuxFunctionAppAuthSettingsV2ActiveDirectoryV2Result(dict):
              login_parameters: Mapping[str, str],
              tenant_auth_endpoint: str,
              www_authentication_disabled: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedApplications' in kwargs:
+            allowed_applications = kwargs['allowedApplications']
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'allowedGroups' in kwargs:
+            allowed_groups = kwargs['allowedGroups']
+        if 'allowedIdentities' in kwargs:
+            allowed_identities = kwargs['allowedIdentities']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretCertificateThumbprint' in kwargs:
+            client_secret_certificate_thumbprint = kwargs['clientSecretCertificateThumbprint']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'jwtAllowedClientApplications' in kwargs:
+            jwt_allowed_client_applications = kwargs['jwtAllowedClientApplications']
+        if 'jwtAllowedGroups' in kwargs:
+            jwt_allowed_groups = kwargs['jwtAllowedGroups']
+        if 'loginParameters' in kwargs:
+            login_parameters = kwargs['loginParameters']
+        if 'tenantAuthEndpoint' in kwargs:
+            tenant_auth_endpoint = kwargs['tenantAuthEndpoint']
+        if 'wwwAuthenticationDisabled' in kwargs:
+            www_authentication_disabled = kwargs['wwwAuthenticationDisabled']
+
         _setter("allowed_applications", allowed_applications)
         _setter("allowed_audiences", allowed_audiences)
         _setter("allowed_groups", allowed_groups)
@@ -51566,7 +56602,15 @@ class GetLinuxFunctionAppAuthSettingsV2AppleV2Result(dict):
              client_id: str,
              client_secret_setting_name: str,
              login_scopes: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret_setting_name", client_secret_setting_name)
         _setter("login_scopes", login_scopes)
@@ -51611,7 +56655,11 @@ class GetLinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2Result(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              client_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+
         _setter("client_id", client_id)
 
     @property
@@ -51678,7 +56726,27 @@ class GetLinuxFunctionAppAuthSettingsV2CustomOidcV2Result(dict):
              openid_configuration_endpoint: str,
              scopes: Sequence[str],
              token_endpoint: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authorisationEndpoint' in kwargs:
+            authorisation_endpoint = kwargs['authorisationEndpoint']
+        if 'certificationUri' in kwargs:
+            certification_uri = kwargs['certificationUri']
+        if 'clientCredentialMethod' in kwargs:
+            client_credential_method = kwargs['clientCredentialMethod']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'issuerEndpoint' in kwargs:
+            issuer_endpoint = kwargs['issuerEndpoint']
+        if 'nameClaimType' in kwargs:
+            name_claim_type = kwargs['nameClaimType']
+        if 'openidConfigurationEndpoint' in kwargs:
+            openid_configuration_endpoint = kwargs['openidConfigurationEndpoint']
+        if 'tokenEndpoint' in kwargs:
+            token_endpoint = kwargs['tokenEndpoint']
+
         _setter("authorisation_endpoint", authorisation_endpoint)
         _setter("certification_uri", certification_uri)
         _setter("client_credential_method", client_credential_method)
@@ -51807,7 +56875,17 @@ class GetLinuxFunctionAppAuthSettingsV2FacebookV2Result(dict):
              app_secret_setting_name: str,
              graph_api_version: str,
              login_scopes: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'appSecretSettingName' in kwargs:
+            app_secret_setting_name = kwargs['appSecretSettingName']
+        if 'graphApiVersion' in kwargs:
+            graph_api_version = kwargs['graphApiVersion']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("app_id", app_id)
         _setter("app_secret_setting_name", app_secret_setting_name)
         _setter("graph_api_version", graph_api_version)
@@ -51869,7 +56947,15 @@ class GetLinuxFunctionAppAuthSettingsV2GithubV2Result(dict):
              client_id: str,
              client_secret_setting_name: str,
              login_scopes: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret_setting_name", client_secret_setting_name)
         _setter("login_scopes", login_scopes)
@@ -51926,7 +57012,17 @@ class GetLinuxFunctionAppAuthSettingsV2GoogleV2Result(dict):
              client_id: str,
              client_secret_setting_name: str,
              login_scopes: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("allowed_audiences", allowed_audiences)
         _setter("client_id", client_id)
         _setter("client_secret_setting_name", client_secret_setting_name)
@@ -52020,7 +57116,31 @@ class GetLinuxFunctionAppAuthSettingsV2LoginResult(dict):
              token_store_path: str,
              token_store_sas_setting_name: str,
              validate_nonce: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedExternalRedirectUrls' in kwargs:
+            allowed_external_redirect_urls = kwargs['allowedExternalRedirectUrls']
+        if 'cookieExpirationConvention' in kwargs:
+            cookie_expiration_convention = kwargs['cookieExpirationConvention']
+        if 'cookieExpirationTime' in kwargs:
+            cookie_expiration_time = kwargs['cookieExpirationTime']
+        if 'logoutEndpoint' in kwargs:
+            logout_endpoint = kwargs['logoutEndpoint']
+        if 'nonceExpirationTime' in kwargs:
+            nonce_expiration_time = kwargs['nonceExpirationTime']
+        if 'preserveUrlFragmentsForLogins' in kwargs:
+            preserve_url_fragments_for_logins = kwargs['preserveUrlFragmentsForLogins']
+        if 'tokenRefreshExtensionTime' in kwargs:
+            token_refresh_extension_time = kwargs['tokenRefreshExtensionTime']
+        if 'tokenStoreEnabled' in kwargs:
+            token_store_enabled = kwargs['tokenStoreEnabled']
+        if 'tokenStorePath' in kwargs:
+            token_store_path = kwargs['tokenStorePath']
+        if 'tokenStoreSasSettingName' in kwargs:
+            token_store_sas_setting_name = kwargs['tokenStoreSasSettingName']
+        if 'validateNonce' in kwargs:
+            validate_nonce = kwargs['validateNonce']
+
         _setter("allowed_external_redirect_urls", allowed_external_redirect_urls)
         _setter("cookie_expiration_convention", cookie_expiration_convention)
         _setter("cookie_expiration_time", cookie_expiration_time)
@@ -52149,7 +57269,17 @@ class GetLinuxFunctionAppAuthSettingsV2MicrosoftV2Result(dict):
              client_id: str,
              client_secret_setting_name: str,
              login_scopes: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("allowed_audiences", allowed_audiences)
         _setter("client_id", client_id)
         _setter("client_secret_setting_name", client_secret_setting_name)
@@ -52207,7 +57337,13 @@ class GetLinuxFunctionAppAuthSettingsV2TwitterV2Result(dict):
              _setter: Callable[[Any, Any], None],
              consumer_key: str,
              consumer_secret_setting_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'consumerKey' in kwargs:
+            consumer_key = kwargs['consumerKey']
+        if 'consumerSecretSettingName' in kwargs:
+            consumer_secret_setting_name = kwargs['consumerSecretSettingName']
+
         _setter("consumer_key", consumer_key)
         _setter("consumer_secret_setting_name", consumer_secret_setting_name)
 
@@ -52255,7 +57391,11 @@ class GetLinuxFunctionAppBackupResult(dict):
              name: str,
              schedules: Sequence['outputs.GetLinuxFunctionAppBackupScheduleResult'],
              storage_account_url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageAccountUrl' in kwargs:
+            storage_account_url = kwargs['storageAccountUrl']
+
         _setter("enabled", enabled)
         _setter("name", name)
         _setter("schedules", schedules)
@@ -52328,7 +57468,21 @@ class GetLinuxFunctionAppBackupScheduleResult(dict):
              last_execution_time: str,
              retention_period_days: int,
              start_time: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'frequencyInterval' in kwargs:
+            frequency_interval = kwargs['frequencyInterval']
+        if 'frequencyUnit' in kwargs:
+            frequency_unit = kwargs['frequencyUnit']
+        if 'keepAtLeastOneBackup' in kwargs:
+            keep_at_least_one_backup = kwargs['keepAtLeastOneBackup']
+        if 'lastExecutionTime' in kwargs:
+            last_execution_time = kwargs['lastExecutionTime']
+        if 'retentionPeriodDays' in kwargs:
+            retention_period_days = kwargs['retentionPeriodDays']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         _setter("frequency_interval", frequency_interval)
         _setter("frequency_unit", frequency_unit)
         _setter("keep_at_least_one_backup", keep_at_least_one_backup)
@@ -52405,7 +57559,9 @@ class GetLinuxFunctionAppConnectionStringResult(dict):
              name: str,
              type: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("type", type)
         _setter("value", value)
@@ -52462,7 +57618,15 @@ class GetLinuxFunctionAppIdentityResult(dict):
              principal_id: str,
              tenant_id: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("identity_ids", identity_ids)
         _setter("principal_id", principal_id)
         _setter("tenant_id", tenant_id)
@@ -52653,7 +57817,79 @@ class GetLinuxFunctionAppSiteConfigResult(dict):
              vnet_route_all_enabled: bool,
              websockets_enabled: bool,
              worker_count: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alwaysOn' in kwargs:
+            always_on = kwargs['alwaysOn']
+        if 'apiDefinitionUrl' in kwargs:
+            api_definition_url = kwargs['apiDefinitionUrl']
+        if 'apiManagementApiId' in kwargs:
+            api_management_api_id = kwargs['apiManagementApiId']
+        if 'appCommandLine' in kwargs:
+            app_command_line = kwargs['appCommandLine']
+        if 'appScaleLimit' in kwargs:
+            app_scale_limit = kwargs['appScaleLimit']
+        if 'appServiceLogs' in kwargs:
+            app_service_logs = kwargs['appServiceLogs']
+        if 'applicationInsightsConnectionString' in kwargs:
+            application_insights_connection_string = kwargs['applicationInsightsConnectionString']
+        if 'applicationInsightsKey' in kwargs:
+            application_insights_key = kwargs['applicationInsightsKey']
+        if 'applicationStacks' in kwargs:
+            application_stacks = kwargs['applicationStacks']
+        if 'containerRegistryManagedIdentityClientId' in kwargs:
+            container_registry_managed_identity_client_id = kwargs['containerRegistryManagedIdentityClientId']
+        if 'containerRegistryUseManagedIdentity' in kwargs:
+            container_registry_use_managed_identity = kwargs['containerRegistryUseManagedIdentity']
+        if 'defaultDocuments' in kwargs:
+            default_documents = kwargs['defaultDocuments']
+        if 'detailedErrorLoggingEnabled' in kwargs:
+            detailed_error_logging_enabled = kwargs['detailedErrorLoggingEnabled']
+        if 'elasticInstanceMinimum' in kwargs:
+            elastic_instance_minimum = kwargs['elasticInstanceMinimum']
+        if 'ftpsState' in kwargs:
+            ftps_state = kwargs['ftpsState']
+        if 'healthCheckEvictionTimeInMin' in kwargs:
+            health_check_eviction_time_in_min = kwargs['healthCheckEvictionTimeInMin']
+        if 'healthCheckPath' in kwargs:
+            health_check_path = kwargs['healthCheckPath']
+        if 'http2Enabled' in kwargs:
+            http2_enabled = kwargs['http2Enabled']
+        if 'ipRestrictions' in kwargs:
+            ip_restrictions = kwargs['ipRestrictions']
+        if 'linuxFxVersion' in kwargs:
+            linux_fx_version = kwargs['linuxFxVersion']
+        if 'loadBalancingMode' in kwargs:
+            load_balancing_mode = kwargs['loadBalancingMode']
+        if 'managedPipelineMode' in kwargs:
+            managed_pipeline_mode = kwargs['managedPipelineMode']
+        if 'minimumTlsVersion' in kwargs:
+            minimum_tls_version = kwargs['minimumTlsVersion']
+        if 'preWarmedInstanceCount' in kwargs:
+            pre_warmed_instance_count = kwargs['preWarmedInstanceCount']
+        if 'remoteDebuggingEnabled' in kwargs:
+            remote_debugging_enabled = kwargs['remoteDebuggingEnabled']
+        if 'remoteDebuggingVersion' in kwargs:
+            remote_debugging_version = kwargs['remoteDebuggingVersion']
+        if 'runtimeScaleMonitoringEnabled' in kwargs:
+            runtime_scale_monitoring_enabled = kwargs['runtimeScaleMonitoringEnabled']
+        if 'scmIpRestrictions' in kwargs:
+            scm_ip_restrictions = kwargs['scmIpRestrictions']
+        if 'scmMinimumTlsVersion' in kwargs:
+            scm_minimum_tls_version = kwargs['scmMinimumTlsVersion']
+        if 'scmType' in kwargs:
+            scm_type = kwargs['scmType']
+        if 'scmUseMainIpRestriction' in kwargs:
+            scm_use_main_ip_restriction = kwargs['scmUseMainIpRestriction']
+        if 'use32BitWorker' in kwargs:
+            use32_bit_worker = kwargs['use32BitWorker']
+        if 'vnetRouteAllEnabled' in kwargs:
+            vnet_route_all_enabled = kwargs['vnetRouteAllEnabled']
+        if 'websocketsEnabled' in kwargs:
+            websockets_enabled = kwargs['websocketsEnabled']
+        if 'workerCount' in kwargs:
+            worker_count = kwargs['workerCount']
+
         _setter("always_on", always_on)
         _setter("api_definition_url", api_definition_url)
         _setter("api_management_api_id", api_management_api_id)
@@ -52990,7 +58226,13 @@ class GetLinuxFunctionAppSiteConfigAppServiceLogResult(dict):
              _setter: Callable[[Any, Any], None],
              disk_quota_mb: int,
              retention_period_days: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'diskQuotaMb' in kwargs:
+            disk_quota_mb = kwargs['diskQuotaMb']
+        if 'retentionPeriodDays' in kwargs:
+            retention_period_days = kwargs['retentionPeriodDays']
+
         _setter("disk_quota_mb", disk_quota_mb)
         _setter("retention_period_days", retention_period_days)
 
@@ -53053,7 +58295,23 @@ class GetLinuxFunctionAppSiteConfigApplicationStackResult(dict):
              python_version: str,
              use_custom_runtime: bool,
              use_dotnet_isolated_runtime: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dotnetVersion' in kwargs:
+            dotnet_version = kwargs['dotnetVersion']
+        if 'javaVersion' in kwargs:
+            java_version = kwargs['javaVersion']
+        if 'nodeVersion' in kwargs:
+            node_version = kwargs['nodeVersion']
+        if 'powershellCoreVersion' in kwargs:
+            powershell_core_version = kwargs['powershellCoreVersion']
+        if 'pythonVersion' in kwargs:
+            python_version = kwargs['pythonVersion']
+        if 'useCustomRuntime' in kwargs:
+            use_custom_runtime = kwargs['useCustomRuntime']
+        if 'useDotnetIsolatedRuntime' in kwargs:
+            use_dotnet_isolated_runtime = kwargs['useDotnetIsolatedRuntime']
+
         _setter("dockers", dockers)
         _setter("dotnet_version", dotnet_version)
         _setter("java_version", java_version)
@@ -53156,7 +58414,19 @@ class GetLinuxFunctionAppSiteConfigApplicationStackDockerResult(dict):
              registry_password: str,
              registry_url: str,
              registry_username: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'imageName' in kwargs:
+            image_name = kwargs['imageName']
+        if 'imageTag' in kwargs:
+            image_tag = kwargs['imageTag']
+        if 'registryPassword' in kwargs:
+            registry_password = kwargs['registryPassword']
+        if 'registryUrl' in kwargs:
+            registry_url = kwargs['registryUrl']
+        if 'registryUsername' in kwargs:
+            registry_username = kwargs['registryUsername']
+
         _setter("image_name", image_name)
         _setter("image_tag", image_tag)
         _setter("registry_password", registry_password)
@@ -53223,7 +58493,13 @@ class GetLinuxFunctionAppSiteConfigCorResult(dict):
              _setter: Callable[[Any, Any], None],
              allowed_origins: Sequence[str],
              support_credentials: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedOrigins' in kwargs:
+            allowed_origins = kwargs['allowedOrigins']
+        if 'supportCredentials' in kwargs:
+            support_credentials = kwargs['supportCredentials']
+
         _setter("allowed_origins", allowed_origins)
         _setter("support_credentials", support_credentials)
 
@@ -53283,7 +58559,15 @@ class GetLinuxFunctionAppSiteConfigIpRestrictionResult(dict):
              priority: int,
              service_tag: str,
              virtual_network_subnet_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'serviceTag' in kwargs:
+            service_tag = kwargs['serviceTag']
+        if 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+
         _setter("action", action)
         _setter("headers", headers)
         _setter("ip_address", ip_address)
@@ -53376,7 +58660,17 @@ class GetLinuxFunctionAppSiteConfigIpRestrictionHeaderResult(dict):
              x_fd_health_probes: Sequence[str],
              x_forwarded_fors: Sequence[str],
              x_forwarded_hosts: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'xAzureFdids' in kwargs:
+            x_azure_fdids = kwargs['xAzureFdids']
+        if 'xFdHealthProbes' in kwargs:
+            x_fd_health_probes = kwargs['xFdHealthProbes']
+        if 'xForwardedFors' in kwargs:
+            x_forwarded_fors = kwargs['xForwardedFors']
+        if 'xForwardedHosts' in kwargs:
+            x_forwarded_hosts = kwargs['xForwardedHosts']
+
         _setter("x_azure_fdids", x_azure_fdids)
         _setter("x_fd_health_probes", x_fd_health_probes)
         _setter("x_forwarded_fors", x_forwarded_fors)
@@ -53454,7 +58748,15 @@ class GetLinuxFunctionAppSiteConfigScmIpRestrictionResult(dict):
              priority: int,
              service_tag: str,
              virtual_network_subnet_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'serviceTag' in kwargs:
+            service_tag = kwargs['serviceTag']
+        if 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+
         _setter("action", action)
         _setter("headers", headers)
         _setter("ip_address", ip_address)
@@ -53547,7 +58849,17 @@ class GetLinuxFunctionAppSiteConfigScmIpRestrictionHeaderResult(dict):
              x_fd_health_probes: Sequence[str],
              x_forwarded_fors: Sequence[str],
              x_forwarded_hosts: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'xAzureFdids' in kwargs:
+            x_azure_fdids = kwargs['xAzureFdids']
+        if 'xFdHealthProbes' in kwargs:
+            x_fd_health_probes = kwargs['xFdHealthProbes']
+        if 'xForwardedFors' in kwargs:
+            x_forwarded_fors = kwargs['xForwardedFors']
+        if 'xForwardedHosts' in kwargs:
+            x_forwarded_hosts = kwargs['xForwardedHosts']
+
         _setter("x_azure_fdids", x_azure_fdids)
         _setter("x_fd_health_probes", x_fd_health_probes)
         _setter("x_forwarded_fors", x_forwarded_fors)
@@ -53605,7 +58917,9 @@ class GetLinuxFunctionAppSiteCredentialResult(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              password: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("password", password)
 
@@ -53645,7 +58959,13 @@ class GetLinuxFunctionAppStickySettingResult(dict):
              _setter: Callable[[Any, Any], None],
              app_setting_names: Sequence[str],
              connection_string_names: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appSettingNames' in kwargs:
+            app_setting_names = kwargs['appSettingNames']
+        if 'connectionStringNames' in kwargs:
+            connection_string_names = kwargs['connectionStringNames']
+
         _setter("app_setting_names", app_setting_names)
         _setter("connection_string_names", connection_string_names)
 
@@ -53737,7 +59057,25 @@ class GetLinuxWebAppAuthSettingResult(dict):
              token_store_enabled: bool,
              twitters: Sequence['outputs.GetLinuxWebAppAuthSettingTwitterResult'],
              unauthenticated_client_action: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activeDirectories' in kwargs:
+            active_directories = kwargs['activeDirectories']
+        if 'additionalLoginParameters' in kwargs:
+            additional_login_parameters = kwargs['additionalLoginParameters']
+        if 'allowedExternalRedirectUrls' in kwargs:
+            allowed_external_redirect_urls = kwargs['allowedExternalRedirectUrls']
+        if 'defaultProvider' in kwargs:
+            default_provider = kwargs['defaultProvider']
+        if 'runtimeVersion' in kwargs:
+            runtime_version = kwargs['runtimeVersion']
+        if 'tokenRefreshExtensionHours' in kwargs:
+            token_refresh_extension_hours = kwargs['tokenRefreshExtensionHours']
+        if 'tokenStoreEnabled' in kwargs:
+            token_store_enabled = kwargs['tokenStoreEnabled']
+        if 'unauthenticatedClientAction' in kwargs:
+            unauthenticated_client_action = kwargs['unauthenticatedClientAction']
+
         _setter("active_directories", active_directories)
         _setter("additional_login_parameters", additional_login_parameters)
         _setter("allowed_external_redirect_urls", allowed_external_redirect_urls)
@@ -53902,7 +59240,17 @@ class GetLinuxWebAppAuthSettingActiveDirectoryResult(dict):
              client_id: str,
              client_secret: str,
              client_secret_setting_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+
         _setter("allowed_audiences", allowed_audiences)
         _setter("client_id", client_id)
         _setter("client_secret", client_secret)
@@ -53968,7 +59316,17 @@ class GetLinuxWebAppAuthSettingFacebookResult(dict):
              app_secret: str,
              app_secret_setting_name: str,
              oauth_scopes: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'appSecret' in kwargs:
+            app_secret = kwargs['appSecret']
+        if 'appSecretSettingName' in kwargs:
+            app_secret_setting_name = kwargs['appSecretSettingName']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("app_id", app_id)
         _setter("app_secret", app_secret)
         _setter("app_secret_setting_name", app_secret_setting_name)
@@ -54034,7 +59392,17 @@ class GetLinuxWebAppAuthSettingGithubResult(dict):
              client_secret: str,
              client_secret_setting_name: str,
              oauth_scopes: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret", client_secret)
         _setter("client_secret_setting_name", client_secret_setting_name)
@@ -54100,7 +59468,17 @@ class GetLinuxWebAppAuthSettingGoogleResult(dict):
              client_secret: str,
              client_secret_setting_name: str,
              oauth_scopes: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret", client_secret)
         _setter("client_secret_setting_name", client_secret_setting_name)
@@ -54166,7 +59544,17 @@ class GetLinuxWebAppAuthSettingMicrosoftResult(dict):
              client_secret: str,
              client_secret_setting_name: str,
              oauth_scopes: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret", client_secret)
         _setter("client_secret_setting_name", client_secret_setting_name)
@@ -54228,7 +59616,15 @@ class GetLinuxWebAppAuthSettingTwitterResult(dict):
              consumer_key: str,
              consumer_secret: str,
              consumer_secret_setting_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'consumerKey' in kwargs:
+            consumer_key = kwargs['consumerKey']
+        if 'consumerSecret' in kwargs:
+            consumer_secret = kwargs['consumerSecret']
+        if 'consumerSecretSettingName' in kwargs:
+            consumer_secret_setting_name = kwargs['consumerSecretSettingName']
+
         _setter("consumer_key", consumer_key)
         _setter("consumer_secret", consumer_secret)
         _setter("consumer_secret_setting_name", consumer_secret_setting_name)
@@ -54357,7 +59753,51 @@ class GetLinuxWebAppAuthSettingsV2Result(dict):
              runtime_version: str,
              twitter_v2s: Sequence['outputs.GetLinuxWebAppAuthSettingsV2TwitterV2Result'],
              unauthenticated_action: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activeDirectoryV2s' in kwargs:
+            active_directory_v2s = kwargs['activeDirectoryV2s']
+        if 'appleV2s' in kwargs:
+            apple_v2s = kwargs['appleV2s']
+        if 'authEnabled' in kwargs:
+            auth_enabled = kwargs['authEnabled']
+        if 'azureStaticWebAppV2s' in kwargs:
+            azure_static_web_app_v2s = kwargs['azureStaticWebAppV2s']
+        if 'configFilePath' in kwargs:
+            config_file_path = kwargs['configFilePath']
+        if 'customOidcV2s' in kwargs:
+            custom_oidc_v2s = kwargs['customOidcV2s']
+        if 'defaultProvider' in kwargs:
+            default_provider = kwargs['defaultProvider']
+        if 'excludedPaths' in kwargs:
+            excluded_paths = kwargs['excludedPaths']
+        if 'facebookV2s' in kwargs:
+            facebook_v2s = kwargs['facebookV2s']
+        if 'forwardProxyConvention' in kwargs:
+            forward_proxy_convention = kwargs['forwardProxyConvention']
+        if 'forwardProxyCustomHostHeaderName' in kwargs:
+            forward_proxy_custom_host_header_name = kwargs['forwardProxyCustomHostHeaderName']
+        if 'forwardProxyCustomSchemeHeaderName' in kwargs:
+            forward_proxy_custom_scheme_header_name = kwargs['forwardProxyCustomSchemeHeaderName']
+        if 'githubV2s' in kwargs:
+            github_v2s = kwargs['githubV2s']
+        if 'googleV2s' in kwargs:
+            google_v2s = kwargs['googleV2s']
+        if 'httpRouteApiPrefix' in kwargs:
+            http_route_api_prefix = kwargs['httpRouteApiPrefix']
+        if 'microsoftV2s' in kwargs:
+            microsoft_v2s = kwargs['microsoftV2s']
+        if 'requireAuthentication' in kwargs:
+            require_authentication = kwargs['requireAuthentication']
+        if 'requireHttps' in kwargs:
+            require_https = kwargs['requireHttps']
+        if 'runtimeVersion' in kwargs:
+            runtime_version = kwargs['runtimeVersion']
+        if 'twitterV2s' in kwargs:
+            twitter_v2s = kwargs['twitterV2s']
+        if 'unauthenticatedAction' in kwargs:
+            unauthenticated_action = kwargs['unauthenticatedAction']
+
         _setter("active_directory_v2s", active_directory_v2s)
         _setter("apple_v2s", apple_v2s)
         _setter("auth_enabled", auth_enabled)
@@ -54617,7 +60057,33 @@ class GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Result(dict):
              login_parameters: Mapping[str, str],
              tenant_auth_endpoint: str,
              www_authentication_disabled: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedApplications' in kwargs:
+            allowed_applications = kwargs['allowedApplications']
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'allowedGroups' in kwargs:
+            allowed_groups = kwargs['allowedGroups']
+        if 'allowedIdentities' in kwargs:
+            allowed_identities = kwargs['allowedIdentities']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretCertificateThumbprint' in kwargs:
+            client_secret_certificate_thumbprint = kwargs['clientSecretCertificateThumbprint']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'jwtAllowedClientApplications' in kwargs:
+            jwt_allowed_client_applications = kwargs['jwtAllowedClientApplications']
+        if 'jwtAllowedGroups' in kwargs:
+            jwt_allowed_groups = kwargs['jwtAllowedGroups']
+        if 'loginParameters' in kwargs:
+            login_parameters = kwargs['loginParameters']
+        if 'tenantAuthEndpoint' in kwargs:
+            tenant_auth_endpoint = kwargs['tenantAuthEndpoint']
+        if 'wwwAuthenticationDisabled' in kwargs:
+            www_authentication_disabled = kwargs['wwwAuthenticationDisabled']
+
         _setter("allowed_applications", allowed_applications)
         _setter("allowed_audiences", allowed_audiences)
         _setter("allowed_groups", allowed_groups)
@@ -54751,7 +60217,15 @@ class GetLinuxWebAppAuthSettingsV2AppleV2Result(dict):
              client_id: str,
              client_secret_setting_name: str,
              login_scopes: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret_setting_name", client_secret_setting_name)
         _setter("login_scopes", login_scopes)
@@ -54796,7 +60270,11 @@ class GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2Result(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              client_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+
         _setter("client_id", client_id)
 
     @property
@@ -54863,7 +60341,27 @@ class GetLinuxWebAppAuthSettingsV2CustomOidcV2Result(dict):
              openid_configuration_endpoint: str,
              scopes: Sequence[str],
              token_endpoint: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authorisationEndpoint' in kwargs:
+            authorisation_endpoint = kwargs['authorisationEndpoint']
+        if 'certificationUri' in kwargs:
+            certification_uri = kwargs['certificationUri']
+        if 'clientCredentialMethod' in kwargs:
+            client_credential_method = kwargs['clientCredentialMethod']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'issuerEndpoint' in kwargs:
+            issuer_endpoint = kwargs['issuerEndpoint']
+        if 'nameClaimType' in kwargs:
+            name_claim_type = kwargs['nameClaimType']
+        if 'openidConfigurationEndpoint' in kwargs:
+            openid_configuration_endpoint = kwargs['openidConfigurationEndpoint']
+        if 'tokenEndpoint' in kwargs:
+            token_endpoint = kwargs['tokenEndpoint']
+
         _setter("authorisation_endpoint", authorisation_endpoint)
         _setter("certification_uri", certification_uri)
         _setter("client_credential_method", client_credential_method)
@@ -54992,7 +60490,17 @@ class GetLinuxWebAppAuthSettingsV2FacebookV2Result(dict):
              app_secret_setting_name: str,
              graph_api_version: str,
              login_scopes: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'appSecretSettingName' in kwargs:
+            app_secret_setting_name = kwargs['appSecretSettingName']
+        if 'graphApiVersion' in kwargs:
+            graph_api_version = kwargs['graphApiVersion']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("app_id", app_id)
         _setter("app_secret_setting_name", app_secret_setting_name)
         _setter("graph_api_version", graph_api_version)
@@ -55054,7 +60562,15 @@ class GetLinuxWebAppAuthSettingsV2GithubV2Result(dict):
              client_id: str,
              client_secret_setting_name: str,
              login_scopes: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret_setting_name", client_secret_setting_name)
         _setter("login_scopes", login_scopes)
@@ -55111,7 +60627,17 @@ class GetLinuxWebAppAuthSettingsV2GoogleV2Result(dict):
              client_id: str,
              client_secret_setting_name: str,
              login_scopes: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("allowed_audiences", allowed_audiences)
         _setter("client_id", client_id)
         _setter("client_secret_setting_name", client_secret_setting_name)
@@ -55205,7 +60731,31 @@ class GetLinuxWebAppAuthSettingsV2LoginResult(dict):
              token_store_path: str,
              token_store_sas_setting_name: str,
              validate_nonce: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedExternalRedirectUrls' in kwargs:
+            allowed_external_redirect_urls = kwargs['allowedExternalRedirectUrls']
+        if 'cookieExpirationConvention' in kwargs:
+            cookie_expiration_convention = kwargs['cookieExpirationConvention']
+        if 'cookieExpirationTime' in kwargs:
+            cookie_expiration_time = kwargs['cookieExpirationTime']
+        if 'logoutEndpoint' in kwargs:
+            logout_endpoint = kwargs['logoutEndpoint']
+        if 'nonceExpirationTime' in kwargs:
+            nonce_expiration_time = kwargs['nonceExpirationTime']
+        if 'preserveUrlFragmentsForLogins' in kwargs:
+            preserve_url_fragments_for_logins = kwargs['preserveUrlFragmentsForLogins']
+        if 'tokenRefreshExtensionTime' in kwargs:
+            token_refresh_extension_time = kwargs['tokenRefreshExtensionTime']
+        if 'tokenStoreEnabled' in kwargs:
+            token_store_enabled = kwargs['tokenStoreEnabled']
+        if 'tokenStorePath' in kwargs:
+            token_store_path = kwargs['tokenStorePath']
+        if 'tokenStoreSasSettingName' in kwargs:
+            token_store_sas_setting_name = kwargs['tokenStoreSasSettingName']
+        if 'validateNonce' in kwargs:
+            validate_nonce = kwargs['validateNonce']
+
         _setter("allowed_external_redirect_urls", allowed_external_redirect_urls)
         _setter("cookie_expiration_convention", cookie_expiration_convention)
         _setter("cookie_expiration_time", cookie_expiration_time)
@@ -55334,7 +60884,17 @@ class GetLinuxWebAppAuthSettingsV2MicrosoftV2Result(dict):
              client_id: str,
              client_secret_setting_name: str,
              login_scopes: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("allowed_audiences", allowed_audiences)
         _setter("client_id", client_id)
         _setter("client_secret_setting_name", client_secret_setting_name)
@@ -55392,7 +60952,13 @@ class GetLinuxWebAppAuthSettingsV2TwitterV2Result(dict):
              _setter: Callable[[Any, Any], None],
              consumer_key: str,
              consumer_secret_setting_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'consumerKey' in kwargs:
+            consumer_key = kwargs['consumerKey']
+        if 'consumerSecretSettingName' in kwargs:
+            consumer_secret_setting_name = kwargs['consumerSecretSettingName']
+
         _setter("consumer_key", consumer_key)
         _setter("consumer_secret_setting_name", consumer_secret_setting_name)
 
@@ -55440,7 +61006,11 @@ class GetLinuxWebAppBackupResult(dict):
              name: str,
              schedules: Sequence['outputs.GetLinuxWebAppBackupScheduleResult'],
              storage_account_url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageAccountUrl' in kwargs:
+            storage_account_url = kwargs['storageAccountUrl']
+
         _setter("enabled", enabled)
         _setter("name", name)
         _setter("schedules", schedules)
@@ -55514,7 +61084,21 @@ class GetLinuxWebAppBackupScheduleResult(dict):
              last_execution_time: str,
              retention_period_days: int,
              start_time: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'frequencyInterval' in kwargs:
+            frequency_interval = kwargs['frequencyInterval']
+        if 'frequencyUnit' in kwargs:
+            frequency_unit = kwargs['frequencyUnit']
+        if 'keepAtLeastOneBackup' in kwargs:
+            keep_at_least_one_backup = kwargs['keepAtLeastOneBackup']
+        if 'lastExecutionTime' in kwargs:
+            last_execution_time = kwargs['lastExecutionTime']
+        if 'retentionPeriodDays' in kwargs:
+            retention_period_days = kwargs['retentionPeriodDays']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         _setter("frequency_interval", frequency_interval)
         _setter("frequency_unit", frequency_unit)
         _setter("keep_at_least_one_backup", keep_at_least_one_backup)
@@ -55594,7 +61178,9 @@ class GetLinuxWebAppConnectionStringResult(dict):
              name: str,
              type: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("type", type)
         _setter("value", value)
@@ -55651,7 +61237,15 @@ class GetLinuxWebAppIdentityResult(dict):
              principal_id: str,
              tenant_id: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("identity_ids", identity_ids)
         _setter("principal_id", principal_id)
         _setter("tenant_id", tenant_id)
@@ -55717,7 +61311,17 @@ class GetLinuxWebAppLogResult(dict):
              detailed_error_messages: bool,
              failed_request_tracing: bool,
              http_logs: Sequence['outputs.GetLinuxWebAppLogHttpLogResult'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationLogs' in kwargs:
+            application_logs = kwargs['applicationLogs']
+        if 'detailedErrorMessages' in kwargs:
+            detailed_error_messages = kwargs['detailedErrorMessages']
+        if 'failedRequestTracing' in kwargs:
+            failed_request_tracing = kwargs['failedRequestTracing']
+        if 'httpLogs' in kwargs:
+            http_logs = kwargs['httpLogs']
+
         _setter("application_logs", application_logs)
         _setter("detailed_error_messages", detailed_error_messages)
         _setter("failed_request_tracing", failed_request_tracing)
@@ -55775,7 +61379,13 @@ class GetLinuxWebAppLogApplicationLogResult(dict):
              _setter: Callable[[Any, Any], None],
              azure_blob_storages: Sequence['outputs.GetLinuxWebAppLogApplicationLogAzureBlobStorageResult'],
              file_system_level: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azureBlobStorages' in kwargs:
+            azure_blob_storages = kwargs['azureBlobStorages']
+        if 'fileSystemLevel' in kwargs:
+            file_system_level = kwargs['fileSystemLevel']
+
         _setter("azure_blob_storages", azure_blob_storages)
         _setter("file_system_level", file_system_level)
 
@@ -55819,7 +61429,13 @@ class GetLinuxWebAppLogApplicationLogAzureBlobStorageResult(dict):
              level: str,
              retention_in_days: int,
              sas_url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'retentionInDays' in kwargs:
+            retention_in_days = kwargs['retentionInDays']
+        if 'sasUrl' in kwargs:
+            sas_url = kwargs['sasUrl']
+
         _setter("level", level)
         _setter("retention_in_days", retention_in_days)
         _setter("sas_url", sas_url)
@@ -55868,7 +61484,13 @@ class GetLinuxWebAppLogHttpLogResult(dict):
              _setter: Callable[[Any, Any], None],
              azure_blob_storages: Sequence['outputs.GetLinuxWebAppLogHttpLogAzureBlobStorageResult'],
              file_systems: Sequence['outputs.GetLinuxWebAppLogHttpLogFileSystemResult'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azureBlobStorages' in kwargs:
+            azure_blob_storages = kwargs['azureBlobStorages']
+        if 'fileSystems' in kwargs:
+            file_systems = kwargs['fileSystems']
+
         _setter("azure_blob_storages", azure_blob_storages)
         _setter("file_systems", file_systems)
 
@@ -55908,7 +61530,13 @@ class GetLinuxWebAppLogHttpLogAzureBlobStorageResult(dict):
              _setter: Callable[[Any, Any], None],
              retention_in_days: int,
              sas_url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'retentionInDays' in kwargs:
+            retention_in_days = kwargs['retentionInDays']
+        if 'sasUrl' in kwargs:
+            sas_url = kwargs['sasUrl']
+
         _setter("retention_in_days", retention_in_days)
         _setter("sas_url", sas_url)
 
@@ -55948,7 +61576,13 @@ class GetLinuxWebAppLogHttpLogFileSystemResult(dict):
              _setter: Callable[[Any, Any], None],
              retention_in_days: int,
              retention_in_mb: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'retentionInDays' in kwargs:
+            retention_in_days = kwargs['retentionInDays']
+        if 'retentionInMb' in kwargs:
+            retention_in_mb = kwargs['retentionInMb']
+
         _setter("retention_in_days", retention_in_days)
         _setter("retention_in_mb", retention_in_mb)
 
@@ -56108,7 +61742,71 @@ class GetLinuxWebAppSiteConfigResult(dict):
              vnet_route_all_enabled: bool,
              websockets_enabled: bool,
              worker_count: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alwaysOn' in kwargs:
+            always_on = kwargs['alwaysOn']
+        if 'apiDefinitionUrl' in kwargs:
+            api_definition_url = kwargs['apiDefinitionUrl']
+        if 'apiManagementApiId' in kwargs:
+            api_management_api_id = kwargs['apiManagementApiId']
+        if 'appCommandLine' in kwargs:
+            app_command_line = kwargs['appCommandLine']
+        if 'applicationStacks' in kwargs:
+            application_stacks = kwargs['applicationStacks']
+        if 'autoHealEnabled' in kwargs:
+            auto_heal_enabled = kwargs['autoHealEnabled']
+        if 'autoHealSettings' in kwargs:
+            auto_heal_settings = kwargs['autoHealSettings']
+        if 'containerRegistryManagedIdentityClientId' in kwargs:
+            container_registry_managed_identity_client_id = kwargs['containerRegistryManagedIdentityClientId']
+        if 'containerRegistryUseManagedIdentity' in kwargs:
+            container_registry_use_managed_identity = kwargs['containerRegistryUseManagedIdentity']
+        if 'defaultDocuments' in kwargs:
+            default_documents = kwargs['defaultDocuments']
+        if 'detailedErrorLoggingEnabled' in kwargs:
+            detailed_error_logging_enabled = kwargs['detailedErrorLoggingEnabled']
+        if 'ftpsState' in kwargs:
+            ftps_state = kwargs['ftpsState']
+        if 'healthCheckEvictionTimeInMin' in kwargs:
+            health_check_eviction_time_in_min = kwargs['healthCheckEvictionTimeInMin']
+        if 'healthCheckPath' in kwargs:
+            health_check_path = kwargs['healthCheckPath']
+        if 'http2Enabled' in kwargs:
+            http2_enabled = kwargs['http2Enabled']
+        if 'ipRestrictions' in kwargs:
+            ip_restrictions = kwargs['ipRestrictions']
+        if 'linuxFxVersion' in kwargs:
+            linux_fx_version = kwargs['linuxFxVersion']
+        if 'loadBalancingMode' in kwargs:
+            load_balancing_mode = kwargs['loadBalancingMode']
+        if 'localMysqlEnabled' in kwargs:
+            local_mysql_enabled = kwargs['localMysqlEnabled']
+        if 'managedPipelineMode' in kwargs:
+            managed_pipeline_mode = kwargs['managedPipelineMode']
+        if 'minimumTlsVersion' in kwargs:
+            minimum_tls_version = kwargs['minimumTlsVersion']
+        if 'remoteDebuggingEnabled' in kwargs:
+            remote_debugging_enabled = kwargs['remoteDebuggingEnabled']
+        if 'remoteDebuggingVersion' in kwargs:
+            remote_debugging_version = kwargs['remoteDebuggingVersion']
+        if 'scmIpRestrictions' in kwargs:
+            scm_ip_restrictions = kwargs['scmIpRestrictions']
+        if 'scmMinimumTlsVersion' in kwargs:
+            scm_minimum_tls_version = kwargs['scmMinimumTlsVersion']
+        if 'scmType' in kwargs:
+            scm_type = kwargs['scmType']
+        if 'scmUseMainIpRestriction' in kwargs:
+            scm_use_main_ip_restriction = kwargs['scmUseMainIpRestriction']
+        if 'use32BitWorker' in kwargs:
+            use32_bit_worker = kwargs['use32BitWorker']
+        if 'vnetRouteAllEnabled' in kwargs:
+            vnet_route_all_enabled = kwargs['vnetRouteAllEnabled']
+        if 'websocketsEnabled' in kwargs:
+            websockets_enabled = kwargs['websocketsEnabled']
+        if 'workerCount' in kwargs:
+            worker_count = kwargs['workerCount']
+
         _setter("always_on", always_on)
         _setter("api_definition_url", api_definition_url)
         _setter("api_management_api_id", api_management_api_id)
@@ -56467,7 +62165,39 @@ class GetLinuxWebAppSiteConfigApplicationStackResult(dict):
              php_version: str,
              python_version: str,
              ruby_version: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dockerImage' in kwargs:
+            docker_image = kwargs['dockerImage']
+        if 'dockerImageName' in kwargs:
+            docker_image_name = kwargs['dockerImageName']
+        if 'dockerImageTag' in kwargs:
+            docker_image_tag = kwargs['dockerImageTag']
+        if 'dockerRegistryPassword' in kwargs:
+            docker_registry_password = kwargs['dockerRegistryPassword']
+        if 'dockerRegistryUrl' in kwargs:
+            docker_registry_url = kwargs['dockerRegistryUrl']
+        if 'dockerRegistryUsername' in kwargs:
+            docker_registry_username = kwargs['dockerRegistryUsername']
+        if 'dotnetVersion' in kwargs:
+            dotnet_version = kwargs['dotnetVersion']
+        if 'goVersion' in kwargs:
+            go_version = kwargs['goVersion']
+        if 'javaServer' in kwargs:
+            java_server = kwargs['javaServer']
+        if 'javaServerVersion' in kwargs:
+            java_server_version = kwargs['javaServerVersion']
+        if 'javaVersion' in kwargs:
+            java_version = kwargs['javaVersion']
+        if 'nodeVersion' in kwargs:
+            node_version = kwargs['nodeVersion']
+        if 'phpVersion' in kwargs:
+            php_version = kwargs['phpVersion']
+        if 'pythonVersion' in kwargs:
+            python_version = kwargs['pythonVersion']
+        if 'rubyVersion' in kwargs:
+            ruby_version = kwargs['rubyVersion']
+
         _setter("docker_image", docker_image)
         _setter("docker_image_name", docker_image_name)
         _setter("docker_image_tag", docker_image_tag)
@@ -56615,7 +62345,9 @@ class GetLinuxWebAppSiteConfigAutoHealSettingResult(dict):
              _setter: Callable[[Any, Any], None],
              actions: Sequence['outputs.GetLinuxWebAppSiteConfigAutoHealSettingActionResult'],
              triggers: Sequence['outputs.GetLinuxWebAppSiteConfigAutoHealSettingTriggerResult'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("actions", actions)
         _setter("triggers", triggers)
 
@@ -56655,7 +62387,13 @@ class GetLinuxWebAppSiteConfigAutoHealSettingActionResult(dict):
              _setter: Callable[[Any, Any], None],
              action_type: str,
              minimum_process_execution_time: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionType' in kwargs:
+            action_type = kwargs['actionType']
+        if 'minimumProcessExecutionTime' in kwargs:
+            minimum_process_execution_time = kwargs['minimumProcessExecutionTime']
+
         _setter("action_type", action_type)
         _setter("minimum_process_execution_time", minimum_process_execution_time)
 
@@ -56699,7 +62437,13 @@ class GetLinuxWebAppSiteConfigAutoHealSettingTriggerResult(dict):
              requests: Sequence['outputs.GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestResult'],
              status_codes: Sequence['outputs.GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeResult'],
              slow_requests: Optional[Sequence['outputs.GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestResult']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'statusCodes' in kwargs:
+            status_codes = kwargs['statusCodes']
+        if 'slowRequests' in kwargs:
+            slow_requests = kwargs['slowRequests']
+
         _setter("requests", requests)
         _setter("status_codes", status_codes)
         if slow_requests is not None:
@@ -56749,7 +62493,9 @@ class GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestResult(dict):
              _setter: Callable[[Any, Any], None],
              count: int,
              interval: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("count", count)
         _setter("interval", interval)
 
@@ -56797,7 +62543,11 @@ class GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestResult(dict):
              interval: str,
              path: str,
              time_taken: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'timeTaken' in kwargs:
+            time_taken = kwargs['timeTaken']
+
         _setter("count", count)
         _setter("interval", interval)
         _setter("path", path)
@@ -56871,7 +62621,15 @@ class GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeResult(dict):
              status_code_range: str,
              sub_status: int,
              win32_status_code: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'statusCodeRange' in kwargs:
+            status_code_range = kwargs['statusCodeRange']
+        if 'subStatus' in kwargs:
+            sub_status = kwargs['subStatus']
+        if 'win32StatusCode' in kwargs:
+            win32_status_code = kwargs['win32StatusCode']
+
         _setter("count", count)
         _setter("interval", interval)
         _setter("path", path)
@@ -56947,7 +62705,13 @@ class GetLinuxWebAppSiteConfigCorResult(dict):
              _setter: Callable[[Any, Any], None],
              allowed_origins: Sequence[str],
              support_credentials: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedOrigins' in kwargs:
+            allowed_origins = kwargs['allowedOrigins']
+        if 'supportCredentials' in kwargs:
+            support_credentials = kwargs['supportCredentials']
+
         _setter("allowed_origins", allowed_origins)
         _setter("support_credentials", support_credentials)
 
@@ -57003,7 +62767,15 @@ class GetLinuxWebAppSiteConfigIpRestrictionResult(dict):
              priority: int,
              service_tag: str,
              virtual_network_subnet_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'serviceTag' in kwargs:
+            service_tag = kwargs['serviceTag']
+        if 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+
         _setter("action", action)
         _setter("headers", headers)
         _setter("ip_address", ip_address)
@@ -57078,7 +62850,17 @@ class GetLinuxWebAppSiteConfigIpRestrictionHeaderResult(dict):
              x_fd_health_probes: Sequence[str],
              x_forwarded_fors: Sequence[str],
              x_forwarded_hosts: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'xAzureFdids' in kwargs:
+            x_azure_fdids = kwargs['xAzureFdids']
+        if 'xFdHealthProbes' in kwargs:
+            x_fd_health_probes = kwargs['xFdHealthProbes']
+        if 'xForwardedFors' in kwargs:
+            x_forwarded_fors = kwargs['xForwardedFors']
+        if 'xForwardedHosts' in kwargs:
+            x_forwarded_hosts = kwargs['xForwardedHosts']
+
         _setter("x_azure_fdids", x_azure_fdids)
         _setter("x_fd_health_probes", x_fd_health_probes)
         _setter("x_forwarded_fors", x_forwarded_fors)
@@ -57140,7 +62922,15 @@ class GetLinuxWebAppSiteConfigScmIpRestrictionResult(dict):
              priority: int,
              service_tag: str,
              virtual_network_subnet_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'serviceTag' in kwargs:
+            service_tag = kwargs['serviceTag']
+        if 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+
         _setter("action", action)
         _setter("headers", headers)
         _setter("ip_address", ip_address)
@@ -57215,7 +63005,17 @@ class GetLinuxWebAppSiteConfigScmIpRestrictionHeaderResult(dict):
              x_fd_health_probes: Sequence[str],
              x_forwarded_fors: Sequence[str],
              x_forwarded_hosts: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'xAzureFdids' in kwargs:
+            x_azure_fdids = kwargs['xAzureFdids']
+        if 'xFdHealthProbes' in kwargs:
+            x_fd_health_probes = kwargs['xFdHealthProbes']
+        if 'xForwardedFors' in kwargs:
+            x_forwarded_fors = kwargs['xForwardedFors']
+        if 'xForwardedHosts' in kwargs:
+            x_forwarded_hosts = kwargs['xForwardedHosts']
+
         _setter("x_azure_fdids", x_azure_fdids)
         _setter("x_fd_health_probes", x_fd_health_probes)
         _setter("x_forwarded_fors", x_forwarded_fors)
@@ -57261,7 +63061,9 @@ class GetLinuxWebAppSiteCredentialResult(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              password: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("password", password)
 
@@ -57301,7 +63103,13 @@ class GetLinuxWebAppStickySettingResult(dict):
              _setter: Callable[[Any, Any], None],
              app_setting_names: Sequence[str],
              connection_string_names: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appSettingNames' in kwargs:
+            app_setting_names = kwargs['appSettingNames']
+        if 'connectionStringNames' in kwargs:
+            connection_string_names = kwargs['connectionStringNames']
+
         _setter("app_setting_names", app_setting_names)
         _setter("connection_string_names", connection_string_names)
 
@@ -57357,7 +63165,17 @@ class GetLinuxWebAppStorageAccountResult(dict):
              name: str,
              share_name: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessKey' in kwargs:
+            access_key = kwargs['accessKey']
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'mountPath' in kwargs:
+            mount_path = kwargs['mountPath']
+        if 'shareName' in kwargs:
+            share_name = kwargs['shareName']
+
         _setter("access_key", access_key)
         _setter("account_name", account_name)
         _setter("mount_path", mount_path)
@@ -57485,7 +63303,25 @@ class GetWindowsFunctionAppAuthSettingResult(dict):
              token_store_enabled: bool,
              twitters: Sequence['outputs.GetWindowsFunctionAppAuthSettingTwitterResult'],
              unauthenticated_client_action: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activeDirectories' in kwargs:
+            active_directories = kwargs['activeDirectories']
+        if 'additionalLoginParameters' in kwargs:
+            additional_login_parameters = kwargs['additionalLoginParameters']
+        if 'allowedExternalRedirectUrls' in kwargs:
+            allowed_external_redirect_urls = kwargs['allowedExternalRedirectUrls']
+        if 'defaultProvider' in kwargs:
+            default_provider = kwargs['defaultProvider']
+        if 'runtimeVersion' in kwargs:
+            runtime_version = kwargs['runtimeVersion']
+        if 'tokenRefreshExtensionHours' in kwargs:
+            token_refresh_extension_hours = kwargs['tokenRefreshExtensionHours']
+        if 'tokenStoreEnabled' in kwargs:
+            token_store_enabled = kwargs['tokenStoreEnabled']
+        if 'unauthenticatedClientAction' in kwargs:
+            unauthenticated_client_action = kwargs['unauthenticatedClientAction']
+
         _setter("active_directories", active_directories)
         _setter("additional_login_parameters", additional_login_parameters)
         _setter("allowed_external_redirect_urls", allowed_external_redirect_urls)
@@ -57650,7 +63486,17 @@ class GetWindowsFunctionAppAuthSettingActiveDirectoryResult(dict):
              client_id: str,
              client_secret: str,
              client_secret_setting_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+
         _setter("allowed_audiences", allowed_audiences)
         _setter("client_id", client_id)
         _setter("client_secret", client_secret)
@@ -57716,7 +63562,17 @@ class GetWindowsFunctionAppAuthSettingFacebookResult(dict):
              app_secret: str,
              app_secret_setting_name: str,
              oauth_scopes: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'appSecret' in kwargs:
+            app_secret = kwargs['appSecret']
+        if 'appSecretSettingName' in kwargs:
+            app_secret_setting_name = kwargs['appSecretSettingName']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("app_id", app_id)
         _setter("app_secret", app_secret)
         _setter("app_secret_setting_name", app_secret_setting_name)
@@ -57782,7 +63638,17 @@ class GetWindowsFunctionAppAuthSettingGithubResult(dict):
              client_secret: str,
              client_secret_setting_name: str,
              oauth_scopes: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret", client_secret)
         _setter("client_secret_setting_name", client_secret_setting_name)
@@ -57848,7 +63714,17 @@ class GetWindowsFunctionAppAuthSettingGoogleResult(dict):
              client_secret: str,
              client_secret_setting_name: str,
              oauth_scopes: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret", client_secret)
         _setter("client_secret_setting_name", client_secret_setting_name)
@@ -57914,7 +63790,17 @@ class GetWindowsFunctionAppAuthSettingMicrosoftResult(dict):
              client_secret: str,
              client_secret_setting_name: str,
              oauth_scopes: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret", client_secret)
         _setter("client_secret_setting_name", client_secret_setting_name)
@@ -57976,7 +63862,15 @@ class GetWindowsFunctionAppAuthSettingTwitterResult(dict):
              consumer_key: str,
              consumer_secret: str,
              consumer_secret_setting_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'consumerKey' in kwargs:
+            consumer_key = kwargs['consumerKey']
+        if 'consumerSecret' in kwargs:
+            consumer_secret = kwargs['consumerSecret']
+        if 'consumerSecretSettingName' in kwargs:
+            consumer_secret_setting_name = kwargs['consumerSecretSettingName']
+
         _setter("consumer_key", consumer_key)
         _setter("consumer_secret", consumer_secret)
         _setter("consumer_secret_setting_name", consumer_secret_setting_name)
@@ -58105,7 +63999,51 @@ class GetWindowsFunctionAppAuthSettingsV2Result(dict):
              runtime_version: str,
              twitter_v2s: Sequence['outputs.GetWindowsFunctionAppAuthSettingsV2TwitterV2Result'],
              unauthenticated_action: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activeDirectoryV2s' in kwargs:
+            active_directory_v2s = kwargs['activeDirectoryV2s']
+        if 'appleV2s' in kwargs:
+            apple_v2s = kwargs['appleV2s']
+        if 'authEnabled' in kwargs:
+            auth_enabled = kwargs['authEnabled']
+        if 'azureStaticWebAppV2s' in kwargs:
+            azure_static_web_app_v2s = kwargs['azureStaticWebAppV2s']
+        if 'configFilePath' in kwargs:
+            config_file_path = kwargs['configFilePath']
+        if 'customOidcV2s' in kwargs:
+            custom_oidc_v2s = kwargs['customOidcV2s']
+        if 'defaultProvider' in kwargs:
+            default_provider = kwargs['defaultProvider']
+        if 'excludedPaths' in kwargs:
+            excluded_paths = kwargs['excludedPaths']
+        if 'facebookV2s' in kwargs:
+            facebook_v2s = kwargs['facebookV2s']
+        if 'forwardProxyConvention' in kwargs:
+            forward_proxy_convention = kwargs['forwardProxyConvention']
+        if 'forwardProxyCustomHostHeaderName' in kwargs:
+            forward_proxy_custom_host_header_name = kwargs['forwardProxyCustomHostHeaderName']
+        if 'forwardProxyCustomSchemeHeaderName' in kwargs:
+            forward_proxy_custom_scheme_header_name = kwargs['forwardProxyCustomSchemeHeaderName']
+        if 'githubV2s' in kwargs:
+            github_v2s = kwargs['githubV2s']
+        if 'googleV2s' in kwargs:
+            google_v2s = kwargs['googleV2s']
+        if 'httpRouteApiPrefix' in kwargs:
+            http_route_api_prefix = kwargs['httpRouteApiPrefix']
+        if 'microsoftV2s' in kwargs:
+            microsoft_v2s = kwargs['microsoftV2s']
+        if 'requireAuthentication' in kwargs:
+            require_authentication = kwargs['requireAuthentication']
+        if 'requireHttps' in kwargs:
+            require_https = kwargs['requireHttps']
+        if 'runtimeVersion' in kwargs:
+            runtime_version = kwargs['runtimeVersion']
+        if 'twitterV2s' in kwargs:
+            twitter_v2s = kwargs['twitterV2s']
+        if 'unauthenticatedAction' in kwargs:
+            unauthenticated_action = kwargs['unauthenticatedAction']
+
         _setter("active_directory_v2s", active_directory_v2s)
         _setter("apple_v2s", apple_v2s)
         _setter("auth_enabled", auth_enabled)
@@ -58365,7 +64303,33 @@ class GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Result(dict):
              login_parameters: Mapping[str, str],
              tenant_auth_endpoint: str,
              www_authentication_disabled: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedApplications' in kwargs:
+            allowed_applications = kwargs['allowedApplications']
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'allowedGroups' in kwargs:
+            allowed_groups = kwargs['allowedGroups']
+        if 'allowedIdentities' in kwargs:
+            allowed_identities = kwargs['allowedIdentities']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretCertificateThumbprint' in kwargs:
+            client_secret_certificate_thumbprint = kwargs['clientSecretCertificateThumbprint']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'jwtAllowedClientApplications' in kwargs:
+            jwt_allowed_client_applications = kwargs['jwtAllowedClientApplications']
+        if 'jwtAllowedGroups' in kwargs:
+            jwt_allowed_groups = kwargs['jwtAllowedGroups']
+        if 'loginParameters' in kwargs:
+            login_parameters = kwargs['loginParameters']
+        if 'tenantAuthEndpoint' in kwargs:
+            tenant_auth_endpoint = kwargs['tenantAuthEndpoint']
+        if 'wwwAuthenticationDisabled' in kwargs:
+            www_authentication_disabled = kwargs['wwwAuthenticationDisabled']
+
         _setter("allowed_applications", allowed_applications)
         _setter("allowed_audiences", allowed_audiences)
         _setter("allowed_groups", allowed_groups)
@@ -58499,7 +64463,15 @@ class GetWindowsFunctionAppAuthSettingsV2AppleV2Result(dict):
              client_id: str,
              client_secret_setting_name: str,
              login_scopes: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret_setting_name", client_secret_setting_name)
         _setter("login_scopes", login_scopes)
@@ -58544,7 +64516,11 @@ class GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Result(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              client_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+
         _setter("client_id", client_id)
 
     @property
@@ -58611,7 +64587,27 @@ class GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Result(dict):
              openid_configuration_endpoint: str,
              scopes: Sequence[str],
              token_endpoint: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authorisationEndpoint' in kwargs:
+            authorisation_endpoint = kwargs['authorisationEndpoint']
+        if 'certificationUri' in kwargs:
+            certification_uri = kwargs['certificationUri']
+        if 'clientCredentialMethod' in kwargs:
+            client_credential_method = kwargs['clientCredentialMethod']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'issuerEndpoint' in kwargs:
+            issuer_endpoint = kwargs['issuerEndpoint']
+        if 'nameClaimType' in kwargs:
+            name_claim_type = kwargs['nameClaimType']
+        if 'openidConfigurationEndpoint' in kwargs:
+            openid_configuration_endpoint = kwargs['openidConfigurationEndpoint']
+        if 'tokenEndpoint' in kwargs:
+            token_endpoint = kwargs['tokenEndpoint']
+
         _setter("authorisation_endpoint", authorisation_endpoint)
         _setter("certification_uri", certification_uri)
         _setter("client_credential_method", client_credential_method)
@@ -58740,7 +64736,17 @@ class GetWindowsFunctionAppAuthSettingsV2FacebookV2Result(dict):
              app_secret_setting_name: str,
              graph_api_version: str,
              login_scopes: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'appSecretSettingName' in kwargs:
+            app_secret_setting_name = kwargs['appSecretSettingName']
+        if 'graphApiVersion' in kwargs:
+            graph_api_version = kwargs['graphApiVersion']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("app_id", app_id)
         _setter("app_secret_setting_name", app_secret_setting_name)
         _setter("graph_api_version", graph_api_version)
@@ -58802,7 +64808,15 @@ class GetWindowsFunctionAppAuthSettingsV2GithubV2Result(dict):
              client_id: str,
              client_secret_setting_name: str,
              login_scopes: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret_setting_name", client_secret_setting_name)
         _setter("login_scopes", login_scopes)
@@ -58859,7 +64873,17 @@ class GetWindowsFunctionAppAuthSettingsV2GoogleV2Result(dict):
              client_id: str,
              client_secret_setting_name: str,
              login_scopes: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("allowed_audiences", allowed_audiences)
         _setter("client_id", client_id)
         _setter("client_secret_setting_name", client_secret_setting_name)
@@ -58953,7 +64977,31 @@ class GetWindowsFunctionAppAuthSettingsV2LoginResult(dict):
              token_store_path: str,
              token_store_sas_setting_name: str,
              validate_nonce: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedExternalRedirectUrls' in kwargs:
+            allowed_external_redirect_urls = kwargs['allowedExternalRedirectUrls']
+        if 'cookieExpirationConvention' in kwargs:
+            cookie_expiration_convention = kwargs['cookieExpirationConvention']
+        if 'cookieExpirationTime' in kwargs:
+            cookie_expiration_time = kwargs['cookieExpirationTime']
+        if 'logoutEndpoint' in kwargs:
+            logout_endpoint = kwargs['logoutEndpoint']
+        if 'nonceExpirationTime' in kwargs:
+            nonce_expiration_time = kwargs['nonceExpirationTime']
+        if 'preserveUrlFragmentsForLogins' in kwargs:
+            preserve_url_fragments_for_logins = kwargs['preserveUrlFragmentsForLogins']
+        if 'tokenRefreshExtensionTime' in kwargs:
+            token_refresh_extension_time = kwargs['tokenRefreshExtensionTime']
+        if 'tokenStoreEnabled' in kwargs:
+            token_store_enabled = kwargs['tokenStoreEnabled']
+        if 'tokenStorePath' in kwargs:
+            token_store_path = kwargs['tokenStorePath']
+        if 'tokenStoreSasSettingName' in kwargs:
+            token_store_sas_setting_name = kwargs['tokenStoreSasSettingName']
+        if 'validateNonce' in kwargs:
+            validate_nonce = kwargs['validateNonce']
+
         _setter("allowed_external_redirect_urls", allowed_external_redirect_urls)
         _setter("cookie_expiration_convention", cookie_expiration_convention)
         _setter("cookie_expiration_time", cookie_expiration_time)
@@ -59082,7 +65130,17 @@ class GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Result(dict):
              client_id: str,
              client_secret_setting_name: str,
              login_scopes: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("allowed_audiences", allowed_audiences)
         _setter("client_id", client_id)
         _setter("client_secret_setting_name", client_secret_setting_name)
@@ -59140,7 +65198,13 @@ class GetWindowsFunctionAppAuthSettingsV2TwitterV2Result(dict):
              _setter: Callable[[Any, Any], None],
              consumer_key: str,
              consumer_secret_setting_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'consumerKey' in kwargs:
+            consumer_key = kwargs['consumerKey']
+        if 'consumerSecretSettingName' in kwargs:
+            consumer_secret_setting_name = kwargs['consumerSecretSettingName']
+
         _setter("consumer_key", consumer_key)
         _setter("consumer_secret_setting_name", consumer_secret_setting_name)
 
@@ -59188,7 +65252,11 @@ class GetWindowsFunctionAppBackupResult(dict):
              name: str,
              schedules: Sequence['outputs.GetWindowsFunctionAppBackupScheduleResult'],
              storage_account_url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageAccountUrl' in kwargs:
+            storage_account_url = kwargs['storageAccountUrl']
+
         _setter("enabled", enabled)
         _setter("name", name)
         _setter("schedules", schedules)
@@ -59261,7 +65329,21 @@ class GetWindowsFunctionAppBackupScheduleResult(dict):
              last_execution_time: str,
              retention_period_days: int,
              start_time: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'frequencyInterval' in kwargs:
+            frequency_interval = kwargs['frequencyInterval']
+        if 'frequencyUnit' in kwargs:
+            frequency_unit = kwargs['frequencyUnit']
+        if 'keepAtLeastOneBackup' in kwargs:
+            keep_at_least_one_backup = kwargs['keepAtLeastOneBackup']
+        if 'lastExecutionTime' in kwargs:
+            last_execution_time = kwargs['lastExecutionTime']
+        if 'retentionPeriodDays' in kwargs:
+            retention_period_days = kwargs['retentionPeriodDays']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         _setter("frequency_interval", frequency_interval)
         _setter("frequency_unit", frequency_unit)
         _setter("keep_at_least_one_backup", keep_at_least_one_backup)
@@ -59338,7 +65420,9 @@ class GetWindowsFunctionAppConnectionStringResult(dict):
              name: str,
              type: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("type", type)
         _setter("value", value)
@@ -59395,7 +65479,15 @@ class GetWindowsFunctionAppIdentityResult(dict):
              principal_id: str,
              tenant_id: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("identity_ids", identity_ids)
         _setter("principal_id", principal_id)
         _setter("tenant_id", tenant_id)
@@ -59581,7 +65673,75 @@ class GetWindowsFunctionAppSiteConfigResult(dict):
              websockets_enabled: bool,
              windows_fx_version: str,
              worker_count: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alwaysOn' in kwargs:
+            always_on = kwargs['alwaysOn']
+        if 'apiDefinitionUrl' in kwargs:
+            api_definition_url = kwargs['apiDefinitionUrl']
+        if 'apiManagementApiId' in kwargs:
+            api_management_api_id = kwargs['apiManagementApiId']
+        if 'appCommandLine' in kwargs:
+            app_command_line = kwargs['appCommandLine']
+        if 'appScaleLimit' in kwargs:
+            app_scale_limit = kwargs['appScaleLimit']
+        if 'appServiceLogs' in kwargs:
+            app_service_logs = kwargs['appServiceLogs']
+        if 'applicationInsightsConnectionString' in kwargs:
+            application_insights_connection_string = kwargs['applicationInsightsConnectionString']
+        if 'applicationInsightsKey' in kwargs:
+            application_insights_key = kwargs['applicationInsightsKey']
+        if 'applicationStacks' in kwargs:
+            application_stacks = kwargs['applicationStacks']
+        if 'defaultDocuments' in kwargs:
+            default_documents = kwargs['defaultDocuments']
+        if 'detailedErrorLoggingEnabled' in kwargs:
+            detailed_error_logging_enabled = kwargs['detailedErrorLoggingEnabled']
+        if 'elasticInstanceMinimum' in kwargs:
+            elastic_instance_minimum = kwargs['elasticInstanceMinimum']
+        if 'ftpsState' in kwargs:
+            ftps_state = kwargs['ftpsState']
+        if 'healthCheckEvictionTimeInMin' in kwargs:
+            health_check_eviction_time_in_min = kwargs['healthCheckEvictionTimeInMin']
+        if 'healthCheckPath' in kwargs:
+            health_check_path = kwargs['healthCheckPath']
+        if 'http2Enabled' in kwargs:
+            http2_enabled = kwargs['http2Enabled']
+        if 'ipRestrictions' in kwargs:
+            ip_restrictions = kwargs['ipRestrictions']
+        if 'loadBalancingMode' in kwargs:
+            load_balancing_mode = kwargs['loadBalancingMode']
+        if 'managedPipelineMode' in kwargs:
+            managed_pipeline_mode = kwargs['managedPipelineMode']
+        if 'minimumTlsVersion' in kwargs:
+            minimum_tls_version = kwargs['minimumTlsVersion']
+        if 'preWarmedInstanceCount' in kwargs:
+            pre_warmed_instance_count = kwargs['preWarmedInstanceCount']
+        if 'remoteDebuggingEnabled' in kwargs:
+            remote_debugging_enabled = kwargs['remoteDebuggingEnabled']
+        if 'remoteDebuggingVersion' in kwargs:
+            remote_debugging_version = kwargs['remoteDebuggingVersion']
+        if 'runtimeScaleMonitoringEnabled' in kwargs:
+            runtime_scale_monitoring_enabled = kwargs['runtimeScaleMonitoringEnabled']
+        if 'scmIpRestrictions' in kwargs:
+            scm_ip_restrictions = kwargs['scmIpRestrictions']
+        if 'scmMinimumTlsVersion' in kwargs:
+            scm_minimum_tls_version = kwargs['scmMinimumTlsVersion']
+        if 'scmType' in kwargs:
+            scm_type = kwargs['scmType']
+        if 'scmUseMainIpRestriction' in kwargs:
+            scm_use_main_ip_restriction = kwargs['scmUseMainIpRestriction']
+        if 'use32BitWorker' in kwargs:
+            use32_bit_worker = kwargs['use32BitWorker']
+        if 'vnetRouteAllEnabled' in kwargs:
+            vnet_route_all_enabled = kwargs['vnetRouteAllEnabled']
+        if 'websocketsEnabled' in kwargs:
+            websockets_enabled = kwargs['websocketsEnabled']
+        if 'windowsFxVersion' in kwargs:
+            windows_fx_version = kwargs['windowsFxVersion']
+        if 'workerCount' in kwargs:
+            worker_count = kwargs['workerCount']
+
         _setter("always_on", always_on)
         _setter("api_definition_url", api_definition_url)
         _setter("api_management_api_id", api_management_api_id)
@@ -59909,7 +66069,13 @@ class GetWindowsFunctionAppSiteConfigAppServiceLogResult(dict):
              _setter: Callable[[Any, Any], None],
              disk_quota_mb: int,
              retention_period_days: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'diskQuotaMb' in kwargs:
+            disk_quota_mb = kwargs['diskQuotaMb']
+        if 'retentionPeriodDays' in kwargs:
+            retention_period_days = kwargs['retentionPeriodDays']
+
         _setter("disk_quota_mb", disk_quota_mb)
         _setter("retention_period_days", retention_period_days)
 
@@ -59964,7 +66130,21 @@ class GetWindowsFunctionAppSiteConfigApplicationStackResult(dict):
              powershell_core_version: str,
              use_custom_runtime: bool,
              use_dotnet_isolated_runtime: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dotnetVersion' in kwargs:
+            dotnet_version = kwargs['dotnetVersion']
+        if 'javaVersion' in kwargs:
+            java_version = kwargs['javaVersion']
+        if 'nodeVersion' in kwargs:
+            node_version = kwargs['nodeVersion']
+        if 'powershellCoreVersion' in kwargs:
+            powershell_core_version = kwargs['powershellCoreVersion']
+        if 'useCustomRuntime' in kwargs:
+            use_custom_runtime = kwargs['useCustomRuntime']
+        if 'useDotnetIsolatedRuntime' in kwargs:
+            use_dotnet_isolated_runtime = kwargs['useDotnetIsolatedRuntime']
+
         _setter("dotnet_version", dotnet_version)
         _setter("java_version", java_version)
         _setter("node_version", node_version)
@@ -60037,7 +66217,13 @@ class GetWindowsFunctionAppSiteConfigCorResult(dict):
              _setter: Callable[[Any, Any], None],
              allowed_origins: Sequence[str],
              support_credentials: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedOrigins' in kwargs:
+            allowed_origins = kwargs['allowedOrigins']
+        if 'supportCredentials' in kwargs:
+            support_credentials = kwargs['supportCredentials']
+
         _setter("allowed_origins", allowed_origins)
         _setter("support_credentials", support_credentials)
 
@@ -60092,7 +66278,15 @@ class GetWindowsFunctionAppSiteConfigIpRestrictionResult(dict):
              priority: int,
              service_tag: str,
              virtual_network_subnet_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'serviceTag' in kwargs:
+            service_tag = kwargs['serviceTag']
+        if 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+
         _setter("action", action)
         _setter("headers", headers)
         _setter("ip_address", ip_address)
@@ -60164,7 +66358,17 @@ class GetWindowsFunctionAppSiteConfigIpRestrictionHeaderResult(dict):
              x_fd_health_probes: Sequence[str],
              x_forwarded_fors: Sequence[str],
              x_forwarded_hosts: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'xAzureFdids' in kwargs:
+            x_azure_fdids = kwargs['xAzureFdids']
+        if 'xFdHealthProbes' in kwargs:
+            x_fd_health_probes = kwargs['xFdHealthProbes']
+        if 'xForwardedFors' in kwargs:
+            x_forwarded_fors = kwargs['xForwardedFors']
+        if 'xForwardedHosts' in kwargs:
+            x_forwarded_hosts = kwargs['xForwardedHosts']
+
         _setter("x_azure_fdids", x_azure_fdids)
         _setter("x_fd_health_probes", x_fd_health_probes)
         _setter("x_forwarded_fors", x_forwarded_fors)
@@ -60225,7 +66429,15 @@ class GetWindowsFunctionAppSiteConfigScmIpRestrictionResult(dict):
              priority: int,
              service_tag: str,
              virtual_network_subnet_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'serviceTag' in kwargs:
+            service_tag = kwargs['serviceTag']
+        if 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+
         _setter("action", action)
         _setter("headers", headers)
         _setter("ip_address", ip_address)
@@ -60297,7 +66509,17 @@ class GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderResult(dict):
              x_fd_health_probes: Sequence[str],
              x_forwarded_fors: Sequence[str],
              x_forwarded_hosts: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'xAzureFdids' in kwargs:
+            x_azure_fdids = kwargs['xAzureFdids']
+        if 'xFdHealthProbes' in kwargs:
+            x_fd_health_probes = kwargs['xFdHealthProbes']
+        if 'xForwardedFors' in kwargs:
+            x_forwarded_fors = kwargs['xForwardedFors']
+        if 'xForwardedHosts' in kwargs:
+            x_forwarded_hosts = kwargs['xForwardedHosts']
+
         _setter("x_azure_fdids", x_azure_fdids)
         _setter("x_fd_health_probes", x_fd_health_probes)
         _setter("x_forwarded_fors", x_forwarded_fors)
@@ -60343,7 +66565,9 @@ class GetWindowsFunctionAppSiteCredentialResult(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              password: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("password", password)
 
@@ -60383,7 +66607,13 @@ class GetWindowsFunctionAppStickySettingResult(dict):
              _setter: Callable[[Any, Any], None],
              app_setting_names: Sequence[str],
              connection_string_names: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appSettingNames' in kwargs:
+            app_setting_names = kwargs['appSettingNames']
+        if 'connectionStringNames' in kwargs:
+            connection_string_names = kwargs['connectionStringNames']
+
         _setter("app_setting_names", app_setting_names)
         _setter("connection_string_names", connection_string_names)
 
@@ -60475,7 +66705,25 @@ class GetWindowsWebAppAuthSettingResult(dict):
              token_store_enabled: bool,
              twitters: Sequence['outputs.GetWindowsWebAppAuthSettingTwitterResult'],
              unauthenticated_client_action: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activeDirectories' in kwargs:
+            active_directories = kwargs['activeDirectories']
+        if 'additionalLoginParameters' in kwargs:
+            additional_login_parameters = kwargs['additionalLoginParameters']
+        if 'allowedExternalRedirectUrls' in kwargs:
+            allowed_external_redirect_urls = kwargs['allowedExternalRedirectUrls']
+        if 'defaultProvider' in kwargs:
+            default_provider = kwargs['defaultProvider']
+        if 'runtimeVersion' in kwargs:
+            runtime_version = kwargs['runtimeVersion']
+        if 'tokenRefreshExtensionHours' in kwargs:
+            token_refresh_extension_hours = kwargs['tokenRefreshExtensionHours']
+        if 'tokenStoreEnabled' in kwargs:
+            token_store_enabled = kwargs['tokenStoreEnabled']
+        if 'unauthenticatedClientAction' in kwargs:
+            unauthenticated_client_action = kwargs['unauthenticatedClientAction']
+
         _setter("active_directories", active_directories)
         _setter("additional_login_parameters", additional_login_parameters)
         _setter("allowed_external_redirect_urls", allowed_external_redirect_urls)
@@ -60640,7 +66888,17 @@ class GetWindowsWebAppAuthSettingActiveDirectoryResult(dict):
              client_id: str,
              client_secret: str,
              client_secret_setting_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+
         _setter("allowed_audiences", allowed_audiences)
         _setter("client_id", client_id)
         _setter("client_secret", client_secret)
@@ -60706,7 +66964,17 @@ class GetWindowsWebAppAuthSettingFacebookResult(dict):
              app_secret: str,
              app_secret_setting_name: str,
              oauth_scopes: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'appSecret' in kwargs:
+            app_secret = kwargs['appSecret']
+        if 'appSecretSettingName' in kwargs:
+            app_secret_setting_name = kwargs['appSecretSettingName']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("app_id", app_id)
         _setter("app_secret", app_secret)
         _setter("app_secret_setting_name", app_secret_setting_name)
@@ -60772,7 +67040,17 @@ class GetWindowsWebAppAuthSettingGithubResult(dict):
              client_secret: str,
              client_secret_setting_name: str,
              oauth_scopes: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret", client_secret)
         _setter("client_secret_setting_name", client_secret_setting_name)
@@ -60838,7 +67116,17 @@ class GetWindowsWebAppAuthSettingGoogleResult(dict):
              client_secret: str,
              client_secret_setting_name: str,
              oauth_scopes: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret", client_secret)
         _setter("client_secret_setting_name", client_secret_setting_name)
@@ -60904,7 +67192,17 @@ class GetWindowsWebAppAuthSettingMicrosoftResult(dict):
              client_secret: str,
              client_secret_setting_name: str,
              oauth_scopes: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'oauthScopes' in kwargs:
+            oauth_scopes = kwargs['oauthScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret", client_secret)
         _setter("client_secret_setting_name", client_secret_setting_name)
@@ -60966,7 +67264,15 @@ class GetWindowsWebAppAuthSettingTwitterResult(dict):
              consumer_key: str,
              consumer_secret: str,
              consumer_secret_setting_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'consumerKey' in kwargs:
+            consumer_key = kwargs['consumerKey']
+        if 'consumerSecret' in kwargs:
+            consumer_secret = kwargs['consumerSecret']
+        if 'consumerSecretSettingName' in kwargs:
+            consumer_secret_setting_name = kwargs['consumerSecretSettingName']
+
         _setter("consumer_key", consumer_key)
         _setter("consumer_secret", consumer_secret)
         _setter("consumer_secret_setting_name", consumer_secret_setting_name)
@@ -61095,7 +67401,51 @@ class GetWindowsWebAppAuthSettingsV2Result(dict):
              runtime_version: str,
              twitter_v2s: Sequence['outputs.GetWindowsWebAppAuthSettingsV2TwitterV2Result'],
              unauthenticated_action: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activeDirectoryV2s' in kwargs:
+            active_directory_v2s = kwargs['activeDirectoryV2s']
+        if 'appleV2s' in kwargs:
+            apple_v2s = kwargs['appleV2s']
+        if 'authEnabled' in kwargs:
+            auth_enabled = kwargs['authEnabled']
+        if 'azureStaticWebAppV2s' in kwargs:
+            azure_static_web_app_v2s = kwargs['azureStaticWebAppV2s']
+        if 'configFilePath' in kwargs:
+            config_file_path = kwargs['configFilePath']
+        if 'customOidcV2s' in kwargs:
+            custom_oidc_v2s = kwargs['customOidcV2s']
+        if 'defaultProvider' in kwargs:
+            default_provider = kwargs['defaultProvider']
+        if 'excludedPaths' in kwargs:
+            excluded_paths = kwargs['excludedPaths']
+        if 'facebookV2s' in kwargs:
+            facebook_v2s = kwargs['facebookV2s']
+        if 'forwardProxyConvention' in kwargs:
+            forward_proxy_convention = kwargs['forwardProxyConvention']
+        if 'forwardProxyCustomHostHeaderName' in kwargs:
+            forward_proxy_custom_host_header_name = kwargs['forwardProxyCustomHostHeaderName']
+        if 'forwardProxyCustomSchemeHeaderName' in kwargs:
+            forward_proxy_custom_scheme_header_name = kwargs['forwardProxyCustomSchemeHeaderName']
+        if 'githubV2s' in kwargs:
+            github_v2s = kwargs['githubV2s']
+        if 'googleV2s' in kwargs:
+            google_v2s = kwargs['googleV2s']
+        if 'httpRouteApiPrefix' in kwargs:
+            http_route_api_prefix = kwargs['httpRouteApiPrefix']
+        if 'microsoftV2s' in kwargs:
+            microsoft_v2s = kwargs['microsoftV2s']
+        if 'requireAuthentication' in kwargs:
+            require_authentication = kwargs['requireAuthentication']
+        if 'requireHttps' in kwargs:
+            require_https = kwargs['requireHttps']
+        if 'runtimeVersion' in kwargs:
+            runtime_version = kwargs['runtimeVersion']
+        if 'twitterV2s' in kwargs:
+            twitter_v2s = kwargs['twitterV2s']
+        if 'unauthenticatedAction' in kwargs:
+            unauthenticated_action = kwargs['unauthenticatedAction']
+
         _setter("active_directory_v2s", active_directory_v2s)
         _setter("apple_v2s", apple_v2s)
         _setter("auth_enabled", auth_enabled)
@@ -61355,7 +67705,33 @@ class GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Result(dict):
              login_parameters: Mapping[str, str],
              tenant_auth_endpoint: str,
              www_authentication_disabled: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedApplications' in kwargs:
+            allowed_applications = kwargs['allowedApplications']
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'allowedGroups' in kwargs:
+            allowed_groups = kwargs['allowedGroups']
+        if 'allowedIdentities' in kwargs:
+            allowed_identities = kwargs['allowedIdentities']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretCertificateThumbprint' in kwargs:
+            client_secret_certificate_thumbprint = kwargs['clientSecretCertificateThumbprint']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'jwtAllowedClientApplications' in kwargs:
+            jwt_allowed_client_applications = kwargs['jwtAllowedClientApplications']
+        if 'jwtAllowedGroups' in kwargs:
+            jwt_allowed_groups = kwargs['jwtAllowedGroups']
+        if 'loginParameters' in kwargs:
+            login_parameters = kwargs['loginParameters']
+        if 'tenantAuthEndpoint' in kwargs:
+            tenant_auth_endpoint = kwargs['tenantAuthEndpoint']
+        if 'wwwAuthenticationDisabled' in kwargs:
+            www_authentication_disabled = kwargs['wwwAuthenticationDisabled']
+
         _setter("allowed_applications", allowed_applications)
         _setter("allowed_audiences", allowed_audiences)
         _setter("allowed_groups", allowed_groups)
@@ -61489,7 +67865,15 @@ class GetWindowsWebAppAuthSettingsV2AppleV2Result(dict):
              client_id: str,
              client_secret_setting_name: str,
              login_scopes: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret_setting_name", client_secret_setting_name)
         _setter("login_scopes", login_scopes)
@@ -61534,7 +67918,11 @@ class GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Result(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              client_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+
         _setter("client_id", client_id)
 
     @property
@@ -61601,7 +67989,27 @@ class GetWindowsWebAppAuthSettingsV2CustomOidcV2Result(dict):
              openid_configuration_endpoint: str,
              scopes: Sequence[str],
              token_endpoint: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authorisationEndpoint' in kwargs:
+            authorisation_endpoint = kwargs['authorisationEndpoint']
+        if 'certificationUri' in kwargs:
+            certification_uri = kwargs['certificationUri']
+        if 'clientCredentialMethod' in kwargs:
+            client_credential_method = kwargs['clientCredentialMethod']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'issuerEndpoint' in kwargs:
+            issuer_endpoint = kwargs['issuerEndpoint']
+        if 'nameClaimType' in kwargs:
+            name_claim_type = kwargs['nameClaimType']
+        if 'openidConfigurationEndpoint' in kwargs:
+            openid_configuration_endpoint = kwargs['openidConfigurationEndpoint']
+        if 'tokenEndpoint' in kwargs:
+            token_endpoint = kwargs['tokenEndpoint']
+
         _setter("authorisation_endpoint", authorisation_endpoint)
         _setter("certification_uri", certification_uri)
         _setter("client_credential_method", client_credential_method)
@@ -61730,7 +68138,17 @@ class GetWindowsWebAppAuthSettingsV2FacebookV2Result(dict):
              app_secret_setting_name: str,
              graph_api_version: str,
              login_scopes: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'appSecretSettingName' in kwargs:
+            app_secret_setting_name = kwargs['appSecretSettingName']
+        if 'graphApiVersion' in kwargs:
+            graph_api_version = kwargs['graphApiVersion']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("app_id", app_id)
         _setter("app_secret_setting_name", app_secret_setting_name)
         _setter("graph_api_version", graph_api_version)
@@ -61792,7 +68210,15 @@ class GetWindowsWebAppAuthSettingsV2GithubV2Result(dict):
              client_id: str,
              client_secret_setting_name: str,
              login_scopes: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("client_id", client_id)
         _setter("client_secret_setting_name", client_secret_setting_name)
         _setter("login_scopes", login_scopes)
@@ -61849,7 +68275,17 @@ class GetWindowsWebAppAuthSettingsV2GoogleV2Result(dict):
              client_id: str,
              client_secret_setting_name: str,
              login_scopes: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("allowed_audiences", allowed_audiences)
         _setter("client_id", client_id)
         _setter("client_secret_setting_name", client_secret_setting_name)
@@ -61943,7 +68379,31 @@ class GetWindowsWebAppAuthSettingsV2LoginResult(dict):
              token_store_path: str,
              token_store_sas_setting_name: str,
              validate_nonce: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedExternalRedirectUrls' in kwargs:
+            allowed_external_redirect_urls = kwargs['allowedExternalRedirectUrls']
+        if 'cookieExpirationConvention' in kwargs:
+            cookie_expiration_convention = kwargs['cookieExpirationConvention']
+        if 'cookieExpirationTime' in kwargs:
+            cookie_expiration_time = kwargs['cookieExpirationTime']
+        if 'logoutEndpoint' in kwargs:
+            logout_endpoint = kwargs['logoutEndpoint']
+        if 'nonceExpirationTime' in kwargs:
+            nonce_expiration_time = kwargs['nonceExpirationTime']
+        if 'preserveUrlFragmentsForLogins' in kwargs:
+            preserve_url_fragments_for_logins = kwargs['preserveUrlFragmentsForLogins']
+        if 'tokenRefreshExtensionTime' in kwargs:
+            token_refresh_extension_time = kwargs['tokenRefreshExtensionTime']
+        if 'tokenStoreEnabled' in kwargs:
+            token_store_enabled = kwargs['tokenStoreEnabled']
+        if 'tokenStorePath' in kwargs:
+            token_store_path = kwargs['tokenStorePath']
+        if 'tokenStoreSasSettingName' in kwargs:
+            token_store_sas_setting_name = kwargs['tokenStoreSasSettingName']
+        if 'validateNonce' in kwargs:
+            validate_nonce = kwargs['validateNonce']
+
         _setter("allowed_external_redirect_urls", allowed_external_redirect_urls)
         _setter("cookie_expiration_convention", cookie_expiration_convention)
         _setter("cookie_expiration_time", cookie_expiration_time)
@@ -62072,7 +68532,17 @@ class GetWindowsWebAppAuthSettingsV2MicrosoftV2Result(dict):
              client_id: str,
              client_secret_setting_name: str,
              login_scopes: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if 'loginScopes' in kwargs:
+            login_scopes = kwargs['loginScopes']
+
         _setter("allowed_audiences", allowed_audiences)
         _setter("client_id", client_id)
         _setter("client_secret_setting_name", client_secret_setting_name)
@@ -62130,7 +68600,13 @@ class GetWindowsWebAppAuthSettingsV2TwitterV2Result(dict):
              _setter: Callable[[Any, Any], None],
              consumer_key: str,
              consumer_secret_setting_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'consumerKey' in kwargs:
+            consumer_key = kwargs['consumerKey']
+        if 'consumerSecretSettingName' in kwargs:
+            consumer_secret_setting_name = kwargs['consumerSecretSettingName']
+
         _setter("consumer_key", consumer_key)
         _setter("consumer_secret_setting_name", consumer_secret_setting_name)
 
@@ -62178,7 +68654,11 @@ class GetWindowsWebAppBackupResult(dict):
              name: str,
              schedules: Sequence['outputs.GetWindowsWebAppBackupScheduleResult'],
              storage_account_url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageAccountUrl' in kwargs:
+            storage_account_url = kwargs['storageAccountUrl']
+
         _setter("enabled", enabled)
         _setter("name", name)
         _setter("schedules", schedules)
@@ -62252,7 +68732,21 @@ class GetWindowsWebAppBackupScheduleResult(dict):
              last_execution_time: str,
              retention_period_days: int,
              start_time: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'frequencyInterval' in kwargs:
+            frequency_interval = kwargs['frequencyInterval']
+        if 'frequencyUnit' in kwargs:
+            frequency_unit = kwargs['frequencyUnit']
+        if 'keepAtLeastOneBackup' in kwargs:
+            keep_at_least_one_backup = kwargs['keepAtLeastOneBackup']
+        if 'lastExecutionTime' in kwargs:
+            last_execution_time = kwargs['lastExecutionTime']
+        if 'retentionPeriodDays' in kwargs:
+            retention_period_days = kwargs['retentionPeriodDays']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         _setter("frequency_interval", frequency_interval)
         _setter("frequency_unit", frequency_unit)
         _setter("keep_at_least_one_backup", keep_at_least_one_backup)
@@ -62332,7 +68826,9 @@ class GetWindowsWebAppConnectionStringResult(dict):
              name: str,
              type: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("type", type)
         _setter("value", value)
@@ -62389,7 +68885,15 @@ class GetWindowsWebAppIdentityResult(dict):
              principal_id: str,
              tenant_id: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("identity_ids", identity_ids)
         _setter("principal_id", principal_id)
         _setter("tenant_id", tenant_id)
@@ -62455,7 +68959,17 @@ class GetWindowsWebAppLogResult(dict):
              detailed_error_messages: bool,
              failed_request_tracing: bool,
              http_logs: Sequence['outputs.GetWindowsWebAppLogHttpLogResult'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationLogs' in kwargs:
+            application_logs = kwargs['applicationLogs']
+        if 'detailedErrorMessages' in kwargs:
+            detailed_error_messages = kwargs['detailedErrorMessages']
+        if 'failedRequestTracing' in kwargs:
+            failed_request_tracing = kwargs['failedRequestTracing']
+        if 'httpLogs' in kwargs:
+            http_logs = kwargs['httpLogs']
+
         _setter("application_logs", application_logs)
         _setter("detailed_error_messages", detailed_error_messages)
         _setter("failed_request_tracing", failed_request_tracing)
@@ -62513,7 +69027,13 @@ class GetWindowsWebAppLogApplicationLogResult(dict):
              _setter: Callable[[Any, Any], None],
              azure_blob_storages: Sequence['outputs.GetWindowsWebAppLogApplicationLogAzureBlobStorageResult'],
              file_system_level: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azureBlobStorages' in kwargs:
+            azure_blob_storages = kwargs['azureBlobStorages']
+        if 'fileSystemLevel' in kwargs:
+            file_system_level = kwargs['fileSystemLevel']
+
         _setter("azure_blob_storages", azure_blob_storages)
         _setter("file_system_level", file_system_level)
 
@@ -62557,7 +69077,13 @@ class GetWindowsWebAppLogApplicationLogAzureBlobStorageResult(dict):
              level: str,
              retention_in_days: int,
              sas_url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'retentionInDays' in kwargs:
+            retention_in_days = kwargs['retentionInDays']
+        if 'sasUrl' in kwargs:
+            sas_url = kwargs['sasUrl']
+
         _setter("level", level)
         _setter("retention_in_days", retention_in_days)
         _setter("sas_url", sas_url)
@@ -62606,7 +69132,13 @@ class GetWindowsWebAppLogHttpLogResult(dict):
              _setter: Callable[[Any, Any], None],
              azure_blob_storages: Sequence['outputs.GetWindowsWebAppLogHttpLogAzureBlobStorageResult'],
              file_systems: Sequence['outputs.GetWindowsWebAppLogHttpLogFileSystemResult'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azureBlobStorages' in kwargs:
+            azure_blob_storages = kwargs['azureBlobStorages']
+        if 'fileSystems' in kwargs:
+            file_systems = kwargs['fileSystems']
+
         _setter("azure_blob_storages", azure_blob_storages)
         _setter("file_systems", file_systems)
 
@@ -62646,7 +69178,13 @@ class GetWindowsWebAppLogHttpLogAzureBlobStorageResult(dict):
              _setter: Callable[[Any, Any], None],
              retention_in_days: int,
              sas_url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'retentionInDays' in kwargs:
+            retention_in_days = kwargs['retentionInDays']
+        if 'sasUrl' in kwargs:
+            sas_url = kwargs['sasUrl']
+
         _setter("retention_in_days", retention_in_days)
         _setter("sas_url", sas_url)
 
@@ -62686,7 +69224,13 @@ class GetWindowsWebAppLogHttpLogFileSystemResult(dict):
              _setter: Callable[[Any, Any], None],
              retention_in_days: int,
              retention_in_mb: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'retentionInDays' in kwargs:
+            retention_in_days = kwargs['retentionInDays']
+        if 'retentionInMb' in kwargs:
+            retention_in_mb = kwargs['retentionInMb']
+
         _setter("retention_in_days", retention_in_days)
         _setter("retention_in_mb", retention_in_mb)
 
@@ -62849,7 +69393,73 @@ class GetWindowsWebAppSiteConfigResult(dict):
              websockets_enabled: bool,
              windows_fx_version: str,
              worker_count: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alwaysOn' in kwargs:
+            always_on = kwargs['alwaysOn']
+        if 'apiDefinitionUrl' in kwargs:
+            api_definition_url = kwargs['apiDefinitionUrl']
+        if 'apiManagementApiId' in kwargs:
+            api_management_api_id = kwargs['apiManagementApiId']
+        if 'appCommandLine' in kwargs:
+            app_command_line = kwargs['appCommandLine']
+        if 'applicationStacks' in kwargs:
+            application_stacks = kwargs['applicationStacks']
+        if 'autoHealEnabled' in kwargs:
+            auto_heal_enabled = kwargs['autoHealEnabled']
+        if 'autoHealSettings' in kwargs:
+            auto_heal_settings = kwargs['autoHealSettings']
+        if 'containerRegistryManagedIdentityClientId' in kwargs:
+            container_registry_managed_identity_client_id = kwargs['containerRegistryManagedIdentityClientId']
+        if 'containerRegistryUseManagedIdentity' in kwargs:
+            container_registry_use_managed_identity = kwargs['containerRegistryUseManagedIdentity']
+        if 'defaultDocuments' in kwargs:
+            default_documents = kwargs['defaultDocuments']
+        if 'detailedErrorLoggingEnabled' in kwargs:
+            detailed_error_logging_enabled = kwargs['detailedErrorLoggingEnabled']
+        if 'ftpsState' in kwargs:
+            ftps_state = kwargs['ftpsState']
+        if 'healthCheckEvictionTimeInMin' in kwargs:
+            health_check_eviction_time_in_min = kwargs['healthCheckEvictionTimeInMin']
+        if 'healthCheckPath' in kwargs:
+            health_check_path = kwargs['healthCheckPath']
+        if 'http2Enabled' in kwargs:
+            http2_enabled = kwargs['http2Enabled']
+        if 'ipRestrictions' in kwargs:
+            ip_restrictions = kwargs['ipRestrictions']
+        if 'loadBalancingMode' in kwargs:
+            load_balancing_mode = kwargs['loadBalancingMode']
+        if 'localMysqlEnabled' in kwargs:
+            local_mysql_enabled = kwargs['localMysqlEnabled']
+        if 'managedPipelineMode' in kwargs:
+            managed_pipeline_mode = kwargs['managedPipelineMode']
+        if 'minimumTlsVersion' in kwargs:
+            minimum_tls_version = kwargs['minimumTlsVersion']
+        if 'remoteDebuggingEnabled' in kwargs:
+            remote_debugging_enabled = kwargs['remoteDebuggingEnabled']
+        if 'remoteDebuggingVersion' in kwargs:
+            remote_debugging_version = kwargs['remoteDebuggingVersion']
+        if 'scmIpRestrictions' in kwargs:
+            scm_ip_restrictions = kwargs['scmIpRestrictions']
+        if 'scmMinimumTlsVersion' in kwargs:
+            scm_minimum_tls_version = kwargs['scmMinimumTlsVersion']
+        if 'scmType' in kwargs:
+            scm_type = kwargs['scmType']
+        if 'scmUseMainIpRestriction' in kwargs:
+            scm_use_main_ip_restriction = kwargs['scmUseMainIpRestriction']
+        if 'use32BitWorker' in kwargs:
+            use32_bit_worker = kwargs['use32BitWorker']
+        if 'virtualApplications' in kwargs:
+            virtual_applications = kwargs['virtualApplications']
+        if 'vnetRouteAllEnabled' in kwargs:
+            vnet_route_all_enabled = kwargs['vnetRouteAllEnabled']
+        if 'websocketsEnabled' in kwargs:
+            websockets_enabled = kwargs['websocketsEnabled']
+        if 'windowsFxVersion' in kwargs:
+            windows_fx_version = kwargs['windowsFxVersion']
+        if 'workerCount' in kwargs:
+            worker_count = kwargs['workerCount']
+
         _setter("always_on", always_on)
         _setter("api_definition_url", api_definition_url)
         _setter("api_management_api_id", api_management_api_id)
@@ -63226,7 +69836,45 @@ class GetWindowsWebAppSiteConfigApplicationStackResult(dict):
              python: bool,
              python_version: str,
              tomcat_version: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'currentStack' in kwargs:
+            current_stack = kwargs['currentStack']
+        if 'dockerContainerName' in kwargs:
+            docker_container_name = kwargs['dockerContainerName']
+        if 'dockerContainerRegistry' in kwargs:
+            docker_container_registry = kwargs['dockerContainerRegistry']
+        if 'dockerContainerTag' in kwargs:
+            docker_container_tag = kwargs['dockerContainerTag']
+        if 'dockerImageName' in kwargs:
+            docker_image_name = kwargs['dockerImageName']
+        if 'dockerRegistryPassword' in kwargs:
+            docker_registry_password = kwargs['dockerRegistryPassword']
+        if 'dockerRegistryUrl' in kwargs:
+            docker_registry_url = kwargs['dockerRegistryUrl']
+        if 'dockerRegistryUsername' in kwargs:
+            docker_registry_username = kwargs['dockerRegistryUsername']
+        if 'dotnetCoreVersion' in kwargs:
+            dotnet_core_version = kwargs['dotnetCoreVersion']
+        if 'dotnetVersion' in kwargs:
+            dotnet_version = kwargs['dotnetVersion']
+        if 'javaContainer' in kwargs:
+            java_container = kwargs['javaContainer']
+        if 'javaContainerVersion' in kwargs:
+            java_container_version = kwargs['javaContainerVersion']
+        if 'javaEmbeddedServerEnabled' in kwargs:
+            java_embedded_server_enabled = kwargs['javaEmbeddedServerEnabled']
+        if 'javaVersion' in kwargs:
+            java_version = kwargs['javaVersion']
+        if 'nodeVersion' in kwargs:
+            node_version = kwargs['nodeVersion']
+        if 'phpVersion' in kwargs:
+            php_version = kwargs['phpVersion']
+        if 'pythonVersion' in kwargs:
+            python_version = kwargs['pythonVersion']
+        if 'tomcatVersion' in kwargs:
+            tomcat_version = kwargs['tomcatVersion']
+
         _setter("current_stack", current_stack)
         _setter("docker_container_name", docker_container_name)
         _setter("docker_container_registry", docker_container_registry)
@@ -63398,7 +70046,9 @@ class GetWindowsWebAppSiteConfigAutoHealSettingResult(dict):
              _setter: Callable[[Any, Any], None],
              actions: Sequence['outputs.GetWindowsWebAppSiteConfigAutoHealSettingActionResult'],
              triggers: Sequence['outputs.GetWindowsWebAppSiteConfigAutoHealSettingTriggerResult'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("actions", actions)
         _setter("triggers", triggers)
 
@@ -63442,7 +70092,15 @@ class GetWindowsWebAppSiteConfigAutoHealSettingActionResult(dict):
              action_type: str,
              custom_actions: Sequence['outputs.GetWindowsWebAppSiteConfigAutoHealSettingActionCustomActionResult'],
              minimum_process_execution_time: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionType' in kwargs:
+            action_type = kwargs['actionType']
+        if 'customActions' in kwargs:
+            custom_actions = kwargs['customActions']
+        if 'minimumProcessExecutionTime' in kwargs:
+            minimum_process_execution_time = kwargs['minimumProcessExecutionTime']
+
         _setter("action_type", action_type)
         _setter("custom_actions", custom_actions)
         _setter("minimum_process_execution_time", minimum_process_execution_time)
@@ -63491,7 +70149,9 @@ class GetWindowsWebAppSiteConfigAutoHealSettingActionCustomActionResult(dict):
              _setter: Callable[[Any, Any], None],
              executable: str,
              parameters: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("executable", executable)
         _setter("parameters", parameters)
 
@@ -63539,7 +70199,15 @@ class GetWindowsWebAppSiteConfigAutoHealSettingTriggerResult(dict):
              requests: Sequence['outputs.GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequestResult'],
              slow_requests: Sequence['outputs.GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestResult'],
              status_codes: Sequence['outputs.GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeResult'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateMemoryKb' in kwargs:
+            private_memory_kb = kwargs['privateMemoryKb']
+        if 'slowRequests' in kwargs:
+            slow_requests = kwargs['slowRequests']
+        if 'statusCodes' in kwargs:
+            status_codes = kwargs['statusCodes']
+
         _setter("private_memory_kb", private_memory_kb)
         _setter("requests", requests)
         _setter("slow_requests", slow_requests)
@@ -63597,7 +70265,9 @@ class GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequestResult(dict):
              _setter: Callable[[Any, Any], None],
              count: int,
              interval: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("count", count)
         _setter("interval", interval)
 
@@ -63645,7 +70315,11 @@ class GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestResult(dict):
              interval: str,
              path: str,
              time_taken: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'timeTaken' in kwargs:
+            time_taken = kwargs['timeTaken']
+
         _setter("count", count)
         _setter("interval", interval)
         _setter("path", path)
@@ -63719,7 +70393,15 @@ class GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeResult(dict):
              status_code_range: str,
              sub_status: int,
              win32_status_code: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'statusCodeRange' in kwargs:
+            status_code_range = kwargs['statusCodeRange']
+        if 'subStatus' in kwargs:
+            sub_status = kwargs['subStatus']
+        if 'win32StatusCode' in kwargs:
+            win32_status_code = kwargs['win32StatusCode']
+
         _setter("count", count)
         _setter("interval", interval)
         _setter("path", path)
@@ -63795,7 +70477,13 @@ class GetWindowsWebAppSiteConfigCorResult(dict):
              _setter: Callable[[Any, Any], None],
              allowed_origins: Sequence[str],
              support_credentials: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedOrigins' in kwargs:
+            allowed_origins = kwargs['allowedOrigins']
+        if 'supportCredentials' in kwargs:
+            support_credentials = kwargs['supportCredentials']
+
         _setter("allowed_origins", allowed_origins)
         _setter("support_credentials", support_credentials)
 
@@ -63851,7 +70539,15 @@ class GetWindowsWebAppSiteConfigIpRestrictionResult(dict):
              priority: int,
              service_tag: str,
              virtual_network_subnet_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'serviceTag' in kwargs:
+            service_tag = kwargs['serviceTag']
+        if 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+
         _setter("action", action)
         _setter("headers", headers)
         _setter("ip_address", ip_address)
@@ -63926,7 +70622,17 @@ class GetWindowsWebAppSiteConfigIpRestrictionHeaderResult(dict):
              x_fd_health_probes: Sequence[str],
              x_forwarded_fors: Sequence[str],
              x_forwarded_hosts: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'xAzureFdids' in kwargs:
+            x_azure_fdids = kwargs['xAzureFdids']
+        if 'xFdHealthProbes' in kwargs:
+            x_fd_health_probes = kwargs['xFdHealthProbes']
+        if 'xForwardedFors' in kwargs:
+            x_forwarded_fors = kwargs['xForwardedFors']
+        if 'xForwardedHosts' in kwargs:
+            x_forwarded_hosts = kwargs['xForwardedHosts']
+
         _setter("x_azure_fdids", x_azure_fdids)
         _setter("x_fd_health_probes", x_fd_health_probes)
         _setter("x_forwarded_fors", x_forwarded_fors)
@@ -63988,7 +70694,15 @@ class GetWindowsWebAppSiteConfigScmIpRestrictionResult(dict):
              priority: int,
              service_tag: str,
              virtual_network_subnet_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'serviceTag' in kwargs:
+            service_tag = kwargs['serviceTag']
+        if 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+
         _setter("action", action)
         _setter("headers", headers)
         _setter("ip_address", ip_address)
@@ -64063,7 +70777,17 @@ class GetWindowsWebAppSiteConfigScmIpRestrictionHeaderResult(dict):
              x_fd_health_probes: Sequence[str],
              x_forwarded_fors: Sequence[str],
              x_forwarded_hosts: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'xAzureFdids' in kwargs:
+            x_azure_fdids = kwargs['xAzureFdids']
+        if 'xFdHealthProbes' in kwargs:
+            x_fd_health_probes = kwargs['xFdHealthProbes']
+        if 'xForwardedFors' in kwargs:
+            x_forwarded_fors = kwargs['xForwardedFors']
+        if 'xForwardedHosts' in kwargs:
+            x_forwarded_hosts = kwargs['xForwardedHosts']
+
         _setter("x_azure_fdids", x_azure_fdids)
         _setter("x_fd_health_probes", x_fd_health_probes)
         _setter("x_forwarded_fors", x_forwarded_fors)
@@ -64117,7 +70841,15 @@ class GetWindowsWebAppSiteConfigVirtualApplicationResult(dict):
              preload: bool,
              virtual_directories: Sequence['outputs.GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryResult'],
              virtual_path: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'physicalPath' in kwargs:
+            physical_path = kwargs['physicalPath']
+        if 'virtualDirectories' in kwargs:
+            virtual_directories = kwargs['virtualDirectories']
+        if 'virtualPath' in kwargs:
+            virtual_path = kwargs['virtualPath']
+
         _setter("physical_path", physical_path)
         _setter("preload", preload)
         _setter("virtual_directories", virtual_directories)
@@ -64175,7 +70907,13 @@ class GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryResult(dict):
              _setter: Callable[[Any, Any], None],
              physical_path: str,
              virtual_path: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'physicalPath' in kwargs:
+            physical_path = kwargs['physicalPath']
+        if 'virtualPath' in kwargs:
+            virtual_path = kwargs['virtualPath']
+
         _setter("physical_path", physical_path)
         _setter("virtual_path", virtual_path)
 
@@ -64215,7 +70953,9 @@ class GetWindowsWebAppSiteCredentialResult(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              password: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("password", password)
 
@@ -64255,7 +70995,13 @@ class GetWindowsWebAppStickySettingResult(dict):
              _setter: Callable[[Any, Any], None],
              app_setting_names: Sequence[str],
              connection_string_names: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appSettingNames' in kwargs:
+            app_setting_names = kwargs['appSettingNames']
+        if 'connectionStringNames' in kwargs:
+            connection_string_names = kwargs['connectionStringNames']
+
         _setter("app_setting_names", app_setting_names)
         _setter("connection_string_names", connection_string_names)
 
@@ -64311,7 +71057,17 @@ class GetWindowsWebAppStorageAccountResult(dict):
              name: str,
              share_name: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessKey' in kwargs:
+            access_key = kwargs['accessKey']
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'mountPath' in kwargs:
+            mount_path = kwargs['mountPath']
+        if 'shareName' in kwargs:
+            share_name = kwargs['shareName']
+
         _setter("access_key", access_key)
         _setter("account_name", account_name)
         _setter("mount_path", mount_path)

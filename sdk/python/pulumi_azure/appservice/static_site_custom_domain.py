@@ -35,7 +35,15 @@ class StaticSiteCustomDomainArgs:
              domain_name: pulumi.Input[str],
              static_site_id: pulumi.Input[str],
              validation_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'staticSiteId' in kwargs:
+            static_site_id = kwargs['staticSiteId']
+        if 'validationType' in kwargs:
+            validation_type = kwargs['validationType']
+
         _setter("domain_name", domain_name)
         _setter("static_site_id", static_site_id)
         if validation_type is not None:
@@ -106,7 +114,17 @@ class _StaticSiteCustomDomainState:
              static_site_id: Optional[pulumi.Input[str]] = None,
              validation_token: Optional[pulumi.Input[str]] = None,
              validation_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'staticSiteId' in kwargs:
+            static_site_id = kwargs['staticSiteId']
+        if 'validationToken' in kwargs:
+            validation_token = kwargs['validationToken']
+        if 'validationType' in kwargs:
+            validation_type = kwargs['validationType']
+
         if domain_name is not None:
             _setter("domain_name", domain_name)
         if static_site_id is not None:

@@ -91,7 +91,27 @@ class AccountArgs:
              storage_account_id: Optional[pulumi.Input[str]] = None,
              storage_account_node_identity: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'allowedAuthenticationModes' in kwargs:
+            allowed_authentication_modes = kwargs['allowedAuthenticationModes']
+        if 'keyVaultReference' in kwargs:
+            key_vault_reference = kwargs['keyVaultReference']
+        if 'networkProfile' in kwargs:
+            network_profile = kwargs['networkProfile']
+        if 'poolAllocationMode' in kwargs:
+            pool_allocation_mode = kwargs['poolAllocationMode']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'storageAccountAuthenticationMode' in kwargs:
+            storage_account_authentication_mode = kwargs['storageAccountAuthenticationMode']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if 'storageAccountNodeIdentity' in kwargs:
+            storage_account_node_identity = kwargs['storageAccountNodeIdentity']
+
         _setter("resource_group_name", resource_group_name)
         if allowed_authentication_modes is not None:
             _setter("allowed_authentication_modes", allowed_authentication_modes)
@@ -389,7 +409,33 @@ class _AccountState:
              storage_account_id: Optional[pulumi.Input[str]] = None,
              storage_account_node_identity: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountEndpoint' in kwargs:
+            account_endpoint = kwargs['accountEndpoint']
+        if 'allowedAuthenticationModes' in kwargs:
+            allowed_authentication_modes = kwargs['allowedAuthenticationModes']
+        if 'keyVaultReference' in kwargs:
+            key_vault_reference = kwargs['keyVaultReference']
+        if 'networkProfile' in kwargs:
+            network_profile = kwargs['networkProfile']
+        if 'poolAllocationMode' in kwargs:
+            pool_allocation_mode = kwargs['poolAllocationMode']
+        if 'primaryAccessKey' in kwargs:
+            primary_access_key = kwargs['primaryAccessKey']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'secondaryAccessKey' in kwargs:
+            secondary_access_key = kwargs['secondaryAccessKey']
+        if 'storageAccountAuthenticationMode' in kwargs:
+            storage_account_authentication_mode = kwargs['storageAccountAuthenticationMode']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if 'storageAccountNodeIdentity' in kwargs:
+            storage_account_node_identity = kwargs['storageAccountNodeIdentity']
+
         if account_endpoint is not None:
             _setter("account_endpoint", account_endpoint)
         if allowed_authentication_modes is not None:

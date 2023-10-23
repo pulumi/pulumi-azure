@@ -93,7 +93,27 @@ class ServiceArgs:
              public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
              replica_count: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'allowedIps' in kwargs:
+            allowed_ips = kwargs['allowedIps']
+        if 'authenticationFailureMode' in kwargs:
+            authentication_failure_mode = kwargs['authenticationFailureMode']
+        if 'customerManagedKeyEnforcementEnabled' in kwargs:
+            customer_managed_key_enforcement_enabled = kwargs['customerManagedKeyEnforcementEnabled']
+        if 'hostingMode' in kwargs:
+            hosting_mode = kwargs['hostingMode']
+        if 'localAuthenticationEnabled' in kwargs:
+            local_authentication_enabled = kwargs['localAuthenticationEnabled']
+        if 'partitionCount' in kwargs:
+            partition_count = kwargs['partitionCount']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'replicaCount' in kwargs:
+            replica_count = kwargs['replicaCount']
+
         _setter("resource_group_name", resource_group_name)
         _setter("sku", sku)
         if allowed_ips is not None:
@@ -394,7 +414,33 @@ class _ServiceState:
              secondary_key: Optional[pulumi.Input[str]] = None,
              sku: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedIps' in kwargs:
+            allowed_ips = kwargs['allowedIps']
+        if 'authenticationFailureMode' in kwargs:
+            authentication_failure_mode = kwargs['authenticationFailureMode']
+        if 'customerManagedKeyEnforcementEnabled' in kwargs:
+            customer_managed_key_enforcement_enabled = kwargs['customerManagedKeyEnforcementEnabled']
+        if 'hostingMode' in kwargs:
+            hosting_mode = kwargs['hostingMode']
+        if 'localAuthenticationEnabled' in kwargs:
+            local_authentication_enabled = kwargs['localAuthenticationEnabled']
+        if 'partitionCount' in kwargs:
+            partition_count = kwargs['partitionCount']
+        if 'primaryKey' in kwargs:
+            primary_key = kwargs['primaryKey']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'queryKeys' in kwargs:
+            query_keys = kwargs['queryKeys']
+        if 'replicaCount' in kwargs:
+            replica_count = kwargs['replicaCount']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'secondaryKey' in kwargs:
+            secondary_key = kwargs['secondaryKey']
+
         if allowed_ips is not None:
             _setter("allowed_ips", allowed_ips)
         if authentication_failure_mode is not None:

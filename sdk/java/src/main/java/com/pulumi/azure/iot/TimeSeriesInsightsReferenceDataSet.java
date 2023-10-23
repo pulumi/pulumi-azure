@@ -86,7 +86,7 @@ public class TimeSeriesInsightsReferenceDataSet extends com.pulumi.resources.Cus
      * The comparison behavior that will be used to compare keys. Valid values include `Ordinal` and `OrdinalIgnoreCase`. Defaults to `Ordinal`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="dataStringComparisonBehavior", refs={String.class}, tree="[0]")
+    @Export(name="dataStringComparisonBehavior", type=String.class, parameters={})
     private Output</* @Nullable */ String> dataStringComparisonBehavior;
 
     /**
@@ -100,7 +100,7 @@ public class TimeSeriesInsightsReferenceDataSet extends com.pulumi.resources.Cus
      * A `key_property` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="keyProperties", refs={List.class,TimeSeriesInsightsReferenceDataSetKeyProperty.class}, tree="[0,1]")
+    @Export(name="keyProperties", type=List.class, parameters={TimeSeriesInsightsReferenceDataSetKeyProperty.class})
     private Output<List<TimeSeriesInsightsReferenceDataSetKeyProperty>> keyProperties;
 
     /**
@@ -114,7 +114,7 @@ public class TimeSeriesInsightsReferenceDataSet extends com.pulumi.resources.Cus
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -128,7 +128,7 @@ public class TimeSeriesInsightsReferenceDataSet extends com.pulumi.resources.Cus
      * Specifies the name of the Azure IoT Time Series Insights Reference Data Set. Changing this forces a new resource to be created. Must be globally unique.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -142,7 +142,7 @@ public class TimeSeriesInsightsReferenceDataSet extends com.pulumi.resources.Cus
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -156,7 +156,7 @@ public class TimeSeriesInsightsReferenceDataSet extends com.pulumi.resources.Cus
      * The resource ID of the Azure IoT Time Series Insights Environment in which to create the Azure IoT Time Series Insights Reference Data Set. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="timeSeriesInsightsEnvironmentId", refs={String.class}, tree="[0]")
+    @Export(name="timeSeriesInsightsEnvironmentId", type=String.class, parameters={})
     private Output<String> timeSeriesInsightsEnvironmentId;
 
     /**

@@ -69,7 +69,19 @@ class SmartDetectorAlertRuleArgs:
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              throttling_duration: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionGroup' in kwargs:
+            action_group = kwargs['actionGroup']
+        if 'detectorType' in kwargs:
+            detector_type = kwargs['detectorType']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'scopeResourceIds' in kwargs:
+            scope_resource_ids = kwargs['scopeResourceIds']
+        if 'throttlingDuration' in kwargs:
+            throttling_duration = kwargs['throttlingDuration']
+
         _setter("action_group", action_group)
         _setter("detector_type", detector_type)
         _setter("frequency", frequency)
@@ -276,7 +288,19 @@ class _SmartDetectorAlertRuleState:
              severity: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              throttling_duration: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionGroup' in kwargs:
+            action_group = kwargs['actionGroup']
+        if 'detectorType' in kwargs:
+            detector_type = kwargs['detectorType']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'scopeResourceIds' in kwargs:
+            scope_resource_ids = kwargs['scopeResourceIds']
+        if 'throttlingDuration' in kwargs:
+            throttling_duration = kwargs['throttlingDuration']
+
         if action_group is not None:
             _setter("action_group", action_group)
         if description is not None:

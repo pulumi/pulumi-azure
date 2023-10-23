@@ -81,7 +81,7 @@ public class IntegrationAccountSession extends com.pulumi.resources.CustomResour
      * The content of the Logic App Integration Account Session.
      * 
      */
-    @Export(name="content", refs={String.class}, tree="[0]")
+    @Export(name="content", type=String.class, parameters={})
     private Output<String> content;
 
     /**
@@ -95,7 +95,7 @@ public class IntegrationAccountSession extends com.pulumi.resources.CustomResour
      * The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Session to be created.
      * 
      */
-    @Export(name="integrationAccountName", refs={String.class}, tree="[0]")
+    @Export(name="integrationAccountName", type=String.class, parameters={})
     private Output<String> integrationAccountName;
 
     /**
@@ -109,7 +109,7 @@ public class IntegrationAccountSession extends com.pulumi.resources.CustomResour
      * The name which should be used for this Logic App Integration Account Session. Changing this forces a new Logic App Integration Account Session to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -123,7 +123,7 @@ public class IntegrationAccountSession extends com.pulumi.resources.CustomResour
      * The name of the Resource Group where the Logic App Integration Account Session should exist. Changing this forces a new Logic App Integration Account Session to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**

@@ -45,7 +45,17 @@ class AssetFilterArgs:
              name: Optional[pulumi.Input[str]] = None,
              presentation_time_range: Optional[pulumi.Input['AssetFilterPresentationTimeRangeArgs']] = None,
              track_selections: Optional[pulumi.Input[Sequence[pulumi.Input['AssetFilterTrackSelectionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'assetId' in kwargs:
+            asset_id = kwargs['assetId']
+        if 'firstQualityBitrate' in kwargs:
+            first_quality_bitrate = kwargs['firstQualityBitrate']
+        if 'presentationTimeRange' in kwargs:
+            presentation_time_range = kwargs['presentationTimeRange']
+        if 'trackSelections' in kwargs:
+            track_selections = kwargs['trackSelections']
+
         _setter("asset_id", asset_id)
         if first_quality_bitrate is not None:
             _setter("first_quality_bitrate", first_quality_bitrate)
@@ -149,7 +159,17 @@ class _AssetFilterState:
              name: Optional[pulumi.Input[str]] = None,
              presentation_time_range: Optional[pulumi.Input['AssetFilterPresentationTimeRangeArgs']] = None,
              track_selections: Optional[pulumi.Input[Sequence[pulumi.Input['AssetFilterTrackSelectionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'assetId' in kwargs:
+            asset_id = kwargs['assetId']
+        if 'firstQualityBitrate' in kwargs:
+            first_quality_bitrate = kwargs['firstQualityBitrate']
+        if 'presentationTimeRange' in kwargs:
+            presentation_time_range = kwargs['presentationTimeRange']
+        if 'trackSelections' in kwargs:
+            track_selections = kwargs['trackSelections']
+
         if asset_id is not None:
             _setter("asset_id", asset_id)
         if first_quality_bitrate is not None:

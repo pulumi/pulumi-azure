@@ -105,7 +105,33 @@ class PublicIpArgs:
              sku_tier: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allocationMethod' in kwargs:
+            allocation_method = kwargs['allocationMethod']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'ddosProtectionMode' in kwargs:
+            ddos_protection_mode = kwargs['ddosProtectionMode']
+        if 'ddosProtectionPlanId' in kwargs:
+            ddos_protection_plan_id = kwargs['ddosProtectionPlanId']
+        if 'domainNameLabel' in kwargs:
+            domain_name_label = kwargs['domainNameLabel']
+        if 'edgeZone' in kwargs:
+            edge_zone = kwargs['edgeZone']
+        if 'idleTimeoutInMinutes' in kwargs:
+            idle_timeout_in_minutes = kwargs['idleTimeoutInMinutes']
+        if 'ipTags' in kwargs:
+            ip_tags = kwargs['ipTags']
+        if 'ipVersion' in kwargs:
+            ip_version = kwargs['ipVersion']
+        if 'publicIpPrefixId' in kwargs:
+            public_ip_prefix_id = kwargs['publicIpPrefixId']
+        if 'reverseFqdn' in kwargs:
+            reverse_fqdn = kwargs['reverseFqdn']
+        if 'skuTier' in kwargs:
+            sku_tier = kwargs['skuTier']
+
         _setter("allocation_method", allocation_method)
         _setter("resource_group_name", resource_group_name)
         if ddos_protection_mode is not None:
@@ -460,7 +486,35 @@ class _PublicIpState:
              sku_tier: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allocationMethod' in kwargs:
+            allocation_method = kwargs['allocationMethod']
+        if 'ddosProtectionMode' in kwargs:
+            ddos_protection_mode = kwargs['ddosProtectionMode']
+        if 'ddosProtectionPlanId' in kwargs:
+            ddos_protection_plan_id = kwargs['ddosProtectionPlanId']
+        if 'domainNameLabel' in kwargs:
+            domain_name_label = kwargs['domainNameLabel']
+        if 'edgeZone' in kwargs:
+            edge_zone = kwargs['edgeZone']
+        if 'idleTimeoutInMinutes' in kwargs:
+            idle_timeout_in_minutes = kwargs['idleTimeoutInMinutes']
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'ipTags' in kwargs:
+            ip_tags = kwargs['ipTags']
+        if 'ipVersion' in kwargs:
+            ip_version = kwargs['ipVersion']
+        if 'publicIpPrefixId' in kwargs:
+            public_ip_prefix_id = kwargs['publicIpPrefixId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'reverseFqdn' in kwargs:
+            reverse_fqdn = kwargs['reverseFqdn']
+        if 'skuTier' in kwargs:
+            sku_tier = kwargs['skuTier']
+
         if allocation_method is not None:
             _setter("allocation_method", allocation_method)
         if ddos_protection_mode is not None:

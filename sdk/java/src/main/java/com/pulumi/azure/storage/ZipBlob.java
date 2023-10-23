@@ -25,91 +25,91 @@ import javax.annotation.Nullable;
 @Deprecated /* ZipBlob resource is deprecated in the 2.0 version of the provider. Use Blob resource instead. */
 @ResourceType(type="azure:storage/zipBlob:ZipBlob")
 public class ZipBlob extends com.pulumi.resources.CustomResource {
-    @Export(name="accessTier", refs={String.class}, tree="[0]")
+    @Export(name="accessTier", type=String.class, parameters={})
     private Output<String> accessTier;
 
     public Output<String> accessTier() {
         return this.accessTier;
     }
-    @Export(name="cacheControl", refs={String.class}, tree="[0]")
+    @Export(name="cacheControl", type=String.class, parameters={})
     private Output</* @Nullable */ String> cacheControl;
 
     public Output<Optional<String>> cacheControl() {
         return Codegen.optional(this.cacheControl);
     }
-    @Export(name="content", refs={Archive.class}, tree="[0]")
+    @Export(name="content", type=Archive.class, parameters={})
     private Output</* @Nullable */ Archive> content;
 
     public Output<Optional<Archive>> content() {
         return Codegen.optional(this.content);
     }
-    @Export(name="contentMd5", refs={String.class}, tree="[0]")
+    @Export(name="contentMd5", type=String.class, parameters={})
     private Output</* @Nullable */ String> contentMd5;
 
     public Output<Optional<String>> contentMd5() {
         return Codegen.optional(this.contentMd5);
     }
-    @Export(name="contentType", refs={String.class}, tree="[0]")
+    @Export(name="contentType", type=String.class, parameters={})
     private Output</* @Nullable */ String> contentType;
 
     public Output<Optional<String>> contentType() {
         return Codegen.optional(this.contentType);
     }
-    @Export(name="metadata", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="metadata", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> metadata;
 
     public Output<Map<String,String>> metadata() {
         return this.metadata;
     }
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     public Output<String> name() {
         return this.name;
     }
-    @Export(name="parallelism", refs={Integer.class}, tree="[0]")
+    @Export(name="parallelism", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> parallelism;
 
     public Output<Optional<Integer>> parallelism() {
         return Codegen.optional(this.parallelism);
     }
-    @Export(name="size", refs={Integer.class}, tree="[0]")
+    @Export(name="size", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> size;
 
     public Output<Optional<Integer>> size() {
         return Codegen.optional(this.size);
     }
-    @Export(name="sourceContent", refs={String.class}, tree="[0]")
+    @Export(name="sourceContent", type=String.class, parameters={})
     private Output</* @Nullable */ String> sourceContent;
 
     public Output<Optional<String>> sourceContent() {
         return Codegen.optional(this.sourceContent);
     }
-    @Export(name="sourceUri", refs={String.class}, tree="[0]")
+    @Export(name="sourceUri", type=String.class, parameters={})
     private Output</* @Nullable */ String> sourceUri;
 
     public Output<Optional<String>> sourceUri() {
         return Codegen.optional(this.sourceUri);
     }
-    @Export(name="storageAccountName", refs={String.class}, tree="[0]")
+    @Export(name="storageAccountName", type=String.class, parameters={})
     private Output<String> storageAccountName;
 
     public Output<String> storageAccountName() {
         return this.storageAccountName;
     }
-    @Export(name="storageContainerName", refs={String.class}, tree="[0]")
+    @Export(name="storageContainerName", type=String.class, parameters={})
     private Output<String> storageContainerName;
 
     public Output<String> storageContainerName() {
         return this.storageContainerName;
     }
-    @Export(name="type", refs={String.class}, tree="[0]")
+    @Export(name="type", type=String.class, parameters={})
     private Output<String> type;
 
     public Output<String> type() {
         return this.type;
     }
-    @Export(name="url", refs={String.class}, tree="[0]")
+    @Export(name="url", type=String.class, parameters={})
     private Output<String> url;
 
     public Output<String> url() {

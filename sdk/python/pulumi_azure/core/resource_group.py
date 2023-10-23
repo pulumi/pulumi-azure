@@ -39,7 +39,11 @@ class ResourceGroupArgs:
              managed_by: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'managedBy' in kwargs:
+            managed_by = kwargs['managedBy']
+
         if location is not None:
             _setter("location", location)
         if managed_by is not None:
@@ -126,7 +130,11 @@ class _ResourceGroupState:
              managed_by: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'managedBy' in kwargs:
+            managed_by = kwargs['managedBy']
+
         if location is not None:
             _setter("location", location)
         if managed_by is not None:

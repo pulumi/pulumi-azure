@@ -43,7 +43,13 @@ class RegistryScopeMapArgs:
              resource_group_name: pulumi.Input[str],
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerRegistryName' in kwargs:
+            container_registry_name = kwargs['containerRegistryName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         _setter("actions", actions)
         _setter("container_registry_name", container_registry_name)
         _setter("resource_group_name", resource_group_name)
@@ -145,7 +151,13 @@ class _RegistryScopeMapState:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerRegistryName' in kwargs:
+            container_registry_name = kwargs['containerRegistryName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if actions is not None:
             _setter("actions", actions)
         if container_registry_name is not None:

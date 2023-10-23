@@ -31,7 +31,11 @@ class SyncGroupArgs:
              _setter: Callable[[Any, Any], None],
              storage_sync_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageSyncId' in kwargs:
+            storage_sync_id = kwargs['storageSyncId']
+
         _setter("storage_sync_id", storage_sync_id)
         if name is not None:
             _setter("name", name)
@@ -81,7 +85,11 @@ class _SyncGroupState:
              _setter: Callable[[Any, Any], None],
              name: Optional[pulumi.Input[str]] = None,
              storage_sync_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageSyncId' in kwargs:
+            storage_sync_id = kwargs['storageSyncId']
+
         if name is not None:
             _setter("name", name)
         if storage_sync_id is not None:

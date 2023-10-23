@@ -93,7 +93,29 @@ class ManagedClusterArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              upgrade_wave: Optional[pulumi.Input[str]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientConnectionPort' in kwargs:
+            client_connection_port = kwargs['clientConnectionPort']
+        if 'httpGatewayPort' in kwargs:
+            http_gateway_port = kwargs['httpGatewayPort']
+        if 'lbRules' in kwargs:
+            lb_rules = kwargs['lbRules']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'backupServiceEnabled' in kwargs:
+            backup_service_enabled = kwargs['backupServiceEnabled']
+        if 'customFabricSettings' in kwargs:
+            custom_fabric_settings = kwargs['customFabricSettings']
+        if 'dnsName' in kwargs:
+            dns_name = kwargs['dnsName']
+        if 'dnsServiceEnabled' in kwargs:
+            dns_service_enabled = kwargs['dnsServiceEnabled']
+        if 'nodeTypes' in kwargs:
+            node_types = kwargs['nodeTypes']
+        if 'upgradeWave' in kwargs:
+            upgrade_wave = kwargs['upgradeWave']
+
         _setter("client_connection_port", client_connection_port)
         _setter("http_gateway_port", http_gateway_port)
         _setter("lb_rules", lb_rules)
@@ -410,7 +432,29 @@ class _ManagedClusterState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              upgrade_wave: Optional[pulumi.Input[str]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backupServiceEnabled' in kwargs:
+            backup_service_enabled = kwargs['backupServiceEnabled']
+        if 'clientConnectionPort' in kwargs:
+            client_connection_port = kwargs['clientConnectionPort']
+        if 'customFabricSettings' in kwargs:
+            custom_fabric_settings = kwargs['customFabricSettings']
+        if 'dnsName' in kwargs:
+            dns_name = kwargs['dnsName']
+        if 'dnsServiceEnabled' in kwargs:
+            dns_service_enabled = kwargs['dnsServiceEnabled']
+        if 'httpGatewayPort' in kwargs:
+            http_gateway_port = kwargs['httpGatewayPort']
+        if 'lbRules' in kwargs:
+            lb_rules = kwargs['lbRules']
+        if 'nodeTypes' in kwargs:
+            node_types = kwargs['nodeTypes']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'upgradeWave' in kwargs:
+            upgrade_wave = kwargs['upgradeWave']
+
         if authentication is not None:
             _setter("authentication", authentication)
         if backup_service_enabled is not None:

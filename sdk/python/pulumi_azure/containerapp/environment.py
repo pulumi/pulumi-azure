@@ -65,7 +65,21 @@ class EnvironmentArgs:
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zone_redundancy_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'daprApplicationInsightsConnectionString' in kwargs:
+            dapr_application_insights_connection_string = kwargs['daprApplicationInsightsConnectionString']
+        if 'infrastructureSubnetId' in kwargs:
+            infrastructure_subnet_id = kwargs['infrastructureSubnetId']
+        if 'internalLoadBalancerEnabled' in kwargs:
+            internal_load_balancer_enabled = kwargs['internalLoadBalancerEnabled']
+        if 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if 'zoneRedundancyEnabled' in kwargs:
+            zone_redundancy_enabled = kwargs['zoneRedundancyEnabled']
+
         _setter("resource_group_name", resource_group_name)
         if dapr_application_insights_connection_string is not None:
             _setter("dapr_application_insights_connection_string", dapr_application_insights_connection_string)
@@ -273,7 +287,31 @@ class _EnvironmentState:
              static_ip_address: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zone_redundancy_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'daprApplicationInsightsConnectionString' in kwargs:
+            dapr_application_insights_connection_string = kwargs['daprApplicationInsightsConnectionString']
+        if 'defaultDomain' in kwargs:
+            default_domain = kwargs['defaultDomain']
+        if 'dockerBridgeCidr' in kwargs:
+            docker_bridge_cidr = kwargs['dockerBridgeCidr']
+        if 'infrastructureSubnetId' in kwargs:
+            infrastructure_subnet_id = kwargs['infrastructureSubnetId']
+        if 'internalLoadBalancerEnabled' in kwargs:
+            internal_load_balancer_enabled = kwargs['internalLoadBalancerEnabled']
+        if 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if 'platformReservedCidr' in kwargs:
+            platform_reserved_cidr = kwargs['platformReservedCidr']
+        if 'platformReservedDnsIpAddress' in kwargs:
+            platform_reserved_dns_ip_address = kwargs['platformReservedDnsIpAddress']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'staticIpAddress' in kwargs:
+            static_ip_address = kwargs['staticIpAddress']
+        if 'zoneRedundancyEnabled' in kwargs:
+            zone_redundancy_enabled = kwargs['zoneRedundancyEnabled']
+
         if dapr_application_insights_connection_string is not None:
             _setter("dapr_application_insights_connection_string", dapr_application_insights_connection_string)
         if default_domain is not None:

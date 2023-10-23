@@ -55,7 +55,21 @@ class SharedAccessPolicyArgs:
              registry_read: Optional[pulumi.Input[bool]] = None,
              registry_write: Optional[pulumi.Input[bool]] = None,
              service_connect: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'iothubName' in kwargs:
+            iothub_name = kwargs['iothubName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'deviceConnect' in kwargs:
+            device_connect = kwargs['deviceConnect']
+        if 'registryRead' in kwargs:
+            registry_read = kwargs['registryRead']
+        if 'registryWrite' in kwargs:
+            registry_write = kwargs['registryWrite']
+        if 'serviceConnect' in kwargs:
+            service_connect = kwargs['serviceConnect']
+
         _setter("iothub_name", iothub_name)
         _setter("resource_group_name", resource_group_name)
         if device_connect is not None:
@@ -218,7 +232,29 @@ class _SharedAccessPolicyState:
              secondary_connection_string: Optional[pulumi.Input[str]] = None,
              secondary_key: Optional[pulumi.Input[str]] = None,
              service_connect: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deviceConnect' in kwargs:
+            device_connect = kwargs['deviceConnect']
+        if 'iothubName' in kwargs:
+            iothub_name = kwargs['iothubName']
+        if 'primaryConnectionString' in kwargs:
+            primary_connection_string = kwargs['primaryConnectionString']
+        if 'primaryKey' in kwargs:
+            primary_key = kwargs['primaryKey']
+        if 'registryRead' in kwargs:
+            registry_read = kwargs['registryRead']
+        if 'registryWrite' in kwargs:
+            registry_write = kwargs['registryWrite']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'secondaryConnectionString' in kwargs:
+            secondary_connection_string = kwargs['secondaryConnectionString']
+        if 'secondaryKey' in kwargs:
+            secondary_key = kwargs['secondaryKey']
+        if 'serviceConnect' in kwargs:
+            service_connect = kwargs['serviceConnect']
+
         if device_connect is not None:
             _setter("device_connect", device_connect)
         if iothub_name is not None:

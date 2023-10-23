@@ -124,7 +124,7 @@ public class EndpointCosmosdbAccount extends com.pulumi.resources.CustomResource
      * The type used to authenticate against the Cosmos DB Account endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
      * 
      */
-    @Export(name="authenticationType", refs={String.class}, tree="[0]")
+    @Export(name="authenticationType", type=String.class, parameters={})
     private Output</* @Nullable */ String> authenticationType;
 
     /**
@@ -138,7 +138,7 @@ public class EndpointCosmosdbAccount extends com.pulumi.resources.CustomResource
      * The name of the Cosmos DB Container in the Cosmos DB Database. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="containerName", refs={String.class}, tree="[0]")
+    @Export(name="containerName", type=String.class, parameters={})
     private Output<String> containerName;
 
     /**
@@ -152,7 +152,7 @@ public class EndpointCosmosdbAccount extends com.pulumi.resources.CustomResource
      * The name of the Cosmos DB Database in the Cosmos DB Account. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="databaseName", refs={String.class}, tree="[0]")
+    @Export(name="databaseName", type=String.class, parameters={})
     private Output<String> databaseName;
 
     /**
@@ -166,7 +166,7 @@ public class EndpointCosmosdbAccount extends com.pulumi.resources.CustomResource
      * The URI of the Cosmos DB Account. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="endpointUri", refs={String.class}, tree="[0]")
+    @Export(name="endpointUri", type=String.class, parameters={})
     private Output<String> endpointUri;
 
     /**
@@ -182,7 +182,7 @@ public class EndpointCosmosdbAccount extends com.pulumi.resources.CustomResource
      * &gt; **NOTE:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
      * 
      */
-    @Export(name="identityId", refs={String.class}, tree="[0]")
+    @Export(name="identityId", type=String.class, parameters={})
     private Output</* @Nullable */ String> identityId;
 
     /**
@@ -198,7 +198,7 @@ public class EndpointCosmosdbAccount extends com.pulumi.resources.CustomResource
      * The ID of the IoT Hub to create the endpoint. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="iothubId", refs={String.class}, tree="[0]")
+    @Export(name="iothubId", type=String.class, parameters={})
     private Output<String> iothubId;
 
     /**
@@ -212,7 +212,7 @@ public class EndpointCosmosdbAccount extends com.pulumi.resources.CustomResource
      * The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -226,7 +226,7 @@ public class EndpointCosmosdbAccount extends com.pulumi.resources.CustomResource
      * The name of the partition key associated with the Cosmos DB Container.
      * 
      */
-    @Export(name="partitionKeyName", refs={String.class}, tree="[0]")
+    @Export(name="partitionKeyName", type=String.class, parameters={})
     private Output</* @Nullable */ String> partitionKeyName;
 
     /**
@@ -240,7 +240,7 @@ public class EndpointCosmosdbAccount extends com.pulumi.resources.CustomResource
      * The template for generating a synthetic partition key value for use within the Cosmos DB Container.
      * 
      */
-    @Export(name="partitionKeyTemplate", refs={String.class}, tree="[0]")
+    @Export(name="partitionKeyTemplate", type=String.class, parameters={})
     private Output</* @Nullable */ String> partitionKeyTemplate;
 
     /**
@@ -256,7 +256,7 @@ public class EndpointCosmosdbAccount extends com.pulumi.resources.CustomResource
      * &gt; **NOTE:** `primary_key` must and can only be specified when `authentication_type` is `keyBased`.
      * 
      */
-    @Export(name="primaryKey", refs={String.class}, tree="[0]")
+    @Export(name="primaryKey", type=String.class, parameters={})
     private Output</* @Nullable */ String> primaryKey;
 
     /**
@@ -272,7 +272,7 @@ public class EndpointCosmosdbAccount extends com.pulumi.resources.CustomResource
      * The name of the resource group under which the Cosmos DB Account has been created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -288,7 +288,7 @@ public class EndpointCosmosdbAccount extends com.pulumi.resources.CustomResource
      * &gt; **NOTE:** `secondary_key` must and can only be specified when `authentication_type` is `keyBased`.
      * 
      */
-    @Export(name="secondaryKey", refs={String.class}, tree="[0]")
+    @Export(name="secondaryKey", type=String.class, parameters={})
     private Output</* @Nullable */ String> secondaryKey;
 
     /**

@@ -155,7 +155,7 @@ public class ApplicationSecurityGroupAssociation extends com.pulumi.resources.Cu
      * The id of application security group to associate. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="applicationSecurityGroupId", refs={String.class}, tree="[0]")
+    @Export(name="applicationSecurityGroupId", type=String.class, parameters={})
     private Output<String> applicationSecurityGroupId;
 
     /**
@@ -169,7 +169,7 @@ public class ApplicationSecurityGroupAssociation extends com.pulumi.resources.Cu
      * The id of private endpoint to associate. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="privateEndpointId", refs={String.class}, tree="[0]")
+    @Export(name="privateEndpointId", type=String.class, parameters={})
     private Output<String> privateEndpointId;
 
     /**

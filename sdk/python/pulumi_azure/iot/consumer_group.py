@@ -39,7 +39,15 @@ class ConsumerGroupArgs:
              iothub_name: pulumi.Input[str],
              resource_group_name: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventhubEndpointName' in kwargs:
+            eventhub_endpoint_name = kwargs['eventhubEndpointName']
+        if 'iothubName' in kwargs:
+            iothub_name = kwargs['iothubName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         _setter("eventhub_endpoint_name", eventhub_endpoint_name)
         _setter("iothub_name", iothub_name)
         _setter("resource_group_name", resource_group_name)
@@ -123,7 +131,15 @@ class _ConsumerGroupState:
              iothub_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventhubEndpointName' in kwargs:
+            eventhub_endpoint_name = kwargs['eventhubEndpointName']
+        if 'iothubName' in kwargs:
+            iothub_name = kwargs['iothubName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if eventhub_endpoint_name is not None:
             _setter("eventhub_endpoint_name", eventhub_endpoint_name)
         if iothub_name is not None:

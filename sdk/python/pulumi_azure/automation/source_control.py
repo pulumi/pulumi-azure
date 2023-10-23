@@ -65,7 +65,21 @@ class SourceControlArgs:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              publish_runbook_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'automationAccountId' in kwargs:
+            automation_account_id = kwargs['automationAccountId']
+        if 'folderPath' in kwargs:
+            folder_path = kwargs['folderPath']
+        if 'repositoryUrl' in kwargs:
+            repository_url = kwargs['repositoryUrl']
+        if 'sourceControlType' in kwargs:
+            source_control_type = kwargs['sourceControlType']
+        if 'automaticSync' in kwargs:
+            automatic_sync = kwargs['automaticSync']
+        if 'publishRunbookEnabled' in kwargs:
+            publish_runbook_enabled = kwargs['publishRunbookEnabled']
+
         _setter("automation_account_id", automation_account_id)
         _setter("folder_path", folder_path)
         _setter("repository_url", repository_url)
@@ -255,7 +269,21 @@ class _SourceControlState:
              repository_url: Optional[pulumi.Input[str]] = None,
              security: Optional[pulumi.Input['SourceControlSecurityArgs']] = None,
              source_control_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'automaticSync' in kwargs:
+            automatic_sync = kwargs['automaticSync']
+        if 'automationAccountId' in kwargs:
+            automation_account_id = kwargs['automationAccountId']
+        if 'folderPath' in kwargs:
+            folder_path = kwargs['folderPath']
+        if 'publishRunbookEnabled' in kwargs:
+            publish_runbook_enabled = kwargs['publishRunbookEnabled']
+        if 'repositoryUrl' in kwargs:
+            repository_url = kwargs['repositoryUrl']
+        if 'sourceControlType' in kwargs:
+            source_control_type = kwargs['sourceControlType']
+
         if automatic_sync is not None:
             _setter("automatic_sync", automatic_sync)
         if automation_account_id is not None:

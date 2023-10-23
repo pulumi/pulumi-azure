@@ -84,7 +84,23 @@ class DatabaseImportArgs:
              storage_key_type: pulumi.Input[str],
              storage_uri: pulumi.Input[str],
              storage_account_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'administratorLogin' in kwargs:
+            administrator_login = kwargs['administratorLogin']
+        if 'administratorLoginPassword' in kwargs:
+            administrator_login_password = kwargs['administratorLoginPassword']
+        if 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+        if 'storageKey' in kwargs:
+            storage_key = kwargs['storageKey']
+        if 'storageKeyType' in kwargs:
+            storage_key_type = kwargs['storageKeyType']
+        if 'storageUri' in kwargs:
+            storage_uri = kwargs['storageUri']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+
         _setter("administrator_login", administrator_login)
         _setter("administrator_login_password", administrator_login_password)
         _setter("authentication_type", authentication_type)
@@ -206,7 +222,17 @@ class DatabaseLongTermRetentionPolicyArgs:
              week_of_year: Optional[pulumi.Input[int]] = None,
              weekly_retention: Optional[pulumi.Input[str]] = None,
              yearly_retention: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'monthlyRetention' in kwargs:
+            monthly_retention = kwargs['monthlyRetention']
+        if 'weekOfYear' in kwargs:
+            week_of_year = kwargs['weekOfYear']
+        if 'weeklyRetention' in kwargs:
+            weekly_retention = kwargs['weeklyRetention']
+        if 'yearlyRetention' in kwargs:
+            yearly_retention = kwargs['yearlyRetention']
+
         if monthly_retention is not None:
             _setter("monthly_retention", monthly_retention)
         if week_of_year is not None:
@@ -284,7 +310,13 @@ class DatabaseShortTermRetentionPolicyArgs:
              _setter: Callable[[Any, Any], None],
              retention_days: pulumi.Input[int],
              backup_interval_in_hours: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'retentionDays' in kwargs:
+            retention_days = kwargs['retentionDays']
+        if 'backupIntervalInHours' in kwargs:
+            backup_interval_in_hours = kwargs['backupIntervalInHours']
+
         _setter("retention_days", retention_days)
         if backup_interval_in_hours is not None:
             _setter("backup_interval_in_hours", backup_interval_in_hours)
@@ -353,7 +385,21 @@ class DatabaseThreatDetectionPolicyArgs:
              state: Optional[pulumi.Input[str]] = None,
              storage_account_access_key: Optional[pulumi.Input[str]] = None,
              storage_endpoint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'disabledAlerts' in kwargs:
+            disabled_alerts = kwargs['disabledAlerts']
+        if 'emailAccountAdmins' in kwargs:
+            email_account_admins = kwargs['emailAccountAdmins']
+        if 'emailAddresses' in kwargs:
+            email_addresses = kwargs['emailAddresses']
+        if 'retentionDays' in kwargs:
+            retention_days = kwargs['retentionDays']
+        if 'storageAccountAccessKey' in kwargs:
+            storage_account_access_key = kwargs['storageAccountAccessKey']
+        if 'storageEndpoint' in kwargs:
+            storage_endpoint = kwargs['storageEndpoint']
+
         if disabled_alerts is not None:
             _setter("disabled_alerts", disabled_alerts)
         if email_account_admins is not None:
@@ -469,7 +515,9 @@ class DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              results: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("results", results)
 
     @property
@@ -504,7 +552,13 @@ class ElasticPoolPerDatabaseSettingsArgs:
              _setter: Callable[[Any, Any], None],
              max_capacity: pulumi.Input[float],
              min_capacity: pulumi.Input[float],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxCapacity' in kwargs:
+            max_capacity = kwargs['maxCapacity']
+        if 'minCapacity' in kwargs:
+            min_capacity = kwargs['minCapacity']
+
         _setter("max_capacity", max_capacity)
         _setter("min_capacity", min_capacity)
 
@@ -560,7 +614,9 @@ class ElasticPoolSkuArgs:
              name: pulumi.Input[str],
              tier: pulumi.Input[str],
              family: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("capacity", capacity)
         _setter("name", name)
         _setter("tier", tier)
@@ -639,7 +695,9 @@ class FailoverGroupPartnerServerArgs:
              id: pulumi.Input[str],
              location: Optional[pulumi.Input[str]] = None,
              role: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("id", id)
         if location is not None:
             _setter("location", location)
@@ -702,7 +760,11 @@ class FailoverGroupReadWriteEndpointFailoverPolicyArgs:
              _setter: Callable[[Any, Any], None],
              mode: pulumi.Input[str],
              grace_minutes: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'graceMinutes' in kwargs:
+            grace_minutes = kwargs['graceMinutes']
+
         _setter("mode", mode)
         if grace_minutes is not None:
             _setter("grace_minutes", grace_minutes)
@@ -759,7 +821,17 @@ class ManagedDatabaseLongTermRetentionPolicyArgs:
              week_of_year: Optional[pulumi.Input[int]] = None,
              weekly_retention: Optional[pulumi.Input[str]] = None,
              yearly_retention: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'monthlyRetention' in kwargs:
+            monthly_retention = kwargs['monthlyRetention']
+        if 'weekOfYear' in kwargs:
+            week_of_year = kwargs['weekOfYear']
+        if 'weeklyRetention' in kwargs:
+            weekly_retention = kwargs['weeklyRetention']
+        if 'yearlyRetention' in kwargs:
+            yearly_retention = kwargs['yearlyRetention']
+
         if monthly_retention is not None:
             _setter("monthly_retention", monthly_retention)
         if week_of_year is not None:
@@ -837,7 +909,9 @@ class ManagedInstanceFailoverGroupPartnerRegionArgs:
              _setter: Callable[[Any, Any], None],
              location: Optional[pulumi.Input[str]] = None,
              role: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if location is not None:
             _setter("location", location)
         if role is not None:
@@ -887,7 +961,11 @@ class ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs:
              _setter: Callable[[Any, Any], None],
              mode: pulumi.Input[str],
              grace_minutes: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'graceMinutes' in kwargs:
+            grace_minutes = kwargs['graceMinutes']
+
         _setter("mode", mode)
         if grace_minutes is not None:
             _setter("grace_minutes", grace_minutes)
@@ -946,7 +1024,15 @@ class ManagedInstanceIdentityArgs:
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -1029,7 +1115,11 @@ class ManagedInstanceVulnerabilityAssessmentRecurringScansArgs:
              email_subscription_admins: Optional[pulumi.Input[bool]] = None,
              emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'emailSubscriptionAdmins' in kwargs:
+            email_subscription_admins = kwargs['emailSubscriptionAdmins']
+
         if email_subscription_admins is not None:
             _setter("email_subscription_admins", email_subscription_admins)
         if emails is not None:
@@ -1101,7 +1191,17 @@ class ServerAzureadAdministratorArgs:
              object_id: pulumi.Input[str],
              azuread_authentication_only: Optional[pulumi.Input[bool]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'loginUsername' in kwargs:
+            login_username = kwargs['loginUsername']
+        if 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if 'azureadAuthenticationOnly' in kwargs:
+            azuread_authentication_only = kwargs['azureadAuthenticationOnly']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("login_username", login_username)
         _setter("object_id", object_id)
         if azuread_authentication_only is not None:
@@ -1189,7 +1289,15 @@ class ServerIdentityArgs:
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -1274,7 +1382,11 @@ class ServerVulnerabilityAssessmentRecurringScansArgs:
              email_subscription_admins: Optional[pulumi.Input[bool]] = None,
              emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'emailSubscriptionAdmins' in kwargs:
+            email_subscription_admins = kwargs['emailSubscriptionAdmins']
+
         if email_subscription_admins is not None:
             _setter("email_subscription_admins", email_subscription_admins)
         if emails is not None:
@@ -1342,7 +1454,11 @@ class VirtualMachineAssessmentArgs:
              enabled: Optional[pulumi.Input[bool]] = None,
              run_immediately: Optional[pulumi.Input[bool]] = None,
              schedule: Optional[pulumi.Input['VirtualMachineAssessmentScheduleArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'runImmediately' in kwargs:
+            run_immediately = kwargs['runImmediately']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if run_immediately is not None:
@@ -1416,7 +1532,17 @@ class VirtualMachineAssessmentScheduleArgs:
              start_time: pulumi.Input[str],
              monthly_occurrence: Optional[pulumi.Input[int]] = None,
              weekly_interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dayOfWeek' in kwargs:
+            day_of_week = kwargs['dayOfWeek']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if 'monthlyOccurrence' in kwargs:
+            monthly_occurrence = kwargs['monthlyOccurrence']
+        if 'weeklyInterval' in kwargs:
+            weekly_interval = kwargs['weeklyInterval']
+
         _setter("day_of_week", day_of_week)
         _setter("start_time", start_time)
         if monthly_occurrence is not None:
@@ -1514,7 +1640,23 @@ class VirtualMachineAutoBackupArgs:
              encryption_password: Optional[pulumi.Input[str]] = None,
              manual_schedule: Optional[pulumi.Input['VirtualMachineAutoBackupManualScheduleArgs']] = None,
              system_databases_backup_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'retentionPeriodInDays' in kwargs:
+            retention_period_in_days = kwargs['retentionPeriodInDays']
+        if 'storageAccountAccessKey' in kwargs:
+            storage_account_access_key = kwargs['storageAccountAccessKey']
+        if 'storageBlobEndpoint' in kwargs:
+            storage_blob_endpoint = kwargs['storageBlobEndpoint']
+        if 'encryptionEnabled' in kwargs:
+            encryption_enabled = kwargs['encryptionEnabled']
+        if 'encryptionPassword' in kwargs:
+            encryption_password = kwargs['encryptionPassword']
+        if 'manualSchedule' in kwargs:
+            manual_schedule = kwargs['manualSchedule']
+        if 'systemDatabasesBackupEnabled' in kwargs:
+            system_databases_backup_enabled = kwargs['systemDatabasesBackupEnabled']
+
         _setter("retention_period_in_days", retention_period_in_days)
         _setter("storage_account_access_key", storage_account_access_key)
         _setter("storage_blob_endpoint", storage_blob_endpoint)
@@ -1645,7 +1787,19 @@ class VirtualMachineAutoBackupManualScheduleArgs:
              full_backup_window_in_hours: pulumi.Input[int],
              log_backup_frequency_in_minutes: pulumi.Input[int],
              days_of_weeks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fullBackupFrequency' in kwargs:
+            full_backup_frequency = kwargs['fullBackupFrequency']
+        if 'fullBackupStartHour' in kwargs:
+            full_backup_start_hour = kwargs['fullBackupStartHour']
+        if 'fullBackupWindowInHours' in kwargs:
+            full_backup_window_in_hours = kwargs['fullBackupWindowInHours']
+        if 'logBackupFrequencyInMinutes' in kwargs:
+            log_backup_frequency_in_minutes = kwargs['logBackupFrequencyInMinutes']
+        if 'daysOfWeeks' in kwargs:
+            days_of_weeks = kwargs['daysOfWeeks']
+
         _setter("full_backup_frequency", full_backup_frequency)
         _setter("full_backup_start_hour", full_backup_start_hour)
         _setter("full_backup_window_in_hours", full_backup_window_in_hours)
@@ -1739,7 +1893,15 @@ class VirtualMachineAutoPatchingArgs:
              day_of_week: pulumi.Input[str],
              maintenance_window_duration_in_minutes: pulumi.Input[int],
              maintenance_window_starting_hour: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dayOfWeek' in kwargs:
+            day_of_week = kwargs['dayOfWeek']
+        if 'maintenanceWindowDurationInMinutes' in kwargs:
+            maintenance_window_duration_in_minutes = kwargs['maintenanceWindowDurationInMinutes']
+        if 'maintenanceWindowStartingHour' in kwargs:
+            maintenance_window_starting_hour = kwargs['maintenanceWindowStartingHour']
+
         _setter("day_of_week", day_of_week)
         _setter("maintenance_window_duration_in_minutes", maintenance_window_duration_in_minutes)
         _setter("maintenance_window_starting_hour", maintenance_window_starting_hour)
@@ -1814,7 +1976,19 @@ class VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs:
              probe_port: pulumi.Input[int],
              sql_virtual_machine_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
              subnet_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'loadBalancerId' in kwargs:
+            load_balancer_id = kwargs['loadBalancerId']
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if 'probePort' in kwargs:
+            probe_port = kwargs['probePort']
+        if 'sqlVirtualMachineIds' in kwargs:
+            sql_virtual_machine_ids = kwargs['sqlVirtualMachineIds']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         _setter("load_balancer_id", load_balancer_id)
         _setter("private_ip_address", private_ip_address)
         _setter("probe_port", probe_port)
@@ -1909,7 +2083,15 @@ class VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgs:
              private_ip_address: pulumi.Input[str],
              sql_virtual_machine_id: pulumi.Input[str],
              subnet_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if 'sqlVirtualMachineId' in kwargs:
+            sql_virtual_machine_id = kwargs['sqlVirtualMachineId']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         _setter("private_ip_address", private_ip_address)
         _setter("sql_virtual_machine_id", sql_virtual_machine_id)
         _setter("subnet_id", subnet_id)
@@ -1984,7 +2166,15 @@ class VirtualMachineAvailabilityGroupListenerReplicaArgs:
              readable_secondary: pulumi.Input[str],
              role: pulumi.Input[str],
              sql_virtual_machine_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failoverMode' in kwargs:
+            failover_mode = kwargs['failoverMode']
+        if 'readableSecondary' in kwargs:
+            readable_secondary = kwargs['readableSecondary']
+        if 'sqlVirtualMachineId' in kwargs:
+            sql_virtual_machine_id = kwargs['sqlVirtualMachineId']
+
         _setter("commit", commit)
         _setter("failover_mode", failover_mode)
         _setter("readable_secondary", readable_secondary)
@@ -2095,7 +2285,23 @@ class VirtualMachineGroupWsfcDomainProfileArgs:
              sql_service_account_name: Optional[pulumi.Input[str]] = None,
              storage_account_primary_key: Optional[pulumi.Input[str]] = None,
              storage_account_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterSubnetType' in kwargs:
+            cluster_subnet_type = kwargs['clusterSubnetType']
+        if 'clusterBootstrapAccountName' in kwargs:
+            cluster_bootstrap_account_name = kwargs['clusterBootstrapAccountName']
+        if 'clusterOperatorAccountName' in kwargs:
+            cluster_operator_account_name = kwargs['clusterOperatorAccountName']
+        if 'organizationalUnitPath' in kwargs:
+            organizational_unit_path = kwargs['organizationalUnitPath']
+        if 'sqlServiceAccountName' in kwargs:
+            sql_service_account_name = kwargs['sqlServiceAccountName']
+        if 'storageAccountPrimaryKey' in kwargs:
+            storage_account_primary_key = kwargs['storageAccountPrimaryKey']
+        if 'storageAccountUrl' in kwargs:
+            storage_account_url = kwargs['storageAccountUrl']
+
         _setter("cluster_subnet_type", cluster_subnet_type)
         _setter("fqdn", fqdn)
         if cluster_bootstrap_account_name is not None:
@@ -2235,7 +2441,15 @@ class VirtualMachineKeyVaultCredentialArgs:
              name: pulumi.Input[str],
              service_principal_name: pulumi.Input[str],
              service_principal_secret: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyVaultUrl' in kwargs:
+            key_vault_url = kwargs['keyVaultUrl']
+        if 'servicePrincipalName' in kwargs:
+            service_principal_name = kwargs['servicePrincipalName']
+        if 'servicePrincipalSecret' in kwargs:
+            service_principal_secret = kwargs['servicePrincipalSecret']
+
         _setter("key_vault_url", key_vault_url)
         _setter("name", name)
         _setter("service_principal_name", service_principal_name)
@@ -2331,7 +2545,21 @@ class VirtualMachineSqlInstanceArgs:
              max_dop: Optional[pulumi.Input[int]] = None,
              max_server_memory_mb: Optional[pulumi.Input[int]] = None,
              min_server_memory_mb: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adhocWorkloadsOptimizationEnabled' in kwargs:
+            adhoc_workloads_optimization_enabled = kwargs['adhocWorkloadsOptimizationEnabled']
+        if 'instantFileInitializationEnabled' in kwargs:
+            instant_file_initialization_enabled = kwargs['instantFileInitializationEnabled']
+        if 'lockPagesInMemoryEnabled' in kwargs:
+            lock_pages_in_memory_enabled = kwargs['lockPagesInMemoryEnabled']
+        if 'maxDop' in kwargs:
+            max_dop = kwargs['maxDop']
+        if 'maxServerMemoryMb' in kwargs:
+            max_server_memory_mb = kwargs['maxServerMemoryMb']
+        if 'minServerMemoryMb' in kwargs:
+            min_server_memory_mb = kwargs['minServerMemoryMb']
+
         if adhoc_workloads_optimization_enabled is not None:
             _setter("adhoc_workloads_optimization_enabled", adhoc_workloads_optimization_enabled)
         if collation is not None:
@@ -2469,7 +2697,21 @@ class VirtualMachineStorageConfigurationArgs:
              log_settings: Optional[pulumi.Input['VirtualMachineStorageConfigurationLogSettingsArgs']] = None,
              system_db_on_data_disk_enabled: Optional[pulumi.Input[bool]] = None,
              temp_db_settings: Optional[pulumi.Input['VirtualMachineStorageConfigurationTempDbSettingsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'diskType' in kwargs:
+            disk_type = kwargs['diskType']
+        if 'storageWorkloadType' in kwargs:
+            storage_workload_type = kwargs['storageWorkloadType']
+        if 'dataSettings' in kwargs:
+            data_settings = kwargs['dataSettings']
+        if 'logSettings' in kwargs:
+            log_settings = kwargs['logSettings']
+        if 'systemDbOnDataDiskEnabled' in kwargs:
+            system_db_on_data_disk_enabled = kwargs['systemDbOnDataDiskEnabled']
+        if 'tempDbSettings' in kwargs:
+            temp_db_settings = kwargs['tempDbSettings']
+
         _setter("disk_type", disk_type)
         _setter("storage_workload_type", storage_workload_type)
         if data_settings is not None:
@@ -2573,7 +2815,11 @@ class VirtualMachineStorageConfigurationDataSettingsArgs:
              _setter: Callable[[Any, Any], None],
              default_file_path: pulumi.Input[str],
              luns: pulumi.Input[Sequence[pulumi.Input[int]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultFilePath' in kwargs:
+            default_file_path = kwargs['defaultFilePath']
+
         _setter("default_file_path", default_file_path)
         _setter("luns", luns)
 
@@ -2621,7 +2867,11 @@ class VirtualMachineStorageConfigurationLogSettingsArgs:
              _setter: Callable[[Any, Any], None],
              default_file_path: pulumi.Input[str],
              luns: pulumi.Input[Sequence[pulumi.Input[int]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultFilePath' in kwargs:
+            default_file_path = kwargs['defaultFilePath']
+
         _setter("default_file_path", default_file_path)
         _setter("luns", luns)
 
@@ -2689,7 +2939,21 @@ class VirtualMachineStorageConfigurationTempDbSettingsArgs:
              data_file_size_mb: Optional[pulumi.Input[int]] = None,
              log_file_growth_mb: Optional[pulumi.Input[int]] = None,
              log_file_size_mb: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultFilePath' in kwargs:
+            default_file_path = kwargs['defaultFilePath']
+        if 'dataFileCount' in kwargs:
+            data_file_count = kwargs['dataFileCount']
+        if 'dataFileGrowthInMb' in kwargs:
+            data_file_growth_in_mb = kwargs['dataFileGrowthInMb']
+        if 'dataFileSizeMb' in kwargs:
+            data_file_size_mb = kwargs['dataFileSizeMb']
+        if 'logFileGrowthMb' in kwargs:
+            log_file_growth_mb = kwargs['logFileGrowthMb']
+        if 'logFileSizeMb' in kwargs:
+            log_file_size_mb = kwargs['logFileSizeMb']
+
         _setter("default_file_path", default_file_path)
         _setter("luns", luns)
         if data_file_count is not None:
@@ -2811,7 +3075,15 @@ class VirtualMachineWsfcDomainCredentialArgs:
              cluster_bootstrap_account_password: pulumi.Input[str],
              cluster_operator_account_password: pulumi.Input[str],
              sql_service_account_password: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterBootstrapAccountPassword' in kwargs:
+            cluster_bootstrap_account_password = kwargs['clusterBootstrapAccountPassword']
+        if 'clusterOperatorAccountPassword' in kwargs:
+            cluster_operator_account_password = kwargs['clusterOperatorAccountPassword']
+        if 'sqlServiceAccountPassword' in kwargs:
+            sql_service_account_password = kwargs['sqlServiceAccountPassword']
+
         _setter("cluster_bootstrap_account_password", cluster_bootstrap_account_password)
         _setter("cluster_operator_account_password", cluster_operator_account_password)
         _setter("sql_service_account_password", sql_service_account_password)

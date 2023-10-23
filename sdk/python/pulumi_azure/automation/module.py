@@ -41,7 +41,15 @@ class ModuleArgs:
              module_link: pulumi.Input['ModuleModuleLinkArgs'],
              resource_group_name: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'automationAccountName' in kwargs:
+            automation_account_name = kwargs['automationAccountName']
+        if 'moduleLink' in kwargs:
+            module_link = kwargs['moduleLink']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         _setter("automation_account_name", automation_account_name)
         _setter("module_link", module_link)
         _setter("resource_group_name", resource_group_name)
@@ -125,7 +133,15 @@ class _ModuleState:
              module_link: Optional[pulumi.Input['ModuleModuleLinkArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'automationAccountName' in kwargs:
+            automation_account_name = kwargs['automationAccountName']
+        if 'moduleLink' in kwargs:
+            module_link = kwargs['moduleLink']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if automation_account_name is not None:
             _setter("automation_account_name", automation_account_name)
         if module_link is not None:

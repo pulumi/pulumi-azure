@@ -62,7 +62,7 @@ namespace Pulumi.Azure.Role
     ///                 {
     ///                     "Microsoft.Resources/subscriptions/resourceGroups/read",
     ///                 },
-    ///                 NotActions = new[] {},
+    ///                 NotActions = new() { },
     ///             },
     ///         },
     ///         AssignableScopes = new[]
@@ -107,7 +107,7 @@ namespace Pulumi.Azure.Role
     ///                 {
     ///                     "Microsoft.Resources/subscriptions/resourceGroups/read",
     ///                 },
-    ///                 NotActions = new[] {},
+    ///                 NotActions = new() { },
     ///             },
     ///         },
     ///         AssignableScopes = new[]
@@ -157,7 +157,7 @@ namespace Pulumi.Azure.Role
     ///                 {
     ///                     "Microsoft.Resources/subscriptions/resourceGroups/read",
     ///                 },
-    ///                 NotActions = new[] {},
+    ///                 NotActions = new() { },
     ///             },
     ///         },
     ///         AssignableScopes = new[]

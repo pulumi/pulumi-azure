@@ -149,7 +149,7 @@ public class RunBook extends com.pulumi.resources.CustomResource {
      * The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="automationAccountName", refs={String.class}, tree="[0]")
+    @Export(name="automationAccountName", type=String.class, parameters={})
     private Output<String> automationAccountName;
 
     /**
@@ -165,7 +165,7 @@ public class RunBook extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE** The Azure API requires a `publish_content_link` to be supplied even when specifying your own `content`.
      * 
      */
-    @Export(name="content", refs={String.class}, tree="[0]")
+    @Export(name="content", type=String.class, parameters={})
     private Output<String> content;
 
     /**
@@ -181,7 +181,7 @@ public class RunBook extends com.pulumi.resources.CustomResource {
      * A description for this credential.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -195,7 +195,7 @@ public class RunBook extends com.pulumi.resources.CustomResource {
      * A `draft` block as defined below .
      * 
      */
-    @Export(name="draft", refs={RunBookDraft.class}, tree="[0]")
+    @Export(name="draft", type=RunBookDraft.class, parameters={})
     private Output</* @Nullable */ RunBookDraft> draft;
 
     /**
@@ -205,7 +205,7 @@ public class RunBook extends com.pulumi.resources.CustomResource {
     public Output<Optional<RunBookDraft>> draft() {
         return Codegen.optional(this.draft);
     }
-    @Export(name="jobSchedules", refs={List.class,RunBookJobSchedule.class}, tree="[0,1]")
+    @Export(name="jobSchedules", type=List.class, parameters={RunBookJobSchedule.class})
     private Output<List<RunBookJobSchedule>> jobSchedules;
 
     public Output<List<RunBookJobSchedule>> jobSchedules() {
@@ -215,7 +215,7 @@ public class RunBook extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -229,7 +229,7 @@ public class RunBook extends com.pulumi.resources.CustomResource {
      * Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
      * 
      */
-    @Export(name="logActivityTraceLevel", refs={Integer.class}, tree="[0]")
+    @Export(name="logActivityTraceLevel", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> logActivityTraceLevel;
 
     /**
@@ -243,7 +243,7 @@ public class RunBook extends com.pulumi.resources.CustomResource {
      * Progress log option.
      * 
      */
-    @Export(name="logProgress", refs={Boolean.class}, tree="[0]")
+    @Export(name="logProgress", type=Boolean.class, parameters={})
     private Output<Boolean> logProgress;
 
     /**
@@ -257,7 +257,7 @@ public class RunBook extends com.pulumi.resources.CustomResource {
      * Verbose log option.
      * 
      */
-    @Export(name="logVerbose", refs={Boolean.class}, tree="[0]")
+    @Export(name="logVerbose", type=Boolean.class, parameters={})
     private Output<Boolean> logVerbose;
 
     /**
@@ -271,7 +271,7 @@ public class RunBook extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Runbook. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -285,7 +285,7 @@ public class RunBook extends com.pulumi.resources.CustomResource {
      * The published runbook content link.
      * 
      */
-    @Export(name="publishContentLink", refs={RunBookPublishContentLink.class}, tree="[0]")
+    @Export(name="publishContentLink", type=RunBookPublishContentLink.class, parameters={})
     private Output</* @Nullable */ RunBookPublishContentLink> publishContentLink;
 
     /**
@@ -299,7 +299,7 @@ public class RunBook extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -313,7 +313,7 @@ public class RunBook extends com.pulumi.resources.CustomResource {
      * The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="runbookType", refs={String.class}, tree="[0]")
+    @Export(name="runbookType", type=String.class, parameters={})
     private Output<String> runbookType;
 
     /**
@@ -327,7 +327,7 @@ public class RunBook extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

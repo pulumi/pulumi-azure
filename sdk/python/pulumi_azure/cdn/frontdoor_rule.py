@@ -51,7 +51,13 @@ class FrontdoorRuleArgs:
              behavior_on_match: Optional[pulumi.Input[str]] = None,
              conditions: Optional[pulumi.Input['FrontdoorRuleConditionsArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cdnFrontdoorRuleSetId' in kwargs:
+            cdn_frontdoor_rule_set_id = kwargs['cdnFrontdoorRuleSetId']
+        if 'behaviorOnMatch' in kwargs:
+            behavior_on_match = kwargs['behaviorOnMatch']
+
         _setter("actions", actions)
         _setter("cdn_frontdoor_rule_set_id", cdn_frontdoor_rule_set_id)
         _setter("order", order)
@@ -179,7 +185,15 @@ class _FrontdoorRuleState:
              conditions: Optional[pulumi.Input['FrontdoorRuleConditionsArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              order: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'behaviorOnMatch' in kwargs:
+            behavior_on_match = kwargs['behaviorOnMatch']
+        if 'cdnFrontdoorRuleSetId' in kwargs:
+            cdn_frontdoor_rule_set_id = kwargs['cdnFrontdoorRuleSetId']
+        if 'cdnFrontdoorRuleSetName' in kwargs:
+            cdn_frontdoor_rule_set_name = kwargs['cdnFrontdoorRuleSetName']
+
         if actions is not None:
             _setter("actions", actions)
         if behavior_on_match is not None:

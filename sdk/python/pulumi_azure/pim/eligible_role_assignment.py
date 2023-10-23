@@ -49,7 +49,13 @@ class EligibleRoleAssignmentArgs:
              justification: Optional[pulumi.Input[str]] = None,
              schedule: Optional[pulumi.Input['EligibleRoleAssignmentScheduleArgs']] = None,
              ticket: Optional[pulumi.Input['EligibleRoleAssignmentTicketArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'roleDefinitionId' in kwargs:
+            role_definition_id = kwargs['roleDefinitionId']
+
         _setter("principal_id", principal_id)
         _setter("role_definition_id", role_definition_id)
         _setter("scope", scope)
@@ -174,7 +180,15 @@ class _EligibleRoleAssignmentState:
              schedule: Optional[pulumi.Input['EligibleRoleAssignmentScheduleArgs']] = None,
              scope: Optional[pulumi.Input[str]] = None,
              ticket: Optional[pulumi.Input['EligibleRoleAssignmentTicketArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'principalType' in kwargs:
+            principal_type = kwargs['principalType']
+        if 'roleDefinitionId' in kwargs:
+            role_definition_id = kwargs['roleDefinitionId']
+
         if justification is not None:
             _setter("justification", justification)
         if principal_id is not None:

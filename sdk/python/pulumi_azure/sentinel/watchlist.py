@@ -51,7 +51,17 @@ class WatchlistArgs:
              description: Optional[pulumi.Input[str]] = None,
              labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'itemSearchKey' in kwargs:
+            item_search_key = kwargs['itemSearchKey']
+        if 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if 'defaultDuration' in kwargs:
+            default_duration = kwargs['defaultDuration']
+
         _setter("display_name", display_name)
         _setter("item_search_key", item_search_key)
         _setter("log_analytics_workspace_id", log_analytics_workspace_id)
@@ -189,7 +199,17 @@ class _WatchlistState:
              labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultDuration' in kwargs:
+            default_duration = kwargs['defaultDuration']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'itemSearchKey' in kwargs:
+            item_search_key = kwargs['itemSearchKey']
+        if 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+
         if default_duration is not None:
             _setter("default_duration", default_duration)
         if description is not None:

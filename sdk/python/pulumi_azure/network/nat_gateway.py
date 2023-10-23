@@ -53,7 +53,15 @@ class NatGatewayArgs:
              sku_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'idleTimeoutInMinutes' in kwargs:
+            idle_timeout_in_minutes = kwargs['idleTimeoutInMinutes']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+
         _setter("resource_group_name", resource_group_name)
         if idle_timeout_in_minutes is not None:
             _setter("idle_timeout_in_minutes", idle_timeout_in_minutes)
@@ -201,7 +209,17 @@ class _NatGatewayState:
              sku_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'idleTimeoutInMinutes' in kwargs:
+            idle_timeout_in_minutes = kwargs['idleTimeoutInMinutes']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'resourceGuid' in kwargs:
+            resource_guid = kwargs['resourceGuid']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+
         if idle_timeout_in_minutes is not None:
             _setter("idle_timeout_in_minutes", idle_timeout_in_minutes)
         if location is not None:

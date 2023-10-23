@@ -51,7 +51,11 @@ class ServiceCor(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              allowed_origins: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedOrigins' in kwargs:
+            allowed_origins = kwargs['allowedOrigins']
+
         _setter("allowed_origins", allowed_origins)
 
     @property
@@ -111,7 +115,15 @@ class ServiceIdentity(dict):
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -197,7 +209,15 @@ class ServiceLiveTrace(dict):
              enabled: Optional[bool] = None,
              http_request_logs_enabled: Optional[bool] = None,
              messaging_logs_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectivityLogsEnabled' in kwargs:
+            connectivity_logs_enabled = kwargs['connectivityLogsEnabled']
+        if 'httpRequestLogsEnabled' in kwargs:
+            http_request_logs_enabled = kwargs['httpRequestLogsEnabled']
+        if 'messagingLogsEnabled' in kwargs:
+            messaging_logs_enabled = kwargs['messagingLogsEnabled']
+
         if connectivity_logs_enabled is not None:
             _setter("connectivity_logs_enabled", connectivity_logs_enabled)
         if enabled is not None:
@@ -288,7 +308,13 @@ class ServiceNetworkAclPrivateEndpoint(dict):
              id: str,
              allowed_request_types: Optional[Sequence[str]] = None,
              denied_request_types: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedRequestTypes' in kwargs:
+            allowed_request_types = kwargs['allowedRequestTypes']
+        if 'deniedRequestTypes' in kwargs:
+            denied_request_types = kwargs['deniedRequestTypes']
+
         _setter("id", id)
         if allowed_request_types is not None:
             _setter("allowed_request_types", allowed_request_types)
@@ -370,7 +396,13 @@ class ServiceNetworkAclPublicNetwork(dict):
              _setter: Callable[[Any, Any], None],
              allowed_request_types: Optional[Sequence[str]] = None,
              denied_request_types: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedRequestTypes' in kwargs:
+            allowed_request_types = kwargs['allowedRequestTypes']
+        if 'deniedRequestTypes' in kwargs:
+            denied_request_types = kwargs['deniedRequestTypes']
+
         if allowed_request_types is not None:
             _setter("allowed_request_types", allowed_request_types)
         if denied_request_types is not None:
@@ -418,7 +450,9 @@ class ServiceSku(dict):
              _setter: Callable[[Any, Any], None],
              capacity: int,
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("capacity", capacity)
         _setter("name", name)
 
@@ -495,7 +529,19 @@ class ServiceUpstreamEndpoint(dict):
              hub_patterns: Sequence[str],
              url_template: str,
              user_assigned_identity_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'categoryPatterns' in kwargs:
+            category_patterns = kwargs['categoryPatterns']
+        if 'eventPatterns' in kwargs:
+            event_patterns = kwargs['eventPatterns']
+        if 'hubPatterns' in kwargs:
+            hub_patterns = kwargs['hubPatterns']
+        if 'urlTemplate' in kwargs:
+            url_template = kwargs['urlTemplate']
+        if 'userAssignedIdentityId' in kwargs:
+            user_assigned_identity_id = kwargs['userAssignedIdentityId']
+
         _setter("category_patterns", category_patterns)
         _setter("event_patterns", event_patterns)
         _setter("hub_patterns", hub_patterns)

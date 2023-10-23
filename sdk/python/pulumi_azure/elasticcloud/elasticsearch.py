@@ -57,7 +57,17 @@ class ElasticsearchArgs:
              monitoring_enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'elasticCloudEmailAddress' in kwargs:
+            elastic_cloud_email_address = kwargs['elasticCloudEmailAddress']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'monitoringEnabled' in kwargs:
+            monitoring_enabled = kwargs['monitoringEnabled']
+
         _setter("elastic_cloud_email_address", elastic_cloud_email_address)
         _setter("resource_group_name", resource_group_name)
         _setter("sku_name", sku_name)
@@ -237,7 +247,29 @@ class _ElasticsearchState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              sku_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'elasticCloudDeploymentId' in kwargs:
+            elastic_cloud_deployment_id = kwargs['elasticCloudDeploymentId']
+        if 'elasticCloudEmailAddress' in kwargs:
+            elastic_cloud_email_address = kwargs['elasticCloudEmailAddress']
+        if 'elasticCloudSsoDefaultUrl' in kwargs:
+            elastic_cloud_sso_default_url = kwargs['elasticCloudSsoDefaultUrl']
+        if 'elasticCloudUserId' in kwargs:
+            elastic_cloud_user_id = kwargs['elasticCloudUserId']
+        if 'elasticsearchServiceUrl' in kwargs:
+            elasticsearch_service_url = kwargs['elasticsearchServiceUrl']
+        if 'kibanaServiceUrl' in kwargs:
+            kibana_service_url = kwargs['kibanaServiceUrl']
+        if 'kibanaSsoUri' in kwargs:
+            kibana_sso_uri = kwargs['kibanaSsoUri']
+        if 'monitoringEnabled' in kwargs:
+            monitoring_enabled = kwargs['monitoringEnabled']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+
         if elastic_cloud_deployment_id is not None:
             _setter("elastic_cloud_deployment_id", elastic_cloud_deployment_id)
         if elastic_cloud_email_address is not None:

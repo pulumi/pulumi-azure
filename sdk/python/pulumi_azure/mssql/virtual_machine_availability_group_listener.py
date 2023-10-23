@@ -55,7 +55,17 @@ class VirtualMachineAvailabilityGroupListenerArgs:
              multi_subnet_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              port: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sqlVirtualMachineGroupId' in kwargs:
+            sql_virtual_machine_group_id = kwargs['sqlVirtualMachineGroupId']
+        if 'availabilityGroupName' in kwargs:
+            availability_group_name = kwargs['availabilityGroupName']
+        if 'loadBalancerConfiguration' in kwargs:
+            load_balancer_configuration = kwargs['loadBalancerConfiguration']
+        if 'multiSubnetIpConfigurations' in kwargs:
+            multi_subnet_ip_configurations = kwargs['multiSubnetIpConfigurations']
+
         _setter("replicas", replicas)
         _setter("sql_virtual_machine_group_id", sql_virtual_machine_group_id)
         if availability_group_name is not None:
@@ -198,7 +208,17 @@ class _VirtualMachineAvailabilityGroupListenerState:
              port: Optional[pulumi.Input[int]] = None,
              replicas: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineAvailabilityGroupListenerReplicaArgs']]]] = None,
              sql_virtual_machine_group_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'availabilityGroupName' in kwargs:
+            availability_group_name = kwargs['availabilityGroupName']
+        if 'loadBalancerConfiguration' in kwargs:
+            load_balancer_configuration = kwargs['loadBalancerConfiguration']
+        if 'multiSubnetIpConfigurations' in kwargs:
+            multi_subnet_ip_configurations = kwargs['multiSubnetIpConfigurations']
+        if 'sqlVirtualMachineGroupId' in kwargs:
+            sql_virtual_machine_group_id = kwargs['sqlVirtualMachineGroupId']
+
         if availability_group_name is not None:
             _setter("availability_group_name", availability_group_name)
         if load_balancer_configuration is not None:

@@ -47,7 +47,17 @@ class HybridConnectionArgs:
              relay_id: pulumi.Input[str],
              resource_group_name: pulumi.Input[str],
              send_key_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appServiceName' in kwargs:
+            app_service_name = kwargs['appServiceName']
+        if 'relayId' in kwargs:
+            relay_id = kwargs['relayId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'sendKeyName' in kwargs:
+            send_key_name = kwargs['sendKeyName']
+
         _setter("app_service_name", app_service_name)
         _setter("hostname", hostname)
         _setter("port", port)
@@ -184,7 +194,27 @@ class _HybridConnectionState:
              send_key_value: Optional[pulumi.Input[str]] = None,
              service_bus_namespace: Optional[pulumi.Input[str]] = None,
              service_bus_suffix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appServiceName' in kwargs:
+            app_service_name = kwargs['appServiceName']
+        if 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if 'relayId' in kwargs:
+            relay_id = kwargs['relayId']
+        if 'relayName' in kwargs:
+            relay_name = kwargs['relayName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'sendKeyName' in kwargs:
+            send_key_name = kwargs['sendKeyName']
+        if 'sendKeyValue' in kwargs:
+            send_key_value = kwargs['sendKeyValue']
+        if 'serviceBusNamespace' in kwargs:
+            service_bus_namespace = kwargs['serviceBusNamespace']
+        if 'serviceBusSuffix' in kwargs:
+            service_bus_suffix = kwargs['serviceBusSuffix']
+
         if app_service_name is not None:
             _setter("app_service_name", app_service_name)
         if hostname is not None:

@@ -73,7 +73,23 @@ class FrontdoorFirewallPolicyArgs:
              name: Optional[pulumi.Input[str]] = None,
              redirect_url: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'customBlockResponseBody' in kwargs:
+            custom_block_response_body = kwargs['customBlockResponseBody']
+        if 'customBlockResponseStatusCode' in kwargs:
+            custom_block_response_status_code = kwargs['customBlockResponseStatusCode']
+        if 'customRules' in kwargs:
+            custom_rules = kwargs['customRules']
+        if 'managedRules' in kwargs:
+            managed_rules = kwargs['managedRules']
+        if 'redirectUrl' in kwargs:
+            redirect_url = kwargs['redirectUrl']
+
         _setter("mode", mode)
         _setter("resource_group_name", resource_group_name)
         _setter("sku_name", sku_name)
@@ -295,7 +311,25 @@ class _FrontdoorFirewallPolicyState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              sku_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customBlockResponseBody' in kwargs:
+            custom_block_response_body = kwargs['customBlockResponseBody']
+        if 'customBlockResponseStatusCode' in kwargs:
+            custom_block_response_status_code = kwargs['customBlockResponseStatusCode']
+        if 'customRules' in kwargs:
+            custom_rules = kwargs['customRules']
+        if 'frontendEndpointIds' in kwargs:
+            frontend_endpoint_ids = kwargs['frontendEndpointIds']
+        if 'managedRules' in kwargs:
+            managed_rules = kwargs['managedRules']
+        if 'redirectUrl' in kwargs:
+            redirect_url = kwargs['redirectUrl']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+
         if custom_block_response_body is not None:
             _setter("custom_block_response_body", custom_block_response_body)
         if custom_block_response_status_code is not None:

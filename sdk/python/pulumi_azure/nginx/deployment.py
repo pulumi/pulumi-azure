@@ -73,7 +73,23 @@ class DeploymentArgs:
              name: Optional[pulumi.Input[str]] = None,
              network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentNetworkInterfaceArgs']]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'diagnoseSupportEnabled' in kwargs:
+            diagnose_support_enabled = kwargs['diagnoseSupportEnabled']
+        if 'frontendPrivates' in kwargs:
+            frontend_privates = kwargs['frontendPrivates']
+        if 'frontendPublic' in kwargs:
+            frontend_public = kwargs['frontendPublic']
+        if 'loggingStorageAccounts' in kwargs:
+            logging_storage_accounts = kwargs['loggingStorageAccounts']
+        if 'managedResourceGroup' in kwargs:
+            managed_resource_group = kwargs['managedResourceGroup']
+        if 'networkInterfaces' in kwargs:
+            network_interfaces = kwargs['networkInterfaces']
+
         _setter("resource_group_name", resource_group_name)
         _setter("sku", sku)
         if diagnose_support_enabled is not None:
@@ -310,7 +326,27 @@ class _DeploymentState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              sku: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'diagnoseSupportEnabled' in kwargs:
+            diagnose_support_enabled = kwargs['diagnoseSupportEnabled']
+        if 'frontendPrivates' in kwargs:
+            frontend_privates = kwargs['frontendPrivates']
+        if 'frontendPublic' in kwargs:
+            frontend_public = kwargs['frontendPublic']
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'loggingStorageAccounts' in kwargs:
+            logging_storage_accounts = kwargs['loggingStorageAccounts']
+        if 'managedResourceGroup' in kwargs:
+            managed_resource_group = kwargs['managedResourceGroup']
+        if 'networkInterfaces' in kwargs:
+            network_interfaces = kwargs['networkInterfaces']
+        if 'nginxVersion' in kwargs:
+            nginx_version = kwargs['nginxVersion']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if diagnose_support_enabled is not None:
             _setter("diagnose_support_enabled", diagnose_support_enabled)
         if frontend_privates is not None:

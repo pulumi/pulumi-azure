@@ -234,7 +234,9 @@ class ApplicationGatewayAuthenticationCertificate(dict):
              data: str,
              name: str,
              id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("data", data)
         _setter("name", name)
         if id is not None:
@@ -303,7 +305,13 @@ class ApplicationGatewayAutoscaleConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              min_capacity: int,
              max_capacity: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'minCapacity' in kwargs:
+            min_capacity = kwargs['minCapacity']
+        if 'maxCapacity' in kwargs:
+            max_capacity = kwargs['maxCapacity']
+
         _setter("min_capacity", min_capacity)
         if max_capacity is not None:
             _setter("max_capacity", max_capacity)
@@ -369,7 +377,11 @@ class ApplicationGatewayBackendAddressPool(dict):
              fqdns: Optional[Sequence[str]] = None,
              id: Optional[str] = None,
              ip_addresses: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddresses' in kwargs:
+            ip_addresses = kwargs['ipAddresses']
+
         _setter("name", name)
         if fqdns is not None:
             _setter("fqdns", fqdns)
@@ -517,7 +529,29 @@ class ApplicationGatewayBackendHttpSetting(dict):
              probe_name: Optional[str] = None,
              request_timeout: Optional[int] = None,
              trusted_root_certificate_names: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cookieBasedAffinity' in kwargs:
+            cookie_based_affinity = kwargs['cookieBasedAffinity']
+        if 'affinityCookieName' in kwargs:
+            affinity_cookie_name = kwargs['affinityCookieName']
+        if 'authenticationCertificates' in kwargs:
+            authentication_certificates = kwargs['authenticationCertificates']
+        if 'connectionDraining' in kwargs:
+            connection_draining = kwargs['connectionDraining']
+        if 'hostName' in kwargs:
+            host_name = kwargs['hostName']
+        if 'pickHostNameFromBackendAddress' in kwargs:
+            pick_host_name_from_backend_address = kwargs['pickHostNameFromBackendAddress']
+        if 'probeId' in kwargs:
+            probe_id = kwargs['probeId']
+        if 'probeName' in kwargs:
+            probe_name = kwargs['probeName']
+        if 'requestTimeout' in kwargs:
+            request_timeout = kwargs['requestTimeout']
+        if 'trustedRootCertificateNames' in kwargs:
+            trusted_root_certificate_names = kwargs['trustedRootCertificateNames']
+
         _setter("cookie_based_affinity", cookie_based_affinity)
         _setter("name", name)
         _setter("port", port)
@@ -685,7 +719,9 @@ class ApplicationGatewayBackendHttpSettingAuthenticationCertificate(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if id is not None:
             _setter("id", id)
@@ -743,7 +779,11 @@ class ApplicationGatewayBackendHttpSettingConnectionDraining(dict):
              _setter: Callable[[Any, Any], None],
              drain_timeout_sec: int,
              enabled: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'drainTimeoutSec' in kwargs:
+            drain_timeout_sec = kwargs['drainTimeoutSec']
+
         _setter("drain_timeout_sec", drain_timeout_sec)
         _setter("enabled", enabled)
 
@@ -806,7 +846,13 @@ class ApplicationGatewayCustomErrorConfiguration(dict):
              custom_error_page_url: str,
              status_code: str,
              id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customErrorPageUrl' in kwargs:
+            custom_error_page_url = kwargs['customErrorPageUrl']
+        if 'statusCode' in kwargs:
+            status_code = kwargs['statusCode']
+
         _setter("custom_error_page_url", custom_error_page_url)
         _setter("status_code", status_code)
         if id is not None:
@@ -907,7 +953,21 @@ class ApplicationGatewayFrontendIpConfiguration(dict):
              private_link_configuration_name: Optional[str] = None,
              public_ip_address_id: Optional[str] = None,
              subnet_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if 'privateIpAddressAllocation' in kwargs:
+            private_ip_address_allocation = kwargs['privateIpAddressAllocation']
+        if 'privateLinkConfigurationId' in kwargs:
+            private_link_configuration_id = kwargs['privateLinkConfigurationId']
+        if 'privateLinkConfigurationName' in kwargs:
+            private_link_configuration_name = kwargs['privateLinkConfigurationName']
+        if 'publicIpAddressId' in kwargs:
+            public_ip_address_id = kwargs['publicIpAddressId']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         _setter("name", name)
         if id is not None:
             _setter("id", id)
@@ -1012,7 +1072,9 @@ class ApplicationGatewayFrontendPort(dict):
              name: str,
              port: int,
              id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("port", port)
         if id is not None:
@@ -1083,7 +1145,11 @@ class ApplicationGatewayGatewayIpConfiguration(dict):
              name: str,
              subnet_id: str,
              id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         _setter("name", name)
         _setter("subnet_id", subnet_id)
         if id is not None:
@@ -1152,7 +1218,13 @@ class ApplicationGatewayGlobal(dict):
              _setter: Callable[[Any, Any], None],
              request_buffering_enabled: bool,
              response_buffering_enabled: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'requestBufferingEnabled' in kwargs:
+            request_buffering_enabled = kwargs['requestBufferingEnabled']
+        if 'responseBufferingEnabled' in kwargs:
+            response_buffering_enabled = kwargs['responseBufferingEnabled']
+
         _setter("request_buffering_enabled", request_buffering_enabled)
         _setter("response_buffering_enabled", response_buffering_enabled)
 
@@ -1291,7 +1363,35 @@ class ApplicationGatewayHttpListener(dict):
              ssl_certificate_name: Optional[str] = None,
              ssl_profile_id: Optional[str] = None,
              ssl_profile_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'frontendIpConfigurationName' in kwargs:
+            frontend_ip_configuration_name = kwargs['frontendIpConfigurationName']
+        if 'frontendPortName' in kwargs:
+            frontend_port_name = kwargs['frontendPortName']
+        if 'customErrorConfigurations' in kwargs:
+            custom_error_configurations = kwargs['customErrorConfigurations']
+        if 'firewallPolicyId' in kwargs:
+            firewall_policy_id = kwargs['firewallPolicyId']
+        if 'frontendIpConfigurationId' in kwargs:
+            frontend_ip_configuration_id = kwargs['frontendIpConfigurationId']
+        if 'frontendPortId' in kwargs:
+            frontend_port_id = kwargs['frontendPortId']
+        if 'hostName' in kwargs:
+            host_name = kwargs['hostName']
+        if 'hostNames' in kwargs:
+            host_names = kwargs['hostNames']
+        if 'requireSni' in kwargs:
+            require_sni = kwargs['requireSni']
+        if 'sslCertificateId' in kwargs:
+            ssl_certificate_id = kwargs['sslCertificateId']
+        if 'sslCertificateName' in kwargs:
+            ssl_certificate_name = kwargs['sslCertificateName']
+        if 'sslProfileId' in kwargs:
+            ssl_profile_id = kwargs['sslProfileId']
+        if 'sslProfileName' in kwargs:
+            ssl_profile_name = kwargs['sslProfileName']
+
         _setter("frontend_ip_configuration_name", frontend_ip_configuration_name)
         _setter("frontend_port_name", frontend_port_name)
         _setter("name", name)
@@ -1494,7 +1594,13 @@ class ApplicationGatewayHttpListenerCustomErrorConfiguration(dict):
              custom_error_page_url: str,
              status_code: str,
              id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customErrorPageUrl' in kwargs:
+            custom_error_page_url = kwargs['customErrorPageUrl']
+        if 'statusCode' in kwargs:
+            status_code = kwargs['statusCode']
+
         _setter("custom_error_page_url", custom_error_page_url)
         _setter("status_code", status_code)
         if id is not None:
@@ -1561,7 +1667,11 @@ class ApplicationGatewayIdentity(dict):
              _setter: Callable[[Any, Any], None],
              identity_ids: Sequence[str],
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+
         _setter("identity_ids", identity_ids)
         _setter("type", type)
 
@@ -1601,7 +1711,9 @@ class ApplicationGatewayPrivateEndpointConnection(dict):
              _setter: Callable[[Any, Any], None],
              id: Optional[str] = None,
              name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
             _setter("id", id)
         if name is not None:
@@ -1670,7 +1782,11 @@ class ApplicationGatewayPrivateLinkConfiguration(dict):
              ip_configurations: Sequence['outputs.ApplicationGatewayPrivateLinkConfigurationIpConfiguration'],
              name: str,
              id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipConfigurations' in kwargs:
+            ip_configurations = kwargs['ipConfigurations']
+
         _setter("ip_configurations", ip_configurations)
         _setter("name", name)
         if id is not None:
@@ -1759,7 +1875,15 @@ class ApplicationGatewayPrivateLinkConfigurationIpConfiguration(dict):
              private_ip_address_allocation: str,
              subnet_id: str,
              private_ip_address: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateIpAddressAllocation' in kwargs:
+            private_ip_address_allocation = kwargs['privateIpAddressAllocation']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+
         _setter("name", name)
         _setter("primary", primary)
         _setter("private_ip_address_allocation", private_ip_address_allocation)
@@ -1888,7 +2012,15 @@ class ApplicationGatewayProbe(dict):
              minimum_servers: Optional[int] = None,
              pick_host_name_from_backend_http_settings: Optional[bool] = None,
              port: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'unhealthyThreshold' in kwargs:
+            unhealthy_threshold = kwargs['unhealthyThreshold']
+        if 'minimumServers' in kwargs:
+            minimum_servers = kwargs['minimumServers']
+        if 'pickHostNameFromBackendHttpSettings' in kwargs:
+            pick_host_name_from_backend_http_settings = kwargs['pickHostNameFromBackendHttpSettings']
+
         _setter("interval", interval)
         _setter("name", name)
         _setter("path", path)
@@ -2041,7 +2173,11 @@ class ApplicationGatewayProbeMatch(dict):
              _setter: Callable[[Any, Any], None],
              status_codes: Sequence[str],
              body: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'statusCodes' in kwargs:
+            status_codes = kwargs['statusCodes']
+
         _setter("status_codes", status_codes)
         if body is not None:
             _setter("body", body)
@@ -2132,7 +2268,21 @@ class ApplicationGatewayRedirectConfiguration(dict):
              target_listener_id: Optional[str] = None,
              target_listener_name: Optional[str] = None,
              target_url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'redirectType' in kwargs:
+            redirect_type = kwargs['redirectType']
+        if 'includePath' in kwargs:
+            include_path = kwargs['includePath']
+        if 'includeQueryString' in kwargs:
+            include_query_string = kwargs['includeQueryString']
+        if 'targetListenerId' in kwargs:
+            target_listener_id = kwargs['targetListenerId']
+        if 'targetListenerName' in kwargs:
+            target_listener_name = kwargs['targetListenerName']
+        if 'targetUrl' in kwargs:
+            target_url = kwargs['targetUrl']
+
         _setter("name", name)
         _setter("redirect_type", redirect_type)
         if id is not None:
@@ -2330,7 +2480,35 @@ class ApplicationGatewayRequestRoutingRule(dict):
              rewrite_rule_set_name: Optional[str] = None,
              url_path_map_id: Optional[str] = None,
              url_path_map_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'httpListenerName' in kwargs:
+            http_listener_name = kwargs['httpListenerName']
+        if 'ruleType' in kwargs:
+            rule_type = kwargs['ruleType']
+        if 'backendAddressPoolId' in kwargs:
+            backend_address_pool_id = kwargs['backendAddressPoolId']
+        if 'backendAddressPoolName' in kwargs:
+            backend_address_pool_name = kwargs['backendAddressPoolName']
+        if 'backendHttpSettingsId' in kwargs:
+            backend_http_settings_id = kwargs['backendHttpSettingsId']
+        if 'backendHttpSettingsName' in kwargs:
+            backend_http_settings_name = kwargs['backendHttpSettingsName']
+        if 'httpListenerId' in kwargs:
+            http_listener_id = kwargs['httpListenerId']
+        if 'redirectConfigurationId' in kwargs:
+            redirect_configuration_id = kwargs['redirectConfigurationId']
+        if 'redirectConfigurationName' in kwargs:
+            redirect_configuration_name = kwargs['redirectConfigurationName']
+        if 'rewriteRuleSetId' in kwargs:
+            rewrite_rule_set_id = kwargs['rewriteRuleSetId']
+        if 'rewriteRuleSetName' in kwargs:
+            rewrite_rule_set_name = kwargs['rewriteRuleSetName']
+        if 'urlPathMapId' in kwargs:
+            url_path_map_id = kwargs['urlPathMapId']
+        if 'urlPathMapName' in kwargs:
+            url_path_map_name = kwargs['urlPathMapName']
+
         _setter("http_listener_name", http_listener_name)
         _setter("name", name)
         _setter("rule_type", rule_type)
@@ -2534,7 +2712,11 @@ class ApplicationGatewayRewriteRuleSet(dict):
              name: str,
              id: Optional[str] = None,
              rewrite_rules: Optional[Sequence['outputs.ApplicationGatewayRewriteRuleSetRewriteRule']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'rewriteRules' in kwargs:
+            rewrite_rules = kwargs['rewriteRules']
+
         _setter("name", name)
         if id is not None:
             _setter("id", id)
@@ -2622,7 +2804,15 @@ class ApplicationGatewayRewriteRuleSetRewriteRule(dict):
              request_header_configurations: Optional[Sequence['outputs.ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration']] = None,
              response_header_configurations: Optional[Sequence['outputs.ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration']] = None,
              url: Optional['outputs.ApplicationGatewayRewriteRuleSetRewriteRuleUrl'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ruleSequence' in kwargs:
+            rule_sequence = kwargs['ruleSequence']
+        if 'requestHeaderConfigurations' in kwargs:
+            request_header_configurations = kwargs['requestHeaderConfigurations']
+        if 'responseHeaderConfigurations' in kwargs:
+            response_header_configurations = kwargs['responseHeaderConfigurations']
+
         _setter("name", name)
         _setter("rule_sequence", rule_sequence)
         if conditions is not None:
@@ -2727,7 +2917,11 @@ class ApplicationGatewayRewriteRuleSetRewriteRuleCondition(dict):
              variable: str,
              ignore_case: Optional[bool] = None,
              negate: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ignoreCase' in kwargs:
+            ignore_case = kwargs['ignoreCase']
+
         _setter("pattern", pattern)
         _setter("variable", variable)
         if ignore_case is not None:
@@ -2806,7 +3000,13 @@ class ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration(dict
              _setter: Callable[[Any, Any], None],
              header_name: str,
              header_value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'headerName' in kwargs:
+            header_name = kwargs['headerName']
+        if 'headerValue' in kwargs:
+            header_value = kwargs['headerValue']
+
         _setter("header_name", header_name)
         _setter("header_value", header_value)
 
@@ -2865,7 +3065,13 @@ class ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration(dic
              _setter: Callable[[Any, Any], None],
              header_name: str,
              header_value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'headerName' in kwargs:
+            header_name = kwargs['headerName']
+        if 'headerValue' in kwargs:
+            header_value = kwargs['headerValue']
+
         _setter("header_name", header_name)
         _setter("header_value", header_value)
 
@@ -2932,7 +3138,11 @@ class ApplicationGatewayRewriteRuleSetRewriteRuleUrl(dict):
              path: Optional[str] = None,
              query_string: Optional[str] = None,
              reroute: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'queryString' in kwargs:
+            query_string = kwargs['queryString']
+
         if components is not None:
             _setter("components", components)
         if path is not None:
@@ -3002,7 +3212,9 @@ class ApplicationGatewaySku(dict):
              name: str,
              tier: str,
              capacity: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("tier", tier)
         if capacity is not None:
@@ -3095,7 +3307,13 @@ class ApplicationGatewaySslCertificate(dict):
              key_vault_secret_id: Optional[str] = None,
              password: Optional[str] = None,
              public_cert_data: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyVaultSecretId' in kwargs:
+            key_vault_secret_id = kwargs['keyVaultSecretId']
+        if 'publicCertData' in kwargs:
+            public_cert_data = kwargs['publicCertData']
+
         _setter("name", name)
         if data is not None:
             _setter("data", data)
@@ -3223,7 +3441,19 @@ class ApplicationGatewaySslPolicy(dict):
              min_protocol_version: Optional[str] = None,
              policy_name: Optional[str] = None,
              policy_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cipherSuites' in kwargs:
+            cipher_suites = kwargs['cipherSuites']
+        if 'disabledProtocols' in kwargs:
+            disabled_protocols = kwargs['disabledProtocols']
+        if 'minProtocolVersion' in kwargs:
+            min_protocol_version = kwargs['minProtocolVersion']
+        if 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+        if 'policyType' in kwargs:
+            policy_type = kwargs['policyType']
+
         if cipher_suites is not None:
             _setter("cipher_suites", cipher_suites)
         if disabled_protocols is not None:
@@ -3338,7 +3568,17 @@ class ApplicationGatewaySslProfile(dict):
              trusted_client_certificate_names: Optional[Sequence[str]] = None,
              verify_client_cert_issuer_dn: Optional[bool] = None,
              verify_client_certificate_revocation: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sslPolicy' in kwargs:
+            ssl_policy = kwargs['sslPolicy']
+        if 'trustedClientCertificateNames' in kwargs:
+            trusted_client_certificate_names = kwargs['trustedClientCertificateNames']
+        if 'verifyClientCertIssuerDn' in kwargs:
+            verify_client_cert_issuer_dn = kwargs['verifyClientCertIssuerDn']
+        if 'verifyClientCertificateRevocation' in kwargs:
+            verify_client_certificate_revocation = kwargs['verifyClientCertificateRevocation']
+
         _setter("name", name)
         if id is not None:
             _setter("id", id)
@@ -3460,7 +3700,19 @@ class ApplicationGatewaySslProfileSslPolicy(dict):
              min_protocol_version: Optional[str] = None,
              policy_name: Optional[str] = None,
              policy_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cipherSuites' in kwargs:
+            cipher_suites = kwargs['cipherSuites']
+        if 'disabledProtocols' in kwargs:
+            disabled_protocols = kwargs['disabledProtocols']
+        if 'minProtocolVersion' in kwargs:
+            min_protocol_version = kwargs['minProtocolVersion']
+        if 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+        if 'policyType' in kwargs:
+            policy_type = kwargs['policyType']
+
         if cipher_suites is not None:
             _setter("cipher_suites", cipher_suites)
         if disabled_protocols is not None:
@@ -3540,7 +3792,9 @@ class ApplicationGatewayTrustedClientCertificate(dict):
              data: str,
              name: str,
              id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("data", data)
         _setter("name", name)
         if id is not None:
@@ -3619,7 +3873,11 @@ class ApplicationGatewayTrustedRootCertificate(dict):
              data: Optional[str] = None,
              id: Optional[str] = None,
              key_vault_secret_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyVaultSecretId' in kwargs:
+            key_vault_secret_id = kwargs['keyVaultSecretId']
+
         _setter("name", name)
         if data is not None:
             _setter("data", data)
@@ -3754,7 +4012,27 @@ class ApplicationGatewayUrlPathMap(dict):
              default_rewrite_rule_set_id: Optional[str] = None,
              default_rewrite_rule_set_name: Optional[str] = None,
              id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'pathRules' in kwargs:
+            path_rules = kwargs['pathRules']
+        if 'defaultBackendAddressPoolId' in kwargs:
+            default_backend_address_pool_id = kwargs['defaultBackendAddressPoolId']
+        if 'defaultBackendAddressPoolName' in kwargs:
+            default_backend_address_pool_name = kwargs['defaultBackendAddressPoolName']
+        if 'defaultBackendHttpSettingsId' in kwargs:
+            default_backend_http_settings_id = kwargs['defaultBackendHttpSettingsId']
+        if 'defaultBackendHttpSettingsName' in kwargs:
+            default_backend_http_settings_name = kwargs['defaultBackendHttpSettingsName']
+        if 'defaultRedirectConfigurationId' in kwargs:
+            default_redirect_configuration_id = kwargs['defaultRedirectConfigurationId']
+        if 'defaultRedirectConfigurationName' in kwargs:
+            default_redirect_configuration_name = kwargs['defaultRedirectConfigurationName']
+        if 'defaultRewriteRuleSetId' in kwargs:
+            default_rewrite_rule_set_id = kwargs['defaultRewriteRuleSetId']
+        if 'defaultRewriteRuleSetName' in kwargs:
+            default_rewrite_rule_set_name = kwargs['defaultRewriteRuleSetName']
+
         _setter("name", name)
         _setter("path_rules", path_rules)
         if default_backend_address_pool_id is not None:
@@ -3956,7 +4234,27 @@ class ApplicationGatewayUrlPathMapPathRule(dict):
              redirect_configuration_name: Optional[str] = None,
              rewrite_rule_set_id: Optional[str] = None,
              rewrite_rule_set_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backendAddressPoolId' in kwargs:
+            backend_address_pool_id = kwargs['backendAddressPoolId']
+        if 'backendAddressPoolName' in kwargs:
+            backend_address_pool_name = kwargs['backendAddressPoolName']
+        if 'backendHttpSettingsId' in kwargs:
+            backend_http_settings_id = kwargs['backendHttpSettingsId']
+        if 'backendHttpSettingsName' in kwargs:
+            backend_http_settings_name = kwargs['backendHttpSettingsName']
+        if 'firewallPolicyId' in kwargs:
+            firewall_policy_id = kwargs['firewallPolicyId']
+        if 'redirectConfigurationId' in kwargs:
+            redirect_configuration_id = kwargs['redirectConfigurationId']
+        if 'redirectConfigurationName' in kwargs:
+            redirect_configuration_name = kwargs['redirectConfigurationName']
+        if 'rewriteRuleSetId' in kwargs:
+            rewrite_rule_set_id = kwargs['rewriteRuleSetId']
+        if 'rewriteRuleSetName' in kwargs:
+            rewrite_rule_set_name = kwargs['rewriteRuleSetName']
+
         _setter("name", name)
         _setter("paths", paths)
         if backend_address_pool_id is not None:
@@ -4153,7 +4451,23 @@ class ApplicationGatewayWafConfiguration(dict):
              max_request_body_size_kb: Optional[int] = None,
              request_body_check: Optional[bool] = None,
              rule_set_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'firewallMode' in kwargs:
+            firewall_mode = kwargs['firewallMode']
+        if 'ruleSetVersion' in kwargs:
+            rule_set_version = kwargs['ruleSetVersion']
+        if 'disabledRuleGroups' in kwargs:
+            disabled_rule_groups = kwargs['disabledRuleGroups']
+        if 'fileUploadLimitMb' in kwargs:
+            file_upload_limit_mb = kwargs['fileUploadLimitMb']
+        if 'maxRequestBodySizeKb' in kwargs:
+            max_request_body_size_kb = kwargs['maxRequestBodySizeKb']
+        if 'requestBodyCheck' in kwargs:
+            request_body_check = kwargs['requestBodyCheck']
+        if 'ruleSetType' in kwargs:
+            rule_set_type = kwargs['ruleSetType']
+
         _setter("enabled", enabled)
         _setter("firewall_mode", firewall_mode)
         _setter("rule_set_version", rule_set_version)
@@ -4279,7 +4593,11 @@ class ApplicationGatewayWafConfigurationDisabledRuleGroup(dict):
              _setter: Callable[[Any, Any], None],
              rule_group_name: str,
              rules: Optional[Sequence[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ruleGroupName' in kwargs:
+            rule_group_name = kwargs['ruleGroupName']
+
         _setter("rule_group_name", rule_group_name)
         if rules is not None:
             _setter("rules", rules)
@@ -4343,7 +4661,13 @@ class ApplicationGatewayWafConfigurationExclusion(dict):
              match_variable: str,
              selector: Optional[str] = None,
              selector_match_operator: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchVariable' in kwargs:
+            match_variable = kwargs['matchVariable']
+        if 'selectorMatchOperator' in kwargs:
+            selector_match_operator = kwargs['selectorMatchOperator']
+
         _setter("match_variable", match_variable)
         if selector is not None:
             _setter("selector", selector)
@@ -4431,7 +4755,17 @@ class ExpressRouteCircuitPeeringIpv6(dict):
              enabled: Optional[bool] = None,
              microsoft_peering: Optional['outputs.ExpressRouteCircuitPeeringIpv6MicrosoftPeering'] = None,
              route_filter_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'primaryPeerAddressPrefix' in kwargs:
+            primary_peer_address_prefix = kwargs['primaryPeerAddressPrefix']
+        if 'secondaryPeerAddressPrefix' in kwargs:
+            secondary_peer_address_prefix = kwargs['secondaryPeerAddressPrefix']
+        if 'microsoftPeering' in kwargs:
+            microsoft_peering = kwargs['microsoftPeering']
+        if 'routeFilterId' in kwargs:
+            route_filter_id = kwargs['routeFilterId']
+
         _setter("primary_peer_address_prefix", primary_peer_address_prefix)
         _setter("secondary_peer_address_prefix", secondary_peer_address_prefix)
         if enabled is not None:
@@ -4534,7 +4868,17 @@ class ExpressRouteCircuitPeeringIpv6MicrosoftPeering(dict):
              advertised_public_prefixes: Optional[Sequence[str]] = None,
              customer_asn: Optional[int] = None,
              routing_registry_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'advertisedCommunities' in kwargs:
+            advertised_communities = kwargs['advertisedCommunities']
+        if 'advertisedPublicPrefixes' in kwargs:
+            advertised_public_prefixes = kwargs['advertisedPublicPrefixes']
+        if 'customerAsn' in kwargs:
+            customer_asn = kwargs['customerAsn']
+        if 'routingRegistryName' in kwargs:
+            routing_registry_name = kwargs['routingRegistryName']
+
         if advertised_communities is not None:
             _setter("advertised_communities", advertised_communities)
         if advertised_public_prefixes is not None:
@@ -4627,7 +4971,17 @@ class ExpressRouteCircuitPeeringMicrosoftPeeringConfig(dict):
              advertised_communities: Optional[Sequence[str]] = None,
              customer_asn: Optional[int] = None,
              routing_registry_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'advertisedPublicPrefixes' in kwargs:
+            advertised_public_prefixes = kwargs['advertisedPublicPrefixes']
+        if 'advertisedCommunities' in kwargs:
+            advertised_communities = kwargs['advertisedCommunities']
+        if 'customerAsn' in kwargs:
+            customer_asn = kwargs['customerAsn']
+        if 'routingRegistryName' in kwargs:
+            routing_registry_name = kwargs['routingRegistryName']
+
         _setter("advertised_public_prefixes", advertised_public_prefixes)
         if advertised_communities is not None:
             _setter("advertised_communities", advertised_communities)
@@ -4690,7 +5044,9 @@ class ExpressRouteCircuitSku(dict):
              _setter: Callable[[Any, Any], None],
              family: str,
              tier: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("family", family)
         _setter("tier", tier)
 
@@ -4763,7 +5119,17 @@ class ExpressRouteConnectionRouting(dict):
              inbound_route_map_id: Optional[str] = None,
              outbound_route_map_id: Optional[str] = None,
              propagated_route_table: Optional['outputs.ExpressRouteConnectionRoutingPropagatedRouteTable'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'associatedRouteTableId' in kwargs:
+            associated_route_table_id = kwargs['associatedRouteTableId']
+        if 'inboundRouteMapId' in kwargs:
+            inbound_route_map_id = kwargs['inboundRouteMapId']
+        if 'outboundRouteMapId' in kwargs:
+            outbound_route_map_id = kwargs['outboundRouteMapId']
+        if 'propagatedRouteTable' in kwargs:
+            propagated_route_table = kwargs['propagatedRouteTable']
+
         if associated_route_table_id is not None:
             _setter("associated_route_table_id", associated_route_table_id)
         if inbound_route_map_id is not None:
@@ -4842,7 +5208,11 @@ class ExpressRouteConnectionRoutingPropagatedRouteTable(dict):
              _setter: Callable[[Any, Any], None],
              labels: Optional[Sequence[str]] = None,
              route_table_ids: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'routeTableIds' in kwargs:
+            route_table_ids = kwargs['routeTableIds']
+
         if labels is not None:
             _setter("labels", labels)
         if route_table_ids is not None:
@@ -4901,7 +5271,11 @@ class ExpressRoutePortIdentity(dict):
              _setter: Callable[[Any, Any], None],
              identity_ids: Sequence[str],
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+
         _setter("identity_ids", identity_ids)
         _setter("type", type)
 
@@ -5008,7 +5382,27 @@ class ExpressRoutePortLink1(dict):
              patch_panel_id: Optional[str] = None,
              rack_id: Optional[str] = None,
              router_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adminEnabled' in kwargs:
+            admin_enabled = kwargs['adminEnabled']
+        if 'connectorType' in kwargs:
+            connector_type = kwargs['connectorType']
+        if 'interfaceName' in kwargs:
+            interface_name = kwargs['interfaceName']
+        if 'macsecCakKeyvaultSecretId' in kwargs:
+            macsec_cak_keyvault_secret_id = kwargs['macsecCakKeyvaultSecretId']
+        if 'macsecCipher' in kwargs:
+            macsec_cipher = kwargs['macsecCipher']
+        if 'macsecCknKeyvaultSecretId' in kwargs:
+            macsec_ckn_keyvault_secret_id = kwargs['macsecCknKeyvaultSecretId']
+        if 'patchPanelId' in kwargs:
+            patch_panel_id = kwargs['patchPanelId']
+        if 'rackId' in kwargs:
+            rack_id = kwargs['rackId']
+        if 'routerName' in kwargs:
+            router_name = kwargs['routerName']
+
         if admin_enabled is not None:
             _setter("admin_enabled", admin_enabled)
         if connector_type is not None:
@@ -5199,7 +5593,27 @@ class ExpressRoutePortLink2(dict):
              patch_panel_id: Optional[str] = None,
              rack_id: Optional[str] = None,
              router_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adminEnabled' in kwargs:
+            admin_enabled = kwargs['adminEnabled']
+        if 'connectorType' in kwargs:
+            connector_type = kwargs['connectorType']
+        if 'interfaceName' in kwargs:
+            interface_name = kwargs['interfaceName']
+        if 'macsecCakKeyvaultSecretId' in kwargs:
+            macsec_cak_keyvault_secret_id = kwargs['macsecCakKeyvaultSecretId']
+        if 'macsecCipher' in kwargs:
+            macsec_cipher = kwargs['macsecCipher']
+        if 'macsecCknKeyvaultSecretId' in kwargs:
+            macsec_ckn_keyvault_secret_id = kwargs['macsecCknKeyvaultSecretId']
+        if 'patchPanelId' in kwargs:
+            patch_panel_id = kwargs['patchPanelId']
+        if 'rackId' in kwargs:
+            rack_id = kwargs['rackId']
+        if 'routerName' in kwargs:
+            router_name = kwargs['routerName']
+
         if admin_enabled is not None:
             _setter("admin_enabled", admin_enabled)
         if connector_type is not None:
@@ -5368,7 +5782,17 @@ class FirewallApplicationRuleCollectionRule(dict):
              source_addresses: Optional[Sequence[str]] = None,
              source_ip_groups: Optional[Sequence[str]] = None,
              target_fqdns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fqdnTags' in kwargs:
+            fqdn_tags = kwargs['fqdnTags']
+        if 'sourceAddresses' in kwargs:
+            source_addresses = kwargs['sourceAddresses']
+        if 'sourceIpGroups' in kwargs:
+            source_ip_groups = kwargs['sourceIpGroups']
+        if 'targetFqdns' in kwargs:
+            target_fqdns = kwargs['targetFqdns']
+
         _setter("name", name)
         if description is not None:
             _setter("description", description)
@@ -5461,7 +5885,9 @@ class FirewallApplicationRuleCollectionRuleProtocol(dict):
              _setter: Callable[[Any, Any], None],
              port: int,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("port", port)
         _setter("type", type)
 
@@ -5533,7 +5959,15 @@ class FirewallIpConfiguration(dict):
              private_ip_address: Optional[str] = None,
              public_ip_address_id: Optional[str] = None,
              subnet_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if 'publicIpAddressId' in kwargs:
+            public_ip_address_id = kwargs['publicIpAddressId']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         _setter("name", name)
         if private_ip_address is not None:
             _setter("private_ip_address", private_ip_address)
@@ -5628,7 +6062,15 @@ class FirewallManagementIpConfiguration(dict):
              public_ip_address_id: str,
              subnet_id: str,
              private_ip_address: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'publicIpAddressId' in kwargs:
+            public_ip_address_id = kwargs['publicIpAddressId']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+
         _setter("name", name)
         _setter("public_ip_address_id", public_ip_address_id)
         _setter("subnet_id", subnet_id)
@@ -5748,7 +6190,21 @@ class FirewallNatRuleCollectionRule(dict):
              description: Optional[str] = None,
              source_addresses: Optional[Sequence[str]] = None,
              source_ip_groups: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationAddresses' in kwargs:
+            destination_addresses = kwargs['destinationAddresses']
+        if 'destinationPorts' in kwargs:
+            destination_ports = kwargs['destinationPorts']
+        if 'translatedAddress' in kwargs:
+            translated_address = kwargs['translatedAddress']
+        if 'translatedPort' in kwargs:
+            translated_port = kwargs['translatedPort']
+        if 'sourceAddresses' in kwargs:
+            source_addresses = kwargs['sourceAddresses']
+        if 'sourceIpGroups' in kwargs:
+            source_ip_groups = kwargs['sourceIpGroups']
+
         _setter("destination_addresses", destination_addresses)
         _setter("destination_ports", destination_ports)
         _setter("name", name)
@@ -5917,7 +6373,21 @@ class FirewallNetworkRuleCollectionRule(dict):
              destination_ip_groups: Optional[Sequence[str]] = None,
              source_addresses: Optional[Sequence[str]] = None,
              source_ip_groups: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationPorts' in kwargs:
+            destination_ports = kwargs['destinationPorts']
+        if 'destinationAddresses' in kwargs:
+            destination_addresses = kwargs['destinationAddresses']
+        if 'destinationFqdns' in kwargs:
+            destination_fqdns = kwargs['destinationFqdns']
+        if 'destinationIpGroups' in kwargs:
+            destination_ip_groups = kwargs['destinationIpGroups']
+        if 'sourceAddresses' in kwargs:
+            source_addresses = kwargs['sourceAddresses']
+        if 'sourceIpGroups' in kwargs:
+            source_ip_groups = kwargs['sourceIpGroups']
+
         _setter("destination_ports", destination_ports)
         _setter("name", name)
         _setter("protocols", protocols)
@@ -6049,7 +6519,11 @@ class FirewallPolicyDns(dict):
              _setter: Callable[[Any, Any], None],
              proxy_enabled: Optional[bool] = None,
              servers: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'proxyEnabled' in kwargs:
+            proxy_enabled = kwargs['proxyEnabled']
+
         if proxy_enabled is not None:
             _setter("proxy_enabled", proxy_enabled)
         if servers is not None:
@@ -6132,7 +6606,19 @@ class FirewallPolicyExplicitProxy(dict):
              https_port: Optional[int] = None,
              pac_file: Optional[str] = None,
              pac_file_port: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'enablePacFile' in kwargs:
+            enable_pac_file = kwargs['enablePacFile']
+        if 'httpPort' in kwargs:
+            http_port = kwargs['httpPort']
+        if 'httpsPort' in kwargs:
+            https_port = kwargs['httpsPort']
+        if 'pacFile' in kwargs:
+            pac_file = kwargs['pacFile']
+        if 'pacFilePort' in kwargs:
+            pac_file_port = kwargs['pacFilePort']
+
         if enable_pac_file is not None:
             _setter("enable_pac_file", enable_pac_file)
         if enabled is not None:
@@ -6241,7 +6727,15 @@ class FirewallPolicyIdentity(dict):
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -6325,7 +6819,15 @@ class FirewallPolicyInsights(dict):
              enabled: bool,
              log_analytics_workspaces: Optional[Sequence['outputs.FirewallPolicyInsightsLogAnalyticsWorkspace']] = None,
              retention_in_days: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultLogAnalyticsWorkspaceId' in kwargs:
+            default_log_analytics_workspace_id = kwargs['defaultLogAnalyticsWorkspaceId']
+        if 'logAnalyticsWorkspaces' in kwargs:
+            log_analytics_workspaces = kwargs['logAnalyticsWorkspaces']
+        if 'retentionInDays' in kwargs:
+            retention_in_days = kwargs['retentionInDays']
+
         _setter("default_log_analytics_workspace_id", default_log_analytics_workspace_id)
         _setter("enabled", enabled)
         if log_analytics_workspaces is not None:
@@ -6402,7 +6904,11 @@ class FirewallPolicyInsightsLogAnalyticsWorkspace(dict):
              _setter: Callable[[Any, Any], None],
              firewall_location: str,
              id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'firewallLocation' in kwargs:
+            firewall_location = kwargs['firewallLocation']
+
         _setter("firewall_location", firewall_location)
         _setter("id", id)
 
@@ -6471,7 +6977,15 @@ class FirewallPolicyIntrusionDetection(dict):
              private_ranges: Optional[Sequence[str]] = None,
              signature_overrides: Optional[Sequence['outputs.FirewallPolicyIntrusionDetectionSignatureOverride']] = None,
              traffic_bypasses: Optional[Sequence['outputs.FirewallPolicyIntrusionDetectionTrafficBypass']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateRanges' in kwargs:
+            private_ranges = kwargs['privateRanges']
+        if 'signatureOverrides' in kwargs:
+            signature_overrides = kwargs['signatureOverrides']
+        if 'trafficBypasses' in kwargs:
+            traffic_bypasses = kwargs['trafficBypasses']
+
         if mode is not None:
             _setter("mode", mode)
         if private_ranges is not None:
@@ -6533,7 +7047,9 @@ class FirewallPolicyIntrusionDetectionSignatureOverride(dict):
              _setter: Callable[[Any, Any], None],
              id: Optional[str] = None,
              state: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
             _setter("id", id)
         if state is not None:
@@ -6624,7 +7140,19 @@ class FirewallPolicyIntrusionDetectionTrafficBypass(dict):
              destination_ports: Optional[Sequence[str]] = None,
              source_addresses: Optional[Sequence[str]] = None,
              source_ip_groups: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationAddresses' in kwargs:
+            destination_addresses = kwargs['destinationAddresses']
+        if 'destinationIpGroups' in kwargs:
+            destination_ip_groups = kwargs['destinationIpGroups']
+        if 'destinationPorts' in kwargs:
+            destination_ports = kwargs['destinationPorts']
+        if 'sourceAddresses' in kwargs:
+            source_addresses = kwargs['sourceAddresses']
+        if 'sourceIpGroups' in kwargs:
+            source_ip_groups = kwargs['sourceIpGroups']
+
         _setter("name", name)
         _setter("protocol", protocol)
         if description is not None:
@@ -6732,7 +7260,9 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollection(dict):
              name: str,
              priority: int,
              rules: Sequence['outputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("action", action)
         _setter("name", name)
         _setter("priority", priority)
@@ -6857,7 +7387,25 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule(dict):
              source_ip_groups: Optional[Sequence[str]] = None,
              terminate_tls: Optional[bool] = None,
              web_categories: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationAddresses' in kwargs:
+            destination_addresses = kwargs['destinationAddresses']
+        if 'destinationFqdnTags' in kwargs:
+            destination_fqdn_tags = kwargs['destinationFqdnTags']
+        if 'destinationFqdns' in kwargs:
+            destination_fqdns = kwargs['destinationFqdns']
+        if 'destinationUrls' in kwargs:
+            destination_urls = kwargs['destinationUrls']
+        if 'sourceAddresses' in kwargs:
+            source_addresses = kwargs['sourceAddresses']
+        if 'sourceIpGroups' in kwargs:
+            source_ip_groups = kwargs['sourceIpGroups']
+        if 'terminateTls' in kwargs:
+            terminate_tls = kwargs['terminateTls']
+        if 'webCategories' in kwargs:
+            web_categories = kwargs['webCategories']
+
         _setter("name", name)
         if description is not None:
             _setter("description", description)
@@ -6988,7 +7536,9 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol(dic
              _setter: Callable[[Any, Any], None],
              port: int,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("port", port)
         _setter("type", type)
 
@@ -7036,7 +7586,9 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollection(dict):
              name: str,
              priority: int,
              rules: Sequence['outputs.FirewallPolicyRuleCollectionGroupNatRuleCollectionRule'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("action", action)
         _setter("name", name)
         _setter("priority", priority)
@@ -7157,7 +7709,23 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule(dict):
              source_ip_groups: Optional[Sequence[str]] = None,
              translated_address: Optional[str] = None,
              translated_fqdn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'translatedPort' in kwargs:
+            translated_port = kwargs['translatedPort']
+        if 'destinationAddress' in kwargs:
+            destination_address = kwargs['destinationAddress']
+        if 'destinationPorts' in kwargs:
+            destination_ports = kwargs['destinationPorts']
+        if 'sourceAddresses' in kwargs:
+            source_addresses = kwargs['sourceAddresses']
+        if 'sourceIpGroups' in kwargs:
+            source_ip_groups = kwargs['sourceIpGroups']
+        if 'translatedAddress' in kwargs:
+            translated_address = kwargs['translatedAddress']
+        if 'translatedFqdn' in kwargs:
+            translated_fqdn = kwargs['translatedFqdn']
+
         _setter("name", name)
         _setter("protocols", protocols)
         _setter("translated_port", translated_port)
@@ -7286,7 +7854,9 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollection(dict):
              name: str,
              priority: int,
              rules: Sequence['outputs.FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("action", action)
         _setter("name", name)
         _setter("priority", priority)
@@ -7399,7 +7969,21 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule(dict):
              destination_ip_groups: Optional[Sequence[str]] = None,
              source_addresses: Optional[Sequence[str]] = None,
              source_ip_groups: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationPorts' in kwargs:
+            destination_ports = kwargs['destinationPorts']
+        if 'destinationAddresses' in kwargs:
+            destination_addresses = kwargs['destinationAddresses']
+        if 'destinationFqdns' in kwargs:
+            destination_fqdns = kwargs['destinationFqdns']
+        if 'destinationIpGroups' in kwargs:
+            destination_ip_groups = kwargs['destinationIpGroups']
+        if 'sourceAddresses' in kwargs:
+            source_addresses = kwargs['sourceAddresses']
+        if 'sourceIpGroups' in kwargs:
+            source_ip_groups = kwargs['sourceIpGroups']
+
         _setter("destination_ports", destination_ports)
         _setter("name", name)
         _setter("protocols", protocols)
@@ -7525,7 +8109,11 @@ class FirewallPolicyThreatIntelligenceAllowlist(dict):
              _setter: Callable[[Any, Any], None],
              fqdns: Optional[Sequence[str]] = None,
              ip_addresses: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddresses' in kwargs:
+            ip_addresses = kwargs['ipAddresses']
+
         if fqdns is not None:
             _setter("fqdns", fqdns)
         if ip_addresses is not None:
@@ -7584,7 +8172,11 @@ class FirewallPolicyTlsCertificate(dict):
              _setter: Callable[[Any, Any], None],
              key_vault_secret_id: str,
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyVaultSecretId' in kwargs:
+            key_vault_secret_id = kwargs['keyVaultSecretId']
+
         _setter("key_vault_secret_id", key_vault_secret_id)
         _setter("name", name)
 
@@ -7655,7 +8247,17 @@ class FirewallVirtualHub(dict):
              private_ip_address: Optional[str] = None,
              public_ip_addresses: Optional[Sequence[str]] = None,
              public_ip_count: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'virtualHubId' in kwargs:
+            virtual_hub_id = kwargs['virtualHubId']
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if 'publicIpAddresses' in kwargs:
+            public_ip_addresses = kwargs['publicIpAddresses']
+        if 'publicIpCount' in kwargs:
+            public_ip_count = kwargs['publicIpCount']
+
         _setter("virtual_hub_id", virtual_hub_id)
         if private_ip_address is not None:
             _setter("private_ip_address", private_ip_address)
@@ -7739,7 +8341,13 @@ class LocalNetworkGatewayBgpSettings(dict):
              asn: int,
              bgp_peering_address: str,
              peer_weight: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bgpPeeringAddress' in kwargs:
+            bgp_peering_address = kwargs['bgpPeeringAddress']
+        if 'peerWeight' in kwargs:
+            peer_weight = kwargs['peerWeight']
+
         _setter("asn", asn)
         _setter("bgp_peering_address", bgp_peering_address)
         if peer_weight is not None:
@@ -7838,7 +8446,19 @@ class NetworkConnectionMonitorEndpoint(dict):
              included_ip_addresses: Optional[Sequence[str]] = None,
              target_resource_id: Optional[str] = None,
              target_resource_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'coverageLevel' in kwargs:
+            coverage_level = kwargs['coverageLevel']
+        if 'excludedIpAddresses' in kwargs:
+            excluded_ip_addresses = kwargs['excludedIpAddresses']
+        if 'includedIpAddresses' in kwargs:
+            included_ip_addresses = kwargs['includedIpAddresses']
+        if 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+        if 'targetResourceType' in kwargs:
+            target_resource_type = kwargs['targetResourceType']
+
         _setter("name", name)
         if address is not None:
             _setter("address", address)
@@ -7939,7 +8559,9 @@ class NetworkConnectionMonitorEndpointFilter(dict):
              _setter: Callable[[Any, Any], None],
              items: Optional[Sequence['outputs.NetworkConnectionMonitorEndpointFilterItem']] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if items is not None:
             _setter("items", items)
         if type is not None:
@@ -7981,7 +8603,9 @@ class NetworkConnectionMonitorEndpointFilterItem(dict):
              _setter: Callable[[Any, Any], None],
              address: Optional[str] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if address is not None:
             _setter("address", address)
         if type is not None:
@@ -8074,7 +8698,21 @@ class NetworkConnectionMonitorTestConfiguration(dict):
              success_threshold: Optional['outputs.NetworkConnectionMonitorTestConfigurationSuccessThreshold'] = None,
              tcp_configuration: Optional['outputs.NetworkConnectionMonitorTestConfigurationTcpConfiguration'] = None,
              test_frequency_in_seconds: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'httpConfiguration' in kwargs:
+            http_configuration = kwargs['httpConfiguration']
+        if 'icmpConfiguration' in kwargs:
+            icmp_configuration = kwargs['icmpConfiguration']
+        if 'preferredIpVersion' in kwargs:
+            preferred_ip_version = kwargs['preferredIpVersion']
+        if 'successThreshold' in kwargs:
+            success_threshold = kwargs['successThreshold']
+        if 'tcpConfiguration' in kwargs:
+            tcp_configuration = kwargs['tcpConfiguration']
+        if 'testFrequencyInSeconds' in kwargs:
+            test_frequency_in_seconds = kwargs['testFrequencyInSeconds']
+
         _setter("name", name)
         _setter("protocol", protocol)
         if http_configuration is not None:
@@ -8211,7 +8849,15 @@ class NetworkConnectionMonitorTestConfigurationHttpConfiguration(dict):
              prefer_https: Optional[bool] = None,
              request_headers: Optional[Sequence['outputs.NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeader']] = None,
              valid_status_code_ranges: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'preferHttps' in kwargs:
+            prefer_https = kwargs['preferHttps']
+        if 'requestHeaders' in kwargs:
+            request_headers = kwargs['requestHeaders']
+        if 'validStatusCodeRanges' in kwargs:
+            valid_status_code_ranges = kwargs['validStatusCodeRanges']
+
         if method is not None:
             _setter("method", method)
         if path is not None:
@@ -8293,7 +8939,9 @@ class NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeader(di
              _setter: Callable[[Any, Any], None],
              name: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -8346,7 +8994,11 @@ class NetworkConnectionMonitorTestConfigurationIcmpConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              trace_route_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'traceRouteEnabled' in kwargs:
+            trace_route_enabled = kwargs['traceRouteEnabled']
+
         if trace_route_enabled is not None:
             _setter("trace_route_enabled", trace_route_enabled)
 
@@ -8397,7 +9049,13 @@ class NetworkConnectionMonitorTestConfigurationSuccessThreshold(dict):
              _setter: Callable[[Any, Any], None],
              checks_failed_percent: Optional[int] = None,
              round_trip_time_ms: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'checksFailedPercent' in kwargs:
+            checks_failed_percent = kwargs['checksFailedPercent']
+        if 'roundTripTimeMs' in kwargs:
+            round_trip_time_ms = kwargs['roundTripTimeMs']
+
         if checks_failed_percent is not None:
             _setter("checks_failed_percent", checks_failed_percent)
         if round_trip_time_ms is not None:
@@ -8462,7 +9120,13 @@ class NetworkConnectionMonitorTestConfigurationTcpConfiguration(dict):
              port: int,
              destination_port_behavior: Optional[str] = None,
              trace_route_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationPortBehavior' in kwargs:
+            destination_port_behavior = kwargs['destinationPortBehavior']
+        if 'traceRouteEnabled' in kwargs:
+            trace_route_enabled = kwargs['traceRouteEnabled']
+
         _setter("port", port)
         if destination_port_behavior is not None:
             _setter("destination_port_behavior", destination_port_behavior)
@@ -8546,7 +9210,15 @@ class NetworkConnectionMonitorTestGroup(dict):
              source_endpoints: Sequence[str],
              test_configuration_names: Sequence[str],
              enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationEndpoints' in kwargs:
+            destination_endpoints = kwargs['destinationEndpoints']
+        if 'sourceEndpoints' in kwargs:
+            source_endpoints = kwargs['sourceEndpoints']
+        if 'testConfigurationNames' in kwargs:
+            test_configuration_names = kwargs['testConfigurationNames']
+
         _setter("destination_endpoints", destination_endpoints)
         _setter("name", name)
         _setter("source_endpoints", source_endpoints)
@@ -8669,7 +9341,21 @@ class NetworkInterfaceIpConfiguration(dict):
              private_ip_address_version: Optional[str] = None,
              public_ip_address_id: Optional[str] = None,
              subnet_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateIpAddressAllocation' in kwargs:
+            private_ip_address_allocation = kwargs['privateIpAddressAllocation']
+        if 'gatewayLoadBalancerFrontendIpConfigurationId' in kwargs:
+            gateway_load_balancer_frontend_ip_configuration_id = kwargs['gatewayLoadBalancerFrontendIpConfigurationId']
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if 'privateIpAddressVersion' in kwargs:
+            private_ip_address_version = kwargs['privateIpAddressVersion']
+        if 'publicIpAddressId' in kwargs:
+            public_ip_address_id = kwargs['publicIpAddressId']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         _setter("name", name)
         _setter("private_ip_address_allocation", private_ip_address_allocation)
         if gateway_load_balancer_frontend_ip_configuration_id is not None:
@@ -8792,7 +9478,13 @@ class NetworkManagerAdminRuleDestination(dict):
              _setter: Callable[[Any, Any], None],
              address_prefix: str,
              address_prefix_type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addressPrefix' in kwargs:
+            address_prefix = kwargs['addressPrefix']
+        if 'addressPrefixType' in kwargs:
+            address_prefix_type = kwargs['addressPrefixType']
+
         _setter("address_prefix", address_prefix)
         _setter("address_prefix_type", address_prefix_type)
 
@@ -8851,7 +9543,13 @@ class NetworkManagerAdminRuleSource(dict):
              _setter: Callable[[Any, Any], None],
              address_prefix: str,
              address_prefix_type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addressPrefix' in kwargs:
+            address_prefix = kwargs['addressPrefix']
+        if 'addressPrefixType' in kwargs:
+            address_prefix_type = kwargs['addressPrefixType']
+
         _setter("address_prefix", address_prefix)
         _setter("address_prefix_type", address_prefix_type)
 
@@ -8924,7 +9622,17 @@ class NetworkManagerConnectivityConfigurationAppliesToGroup(dict):
              network_group_id: str,
              global_mesh_enabled: Optional[bool] = None,
              use_hub_gateway: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupConnectivity' in kwargs:
+            group_connectivity = kwargs['groupConnectivity']
+        if 'networkGroupId' in kwargs:
+            network_group_id = kwargs['networkGroupId']
+        if 'globalMeshEnabled' in kwargs:
+            global_mesh_enabled = kwargs['globalMeshEnabled']
+        if 'useHubGateway' in kwargs:
+            use_hub_gateway = kwargs['useHubGateway']
+
         _setter("group_connectivity", group_connectivity)
         _setter("network_group_id", network_group_id)
         if global_mesh_enabled is not None:
@@ -9005,7 +9713,13 @@ class NetworkManagerConnectivityConfigurationHub(dict):
              _setter: Callable[[Any, Any], None],
              resource_id: str,
              resource_type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+
         _setter("resource_id", resource_id)
         _setter("resource_type", resource_type)
 
@@ -9068,7 +9782,13 @@ class NetworkManagerCrossTenantScope(dict):
              management_groups: Optional[Sequence[str]] = None,
              subscriptions: Optional[Sequence[str]] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'managementGroups' in kwargs:
+            management_groups = kwargs['managementGroups']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if management_groups is not None:
             _setter("management_groups", management_groups)
         if subscriptions is not None:
@@ -9139,7 +9859,13 @@ class NetworkManagerScope(dict):
              _setter: Callable[[Any, Any], None],
              management_group_ids: Optional[Sequence[str]] = None,
              subscription_ids: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'managementGroupIds' in kwargs:
+            management_group_ids = kwargs['managementGroupIds']
+        if 'subscriptionIds' in kwargs:
+            subscription_ids = kwargs['subscriptionIds']
+
         if management_group_ids is not None:
             _setter("management_group_ids", management_group_ids)
         if subscription_ids is not None:
@@ -9216,7 +9942,17 @@ class NetworkPacketCaptureFilter(dict):
              local_port: Optional[str] = None,
              remote_ip_address: Optional[str] = None,
              remote_port: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'localIpAddress' in kwargs:
+            local_ip_address = kwargs['localIpAddress']
+        if 'localPort' in kwargs:
+            local_port = kwargs['localPort']
+        if 'remoteIpAddress' in kwargs:
+            remote_ip_address = kwargs['remoteIpAddress']
+        if 'remotePort' in kwargs:
+            remote_port = kwargs['remotePort']
+
         _setter("protocol", protocol)
         if local_ip_address is not None:
             _setter("local_ip_address", local_ip_address)
@@ -9314,7 +10050,15 @@ class NetworkPacketCaptureStorageLocation(dict):
              file_path: Optional[str] = None,
              storage_account_id: Optional[str] = None,
              storage_path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'filePath' in kwargs:
+            file_path = kwargs['filePath']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if 'storagePath' in kwargs:
+            storage_path = kwargs['storagePath']
+
         if file_path is not None:
             _setter("file_path", file_path)
         if storage_account_id is not None:
@@ -9459,7 +10203,29 @@ class NetworkSecurityGroupSecurityRule(dict):
              source_application_security_group_ids: Optional[Sequence[str]] = None,
              source_port_range: Optional[str] = None,
              source_port_ranges: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationAddressPrefix' in kwargs:
+            destination_address_prefix = kwargs['destinationAddressPrefix']
+        if 'destinationAddressPrefixes' in kwargs:
+            destination_address_prefixes = kwargs['destinationAddressPrefixes']
+        if 'destinationApplicationSecurityGroupIds' in kwargs:
+            destination_application_security_group_ids = kwargs['destinationApplicationSecurityGroupIds']
+        if 'destinationPortRange' in kwargs:
+            destination_port_range = kwargs['destinationPortRange']
+        if 'destinationPortRanges' in kwargs:
+            destination_port_ranges = kwargs['destinationPortRanges']
+        if 'sourceAddressPrefix' in kwargs:
+            source_address_prefix = kwargs['sourceAddressPrefix']
+        if 'sourceAddressPrefixes' in kwargs:
+            source_address_prefixes = kwargs['sourceAddressPrefixes']
+        if 'sourceApplicationSecurityGroupIds' in kwargs:
+            source_application_security_group_ids = kwargs['sourceApplicationSecurityGroupIds']
+        if 'sourcePortRange' in kwargs:
+            source_port_range = kwargs['sourcePortRange']
+        if 'sourcePortRanges' in kwargs:
+            source_port_ranges = kwargs['sourcePortRanges']
+
         _setter("access", access)
         _setter("direction", direction)
         _setter("name", name)
@@ -9636,7 +10402,9 @@ class NetworkWatcherFlowLogRetentionPolicy(dict):
              _setter: Callable[[Any, Any], None],
              days: int,
              enabled: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("days", days)
         _setter("enabled", enabled)
 
@@ -9711,7 +10479,17 @@ class NetworkWatcherFlowLogTrafficAnalytics(dict):
              workspace_region: str,
              workspace_resource_id: str,
              interval_in_minutes: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+        if 'workspaceRegion' in kwargs:
+            workspace_region = kwargs['workspaceRegion']
+        if 'workspaceResourceId' in kwargs:
+            workspace_resource_id = kwargs['workspaceResourceId']
+        if 'intervalInMinutes' in kwargs:
+            interval_in_minutes = kwargs['intervalInMinutes']
+
         _setter("enabled", enabled)
         _setter("workspace_id", workspace_id)
         _setter("workspace_region", workspace_region)
@@ -9806,7 +10584,13 @@ class PointToPointVpnGatewayConnectionConfiguration(dict):
              vpn_client_address_pool: 'outputs.PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool',
              internet_security_enabled: Optional[bool] = None,
              route: Optional['outputs.PointToPointVpnGatewayConnectionConfigurationRoute'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'vpnClientAddressPool' in kwargs:
+            vpn_client_address_pool = kwargs['vpnClientAddressPool']
+        if 'internetSecurityEnabled' in kwargs:
+            internet_security_enabled = kwargs['internetSecurityEnabled']
+
         _setter("name", name)
         _setter("vpn_client_address_pool", vpn_client_address_pool)
         if internet_security_enabled is not None:
@@ -9897,7 +10681,17 @@ class PointToPointVpnGatewayConnectionConfigurationRoute(dict):
              inbound_route_map_id: Optional[str] = None,
              outbound_route_map_id: Optional[str] = None,
              propagated_route_table: Optional['outputs.PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'associatedRouteTableId' in kwargs:
+            associated_route_table_id = kwargs['associatedRouteTableId']
+        if 'inboundRouteMapId' in kwargs:
+            inbound_route_map_id = kwargs['inboundRouteMapId']
+        if 'outboundRouteMapId' in kwargs:
+            outbound_route_map_id = kwargs['outboundRouteMapId']
+        if 'propagatedRouteTable' in kwargs:
+            propagated_route_table = kwargs['propagatedRouteTable']
+
         _setter("associated_route_table_id", associated_route_table_id)
         if inbound_route_map_id is not None:
             _setter("inbound_route_map_id", inbound_route_map_id)
@@ -9958,7 +10752,9 @@ class PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable(dic
              _setter: Callable[[Any, Any], None],
              ids: Sequence[str],
              labels: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("ids", ids)
         if labels is not None:
             _setter("labels", labels)
@@ -10012,7 +10808,11 @@ class PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              address_prefixes: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addressPrefixes' in kwargs:
+            address_prefixes = kwargs['addressPrefixes']
+
         _setter("address_prefixes", address_prefixes)
 
     @property
@@ -10060,7 +10860,11 @@ class ProfileContainerNetworkInterface(dict):
              _setter: Callable[[Any, Any], None],
              ip_configurations: Sequence['outputs.ProfileContainerNetworkInterfaceIpConfiguration'],
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipConfigurations' in kwargs:
+            ip_configurations = kwargs['ipConfigurations']
+
         _setter("ip_configurations", ip_configurations)
         _setter("name", name)
 
@@ -10117,7 +10921,11 @@ class ProfileContainerNetworkInterfaceIpConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              subnet_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         _setter("name", name)
         _setter("subnet_id", subnet_id)
 
@@ -10182,7 +10990,11 @@ class RouteFilterRule(dict):
              communities: Sequence[str],
              name: str,
              rule_type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ruleType' in kwargs:
+            rule_type = kwargs['ruleType']
+
         _setter("access", access)
         _setter("communities", communities)
         _setter("name", name)
@@ -10267,7 +11079,13 @@ class RouteMapRule(dict):
              actions: Optional[Sequence['outputs.RouteMapRuleAction']] = None,
              match_criterions: Optional[Sequence['outputs.RouteMapRuleMatchCriterion']] = None,
              next_step_if_matched: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchCriterions' in kwargs:
+            match_criterions = kwargs['matchCriterions']
+        if 'nextStepIfMatched' in kwargs:
+            next_step_if_matched = kwargs['nextStepIfMatched']
+
         _setter("name", name)
         if actions is not None:
             _setter("actions", actions)
@@ -10328,7 +11146,9 @@ class RouteMapRuleAction(dict):
              _setter: Callable[[Any, Any], None],
              parameters: Sequence['outputs.RouteMapRuleActionParameter'],
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("parameters", parameters)
         _setter("type", type)
 
@@ -10391,7 +11211,13 @@ class RouteMapRuleActionParameter(dict):
              as_paths: Optional[Sequence[str]] = None,
              communities: Optional[Sequence[str]] = None,
              route_prefixes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'asPaths' in kwargs:
+            as_paths = kwargs['asPaths']
+        if 'routePrefixes' in kwargs:
+            route_prefixes = kwargs['routePrefixes']
+
         if as_paths is not None:
             _setter("as_paths", as_paths)
         if communities is not None:
@@ -10472,7 +11298,15 @@ class RouteMapRuleMatchCriterion(dict):
              as_paths: Optional[Sequence[str]] = None,
              communities: Optional[Sequence[str]] = None,
              route_prefixes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchCondition' in kwargs:
+            match_condition = kwargs['matchCondition']
+        if 'asPaths' in kwargs:
+            as_paths = kwargs['asPaths']
+        if 'routePrefixes' in kwargs:
+            route_prefixes = kwargs['routePrefixes']
+
         _setter("match_condition", match_condition)
         if as_paths is not None:
             _setter("as_paths", as_paths)
@@ -10562,7 +11396,15 @@ class RouteTableRoute(dict):
              name: str,
              next_hop_type: str,
              next_hop_in_ip_address: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addressPrefix' in kwargs:
+            address_prefix = kwargs['addressPrefix']
+        if 'nextHopType' in kwargs:
+            next_hop_type = kwargs['nextHopType']
+        if 'nextHopInIpAddress' in kwargs:
+            next_hop_in_ip_address = kwargs['nextHopInIpAddress']
+
         _setter("address_prefix", address_prefix)
         _setter("name", name)
         _setter("next_hop_type", next_hop_type)
@@ -10642,7 +11484,11 @@ class RoutingIntentRoutingPolicy(dict):
              destinations: Sequence[str],
              name: str,
              next_hop: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'nextHop' in kwargs:
+            next_hop = kwargs['nextHop']
+
         _setter("destinations", destinations)
         _setter("name", name)
         _setter("next_hop", next_hop)
@@ -10708,7 +11554,11 @@ class SubnetDelegation(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              service_delegation: 'outputs.SubnetDelegationServiceDelegation',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'serviceDelegation' in kwargs:
+            service_delegation = kwargs['serviceDelegation']
+
         _setter("name", name)
         _setter("service_delegation", service_delegation)
 
@@ -10750,7 +11600,9 @@ class SubnetDelegationServiceDelegation(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              actions: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if actions is not None:
             _setter("actions", actions)
@@ -10820,7 +11672,11 @@ class SubnetServiceEndpointStoragePolicyDefinition(dict):
              service_resources: Sequence[str],
              description: Optional[str] = None,
              service: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'serviceResources' in kwargs:
+            service_resources = kwargs['serviceResources']
+
         _setter("name", name)
         _setter("service_resources", service_resources)
         if description is not None:
@@ -10882,7 +11738,9 @@ class TrafficManagerAzureEndpointCustomHeader(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -10926,7 +11784,9 @@ class TrafficManagerAzureEndpointSubnet(dict):
              first: str,
              last: Optional[str] = None,
              scope: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("first", first)
         if last is not None:
             _setter("last", last)
@@ -10977,7 +11837,9 @@ class TrafficManagerExternalEndpointCustomHeader(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -11021,7 +11883,9 @@ class TrafficManagerExternalEndpointSubnet(dict):
              first: str,
              last: Optional[str] = None,
              scope: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("first", first)
         if last is not None:
             _setter("last", last)
@@ -11072,7 +11936,9 @@ class TrafficManagerNestedEndpointCustomHeader(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -11116,7 +11982,9 @@ class TrafficManagerNestedEndpointSubnet(dict):
              first: str,
              last: Optional[str] = None,
              scope: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("first", first)
         if last is not None:
             _setter("last", last)
@@ -11184,7 +12052,11 @@ class TrafficManagerProfileDnsConfig(dict):
              _setter: Callable[[Any, Any], None],
              relative_name: str,
              ttl: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'relativeName' in kwargs:
+            relative_name = kwargs['relativeName']
+
         _setter("relative_name", relative_name)
         _setter("ttl", ttl)
 
@@ -11273,7 +12145,19 @@ class TrafficManagerProfileMonitorConfig(dict):
              path: Optional[str] = None,
              timeout_in_seconds: Optional[int] = None,
              tolerated_number_of_failures: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customHeaders' in kwargs:
+            custom_headers = kwargs['customHeaders']
+        if 'expectedStatusCodeRanges' in kwargs:
+            expected_status_code_ranges = kwargs['expectedStatusCodeRanges']
+        if 'intervalInSeconds' in kwargs:
+            interval_in_seconds = kwargs['intervalInSeconds']
+        if 'timeoutInSeconds' in kwargs:
+            timeout_in_seconds = kwargs['timeoutInSeconds']
+        if 'toleratedNumberOfFailures' in kwargs:
+            tolerated_number_of_failures = kwargs['toleratedNumberOfFailures']
+
         _setter("port", port)
         _setter("protocol", protocol)
         if custom_headers is not None:
@@ -11373,7 +12257,9 @@ class TrafficManagerProfileMonitorConfigCustomHeader(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -11456,7 +12342,21 @@ class VirtualHubConnectionRouting(dict):
              propagated_route_table: Optional['outputs.VirtualHubConnectionRoutingPropagatedRouteTable'] = None,
              static_vnet_local_route_override_criteria: Optional[str] = None,
              static_vnet_routes: Optional[Sequence['outputs.VirtualHubConnectionRoutingStaticVnetRoute']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'associatedRouteTableId' in kwargs:
+            associated_route_table_id = kwargs['associatedRouteTableId']
+        if 'inboundRouteMapId' in kwargs:
+            inbound_route_map_id = kwargs['inboundRouteMapId']
+        if 'outboundRouteMapId' in kwargs:
+            outbound_route_map_id = kwargs['outboundRouteMapId']
+        if 'propagatedRouteTable' in kwargs:
+            propagated_route_table = kwargs['propagatedRouteTable']
+        if 'staticVnetLocalRouteOverrideCriteria' in kwargs:
+            static_vnet_local_route_override_criteria = kwargs['staticVnetLocalRouteOverrideCriteria']
+        if 'staticVnetRoutes' in kwargs:
+            static_vnet_routes = kwargs['staticVnetRoutes']
+
         if associated_route_table_id is not None:
             _setter("associated_route_table_id", associated_route_table_id)
         if inbound_route_map_id is not None:
@@ -11555,7 +12455,11 @@ class VirtualHubConnectionRoutingPropagatedRouteTable(dict):
              _setter: Callable[[Any, Any], None],
              labels: Optional[Sequence[str]] = None,
              route_table_ids: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'routeTableIds' in kwargs:
+            route_table_ids = kwargs['routeTableIds']
+
         if labels is not None:
             _setter("labels", labels)
         if route_table_ids is not None:
@@ -11620,7 +12524,13 @@ class VirtualHubConnectionRoutingStaticVnetRoute(dict):
              address_prefixes: Optional[Sequence[str]] = None,
              name: Optional[str] = None,
              next_hop_ip_address: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addressPrefixes' in kwargs:
+            address_prefixes = kwargs['addressPrefixes']
+        if 'nextHopIpAddress' in kwargs:
+            next_hop_ip_address = kwargs['nextHopIpAddress']
+
         if address_prefixes is not None:
             _setter("address_prefixes", address_prefixes)
         if name is not None:
@@ -11691,7 +12601,13 @@ class VirtualHubRoute(dict):
              _setter: Callable[[Any, Any], None],
              address_prefixes: Sequence[str],
              next_hop_ip_address: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addressPrefixes' in kwargs:
+            address_prefixes = kwargs['addressPrefixes']
+        if 'nextHopIpAddress' in kwargs:
+            next_hop_ip_address = kwargs['nextHopIpAddress']
+
         _setter("address_prefixes", address_prefixes)
         _setter("next_hop_ip_address", next_hop_ip_address)
 
@@ -11766,7 +12682,15 @@ class VirtualHubRouteTableRoute(dict):
              name: str,
              next_hop: str,
              next_hop_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationsType' in kwargs:
+            destinations_type = kwargs['destinationsType']
+        if 'nextHop' in kwargs:
+            next_hop = kwargs['nextHop']
+        if 'nextHopType' in kwargs:
+            next_hop_type = kwargs['nextHopType']
+
         _setter("destinations", destinations)
         _setter("destinations_type", destinations_type)
         _setter("name", name)
@@ -11836,7 +12760,9 @@ class VirtualNetworkDdosProtectionPlan(dict):
              _setter: Callable[[Any, Any], None],
              enable: bool,
              id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enable", enable)
         _setter("id", id)
 
@@ -11872,7 +12798,9 @@ class VirtualNetworkEncryption(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              enforcement: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enforcement", enforcement)
 
     @property
@@ -11926,7 +12854,13 @@ class VirtualNetworkGatewayBgpSettings(dict):
              asn: Optional[int] = None,
              peer_weight: Optional[int] = None,
              peering_addresses: Optional[Sequence['outputs.VirtualNetworkGatewayBgpSettingsPeeringAddress']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'peerWeight' in kwargs:
+            peer_weight = kwargs['peerWeight']
+        if 'peeringAddresses' in kwargs:
+            peering_addresses = kwargs['peeringAddresses']
+
         if asn is not None:
             _setter("asn", asn)
         if peer_weight is not None:
@@ -12011,7 +12945,17 @@ class VirtualNetworkGatewayBgpSettingsPeeringAddress(dict):
              default_addresses: Optional[Sequence[str]] = None,
              ip_configuration_name: Optional[str] = None,
              tunnel_ip_addresses: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apipaAddresses' in kwargs:
+            apipa_addresses = kwargs['apipaAddresses']
+        if 'defaultAddresses' in kwargs:
+            default_addresses = kwargs['defaultAddresses']
+        if 'ipConfigurationName' in kwargs:
+            ip_configuration_name = kwargs['ipConfigurationName']
+        if 'tunnelIpAddresses' in kwargs:
+            tunnel_ip_addresses = kwargs['tunnelIpAddresses']
+
         if apipa_addresses is not None:
             _setter("apipa_addresses", apipa_addresses)
         if default_addresses is not None:
@@ -12075,7 +13019,9 @@ class VirtualNetworkGatewayConnectionCustomBgpAddresses(dict):
              _setter: Callable[[Any, Any], None],
              primary: str,
              secondary: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("primary", primary)
         if secondary is not None:
             _setter("secondary", secondary)
@@ -12173,7 +13119,25 @@ class VirtualNetworkGatewayConnectionIpsecPolicy(dict):
              pfs_group: str,
              sa_datasize: Optional[int] = None,
              sa_lifetime: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dhGroup' in kwargs:
+            dh_group = kwargs['dhGroup']
+        if 'ikeEncryption' in kwargs:
+            ike_encryption = kwargs['ikeEncryption']
+        if 'ikeIntegrity' in kwargs:
+            ike_integrity = kwargs['ikeIntegrity']
+        if 'ipsecEncryption' in kwargs:
+            ipsec_encryption = kwargs['ipsecEncryption']
+        if 'ipsecIntegrity' in kwargs:
+            ipsec_integrity = kwargs['ipsecIntegrity']
+        if 'pfsGroup' in kwargs:
+            pfs_group = kwargs['pfsGroup']
+        if 'saDatasize' in kwargs:
+            sa_datasize = kwargs['saDatasize']
+        if 'saLifetime' in kwargs:
+            sa_lifetime = kwargs['saLifetime']
+
         _setter("dh_group", dh_group)
         _setter("ike_encryption", ike_encryption)
         _setter("ike_integrity", ike_integrity)
@@ -12290,7 +13254,13 @@ class VirtualNetworkGatewayConnectionTrafficSelectorPolicy(dict):
              _setter: Callable[[Any, Any], None],
              local_address_cidrs: Sequence[str],
              remote_address_cidrs: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'localAddressCidrs' in kwargs:
+            local_address_cidrs = kwargs['localAddressCidrs']
+        if 'remoteAddressCidrs' in kwargs:
+            remote_address_cidrs = kwargs['remoteAddressCidrs']
+
         _setter("local_address_cidrs", local_address_cidrs)
         _setter("remote_address_cidrs", remote_address_cidrs)
 
@@ -12343,7 +13313,11 @@ class VirtualNetworkGatewayCustomRoute(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              address_prefixes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addressPrefixes' in kwargs:
+            address_prefixes = kwargs['addressPrefixes']
+
         if address_prefixes is not None:
             _setter("address_prefixes", address_prefixes)
 
@@ -12404,7 +13378,15 @@ class VirtualNetworkGatewayIpConfiguration(dict):
              subnet_id: str,
              name: Optional[str] = None,
              private_ip_address_allocation: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'publicIpAddressId' in kwargs:
+            public_ip_address_id = kwargs['publicIpAddressId']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'privateIpAddressAllocation' in kwargs:
+            private_ip_address_allocation = kwargs['privateIpAddressAllocation']
+
         _setter("public_ip_address_id", public_ip_address_id)
         _setter("subnet_id", subnet_id)
         if name is not None:
@@ -12483,7 +13465,13 @@ class VirtualNetworkGatewayNatRuleExternalMapping(dict):
              _setter: Callable[[Any, Any], None],
              address_space: str,
              port_range: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addressSpace' in kwargs:
+            address_space = kwargs['addressSpace']
+        if 'portRange' in kwargs:
+            port_range = kwargs['portRange']
+
         _setter("address_space", address_space)
         if port_range is not None:
             _setter("port_range", port_range)
@@ -12543,7 +13531,13 @@ class VirtualNetworkGatewayNatRuleInternalMapping(dict):
              _setter: Callable[[Any, Any], None],
              address_space: str,
              port_range: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addressSpace' in kwargs:
+            address_space = kwargs['addressSpace']
+        if 'portRange' in kwargs:
+            port_range = kwargs['portRange']
+
         _setter("address_space", address_space)
         if port_range is not None:
             _setter("port_range", port_range)
@@ -12658,7 +13652,29 @@ class VirtualNetworkGatewayVpnClientConfiguration(dict):
              root_certificates: Optional[Sequence['outputs.VirtualNetworkGatewayVpnClientConfigurationRootCertificate']] = None,
              vpn_auth_types: Optional[Sequence[str]] = None,
              vpn_client_protocols: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addressSpaces' in kwargs:
+            address_spaces = kwargs['addressSpaces']
+        if 'aadAudience' in kwargs:
+            aad_audience = kwargs['aadAudience']
+        if 'aadIssuer' in kwargs:
+            aad_issuer = kwargs['aadIssuer']
+        if 'aadTenant' in kwargs:
+            aad_tenant = kwargs['aadTenant']
+        if 'radiusServerAddress' in kwargs:
+            radius_server_address = kwargs['radiusServerAddress']
+        if 'radiusServerSecret' in kwargs:
+            radius_server_secret = kwargs['radiusServerSecret']
+        if 'revokedCertificates' in kwargs:
+            revoked_certificates = kwargs['revokedCertificates']
+        if 'rootCertificates' in kwargs:
+            root_certificates = kwargs['rootCertificates']
+        if 'vpnAuthTypes' in kwargs:
+            vpn_auth_types = kwargs['vpnAuthTypes']
+        if 'vpnClientProtocols' in kwargs:
+            vpn_client_protocols = kwargs['vpnClientProtocols']
+
         _setter("address_spaces", address_spaces)
         if aad_audience is not None:
             _setter("aad_audience", aad_audience)
@@ -12786,7 +13802,9 @@ class VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              thumbprint: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("thumbprint", thumbprint)
 
@@ -12843,7 +13861,11 @@ class VirtualNetworkGatewayVpnClientConfigurationRootCertificate(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              public_cert_data: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'publicCertData' in kwargs:
+            public_cert_data = kwargs['publicCertData']
+
         _setter("name", name)
         _setter("public_cert_data", public_cert_data)
 
@@ -12910,7 +13932,13 @@ class VirtualNetworkSubnet(dict):
              name: str,
              id: Optional[str] = None,
              security_group: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addressPrefix' in kwargs:
+            address_prefix = kwargs['addressPrefix']
+        if 'securityGroup' in kwargs:
+            security_group = kwargs['securityGroup']
+
         _setter("address_prefix", address_prefix)
         _setter("name", name)
         if id is not None:
@@ -12989,7 +14017,13 @@ class VnpGatewayNatRuleExternalMapping(dict):
              _setter: Callable[[Any, Any], None],
              address_space: str,
              port_range: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addressSpace' in kwargs:
+            address_space = kwargs['addressSpace']
+        if 'portRange' in kwargs:
+            port_range = kwargs['portRange']
+
         _setter("address_space", address_space)
         if port_range is not None:
             _setter("port_range", port_range)
@@ -13049,7 +14083,13 @@ class VnpGatewayNatRuleInternalMapping(dict):
              _setter: Callable[[Any, Any], None],
              address_space: str,
              port_range: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addressSpace' in kwargs:
+            address_space = kwargs['addressSpace']
+        if 'portRange' in kwargs:
+            port_range = kwargs['portRange']
+
         _setter("address_space", address_space)
         if port_range is not None:
             _setter("port_range", port_range)
@@ -13125,7 +14165,17 @@ class VpnGatewayBgpSettings(dict):
              bgp_peering_address: Optional[str] = None,
              instance0_bgp_peering_address: Optional['outputs.VpnGatewayBgpSettingsInstance0BgpPeeringAddress'] = None,
              instance1_bgp_peering_address: Optional['outputs.VpnGatewayBgpSettingsInstance1BgpPeeringAddress'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'peerWeight' in kwargs:
+            peer_weight = kwargs['peerWeight']
+        if 'bgpPeeringAddress' in kwargs:
+            bgp_peering_address = kwargs['bgpPeeringAddress']
+        if 'instance0BgpPeeringAddress' in kwargs:
+            instance0_bgp_peering_address = kwargs['instance0BgpPeeringAddress']
+        if 'instance1BgpPeeringAddress' in kwargs:
+            instance1_bgp_peering_address = kwargs['instance1BgpPeeringAddress']
+
         _setter("asn", asn)
         _setter("peer_weight", peer_weight)
         if bgp_peering_address is not None:
@@ -13226,7 +14276,17 @@ class VpnGatewayBgpSettingsInstance0BgpPeeringAddress(dict):
              default_ips: Optional[Sequence[str]] = None,
              ip_configuration_id: Optional[str] = None,
              tunnel_ips: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customIps' in kwargs:
+            custom_ips = kwargs['customIps']
+        if 'defaultIps' in kwargs:
+            default_ips = kwargs['defaultIps']
+        if 'ipConfigurationId' in kwargs:
+            ip_configuration_id = kwargs['ipConfigurationId']
+        if 'tunnelIps' in kwargs:
+            tunnel_ips = kwargs['tunnelIps']
+
         _setter("custom_ips", custom_ips)
         if default_ips is not None:
             _setter("default_ips", default_ips)
@@ -13318,7 +14378,17 @@ class VpnGatewayBgpSettingsInstance1BgpPeeringAddress(dict):
              default_ips: Optional[Sequence[str]] = None,
              ip_configuration_id: Optional[str] = None,
              tunnel_ips: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customIps' in kwargs:
+            custom_ips = kwargs['customIps']
+        if 'defaultIps' in kwargs:
+            default_ips = kwargs['defaultIps']
+        if 'ipConfigurationId' in kwargs:
+            ip_configuration_id = kwargs['ipConfigurationId']
+        if 'tunnelIps' in kwargs:
+            tunnel_ips = kwargs['tunnelIps']
+
         _setter("custom_ips", custom_ips)
         if default_ips is not None:
             _setter("default_ips", default_ips)
@@ -13410,7 +14480,17 @@ class VpnGatewayConnectionRouting(dict):
              inbound_route_map_id: Optional[str] = None,
              outbound_route_map_id: Optional[str] = None,
              propagated_route_table: Optional['outputs.VpnGatewayConnectionRoutingPropagatedRouteTable'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'associatedRouteTable' in kwargs:
+            associated_route_table = kwargs['associatedRouteTable']
+        if 'inboundRouteMapId' in kwargs:
+            inbound_route_map_id = kwargs['inboundRouteMapId']
+        if 'outboundRouteMapId' in kwargs:
+            outbound_route_map_id = kwargs['outboundRouteMapId']
+        if 'propagatedRouteTable' in kwargs:
+            propagated_route_table = kwargs['propagatedRouteTable']
+
         _setter("associated_route_table", associated_route_table)
         if inbound_route_map_id is not None:
             _setter("inbound_route_map_id", inbound_route_map_id)
@@ -13488,7 +14568,11 @@ class VpnGatewayConnectionRoutingPropagatedRouteTable(dict):
              _setter: Callable[[Any, Any], None],
              route_table_ids: Sequence[str],
              labels: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'routeTableIds' in kwargs:
+            route_table_ids = kwargs['routeTableIds']
+
         _setter("route_table_ids", route_table_ids)
         if labels is not None:
             _setter("labels", labels)
@@ -13548,7 +14632,13 @@ class VpnGatewayConnectionTrafficSelectorPolicy(dict):
              _setter: Callable[[Any, Any], None],
              local_address_ranges: Sequence[str],
              remote_address_ranges: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'localAddressRanges' in kwargs:
+            local_address_ranges = kwargs['localAddressRanges']
+        if 'remoteAddressRanges' in kwargs:
+            remote_address_ranges = kwargs['remoteAddressRanges']
+
         _setter("local_address_ranges", local_address_ranges)
         _setter("remote_address_ranges", remote_address_ranges)
 
@@ -13681,7 +14771,35 @@ class VpnGatewayConnectionVpnLink(dict):
              ratelimit_enabled: Optional[bool] = None,
              route_weight: Optional[int] = None,
              shared_key: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'vpnSiteLinkId' in kwargs:
+            vpn_site_link_id = kwargs['vpnSiteLinkId']
+        if 'bandwidthMbps' in kwargs:
+            bandwidth_mbps = kwargs['bandwidthMbps']
+        if 'bgpEnabled' in kwargs:
+            bgp_enabled = kwargs['bgpEnabled']
+        if 'connectionMode' in kwargs:
+            connection_mode = kwargs['connectionMode']
+        if 'customBgpAddresses' in kwargs:
+            custom_bgp_addresses = kwargs['customBgpAddresses']
+        if 'egressNatRuleIds' in kwargs:
+            egress_nat_rule_ids = kwargs['egressNatRuleIds']
+        if 'ingressNatRuleIds' in kwargs:
+            ingress_nat_rule_ids = kwargs['ingressNatRuleIds']
+        if 'ipsecPolicies' in kwargs:
+            ipsec_policies = kwargs['ipsecPolicies']
+        if 'localAzureIpAddressEnabled' in kwargs:
+            local_azure_ip_address_enabled = kwargs['localAzureIpAddressEnabled']
+        if 'policyBasedTrafficSelectorEnabled' in kwargs:
+            policy_based_traffic_selector_enabled = kwargs['policyBasedTrafficSelectorEnabled']
+        if 'ratelimitEnabled' in kwargs:
+            ratelimit_enabled = kwargs['ratelimitEnabled']
+        if 'routeWeight' in kwargs:
+            route_weight = kwargs['routeWeight']
+        if 'sharedKey' in kwargs:
+            shared_key = kwargs['sharedKey']
+
         _setter("name", name)
         _setter("vpn_site_link_id", vpn_site_link_id)
         if bandwidth_mbps is not None:
@@ -13870,7 +14988,13 @@ class VpnGatewayConnectionVpnLinkCustomBgpAddress(dict):
              _setter: Callable[[Any, Any], None],
              ip_address: str,
              ip_configuration_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'ipConfigurationId' in kwargs:
+            ip_configuration_id = kwargs['ipConfigurationId']
+
         _setter("ip_address", ip_address)
         _setter("ip_configuration_id", ip_configuration_id)
 
@@ -13965,7 +15089,25 @@ class VpnGatewayConnectionVpnLinkIpsecPolicy(dict):
              pfs_group: str,
              sa_data_size_kb: int,
              sa_lifetime_sec: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dhGroup' in kwargs:
+            dh_group = kwargs['dhGroup']
+        if 'encryptionAlgorithm' in kwargs:
+            encryption_algorithm = kwargs['encryptionAlgorithm']
+        if 'ikeEncryptionAlgorithm' in kwargs:
+            ike_encryption_algorithm = kwargs['ikeEncryptionAlgorithm']
+        if 'ikeIntegrityAlgorithm' in kwargs:
+            ike_integrity_algorithm = kwargs['ikeIntegrityAlgorithm']
+        if 'integrityAlgorithm' in kwargs:
+            integrity_algorithm = kwargs['integrityAlgorithm']
+        if 'pfsGroup' in kwargs:
+            pfs_group = kwargs['pfsGroup']
+        if 'saDataSizeKb' in kwargs:
+            sa_data_size_kb = kwargs['saDataSizeKb']
+        if 'saLifetimeSec' in kwargs:
+            sa_lifetime_sec = kwargs['saLifetimeSec']
+
         _setter("dh_group", dh_group)
         _setter("encryption_algorithm", encryption_algorithm)
         _setter("ike_encryption_algorithm", ike_encryption_algorithm)
@@ -14063,7 +15205,9 @@ class VpnServerConfigurationAzureActiveDirectoryAuthentication(dict):
              audience: str,
              issuer: str,
              tenant: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("audience", audience)
         _setter("issuer", issuer)
         _setter("tenant", tenant)
@@ -14112,7 +15256,9 @@ class VpnServerConfigurationClientRevokedCertificate(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              thumbprint: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("thumbprint", thumbprint)
 
@@ -14169,7 +15315,11 @@ class VpnServerConfigurationClientRootCertificate(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              public_cert_data: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'publicCertData' in kwargs:
+            public_cert_data = kwargs['publicCertData']
+
         _setter("name", name)
         _setter("public_cert_data", public_cert_data)
 
@@ -14264,7 +15414,25 @@ class VpnServerConfigurationIpsecPolicy(dict):
              pfs_group: str,
              sa_data_size_kilobytes: int,
              sa_lifetime_seconds: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dhGroup' in kwargs:
+            dh_group = kwargs['dhGroup']
+        if 'ikeEncryption' in kwargs:
+            ike_encryption = kwargs['ikeEncryption']
+        if 'ikeIntegrity' in kwargs:
+            ike_integrity = kwargs['ikeIntegrity']
+        if 'ipsecEncryption' in kwargs:
+            ipsec_encryption = kwargs['ipsecEncryption']
+        if 'ipsecIntegrity' in kwargs:
+            ipsec_integrity = kwargs['ipsecIntegrity']
+        if 'pfsGroup' in kwargs:
+            pfs_group = kwargs['pfsGroup']
+        if 'saDataSizeKilobytes' in kwargs:
+            sa_data_size_kilobytes = kwargs['saDataSizeKilobytes']
+        if 'saLifetimeSeconds' in kwargs:
+            sa_lifetime_seconds = kwargs['saLifetimeSeconds']
+
         _setter("dh_group", dh_group)
         _setter("ike_encryption", ike_encryption)
         _setter("ike_integrity", ike_integrity)
@@ -14362,7 +15530,9 @@ class VpnServerConfigurationPolicyGroupPolicy(dict):
              name: str,
              type: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("type", type)
         _setter("value", value)
@@ -14434,7 +15604,13 @@ class VpnServerConfigurationRadius(dict):
              client_root_certificates: Optional[Sequence['outputs.VpnServerConfigurationRadiusClientRootCertificate']] = None,
              server_root_certificates: Optional[Sequence['outputs.VpnServerConfigurationRadiusServerRootCertificate']] = None,
              servers: Optional[Sequence['outputs.VpnServerConfigurationRadiusServer']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientRootCertificates' in kwargs:
+            client_root_certificates = kwargs['clientRootCertificates']
+        if 'serverRootCertificates' in kwargs:
+            server_root_certificates = kwargs['serverRootCertificates']
+
         if client_root_certificates is not None:
             _setter("client_root_certificates", client_root_certificates)
         if server_root_certificates is not None:
@@ -14486,7 +15662,9 @@ class VpnServerConfigurationRadiusClientRootCertificate(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              thumbprint: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("thumbprint", thumbprint)
 
@@ -14530,7 +15708,9 @@ class VpnServerConfigurationRadiusServer(dict):
              address: str,
              score: int,
              secret: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("address", address)
         _setter("score", score)
         _setter("secret", secret)
@@ -14596,7 +15776,11 @@ class VpnServerConfigurationRadiusServerRootCertificate(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              public_cert_data: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'publicCertData' in kwargs:
+            public_cert_data = kwargs['publicCertData']
+
         _setter("name", name)
         _setter("public_cert_data", public_cert_data)
 
@@ -14681,7 +15865,15 @@ class VpnSiteLink(dict):
              ip_address: Optional[str] = None,
              provider_name: Optional[str] = None,
              speed_in_mbps: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'providerName' in kwargs:
+            provider_name = kwargs['providerName']
+        if 'speedInMbps' in kwargs:
+            speed_in_mbps = kwargs['speedInMbps']
+
         _setter("name", name)
         if bgp is not None:
             _setter("bgp", bgp)
@@ -14793,7 +15985,11 @@ class VpnSiteLinkBgp(dict):
              _setter: Callable[[Any, Any], None],
              asn: int,
              peering_address: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'peeringAddress' in kwargs:
+            peering_address = kwargs['peeringAddress']
+
         _setter("asn", asn)
         _setter("peering_address", peering_address)
 
@@ -14846,7 +16042,11 @@ class VpnSiteO365Policy(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              traffic_category: Optional['outputs.VpnSiteO365PolicyTrafficCategory'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'trafficCategory' in kwargs:
+            traffic_category = kwargs['trafficCategory']
+
         if traffic_category is not None:
             _setter("traffic_category", traffic_category)
 
@@ -14903,7 +16103,15 @@ class VpnSiteO365PolicyTrafficCategory(dict):
              allow_endpoint_enabled: Optional[bool] = None,
              default_endpoint_enabled: Optional[bool] = None,
              optimize_endpoint_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowEndpointEnabled' in kwargs:
+            allow_endpoint_enabled = kwargs['allowEndpointEnabled']
+        if 'defaultEndpointEnabled' in kwargs:
+            default_endpoint_enabled = kwargs['defaultEndpointEnabled']
+        if 'optimizeEndpointEnabled' in kwargs:
+            optimize_endpoint_enabled = kwargs['optimizeEndpointEnabled']
+
         if allow_endpoint_enabled is not None:
             _setter("allow_endpoint_enabled", allow_endpoint_enabled)
         if default_endpoint_enabled is not None:
@@ -14963,7 +16171,11 @@ class GetApplicationGatewayBackendAddressPoolResult(dict):
              id: str,
              ip_addresses: Sequence[str],
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddresses' in kwargs:
+            ip_addresses = kwargs['ipAddresses']
+
         _setter("fqdns", fqdns)
         _setter("id", id)
         _setter("ip_addresses", ip_addresses)
@@ -15021,7 +16233,11 @@ class GetApplicationGatewayIdentityResult(dict):
              _setter: Callable[[Any, Any], None],
              identity_ids: Sequence[str],
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+
         _setter("identity_ids", identity_ids)
         _setter("type", type)
 
@@ -15081,7 +16297,23 @@ class GetExpressRouteCircuitPeeringResult(dict):
              secondary_peer_address_prefix: str,
              shared_key: str,
              vlan_id: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azureAsn' in kwargs:
+            azure_asn = kwargs['azureAsn']
+        if 'peerAsn' in kwargs:
+            peer_asn = kwargs['peerAsn']
+        if 'peeringType' in kwargs:
+            peering_type = kwargs['peeringType']
+        if 'primaryPeerAddressPrefix' in kwargs:
+            primary_peer_address_prefix = kwargs['primaryPeerAddressPrefix']
+        if 'secondaryPeerAddressPrefix' in kwargs:
+            secondary_peer_address_prefix = kwargs['secondaryPeerAddressPrefix']
+        if 'sharedKey' in kwargs:
+            shared_key = kwargs['sharedKey']
+        if 'vlanId' in kwargs:
+            vlan_id = kwargs['vlanId']
+
         _setter("azure_asn", azure_asn)
         _setter("peer_asn", peer_asn)
         _setter("peering_type", peering_type)
@@ -15170,7 +16402,15 @@ class GetExpressRouteCircuitServiceProviderPropertyResult(dict):
              bandwidth_in_mbps: int,
              peering_location: str,
              service_provider_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bandwidthInMbps' in kwargs:
+            bandwidth_in_mbps = kwargs['bandwidthInMbps']
+        if 'peeringLocation' in kwargs:
+            peering_location = kwargs['peeringLocation']
+        if 'serviceProviderName' in kwargs:
+            service_provider_name = kwargs['serviceProviderName']
+
         _setter("bandwidth_in_mbps", bandwidth_in_mbps)
         _setter("peering_location", peering_location)
         _setter("service_provider_name", service_provider_name)
@@ -15219,7 +16459,9 @@ class GetExpressRouteCircuitSkuResult(dict):
              _setter: Callable[[Any, Any], None],
              family: str,
              tier: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("family", family)
         _setter("tier", tier)
 
@@ -15267,7 +16509,15 @@ class GetFirewallIpConfigurationResult(dict):
              private_ip_address: str,
              public_ip_address_id: str,
              subnet_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if 'publicIpAddressId' in kwargs:
+            public_ip_address_id = kwargs['publicIpAddressId']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         _setter("name", name)
         _setter("private_ip_address", private_ip_address)
         _setter("public_ip_address_id", public_ip_address_id)
@@ -15333,7 +16583,15 @@ class GetFirewallManagementIpConfigurationResult(dict):
              private_ip_address: str,
              public_ip_address_id: str,
              subnet_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if 'publicIpAddressId' in kwargs:
+            public_ip_address_id = kwargs['publicIpAddressId']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         _setter("name", name)
         _setter("private_ip_address", private_ip_address)
         _setter("public_ip_address_id", public_ip_address_id)
@@ -15390,7 +16648,13 @@ class GetFirewallPolicyDnResult(dict):
              network_rule_fqdn_enabled: bool,
              proxy_enabled: bool,
              servers: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkRuleFqdnEnabled' in kwargs:
+            network_rule_fqdn_enabled = kwargs['networkRuleFqdnEnabled']
+        if 'proxyEnabled' in kwargs:
+            proxy_enabled = kwargs['proxyEnabled']
+
         _setter("network_rule_fqdn_enabled", network_rule_fqdn_enabled)
         _setter("proxy_enabled", proxy_enabled)
         _setter("servers", servers)
@@ -15426,7 +16690,11 @@ class GetFirewallPolicyThreatIntelligenceAllowlistResult(dict):
              _setter: Callable[[Any, Any], None],
              fqdns: Sequence[str],
              ip_addresses: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddresses' in kwargs:
+            ip_addresses = kwargs['ipAddresses']
+
         _setter("fqdns", fqdns)
         _setter("ip_addresses", ip_addresses)
 
@@ -15468,7 +16736,17 @@ class GetFirewallVirtualHubResult(dict):
              public_ip_addresses: Sequence[str],
              public_ip_count: int,
              virtual_hub_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if 'publicIpAddresses' in kwargs:
+            public_ip_addresses = kwargs['publicIpAddresses']
+        if 'publicIpCount' in kwargs:
+            public_ip_count = kwargs['publicIpCount']
+        if 'virtualHubId' in kwargs:
+            virtual_hub_id = kwargs['virtualHubId']
+
         _setter("private_ip_address", private_ip_address)
         _setter("public_ip_addresses", public_ip_addresses)
         _setter("public_ip_count", public_ip_count)
@@ -15560,7 +16838,25 @@ class GetGatewayConnectionIpsecPolicyResult(dict):
              pfs_group: str,
              sa_datasize: int,
              sa_lifetime: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dhGroup' in kwargs:
+            dh_group = kwargs['dhGroup']
+        if 'ikeEncryption' in kwargs:
+            ike_encryption = kwargs['ikeEncryption']
+        if 'ikeIntegrity' in kwargs:
+            ike_integrity = kwargs['ikeIntegrity']
+        if 'ipsecEncryption' in kwargs:
+            ipsec_encryption = kwargs['ipsecEncryption']
+        if 'ipsecIntegrity' in kwargs:
+            ipsec_integrity = kwargs['ipsecIntegrity']
+        if 'pfsGroup' in kwargs:
+            pfs_group = kwargs['pfsGroup']
+        if 'saDatasize' in kwargs:
+            sa_datasize = kwargs['saDatasize']
+        if 'saLifetime' in kwargs:
+            sa_lifetime = kwargs['saLifetime']
+
         _setter("dh_group", dh_group)
         _setter("ike_encryption", ike_encryption)
         _setter("ike_integrity", ike_integrity)
@@ -15664,7 +16960,13 @@ class GetGatewayConnectionTrafficSelectorPolicyResult(dict):
              _setter: Callable[[Any, Any], None],
              local_address_cidrs: Sequence[str],
              remote_address_cidrs: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'localAddressCidrs' in kwargs:
+            local_address_cidrs = kwargs['localAddressCidrs']
+        if 'remoteAddressCidrs' in kwargs:
+            remote_address_cidrs = kwargs['remoteAddressCidrs']
+
         _setter("local_address_cidrs", local_address_cidrs)
         _setter("remote_address_cidrs", remote_address_cidrs)
 
@@ -15708,7 +17010,13 @@ class GetLocalNetworkGatewayBgpSettingResult(dict):
              asn: int,
              bgp_peering_address: str,
              peer_weight: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bgpPeeringAddress' in kwargs:
+            bgp_peering_address = kwargs['bgpPeeringAddress']
+        if 'peerWeight' in kwargs:
+            peer_weight = kwargs['peerWeight']
+
         _setter("asn", asn)
         _setter("bgp_peering_address", bgp_peering_address)
         _setter("peer_weight", peer_weight)
@@ -15795,7 +17103,29 @@ class GetNetworkInterfaceIpConfigurationResult(dict):
              private_ip_address_version: str,
              public_ip_address_id: str,
              subnet_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationGatewayBackendAddressPoolsIds' in kwargs:
+            application_gateway_backend_address_pools_ids = kwargs['applicationGatewayBackendAddressPoolsIds']
+        if 'applicationSecurityGroupIds' in kwargs:
+            application_security_group_ids = kwargs['applicationSecurityGroupIds']
+        if 'gatewayLoadBalancerFrontendIpConfigurationId' in kwargs:
+            gateway_load_balancer_frontend_ip_configuration_id = kwargs['gatewayLoadBalancerFrontendIpConfigurationId']
+        if 'loadBalancerBackendAddressPoolsIds' in kwargs:
+            load_balancer_backend_address_pools_ids = kwargs['loadBalancerBackendAddressPoolsIds']
+        if 'loadBalancerInboundNatRulesIds' in kwargs:
+            load_balancer_inbound_nat_rules_ids = kwargs['loadBalancerInboundNatRulesIds']
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if 'privateIpAddressAllocation' in kwargs:
+            private_ip_address_allocation = kwargs['privateIpAddressAllocation']
+        if 'privateIpAddressVersion' in kwargs:
+            private_ip_address_version = kwargs['privateIpAddressVersion']
+        if 'publicIpAddressId' in kwargs:
+            public_ip_address_id = kwargs['publicIpAddressId']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         _setter("application_gateway_backend_address_pools_ids", application_gateway_backend_address_pools_ids)
         _setter("application_security_group_ids", application_security_group_ids)
         _setter("gateway_load_balancer_frontend_ip_configuration_id", gateway_load_balancer_frontend_ip_configuration_id)
@@ -15973,7 +17303,29 @@ class GetNetworkSecurityGroupSecurityRuleResult(dict):
              source_port_ranges: Sequence[str],
              destination_application_security_group_ids: Optional[Sequence[str]] = None,
              source_application_security_group_ids: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationAddressPrefix' in kwargs:
+            destination_address_prefix = kwargs['destinationAddressPrefix']
+        if 'destinationAddressPrefixes' in kwargs:
+            destination_address_prefixes = kwargs['destinationAddressPrefixes']
+        if 'destinationPortRange' in kwargs:
+            destination_port_range = kwargs['destinationPortRange']
+        if 'destinationPortRanges' in kwargs:
+            destination_port_ranges = kwargs['destinationPortRanges']
+        if 'sourceAddressPrefix' in kwargs:
+            source_address_prefix = kwargs['sourceAddressPrefix']
+        if 'sourceAddressPrefixes' in kwargs:
+            source_address_prefixes = kwargs['sourceAddressPrefixes']
+        if 'sourcePortRange' in kwargs:
+            source_port_range = kwargs['sourcePortRange']
+        if 'sourcePortRanges' in kwargs:
+            source_port_ranges = kwargs['sourcePortRanges']
+        if 'destinationApplicationSecurityGroupIds' in kwargs:
+            destination_application_security_group_ids = kwargs['destinationApplicationSecurityGroupIds']
+        if 'sourceApplicationSecurityGroupIds' in kwargs:
+            source_application_security_group_ids = kwargs['sourceApplicationSecurityGroupIds']
+
         _setter("access", access)
         _setter("description", description)
         _setter("destination_address_prefix", destination_address_prefix)
@@ -16147,7 +17499,13 @@ class GetPublicIPsPublicIpResult(dict):
              id: str,
              ip_address: str,
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainNameLabel' in kwargs:
+            domain_name_label = kwargs['domainNameLabel']
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+
         _setter("domain_name_label", domain_name_label)
         _setter("fqdn", fqdn)
         _setter("id", id)
@@ -16222,7 +17580,11 @@ class GetRouteFilterRuleResult(dict):
              communities: Sequence[str],
              name: str,
              rule_type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ruleType' in kwargs:
+            rule_type = kwargs['ruleType']
+
         _setter("access", access)
         _setter("communities", communities)
         _setter("name", name)
@@ -16288,7 +17650,15 @@ class GetRouteTableRouteResult(dict):
              name: str,
              next_hop_in_ip_address: str,
              next_hop_type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addressPrefix' in kwargs:
+            address_prefix = kwargs['addressPrefix']
+        if 'nextHopInIpAddress' in kwargs:
+            next_hop_in_ip_address = kwargs['nextHopInIpAddress']
+        if 'nextHopType' in kwargs:
+            next_hop_type = kwargs['nextHopType']
+
         _setter("address_prefix", address_prefix)
         _setter("name", name)
         _setter("next_hop_in_ip_address", next_hop_in_ip_address)
@@ -16346,7 +17716,11 @@ class GetTrafficManagerProfileDnsConfigResult(dict):
              _setter: Callable[[Any, Any], None],
              relative_name: str,
              ttl: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'relativeName' in kwargs:
+            relative_name = kwargs['relativeName']
+
         _setter("relative_name", relative_name)
         _setter("ttl", ttl)
 
@@ -16410,7 +17784,19 @@ class GetTrafficManagerProfileMonitorConfigResult(dict):
              protocol: str,
              timeout_in_seconds: int,
              tolerated_number_of_failures: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customHeaders' in kwargs:
+            custom_headers = kwargs['customHeaders']
+        if 'expectedStatusCodeRanges' in kwargs:
+            expected_status_code_ranges = kwargs['expectedStatusCodeRanges']
+        if 'intervalInSeconds' in kwargs:
+            interval_in_seconds = kwargs['intervalInSeconds']
+        if 'timeoutInSeconds' in kwargs:
+            timeout_in_seconds = kwargs['timeoutInSeconds']
+        if 'toleratedNumberOfFailures' in kwargs:
+            tolerated_number_of_failures = kwargs['toleratedNumberOfFailures']
+
         _setter("custom_headers", custom_headers)
         _setter("expected_status_code_ranges", expected_status_code_ranges)
         _setter("interval_in_seconds", interval_in_seconds)
@@ -16504,7 +17890,9 @@ class GetTrafficManagerProfileMonitorConfigCustomHeaderResult(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -16548,7 +17936,15 @@ class GetVirtualHubConnectionRoutingResult(dict):
              associated_route_table_id: str,
              propagated_route_tables: Sequence['outputs.GetVirtualHubConnectionRoutingPropagatedRouteTableResult'],
              static_vnet_routes: Sequence['outputs.GetVirtualHubConnectionRoutingStaticVnetRouteResult'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'associatedRouteTableId' in kwargs:
+            associated_route_table_id = kwargs['associatedRouteTableId']
+        if 'propagatedRouteTables' in kwargs:
+            propagated_route_tables = kwargs['propagatedRouteTables']
+        if 'staticVnetRoutes' in kwargs:
+            static_vnet_routes = kwargs['staticVnetRoutes']
+
         _setter("associated_route_table_id", associated_route_table_id)
         _setter("propagated_route_tables", propagated_route_tables)
         _setter("static_vnet_routes", static_vnet_routes)
@@ -16597,7 +17993,11 @@ class GetVirtualHubConnectionRoutingPropagatedRouteTableResult(dict):
              _setter: Callable[[Any, Any], None],
              labels: Sequence[str],
              route_table_ids: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'routeTableIds' in kwargs:
+            route_table_ids = kwargs['routeTableIds']
+
         _setter("labels", labels)
         _setter("route_table_ids", route_table_ids)
 
@@ -16641,7 +18041,13 @@ class GetVirtualHubConnectionRoutingStaticVnetRouteResult(dict):
              address_prefixes: Sequence[str],
              name: str,
              next_hop_ip_address: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addressPrefixes' in kwargs:
+            address_prefixes = kwargs['addressPrefixes']
+        if 'nextHopIpAddress' in kwargs:
+            next_hop_ip_address = kwargs['nextHopIpAddress']
+
         _setter("address_prefixes", address_prefixes)
         _setter("name", name)
         _setter("next_hop_ip_address", next_hop_ip_address)
@@ -16702,7 +18108,15 @@ class GetVirtualHubRouteTableRouteResult(dict):
              name: str,
              next_hop: str,
              next_hop_type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationsType' in kwargs:
+            destinations_type = kwargs['destinationsType']
+        if 'nextHop' in kwargs:
+            next_hop = kwargs['nextHop']
+        if 'nextHopType' in kwargs:
+            next_hop_type = kwargs['nextHopType']
+
         _setter("destinations", destinations)
         _setter("destinations_type", destinations_type)
         _setter("name", name)
@@ -16776,7 +18190,13 @@ class GetVirtualNetworkGatewayBgpSettingResult(dict):
              asn: int,
              peer_weight: int,
              peering_address: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'peerWeight' in kwargs:
+            peer_weight = kwargs['peerWeight']
+        if 'peeringAddress' in kwargs:
+            peering_address = kwargs['peeringAddress']
+
         _setter("asn", asn)
         _setter("peer_weight", peer_weight)
         _setter("peering_address", peering_address)
@@ -16824,7 +18244,11 @@ class GetVirtualNetworkGatewayCustomRouteResult(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              address_prefixes: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addressPrefixes' in kwargs:
+            address_prefixes = kwargs['addressPrefixes']
+
         _setter("address_prefixes", address_prefixes)
 
     @property
@@ -16876,7 +18300,17 @@ class GetVirtualNetworkGatewayIpConfigurationResult(dict):
              private_ip_address_allocation: str,
              public_ip_address_id: str,
              subnet_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if 'privateIpAddressAllocation' in kwargs:
+            private_ip_address_allocation = kwargs['privateIpAddressAllocation']
+        if 'publicIpAddressId' in kwargs:
+            public_ip_address_id = kwargs['publicIpAddressId']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         _setter("id", id)
         _setter("name", name)
         _setter("private_ip_address", private_ip_address)
@@ -17006,7 +18440,27 @@ class GetVirtualNetworkGatewayVpnClientConfigurationResult(dict):
              revoked_certificates: Sequence['outputs.GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificateResult'],
              root_certificates: Sequence['outputs.GetVirtualNetworkGatewayVpnClientConfigurationRootCertificateResult'],
              vpn_client_protocols: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'aadAudience' in kwargs:
+            aad_audience = kwargs['aadAudience']
+        if 'aadIssuer' in kwargs:
+            aad_issuer = kwargs['aadIssuer']
+        if 'aadTenant' in kwargs:
+            aad_tenant = kwargs['aadTenant']
+        if 'addressSpaces' in kwargs:
+            address_spaces = kwargs['addressSpaces']
+        if 'radiusServerAddress' in kwargs:
+            radius_server_address = kwargs['radiusServerAddress']
+        if 'radiusServerSecret' in kwargs:
+            radius_server_secret = kwargs['radiusServerSecret']
+        if 'revokedCertificates' in kwargs:
+            revoked_certificates = kwargs['revokedCertificates']
+        if 'rootCertificates' in kwargs:
+            root_certificates = kwargs['rootCertificates']
+        if 'vpnClientProtocols' in kwargs:
+            vpn_client_protocols = kwargs['vpnClientProtocols']
+
         _setter("aad_audience", aad_audience)
         _setter("aad_issuer", aad_issuer)
         _setter("aad_tenant", aad_tenant)
@@ -17129,7 +18583,9 @@ class GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificateResult(dic
              _setter: Callable[[Any, Any], None],
              name: str,
              thumbprint: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("thumbprint", thumbprint)
 
@@ -17168,7 +18624,11 @@ class GetVirtualNetworkGatewayVpnClientConfigurationRootCertificateResult(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              public_cert_data: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'publicCertData' in kwargs:
+            public_cert_data = kwargs['publicCertData']
+
         _setter("name", name)
         _setter("public_cert_data", public_cert_data)
 
@@ -17222,7 +18682,17 @@ class GetVpnGatewayBgpSettingResult(dict):
              instance0_bgp_peering_addresses: Sequence['outputs.GetVpnGatewayBgpSettingInstance0BgpPeeringAddressResult'],
              instance1_bgp_peering_addresses: Sequence['outputs.GetVpnGatewayBgpSettingInstance1BgpPeeringAddressResult'],
              peer_weight: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bgpPeeringAddress' in kwargs:
+            bgp_peering_address = kwargs['bgpPeeringAddress']
+        if 'instance0BgpPeeringAddresses' in kwargs:
+            instance0_bgp_peering_addresses = kwargs['instance0BgpPeeringAddresses']
+        if 'instance1BgpPeeringAddresses' in kwargs:
+            instance1_bgp_peering_addresses = kwargs['instance1BgpPeeringAddresses']
+        if 'peerWeight' in kwargs:
+            peer_weight = kwargs['peerWeight']
+
         _setter("asn", asn)
         _setter("bgp_peering_address", bgp_peering_address)
         _setter("instance0_bgp_peering_addresses", instance0_bgp_peering_addresses)
@@ -17297,7 +18767,17 @@ class GetVpnGatewayBgpSettingInstance0BgpPeeringAddressResult(dict):
              default_ips: Sequence[str],
              ip_configuration_id: str,
              tunnel_ips: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customIps' in kwargs:
+            custom_ips = kwargs['customIps']
+        if 'defaultIps' in kwargs:
+            default_ips = kwargs['defaultIps']
+        if 'ipConfigurationId' in kwargs:
+            ip_configuration_id = kwargs['ipConfigurationId']
+        if 'tunnelIps' in kwargs:
+            tunnel_ips = kwargs['tunnelIps']
+
         _setter("custom_ips", custom_ips)
         _setter("default_ips", default_ips)
         _setter("ip_configuration_id", ip_configuration_id)
@@ -17363,7 +18843,17 @@ class GetVpnGatewayBgpSettingInstance1BgpPeeringAddressResult(dict):
              default_ips: Sequence[str],
              ip_configuration_id: str,
              tunnel_ips: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customIps' in kwargs:
+            custom_ips = kwargs['customIps']
+        if 'defaultIps' in kwargs:
+            default_ips = kwargs['defaultIps']
+        if 'ipConfigurationId' in kwargs:
+            ip_configuration_id = kwargs['ipConfigurationId']
+        if 'tunnelIps' in kwargs:
+            tunnel_ips = kwargs['tunnelIps']
+
         _setter("custom_ips", custom_ips)
         _setter("default_ips", default_ips)
         _setter("ip_configuration_id", ip_configuration_id)

@@ -95,7 +95,29 @@ class ServerArgs:
              public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              transparent_data_encryption_key_vault_key_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'administratorLogin' in kwargs:
+            administrator_login = kwargs['administratorLogin']
+        if 'administratorLoginPassword' in kwargs:
+            administrator_login_password = kwargs['administratorLoginPassword']
+        if 'azureadAdministrator' in kwargs:
+            azuread_administrator = kwargs['azureadAdministrator']
+        if 'connectionPolicy' in kwargs:
+            connection_policy = kwargs['connectionPolicy']
+        if 'minimumTlsVersion' in kwargs:
+            minimum_tls_version = kwargs['minimumTlsVersion']
+        if 'outboundNetworkRestrictionEnabled' in kwargs:
+            outbound_network_restriction_enabled = kwargs['outboundNetworkRestrictionEnabled']
+        if 'primaryUserAssignedIdentityId' in kwargs:
+            primary_user_assigned_identity_id = kwargs['primaryUserAssignedIdentityId']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'transparentDataEncryptionKeyVaultKeyId' in kwargs:
+            transparent_data_encryption_key_vault_key_id = kwargs['transparentDataEncryptionKeyVaultKeyId']
+
         _setter("resource_group_name", resource_group_name)
         _setter("version", version)
         if administrator_login is not None:
@@ -406,7 +428,33 @@ class _ServerState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              transparent_data_encryption_key_vault_key_id: Optional[pulumi.Input[str]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'administratorLogin' in kwargs:
+            administrator_login = kwargs['administratorLogin']
+        if 'administratorLoginPassword' in kwargs:
+            administrator_login_password = kwargs['administratorLoginPassword']
+        if 'azureadAdministrator' in kwargs:
+            azuread_administrator = kwargs['azureadAdministrator']
+        if 'connectionPolicy' in kwargs:
+            connection_policy = kwargs['connectionPolicy']
+        if 'fullyQualifiedDomainName' in kwargs:
+            fully_qualified_domain_name = kwargs['fullyQualifiedDomainName']
+        if 'minimumTlsVersion' in kwargs:
+            minimum_tls_version = kwargs['minimumTlsVersion']
+        if 'outboundNetworkRestrictionEnabled' in kwargs:
+            outbound_network_restriction_enabled = kwargs['outboundNetworkRestrictionEnabled']
+        if 'primaryUserAssignedIdentityId' in kwargs:
+            primary_user_assigned_identity_id = kwargs['primaryUserAssignedIdentityId']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'restorableDroppedDatabaseIds' in kwargs:
+            restorable_dropped_database_ids = kwargs['restorableDroppedDatabaseIds']
+        if 'transparentDataEncryptionKeyVaultKeyId' in kwargs:
+            transparent_data_encryption_key_vault_key_id = kwargs['transparentDataEncryptionKeyVaultKeyId']
+
         if administrator_login is not None:
             _setter("administrator_login", administrator_login)
         if administrator_login_password is not None:

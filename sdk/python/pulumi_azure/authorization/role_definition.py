@@ -51,7 +51,13 @@ class RoleDefinitionArgs:
              name: Optional[pulumi.Input[str]] = None,
              permissions: Optional[pulumi.Input[Sequence[pulumi.Input['RoleDefinitionPermissionArgs']]]] = None,
              role_definition_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'assignableScopes' in kwargs:
+            assignable_scopes = kwargs['assignableScopes']
+        if 'roleDefinitionId' in kwargs:
+            role_definition_id = kwargs['roleDefinitionId']
+
         _setter("scope", scope)
         if assignable_scopes is not None:
             _setter("assignable_scopes", assignable_scopes)
@@ -181,7 +187,15 @@ class _RoleDefinitionState:
              role_definition_id: Optional[pulumi.Input[str]] = None,
              role_definition_resource_id: Optional[pulumi.Input[str]] = None,
              scope: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'assignableScopes' in kwargs:
+            assignable_scopes = kwargs['assignableScopes']
+        if 'roleDefinitionId' in kwargs:
+            role_definition_id = kwargs['roleDefinitionId']
+        if 'roleDefinitionResourceId' in kwargs:
+            role_definition_resource_id = kwargs['roleDefinitionResourceId']
+
         if assignable_scopes is not None:
             _setter("assignable_scopes", assignable_scopes)
         if description is not None:

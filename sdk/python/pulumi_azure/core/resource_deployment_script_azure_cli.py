@@ -93,7 +93,29 @@ class ResourceDeploymentScriptAzureCliArgs:
              supporting_script_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              timeout: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'retentionInterval' in kwargs:
+            retention_interval = kwargs['retentionInterval']
+        if 'cleanupPreference' in kwargs:
+            cleanup_preference = kwargs['cleanupPreference']
+        if 'commandLine' in kwargs:
+            command_line = kwargs['commandLine']
+        if 'environmentVariables' in kwargs:
+            environment_variables = kwargs['environmentVariables']
+        if 'forceUpdateTag' in kwargs:
+            force_update_tag = kwargs['forceUpdateTag']
+        if 'primaryScriptUri' in kwargs:
+            primary_script_uri = kwargs['primaryScriptUri']
+        if 'scriptContent' in kwargs:
+            script_content = kwargs['scriptContent']
+        if 'storageAccount' in kwargs:
+            storage_account = kwargs['storageAccount']
+        if 'supportingScriptUris' in kwargs:
+            supporting_script_uris = kwargs['supportingScriptUris']
+
         _setter("resource_group_name", resource_group_name)
         _setter("retention_interval", retention_interval)
         _setter("version", version)
@@ -415,7 +437,29 @@ class _ResourceDeploymentScriptAzureCliState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              timeout: Optional[pulumi.Input[str]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cleanupPreference' in kwargs:
+            cleanup_preference = kwargs['cleanupPreference']
+        if 'commandLine' in kwargs:
+            command_line = kwargs['commandLine']
+        if 'environmentVariables' in kwargs:
+            environment_variables = kwargs['environmentVariables']
+        if 'forceUpdateTag' in kwargs:
+            force_update_tag = kwargs['forceUpdateTag']
+        if 'primaryScriptUri' in kwargs:
+            primary_script_uri = kwargs['primaryScriptUri']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'retentionInterval' in kwargs:
+            retention_interval = kwargs['retentionInterval']
+        if 'scriptContent' in kwargs:
+            script_content = kwargs['scriptContent']
+        if 'storageAccount' in kwargs:
+            storage_account = kwargs['storageAccount']
+        if 'supportingScriptUris' in kwargs:
+            supporting_script_uris = kwargs['supportingScriptUris']
+
         if cleanup_preference is not None:
             _setter("cleanup_preference", cleanup_preference)
         if command_line is not None:

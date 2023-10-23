@@ -65,7 +65,23 @@ class EnvironmentArgs:
              name: Optional[pulumi.Input[str]] = None,
              pricing_tier: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'allowedUserIpCidrs' in kwargs:
+            allowed_user_ip_cidrs = kwargs['allowedUserIpCidrs']
+        if 'clusterSettings' in kwargs:
+            cluster_settings = kwargs['clusterSettings']
+        if 'frontEndScaleFactor' in kwargs:
+            front_end_scale_factor = kwargs['frontEndScaleFactor']
+        if 'internalLoadBalancingMode' in kwargs:
+            internal_load_balancing_mode = kwargs['internalLoadBalancingMode']
+        if 'pricingTier' in kwargs:
+            pricing_tier = kwargs['pricingTier']
+
         _setter("resource_group_name", resource_group_name)
         _setter("subnet_id", subnet_id)
         if allowed_user_ip_cidrs is not None:
@@ -264,7 +280,29 @@ class _EnvironmentState:
              service_ip_address: Optional[pulumi.Input[str]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedUserIpCidrs' in kwargs:
+            allowed_user_ip_cidrs = kwargs['allowedUserIpCidrs']
+        if 'clusterSettings' in kwargs:
+            cluster_settings = kwargs['clusterSettings']
+        if 'frontEndScaleFactor' in kwargs:
+            front_end_scale_factor = kwargs['frontEndScaleFactor']
+        if 'internalIpAddress' in kwargs:
+            internal_ip_address = kwargs['internalIpAddress']
+        if 'internalLoadBalancingMode' in kwargs:
+            internal_load_balancing_mode = kwargs['internalLoadBalancingMode']
+        if 'outboundIpAddresses' in kwargs:
+            outbound_ip_addresses = kwargs['outboundIpAddresses']
+        if 'pricingTier' in kwargs:
+            pricing_tier = kwargs['pricingTier']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serviceIpAddress' in kwargs:
+            service_ip_address = kwargs['serviceIpAddress']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         if allowed_user_ip_cidrs is not None:
             _setter("allowed_user_ip_cidrs", allowed_user_ip_cidrs)
         if cluster_settings is not None:

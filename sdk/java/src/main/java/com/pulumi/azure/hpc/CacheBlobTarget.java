@@ -134,7 +134,7 @@ public class CacheBlobTarget extends com.pulumi.resources.CustomResource {
      * The name of the access policy applied to this target. Defaults to `default`.
      * 
      */
-    @Export(name="accessPolicyName", refs={String.class}, tree="[0]")
+    @Export(name="accessPolicyName", type=String.class, parameters={})
     private Output</* @Nullable */ String> accessPolicyName;
 
     /**
@@ -148,7 +148,7 @@ public class CacheBlobTarget extends com.pulumi.resources.CustomResource {
      * The name HPC Cache, which the HPC Cache Blob Target will be added to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="cacheName", refs={String.class}, tree="[0]")
+    @Export(name="cacheName", type=String.class, parameters={})
     private Output<String> cacheName;
 
     /**
@@ -162,7 +162,7 @@ public class CacheBlobTarget extends com.pulumi.resources.CustomResource {
      * The name of the HPC Cache Blob Target. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -176,7 +176,7 @@ public class CacheBlobTarget extends com.pulumi.resources.CustomResource {
      * The client-facing file path of the HPC Cache Blob Target.
      * 
      */
-    @Export(name="namespacePath", refs={String.class}, tree="[0]")
+    @Export(name="namespacePath", type=String.class, parameters={})
     private Output<String> namespacePath;
 
     /**
@@ -190,7 +190,7 @@ public class CacheBlobTarget extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group in which to create the HPC Cache Blob Target. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -206,7 +206,7 @@ public class CacheBlobTarget extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `resource_manager_id`.
      * 
      */
-    @Export(name="storageContainerId", refs={String.class}, tree="[0]")
+    @Export(name="storageContainerId", type=String.class, parameters={})
     private Output<String> storageContainerId;
 
     /**

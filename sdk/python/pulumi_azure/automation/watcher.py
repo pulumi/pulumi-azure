@@ -63,7 +63,19 @@ class WatcherArgs:
              name: Optional[pulumi.Input[str]] = None,
              script_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'automationAccountId' in kwargs:
+            automation_account_id = kwargs['automationAccountId']
+        if 'executionFrequencyInSeconds' in kwargs:
+            execution_frequency_in_seconds = kwargs['executionFrequencyInSeconds']
+        if 'scriptName' in kwargs:
+            script_name = kwargs['scriptName']
+        if 'scriptRunOn' in kwargs:
+            script_run_on = kwargs['scriptRunOn']
+        if 'scriptParameters' in kwargs:
+            script_parameters = kwargs['scriptParameters']
+
         _setter("automation_account_id", automation_account_id)
         _setter("execution_frequency_in_seconds", execution_frequency_in_seconds)
         _setter("script_name", script_name)
@@ -258,7 +270,19 @@ class _WatcherState:
              script_run_on: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'automationAccountId' in kwargs:
+            automation_account_id = kwargs['automationAccountId']
+        if 'executionFrequencyInSeconds' in kwargs:
+            execution_frequency_in_seconds = kwargs['executionFrequencyInSeconds']
+        if 'scriptName' in kwargs:
+            script_name = kwargs['scriptName']
+        if 'scriptParameters' in kwargs:
+            script_parameters = kwargs['scriptParameters']
+        if 'scriptRunOn' in kwargs:
+            script_run_on = kwargs['scriptRunOn']
+
         if automation_account_id is not None:
             _setter("automation_account_id", automation_account_id)
         if description is not None:

@@ -69,7 +69,23 @@ class AssignmentArgs:
              name: Optional[pulumi.Input[str]] = None,
              parameter_values: Optional[pulumi.Input[str]] = None,
              resource_groups: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetSubscriptionId' in kwargs:
+            target_subscription_id = kwargs['targetSubscriptionId']
+        if 'versionId' in kwargs:
+            version_id = kwargs['versionId']
+        if 'lockExcludeActions' in kwargs:
+            lock_exclude_actions = kwargs['lockExcludeActions']
+        if 'lockExcludePrincipals' in kwargs:
+            lock_exclude_principals = kwargs['lockExcludePrincipals']
+        if 'lockMode' in kwargs:
+            lock_mode = kwargs['lockMode']
+        if 'parameterValues' in kwargs:
+            parameter_values = kwargs['parameterValues']
+        if 'resourceGroups' in kwargs:
+            resource_groups = kwargs['resourceGroups']
+
         _setter("identity", identity)
         _setter("target_subscription_id", target_subscription_id)
         _setter("version_id", version_id)
@@ -285,7 +301,27 @@ class _AssignmentState:
              target_subscription_id: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
              version_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'blueprintName' in kwargs:
+            blueprint_name = kwargs['blueprintName']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'lockExcludeActions' in kwargs:
+            lock_exclude_actions = kwargs['lockExcludeActions']
+        if 'lockExcludePrincipals' in kwargs:
+            lock_exclude_principals = kwargs['lockExcludePrincipals']
+        if 'lockMode' in kwargs:
+            lock_mode = kwargs['lockMode']
+        if 'parameterValues' in kwargs:
+            parameter_values = kwargs['parameterValues']
+        if 'resourceGroups' in kwargs:
+            resource_groups = kwargs['resourceGroups']
+        if 'targetSubscriptionId' in kwargs:
+            target_subscription_id = kwargs['targetSubscriptionId']
+        if 'versionId' in kwargs:
+            version_id = kwargs['versionId']
+
         if blueprint_name is not None:
             _setter("blueprint_name", blueprint_name)
         if description is not None:

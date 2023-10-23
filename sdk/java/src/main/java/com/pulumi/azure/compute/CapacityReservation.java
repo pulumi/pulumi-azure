@@ -82,7 +82,7 @@ public class CapacityReservation extends com.pulumi.resources.CustomResource {
      * The ID of the Capacity Reservation Group where the Capacity Reservation exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="capacityReservationGroupId", refs={String.class}, tree="[0]")
+    @Export(name="capacityReservationGroupId", type=String.class, parameters={})
     private Output<String> capacityReservationGroupId;
 
     /**
@@ -96,7 +96,7 @@ public class CapacityReservation extends com.pulumi.resources.CustomResource {
      * Specifies the name of this Capacity Reservation. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -110,7 +110,7 @@ public class CapacityReservation extends com.pulumi.resources.CustomResource {
      * A `sku` block as defined below.
      * 
      */
-    @Export(name="sku", refs={CapacityReservationSku.class}, tree="[0]")
+    @Export(name="sku", type=CapacityReservationSku.class, parameters={})
     private Output<CapacityReservationSku> sku;
 
     /**
@@ -124,7 +124,7 @@ public class CapacityReservation extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -138,7 +138,7 @@ public class CapacityReservation extends com.pulumi.resources.CustomResource {
      * Specifies the Availability Zone for this Capacity Reservation. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="zone", refs={String.class}, tree="[0]")
+    @Export(name="zone", type=String.class, parameters={})
     private Output</* @Nullable */ String> zone;
 
     /**

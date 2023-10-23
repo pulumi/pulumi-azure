@@ -103,7 +103,7 @@ public class SpringCloudAppCosmosDBAssociation extends com.pulumi.resources.Cust
      * Specifies the API type which should be used when connecting to the CosmosDB Account. Possible values are `cassandra`, `gremlin`, `mongo`, `sql` or `table`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="apiType", refs={String.class}, tree="[0]")
+    @Export(name="apiType", type=String.class, parameters={})
     private Output<String> apiType;
 
     /**
@@ -117,7 +117,7 @@ public class SpringCloudAppCosmosDBAssociation extends com.pulumi.resources.Cust
      * Specifies the CosmosDB Account access key.
      * 
      */
-    @Export(name="cosmosdbAccessKey", refs={String.class}, tree="[0]")
+    @Export(name="cosmosdbAccessKey", type=String.class, parameters={})
     private Output<String> cosmosdbAccessKey;
 
     /**
@@ -131,7 +131,7 @@ public class SpringCloudAppCosmosDBAssociation extends com.pulumi.resources.Cust
      * Specifies the ID of the CosmosDB Account. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="cosmosdbAccountId", refs={String.class}, tree="[0]")
+    @Export(name="cosmosdbAccountId", type=String.class, parameters={})
     private Output<String> cosmosdbAccountId;
 
     /**
@@ -145,7 +145,7 @@ public class SpringCloudAppCosmosDBAssociation extends com.pulumi.resources.Cust
      * Specifies the name of the Cassandra Keyspace which the Spring Cloud App should be associated with. Should only be set when `api_type` is `cassandra`.
      * 
      */
-    @Export(name="cosmosdbCassandraKeyspaceName", refs={String.class}, tree="[0]")
+    @Export(name="cosmosdbCassandraKeyspaceName", type=String.class, parameters={})
     private Output</* @Nullable */ String> cosmosdbCassandraKeyspaceName;
 
     /**
@@ -159,7 +159,7 @@ public class SpringCloudAppCosmosDBAssociation extends com.pulumi.resources.Cust
      * Specifies the name of the Gremlin Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `gremlin`.
      * 
      */
-    @Export(name="cosmosdbGremlinDatabaseName", refs={String.class}, tree="[0]")
+    @Export(name="cosmosdbGremlinDatabaseName", type=String.class, parameters={})
     private Output</* @Nullable */ String> cosmosdbGremlinDatabaseName;
 
     /**
@@ -173,7 +173,7 @@ public class SpringCloudAppCosmosDBAssociation extends com.pulumi.resources.Cust
      * Specifies the name of the Gremlin Graph which the Spring Cloud App should be associated with. Should only be set when `api_type` is `gremlin`.
      * 
      */
-    @Export(name="cosmosdbGremlinGraphName", refs={String.class}, tree="[0]")
+    @Export(name="cosmosdbGremlinGraphName", type=String.class, parameters={})
     private Output</* @Nullable */ String> cosmosdbGremlinGraphName;
 
     /**
@@ -187,7 +187,7 @@ public class SpringCloudAppCosmosDBAssociation extends com.pulumi.resources.Cust
      * Specifies the name of the Mongo Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `mongo`.
      * 
      */
-    @Export(name="cosmosdbMongoDatabaseName", refs={String.class}, tree="[0]")
+    @Export(name="cosmosdbMongoDatabaseName", type=String.class, parameters={})
     private Output</* @Nullable */ String> cosmosdbMongoDatabaseName;
 
     /**
@@ -201,7 +201,7 @@ public class SpringCloudAppCosmosDBAssociation extends com.pulumi.resources.Cust
      * Specifies the name of the SQL Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `sql`.
      * 
      */
-    @Export(name="cosmosdbSqlDatabaseName", refs={String.class}, tree="[0]")
+    @Export(name="cosmosdbSqlDatabaseName", type=String.class, parameters={})
     private Output</* @Nullable */ String> cosmosdbSqlDatabaseName;
 
     /**
@@ -215,7 +215,7 @@ public class SpringCloudAppCosmosDBAssociation extends com.pulumi.resources.Cust
      * Specifies the name of the Spring Cloud Application Association. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -229,7 +229,7 @@ public class SpringCloudAppCosmosDBAssociation extends com.pulumi.resources.Cust
      * Specifies the ID of the Spring Cloud Application where this Association is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="springCloudAppId", refs={String.class}, tree="[0]")
+    @Export(name="springCloudAppId", type=String.class, parameters={})
     private Output<String> springCloudAppId;
 
     /**

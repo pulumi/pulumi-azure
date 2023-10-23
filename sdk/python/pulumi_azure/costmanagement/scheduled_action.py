@@ -79,7 +79,31 @@ class ScheduledActionArgs:
              message: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              weeks_of_months: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'emailAddressSender' in kwargs:
+            email_address_sender = kwargs['emailAddressSender']
+        if 'emailAddresses' in kwargs:
+            email_addresses = kwargs['emailAddresses']
+        if 'emailSubject' in kwargs:
+            email_subject = kwargs['emailSubject']
+        if 'endDate' in kwargs:
+            end_date = kwargs['endDate']
+        if 'startDate' in kwargs:
+            start_date = kwargs['startDate']
+        if 'viewId' in kwargs:
+            view_id = kwargs['viewId']
+        if 'dayOfMonth' in kwargs:
+            day_of_month = kwargs['dayOfMonth']
+        if 'daysOfWeeks' in kwargs:
+            days_of_weeks = kwargs['daysOfWeeks']
+        if 'hourOfDay' in kwargs:
+            hour_of_day = kwargs['hourOfDay']
+        if 'weeksOfMonths' in kwargs:
+            weeks_of_months = kwargs['weeksOfMonths']
+
         _setter("display_name", display_name)
         _setter("email_address_sender", email_address_sender)
         _setter("email_addresses", email_addresses)
@@ -338,7 +362,31 @@ class _ScheduledActionState:
              start_date: Optional[pulumi.Input[str]] = None,
              view_id: Optional[pulumi.Input[str]] = None,
              weeks_of_months: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dayOfMonth' in kwargs:
+            day_of_month = kwargs['dayOfMonth']
+        if 'daysOfWeeks' in kwargs:
+            days_of_weeks = kwargs['daysOfWeeks']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'emailAddressSender' in kwargs:
+            email_address_sender = kwargs['emailAddressSender']
+        if 'emailAddresses' in kwargs:
+            email_addresses = kwargs['emailAddresses']
+        if 'emailSubject' in kwargs:
+            email_subject = kwargs['emailSubject']
+        if 'endDate' in kwargs:
+            end_date = kwargs['endDate']
+        if 'hourOfDay' in kwargs:
+            hour_of_day = kwargs['hourOfDay']
+        if 'startDate' in kwargs:
+            start_date = kwargs['startDate']
+        if 'viewId' in kwargs:
+            view_id = kwargs['viewId']
+        if 'weeksOfMonths' in kwargs:
+            weeks_of_months = kwargs['weeksOfMonths']
+
         if day_of_month is not None:
             _setter("day_of_month", day_of_month)
         if days_of_weeks is not None:

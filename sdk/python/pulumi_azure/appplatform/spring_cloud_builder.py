@@ -41,7 +41,13 @@ class SpringCloudBuilderArgs:
              spring_cloud_service_id: pulumi.Input[str],
              stack: pulumi.Input['SpringCloudBuilderStackArgs'],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'buildPackGroups' in kwargs:
+            build_pack_groups = kwargs['buildPackGroups']
+        if 'springCloudServiceId' in kwargs:
+            spring_cloud_service_id = kwargs['springCloudServiceId']
+
         _setter("build_pack_groups", build_pack_groups)
         _setter("spring_cloud_service_id", spring_cloud_service_id)
         _setter("stack", stack)
@@ -125,7 +131,13 @@ class _SpringCloudBuilderState:
              name: Optional[pulumi.Input[str]] = None,
              spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
              stack: Optional[pulumi.Input['SpringCloudBuilderStackArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'buildPackGroups' in kwargs:
+            build_pack_groups = kwargs['buildPackGroups']
+        if 'springCloudServiceId' in kwargs:
+            spring_cloud_service_id = kwargs['springCloudServiceId']
+
         if build_pack_groups is not None:
             _setter("build_pack_groups", build_pack_groups)
         if name is not None:

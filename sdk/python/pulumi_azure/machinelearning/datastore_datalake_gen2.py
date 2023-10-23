@@ -63,7 +63,23 @@ class DatastoreDatalakeGen2Args:
              service_data_identity: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageContainerId' in kwargs:
+            storage_container_id = kwargs['storageContainerId']
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+        if 'authorityUrl' in kwargs:
+            authority_url = kwargs['authorityUrl']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'serviceDataIdentity' in kwargs:
+            service_data_identity = kwargs['serviceDataIdentity']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("storage_container_id", storage_container_id)
         _setter("workspace_id", workspace_id)
         if authority_url is not None:
@@ -260,7 +276,25 @@ class _DatastoreDatalakeGen2State:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authorityUrl' in kwargs:
+            authority_url = kwargs['authorityUrl']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'isDefault' in kwargs:
+            is_default = kwargs['isDefault']
+        if 'serviceDataIdentity' in kwargs:
+            service_data_identity = kwargs['serviceDataIdentity']
+        if 'storageContainerId' in kwargs:
+            storage_container_id = kwargs['storageContainerId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+
         if authority_url is not None:
             _setter("authority_url", authority_url)
         if client_id is not None:

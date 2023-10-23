@@ -39,7 +39,13 @@ class ResolverVirtualNetworkLinkArgs:
              virtual_network_id: pulumi.Input[str],
              metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsForwardingRulesetId' in kwargs:
+            dns_forwarding_ruleset_id = kwargs['dnsForwardingRulesetId']
+        if 'virtualNetworkId' in kwargs:
+            virtual_network_id = kwargs['virtualNetworkId']
+
         _setter("dns_forwarding_ruleset_id", dns_forwarding_ruleset_id)
         _setter("virtual_network_id", virtual_network_id)
         if metadata is not None:
@@ -124,7 +130,13 @@ class _ResolverVirtualNetworkLinkState:
              metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              virtual_network_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsForwardingRulesetId' in kwargs:
+            dns_forwarding_ruleset_id = kwargs['dnsForwardingRulesetId']
+        if 'virtualNetworkId' in kwargs:
+            virtual_network_id = kwargs['virtualNetworkId']
+
         if dns_forwarding_ruleset_id is not None:
             _setter("dns_forwarding_ruleset_id", dns_forwarding_ruleset_id)
         if metadata is not None:

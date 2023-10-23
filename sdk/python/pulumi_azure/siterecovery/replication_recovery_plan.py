@@ -69,7 +69,25 @@ class ReplicationRecoveryPlanArgs:
              name: Optional[pulumi.Input[str]] = None,
              recovery_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanRecoveryGroupArgs']]]] = None,
              shutdown_recovery_group: Optional[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'recoveryVaultId' in kwargs:
+            recovery_vault_id = kwargs['recoveryVaultId']
+        if 'sourceRecoveryFabricId' in kwargs:
+            source_recovery_fabric_id = kwargs['sourceRecoveryFabricId']
+        if 'targetRecoveryFabricId' in kwargs:
+            target_recovery_fabric_id = kwargs['targetRecoveryFabricId']
+        if 'azureToAzureSettings' in kwargs:
+            azure_to_azure_settings = kwargs['azureToAzureSettings']
+        if 'bootRecoveryGroups' in kwargs:
+            boot_recovery_groups = kwargs['bootRecoveryGroups']
+        if 'failoverRecoveryGroup' in kwargs:
+            failover_recovery_group = kwargs['failoverRecoveryGroup']
+        if 'recoveryGroups' in kwargs:
+            recovery_groups = kwargs['recoveryGroups']
+        if 'shutdownRecoveryGroup' in kwargs:
+            shutdown_recovery_group = kwargs['shutdownRecoveryGroup']
+
         _setter("recovery_vault_id", recovery_vault_id)
         _setter("source_recovery_fabric_id", source_recovery_fabric_id)
         _setter("target_recovery_fabric_id", target_recovery_fabric_id)
@@ -265,7 +283,25 @@ class _ReplicationRecoveryPlanState:
              shutdown_recovery_group: Optional[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupArgs']] = None,
              source_recovery_fabric_id: Optional[pulumi.Input[str]] = None,
              target_recovery_fabric_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azureToAzureSettings' in kwargs:
+            azure_to_azure_settings = kwargs['azureToAzureSettings']
+        if 'bootRecoveryGroups' in kwargs:
+            boot_recovery_groups = kwargs['bootRecoveryGroups']
+        if 'failoverRecoveryGroup' in kwargs:
+            failover_recovery_group = kwargs['failoverRecoveryGroup']
+        if 'recoveryGroups' in kwargs:
+            recovery_groups = kwargs['recoveryGroups']
+        if 'recoveryVaultId' in kwargs:
+            recovery_vault_id = kwargs['recoveryVaultId']
+        if 'shutdownRecoveryGroup' in kwargs:
+            shutdown_recovery_group = kwargs['shutdownRecoveryGroup']
+        if 'sourceRecoveryFabricId' in kwargs:
+            source_recovery_fabric_id = kwargs['sourceRecoveryFabricId']
+        if 'targetRecoveryFabricId' in kwargs:
+            target_recovery_fabric_id = kwargs['targetRecoveryFabricId']
+
         if azure_to_azure_settings is not None:
             _setter("azure_to_azure_settings", azure_to_azure_settings)
         if boot_recovery_groups is not None:

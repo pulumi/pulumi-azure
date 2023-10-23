@@ -90,7 +90,21 @@ class MonitorDatadogOrganization(dict):
              linking_client_id: Optional[str] = None,
              name: Optional[str] = None,
              redirect_uri: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+        if 'applicationKey' in kwargs:
+            application_key = kwargs['applicationKey']
+        if 'enterpriseAppId' in kwargs:
+            enterprise_app_id = kwargs['enterpriseAppId']
+        if 'linkingAuthCode' in kwargs:
+            linking_auth_code = kwargs['linkingAuthCode']
+        if 'linkingClientId' in kwargs:
+            linking_client_id = kwargs['linkingClientId']
+        if 'redirectUri' in kwargs:
+            redirect_uri = kwargs['redirectUri']
+
         _setter("api_key", api_key)
         _setter("application_key", application_key)
         if enterprise_app_id is not None:
@@ -215,7 +229,13 @@ class MonitorIdentity(dict):
              type: str,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if principal_id is not None:
             _setter("principal_id", principal_id)
@@ -299,7 +319,15 @@ class MonitorTagRuleLog(dict):
              filters: Optional[Sequence['outputs.MonitorTagRuleLogFilter']] = None,
              resource_log_enabled: Optional[bool] = None,
              subscription_log_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'aadLogEnabled' in kwargs:
+            aad_log_enabled = kwargs['aadLogEnabled']
+        if 'resourceLogEnabled' in kwargs:
+            resource_log_enabled = kwargs['resourceLogEnabled']
+        if 'subscriptionLogEnabled' in kwargs:
+            subscription_log_enabled = kwargs['subscriptionLogEnabled']
+
         if aad_log_enabled is not None:
             _setter("aad_log_enabled", aad_log_enabled)
         if filters is not None:
@@ -367,7 +395,9 @@ class MonitorTagRuleLogFilter(dict):
              action: str,
              name: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("action", action)
         _setter("name", name)
         _setter("value", value)
@@ -414,7 +444,9 @@ class MonitorTagRuleMetric(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              filters: Optional[Sequence['outputs.MonitorTagRuleMetricFilter']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if filters is not None:
             _setter("filters", filters)
 
@@ -452,7 +484,9 @@ class MonitorTagRuleMetricFilter(dict):
              action: str,
              name: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("action", action)
         _setter("name", name)
         _setter("value", value)
@@ -522,7 +556,11 @@ class MonitorUser(dict):
              email: str,
              name: str,
              phone_number: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'phoneNumber' in kwargs:
+            phone_number = kwargs['phoneNumber']
+
         _setter("email", email)
         _setter("name", name)
         if phone_number is not None:

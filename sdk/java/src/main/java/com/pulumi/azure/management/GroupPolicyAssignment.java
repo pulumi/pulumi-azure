@@ -97,7 +97,7 @@ public class GroupPolicyAssignment extends com.pulumi.resources.CustomResource {
      * A description which should be used for this Policy Assignment.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -111,7 +111,7 @@ public class GroupPolicyAssignment extends com.pulumi.resources.CustomResource {
      * The Display Name for this Policy Assignment.
      * 
      */
-    @Export(name="displayName", refs={String.class}, tree="[0]")
+    @Export(name="displayName", type=String.class, parameters={})
     private Output</* @Nullable */ String> displayName;
 
     /**
@@ -125,7 +125,7 @@ public class GroupPolicyAssignment extends com.pulumi.resources.CustomResource {
      * Specifies if this Policy should be enforced or not? Defaults to `true`.
      * 
      */
-    @Export(name="enforce", refs={Boolean.class}, tree="[0]")
+    @Export(name="enforce", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enforce;
 
     /**
@@ -141,7 +141,7 @@ public class GroupPolicyAssignment extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** The `location` field must also be specified when `identity` is specified.
      * 
      */
-    @Export(name="identity", refs={GroupPolicyAssignmentIdentity.class}, tree="[0]")
+    @Export(name="identity", type=GroupPolicyAssignmentIdentity.class, parameters={})
     private Output</* @Nullable */ GroupPolicyAssignmentIdentity> identity;
 
     /**
@@ -157,7 +157,7 @@ public class GroupPolicyAssignment extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -171,7 +171,7 @@ public class GroupPolicyAssignment extends com.pulumi.resources.CustomResource {
      * The ID of the Management Group. Changing this forces a new Policy Assignment to be created.
      * 
      */
-    @Export(name="managementGroupId", refs={String.class}, tree="[0]")
+    @Export(name="managementGroupId", type=String.class, parameters={})
     private Output<String> managementGroupId;
 
     /**
@@ -185,7 +185,7 @@ public class GroupPolicyAssignment extends com.pulumi.resources.CustomResource {
      * A JSON mapping of any Metadata for this Policy.
      * 
      */
-    @Export(name="metadata", refs={String.class}, tree="[0]")
+    @Export(name="metadata", type=String.class, parameters={})
     private Output<String> metadata;
 
     /**
@@ -199,7 +199,7 @@ public class GroupPolicyAssignment extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Policy Assignment. Possible values must be between 3 and 24 characters in length. Changing this forces a new Policy Assignment to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -213,7 +213,7 @@ public class GroupPolicyAssignment extends com.pulumi.resources.CustomResource {
      * One or more `non_compliance_message` blocks as defined below.
      * 
      */
-    @Export(name="nonComplianceMessages", refs={List.class,GroupPolicyAssignmentNonComplianceMessage.class}, tree="[0,1]")
+    @Export(name="nonComplianceMessages", type=List.class, parameters={GroupPolicyAssignmentNonComplianceMessage.class})
     private Output</* @Nullable */ List<GroupPolicyAssignmentNonComplianceMessage>> nonComplianceMessages;
 
     /**
@@ -227,7 +227,7 @@ public class GroupPolicyAssignment extends com.pulumi.resources.CustomResource {
      * Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
      * 
      */
-    @Export(name="notScopes", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="notScopes", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> notScopes;
 
     /**
@@ -241,7 +241,7 @@ public class GroupPolicyAssignment extends com.pulumi.resources.CustomResource {
      * One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
      * 
      */
-    @Export(name="overrides", refs={List.class,GroupPolicyAssignmentOverride.class}, tree="[0,1]")
+    @Export(name="overrides", type=List.class, parameters={GroupPolicyAssignmentOverride.class})
     private Output</* @Nullable */ List<GroupPolicyAssignmentOverride>> overrides;
 
     /**
@@ -255,7 +255,7 @@ public class GroupPolicyAssignment extends com.pulumi.resources.CustomResource {
      * A JSON mapping of any Parameters for this Policy.
      * 
      */
-    @Export(name="parameters", refs={String.class}, tree="[0]")
+    @Export(name="parameters", type=String.class, parameters={})
     private Output</* @Nullable */ String> parameters;
 
     /**
@@ -269,7 +269,7 @@ public class GroupPolicyAssignment extends com.pulumi.resources.CustomResource {
      * The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
      * 
      */
-    @Export(name="policyDefinitionId", refs={String.class}, tree="[0]")
+    @Export(name="policyDefinitionId", type=String.class, parameters={})
     private Output<String> policyDefinitionId;
 
     /**
@@ -283,7 +283,7 @@ public class GroupPolicyAssignment extends com.pulumi.resources.CustomResource {
      * One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
      * 
      */
-    @Export(name="resourceSelectors", refs={List.class,GroupPolicyAssignmentResourceSelector.class}, tree="[0,1]")
+    @Export(name="resourceSelectors", type=List.class, parameters={GroupPolicyAssignmentResourceSelector.class})
     private Output</* @Nullable */ List<GroupPolicyAssignmentResourceSelector>> resourceSelectors;
 
     /**

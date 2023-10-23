@@ -119,7 +119,49 @@ class PostgresqlClusterArgs:
              source_resource_id: Optional[pulumi.Input[str]] = None,
              sql_version: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'administratorLoginPassword' in kwargs:
+            administrator_login_password = kwargs['administratorLoginPassword']
+        if 'coordinatorStorageQuotaInMb' in kwargs:
+            coordinator_storage_quota_in_mb = kwargs['coordinatorStorageQuotaInMb']
+        if 'coordinatorVcoreCount' in kwargs:
+            coordinator_vcore_count = kwargs['coordinatorVcoreCount']
+        if 'nodeCount' in kwargs:
+            node_count = kwargs['nodeCount']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'citusVersion' in kwargs:
+            citus_version = kwargs['citusVersion']
+        if 'coordinatorPublicIpAccessEnabled' in kwargs:
+            coordinator_public_ip_access_enabled = kwargs['coordinatorPublicIpAccessEnabled']
+        if 'coordinatorServerEdition' in kwargs:
+            coordinator_server_edition = kwargs['coordinatorServerEdition']
+        if 'haEnabled' in kwargs:
+            ha_enabled = kwargs['haEnabled']
+        if 'maintenanceWindow' in kwargs:
+            maintenance_window = kwargs['maintenanceWindow']
+        if 'nodePublicIpAccessEnabled' in kwargs:
+            node_public_ip_access_enabled = kwargs['nodePublicIpAccessEnabled']
+        if 'nodeServerEdition' in kwargs:
+            node_server_edition = kwargs['nodeServerEdition']
+        if 'nodeStorageQuotaInMb' in kwargs:
+            node_storage_quota_in_mb = kwargs['nodeStorageQuotaInMb']
+        if 'nodeVcores' in kwargs:
+            node_vcores = kwargs['nodeVcores']
+        if 'pointInTimeInUtc' in kwargs:
+            point_in_time_in_utc = kwargs['pointInTimeInUtc']
+        if 'preferredPrimaryZone' in kwargs:
+            preferred_primary_zone = kwargs['preferredPrimaryZone']
+        if 'shardsOnCoordinatorEnabled' in kwargs:
+            shards_on_coordinator_enabled = kwargs['shardsOnCoordinatorEnabled']
+        if 'sourceLocation' in kwargs:
+            source_location = kwargs['sourceLocation']
+        if 'sourceResourceId' in kwargs:
+            source_resource_id = kwargs['sourceResourceId']
+        if 'sqlVersion' in kwargs:
+            sql_version = kwargs['sqlVersion']
+
         _setter("administrator_login_password", administrator_login_password)
         _setter("coordinator_storage_quota_in_mb", coordinator_storage_quota_in_mb)
         _setter("coordinator_vcore_count", coordinator_vcore_count)
@@ -551,7 +593,51 @@ class _PostgresqlClusterState:
              source_resource_id: Optional[pulumi.Input[str]] = None,
              sql_version: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'administratorLoginPassword' in kwargs:
+            administrator_login_password = kwargs['administratorLoginPassword']
+        if 'citusVersion' in kwargs:
+            citus_version = kwargs['citusVersion']
+        if 'coordinatorPublicIpAccessEnabled' in kwargs:
+            coordinator_public_ip_access_enabled = kwargs['coordinatorPublicIpAccessEnabled']
+        if 'coordinatorServerEdition' in kwargs:
+            coordinator_server_edition = kwargs['coordinatorServerEdition']
+        if 'coordinatorStorageQuotaInMb' in kwargs:
+            coordinator_storage_quota_in_mb = kwargs['coordinatorStorageQuotaInMb']
+        if 'coordinatorVcoreCount' in kwargs:
+            coordinator_vcore_count = kwargs['coordinatorVcoreCount']
+        if 'earliestRestoreTime' in kwargs:
+            earliest_restore_time = kwargs['earliestRestoreTime']
+        if 'haEnabled' in kwargs:
+            ha_enabled = kwargs['haEnabled']
+        if 'maintenanceWindow' in kwargs:
+            maintenance_window = kwargs['maintenanceWindow']
+        if 'nodeCount' in kwargs:
+            node_count = kwargs['nodeCount']
+        if 'nodePublicIpAccessEnabled' in kwargs:
+            node_public_ip_access_enabled = kwargs['nodePublicIpAccessEnabled']
+        if 'nodeServerEdition' in kwargs:
+            node_server_edition = kwargs['nodeServerEdition']
+        if 'nodeStorageQuotaInMb' in kwargs:
+            node_storage_quota_in_mb = kwargs['nodeStorageQuotaInMb']
+        if 'nodeVcores' in kwargs:
+            node_vcores = kwargs['nodeVcores']
+        if 'pointInTimeInUtc' in kwargs:
+            point_in_time_in_utc = kwargs['pointInTimeInUtc']
+        if 'preferredPrimaryZone' in kwargs:
+            preferred_primary_zone = kwargs['preferredPrimaryZone']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'shardsOnCoordinatorEnabled' in kwargs:
+            shards_on_coordinator_enabled = kwargs['shardsOnCoordinatorEnabled']
+        if 'sourceLocation' in kwargs:
+            source_location = kwargs['sourceLocation']
+        if 'sourceResourceId' in kwargs:
+            source_resource_id = kwargs['sourceResourceId']
+        if 'sqlVersion' in kwargs:
+            sql_version = kwargs['sqlVersion']
+
         if administrator_login_password is not None:
             _setter("administrator_login_password", administrator_login_password)
         if citus_version is not None:

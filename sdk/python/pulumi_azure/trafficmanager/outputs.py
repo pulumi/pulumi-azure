@@ -52,7 +52,11 @@ class ProfileDnsConfig(dict):
              _setter: Callable[[Any, Any], None],
              relative_name: str,
              ttl: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'relativeName' in kwargs:
+            relative_name = kwargs['relativeName']
+
         _setter("relative_name", relative_name)
         _setter("ttl", ttl)
 
@@ -141,7 +145,19 @@ class ProfileMonitorConfig(dict):
              path: Optional[str] = None,
              timeout_in_seconds: Optional[int] = None,
              tolerated_number_of_failures: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customHeaders' in kwargs:
+            custom_headers = kwargs['customHeaders']
+        if 'expectedStatusCodeRanges' in kwargs:
+            expected_status_code_ranges = kwargs['expectedStatusCodeRanges']
+        if 'intervalInSeconds' in kwargs:
+            interval_in_seconds = kwargs['intervalInSeconds']
+        if 'timeoutInSeconds' in kwargs:
+            timeout_in_seconds = kwargs['timeoutInSeconds']
+        if 'toleratedNumberOfFailures' in kwargs:
+            tolerated_number_of_failures = kwargs['toleratedNumberOfFailures']
+
         _setter("port", port)
         _setter("protocol", protocol)
         if custom_headers is not None:
@@ -241,7 +257,9 @@ class ProfileMonitorConfigCustomHeader(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 

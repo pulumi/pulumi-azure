@@ -43,7 +43,17 @@ class HybridConnectionArgs:
              name: Optional[pulumi.Input[str]] = None,
              requires_client_authorization: Optional[pulumi.Input[bool]] = None,
              user_metadata: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'relayNamespaceName' in kwargs:
+            relay_namespace_name = kwargs['relayNamespaceName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'requiresClientAuthorization' in kwargs:
+            requires_client_authorization = kwargs['requiresClientAuthorization']
+        if 'userMetadata' in kwargs:
+            user_metadata = kwargs['userMetadata']
+
         _setter("relay_namespace_name", relay_namespace_name)
         _setter("resource_group_name", resource_group_name)
         if name is not None:
@@ -146,7 +156,17 @@ class _HybridConnectionState:
              requires_client_authorization: Optional[pulumi.Input[bool]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              user_metadata: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'relayNamespaceName' in kwargs:
+            relay_namespace_name = kwargs['relayNamespaceName']
+        if 'requiresClientAuthorization' in kwargs:
+            requires_client_authorization = kwargs['requiresClientAuthorization']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'userMetadata' in kwargs:
+            user_metadata = kwargs['userMetadata']
+
         if name is not None:
             _setter("name", name)
         if relay_namespace_name is not None:

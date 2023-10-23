@@ -59,7 +59,25 @@ class GatewayHostNameConfigurationArgs:
              request_client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
              tls10_enabled: Optional[pulumi.Input[bool]] = None,
              tls11_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementId' in kwargs:
+            api_management_id = kwargs['apiManagementId']
+        if 'certificateId' in kwargs:
+            certificate_id = kwargs['certificateId']
+        if 'gatewayName' in kwargs:
+            gateway_name = kwargs['gatewayName']
+        if 'hostName' in kwargs:
+            host_name = kwargs['hostName']
+        if 'http2Enabled' in kwargs:
+            http2_enabled = kwargs['http2Enabled']
+        if 'requestClientCertificateEnabled' in kwargs:
+            request_client_certificate_enabled = kwargs['requestClientCertificateEnabled']
+        if 'tls10Enabled' in kwargs:
+            tls10_enabled = kwargs['tls10Enabled']
+        if 'tls11Enabled' in kwargs:
+            tls11_enabled = kwargs['tls11Enabled']
+
         _setter("api_management_id", api_management_id)
         _setter("certificate_id", certificate_id)
         _setter("gateway_name", gateway_name)
@@ -232,7 +250,25 @@ class _GatewayHostNameConfigurationState:
              request_client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
              tls10_enabled: Optional[pulumi.Input[bool]] = None,
              tls11_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementId' in kwargs:
+            api_management_id = kwargs['apiManagementId']
+        if 'certificateId' in kwargs:
+            certificate_id = kwargs['certificateId']
+        if 'gatewayName' in kwargs:
+            gateway_name = kwargs['gatewayName']
+        if 'hostName' in kwargs:
+            host_name = kwargs['hostName']
+        if 'http2Enabled' in kwargs:
+            http2_enabled = kwargs['http2Enabled']
+        if 'requestClientCertificateEnabled' in kwargs:
+            request_client_certificate_enabled = kwargs['requestClientCertificateEnabled']
+        if 'tls10Enabled' in kwargs:
+            tls10_enabled = kwargs['tls10Enabled']
+        if 'tls11Enabled' in kwargs:
+            tls11_enabled = kwargs['tls11Enabled']
+
         if api_management_id is not None:
             _setter("api_management_id", api_management_id)
         if certificate_id is not None:

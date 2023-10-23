@@ -83,7 +83,7 @@ public class ConnectionClassicCertificate extends com.pulumi.resources.CustomRes
      * The name of the automation account in which the Connection is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="automationAccountName", refs={String.class}, tree="[0]")
+    @Export(name="automationAccountName", type=String.class, parameters={})
     private Output<String> automationAccountName;
 
     /**
@@ -97,7 +97,7 @@ public class ConnectionClassicCertificate extends com.pulumi.resources.CustomRes
      * The name of the certificate asset.
      * 
      */
-    @Export(name="certificateAssetName", refs={String.class}, tree="[0]")
+    @Export(name="certificateAssetName", type=String.class, parameters={})
     private Output<String> certificateAssetName;
 
     /**
@@ -111,7 +111,7 @@ public class ConnectionClassicCertificate extends com.pulumi.resources.CustomRes
      * A description for this Connection.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -125,7 +125,7 @@ public class ConnectionClassicCertificate extends com.pulumi.resources.CustomRes
      * Specifies the name of the Connection. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -139,7 +139,7 @@ public class ConnectionClassicCertificate extends com.pulumi.resources.CustomRes
      * The name of the resource group in which the Connection is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -153,7 +153,7 @@ public class ConnectionClassicCertificate extends com.pulumi.resources.CustomRes
      * The id of subscription.
      * 
      */
-    @Export(name="subscriptionId", refs={String.class}, tree="[0]")
+    @Export(name="subscriptionId", type=String.class, parameters={})
     private Output<String> subscriptionId;
 
     /**
@@ -167,7 +167,7 @@ public class ConnectionClassicCertificate extends com.pulumi.resources.CustomRes
      * The name of subscription.
      * 
      */
-    @Export(name="subscriptionName", refs={String.class}, tree="[0]")
+    @Export(name="subscriptionName", type=String.class, parameters={})
     private Output<String> subscriptionName;
 
     /**

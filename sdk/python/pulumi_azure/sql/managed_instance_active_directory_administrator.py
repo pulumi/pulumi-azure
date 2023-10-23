@@ -47,7 +47,19 @@ class ManagedInstanceActiveDirectoryAdministratorArgs:
              resource_group_name: pulumi.Input[str],
              tenant_id: pulumi.Input[str],
              azuread_authentication_only: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'managedInstanceName' in kwargs:
+            managed_instance_name = kwargs['managedInstanceName']
+        if 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if 'azureadAuthenticationOnly' in kwargs:
+            azuread_authentication_only = kwargs['azureadAuthenticationOnly']
+
         _setter("login", login)
         _setter("managed_instance_name", managed_instance_name)
         _setter("object_id", object_id)
@@ -165,7 +177,19 @@ class _ManagedInstanceActiveDirectoryAdministratorState:
              object_id: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azureadAuthenticationOnly' in kwargs:
+            azuread_authentication_only = kwargs['azureadAuthenticationOnly']
+        if 'managedInstanceName' in kwargs:
+            managed_instance_name = kwargs['managedInstanceName']
+        if 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if azuread_authentication_only is not None:
             _setter("azuread_authentication_only", azuread_authentication_only)
         if login is not None:

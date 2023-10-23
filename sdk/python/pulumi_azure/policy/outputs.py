@@ -71,7 +71,13 @@ class PolicySetDefinitionPolicyDefinitionGroup(dict):
              category: Optional[str] = None,
              description: Optional[str] = None,
              display_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalMetadataResourceId' in kwargs:
+            additional_metadata_resource_id = kwargs['additionalMetadataResourceId']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+
         _setter("name", name)
         if additional_metadata_resource_id is not None:
             _setter("additional_metadata_resource_id", additional_metadata_resource_id)
@@ -173,7 +179,17 @@ class PolicySetDefinitionPolicyDefinitionReference(dict):
              parameter_values: Optional[str] = None,
              policy_group_names: Optional[Sequence[str]] = None,
              reference_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyDefinitionId' in kwargs:
+            policy_definition_id = kwargs['policyDefinitionId']
+        if 'parameterValues' in kwargs:
+            parameter_values = kwargs['parameterValues']
+        if 'policyGroupNames' in kwargs:
+            policy_group_names = kwargs['policyGroupNames']
+        if 'referenceId' in kwargs:
+            reference_id = kwargs['referenceId']
+
         _setter("policy_definition_id", policy_definition_id)
         if parameter_values is not None:
             _setter("parameter_values", parameter_values)
@@ -269,7 +285,15 @@ class VirtualMachineConfigurationAssignmentConfiguration(dict):
              content_uri: Optional[str] = None,
              parameters: Optional[Sequence['outputs.VirtualMachineConfigurationAssignmentConfigurationParameter']] = None,
              version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'assignmentType' in kwargs:
+            assignment_type = kwargs['assignmentType']
+        if 'contentHash' in kwargs:
+            content_hash = kwargs['contentHash']
+        if 'contentUri' in kwargs:
+            content_uri = kwargs['contentUri']
+
         if assignment_type is not None:
             _setter("assignment_type", assignment_type)
         if content_hash is not None:
@@ -343,7 +367,9 @@ class VirtualMachineConfigurationAssignmentConfigurationParameter(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -391,7 +417,15 @@ class GetPolicyAssignmentIdentityResult(dict):
              principal_id: str,
              tenant_id: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("identity_ids", identity_ids)
         _setter("principal_id", principal_id)
         _setter("tenant_id", tenant_id)
@@ -449,7 +483,11 @@ class GetPolicyAssignmentNonComplianceMessageResult(dict):
              _setter: Callable[[Any, Any], None],
              content: str,
              policy_definition_reference_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyDefinitionReferenceId' in kwargs:
+            policy_definition_reference_id = kwargs['policyDefinitionReferenceId']
+
         _setter("content", content)
         _setter("policy_definition_reference_id", policy_definition_reference_id)
 
@@ -503,7 +541,13 @@ class GetPolicySetDefinitionPolicyDefinitionGroupResult(dict):
              description: str,
              display_name: str,
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalMetadataResourceId' in kwargs:
+            additional_metadata_resource_id = kwargs['additionalMetadataResourceId']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+
         _setter("additional_metadata_resource_id", additional_metadata_resource_id)
         _setter("category", category)
         _setter("description", description)
@@ -584,7 +628,17 @@ class GetPolicySetDefinitionPolicyDefinitionReferenceResult(dict):
              policy_definition_id: str,
              policy_group_names: Sequence[str],
              reference_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'parameterValues' in kwargs:
+            parameter_values = kwargs['parameterValues']
+        if 'policyDefinitionId' in kwargs:
+            policy_definition_id = kwargs['policyDefinitionId']
+        if 'policyGroupNames' in kwargs:
+            policy_group_names = kwargs['policyGroupNames']
+        if 'referenceId' in kwargs:
+            reference_id = kwargs['referenceId']
+
         _setter("parameter_values", parameter_values)
         _setter("parameters", parameters)
         _setter("policy_definition_id", policy_definition_id)

@@ -36,7 +36,7 @@ public class ManagedCertificate extends com.pulumi.resources.CustomResource {
      * The Canonical Name of the Certificate.
      * 
      */
-    @Export(name="canonicalName", refs={String.class}, tree="[0]")
+    @Export(name="canonicalName", type=String.class, parameters={})
     private Output<String> canonicalName;
 
     /**
@@ -50,7 +50,7 @@ public class ManagedCertificate extends com.pulumi.resources.CustomResource {
      * The ID of the App Service Custom Hostname Binding for the Certificate. Changing this forces a new App Service Managed Certificate to be created.
      * 
      */
-    @Export(name="customHostnameBindingId", refs={String.class}, tree="[0]")
+    @Export(name="customHostnameBindingId", type=String.class, parameters={})
     private Output<String> customHostnameBindingId;
 
     /**
@@ -64,7 +64,7 @@ public class ManagedCertificate extends com.pulumi.resources.CustomResource {
      * The expiration date of the Certificate.
      * 
      */
-    @Export(name="expirationDate", refs={String.class}, tree="[0]")
+    @Export(name="expirationDate", type=String.class, parameters={})
     private Output<String> expirationDate;
 
     /**
@@ -78,7 +78,7 @@ public class ManagedCertificate extends com.pulumi.resources.CustomResource {
      * The friendly name of the Certificate.
      * 
      */
-    @Export(name="friendlyName", refs={String.class}, tree="[0]")
+    @Export(name="friendlyName", type=String.class, parameters={})
     private Output<String> friendlyName;
 
     /**
@@ -92,7 +92,7 @@ public class ManagedCertificate extends com.pulumi.resources.CustomResource {
      * The list of Host Names for the Certificate.
      * 
      */
-    @Export(name="hostNames", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="hostNames", type=List.class, parameters={String.class})
     private Output<List<String>> hostNames;
 
     /**
@@ -106,7 +106,7 @@ public class ManagedCertificate extends com.pulumi.resources.CustomResource {
      * The Start date for the Certificate.
      * 
      */
-    @Export(name="issueDate", refs={String.class}, tree="[0]")
+    @Export(name="issueDate", type=String.class, parameters={})
     private Output<String> issueDate;
 
     /**
@@ -120,7 +120,7 @@ public class ManagedCertificate extends com.pulumi.resources.CustomResource {
      * The issuer of the Certificate.
      * 
      */
-    @Export(name="issuer", refs={String.class}, tree="[0]")
+    @Export(name="issuer", type=String.class, parameters={})
     private Output<String> issuer;
 
     /**
@@ -134,7 +134,7 @@ public class ManagedCertificate extends com.pulumi.resources.CustomResource {
      * The Subject Name for the Certificate.
      * 
      */
-    @Export(name="subjectName", refs={String.class}, tree="[0]")
+    @Export(name="subjectName", type=String.class, parameters={})
     private Output<String> subjectName;
 
     /**
@@ -148,7 +148,7 @@ public class ManagedCertificate extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the App Service Managed Certificate.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -162,7 +162,7 @@ public class ManagedCertificate extends com.pulumi.resources.CustomResource {
      * The Certificate Thumbprint.
      * 
      */
-    @Export(name="thumbprint", refs={String.class}, tree="[0]")
+    @Export(name="thumbprint", type=String.class, parameters={})
     private Output<String> thumbprint;
 
     /**

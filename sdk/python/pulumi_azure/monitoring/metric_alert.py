@@ -99,7 +99,23 @@ class MetricAlertArgs:
              target_resource_location: Optional[pulumi.Input[str]] = None,
              target_resource_type: Optional[pulumi.Input[str]] = None,
              window_size: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'applicationInsightsWebTestLocationAvailabilityCriteria' in kwargs:
+            application_insights_web_test_location_availability_criteria = kwargs['applicationInsightsWebTestLocationAvailabilityCriteria']
+        if 'autoMitigate' in kwargs:
+            auto_mitigate = kwargs['autoMitigate']
+        if 'dynamicCriteria' in kwargs:
+            dynamic_criteria = kwargs['dynamicCriteria']
+        if 'targetResourceLocation' in kwargs:
+            target_resource_location = kwargs['targetResourceLocation']
+        if 'targetResourceType' in kwargs:
+            target_resource_type = kwargs['targetResourceType']
+        if 'windowSize' in kwargs:
+            window_size = kwargs['windowSize']
+
         _setter("resource_group_name", resource_group_name)
         _setter("scopes", scopes)
         if actions is not None:
@@ -420,7 +436,23 @@ class _MetricAlertState:
              target_resource_location: Optional[pulumi.Input[str]] = None,
              target_resource_type: Optional[pulumi.Input[str]] = None,
              window_size: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationInsightsWebTestLocationAvailabilityCriteria' in kwargs:
+            application_insights_web_test_location_availability_criteria = kwargs['applicationInsightsWebTestLocationAvailabilityCriteria']
+        if 'autoMitigate' in kwargs:
+            auto_mitigate = kwargs['autoMitigate']
+        if 'dynamicCriteria' in kwargs:
+            dynamic_criteria = kwargs['dynamicCriteria']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'targetResourceLocation' in kwargs:
+            target_resource_location = kwargs['targetResourceLocation']
+        if 'targetResourceType' in kwargs:
+            target_resource_type = kwargs['targetResourceType']
+        if 'windowSize' in kwargs:
+            window_size = kwargs['windowSize']
+
         if actions is not None:
             _setter("actions", actions)
         if application_insights_web_test_location_availability_criteria is not None:

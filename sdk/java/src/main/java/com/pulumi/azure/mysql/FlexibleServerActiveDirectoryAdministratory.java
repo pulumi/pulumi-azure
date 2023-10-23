@@ -17,31 +17,31 @@ import javax.annotation.Nullable;
 
 @ResourceType(type="azure:mysql/flexibleServerActiveDirectoryAdministratory:FlexibleServerActiveDirectoryAdministratory")
 public class FlexibleServerActiveDirectoryAdministratory extends com.pulumi.resources.CustomResource {
-    @Export(name="identityId", refs={String.class}, tree="[0]")
+    @Export(name="identityId", type=String.class, parameters={})
     private Output<String> identityId;
 
     public Output<String> identityId() {
         return this.identityId;
     }
-    @Export(name="login", refs={String.class}, tree="[0]")
+    @Export(name="login", type=String.class, parameters={})
     private Output<String> login;
 
     public Output<String> login() {
         return this.login;
     }
-    @Export(name="objectId", refs={String.class}, tree="[0]")
+    @Export(name="objectId", type=String.class, parameters={})
     private Output<String> objectId;
 
     public Output<String> objectId() {
         return this.objectId;
     }
-    @Export(name="serverId", refs={String.class}, tree="[0]")
+    @Export(name="serverId", type=String.class, parameters={})
     private Output<String> serverId;
 
     public Output<String> serverId() {
         return this.serverId;
     }
-    @Export(name="tenantId", refs={String.class}, tree="[0]")
+    @Export(name="tenantId", type=String.class, parameters={})
     private Output<String> tenantId;
 
     public Output<String> tenantId() {

@@ -53,7 +53,17 @@ class ScheduleArgs:
              notes: Optional[pulumi.Input[str]] = None,
              recurrence: Optional[pulumi.Input['ScheduleRecurrenceArgs']] = None,
              start_time: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'labId' in kwargs:
+            lab_id = kwargs['labId']
+        if 'stopTime' in kwargs:
+            stop_time = kwargs['stopTime']
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         _setter("lab_id", lab_id)
         _setter("stop_time", stop_time)
         _setter("time_zone", time_zone)
@@ -191,7 +201,17 @@ class _ScheduleState:
              start_time: Optional[pulumi.Input[str]] = None,
              stop_time: Optional[pulumi.Input[str]] = None,
              time_zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'labId' in kwargs:
+            lab_id = kwargs['labId']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if 'stopTime' in kwargs:
+            stop_time = kwargs['stopTime']
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
         if lab_id is not None:
             _setter("lab_id", lab_id)
         if name is not None:

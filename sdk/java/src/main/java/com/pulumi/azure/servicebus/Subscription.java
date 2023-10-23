@@ -90,7 +90,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
      * The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
      * 
      */
-    @Export(name="autoDeleteOnIdle", refs={String.class}, tree="[0]")
+    @Export(name="autoDeleteOnIdle", type=String.class, parameters={})
     private Output<String> autoDeleteOnIdle;
 
     /**
@@ -104,7 +104,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
      * A `client_scoped_subscription` block as defined below.
      * 
      */
-    @Export(name="clientScopedSubscription", refs={SubscriptionClientScopedSubscription.class}, tree="[0]")
+    @Export(name="clientScopedSubscription", type=SubscriptionClientScopedSubscription.class, parameters={})
     private Output</* @Nullable */ SubscriptionClientScopedSubscription> clientScopedSubscription;
 
     /**
@@ -120,7 +120,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
      * 
      */
-    @Export(name="clientScopedSubscriptionEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="clientScopedSubscriptionEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> clientScopedSubscriptionEnabled;
 
     /**
@@ -136,7 +136,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
      * Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
      * 
      */
-    @Export(name="deadLetteringOnFilterEvaluationError", refs={Boolean.class}, tree="[0]")
+    @Export(name="deadLetteringOnFilterEvaluationError", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> deadLetteringOnFilterEvaluationError;
 
     /**
@@ -150,7 +150,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
      * Boolean flag which controls whether the Subscription has dead letter support when a message expires.
      * 
      */
-    @Export(name="deadLetteringOnMessageExpiration", refs={Boolean.class}, tree="[0]")
+    @Export(name="deadLetteringOnMessageExpiration", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> deadLetteringOnMessageExpiration;
 
     /**
@@ -164,7 +164,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
      * The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
      * 
      */
-    @Export(name="defaultMessageTtl", refs={String.class}, tree="[0]")
+    @Export(name="defaultMessageTtl", type=String.class, parameters={})
     private Output<String> defaultMessageTtl;
 
     /**
@@ -178,7 +178,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
      * Boolean flag which controls whether the Subscription supports batched operations.
      * 
      */
-    @Export(name="enableBatchedOperations", refs={Boolean.class}, tree="[0]")
+    @Export(name="enableBatchedOperations", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enableBatchedOperations;
 
     /**
@@ -192,7 +192,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
      * The name of a Queue or Topic to automatically forward Dead Letter messages to.
      * 
      */
-    @Export(name="forwardDeadLetteredMessagesTo", refs={String.class}, tree="[0]")
+    @Export(name="forwardDeadLetteredMessagesTo", type=String.class, parameters={})
     private Output</* @Nullable */ String> forwardDeadLetteredMessagesTo;
 
     /**
@@ -206,7 +206,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
      * The name of a Queue or Topic to automatically forward messages to.
      * 
      */
-    @Export(name="forwardTo", refs={String.class}, tree="[0]")
+    @Export(name="forwardTo", type=String.class, parameters={})
     private Output</* @Nullable */ String> forwardTo;
 
     /**
@@ -220,7 +220,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
      * The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
      * 
      */
-    @Export(name="lockDuration", refs={String.class}, tree="[0]")
+    @Export(name="lockDuration", type=String.class, parameters={})
     private Output<String> lockDuration;
 
     /**
@@ -234,7 +234,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
      * The maximum number of deliveries.
      * 
      */
-    @Export(name="maxDeliveryCount", refs={Integer.class}, tree="[0]")
+    @Export(name="maxDeliveryCount", type=Integer.class, parameters={})
     private Output<Integer> maxDeliveryCount;
 
     /**
@@ -248,7 +248,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
      * Specifies the name of the ServiceBus Subscription resource. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -262,7 +262,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
      * Boolean flag which controls whether this Subscription supports the concept of a session. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="requiresSession", refs={Boolean.class}, tree="[0]")
+    @Export(name="requiresSession", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> requiresSession;
 
     /**
@@ -276,7 +276,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
      * The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
      * 
      */
-    @Export(name="status", refs={String.class}, tree="[0]")
+    @Export(name="status", type=String.class, parameters={})
     private Output</* @Nullable */ String> status;
 
     /**
@@ -290,7 +290,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
      * The ID of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="topicId", refs={String.class}, tree="[0]")
+    @Export(name="topicId", type=String.class, parameters={})
     private Output<String> topicId;
 
     /**

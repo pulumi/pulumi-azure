@@ -51,7 +51,21 @@ class NetworkMappingArgs:
              target_network_id: pulumi.Input[str],
              target_recovery_fabric_name: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'recoveryVaultName' in kwargs:
+            recovery_vault_name = kwargs['recoveryVaultName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'sourceNetworkId' in kwargs:
+            source_network_id = kwargs['sourceNetworkId']
+        if 'sourceRecoveryFabricName' in kwargs:
+            source_recovery_fabric_name = kwargs['sourceRecoveryFabricName']
+        if 'targetNetworkId' in kwargs:
+            target_network_id = kwargs['targetNetworkId']
+        if 'targetRecoveryFabricName' in kwargs:
+            target_recovery_fabric_name = kwargs['targetRecoveryFabricName']
+
         _setter("recovery_vault_name", recovery_vault_name)
         _setter("resource_group_name", resource_group_name)
         _setter("source_network_id", source_network_id)
@@ -186,7 +200,21 @@ class _NetworkMappingState:
              source_recovery_fabric_name: Optional[pulumi.Input[str]] = None,
              target_network_id: Optional[pulumi.Input[str]] = None,
              target_recovery_fabric_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'recoveryVaultName' in kwargs:
+            recovery_vault_name = kwargs['recoveryVaultName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'sourceNetworkId' in kwargs:
+            source_network_id = kwargs['sourceNetworkId']
+        if 'sourceRecoveryFabricName' in kwargs:
+            source_recovery_fabric_name = kwargs['sourceRecoveryFabricName']
+        if 'targetNetworkId' in kwargs:
+            target_network_id = kwargs['targetNetworkId']
+        if 'targetRecoveryFabricName' in kwargs:
+            target_recovery_fabric_name = kwargs['targetRecoveryFabricName']
+
         if name is not None:
             _setter("name", name)
         if recovery_vault_name is not None:

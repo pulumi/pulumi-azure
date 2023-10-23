@@ -97,7 +97,33 @@ class KeyVaultArgs:
              purge_protection_enabled: Optional[pulumi.Input[bool]] = None,
              soft_delete_retention_days: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if 'accessPolicies' in kwargs:
+            access_policies = kwargs['accessPolicies']
+        if 'enableRbacAuthorization' in kwargs:
+            enable_rbac_authorization = kwargs['enableRbacAuthorization']
+        if 'enabledForDeployment' in kwargs:
+            enabled_for_deployment = kwargs['enabledForDeployment']
+        if 'enabledForDiskEncryption' in kwargs:
+            enabled_for_disk_encryption = kwargs['enabledForDiskEncryption']
+        if 'enabledForTemplateDeployment' in kwargs:
+            enabled_for_template_deployment = kwargs['enabledForTemplateDeployment']
+        if 'networkAcls' in kwargs:
+            network_acls = kwargs['networkAcls']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'purgeProtectionEnabled' in kwargs:
+            purge_protection_enabled = kwargs['purgeProtectionEnabled']
+        if 'softDeleteRetentionDays' in kwargs:
+            soft_delete_retention_days = kwargs['softDeleteRetentionDays']
+
         _setter("resource_group_name", resource_group_name)
         _setter("sku_name", sku_name)
         _setter("tenant_id", tenant_id)
@@ -417,7 +443,35 @@ class _KeyVaultState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              vault_uri: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessPolicies' in kwargs:
+            access_policies = kwargs['accessPolicies']
+        if 'enableRbacAuthorization' in kwargs:
+            enable_rbac_authorization = kwargs['enableRbacAuthorization']
+        if 'enabledForDeployment' in kwargs:
+            enabled_for_deployment = kwargs['enabledForDeployment']
+        if 'enabledForDiskEncryption' in kwargs:
+            enabled_for_disk_encryption = kwargs['enabledForDiskEncryption']
+        if 'enabledForTemplateDeployment' in kwargs:
+            enabled_for_template_deployment = kwargs['enabledForTemplateDeployment']
+        if 'networkAcls' in kwargs:
+            network_acls = kwargs['networkAcls']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'purgeProtectionEnabled' in kwargs:
+            purge_protection_enabled = kwargs['purgeProtectionEnabled']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'softDeleteRetentionDays' in kwargs:
+            soft_delete_retention_days = kwargs['softDeleteRetentionDays']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if 'vaultUri' in kwargs:
+            vault_uri = kwargs['vaultUri']
+
         if access_policies is not None:
             _setter("access_policies", access_policies)
         if contacts is not None:

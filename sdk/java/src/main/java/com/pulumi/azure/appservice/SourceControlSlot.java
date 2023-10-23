@@ -99,7 +99,7 @@ public class SourceControlSlot extends com.pulumi.resources.CustomResource {
      * The URL for the repository. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="branch", refs={String.class}, tree="[0]")
+    @Export(name="branch", type=String.class, parameters={})
     private Output<String> branch;
 
     /**
@@ -113,7 +113,7 @@ public class SourceControlSlot extends com.pulumi.resources.CustomResource {
      * A `github_action_configuration` block as detailed below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="githubActionConfiguration", refs={SourceControlSlotGithubActionConfiguration.class}, tree="[0]")
+    @Export(name="githubActionConfiguration", type=SourceControlSlotGithubActionConfiguration.class, parameters={})
     private Output</* @Nullable */ SourceControlSlotGithubActionConfiguration> githubActionConfiguration;
 
     /**
@@ -127,7 +127,7 @@ public class SourceControlSlot extends com.pulumi.resources.CustomResource {
      * The branch name to use for deployments. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="repoUrl", refs={String.class}, tree="[0]")
+    @Export(name="repoUrl", type=String.class, parameters={})
     private Output<String> repoUrl;
 
     /**
@@ -141,7 +141,7 @@ public class SourceControlSlot extends com.pulumi.resources.CustomResource {
      * Should the Deployment Rollback be enabled? Defaults to `false` Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="rollbackEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="rollbackEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> rollbackEnabled;
 
     /**
@@ -155,7 +155,7 @@ public class SourceControlSlot extends com.pulumi.resources.CustomResource {
      * The SCM Type in use. This value is decoded by the service from the repository information supplied.
      * 
      */
-    @Export(name="scmType", refs={String.class}, tree="[0]")
+    @Export(name="scmType", type=String.class, parameters={})
     private Output<String> scmType;
 
     /**
@@ -171,7 +171,7 @@ public class SourceControlSlot extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** Function App Slots are not supported at this time.
      * 
      */
-    @Export(name="slotId", refs={String.class}, tree="[0]")
+    @Export(name="slotId", type=String.class, parameters={})
     private Output<String> slotId;
 
     /**
@@ -187,7 +187,7 @@ public class SourceControlSlot extends com.pulumi.resources.CustomResource {
      * Should the Slot use local Git configuration. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="useLocalGit", refs={Boolean.class}, tree="[0]")
+    @Export(name="useLocalGit", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> useLocalGit;
 
     /**
@@ -201,7 +201,7 @@ public class SourceControlSlot extends com.pulumi.resources.CustomResource {
      * Should code be deployed manually. Set to `true` to disable continuous integration, such as webhooks into online repos such as GitHub. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="useManualIntegration", refs={Boolean.class}, tree="[0]")
+    @Export(name="useManualIntegration", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> useManualIntegration;
 
     /**
@@ -215,7 +215,7 @@ public class SourceControlSlot extends com.pulumi.resources.CustomResource {
      * The repository specified is Mercurial. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="useMercurial", refs={Boolean.class}, tree="[0]")
+    @Export(name="useMercurial", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> useMercurial;
 
     /**
@@ -229,7 +229,7 @@ public class SourceControlSlot extends com.pulumi.resources.CustomResource {
      * Indicates if the Slot uses a GitHub action for deployment. This value is decoded by the service from the repository information supplied.
      * 
      */
-    @Export(name="usesGithubAction", refs={Boolean.class}, tree="[0]")
+    @Export(name="usesGithubAction", type=Boolean.class, parameters={})
     private Output<Boolean> usesGithubAction;
 
     /**

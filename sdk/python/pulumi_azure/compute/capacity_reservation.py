@@ -45,7 +45,11 @@ class CapacityReservationArgs:
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'capacityReservationGroupId' in kwargs:
+            capacity_reservation_group_id = kwargs['capacityReservationGroupId']
+
         _setter("capacity_reservation_group_id", capacity_reservation_group_id)
         _setter("sku", sku)
         if name is not None:
@@ -148,7 +152,11 @@ class _CapacityReservationState:
              sku: Optional[pulumi.Input['CapacityReservationSkuArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'capacityReservationGroupId' in kwargs:
+            capacity_reservation_group_id = kwargs['capacityReservationGroupId']
+
         if capacity_reservation_group_id is not None:
             _setter("capacity_reservation_group_id", capacity_reservation_group_id)
         if name is not None:

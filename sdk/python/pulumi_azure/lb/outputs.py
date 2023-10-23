@@ -66,7 +66,15 @@ class BackendAddressPoolAddressInboundNatRulePortMapping(dict):
              backend_port: Optional[int] = None,
              frontend_port: Optional[int] = None,
              inbound_nat_rule_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backendPort' in kwargs:
+            backend_port = kwargs['backendPort']
+        if 'frontendPort' in kwargs:
+            frontend_port = kwargs['frontendPort']
+        if 'inboundNatRuleName' in kwargs:
+            inbound_nat_rule_name = kwargs['inboundNatRuleName']
+
         if backend_port is not None:
             _setter("backend_port", backend_port)
         if frontend_port is not None:
@@ -126,7 +134,9 @@ class BackendAddressPoolTunnelInterface(dict):
              port: int,
              protocol: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("identifier", identifier)
         _setter("port", port)
         _setter("protocol", protocol)
@@ -265,7 +275,29 @@ class LoadBalancerFrontendIpConfiguration(dict):
              public_ip_prefix_id: Optional[str] = None,
              subnet_id: Optional[str] = None,
              zones: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'gatewayLoadBalancerFrontendIpConfigurationId' in kwargs:
+            gateway_load_balancer_frontend_ip_configuration_id = kwargs['gatewayLoadBalancerFrontendIpConfigurationId']
+        if 'inboundNatRules' in kwargs:
+            inbound_nat_rules = kwargs['inboundNatRules']
+        if 'loadBalancerRules' in kwargs:
+            load_balancer_rules = kwargs['loadBalancerRules']
+        if 'outboundRules' in kwargs:
+            outbound_rules = kwargs['outboundRules']
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if 'privateIpAddressAllocation' in kwargs:
+            private_ip_address_allocation = kwargs['privateIpAddressAllocation']
+        if 'privateIpAddressVersion' in kwargs:
+            private_ip_address_version = kwargs['privateIpAddressVersion']
+        if 'publicIpAddressId' in kwargs:
+            public_ip_address_id = kwargs['publicIpAddressId']
+        if 'publicIpPrefixId' in kwargs:
+            public_ip_prefix_id = kwargs['publicIpPrefixId']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         _setter("name", name)
         if gateway_load_balancer_frontend_ip_configuration_id is not None:
             _setter("gateway_load_balancer_frontend_ip_configuration_id", gateway_load_balancer_frontend_ip_configuration_id)
@@ -418,7 +450,9 @@ class OutboundRuleFrontendIpConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if id is not None:
             _setter("id", id)
@@ -467,7 +501,15 @@ class GetBackendAddressPoolBackendAddressResult(dict):
              ip_address: str,
              name: str,
              virtual_network_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'inboundNatRulePortMappings' in kwargs:
+            inbound_nat_rule_port_mappings = kwargs['inboundNatRulePortMappings']
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'virtualNetworkId' in kwargs:
+            virtual_network_id = kwargs['virtualNetworkId']
+
         _setter("inbound_nat_rule_port_mappings", inbound_nat_rule_port_mappings)
         _setter("ip_address", ip_address)
         _setter("name", name)
@@ -529,7 +571,15 @@ class GetBackendAddressPoolBackendAddressInboundNatRulePortMappingResult(dict):
              backend_port: int,
              frontend_port: int,
              inbound_nat_rule_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backendPort' in kwargs:
+            backend_port = kwargs['backendPort']
+        if 'frontendPort' in kwargs:
+            frontend_port = kwargs['frontendPort']
+        if 'inboundNatRuleName' in kwargs:
+            inbound_nat_rule_name = kwargs['inboundNatRuleName']
+
         _setter("backend_port", backend_port)
         _setter("frontend_port", frontend_port)
         _setter("inbound_nat_rule_name", inbound_nat_rule_name)
@@ -574,7 +624,9 @@ class GetBackendAddressPoolBackendIpConfigurationResult(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("id", id)
 
     @property
@@ -629,7 +681,19 @@ class GetLBFrontendIpConfigurationResult(dict):
              public_ip_address_id: str,
              subnet_id: str,
              zones: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if 'privateIpAddressAllocation' in kwargs:
+            private_ip_address_allocation = kwargs['privateIpAddressAllocation']
+        if 'privateIpAddressVersion' in kwargs:
+            private_ip_address_version = kwargs['privateIpAddressVersion']
+        if 'publicIpAddressId' in kwargs:
+            public_ip_address_id = kwargs['publicIpAddressId']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         _setter("id", id)
         _setter("name", name)
         _setter("private_ip_address", private_ip_address)
@@ -723,7 +787,9 @@ class GetLBOutboundRuleFrontendIpConfigurationResult(dict):
              _setter: Callable[[Any, Any], None],
              id: str,
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("id", id)
         _setter("name", name)
 

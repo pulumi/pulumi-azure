@@ -93,7 +93,7 @@ public class LocalRulestackRule extends com.pulumi.resources.CustomResource {
      * The action to take on the rule being triggered.
      * 
      */
-    @Export(name="action", refs={String.class}, tree="[0]")
+    @Export(name="action", type=String.class, parameters={})
     private Output<String> action;
 
     /**
@@ -107,7 +107,7 @@ public class LocalRulestackRule extends com.pulumi.resources.CustomResource {
      * Specifies a list of Applications.
      * 
      */
-    @Export(name="applications", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="applications", type=List.class, parameters={String.class})
     private Output<List<String>> applications;
 
     /**
@@ -121,7 +121,7 @@ public class LocalRulestackRule extends com.pulumi.resources.CustomResource {
      * The comment for Audit purposes.
      * 
      */
-    @Export(name="auditComment", refs={String.class}, tree="[0]")
+    @Export(name="auditComment", type=String.class, parameters={})
     private Output</* @Nullable */ String> auditComment;
 
     /**
@@ -135,7 +135,7 @@ public class LocalRulestackRule extends com.pulumi.resources.CustomResource {
      * A `category` block as defined below.
      * 
      */
-    @Export(name="category", refs={LocalRulestackRuleCategory.class}, tree="[0]")
+    @Export(name="category", type=LocalRulestackRuleCategory.class, parameters={})
     private Output</* @Nullable */ LocalRulestackRuleCategory> category;
 
     /**
@@ -149,7 +149,7 @@ public class LocalRulestackRule extends com.pulumi.resources.CustomResource {
      * The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None` Defaults to `None`.
      * 
      */
-    @Export(name="decryptionRuleType", refs={String.class}, tree="[0]")
+    @Export(name="decryptionRuleType", type=String.class, parameters={})
     private Output</* @Nullable */ String> decryptionRuleType;
 
     /**
@@ -163,7 +163,7 @@ public class LocalRulestackRule extends com.pulumi.resources.CustomResource {
      * The description for the rule.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -177,7 +177,7 @@ public class LocalRulestackRule extends com.pulumi.resources.CustomResource {
      * One or more `destination` blocks as defined below.
      * 
      */
-    @Export(name="destination", refs={LocalRulestackRuleDestination.class}, tree="[0]")
+    @Export(name="destination", type=LocalRulestackRuleDestination.class, parameters={})
     private Output<LocalRulestackRuleDestination> destination;
 
     /**
@@ -191,7 +191,7 @@ public class LocalRulestackRule extends com.pulumi.resources.CustomResource {
      * Should this Rule be enabled? Defaults to `true`.
      * 
      */
-    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -205,7 +205,7 @@ public class LocalRulestackRule extends com.pulumi.resources.CustomResource {
      * The ID of the certificate for inbound inspection. Only valid when `decryption_rule_type` is set to `SSLInboundInspection`.
      * 
      */
-    @Export(name="inspectionCertificateId", refs={String.class}, tree="[0]")
+    @Export(name="inspectionCertificateId", type=String.class, parameters={})
     private Output</* @Nullable */ String> inspectionCertificateId;
 
     /**
@@ -219,7 +219,7 @@ public class LocalRulestackRule extends com.pulumi.resources.CustomResource {
      * Should Logging be enabled? Defaults to `false`.
      * 
      */
-    @Export(name="loggingEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="loggingEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> loggingEnabled;
 
     /**
@@ -233,7 +233,7 @@ public class LocalRulestackRule extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Palo Alto Local Rulestack Rule.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -247,7 +247,7 @@ public class LocalRulestackRule extends com.pulumi.resources.CustomResource {
      * Should the inverse of the Destination configuration be used. Defaults to `false`.
      * 
      */
-    @Export(name="negateDestination", refs={Boolean.class}, tree="[0]")
+    @Export(name="negateDestination", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> negateDestination;
 
     /**
@@ -261,7 +261,7 @@ public class LocalRulestackRule extends com.pulumi.resources.CustomResource {
      * Should the inverse of the Source configuration be used. Defaults to `false`.
      * 
      */
-    @Export(name="negateSource", refs={Boolean.class}, tree="[0]")
+    @Export(name="negateSource", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> negateSource;
 
     /**
@@ -277,7 +277,7 @@ public class LocalRulestackRule extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
      * 
      */
-    @Export(name="priority", refs={Integer.class}, tree="[0]")
+    @Export(name="priority", type=Integer.class, parameters={})
     private Output<Integer> priority;
 
     /**
@@ -293,7 +293,7 @@ public class LocalRulestackRule extends com.pulumi.resources.CustomResource {
      * The Protocol and port to use in the form `[protocol]:[port_number]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocol_ports`. Defaults to `application-default`.
      * 
      */
-    @Export(name="protocol", refs={String.class}, tree="[0]")
+    @Export(name="protocol", type=String.class, parameters={})
     private Output</* @Nullable */ String> protocol;
 
     /**
@@ -307,7 +307,7 @@ public class LocalRulestackRule extends com.pulumi.resources.CustomResource {
      * Specifies a list of Protocol:Port entries. E.g. `[ &#34;TCP:80&#34;, &#34;UDP:5431&#34; ]`. Conflicts with `protocol`.
      * 
      */
-    @Export(name="protocolPorts", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="protocolPorts", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> protocolPorts;
 
     /**
@@ -321,7 +321,7 @@ public class LocalRulestackRule extends com.pulumi.resources.CustomResource {
      * The ID of the Local Rulestack in which to create this Rule. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
      * 
      */
-    @Export(name="rulestackId", refs={String.class}, tree="[0]")
+    @Export(name="rulestackId", type=String.class, parameters={})
     private Output<String> rulestackId;
 
     /**
@@ -335,7 +335,7 @@ public class LocalRulestackRule extends com.pulumi.resources.CustomResource {
      * One or more `source` blocks as defined below.
      * 
      */
-    @Export(name="source", refs={LocalRulestackRuleSource.class}, tree="[0]")
+    @Export(name="source", type=LocalRulestackRuleSource.class, parameters={})
     private Output<LocalRulestackRuleSource> source;
 
     /**
@@ -349,7 +349,7 @@ public class LocalRulestackRule extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Palo Alto Local Rulestack Rule.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

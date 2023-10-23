@@ -55,7 +55,21 @@ class CosmosdbDataConnectionArgs:
              mapping_rule_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              retrieval_start_date: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cosmosdbContainerId' in kwargs:
+            cosmosdb_container_id = kwargs['cosmosdbContainerId']
+        if 'kustoDatabaseId' in kwargs:
+            kusto_database_id = kwargs['kustoDatabaseId']
+        if 'managedIdentityId' in kwargs:
+            managed_identity_id = kwargs['managedIdentityId']
+        if 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if 'mappingRuleName' in kwargs:
+            mapping_rule_name = kwargs['mappingRuleName']
+        if 'retrievalStartDate' in kwargs:
+            retrieval_start_date = kwargs['retrievalStartDate']
+
         _setter("cosmosdb_container_id", cosmosdb_container_id)
         _setter("kusto_database_id", kusto_database_id)
         _setter("managed_identity_id", managed_identity_id)
@@ -210,7 +224,21 @@ class _CosmosdbDataConnectionState:
              name: Optional[pulumi.Input[str]] = None,
              retrieval_start_date: Optional[pulumi.Input[str]] = None,
              table_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cosmosdbContainerId' in kwargs:
+            cosmosdb_container_id = kwargs['cosmosdbContainerId']
+        if 'kustoDatabaseId' in kwargs:
+            kusto_database_id = kwargs['kustoDatabaseId']
+        if 'managedIdentityId' in kwargs:
+            managed_identity_id = kwargs['managedIdentityId']
+        if 'mappingRuleName' in kwargs:
+            mapping_rule_name = kwargs['mappingRuleName']
+        if 'retrievalStartDate' in kwargs:
+            retrieval_start_date = kwargs['retrievalStartDate']
+        if 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+
         if cosmosdb_container_id is not None:
             _setter("cosmosdb_container_id", cosmosdb_container_id)
         if kusto_database_id is not None:

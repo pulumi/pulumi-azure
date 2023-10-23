@@ -67,7 +67,17 @@ class ApplicationArgs:
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              plan: Optional[pulumi.Input['ApplicationPlanArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'managedResourceGroupName' in kwargs:
+            managed_resource_group_name = kwargs['managedResourceGroupName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'applicationDefinitionId' in kwargs:
+            application_definition_id = kwargs['applicationDefinitionId']
+        if 'parameterValues' in kwargs:
+            parameter_values = kwargs['parameterValues']
+
         _setter("kind", kind)
         _setter("managed_resource_group_name", managed_resource_group_name)
         _setter("resource_group_name", resource_group_name)
@@ -273,7 +283,17 @@ class _ApplicationState:
              plan: Optional[pulumi.Input['ApplicationPlanArgs']] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationDefinitionId' in kwargs:
+            application_definition_id = kwargs['applicationDefinitionId']
+        if 'managedResourceGroupName' in kwargs:
+            managed_resource_group_name = kwargs['managedResourceGroupName']
+        if 'parameterValues' in kwargs:
+            parameter_values = kwargs['parameterValues']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if application_definition_id is not None:
             _setter("application_definition_id", application_definition_id)
         if kind is not None:

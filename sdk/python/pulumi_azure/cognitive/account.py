@@ -127,7 +127,41 @@ class AccountArgs:
              qna_runtime_endpoint: Optional[pulumi.Input[str]] = None,
              storages: Optional[pulumi.Input[Sequence[pulumi.Input['AccountStorageArgs']]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'customQuestionAnsweringSearchServiceId' in kwargs:
+            custom_question_answering_search_service_id = kwargs['customQuestionAnsweringSearchServiceId']
+        if 'customQuestionAnsweringSearchServiceKey' in kwargs:
+            custom_question_answering_search_service_key = kwargs['customQuestionAnsweringSearchServiceKey']
+        if 'customSubdomainName' in kwargs:
+            custom_subdomain_name = kwargs['customSubdomainName']
+        if 'customerManagedKey' in kwargs:
+            customer_managed_key = kwargs['customerManagedKey']
+        if 'dynamicThrottlingEnabled' in kwargs:
+            dynamic_throttling_enabled = kwargs['dynamicThrottlingEnabled']
+        if 'localAuthEnabled' in kwargs:
+            local_auth_enabled = kwargs['localAuthEnabled']
+        if 'metricsAdvisorAadClientId' in kwargs:
+            metrics_advisor_aad_client_id = kwargs['metricsAdvisorAadClientId']
+        if 'metricsAdvisorAadTenantId' in kwargs:
+            metrics_advisor_aad_tenant_id = kwargs['metricsAdvisorAadTenantId']
+        if 'metricsAdvisorSuperUserName' in kwargs:
+            metrics_advisor_super_user_name = kwargs['metricsAdvisorSuperUserName']
+        if 'metricsAdvisorWebsiteName' in kwargs:
+            metrics_advisor_website_name = kwargs['metricsAdvisorWebsiteName']
+        if 'networkAcls' in kwargs:
+            network_acls = kwargs['networkAcls']
+        if 'outboundNetworkAccessRestricted' in kwargs:
+            outbound_network_access_restricted = kwargs['outboundNetworkAccessRestricted']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'qnaRuntimeEndpoint' in kwargs:
+            qna_runtime_endpoint = kwargs['qnaRuntimeEndpoint']
+
         _setter("kind", kind)
         _setter("resource_group_name", resource_group_name)
         _setter("sku_name", sku_name)
@@ -585,7 +619,45 @@ class _AccountState:
              sku_name: Optional[pulumi.Input[str]] = None,
              storages: Optional[pulumi.Input[Sequence[pulumi.Input['AccountStorageArgs']]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customQuestionAnsweringSearchServiceId' in kwargs:
+            custom_question_answering_search_service_id = kwargs['customQuestionAnsweringSearchServiceId']
+        if 'customQuestionAnsweringSearchServiceKey' in kwargs:
+            custom_question_answering_search_service_key = kwargs['customQuestionAnsweringSearchServiceKey']
+        if 'customSubdomainName' in kwargs:
+            custom_subdomain_name = kwargs['customSubdomainName']
+        if 'customerManagedKey' in kwargs:
+            customer_managed_key = kwargs['customerManagedKey']
+        if 'dynamicThrottlingEnabled' in kwargs:
+            dynamic_throttling_enabled = kwargs['dynamicThrottlingEnabled']
+        if 'localAuthEnabled' in kwargs:
+            local_auth_enabled = kwargs['localAuthEnabled']
+        if 'metricsAdvisorAadClientId' in kwargs:
+            metrics_advisor_aad_client_id = kwargs['metricsAdvisorAadClientId']
+        if 'metricsAdvisorAadTenantId' in kwargs:
+            metrics_advisor_aad_tenant_id = kwargs['metricsAdvisorAadTenantId']
+        if 'metricsAdvisorSuperUserName' in kwargs:
+            metrics_advisor_super_user_name = kwargs['metricsAdvisorSuperUserName']
+        if 'metricsAdvisorWebsiteName' in kwargs:
+            metrics_advisor_website_name = kwargs['metricsAdvisorWebsiteName']
+        if 'networkAcls' in kwargs:
+            network_acls = kwargs['networkAcls']
+        if 'outboundNetworkAccessRestricted' in kwargs:
+            outbound_network_access_restricted = kwargs['outboundNetworkAccessRestricted']
+        if 'primaryAccessKey' in kwargs:
+            primary_access_key = kwargs['primaryAccessKey']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'qnaRuntimeEndpoint' in kwargs:
+            qna_runtime_endpoint = kwargs['qnaRuntimeEndpoint']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'secondaryAccessKey' in kwargs:
+            secondary_access_key = kwargs['secondaryAccessKey']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+
         if custom_question_answering_search_service_id is not None:
             _setter("custom_question_answering_search_service_id", custom_question_answering_search_service_id)
         if custom_question_answering_search_service_key is not None:

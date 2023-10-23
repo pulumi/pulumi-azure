@@ -81,7 +81,23 @@ class LinkedServiceDataLakeStorageGen2Args:
              storage_account_key: Optional[pulumi.Input[str]] = None,
              tenant: Optional[pulumi.Input[str]] = None,
              use_managed_identity: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if 'integrationRuntimeName' in kwargs:
+            integration_runtime_name = kwargs['integrationRuntimeName']
+        if 'servicePrincipalId' in kwargs:
+            service_principal_id = kwargs['servicePrincipalId']
+        if 'servicePrincipalKey' in kwargs:
+            service_principal_key = kwargs['servicePrincipalKey']
+        if 'storageAccountKey' in kwargs:
+            storage_account_key = kwargs['storageAccountKey']
+        if 'useManagedIdentity' in kwargs:
+            use_managed_identity = kwargs['useManagedIdentity']
+
         _setter("data_factory_id", data_factory_id)
         _setter("url", url)
         if additional_properties is not None:
@@ -340,7 +356,23 @@ class _LinkedServiceDataLakeStorageGen2State:
              tenant: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
              use_managed_identity: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'integrationRuntimeName' in kwargs:
+            integration_runtime_name = kwargs['integrationRuntimeName']
+        if 'servicePrincipalId' in kwargs:
+            service_principal_id = kwargs['servicePrincipalId']
+        if 'servicePrincipalKey' in kwargs:
+            service_principal_key = kwargs['servicePrincipalKey']
+        if 'storageAccountKey' in kwargs:
+            storage_account_key = kwargs['storageAccountKey']
+        if 'useManagedIdentity' in kwargs:
+            use_managed_identity = kwargs['useManagedIdentity']
+
         if additional_properties is not None:
             _setter("additional_properties", additional_properties)
         if annotations is not None:

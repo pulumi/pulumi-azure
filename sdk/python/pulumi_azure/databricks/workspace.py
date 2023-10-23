@@ -89,7 +89,31 @@ class WorkspaceArgs:
              network_security_group_rules_required: Optional[pulumi.Input[str]] = None,
              public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'customParameters' in kwargs:
+            custom_parameters = kwargs['customParameters']
+        if 'customerManagedKeyEnabled' in kwargs:
+            customer_managed_key_enabled = kwargs['customerManagedKeyEnabled']
+        if 'infrastructureEncryptionEnabled' in kwargs:
+            infrastructure_encryption_enabled = kwargs['infrastructureEncryptionEnabled']
+        if 'loadBalancerBackendAddressPoolId' in kwargs:
+            load_balancer_backend_address_pool_id = kwargs['loadBalancerBackendAddressPoolId']
+        if 'managedDiskCmkKeyVaultKeyId' in kwargs:
+            managed_disk_cmk_key_vault_key_id = kwargs['managedDiskCmkKeyVaultKeyId']
+        if 'managedDiskCmkRotationToLatestVersionEnabled' in kwargs:
+            managed_disk_cmk_rotation_to_latest_version_enabled = kwargs['managedDiskCmkRotationToLatestVersionEnabled']
+        if 'managedResourceGroupName' in kwargs:
+            managed_resource_group_name = kwargs['managedResourceGroupName']
+        if 'managedServicesCmkKeyVaultKeyId' in kwargs:
+            managed_services_cmk_key_vault_key_id = kwargs['managedServicesCmkKeyVaultKeyId']
+        if 'networkSecurityGroupRulesRequired' in kwargs:
+            network_security_group_rules_required = kwargs['networkSecurityGroupRulesRequired']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+
         _setter("resource_group_name", resource_group_name)
         _setter("sku", sku)
         if custom_parameters is not None:
@@ -404,7 +428,43 @@ class _WorkspaceState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              workspace_id: Optional[pulumi.Input[str]] = None,
              workspace_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customParameters' in kwargs:
+            custom_parameters = kwargs['customParameters']
+        if 'customerManagedKeyEnabled' in kwargs:
+            customer_managed_key_enabled = kwargs['customerManagedKeyEnabled']
+        if 'diskEncryptionSetId' in kwargs:
+            disk_encryption_set_id = kwargs['diskEncryptionSetId']
+        if 'infrastructureEncryptionEnabled' in kwargs:
+            infrastructure_encryption_enabled = kwargs['infrastructureEncryptionEnabled']
+        if 'loadBalancerBackendAddressPoolId' in kwargs:
+            load_balancer_backend_address_pool_id = kwargs['loadBalancerBackendAddressPoolId']
+        if 'managedDiskCmkKeyVaultKeyId' in kwargs:
+            managed_disk_cmk_key_vault_key_id = kwargs['managedDiskCmkKeyVaultKeyId']
+        if 'managedDiskCmkRotationToLatestVersionEnabled' in kwargs:
+            managed_disk_cmk_rotation_to_latest_version_enabled = kwargs['managedDiskCmkRotationToLatestVersionEnabled']
+        if 'managedDiskIdentities' in kwargs:
+            managed_disk_identities = kwargs['managedDiskIdentities']
+        if 'managedResourceGroupId' in kwargs:
+            managed_resource_group_id = kwargs['managedResourceGroupId']
+        if 'managedResourceGroupName' in kwargs:
+            managed_resource_group_name = kwargs['managedResourceGroupName']
+        if 'managedServicesCmkKeyVaultKeyId' in kwargs:
+            managed_services_cmk_key_vault_key_id = kwargs['managedServicesCmkKeyVaultKeyId']
+        if 'networkSecurityGroupRulesRequired' in kwargs:
+            network_security_group_rules_required = kwargs['networkSecurityGroupRulesRequired']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'storageAccountIdentities' in kwargs:
+            storage_account_identities = kwargs['storageAccountIdentities']
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+        if 'workspaceUrl' in kwargs:
+            workspace_url = kwargs['workspaceUrl']
+
         if custom_parameters is not None:
             _setter("custom_parameters", custom_parameters)
         if customer_managed_key_enabled is not None:

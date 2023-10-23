@@ -37,7 +37,15 @@ class LedgerAzureadBasedServicePrincipalArgs:
              ledger_role_name: pulumi.Input[str],
              principal_id: pulumi.Input[str],
              tenant_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ledgerRoleName' in kwargs:
+            ledger_role_name = kwargs['ledgerRoleName']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("ledger_role_name", ledger_role_name)
         _setter("principal_id", principal_id)
         _setter("tenant_id", tenant_id)
@@ -98,7 +106,13 @@ class LedgerCertificateBasedSecurityPrincipalArgs:
              _setter: Callable[[Any, Any], None],
              ledger_role_name: pulumi.Input[str],
              pem_public_key: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ledgerRoleName' in kwargs:
+            ledger_role_name = kwargs['ledgerRoleName']
+        if 'pemPublicKey' in kwargs:
+            pem_public_key = kwargs['pemPublicKey']
+
         _setter("ledger_role_name", ledger_role_name)
         _setter("pem_public_key", pem_public_key)
 

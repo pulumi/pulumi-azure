@@ -45,7 +45,17 @@ class SharedPrivateLinkResourceArgs:
              target_resource_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
              request_message: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'signalrServiceId' in kwargs:
+            signalr_service_id = kwargs['signalrServiceId']
+        if 'subResourceName' in kwargs:
+            sub_resource_name = kwargs['subResourceName']
+        if 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+        if 'requestMessage' in kwargs:
+            request_message = kwargs['requestMessage']
+
         _setter("signalr_service_id", signalr_service_id)
         _setter("sub_resource_name", sub_resource_name)
         _setter("target_resource_id", target_resource_id)
@@ -155,7 +165,17 @@ class _SharedPrivateLinkResourceState:
              status: Optional[pulumi.Input[str]] = None,
              sub_resource_name: Optional[pulumi.Input[str]] = None,
              target_resource_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'requestMessage' in kwargs:
+            request_message = kwargs['requestMessage']
+        if 'signalrServiceId' in kwargs:
+            signalr_service_id = kwargs['signalrServiceId']
+        if 'subResourceName' in kwargs:
+            sub_resource_name = kwargs['subResourceName']
+        if 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+
         if name is not None:
             _setter("name", name)
         if request_message is not None:

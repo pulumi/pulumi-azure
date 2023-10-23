@@ -41,7 +41,15 @@ class WorkspaceKeyArgs:
              customer_managed_key_name: pulumi.Input[str],
              synapse_workspace_id: pulumi.Input[str],
              customer_managed_key_versionless_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customerManagedKeyName' in kwargs:
+            customer_managed_key_name = kwargs['customerManagedKeyName']
+        if 'synapseWorkspaceId' in kwargs:
+            synapse_workspace_id = kwargs['synapseWorkspaceId']
+        if 'customerManagedKeyVersionlessId' in kwargs:
+            customer_managed_key_versionless_id = kwargs['customerManagedKeyVersionlessId']
+
         _setter("active", active)
         _setter("customer_managed_key_name", customer_managed_key_name)
         _setter("synapse_workspace_id", synapse_workspace_id)
@@ -129,7 +137,15 @@ class _WorkspaceKeyState:
              customer_managed_key_name: Optional[pulumi.Input[str]] = None,
              customer_managed_key_versionless_id: Optional[pulumi.Input[str]] = None,
              synapse_workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customerManagedKeyName' in kwargs:
+            customer_managed_key_name = kwargs['customerManagedKeyName']
+        if 'customerManagedKeyVersionlessId' in kwargs:
+            customer_managed_key_versionless_id = kwargs['customerManagedKeyVersionlessId']
+        if 'synapseWorkspaceId' in kwargs:
+            synapse_workspace_id = kwargs['synapseWorkspaceId']
+
         if active is not None:
             _setter("active", active)
         if customer_managed_key_name is not None:

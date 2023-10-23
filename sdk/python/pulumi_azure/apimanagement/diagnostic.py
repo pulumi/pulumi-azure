@@ -81,7 +81,33 @@ class DiagnosticArgs:
              operation_name_format: Optional[pulumi.Input[str]] = None,
              sampling_percentage: Optional[pulumi.Input[float]] = None,
              verbosity: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementLoggerId' in kwargs:
+            api_management_logger_id = kwargs['apiManagementLoggerId']
+        if 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'alwaysLogErrors' in kwargs:
+            always_log_errors = kwargs['alwaysLogErrors']
+        if 'backendRequest' in kwargs:
+            backend_request = kwargs['backendRequest']
+        if 'backendResponse' in kwargs:
+            backend_response = kwargs['backendResponse']
+        if 'frontendRequest' in kwargs:
+            frontend_request = kwargs['frontendRequest']
+        if 'frontendResponse' in kwargs:
+            frontend_response = kwargs['frontendResponse']
+        if 'httpCorrelationProtocol' in kwargs:
+            http_correlation_protocol = kwargs['httpCorrelationProtocol']
+        if 'logClientIp' in kwargs:
+            log_client_ip = kwargs['logClientIp']
+        if 'operationNameFormat' in kwargs:
+            operation_name_format = kwargs['operationNameFormat']
+        if 'samplingPercentage' in kwargs:
+            sampling_percentage = kwargs['samplingPercentage']
+
         _setter("api_management_logger_id", api_management_logger_id)
         _setter("api_management_name", api_management_name)
         _setter("identifier", identifier)
@@ -344,7 +370,33 @@ class _DiagnosticState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              sampling_percentage: Optional[pulumi.Input[float]] = None,
              verbosity: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alwaysLogErrors' in kwargs:
+            always_log_errors = kwargs['alwaysLogErrors']
+        if 'apiManagementLoggerId' in kwargs:
+            api_management_logger_id = kwargs['apiManagementLoggerId']
+        if 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if 'backendRequest' in kwargs:
+            backend_request = kwargs['backendRequest']
+        if 'backendResponse' in kwargs:
+            backend_response = kwargs['backendResponse']
+        if 'frontendRequest' in kwargs:
+            frontend_request = kwargs['frontendRequest']
+        if 'frontendResponse' in kwargs:
+            frontend_response = kwargs['frontendResponse']
+        if 'httpCorrelationProtocol' in kwargs:
+            http_correlation_protocol = kwargs['httpCorrelationProtocol']
+        if 'logClientIp' in kwargs:
+            log_client_ip = kwargs['logClientIp']
+        if 'operationNameFormat' in kwargs:
+            operation_name_format = kwargs['operationNameFormat']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'samplingPercentage' in kwargs:
+            sampling_percentage = kwargs['samplingPercentage']
+
         if always_log_errors is not None:
             _setter("always_log_errors", always_log_errors)
         if api_management_logger_id is not None:

@@ -102,7 +102,7 @@ public class VirtualNetworkRule extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** If `ignore_missing_vnet_service_endpoint` is false, and the target subnet does not contain the `Microsoft.SQL` endpoint in the `service_endpoints` array, the deployment will fail when it tries to create the SQL virtual network rule.
      * 
      */
-    @Export(name="ignoreMissingVnetServiceEndpoint", refs={Boolean.class}, tree="[0]")
+    @Export(name="ignoreMissingVnetServiceEndpoint", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> ignoreMissingVnetServiceEndpoint;
 
     /**
@@ -124,7 +124,7 @@ public class VirtualNetworkRule extends com.pulumi.resources.CustomResource {
      * 3. Cannot end with a hyphen
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -144,7 +144,7 @@ public class VirtualNetworkRule extends com.pulumi.resources.CustomResource {
      * The name of the resource group where the SQL server resides. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -158,7 +158,7 @@ public class VirtualNetworkRule extends com.pulumi.resources.CustomResource {
      * The name of the SQL Server to which this SQL virtual network rule will be applied to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="serverName", refs={String.class}, tree="[0]")
+    @Export(name="serverName", type=String.class, parameters={})
     private Output<String> serverName;
 
     /**
@@ -172,7 +172,7 @@ public class VirtualNetworkRule extends com.pulumi.resources.CustomResource {
      * The ID of the subnet that the SQL server will be connected to.
      * 
      */
-    @Export(name="subnetId", refs={String.class}, tree="[0]")
+    @Export(name="subnetId", type=String.class, parameters={})
     private Output<String> subnetId;
 
     /**

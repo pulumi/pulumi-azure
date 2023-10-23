@@ -39,7 +39,15 @@ class PostgresqlFirewallRuleArgs:
              end_ip_address: pulumi.Input[str],
              start_ip_address: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterId' in kwargs:
+            cluster_id = kwargs['clusterId']
+        if 'endIpAddress' in kwargs:
+            end_ip_address = kwargs['endIpAddress']
+        if 'startIpAddress' in kwargs:
+            start_ip_address = kwargs['startIpAddress']
+
         _setter("cluster_id", cluster_id)
         _setter("end_ip_address", end_ip_address)
         _setter("start_ip_address", start_ip_address)
@@ -123,7 +131,15 @@ class _PostgresqlFirewallRuleState:
              end_ip_address: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              start_ip_address: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterId' in kwargs:
+            cluster_id = kwargs['clusterId']
+        if 'endIpAddress' in kwargs:
+            end_ip_address = kwargs['endIpAddress']
+        if 'startIpAddress' in kwargs:
+            start_ip_address = kwargs['startIpAddress']
+
         if cluster_id is not None:
             _setter("cluster_id", cluster_id)
         if end_ip_address is not None:

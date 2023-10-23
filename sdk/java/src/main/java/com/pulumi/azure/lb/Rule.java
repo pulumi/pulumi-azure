@@ -99,7 +99,7 @@ public class Rule extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** In most cases users can only set one Backend Address Pool ID in the `backend_address_pool_ids`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backend_address_pool_ids`.
      * 
      */
-    @Export(name="backendAddressPoolIds", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="backendAddressPoolIds", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> backendAddressPoolIds;
 
     /**
@@ -115,7 +115,7 @@ public class Rule extends com.pulumi.resources.CustomResource {
      * The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
      * 
      */
-    @Export(name="backendPort", refs={Integer.class}, tree="[0]")
+    @Export(name="backendPort", type=Integer.class, parameters={})
     private Output<Integer> backendPort;
 
     /**
@@ -129,7 +129,7 @@ public class Rule extends com.pulumi.resources.CustomResource {
      * Is snat enabled for this Load Balancer Rule? Default `false`.
      * 
      */
-    @Export(name="disableOutboundSnat", refs={Boolean.class}, tree="[0]")
+    @Export(name="disableOutboundSnat", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> disableOutboundSnat;
 
     /**
@@ -143,7 +143,7 @@ public class Rule extends com.pulumi.resources.CustomResource {
      * Are the Floating IPs enabled for this Load Balncer Rule? A &#34;floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
      * 
      */
-    @Export(name="enableFloatingIp", refs={Boolean.class}, tree="[0]")
+    @Export(name="enableFloatingIp", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enableFloatingIp;
 
     /**
@@ -157,7 +157,7 @@ public class Rule extends com.pulumi.resources.CustomResource {
      * Is TCP Reset enabled for this Load Balancer Rule?
      * 
      */
-    @Export(name="enableTcpReset", refs={Boolean.class}, tree="[0]")
+    @Export(name="enableTcpReset", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enableTcpReset;
 
     /**
@@ -167,7 +167,7 @@ public class Rule extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> enableTcpReset() {
         return Codegen.optional(this.enableTcpReset);
     }
-    @Export(name="frontendIpConfigurationId", refs={String.class}, tree="[0]")
+    @Export(name="frontendIpConfigurationId", type=String.class, parameters={})
     private Output<String> frontendIpConfigurationId;
 
     public Output<String> frontendIpConfigurationId() {
@@ -177,7 +177,7 @@ public class Rule extends com.pulumi.resources.CustomResource {
      * The name of the frontend IP configuration to which the rule is associated.
      * 
      */
-    @Export(name="frontendIpConfigurationName", refs={String.class}, tree="[0]")
+    @Export(name="frontendIpConfigurationName", type=String.class, parameters={})
     private Output<String> frontendIpConfigurationName;
 
     /**
@@ -191,7 +191,7 @@ public class Rule extends com.pulumi.resources.CustomResource {
      * The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
      * 
      */
-    @Export(name="frontendPort", refs={Integer.class}, tree="[0]")
+    @Export(name="frontendPort", type=Integer.class, parameters={})
     private Output<Integer> frontendPort;
 
     /**
@@ -205,7 +205,7 @@ public class Rule extends com.pulumi.resources.CustomResource {
      * Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
      * 
      */
-    @Export(name="idleTimeoutInMinutes", refs={Integer.class}, tree="[0]")
+    @Export(name="idleTimeoutInMinutes", type=Integer.class, parameters={})
     private Output<Integer> idleTimeoutInMinutes;
 
     /**
@@ -219,7 +219,7 @@ public class Rule extends com.pulumi.resources.CustomResource {
      * Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where the options are called `None`, `Client IP` and `Client IP and Protocol` respectively.
      * 
      */
-    @Export(name="loadDistribution", refs={String.class}, tree="[0]")
+    @Export(name="loadDistribution", type=String.class, parameters={})
     private Output<String> loadDistribution;
 
     /**
@@ -233,7 +233,7 @@ public class Rule extends com.pulumi.resources.CustomResource {
      * The ID of the Load Balancer in which to create the Rule. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="loadbalancerId", refs={String.class}, tree="[0]")
+    @Export(name="loadbalancerId", type=String.class, parameters={})
     private Output<String> loadbalancerId;
 
     /**
@@ -247,7 +247,7 @@ public class Rule extends com.pulumi.resources.CustomResource {
      * Specifies the name of the LB Rule. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -261,7 +261,7 @@ public class Rule extends com.pulumi.resources.CustomResource {
      * A reference to a Probe used by this Load Balancing Rule.
      * 
      */
-    @Export(name="probeId", refs={String.class}, tree="[0]")
+    @Export(name="probeId", type=String.class, parameters={})
     private Output<String> probeId;
 
     /**
@@ -275,7 +275,7 @@ public class Rule extends com.pulumi.resources.CustomResource {
      * The transport protocol for the external endpoint. Possible values are `Tcp`, `Udp` or `All`.
      * 
      */
-    @Export(name="protocol", refs={String.class}, tree="[0]")
+    @Export(name="protocol", type=String.class, parameters={})
     private Output<String> protocol;
 
     /**

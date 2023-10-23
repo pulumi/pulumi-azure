@@ -47,7 +47,15 @@ class NetworkArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mobileCountryCode' in kwargs:
+            mobile_country_code = kwargs['mobileCountryCode']
+        if 'mobileNetworkCode' in kwargs:
+            mobile_network_code = kwargs['mobileNetworkCode']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         _setter("mobile_country_code", mobile_country_code)
         _setter("mobile_network_code", mobile_network_code)
         _setter("resource_group_name", resource_group_name)
@@ -171,7 +179,17 @@ class _NetworkState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              service_key: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mobileCountryCode' in kwargs:
+            mobile_country_code = kwargs['mobileCountryCode']
+        if 'mobileNetworkCode' in kwargs:
+            mobile_network_code = kwargs['mobileNetworkCode']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serviceKey' in kwargs:
+            service_key = kwargs['serviceKey']
+
         if location is not None:
             _setter("location", location)
         if mobile_country_code is not None:

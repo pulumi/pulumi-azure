@@ -31,7 +31,13 @@ class ApplicationSecurityGroupAssociationArgs:
              _setter: Callable[[Any, Any], None],
              application_security_group_id: pulumi.Input[str],
              private_endpoint_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationSecurityGroupId' in kwargs:
+            application_security_group_id = kwargs['applicationSecurityGroupId']
+        if 'privateEndpointId' in kwargs:
+            private_endpoint_id = kwargs['privateEndpointId']
+
         _setter("application_security_group_id", application_security_group_id)
         _setter("private_endpoint_id", private_endpoint_id)
 
@@ -80,7 +86,13 @@ class _ApplicationSecurityGroupAssociationState:
              _setter: Callable[[Any, Any], None],
              application_security_group_id: Optional[pulumi.Input[str]] = None,
              private_endpoint_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationSecurityGroupId' in kwargs:
+            application_security_group_id = kwargs['applicationSecurityGroupId']
+        if 'privateEndpointId' in kwargs:
+            private_endpoint_id = kwargs['privateEndpointId']
+
         if application_security_group_id is not None:
             _setter("application_security_group_id", application_security_group_id)
         if private_endpoint_id is not None:

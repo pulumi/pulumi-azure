@@ -61,7 +61,21 @@ class VpnGatewayArgs:
              routing_preference: Optional[pulumi.Input[str]] = None,
              scale_unit: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'virtualHubId' in kwargs:
+            virtual_hub_id = kwargs['virtualHubId']
+        if 'bgpRouteTranslationForNatEnabled' in kwargs:
+            bgp_route_translation_for_nat_enabled = kwargs['bgpRouteTranslationForNatEnabled']
+        if 'bgpSettings' in kwargs:
+            bgp_settings = kwargs['bgpSettings']
+        if 'routingPreference' in kwargs:
+            routing_preference = kwargs['routingPreference']
+        if 'scaleUnit' in kwargs:
+            scale_unit = kwargs['scaleUnit']
+
         _setter("resource_group_name", resource_group_name)
         _setter("virtual_hub_id", virtual_hub_id)
         if bgp_route_translation_for_nat_enabled is not None:
@@ -236,7 +250,21 @@ class _VpnGatewayState:
              scale_unit: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              virtual_hub_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bgpRouteTranslationForNatEnabled' in kwargs:
+            bgp_route_translation_for_nat_enabled = kwargs['bgpRouteTranslationForNatEnabled']
+        if 'bgpSettings' in kwargs:
+            bgp_settings = kwargs['bgpSettings']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'routingPreference' in kwargs:
+            routing_preference = kwargs['routingPreference']
+        if 'scaleUnit' in kwargs:
+            scale_unit = kwargs['scaleUnit']
+        if 'virtualHubId' in kwargs:
+            virtual_hub_id = kwargs['virtualHubId']
+
         if bgp_route_translation_for_nat_enabled is not None:
             _setter("bgp_route_translation_for_nat_enabled", bgp_route_translation_for_nat_enabled)
         if bgp_settings is not None:

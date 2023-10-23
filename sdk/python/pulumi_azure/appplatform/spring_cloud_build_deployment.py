@@ -53,7 +53,19 @@ class SpringCloudBuildDeploymentArgs:
              instance_count: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
              quota: Optional[pulumi.Input['SpringCloudBuildDeploymentQuotaArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'buildResultId' in kwargs:
+            build_result_id = kwargs['buildResultId']
+        if 'springCloudAppId' in kwargs:
+            spring_cloud_app_id = kwargs['springCloudAppId']
+        if 'addonJson' in kwargs:
+            addon_json = kwargs['addonJson']
+        if 'environmentVariables' in kwargs:
+            environment_variables = kwargs['environmentVariables']
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+
         _setter("build_result_id", build_result_id)
         _setter("spring_cloud_app_id", spring_cloud_app_id)
         if addon_json is not None:
@@ -192,7 +204,19 @@ class _SpringCloudBuildDeploymentState:
              name: Optional[pulumi.Input[str]] = None,
              quota: Optional[pulumi.Input['SpringCloudBuildDeploymentQuotaArgs']] = None,
              spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addonJson' in kwargs:
+            addon_json = kwargs['addonJson']
+        if 'buildResultId' in kwargs:
+            build_result_id = kwargs['buildResultId']
+        if 'environmentVariables' in kwargs:
+            environment_variables = kwargs['environmentVariables']
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if 'springCloudAppId' in kwargs:
+            spring_cloud_app_id = kwargs['springCloudAppId']
+
         if addon_json is not None:
             _setter("addon_json", addon_json)
         if build_result_id is not None:

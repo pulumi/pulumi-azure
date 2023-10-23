@@ -95,7 +95,7 @@ public class MoverTargetEndpoint extends com.pulumi.resources.CustomResource {
      * Specifies a description for the Storage Mover Target Endpoint.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -109,7 +109,7 @@ public class MoverTargetEndpoint extends com.pulumi.resources.CustomResource {
      * Specifies the name which should be used for this Storage Mover Target Endpoint. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -123,7 +123,7 @@ public class MoverTargetEndpoint extends com.pulumi.resources.CustomResource {
      * Specifies the ID of the storage account for this Storage Mover Target Endpoint. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="storageAccountId", refs={String.class}, tree="[0]")
+    @Export(name="storageAccountId", type=String.class, parameters={})
     private Output<String> storageAccountId;
 
     /**
@@ -137,7 +137,7 @@ public class MoverTargetEndpoint extends com.pulumi.resources.CustomResource {
      * Specifies the name of the storage blob container for this Storage Mover Target Endpoint. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="storageContainerName", refs={String.class}, tree="[0]")
+    @Export(name="storageContainerName", type=String.class, parameters={})
     private Output<String> storageContainerName;
 
     /**
@@ -151,7 +151,7 @@ public class MoverTargetEndpoint extends com.pulumi.resources.CustomResource {
      * Specifies the ID of the storage mover for this Storage Mover Target Endpoint. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="storageMoverId", refs={String.class}, tree="[0]")
+    @Export(name="storageMoverId", type=String.class, parameters={})
     private Output<String> storageMoverId;
 
     /**

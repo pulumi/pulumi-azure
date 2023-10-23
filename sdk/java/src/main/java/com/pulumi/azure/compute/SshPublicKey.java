@@ -65,7 +65,7 @@ public class SshPublicKey extends com.pulumi.resources.CustomResource {
      * The Azure Region where the SSH Public Key should exist. Changing this forces a new SSH Public Key to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -79,7 +79,7 @@ public class SshPublicKey extends com.pulumi.resources.CustomResource {
      * The name which should be used for this SSH Public Key. Changing this forces a new SSH Public Key to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -93,7 +93,7 @@ public class SshPublicKey extends com.pulumi.resources.CustomResource {
      * SSH public key used to authenticate to a virtual machine through ssh. the provided public key needs to be at least 2048-bit and in ssh-rsa format.
      * 
      */
-    @Export(name="publicKey", refs={String.class}, tree="[0]")
+    @Export(name="publicKey", type=String.class, parameters={})
     private Output<String> publicKey;
 
     /**
@@ -107,7 +107,7 @@ public class SshPublicKey extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the SSH Public Key should exist. Changing this forces a new SSH Public Key to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -121,7 +121,7 @@ public class SshPublicKey extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the SSH Public Key.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

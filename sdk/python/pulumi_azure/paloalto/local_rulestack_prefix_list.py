@@ -43,7 +43,15 @@ class LocalRulestackPrefixListArgs:
              audit_comment: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'prefixLists' in kwargs:
+            prefix_lists = kwargs['prefixLists']
+        if 'rulestackId' in kwargs:
+            rulestack_id = kwargs['rulestackId']
+        if 'auditComment' in kwargs:
+            audit_comment = kwargs['auditComment']
+
         _setter("prefix_lists", prefix_lists)
         _setter("rulestack_id", rulestack_id)
         if audit_comment is not None:
@@ -146,7 +154,15 @@ class _LocalRulestackPrefixListState:
              name: Optional[pulumi.Input[str]] = None,
              prefix_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              rulestack_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'auditComment' in kwargs:
+            audit_comment = kwargs['auditComment']
+        if 'prefixLists' in kwargs:
+            prefix_lists = kwargs['prefixLists']
+        if 'rulestackId' in kwargs:
+            rulestack_id = kwargs['rulestackId']
+
         if audit_comment is not None:
             _setter("audit_comment", audit_comment)
         if description is not None:

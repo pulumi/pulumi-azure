@@ -39,7 +39,15 @@ class ApiTagDescriptionArgs:
              description: Optional[pulumi.Input[str]] = None,
              external_documentation_description: Optional[pulumi.Input[str]] = None,
              external_documentation_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiTagId' in kwargs:
+            api_tag_id = kwargs['apiTagId']
+        if 'externalDocumentationDescription' in kwargs:
+            external_documentation_description = kwargs['externalDocumentationDescription']
+        if 'externalDocumentationUrl' in kwargs:
+            external_documentation_url = kwargs['externalDocumentationUrl']
+
         _setter("api_tag_id", api_tag_id)
         if description is not None:
             _setter("description", description)
@@ -125,7 +133,15 @@ class _ApiTagDescriptionState:
              description: Optional[pulumi.Input[str]] = None,
              external_documentation_description: Optional[pulumi.Input[str]] = None,
              external_documentation_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiTagId' in kwargs:
+            api_tag_id = kwargs['apiTagId']
+        if 'externalDocumentationDescription' in kwargs:
+            external_documentation_description = kwargs['externalDocumentationDescription']
+        if 'externalDocumentationUrl' in kwargs:
+            external_documentation_url = kwargs['externalDocumentationUrl']
+
         if api_tag_id is not None:
             _setter("api_tag_id", api_tag_id)
         if description is not None:

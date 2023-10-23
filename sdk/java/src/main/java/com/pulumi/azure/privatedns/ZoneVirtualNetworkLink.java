@@ -86,7 +86,7 @@ public class ZoneVirtualNetworkLink extends com.pulumi.resources.CustomResource 
      * The name of the Private DNS Zone Virtual Network Link. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -100,7 +100,7 @@ public class ZoneVirtualNetworkLink extends com.pulumi.resources.CustomResource 
      * The name of the Private DNS zone (without a terminating dot). Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="privateDnsZoneName", refs={String.class}, tree="[0]")
+    @Export(name="privateDnsZoneName", type=String.class, parameters={})
     private Output<String> privateDnsZoneName;
 
     /**
@@ -114,7 +114,7 @@ public class ZoneVirtualNetworkLink extends com.pulumi.resources.CustomResource 
      * Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? Defaults to `false`.
      * 
      */
-    @Export(name="registrationEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="registrationEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> registrationEnabled;
 
     /**
@@ -128,7 +128,7 @@ public class ZoneVirtualNetworkLink extends com.pulumi.resources.CustomResource 
      * Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -142,7 +142,7 @@ public class ZoneVirtualNetworkLink extends com.pulumi.resources.CustomResource 
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -156,7 +156,7 @@ public class ZoneVirtualNetworkLink extends com.pulumi.resources.CustomResource 
      * The ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="virtualNetworkId", refs={String.class}, tree="[0]")
+    @Export(name="virtualNetworkId", type=String.class, parameters={})
     private Output<String> virtualNetworkId;
 
     /**

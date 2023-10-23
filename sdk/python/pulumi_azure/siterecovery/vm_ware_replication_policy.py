@@ -39,7 +39,15 @@ class VMWareReplicationPolicyArgs:
              recovery_point_retention_in_minutes: pulumi.Input[int],
              recovery_vault_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationConsistentSnapshotFrequencyInMinutes' in kwargs:
+            application_consistent_snapshot_frequency_in_minutes = kwargs['applicationConsistentSnapshotFrequencyInMinutes']
+        if 'recoveryPointRetentionInMinutes' in kwargs:
+            recovery_point_retention_in_minutes = kwargs['recoveryPointRetentionInMinutes']
+        if 'recoveryVaultId' in kwargs:
+            recovery_vault_id = kwargs['recoveryVaultId']
+
         _setter("application_consistent_snapshot_frequency_in_minutes", application_consistent_snapshot_frequency_in_minutes)
         _setter("recovery_point_retention_in_minutes", recovery_point_retention_in_minutes)
         _setter("recovery_vault_id", recovery_vault_id)
@@ -123,7 +131,15 @@ class _VMWareReplicationPolicyState:
              name: Optional[pulumi.Input[str]] = None,
              recovery_point_retention_in_minutes: Optional[pulumi.Input[int]] = None,
              recovery_vault_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationConsistentSnapshotFrequencyInMinutes' in kwargs:
+            application_consistent_snapshot_frequency_in_minutes = kwargs['applicationConsistentSnapshotFrequencyInMinutes']
+        if 'recoveryPointRetentionInMinutes' in kwargs:
+            recovery_point_retention_in_minutes = kwargs['recoveryPointRetentionInMinutes']
+        if 'recoveryVaultId' in kwargs:
+            recovery_vault_id = kwargs['recoveryVaultId']
+
         if application_consistent_snapshot_frequency_in_minutes is not None:
             _setter("application_consistent_snapshot_frequency_in_minutes", application_consistent_snapshot_frequency_in_minutes)
         if name is not None:

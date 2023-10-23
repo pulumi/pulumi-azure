@@ -88,7 +88,7 @@ public class SqlDedicatedGateway extends com.pulumi.resources.CustomResource {
      * The resource ID of the CosmosDB Account. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="cosmosdbAccountId", refs={String.class}, tree="[0]")
+    @Export(name="cosmosdbAccountId", type=String.class, parameters={})
     private Output<String> cosmosdbAccountId;
 
     /**
@@ -102,7 +102,7 @@ public class SqlDedicatedGateway extends com.pulumi.resources.CustomResource {
      * The instance count for the CosmosDB SQL Dedicated Gateway. Possible value is between `1` and `5`.
      * 
      */
-    @Export(name="instanceCount", refs={Integer.class}, tree="[0]")
+    @Export(name="instanceCount", type=Integer.class, parameters={})
     private Output<Integer> instanceCount;
 
     /**
@@ -116,7 +116,7 @@ public class SqlDedicatedGateway extends com.pulumi.resources.CustomResource {
      * The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created. Possible values are `Cosmos.D4s`, `Cosmos.D8s` and `Cosmos.D16s`.
      * 
      */
-    @Export(name="instanceSize", refs={String.class}, tree="[0]")
+    @Export(name="instanceSize", type=String.class, parameters={})
     private Output<String> instanceSize;
 
     /**

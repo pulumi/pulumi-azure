@@ -43,7 +43,15 @@ class ServiceTrustArgs:
              trusted_domain_dns_ips: pulumi.Input[Sequence[pulumi.Input[str]]],
              trusted_domain_fqdn: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainServiceId' in kwargs:
+            domain_service_id = kwargs['domainServiceId']
+        if 'trustedDomainDnsIps' in kwargs:
+            trusted_domain_dns_ips = kwargs['trustedDomainDnsIps']
+        if 'trustedDomainFqdn' in kwargs:
+            trusted_domain_fqdn = kwargs['trustedDomainFqdn']
+
         _setter("domain_service_id", domain_service_id)
         _setter("password", password)
         _setter("trusted_domain_dns_ips", trusted_domain_dns_ips)
@@ -144,7 +152,15 @@ class _ServiceTrustState:
              password: Optional[pulumi.Input[str]] = None,
              trusted_domain_dns_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              trusted_domain_fqdn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainServiceId' in kwargs:
+            domain_service_id = kwargs['domainServiceId']
+        if 'trustedDomainDnsIps' in kwargs:
+            trusted_domain_dns_ips = kwargs['trustedDomainDnsIps']
+        if 'trustedDomainFqdn' in kwargs:
+            trusted_domain_fqdn = kwargs['trustedDomainFqdn']
+
         if domain_service_id is not None:
             _setter("domain_service_id", domain_service_id)
         if name is not None:

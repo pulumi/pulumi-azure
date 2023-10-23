@@ -38,7 +38,11 @@ class EndpointCustomDnsConfigArgs:
              _setter: Callable[[Any, Any], None],
              fqdn: Optional[pulumi.Input[str]] = None,
              ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddresses' in kwargs:
+            ip_addresses = kwargs['ipAddresses']
+
         if fqdn is not None:
             _setter("fqdn", fqdn)
         if ip_addresses is not None:
@@ -98,7 +102,15 @@ class EndpointIpConfigurationArgs:
              private_ip_address: pulumi.Input[str],
              member_name: Optional[pulumi.Input[str]] = None,
              subresource_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if 'memberName' in kwargs:
+            member_name = kwargs['memberName']
+        if 'subresourceName' in kwargs:
+            subresource_name = kwargs['subresourceName']
+
         _setter("name", name)
         _setter("private_ip_address", private_ip_address)
         if member_name is not None:
@@ -176,7 +188,9 @@ class EndpointNetworkInterfaceArgs:
              _setter: Callable[[Any, Any], None],
              id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
             _setter("id", id)
         if name is not None:
@@ -234,7 +248,13 @@ class EndpointPrivateDnsZoneConfigArgs:
              name: Optional[pulumi.Input[str]] = None,
              private_dns_zone_id: Optional[pulumi.Input[str]] = None,
              record_sets: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPrivateDnsZoneConfigRecordSetArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateDnsZoneId' in kwargs:
+            private_dns_zone_id = kwargs['privateDnsZoneId']
+        if 'recordSets' in kwargs:
+            record_sets = kwargs['recordSets']
+
         if id is not None:
             _setter("id", id)
         if name is not None:
@@ -324,7 +344,11 @@ class EndpointPrivateDnsZoneConfigRecordSetArgs:
              name: Optional[pulumi.Input[str]] = None,
              ttl: Optional[pulumi.Input[int]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddresses' in kwargs:
+            ip_addresses = kwargs['ipAddresses']
+
         if fqdn is not None:
             _setter("fqdn", fqdn)
         if ip_addresses is not None:
@@ -420,7 +444,11 @@ class EndpointPrivateDnsZoneGroupArgs:
              name: pulumi.Input[str],
              private_dns_zone_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
              id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateDnsZoneIds' in kwargs:
+            private_dns_zone_ids = kwargs['privateDnsZoneIds']
+
         _setter("name", name)
         _setter("private_dns_zone_ids", private_dns_zone_ids)
         if id is not None:
@@ -506,7 +534,21 @@ class EndpointPrivateServiceConnectionArgs:
              private_ip_address: Optional[pulumi.Input[str]] = None,
              request_message: Optional[pulumi.Input[str]] = None,
              subresource_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isManualConnection' in kwargs:
+            is_manual_connection = kwargs['isManualConnection']
+        if 'privateConnectionResourceAlias' in kwargs:
+            private_connection_resource_alias = kwargs['privateConnectionResourceAlias']
+        if 'privateConnectionResourceId' in kwargs:
+            private_connection_resource_id = kwargs['privateConnectionResourceId']
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if 'requestMessage' in kwargs:
+            request_message = kwargs['requestMessage']
+        if 'subresourceNames' in kwargs:
+            subresource_names = kwargs['subresourceNames']
+
         _setter("is_manual_connection", is_manual_connection)
         _setter("name", name)
         if private_connection_resource_alias is not None:

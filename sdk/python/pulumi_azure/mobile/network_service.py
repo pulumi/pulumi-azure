@@ -53,7 +53,17 @@ class NetworkServiceArgs:
              name: Optional[pulumi.Input[str]] = None,
              service_qos_policy: Optional[pulumi.Input['NetworkServiceServiceQosPolicyArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mobileNetworkId' in kwargs:
+            mobile_network_id = kwargs['mobileNetworkId']
+        if 'pccRules' in kwargs:
+            pcc_rules = kwargs['pccRules']
+        if 'servicePrecedence' in kwargs:
+            service_precedence = kwargs['servicePrecedence']
+        if 'serviceQosPolicy' in kwargs:
+            service_qos_policy = kwargs['serviceQosPolicy']
+
         _setter("mobile_network_id", mobile_network_id)
         _setter("pcc_rules", pcc_rules)
         _setter("service_precedence", service_precedence)
@@ -191,7 +201,17 @@ class _NetworkServiceState:
              service_precedence: Optional[pulumi.Input[int]] = None,
              service_qos_policy: Optional[pulumi.Input['NetworkServiceServiceQosPolicyArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mobileNetworkId' in kwargs:
+            mobile_network_id = kwargs['mobileNetworkId']
+        if 'pccRules' in kwargs:
+            pcc_rules = kwargs['pccRules']
+        if 'servicePrecedence' in kwargs:
+            service_precedence = kwargs['servicePrecedence']
+        if 'serviceQosPolicy' in kwargs:
+            service_qos_policy = kwargs['serviceQosPolicy']
+
         if location is not None:
             _setter("location", location)
         if mobile_network_id is not None:

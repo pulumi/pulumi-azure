@@ -31,7 +31,11 @@ class HyperVSiteArgs:
              _setter: Callable[[Any, Any], None],
              recovery_vault_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'recoveryVaultId' in kwargs:
+            recovery_vault_id = kwargs['recoveryVaultId']
+
         _setter("recovery_vault_id", recovery_vault_id)
         if name is not None:
             _setter("name", name)
@@ -81,7 +85,11 @@ class _HyperVSiteState:
              _setter: Callable[[Any, Any], None],
              name: Optional[pulumi.Input[str]] = None,
              recovery_vault_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'recoveryVaultId' in kwargs:
+            recovery_vault_id = kwargs['recoveryVaultId']
+
         if name is not None:
             _setter("name", name)
         if recovery_vault_id is not None:

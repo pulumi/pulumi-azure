@@ -124,7 +124,39 @@ class FlexibleServerArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              version: Optional[pulumi.Input[str]] = None,
              zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'administratorLogin' in kwargs:
+            administrator_login = kwargs['administratorLogin']
+        if 'administratorPassword' in kwargs:
+            administrator_password = kwargs['administratorPassword']
+        if 'backupRetentionDays' in kwargs:
+            backup_retention_days = kwargs['backupRetentionDays']
+        if 'createMode' in kwargs:
+            create_mode = kwargs['createMode']
+        if 'customerManagedKey' in kwargs:
+            customer_managed_key = kwargs['customerManagedKey']
+        if 'delegatedSubnetId' in kwargs:
+            delegated_subnet_id = kwargs['delegatedSubnetId']
+        if 'geoRedundantBackupEnabled' in kwargs:
+            geo_redundant_backup_enabled = kwargs['geoRedundantBackupEnabled']
+        if 'highAvailability' in kwargs:
+            high_availability = kwargs['highAvailability']
+        if 'maintenanceWindow' in kwargs:
+            maintenance_window = kwargs['maintenanceWindow']
+        if 'pointInTimeRestoreTimeInUtc' in kwargs:
+            point_in_time_restore_time_in_utc = kwargs['pointInTimeRestoreTimeInUtc']
+        if 'privateDnsZoneId' in kwargs:
+            private_dns_zone_id = kwargs['privateDnsZoneId']
+        if 'replicationRole' in kwargs:
+            replication_role = kwargs['replicationRole']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'sourceServerId' in kwargs:
+            source_server_id = kwargs['sourceServerId']
+
         _setter("resource_group_name", resource_group_name)
         if administrator_login is not None:
             _setter("administrator_login", administrator_login)
@@ -566,7 +598,43 @@ class _FlexibleServerState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              version: Optional[pulumi.Input[str]] = None,
              zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'administratorLogin' in kwargs:
+            administrator_login = kwargs['administratorLogin']
+        if 'administratorPassword' in kwargs:
+            administrator_password = kwargs['administratorPassword']
+        if 'backupRetentionDays' in kwargs:
+            backup_retention_days = kwargs['backupRetentionDays']
+        if 'createMode' in kwargs:
+            create_mode = kwargs['createMode']
+        if 'customerManagedKey' in kwargs:
+            customer_managed_key = kwargs['customerManagedKey']
+        if 'delegatedSubnetId' in kwargs:
+            delegated_subnet_id = kwargs['delegatedSubnetId']
+        if 'geoRedundantBackupEnabled' in kwargs:
+            geo_redundant_backup_enabled = kwargs['geoRedundantBackupEnabled']
+        if 'highAvailability' in kwargs:
+            high_availability = kwargs['highAvailability']
+        if 'maintenanceWindow' in kwargs:
+            maintenance_window = kwargs['maintenanceWindow']
+        if 'pointInTimeRestoreTimeInUtc' in kwargs:
+            point_in_time_restore_time_in_utc = kwargs['pointInTimeRestoreTimeInUtc']
+        if 'privateDnsZoneId' in kwargs:
+            private_dns_zone_id = kwargs['privateDnsZoneId']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'replicaCapacity' in kwargs:
+            replica_capacity = kwargs['replicaCapacity']
+        if 'replicationRole' in kwargs:
+            replication_role = kwargs['replicationRole']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'sourceServerId' in kwargs:
+            source_server_id = kwargs['sourceServerId']
+
         if administrator_login is not None:
             _setter("administrator_login", administrator_login)
         if administrator_password is not None:

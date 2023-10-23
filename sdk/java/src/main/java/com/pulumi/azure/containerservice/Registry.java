@@ -219,7 +219,7 @@ public class Registry extends com.pulumi.resources.CustomResource {
      * Specifies whether the admin user is enabled. Defaults to `false`.
      * 
      */
-    @Export(name="adminEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="adminEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> adminEnabled;
 
     /**
@@ -233,7 +233,7 @@ public class Registry extends com.pulumi.resources.CustomResource {
      * The Password associated with the Container Registry Admin account - if the admin account is enabled.
      * 
      */
-    @Export(name="adminPassword", refs={String.class}, tree="[0]")
+    @Export(name="adminPassword", type=String.class, parameters={})
     private Output<String> adminPassword;
 
     /**
@@ -247,7 +247,7 @@ public class Registry extends com.pulumi.resources.CustomResource {
      * The Username associated with the Container Registry Admin account - if the admin account is enabled.
      * 
      */
-    @Export(name="adminUsername", refs={String.class}, tree="[0]")
+    @Export(name="adminUsername", type=String.class, parameters={})
     private Output<String> adminUsername;
 
     /**
@@ -261,7 +261,7 @@ public class Registry extends com.pulumi.resources.CustomResource {
      * Whether allows anonymous (unauthenticated) pull access to this Container Registry? This is only supported on resources with the `Standard` or `Premium` SKU.
      * 
      */
-    @Export(name="anonymousPullEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="anonymousPullEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> anonymousPullEnabled;
 
     /**
@@ -275,7 +275,7 @@ public class Registry extends com.pulumi.resources.CustomResource {
      * Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
      * 
      */
-    @Export(name="dataEndpointEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="dataEndpointEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> dataEndpointEnabled;
 
     /**
@@ -289,7 +289,7 @@ public class Registry extends com.pulumi.resources.CustomResource {
      * An `encryption` block as documented below.
      * 
      */
-    @Export(name="encryption", refs={RegistryEncryption.class}, tree="[0]")
+    @Export(name="encryption", type=RegistryEncryption.class, parameters={})
     private Output<RegistryEncryption> encryption;
 
     /**
@@ -305,7 +305,7 @@ public class Registry extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** `quarantine_policy_enabled`, `retention_policy`, `trust_policy`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
      * 
      */
-    @Export(name="exportPolicyEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="exportPolicyEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> exportPolicyEnabled;
 
     /**
@@ -327,7 +327,7 @@ public class Registry extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** If more than one `georeplications` block is specified, they are expected to follow the alphabetic order on the `location` property.
      * 
      */
-    @Export(name="georeplications", refs={List.class,RegistryGeoreplication.class}, tree="[0,1]")
+    @Export(name="georeplications", type=List.class, parameters={RegistryGeoreplication.class})
     private Output</* @Nullable */ List<RegistryGeoreplication>> georeplications;
 
     /**
@@ -347,7 +347,7 @@ public class Registry extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", refs={RegistryIdentity.class}, tree="[0]")
+    @Export(name="identity", type=RegistryIdentity.class, parameters={})
     private Output</* @Nullable */ RegistryIdentity> identity;
 
     /**
@@ -361,7 +361,7 @@ public class Registry extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -375,7 +375,7 @@ public class Registry extends com.pulumi.resources.CustomResource {
      * The URL that can be used to log into the container registry.
      * 
      */
-    @Export(name="loginServer", refs={String.class}, tree="[0]")
+    @Export(name="loginServer", type=String.class, parameters={})
     private Output<String> loginServer;
 
     /**
@@ -389,7 +389,7 @@ public class Registry extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Container Registry. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -403,7 +403,7 @@ public class Registry extends com.pulumi.resources.CustomResource {
      * Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
      * 
      */
-    @Export(name="networkRuleBypassOption", refs={String.class}, tree="[0]")
+    @Export(name="networkRuleBypassOption", type=String.class, parameters={})
     private Output</* @Nullable */ String> networkRuleBypassOption;
 
     /**
@@ -417,7 +417,7 @@ public class Registry extends com.pulumi.resources.CustomResource {
      * A `network_rule_set` block as documented below.
      * 
      */
-    @Export(name="networkRuleSet", refs={RegistryNetworkRuleSet.class}, tree="[0]")
+    @Export(name="networkRuleSet", type=RegistryNetworkRuleSet.class, parameters={})
     private Output<RegistryNetworkRuleSet> networkRuleSet;
 
     /**
@@ -431,7 +431,7 @@ public class Registry extends com.pulumi.resources.CustomResource {
      * Whether public network access is allowed for the container registry. Defaults to `true`.
      * 
      */
-    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
@@ -445,7 +445,7 @@ public class Registry extends com.pulumi.resources.CustomResource {
      * Boolean value that indicates whether quarantine policy is enabled.
      * 
      */
-    @Export(name="quarantinePolicyEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="quarantinePolicyEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> quarantinePolicyEnabled;
 
     /**
@@ -459,7 +459,7 @@ public class Registry extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -473,7 +473,7 @@ public class Registry extends com.pulumi.resources.CustomResource {
      * A `retention_policy` block as documented below.
      * 
      */
-    @Export(name="retentionPolicy", refs={RegistryRetentionPolicy.class}, tree="[0]")
+    @Export(name="retentionPolicy", type=RegistryRetentionPolicy.class, parameters={})
     private Output<RegistryRetentionPolicy> retentionPolicy;
 
     /**
@@ -487,7 +487,7 @@ public class Registry extends com.pulumi.resources.CustomResource {
      * The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
      * 
      */
-    @Export(name="sku", refs={String.class}, tree="[0]")
+    @Export(name="sku", type=String.class, parameters={})
     private Output<String> sku;
 
     /**
@@ -501,7 +501,7 @@ public class Registry extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -515,7 +515,7 @@ public class Registry extends com.pulumi.resources.CustomResource {
      * A `trust_policy` block as documented below.
      * 
      */
-    @Export(name="trustPolicy", refs={RegistryTrustPolicy.class}, tree="[0]")
+    @Export(name="trustPolicy", type=RegistryTrustPolicy.class, parameters={})
     private Output<RegistryTrustPolicy> trustPolicy;
 
     /**
@@ -529,7 +529,7 @@ public class Registry extends com.pulumi.resources.CustomResource {
      * Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
      * 
      */
-    @Export(name="zoneRedundancyEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="zoneRedundancyEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> zoneRedundancyEnabled;
 
     /**

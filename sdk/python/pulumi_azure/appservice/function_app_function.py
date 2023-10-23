@@ -55,7 +55,15 @@ class FunctionAppFunctionArgs:
              language: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              test_data: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'configJson' in kwargs:
+            config_json = kwargs['configJson']
+        if 'functionAppId' in kwargs:
+            function_app_id = kwargs['functionAppId']
+        if 'testData' in kwargs:
+            test_data = kwargs['testData']
+
         _setter("config_json", config_json)
         _setter("function_app_id", function_app_id)
         if enabled is not None:
@@ -226,7 +234,27 @@ class _FunctionAppFunctionState:
              test_data: Optional[pulumi.Input[str]] = None,
              test_data_url: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'configJson' in kwargs:
+            config_json = kwargs['configJson']
+        if 'configUrl' in kwargs:
+            config_url = kwargs['configUrl']
+        if 'functionAppId' in kwargs:
+            function_app_id = kwargs['functionAppId']
+        if 'invocationUrl' in kwargs:
+            invocation_url = kwargs['invocationUrl']
+        if 'scriptRootPathUrl' in kwargs:
+            script_root_path_url = kwargs['scriptRootPathUrl']
+        if 'scriptUrl' in kwargs:
+            script_url = kwargs['scriptUrl']
+        if 'secretsFileUrl' in kwargs:
+            secrets_file_url = kwargs['secretsFileUrl']
+        if 'testData' in kwargs:
+            test_data = kwargs['testData']
+        if 'testDataUrl' in kwargs:
+            test_data_url = kwargs['testDataUrl']
+
         if config_json is not None:
             _setter("config_json", config_json)
         if config_url is not None:

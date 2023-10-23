@@ -78,7 +78,17 @@ class ServiceInitialReplicaSet(dict):
              id: Optional[str] = None,
              location: Optional[str] = None,
              service_status: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'domainControllerIpAddresses' in kwargs:
+            domain_controller_ip_addresses = kwargs['domainControllerIpAddresses']
+        if 'externalAccessIpAddress' in kwargs:
+            external_access_ip_address = kwargs['externalAccessIpAddress']
+        if 'serviceStatus' in kwargs:
+            service_status = kwargs['serviceStatus']
+
         _setter("subnet_id", subnet_id)
         if domain_controller_ip_addresses is not None:
             _setter("domain_controller_ip_addresses", domain_controller_ip_addresses)
@@ -184,7 +194,15 @@ class ServiceNotifications(dict):
              additional_recipients: Optional[Sequence[str]] = None,
              notify_dc_admins: Optional[bool] = None,
              notify_global_admins: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalRecipients' in kwargs:
+            additional_recipients = kwargs['additionalRecipients']
+        if 'notifyDcAdmins' in kwargs:
+            notify_dc_admins = kwargs['notifyDcAdmins']
+        if 'notifyGlobalAdmins' in kwargs:
+            notify_global_admins = kwargs['notifyGlobalAdmins']
+
         if additional_recipients is not None:
             _setter("additional_recipients", additional_recipients)
         if notify_dc_admins is not None:
@@ -283,7 +301,21 @@ class ServiceSecureLdap(dict):
              certificate_thumbprint: Optional[str] = None,
              external_access_enabled: Optional[bool] = None,
              public_certificate: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'pfxCertificate' in kwargs:
+            pfx_certificate = kwargs['pfxCertificate']
+        if 'pfxCertificatePassword' in kwargs:
+            pfx_certificate_password = kwargs['pfxCertificatePassword']
+        if 'certificateExpiry' in kwargs:
+            certificate_expiry = kwargs['certificateExpiry']
+        if 'certificateThumbprint' in kwargs:
+            certificate_thumbprint = kwargs['certificateThumbprint']
+        if 'externalAccessEnabled' in kwargs:
+            external_access_enabled = kwargs['externalAccessEnabled']
+        if 'publicCertificate' in kwargs:
+            public_certificate = kwargs['publicCertificate']
+
         _setter("enabled", enabled)
         _setter("pfx_certificate", pfx_certificate)
         _setter("pfx_certificate_password", pfx_certificate_password)
@@ -421,7 +453,23 @@ class ServiceSecurity(dict):
              sync_ntlm_passwords: Optional[bool] = None,
              sync_on_prem_passwords: Optional[bool] = None,
              tls_v1_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'kerberosArmoringEnabled' in kwargs:
+            kerberos_armoring_enabled = kwargs['kerberosArmoringEnabled']
+        if 'kerberosRc4EncryptionEnabled' in kwargs:
+            kerberos_rc4_encryption_enabled = kwargs['kerberosRc4EncryptionEnabled']
+        if 'ntlmV1Enabled' in kwargs:
+            ntlm_v1_enabled = kwargs['ntlmV1Enabled']
+        if 'syncKerberosPasswords' in kwargs:
+            sync_kerberos_passwords = kwargs['syncKerberosPasswords']
+        if 'syncNtlmPasswords' in kwargs:
+            sync_ntlm_passwords = kwargs['syncNtlmPasswords']
+        if 'syncOnPremPasswords' in kwargs:
+            sync_on_prem_passwords = kwargs['syncOnPremPasswords']
+        if 'tlsV1Enabled' in kwargs:
+            tls_v1_enabled = kwargs['tlsV1Enabled']
+
         if kerberos_armoring_enabled is not None:
             _setter("kerberos_armoring_enabled", kerberos_armoring_enabled)
         if kerberos_rc4_encryption_enabled is not None:
@@ -517,7 +565,15 @@ class GetServiceNotificationResult(dict):
              additional_recipients: Sequence[str],
              notify_dc_admins: bool,
              notify_global_admins: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalRecipients' in kwargs:
+            additional_recipients = kwargs['additionalRecipients']
+        if 'notifyDcAdmins' in kwargs:
+            notify_dc_admins = kwargs['notifyDcAdmins']
+        if 'notifyGlobalAdmins' in kwargs:
+            notify_global_admins = kwargs['notifyGlobalAdmins']
+
         _setter("additional_recipients", additional_recipients)
         _setter("notify_dc_admins", notify_dc_admins)
         _setter("notify_global_admins", notify_global_admins)
@@ -582,7 +638,17 @@ class GetServiceReplicaSetResult(dict):
              location: str,
              service_status: str,
              subnet_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainControllerIpAddresses' in kwargs:
+            domain_controller_ip_addresses = kwargs['domainControllerIpAddresses']
+        if 'externalAccessIpAddress' in kwargs:
+            external_access_ip_address = kwargs['externalAccessIpAddress']
+        if 'serviceStatus' in kwargs:
+            service_status = kwargs['serviceStatus']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         _setter("domain_controller_ip_addresses", domain_controller_ip_addresses)
         _setter("external_access_ip_address", external_access_ip_address)
         _setter("id", id)
@@ -667,7 +733,17 @@ class GetServiceSecureLdapResult(dict):
              enabled: bool,
              external_access_enabled: bool,
              public_certificate: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateExpiry' in kwargs:
+            certificate_expiry = kwargs['certificateExpiry']
+        if 'certificateThumbprint' in kwargs:
+            certificate_thumbprint = kwargs['certificateThumbprint']
+        if 'externalAccessEnabled' in kwargs:
+            external_access_enabled = kwargs['externalAccessEnabled']
+        if 'publicCertificate' in kwargs:
+            public_certificate = kwargs['publicCertificate']
+
         _setter("certificate_expiry", certificate_expiry)
         _setter("certificate_thumbprint", certificate_thumbprint)
         _setter("enabled", enabled)
@@ -745,7 +821,23 @@ class GetServiceSecurityResult(dict):
              sync_ntlm_passwords: bool,
              sync_on_prem_passwords: bool,
              tls_v1_enabled: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'kerberosArmoringEnabled' in kwargs:
+            kerberos_armoring_enabled = kwargs['kerberosArmoringEnabled']
+        if 'kerberosRc4EncryptionEnabled' in kwargs:
+            kerberos_rc4_encryption_enabled = kwargs['kerberosRc4EncryptionEnabled']
+        if 'ntlmV1Enabled' in kwargs:
+            ntlm_v1_enabled = kwargs['ntlmV1Enabled']
+        if 'syncKerberosPasswords' in kwargs:
+            sync_kerberos_passwords = kwargs['syncKerberosPasswords']
+        if 'syncNtlmPasswords' in kwargs:
+            sync_ntlm_passwords = kwargs['syncNtlmPasswords']
+        if 'syncOnPremPasswords' in kwargs:
+            sync_on_prem_passwords = kwargs['syncOnPremPasswords']
+        if 'tlsV1Enabled' in kwargs:
+            tls_v1_enabled = kwargs['tlsV1Enabled']
+
         _setter("kerberos_armoring_enabled", kerberos_armoring_enabled)
         _setter("kerberos_rc4_encryption_enabled", kerberos_rc4_encryption_enabled)
         _setter("ntlm_v1_enabled", ntlm_v1_enabled)

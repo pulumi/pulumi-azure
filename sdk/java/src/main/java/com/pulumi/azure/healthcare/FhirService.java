@@ -113,7 +113,7 @@ public class FhirService extends com.pulumi.resources.CustomResource {
      * A list of the access policies of the service instance.
      * 
      */
-    @Export(name="accessPolicyObjectIds", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="accessPolicyObjectIds", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> accessPolicyObjectIds;
 
     /**
@@ -127,7 +127,7 @@ public class FhirService extends com.pulumi.resources.CustomResource {
      * An `authentication` block as defined below.
      * 
      */
-    @Export(name="authentication", refs={FhirServiceAuthentication.class}, tree="[0]")
+    @Export(name="authentication", type=FhirServiceAuthentication.class, parameters={})
     private Output<FhirServiceAuthentication> authentication;
 
     /**
@@ -141,7 +141,7 @@ public class FhirService extends com.pulumi.resources.CustomResource {
      * Specifies the name of the storage account which the operation configuration information is exported to.
      * 
      */
-    @Export(name="configurationExportStorageAccountName", refs={String.class}, tree="[0]")
+    @Export(name="configurationExportStorageAccountName", type=String.class, parameters={})
     private Output</* @Nullable */ String> configurationExportStorageAccountName;
 
     /**
@@ -155,7 +155,7 @@ public class FhirService extends com.pulumi.resources.CustomResource {
      * A list of azure container registry settings used for convert data operation of the service instance.
      * 
      */
-    @Export(name="containerRegistryLoginServerUrls", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="containerRegistryLoginServerUrls", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> containerRegistryLoginServerUrls;
 
     /**
@@ -169,7 +169,7 @@ public class FhirService extends com.pulumi.resources.CustomResource {
      * A `cors` block as defined below.
      * 
      */
-    @Export(name="cors", refs={FhirServiceCors.class}, tree="[0]")
+    @Export(name="cors", type=FhirServiceCors.class, parameters={})
     private Output</* @Nullable */ FhirServiceCors> cors;
 
     /**
@@ -183,7 +183,7 @@ public class FhirService extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", refs={FhirServiceIdentity.class}, tree="[0]")
+    @Export(name="identity", type=FhirServiceIdentity.class, parameters={})
     private Output</* @Nullable */ FhirServiceIdentity> identity;
 
     /**
@@ -197,7 +197,7 @@ public class FhirService extends com.pulumi.resources.CustomResource {
      * Specifies the kind of the Healthcare FHIR Service. Possible values are: `fhir-Stu3` and `fhir-R4`. Defaults to `fhir-R4`. Changing this forces a new Healthcare FHIR Service to be created.
      * 
      */
-    @Export(name="kind", refs={String.class}, tree="[0]")
+    @Export(name="kind", type=String.class, parameters={})
     private Output</* @Nullable */ String> kind;
 
     /**
@@ -211,7 +211,7 @@ public class FhirService extends com.pulumi.resources.CustomResource {
      * Specifies the Azure Region where the Healthcare FHIR Service should be created. Changing this forces a new Healthcare FHIR Service to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -225,7 +225,7 @@ public class FhirService extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Healthcare FHIR Service. Changing this forces a new Healthcare FHIR Service to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -239,7 +239,7 @@ public class FhirService extends com.pulumi.resources.CustomResource {
      * [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of objects describing [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export) as defined below.
      * 
      */
-    @Export(name="ociArtifacts", refs={List.class,FhirServiceOciArtifact.class}, tree="[0,1]")
+    @Export(name="ociArtifacts", type=List.class, parameters={FhirServiceOciArtifact.class})
     private Output</* @Nullable */ List<FhirServiceOciArtifact>> ociArtifacts;
 
     /**
@@ -253,7 +253,7 @@ public class FhirService extends com.pulumi.resources.CustomResource {
      * Whether public networks access is enabled.
      * 
      */
-    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
     private Output<Boolean> publicNetworkAccessEnabled;
 
     /**
@@ -267,7 +267,7 @@ public class FhirService extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Resource Group in which to create the Healthcare FHIR Service. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -281,7 +281,7 @@ public class FhirService extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the Healthcare FHIR Service.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -295,7 +295,7 @@ public class FhirService extends com.pulumi.resources.CustomResource {
      * Specifies the id of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
      * 
      */
-    @Export(name="workspaceId", refs={String.class}, tree="[0]")
+    @Export(name="workspaceId", type=String.class, parameters={})
     private Output<String> workspaceId;
 
     /**

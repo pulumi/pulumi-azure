@@ -43,7 +43,9 @@ class ContactProfileLinkArgs:
              direction: pulumi.Input[str],
              name: pulumi.Input[str],
              polarization: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("channels", channels)
         _setter("direction", direction)
         _setter("name", name)
@@ -133,7 +135,19 @@ class ContactProfileLinkChannelArgs:
              name: pulumi.Input[str],
              demodulation_configuration: Optional[pulumi.Input[str]] = None,
              modulation_configuration: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bandwidthMhz' in kwargs:
+            bandwidth_mhz = kwargs['bandwidthMhz']
+        if 'centerFrequencyMhz' in kwargs:
+            center_frequency_mhz = kwargs['centerFrequencyMhz']
+        if 'endPoints' in kwargs:
+            end_points = kwargs['endPoints']
+        if 'demodulationConfiguration' in kwargs:
+            demodulation_configuration = kwargs['demodulationConfiguration']
+        if 'modulationConfiguration' in kwargs:
+            modulation_configuration = kwargs['modulationConfiguration']
+
         _setter("bandwidth_mhz", bandwidth_mhz)
         _setter("center_frequency_mhz", center_frequency_mhz)
         _setter("end_points", end_points)
@@ -243,7 +257,13 @@ class ContactProfileLinkChannelEndPointArgs:
              port: pulumi.Input[str],
              protocol: pulumi.Input[str],
              ip_address: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endPointName' in kwargs:
+            end_point_name = kwargs['endPointName']
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+
         _setter("end_point_name", end_point_name)
         _setter("port", port)
         _setter("protocol", protocol)
@@ -330,7 +350,13 @@ class SpacecraftLinkArgs:
              direction: pulumi.Input[str],
              name: pulumi.Input[str],
              polarization: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bandwidthMhz' in kwargs:
+            bandwidth_mhz = kwargs['bandwidthMhz']
+        if 'centerFrequencyMhz' in kwargs:
+            center_frequency_mhz = kwargs['centerFrequencyMhz']
+
         _setter("bandwidth_mhz", bandwidth_mhz)
         _setter("center_frequency_mhz", center_frequency_mhz)
         _setter("direction", direction)

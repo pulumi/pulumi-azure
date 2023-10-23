@@ -85,7 +85,9 @@ class CertifiateCertificate(dict):
              _setter: Callable[[Any, Any], None],
              contents: str,
              password: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("contents", contents)
         if password is not None:
             _setter("password", password)
@@ -170,7 +172,13 @@ class CertifiateCertificateAttribute(dict):
              not_before: Optional[str] = None,
              recovery_level: Optional[str] = None,
              updated: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'notBefore' in kwargs:
+            not_before = kwargs['notBefore']
+        if 'recoveryLevel' in kwargs:
+            recovery_level = kwargs['recoveryLevel']
+
         if created is not None:
             _setter("created", created)
         if enabled is not None:
@@ -289,7 +297,19 @@ class CertifiateCertificatePolicy(dict):
              secret_properties: 'outputs.CertifiateCertificatePolicySecretProperties',
              lifetime_actions: Optional[Sequence['outputs.CertifiateCertificatePolicyLifetimeAction']] = None,
              x509_certificate_properties: Optional['outputs.CertifiateCertificatePolicyX509CertificateProperties'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'issuerParameters' in kwargs:
+            issuer_parameters = kwargs['issuerParameters']
+        if 'keyProperties' in kwargs:
+            key_properties = kwargs['keyProperties']
+        if 'secretProperties' in kwargs:
+            secret_properties = kwargs['secretProperties']
+        if 'lifetimeActions' in kwargs:
+            lifetime_actions = kwargs['lifetimeActions']
+        if 'x509CertificateProperties' in kwargs:
+            x509_certificate_properties = kwargs['x509CertificateProperties']
+
         _setter("issuer_parameters", issuer_parameters)
         _setter("key_properties", key_properties)
         _setter("secret_properties", secret_properties)
@@ -354,7 +374,9 @@ class CertifiateCertificatePolicyIssuerParameters(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
 
     @property
@@ -418,7 +440,15 @@ class CertifiateCertificatePolicyKeyProperties(dict):
              reuse_key: bool,
              curve: Optional[str] = None,
              key_size: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyType' in kwargs:
+            key_type = kwargs['keyType']
+        if 'reuseKey' in kwargs:
+            reuse_key = kwargs['reuseKey']
+        if 'keySize' in kwargs:
+            key_size = kwargs['keySize']
+
         _setter("exportable", exportable)
         _setter("key_type", key_type)
         _setter("reuse_key", reuse_key)
@@ -487,7 +517,9 @@ class CertifiateCertificatePolicyLifetimeAction(dict):
              _setter: Callable[[Any, Any], None],
              action: 'outputs.CertifiateCertificatePolicyLifetimeActionAction',
              trigger: 'outputs.CertifiateCertificatePolicyLifetimeActionTrigger',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("action", action)
         _setter("trigger", trigger)
 
@@ -540,7 +572,11 @@ class CertifiateCertificatePolicyLifetimeActionAction(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              action_type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionType' in kwargs:
+            action_type = kwargs['actionType']
+
         _setter("action_type", action_type)
 
     @property
@@ -590,7 +626,13 @@ class CertifiateCertificatePolicyLifetimeActionTrigger(dict):
              _setter: Callable[[Any, Any], None],
              days_before_expiry: Optional[int] = None,
              lifetime_percentage: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'daysBeforeExpiry' in kwargs:
+            days_before_expiry = kwargs['daysBeforeExpiry']
+        if 'lifetimePercentage' in kwargs:
+            lifetime_percentage = kwargs['lifetimePercentage']
+
         if days_before_expiry is not None:
             _setter("days_before_expiry", days_before_expiry)
         if lifetime_percentage is not None:
@@ -645,7 +687,11 @@ class CertifiateCertificatePolicySecretProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              content_type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+
         _setter("content_type", content_type)
 
     @property
@@ -711,7 +757,17 @@ class CertifiateCertificatePolicyX509CertificateProperties(dict):
              validity_in_months: int,
              extended_key_usages: Optional[Sequence[str]] = None,
              subject_alternative_names: Optional['outputs.CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyUsages' in kwargs:
+            key_usages = kwargs['keyUsages']
+        if 'validityInMonths' in kwargs:
+            validity_in_months = kwargs['validityInMonths']
+        if 'extendedKeyUsages' in kwargs:
+            extended_key_usages = kwargs['extendedKeyUsages']
+        if 'subjectAlternativeNames' in kwargs:
+            subject_alternative_names = kwargs['subjectAlternativeNames']
+
         _setter("key_usages", key_usages)
         _setter("subject", subject)
         _setter("validity_in_months", validity_in_months)
@@ -801,7 +857,11 @@ class CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeName
              dns_names: Optional[Sequence[str]] = None,
              emails: Optional[Sequence[str]] = None,
              upns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsNames' in kwargs:
+            dns_names = kwargs['dnsNames']
+
         if dns_names is not None:
             _setter("dns_names", dns_names)
         if emails is not None:
@@ -862,7 +922,9 @@ class CertificateCertificate(dict):
              _setter: Callable[[Any, Any], None],
              contents: str,
              password: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("contents", contents)
         if password is not None:
             _setter("password", password)
@@ -947,7 +1009,13 @@ class CertificateCertificateAttribute(dict):
              not_before: Optional[str] = None,
              recovery_level: Optional[str] = None,
              updated: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'notBefore' in kwargs:
+            not_before = kwargs['notBefore']
+        if 'recoveryLevel' in kwargs:
+            recovery_level = kwargs['recoveryLevel']
+
         if created is not None:
             _setter("created", created)
         if enabled is not None:
@@ -1066,7 +1134,19 @@ class CertificateCertificatePolicy(dict):
              secret_properties: 'outputs.CertificateCertificatePolicySecretProperties',
              lifetime_actions: Optional[Sequence['outputs.CertificateCertificatePolicyLifetimeAction']] = None,
              x509_certificate_properties: Optional['outputs.CertificateCertificatePolicyX509CertificateProperties'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'issuerParameters' in kwargs:
+            issuer_parameters = kwargs['issuerParameters']
+        if 'keyProperties' in kwargs:
+            key_properties = kwargs['keyProperties']
+        if 'secretProperties' in kwargs:
+            secret_properties = kwargs['secretProperties']
+        if 'lifetimeActions' in kwargs:
+            lifetime_actions = kwargs['lifetimeActions']
+        if 'x509CertificateProperties' in kwargs:
+            x509_certificate_properties = kwargs['x509CertificateProperties']
+
         _setter("issuer_parameters", issuer_parameters)
         _setter("key_properties", key_properties)
         _setter("secret_properties", secret_properties)
@@ -1131,7 +1211,9 @@ class CertificateCertificatePolicyIssuerParameters(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
 
     @property
@@ -1195,7 +1277,15 @@ class CertificateCertificatePolicyKeyProperties(dict):
              reuse_key: bool,
              curve: Optional[str] = None,
              key_size: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyType' in kwargs:
+            key_type = kwargs['keyType']
+        if 'reuseKey' in kwargs:
+            reuse_key = kwargs['reuseKey']
+        if 'keySize' in kwargs:
+            key_size = kwargs['keySize']
+
         _setter("exportable", exportable)
         _setter("key_type", key_type)
         _setter("reuse_key", reuse_key)
@@ -1264,7 +1354,9 @@ class CertificateCertificatePolicyLifetimeAction(dict):
              _setter: Callable[[Any, Any], None],
              action: 'outputs.CertificateCertificatePolicyLifetimeActionAction',
              trigger: 'outputs.CertificateCertificatePolicyLifetimeActionTrigger',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("action", action)
         _setter("trigger", trigger)
 
@@ -1317,7 +1409,11 @@ class CertificateCertificatePolicyLifetimeActionAction(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              action_type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionType' in kwargs:
+            action_type = kwargs['actionType']
+
         _setter("action_type", action_type)
 
     @property
@@ -1367,7 +1463,13 @@ class CertificateCertificatePolicyLifetimeActionTrigger(dict):
              _setter: Callable[[Any, Any], None],
              days_before_expiry: Optional[int] = None,
              lifetime_percentage: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'daysBeforeExpiry' in kwargs:
+            days_before_expiry = kwargs['daysBeforeExpiry']
+        if 'lifetimePercentage' in kwargs:
+            lifetime_percentage = kwargs['lifetimePercentage']
+
         if days_before_expiry is not None:
             _setter("days_before_expiry", days_before_expiry)
         if lifetime_percentage is not None:
@@ -1422,7 +1524,11 @@ class CertificateCertificatePolicySecretProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              content_type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+
         _setter("content_type", content_type)
 
     @property
@@ -1488,7 +1594,17 @@ class CertificateCertificatePolicyX509CertificateProperties(dict):
              validity_in_months: int,
              extended_key_usages: Optional[Sequence[str]] = None,
              subject_alternative_names: Optional['outputs.CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyUsages' in kwargs:
+            key_usages = kwargs['keyUsages']
+        if 'validityInMonths' in kwargs:
+            validity_in_months = kwargs['validityInMonths']
+        if 'extendedKeyUsages' in kwargs:
+            extended_key_usages = kwargs['extendedKeyUsages']
+        if 'subjectAlternativeNames' in kwargs:
+            subject_alternative_names = kwargs['subjectAlternativeNames']
+
         _setter("key_usages", key_usages)
         _setter("subject", subject)
         _setter("validity_in_months", validity_in_months)
@@ -1578,7 +1694,11 @@ class CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNam
              dns_names: Optional[Sequence[str]] = None,
              emails: Optional[Sequence[str]] = None,
              upns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsNames' in kwargs:
+            dns_names = kwargs['dnsNames']
+
         if dns_names is not None:
             _setter("dns_names", dns_names)
         if emails is not None:
@@ -1634,7 +1754,9 @@ class CertificateContactsContact(dict):
              email: str,
              name: Optional[str] = None,
              phone: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("email", email)
         if name is not None:
             _setter("name", name)
@@ -1714,7 +1836,15 @@ class CertificateIssuerAdmin(dict):
              first_name: Optional[str] = None,
              last_name: Optional[str] = None,
              phone: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'emailAddress' in kwargs:
+            email_address = kwargs['emailAddress']
+        if 'firstName' in kwargs:
+            first_name = kwargs['firstName']
+        if 'lastName' in kwargs:
+            last_name = kwargs['lastName']
+
         _setter("email_address", email_address)
         if first_name is not None:
             _setter("first_name", first_name)
@@ -1798,7 +1928,13 @@ class KeyRotationPolicy(dict):
              automatic: Optional['outputs.KeyRotationPolicyAutomatic'] = None,
              expire_after: Optional[str] = None,
              notify_before_expiry: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expireAfter' in kwargs:
+            expire_after = kwargs['expireAfter']
+        if 'notifyBeforeExpiry' in kwargs:
+            notify_before_expiry = kwargs['notifyBeforeExpiry']
+
         if automatic is not None:
             _setter("automatic", automatic)
         if expire_after is not None:
@@ -1869,7 +2005,13 @@ class KeyRotationPolicyAutomatic(dict):
              _setter: Callable[[Any, Any], None],
              time_after_creation: Optional[str] = None,
              time_before_expiry: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'timeAfterCreation' in kwargs:
+            time_after_creation = kwargs['timeAfterCreation']
+        if 'timeBeforeExpiry' in kwargs:
+            time_before_expiry = kwargs['timeBeforeExpiry']
+
         if time_after_creation is not None:
             _setter("time_after_creation", time_after_creation)
         if time_before_expiry is not None:
@@ -1960,7 +2102,23 @@ class KeyVaultAccessPolicy(dict):
              key_permissions: Optional[Sequence[str]] = None,
              secret_permissions: Optional[Sequence[str]] = None,
              storage_permissions: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if 'certificatePermissions' in kwargs:
+            certificate_permissions = kwargs['certificatePermissions']
+        if 'keyPermissions' in kwargs:
+            key_permissions = kwargs['keyPermissions']
+        if 'secretPermissions' in kwargs:
+            secret_permissions = kwargs['secretPermissions']
+        if 'storagePermissions' in kwargs:
+            storage_permissions = kwargs['storagePermissions']
+
         _setter("object_id", object_id)
         _setter("tenant_id", tenant_id)
         if application_id is not None:
@@ -2054,7 +2212,9 @@ class KeyVaultContact(dict):
              email: str,
              name: Optional[str] = None,
              phone: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("email", email)
         if name is not None:
             _setter("name", name)
@@ -2134,7 +2294,15 @@ class KeyVaultNetworkAcls(dict):
              default_action: str,
              ip_rules: Optional[Sequence[str]] = None,
              virtual_network_subnet_ids: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if 'ipRules' in kwargs:
+            ip_rules = kwargs['ipRules']
+        if 'virtualNetworkSubnetIds' in kwargs:
+            virtual_network_subnet_ids = kwargs['virtualNetworkSubnetIds']
+
         _setter("bypass", bypass)
         _setter("default_action", default_action)
         if ip_rules is not None:
@@ -2211,7 +2379,11 @@ class ManagedHardwareSecurityModuleNetworkAcls(dict):
              _setter: Callable[[Any, Any], None],
              bypass: str,
              default_action: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+
         _setter("bypass", bypass)
         _setter("default_action", default_action)
 
@@ -2263,7 +2435,19 @@ class GetCertificateCertificatePolicyResult(dict):
              lifetime_actions: Sequence['outputs.GetCertificateCertificatePolicyLifetimeActionResult'],
              secret_properties: Sequence['outputs.GetCertificateCertificatePolicySecretPropertyResult'],
              x509_certificate_properties: Sequence['outputs.GetCertificateCertificatePolicyX509CertificatePropertyResult'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'issuerParameters' in kwargs:
+            issuer_parameters = kwargs['issuerParameters']
+        if 'keyProperties' in kwargs:
+            key_properties = kwargs['keyProperties']
+        if 'lifetimeActions' in kwargs:
+            lifetime_actions = kwargs['lifetimeActions']
+        if 'secretProperties' in kwargs:
+            secret_properties = kwargs['secretProperties']
+        if 'x509CertificateProperties' in kwargs:
+            x509_certificate_properties = kwargs['x509CertificateProperties']
+
         _setter("issuer_parameters", issuer_parameters)
         _setter("key_properties", key_properties)
         _setter("lifetime_actions", lifetime_actions)
@@ -2326,7 +2510,9 @@ class GetCertificateCertificatePolicyIssuerParameterResult(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
 
     @property
@@ -2368,7 +2554,15 @@ class GetCertificateCertificatePolicyKeyPropertyResult(dict):
              key_size: int,
              key_type: str,
              reuse_key: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keySize' in kwargs:
+            key_size = kwargs['keySize']
+        if 'keyType' in kwargs:
+            key_type = kwargs['keyType']
+        if 'reuseKey' in kwargs:
+            reuse_key = kwargs['reuseKey']
+
         _setter("curve", curve)
         _setter("exportable", exportable)
         _setter("key_size", key_size)
@@ -2432,7 +2626,9 @@ class GetCertificateCertificatePolicyLifetimeActionResult(dict):
              _setter: Callable[[Any, Any], None],
              actions: Sequence['outputs.GetCertificateCertificatePolicyLifetimeActionActionResult'],
              triggers: Sequence['outputs.GetCertificateCertificatePolicyLifetimeActionTriggerResult'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("actions", actions)
         _setter("triggers", triggers)
 
@@ -2468,7 +2664,11 @@ class GetCertificateCertificatePolicyLifetimeActionActionResult(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              action_type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionType' in kwargs:
+            action_type = kwargs['actionType']
+
         _setter("action_type", action_type)
 
     @property
@@ -2499,7 +2699,13 @@ class GetCertificateCertificatePolicyLifetimeActionTriggerResult(dict):
              _setter: Callable[[Any, Any], None],
              days_before_expiry: int,
              lifetime_percentage: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'daysBeforeExpiry' in kwargs:
+            days_before_expiry = kwargs['daysBeforeExpiry']
+        if 'lifetimePercentage' in kwargs:
+            lifetime_percentage = kwargs['lifetimePercentage']
+
         _setter("days_before_expiry", days_before_expiry)
         _setter("lifetime_percentage", lifetime_percentage)
 
@@ -2535,7 +2741,11 @@ class GetCertificateCertificatePolicySecretPropertyResult(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              content_type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+
         _setter("content_type", content_type)
 
     @property
@@ -2578,7 +2788,17 @@ class GetCertificateCertificatePolicyX509CertificatePropertyResult(dict):
              subject: str,
              subject_alternative_names: Sequence['outputs.GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameResult'],
              validity_in_months: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'extendedKeyUsages' in kwargs:
+            extended_key_usages = kwargs['extendedKeyUsages']
+        if 'keyUsages' in kwargs:
+            key_usages = kwargs['keyUsages']
+        if 'subjectAlternativeNames' in kwargs:
+            subject_alternative_names = kwargs['subjectAlternativeNames']
+        if 'validityInMonths' in kwargs:
+            validity_in_months = kwargs['validityInMonths']
+
         _setter("extended_key_usages", extended_key_usages)
         _setter("key_usages", key_usages)
         _setter("subject", subject)
@@ -2649,7 +2869,11 @@ class GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNa
              dns_names: Sequence[str],
              emails: Sequence[str],
              upns: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsNames' in kwargs:
+            dns_names = kwargs['dnsNames']
+
         _setter("dns_names", dns_names)
         _setter("emails", emails)
         _setter("upns", upns)
@@ -2706,7 +2930,15 @@ class GetCertificateIssuerAdminResult(dict):
              first_name: str,
              last_name: str,
              phone: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'emailAddress' in kwargs:
+            email_address = kwargs['emailAddress']
+        if 'firstName' in kwargs:
+            first_name = kwargs['firstName']
+        if 'lastName' in kwargs:
+            last_name = kwargs['lastName']
+
         _setter("email_address", email_address)
         _setter("first_name", first_name)
         _setter("last_name", last_name)
@@ -2767,7 +2999,9 @@ class GetCertificatesCertificateResult(dict):
              enabled: bool,
              id: str,
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("id", id)
         _setter("name", name)
@@ -2833,7 +3067,23 @@ class GetKeyVaultAccessPolicyResult(dict):
              secret_permissions: Sequence[str],
              storage_permissions: Sequence[str],
              tenant_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if 'certificatePermissions' in kwargs:
+            certificate_permissions = kwargs['certificatePermissions']
+        if 'keyPermissions' in kwargs:
+            key_permissions = kwargs['keyPermissions']
+        if 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if 'secretPermissions' in kwargs:
+            secret_permissions = kwargs['secretPermissions']
+        if 'storagePermissions' in kwargs:
+            storage_permissions = kwargs['storagePermissions']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("application_id", application_id)
         _setter("certificate_permissions", certificate_permissions)
         _setter("key_permissions", key_permissions)
@@ -2920,7 +3170,15 @@ class GetKeyVaultNetworkAclResult(dict):
              default_action: str,
              ip_rules: Sequence[str],
              virtual_network_subnet_ids: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if 'ipRules' in kwargs:
+            ip_rules = kwargs['ipRules']
+        if 'virtualNetworkSubnetIds' in kwargs:
+            virtual_network_subnet_ids = kwargs['virtualNetworkSubnetIds']
+
         _setter("bypass", bypass)
         _setter("default_action", default_action)
         _setter("ip_rules", ip_rules)
@@ -2970,7 +3228,9 @@ class GetSecretsSecretResult(dict):
              enabled: bool,
              id: str,
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("id", id)
         _setter("name", name)

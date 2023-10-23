@@ -127,7 +127,9 @@ class ApiContactArgs:
              email: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if email is not None:
             _setter("email", email)
         if name is not None:
@@ -195,7 +197,15 @@ class ApiDiagnosticBackendRequestArgs:
              body_bytes: Optional[pulumi.Input[int]] = None,
              data_masking: Optional[pulumi.Input['ApiDiagnosticBackendRequestDataMaskingArgs']] = None,
              headers_to_logs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bodyBytes' in kwargs:
+            body_bytes = kwargs['bodyBytes']
+        if 'dataMasking' in kwargs:
+            data_masking = kwargs['dataMasking']
+        if 'headersToLogs' in kwargs:
+            headers_to_logs = kwargs['headersToLogs']
+
         if body_bytes is not None:
             _setter("body_bytes", body_bytes)
         if data_masking is not None:
@@ -259,7 +269,11 @@ class ApiDiagnosticBackendRequestDataMaskingArgs:
              _setter: Callable[[Any, Any], None],
              headers: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendRequestDataMaskingHeaderArgs']]]] = None,
              query_params: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendRequestDataMaskingQueryParamArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'queryParams' in kwargs:
+            query_params = kwargs['queryParams']
+
         if headers is not None:
             _setter("headers", headers)
         if query_params is not None:
@@ -309,7 +323,9 @@ class ApiDiagnosticBackendRequestDataMaskingHeaderArgs:
              _setter: Callable[[Any, Any], None],
              mode: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("mode", mode)
         _setter("value", value)
 
@@ -357,7 +373,9 @@ class ApiDiagnosticBackendRequestDataMaskingQueryParamArgs:
              _setter: Callable[[Any, Any], None],
              mode: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("mode", mode)
         _setter("value", value)
 
@@ -409,7 +427,15 @@ class ApiDiagnosticBackendResponseArgs:
              body_bytes: Optional[pulumi.Input[int]] = None,
              data_masking: Optional[pulumi.Input['ApiDiagnosticBackendResponseDataMaskingArgs']] = None,
              headers_to_logs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bodyBytes' in kwargs:
+            body_bytes = kwargs['bodyBytes']
+        if 'dataMasking' in kwargs:
+            data_masking = kwargs['dataMasking']
+        if 'headersToLogs' in kwargs:
+            headers_to_logs = kwargs['headersToLogs']
+
         if body_bytes is not None:
             _setter("body_bytes", body_bytes)
         if data_masking is not None:
@@ -473,7 +499,11 @@ class ApiDiagnosticBackendResponseDataMaskingArgs:
              _setter: Callable[[Any, Any], None],
              headers: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendResponseDataMaskingHeaderArgs']]]] = None,
              query_params: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendResponseDataMaskingQueryParamArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'queryParams' in kwargs:
+            query_params = kwargs['queryParams']
+
         if headers is not None:
             _setter("headers", headers)
         if query_params is not None:
@@ -523,7 +553,9 @@ class ApiDiagnosticBackendResponseDataMaskingHeaderArgs:
              _setter: Callable[[Any, Any], None],
              mode: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("mode", mode)
         _setter("value", value)
 
@@ -571,7 +603,9 @@ class ApiDiagnosticBackendResponseDataMaskingQueryParamArgs:
              _setter: Callable[[Any, Any], None],
              mode: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("mode", mode)
         _setter("value", value)
 
@@ -623,7 +657,15 @@ class ApiDiagnosticFrontendRequestArgs:
              body_bytes: Optional[pulumi.Input[int]] = None,
              data_masking: Optional[pulumi.Input['ApiDiagnosticFrontendRequestDataMaskingArgs']] = None,
              headers_to_logs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bodyBytes' in kwargs:
+            body_bytes = kwargs['bodyBytes']
+        if 'dataMasking' in kwargs:
+            data_masking = kwargs['dataMasking']
+        if 'headersToLogs' in kwargs:
+            headers_to_logs = kwargs['headersToLogs']
+
         if body_bytes is not None:
             _setter("body_bytes", body_bytes)
         if data_masking is not None:
@@ -687,7 +729,11 @@ class ApiDiagnosticFrontendRequestDataMaskingArgs:
              _setter: Callable[[Any, Any], None],
              headers: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendRequestDataMaskingHeaderArgs']]]] = None,
              query_params: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendRequestDataMaskingQueryParamArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'queryParams' in kwargs:
+            query_params = kwargs['queryParams']
+
         if headers is not None:
             _setter("headers", headers)
         if query_params is not None:
@@ -737,7 +783,9 @@ class ApiDiagnosticFrontendRequestDataMaskingHeaderArgs:
              _setter: Callable[[Any, Any], None],
              mode: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("mode", mode)
         _setter("value", value)
 
@@ -785,7 +833,9 @@ class ApiDiagnosticFrontendRequestDataMaskingQueryParamArgs:
              _setter: Callable[[Any, Any], None],
              mode: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("mode", mode)
         _setter("value", value)
 
@@ -837,7 +887,15 @@ class ApiDiagnosticFrontendResponseArgs:
              body_bytes: Optional[pulumi.Input[int]] = None,
              data_masking: Optional[pulumi.Input['ApiDiagnosticFrontendResponseDataMaskingArgs']] = None,
              headers_to_logs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bodyBytes' in kwargs:
+            body_bytes = kwargs['bodyBytes']
+        if 'dataMasking' in kwargs:
+            data_masking = kwargs['dataMasking']
+        if 'headersToLogs' in kwargs:
+            headers_to_logs = kwargs['headersToLogs']
+
         if body_bytes is not None:
             _setter("body_bytes", body_bytes)
         if data_masking is not None:
@@ -901,7 +959,11 @@ class ApiDiagnosticFrontendResponseDataMaskingArgs:
              _setter: Callable[[Any, Any], None],
              headers: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendResponseDataMaskingHeaderArgs']]]] = None,
              query_params: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendResponseDataMaskingQueryParamArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'queryParams' in kwargs:
+            query_params = kwargs['queryParams']
+
         if headers is not None:
             _setter("headers", headers)
         if query_params is not None:
@@ -951,7 +1013,9 @@ class ApiDiagnosticFrontendResponseDataMaskingHeaderArgs:
              _setter: Callable[[Any, Any], None],
              mode: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("mode", mode)
         _setter("value", value)
 
@@ -999,7 +1063,9 @@ class ApiDiagnosticFrontendResponseDataMaskingQueryParamArgs:
              _setter: Callable[[Any, Any], None],
              mode: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("mode", mode)
         _setter("value", value)
 
@@ -1051,7 +1117,15 @@ class ApiImportArgs:
              content_format: pulumi.Input[str],
              content_value: pulumi.Input[str],
              wsdl_selector: Optional[pulumi.Input['ApiImportWsdlSelectorArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contentFormat' in kwargs:
+            content_format = kwargs['contentFormat']
+        if 'contentValue' in kwargs:
+            content_value = kwargs['contentValue']
+        if 'wsdlSelector' in kwargs:
+            wsdl_selector = kwargs['wsdlSelector']
+
         _setter("content_format", content_format)
         _setter("content_value", content_value)
         if wsdl_selector is not None:
@@ -1113,7 +1187,13 @@ class ApiImportWsdlSelectorArgs:
              _setter: Callable[[Any, Any], None],
              endpoint_name: pulumi.Input[str],
              service_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endpointName' in kwargs:
+            endpoint_name = kwargs['endpointName']
+        if 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+
         _setter("endpoint_name", endpoint_name)
         _setter("service_name", service_name)
 
@@ -1161,7 +1241,9 @@ class ApiLicenseArgs:
              _setter: Callable[[Any, Any], None],
              name: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if url is not None:
@@ -1211,7 +1293,11 @@ class ApiOauth2AuthorizationArgs:
              _setter: Callable[[Any, Any], None],
              authorization_server_name: pulumi.Input[str],
              scope: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authorizationServerName' in kwargs:
+            authorization_server_name = kwargs['authorizationServerName']
+
         _setter("authorization_server_name", authorization_server_name)
         if scope is not None:
             _setter("scope", scope)
@@ -1260,7 +1346,13 @@ class ApiOpenidAuthenticationArgs:
              _setter: Callable[[Any, Any], None],
              openid_provider_name: pulumi.Input[str],
              bearer_token_sending_methods: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'openidProviderName' in kwargs:
+            openid_provider_name = kwargs['openidProviderName']
+        if 'bearerTokenSendingMethods' in kwargs:
+            bearer_token_sending_methods = kwargs['bearerTokenSendingMethods']
+
         _setter("openid_provider_name", openid_provider_name)
         if bearer_token_sending_methods is not None:
             _setter("bearer_token_sending_methods", bearer_token_sending_methods)
@@ -1317,7 +1409,11 @@ class ApiOperationRequestArgs:
              headers: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestHeaderArgs']]]] = None,
              query_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestQueryParameterArgs']]]] = None,
              representations: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestRepresentationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'queryParameters' in kwargs:
+            query_parameters = kwargs['queryParameters']
+
         if description is not None:
             _setter("description", description)
         if headers is not None:
@@ -1423,7 +1519,15 @@ class ApiOperationRequestHeaderArgs:
              schema_id: Optional[pulumi.Input[str]] = None,
              type_name: Optional[pulumi.Input[str]] = None,
              values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultValue' in kwargs:
+            default_value = kwargs['defaultValue']
+        if 'schemaId' in kwargs:
+            schema_id = kwargs['schemaId']
+        if 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+
         _setter("name", name)
         _setter("required", required)
         _setter("type", type)
@@ -1580,7 +1684,11 @@ class ApiOperationRequestHeaderExampleArgs:
              external_value: Optional[pulumi.Input[str]] = None,
              summary: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'externalValue' in kwargs:
+            external_value = kwargs['externalValue']
+
         _setter("name", name)
         if description is not None:
             _setter("description", description)
@@ -1699,7 +1807,15 @@ class ApiOperationRequestQueryParameterArgs:
              schema_id: Optional[pulumi.Input[str]] = None,
              type_name: Optional[pulumi.Input[str]] = None,
              values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultValue' in kwargs:
+            default_value = kwargs['defaultValue']
+        if 'schemaId' in kwargs:
+            schema_id = kwargs['schemaId']
+        if 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+
         _setter("name", name)
         _setter("required", required)
         _setter("type", type)
@@ -1856,7 +1972,11 @@ class ApiOperationRequestQueryParameterExampleArgs:
              external_value: Optional[pulumi.Input[str]] = None,
              summary: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'externalValue' in kwargs:
+            external_value = kwargs['externalValue']
+
         _setter("name", name)
         if description is not None:
             _setter("description", description)
@@ -1965,7 +2085,17 @@ class ApiOperationRequestRepresentationArgs:
              form_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestRepresentationFormParameterArgs']]]] = None,
              schema_id: Optional[pulumi.Input[str]] = None,
              type_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if 'formParameters' in kwargs:
+            form_parameters = kwargs['formParameters']
+        if 'schemaId' in kwargs:
+            schema_id = kwargs['schemaId']
+        if 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+
         _setter("content_type", content_type)
         if examples is not None:
             _setter("examples", examples)
@@ -2074,7 +2204,11 @@ class ApiOperationRequestRepresentationExampleArgs:
              external_value: Optional[pulumi.Input[str]] = None,
              summary: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'externalValue' in kwargs:
+            external_value = kwargs['externalValue']
+
         _setter("name", name)
         if description is not None:
             _setter("description", description)
@@ -2193,7 +2327,15 @@ class ApiOperationRequestRepresentationFormParameterArgs:
              schema_id: Optional[pulumi.Input[str]] = None,
              type_name: Optional[pulumi.Input[str]] = None,
              values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultValue' in kwargs:
+            default_value = kwargs['defaultValue']
+        if 'schemaId' in kwargs:
+            schema_id = kwargs['schemaId']
+        if 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+
         _setter("name", name)
         _setter("required", required)
         _setter("type", type)
@@ -2350,7 +2492,11 @@ class ApiOperationRequestRepresentationFormParameterExampleArgs:
              external_value: Optional[pulumi.Input[str]] = None,
              summary: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'externalValue' in kwargs:
+            external_value = kwargs['externalValue']
+
         _setter("name", name)
         if description is not None:
             _setter("description", description)
@@ -2449,7 +2595,11 @@ class ApiOperationResponseArgs:
              description: Optional[pulumi.Input[str]] = None,
              headers: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseHeaderArgs']]]] = None,
              representations: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseRepresentationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'statusCode' in kwargs:
+            status_code = kwargs['statusCode']
+
         _setter("status_code", status_code)
         if description is not None:
             _setter("description", description)
@@ -2554,7 +2704,15 @@ class ApiOperationResponseHeaderArgs:
              schema_id: Optional[pulumi.Input[str]] = None,
              type_name: Optional[pulumi.Input[str]] = None,
              values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultValue' in kwargs:
+            default_value = kwargs['defaultValue']
+        if 'schemaId' in kwargs:
+            schema_id = kwargs['schemaId']
+        if 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+
         _setter("name", name)
         _setter("required", required)
         _setter("type", type)
@@ -2711,7 +2869,11 @@ class ApiOperationResponseHeaderExampleArgs:
              external_value: Optional[pulumi.Input[str]] = None,
              summary: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'externalValue' in kwargs:
+            external_value = kwargs['externalValue']
+
         _setter("name", name)
         if description is not None:
             _setter("description", description)
@@ -2820,7 +2982,17 @@ class ApiOperationResponseRepresentationArgs:
              form_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseRepresentationFormParameterArgs']]]] = None,
              schema_id: Optional[pulumi.Input[str]] = None,
              type_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if 'formParameters' in kwargs:
+            form_parameters = kwargs['formParameters']
+        if 'schemaId' in kwargs:
+            schema_id = kwargs['schemaId']
+        if 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+
         _setter("content_type", content_type)
         if examples is not None:
             _setter("examples", examples)
@@ -2929,7 +3101,11 @@ class ApiOperationResponseRepresentationExampleArgs:
              external_value: Optional[pulumi.Input[str]] = None,
              summary: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'externalValue' in kwargs:
+            external_value = kwargs['externalValue']
+
         _setter("name", name)
         if description is not None:
             _setter("description", description)
@@ -3048,7 +3224,15 @@ class ApiOperationResponseRepresentationFormParameterArgs:
              schema_id: Optional[pulumi.Input[str]] = None,
              type_name: Optional[pulumi.Input[str]] = None,
              values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultValue' in kwargs:
+            default_value = kwargs['defaultValue']
+        if 'schemaId' in kwargs:
+            schema_id = kwargs['schemaId']
+        if 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+
         _setter("name", name)
         _setter("required", required)
         _setter("type", type)
@@ -3205,7 +3389,11 @@ class ApiOperationResponseRepresentationFormParameterExampleArgs:
              external_value: Optional[pulumi.Input[str]] = None,
              summary: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'externalValue' in kwargs:
+            external_value = kwargs['externalValue']
+
         _setter("name", name)
         if description is not None:
             _setter("description", description)
@@ -3324,7 +3512,15 @@ class ApiOperationTemplateParameterArgs:
              schema_id: Optional[pulumi.Input[str]] = None,
              type_name: Optional[pulumi.Input[str]] = None,
              values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultValue' in kwargs:
+            default_value = kwargs['defaultValue']
+        if 'schemaId' in kwargs:
+            schema_id = kwargs['schemaId']
+        if 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+
         _setter("name", name)
         _setter("required", required)
         _setter("type", type)
@@ -3481,7 +3677,11 @@ class ApiOperationTemplateParameterExampleArgs:
              external_value: Optional[pulumi.Input[str]] = None,
              summary: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'externalValue' in kwargs:
+            external_value = kwargs['externalValue']
+
         _setter("name", name)
         if description is not None:
             _setter("description", description)
@@ -3572,7 +3772,9 @@ class ApiSubscriptionKeyParameterNamesArgs:
              _setter: Callable[[Any, Any], None],
              header: pulumi.Input[str],
              query: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("header", header)
         _setter("query", query)
 
@@ -3620,7 +3822,9 @@ class AuthorizationServerTokenBodyParameterArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -3676,7 +3880,9 @@ class BackendCredentialsArgs:
              certificates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              header: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              query: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if authorization is not None:
             _setter("authorization", authorization)
         if certificates is not None:
@@ -3754,7 +3960,9 @@ class BackendCredentialsAuthorizationArgs:
              _setter: Callable[[Any, Any], None],
              parameter: Optional[pulumi.Input[str]] = None,
              scheme: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if parameter is not None:
             _setter("parameter", parameter)
         if scheme is not None:
@@ -3808,7 +4016,9 @@ class BackendProxyArgs:
              url: pulumi.Input[str],
              username: pulumi.Input[str],
              password: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("url", url)
         _setter("username", username)
         if password is not None:
@@ -3889,7 +4099,21 @@ class BackendServiceFabricClusterArgs:
              client_certificate_thumbprint: Optional[pulumi.Input[str]] = None,
              server_certificate_thumbprints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              server_x509_names: Optional[pulumi.Input[Sequence[pulumi.Input['BackendServiceFabricClusterServerX509NameArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'managementEndpoints' in kwargs:
+            management_endpoints = kwargs['managementEndpoints']
+        if 'maxPartitionResolutionRetries' in kwargs:
+            max_partition_resolution_retries = kwargs['maxPartitionResolutionRetries']
+        if 'clientCertificateId' in kwargs:
+            client_certificate_id = kwargs['clientCertificateId']
+        if 'clientCertificateThumbprint' in kwargs:
+            client_certificate_thumbprint = kwargs['clientCertificateThumbprint']
+        if 'serverCertificateThumbprints' in kwargs:
+            server_certificate_thumbprints = kwargs['serverCertificateThumbprints']
+        if 'serverX509Names' in kwargs:
+            server_x509_names = kwargs['serverX509Names']
+
         _setter("management_endpoints", management_endpoints)
         _setter("max_partition_resolution_retries", max_partition_resolution_retries)
         if client_certificate_id is not None:
@@ -3996,7 +4220,11 @@ class BackendServiceFabricClusterServerX509NameArgs:
              _setter: Callable[[Any, Any], None],
              issuer_certificate_thumbprint: pulumi.Input[str],
              name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'issuerCertificateThumbprint' in kwargs:
+            issuer_certificate_thumbprint = kwargs['issuerCertificateThumbprint']
+
         _setter("issuer_certificate_thumbprint", issuer_certificate_thumbprint)
         _setter("name", name)
 
@@ -4044,7 +4272,13 @@ class BackendTlsArgs:
              _setter: Callable[[Any, Any], None],
              validate_certificate_chain: Optional[pulumi.Input[bool]] = None,
              validate_certificate_name: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'validateCertificateChain' in kwargs:
+            validate_certificate_chain = kwargs['validateCertificateChain']
+        if 'validateCertificateName' in kwargs:
+            validate_certificate_name = kwargs['validateCertificateName']
+
         if validate_certificate_chain is not None:
             _setter("validate_certificate_chain", validate_certificate_chain)
         if validate_certificate_name is not None:
@@ -4127,7 +4361,23 @@ class CustomDomainDeveloperPortalArgs:
              ssl_keyvault_identity_client_id: Optional[pulumi.Input[str]] = None,
              subject: Optional[pulumi.Input[str]] = None,
              thumbprint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hostName' in kwargs:
+            host_name = kwargs['hostName']
+        if 'certificatePassword' in kwargs:
+            certificate_password = kwargs['certificatePassword']
+        if 'certificateSource' in kwargs:
+            certificate_source = kwargs['certificateSource']
+        if 'certificateStatus' in kwargs:
+            certificate_status = kwargs['certificateStatus']
+        if 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if 'negotiateClientCertificate' in kwargs:
+            negotiate_client_certificate = kwargs['negotiateClientCertificate']
+        if 'sslKeyvaultIdentityClientId' in kwargs:
+            ssl_keyvault_identity_client_id = kwargs['sslKeyvaultIdentityClientId']
+
         _setter("host_name", host_name)
         if certificate is not None:
             _setter("certificate", certificate)
@@ -4326,7 +4576,25 @@ class CustomDomainGatewayArgs:
              ssl_keyvault_identity_client_id: Optional[pulumi.Input[str]] = None,
              subject: Optional[pulumi.Input[str]] = None,
              thumbprint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hostName' in kwargs:
+            host_name = kwargs['hostName']
+        if 'certificatePassword' in kwargs:
+            certificate_password = kwargs['certificatePassword']
+        if 'certificateSource' in kwargs:
+            certificate_source = kwargs['certificateSource']
+        if 'certificateStatus' in kwargs:
+            certificate_status = kwargs['certificateStatus']
+        if 'defaultSslBinding' in kwargs:
+            default_ssl_binding = kwargs['defaultSslBinding']
+        if 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if 'negotiateClientCertificate' in kwargs:
+            negotiate_client_certificate = kwargs['negotiateClientCertificate']
+        if 'sslKeyvaultIdentityClientId' in kwargs:
+            ssl_keyvault_identity_client_id = kwargs['sslKeyvaultIdentityClientId']
+
         _setter("host_name", host_name)
         if certificate is not None:
             _setter("certificate", certificate)
@@ -4535,7 +4803,23 @@ class CustomDomainManagementArgs:
              ssl_keyvault_identity_client_id: Optional[pulumi.Input[str]] = None,
              subject: Optional[pulumi.Input[str]] = None,
              thumbprint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hostName' in kwargs:
+            host_name = kwargs['hostName']
+        if 'certificatePassword' in kwargs:
+            certificate_password = kwargs['certificatePassword']
+        if 'certificateSource' in kwargs:
+            certificate_source = kwargs['certificateSource']
+        if 'certificateStatus' in kwargs:
+            certificate_status = kwargs['certificateStatus']
+        if 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if 'negotiateClientCertificate' in kwargs:
+            negotiate_client_certificate = kwargs['negotiateClientCertificate']
+        if 'sslKeyvaultIdentityClientId' in kwargs:
+            ssl_keyvault_identity_client_id = kwargs['sslKeyvaultIdentityClientId']
+
         _setter("host_name", host_name)
         if certificate is not None:
             _setter("certificate", certificate)
@@ -4730,7 +5014,23 @@ class CustomDomainPortalArgs:
              ssl_keyvault_identity_client_id: Optional[pulumi.Input[str]] = None,
              subject: Optional[pulumi.Input[str]] = None,
              thumbprint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hostName' in kwargs:
+            host_name = kwargs['hostName']
+        if 'certificatePassword' in kwargs:
+            certificate_password = kwargs['certificatePassword']
+        if 'certificateSource' in kwargs:
+            certificate_source = kwargs['certificateSource']
+        if 'certificateStatus' in kwargs:
+            certificate_status = kwargs['certificateStatus']
+        if 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if 'negotiateClientCertificate' in kwargs:
+            negotiate_client_certificate = kwargs['negotiateClientCertificate']
+        if 'sslKeyvaultIdentityClientId' in kwargs:
+            ssl_keyvault_identity_client_id = kwargs['sslKeyvaultIdentityClientId']
+
         _setter("host_name", host_name)
         if certificate is not None:
             _setter("certificate", certificate)
@@ -4925,7 +5225,23 @@ class CustomDomainScmArgs:
              ssl_keyvault_identity_client_id: Optional[pulumi.Input[str]] = None,
              subject: Optional[pulumi.Input[str]] = None,
              thumbprint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hostName' in kwargs:
+            host_name = kwargs['hostName']
+        if 'certificatePassword' in kwargs:
+            certificate_password = kwargs['certificatePassword']
+        if 'certificateSource' in kwargs:
+            certificate_source = kwargs['certificateSource']
+        if 'certificateStatus' in kwargs:
+            certificate_status = kwargs['certificateStatus']
+        if 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if 'negotiateClientCertificate' in kwargs:
+            negotiate_client_certificate = kwargs['negotiateClientCertificate']
+        if 'sslKeyvaultIdentityClientId' in kwargs:
+            ssl_keyvault_identity_client_id = kwargs['sslKeyvaultIdentityClientId']
+
         _setter("host_name", host_name)
         if certificate is not None:
             _setter("certificate", certificate)
@@ -5091,7 +5407,15 @@ class DiagnosticBackendRequestArgs:
              body_bytes: Optional[pulumi.Input[int]] = None,
              data_masking: Optional[pulumi.Input['DiagnosticBackendRequestDataMaskingArgs']] = None,
              headers_to_logs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bodyBytes' in kwargs:
+            body_bytes = kwargs['bodyBytes']
+        if 'dataMasking' in kwargs:
+            data_masking = kwargs['dataMasking']
+        if 'headersToLogs' in kwargs:
+            headers_to_logs = kwargs['headersToLogs']
+
         if body_bytes is not None:
             _setter("body_bytes", body_bytes)
         if data_masking is not None:
@@ -5155,7 +5479,11 @@ class DiagnosticBackendRequestDataMaskingArgs:
              _setter: Callable[[Any, Any], None],
              headers: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticBackendRequestDataMaskingHeaderArgs']]]] = None,
              query_params: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticBackendRequestDataMaskingQueryParamArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'queryParams' in kwargs:
+            query_params = kwargs['queryParams']
+
         if headers is not None:
             _setter("headers", headers)
         if query_params is not None:
@@ -5205,7 +5533,9 @@ class DiagnosticBackendRequestDataMaskingHeaderArgs:
              _setter: Callable[[Any, Any], None],
              mode: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("mode", mode)
         _setter("value", value)
 
@@ -5253,7 +5583,9 @@ class DiagnosticBackendRequestDataMaskingQueryParamArgs:
              _setter: Callable[[Any, Any], None],
              mode: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("mode", mode)
         _setter("value", value)
 
@@ -5305,7 +5637,15 @@ class DiagnosticBackendResponseArgs:
              body_bytes: Optional[pulumi.Input[int]] = None,
              data_masking: Optional[pulumi.Input['DiagnosticBackendResponseDataMaskingArgs']] = None,
              headers_to_logs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bodyBytes' in kwargs:
+            body_bytes = kwargs['bodyBytes']
+        if 'dataMasking' in kwargs:
+            data_masking = kwargs['dataMasking']
+        if 'headersToLogs' in kwargs:
+            headers_to_logs = kwargs['headersToLogs']
+
         if body_bytes is not None:
             _setter("body_bytes", body_bytes)
         if data_masking is not None:
@@ -5369,7 +5709,11 @@ class DiagnosticBackendResponseDataMaskingArgs:
              _setter: Callable[[Any, Any], None],
              headers: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticBackendResponseDataMaskingHeaderArgs']]]] = None,
              query_params: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticBackendResponseDataMaskingQueryParamArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'queryParams' in kwargs:
+            query_params = kwargs['queryParams']
+
         if headers is not None:
             _setter("headers", headers)
         if query_params is not None:
@@ -5419,7 +5763,9 @@ class DiagnosticBackendResponseDataMaskingHeaderArgs:
              _setter: Callable[[Any, Any], None],
              mode: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("mode", mode)
         _setter("value", value)
 
@@ -5467,7 +5813,9 @@ class DiagnosticBackendResponseDataMaskingQueryParamArgs:
              _setter: Callable[[Any, Any], None],
              mode: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("mode", mode)
         _setter("value", value)
 
@@ -5519,7 +5867,15 @@ class DiagnosticFrontendRequestArgs:
              body_bytes: Optional[pulumi.Input[int]] = None,
              data_masking: Optional[pulumi.Input['DiagnosticFrontendRequestDataMaskingArgs']] = None,
              headers_to_logs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bodyBytes' in kwargs:
+            body_bytes = kwargs['bodyBytes']
+        if 'dataMasking' in kwargs:
+            data_masking = kwargs['dataMasking']
+        if 'headersToLogs' in kwargs:
+            headers_to_logs = kwargs['headersToLogs']
+
         if body_bytes is not None:
             _setter("body_bytes", body_bytes)
         if data_masking is not None:
@@ -5583,7 +5939,11 @@ class DiagnosticFrontendRequestDataMaskingArgs:
              _setter: Callable[[Any, Any], None],
              headers: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticFrontendRequestDataMaskingHeaderArgs']]]] = None,
              query_params: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticFrontendRequestDataMaskingQueryParamArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'queryParams' in kwargs:
+            query_params = kwargs['queryParams']
+
         if headers is not None:
             _setter("headers", headers)
         if query_params is not None:
@@ -5633,7 +5993,9 @@ class DiagnosticFrontendRequestDataMaskingHeaderArgs:
              _setter: Callable[[Any, Any], None],
              mode: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("mode", mode)
         _setter("value", value)
 
@@ -5681,7 +6043,9 @@ class DiagnosticFrontendRequestDataMaskingQueryParamArgs:
              _setter: Callable[[Any, Any], None],
              mode: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("mode", mode)
         _setter("value", value)
 
@@ -5733,7 +6097,15 @@ class DiagnosticFrontendResponseArgs:
              body_bytes: Optional[pulumi.Input[int]] = None,
              data_masking: Optional[pulumi.Input['DiagnosticFrontendResponseDataMaskingArgs']] = None,
              headers_to_logs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bodyBytes' in kwargs:
+            body_bytes = kwargs['bodyBytes']
+        if 'dataMasking' in kwargs:
+            data_masking = kwargs['dataMasking']
+        if 'headersToLogs' in kwargs:
+            headers_to_logs = kwargs['headersToLogs']
+
         if body_bytes is not None:
             _setter("body_bytes", body_bytes)
         if data_masking is not None:
@@ -5797,7 +6169,11 @@ class DiagnosticFrontendResponseDataMaskingArgs:
              _setter: Callable[[Any, Any], None],
              headers: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticFrontendResponseDataMaskingHeaderArgs']]]] = None,
              query_params: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticFrontendResponseDataMaskingQueryParamArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'queryParams' in kwargs:
+            query_params = kwargs['queryParams']
+
         if headers is not None:
             _setter("headers", headers)
         if query_params is not None:
@@ -5847,7 +6223,9 @@ class DiagnosticFrontendResponseDataMaskingHeaderArgs:
              _setter: Callable[[Any, Any], None],
              mode: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("mode", mode)
         _setter("value", value)
 
@@ -5895,7 +6273,9 @@ class DiagnosticFrontendResponseDataMaskingQueryParamArgs:
              _setter: Callable[[Any, Any], None],
              mode: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("mode", mode)
         _setter("value", value)
 
@@ -5951,7 +6331,9 @@ class GatewayLocationDataArgs:
              city: Optional[pulumi.Input[str]] = None,
              district: Optional[pulumi.Input[str]] = None,
              region: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if city is not None:
             _setter("city", city)
@@ -6024,7 +6406,11 @@ class LoggerApplicationInsightsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              instrumentation_key: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instrumentationKey' in kwargs:
+            instrumentation_key = kwargs['instrumentationKey']
+
         _setter("instrumentation_key", instrumentation_key)
 
     @property
@@ -6059,7 +6445,11 @@ class LoggerEventhubArgs:
              _setter: Callable[[Any, Any], None],
              connection_string: pulumi.Input[str],
              name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+
         _setter("connection_string", connection_string)
         _setter("name", name)
 
@@ -6107,7 +6497,13 @@ class NamedValueValueFromKeyVaultArgs:
              _setter: Callable[[Any, Any], None],
              secret_id: pulumi.Input[str],
              identity_client_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secretId' in kwargs:
+            secret_id = kwargs['secretId']
+        if 'identityClientId' in kwargs:
+            identity_client_id = kwargs['identityClientId']
+
         _setter("secret_id", secret_id)
         if identity_client_id is not None:
             _setter("identity_client_id", identity_client_id)
@@ -6186,7 +6582,21 @@ class ServiceAdditionalLocationArgs:
              public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              virtual_network_configuration: Optional[pulumi.Input['ServiceAdditionalLocationVirtualNetworkConfigurationArgs']] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'gatewayDisabled' in kwargs:
+            gateway_disabled = kwargs['gatewayDisabled']
+        if 'gatewayRegionalUrl' in kwargs:
+            gateway_regional_url = kwargs['gatewayRegionalUrl']
+        if 'privateIpAddresses' in kwargs:
+            private_ip_addresses = kwargs['privateIpAddresses']
+        if 'publicIpAddressId' in kwargs:
+            public_ip_address_id = kwargs['publicIpAddressId']
+        if 'publicIpAddresses' in kwargs:
+            public_ip_addresses = kwargs['publicIpAddresses']
+        if 'virtualNetworkConfiguration' in kwargs:
+            virtual_network_configuration = kwargs['virtualNetworkConfiguration']
+
         _setter("location", location)
         if capacity is not None:
             _setter("capacity", capacity)
@@ -6331,7 +6741,11 @@ class ServiceAdditionalLocationVirtualNetworkConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              subnet_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         _setter("subnet_id", subnet_id)
 
     @property
@@ -6382,7 +6796,15 @@ class ServiceCertificateArgs:
              expiry: Optional[pulumi.Input[str]] = None,
              subject: Optional[pulumi.Input[str]] = None,
              thumbprint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'encodedCertificate' in kwargs:
+            encoded_certificate = kwargs['encodedCertificate']
+        if 'storeName' in kwargs:
+            store_name = kwargs['storeName']
+        if 'certificatePassword' in kwargs:
+            certificate_password = kwargs['certificatePassword']
+
         _setter("encoded_certificate", encoded_certificate)
         _setter("store_name", store_name)
         if certificate_password is not None:
@@ -6494,7 +6916,15 @@ class ServiceDelegationArgs:
              url: Optional[pulumi.Input[str]] = None,
              user_registration_enabled: Optional[pulumi.Input[bool]] = None,
              validation_key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subscriptionsEnabled' in kwargs:
+            subscriptions_enabled = kwargs['subscriptionsEnabled']
+        if 'userRegistrationEnabled' in kwargs:
+            user_registration_enabled = kwargs['userRegistrationEnabled']
+        if 'validationKey' in kwargs:
+            validation_key = kwargs['validationKey']
+
         if subscriptions_enabled is not None:
             _setter("subscriptions_enabled", subscriptions_enabled)
         if url is not None:
@@ -6584,7 +7014,11 @@ class ServiceHostnameConfigurationArgs:
              portals: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationPortalArgs']]]] = None,
              proxies: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationProxyArgs']]]] = None,
              scms: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationScmArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'developerPortals' in kwargs:
+            developer_portals = kwargs['developerPortals']
+
         if developer_portals is not None:
             _setter("developer_portals", developer_portals)
         if managements is not None:
@@ -6716,7 +7150,23 @@ class ServiceHostnameConfigurationDeveloperPortalArgs:
              ssl_keyvault_identity_client_id: Optional[pulumi.Input[str]] = None,
              subject: Optional[pulumi.Input[str]] = None,
              thumbprint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hostName' in kwargs:
+            host_name = kwargs['hostName']
+        if 'certificatePassword' in kwargs:
+            certificate_password = kwargs['certificatePassword']
+        if 'certificateSource' in kwargs:
+            certificate_source = kwargs['certificateSource']
+        if 'certificateStatus' in kwargs:
+            certificate_status = kwargs['certificateStatus']
+        if 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if 'negotiateClientCertificate' in kwargs:
+            negotiate_client_certificate = kwargs['negotiateClientCertificate']
+        if 'sslKeyvaultIdentityClientId' in kwargs:
+            ssl_keyvault_identity_client_id = kwargs['sslKeyvaultIdentityClientId']
+
         _setter("host_name", host_name)
         if certificate is not None:
             _setter("certificate", certificate)
@@ -6937,7 +7387,23 @@ class ServiceHostnameConfigurationManagementArgs:
              ssl_keyvault_identity_client_id: Optional[pulumi.Input[str]] = None,
              subject: Optional[pulumi.Input[str]] = None,
              thumbprint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hostName' in kwargs:
+            host_name = kwargs['hostName']
+        if 'certificatePassword' in kwargs:
+            certificate_password = kwargs['certificatePassword']
+        if 'certificateSource' in kwargs:
+            certificate_source = kwargs['certificateSource']
+        if 'certificateStatus' in kwargs:
+            certificate_status = kwargs['certificateStatus']
+        if 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if 'negotiateClientCertificate' in kwargs:
+            negotiate_client_certificate = kwargs['negotiateClientCertificate']
+        if 'sslKeyvaultIdentityClientId' in kwargs:
+            ssl_keyvault_identity_client_id = kwargs['sslKeyvaultIdentityClientId']
+
         _setter("host_name", host_name)
         if certificate is not None:
             _setter("certificate", certificate)
@@ -7158,7 +7624,23 @@ class ServiceHostnameConfigurationPortalArgs:
              ssl_keyvault_identity_client_id: Optional[pulumi.Input[str]] = None,
              subject: Optional[pulumi.Input[str]] = None,
              thumbprint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hostName' in kwargs:
+            host_name = kwargs['hostName']
+        if 'certificatePassword' in kwargs:
+            certificate_password = kwargs['certificatePassword']
+        if 'certificateSource' in kwargs:
+            certificate_source = kwargs['certificateSource']
+        if 'certificateStatus' in kwargs:
+            certificate_status = kwargs['certificateStatus']
+        if 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if 'negotiateClientCertificate' in kwargs:
+            negotiate_client_certificate = kwargs['negotiateClientCertificate']
+        if 'sslKeyvaultIdentityClientId' in kwargs:
+            ssl_keyvault_identity_client_id = kwargs['sslKeyvaultIdentityClientId']
+
         _setter("host_name", host_name)
         if certificate is not None:
             _setter("certificate", certificate)
@@ -7381,7 +7863,25 @@ class ServiceHostnameConfigurationProxyArgs:
              ssl_keyvault_identity_client_id: Optional[pulumi.Input[str]] = None,
              subject: Optional[pulumi.Input[str]] = None,
              thumbprint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hostName' in kwargs:
+            host_name = kwargs['hostName']
+        if 'certificatePassword' in kwargs:
+            certificate_password = kwargs['certificatePassword']
+        if 'certificateSource' in kwargs:
+            certificate_source = kwargs['certificateSource']
+        if 'certificateStatus' in kwargs:
+            certificate_status = kwargs['certificateStatus']
+        if 'defaultSslBinding' in kwargs:
+            default_ssl_binding = kwargs['defaultSslBinding']
+        if 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if 'negotiateClientCertificate' in kwargs:
+            negotiate_client_certificate = kwargs['negotiateClientCertificate']
+        if 'sslKeyvaultIdentityClientId' in kwargs:
+            ssl_keyvault_identity_client_id = kwargs['sslKeyvaultIdentityClientId']
+
         _setter("host_name", host_name)
         if certificate is not None:
             _setter("certificate", certificate)
@@ -7614,7 +8114,23 @@ class ServiceHostnameConfigurationScmArgs:
              ssl_keyvault_identity_client_id: Optional[pulumi.Input[str]] = None,
              subject: Optional[pulumi.Input[str]] = None,
              thumbprint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hostName' in kwargs:
+            host_name = kwargs['hostName']
+        if 'certificatePassword' in kwargs:
+            certificate_password = kwargs['certificatePassword']
+        if 'certificateSource' in kwargs:
+            certificate_source = kwargs['certificateSource']
+        if 'certificateStatus' in kwargs:
+            certificate_status = kwargs['certificateStatus']
+        if 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if 'negotiateClientCertificate' in kwargs:
+            negotiate_client_certificate = kwargs['negotiateClientCertificate']
+        if 'sslKeyvaultIdentityClientId' in kwargs:
+            ssl_keyvault_identity_client_id = kwargs['sslKeyvaultIdentityClientId']
+
         _setter("host_name", host_name)
         if certificate is not None:
             _setter("certificate", certificate)
@@ -7803,7 +8319,15 @@ class ServiceIdentityArgs:
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -7882,7 +8406,13 @@ class ServicePolicyArgs:
              _setter: Callable[[Any, Any], None],
              xml_content: Optional[pulumi.Input[str]] = None,
              xml_link: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'xmlContent' in kwargs:
+            xml_content = kwargs['xmlContent']
+        if 'xmlLink' in kwargs:
+            xml_link = kwargs['xmlLink']
+
         if xml_content is not None:
             _setter("xml_content", xml_content)
         if xml_link is not None:
@@ -7928,7 +8458,11 @@ class ServiceProtocolsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              enable_http2: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'enableHttp2' in kwargs:
+            enable_http2 = kwargs['enableHttp2']
+
         if enable_http2 is not None:
             _setter("enable_http2", enable_http2)
 
@@ -8058,7 +8592,43 @@ class ServiceSecurityArgs:
              tls_rsa_with_aes256_cbc_sha_ciphers_enabled: Optional[pulumi.Input[bool]] = None,
              tls_rsa_with_aes256_gcm_sha384_ciphers_enabled: Optional[pulumi.Input[bool]] = None,
              triple_des_ciphers_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'enableBackendSsl30' in kwargs:
+            enable_backend_ssl30 = kwargs['enableBackendSsl30']
+        if 'enableBackendTls10' in kwargs:
+            enable_backend_tls10 = kwargs['enableBackendTls10']
+        if 'enableBackendTls11' in kwargs:
+            enable_backend_tls11 = kwargs['enableBackendTls11']
+        if 'enableFrontendSsl30' in kwargs:
+            enable_frontend_ssl30 = kwargs['enableFrontendSsl30']
+        if 'enableFrontendTls10' in kwargs:
+            enable_frontend_tls10 = kwargs['enableFrontendTls10']
+        if 'enableFrontendTls11' in kwargs:
+            enable_frontend_tls11 = kwargs['enableFrontendTls11']
+        if 'tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled' in kwargs:
+            tls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled = kwargs['tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled']
+        if 'tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled' in kwargs:
+            tls_ecdhe_ecdsa_with_aes256_cbc_sha_ciphers_enabled = kwargs['tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled']
+        if 'tlsEcdheRsaWithAes128CbcShaCiphersEnabled' in kwargs:
+            tls_ecdhe_rsa_with_aes128_cbc_sha_ciphers_enabled = kwargs['tlsEcdheRsaWithAes128CbcShaCiphersEnabled']
+        if 'tlsEcdheRsaWithAes256CbcShaCiphersEnabled' in kwargs:
+            tls_ecdhe_rsa_with_aes256_cbc_sha_ciphers_enabled = kwargs['tlsEcdheRsaWithAes256CbcShaCiphersEnabled']
+        if 'tlsRsaWithAes128CbcSha256CiphersEnabled' in kwargs:
+            tls_rsa_with_aes128_cbc_sha256_ciphers_enabled = kwargs['tlsRsaWithAes128CbcSha256CiphersEnabled']
+        if 'tlsRsaWithAes128CbcShaCiphersEnabled' in kwargs:
+            tls_rsa_with_aes128_cbc_sha_ciphers_enabled = kwargs['tlsRsaWithAes128CbcShaCiphersEnabled']
+        if 'tlsRsaWithAes128GcmSha256CiphersEnabled' in kwargs:
+            tls_rsa_with_aes128_gcm_sha256_ciphers_enabled = kwargs['tlsRsaWithAes128GcmSha256CiphersEnabled']
+        if 'tlsRsaWithAes256CbcSha256CiphersEnabled' in kwargs:
+            tls_rsa_with_aes256_cbc_sha256_ciphers_enabled = kwargs['tlsRsaWithAes256CbcSha256CiphersEnabled']
+        if 'tlsRsaWithAes256CbcShaCiphersEnabled' in kwargs:
+            tls_rsa_with_aes256_cbc_sha_ciphers_enabled = kwargs['tlsRsaWithAes256CbcShaCiphersEnabled']
+        if 'tlsRsaWithAes256GcmSha384CiphersEnabled' in kwargs:
+            tls_rsa_with_aes256_gcm_sha384_ciphers_enabled = kwargs['tlsRsaWithAes256GcmSha384CiphersEnabled']
+        if 'tripleDesCiphersEnabled' in kwargs:
+            triple_des_ciphers_enabled = kwargs['tripleDesCiphersEnabled']
+
         if enable_backend_ssl30 is not None:
             _setter("enable_backend_ssl30", enable_backend_ssl30)
         if enable_backend_tls10 is not None:
@@ -8348,7 +8918,9 @@ class ServiceSignInArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              enabled: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
 
     @property
@@ -8383,7 +8955,11 @@ class ServiceSignUpArgs:
              _setter: Callable[[Any, Any], None],
              enabled: pulumi.Input[bool],
              terms_of_service: pulumi.Input['ServiceSignUpTermsOfServiceArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'termsOfService' in kwargs:
+            terms_of_service = kwargs['termsOfService']
+
         _setter("enabled", enabled)
         _setter("terms_of_service", terms_of_service)
 
@@ -8435,7 +9011,11 @@ class ServiceSignUpTermsOfServiceArgs:
              consent_required: pulumi.Input[bool],
              enabled: pulumi.Input[bool],
              text: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'consentRequired' in kwargs:
+            consent_required = kwargs['consentRequired']
+
         _setter("consent_required", consent_required)
         _setter("enabled", enabled)
         if text is not None:
@@ -8505,7 +9085,15 @@ class ServiceTenantAccessArgs:
              primary_key: Optional[pulumi.Input[str]] = None,
              secondary_key: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'primaryKey' in kwargs:
+            primary_key = kwargs['primaryKey']
+        if 'secondaryKey' in kwargs:
+            secondary_key = kwargs['secondaryKey']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("enabled", enabled)
         if primary_key is not None:
             _setter("primary_key", primary_key)
@@ -8578,7 +9166,11 @@ class ServiceVirtualNetworkConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              subnet_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         _setter("subnet_id", subnet_id)
 
     @property

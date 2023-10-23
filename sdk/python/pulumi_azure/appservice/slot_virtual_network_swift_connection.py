@@ -35,7 +35,15 @@ class SlotVirtualNetworkSwiftConnectionArgs:
              app_service_id: pulumi.Input[str],
              slot_name: pulumi.Input[str],
              subnet_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appServiceId' in kwargs:
+            app_service_id = kwargs['appServiceId']
+        if 'slotName' in kwargs:
+            slot_name = kwargs['slotName']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         _setter("app_service_id", app_service_id)
         _setter("slot_name", slot_name)
         _setter("subnet_id", subnet_id)
@@ -101,7 +109,15 @@ class _SlotVirtualNetworkSwiftConnectionState:
              app_service_id: Optional[pulumi.Input[str]] = None,
              slot_name: Optional[pulumi.Input[str]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appServiceId' in kwargs:
+            app_service_id = kwargs['appServiceId']
+        if 'slotName' in kwargs:
+            slot_name = kwargs['slotName']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         if app_service_id is not None:
             _setter("app_service_id", app_service_id)
         if slot_name is not None:

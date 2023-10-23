@@ -77,7 +77,31 @@ class ExpressRouteCircuitPeeringArgs:
              route_filter_id: Optional[pulumi.Input[str]] = None,
              secondary_peer_address_prefix: Optional[pulumi.Input[str]] = None,
              shared_key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expressRouteCircuitName' in kwargs:
+            express_route_circuit_name = kwargs['expressRouteCircuitName']
+        if 'peeringType' in kwargs:
+            peering_type = kwargs['peeringType']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'vlanId' in kwargs:
+            vlan_id = kwargs['vlanId']
+        if 'ipv4Enabled' in kwargs:
+            ipv4_enabled = kwargs['ipv4Enabled']
+        if 'microsoftPeeringConfig' in kwargs:
+            microsoft_peering_config = kwargs['microsoftPeeringConfig']
+        if 'peerAsn' in kwargs:
+            peer_asn = kwargs['peerAsn']
+        if 'primaryPeerAddressPrefix' in kwargs:
+            primary_peer_address_prefix = kwargs['primaryPeerAddressPrefix']
+        if 'routeFilterId' in kwargs:
+            route_filter_id = kwargs['routeFilterId']
+        if 'secondaryPeerAddressPrefix' in kwargs:
+            secondary_peer_address_prefix = kwargs['secondaryPeerAddressPrefix']
+        if 'sharedKey' in kwargs:
+            shared_key = kwargs['sharedKey']
+
         _setter("express_route_circuit_name", express_route_circuit_name)
         _setter("peering_type", peering_type)
         _setter("resource_group_name", resource_group_name)
@@ -327,7 +351,39 @@ class _ExpressRouteCircuitPeeringState:
              secondary_peer_address_prefix: Optional[pulumi.Input[str]] = None,
              shared_key: Optional[pulumi.Input[str]] = None,
              vlan_id: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azureAsn' in kwargs:
+            azure_asn = kwargs['azureAsn']
+        if 'expressRouteCircuitName' in kwargs:
+            express_route_circuit_name = kwargs['expressRouteCircuitName']
+        if 'gatewayManagerEtag' in kwargs:
+            gateway_manager_etag = kwargs['gatewayManagerEtag']
+        if 'ipv4Enabled' in kwargs:
+            ipv4_enabled = kwargs['ipv4Enabled']
+        if 'microsoftPeeringConfig' in kwargs:
+            microsoft_peering_config = kwargs['microsoftPeeringConfig']
+        if 'peerAsn' in kwargs:
+            peer_asn = kwargs['peerAsn']
+        if 'peeringType' in kwargs:
+            peering_type = kwargs['peeringType']
+        if 'primaryAzurePort' in kwargs:
+            primary_azure_port = kwargs['primaryAzurePort']
+        if 'primaryPeerAddressPrefix' in kwargs:
+            primary_peer_address_prefix = kwargs['primaryPeerAddressPrefix']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'routeFilterId' in kwargs:
+            route_filter_id = kwargs['routeFilterId']
+        if 'secondaryAzurePort' in kwargs:
+            secondary_azure_port = kwargs['secondaryAzurePort']
+        if 'secondaryPeerAddressPrefix' in kwargs:
+            secondary_peer_address_prefix = kwargs['secondaryPeerAddressPrefix']
+        if 'sharedKey' in kwargs:
+            shared_key = kwargs['sharedKey']
+        if 'vlanId' in kwargs:
+            vlan_id = kwargs['vlanId']
+
         if azure_asn is not None:
             _setter("azure_asn", azure_asn)
         if express_route_circuit_name is not None:

@@ -103,7 +103,7 @@ public class RouteServer extends com.pulumi.resources.CustomResource {
      * Whether to enable route exchange between Azure Route Server and the gateway(s)
      * 
      */
-    @Export(name="branchToBranchTrafficEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="branchToBranchTrafficEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> branchToBranchTrafficEnabled;
 
     /**
@@ -117,7 +117,7 @@ public class RouteServer extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the Route Server should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -131,7 +131,7 @@ public class RouteServer extends com.pulumi.resources.CustomResource {
      * The name of the Route Server. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -145,7 +145,7 @@ public class RouteServer extends com.pulumi.resources.CustomResource {
      * The ID of the Public IP Address. This option is required since September 1st 2021. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="publicIpAddressId", refs={String.class}, tree="[0]")
+    @Export(name="publicIpAddressId", type=String.class, parameters={})
     private Output<String> publicIpAddressId;
 
     /**
@@ -159,7 +159,7 @@ public class RouteServer extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Resource Group where the Route Server should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -169,7 +169,7 @@ public class RouteServer extends com.pulumi.resources.CustomResource {
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }
-    @Export(name="routingState", refs={String.class}, tree="[0]")
+    @Export(name="routingState", type=String.class, parameters={})
     private Output<String> routingState;
 
     public Output<String> routingState() {
@@ -179,7 +179,7 @@ public class RouteServer extends com.pulumi.resources.CustomResource {
      * The SKU of the Route Server. The only possible value is `Standard`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="sku", refs={String.class}, tree="[0]")
+    @Export(name="sku", type=String.class, parameters={})
     private Output<String> sku;
 
     /**
@@ -195,7 +195,7 @@ public class RouteServer extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you&#39;ll receive an error message when deploying the Route Server
      * 
      */
-    @Export(name="subnetId", refs={String.class}, tree="[0]")
+    @Export(name="subnetId", type=String.class, parameters={})
     private Output<String> subnetId;
 
     /**
@@ -211,7 +211,7 @@ public class RouteServer extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -221,13 +221,13 @@ public class RouteServer extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    @Export(name="virtualRouterAsn", refs={Integer.class}, tree="[0]")
+    @Export(name="virtualRouterAsn", type=Integer.class, parameters={})
     private Output<Integer> virtualRouterAsn;
 
     public Output<Integer> virtualRouterAsn() {
         return this.virtualRouterAsn;
     }
-    @Export(name="virtualRouterIps", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="virtualRouterIps", type=List.class, parameters={String.class})
     private Output<List<String>> virtualRouterIps;
 
     public Output<List<String>> virtualRouterIps() {

@@ -43,7 +43,15 @@ class LocalRulestackFqdnListArgs:
              audit_comment: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fullyQualifiedDomainNames' in kwargs:
+            fully_qualified_domain_names = kwargs['fullyQualifiedDomainNames']
+        if 'rulestackId' in kwargs:
+            rulestack_id = kwargs['rulestackId']
+        if 'auditComment' in kwargs:
+            audit_comment = kwargs['auditComment']
+
         _setter("fully_qualified_domain_names", fully_qualified_domain_names)
         _setter("rulestack_id", rulestack_id)
         if audit_comment is not None:
@@ -146,7 +154,15 @@ class _LocalRulestackFqdnListState:
              fully_qualified_domain_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              rulestack_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'auditComment' in kwargs:
+            audit_comment = kwargs['auditComment']
+        if 'fullyQualifiedDomainNames' in kwargs:
+            fully_qualified_domain_names = kwargs['fullyQualifiedDomainNames']
+        if 'rulestackId' in kwargs:
+            rulestack_id = kwargs['rulestackId']
+
         if audit_comment is not None:
             _setter("audit_comment", audit_comment)
         if description is not None:

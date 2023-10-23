@@ -57,7 +57,15 @@ class SynapseSparkArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'machineLearningWorkspaceId' in kwargs:
+            machine_learning_workspace_id = kwargs['machineLearningWorkspaceId']
+        if 'synapseSparkPoolId' in kwargs:
+            synapse_spark_pool_id = kwargs['synapseSparkPoolId']
+        if 'localAuthEnabled' in kwargs:
+            local_auth_enabled = kwargs['localAuthEnabled']
+
         _setter("machine_learning_workspace_id", machine_learning_workspace_id)
         _setter("synapse_spark_pool_id", synapse_spark_pool_id)
         if description is not None:
@@ -214,7 +222,15 @@ class _SynapseSparkState:
              name: Optional[pulumi.Input[str]] = None,
              synapse_spark_pool_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'localAuthEnabled' in kwargs:
+            local_auth_enabled = kwargs['localAuthEnabled']
+        if 'machineLearningWorkspaceId' in kwargs:
+            machine_learning_workspace_id = kwargs['machineLearningWorkspaceId']
+        if 'synapseSparkPoolId' in kwargs:
+            synapse_spark_pool_id = kwargs['synapseSparkPoolId']
+
         if description is not None:
             _setter("description", description)
         if identity is not None:

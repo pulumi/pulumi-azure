@@ -51,7 +51,21 @@ class OutputCosmosdbArgs:
              document_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              partition_key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+        if 'cosmosdbAccountKey' in kwargs:
+            cosmosdb_account_key = kwargs['cosmosdbAccountKey']
+        if 'cosmosdbSqlDatabaseId' in kwargs:
+            cosmosdb_sql_database_id = kwargs['cosmosdbSqlDatabaseId']
+        if 'streamAnalyticsJobId' in kwargs:
+            stream_analytics_job_id = kwargs['streamAnalyticsJobId']
+        if 'documentId' in kwargs:
+            document_id = kwargs['documentId']
+        if 'partitionKey' in kwargs:
+            partition_key = kwargs['partitionKey']
+
         _setter("container_name", container_name)
         _setter("cosmosdb_account_key", cosmosdb_account_key)
         _setter("cosmosdb_sql_database_id", cosmosdb_sql_database_id)
@@ -188,7 +202,21 @@ class _OutputCosmosdbState:
              name: Optional[pulumi.Input[str]] = None,
              partition_key: Optional[pulumi.Input[str]] = None,
              stream_analytics_job_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+        if 'cosmosdbAccountKey' in kwargs:
+            cosmosdb_account_key = kwargs['cosmosdbAccountKey']
+        if 'cosmosdbSqlDatabaseId' in kwargs:
+            cosmosdb_sql_database_id = kwargs['cosmosdbSqlDatabaseId']
+        if 'documentId' in kwargs:
+            document_id = kwargs['documentId']
+        if 'partitionKey' in kwargs:
+            partition_key = kwargs['partitionKey']
+        if 'streamAnalyticsJobId' in kwargs:
+            stream_analytics_job_id = kwargs['streamAnalyticsJobId']
+
         if container_name is not None:
             _setter("container_name", container_name)
         if cosmosdb_account_key is not None:

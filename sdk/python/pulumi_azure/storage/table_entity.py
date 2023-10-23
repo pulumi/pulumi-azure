@@ -43,7 +43,17 @@ class TableEntityArgs:
              row_key: pulumi.Input[str],
              storage_account_name: pulumi.Input[str],
              table_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'partitionKey' in kwargs:
+            partition_key = kwargs['partitionKey']
+        if 'rowKey' in kwargs:
+            row_key = kwargs['rowKey']
+        if 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+        if 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+
         _setter("entity", entity)
         _setter("partition_key", partition_key)
         _setter("row_key", row_key)
@@ -143,7 +153,17 @@ class _TableEntityState:
              row_key: Optional[pulumi.Input[str]] = None,
              storage_account_name: Optional[pulumi.Input[str]] = None,
              table_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'partitionKey' in kwargs:
+            partition_key = kwargs['partitionKey']
+        if 'rowKey' in kwargs:
+            row_key = kwargs['rowKey']
+        if 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+        if 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+
         if entity is not None:
             _setter("entity", entity)
         if partition_key is not None:

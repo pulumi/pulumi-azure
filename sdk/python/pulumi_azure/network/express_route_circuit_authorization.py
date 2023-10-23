@@ -35,7 +35,13 @@ class ExpressRouteCircuitAuthorizationArgs:
              express_route_circuit_name: pulumi.Input[str],
              resource_group_name: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expressRouteCircuitName' in kwargs:
+            express_route_circuit_name = kwargs['expressRouteCircuitName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         _setter("express_route_circuit_name", express_route_circuit_name)
         _setter("resource_group_name", resource_group_name)
         if name is not None:
@@ -110,7 +116,17 @@ class _ExpressRouteCircuitAuthorizationState:
              express_route_circuit_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authorizationKey' in kwargs:
+            authorization_key = kwargs['authorizationKey']
+        if 'authorizationUseStatus' in kwargs:
+            authorization_use_status = kwargs['authorizationUseStatus']
+        if 'expressRouteCircuitName' in kwargs:
+            express_route_circuit_name = kwargs['expressRouteCircuitName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if authorization_key is not None:
             _setter("authorization_key", authorization_key)
         if authorization_use_status is not None:

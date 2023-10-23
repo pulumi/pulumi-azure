@@ -85,7 +85,33 @@ class InsightsArgs:
              sampling_percentage: Optional[pulumi.Input[float]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationType' in kwargs:
+            application_type = kwargs['applicationType']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'dailyDataCapInGb' in kwargs:
+            daily_data_cap_in_gb = kwargs['dailyDataCapInGb']
+        if 'dailyDataCapNotificationsDisabled' in kwargs:
+            daily_data_cap_notifications_disabled = kwargs['dailyDataCapNotificationsDisabled']
+        if 'disableIpMasking' in kwargs:
+            disable_ip_masking = kwargs['disableIpMasking']
+        if 'forceCustomerStorageForProfiler' in kwargs:
+            force_customer_storage_for_profiler = kwargs['forceCustomerStorageForProfiler']
+        if 'internetIngestionEnabled' in kwargs:
+            internet_ingestion_enabled = kwargs['internetIngestionEnabled']
+        if 'internetQueryEnabled' in kwargs:
+            internet_query_enabled = kwargs['internetQueryEnabled']
+        if 'localAuthenticationDisabled' in kwargs:
+            local_authentication_disabled = kwargs['localAuthenticationDisabled']
+        if 'retentionInDays' in kwargs:
+            retention_in_days = kwargs['retentionInDays']
+        if 'samplingPercentage' in kwargs:
+            sampling_percentage = kwargs['samplingPercentage']
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+
         _setter("application_type", application_type)
         _setter("resource_group_name", resource_group_name)
         if daily_data_cap_in_gb is not None:
@@ -384,7 +410,39 @@ class _InsightsState:
              sampling_percentage: Optional[pulumi.Input[float]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'applicationType' in kwargs:
+            application_type = kwargs['applicationType']
+        if 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+        if 'dailyDataCapInGb' in kwargs:
+            daily_data_cap_in_gb = kwargs['dailyDataCapInGb']
+        if 'dailyDataCapNotificationsDisabled' in kwargs:
+            daily_data_cap_notifications_disabled = kwargs['dailyDataCapNotificationsDisabled']
+        if 'disableIpMasking' in kwargs:
+            disable_ip_masking = kwargs['disableIpMasking']
+        if 'forceCustomerStorageForProfiler' in kwargs:
+            force_customer_storage_for_profiler = kwargs['forceCustomerStorageForProfiler']
+        if 'instrumentationKey' in kwargs:
+            instrumentation_key = kwargs['instrumentationKey']
+        if 'internetIngestionEnabled' in kwargs:
+            internet_ingestion_enabled = kwargs['internetIngestionEnabled']
+        if 'internetQueryEnabled' in kwargs:
+            internet_query_enabled = kwargs['internetQueryEnabled']
+        if 'localAuthenticationDisabled' in kwargs:
+            local_authentication_disabled = kwargs['localAuthenticationDisabled']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'retentionInDays' in kwargs:
+            retention_in_days = kwargs['retentionInDays']
+        if 'samplingPercentage' in kwargs:
+            sampling_percentage = kwargs['samplingPercentage']
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+
         if app_id is not None:
             _setter("app_id", app_id)
         if application_type is not None:

@@ -74,7 +74,7 @@ public class LocalNetworkGateway extends com.pulumi.resources.CustomResource {
      * The list of string CIDRs representing the address spaces the gateway exposes.
      * 
      */
-    @Export(name="addressSpaces", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="addressSpaces", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> addressSpaces;
 
     /**
@@ -88,7 +88,7 @@ public class LocalNetworkGateway extends com.pulumi.resources.CustomResource {
      * A `bgp_settings` block as defined below containing the Local Network Gateway&#39;s BGP speaker settings.
      * 
      */
-    @Export(name="bgpSettings", refs={LocalNetworkGatewayBgpSettings.class}, tree="[0]")
+    @Export(name="bgpSettings", type=LocalNetworkGatewayBgpSettings.class, parameters={})
     private Output</* @Nullable */ LocalNetworkGatewayBgpSettings> bgpSettings;
 
     /**
@@ -102,7 +102,7 @@ public class LocalNetworkGateway extends com.pulumi.resources.CustomResource {
      * The gateway IP address to connect with.
      * 
      */
-    @Export(name="gatewayAddress", refs={String.class}, tree="[0]")
+    @Export(name="gatewayAddress", type=String.class, parameters={})
     private Output</* @Nullable */ String> gatewayAddress;
 
     /**
@@ -118,7 +118,7 @@ public class LocalNetworkGateway extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** Either `gateway_address` or `gateway_fqdn` should be specified.
      * 
      */
-    @Export(name="gatewayFqdn", refs={String.class}, tree="[0]")
+    @Export(name="gatewayFqdn", type=String.class, parameters={})
     private Output</* @Nullable */ String> gatewayFqdn;
 
     /**
@@ -134,7 +134,7 @@ public class LocalNetworkGateway extends com.pulumi.resources.CustomResource {
      * The location/region where the local network gateway is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -148,7 +148,7 @@ public class LocalNetworkGateway extends com.pulumi.resources.CustomResource {
      * The name of the local network gateway. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -162,7 +162,7 @@ public class LocalNetworkGateway extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the local network gateway. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -176,7 +176,7 @@ public class LocalNetworkGateway extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

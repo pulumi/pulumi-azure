@@ -94,7 +94,7 @@ public class SharedImageVersion extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** `blob_uri` and `storage_account_id` must be specified together
      * 
      */
-    @Export(name="blobUri", refs={String.class}, tree="[0]")
+    @Export(name="blobUri", type=String.class, parameters={})
     private Output</* @Nullable */ String> blobUri;
 
     /**
@@ -112,7 +112,7 @@ public class SharedImageVersion extends com.pulumi.resources.CustomResource {
      * Specifies whether this Shared Image Version can be deleted from the Azure Regions this is replicated to. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="deletionOfReplicatedLocationsEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="deletionOfReplicatedLocationsEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> deletionOfReplicatedLocationsEnabled;
 
     /**
@@ -126,7 +126,7 @@ public class SharedImageVersion extends com.pulumi.resources.CustomResource {
      * The end of life date in RFC3339 format of the Image Version.
      * 
      */
-    @Export(name="endOfLifeDate", refs={String.class}, tree="[0]")
+    @Export(name="endOfLifeDate", type=String.class, parameters={})
     private Output</* @Nullable */ String> endOfLifeDate;
 
     /**
@@ -140,7 +140,7 @@ public class SharedImageVersion extends com.pulumi.resources.CustomResource {
      * Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won&#39;t be returned for the `latest` version. Defaults to `false`.
      * 
      */
-    @Export(name="excludeFromLatest", refs={Boolean.class}, tree="[0]")
+    @Export(name="excludeFromLatest", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> excludeFromLatest;
 
     /**
@@ -154,7 +154,7 @@ public class SharedImageVersion extends com.pulumi.resources.CustomResource {
      * The name of the Shared Image Gallery in which the Shared Image exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="galleryName", refs={String.class}, tree="[0]")
+    @Export(name="galleryName", type=String.class, parameters={})
     private Output<String> galleryName;
 
     /**
@@ -168,7 +168,7 @@ public class SharedImageVersion extends com.pulumi.resources.CustomResource {
      * The name of the Shared Image within the Shared Image Gallery in which this Version should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="imageName", refs={String.class}, tree="[0]")
+    @Export(name="imageName", type=String.class, parameters={})
     private Output<String> imageName;
 
     /**
@@ -182,7 +182,7 @@ public class SharedImageVersion extends com.pulumi.resources.CustomResource {
      * The Azure Region in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -200,7 +200,7 @@ public class SharedImageVersion extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
      * 
      */
-    @Export(name="managedImageId", refs={String.class}, tree="[0]")
+    @Export(name="managedImageId", type=String.class, parameters={})
     private Output</* @Nullable */ String> managedImageId;
 
     /**
@@ -218,7 +218,7 @@ public class SharedImageVersion extends com.pulumi.resources.CustomResource {
      * The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -234,7 +234,7 @@ public class SharedImageVersion extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
      * 
      */
-    @Export(name="osDiskSnapshotId", refs={String.class}, tree="[0]")
+    @Export(name="osDiskSnapshotId", type=String.class, parameters={})
     private Output</* @Nullable */ String> osDiskSnapshotId;
 
     /**
@@ -250,7 +250,7 @@ public class SharedImageVersion extends com.pulumi.resources.CustomResource {
      * Mode to be used for replication. Possible values are `Full` and `Shallow`. Defaults to `Full`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="replicationMode", refs={String.class}, tree="[0]")
+    @Export(name="replicationMode", type=String.class, parameters={})
     private Output</* @Nullable */ String> replicationMode;
 
     /**
@@ -264,7 +264,7 @@ public class SharedImageVersion extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -280,7 +280,7 @@ public class SharedImageVersion extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** `blob_uri` and `storage_account_id` must be specified together
      * 
      */
-    @Export(name="storageAccountId", refs={String.class}, tree="[0]")
+    @Export(name="storageAccountId", type=String.class, parameters={})
     private Output</* @Nullable */ String> storageAccountId;
 
     /**
@@ -296,7 +296,7 @@ public class SharedImageVersion extends com.pulumi.resources.CustomResource {
      * A collection of tags which should be applied to this resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -310,7 +310,7 @@ public class SharedImageVersion extends com.pulumi.resources.CustomResource {
      * One or more `target_region` blocks as documented below.
      * 
      */
-    @Export(name="targetRegions", refs={List.class,SharedImageVersionTargetRegion.class}, tree="[0,1]")
+    @Export(name="targetRegions", type=List.class, parameters={SharedImageVersionTargetRegion.class})
     private Output<List<SharedImageVersionTargetRegion>> targetRegions;
 
     /**

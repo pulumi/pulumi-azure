@@ -152,7 +152,7 @@ public class RulesEngine extends com.pulumi.resources.CustomResource {
      * Whether this Rules engine configuration is enabled? Defaults to `true`.
      * 
      */
-    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -166,7 +166,7 @@ public class RulesEngine extends com.pulumi.resources.CustomResource {
      * The name of the Front Door instance. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="frontdoorName", refs={String.class}, tree="[0]")
+    @Export(name="frontdoorName", type=String.class, parameters={})
     private Output<String> frontdoorName;
 
     /**
@@ -176,7 +176,7 @@ public class RulesEngine extends com.pulumi.resources.CustomResource {
     public Output<String> frontdoorName() {
         return this.frontdoorName;
     }
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     public Output<String> location() {
@@ -186,7 +186,7 @@ public class RulesEngine extends com.pulumi.resources.CustomResource {
      * The name of the Rules engine configuration. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -200,7 +200,7 @@ public class RulesEngine extends com.pulumi.resources.CustomResource {
      * The name of the resource group. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -214,7 +214,7 @@ public class RulesEngine extends com.pulumi.resources.CustomResource {
      * A `rule` block as defined below.
      * 
      */
-    @Export(name="rules", refs={List.class,RulesEngineRule.class}, tree="[0,1]")
+    @Export(name="rules", type=List.class, parameters={RulesEngineRule.class})
     private Output</* @Nullable */ List<RulesEngineRule>> rules;
 
     /**

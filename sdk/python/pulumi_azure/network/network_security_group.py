@@ -47,7 +47,13 @@ class NetworkSecurityGroupArgs:
              name: Optional[pulumi.Input[str]] = None,
              security_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSecurityGroupSecurityRuleArgs']]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'securityRules' in kwargs:
+            security_rules = kwargs['securityRules']
+
         _setter("resource_group_name", resource_group_name)
         if location is not None:
             _setter("location", location)
@@ -155,7 +161,13 @@ class _NetworkSecurityGroupState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              security_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSecurityGroupSecurityRuleArgs']]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'securityRules' in kwargs:
+            security_rules = kwargs['securityRules']
+
         if location is not None:
             _setter("location", location)
         if name is not None:

@@ -31,7 +31,7 @@ public class NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation ext
      * The ID of the Application Gateway&#39;s Backend Address Pool which this Network Interface which should be connected to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="backendAddressPoolId", refs={String.class}, tree="[0]")
+    @Export(name="backendAddressPoolId", type=String.class, parameters={})
     private Output<String> backendAddressPoolId;
 
     /**
@@ -45,7 +45,7 @@ public class NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation ext
      * The Name of the IP Configuration within the Network Interface which should be connected to the Backend Address Pool. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="ipConfigurationName", refs={String.class}, tree="[0]")
+    @Export(name="ipConfigurationName", type=String.class, parameters={})
     private Output<String> ipConfigurationName;
 
     /**
@@ -59,7 +59,7 @@ public class NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation ext
      * The ID of the Network Interface. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="networkInterfaceId", refs={String.class}, tree="[0]")
+    @Export(name="networkInterfaceId", type=String.class, parameters={})
     private Output<String> networkInterfaceId;
 
     /**

@@ -51,7 +51,21 @@ class DirectoryArgs:
              country_code: Optional[pulumi.Input[str]] = None,
              display_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataResidencyLocation' in kwargs:
+            data_residency_location = kwargs['dataResidencyLocation']
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'countryCode' in kwargs:
+            country_code = kwargs['countryCode']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+
         _setter("data_residency_location", data_residency_location)
         _setter("domain_name", domain_name)
         _setter("resource_group_name", resource_group_name)
@@ -200,7 +214,27 @@ class _DirectoryState:
              sku_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'billingType' in kwargs:
+            billing_type = kwargs['billingType']
+        if 'countryCode' in kwargs:
+            country_code = kwargs['countryCode']
+        if 'dataResidencyLocation' in kwargs:
+            data_residency_location = kwargs['dataResidencyLocation']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'effectiveStartDate' in kwargs:
+            effective_start_date = kwargs['effectiveStartDate']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if billing_type is not None:
             _setter("billing_type", billing_type)
         if country_code is not None:

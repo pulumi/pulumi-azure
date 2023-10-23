@@ -69,7 +69,23 @@ class MonitorArgs:
              org_creation_source: Optional[pulumi.Input[str]] = None,
              organization_id: Optional[pulumi.Input[str]] = None,
              user_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'accountCreationSource' in kwargs:
+            account_creation_source = kwargs['accountCreationSource']
+        if 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if 'ingestionKey' in kwargs:
+            ingestion_key = kwargs['ingestionKey']
+        if 'orgCreationSource' in kwargs:
+            org_creation_source = kwargs['orgCreationSource']
+        if 'organizationId' in kwargs:
+            organization_id = kwargs['organizationId']
+        if 'userId' in kwargs:
+            user_id = kwargs['userId']
+
         _setter("plan", plan)
         _setter("resource_group_name", resource_group_name)
         _setter("user", user)
@@ -279,7 +295,23 @@ class _MonitorState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              user: Optional[pulumi.Input['MonitorUserArgs']] = None,
              user_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountCreationSource' in kwargs:
+            account_creation_source = kwargs['accountCreationSource']
+        if 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if 'ingestionKey' in kwargs:
+            ingestion_key = kwargs['ingestionKey']
+        if 'orgCreationSource' in kwargs:
+            org_creation_source = kwargs['orgCreationSource']
+        if 'organizationId' in kwargs:
+            organization_id = kwargs['organizationId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'userId' in kwargs:
+            user_id = kwargs['userId']
+
         if account_creation_source is not None:
             _setter("account_creation_source", account_creation_source)
         if account_id is not None:

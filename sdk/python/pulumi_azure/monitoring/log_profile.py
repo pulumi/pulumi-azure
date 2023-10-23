@@ -49,7 +49,15 @@ class LogProfileArgs:
              name: Optional[pulumi.Input[str]] = None,
              servicebus_rule_id: Optional[pulumi.Input[str]] = None,
              storage_account_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'retentionPolicy' in kwargs:
+            retention_policy = kwargs['retentionPolicy']
+        if 'servicebusRuleId' in kwargs:
+            servicebus_rule_id = kwargs['servicebusRuleId']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+
         _setter("categories", categories)
         _setter("locations", locations)
         _setter("retention_policy", retention_policy)
@@ -169,7 +177,15 @@ class _LogProfileState:
              retention_policy: Optional[pulumi.Input['LogProfileRetentionPolicyArgs']] = None,
              servicebus_rule_id: Optional[pulumi.Input[str]] = None,
              storage_account_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'retentionPolicy' in kwargs:
+            retention_policy = kwargs['retentionPolicy']
+        if 'servicebusRuleId' in kwargs:
+            servicebus_rule_id = kwargs['servicebusRuleId']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+
         if categories is not None:
             _setter("categories", categories)
         if locations is not None:

@@ -73,7 +73,23 @@ class ScheduleArgs:
              start_time: Optional[pulumi.Input[str]] = None,
              timezone: Optional[pulumi.Input[str]] = None,
              week_days: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'automationAccountName' in kwargs:
+            automation_account_name = kwargs['automationAccountName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'expiryTime' in kwargs:
+            expiry_time = kwargs['expiryTime']
+        if 'monthDays' in kwargs:
+            month_days = kwargs['monthDays']
+        if 'monthlyOccurrences' in kwargs:
+            monthly_occurrences = kwargs['monthlyOccurrences']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if 'weekDays' in kwargs:
+            week_days = kwargs['weekDays']
+
         _setter("automation_account_name", automation_account_name)
         _setter("frequency", frequency)
         _setter("resource_group_name", resource_group_name)
@@ -301,7 +317,23 @@ class _ScheduleState:
              start_time: Optional[pulumi.Input[str]] = None,
              timezone: Optional[pulumi.Input[str]] = None,
              week_days: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'automationAccountName' in kwargs:
+            automation_account_name = kwargs['automationAccountName']
+        if 'expiryTime' in kwargs:
+            expiry_time = kwargs['expiryTime']
+        if 'monthDays' in kwargs:
+            month_days = kwargs['monthDays']
+        if 'monthlyOccurrences' in kwargs:
+            monthly_occurrences = kwargs['monthlyOccurrences']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if 'weekDays' in kwargs:
+            week_days = kwargs['weekDays']
+
         if automation_account_name is not None:
             _setter("automation_account_name", automation_account_name)
         if description is not None:

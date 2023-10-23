@@ -75,7 +75,7 @@ public class DdosProtectionPlan extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -89,7 +89,7 @@ public class DdosProtectionPlan extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Network DDoS Protection Plan. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -103,7 +103,7 @@ public class DdosProtectionPlan extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -117,7 +117,7 @@ public class DdosProtectionPlan extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -131,7 +131,7 @@ public class DdosProtectionPlan extends com.pulumi.resources.CustomResource {
      * A list of Virtual Network IDs associated with the DDoS Protection Plan.
      * 
      */
-    @Export(name="virtualNetworkIds", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="virtualNetworkIds", type=List.class, parameters={String.class})
     private Output<List<String>> virtualNetworkIds;
 
     /**

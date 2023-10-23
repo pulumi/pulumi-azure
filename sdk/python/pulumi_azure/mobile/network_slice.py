@@ -49,7 +49,13 @@ class NetworkSliceArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mobileNetworkId' in kwargs:
+            mobile_network_id = kwargs['mobileNetworkId']
+        if 'singleNetworkSliceSelectionAssistanceInformation' in kwargs:
+            single_network_slice_selection_assistance_information = kwargs['singleNetworkSliceSelectionAssistanceInformation']
+
         _setter("mobile_network_id", mobile_network_id)
         _setter("single_network_slice_selection_assistance_information", single_network_slice_selection_assistance_information)
         if description is not None:
@@ -170,7 +176,13 @@ class _NetworkSliceState:
              name: Optional[pulumi.Input[str]] = None,
              single_network_slice_selection_assistance_information: Optional[pulumi.Input['NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mobileNetworkId' in kwargs:
+            mobile_network_id = kwargs['mobileNetworkId']
+        if 'singleNetworkSliceSelectionAssistanceInformation' in kwargs:
+            single_network_slice_selection_assistance_information = kwargs['singleNetworkSliceSelectionAssistanceInformation']
+
         if description is not None:
             _setter("description", description)
         if location is not None:

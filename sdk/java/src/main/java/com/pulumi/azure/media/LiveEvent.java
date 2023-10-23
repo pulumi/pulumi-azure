@@ -127,7 +127,7 @@ public class LiveEvent extends com.pulumi.resources.CustomResource {
      * The flag indicates if the resource should be automatically started on creation. Default is `false`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="autoStartEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="autoStartEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> autoStartEnabled;
 
     /**
@@ -141,7 +141,7 @@ public class LiveEvent extends com.pulumi.resources.CustomResource {
      * A `cross_site_access_policy` block as defined below.
      * 
      */
-    @Export(name="crossSiteAccessPolicy", refs={LiveEventCrossSiteAccessPolicy.class}, tree="[0]")
+    @Export(name="crossSiteAccessPolicy", type=LiveEventCrossSiteAccessPolicy.class, parameters={})
     private Output</* @Nullable */ LiveEventCrossSiteAccessPolicy> crossSiteAccessPolicy;
 
     /**
@@ -155,7 +155,7 @@ public class LiveEvent extends com.pulumi.resources.CustomResource {
      * A description for the live event.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -169,7 +169,7 @@ public class LiveEvent extends com.pulumi.resources.CustomResource {
      * A `encoding` block as defined below.
      * 
      */
-    @Export(name="encoding", refs={LiveEventEncoding.class}, tree="[0]")
+    @Export(name="encoding", type=LiveEventEncoding.class, parameters={})
     private Output</* @Nullable */ LiveEventEncoding> encoding;
 
     /**
@@ -183,7 +183,7 @@ public class LiveEvent extends com.pulumi.resources.CustomResource {
      * When `use_static_hostname` is set to true, the `hostname_prefix` specifies the first part of the hostname assigned to the live event preview and ingest endpoints. The final hostname would be a combination of this prefix, the media service account name and a short code for the Azure Media Services data center.
      * 
      */
-    @Export(name="hostnamePrefix", refs={String.class}, tree="[0]")
+    @Export(name="hostnamePrefix", type=String.class, parameters={})
     private Output</* @Nullable */ String> hostnamePrefix;
 
     /**
@@ -197,7 +197,7 @@ public class LiveEvent extends com.pulumi.resources.CustomResource {
      * A `input` block as defined below.
      * 
      */
-    @Export(name="input", refs={LiveEventInput.class}, tree="[0]")
+    @Export(name="input", type=LiveEventInput.class, parameters={})
     private Output<LiveEventInput> input;
 
     /**
@@ -211,7 +211,7 @@ public class LiveEvent extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Live Event should exist. Changing this forces a new Live Event to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -225,7 +225,7 @@ public class LiveEvent extends com.pulumi.resources.CustomResource {
      * The Media Services account name. Changing this forces a new Live Event to be created.
      * 
      */
-    @Export(name="mediaServicesAccountName", refs={String.class}, tree="[0]")
+    @Export(name="mediaServicesAccountName", type=String.class, parameters={})
     private Output<String> mediaServicesAccountName;
 
     /**
@@ -239,7 +239,7 @@ public class LiveEvent extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Live Event. Changing this forces a new Live Event to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -253,7 +253,7 @@ public class LiveEvent extends com.pulumi.resources.CustomResource {
      * A `preview` block as defined below.
      * 
      */
-    @Export(name="preview", refs={LiveEventPreview.class}, tree="[0]")
+    @Export(name="preview", type=LiveEventPreview.class, parameters={})
     private Output<LiveEventPreview> preview;
 
     /**
@@ -267,7 +267,7 @@ public class LiveEvent extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Live Event should exist. Changing this forces a new Live Event to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -281,7 +281,7 @@ public class LiveEvent extends com.pulumi.resources.CustomResource {
      * A list of options to use for the LiveEvent. Possible values are `Default`, `LowLatency`, `LowLatencyV2`. Please see more at this [document](https://learn.microsoft.com/en-us/azure/media-services/latest/live-event-latency-reference#lowlatency-and-lowlatencyv2-options). Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="streamOptions", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="streamOptions", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> streamOptions;
 
     /**
@@ -295,7 +295,7 @@ public class LiveEvent extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Live Event.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -309,7 +309,7 @@ public class LiveEvent extends com.pulumi.resources.CustomResource {
      * Specifies a list of languages (locale) to be used for speech-to-text transcription – it should match the spoken language in the audio track. The value should be in `BCP-47` format (e.g: `en-US`). [See the Microsoft Documentation for more information about the live transcription feature and the list of supported languages](https://go.microsoft.com/fwlink/?linkid=2133742).
      * 
      */
-    @Export(name="transcriptionLanguages", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="transcriptionLanguages", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> transcriptionLanguages;
 
     /**
@@ -323,7 +323,7 @@ public class LiveEvent extends com.pulumi.resources.CustomResource {
      * Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. Changing this forces a new Live Event to be created.
      * 
      */
-    @Export(name="useStaticHostname", refs={Boolean.class}, tree="[0]")
+    @Export(name="useStaticHostname", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> useStaticHostname;
 
     /**

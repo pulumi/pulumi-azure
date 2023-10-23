@@ -105,7 +105,7 @@ public class Profile extends com.pulumi.resources.CustomResource {
      * A `container_network_interface` block as documented below.
      * 
      */
-    @Export(name="containerNetworkInterface", refs={ProfileContainerNetworkInterface.class}, tree="[0]")
+    @Export(name="containerNetworkInterface", type=ProfileContainerNetworkInterface.class, parameters={})
     private Output<ProfileContainerNetworkInterface> containerNetworkInterface;
 
     /**
@@ -119,7 +119,7 @@ public class Profile extends com.pulumi.resources.CustomResource {
      * A list of Container Network Interface IDs.
      * 
      */
-    @Export(name="containerNetworkInterfaceIds", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="containerNetworkInterfaceIds", type=List.class, parameters={String.class})
     private Output<List<String>> containerNetworkInterfaceIds;
 
     /**
@@ -133,7 +133,7 @@ public class Profile extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -147,7 +147,7 @@ public class Profile extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Network Profile. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -161,7 +161,7 @@ public class Profile extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -175,7 +175,7 @@ public class Profile extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

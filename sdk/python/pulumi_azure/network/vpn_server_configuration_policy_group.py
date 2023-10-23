@@ -45,7 +45,13 @@ class VpnServerConfigurationPolicyGroupArgs:
              is_default: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              priority: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'vpnServerConfigurationId' in kwargs:
+            vpn_server_configuration_id = kwargs['vpnServerConfigurationId']
+        if 'isDefault' in kwargs:
+            is_default = kwargs['isDefault']
+
         _setter("policies", policies)
         _setter("vpn_server_configuration_id", vpn_server_configuration_id)
         if is_default is not None:
@@ -148,7 +154,13 @@ class _VpnServerConfigurationPolicyGroupState:
              policies: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationPolicyGroupPolicyArgs']]]] = None,
              priority: Optional[pulumi.Input[int]] = None,
              vpn_server_configuration_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isDefault' in kwargs:
+            is_default = kwargs['isDefault']
+        if 'vpnServerConfigurationId' in kwargs:
+            vpn_server_configuration_id = kwargs['vpnServerConfigurationId']
+
         if is_default is not None:
             _setter("is_default", is_default)
         if name is not None:

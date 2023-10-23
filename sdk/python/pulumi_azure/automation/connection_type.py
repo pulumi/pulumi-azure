@@ -45,7 +45,15 @@ class ConnectionTypeArgs:
              resource_group_name: pulumi.Input[str],
              is_global: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'automationAccountName' in kwargs:
+            automation_account_name = kwargs['automationAccountName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'isGlobal' in kwargs:
+            is_global = kwargs['isGlobal']
+
         _setter("automation_account_name", automation_account_name)
         _setter("fields", fields)
         _setter("resource_group_name", resource_group_name)
@@ -147,7 +155,15 @@ class _ConnectionTypeState:
              is_global: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'automationAccountName' in kwargs:
+            automation_account_name = kwargs['automationAccountName']
+        if 'isGlobal' in kwargs:
+            is_global = kwargs['isGlobal']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if automation_account_name is not None:
             _setter("automation_account_name", automation_account_name)
         if fields is not None:

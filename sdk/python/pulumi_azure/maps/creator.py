@@ -43,7 +43,13 @@ class CreatorArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mapsAccountId' in kwargs:
+            maps_account_id = kwargs['mapsAccountId']
+        if 'storageUnits' in kwargs:
+            storage_units = kwargs['storageUnits']
+
         _setter("maps_account_id", maps_account_id)
         _setter("storage_units", storage_units)
         if location is not None:
@@ -146,7 +152,13 @@ class _CreatorState:
              name: Optional[pulumi.Input[str]] = None,
              storage_units: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mapsAccountId' in kwargs:
+            maps_account_id = kwargs['mapsAccountId']
+        if 'storageUnits' in kwargs:
+            storage_units = kwargs['storageUnits']
+
         if location is not None:
             _setter("location", location)
         if maps_account_id is not None:

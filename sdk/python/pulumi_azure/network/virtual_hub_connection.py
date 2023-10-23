@@ -45,7 +45,15 @@ class VirtualHubConnectionArgs:
              internet_security_enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              routing: Optional[pulumi.Input['VirtualHubConnectionRoutingArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'remoteVirtualNetworkId' in kwargs:
+            remote_virtual_network_id = kwargs['remoteVirtualNetworkId']
+        if 'virtualHubId' in kwargs:
+            virtual_hub_id = kwargs['virtualHubId']
+        if 'internetSecurityEnabled' in kwargs:
+            internet_security_enabled = kwargs['internetSecurityEnabled']
+
         _setter("remote_virtual_network_id", remote_virtual_network_id)
         _setter("virtual_hub_id", virtual_hub_id)
         if internet_security_enabled is not None:
@@ -148,7 +156,15 @@ class _VirtualHubConnectionState:
              remote_virtual_network_id: Optional[pulumi.Input[str]] = None,
              routing: Optional[pulumi.Input['VirtualHubConnectionRoutingArgs']] = None,
              virtual_hub_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'internetSecurityEnabled' in kwargs:
+            internet_security_enabled = kwargs['internetSecurityEnabled']
+        if 'remoteVirtualNetworkId' in kwargs:
+            remote_virtual_network_id = kwargs['remoteVirtualNetworkId']
+        if 'virtualHubId' in kwargs:
+            virtual_hub_id = kwargs['virtualHubId']
+
         if internet_security_enabled is not None:
             _setter("internet_security_enabled", internet_security_enabled)
         if name is not None:

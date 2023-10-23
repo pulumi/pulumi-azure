@@ -61,7 +61,19 @@ class PolicySetDefinitionArgs:
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[str]] = None,
              policy_definition_groups: Optional[pulumi.Input[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionGroupArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'policyDefinitionReferences' in kwargs:
+            policy_definition_references = kwargs['policyDefinitionReferences']
+        if 'policyType' in kwargs:
+            policy_type = kwargs['policyType']
+        if 'managementGroupId' in kwargs:
+            management_group_id = kwargs['managementGroupId']
+        if 'policyDefinitionGroups' in kwargs:
+            policy_definition_groups = kwargs['policyDefinitionGroups']
+
         _setter("display_name", display_name)
         _setter("policy_definition_references", policy_definition_references)
         _setter("policy_type", policy_type)
@@ -235,7 +247,19 @@ class _PolicySetDefinitionState:
              policy_definition_groups: Optional[pulumi.Input[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionGroupArgs']]]] = None,
              policy_definition_references: Optional[pulumi.Input[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionReferenceArgs']]]] = None,
              policy_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'managementGroupId' in kwargs:
+            management_group_id = kwargs['managementGroupId']
+        if 'policyDefinitionGroups' in kwargs:
+            policy_definition_groups = kwargs['policyDefinitionGroups']
+        if 'policyDefinitionReferences' in kwargs:
+            policy_definition_references = kwargs['policyDefinitionReferences']
+        if 'policyType' in kwargs:
+            policy_type = kwargs['policyType']
+
         if description is not None:
             _setter("description", description)
         if display_name is not None:

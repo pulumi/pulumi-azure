@@ -72,7 +72,7 @@ public class JobSchedule extends com.pulumi.resources.CustomResource {
      * The name of the Automation Account in which the Job Schedule is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="automationAccountName", refs={String.class}, tree="[0]")
+    @Export(name="automationAccountName", type=String.class, parameters={})
     private Output<String> automationAccountName;
 
     /**
@@ -86,7 +86,7 @@ public class JobSchedule extends com.pulumi.resources.CustomResource {
      * (Optional) The UUID identifying the Automation Job Schedule.
      * 
      */
-    @Export(name="jobScheduleId", refs={String.class}, tree="[0]")
+    @Export(name="jobScheduleId", type=String.class, parameters={})
     private Output<String> jobScheduleId;
 
     /**
@@ -102,7 +102,7 @@ public class JobSchedule extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don&#39;t have this limitation.
      * 
      */
-    @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="parameters", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> parameters;
 
     /**
@@ -118,7 +118,7 @@ public class JobSchedule extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which the Job Schedule is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -132,7 +132,7 @@ public class JobSchedule extends com.pulumi.resources.CustomResource {
      * Name of a Hybrid Worker Group the Runbook will be executed on. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="runOn", refs={String.class}, tree="[0]")
+    @Export(name="runOn", type=String.class, parameters={})
     private Output</* @Nullable */ String> runOn;
 
     /**
@@ -146,7 +146,7 @@ public class JobSchedule extends com.pulumi.resources.CustomResource {
      * The name of a Runbook to link to a Schedule. It needs to be in the same Automation Account as the Schedule and Job Schedule. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="runbookName", refs={String.class}, tree="[0]")
+    @Export(name="runbookName", type=String.class, parameters={})
     private Output<String> runbookName;
 
     /**
@@ -160,7 +160,7 @@ public class JobSchedule extends com.pulumi.resources.CustomResource {
      * The name of the Schedule. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="scheduleName", refs={String.class}, tree="[0]")
+    @Export(name="scheduleName", type=String.class, parameters={})
     private Output<String> scheduleName;
 
     /**

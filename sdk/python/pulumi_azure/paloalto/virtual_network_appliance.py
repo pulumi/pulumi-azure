@@ -29,7 +29,11 @@ class VirtualNetworkApplianceArgs:
              _setter: Callable[[Any, Any], None],
              virtual_hub_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'virtualHubId' in kwargs:
+            virtual_hub_id = kwargs['virtualHubId']
+
         _setter("virtual_hub_id", virtual_hub_id)
         if name is not None:
             _setter("name", name)
@@ -71,7 +75,11 @@ class _VirtualNetworkApplianceState:
              _setter: Callable[[Any, Any], None],
              name: Optional[pulumi.Input[str]] = None,
              virtual_hub_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'virtualHubId' in kwargs:
+            virtual_hub_id = kwargs['virtualHubId']
+
         if name is not None:
             _setter("name", name)
         if virtual_hub_id is not None:

@@ -127,7 +127,7 @@ public class NetworkAcl extends com.pulumi.resources.CustomResource {
      * The default action to control the network access when no other rule matches. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
      * 
      */
-    @Export(name="defaultAction", refs={String.class}, tree="[0]")
+    @Export(name="defaultAction", type=String.class, parameters={})
     private Output</* @Nullable */ String> defaultAction;
 
     /**
@@ -141,7 +141,7 @@ public class NetworkAcl extends com.pulumi.resources.CustomResource {
      * A `private_endpoint` block as defined below.
      * 
      */
-    @Export(name="privateEndpoints", refs={List.class,NetworkAclPrivateEndpoint.class}, tree="[0,1]")
+    @Export(name="privateEndpoints", type=List.class, parameters={NetworkAclPrivateEndpoint.class})
     private Output</* @Nullable */ List<NetworkAclPrivateEndpoint>> privateEndpoints;
 
     /**
@@ -155,7 +155,7 @@ public class NetworkAcl extends com.pulumi.resources.CustomResource {
      * A `public_network` block as defined below.
      * 
      */
-    @Export(name="publicNetwork", refs={NetworkAclPublicNetwork.class}, tree="[0]")
+    @Export(name="publicNetwork", type=NetworkAclPublicNetwork.class, parameters={})
     private Output<NetworkAclPublicNetwork> publicNetwork;
 
     /**
@@ -169,7 +169,7 @@ public class NetworkAcl extends com.pulumi.resources.CustomResource {
      * The ID of the Web Pubsub service. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="webPubsubId", refs={String.class}, tree="[0]")
+    @Export(name="webPubsubId", type=String.class, parameters={})
     private Output<String> webPubsubId;
 
     /**

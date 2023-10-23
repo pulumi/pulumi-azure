@@ -61,7 +61,23 @@ class VirtualNetworkPeeringArgs:
              name: Optional[pulumi.Input[str]] = None,
              triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              use_remote_gateways: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'remoteVirtualNetworkId' in kwargs:
+            remote_virtual_network_id = kwargs['remoteVirtualNetworkId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'virtualNetworkName' in kwargs:
+            virtual_network_name = kwargs['virtualNetworkName']
+        if 'allowForwardedTraffic' in kwargs:
+            allow_forwarded_traffic = kwargs['allowForwardedTraffic']
+        if 'allowGatewayTransit' in kwargs:
+            allow_gateway_transit = kwargs['allowGatewayTransit']
+        if 'allowVirtualNetworkAccess' in kwargs:
+            allow_virtual_network_access = kwargs['allowVirtualNetworkAccess']
+        if 'useRemoteGateways' in kwargs:
+            use_remote_gateways = kwargs['useRemoteGateways']
+
         _setter("remote_virtual_network_id", remote_virtual_network_id)
         _setter("resource_group_name", resource_group_name)
         _setter("virtual_network_name", virtual_network_name)
@@ -239,7 +255,23 @@ class _VirtualNetworkPeeringState:
              triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              use_remote_gateways: Optional[pulumi.Input[bool]] = None,
              virtual_network_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowForwardedTraffic' in kwargs:
+            allow_forwarded_traffic = kwargs['allowForwardedTraffic']
+        if 'allowGatewayTransit' in kwargs:
+            allow_gateway_transit = kwargs['allowGatewayTransit']
+        if 'allowVirtualNetworkAccess' in kwargs:
+            allow_virtual_network_access = kwargs['allowVirtualNetworkAccess']
+        if 'remoteVirtualNetworkId' in kwargs:
+            remote_virtual_network_id = kwargs['remoteVirtualNetworkId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'useRemoteGateways' in kwargs:
+            use_remote_gateways = kwargs['useRemoteGateways']
+        if 'virtualNetworkName' in kwargs:
+            virtual_network_name = kwargs['virtualNetworkName']
+
         if allow_forwarded_traffic is not None:
             _setter("allow_forwarded_traffic", allow_forwarded_traffic)
         if allow_gateway_transit is not None:

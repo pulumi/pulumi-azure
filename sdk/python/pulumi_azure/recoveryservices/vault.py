@@ -85,7 +85,21 @@ class VaultArgs:
              soft_delete_enabled: Optional[pulumi.Input[bool]] = None,
              storage_mode_type: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'classicVmwareReplicationEnabled' in kwargs:
+            classic_vmware_replication_enabled = kwargs['classicVmwareReplicationEnabled']
+        if 'crossRegionRestoreEnabled' in kwargs:
+            cross_region_restore_enabled = kwargs['crossRegionRestoreEnabled']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'softDeleteEnabled' in kwargs:
+            soft_delete_enabled = kwargs['softDeleteEnabled']
+        if 'storageModeType' in kwargs:
+            storage_mode_type = kwargs['storageModeType']
+
         _setter("resource_group_name", resource_group_name)
         _setter("sku", sku)
         if classic_vmware_replication_enabled is not None:
@@ -358,7 +372,21 @@ class _VaultState:
              soft_delete_enabled: Optional[pulumi.Input[bool]] = None,
              storage_mode_type: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'classicVmwareReplicationEnabled' in kwargs:
+            classic_vmware_replication_enabled = kwargs['classicVmwareReplicationEnabled']
+        if 'crossRegionRestoreEnabled' in kwargs:
+            cross_region_restore_enabled = kwargs['crossRegionRestoreEnabled']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'softDeleteEnabled' in kwargs:
+            soft_delete_enabled = kwargs['softDeleteEnabled']
+        if 'storageModeType' in kwargs:
+            storage_mode_type = kwargs['storageModeType']
+
         if classic_vmware_replication_enabled is not None:
             _setter("classic_vmware_replication_enabled", classic_vmware_replication_enabled)
         if cross_region_restore_enabled is not None:

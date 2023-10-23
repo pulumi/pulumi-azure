@@ -69,7 +69,7 @@ public class LocalRulestack extends com.pulumi.resources.CustomResource {
      * The setting to use for Anti-Spyware.  Possible values include `BestPractice`, and `Custom`.
      * 
      */
-    @Export(name="antiSpywareProfile", refs={String.class}, tree="[0]")
+    @Export(name="antiSpywareProfile", type=String.class, parameters={})
     private Output</* @Nullable */ String> antiSpywareProfile;
 
     /**
@@ -83,7 +83,7 @@ public class LocalRulestack extends com.pulumi.resources.CustomResource {
      * The setting to use for Anti-Virus. Possible values include `BestPractice`, and `Custom`.
      * 
      */
-    @Export(name="antiVirusProfile", refs={String.class}, tree="[0]")
+    @Export(name="antiVirusProfile", type=String.class, parameters={})
     private Output</* @Nullable */ String> antiVirusProfile;
 
     /**
@@ -97,7 +97,7 @@ public class LocalRulestack extends com.pulumi.resources.CustomResource {
      * The description for this Local Rulestack.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -111,7 +111,7 @@ public class LocalRulestack extends com.pulumi.resources.CustomResource {
      * TThe setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
      * 
      */
-    @Export(name="dnsSubscription", refs={String.class}, tree="[0]")
+    @Export(name="dnsSubscription", type=String.class, parameters={})
     private Output</* @Nullable */ String> dnsSubscription;
 
     /**
@@ -125,7 +125,7 @@ public class LocalRulestack extends com.pulumi.resources.CustomResource {
      * The setting to use for the File Blocking Profile. Possible values include `BestPractice`, and `Custom`.
      * 
      */
-    @Export(name="fileBlockingProfile", refs={String.class}, tree="[0]")
+    @Export(name="fileBlockingProfile", type=String.class, parameters={})
     private Output</* @Nullable */ String> fileBlockingProfile;
 
     /**
@@ -139,7 +139,7 @@ public class LocalRulestack extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Palo Alto Networks Rulestack should exist. Changing this forces a new Palo Alto Networks Rulestack to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -153,7 +153,7 @@ public class LocalRulestack extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Palo Alto Networks Rulestack. Changing this forces a new Palo Alto Networks Rulestack to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -167,7 +167,7 @@ public class LocalRulestack extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Palo Alto Networks Rulestack should exist. Changing this forces a new Palo Alto Networks Rulestack to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -181,7 +181,7 @@ public class LocalRulestack extends com.pulumi.resources.CustomResource {
      * The setting to use for the URL Filtering Profile. Possible values include `BestPractice`, and `Custom`.
      * 
      */
-    @Export(name="urlFilteringProfile", refs={String.class}, tree="[0]")
+    @Export(name="urlFilteringProfile", type=String.class, parameters={})
     private Output</* @Nullable */ String> urlFilteringProfile;
 
     /**
@@ -195,7 +195,7 @@ public class LocalRulestack extends com.pulumi.resources.CustomResource {
      * The setting to use for the Vulnerability Profile. Possible values include `BestPractice`, and `Custom`.
      * 
      */
-    @Export(name="vulnerabilityProfile", refs={String.class}, tree="[0]")
+    @Export(name="vulnerabilityProfile", type=String.class, parameters={})
     private Output</* @Nullable */ String> vulnerabilityProfile;
 
     /**

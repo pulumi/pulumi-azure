@@ -39,7 +39,13 @@ class CustomCertificateArgs:
              custom_certificate_id: pulumi.Input[str],
              web_pubsub_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customCertificateId' in kwargs:
+            custom_certificate_id = kwargs['customCertificateId']
+        if 'webPubsubId' in kwargs:
+            web_pubsub_id = kwargs['webPubsubId']
+
         _setter("custom_certificate_id", custom_certificate_id)
         _setter("web_pubsub_id", web_pubsub_id)
         if name is not None:
@@ -118,7 +124,15 @@ class _CustomCertificateState:
              custom_certificate_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              web_pubsub_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateVersion' in kwargs:
+            certificate_version = kwargs['certificateVersion']
+        if 'customCertificateId' in kwargs:
+            custom_certificate_id = kwargs['customCertificateId']
+        if 'webPubsubId' in kwargs:
+            web_pubsub_id = kwargs['webPubsubId']
+
         if certificate_version is not None:
             _setter("certificate_version", certificate_version)
         if custom_certificate_id is not None:

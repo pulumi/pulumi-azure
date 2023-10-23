@@ -83,7 +83,27 @@ class NetworkInterfaceArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipConfigurations' in kwargs:
+            ip_configurations = kwargs['ipConfigurations']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'auxiliaryMode' in kwargs:
+            auxiliary_mode = kwargs['auxiliaryMode']
+        if 'auxiliarySku' in kwargs:
+            auxiliary_sku = kwargs['auxiliarySku']
+        if 'dnsServers' in kwargs:
+            dns_servers = kwargs['dnsServers']
+        if 'edgeZone' in kwargs:
+            edge_zone = kwargs['edgeZone']
+        if 'enableAcceleratedNetworking' in kwargs:
+            enable_accelerated_networking = kwargs['enableAcceleratedNetworking']
+        if 'enableIpForwarding' in kwargs:
+            enable_ip_forwarding = kwargs['enableIpForwarding']
+        if 'internalDnsNameLabel' in kwargs:
+            internal_dns_name_label = kwargs['internalDnsNameLabel']
+
         _setter("ip_configurations", ip_configurations)
         _setter("resource_group_name", resource_group_name)
         if auxiliary_mode is not None:
@@ -356,7 +376,39 @@ class _NetworkInterfaceState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              virtual_machine_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appliedDnsServers' in kwargs:
+            applied_dns_servers = kwargs['appliedDnsServers']
+        if 'auxiliaryMode' in kwargs:
+            auxiliary_mode = kwargs['auxiliaryMode']
+        if 'auxiliarySku' in kwargs:
+            auxiliary_sku = kwargs['auxiliarySku']
+        if 'dnsServers' in kwargs:
+            dns_servers = kwargs['dnsServers']
+        if 'edgeZone' in kwargs:
+            edge_zone = kwargs['edgeZone']
+        if 'enableAcceleratedNetworking' in kwargs:
+            enable_accelerated_networking = kwargs['enableAcceleratedNetworking']
+        if 'enableIpForwarding' in kwargs:
+            enable_ip_forwarding = kwargs['enableIpForwarding']
+        if 'internalDnsNameLabel' in kwargs:
+            internal_dns_name_label = kwargs['internalDnsNameLabel']
+        if 'internalDomainNameSuffix' in kwargs:
+            internal_domain_name_suffix = kwargs['internalDomainNameSuffix']
+        if 'ipConfigurations' in kwargs:
+            ip_configurations = kwargs['ipConfigurations']
+        if 'macAddress' in kwargs:
+            mac_address = kwargs['macAddress']
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if 'privateIpAddresses' in kwargs:
+            private_ip_addresses = kwargs['privateIpAddresses']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'virtualMachineId' in kwargs:
+            virtual_machine_id = kwargs['virtualMachineId']
+
         if applied_dns_servers is not None:
             _setter("applied_dns_servers", applied_dns_servers)
         if auxiliary_mode is not None:

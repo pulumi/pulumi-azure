@@ -75,7 +75,25 @@ class ServicePlanArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              worker_count: Optional[pulumi.Input[int]] = None,
              zone_balancing_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'osType' in kwargs:
+            os_type = kwargs['osType']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'appServiceEnvironmentId' in kwargs:
+            app_service_environment_id = kwargs['appServiceEnvironmentId']
+        if 'maximumElasticWorkerCount' in kwargs:
+            maximum_elastic_worker_count = kwargs['maximumElasticWorkerCount']
+        if 'perSiteScalingEnabled' in kwargs:
+            per_site_scaling_enabled = kwargs['perSiteScalingEnabled']
+        if 'workerCount' in kwargs:
+            worker_count = kwargs['workerCount']
+        if 'zoneBalancingEnabled' in kwargs:
+            zone_balancing_enabled = kwargs['zoneBalancingEnabled']
+
         _setter("os_type", os_type)
         _setter("resource_group_name", resource_group_name)
         _setter("sku_name", sku_name)
@@ -309,7 +327,25 @@ class _ServicePlanState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              worker_count: Optional[pulumi.Input[int]] = None,
              zone_balancing_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appServiceEnvironmentId' in kwargs:
+            app_service_environment_id = kwargs['appServiceEnvironmentId']
+        if 'maximumElasticWorkerCount' in kwargs:
+            maximum_elastic_worker_count = kwargs['maximumElasticWorkerCount']
+        if 'osType' in kwargs:
+            os_type = kwargs['osType']
+        if 'perSiteScalingEnabled' in kwargs:
+            per_site_scaling_enabled = kwargs['perSiteScalingEnabled']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'workerCount' in kwargs:
+            worker_count = kwargs['workerCount']
+        if 'zoneBalancingEnabled' in kwargs:
+            zone_balancing_enabled = kwargs['zoneBalancingEnabled']
+
         if app_service_environment_id is not None:
             _setter("app_service_environment_id", app_service_environment_id)
         if kind is not None:

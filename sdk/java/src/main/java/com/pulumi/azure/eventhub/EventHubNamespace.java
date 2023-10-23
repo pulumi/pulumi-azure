@@ -78,7 +78,7 @@ public class EventHubNamespace extends com.pulumi.resources.CustomResource {
      * Is Auto Inflate enabled for the EventHub Namespace?
      * 
      */
-    @Export(name="autoInflateEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="autoInflateEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> autoInflateEnabled;
 
     /**
@@ -92,7 +92,7 @@ public class EventHubNamespace extends com.pulumi.resources.CustomResource {
      * Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis. Defaults to `1`.
      * 
      */
-    @Export(name="capacity", refs={Integer.class}, tree="[0]")
+    @Export(name="capacity", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> capacity;
 
     /**
@@ -106,7 +106,7 @@ public class EventHubNamespace extends com.pulumi.resources.CustomResource {
      * Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="dedicatedClusterId", refs={String.class}, tree="[0]")
+    @Export(name="dedicatedClusterId", type=String.class, parameters={})
     private Output</* @Nullable */ String> dedicatedClusterId;
 
     /**
@@ -120,7 +120,7 @@ public class EventHubNamespace extends com.pulumi.resources.CustomResource {
      * The primary connection string for the authorization rule `RootManageSharedAccessKey`.
      * 
      */
-    @Export(name="defaultPrimaryConnectionString", refs={String.class}, tree="[0]")
+    @Export(name="defaultPrimaryConnectionString", type=String.class, parameters={})
     private Output<String> defaultPrimaryConnectionString;
 
     /**
@@ -134,7 +134,7 @@ public class EventHubNamespace extends com.pulumi.resources.CustomResource {
      * The alias of the primary connection string for the authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
      * 
      */
-    @Export(name="defaultPrimaryConnectionStringAlias", refs={String.class}, tree="[0]")
+    @Export(name="defaultPrimaryConnectionStringAlias", type=String.class, parameters={})
     private Output<String> defaultPrimaryConnectionStringAlias;
 
     /**
@@ -148,7 +148,7 @@ public class EventHubNamespace extends com.pulumi.resources.CustomResource {
      * The primary access key for the authorization rule `RootManageSharedAccessKey`.
      * 
      */
-    @Export(name="defaultPrimaryKey", refs={String.class}, tree="[0]")
+    @Export(name="defaultPrimaryKey", type=String.class, parameters={})
     private Output<String> defaultPrimaryKey;
 
     /**
@@ -162,7 +162,7 @@ public class EventHubNamespace extends com.pulumi.resources.CustomResource {
      * The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
      * 
      */
-    @Export(name="defaultSecondaryConnectionString", refs={String.class}, tree="[0]")
+    @Export(name="defaultSecondaryConnectionString", type=String.class, parameters={})
     private Output<String> defaultSecondaryConnectionString;
 
     /**
@@ -176,7 +176,7 @@ public class EventHubNamespace extends com.pulumi.resources.CustomResource {
      * The alias of the secondary connection string for the authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
      * 
      */
-    @Export(name="defaultSecondaryConnectionStringAlias", refs={String.class}, tree="[0]")
+    @Export(name="defaultSecondaryConnectionStringAlias", type=String.class, parameters={})
     private Output<String> defaultSecondaryConnectionStringAlias;
 
     /**
@@ -190,7 +190,7 @@ public class EventHubNamespace extends com.pulumi.resources.CustomResource {
      * The secondary access key for the authorization rule `RootManageSharedAccessKey`.
      * 
      */
-    @Export(name="defaultSecondaryKey", refs={String.class}, tree="[0]")
+    @Export(name="defaultSecondaryKey", type=String.class, parameters={})
     private Output<String> defaultSecondaryKey;
 
     /**
@@ -204,7 +204,7 @@ public class EventHubNamespace extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", refs={EventHubNamespaceIdentity.class}, tree="[0]")
+    @Export(name="identity", type=EventHubNamespaceIdentity.class, parameters={})
     private Output</* @Nullable */ EventHubNamespaceIdentity> identity;
 
     /**
@@ -218,7 +218,7 @@ public class EventHubNamespace extends com.pulumi.resources.CustomResource {
      * Is SAS authentication enabled for the EventHub Namespace? Defaults to `true`.
      * 
      */
-    @Export(name="localAuthenticationEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="localAuthenticationEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> localAuthenticationEnabled;
 
     /**
@@ -232,7 +232,7 @@ public class EventHubNamespace extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -246,7 +246,7 @@ public class EventHubNamespace extends com.pulumi.resources.CustomResource {
      * Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
      * 
      */
-    @Export(name="maximumThroughputUnits", refs={Integer.class}, tree="[0]")
+    @Export(name="maximumThroughputUnits", type=Integer.class, parameters={})
     private Output<Integer> maximumThroughputUnits;
 
     /**
@@ -260,7 +260,7 @@ public class EventHubNamespace extends com.pulumi.resources.CustomResource {
      * The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
      * 
      */
-    @Export(name="minimumTlsVersion", refs={String.class}, tree="[0]")
+    @Export(name="minimumTlsVersion", type=String.class, parameters={})
     private Output<String> minimumTlsVersion;
 
     /**
@@ -274,7 +274,7 @@ public class EventHubNamespace extends com.pulumi.resources.CustomResource {
      * Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -288,7 +288,7 @@ public class EventHubNamespace extends com.pulumi.resources.CustomResource {
      * A `network_rulesets` block as defined below.
      * 
      */
-    @Export(name="networkRulesets", refs={EventHubNamespaceNetworkRulesets.class}, tree="[0]")
+    @Export(name="networkRulesets", type=EventHubNamespaceNetworkRulesets.class, parameters={})
     private Output<EventHubNamespaceNetworkRulesets> networkRulesets;
 
     /**
@@ -302,7 +302,7 @@ public class EventHubNamespace extends com.pulumi.resources.CustomResource {
      * Is public network access enabled for the EventHub Namespace? Defaults to `true`.
      * 
      */
-    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
@@ -316,7 +316,7 @@ public class EventHubNamespace extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -330,7 +330,7 @@ public class EventHubNamespace extends com.pulumi.resources.CustomResource {
      * Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
      * 
      */
-    @Export(name="sku", refs={String.class}, tree="[0]")
+    @Export(name="sku", type=String.class, parameters={})
     private Output<String> sku;
 
     /**
@@ -344,7 +344,7 @@ public class EventHubNamespace extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -360,7 +360,7 @@ public class EventHubNamespace extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** For eventhub premium namespace, `zone_redundant` is computed by api based on the availability zone feature in each region. User&#39;s input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
      * 
      */
-    @Export(name="zoneRedundant", refs={Boolean.class}, tree="[0]")
+    @Export(name="zoneRedundant", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> zoneRedundant;
 
     /**

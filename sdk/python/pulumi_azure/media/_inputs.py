@@ -142,7 +142,21 @@ class AccountFilterPresentationTimeRangeArgs:
              live_backoff_in_units: Optional[pulumi.Input[int]] = None,
              presentation_window_in_units: Optional[pulumi.Input[int]] = None,
              start_in_units: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'unitTimescaleInMilliseconds' in kwargs:
+            unit_timescale_in_milliseconds = kwargs['unitTimescaleInMilliseconds']
+        if 'endInUnits' in kwargs:
+            end_in_units = kwargs['endInUnits']
+        if 'forceEnd' in kwargs:
+            force_end = kwargs['forceEnd']
+        if 'liveBackoffInUnits' in kwargs:
+            live_backoff_in_units = kwargs['liveBackoffInUnits']
+        if 'presentationWindowInUnits' in kwargs:
+            presentation_window_in_units = kwargs['presentationWindowInUnits']
+        if 'startInUnits' in kwargs:
+            start_in_units = kwargs['startInUnits']
+
         _setter("unit_timescale_in_milliseconds", unit_timescale_in_milliseconds)
         if end_in_units is not None:
             _setter("end_in_units", end_in_units)
@@ -245,7 +259,9 @@ class AccountFilterTrackSelectionArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              conditions: pulumi.Input[Sequence[pulumi.Input['AccountFilterTrackSelectionConditionArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("conditions", conditions)
 
     @property
@@ -284,7 +300,9 @@ class AccountFilterTrackSelectionConditionArgs:
              operation: pulumi.Input[str],
              property: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("operation", operation)
         _setter("property", property)
         _setter("value", value)
@@ -363,7 +381,21 @@ class AssetFilterPresentationTimeRangeArgs:
              presentation_window_in_units: Optional[pulumi.Input[int]] = None,
              start_in_units: Optional[pulumi.Input[int]] = None,
              unit_timescale_in_miliseconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endInUnits' in kwargs:
+            end_in_units = kwargs['endInUnits']
+        if 'forceEnd' in kwargs:
+            force_end = kwargs['forceEnd']
+        if 'liveBackoffInUnits' in kwargs:
+            live_backoff_in_units = kwargs['liveBackoffInUnits']
+        if 'presentationWindowInUnits' in kwargs:
+            presentation_window_in_units = kwargs['presentationWindowInUnits']
+        if 'startInUnits' in kwargs:
+            start_in_units = kwargs['startInUnits']
+        if 'unitTimescaleInMiliseconds' in kwargs:
+            unit_timescale_in_miliseconds = kwargs['unitTimescaleInMiliseconds']
+
         if end_in_units is not None:
             _setter("end_in_units", end_in_units)
         if force_end is not None:
@@ -467,7 +499,9 @@ class AssetFilterTrackSelectionArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              conditions: pulumi.Input[Sequence[pulumi.Input['AssetFilterTrackSelectionConditionArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("conditions", conditions)
 
     @property
@@ -506,7 +540,9 @@ class AssetFilterTrackSelectionConditionArgs:
              operation: Optional[pulumi.Input[str]] = None,
              property: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if operation is not None:
             _setter("operation", operation)
         if property is not None:
@@ -596,7 +632,23 @@ class ContentKeyPolicyPolicyOptionArgs:
              playready_response_custom_data: Optional[pulumi.Input[str]] = None,
              token_restriction: Optional[pulumi.Input['ContentKeyPolicyPolicyOptionTokenRestrictionArgs']] = None,
              widevine_configuration_template: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clearKeyConfigurationEnabled' in kwargs:
+            clear_key_configuration_enabled = kwargs['clearKeyConfigurationEnabled']
+        if 'fairplayConfiguration' in kwargs:
+            fairplay_configuration = kwargs['fairplayConfiguration']
+        if 'openRestrictionEnabled' in kwargs:
+            open_restriction_enabled = kwargs['openRestrictionEnabled']
+        if 'playreadyConfigurationLicenses' in kwargs:
+            playready_configuration_licenses = kwargs['playreadyConfigurationLicenses']
+        if 'playreadyResponseCustomData' in kwargs:
+            playready_response_custom_data = kwargs['playreadyResponseCustomData']
+        if 'tokenRestriction' in kwargs:
+            token_restriction = kwargs['tokenRestriction']
+        if 'widevineConfigurationTemplate' in kwargs:
+            widevine_configuration_template = kwargs['widevineConfigurationTemplate']
+
         _setter("name", name)
         if clear_key_configuration_enabled is not None:
             _setter("clear_key_configuration_enabled", clear_key_configuration_enabled)
@@ -747,7 +799,17 @@ class ContentKeyPolicyPolicyOptionFairplayConfigurationArgs:
              pfx_password: Optional[pulumi.Input[str]] = None,
              rental_and_lease_key_type: Optional[pulumi.Input[str]] = None,
              rental_duration_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'offlineRentalConfiguration' in kwargs:
+            offline_rental_configuration = kwargs['offlineRentalConfiguration']
+        if 'pfxPassword' in kwargs:
+            pfx_password = kwargs['pfxPassword']
+        if 'rentalAndLeaseKeyType' in kwargs:
+            rental_and_lease_key_type = kwargs['rentalAndLeaseKeyType']
+        if 'rentalDurationSeconds' in kwargs:
+            rental_duration_seconds = kwargs['rentalDurationSeconds']
+
         if ask is not None:
             _setter("ask", ask)
         if offline_rental_configuration is not None:
@@ -853,7 +915,13 @@ class ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguratio
              _setter: Callable[[Any, Any], None],
              playback_duration_seconds: Optional[pulumi.Input[int]] = None,
              storage_duration_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'playbackDurationSeconds' in kwargs:
+            playback_duration_seconds = kwargs['playbackDurationSeconds']
+        if 'storageDurationSeconds' in kwargs:
+            storage_duration_seconds = kwargs['storageDurationSeconds']
+
         if playback_duration_seconds is not None:
             _setter("playback_duration_seconds", playback_duration_seconds)
         if storage_duration_seconds is not None:
@@ -945,7 +1013,33 @@ class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs:
              relative_begin_date: Optional[pulumi.Input[str]] = None,
              relative_expiration_date: Optional[pulumi.Input[str]] = None,
              security_level: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowTestDevices' in kwargs:
+            allow_test_devices = kwargs['allowTestDevices']
+        if 'beginDate' in kwargs:
+            begin_date = kwargs['beginDate']
+        if 'contentKeyLocationFromHeaderEnabled' in kwargs:
+            content_key_location_from_header_enabled = kwargs['contentKeyLocationFromHeaderEnabled']
+        if 'contentKeyLocationFromKeyId' in kwargs:
+            content_key_location_from_key_id = kwargs['contentKeyLocationFromKeyId']
+        if 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if 'expirationDate' in kwargs:
+            expiration_date = kwargs['expirationDate']
+        if 'gracePeriod' in kwargs:
+            grace_period = kwargs['gracePeriod']
+        if 'licenseType' in kwargs:
+            license_type = kwargs['licenseType']
+        if 'playRight' in kwargs:
+            play_right = kwargs['playRight']
+        if 'relativeBeginDate' in kwargs:
+            relative_begin_date = kwargs['relativeBeginDate']
+        if 'relativeExpirationDate' in kwargs:
+            relative_expiration_date = kwargs['relativeExpirationDate']
+        if 'securityLevel' in kwargs:
+            security_level = kwargs['securityLevel']
+
         if allow_test_devices is not None:
             _setter("allow_test_devices", allow_test_devices)
         if begin_date is not None:
@@ -1181,7 +1275,35 @@ class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs:
              scms_restriction: Optional[pulumi.Input[int]] = None,
              uncompressed_digital_audio_opl: Optional[pulumi.Input[int]] = None,
              uncompressed_digital_video_opl: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'agcAndColorStripeRestriction' in kwargs:
+            agc_and_color_stripe_restriction = kwargs['agcAndColorStripeRestriction']
+        if 'allowPassingVideoContentToUnknownOutput' in kwargs:
+            allow_passing_video_content_to_unknown_output = kwargs['allowPassingVideoContentToUnknownOutput']
+        if 'analogVideoOpl' in kwargs:
+            analog_video_opl = kwargs['analogVideoOpl']
+        if 'compressedDigitalAudioOpl' in kwargs:
+            compressed_digital_audio_opl = kwargs['compressedDigitalAudioOpl']
+        if 'compressedDigitalVideoOpl' in kwargs:
+            compressed_digital_video_opl = kwargs['compressedDigitalVideoOpl']
+        if 'digitalVideoOnlyContentRestriction' in kwargs:
+            digital_video_only_content_restriction = kwargs['digitalVideoOnlyContentRestriction']
+        if 'explicitAnalogTelevisionOutputRestriction' in kwargs:
+            explicit_analog_television_output_restriction = kwargs['explicitAnalogTelevisionOutputRestriction']
+        if 'firstPlayExpiration' in kwargs:
+            first_play_expiration = kwargs['firstPlayExpiration']
+        if 'imageConstraintForAnalogComponentVideoRestriction' in kwargs:
+            image_constraint_for_analog_component_video_restriction = kwargs['imageConstraintForAnalogComponentVideoRestriction']
+        if 'imageConstraintForAnalogComputerMonitorRestriction' in kwargs:
+            image_constraint_for_analog_computer_monitor_restriction = kwargs['imageConstraintForAnalogComputerMonitorRestriction']
+        if 'scmsRestriction' in kwargs:
+            scms_restriction = kwargs['scmsRestriction']
+        if 'uncompressedDigitalAudioOpl' in kwargs:
+            uncompressed_digital_audio_opl = kwargs['uncompressedDigitalAudioOpl']
+        if 'uncompressedDigitalVideoOpl' in kwargs:
+            uncompressed_digital_video_opl = kwargs['uncompressedDigitalVideoOpl']
+
         if agc_and_color_stripe_restriction is not None:
             _setter("agc_and_color_stripe_restriction", agc_and_color_stripe_restriction)
         if allow_passing_video_content_to_unknown_output is not None:
@@ -1385,7 +1507,13 @@ class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicit
              _setter: Callable[[Any, Any], None],
              control_bits: pulumi.Input[int],
              best_effort_enforced: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'controlBits' in kwargs:
+            control_bits = kwargs['controlBits']
+        if 'bestEffortEnforced' in kwargs:
+            best_effort_enforced = kwargs['bestEffortEnforced']
+
         _setter("control_bits", control_bits)
         if best_effort_enforced is not None:
             _setter("best_effort_enforced", best_effort_enforced)
@@ -1468,7 +1596,25 @@ class ContentKeyPolicyPolicyOptionTokenRestrictionArgs:
              primary_x509_token_key_raw: Optional[pulumi.Input[str]] = None,
              required_claims: Optional[pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArgs']]]] = None,
              token_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alternateKeys' in kwargs:
+            alternate_keys = kwargs['alternateKeys']
+        if 'openIdConnectDiscoveryDocument' in kwargs:
+            open_id_connect_discovery_document = kwargs['openIdConnectDiscoveryDocument']
+        if 'primaryRsaTokenKeyExponent' in kwargs:
+            primary_rsa_token_key_exponent = kwargs['primaryRsaTokenKeyExponent']
+        if 'primaryRsaTokenKeyModulus' in kwargs:
+            primary_rsa_token_key_modulus = kwargs['primaryRsaTokenKeyModulus']
+        if 'primarySymmetricTokenKey' in kwargs:
+            primary_symmetric_token_key = kwargs['primarySymmetricTokenKey']
+        if 'primaryX509TokenKeyRaw' in kwargs:
+            primary_x509_token_key_raw = kwargs['primaryX509TokenKeyRaw']
+        if 'requiredClaims' in kwargs:
+            required_claims = kwargs['requiredClaims']
+        if 'tokenType' in kwargs:
+            token_type = kwargs['tokenType']
+
         if alternate_keys is not None:
             _setter("alternate_keys", alternate_keys)
         if audience is not None:
@@ -1642,7 +1788,17 @@ class ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArgs:
              rsa_token_key_modulus: Optional[pulumi.Input[str]] = None,
              symmetric_token_key: Optional[pulumi.Input[str]] = None,
              x509_token_key_raw: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'rsaTokenKeyExponent' in kwargs:
+            rsa_token_key_exponent = kwargs['rsaTokenKeyExponent']
+        if 'rsaTokenKeyModulus' in kwargs:
+            rsa_token_key_modulus = kwargs['rsaTokenKeyModulus']
+        if 'symmetricTokenKey' in kwargs:
+            symmetric_token_key = kwargs['symmetricTokenKey']
+        if 'x509TokenKeyRaw' in kwargs:
+            x509_token_key_raw = kwargs['x509TokenKeyRaw']
+
         if rsa_token_key_exponent is not None:
             _setter("rsa_token_key_exponent", rsa_token_key_exponent)
         if rsa_token_key_modulus is not None:
@@ -1722,7 +1878,9 @@ class ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArgs:
              _setter: Callable[[Any, Any], None],
              type: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if type is not None:
             _setter("type", type)
         if value is not None:
@@ -1772,7 +1930,9 @@ class JobInputAssetArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              label: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if label is not None:
             _setter("label", label)
@@ -1821,7 +1981,9 @@ class JobOutputAssetArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              label: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if label is not None:
             _setter("label", label)
@@ -1870,7 +2032,13 @@ class LiveEventCrossSiteAccessPolicyArgs:
              _setter: Callable[[Any, Any], None],
              client_access_policy: Optional[pulumi.Input[str]] = None,
              cross_domain_policy: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientAccessPolicy' in kwargs:
+            client_access_policy = kwargs['clientAccessPolicy']
+        if 'crossDomainPolicy' in kwargs:
+            cross_domain_policy = kwargs['crossDomainPolicy']
+
         if client_access_policy is not None:
             _setter("client_access_policy", client_access_policy)
         if cross_domain_policy is not None:
@@ -1930,7 +2098,15 @@ class LiveEventEncodingArgs:
              preset_name: Optional[pulumi.Input[str]] = None,
              stretch_mode: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyFrameInterval' in kwargs:
+            key_frame_interval = kwargs['keyFrameInterval']
+        if 'presetName' in kwargs:
+            preset_name = kwargs['presetName']
+        if 'stretchMode' in kwargs:
+            stretch_mode = kwargs['stretchMode']
+
         if key_frame_interval is not None:
             _setter("key_frame_interval", key_frame_interval)
         if preset_name is not None:
@@ -2021,7 +2197,17 @@ class LiveEventInputArgs:
              ip_access_control_allows: Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventInputIpAccessControlAllowArgs']]]] = None,
              key_frame_interval_duration: Optional[pulumi.Input[str]] = None,
              streaming_protocol: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessToken' in kwargs:
+            access_token = kwargs['accessToken']
+        if 'ipAccessControlAllows' in kwargs:
+            ip_access_control_allows = kwargs['ipAccessControlAllows']
+        if 'keyFrameIntervalDuration' in kwargs:
+            key_frame_interval_duration = kwargs['keyFrameIntervalDuration']
+        if 'streamingProtocol' in kwargs:
+            streaming_protocol = kwargs['streamingProtocol']
+
         if access_token is not None:
             _setter("access_token", access_token)
         if endpoints is not None:
@@ -2106,7 +2292,9 @@ class LiveEventInputEndpointArgs:
              _setter: Callable[[Any, Any], None],
              protocol: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if protocol is not None:
             _setter("protocol", protocol)
         if url is not None:
@@ -2154,7 +2342,11 @@ class LiveEventInputIpAccessControlAllowArgs:
              address: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              subnet_prefix_length: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subnetPrefixLength' in kwargs:
+            subnet_prefix_length = kwargs['subnetPrefixLength']
+
         if address is not None:
             _setter("address", address)
         if name is not None:
@@ -2229,7 +2421,17 @@ class LiveEventPreviewArgs:
              ip_access_control_allows: Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventPreviewIpAccessControlAllowArgs']]]] = None,
              preview_locator: Optional[pulumi.Input[str]] = None,
              streaming_policy_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alternativeMediaId' in kwargs:
+            alternative_media_id = kwargs['alternativeMediaId']
+        if 'ipAccessControlAllows' in kwargs:
+            ip_access_control_allows = kwargs['ipAccessControlAllows']
+        if 'previewLocator' in kwargs:
+            preview_locator = kwargs['previewLocator']
+        if 'streamingPolicyName' in kwargs:
+            streaming_policy_name = kwargs['streamingPolicyName']
+
         if alternative_media_id is not None:
             _setter("alternative_media_id", alternative_media_id)
         if endpoints is not None:
@@ -2314,7 +2516,9 @@ class LiveEventPreviewEndpointArgs:
              _setter: Callable[[Any, Any], None],
              protocol: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if protocol is not None:
             _setter("protocol", protocol)
         if url is not None:
@@ -2362,7 +2566,11 @@ class LiveEventPreviewIpAccessControlAllowArgs:
              address: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              subnet_prefix_length: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subnetPrefixLength' in kwargs:
+            subnet_prefix_length = kwargs['subnetPrefixLength']
+
         if address is not None:
             _setter("address", address)
         if name is not None:
@@ -2434,7 +2642,15 @@ class ServiceAccountEncryptionArgs:
              key_vault_key_identifier: Optional[pulumi.Input[str]] = None,
              managed_identity: Optional[pulumi.Input['ServiceAccountEncryptionManagedIdentityArgs']] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'currentKeyIdentifier' in kwargs:
+            current_key_identifier = kwargs['currentKeyIdentifier']
+        if 'keyVaultKeyIdentifier' in kwargs:
+            key_vault_key_identifier = kwargs['keyVaultKeyIdentifier']
+        if 'managedIdentity' in kwargs:
+            managed_identity = kwargs['managedIdentity']
+
         if current_key_identifier is not None:
             _setter("current_key_identifier", current_key_identifier)
         if key_vault_key_identifier is not None:
@@ -2512,7 +2728,13 @@ class ServiceAccountEncryptionManagedIdentityArgs:
              _setter: Callable[[Any, Any], None],
              use_system_assigned_identity: Optional[pulumi.Input[bool]] = None,
              user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'useSystemAssignedIdentity' in kwargs:
+            use_system_assigned_identity = kwargs['useSystemAssignedIdentity']
+        if 'userAssignedIdentityId' in kwargs:
+            user_assigned_identity_id = kwargs['userAssignedIdentityId']
+
         if use_system_assigned_identity is not None:
             _setter("use_system_assigned_identity", use_system_assigned_identity)
         if user_assigned_identity_id is not None:
@@ -2570,7 +2792,15 @@ class ServiceAccountIdentityArgs:
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -2647,7 +2877,13 @@ class ServiceAccountKeyDeliveryAccessControlArgs:
              _setter: Callable[[Any, Any], None],
              default_action: Optional[pulumi.Input[str]] = None,
              ip_allow_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if 'ipAllowLists' in kwargs:
+            ip_allow_lists = kwargs['ipAllowLists']
+
         if default_action is not None:
             _setter("default_action", default_action)
         if ip_allow_lists is not None:
@@ -2703,7 +2939,13 @@ class ServiceAccountStorageAccountArgs:
              id: pulumi.Input[str],
              is_primary: Optional[pulumi.Input[bool]] = None,
              managed_identity: Optional[pulumi.Input['ServiceAccountStorageAccountManagedIdentityArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isPrimary' in kwargs:
+            is_primary = kwargs['isPrimary']
+        if 'managedIdentity' in kwargs:
+            managed_identity = kwargs['managedIdentity']
+
         _setter("id", id)
         if is_primary is not None:
             _setter("is_primary", is_primary)
@@ -2768,7 +3010,13 @@ class ServiceAccountStorageAccountManagedIdentityArgs:
              _setter: Callable[[Any, Any], None],
              use_system_assigned_identity: Optional[pulumi.Input[bool]] = None,
              user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'useSystemAssignedIdentity' in kwargs:
+            use_system_assigned_identity = kwargs['useSystemAssignedIdentity']
+        if 'userAssignedIdentityId' in kwargs:
+            user_assigned_identity_id = kwargs['userAssignedIdentityId']
+
         if use_system_assigned_identity is not None:
             _setter("use_system_assigned_identity", use_system_assigned_identity)
         if user_assigned_identity_id is not None:
@@ -2818,7 +3066,13 @@ class StreamingEndpointAccessControlArgs:
              _setter: Callable[[Any, Any], None],
              akamai_signature_header_authentication_keys: Optional[pulumi.Input[Sequence[pulumi.Input['StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs']]]] = None,
              ip_allows: Optional[pulumi.Input[Sequence[pulumi.Input['StreamingEndpointAccessControlIpAllowArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'akamaiSignatureHeaderAuthenticationKeys' in kwargs:
+            akamai_signature_header_authentication_keys = kwargs['akamaiSignatureHeaderAuthenticationKeys']
+        if 'ipAllows' in kwargs:
+            ip_allows = kwargs['ipAllows']
+
         if akamai_signature_header_authentication_keys is not None:
             _setter("akamai_signature_header_authentication_keys", akamai_signature_header_authentication_keys)
         if ip_allows is not None:
@@ -2872,7 +3126,11 @@ class StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs:
              base64_key: Optional[pulumi.Input[str]] = None,
              expiration: Optional[pulumi.Input[str]] = None,
              identifier: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'base64Key' in kwargs:
+            base64_key = kwargs['base64Key']
+
         if base64_key is not None:
             _setter("base64_key", base64_key)
         if expiration is not None:
@@ -2940,7 +3198,11 @@ class StreamingEndpointAccessControlIpAllowArgs:
              address: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              subnet_prefix_length: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subnetPrefixLength' in kwargs:
+            subnet_prefix_length = kwargs['subnetPrefixLength']
+
         if address is not None:
             _setter("address", address)
         if name is not None:
@@ -3004,7 +3266,13 @@ class StreamingEndpointCrossSiteAccessPolicyArgs:
              _setter: Callable[[Any, Any], None],
              client_access_policy: Optional[pulumi.Input[str]] = None,
              cross_domain_policy: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientAccessPolicy' in kwargs:
+            client_access_policy = kwargs['clientAccessPolicy']
+        if 'crossDomainPolicy' in kwargs:
+            cross_domain_policy = kwargs['crossDomainPolicy']
+
         if client_access_policy is not None:
             _setter("client_access_policy", client_access_policy)
         if cross_domain_policy is not None:
@@ -3054,7 +3322,9 @@ class StreamingEndpointSkusArgs:
              _setter: Callable[[Any, Any], None],
              capacity: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if capacity is not None:
             _setter("capacity", capacity)
         if name is not None:
@@ -3116,7 +3386,15 @@ class StreamingLocatorContentKeyArgs:
              policy_name: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contentKeyId' in kwargs:
+            content_key_id = kwargs['contentKeyId']
+        if 'labelReferenceInStreamingPolicy' in kwargs:
+            label_reference_in_streaming_policy = kwargs['labelReferenceInStreamingPolicy']
+        if 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+
         if content_key_id is not None:
             _setter("content_key_id", content_key_id)
         if label_reference_in_streaming_policy is not None:
@@ -3216,7 +3494,17 @@ class StreamingPolicyCommonEncryptionCbcsArgs:
              default_content_key: Optional[pulumi.Input['StreamingPolicyCommonEncryptionCbcsDefaultContentKeyArgs']] = None,
              drm_fairplay: Optional[pulumi.Input['StreamingPolicyCommonEncryptionCbcsDrmFairplayArgs']] = None,
              enabled_protocols: Optional[pulumi.Input['StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clearKeyEncryption' in kwargs:
+            clear_key_encryption = kwargs['clearKeyEncryption']
+        if 'defaultContentKey' in kwargs:
+            default_content_key = kwargs['defaultContentKey']
+        if 'drmFairplay' in kwargs:
+            drm_fairplay = kwargs['drmFairplay']
+        if 'enabledProtocols' in kwargs:
+            enabled_protocols = kwargs['enabledProtocols']
+
         if clear_key_encryption is not None:
             _setter("clear_key_encryption", clear_key_encryption)
         if default_content_key is not None:
@@ -3292,7 +3580,11 @@ class StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              custom_keys_acquisition_url_template: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customKeysAcquisitionUrlTemplate' in kwargs:
+            custom_keys_acquisition_url_template = kwargs['customKeysAcquisitionUrlTemplate']
+
         _setter("custom_keys_acquisition_url_template", custom_keys_acquisition_url_template)
 
     @property
@@ -3329,7 +3621,11 @@ class StreamingPolicyCommonEncryptionCbcsDefaultContentKeyArgs:
              _setter: Callable[[Any, Any], None],
              label: Optional[pulumi.Input[str]] = None,
              policy_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+
         if label is not None:
             _setter("label", label)
         if policy_name is not None:
@@ -3379,7 +3675,13 @@ class StreamingPolicyCommonEncryptionCbcsDrmFairplayArgs:
              _setter: Callable[[Any, Any], None],
              allow_persistent_license: Optional[pulumi.Input[bool]] = None,
              custom_license_acquisition_url_template: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowPersistentLicense' in kwargs:
+            allow_persistent_license = kwargs['allowPersistentLicense']
+        if 'customLicenseAcquisitionUrlTemplate' in kwargs:
+            custom_license_acquisition_url_template = kwargs['customLicenseAcquisitionUrlTemplate']
+
         if allow_persistent_license is not None:
             _setter("allow_persistent_license", allow_persistent_license)
         if custom_license_acquisition_url_template is not None:
@@ -3437,7 +3739,11 @@ class StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArgs:
              download: Optional[pulumi.Input[bool]] = None,
              hls: Optional[pulumi.Input[bool]] = None,
              smooth_streaming: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'smoothStreaming' in kwargs:
+            smooth_streaming = kwargs['smoothStreaming']
+
         if dash is not None:
             _setter("dash", dash)
         if download is not None:
@@ -3535,7 +3841,23 @@ class StreamingPolicyCommonEncryptionCencArgs:
              drm_playready: Optional[pulumi.Input['StreamingPolicyCommonEncryptionCencDrmPlayreadyArgs']] = None,
              drm_widevine_custom_license_acquisition_url_template: Optional[pulumi.Input[str]] = None,
              enabled_protocols: Optional[pulumi.Input['StreamingPolicyCommonEncryptionCencEnabledProtocolsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clearKeyEncryption' in kwargs:
+            clear_key_encryption = kwargs['clearKeyEncryption']
+        if 'clearTracks' in kwargs:
+            clear_tracks = kwargs['clearTracks']
+        if 'contentKeyToTrackMappings' in kwargs:
+            content_key_to_track_mappings = kwargs['contentKeyToTrackMappings']
+        if 'defaultContentKey' in kwargs:
+            default_content_key = kwargs['defaultContentKey']
+        if 'drmPlayready' in kwargs:
+            drm_playready = kwargs['drmPlayready']
+        if 'drmWidevineCustomLicenseAcquisitionUrlTemplate' in kwargs:
+            drm_widevine_custom_license_acquisition_url_template = kwargs['drmWidevineCustomLicenseAcquisitionUrlTemplate']
+        if 'enabledProtocols' in kwargs:
+            enabled_protocols = kwargs['enabledProtocols']
+
         if clear_key_encryption is not None:
             _setter("clear_key_encryption", clear_key_encryption)
         if clear_tracks is not None:
@@ -3653,7 +3975,11 @@ class StreamingPolicyCommonEncryptionCencClearKeyEncryptionArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              custom_keys_acquisition_url_template: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customKeysAcquisitionUrlTemplate' in kwargs:
+            custom_keys_acquisition_url_template = kwargs['customKeysAcquisitionUrlTemplate']
+
         _setter("custom_keys_acquisition_url_template", custom_keys_acquisition_url_template)
 
     @property
@@ -3686,7 +4012,9 @@ class StreamingPolicyCommonEncryptionCencClearTrackArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              conditions: pulumi.Input[Sequence[pulumi.Input['StreamingPolicyCommonEncryptionCencClearTrackConditionArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("conditions", conditions)
 
     @property
@@ -3725,7 +4053,9 @@ class StreamingPolicyCommonEncryptionCencClearTrackConditionArgs:
              operation: pulumi.Input[str],
              property: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("operation", operation)
         _setter("property", property)
         _setter("value", value)
@@ -3790,7 +4120,11 @@ class StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArgs:
              tracks: pulumi.Input[Sequence[pulumi.Input['StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackArgs']]],
              label: Optional[pulumi.Input[str]] = None,
              policy_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+
         _setter("tracks", tracks)
         if label is not None:
             _setter("label", label)
@@ -3849,7 +4183,9 @@ class StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              conditions: pulumi.Input[Sequence[pulumi.Input['StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditionArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("conditions", conditions)
 
     @property
@@ -3888,7 +4224,9 @@ class StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditionA
              operation: pulumi.Input[str],
              property: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("operation", operation)
         _setter("property", property)
         _setter("value", value)
@@ -3949,7 +4287,11 @@ class StreamingPolicyCommonEncryptionCencDefaultContentKeyArgs:
              _setter: Callable[[Any, Any], None],
              label: Optional[pulumi.Input[str]] = None,
              policy_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+
         if label is not None:
             _setter("label", label)
         if policy_name is not None:
@@ -3999,7 +4341,13 @@ class StreamingPolicyCommonEncryptionCencDrmPlayreadyArgs:
              _setter: Callable[[Any, Any], None],
              custom_attributes: Optional[pulumi.Input[str]] = None,
              custom_license_acquisition_url_template: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customAttributes' in kwargs:
+            custom_attributes = kwargs['customAttributes']
+        if 'customLicenseAcquisitionUrlTemplate' in kwargs:
+            custom_license_acquisition_url_template = kwargs['customLicenseAcquisitionUrlTemplate']
+
         if custom_attributes is not None:
             _setter("custom_attributes", custom_attributes)
         if custom_license_acquisition_url_template is not None:
@@ -4057,7 +4405,11 @@ class StreamingPolicyCommonEncryptionCencEnabledProtocolsArgs:
              download: Optional[pulumi.Input[bool]] = None,
              hls: Optional[pulumi.Input[bool]] = None,
              smooth_streaming: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'smoothStreaming' in kwargs:
+            smooth_streaming = kwargs['smoothStreaming']
+
         if dash is not None:
             _setter("dash", dash)
         if download is not None:
@@ -4139,7 +4491,15 @@ class StreamingPolicyEnvelopeEncryptionArgs:
              custom_keys_acquisition_url_template: Optional[pulumi.Input[str]] = None,
              default_content_key: Optional[pulumi.Input['StreamingPolicyEnvelopeEncryptionDefaultContentKeyArgs']] = None,
              enabled_protocols: Optional[pulumi.Input['StreamingPolicyEnvelopeEncryptionEnabledProtocolsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customKeysAcquisitionUrlTemplate' in kwargs:
+            custom_keys_acquisition_url_template = kwargs['customKeysAcquisitionUrlTemplate']
+        if 'defaultContentKey' in kwargs:
+            default_content_key = kwargs['defaultContentKey']
+        if 'enabledProtocols' in kwargs:
+            enabled_protocols = kwargs['enabledProtocols']
+
         if custom_keys_acquisition_url_template is not None:
             _setter("custom_keys_acquisition_url_template", custom_keys_acquisition_url_template)
         if default_content_key is not None:
@@ -4203,7 +4563,11 @@ class StreamingPolicyEnvelopeEncryptionDefaultContentKeyArgs:
              _setter: Callable[[Any, Any], None],
              label: Optional[pulumi.Input[str]] = None,
              policy_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+
         if label is not None:
             _setter("label", label)
         if policy_name is not None:
@@ -4261,7 +4625,11 @@ class StreamingPolicyEnvelopeEncryptionEnabledProtocolsArgs:
              download: Optional[pulumi.Input[bool]] = None,
              hls: Optional[pulumi.Input[bool]] = None,
              smooth_streaming: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'smoothStreaming' in kwargs:
+            smooth_streaming = kwargs['smoothStreaming']
+
         if dash is not None:
             _setter("dash", dash)
         if download is not None:
@@ -4347,7 +4715,11 @@ class StreamingPolicyNoEncryptionEnabledProtocolsArgs:
              download: Optional[pulumi.Input[bool]] = None,
              hls: Optional[pulumi.Input[bool]] = None,
              smooth_streaming: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'smoothStreaming' in kwargs:
+            smooth_streaming = kwargs['smoothStreaming']
+
         if dash is not None:
             _setter("dash", dash)
         if download is not None:
@@ -4447,7 +4819,23 @@ class TransformOutputArgs:
              on_error_action: Optional[pulumi.Input[str]] = None,
              relative_priority: Optional[pulumi.Input[str]] = None,
              video_analyzer_preset: Optional[pulumi.Input['TransformOutputVideoAnalyzerPresetArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'audioAnalyzerPreset' in kwargs:
+            audio_analyzer_preset = kwargs['audioAnalyzerPreset']
+        if 'builtinPreset' in kwargs:
+            builtin_preset = kwargs['builtinPreset']
+        if 'customPreset' in kwargs:
+            custom_preset = kwargs['customPreset']
+        if 'faceDetectorPreset' in kwargs:
+            face_detector_preset = kwargs['faceDetectorPreset']
+        if 'onErrorAction' in kwargs:
+            on_error_action = kwargs['onErrorAction']
+        if 'relativePriority' in kwargs:
+            relative_priority = kwargs['relativePriority']
+        if 'videoAnalyzerPreset' in kwargs:
+            video_analyzer_preset = kwargs['videoAnalyzerPreset']
+
         if audio_analyzer_preset is not None:
             _setter("audio_analyzer_preset", audio_analyzer_preset)
         if builtin_preset is not None:
@@ -4573,7 +4961,15 @@ class TransformOutputAudioAnalyzerPresetArgs:
              audio_analysis_mode: Optional[pulumi.Input[str]] = None,
              audio_language: Optional[pulumi.Input[str]] = None,
              experimental_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'audioAnalysisMode' in kwargs:
+            audio_analysis_mode = kwargs['audioAnalysisMode']
+        if 'audioLanguage' in kwargs:
+            audio_language = kwargs['audioLanguage']
+        if 'experimentalOptions' in kwargs:
+            experimental_options = kwargs['experimentalOptions']
+
         if audio_analysis_mode is not None:
             _setter("audio_analysis_mode", audio_analysis_mode)
         if audio_language is not None:
@@ -4637,7 +5033,13 @@ class TransformOutputBuiltinPresetArgs:
              _setter: Callable[[Any, Any], None],
              preset_name: pulumi.Input[str],
              preset_configuration: Optional[pulumi.Input['TransformOutputBuiltinPresetPresetConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'presetName' in kwargs:
+            preset_name = kwargs['presetName']
+        if 'presetConfiguration' in kwargs:
+            preset_configuration = kwargs['presetConfiguration']
+
         _setter("preset_name", preset_name)
         if preset_configuration is not None:
             _setter("preset_configuration", preset_configuration)
@@ -4710,7 +5112,23 @@ class TransformOutputBuiltinPresetPresetConfigurationArgs:
              max_layers: Optional[pulumi.Input[int]] = None,
              min_bitrate_bps: Optional[pulumi.Input[int]] = None,
              min_height: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'interleaveOutput' in kwargs:
+            interleave_output = kwargs['interleaveOutput']
+        if 'keyFrameIntervalInSeconds' in kwargs:
+            key_frame_interval_in_seconds = kwargs['keyFrameIntervalInSeconds']
+        if 'maxBitrateBps' in kwargs:
+            max_bitrate_bps = kwargs['maxBitrateBps']
+        if 'maxHeight' in kwargs:
+            max_height = kwargs['maxHeight']
+        if 'maxLayers' in kwargs:
+            max_layers = kwargs['maxLayers']
+        if 'minBitrateBps' in kwargs:
+            min_bitrate_bps = kwargs['minBitrateBps']
+        if 'minHeight' in kwargs:
+            min_height = kwargs['minHeight']
+
         if complexity is not None:
             _setter("complexity", complexity)
         if interleave_output is not None:
@@ -4852,7 +5270,11 @@ class TransformOutputCustomPresetArgs:
              formats: pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetFormatArgs']]],
              experimental_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              filter: Optional[pulumi.Input['TransformOutputCustomPresetFilterArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'experimentalOptions' in kwargs:
+            experimental_options = kwargs['experimentalOptions']
+
         _setter("codecs", codecs)
         _setter("formats", formats)
         if experimental_options is not None:
@@ -4954,7 +5376,25 @@ class TransformOutputCustomPresetCodecArgs:
              h265_video: Optional[pulumi.Input['TransformOutputCustomPresetCodecH265VideoArgs']] = None,
              jpg_image: Optional[pulumi.Input['TransformOutputCustomPresetCodecJpgImageArgs']] = None,
              png_image: Optional[pulumi.Input['TransformOutputCustomPresetCodecPngImageArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'aacAudio' in kwargs:
+            aac_audio = kwargs['aacAudio']
+        if 'copyAudio' in kwargs:
+            copy_audio = kwargs['copyAudio']
+        if 'copyVideo' in kwargs:
+            copy_video = kwargs['copyVideo']
+        if 'ddAudio' in kwargs:
+            dd_audio = kwargs['ddAudio']
+        if 'h264Video' in kwargs:
+            h264_video = kwargs['h264Video']
+        if 'h265Video' in kwargs:
+            h265_video = kwargs['h265Video']
+        if 'jpgImage' in kwargs:
+            jpg_image = kwargs['jpgImage']
+        if 'pngImage' in kwargs:
+            png_image = kwargs['pngImage']
+
         if aac_audio is not None:
             _setter("aac_audio", aac_audio)
         if copy_audio is not None:
@@ -5102,7 +5542,11 @@ class TransformOutputCustomPresetCodecAacAudioArgs:
              label: Optional[pulumi.Input[str]] = None,
              profile: Optional[pulumi.Input[str]] = None,
              sampling_rate: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'samplingRate' in kwargs:
+            sampling_rate = kwargs['samplingRate']
+
         if bitrate is not None:
             _setter("bitrate", bitrate)
         if channels is not None:
@@ -5190,7 +5634,9 @@ class TransformOutputCustomPresetCodecCopyAudioArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              label: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if label is not None:
             _setter("label", label)
 
@@ -5222,7 +5668,9 @@ class TransformOutputCustomPresetCodecCopyVideoArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              label: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if label is not None:
             _setter("label", label)
 
@@ -5266,7 +5714,11 @@ class TransformOutputCustomPresetCodecDdAudioArgs:
              channels: Optional[pulumi.Input[int]] = None,
              label: Optional[pulumi.Input[str]] = None,
              sampling_rate: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'samplingRate' in kwargs:
+            sampling_rate = kwargs['samplingRate']
+
         if bitrate is not None:
             _setter("bitrate", bitrate)
         if channels is not None:
@@ -5368,7 +5820,19 @@ class TransformOutputCustomPresetCodecH264VideoArgs:
              scene_change_detection_enabled: Optional[pulumi.Input[bool]] = None,
              stretch_mode: Optional[pulumi.Input[str]] = None,
              sync_mode: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyFrameInterval' in kwargs:
+            key_frame_interval = kwargs['keyFrameInterval']
+        if 'rateControlMode' in kwargs:
+            rate_control_mode = kwargs['rateControlMode']
+        if 'sceneChangeDetectionEnabled' in kwargs:
+            scene_change_detection_enabled = kwargs['sceneChangeDetectionEnabled']
+        if 'stretchMode' in kwargs:
+            stretch_mode = kwargs['stretchMode']
+        if 'syncMode' in kwargs:
+            sync_mode = kwargs['syncMode']
+
         if complexity is not None:
             _setter("complexity", complexity)
         if key_frame_interval is not None:
@@ -5554,7 +6018,23 @@ class TransformOutputCustomPresetCodecH264VideoLayerArgs:
              reference_frames: Optional[pulumi.Input[int]] = None,
              slices: Optional[pulumi.Input[int]] = None,
              width: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adaptiveBFrameEnabled' in kwargs:
+            adaptive_b_frame_enabled = kwargs['adaptiveBFrameEnabled']
+        if 'bFrames' in kwargs:
+            b_frames = kwargs['bFrames']
+        if 'bufferWindow' in kwargs:
+            buffer_window = kwargs['bufferWindow']
+        if 'entropyMode' in kwargs:
+            entropy_mode = kwargs['entropyMode']
+        if 'frameRate' in kwargs:
+            frame_rate = kwargs['frameRate']
+        if 'maxBitrate' in kwargs:
+            max_bitrate = kwargs['maxBitrate']
+        if 'referenceFrames' in kwargs:
+            reference_frames = kwargs['referenceFrames']
+
         _setter("bitrate", bitrate)
         if adaptive_b_frame_enabled is not None:
             _setter("adaptive_b_frame_enabled", adaptive_b_frame_enabled)
@@ -5805,7 +6285,17 @@ class TransformOutputCustomPresetCodecH265VideoArgs:
              scene_change_detection_enabled: Optional[pulumi.Input[bool]] = None,
              stretch_mode: Optional[pulumi.Input[str]] = None,
              sync_mode: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyFrameInterval' in kwargs:
+            key_frame_interval = kwargs['keyFrameInterval']
+        if 'sceneChangeDetectionEnabled' in kwargs:
+            scene_change_detection_enabled = kwargs['sceneChangeDetectionEnabled']
+        if 'stretchMode' in kwargs:
+            stretch_mode = kwargs['stretchMode']
+        if 'syncMode' in kwargs:
+            sync_mode = kwargs['syncMode']
+
         if complexity is not None:
             _setter("complexity", complexity)
         if key_frame_interval is not None:
@@ -5973,7 +6463,21 @@ class TransformOutputCustomPresetCodecH265VideoLayerArgs:
              reference_frames: Optional[pulumi.Input[int]] = None,
              slices: Optional[pulumi.Input[int]] = None,
              width: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adaptiveBFrameEnabled' in kwargs:
+            adaptive_b_frame_enabled = kwargs['adaptiveBFrameEnabled']
+        if 'bFrames' in kwargs:
+            b_frames = kwargs['bFrames']
+        if 'bufferWindow' in kwargs:
+            buffer_window = kwargs['bufferWindow']
+        if 'frameRate' in kwargs:
+            frame_rate = kwargs['frameRate']
+        if 'maxBitrate' in kwargs:
+            max_bitrate = kwargs['maxBitrate']
+        if 'referenceFrames' in kwargs:
+            reference_frames = kwargs['referenceFrames']
+
         _setter("bitrate", bitrate)
         if adaptive_b_frame_enabled is not None:
             _setter("adaptive_b_frame_enabled", adaptive_b_frame_enabled)
@@ -6218,7 +6722,17 @@ class TransformOutputCustomPresetCodecJpgImageArgs:
              step: Optional[pulumi.Input[str]] = None,
              stretch_mode: Optional[pulumi.Input[str]] = None,
              sync_mode: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyFrameInterval' in kwargs:
+            key_frame_interval = kwargs['keyFrameInterval']
+        if 'spriteColumn' in kwargs:
+            sprite_column = kwargs['spriteColumn']
+        if 'stretchMode' in kwargs:
+            stretch_mode = kwargs['stretchMode']
+        if 'syncMode' in kwargs:
+            sync_mode = kwargs['syncMode']
+
         _setter("start", start)
         if key_frame_interval is not None:
             _setter("key_frame_interval", key_frame_interval)
@@ -6373,7 +6887,9 @@ class TransformOutputCustomPresetCodecJpgImageLayerArgs:
              label: Optional[pulumi.Input[str]] = None,
              quality: Optional[pulumi.Input[int]] = None,
              width: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if height is not None:
             _setter("height", height)
         if label is not None:
@@ -6475,7 +6991,15 @@ class TransformOutputCustomPresetCodecPngImageArgs:
              step: Optional[pulumi.Input[str]] = None,
              stretch_mode: Optional[pulumi.Input[str]] = None,
              sync_mode: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyFrameInterval' in kwargs:
+            key_frame_interval = kwargs['keyFrameInterval']
+        if 'stretchMode' in kwargs:
+            stretch_mode = kwargs['stretchMode']
+        if 'syncMode' in kwargs:
+            sync_mode = kwargs['syncMode']
+
         _setter("start", start)
         if key_frame_interval is not None:
             _setter("key_frame_interval", key_frame_interval)
@@ -6612,7 +7136,9 @@ class TransformOutputCustomPresetCodecPngImageLayerArgs:
              height: Optional[pulumi.Input[str]] = None,
              label: Optional[pulumi.Input[str]] = None,
              width: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if height is not None:
             _setter("height", height)
         if label is not None:
@@ -6692,7 +7218,15 @@ class TransformOutputCustomPresetFilterArgs:
              fade_out: Optional[pulumi.Input['TransformOutputCustomPresetFilterFadeOutArgs']] = None,
              overlays: Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetFilterOverlayArgs']]]] = None,
              rotation: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cropRectangle' in kwargs:
+            crop_rectangle = kwargs['cropRectangle']
+        if 'fadeIn' in kwargs:
+            fade_in = kwargs['fadeIn']
+        if 'fadeOut' in kwargs:
+            fade_out = kwargs['fadeOut']
+
         if crop_rectangle is not None:
             _setter("crop_rectangle", crop_rectangle)
         if deinterlace is not None:
@@ -6806,7 +7340,9 @@ class TransformOutputCustomPresetFilterCropRectangleArgs:
              left: Optional[pulumi.Input[str]] = None,
              top: Optional[pulumi.Input[str]] = None,
              width: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if height is not None:
             _setter("height", height)
         if left is not None:
@@ -6884,7 +7420,9 @@ class TransformOutputCustomPresetFilterDeinterlaceArgs:
              _setter: Callable[[Any, Any], None],
              mode: Optional[pulumi.Input[str]] = None,
              parity: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if mode is not None:
             _setter("mode", mode)
         if parity is not None:
@@ -6938,7 +7476,11 @@ class TransformOutputCustomPresetFilterFadeInArgs:
              duration: pulumi.Input[str],
              fade_color: pulumi.Input[str],
              start: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fadeColor' in kwargs:
+            fade_color = kwargs['fadeColor']
+
         _setter("duration", duration)
         _setter("fade_color", fade_color)
         if start is not None:
@@ -7004,7 +7546,11 @@ class TransformOutputCustomPresetFilterFadeOutArgs:
              duration: pulumi.Input[str],
              fade_color: pulumi.Input[str],
              start: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fadeColor' in kwargs:
+            fade_color = kwargs['fadeColor']
+
         _setter("duration", duration)
         _setter("fade_color", fade_color)
         if start is not None:
@@ -7068,7 +7614,9 @@ class TransformOutputCustomPresetFilterOverlayArgs:
              _setter: Callable[[Any, Any], None],
              audio: Optional[pulumi.Input['TransformOutputCustomPresetFilterOverlayAudioArgs']] = None,
              video: Optional[pulumi.Input['TransformOutputCustomPresetFilterOverlayVideoArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if audio is not None:
             _setter("audio", audio)
         if video is not None:
@@ -7136,7 +7684,17 @@ class TransformOutputCustomPresetFilterOverlayAudioArgs:
              fade_in_duration: Optional[pulumi.Input[str]] = None,
              fade_out_duration: Optional[pulumi.Input[str]] = None,
              start: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'inputLabel' in kwargs:
+            input_label = kwargs['inputLabel']
+        if 'audioGainLevel' in kwargs:
+            audio_gain_level = kwargs['audioGainLevel']
+        if 'fadeInDuration' in kwargs:
+            fade_in_duration = kwargs['fadeInDuration']
+        if 'fadeOutDuration' in kwargs:
+            fade_out_duration = kwargs['fadeOutDuration']
+
         _setter("input_label", input_label)
         if audio_gain_level is not None:
             _setter("audio_gain_level", audio_gain_level)
@@ -7269,7 +7827,19 @@ class TransformOutputCustomPresetFilterOverlayVideoArgs:
              opacity: Optional[pulumi.Input[float]] = None,
              position: Optional[pulumi.Input['TransformOutputCustomPresetFilterOverlayVideoPositionArgs']] = None,
              start: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'inputLabel' in kwargs:
+            input_label = kwargs['inputLabel']
+        if 'audioGainLevel' in kwargs:
+            audio_gain_level = kwargs['audioGainLevel']
+        if 'cropRectangle' in kwargs:
+            crop_rectangle = kwargs['cropRectangle']
+        if 'fadeInDuration' in kwargs:
+            fade_in_duration = kwargs['fadeInDuration']
+        if 'fadeOutDuration' in kwargs:
+            fade_out_duration = kwargs['fadeOutDuration']
+
         _setter("input_label", input_label)
         if audio_gain_level is not None:
             _setter("audio_gain_level", audio_gain_level)
@@ -7424,7 +7994,9 @@ class TransformOutputCustomPresetFilterOverlayVideoCropRectangleArgs:
              left: Optional[pulumi.Input[str]] = None,
              top: Optional[pulumi.Input[str]] = None,
              width: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if height is not None:
             _setter("height", height)
         if left is not None:
@@ -7510,7 +8082,9 @@ class TransformOutputCustomPresetFilterOverlayVideoPositionArgs:
              left: Optional[pulumi.Input[str]] = None,
              top: Optional[pulumi.Input[str]] = None,
              width: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if height is not None:
             _setter("height", height)
         if left is not None:
@@ -7598,7 +8172,11 @@ class TransformOutputCustomPresetFormatArgs:
              mp4: Optional[pulumi.Input['TransformOutputCustomPresetFormatMp4Args']] = None,
              png: Optional[pulumi.Input['TransformOutputCustomPresetFormatPngArgs']] = None,
              transport_stream: Optional[pulumi.Input['TransformOutputCustomPresetFormatTransportStreamArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'transportStream' in kwargs:
+            transport_stream = kwargs['transportStream']
+
         if jpg is not None:
             _setter("jpg", jpg)
         if mp4 is not None:
@@ -7674,7 +8252,11 @@ class TransformOutputCustomPresetFormatJpgArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              filename_pattern: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'filenamePattern' in kwargs:
+            filename_pattern = kwargs['filenamePattern']
+
         _setter("filename_pattern", filename_pattern)
 
     @property
@@ -7709,7 +8291,13 @@ class TransformOutputCustomPresetFormatMp4Args:
              _setter: Callable[[Any, Any], None],
              filename_pattern: pulumi.Input[str],
              output_files: Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetFormatMp4OutputFileArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'filenamePattern' in kwargs:
+            filename_pattern = kwargs['filenamePattern']
+        if 'outputFiles' in kwargs:
+            output_files = kwargs['outputFiles']
+
         _setter("filename_pattern", filename_pattern)
         if output_files is not None:
             _setter("output_files", output_files)
@@ -7754,7 +8342,9 @@ class TransformOutputCustomPresetFormatMp4OutputFileArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              labels: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("labels", labels)
 
     @property
@@ -7785,7 +8375,11 @@ class TransformOutputCustomPresetFormatPngArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              filename_pattern: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'filenamePattern' in kwargs:
+            filename_pattern = kwargs['filenamePattern']
+
         _setter("filename_pattern", filename_pattern)
 
     @property
@@ -7820,7 +8414,13 @@ class TransformOutputCustomPresetFormatTransportStreamArgs:
              _setter: Callable[[Any, Any], None],
              filename_pattern: pulumi.Input[str],
              output_files: Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetFormatTransportStreamOutputFileArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'filenamePattern' in kwargs:
+            filename_pattern = kwargs['filenamePattern']
+        if 'outputFiles' in kwargs:
+            output_files = kwargs['outputFiles']
+
         _setter("filename_pattern", filename_pattern)
         if output_files is not None:
             _setter("output_files", output_files)
@@ -7865,7 +8465,9 @@ class TransformOutputCustomPresetFormatTransportStreamOutputFileArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              labels: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("labels", labels)
 
     @property
@@ -7908,7 +8510,17 @@ class TransformOutputFaceDetectorPresetArgs:
              blur_type: Optional[pulumi.Input[str]] = None,
              experimental_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              face_redactor_mode: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'analysisResolution' in kwargs:
+            analysis_resolution = kwargs['analysisResolution']
+        if 'blurType' in kwargs:
+            blur_type = kwargs['blurType']
+        if 'experimentalOptions' in kwargs:
+            experimental_options = kwargs['experimentalOptions']
+        if 'faceRedactorMode' in kwargs:
+            face_redactor_mode = kwargs['faceRedactorMode']
+
         if analysis_resolution is not None:
             _setter("analysis_resolution", analysis_resolution)
         if blur_type is not None:
@@ -7994,7 +8606,17 @@ class TransformOutputVideoAnalyzerPresetArgs:
              audio_language: Optional[pulumi.Input[str]] = None,
              experimental_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              insights_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'audioAnalysisMode' in kwargs:
+            audio_analysis_mode = kwargs['audioAnalysisMode']
+        if 'audioLanguage' in kwargs:
+            audio_language = kwargs['audioLanguage']
+        if 'experimentalOptions' in kwargs:
+            experimental_options = kwargs['experimentalOptions']
+        if 'insightsType' in kwargs:
+            insights_type = kwargs['insightsType']
+
         if audio_analysis_mode is not None:
             _setter("audio_analysis_mode", audio_analysis_mode)
         if audio_language is not None:

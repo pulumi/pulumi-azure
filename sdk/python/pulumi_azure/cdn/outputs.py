@@ -139,7 +139,15 @@ class EndpointCustomDomainCdnManagedHttps(dict):
              certificate_type: str,
              protocol_type: str,
              tls_version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateType' in kwargs:
+            certificate_type = kwargs['certificateType']
+        if 'protocolType' in kwargs:
+            protocol_type = kwargs['protocolType']
+        if 'tlsVersion' in kwargs:
+            tls_version = kwargs['tlsVersion']
+
         _setter("certificate_type", certificate_type)
         _setter("protocol_type", protocol_type)
         if tls_version is not None:
@@ -216,7 +224,15 @@ class EndpointCustomDomainUserManagedHttps(dict):
              key_vault_certificate_id: Optional[str] = None,
              key_vault_secret_id: Optional[str] = None,
              tls_version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyVaultCertificateId' in kwargs:
+            key_vault_certificate_id = kwargs['keyVaultCertificateId']
+        if 'keyVaultSecretId' in kwargs:
+            key_vault_secret_id = kwargs['keyVaultSecretId']
+        if 'tlsVersion' in kwargs:
+            tls_version = kwargs['tlsVersion']
+
         if key_vault_certificate_id is not None:
             _setter("key_vault_certificate_id", key_vault_certificate_id)
         if key_vault_secret_id is not None:
@@ -408,7 +424,49 @@ class EndpointDeliveryRule(dict):
              url_path_conditions: Optional[Sequence['outputs.EndpointDeliveryRuleUrlPathCondition']] = None,
              url_redirect_action: Optional['outputs.EndpointDeliveryRuleUrlRedirectAction'] = None,
              url_rewrite_action: Optional['outputs.EndpointDeliveryRuleUrlRewriteAction'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cacheExpirationAction' in kwargs:
+            cache_expiration_action = kwargs['cacheExpirationAction']
+        if 'cacheKeyQueryStringAction' in kwargs:
+            cache_key_query_string_action = kwargs['cacheKeyQueryStringAction']
+        if 'cookiesConditions' in kwargs:
+            cookies_conditions = kwargs['cookiesConditions']
+        if 'deviceCondition' in kwargs:
+            device_condition = kwargs['deviceCondition']
+        if 'httpVersionConditions' in kwargs:
+            http_version_conditions = kwargs['httpVersionConditions']
+        if 'modifyRequestHeaderActions' in kwargs:
+            modify_request_header_actions = kwargs['modifyRequestHeaderActions']
+        if 'modifyResponseHeaderActions' in kwargs:
+            modify_response_header_actions = kwargs['modifyResponseHeaderActions']
+        if 'postArgConditions' in kwargs:
+            post_arg_conditions = kwargs['postArgConditions']
+        if 'queryStringConditions' in kwargs:
+            query_string_conditions = kwargs['queryStringConditions']
+        if 'remoteAddressConditions' in kwargs:
+            remote_address_conditions = kwargs['remoteAddressConditions']
+        if 'requestBodyConditions' in kwargs:
+            request_body_conditions = kwargs['requestBodyConditions']
+        if 'requestHeaderConditions' in kwargs:
+            request_header_conditions = kwargs['requestHeaderConditions']
+        if 'requestMethodCondition' in kwargs:
+            request_method_condition = kwargs['requestMethodCondition']
+        if 'requestSchemeCondition' in kwargs:
+            request_scheme_condition = kwargs['requestSchemeCondition']
+        if 'requestUriConditions' in kwargs:
+            request_uri_conditions = kwargs['requestUriConditions']
+        if 'urlFileExtensionConditions' in kwargs:
+            url_file_extension_conditions = kwargs['urlFileExtensionConditions']
+        if 'urlFileNameConditions' in kwargs:
+            url_file_name_conditions = kwargs['urlFileNameConditions']
+        if 'urlPathConditions' in kwargs:
+            url_path_conditions = kwargs['urlPathConditions']
+        if 'urlRedirectAction' in kwargs:
+            url_redirect_action = kwargs['urlRedirectAction']
+        if 'urlRewriteAction' in kwargs:
+            url_rewrite_action = kwargs['urlRewriteAction']
+
         _setter("name", name)
         _setter("order", order)
         if cache_expiration_action is not None:
@@ -648,7 +706,9 @@ class EndpointDeliveryRuleCacheExpirationAction(dict):
              _setter: Callable[[Any, Any], None],
              behavior: str,
              duration: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("behavior", behavior)
         if duration is not None:
             _setter("duration", duration)
@@ -689,7 +749,9 @@ class EndpointDeliveryRuleCacheKeyQueryStringAction(dict):
              _setter: Callable[[Any, Any], None],
              behavior: str,
              parameters: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("behavior", behavior)
         if parameters is not None:
             _setter("parameters", parameters)
@@ -761,7 +823,13 @@ class EndpointDeliveryRuleCookiesCondition(dict):
              match_values: Optional[Sequence[str]] = None,
              negate_condition: Optional[bool] = None,
              transforms: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
         _setter("operator", operator)
         _setter("selector", selector)
         if match_values is not None:
@@ -854,7 +922,13 @@ class EndpointDeliveryRuleDeviceCondition(dict):
              match_values: Sequence[str],
              negate_condition: Optional[bool] = None,
              operator: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
         _setter("match_values", match_values)
         if negate_condition is not None:
             _setter("negate_condition", negate_condition)
@@ -928,7 +1002,13 @@ class EndpointDeliveryRuleHttpVersionCondition(dict):
              match_values: Sequence[str],
              negate_condition: Optional[bool] = None,
              operator: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
         _setter("match_values", match_values)
         if negate_condition is not None:
             _setter("negate_condition", negate_condition)
@@ -983,7 +1063,9 @@ class EndpointDeliveryRuleModifyRequestHeaderAction(dict):
              action: str,
              name: str,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("action", action)
         _setter("name", name)
         if value is not None:
@@ -1037,7 +1119,9 @@ class EndpointDeliveryRuleModifyResponseHeaderAction(dict):
              action: str,
              name: str,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("action", action)
         _setter("name", name)
         if value is not None:
@@ -1118,7 +1202,13 @@ class EndpointDeliveryRulePostArgCondition(dict):
              match_values: Optional[Sequence[str]] = None,
              negate_condition: Optional[bool] = None,
              transforms: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
         _setter("operator", operator)
         _setter("selector", selector)
         if match_values is not None:
@@ -1215,7 +1305,13 @@ class EndpointDeliveryRuleQueryStringCondition(dict):
              match_values: Optional[Sequence[str]] = None,
              negate_condition: Optional[bool] = None,
              transforms: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
         _setter("operator", operator)
         if match_values is not None:
             _setter("match_values", match_values)
@@ -1299,7 +1395,13 @@ class EndpointDeliveryRuleRemoteAddressCondition(dict):
              operator: str,
              match_values: Optional[Sequence[str]] = None,
              negate_condition: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
         _setter("operator", operator)
         if match_values is not None:
             _setter("match_values", match_values)
@@ -1377,7 +1479,13 @@ class EndpointDeliveryRuleRequestBodyCondition(dict):
              match_values: Optional[Sequence[str]] = None,
              negate_condition: Optional[bool] = None,
              transforms: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
         _setter("operator", operator)
         if match_values is not None:
             _setter("match_values", match_values)
@@ -1469,7 +1577,13 @@ class EndpointDeliveryRuleRequestHeaderCondition(dict):
              match_values: Optional[Sequence[str]] = None,
              negate_condition: Optional[bool] = None,
              transforms: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
         _setter("operator", operator)
         _setter("selector", selector)
         if match_values is not None:
@@ -1562,7 +1676,13 @@ class EndpointDeliveryRuleRequestMethodCondition(dict):
              match_values: Sequence[str],
              negate_condition: Optional[bool] = None,
              operator: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
         _setter("match_values", match_values)
         if negate_condition is not None:
             _setter("negate_condition", negate_condition)
@@ -1636,7 +1756,13 @@ class EndpointDeliveryRuleRequestSchemeCondition(dict):
              match_values: Sequence[str],
              negate_condition: Optional[bool] = None,
              operator: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
         _setter("match_values", match_values)
         if negate_condition is not None:
             _setter("negate_condition", negate_condition)
@@ -1714,7 +1840,13 @@ class EndpointDeliveryRuleRequestUriCondition(dict):
              match_values: Optional[Sequence[str]] = None,
              negate_condition: Optional[bool] = None,
              transforms: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
         _setter("operator", operator)
         if match_values is not None:
             _setter("match_values", match_values)
@@ -1802,7 +1934,13 @@ class EndpointDeliveryRuleUrlFileExtensionCondition(dict):
              match_values: Optional[Sequence[str]] = None,
              negate_condition: Optional[bool] = None,
              transforms: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
         _setter("operator", operator)
         if match_values is not None:
             _setter("match_values", match_values)
@@ -1890,7 +2028,13 @@ class EndpointDeliveryRuleUrlFileNameCondition(dict):
              match_values: Optional[Sequence[str]] = None,
              negate_condition: Optional[bool] = None,
              transforms: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
         _setter("operator", operator)
         if match_values is not None:
             _setter("match_values", match_values)
@@ -1978,7 +2122,13 @@ class EndpointDeliveryRuleUrlPathCondition(dict):
              match_values: Optional[Sequence[str]] = None,
              negate_condition: Optional[bool] = None,
              transforms: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
         _setter("operator", operator)
         if match_values is not None:
             _setter("match_values", match_values)
@@ -2074,7 +2224,13 @@ class EndpointDeliveryRuleUrlRedirectAction(dict):
              path: Optional[str] = None,
              protocol: Optional[str] = None,
              query_string: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'redirectType' in kwargs:
+            redirect_type = kwargs['redirectType']
+        if 'queryString' in kwargs:
+            query_string = kwargs['queryString']
+
         _setter("redirect_type", redirect_type)
         if fragment is not None:
             _setter("fragment", fragment)
@@ -2178,7 +2334,13 @@ class EndpointDeliveryRuleUrlRewriteAction(dict):
              destination: str,
              source_pattern: str,
              preserve_unmatched_path: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sourcePattern' in kwargs:
+            source_pattern = kwargs['sourcePattern']
+        if 'preserveUnmatchedPath' in kwargs:
+            preserve_unmatched_path = kwargs['preserveUnmatchedPath']
+
         _setter("destination", destination)
         _setter("source_pattern", source_pattern)
         if preserve_unmatched_path is not None:
@@ -2251,7 +2413,13 @@ class EndpointGeoFilter(dict):
              action: str,
              country_codes: Sequence[str],
              relative_path: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'countryCodes' in kwargs:
+            country_codes = kwargs['countryCodes']
+        if 'relativePath' in kwargs:
+            relative_path = kwargs['relativePath']
+
         _setter("action", action)
         _setter("country_codes", country_codes)
         _setter("relative_path", relative_path)
@@ -2343,7 +2511,21 @@ class EndpointGlobalDeliveryRule(dict):
              modify_response_header_actions: Optional[Sequence['outputs.EndpointGlobalDeliveryRuleModifyResponseHeaderAction']] = None,
              url_redirect_action: Optional['outputs.EndpointGlobalDeliveryRuleUrlRedirectAction'] = None,
              url_rewrite_action: Optional['outputs.EndpointGlobalDeliveryRuleUrlRewriteAction'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cacheExpirationAction' in kwargs:
+            cache_expiration_action = kwargs['cacheExpirationAction']
+        if 'cacheKeyQueryStringAction' in kwargs:
+            cache_key_query_string_action = kwargs['cacheKeyQueryStringAction']
+        if 'modifyRequestHeaderActions' in kwargs:
+            modify_request_header_actions = kwargs['modifyRequestHeaderActions']
+        if 'modifyResponseHeaderActions' in kwargs:
+            modify_response_header_actions = kwargs['modifyResponseHeaderActions']
+        if 'urlRedirectAction' in kwargs:
+            url_redirect_action = kwargs['urlRedirectAction']
+        if 'urlRewriteAction' in kwargs:
+            url_rewrite_action = kwargs['urlRewriteAction']
+
         if cache_expiration_action is not None:
             _setter("cache_expiration_action", cache_expiration_action)
         if cache_key_query_string_action is not None:
@@ -2425,7 +2607,9 @@ class EndpointGlobalDeliveryRuleCacheExpirationAction(dict):
              _setter: Callable[[Any, Any], None],
              behavior: str,
              duration: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("behavior", behavior)
         if duration is not None:
             _setter("duration", duration)
@@ -2466,7 +2650,9 @@ class EndpointGlobalDeliveryRuleCacheKeyQueryStringAction(dict):
              _setter: Callable[[Any, Any], None],
              behavior: str,
              parameters: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("behavior", behavior)
         if parameters is not None:
             _setter("parameters", parameters)
@@ -2511,7 +2697,9 @@ class EndpointGlobalDeliveryRuleModifyRequestHeaderAction(dict):
              action: str,
              name: str,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("action", action)
         _setter("name", name)
         if value is not None:
@@ -2565,7 +2753,9 @@ class EndpointGlobalDeliveryRuleModifyResponseHeaderAction(dict):
              action: str,
              name: str,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("action", action)
         _setter("name", name)
         if value is not None:
@@ -2650,7 +2840,13 @@ class EndpointGlobalDeliveryRuleUrlRedirectAction(dict):
              path: Optional[str] = None,
              protocol: Optional[str] = None,
              query_string: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'redirectType' in kwargs:
+            redirect_type = kwargs['redirectType']
+        if 'queryString' in kwargs:
+            query_string = kwargs['queryString']
+
         _setter("redirect_type", redirect_type)
         if fragment is not None:
             _setter("fragment", fragment)
@@ -2754,7 +2950,13 @@ class EndpointGlobalDeliveryRuleUrlRewriteAction(dict):
              destination: str,
              source_pattern: str,
              preserve_unmatched_path: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sourcePattern' in kwargs:
+            source_pattern = kwargs['sourcePattern']
+        if 'preserveUnmatchedPath' in kwargs:
+            preserve_unmatched_path = kwargs['preserveUnmatchedPath']
+
         _setter("destination", destination)
         _setter("source_pattern", source_pattern)
         if preserve_unmatched_path is not None:
@@ -2833,7 +3035,15 @@ class EndpointOrigin(dict):
              name: str,
              http_port: Optional[int] = None,
              https_port: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hostName' in kwargs:
+            host_name = kwargs['hostName']
+        if 'httpPort' in kwargs:
+            http_port = kwargs['httpPort']
+        if 'httpsPort' in kwargs:
+            https_port = kwargs['httpsPort']
+
         _setter("host_name", host_name)
         _setter("name", name)
         if http_port is not None:
@@ -2920,7 +3130,15 @@ class FrontdoorCustomDomainTls(dict):
              cdn_frontdoor_secret_id: Optional[str] = None,
              certificate_type: Optional[str] = None,
              minimum_tls_version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cdnFrontdoorSecretId' in kwargs:
+            cdn_frontdoor_secret_id = kwargs['cdnFrontdoorSecretId']
+        if 'certificateType' in kwargs:
+            certificate_type = kwargs['certificateType']
+        if 'minimumTlsVersion' in kwargs:
+            minimum_tls_version = kwargs['minimumTlsVersion']
+
         if cdn_frontdoor_secret_id is not None:
             _setter("cdn_frontdoor_secret_id", cdn_frontdoor_secret_id)
         if certificate_type is not None:
@@ -3019,7 +3237,15 @@ class FrontdoorFirewallPolicyCustomRule(dict):
              priority: Optional[int] = None,
              rate_limit_duration_in_minutes: Optional[int] = None,
              rate_limit_threshold: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchConditions' in kwargs:
+            match_conditions = kwargs['matchConditions']
+        if 'rateLimitDurationInMinutes' in kwargs:
+            rate_limit_duration_in_minutes = kwargs['rateLimitDurationInMinutes']
+        if 'rateLimitThreshold' in kwargs:
+            rate_limit_threshold = kwargs['rateLimitThreshold']
+
         _setter("action", action)
         _setter("name", name)
         _setter("type", type)
@@ -3155,7 +3381,15 @@ class FrontdoorFirewallPolicyCustomRuleMatchCondition(dict):
              negation_condition: Optional[bool] = None,
              selector: Optional[str] = None,
              transforms: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'matchVariable' in kwargs:
+            match_variable = kwargs['matchVariable']
+        if 'negationCondition' in kwargs:
+            negation_condition = kwargs['negationCondition']
+
         _setter("match_values", match_values)
         _setter("match_variable", match_variable)
         _setter("operator", operator)
@@ -3246,7 +3480,9 @@ class FrontdoorFirewallPolicyManagedRule(dict):
              version: str,
              exclusions: Optional[Sequence['outputs.FrontdoorFirewallPolicyManagedRuleExclusion']] = None,
              overrides: Optional[Sequence['outputs.FrontdoorFirewallPolicyManagedRuleOverride']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("action", action)
         _setter("type", type)
         _setter("version", version)
@@ -3340,7 +3576,11 @@ class FrontdoorFirewallPolicyManagedRuleExclusion(dict):
              match_variable: str,
              operator: str,
              selector: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchVariable' in kwargs:
+            match_variable = kwargs['matchVariable']
+
         _setter("match_variable", match_variable)
         _setter("operator", operator)
         _setter("selector", selector)
@@ -3414,7 +3654,11 @@ class FrontdoorFirewallPolicyManagedRuleOverride(dict):
              rule_group_name: str,
              exclusions: Optional[Sequence['outputs.FrontdoorFirewallPolicyManagedRuleOverrideExclusion']] = None,
              rules: Optional[Sequence['outputs.FrontdoorFirewallPolicyManagedRuleOverrideRule']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ruleGroupName' in kwargs:
+            rule_group_name = kwargs['ruleGroupName']
+
         _setter("rule_group_name", rule_group_name)
         if exclusions is not None:
             _setter("exclusions", exclusions)
@@ -3490,7 +3734,11 @@ class FrontdoorFirewallPolicyManagedRuleOverrideExclusion(dict):
              match_variable: str,
              operator: str,
              selector: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchVariable' in kwargs:
+            match_variable = kwargs['matchVariable']
+
         _setter("match_variable", match_variable)
         _setter("operator", operator)
         _setter("selector", selector)
@@ -3570,7 +3818,11 @@ class FrontdoorFirewallPolicyManagedRuleOverrideRule(dict):
              rule_id: str,
              enabled: Optional[bool] = None,
              exclusions: Optional[Sequence['outputs.FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ruleId' in kwargs:
+            rule_id = kwargs['ruleId']
+
         _setter("action", action)
         _setter("rule_id", rule_id)
         if enabled is not None:
@@ -3657,7 +3909,11 @@ class FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion(dict):
              match_variable: str,
              operator: str,
              selector: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchVariable' in kwargs:
+            match_variable = kwargs['matchVariable']
+
         _setter("match_variable", match_variable)
         _setter("operator", operator)
         _setter("selector", selector)
@@ -3739,7 +3995,13 @@ class FrontdoorOriginGroupHealthProbe(dict):
              protocol: str,
              path: Optional[str] = None,
              request_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'intervalInSeconds' in kwargs:
+            interval_in_seconds = kwargs['intervalInSeconds']
+        if 'requestType' in kwargs:
+            request_type = kwargs['requestType']
+
         _setter("interval_in_seconds", interval_in_seconds)
         _setter("protocol", protocol)
         if path is not None:
@@ -3826,7 +4088,15 @@ class FrontdoorOriginGroupLoadBalancing(dict):
              additional_latency_in_milliseconds: Optional[int] = None,
              sample_size: Optional[int] = None,
              successful_samples_required: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalLatencyInMilliseconds' in kwargs:
+            additional_latency_in_milliseconds = kwargs['additionalLatencyInMilliseconds']
+        if 'sampleSize' in kwargs:
+            sample_size = kwargs['sampleSize']
+        if 'successfulSamplesRequired' in kwargs:
+            successful_samples_required = kwargs['successfulSamplesRequired']
+
         if additional_latency_in_milliseconds is not None:
             _setter("additional_latency_in_milliseconds", additional_latency_in_milliseconds)
         if sample_size is not None:
@@ -3911,7 +4181,15 @@ class FrontdoorOriginPrivateLink(dict):
              private_link_target_id: str,
              request_message: Optional[str] = None,
              target_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateLinkTargetId' in kwargs:
+            private_link_target_id = kwargs['privateLinkTargetId']
+        if 'requestMessage' in kwargs:
+            request_message = kwargs['requestMessage']
+        if 'targetType' in kwargs:
+            target_type = kwargs['targetType']
+
         _setter("location", location)
         _setter("private_link_target_id", private_link_target_id)
         if request_message is not None:
@@ -4010,7 +4288,17 @@ class FrontdoorRouteCache(dict):
              content_types_to_compresses: Optional[Sequence[str]] = None,
              query_string_caching_behavior: Optional[str] = None,
              query_strings: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'compressionEnabled' in kwargs:
+            compression_enabled = kwargs['compressionEnabled']
+        if 'contentTypesToCompresses' in kwargs:
+            content_types_to_compresses = kwargs['contentTypesToCompresses']
+        if 'queryStringCachingBehavior' in kwargs:
+            query_string_caching_behavior = kwargs['queryStringCachingBehavior']
+        if 'queryStrings' in kwargs:
+            query_strings = kwargs['queryStrings']
+
         if compression_enabled is not None:
             _setter("compression_enabled", compression_enabled)
         if content_types_to_compresses is not None:
@@ -4113,7 +4401,19 @@ class FrontdoorRuleActions(dict):
              route_configuration_override_action: Optional['outputs.FrontdoorRuleActionsRouteConfigurationOverrideAction'] = None,
              url_redirect_action: Optional['outputs.FrontdoorRuleActionsUrlRedirectAction'] = None,
              url_rewrite_action: Optional['outputs.FrontdoorRuleActionsUrlRewriteAction'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'requestHeaderActions' in kwargs:
+            request_header_actions = kwargs['requestHeaderActions']
+        if 'responseHeaderActions' in kwargs:
+            response_header_actions = kwargs['responseHeaderActions']
+        if 'routeConfigurationOverrideAction' in kwargs:
+            route_configuration_override_action = kwargs['routeConfigurationOverrideAction']
+        if 'urlRedirectAction' in kwargs:
+            url_redirect_action = kwargs['urlRedirectAction']
+        if 'urlRewriteAction' in kwargs:
+            url_rewrite_action = kwargs['urlRewriteAction']
+
         if request_header_actions is not None:
             _setter("request_header_actions", request_header_actions)
         if response_header_actions is not None:
@@ -4212,7 +4512,13 @@ class FrontdoorRuleActionsRequestHeaderAction(dict):
              header_action: str,
              header_name: str,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'headerAction' in kwargs:
+            header_action = kwargs['headerAction']
+        if 'headerName' in kwargs:
+            header_name = kwargs['headerName']
+
         _setter("header_action", header_action)
         _setter("header_name", header_name)
         if value is not None:
@@ -4293,7 +4599,13 @@ class FrontdoorRuleActionsResponseHeaderAction(dict):
              header_action: str,
              header_name: str,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'headerAction' in kwargs:
+            header_action = kwargs['headerAction']
+        if 'headerName' in kwargs:
+            header_name = kwargs['headerName']
+
         _setter("header_action", header_action)
         _setter("header_name", header_name)
         if value is not None:
@@ -4402,7 +4714,23 @@ class FrontdoorRuleActionsRouteConfigurationOverrideAction(dict):
              forwarding_protocol: Optional[str] = None,
              query_string_caching_behavior: Optional[str] = None,
              query_string_parameters: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cacheBehavior' in kwargs:
+            cache_behavior = kwargs['cacheBehavior']
+        if 'cacheDuration' in kwargs:
+            cache_duration = kwargs['cacheDuration']
+        if 'cdnFrontdoorOriginGroupId' in kwargs:
+            cdn_frontdoor_origin_group_id = kwargs['cdnFrontdoorOriginGroupId']
+        if 'compressionEnabled' in kwargs:
+            compression_enabled = kwargs['compressionEnabled']
+        if 'forwardingProtocol' in kwargs:
+            forwarding_protocol = kwargs['forwardingProtocol']
+        if 'queryStringCachingBehavior' in kwargs:
+            query_string_caching_behavior = kwargs['queryStringCachingBehavior']
+        if 'queryStringParameters' in kwargs:
+            query_string_parameters = kwargs['queryStringParameters']
+
         if cache_behavior is not None:
             _setter("cache_behavior", cache_behavior)
         if cache_duration is not None:
@@ -4543,7 +4871,21 @@ class FrontdoorRuleActionsUrlRedirectAction(dict):
              destination_path: Optional[str] = None,
              query_string: Optional[str] = None,
              redirect_protocol: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationHostname' in kwargs:
+            destination_hostname = kwargs['destinationHostname']
+        if 'redirectType' in kwargs:
+            redirect_type = kwargs['redirectType']
+        if 'destinationFragment' in kwargs:
+            destination_fragment = kwargs['destinationFragment']
+        if 'destinationPath' in kwargs:
+            destination_path = kwargs['destinationPath']
+        if 'queryString' in kwargs:
+            query_string = kwargs['queryString']
+        if 'redirectProtocol' in kwargs:
+            redirect_protocol = kwargs['redirectProtocol']
+
         _setter("destination_hostname", destination_hostname)
         _setter("redirect_type", redirect_type)
         if destination_fragment is not None:
@@ -4646,7 +4988,13 @@ class FrontdoorRuleActionsUrlRewriteAction(dict):
              destination: str,
              source_pattern: str,
              preserve_unmatched_path: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sourcePattern' in kwargs:
+            source_pattern = kwargs['sourcePattern']
+        if 'preserveUnmatchedPath' in kwargs:
+            preserve_unmatched_path = kwargs['preserveUnmatchedPath']
+
         _setter("destination", destination)
         _setter("source_pattern", source_pattern)
         if preserve_unmatched_path is not None:
@@ -4817,7 +5165,47 @@ class FrontdoorRuleConditions(dict):
              url_file_extension_conditions: Optional[Sequence['outputs.FrontdoorRuleConditionsUrlFileExtensionCondition']] = None,
              url_filename_conditions: Optional[Sequence['outputs.FrontdoorRuleConditionsUrlFilenameCondition']] = None,
              url_path_conditions: Optional[Sequence['outputs.FrontdoorRuleConditionsUrlPathCondition']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientPortConditions' in kwargs:
+            client_port_conditions = kwargs['clientPortConditions']
+        if 'cookiesConditions' in kwargs:
+            cookies_conditions = kwargs['cookiesConditions']
+        if 'hostNameConditions' in kwargs:
+            host_name_conditions = kwargs['hostNameConditions']
+        if 'httpVersionConditions' in kwargs:
+            http_version_conditions = kwargs['httpVersionConditions']
+        if 'isDeviceConditions' in kwargs:
+            is_device_conditions = kwargs['isDeviceConditions']
+        if 'postArgsConditions' in kwargs:
+            post_args_conditions = kwargs['postArgsConditions']
+        if 'queryStringConditions' in kwargs:
+            query_string_conditions = kwargs['queryStringConditions']
+        if 'remoteAddressConditions' in kwargs:
+            remote_address_conditions = kwargs['remoteAddressConditions']
+        if 'requestBodyConditions' in kwargs:
+            request_body_conditions = kwargs['requestBodyConditions']
+        if 'requestHeaderConditions' in kwargs:
+            request_header_conditions = kwargs['requestHeaderConditions']
+        if 'requestMethodConditions' in kwargs:
+            request_method_conditions = kwargs['requestMethodConditions']
+        if 'requestSchemeConditions' in kwargs:
+            request_scheme_conditions = kwargs['requestSchemeConditions']
+        if 'requestUriConditions' in kwargs:
+            request_uri_conditions = kwargs['requestUriConditions']
+        if 'serverPortConditions' in kwargs:
+            server_port_conditions = kwargs['serverPortConditions']
+        if 'socketAddressConditions' in kwargs:
+            socket_address_conditions = kwargs['socketAddressConditions']
+        if 'sslProtocolConditions' in kwargs:
+            ssl_protocol_conditions = kwargs['sslProtocolConditions']
+        if 'urlFileExtensionConditions' in kwargs:
+            url_file_extension_conditions = kwargs['urlFileExtensionConditions']
+        if 'urlFilenameConditions' in kwargs:
+            url_filename_conditions = kwargs['urlFilenameConditions']
+        if 'urlPathConditions' in kwargs:
+            url_path_conditions = kwargs['urlPathConditions']
+
         if client_port_conditions is not None:
             _setter("client_port_conditions", client_port_conditions)
         if cookies_conditions is not None:
@@ -5052,7 +5440,13 @@ class FrontdoorRuleConditionsClientPortCondition(dict):
              operator: str,
              match_values: Optional[Sequence[str]] = None,
              negate_condition: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
         _setter("operator", operator)
         if match_values is not None:
             _setter("match_values", match_values)
@@ -5136,7 +5530,15 @@ class FrontdoorRuleConditionsCookiesCondition(dict):
              match_values: Optional[Sequence[str]] = None,
              negate_condition: Optional[bool] = None,
              transforms: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cookieName' in kwargs:
+            cookie_name = kwargs['cookieName']
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
         _setter("cookie_name", cookie_name)
         _setter("operator", operator)
         if match_values is not None:
@@ -5233,7 +5635,13 @@ class FrontdoorRuleConditionsHostNameCondition(dict):
              match_values: Optional[Sequence[str]] = None,
              negate_condition: Optional[bool] = None,
              transforms: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
         _setter("operator", operator)
         if match_values is not None:
             _setter("match_values", match_values)
@@ -5317,7 +5725,13 @@ class FrontdoorRuleConditionsHttpVersionCondition(dict):
              match_values: Sequence[str],
              negate_condition: Optional[bool] = None,
              operator: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
         _setter("match_values", match_values)
         if negate_condition is not None:
             _setter("negate_condition", negate_condition)
@@ -5391,7 +5805,13 @@ class FrontdoorRuleConditionsIsDeviceCondition(dict):
              match_values: Optional[str] = None,
              negate_condition: Optional[bool] = None,
              operator: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
         if match_values is not None:
             _setter("match_values", match_values)
         if negate_condition is not None:
@@ -5476,7 +5896,15 @@ class FrontdoorRuleConditionsPostArgsCondition(dict):
              match_values: Optional[Sequence[str]] = None,
              negate_condition: Optional[bool] = None,
              transforms: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'postArgsName' in kwargs:
+            post_args_name = kwargs['postArgsName']
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
         _setter("operator", operator)
         _setter("post_args_name", post_args_name)
         if match_values is not None:
@@ -5573,7 +6001,13 @@ class FrontdoorRuleConditionsQueryStringCondition(dict):
              match_values: Optional[Sequence[str]] = None,
              negate_condition: Optional[bool] = None,
              transforms: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
         _setter("operator", operator)
         if match_values is not None:
             _setter("match_values", match_values)
@@ -5659,7 +6093,13 @@ class FrontdoorRuleConditionsRemoteAddressCondition(dict):
              match_values: Optional[Sequence[str]] = None,
              negate_condition: Optional[bool] = None,
              operator: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
         if match_values is not None:
             _setter("match_values", match_values)
         if negate_condition is not None:
@@ -5740,7 +6180,13 @@ class FrontdoorRuleConditionsRequestBodyCondition(dict):
              operator: str,
              negate_condition: Optional[bool] = None,
              transforms: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
         _setter("match_values", match_values)
         _setter("operator", operator)
         if negate_condition is not None:
@@ -5833,7 +6279,15 @@ class FrontdoorRuleConditionsRequestHeaderCondition(dict):
              match_values: Optional[Sequence[str]] = None,
              negate_condition: Optional[bool] = None,
              transforms: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'headerName' in kwargs:
+            header_name = kwargs['headerName']
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
         _setter("header_name", header_name)
         _setter("operator", operator)
         if match_values is not None:
@@ -5926,7 +6380,13 @@ class FrontdoorRuleConditionsRequestMethodCondition(dict):
              match_values: Sequence[str],
              negate_condition: Optional[bool] = None,
              operator: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
         _setter("match_values", match_values)
         if negate_condition is not None:
             _setter("negate_condition", negate_condition)
@@ -6000,7 +6460,13 @@ class FrontdoorRuleConditionsRequestSchemeCondition(dict):
              match_values: Optional[str] = None,
              negate_condition: Optional[bool] = None,
              operator: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
         if match_values is not None:
             _setter("match_values", match_values)
         if negate_condition is not None:
@@ -6079,7 +6545,13 @@ class FrontdoorRuleConditionsRequestUriCondition(dict):
              match_values: Optional[Sequence[str]] = None,
              negate_condition: Optional[bool] = None,
              transforms: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
         _setter("operator", operator)
         if match_values is not None:
             _setter("match_values", match_values)
@@ -6163,7 +6635,13 @@ class FrontdoorRuleConditionsServerPortCondition(dict):
              match_values: Sequence[str],
              operator: str,
              negate_condition: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
         _setter("match_values", match_values)
         _setter("operator", operator)
         if negate_condition is not None:
@@ -6240,7 +6718,13 @@ class FrontdoorRuleConditionsSocketAddressCondition(dict):
              match_values: Optional[Sequence[str]] = None,
              negate_condition: Optional[bool] = None,
              operator: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
         if match_values is not None:
             _setter("match_values", match_values)
         if negate_condition is not None:
@@ -6319,7 +6803,13 @@ class FrontdoorRuleConditionsSslProtocolCondition(dict):
              match_values: Sequence[str],
              negate_condition: Optional[bool] = None,
              operator: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
         _setter("match_values", match_values)
         if negate_condition is not None:
             _setter("negate_condition", negate_condition)
@@ -6397,7 +6887,13 @@ class FrontdoorRuleConditionsUrlFileExtensionCondition(dict):
              operator: str,
              negate_condition: Optional[bool] = None,
              transforms: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
         _setter("match_values", match_values)
         _setter("operator", operator)
         if negate_condition is not None:
@@ -6484,7 +6980,13 @@ class FrontdoorRuleConditionsUrlFilenameCondition(dict):
              operator: str,
              negate_condition: Optional[bool] = None,
              transforms: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
         _setter("match_values", match_values)
         _setter("operator", operator)
         if negate_condition is not None:
@@ -6571,7 +7073,13 @@ class FrontdoorRuleConditionsUrlPathCondition(dict):
              match_values: Optional[Sequence[str]] = None,
              negate_condition: Optional[bool] = None,
              transforms: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
         _setter("operator", operator)
         if match_values is not None:
             _setter("match_values", match_values)
@@ -6645,7 +7153,11 @@ class FrontdoorSecretSecret(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              customer_certificates: Sequence['outputs.FrontdoorSecretSecretCustomerCertificate'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customerCertificates' in kwargs:
+            customer_certificates = kwargs['customerCertificates']
+
         _setter("customer_certificates", customer_certificates)
 
     @property
@@ -6697,7 +7209,13 @@ class FrontdoorSecretSecretCustomerCertificate(dict):
              _setter: Callable[[Any, Any], None],
              key_vault_certificate_id: str,
              subject_alternative_names: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyVaultCertificateId' in kwargs:
+            key_vault_certificate_id = kwargs['keyVaultCertificateId']
+        if 'subjectAlternativeNames' in kwargs:
+            subject_alternative_names = kwargs['subjectAlternativeNames']
+
         _setter("key_vault_certificate_id", key_vault_certificate_id)
         if subject_alternative_names is not None:
             _setter("subject_alternative_names", subject_alternative_names)
@@ -6736,7 +7254,9 @@ class FrontdoorSecurityPolicySecurityPolicies(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              firewall: 'outputs.FrontdoorSecurityPolicySecurityPoliciesFirewall',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("firewall", firewall)
 
     @property
@@ -6784,7 +7304,11 @@ class FrontdoorSecurityPolicySecurityPoliciesFirewall(dict):
              _setter: Callable[[Any, Any], None],
              association: 'outputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation',
              cdn_frontdoor_firewall_policy_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cdnFrontdoorFirewallPolicyId' in kwargs:
+            cdn_frontdoor_firewall_policy_id = kwargs['cdnFrontdoorFirewallPolicyId']
+
         _setter("association", association)
         _setter("cdn_frontdoor_firewall_policy_id", cdn_frontdoor_firewall_policy_id)
 
@@ -6841,7 +7365,11 @@ class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation(dict):
              _setter: Callable[[Any, Any], None],
              domains: Sequence['outputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain'],
              patterns_to_match: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'patternsToMatch' in kwargs:
+            patterns_to_match = kwargs['patternsToMatch']
+
         _setter("domains", domains)
         _setter("patterns_to_match", patterns_to_match)
 
@@ -6898,7 +7426,11 @@ class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain(dict):
              _setter: Callable[[Any, Any], None],
              cdn_frontdoor_domain_id: str,
              active: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cdnFrontdoorDomainId' in kwargs:
+            cdn_frontdoor_domain_id = kwargs['cdnFrontdoorDomainId']
+
         _setter("cdn_frontdoor_domain_id", cdn_frontdoor_domain_id)
         if active is not None:
             _setter("active", active)
@@ -6943,7 +7475,15 @@ class GetFrontdoorCustomDomainTlResult(dict):
              cdn_frontdoor_secret_id: str,
              certificate_type: str,
              minimum_tls_version: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cdnFrontdoorSecretId' in kwargs:
+            cdn_frontdoor_secret_id = kwargs['cdnFrontdoorSecretId']
+        if 'certificateType' in kwargs:
+            certificate_type = kwargs['certificateType']
+        if 'minimumTlsVersion' in kwargs:
+            minimum_tls_version = kwargs['minimumTlsVersion']
+
         _setter("cdn_frontdoor_secret_id", cdn_frontdoor_secret_id)
         _setter("certificate_type", certificate_type)
         _setter("minimum_tls_version", minimum_tls_version)
@@ -7000,7 +7540,13 @@ class GetFrontdoorOriginGroupHealthProbeResult(dict):
              path: str,
              protocol: str,
              request_type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'intervalInSeconds' in kwargs:
+            interval_in_seconds = kwargs['intervalInSeconds']
+        if 'requestType' in kwargs:
+            request_type = kwargs['requestType']
+
         _setter("interval_in_seconds", interval_in_seconds)
         _setter("path", path)
         _setter("protocol", protocol)
@@ -7062,7 +7608,15 @@ class GetFrontdoorOriginGroupLoadBalancingResult(dict):
              additional_latency_in_milliseconds: int,
              sample_size: int,
              successful_samples_required: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalLatencyInMilliseconds' in kwargs:
+            additional_latency_in_milliseconds = kwargs['additionalLatencyInMilliseconds']
+        if 'sampleSize' in kwargs:
+            sample_size = kwargs['sampleSize']
+        if 'successfulSamplesRequired' in kwargs:
+            successful_samples_required = kwargs['successfulSamplesRequired']
+
         _setter("additional_latency_in_milliseconds", additional_latency_in_milliseconds)
         _setter("sample_size", sample_size)
         _setter("successful_samples_required", successful_samples_required)
@@ -7107,7 +7661,11 @@ class GetFrontdoorSecretSecretResult(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              customer_certificates: Sequence['outputs.GetFrontdoorSecretSecretCustomerCertificateResult'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customerCertificates' in kwargs:
+            customer_certificates = kwargs['customerCertificates']
+
         _setter("customer_certificates", customer_certificates)
 
     @property
@@ -7142,7 +7700,15 @@ class GetFrontdoorSecretSecretCustomerCertificateResult(dict):
              expiration_date: str,
              key_vault_certificate_id: str,
              subject_alternative_names: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expirationDate' in kwargs:
+            expiration_date = kwargs['expirationDate']
+        if 'keyVaultCertificateId' in kwargs:
+            key_vault_certificate_id = kwargs['keyVaultCertificateId']
+        if 'subjectAlternativeNames' in kwargs:
+            subject_alternative_names = kwargs['subjectAlternativeNames']
+
         _setter("expiration_date", expiration_date)
         _setter("key_vault_certificate_id", key_vault_certificate_id)
         _setter("subject_alternative_names", subject_alternative_names)

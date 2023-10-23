@@ -40,7 +40,17 @@ class GetMariaDbServerStorageProfileResult(dict):
              backup_retention_days: int,
              geo_redundant_backup: str,
              storage_mb: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoGrow' in kwargs:
+            auto_grow = kwargs['autoGrow']
+        if 'backupRetentionDays' in kwargs:
+            backup_retention_days = kwargs['backupRetentionDays']
+        if 'geoRedundantBackup' in kwargs:
+            geo_redundant_backup = kwargs['geoRedundantBackup']
+        if 'storageMb' in kwargs:
+            storage_mb = kwargs['storageMb']
+
         _setter("auto_grow", auto_grow)
         _setter("backup_retention_days", backup_retention_days)
         _setter("geo_redundant_backup", geo_redundant_backup)

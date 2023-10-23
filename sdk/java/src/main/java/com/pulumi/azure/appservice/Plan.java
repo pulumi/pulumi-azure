@@ -211,7 +211,7 @@ public class Plan extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** Attaching to an App Service Environment requires the App Service Plan use a `Premium` SKU (when using an ASEv1) and the `Isolated` SKU (for an ASEv2).
      * 
      */
-    @Export(name="appServiceEnvironmentId", refs={String.class}, tree="[0]")
+    @Export(name="appServiceEnvironmentId", type=String.class, parameters={})
     private Output</* @Nullable */ String> appServiceEnvironmentId;
 
     /**
@@ -227,7 +227,7 @@ public class Plan extends com.pulumi.resources.CustomResource {
      * Whether to create a xenon App Service Plan.
      * 
      */
-    @Export(name="isXenon", refs={Boolean.class}, tree="[0]")
+    @Export(name="isXenon", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> isXenon;
 
     /**
@@ -243,7 +243,7 @@ public class Plan extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** When creating a `Linux` App Service Plan, the `reserved` field must be set to `true`, and when creating a `Windows`/`app` App Service Plan the `reserved` field must be set to `false`.
      * 
      */
-    @Export(name="kind", refs={String.class}, tree="[0]")
+    @Export(name="kind", type=String.class, parameters={})
     private Output</* @Nullable */ String> kind;
 
     /**
@@ -259,7 +259,7 @@ public class Plan extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -273,7 +273,7 @@ public class Plan extends com.pulumi.resources.CustomResource {
      * The maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan.
      * 
      */
-    @Export(name="maximumElasticWorkerCount", refs={Integer.class}, tree="[0]")
+    @Export(name="maximumElasticWorkerCount", type=Integer.class, parameters={})
     private Output<Integer> maximumElasticWorkerCount;
 
     /**
@@ -287,7 +287,7 @@ public class Plan extends com.pulumi.resources.CustomResource {
      * The maximum number of workers supported with the App Service Plan&#39;s sku.
      * 
      */
-    @Export(name="maximumNumberOfWorkers", refs={Integer.class}, tree="[0]")
+    @Export(name="maximumNumberOfWorkers", type=Integer.class, parameters={})
     private Output<Integer> maximumNumberOfWorkers;
 
     /**
@@ -301,7 +301,7 @@ public class Plan extends com.pulumi.resources.CustomResource {
      * Specifies the name of the App Service Plan component. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -315,7 +315,7 @@ public class Plan extends com.pulumi.resources.CustomResource {
      * Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.
      * 
      */
-    @Export(name="perSiteScaling", refs={Boolean.class}, tree="[0]")
+    @Export(name="perSiteScaling", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> perSiteScaling;
 
     /**
@@ -329,7 +329,7 @@ public class Plan extends com.pulumi.resources.CustomResource {
      * Is this App Service Plan `Reserved`.
      * 
      */
-    @Export(name="reserved", refs={Boolean.class}, tree="[0]")
+    @Export(name="reserved", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> reserved;
 
     /**
@@ -343,7 +343,7 @@ public class Plan extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the App Service Plan component. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -357,7 +357,7 @@ public class Plan extends com.pulumi.resources.CustomResource {
      * A `sku` block as documented below.
      * 
      */
-    @Export(name="sku", refs={PlanSku.class}, tree="[0]")
+    @Export(name="sku", type=PlanSku.class, parameters={})
     private Output<PlanSku> sku;
 
     /**
@@ -371,7 +371,7 @@ public class Plan extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -387,7 +387,7 @@ public class Plan extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** Requires either `PremiumV2` or `PremiumV3` SKU and that at least 3 instances. For more information, please see the [App Service Team Blog](https://azure.github.io/AppService/2021/08/25/App-service-support-for-availability-zones.html).
      * 
      */
-    @Export(name="zoneRedundant", refs={Boolean.class}, tree="[0]")
+    @Export(name="zoneRedundant", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> zoneRedundant;
 
     /**

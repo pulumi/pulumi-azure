@@ -71,7 +71,7 @@ public class PortalTenantConfiguration extends com.pulumi.resources.CustomResour
      * &gt; **Note:** When `private_markdown_storage_enforced` is set to `true`, only external storage configuration (URI) is allowed for Markdown tiles. Inline content configuration will be prohibited.
      * 
      */
-    @Export(name="privateMarkdownStorageEnforced", refs={Boolean.class}, tree="[0]")
+    @Export(name="privateMarkdownStorageEnforced", type=Boolean.class, parameters={})
     private Output<Boolean> privateMarkdownStorageEnforced;
 
     /**

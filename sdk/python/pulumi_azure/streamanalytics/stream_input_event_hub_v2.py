@@ -65,7 +65,25 @@ class StreamInputEventHubV2Args:
              partition_key: Optional[pulumi.Input[str]] = None,
              shared_access_policy_key: Optional[pulumi.Input[str]] = None,
              shared_access_policy_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventhubName' in kwargs:
+            eventhub_name = kwargs['eventhubName']
+        if 'servicebusNamespace' in kwargs:
+            servicebus_namespace = kwargs['servicebusNamespace']
+        if 'streamAnalyticsJobId' in kwargs:
+            stream_analytics_job_id = kwargs['streamAnalyticsJobId']
+        if 'authenticationMode' in kwargs:
+            authentication_mode = kwargs['authenticationMode']
+        if 'eventhubConsumerGroupName' in kwargs:
+            eventhub_consumer_group_name = kwargs['eventhubConsumerGroupName']
+        if 'partitionKey' in kwargs:
+            partition_key = kwargs['partitionKey']
+        if 'sharedAccessPolicyKey' in kwargs:
+            shared_access_policy_key = kwargs['sharedAccessPolicyKey']
+        if 'sharedAccessPolicyName' in kwargs:
+            shared_access_policy_name = kwargs['sharedAccessPolicyName']
+
         _setter("eventhub_name", eventhub_name)
         _setter("serialization", serialization)
         _setter("servicebus_namespace", servicebus_namespace)
@@ -256,7 +274,25 @@ class _StreamInputEventHubV2State:
              shared_access_policy_key: Optional[pulumi.Input[str]] = None,
              shared_access_policy_name: Optional[pulumi.Input[str]] = None,
              stream_analytics_job_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authenticationMode' in kwargs:
+            authentication_mode = kwargs['authenticationMode']
+        if 'eventhubConsumerGroupName' in kwargs:
+            eventhub_consumer_group_name = kwargs['eventhubConsumerGroupName']
+        if 'eventhubName' in kwargs:
+            eventhub_name = kwargs['eventhubName']
+        if 'partitionKey' in kwargs:
+            partition_key = kwargs['partitionKey']
+        if 'servicebusNamespace' in kwargs:
+            servicebus_namespace = kwargs['servicebusNamespace']
+        if 'sharedAccessPolicyKey' in kwargs:
+            shared_access_policy_key = kwargs['sharedAccessPolicyKey']
+        if 'sharedAccessPolicyName' in kwargs:
+            shared_access_policy_name = kwargs['sharedAccessPolicyName']
+        if 'streamAnalyticsJobId' in kwargs:
+            stream_analytics_job_id = kwargs['streamAnalyticsJobId']
+
         if authentication_mode is not None:
             _setter("authentication_mode", authentication_mode)
         if eventhub_consumer_group_name is not None:

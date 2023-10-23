@@ -83,7 +83,7 @@ public class IdentityProviderAad extends com.pulumi.resources.CustomResource {
      * List of allowed AAD Tenants.
      * 
      */
-    @Export(name="allowedTenants", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="allowedTenants", type=List.class, parameters={String.class})
     private Output<List<String>> allowedTenants;
 
     /**
@@ -97,7 +97,7 @@ public class IdentityProviderAad extends com.pulumi.resources.CustomResource {
      * The Name of the API Management Service where this AAD Identity Provider should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="apiManagementName", refs={String.class}, tree="[0]")
+    @Export(name="apiManagementName", type=String.class, parameters={})
     private Output<String> apiManagementName;
 
     /**
@@ -111,7 +111,7 @@ public class IdentityProviderAad extends com.pulumi.resources.CustomResource {
      * Client Id of the Application in the AAD Identity Provider.
      * 
      */
-    @Export(name="clientId", refs={String.class}, tree="[0]")
+    @Export(name="clientId", type=String.class, parameters={})
     private Output<String> clientId;
 
     /**
@@ -125,7 +125,7 @@ public class IdentityProviderAad extends com.pulumi.resources.CustomResource {
      * Client secret of the Application in the AAD Identity Provider.
      * 
      */
-    @Export(name="clientSecret", refs={String.class}, tree="[0]")
+    @Export(name="clientSecret", type=String.class, parameters={})
     private Output<String> clientSecret;
 
     /**
@@ -139,7 +139,7 @@ public class IdentityProviderAad extends com.pulumi.resources.CustomResource {
      * The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -153,7 +153,7 @@ public class IdentityProviderAad extends com.pulumi.resources.CustomResource {
      * The AAD Tenant to use instead of Common when logging into Active Directory
      * 
      */
-    @Export(name="signinTenant", refs={String.class}, tree="[0]")
+    @Export(name="signinTenant", type=String.class, parameters={})
     private Output</* @Nullable */ String> signinTenant;
 
     /**

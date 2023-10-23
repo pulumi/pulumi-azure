@@ -47,7 +47,15 @@ class DataCollectionRuleAssociationArgs:
              data_collection_rule_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+        if 'dataCollectionEndpointId' in kwargs:
+            data_collection_endpoint_id = kwargs['dataCollectionEndpointId']
+        if 'dataCollectionRuleId' in kwargs:
+            data_collection_rule_id = kwargs['dataCollectionRuleId']
+
         _setter("target_resource_id", target_resource_id)
         if data_collection_endpoint_id is not None:
             _setter("data_collection_endpoint_id", data_collection_endpoint_id)
@@ -159,7 +167,15 @@ class _DataCollectionRuleAssociationState:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              target_resource_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataCollectionEndpointId' in kwargs:
+            data_collection_endpoint_id = kwargs['dataCollectionEndpointId']
+        if 'dataCollectionRuleId' in kwargs:
+            data_collection_rule_id = kwargs['dataCollectionRuleId']
+        if 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+
         if data_collection_endpoint_id is not None:
             _setter("data_collection_endpoint_id", data_collection_endpoint_id)
         if data_collection_rule_id is not None:

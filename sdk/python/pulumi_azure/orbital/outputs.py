@@ -44,7 +44,9 @@ class ContactProfileLink(dict):
              direction: str,
              name: str,
              polarization: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("channels", channels)
         _setter("direction", direction)
         _setter("name", name)
@@ -143,7 +145,19 @@ class ContactProfileLinkChannel(dict):
              name: str,
              demodulation_configuration: Optional[str] = None,
              modulation_configuration: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bandwidthMhz' in kwargs:
+            bandwidth_mhz = kwargs['bandwidthMhz']
+        if 'centerFrequencyMhz' in kwargs:
+            center_frequency_mhz = kwargs['centerFrequencyMhz']
+        if 'endPoints' in kwargs:
+            end_points = kwargs['endPoints']
+        if 'demodulationConfiguration' in kwargs:
+            demodulation_configuration = kwargs['demodulationConfiguration']
+        if 'modulationConfiguration' in kwargs:
+            modulation_configuration = kwargs['modulationConfiguration']
+
         _setter("bandwidth_mhz", bandwidth_mhz)
         _setter("center_frequency_mhz", center_frequency_mhz)
         _setter("end_points", end_points)
@@ -248,7 +262,13 @@ class ContactProfileLinkChannelEndPoint(dict):
              port: str,
              protocol: str,
              ip_address: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endPointName' in kwargs:
+            end_point_name = kwargs['endPointName']
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+
         _setter("end_point_name", end_point_name)
         _setter("port", port)
         _setter("protocol", protocol)
@@ -338,7 +358,13 @@ class SpacecraftLink(dict):
              direction: str,
              name: str,
              polarization: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bandwidthMhz' in kwargs:
+            bandwidth_mhz = kwargs['bandwidthMhz']
+        if 'centerFrequencyMhz' in kwargs:
+            center_frequency_mhz = kwargs['centerFrequencyMhz']
+
         _setter("bandwidth_mhz", bandwidth_mhz)
         _setter("center_frequency_mhz", center_frequency_mhz)
         _setter("direction", direction)

@@ -78,7 +78,7 @@ public class IntegrationAccountSchema extends com.pulumi.resources.CustomResourc
      * The content of the Logic App Integration Account Schema.
      * 
      */
-    @Export(name="content", refs={String.class}, tree="[0]")
+    @Export(name="content", type=String.class, parameters={})
     private Output<String> content;
 
     /**
@@ -92,7 +92,7 @@ public class IntegrationAccountSchema extends com.pulumi.resources.CustomResourc
      * The file name of the Logic App Integration Account Schema.
      * 
      */
-    @Export(name="fileName", refs={String.class}, tree="[0]")
+    @Export(name="fileName", type=String.class, parameters={})
     private Output</* @Nullable */ String> fileName;
 
     /**
@@ -106,7 +106,7 @@ public class IntegrationAccountSchema extends com.pulumi.resources.CustomResourc
      * The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Schema to be created.
      * 
      */
-    @Export(name="integrationAccountName", refs={String.class}, tree="[0]")
+    @Export(name="integrationAccountName", type=String.class, parameters={})
     private Output<String> integrationAccountName;
 
     /**
@@ -120,7 +120,7 @@ public class IntegrationAccountSchema extends com.pulumi.resources.CustomResourc
      * The metadata of the Logic App Integration Account Schema.
      * 
      */
-    @Export(name="metadata", refs={String.class}, tree="[0]")
+    @Export(name="metadata", type=String.class, parameters={})
     private Output</* @Nullable */ String> metadata;
 
     /**
@@ -134,7 +134,7 @@ public class IntegrationAccountSchema extends com.pulumi.resources.CustomResourc
      * The name which should be used for this Logic App Integration Account Schema. Changing this forces a new Logic App Integration Account Schema to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -148,7 +148,7 @@ public class IntegrationAccountSchema extends com.pulumi.resources.CustomResourc
      * The name of the Resource Group where the Logic App Integration Account Schema should exist. Changing this forces a new Logic App Integration Account Schema to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**

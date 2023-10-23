@@ -86,7 +86,7 @@ public class LinkedServiceSftp extends com.pulumi.resources.CustomResource {
      * The following supported arguments are specific to SFTP Linked Service:
      * 
      */
-    @Export(name="additionalProperties", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="additionalProperties", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> additionalProperties;
 
     /**
@@ -102,7 +102,7 @@ public class LinkedServiceSftp extends com.pulumi.resources.CustomResource {
      * List of tags that can be used for describing the Data Factory Linked Service.
      * 
      */
-    @Export(name="annotations", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="annotations", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> annotations;
 
     /**
@@ -116,7 +116,7 @@ public class LinkedServiceSftp extends com.pulumi.resources.CustomResource {
      * The type of authentication used to connect to the web table source. Valid options are `Anonymous`, `Basic` and `ClientCertificate`.
      * 
      */
-    @Export(name="authenticationType", refs={String.class}, tree="[0]")
+    @Export(name="authenticationType", type=String.class, parameters={})
     private Output<String> authenticationType;
 
     /**
@@ -130,7 +130,7 @@ public class LinkedServiceSftp extends com.pulumi.resources.CustomResource {
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      * 
      */
-    @Export(name="dataFactoryId", refs={String.class}, tree="[0]")
+    @Export(name="dataFactoryId", type=String.class, parameters={})
     private Output<String> dataFactoryId;
 
     /**
@@ -144,7 +144,7 @@ public class LinkedServiceSftp extends com.pulumi.resources.CustomResource {
      * The description for the Data Factory Linked Service.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -158,7 +158,7 @@ public class LinkedServiceSftp extends com.pulumi.resources.CustomResource {
      * The SFTP server hostname.
      * 
      */
-    @Export(name="host", refs={String.class}, tree="[0]")
+    @Export(name="host", type=String.class, parameters={})
     private Output<String> host;
 
     /**
@@ -172,7 +172,7 @@ public class LinkedServiceSftp extends com.pulumi.resources.CustomResource {
      * The host key fingerprint of the SFTP server.
      * 
      */
-    @Export(name="hostKeyFingerprint", refs={String.class}, tree="[0]")
+    @Export(name="hostKeyFingerprint", type=String.class, parameters={})
     private Output</* @Nullable */ String> hostKeyFingerprint;
 
     /**
@@ -186,7 +186,7 @@ public class LinkedServiceSftp extends com.pulumi.resources.CustomResource {
      * The integration runtime reference to associate with the Data Factory Linked Service.
      * 
      */
-    @Export(name="integrationRuntimeName", refs={String.class}, tree="[0]")
+    @Export(name="integrationRuntimeName", type=String.class, parameters={})
     private Output</* @Nullable */ String> integrationRuntimeName;
 
     /**
@@ -200,7 +200,7 @@ public class LinkedServiceSftp extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -214,7 +214,7 @@ public class LinkedServiceSftp extends com.pulumi.resources.CustomResource {
      * A map of parameters to associate with the Data Factory Linked Service.
      * 
      */
-    @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="parameters", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> parameters;
 
     /**
@@ -228,7 +228,7 @@ public class LinkedServiceSftp extends com.pulumi.resources.CustomResource {
      * Password to logon to the SFTP Server for Basic Authentication.
      * 
      */
-    @Export(name="password", refs={String.class}, tree="[0]")
+    @Export(name="password", type=String.class, parameters={})
     private Output<String> password;
 
     /**
@@ -242,7 +242,7 @@ public class LinkedServiceSftp extends com.pulumi.resources.CustomResource {
      * The TCP port number that the SFTP server uses to listen for client connection. Default value is 22.
      * 
      */
-    @Export(name="port", refs={Integer.class}, tree="[0]")
+    @Export(name="port", type=Integer.class, parameters={})
     private Output<Integer> port;
 
     /**
@@ -256,7 +256,7 @@ public class LinkedServiceSftp extends com.pulumi.resources.CustomResource {
      * Whether to validate host key fingerprint while connecting. If set to `false`, `host_key_fingerprint` must also be set.
      * 
      */
-    @Export(name="skipHostKeyValidation", refs={Boolean.class}, tree="[0]")
+    @Export(name="skipHostKeyValidation", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> skipHostKeyValidation;
 
     /**
@@ -270,7 +270,7 @@ public class LinkedServiceSftp extends com.pulumi.resources.CustomResource {
      * The username used to log on to the SFTP server.
      * 
      */
-    @Export(name="username", refs={String.class}, tree="[0]")
+    @Export(name="username", type=String.class, parameters={})
     private Output<String> username;
 
     /**

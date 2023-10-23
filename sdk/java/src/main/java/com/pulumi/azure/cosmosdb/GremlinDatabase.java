@@ -73,7 +73,7 @@ public class GremlinDatabase extends com.pulumi.resources.CustomResource {
      * The name of the CosmosDB Account to create the Gremlin Database within. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="accountName", refs={String.class}, tree="[0]")
+    @Export(name="accountName", type=String.class, parameters={})
     private Output<String> accountName;
 
     /**
@@ -89,7 +89,7 @@ public class GremlinDatabase extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
      * 
      */
-    @Export(name="autoscaleSettings", refs={GremlinDatabaseAutoscaleSettings.class}, tree="[0]")
+    @Export(name="autoscaleSettings", type=GremlinDatabaseAutoscaleSettings.class, parameters={})
     private Output</* @Nullable */ GremlinDatabaseAutoscaleSettings> autoscaleSettings;
 
     /**
@@ -105,7 +105,7 @@ public class GremlinDatabase extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Cosmos DB Gremlin Database. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -119,7 +119,7 @@ public class GremlinDatabase extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which the Cosmos DB Gremlin Database is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -135,7 +135,7 @@ public class GremlinDatabase extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
      * 
      */
-    @Export(name="throughput", refs={Integer.class}, tree="[0]")
+    @Export(name="throughput", type=Integer.class, parameters={})
     private Output<Integer> throughput;
 
     /**

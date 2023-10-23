@@ -100,7 +100,7 @@ public class SpringCloudContainerDeployment extends com.pulumi.resources.CustomR
      * A JSON object that contains the addon configurations of the Spring Cloud Container Deployment.
      * 
      */
-    @Export(name="addonJson", refs={String.class}, tree="[0]")
+    @Export(name="addonJson", type=String.class, parameters={})
     private Output<String> addonJson;
 
     /**
@@ -114,7 +114,7 @@ public class SpringCloudContainerDeployment extends com.pulumi.resources.CustomR
      * Specifies the arguments to the entrypoint. The docker image&#39;s `CMD` is used if not specified.
      * 
      */
-    @Export(name="arguments", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="arguments", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> arguments;
 
     /**
@@ -128,7 +128,7 @@ public class SpringCloudContainerDeployment extends com.pulumi.resources.CustomR
      * Specifies the entrypoint array. It will not be executed within a shell. The docker image&#39;s `ENTRYPOINT` is used if not specified.
      * 
      */
-    @Export(name="commands", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="commands", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> commands;
 
     /**
@@ -142,7 +142,7 @@ public class SpringCloudContainerDeployment extends com.pulumi.resources.CustomR
      * Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
      * 
      */
-    @Export(name="environmentVariables", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="environmentVariables", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> environmentVariables;
 
     /**
@@ -156,7 +156,7 @@ public class SpringCloudContainerDeployment extends com.pulumi.resources.CustomR
      * Container image of the custom container. This should be in the form of `&lt;repository&gt;:&lt;tag&gt;` without the server name of the registry.
      * 
      */
-    @Export(name="image", refs={String.class}, tree="[0]")
+    @Export(name="image", type=String.class, parameters={})
     private Output<String> image;
 
     /**
@@ -170,7 +170,7 @@ public class SpringCloudContainerDeployment extends com.pulumi.resources.CustomR
      * Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
      * 
      */
-    @Export(name="instanceCount", refs={Integer.class}, tree="[0]")
+    @Export(name="instanceCount", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> instanceCount;
 
     /**
@@ -184,7 +184,7 @@ public class SpringCloudContainerDeployment extends com.pulumi.resources.CustomR
      * Specifies the language framework of the container image. The only possible value is `springboot`.
      * 
      */
-    @Export(name="languageFramework", refs={String.class}, tree="[0]")
+    @Export(name="languageFramework", type=String.class, parameters={})
     private Output</* @Nullable */ String> languageFramework;
 
     /**
@@ -198,7 +198,7 @@ public class SpringCloudContainerDeployment extends com.pulumi.resources.CustomR
      * The name which should be used for this Spring Cloud Container Deployment. Changing this forces a new Spring Cloud Container Deployment to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -212,7 +212,7 @@ public class SpringCloudContainerDeployment extends com.pulumi.resources.CustomR
      * A `quota` block as defined below.
      * 
      */
-    @Export(name="quota", refs={SpringCloudContainerDeploymentQuota.class}, tree="[0]")
+    @Export(name="quota", type=SpringCloudContainerDeploymentQuota.class, parameters={})
     private Output<SpringCloudContainerDeploymentQuota> quota;
 
     /**
@@ -226,7 +226,7 @@ public class SpringCloudContainerDeployment extends com.pulumi.resources.CustomR
      * The name of the registry that contains the container image.
      * 
      */
-    @Export(name="server", refs={String.class}, tree="[0]")
+    @Export(name="server", type=String.class, parameters={})
     private Output<String> server;
 
     /**
@@ -240,7 +240,7 @@ public class SpringCloudContainerDeployment extends com.pulumi.resources.CustomR
      * The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Container Deployment to be created.
      * 
      */
-    @Export(name="springCloudAppId", refs={String.class}, tree="[0]")
+    @Export(name="springCloudAppId", type=String.class, parameters={})
     private Output<String> springCloudAppId;
 
     /**

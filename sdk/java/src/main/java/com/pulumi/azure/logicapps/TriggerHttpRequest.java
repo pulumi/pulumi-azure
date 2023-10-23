@@ -85,7 +85,7 @@ public class TriggerHttpRequest extends com.pulumi.resources.CustomResource {
      * The URL for the workflow trigger
      * 
      */
-    @Export(name="callbackUrl", refs={String.class}, tree="[0]")
+    @Export(name="callbackUrl", type=String.class, parameters={})
     private Output<String> callbackUrl;
 
     /**
@@ -99,7 +99,7 @@ public class TriggerHttpRequest extends com.pulumi.resources.CustomResource {
      * Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="logicAppId", refs={String.class}, tree="[0]")
+    @Export(name="logicAppId", type=String.class, parameters={})
     private Output<String> logicAppId;
 
     /**
@@ -113,7 +113,7 @@ public class TriggerHttpRequest extends com.pulumi.resources.CustomResource {
      * Specifies the HTTP Method which the request be using. Possible values include `DELETE`, `GET`, `PATCH`, `POST` or `PUT`.
      * 
      */
-    @Export(name="method", refs={String.class}, tree="[0]")
+    @Export(name="method", type=String.class, parameters={})
     private Output</* @Nullable */ String> method;
 
     /**
@@ -129,7 +129,7 @@ public class TriggerHttpRequest extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -147,7 +147,7 @@ public class TriggerHttpRequest extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** When `relative_path` is set a `method` must also be set.
      * 
      */
-    @Export(name="relativePath", refs={String.class}, tree="[0]")
+    @Export(name="relativePath", type=String.class, parameters={})
     private Output</* @Nullable */ String> relativePath;
 
     /**
@@ -163,7 +163,7 @@ public class TriggerHttpRequest extends com.pulumi.resources.CustomResource {
      * A JSON Blob defining the Schema of the incoming request. This needs to be valid JSON.
      * 
      */
-    @Export(name="schema", refs={String.class}, tree="[0]")
+    @Export(name="schema", type=String.class, parameters={})
     private Output<String> schema;
 
     /**

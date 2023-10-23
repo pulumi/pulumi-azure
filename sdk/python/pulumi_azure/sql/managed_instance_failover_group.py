@@ -53,7 +53,19 @@ class ManagedInstanceFailoverGroupArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              readonly_endpoint_failover_policy_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'managedInstanceName' in kwargs:
+            managed_instance_name = kwargs['managedInstanceName']
+        if 'partnerManagedInstanceId' in kwargs:
+            partner_managed_instance_id = kwargs['partnerManagedInstanceId']
+        if 'readWriteEndpointFailoverPolicy' in kwargs:
+            read_write_endpoint_failover_policy = kwargs['readWriteEndpointFailoverPolicy']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'readonlyEndpointFailoverPolicyEnabled' in kwargs:
+            readonly_endpoint_failover_policy_enabled = kwargs['readonlyEndpointFailoverPolicyEnabled']
+
         _setter("managed_instance_name", managed_instance_name)
         _setter("partner_managed_instance_id", partner_managed_instance_id)
         _setter("read_write_endpoint_failover_policy", read_write_endpoint_failover_policy)
@@ -198,7 +210,21 @@ class _ManagedInstanceFailoverGroupState:
              readonly_endpoint_failover_policy_enabled: Optional[pulumi.Input[bool]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              role: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'managedInstanceName' in kwargs:
+            managed_instance_name = kwargs['managedInstanceName']
+        if 'partnerManagedInstanceId' in kwargs:
+            partner_managed_instance_id = kwargs['partnerManagedInstanceId']
+        if 'partnerRegions' in kwargs:
+            partner_regions = kwargs['partnerRegions']
+        if 'readWriteEndpointFailoverPolicy' in kwargs:
+            read_write_endpoint_failover_policy = kwargs['readWriteEndpointFailoverPolicy']
+        if 'readonlyEndpointFailoverPolicyEnabled' in kwargs:
+            readonly_endpoint_failover_policy_enabled = kwargs['readonlyEndpointFailoverPolicyEnabled']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if location is not None:
             _setter("location", location)
         if managed_instance_name is not None:

@@ -90,7 +90,7 @@ public class Share extends com.pulumi.resources.CustomResource {
      * The ID of the Data Share account in which the Data Share is created. Changing this forces a new Data Share to be created.
      * 
      */
-    @Export(name="accountId", refs={String.class}, tree="[0]")
+    @Export(name="accountId", type=String.class, parameters={})
     private Output<String> accountId;
 
     /**
@@ -104,7 +104,7 @@ public class Share extends com.pulumi.resources.CustomResource {
      * The Data Share&#39;s description.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -118,7 +118,7 @@ public class Share extends com.pulumi.resources.CustomResource {
      * The kind of the Data Share. Possible values are `CopyBased` and `InPlace`. Changing this forces a new Data Share to be created.
      * 
      */
-    @Export(name="kind", refs={String.class}, tree="[0]")
+    @Export(name="kind", type=String.class, parameters={})
     private Output<String> kind;
 
     /**
@@ -132,7 +132,7 @@ public class Share extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Data Share. Changing this forces a new Data Share to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -146,7 +146,7 @@ public class Share extends com.pulumi.resources.CustomResource {
      * A `snapshot_schedule` block as defined below.
      * 
      */
-    @Export(name="snapshotSchedule", refs={ShareSnapshotSchedule.class}, tree="[0]")
+    @Export(name="snapshotSchedule", type=ShareSnapshotSchedule.class, parameters={})
     private Output</* @Nullable */ ShareSnapshotSchedule> snapshotSchedule;
 
     /**
@@ -160,7 +160,7 @@ public class Share extends com.pulumi.resources.CustomResource {
      * The terms of the Data Share.
      * 
      */
-    @Export(name="terms", refs={String.class}, tree="[0]")
+    @Export(name="terms", type=String.class, parameters={})
     private Output</* @Nullable */ String> terms;
 
     /**

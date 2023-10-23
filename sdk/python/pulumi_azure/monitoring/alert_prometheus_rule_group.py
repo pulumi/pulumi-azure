@@ -65,7 +65,15 @@ class AlertPrometheusRuleGroupArgs:
              name: Optional[pulumi.Input[str]] = None,
              rule_group_enabled: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if 'ruleGroupEnabled' in kwargs:
+            rule_group_enabled = kwargs['ruleGroupEnabled']
+
         _setter("resource_group_name", resource_group_name)
         _setter("rules", rules)
         _setter("scopes", scopes)
@@ -257,7 +265,15 @@ class _AlertPrometheusRuleGroupState:
              rules: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPrometheusRuleGroupRuleArgs']]]] = None,
              scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'ruleGroupEnabled' in kwargs:
+            rule_group_enabled = kwargs['ruleGroupEnabled']
+
         if cluster_name is not None:
             _setter("cluster_name", cluster_name)
         if description is not None:

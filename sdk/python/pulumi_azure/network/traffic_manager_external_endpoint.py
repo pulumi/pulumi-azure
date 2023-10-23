@@ -65,7 +65,17 @@ class TrafficManagerExternalEndpointArgs:
              priority: Optional[pulumi.Input[int]] = None,
              subnets: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerExternalEndpointSubnetArgs']]]] = None,
              weight: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'profileId' in kwargs:
+            profile_id = kwargs['profileId']
+        if 'customHeaders' in kwargs:
+            custom_headers = kwargs['customHeaders']
+        if 'endpointLocation' in kwargs:
+            endpoint_location = kwargs['endpointLocation']
+        if 'geoMappings' in kwargs:
+            geo_mappings = kwargs['geoMappings']
+
         _setter("profile_id", profile_id)
         _setter("target", target)
         if custom_headers is not None:
@@ -258,7 +268,17 @@ class _TrafficManagerExternalEndpointState:
              subnets: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerExternalEndpointSubnetArgs']]]] = None,
              target: Optional[pulumi.Input[str]] = None,
              weight: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customHeaders' in kwargs:
+            custom_headers = kwargs['customHeaders']
+        if 'endpointLocation' in kwargs:
+            endpoint_location = kwargs['endpointLocation']
+        if 'geoMappings' in kwargs:
+            geo_mappings = kwargs['geoMappings']
+        if 'profileId' in kwargs:
+            profile_id = kwargs['profileId']
+
         if custom_headers is not None:
             _setter("custom_headers", custom_headers)
         if enabled is not None:

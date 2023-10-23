@@ -39,7 +39,17 @@ class GroupUserArgs:
              group_name: pulumi.Input[str],
              resource_group_name: pulumi.Input[str],
              user_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if 'groupName' in kwargs:
+            group_name = kwargs['groupName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'userId' in kwargs:
+            user_id = kwargs['userId']
+
         _setter("api_management_name", api_management_name)
         _setter("group_name", group_name)
         _setter("resource_group_name", resource_group_name)
@@ -122,7 +132,17 @@ class _GroupUserState:
              group_name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              user_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if 'groupName' in kwargs:
+            group_name = kwargs['groupName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'userId' in kwargs:
+            user_id = kwargs['userId']
+
         if api_management_name is not None:
             _setter("api_management_name", api_management_name)
         if group_name is not None:

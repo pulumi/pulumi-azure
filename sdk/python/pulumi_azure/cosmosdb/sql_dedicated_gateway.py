@@ -35,7 +35,15 @@ class SqlDedicatedGatewayArgs:
              cosmosdb_account_id: pulumi.Input[str],
              instance_count: pulumi.Input[int],
              instance_size: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cosmosdbAccountId' in kwargs:
+            cosmosdb_account_id = kwargs['cosmosdbAccountId']
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if 'instanceSize' in kwargs:
+            instance_size = kwargs['instanceSize']
+
         _setter("cosmosdb_account_id", cosmosdb_account_id)
         _setter("instance_count", instance_count)
         _setter("instance_size", instance_size)
@@ -101,7 +109,15 @@ class _SqlDedicatedGatewayState:
              cosmosdb_account_id: Optional[pulumi.Input[str]] = None,
              instance_count: Optional[pulumi.Input[int]] = None,
              instance_size: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cosmosdbAccountId' in kwargs:
+            cosmosdb_account_id = kwargs['cosmosdbAccountId']
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if 'instanceSize' in kwargs:
+            instance_size = kwargs['instanceSize']
+
         if cosmosdb_account_id is not None:
             _setter("cosmosdb_account_id", cosmosdb_account_id)
         if instance_count is not None:

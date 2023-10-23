@@ -31,7 +31,13 @@ class WorkspaceRootDbfsCustomerManagedKeyArgs:
              _setter: Callable[[Any, Any], None],
              key_vault_key_id: pulumi.Input[str],
              workspace_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyVaultKeyId' in kwargs:
+            key_vault_key_id = kwargs['keyVaultKeyId']
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+
         _setter("key_vault_key_id", key_vault_key_id)
         _setter("workspace_id", workspace_id)
 
@@ -80,7 +86,13 @@ class _WorkspaceRootDbfsCustomerManagedKeyState:
              _setter: Callable[[Any, Any], None],
              key_vault_key_id: Optional[pulumi.Input[str]] = None,
              workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyVaultKeyId' in kwargs:
+            key_vault_key_id = kwargs['keyVaultKeyId']
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+
         if key_vault_key_id is not None:
             _setter("key_vault_key_id", key_vault_key_id)
         if workspace_id is not None:

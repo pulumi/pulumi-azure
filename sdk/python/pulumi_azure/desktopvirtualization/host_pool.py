@@ -90,7 +90,29 @@ class HostPoolArgs:
              start_vm_on_connect: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              validate_environment: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'loadBalancerType' in kwargs:
+            load_balancer_type = kwargs['loadBalancerType']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'customRdpProperties' in kwargs:
+            custom_rdp_properties = kwargs['customRdpProperties']
+        if 'friendlyName' in kwargs:
+            friendly_name = kwargs['friendlyName']
+        if 'maximumSessionsAllowed' in kwargs:
+            maximum_sessions_allowed = kwargs['maximumSessionsAllowed']
+        if 'personalDesktopAssignmentType' in kwargs:
+            personal_desktop_assignment_type = kwargs['personalDesktopAssignmentType']
+        if 'preferredAppGroupType' in kwargs:
+            preferred_app_group_type = kwargs['preferredAppGroupType']
+        if 'scheduledAgentUpdates' in kwargs:
+            scheduled_agent_updates = kwargs['scheduledAgentUpdates']
+        if 'startVmOnConnect' in kwargs:
+            start_vm_on_connect = kwargs['startVmOnConnect']
+        if 'validateEnvironment' in kwargs:
+            validate_environment = kwargs['validateEnvironment']
+
         _setter("load_balancer_type", load_balancer_type)
         _setter("resource_group_name", resource_group_name)
         _setter("type", type)
@@ -382,7 +404,29 @@ class _HostPoolState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              type: Optional[pulumi.Input[str]] = None,
              validate_environment: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customRdpProperties' in kwargs:
+            custom_rdp_properties = kwargs['customRdpProperties']
+        if 'friendlyName' in kwargs:
+            friendly_name = kwargs['friendlyName']
+        if 'loadBalancerType' in kwargs:
+            load_balancer_type = kwargs['loadBalancerType']
+        if 'maximumSessionsAllowed' in kwargs:
+            maximum_sessions_allowed = kwargs['maximumSessionsAllowed']
+        if 'personalDesktopAssignmentType' in kwargs:
+            personal_desktop_assignment_type = kwargs['personalDesktopAssignmentType']
+        if 'preferredAppGroupType' in kwargs:
+            preferred_app_group_type = kwargs['preferredAppGroupType']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'scheduledAgentUpdates' in kwargs:
+            scheduled_agent_updates = kwargs['scheduledAgentUpdates']
+        if 'startVmOnConnect' in kwargs:
+            start_vm_on_connect = kwargs['startVmOnConnect']
+        if 'validateEnvironment' in kwargs:
+            validate_environment = kwargs['validateEnvironment']
+
         if custom_rdp_properties is not None:
             _setter("custom_rdp_properties", custom_rdp_properties)
         if description is not None:

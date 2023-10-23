@@ -49,7 +49,17 @@ class LocalRulestackCertificateArgs:
              key_vault_certificate_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              self_signed: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'rulestackId' in kwargs:
+            rulestack_id = kwargs['rulestackId']
+        if 'auditComment' in kwargs:
+            audit_comment = kwargs['auditComment']
+        if 'keyVaultCertificateId' in kwargs:
+            key_vault_certificate_id = kwargs['keyVaultCertificateId']
+        if 'selfSigned' in kwargs:
+            self_signed = kwargs['selfSigned']
+
         _setter("rulestack_id", rulestack_id)
         if audit_comment is not None:
             _setter("audit_comment", audit_comment)
@@ -175,7 +185,17 @@ class _LocalRulestackCertificateState:
              name: Optional[pulumi.Input[str]] = None,
              rulestack_id: Optional[pulumi.Input[str]] = None,
              self_signed: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'auditComment' in kwargs:
+            audit_comment = kwargs['auditComment']
+        if 'keyVaultCertificateId' in kwargs:
+            key_vault_certificate_id = kwargs['keyVaultCertificateId']
+        if 'rulestackId' in kwargs:
+            rulestack_id = kwargs['rulestackId']
+        if 'selfSigned' in kwargs:
+            self_signed = kwargs['selfSigned']
+
         if audit_comment is not None:
             _setter("audit_comment", audit_comment)
         if description is not None:

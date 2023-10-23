@@ -65,7 +65,25 @@ class DataConnectorThreatIntelligenceTaxiiArgs:
              polling_frequency: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              user_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiRootUrl' in kwargs:
+            api_root_url = kwargs['apiRootUrl']
+        if 'collectionId' in kwargs:
+            collection_id = kwargs['collectionId']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if 'lookbackDate' in kwargs:
+            lookback_date = kwargs['lookbackDate']
+        if 'pollingFrequency' in kwargs:
+            polling_frequency = kwargs['pollingFrequency']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if 'userName' in kwargs:
+            user_name = kwargs['userName']
+
         _setter("api_root_url", api_root_url)
         _setter("collection_id", collection_id)
         _setter("display_name", display_name)
@@ -260,7 +278,25 @@ class _DataConnectorThreatIntelligenceTaxiiState:
              polling_frequency: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              user_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiRootUrl' in kwargs:
+            api_root_url = kwargs['apiRootUrl']
+        if 'collectionId' in kwargs:
+            collection_id = kwargs['collectionId']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if 'lookbackDate' in kwargs:
+            lookback_date = kwargs['lookbackDate']
+        if 'pollingFrequency' in kwargs:
+            polling_frequency = kwargs['pollingFrequency']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if 'userName' in kwargs:
+            user_name = kwargs['userName']
+
         if api_root_url is not None:
             _setter("api_root_url", api_root_url)
         if collection_id is not None:

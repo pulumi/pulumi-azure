@@ -86,7 +86,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * The Administrator login for the PostgreSQL Server. Required when `create_mode` is `Default`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="administratorLogin", refs={String.class}, tree="[0]")
+    @Export(name="administratorLogin", type=String.class, parameters={})
     private Output<String> administratorLogin;
 
     /**
@@ -100,7 +100,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * The Password associated with the `administrator_login` for the PostgreSQL Server. Required when `create_mode` is `Default`.
      * 
      */
-    @Export(name="administratorLoginPassword", refs={String.class}, tree="[0]")
+    @Export(name="administratorLoginPassword", type=String.class, parameters={})
     private Output</* @Nullable */ String> administratorLoginPassword;
 
     /**
@@ -114,7 +114,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`.
      * 
      */
-    @Export(name="autoGrowEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="autoGrowEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> autoGrowEnabled;
 
     /**
@@ -128,7 +128,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * Backup retention days for the server, supported values are between `7` and `35` days.
      * 
      */
-    @Export(name="backupRetentionDays", refs={Integer.class}, tree="[0]")
+    @Export(name="backupRetentionDays", type=Integer.class, parameters={})
     private Output<Integer> backupRetentionDays;
 
     /**
@@ -142,7 +142,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * The creation mode. Can be used to restore or replicate existing servers. Possible values are `Default`, `Replica`, `GeoRestore`, and `PointInTimeRestore`. Defaults to `Default.`
      * 
      */
-    @Export(name="createMode", refs={String.class}, tree="[0]")
+    @Export(name="createMode", type=String.class, parameters={})
     private Output</* @Nullable */ String> createMode;
 
     /**
@@ -156,7 +156,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * For creation modes other than `Default`, the source server ID to use.
      * 
      */
-    @Export(name="creationSourceServerId", refs={String.class}, tree="[0]")
+    @Export(name="creationSourceServerId", type=String.class, parameters={})
     private Output</* @Nullable */ String> creationSourceServerId;
 
     /**
@@ -170,7 +170,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * The FQDN of the PostgreSQL Server.
      * 
      */
-    @Export(name="fqdn", refs={String.class}, tree="[0]")
+    @Export(name="fqdn", type=String.class, parameters={})
     private Output<String> fqdn;
 
     /**
@@ -184,7 +184,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * Turn Geo-redundant server backups on/off. This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. This is not support for the Basic tier. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="geoRedundantBackupEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="geoRedundantBackupEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> geoRedundantBackupEnabled;
 
     /**
@@ -198,7 +198,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", refs={ServerIdentity.class}, tree="[0]")
+    @Export(name="identity", type=ServerIdentity.class, parameters={})
     private Output</* @Nullable */ ServerIdentity> identity;
 
     /**
@@ -214,7 +214,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** This property is currently still in development and not supported by Microsoft. If the `infrastructure_encryption_enabled` attribute is set to `true` the PostgreSQL instance will incur a substantial performance degradation due to a second encryption pass on top of the existing default encryption that is already provided by Azure Storage. It is strongly suggested to leave this value `false` as not doing so can lead to unclear error messages.
      * 
      */
-    @Export(name="infrastructureEncryptionEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="infrastructureEncryptionEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> infrastructureEncryptionEnabled;
 
     /**
@@ -230,7 +230,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -244,7 +244,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * Specifies the name of the PostgreSQL Server. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -258,7 +258,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * Whether or not public network access is allowed for this server. Defaults to `true`.
      * 
      */
-    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
@@ -272,7 +272,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the PostgreSQL Server. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -286,7 +286,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * When `create_mode` is `PointInTimeRestore` the point in time to restore from `creation_source_server_id`. It should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
      * 
      */
-    @Export(name="restorePointInTime", refs={String.class}, tree="[0]")
+    @Export(name="restorePointInTime", type=String.class, parameters={})
     private Output</* @Nullable */ String> restorePointInTime;
 
     /**
@@ -302,7 +302,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** When replication is set up and `sku_name` is changed to a higher tier or more capacity for the primary, all replicas are scaled up to the same tier/capacity. This is an Azure requirement, for more information see the [replica scaling documentation](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas#scaling)
      * 
      */
-    @Export(name="skuName", refs={String.class}, tree="[0]")
+    @Export(name="skuName", type=String.class, parameters={})
     private Output<String> skuName;
 
     /**
@@ -320,7 +320,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** `ssl_minimal_tls_version_enforced` must be set to `TLSEnforcementDisabled` when `ssl_enforcement_enabled` is set to `false`.
      * 
      */
-    @Export(name="sslEnforcementEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="sslEnforcementEnabled", type=Boolean.class, parameters={})
     private Output<Boolean> sslEnforcementEnabled;
 
     /**
@@ -336,7 +336,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
      * 
      */
-    @Export(name="sslMinimalTlsVersionEnforced", refs={String.class}, tree="[0]")
+    @Export(name="sslMinimalTlsVersionEnforced", type=String.class, parameters={})
     private Output</* @Nullable */ String> sslMinimalTlsVersionEnforced;
 
     /**
@@ -350,7 +350,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `16777216` MB(16TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#storage).
      * 
      */
-    @Export(name="storageMb", refs={Integer.class}, tree="[0]")
+    @Export(name="storageMb", type=Integer.class, parameters={})
     private Output<Integer> storageMb;
 
     /**
@@ -364,7 +364,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -378,7 +378,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threat_detection_policy` block supports fields documented below.
      * 
      */
-    @Export(name="threatDetectionPolicy", refs={ServerThreatDetectionPolicy.class}, tree="[0]")
+    @Export(name="threatDetectionPolicy", type=ServerThreatDetectionPolicy.class, parameters={})
     private Output</* @Nullable */ ServerThreatDetectionPolicy> threatDetectionPolicy;
 
     /**
@@ -392,7 +392,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, `10`, `10.0`, `10.2` and `11`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="version", refs={String.class}, tree="[0]")
+    @Export(name="version", type=String.class, parameters={})
     private Output<String> version;
 
     /**

@@ -42,7 +42,17 @@ class HyperVReplicationPolicyArgs:
              recovery_vault_id: pulumi.Input[str],
              replication_interval_in_seconds: pulumi.Input[int],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationConsistentSnapshotFrequencyInHours' in kwargs:
+            application_consistent_snapshot_frequency_in_hours = kwargs['applicationConsistentSnapshotFrequencyInHours']
+        if 'recoveryPointRetentionInHours' in kwargs:
+            recovery_point_retention_in_hours = kwargs['recoveryPointRetentionInHours']
+        if 'recoveryVaultId' in kwargs:
+            recovery_vault_id = kwargs['recoveryVaultId']
+        if 'replicationIntervalInSeconds' in kwargs:
+            replication_interval_in_seconds = kwargs['replicationIntervalInSeconds']
+
         _setter("application_consistent_snapshot_frequency_in_hours", application_consistent_snapshot_frequency_in_hours)
         _setter("recovery_point_retention_in_hours", recovery_point_retention_in_hours)
         _setter("recovery_vault_id", recovery_vault_id)
@@ -139,7 +149,17 @@ class _HyperVReplicationPolicyState:
              recovery_point_retention_in_hours: Optional[pulumi.Input[int]] = None,
              recovery_vault_id: Optional[pulumi.Input[str]] = None,
              replication_interval_in_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationConsistentSnapshotFrequencyInHours' in kwargs:
+            application_consistent_snapshot_frequency_in_hours = kwargs['applicationConsistentSnapshotFrequencyInHours']
+        if 'recoveryPointRetentionInHours' in kwargs:
+            recovery_point_retention_in_hours = kwargs['recoveryPointRetentionInHours']
+        if 'recoveryVaultId' in kwargs:
+            recovery_vault_id = kwargs['recoveryVaultId']
+        if 'replicationIntervalInSeconds' in kwargs:
+            replication_interval_in_seconds = kwargs['replicationIntervalInSeconds']
+
         if application_consistent_snapshot_frequency_in_hours is not None:
             _setter("application_consistent_snapshot_frequency_in_hours", application_consistent_snapshot_frequency_in_hours)
         if name is not None:

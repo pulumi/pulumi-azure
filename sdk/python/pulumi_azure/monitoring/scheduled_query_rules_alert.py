@@ -94,7 +94,21 @@ class ScheduledQueryRulesAlertArgs:
              severity: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              throttling: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataSourceId' in kwargs:
+            data_source_id = kwargs['dataSourceId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'timeWindow' in kwargs:
+            time_window = kwargs['timeWindow']
+        if 'authorizedResourceIds' in kwargs:
+            authorized_resource_ids = kwargs['authorizedResourceIds']
+        if 'autoMitigationEnabled' in kwargs:
+            auto_mitigation_enabled = kwargs['autoMitigationEnabled']
+        if 'queryType' in kwargs:
+            query_type = kwargs['queryType']
+
         _setter("action", action)
         _setter("data_source_id", data_source_id)
         _setter("frequency", frequency)
@@ -410,7 +424,21 @@ class _ScheduledQueryRulesAlertState:
              throttling: Optional[pulumi.Input[int]] = None,
              time_window: Optional[pulumi.Input[int]] = None,
              trigger: Optional[pulumi.Input['ScheduledQueryRulesAlertTriggerArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authorizedResourceIds' in kwargs:
+            authorized_resource_ids = kwargs['authorizedResourceIds']
+        if 'autoMitigationEnabled' in kwargs:
+            auto_mitigation_enabled = kwargs['autoMitigationEnabled']
+        if 'dataSourceId' in kwargs:
+            data_source_id = kwargs['dataSourceId']
+        if 'queryType' in kwargs:
+            query_type = kwargs['queryType']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'timeWindow' in kwargs:
+            time_window = kwargs['timeWindow']
+
         if action is not None:
             _setter("action", action)
         if authorized_resource_ids is not None:

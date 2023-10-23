@@ -53,7 +53,17 @@ class SecretArgs:
              name: Optional[pulumi.Input[str]] = None,
              not_before_date: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if 'expirationDate' in kwargs:
+            expiration_date = kwargs['expirationDate']
+        if 'notBeforeDate' in kwargs:
+            not_before_date = kwargs['notBeforeDate']
+
         _setter("key_vault_id", key_vault_id)
         _setter("value", value)
         if content_type is not None:
@@ -212,7 +222,23 @@ class _SecretState:
              value: Optional[pulumi.Input[str]] = None,
              version: Optional[pulumi.Input[str]] = None,
              versionless_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if 'expirationDate' in kwargs:
+            expiration_date = kwargs['expirationDate']
+        if 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if 'notBeforeDate' in kwargs:
+            not_before_date = kwargs['notBeforeDate']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if 'resourceVersionlessId' in kwargs:
+            resource_versionless_id = kwargs['resourceVersionlessId']
+        if 'versionlessId' in kwargs:
+            versionless_id = kwargs['versionlessId']
+
         if content_type is not None:
             _setter("content_type", content_type)
         if expiration_date is not None:

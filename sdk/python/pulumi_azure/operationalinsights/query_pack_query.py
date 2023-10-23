@@ -63,7 +63,17 @@ class QueryPackQueryArgs:
              resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              solutions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'queryPackId' in kwargs:
+            query_pack_id = kwargs['queryPackId']
+        if 'additionalSettingsJson' in kwargs:
+            additional_settings_json = kwargs['additionalSettingsJson']
+        if 'resourceTypes' in kwargs:
+            resource_types = kwargs['resourceTypes']
+
         _setter("body", body)
         _setter("display_name", display_name)
         _setter("query_pack_id", query_pack_id)
@@ -255,7 +265,17 @@ class _QueryPackQueryState:
              resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              solutions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalSettingsJson' in kwargs:
+            additional_settings_json = kwargs['additionalSettingsJson']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'queryPackId' in kwargs:
+            query_pack_id = kwargs['queryPackId']
+        if 'resourceTypes' in kwargs:
+            resource_types = kwargs['resourceTypes']
+
         if additional_settings_json is not None:
             _setter("additional_settings_json", additional_settings_json)
         if body is not None:

@@ -71,7 +71,7 @@ public class Healthbot extends com.pulumi.resources.CustomResource {
      * The management portal url.
      * 
      */
-    @Export(name="botManagementPortalUrl", refs={String.class}, tree="[0]")
+    @Export(name="botManagementPortalUrl", type=String.class, parameters={})
     private Output<String> botManagementPortalUrl;
 
     /**
@@ -85,7 +85,7 @@ public class Healthbot extends com.pulumi.resources.CustomResource {
      * Specifies The Azure Region where the resource exists. Changing this force a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -99,7 +99,7 @@ public class Healthbot extends com.pulumi.resources.CustomResource {
      * Specifies The name of the Healthbot Service resource. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -113,7 +113,7 @@ public class Healthbot extends com.pulumi.resources.CustomResource {
      * Specifies The name of the Resource Group in which to create the Healthbot Service. changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -127,7 +127,7 @@ public class Healthbot extends com.pulumi.resources.CustomResource {
      * The name which should be used for the SKU of the service. Possible values are `C0`, `F0` and `S1`.
      * 
      */
-    @Export(name="skuName", refs={String.class}, tree="[0]")
+    @Export(name="skuName", type=String.class, parameters={})
     private Output<String> skuName;
 
     /**
@@ -141,7 +141,7 @@ public class Healthbot extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the service.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

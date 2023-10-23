@@ -115,7 +115,7 @@ public class NetworkMapping extends com.pulumi.resources.CustomResource {
      * The name of the network mapping. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -129,7 +129,7 @@ public class NetworkMapping extends com.pulumi.resources.CustomResource {
      * The name of the vault that should be updated. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="recoveryVaultName", refs={String.class}, tree="[0]")
+    @Export(name="recoveryVaultName", type=String.class, parameters={})
     private Output<String> recoveryVaultName;
 
     /**
@@ -143,7 +143,7 @@ public class NetworkMapping extends com.pulumi.resources.CustomResource {
      * Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -157,7 +157,7 @@ public class NetworkMapping extends com.pulumi.resources.CustomResource {
      * The id of the primary network. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="sourceNetworkId", refs={String.class}, tree="[0]")
+    @Export(name="sourceNetworkId", type=String.class, parameters={})
     private Output<String> sourceNetworkId;
 
     /**
@@ -171,7 +171,7 @@ public class NetworkMapping extends com.pulumi.resources.CustomResource {
      * Specifies the ASR fabric where mapping should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="sourceRecoveryFabricName", refs={String.class}, tree="[0]")
+    @Export(name="sourceRecoveryFabricName", type=String.class, parameters={})
     private Output<String> sourceRecoveryFabricName;
 
     /**
@@ -185,7 +185,7 @@ public class NetworkMapping extends com.pulumi.resources.CustomResource {
      * The id of the recovery network. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="targetNetworkId", refs={String.class}, tree="[0]")
+    @Export(name="targetNetworkId", type=String.class, parameters={})
     private Output<String> targetNetworkId;
 
     /**
@@ -199,7 +199,7 @@ public class NetworkMapping extends com.pulumi.resources.CustomResource {
      * The Azure Site Recovery fabric object corresponding to the recovery Azure region. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="targetRecoveryFabricName", refs={String.class}, tree="[0]")
+    @Export(name="targetRecoveryFabricName", type=String.class, parameters={})
     private Output<String> targetRecoveryFabricName;
 
     /**

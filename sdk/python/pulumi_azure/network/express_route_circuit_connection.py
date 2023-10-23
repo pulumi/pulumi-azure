@@ -49,7 +49,19 @@ class ExpressRouteCircuitConnectionArgs:
              address_prefix_ipv6: Optional[pulumi.Input[str]] = None,
              authorization_key: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addressPrefixIpv4' in kwargs:
+            address_prefix_ipv4 = kwargs['addressPrefixIpv4']
+        if 'peerPeeringId' in kwargs:
+            peer_peering_id = kwargs['peerPeeringId']
+        if 'peeringId' in kwargs:
+            peering_id = kwargs['peeringId']
+        if 'addressPrefixIpv6' in kwargs:
+            address_prefix_ipv6 = kwargs['addressPrefixIpv6']
+        if 'authorizationKey' in kwargs:
+            authorization_key = kwargs['authorizationKey']
+
         _setter("address_prefix_ipv4", address_prefix_ipv4)
         _setter("peer_peering_id", peer_peering_id)
         _setter("peering_id", peering_id)
@@ -173,7 +185,19 @@ class _ExpressRouteCircuitConnectionState:
              name: Optional[pulumi.Input[str]] = None,
              peer_peering_id: Optional[pulumi.Input[str]] = None,
              peering_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addressPrefixIpv4' in kwargs:
+            address_prefix_ipv4 = kwargs['addressPrefixIpv4']
+        if 'addressPrefixIpv6' in kwargs:
+            address_prefix_ipv6 = kwargs['addressPrefixIpv6']
+        if 'authorizationKey' in kwargs:
+            authorization_key = kwargs['authorizationKey']
+        if 'peerPeeringId' in kwargs:
+            peer_peering_id = kwargs['peerPeeringId']
+        if 'peeringId' in kwargs:
+            peering_id = kwargs['peeringId']
+
         if address_prefix_ipv4 is not None:
             _setter("address_prefix_ipv4", address_prefix_ipv4)
         if address_prefix_ipv6 is not None:

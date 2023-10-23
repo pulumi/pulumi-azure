@@ -75,7 +75,23 @@ class DefinitionArgs:
              package_enabled: Optional[pulumi.Input[bool]] = None,
              package_file_uri: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'lockLevel' in kwargs:
+            lock_level = kwargs['lockLevel']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'createUiDefinition' in kwargs:
+            create_ui_definition = kwargs['createUiDefinition']
+        if 'mainTemplate' in kwargs:
+            main_template = kwargs['mainTemplate']
+        if 'packageEnabled' in kwargs:
+            package_enabled = kwargs['packageEnabled']
+        if 'packageFileUri' in kwargs:
+            package_file_uri = kwargs['packageFileUri']
+
         _setter("display_name", display_name)
         _setter("lock_level", lock_level)
         _setter("resource_group_name", resource_group_name)
@@ -307,7 +323,23 @@ class _DefinitionState:
              package_file_uri: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createUiDefinition' in kwargs:
+            create_ui_definition = kwargs['createUiDefinition']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'lockLevel' in kwargs:
+            lock_level = kwargs['lockLevel']
+        if 'mainTemplate' in kwargs:
+            main_template = kwargs['mainTemplate']
+        if 'packageEnabled' in kwargs:
+            package_enabled = kwargs['packageEnabled']
+        if 'packageFileUri' in kwargs:
+            package_file_uri = kwargs['packageFileUri']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if authorizations is not None:
             _setter("authorizations", authorizations)
         if create_ui_definition is not None:

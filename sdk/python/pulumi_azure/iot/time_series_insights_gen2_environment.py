@@ -57,7 +57,17 @@ class TimeSeriesInsightsGen2EnvironmentArgs:
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              warm_store_data_retention_time: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'idProperties' in kwargs:
+            id_properties = kwargs['idProperties']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'warmStoreDataRetentionTime' in kwargs:
+            warm_store_data_retention_time = kwargs['warmStoreDataRetentionTime']
+
         _setter("id_properties", id_properties)
         _setter("resource_group_name", resource_group_name)
         _setter("sku_name", sku_name)
@@ -216,7 +226,19 @@ class _TimeSeriesInsightsGen2EnvironmentState:
              storage: Optional[pulumi.Input['TimeSeriesInsightsGen2EnvironmentStorageArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              warm_store_data_retention_time: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataAccessFqdn' in kwargs:
+            data_access_fqdn = kwargs['dataAccessFqdn']
+        if 'idProperties' in kwargs:
+            id_properties = kwargs['idProperties']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'warmStoreDataRetentionTime' in kwargs:
+            warm_store_data_retention_time = kwargs['warmStoreDataRetentionTime']
+
         if data_access_fqdn is not None:
             _setter("data_access_fqdn", data_access_fqdn)
         if id_properties is not None:

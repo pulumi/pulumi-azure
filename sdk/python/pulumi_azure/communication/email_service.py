@@ -39,7 +39,13 @@ class EmailServiceArgs:
              resource_group_name: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataLocation' in kwargs:
+            data_location = kwargs['dataLocation']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         _setter("data_location", data_location)
         _setter("resource_group_name", resource_group_name)
         if name is not None:
@@ -124,7 +130,13 @@ class _EmailServiceState:
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataLocation' in kwargs:
+            data_location = kwargs['dataLocation']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if data_location is not None:
             _setter("data_location", data_location)
         if name is not None:

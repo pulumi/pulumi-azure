@@ -50,7 +50,21 @@ class RoleAssignmentArgs:
              role_definition_id: Optional[pulumi.Input[str]] = None,
              role_definition_name: Optional[pulumi.Input[str]] = None,
              skip_service_principal_aad_check: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'conditionVersion' in kwargs:
+            condition_version = kwargs['conditionVersion']
+        if 'delegatedManagedIdentityResourceId' in kwargs:
+            delegated_managed_identity_resource_id = kwargs['delegatedManagedIdentityResourceId']
+        if 'roleDefinitionId' in kwargs:
+            role_definition_id = kwargs['roleDefinitionId']
+        if 'roleDefinitionName' in kwargs:
+            role_definition_name = kwargs['roleDefinitionName']
+        if 'skipServicePrincipalAadCheck' in kwargs:
+            skip_service_principal_aad_check = kwargs['skipServicePrincipalAadCheck']
+
         _setter("principal_id", principal_id)
         if condition is not None:
             _setter("condition", condition)
@@ -193,7 +207,23 @@ class _RoleAssignmentState:
              role_definition_id: Optional[pulumi.Input[str]] = None,
              role_definition_name: Optional[pulumi.Input[str]] = None,
              skip_service_principal_aad_check: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'conditionVersion' in kwargs:
+            condition_version = kwargs['conditionVersion']
+        if 'delegatedManagedIdentityResourceId' in kwargs:
+            delegated_managed_identity_resource_id = kwargs['delegatedManagedIdentityResourceId']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'principalType' in kwargs:
+            principal_type = kwargs['principalType']
+        if 'roleDefinitionId' in kwargs:
+            role_definition_id = kwargs['roleDefinitionId']
+        if 'roleDefinitionName' in kwargs:
+            role_definition_name = kwargs['roleDefinitionName']
+        if 'skipServicePrincipalAadCheck' in kwargs:
+            skip_service_principal_aad_check = kwargs['skipServicePrincipalAadCheck']
+
         if condition is not None:
             _setter("condition", condition)
         if condition_version is not None:

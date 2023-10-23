@@ -75,7 +75,15 @@ class StandardWebTestRequest(dict):
              headers: Optional[Sequence['outputs.StandardWebTestRequestHeader']] = None,
              http_verb: Optional[str] = None,
              parse_dependent_requests_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'followRedirectsEnabled' in kwargs:
+            follow_redirects_enabled = kwargs['followRedirectsEnabled']
+        if 'httpVerb' in kwargs:
+            http_verb = kwargs['httpVerb']
+        if 'parseDependentRequestsEnabled' in kwargs:
+            parse_dependent_requests_enabled = kwargs['parseDependentRequestsEnabled']
+
         _setter("url", url)
         if body is not None:
             _setter("body", body)
@@ -156,7 +164,9 @@ class StandardWebTestRequestHeader(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -225,7 +235,15 @@ class StandardWebTestValidationRules(dict):
              expected_status_code: Optional[int] = None,
              ssl_cert_remaining_lifetime: Optional[int] = None,
              ssl_check_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expectedStatusCode' in kwargs:
+            expected_status_code = kwargs['expectedStatusCode']
+        if 'sslCertRemainingLifetime' in kwargs:
+            ssl_cert_remaining_lifetime = kwargs['sslCertRemainingLifetime']
+        if 'sslCheckEnabled' in kwargs:
+            ssl_check_enabled = kwargs['sslCheckEnabled']
+
         if content is not None:
             _setter("content", content)
         if expected_status_code is not None:
@@ -312,7 +330,15 @@ class StandardWebTestValidationRulesContent(dict):
              content_match: str,
              ignore_case: Optional[bool] = None,
              pass_if_text_found: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contentMatch' in kwargs:
+            content_match = kwargs['contentMatch']
+        if 'ignoreCase' in kwargs:
+            ignore_case = kwargs['ignoreCase']
+        if 'passIfTextFound' in kwargs:
+            pass_if_text_found = kwargs['passIfTextFound']
+
         _setter("content_match", content_match)
         if ignore_case is not None:
             _setter("ignore_case", ignore_case)
@@ -392,7 +418,15 @@ class WorkbookIdentity(dict):
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -484,7 +518,11 @@ class WorkbookTemplateGallery(dict):
              order: Optional[int] = None,
              resource_type: Optional[str] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+
         _setter("category", category)
         _setter("name", name)
         if order is not None:

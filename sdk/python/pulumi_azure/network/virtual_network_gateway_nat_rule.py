@@ -57,7 +57,19 @@ class VirtualNetworkGatewayNatRuleArgs:
              mode: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'externalMappings' in kwargs:
+            external_mappings = kwargs['externalMappings']
+        if 'internalMappings' in kwargs:
+            internal_mappings = kwargs['internalMappings']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'virtualNetworkGatewayId' in kwargs:
+            virtual_network_gateway_id = kwargs['virtualNetworkGatewayId']
+        if 'ipConfigurationId' in kwargs:
+            ip_configuration_id = kwargs['ipConfigurationId']
+
         _setter("external_mappings", external_mappings)
         _setter("internal_mappings", internal_mappings)
         _setter("resource_group_name", resource_group_name)
@@ -212,7 +224,19 @@ class _VirtualNetworkGatewayNatRuleState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
              virtual_network_gateway_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'externalMappings' in kwargs:
+            external_mappings = kwargs['externalMappings']
+        if 'internalMappings' in kwargs:
+            internal_mappings = kwargs['internalMappings']
+        if 'ipConfigurationId' in kwargs:
+            ip_configuration_id = kwargs['ipConfigurationId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'virtualNetworkGatewayId' in kwargs:
+            virtual_network_gateway_id = kwargs['virtualNetworkGatewayId']
+
         if external_mappings is not None:
             _setter("external_mappings", external_mappings)
         if internal_mappings is not None:

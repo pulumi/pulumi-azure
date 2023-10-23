@@ -31,7 +31,13 @@ class GroupSubscriptionAssociationArgs:
              _setter: Callable[[Any, Any], None],
              management_group_id: pulumi.Input[str],
              subscription_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'managementGroupId' in kwargs:
+            management_group_id = kwargs['managementGroupId']
+        if 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+
         _setter("management_group_id", management_group_id)
         _setter("subscription_id", subscription_id)
 
@@ -80,7 +86,13 @@ class _GroupSubscriptionAssociationState:
              _setter: Callable[[Any, Any], None],
              management_group_id: Optional[pulumi.Input[str]] = None,
              subscription_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'managementGroupId' in kwargs:
+            management_group_id = kwargs['managementGroupId']
+        if 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+
         if management_group_id is not None:
             _setter("management_group_id", management_group_id)
         if subscription_id is not None:

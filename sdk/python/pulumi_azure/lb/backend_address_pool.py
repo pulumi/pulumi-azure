@@ -41,7 +41,15 @@ class BackendAddressPoolArgs:
              name: Optional[pulumi.Input[str]] = None,
              tunnel_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolTunnelInterfaceArgs']]]] = None,
              virtual_network_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'loadbalancerId' in kwargs:
+            loadbalancer_id = kwargs['loadbalancerId']
+        if 'tunnelInterfaces' in kwargs:
+            tunnel_interfaces = kwargs['tunnelInterfaces']
+        if 'virtualNetworkId' in kwargs:
+            virtual_network_id = kwargs['virtualNetworkId']
+
         _setter("loadbalancer_id", loadbalancer_id)
         if name is not None:
             _setter("name", name)
@@ -143,7 +151,23 @@ class _BackendAddressPoolState:
              outbound_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tunnel_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolTunnelInterfaceArgs']]]] = None,
              virtual_network_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backendIpConfigurations' in kwargs:
+            backend_ip_configurations = kwargs['backendIpConfigurations']
+        if 'inboundNatRules' in kwargs:
+            inbound_nat_rules = kwargs['inboundNatRules']
+        if 'loadBalancingRules' in kwargs:
+            load_balancing_rules = kwargs['loadBalancingRules']
+        if 'loadbalancerId' in kwargs:
+            loadbalancer_id = kwargs['loadbalancerId']
+        if 'outboundRules' in kwargs:
+            outbound_rules = kwargs['outboundRules']
+        if 'tunnelInterfaces' in kwargs:
+            tunnel_interfaces = kwargs['tunnelInterfaces']
+        if 'virtualNetworkId' in kwargs:
+            virtual_network_id = kwargs['virtualNetworkId']
+
         if backend_ip_configurations is not None:
             _setter("backend_ip_configurations", backend_ip_configurations)
         if inbound_nat_rules is not None:

@@ -45,7 +45,11 @@ class LogzSubAccountArgs:
              enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logzMonitorId' in kwargs:
+            logz_monitor_id = kwargs['logzMonitorId']
+
         _setter("logz_monitor_id", logz_monitor_id)
         _setter("user", user)
         if enabled is not None:
@@ -148,7 +152,11 @@ class _LogzSubAccountState:
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              user: Optional[pulumi.Input['LogzSubAccountUserArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logzMonitorId' in kwargs:
+            logz_monitor_id = kwargs['logzMonitorId']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if logz_monitor_id is not None:

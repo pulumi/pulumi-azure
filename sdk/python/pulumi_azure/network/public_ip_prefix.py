@@ -61,7 +61,15 @@ class PublicIpPrefixArgs:
              sku: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'ipVersion' in kwargs:
+            ip_version = kwargs['ipVersion']
+        if 'prefixLength' in kwargs:
+            prefix_length = kwargs['prefixLength']
+
         _setter("resource_group_name", resource_group_name)
         if ip_version is not None:
             _setter("ip_version", ip_version)
@@ -235,7 +243,17 @@ class _PublicIpPrefixState:
              sku: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipPrefix' in kwargs:
+            ip_prefix = kwargs['ipPrefix']
+        if 'ipVersion' in kwargs:
+            ip_version = kwargs['ipVersion']
+        if 'prefixLength' in kwargs:
+            prefix_length = kwargs['prefixLength']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if ip_prefix is not None:
             _setter("ip_prefix", ip_prefix)
         if ip_version is not None:

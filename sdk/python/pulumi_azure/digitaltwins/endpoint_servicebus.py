@@ -43,7 +43,17 @@ class EndpointServicebusArgs:
              servicebus_secondary_connection_string: pulumi.Input[str],
              dead_letter_storage_secret: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'digitalTwinsId' in kwargs:
+            digital_twins_id = kwargs['digitalTwinsId']
+        if 'servicebusPrimaryConnectionString' in kwargs:
+            servicebus_primary_connection_string = kwargs['servicebusPrimaryConnectionString']
+        if 'servicebusSecondaryConnectionString' in kwargs:
+            servicebus_secondary_connection_string = kwargs['servicebusSecondaryConnectionString']
+        if 'deadLetterStorageSecret' in kwargs:
+            dead_letter_storage_secret = kwargs['deadLetterStorageSecret']
+
         _setter("digital_twins_id", digital_twins_id)
         _setter("servicebus_primary_connection_string", servicebus_primary_connection_string)
         _setter("servicebus_secondary_connection_string", servicebus_secondary_connection_string)
@@ -145,7 +155,17 @@ class _EndpointServicebusState:
              name: Optional[pulumi.Input[str]] = None,
              servicebus_primary_connection_string: Optional[pulumi.Input[str]] = None,
              servicebus_secondary_connection_string: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deadLetterStorageSecret' in kwargs:
+            dead_letter_storage_secret = kwargs['deadLetterStorageSecret']
+        if 'digitalTwinsId' in kwargs:
+            digital_twins_id = kwargs['digitalTwinsId']
+        if 'servicebusPrimaryConnectionString' in kwargs:
+            servicebus_primary_connection_string = kwargs['servicebusPrimaryConnectionString']
+        if 'servicebusSecondaryConnectionString' in kwargs:
+            servicebus_secondary_connection_string = kwargs['servicebusSecondaryConnectionString']
+
         if dead_letter_storage_secret is not None:
             _setter("dead_letter_storage_secret", dead_letter_storage_secret)
         if digital_twins_id is not None:

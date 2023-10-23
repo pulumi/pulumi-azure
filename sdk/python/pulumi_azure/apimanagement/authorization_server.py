@@ -107,7 +107,43 @@ class AuthorizationServerArgs:
              support_state: Optional[pulumi.Input[bool]] = None,
              token_body_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['AuthorizationServerTokenBodyParameterArgs']]]] = None,
              token_endpoint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if 'authorizationEndpoint' in kwargs:
+            authorization_endpoint = kwargs['authorizationEndpoint']
+        if 'authorizationMethods' in kwargs:
+            authorization_methods = kwargs['authorizationMethods']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientRegistrationEndpoint' in kwargs:
+            client_registration_endpoint = kwargs['clientRegistrationEndpoint']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'grantTypes' in kwargs:
+            grant_types = kwargs['grantTypes']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'bearerTokenSendingMethods' in kwargs:
+            bearer_token_sending_methods = kwargs['bearerTokenSendingMethods']
+        if 'clientAuthenticationMethods' in kwargs:
+            client_authentication_methods = kwargs['clientAuthenticationMethods']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'defaultScope' in kwargs:
+            default_scope = kwargs['defaultScope']
+        if 'resourceOwnerPassword' in kwargs:
+            resource_owner_password = kwargs['resourceOwnerPassword']
+        if 'resourceOwnerUsername' in kwargs:
+            resource_owner_username = kwargs['resourceOwnerUsername']
+        if 'supportState' in kwargs:
+            support_state = kwargs['supportState']
+        if 'tokenBodyParameters' in kwargs:
+            token_body_parameters = kwargs['tokenBodyParameters']
+        if 'tokenEndpoint' in kwargs:
+            token_endpoint = kwargs['tokenEndpoint']
+
         _setter("api_management_name", api_management_name)
         _setter("authorization_endpoint", authorization_endpoint)
         _setter("authorization_methods", authorization_methods)
@@ -468,7 +504,43 @@ class _AuthorizationServerState:
              support_state: Optional[pulumi.Input[bool]] = None,
              token_body_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['AuthorizationServerTokenBodyParameterArgs']]]] = None,
              token_endpoint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if 'authorizationEndpoint' in kwargs:
+            authorization_endpoint = kwargs['authorizationEndpoint']
+        if 'authorizationMethods' in kwargs:
+            authorization_methods = kwargs['authorizationMethods']
+        if 'bearerTokenSendingMethods' in kwargs:
+            bearer_token_sending_methods = kwargs['bearerTokenSendingMethods']
+        if 'clientAuthenticationMethods' in kwargs:
+            client_authentication_methods = kwargs['clientAuthenticationMethods']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientRegistrationEndpoint' in kwargs:
+            client_registration_endpoint = kwargs['clientRegistrationEndpoint']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'defaultScope' in kwargs:
+            default_scope = kwargs['defaultScope']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'grantTypes' in kwargs:
+            grant_types = kwargs['grantTypes']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'resourceOwnerPassword' in kwargs:
+            resource_owner_password = kwargs['resourceOwnerPassword']
+        if 'resourceOwnerUsername' in kwargs:
+            resource_owner_username = kwargs['resourceOwnerUsername']
+        if 'supportState' in kwargs:
+            support_state = kwargs['supportState']
+        if 'tokenBodyParameters' in kwargs:
+            token_body_parameters = kwargs['tokenBodyParameters']
+        if 'tokenEndpoint' in kwargs:
+            token_endpoint = kwargs['tokenEndpoint']
+
         if api_management_name is not None:
             _setter("api_management_name", api_management_name)
         if authorization_endpoint is not None:

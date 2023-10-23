@@ -35,7 +35,11 @@ class SqlFunctionArgs:
              body: pulumi.Input[str],
              container_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerId' in kwargs:
+            container_id = kwargs['containerId']
+
         _setter("body", body)
         _setter("container_id", container_id)
         if name is not None:
@@ -102,7 +106,11 @@ class _SqlFunctionState:
              body: Optional[pulumi.Input[str]] = None,
              container_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerId' in kwargs:
+            container_id = kwargs['containerId']
+
         if body is not None:
             _setter("body", body)
         if container_id is not None:

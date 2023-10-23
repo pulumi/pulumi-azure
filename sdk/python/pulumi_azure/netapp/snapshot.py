@@ -47,7 +47,17 @@ class SnapshotArgs:
              volume_name: pulumi.Input[str],
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'poolName' in kwargs:
+            pool_name = kwargs['poolName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'volumeName' in kwargs:
+            volume_name = kwargs['volumeName']
+
         _setter("account_name", account_name)
         _setter("pool_name", pool_name)
         _setter("resource_group_name", resource_group_name)
@@ -166,7 +176,17 @@ class _SnapshotState:
              pool_name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              volume_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'poolName' in kwargs:
+            pool_name = kwargs['poolName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'volumeName' in kwargs:
+            volume_name = kwargs['volumeName']
+
         if account_name is not None:
             _setter("account_name", account_name)
         if location is not None:

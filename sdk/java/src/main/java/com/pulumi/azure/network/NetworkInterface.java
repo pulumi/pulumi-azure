@@ -95,7 +95,7 @@ public class NetworkInterface extends com.pulumi.resources.CustomResource {
      * If the Virtual Machine using this Network Interface is part of an Availability Set, then this list will have the union of all DNS servers from all Network Interfaces that are part of the Availability Set.
      * 
      */
-    @Export(name="appliedDnsServers", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="appliedDnsServers", type=List.class, parameters={String.class})
     private Output<List<String>> appliedDnsServers;
 
     /**
@@ -111,7 +111,7 @@ public class NetworkInterface extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** `auxiliary_mode` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
      * 
      */
-    @Export(name="auxiliaryMode", refs={String.class}, tree="[0]")
+    @Export(name="auxiliaryMode", type=String.class, parameters={})
     private Output</* @Nullable */ String> auxiliaryMode;
 
     /**
@@ -129,7 +129,7 @@ public class NetworkInterface extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** `auxiliary_sku` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
      * 
      */
-    @Export(name="auxiliarySku", refs={String.class}, tree="[0]")
+    @Export(name="auxiliarySku", type=String.class, parameters={})
     private Output</* @Nullable */ String> auxiliarySku;
 
     /**
@@ -147,7 +147,7 @@ public class NetworkInterface extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** Configuring DNS Servers on the Network Interface will override the DNS Servers defined on the Virtual Network.
      * 
      */
-    @Export(name="dnsServers", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="dnsServers", type=List.class, parameters={String.class})
     private Output<List<String>> dnsServers;
 
     /**
@@ -163,7 +163,7 @@ public class NetworkInterface extends com.pulumi.resources.CustomResource {
      * Specifies the Edge Zone within the Azure Region where this Network Interface should exist. Changing this forces a new Network Interface to be created.
      * 
      */
-    @Export(name="edgeZone", refs={String.class}, tree="[0]")
+    @Export(name="edgeZone", type=String.class, parameters={})
     private Output</* @Nullable */ String> edgeZone;
 
     /**
@@ -181,7 +181,7 @@ public class NetworkInterface extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
      * 
      */
-    @Export(name="enableAcceleratedNetworking", refs={Boolean.class}, tree="[0]")
+    @Export(name="enableAcceleratedNetworking", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enableAcceleratedNetworking;
 
     /**
@@ -199,7 +199,7 @@ public class NetworkInterface extends com.pulumi.resources.CustomResource {
      * Should IP Forwarding be enabled? Defaults to `false`.
      * 
      */
-    @Export(name="enableIpForwarding", refs={Boolean.class}, tree="[0]")
+    @Export(name="enableIpForwarding", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enableIpForwarding;
 
     /**
@@ -213,7 +213,7 @@ public class NetworkInterface extends com.pulumi.resources.CustomResource {
      * The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
      * 
      */
-    @Export(name="internalDnsNameLabel", refs={String.class}, tree="[0]")
+    @Export(name="internalDnsNameLabel", type=String.class, parameters={})
     private Output<String> internalDnsNameLabel;
 
     /**
@@ -227,7 +227,7 @@ public class NetworkInterface extends com.pulumi.resources.CustomResource {
      * Even if `internal_dns_name_label` is not specified, a DNS entry is created for the primary NIC of the VM. This DNS name can be constructed by concatenating the VM name with the value of `internal_domain_name_suffix`.
      * 
      */
-    @Export(name="internalDomainNameSuffix", refs={String.class}, tree="[0]")
+    @Export(name="internalDomainNameSuffix", type=String.class, parameters={})
     private Output<String> internalDomainNameSuffix;
 
     /**
@@ -241,7 +241,7 @@ public class NetworkInterface extends com.pulumi.resources.CustomResource {
      * One or more `ip_configuration` blocks as defined below.
      * 
      */
-    @Export(name="ipConfigurations", refs={List.class,NetworkInterfaceIpConfiguration.class}, tree="[0,1]")
+    @Export(name="ipConfigurations", type=List.class, parameters={NetworkInterfaceIpConfiguration.class})
     private Output<List<NetworkInterfaceIpConfiguration>> ipConfigurations;
 
     /**
@@ -255,7 +255,7 @@ public class NetworkInterface extends com.pulumi.resources.CustomResource {
      * The location where the Network Interface should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -269,7 +269,7 @@ public class NetworkInterface extends com.pulumi.resources.CustomResource {
      * The Media Access Control (MAC) Address of the Network Interface.
      * 
      */
-    @Export(name="macAddress", refs={String.class}, tree="[0]")
+    @Export(name="macAddress", type=String.class, parameters={})
     private Output<String> macAddress;
 
     /**
@@ -283,7 +283,7 @@ public class NetworkInterface extends com.pulumi.resources.CustomResource {
      * The name of the Network Interface. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -297,7 +297,7 @@ public class NetworkInterface extends com.pulumi.resources.CustomResource {
      * The Static IP Address which should be used.
      * 
      */
-    @Export(name="privateIpAddress", refs={String.class}, tree="[0]")
+    @Export(name="privateIpAddress", type=String.class, parameters={})
     private Output<String> privateIpAddress;
 
     /**
@@ -311,7 +311,7 @@ public class NetworkInterface extends com.pulumi.resources.CustomResource {
      * The private IP addresses of the network interface.
      * 
      */
-    @Export(name="privateIpAddresses", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="privateIpAddresses", type=List.class, parameters={String.class})
     private Output<List<String>> privateIpAddresses;
 
     /**
@@ -325,7 +325,7 @@ public class NetworkInterface extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group in which to create the Network Interface. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -339,7 +339,7 @@ public class NetworkInterface extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -353,7 +353,7 @@ public class NetworkInterface extends com.pulumi.resources.CustomResource {
      * The ID of the Virtual Machine which this Network Interface is connected to.
      * 
      */
-    @Export(name="virtualMachineId", refs={String.class}, tree="[0]")
+    @Export(name="virtualMachineId", type=String.class, parameters={})
     private Output<String> virtualMachineId;
 
     /**

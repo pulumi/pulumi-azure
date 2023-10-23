@@ -47,7 +47,17 @@ class SqlStoredProcedureArgs:
              database_name: pulumi.Input[str],
              resource_group_name: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         _setter("account_name", account_name)
         _setter("body", body)
         _setter("container_name", container_name)
@@ -165,7 +175,17 @@ class _SqlStoredProcedureState:
              database_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if account_name is not None:
             _setter("account_name", account_name)
         if body is not None:

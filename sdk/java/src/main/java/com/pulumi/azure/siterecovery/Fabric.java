@@ -81,7 +81,7 @@ public class Fabric extends com.pulumi.resources.CustomResource {
      * In what region should the fabric be located. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -95,7 +95,7 @@ public class Fabric extends com.pulumi.resources.CustomResource {
      * The name of the network mapping. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -109,7 +109,7 @@ public class Fabric extends com.pulumi.resources.CustomResource {
      * The name of the vault that should be updated. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="recoveryVaultName", refs={String.class}, tree="[0]")
+    @Export(name="recoveryVaultName", type=String.class, parameters={})
     private Output<String> recoveryVaultName;
 
     /**
@@ -123,7 +123,7 @@ public class Fabric extends com.pulumi.resources.CustomResource {
      * Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**

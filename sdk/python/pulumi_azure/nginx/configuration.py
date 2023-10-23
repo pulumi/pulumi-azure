@@ -45,7 +45,19 @@ class ConfigurationArgs:
              config_files: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationConfigFileArgs']]]] = None,
              package_data: Optional[pulumi.Input[str]] = None,
              protected_files: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationProtectedFileArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'nginxDeploymentId' in kwargs:
+            nginx_deployment_id = kwargs['nginxDeploymentId']
+        if 'rootFile' in kwargs:
+            root_file = kwargs['rootFile']
+        if 'configFiles' in kwargs:
+            config_files = kwargs['configFiles']
+        if 'packageData' in kwargs:
+            package_data = kwargs['packageData']
+        if 'protectedFiles' in kwargs:
+            protected_files = kwargs['protectedFiles']
+
         _setter("nginx_deployment_id", nginx_deployment_id)
         _setter("root_file", root_file)
         if config_files is not None:
@@ -148,7 +160,19 @@ class _ConfigurationState:
              package_data: Optional[pulumi.Input[str]] = None,
              protected_files: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationProtectedFileArgs']]]] = None,
              root_file: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'configFiles' in kwargs:
+            config_files = kwargs['configFiles']
+        if 'nginxDeploymentId' in kwargs:
+            nginx_deployment_id = kwargs['nginxDeploymentId']
+        if 'packageData' in kwargs:
+            package_data = kwargs['packageData']
+        if 'protectedFiles' in kwargs:
+            protected_files = kwargs['protectedFiles']
+        if 'rootFile' in kwargs:
+            root_file = kwargs['rootFile']
+
         if config_files is not None:
             _setter("config_files", config_files)
         if nginx_deployment_id is not None:

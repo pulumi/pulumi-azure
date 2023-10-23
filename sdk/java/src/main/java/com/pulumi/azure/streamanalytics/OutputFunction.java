@@ -122,7 +122,7 @@ public class OutputFunction extends com.pulumi.resources.CustomResource {
      * The API key for the Function.
      * 
      */
-    @Export(name="apiKey", refs={String.class}, tree="[0]")
+    @Export(name="apiKey", type=String.class, parameters={})
     private Output<String> apiKey;
 
     /**
@@ -136,7 +136,7 @@ public class OutputFunction extends com.pulumi.resources.CustomResource {
      * The maximum number of events in each batch that&#39;s sent to the function. Defaults to `100`.
      * 
      */
-    @Export(name="batchMaxCount", refs={Integer.class}, tree="[0]")
+    @Export(name="batchMaxCount", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> batchMaxCount;
 
     /**
@@ -150,7 +150,7 @@ public class OutputFunction extends com.pulumi.resources.CustomResource {
      * The maximum batch size in bytes that&#39;s sent to the function. Defaults to `262144` (256 kB).
      * 
      */
-    @Export(name="batchMaxInBytes", refs={Integer.class}, tree="[0]")
+    @Export(name="batchMaxInBytes", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> batchMaxInBytes;
 
     /**
@@ -164,7 +164,7 @@ public class OutputFunction extends com.pulumi.resources.CustomResource {
      * The name of the Function App.
      * 
      */
-    @Export(name="functionApp", refs={String.class}, tree="[0]")
+    @Export(name="functionApp", type=String.class, parameters={})
     private Output<String> functionApp;
 
     /**
@@ -178,7 +178,7 @@ public class OutputFunction extends com.pulumi.resources.CustomResource {
      * The name of the function in the Function App.
      * 
      */
-    @Export(name="functionName", refs={String.class}, tree="[0]")
+    @Export(name="functionName", type=String.class, parameters={})
     private Output<String> functionName;
 
     /**
@@ -192,7 +192,7 @@ public class OutputFunction extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Stream Analytics Output. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -206,7 +206,7 @@ public class OutputFunction extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Stream Analytics Output should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -220,7 +220,7 @@ public class OutputFunction extends com.pulumi.resources.CustomResource {
      * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="streamAnalyticsJobName", refs={String.class}, tree="[0]")
+    @Export(name="streamAnalyticsJobName", type=String.class, parameters={})
     private Output<String> streamAnalyticsJobName;
 
     /**

@@ -74,7 +74,15 @@ class ComputeClusterIdentity(dict):
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -162,7 +170,15 @@ class ComputeClusterScaleSettings(dict):
              max_node_count: int,
              min_node_count: int,
              scale_down_nodes_after_idle_duration: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxNodeCount' in kwargs:
+            max_node_count = kwargs['maxNodeCount']
+        if 'minNodeCount' in kwargs:
+            min_node_count = kwargs['minNodeCount']
+        if 'scaleDownNodesAfterIdleDuration' in kwargs:
+            scale_down_nodes_after_idle_duration = kwargs['scaleDownNodesAfterIdleDuration']
+
         _setter("max_node_count", max_node_count)
         _setter("min_node_count", min_node_count)
         _setter("scale_down_nodes_after_idle_duration", scale_down_nodes_after_idle_duration)
@@ -238,7 +254,15 @@ class ComputeClusterSsh(dict):
              admin_username: str,
              admin_password: Optional[str] = None,
              key_value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adminUsername' in kwargs:
+            admin_username = kwargs['adminUsername']
+        if 'adminPassword' in kwargs:
+            admin_password = kwargs['adminPassword']
+        if 'keyValue' in kwargs:
+            key_value = kwargs['keyValue']
+
         _setter("admin_username", admin_username)
         if admin_password is not None:
             _setter("admin_password", admin_password)
@@ -310,7 +334,13 @@ class ComputeInstanceAssignToUser(dict):
              _setter: Callable[[Any, Any], None],
              object_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if object_id is not None:
             _setter("object_id", object_id)
         if tenant_id is not None:
@@ -383,7 +413,15 @@ class ComputeInstanceIdentity(dict):
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -467,7 +505,11 @@ class ComputeInstanceSsh(dict):
              public_key: str,
              port: Optional[int] = None,
              username: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'publicKey' in kwargs:
+            public_key = kwargs['publicKey']
+
         _setter("public_key", public_key)
         if port is not None:
             _setter("port", port)
@@ -549,7 +591,15 @@ class InferenceClusterIdentity(dict):
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -643,7 +693,13 @@ class InferenceClusterSsl(dict):
              key: Optional[str] = None,
              leaf_domain_label: Optional[str] = None,
              overwrite_existing_domain: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'leafDomainLabel' in kwargs:
+            leaf_domain_label = kwargs['leafDomainLabel']
+        if 'overwriteExistingDomain' in kwargs:
+            overwrite_existing_domain = kwargs['overwriteExistingDomain']
+
         if cert is not None:
             _setter("cert", cert)
         if cname is not None:
@@ -746,7 +802,15 @@ class SynapseSparkIdentity(dict):
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -836,7 +900,15 @@ class WorkspaceEncryption(dict):
              key_id: str,
              key_vault_id: str,
              user_assigned_identity_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyId' in kwargs:
+            key_id = kwargs['keyId']
+        if 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if 'userAssignedIdentityId' in kwargs:
+            user_assigned_identity_id = kwargs['userAssignedIdentityId']
+
         _setter("key_id", key_id)
         _setter("key_vault_id", key_vault_id)
         if user_assigned_identity_id is not None:
@@ -919,7 +991,15 @@ class WorkspaceIdentity(dict):
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -990,7 +1070,15 @@ class GetWorkspaceIdentityResult(dict):
              principal_id: str,
              tenant_id: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("identity_ids", identity_ids)
         _setter("principal_id", principal_id)
         _setter("tenant_id", tenant_id)

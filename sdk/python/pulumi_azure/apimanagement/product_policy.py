@@ -43,7 +43,19 @@ class ProductPolicyArgs:
              resource_group_name: pulumi.Input[str],
              xml_content: Optional[pulumi.Input[str]] = None,
              xml_link: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if 'productId' in kwargs:
+            product_id = kwargs['productId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'xmlContent' in kwargs:
+            xml_content = kwargs['xmlContent']
+        if 'xmlLink' in kwargs:
+            xml_link = kwargs['xmlLink']
+
         _setter("api_management_name", api_management_name)
         _setter("product_id", product_id)
         _setter("resource_group_name", resource_group_name)
@@ -145,7 +157,19 @@ class _ProductPolicyState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              xml_content: Optional[pulumi.Input[str]] = None,
              xml_link: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if 'productId' in kwargs:
+            product_id = kwargs['productId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'xmlContent' in kwargs:
+            xml_content = kwargs['xmlContent']
+        if 'xmlLink' in kwargs:
+            xml_link = kwargs['xmlLink']
+
         if api_management_name is not None:
             _setter("api_management_name", api_management_name)
         if product_id is not None:

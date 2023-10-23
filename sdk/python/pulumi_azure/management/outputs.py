@@ -69,7 +69,15 @@ class GroupPolicyAssignmentIdentity(dict):
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -149,7 +157,11 @@ class GroupPolicyAssignmentNonComplianceMessage(dict):
              _setter: Callable[[Any, Any], None],
              content: str,
              policy_definition_reference_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyDefinitionReferenceId' in kwargs:
+            policy_definition_reference_id = kwargs['policyDefinitionReferenceId']
+
         _setter("content", content)
         if policy_definition_reference_id is not None:
             _setter("policy_definition_reference_id", policy_definition_reference_id)
@@ -190,7 +202,9 @@ class GroupPolicyAssignmentOverride(dict):
              _setter: Callable[[Any, Any], None],
              value: str,
              selectors: Optional[Sequence['outputs.GroupPolicyAssignmentOverrideSelector']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("value", value)
         if selectors is not None:
             _setter("selectors", selectors)
@@ -252,7 +266,11 @@ class GroupPolicyAssignmentOverrideSelector(dict):
              ins: Optional[Sequence[str]] = None,
              kind: Optional[str] = None,
              not_ins: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'notIns' in kwargs:
+            not_ins = kwargs['notIns']
+
         if ins is not None:
             _setter("ins", ins)
         if kind is not None:
@@ -304,7 +322,9 @@ class GroupPolicyAssignmentResourceSelector(dict):
              _setter: Callable[[Any, Any], None],
              selectors: Sequence['outputs.GroupPolicyAssignmentResourceSelectorSelector'],
              name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("selectors", selectors)
         if name is not None:
             _setter("name", name)
@@ -366,7 +386,11 @@ class GroupPolicyAssignmentResourceSelectorSelector(dict):
              kind: str,
              ins: Optional[Sequence[str]] = None,
              not_ins: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'notIns' in kwargs:
+            not_ins = kwargs['notIns']
+
         _setter("kind", kind)
         if ins is not None:
             _setter("ins", ins)

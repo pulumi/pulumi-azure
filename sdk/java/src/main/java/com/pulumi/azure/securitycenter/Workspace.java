@@ -78,7 +78,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * The scope of VMs to send their security data to the desired workspace, unless overridden by a setting with more specific scope.
      * 
      */
-    @Export(name="scope", refs={String.class}, tree="[0]")
+    @Export(name="scope", type=String.class, parameters={})
     private Output<String> scope;
 
     /**
@@ -92,7 +92,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * The ID of the Log Analytics Workspace to save the data in.
      * 
      */
-    @Export(name="workspaceId", refs={String.class}, tree="[0]")
+    @Export(name="workspaceId", type=String.class, parameters={})
     private Output<String> workspaceId;
 
     /**

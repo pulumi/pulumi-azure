@@ -49,7 +49,13 @@ class VirtualNetworkArgs:
              name: Optional[pulumi.Input[str]] = None,
              subnet: Optional[pulumi.Input['VirtualNetworkSubnetArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'labName' in kwargs:
+            lab_name = kwargs['labName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         _setter("lab_name", lab_name)
         _setter("resource_group_name", resource_group_name)
         if description is not None:
@@ -174,7 +180,15 @@ class _VirtualNetworkState:
              subnet: Optional[pulumi.Input['VirtualNetworkSubnetArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              unique_identifier: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'labName' in kwargs:
+            lab_name = kwargs['labName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'uniqueIdentifier' in kwargs:
+            unique_identifier = kwargs['uniqueIdentifier']
+
         if description is not None:
             _setter("description", description)
         if lab_name is not None:

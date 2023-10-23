@@ -31,7 +31,11 @@ class FrontdoorRuleSetArgs:
              _setter: Callable[[Any, Any], None],
              cdn_frontdoor_profile_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cdnFrontdoorProfileId' in kwargs:
+            cdn_frontdoor_profile_id = kwargs['cdnFrontdoorProfileId']
+
         _setter("cdn_frontdoor_profile_id", cdn_frontdoor_profile_id)
         if name is not None:
             _setter("name", name)
@@ -81,7 +85,11 @@ class _FrontdoorRuleSetState:
              _setter: Callable[[Any, Any], None],
              cdn_frontdoor_profile_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cdnFrontdoorProfileId' in kwargs:
+            cdn_frontdoor_profile_id = kwargs['cdnFrontdoorProfileId']
+
         if cdn_frontdoor_profile_id is not None:
             _setter("cdn_frontdoor_profile_id", cdn_frontdoor_profile_id)
         if name is not None:

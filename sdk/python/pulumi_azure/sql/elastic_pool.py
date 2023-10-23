@@ -63,7 +63,19 @@ class ElasticPoolArgs:
              name: Optional[pulumi.Input[str]] = None,
              pool_size: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if 'dbDtuMax' in kwargs:
+            db_dtu_max = kwargs['dbDtuMax']
+        if 'dbDtuMin' in kwargs:
+            db_dtu_min = kwargs['dbDtuMin']
+        if 'poolSize' in kwargs:
+            pool_size = kwargs['poolSize']
+
         _setter("dtu", dtu)
         _setter("edition", edition)
         _setter("resource_group_name", resource_group_name)
@@ -258,7 +270,21 @@ class _ElasticPoolState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              server_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'creationDate' in kwargs:
+            creation_date = kwargs['creationDate']
+        if 'dbDtuMax' in kwargs:
+            db_dtu_max = kwargs['dbDtuMax']
+        if 'dbDtuMin' in kwargs:
+            db_dtu_min = kwargs['dbDtuMin']
+        if 'poolSize' in kwargs:
+            pool_size = kwargs['poolSize']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+
         if creation_date is not None:
             _setter("creation_date", creation_date)
         if db_dtu_max is not None:

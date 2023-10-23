@@ -63,7 +63,17 @@ class SpringCloudGatewayRouteConfigArgs:
              routes: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudGatewayRouteConfigRouteArgs']]]] = None,
              spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
              sso_validation_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'springCloudGatewayId' in kwargs:
+            spring_cloud_gateway_id = kwargs['springCloudGatewayId']
+        if 'openApi' in kwargs:
+            open_api = kwargs['openApi']
+        if 'springCloudAppId' in kwargs:
+            spring_cloud_app_id = kwargs['springCloudAppId']
+        if 'ssoValidationEnabled' in kwargs:
+            sso_validation_enabled = kwargs['ssoValidationEnabled']
+
         _setter("spring_cloud_gateway_id", spring_cloud_gateway_id)
         if filters is not None:
             _setter("filters", filters)
@@ -243,7 +253,17 @@ class _SpringCloudGatewayRouteConfigState:
              spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
              spring_cloud_gateway_id: Optional[pulumi.Input[str]] = None,
              sso_validation_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'openApi' in kwargs:
+            open_api = kwargs['openApi']
+        if 'springCloudAppId' in kwargs:
+            spring_cloud_app_id = kwargs['springCloudAppId']
+        if 'springCloudGatewayId' in kwargs:
+            spring_cloud_gateway_id = kwargs['springCloudGatewayId']
+        if 'ssoValidationEnabled' in kwargs:
+            sso_validation_enabled = kwargs['ssoValidationEnabled']
+
         if filters is not None:
             _setter("filters", filters)
         if name is not None:

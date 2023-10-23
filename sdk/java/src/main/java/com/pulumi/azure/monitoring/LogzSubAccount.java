@@ -98,7 +98,7 @@ public class LogzSubAccount extends com.pulumi.resources.CustomResource {
      * Whether the resource monitoring is enabled? Defaults to `true`.
      * 
      */
-    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -112,7 +112,7 @@ public class LogzSubAccount extends com.pulumi.resources.CustomResource {
      * The ID of the Logz Monitor. Changing this forces a new logz Sub Account to be created.
      * 
      */
-    @Export(name="logzMonitorId", refs={String.class}, tree="[0]")
+    @Export(name="logzMonitorId", type=String.class, parameters={})
     private Output<String> logzMonitorId;
 
     /**
@@ -126,7 +126,7 @@ public class LogzSubAccount extends com.pulumi.resources.CustomResource {
      * The name which should be used for this logz Sub Account. Possible values must be between 1 and 32 characters in length and may contain only letters, numbers, hyphens and underscores. Changing this forces a new logz Sub Account to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -140,7 +140,7 @@ public class LogzSubAccount extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the logz Sub Account.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -154,7 +154,7 @@ public class LogzSubAccount extends com.pulumi.resources.CustomResource {
      * A `user` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="user", refs={LogzSubAccountUser.class}, tree="[0]")
+    @Export(name="user", type=LogzSubAccountUser.class, parameters={})
     private Output<LogzSubAccountUser> user;
 
     /**

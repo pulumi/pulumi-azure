@@ -47,7 +47,19 @@ class DatasetDataLakeGen2Args:
              file_path: Optional[pulumi.Input[str]] = None,
              folder_path: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fileSystemName' in kwargs:
+            file_system_name = kwargs['fileSystemName']
+        if 'shareId' in kwargs:
+            share_id = kwargs['shareId']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if 'filePath' in kwargs:
+            file_path = kwargs['filePath']
+        if 'folderPath' in kwargs:
+            folder_path = kwargs['folderPath']
+
         _setter("file_system_name", file_system_name)
         _setter("share_id", share_id)
         _setter("storage_account_id", storage_account_id)
@@ -171,7 +183,21 @@ class _DatasetDataLakeGen2State:
              name: Optional[pulumi.Input[str]] = None,
              share_id: Optional[pulumi.Input[str]] = None,
              storage_account_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'filePath' in kwargs:
+            file_path = kwargs['filePath']
+        if 'fileSystemName' in kwargs:
+            file_system_name = kwargs['fileSystemName']
+        if 'folderPath' in kwargs:
+            folder_path = kwargs['folderPath']
+        if 'shareId' in kwargs:
+            share_id = kwargs['shareId']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+
         if display_name is not None:
             _setter("display_name", display_name)
         if file_path is not None:

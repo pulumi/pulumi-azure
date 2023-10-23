@@ -85,7 +85,7 @@ public class ManagedHardwareSecurityModule extends com.pulumi.resources.CustomRe
      * Specifies a list of administrators object IDs for the key vault Managed Hardware Security Module. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="adminObjectIds", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="adminObjectIds", type=List.class, parameters={String.class})
     private Output<List<String>> adminObjectIds;
 
     /**
@@ -99,7 +99,7 @@ public class ManagedHardwareSecurityModule extends com.pulumi.resources.CustomRe
      * The URI of the Key Vault Managed Hardware Security Module, used for performing operations on keys.
      * 
      */
-    @Export(name="hsmUri", refs={String.class}, tree="[0]")
+    @Export(name="hsmUri", type=String.class, parameters={})
     private Output<String> hsmUri;
 
     /**
@@ -113,7 +113,7 @@ public class ManagedHardwareSecurityModule extends com.pulumi.resources.CustomRe
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -127,7 +127,7 @@ public class ManagedHardwareSecurityModule extends com.pulumi.resources.CustomRe
      * Specifies the name of the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -141,7 +141,7 @@ public class ManagedHardwareSecurityModule extends com.pulumi.resources.CustomRe
      * A `network_acls` block as defined below.
      * 
      */
-    @Export(name="networkAcls", refs={ManagedHardwareSecurityModuleNetworkAcls.class}, tree="[0]")
+    @Export(name="networkAcls", type=ManagedHardwareSecurityModuleNetworkAcls.class, parameters={})
     private Output<ManagedHardwareSecurityModuleNetworkAcls> networkAcls;
 
     /**
@@ -155,7 +155,7 @@ public class ManagedHardwareSecurityModule extends com.pulumi.resources.CustomRe
      * Whether traffic from public networks is permitted. Defaults to `true`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
@@ -169,7 +169,7 @@ public class ManagedHardwareSecurityModule extends com.pulumi.resources.CustomRe
      * Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="purgeProtectionEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="purgeProtectionEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> purgeProtectionEnabled;
 
     /**
@@ -183,7 +183,7 @@ public class ManagedHardwareSecurityModule extends com.pulumi.resources.CustomRe
      * The name of the resource group in which to create the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -197,7 +197,7 @@ public class ManagedHardwareSecurityModule extends com.pulumi.resources.CustomRe
      * This attribute can be used for disaster recovery or when creating another Managed HSM that shares the same security domain.
      * 
      */
-    @Export(name="securityDomainEncryptedData", refs={String.class}, tree="[0]")
+    @Export(name="securityDomainEncryptedData", type=String.class, parameters={})
     private Output<String> securityDomainEncryptedData;
 
     /**
@@ -211,7 +211,7 @@ public class ManagedHardwareSecurityModule extends com.pulumi.resources.CustomRe
      * A list of KeyVault certificates resource IDs (minimum of three and up to a maximum of 10) to activate this Managed HSM. More information see [activate-your-managed-hsm](https://learn.microsoft.com/azure/key-vault/managed-hsm/quick-create-cli#activate-your-managed-hsm)
      * 
      */
-    @Export(name="securityDomainKeyVaultCertificateIds", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="securityDomainKeyVaultCertificateIds", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> securityDomainKeyVaultCertificateIds;
 
     /**
@@ -225,7 +225,7 @@ public class ManagedHardwareSecurityModule extends com.pulumi.resources.CustomRe
      * Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `security_domain_key_vault_certificate_ids` is specified. Valid values are between 2 and 10.
      * 
      */
-    @Export(name="securityDomainQuorum", refs={Integer.class}, tree="[0]")
+    @Export(name="securityDomainQuorum", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> securityDomainQuorum;
 
     /**
@@ -239,7 +239,7 @@ public class ManagedHardwareSecurityModule extends com.pulumi.resources.CustomRe
      * The Name of the SKU used for this Key Vault Managed Hardware Security Module. Possible value is `Standard_B1`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="skuName", refs={String.class}, tree="[0]")
+    @Export(name="skuName", type=String.class, parameters={})
     private Output<String> skuName;
 
     /**
@@ -253,7 +253,7 @@ public class ManagedHardwareSecurityModule extends com.pulumi.resources.CustomRe
      * The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` days. Defaults to `90`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="softDeleteRetentionDays", refs={Integer.class}, tree="[0]")
+    @Export(name="softDeleteRetentionDays", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> softDeleteRetentionDays;
 
     /**
@@ -267,7 +267,7 @@ public class ManagedHardwareSecurityModule extends com.pulumi.resources.CustomRe
      * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -281,7 +281,7 @@ public class ManagedHardwareSecurityModule extends com.pulumi.resources.CustomRe
      * The Azure Active Directory Tenant ID that should be used for authenticating requests to the key vault Managed Hardware Security Module. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="tenantId", refs={String.class}, tree="[0]")
+    @Export(name="tenantId", type=String.class, parameters={})
     private Output<String> tenantId;
 
     /**

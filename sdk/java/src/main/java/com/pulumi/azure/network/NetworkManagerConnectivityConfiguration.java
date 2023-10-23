@@ -119,7 +119,7 @@ public class NetworkManagerConnectivityConfiguration extends com.pulumi.resource
      * An `applies_to_group` block as defined below.
      * 
      */
-    @Export(name="appliesToGroups", refs={List.class,NetworkManagerConnectivityConfigurationAppliesToGroup.class}, tree="[0,1]")
+    @Export(name="appliesToGroups", type=List.class, parameters={NetworkManagerConnectivityConfigurationAppliesToGroup.class})
     private Output<List<NetworkManagerConnectivityConfigurationAppliesToGroup>> appliesToGroups;
 
     /**
@@ -133,7 +133,7 @@ public class NetworkManagerConnectivityConfiguration extends com.pulumi.resource
      * Specifies the connectivity topology type. Possible values are `HubAndSpoke` and `Mesh`.
      * 
      */
-    @Export(name="connectivityTopology", refs={String.class}, tree="[0]")
+    @Export(name="connectivityTopology", type=String.class, parameters={})
     private Output<String> connectivityTopology;
 
     /**
@@ -147,7 +147,7 @@ public class NetworkManagerConnectivityConfiguration extends com.pulumi.resource
      * Indicates whether to remove current existing Virtual Network Peering in the Connectivity Configuration affected scope. Possible values are `true` and `false`.
      * 
      */
-    @Export(name="deleteExistingPeeringEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="deleteExistingPeeringEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> deleteExistingPeeringEnabled;
 
     /**
@@ -161,7 +161,7 @@ public class NetworkManagerConnectivityConfiguration extends com.pulumi.resource
      * A description of the Connectivity Configuration.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -175,7 +175,7 @@ public class NetworkManagerConnectivityConfiguration extends com.pulumi.resource
      * Indicates whether to global mesh is supported. Possible values are `true` and `false`.
      * 
      */
-    @Export(name="globalMeshEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="globalMeshEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> globalMeshEnabled;
 
     /**
@@ -189,7 +189,7 @@ public class NetworkManagerConnectivityConfiguration extends com.pulumi.resource
      * A `hub` block as defined below.
      * 
      */
-    @Export(name="hub", refs={NetworkManagerConnectivityConfigurationHub.class}, tree="[0]")
+    @Export(name="hub", type=NetworkManagerConnectivityConfigurationHub.class, parameters={})
     private Output</* @Nullable */ NetworkManagerConnectivityConfigurationHub> hub;
 
     /**
@@ -203,7 +203,7 @@ public class NetworkManagerConnectivityConfiguration extends com.pulumi.resource
      * Specifies the name which should be used for this Network Manager Connectivity Configuration. Changing this forces a new Network Manager Connectivity Configuration to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -217,7 +217,7 @@ public class NetworkManagerConnectivityConfiguration extends com.pulumi.resource
      * Specifies the ID of the Network Manager. Changing this forces a new Network Manager Connectivity Configuration to be created.
      * 
      */
-    @Export(name="networkManagerId", refs={String.class}, tree="[0]")
+    @Export(name="networkManagerId", type=String.class, parameters={})
     private Output<String> networkManagerId;
 
     /**

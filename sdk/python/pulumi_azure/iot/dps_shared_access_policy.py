@@ -63,7 +63,23 @@ class DpsSharedAccessPolicyArgs:
              registration_read: Optional[pulumi.Input[bool]] = None,
              registration_write: Optional[pulumi.Input[bool]] = None,
              service_config: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'iothubDpsName' in kwargs:
+            iothub_dps_name = kwargs['iothubDpsName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'enrollmentRead' in kwargs:
+            enrollment_read = kwargs['enrollmentRead']
+        if 'enrollmentWrite' in kwargs:
+            enrollment_write = kwargs['enrollmentWrite']
+        if 'registrationRead' in kwargs:
+            registration_read = kwargs['registrationRead']
+        if 'registrationWrite' in kwargs:
+            registration_write = kwargs['registrationWrite']
+        if 'serviceConfig' in kwargs:
+            service_config = kwargs['serviceConfig']
+
         _setter("iothub_dps_name", iothub_dps_name)
         _setter("resource_group_name", resource_group_name)
         if enrollment_read is not None:
@@ -252,7 +268,31 @@ class _DpsSharedAccessPolicyState:
              secondary_connection_string: Optional[pulumi.Input[str]] = None,
              secondary_key: Optional[pulumi.Input[str]] = None,
              service_config: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'enrollmentRead' in kwargs:
+            enrollment_read = kwargs['enrollmentRead']
+        if 'enrollmentWrite' in kwargs:
+            enrollment_write = kwargs['enrollmentWrite']
+        if 'iothubDpsName' in kwargs:
+            iothub_dps_name = kwargs['iothubDpsName']
+        if 'primaryConnectionString' in kwargs:
+            primary_connection_string = kwargs['primaryConnectionString']
+        if 'primaryKey' in kwargs:
+            primary_key = kwargs['primaryKey']
+        if 'registrationRead' in kwargs:
+            registration_read = kwargs['registrationRead']
+        if 'registrationWrite' in kwargs:
+            registration_write = kwargs['registrationWrite']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'secondaryConnectionString' in kwargs:
+            secondary_connection_string = kwargs['secondaryConnectionString']
+        if 'secondaryKey' in kwargs:
+            secondary_key = kwargs['secondaryKey']
+        if 'serviceConfig' in kwargs:
+            service_config = kwargs['serviceConfig']
+
         if enrollment_read is not None:
             _setter("enrollment_read", enrollment_read)
         if enrollment_write is not None:

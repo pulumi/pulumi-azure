@@ -47,7 +47,17 @@ class EndpointCustomDomainArgs:
              cdn_managed_https: Optional[pulumi.Input['EndpointCustomDomainCdnManagedHttpsArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              user_managed_https: Optional[pulumi.Input['EndpointCustomDomainUserManagedHttpsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cdnEndpointId' in kwargs:
+            cdn_endpoint_id = kwargs['cdnEndpointId']
+        if 'hostName' in kwargs:
+            host_name = kwargs['hostName']
+        if 'cdnManagedHttps' in kwargs:
+            cdn_managed_https = kwargs['cdnManagedHttps']
+        if 'userManagedHttps' in kwargs:
+            user_managed_https = kwargs['userManagedHttps']
+
         _setter("cdn_endpoint_id", cdn_endpoint_id)
         _setter("host_name", host_name)
         if cdn_managed_https is not None:
@@ -154,7 +164,17 @@ class _EndpointCustomDomainState:
              host_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              user_managed_https: Optional[pulumi.Input['EndpointCustomDomainUserManagedHttpsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cdnEndpointId' in kwargs:
+            cdn_endpoint_id = kwargs['cdnEndpointId']
+        if 'cdnManagedHttps' in kwargs:
+            cdn_managed_https = kwargs['cdnManagedHttps']
+        if 'hostName' in kwargs:
+            host_name = kwargs['hostName']
+        if 'userManagedHttps' in kwargs:
+            user_managed_https = kwargs['userManagedHttps']
+
         if cdn_endpoint_id is not None:
             _setter("cdn_endpoint_id", cdn_endpoint_id)
         if cdn_managed_https is not None:

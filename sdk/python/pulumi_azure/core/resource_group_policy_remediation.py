@@ -53,7 +53,27 @@ class ResourceGroupPolicyRemediationArgs:
              policy_definition_reference_id: Optional[pulumi.Input[str]] = None,
              resource_count: Optional[pulumi.Input[int]] = None,
              resource_discovery_mode: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyAssignmentId' in kwargs:
+            policy_assignment_id = kwargs['policyAssignmentId']
+        if 'resourceGroupId' in kwargs:
+            resource_group_id = kwargs['resourceGroupId']
+        if 'failurePercentage' in kwargs:
+            failure_percentage = kwargs['failurePercentage']
+        if 'locationFilters' in kwargs:
+            location_filters = kwargs['locationFilters']
+        if 'parallelDeployments' in kwargs:
+            parallel_deployments = kwargs['parallelDeployments']
+        if 'policyDefinitionId' in kwargs:
+            policy_definition_id = kwargs['policyDefinitionId']
+        if 'policyDefinitionReferenceId' in kwargs:
+            policy_definition_reference_id = kwargs['policyDefinitionReferenceId']
+        if 'resourceCount' in kwargs:
+            resource_count = kwargs['resourceCount']
+        if 'resourceDiscoveryMode' in kwargs:
+            resource_discovery_mode = kwargs['resourceDiscoveryMode']
+
         _setter("policy_assignment_id", policy_assignment_id)
         _setter("resource_group_id", resource_group_id)
         if failure_percentage is not None:
@@ -212,7 +232,27 @@ class _ResourceGroupPolicyRemediationState:
              resource_count: Optional[pulumi.Input[int]] = None,
              resource_discovery_mode: Optional[pulumi.Input[str]] = None,
              resource_group_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failurePercentage' in kwargs:
+            failure_percentage = kwargs['failurePercentage']
+        if 'locationFilters' in kwargs:
+            location_filters = kwargs['locationFilters']
+        if 'parallelDeployments' in kwargs:
+            parallel_deployments = kwargs['parallelDeployments']
+        if 'policyAssignmentId' in kwargs:
+            policy_assignment_id = kwargs['policyAssignmentId']
+        if 'policyDefinitionId' in kwargs:
+            policy_definition_id = kwargs['policyDefinitionId']
+        if 'policyDefinitionReferenceId' in kwargs:
+            policy_definition_reference_id = kwargs['policyDefinitionReferenceId']
+        if 'resourceCount' in kwargs:
+            resource_count = kwargs['resourceCount']
+        if 'resourceDiscoveryMode' in kwargs:
+            resource_discovery_mode = kwargs['resourceDiscoveryMode']
+        if 'resourceGroupId' in kwargs:
+            resource_group_id = kwargs['resourceGroupId']
+
         if failure_percentage is not None:
             _setter("failure_percentage", failure_percentage)
         if location_filters is not None:

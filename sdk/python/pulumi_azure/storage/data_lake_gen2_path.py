@@ -53,7 +53,13 @@ class DataLakeGen2PathArgs:
              aces: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeGen2PathAceArgs']]]] = None,
              group: Optional[pulumi.Input[str]] = None,
              owner: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'filesystemName' in kwargs:
+            filesystem_name = kwargs['filesystemName']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+
         _setter("filesystem_name", filesystem_name)
         _setter("path", path)
         _setter("resource", resource)
@@ -190,7 +196,13 @@ class _DataLakeGen2PathState:
              path: Optional[pulumi.Input[str]] = None,
              resource: Optional[pulumi.Input[str]] = None,
              storage_account_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'filesystemName' in kwargs:
+            filesystem_name = kwargs['filesystemName']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+
         if aces is not None:
             _setter("aces", aces)
         if filesystem_name is not None:

@@ -32,7 +32,7 @@ public class CustomHttpsConfiguration extends com.pulumi.resources.CustomResourc
      * A `custom_https_configuration` block as defined above.
      * 
      */
-    @Export(name="customHttpsConfiguration", refs={CustomHttpsConfigurationCustomHttpsConfiguration.class}, tree="[0]")
+    @Export(name="customHttpsConfiguration", type=CustomHttpsConfigurationCustomHttpsConfiguration.class, parameters={})
     private Output</* @Nullable */ CustomHttpsConfigurationCustomHttpsConfiguration> customHttpsConfiguration;
 
     /**
@@ -46,7 +46,7 @@ public class CustomHttpsConfiguration extends com.pulumi.resources.CustomResourc
      * Should the HTTPS protocol be enabled for this custom domain associated with the Front Door?
      * 
      */
-    @Export(name="customHttpsProvisioningEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="customHttpsProvisioningEnabled", type=Boolean.class, parameters={})
     private Output<Boolean> customHttpsProvisioningEnabled;
 
     /**
@@ -60,7 +60,7 @@ public class CustomHttpsConfiguration extends com.pulumi.resources.CustomResourc
      * The ID of the Front Door Frontend Endpoint which this configuration refers to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="frontendEndpointId", refs={String.class}, tree="[0]")
+    @Export(name="frontendEndpointId", type=String.class, parameters={})
     private Output<String> frontendEndpointId;
 
     /**

@@ -114,7 +114,7 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** At least one `log`, `enabled_log` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
      * 
      */
-    @Export(name="enabledLogs", refs={List.class,DiagnosticSettingEnabledLog.class}, tree="[0,1]")
+    @Export(name="enabledLogs", type=List.class, parameters={DiagnosticSettingEnabledLog.class})
     private Output<List<DiagnosticSettingEnabledLog>> enabledLogs;
 
     /**
@@ -134,7 +134,7 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
      * 
      */
-    @Export(name="eventhubAuthorizationRuleId", refs={String.class}, tree="[0]")
+    @Export(name="eventhubAuthorizationRuleId", type=String.class, parameters={})
     private Output</* @Nullable */ String> eventhubAuthorizationRuleId;
 
     /**
@@ -154,7 +154,7 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** If this isn&#39;t specified then the default Event Hub will be used.
      * 
      */
-    @Export(name="eventhubName", refs={String.class}, tree="[0]")
+    @Export(name="eventhubName", type=String.class, parameters={})
     private Output</* @Nullable */ String> eventhubName;
 
     /**
@@ -172,7 +172,7 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** This setting will only have an effect if a `log_analytics_workspace_id` is provided. For some target resource type (e.g., Key Vault), this field is unconfigurable. Please see [resource types](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/azurediagnostics#resource-types) for services that use each method. Please [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#azure-diagnostics-vs-resource-specific) for details on the differences between destination types.
      * 
      */
-    @Export(name="logAnalyticsDestinationType", refs={String.class}, tree="[0]")
+    @Export(name="logAnalyticsDestinationType", type=String.class, parameters={})
     private Output<String> logAnalyticsDestinationType;
 
     /**
@@ -190,7 +190,7 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
      * 
      */
-    @Export(name="logAnalyticsWorkspaceId", refs={String.class}, tree="[0]")
+    @Export(name="logAnalyticsWorkspaceId", type=String.class, parameters={})
     private Output</* @Nullable */ String> logAnalyticsWorkspaceId;
 
     /**
@@ -212,7 +212,7 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider. */
-    @Export(name="logs", refs={List.class,DiagnosticSettingLog.class}, tree="[0,1]")
+    @Export(name="logs", type=List.class, parameters={DiagnosticSettingLog.class})
     private Output<List<DiagnosticSettingLog>> logs;
 
     /**
@@ -230,7 +230,7 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** At least one `log`, `enabled_log` or `metric` block must be specified.
      * 
      */
-    @Export(name="metrics", refs={List.class,DiagnosticSettingMetric.class}, tree="[0,1]")
+    @Export(name="metrics", type=List.class, parameters={DiagnosticSettingMetric.class})
     private Output</* @Nullable */ List<DiagnosticSettingMetric>> metrics;
 
     /**
@@ -248,7 +248,7 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** If the name is set to &#39;service&#39; it will not be possible to fully delete the diagnostic setting. This is due to legacy API support.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -266,7 +266,7 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
      * 
      */
-    @Export(name="partnerSolutionId", refs={String.class}, tree="[0]")
+    @Export(name="partnerSolutionId", type=String.class, parameters={})
     private Output</* @Nullable */ String> partnerSolutionId;
 
     /**
@@ -284,7 +284,7 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
      * 
      */
-    @Export(name="storageAccountId", refs={String.class}, tree="[0]")
+    @Export(name="storageAccountId", type=String.class, parameters={})
     private Output</* @Nullable */ String> storageAccountId;
 
     /**
@@ -300,7 +300,7 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
      * The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="targetResourceId", refs={String.class}, tree="[0]")
+    @Export(name="targetResourceId", type=String.class, parameters={})
     private Output<String> targetResourceId;
 
     /**

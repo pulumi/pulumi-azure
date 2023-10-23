@@ -82,7 +82,13 @@ class AccountAzureFilesAuthenticationArgs:
              _setter: Callable[[Any, Any], None],
              directory_type: pulumi.Input[str],
              active_directory: Optional[pulumi.Input['AccountAzureFilesAuthenticationActiveDirectoryArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'directoryType' in kwargs:
+            directory_type = kwargs['directoryType']
+        if 'activeDirectory' in kwargs:
+            active_directory = kwargs['activeDirectory']
+
         _setter("directory_type", directory_type)
         if active_directory is not None:
             _setter("active_directory", active_directory)
@@ -147,7 +153,21 @@ class AccountAzureFilesAuthenticationActiveDirectoryArgs:
              forest_name: Optional[pulumi.Input[str]] = None,
              netbios_domain_name: Optional[pulumi.Input[str]] = None,
              storage_sid: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainGuid' in kwargs:
+            domain_guid = kwargs['domainGuid']
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'domainSid' in kwargs:
+            domain_sid = kwargs['domainSid']
+        if 'forestName' in kwargs:
+            forest_name = kwargs['forestName']
+        if 'netbiosDomainName' in kwargs:
+            netbios_domain_name = kwargs['netbiosDomainName']
+        if 'storageSid' in kwargs:
+            storage_sid = kwargs['storageSid']
+
         _setter("domain_guid", domain_guid)
         _setter("domain_name", domain_name)
         if domain_sid is not None:
@@ -289,7 +309,27 @@ class AccountBlobPropertiesArgs:
              last_access_time_enabled: Optional[pulumi.Input[bool]] = None,
              restore_policy: Optional[pulumi.Input['AccountBlobPropertiesRestorePolicyArgs']] = None,
              versioning_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'changeFeedEnabled' in kwargs:
+            change_feed_enabled = kwargs['changeFeedEnabled']
+        if 'changeFeedRetentionInDays' in kwargs:
+            change_feed_retention_in_days = kwargs['changeFeedRetentionInDays']
+        if 'containerDeleteRetentionPolicy' in kwargs:
+            container_delete_retention_policy = kwargs['containerDeleteRetentionPolicy']
+        if 'corsRules' in kwargs:
+            cors_rules = kwargs['corsRules']
+        if 'defaultServiceVersion' in kwargs:
+            default_service_version = kwargs['defaultServiceVersion']
+        if 'deleteRetentionPolicy' in kwargs:
+            delete_retention_policy = kwargs['deleteRetentionPolicy']
+        if 'lastAccessTimeEnabled' in kwargs:
+            last_access_time_enabled = kwargs['lastAccessTimeEnabled']
+        if 'restorePolicy' in kwargs:
+            restore_policy = kwargs['restorePolicy']
+        if 'versioningEnabled' in kwargs:
+            versioning_enabled = kwargs['versioningEnabled']
+
         if change_feed_enabled is not None:
             _setter("change_feed_enabled", change_feed_enabled)
         if change_feed_retention_in_days is not None:
@@ -443,7 +483,9 @@ class AccountBlobPropertiesContainerDeleteRetentionPolicyArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              days: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if days is not None:
             _setter("days", days)
 
@@ -492,7 +534,19 @@ class AccountBlobPropertiesCorsRuleArgs:
              allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
              exposed_headers: pulumi.Input[Sequence[pulumi.Input[str]]],
              max_age_in_seconds: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedHeaders' in kwargs:
+            allowed_headers = kwargs['allowedHeaders']
+        if 'allowedMethods' in kwargs:
+            allowed_methods = kwargs['allowedMethods']
+        if 'allowedOrigins' in kwargs:
+            allowed_origins = kwargs['allowedOrigins']
+        if 'exposedHeaders' in kwargs:
+            exposed_headers = kwargs['exposedHeaders']
+        if 'maxAgeInSeconds' in kwargs:
+            max_age_in_seconds = kwargs['maxAgeInSeconds']
+
         _setter("allowed_headers", allowed_headers)
         _setter("allowed_methods", allowed_methods)
         _setter("allowed_origins", allowed_origins)
@@ -576,7 +630,9 @@ class AccountBlobPropertiesDeleteRetentionPolicyArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              days: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if days is not None:
             _setter("days", days)
 
@@ -608,7 +664,9 @@ class AccountBlobPropertiesRestorePolicyArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              days: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("days", days)
 
     @property
@@ -643,7 +701,11 @@ class AccountCustomDomainArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              use_subdomain: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'useSubdomain' in kwargs:
+            use_subdomain = kwargs['useSubdomain']
+
         _setter("name", name)
         if use_subdomain is not None:
             _setter("use_subdomain", use_subdomain)
@@ -694,7 +756,13 @@ class AccountCustomerManagedKeyArgs:
              _setter: Callable[[Any, Any], None],
              key_vault_key_id: pulumi.Input[str],
              user_assigned_identity_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyVaultKeyId' in kwargs:
+            key_vault_key_id = kwargs['keyVaultKeyId']
+        if 'userAssignedIdentityId' in kwargs:
+            user_assigned_identity_id = kwargs['userAssignedIdentityId']
+
         _setter("key_vault_key_id", key_vault_key_id)
         _setter("user_assigned_identity_id", user_assigned_identity_id)
 
@@ -756,7 +824,15 @@ class AccountIdentityArgs:
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -841,7 +917,13 @@ class AccountImmutabilityPolicyArgs:
              allow_protected_append_writes: pulumi.Input[bool],
              period_since_creation_in_days: pulumi.Input[int],
              state: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowProtectedAppendWrites' in kwargs:
+            allow_protected_append_writes = kwargs['allowProtectedAppendWrites']
+        if 'periodSinceCreationInDays' in kwargs:
+            period_since_creation_in_days = kwargs['periodSinceCreationInDays']
+
         _setter("allow_protected_append_writes", allow_protected_append_writes)
         _setter("period_since_creation_in_days", period_since_creation_in_days)
         _setter("state", state)
@@ -922,7 +1004,17 @@ class AccountNetworkRulesArgs:
              ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              private_link_accesses: Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessArgs']]]] = None,
              virtual_network_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if 'ipRules' in kwargs:
+            ip_rules = kwargs['ipRules']
+        if 'privateLinkAccesses' in kwargs:
+            private_link_accesses = kwargs['privateLinkAccesses']
+        if 'virtualNetworkSubnetIds' in kwargs:
+            virtual_network_subnet_ids = kwargs['virtualNetworkSubnetIds']
+
         _setter("default_action", default_action)
         if bypasses is not None:
             _setter("bypasses", bypasses)
@@ -1021,7 +1113,13 @@ class AccountNetworkRulesPrivateLinkAccessArgs:
              _setter: Callable[[Any, Any], None],
              endpoint_resource_id: pulumi.Input[str],
              endpoint_tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endpointResourceId' in kwargs:
+            endpoint_resource_id = kwargs['endpointResourceId']
+        if 'endpointTenantId' in kwargs:
+            endpoint_tenant_id = kwargs['endpointTenantId']
+
         _setter("endpoint_resource_id", endpoint_resource_id)
         if endpoint_tenant_id is not None:
             _setter("endpoint_tenant_id", endpoint_tenant_id)
@@ -1070,7 +1168,13 @@ class AccountNetworkRulesPrivateLinkAccessRuleArgs:
              _setter: Callable[[Any, Any], None],
              endpoint_resource_id: pulumi.Input[str],
              endpoint_tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endpointResourceId' in kwargs:
+            endpoint_resource_id = kwargs['endpointResourceId']
+        if 'endpointTenantId' in kwargs:
+            endpoint_tenant_id = kwargs['endpointTenantId']
+
         _setter("endpoint_resource_id", endpoint_resource_id)
         if endpoint_tenant_id is not None:
             _setter("endpoint_tenant_id", endpoint_tenant_id)
@@ -1127,7 +1231,15 @@ class AccountQueuePropertiesArgs:
              hour_metrics: Optional[pulumi.Input['AccountQueuePropertiesHourMetricsArgs']] = None,
              logging: Optional[pulumi.Input['AccountQueuePropertiesLoggingArgs']] = None,
              minute_metrics: Optional[pulumi.Input['AccountQueuePropertiesMinuteMetricsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'corsRules' in kwargs:
+            cors_rules = kwargs['corsRules']
+        if 'hourMetrics' in kwargs:
+            hour_metrics = kwargs['hourMetrics']
+        if 'minuteMetrics' in kwargs:
+            minute_metrics = kwargs['minuteMetrics']
+
         if cors_rules is not None:
             _setter("cors_rules", cors_rules)
         if hour_metrics is not None:
@@ -1218,7 +1330,19 @@ class AccountQueuePropertiesCorsRuleArgs:
              allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
              exposed_headers: pulumi.Input[Sequence[pulumi.Input[str]]],
              max_age_in_seconds: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedHeaders' in kwargs:
+            allowed_headers = kwargs['allowedHeaders']
+        if 'allowedMethods' in kwargs:
+            allowed_methods = kwargs['allowedMethods']
+        if 'allowedOrigins' in kwargs:
+            allowed_origins = kwargs['allowedOrigins']
+        if 'exposedHeaders' in kwargs:
+            exposed_headers = kwargs['exposedHeaders']
+        if 'maxAgeInSeconds' in kwargs:
+            max_age_in_seconds = kwargs['maxAgeInSeconds']
+
         _setter("allowed_headers", allowed_headers)
         _setter("allowed_methods", allowed_methods)
         _setter("allowed_origins", allowed_origins)
@@ -1314,7 +1438,13 @@ class AccountQueuePropertiesHourMetricsArgs:
              version: pulumi.Input[str],
              include_apis: Optional[pulumi.Input[bool]] = None,
              retention_policy_days: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'includeApis' in kwargs:
+            include_apis = kwargs['includeApis']
+        if 'retentionPolicyDays' in kwargs:
+            retention_policy_days = kwargs['retentionPolicyDays']
+
         _setter("enabled", enabled)
         _setter("version", version)
         if include_apis is not None:
@@ -1402,7 +1532,11 @@ class AccountQueuePropertiesLoggingArgs:
              version: pulumi.Input[str],
              write: pulumi.Input[bool],
              retention_policy_days: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'retentionPolicyDays' in kwargs:
+            retention_policy_days = kwargs['retentionPolicyDays']
+
         _setter("delete", delete)
         _setter("read", read)
         _setter("version", version)
@@ -1498,7 +1632,13 @@ class AccountQueuePropertiesMinuteMetricsArgs:
              version: pulumi.Input[str],
              include_apis: Optional[pulumi.Input[bool]] = None,
              retention_policy_days: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'includeApis' in kwargs:
+            include_apis = kwargs['includeApis']
+        if 'retentionPolicyDays' in kwargs:
+            retention_policy_days = kwargs['retentionPolicyDays']
+
         _setter("enabled", enabled)
         _setter("version", version)
         if include_apis is not None:
@@ -1578,7 +1718,13 @@ class AccountRoutingArgs:
              choice: Optional[pulumi.Input[str]] = None,
              publish_internet_endpoints: Optional[pulumi.Input[bool]] = None,
              publish_microsoft_endpoints: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'publishInternetEndpoints' in kwargs:
+            publish_internet_endpoints = kwargs['publishInternetEndpoints']
+        if 'publishMicrosoftEndpoints' in kwargs:
+            publish_microsoft_endpoints = kwargs['publishMicrosoftEndpoints']
+
         if choice is not None:
             _setter("choice", choice)
         if publish_internet_endpoints is not None:
@@ -1642,7 +1788,13 @@ class AccountSasPolicyArgs:
              _setter: Callable[[Any, Any], None],
              expiration_period: pulumi.Input[str],
              expiration_action: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expirationPeriod' in kwargs:
+            expiration_period = kwargs['expirationPeriod']
+        if 'expirationAction' in kwargs:
+            expiration_action = kwargs['expirationAction']
+
         _setter("expiration_period", expiration_period)
         if expiration_action is not None:
             _setter("expiration_action", expiration_action)
@@ -1695,7 +1847,13 @@ class AccountSharePropertiesArgs:
              cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountSharePropertiesCorsRuleArgs']]]] = None,
              retention_policy: Optional[pulumi.Input['AccountSharePropertiesRetentionPolicyArgs']] = None,
              smb: Optional[pulumi.Input['AccountSharePropertiesSmbArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'corsRules' in kwargs:
+            cors_rules = kwargs['corsRules']
+        if 'retentionPolicy' in kwargs:
+            retention_policy = kwargs['retentionPolicy']
+
         if cors_rules is not None:
             _setter("cors_rules", cors_rules)
         if retention_policy is not None:
@@ -1772,7 +1930,19 @@ class AccountSharePropertiesCorsRuleArgs:
              allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
              exposed_headers: pulumi.Input[Sequence[pulumi.Input[str]]],
              max_age_in_seconds: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedHeaders' in kwargs:
+            allowed_headers = kwargs['allowedHeaders']
+        if 'allowedMethods' in kwargs:
+            allowed_methods = kwargs['allowedMethods']
+        if 'allowedOrigins' in kwargs:
+            allowed_origins = kwargs['allowedOrigins']
+        if 'exposedHeaders' in kwargs:
+            exposed_headers = kwargs['exposedHeaders']
+        if 'maxAgeInSeconds' in kwargs:
+            max_age_in_seconds = kwargs['maxAgeInSeconds']
+
         _setter("allowed_headers", allowed_headers)
         _setter("allowed_methods", allowed_methods)
         _setter("allowed_origins", allowed_origins)
@@ -1856,7 +2026,9 @@ class AccountSharePropertiesRetentionPolicyArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              days: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if days is not None:
             _setter("days", days)
 
@@ -1904,7 +2076,17 @@ class AccountSharePropertiesSmbArgs:
              kerberos_ticket_encryption_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              multichannel_enabled: Optional[pulumi.Input[bool]] = None,
              versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authenticationTypes' in kwargs:
+            authentication_types = kwargs['authenticationTypes']
+        if 'channelEncryptionTypes' in kwargs:
+            channel_encryption_types = kwargs['channelEncryptionTypes']
+        if 'kerberosTicketEncryptionTypes' in kwargs:
+            kerberos_ticket_encryption_types = kwargs['kerberosTicketEncryptionTypes']
+        if 'multichannelEnabled' in kwargs:
+            multichannel_enabled = kwargs['multichannelEnabled']
+
         if authentication_types is not None:
             _setter("authentication_types", authentication_types)
         if channel_encryption_types is not None:
@@ -1996,7 +2178,13 @@ class AccountStaticWebsiteArgs:
              _setter: Callable[[Any, Any], None],
              error404_document: Optional[pulumi.Input[str]] = None,
              index_document: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'error404Document' in kwargs:
+            error404_document = kwargs['error404Document']
+        if 'indexDocument' in kwargs:
+            index_document = kwargs['indexDocument']
+
         if error404_document is not None:
             _setter("error404_document", error404_document)
         if index_document is not None:
@@ -2066,7 +2254,13 @@ class BlobInventoryPolicyRuleArgs:
              scope: pulumi.Input[str],
              storage_container_name: pulumi.Input[str],
              filter: Optional[pulumi.Input['BlobInventoryPolicyRuleFilterArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'schemaFields' in kwargs:
+            schema_fields = kwargs['schemaFields']
+        if 'storageContainerName' in kwargs:
+            storage_container_name = kwargs['storageContainerName']
+
         _setter("format", format)
         _setter("name", name)
         _setter("schedule", schedule)
@@ -2204,7 +2398,21 @@ class BlobInventoryPolicyRuleFilterArgs:
              include_deleted: Optional[pulumi.Input[bool]] = None,
              include_snapshots: Optional[pulumi.Input[bool]] = None,
              prefix_matches: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'blobTypes' in kwargs:
+            blob_types = kwargs['blobTypes']
+        if 'excludePrefixes' in kwargs:
+            exclude_prefixes = kwargs['excludePrefixes']
+        if 'includeBlobVersions' in kwargs:
+            include_blob_versions = kwargs['includeBlobVersions']
+        if 'includeDeleted' in kwargs:
+            include_deleted = kwargs['includeDeleted']
+        if 'includeSnapshots' in kwargs:
+            include_snapshots = kwargs['includeSnapshots']
+        if 'prefixMatches' in kwargs:
+            prefix_matches = kwargs['prefixMatches']
+
         _setter("blob_types", blob_types)
         if exclude_prefixes is not None:
             _setter("exclude_prefixes", exclude_prefixes)
@@ -2327,7 +2535,9 @@ class DataLakeGen2FilesystemAceArgs:
              type: pulumi.Input[str],
              id: Optional[pulumi.Input[str]] = None,
              scope: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("permissions", permissions)
         _setter("type", type)
         if id is not None:
@@ -2412,7 +2622,9 @@ class DataLakeGen2PathAceArgs:
              type: pulumi.Input[str],
              id: Optional[pulumi.Input[str]] = None,
              scope: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("permissions", permissions)
         _setter("type", type)
         if id is not None:
@@ -2489,7 +2701,11 @@ class LocalUserPermissionScopeArgs:
              permissions: pulumi.Input['LocalUserPermissionScopePermissionsArgs'],
              resource_name: pulumi.Input[str],
              service: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+
         _setter("permissions", permissions)
         _setter("resource_name", resource_name)
         _setter("service", service)
@@ -2562,7 +2778,9 @@ class LocalUserPermissionScopePermissionsArgs:
              list: Optional[pulumi.Input[bool]] = None,
              read: Optional[pulumi.Input[bool]] = None,
              write: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if create is not None:
             _setter("create", create)
         if delete is not None:
@@ -2654,7 +2872,9 @@ class LocalUserSshAuthorizedKeyArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         if description is not None:
             _setter("description", description)
@@ -2711,7 +2931,9 @@ class ManagementPolicyRuleArgs:
              enabled: pulumi.Input[bool],
              filters: pulumi.Input['ManagementPolicyRuleFiltersArgs'],
              name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("actions", actions)
         _setter("enabled", enabled)
         _setter("filters", filters)
@@ -2789,7 +3011,11 @@ class ManagementPolicyRuleActionsArgs:
              base_blob: Optional[pulumi.Input['ManagementPolicyRuleActionsBaseBlobArgs']] = None,
              snapshot: Optional[pulumi.Input['ManagementPolicyRuleActionsSnapshotArgs']] = None,
              version: Optional[pulumi.Input['ManagementPolicyRuleActionsVersionArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'baseBlob' in kwargs:
+            base_blob = kwargs['baseBlob']
+
         if base_blob is not None:
             _setter("base_blob", base_blob)
         if snapshot is not None:
@@ -2899,7 +3125,31 @@ class ManagementPolicyRuleActionsBaseBlobArgs:
              tier_to_cool_after_days_since_creation_greater_than: Optional[pulumi.Input[int]] = None,
              tier_to_cool_after_days_since_last_access_time_greater_than: Optional[pulumi.Input[int]] = None,
              tier_to_cool_after_days_since_modification_greater_than: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoTierToHotFromCoolEnabled' in kwargs:
+            auto_tier_to_hot_from_cool_enabled = kwargs['autoTierToHotFromCoolEnabled']
+        if 'deleteAfterDaysSinceCreationGreaterThan' in kwargs:
+            delete_after_days_since_creation_greater_than = kwargs['deleteAfterDaysSinceCreationGreaterThan']
+        if 'deleteAfterDaysSinceLastAccessTimeGreaterThan' in kwargs:
+            delete_after_days_since_last_access_time_greater_than = kwargs['deleteAfterDaysSinceLastAccessTimeGreaterThan']
+        if 'deleteAfterDaysSinceModificationGreaterThan' in kwargs:
+            delete_after_days_since_modification_greater_than = kwargs['deleteAfterDaysSinceModificationGreaterThan']
+        if 'tierToArchiveAfterDaysSinceCreationGreaterThan' in kwargs:
+            tier_to_archive_after_days_since_creation_greater_than = kwargs['tierToArchiveAfterDaysSinceCreationGreaterThan']
+        if 'tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan' in kwargs:
+            tier_to_archive_after_days_since_last_access_time_greater_than = kwargs['tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan']
+        if 'tierToArchiveAfterDaysSinceLastTierChangeGreaterThan' in kwargs:
+            tier_to_archive_after_days_since_last_tier_change_greater_than = kwargs['tierToArchiveAfterDaysSinceLastTierChangeGreaterThan']
+        if 'tierToArchiveAfterDaysSinceModificationGreaterThan' in kwargs:
+            tier_to_archive_after_days_since_modification_greater_than = kwargs['tierToArchiveAfterDaysSinceModificationGreaterThan']
+        if 'tierToCoolAfterDaysSinceCreationGreaterThan' in kwargs:
+            tier_to_cool_after_days_since_creation_greater_than = kwargs['tierToCoolAfterDaysSinceCreationGreaterThan']
+        if 'tierToCoolAfterDaysSinceLastAccessTimeGreaterThan' in kwargs:
+            tier_to_cool_after_days_since_last_access_time_greater_than = kwargs['tierToCoolAfterDaysSinceLastAccessTimeGreaterThan']
+        if 'tierToCoolAfterDaysSinceModificationGreaterThan' in kwargs:
+            tier_to_cool_after_days_since_modification_greater_than = kwargs['tierToCoolAfterDaysSinceModificationGreaterThan']
+
         if auto_tier_to_hot_from_cool_enabled is not None:
             _setter("auto_tier_to_hot_from_cool_enabled", auto_tier_to_hot_from_cool_enabled)
         if delete_after_days_since_creation_greater_than is not None:
@@ -3093,7 +3343,17 @@ class ManagementPolicyRuleActionsSnapshotArgs:
              change_tier_to_cool_after_days_since_creation: Optional[pulumi.Input[int]] = None,
              delete_after_days_since_creation_greater_than: Optional[pulumi.Input[int]] = None,
              tier_to_archive_after_days_since_last_tier_change_greater_than: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'changeTierToArchiveAfterDaysSinceCreation' in kwargs:
+            change_tier_to_archive_after_days_since_creation = kwargs['changeTierToArchiveAfterDaysSinceCreation']
+        if 'changeTierToCoolAfterDaysSinceCreation' in kwargs:
+            change_tier_to_cool_after_days_since_creation = kwargs['changeTierToCoolAfterDaysSinceCreation']
+        if 'deleteAfterDaysSinceCreationGreaterThan' in kwargs:
+            delete_after_days_since_creation_greater_than = kwargs['deleteAfterDaysSinceCreationGreaterThan']
+        if 'tierToArchiveAfterDaysSinceLastTierChangeGreaterThan' in kwargs:
+            tier_to_archive_after_days_since_last_tier_change_greater_than = kwargs['tierToArchiveAfterDaysSinceLastTierChangeGreaterThan']
+
         if change_tier_to_archive_after_days_since_creation is not None:
             _setter("change_tier_to_archive_after_days_since_creation", change_tier_to_archive_after_days_since_creation)
         if change_tier_to_cool_after_days_since_creation is not None:
@@ -3179,7 +3439,17 @@ class ManagementPolicyRuleActionsVersionArgs:
              change_tier_to_cool_after_days_since_creation: Optional[pulumi.Input[int]] = None,
              delete_after_days_since_creation: Optional[pulumi.Input[int]] = None,
              tier_to_archive_after_days_since_last_tier_change_greater_than: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'changeTierToArchiveAfterDaysSinceCreation' in kwargs:
+            change_tier_to_archive_after_days_since_creation = kwargs['changeTierToArchiveAfterDaysSinceCreation']
+        if 'changeTierToCoolAfterDaysSinceCreation' in kwargs:
+            change_tier_to_cool_after_days_since_creation = kwargs['changeTierToCoolAfterDaysSinceCreation']
+        if 'deleteAfterDaysSinceCreation' in kwargs:
+            delete_after_days_since_creation = kwargs['deleteAfterDaysSinceCreation']
+        if 'tierToArchiveAfterDaysSinceLastTierChangeGreaterThan' in kwargs:
+            tier_to_archive_after_days_since_last_tier_change_greater_than = kwargs['tierToArchiveAfterDaysSinceLastTierChangeGreaterThan']
+
         if change_tier_to_archive_after_days_since_creation is not None:
             _setter("change_tier_to_archive_after_days_since_creation", change_tier_to_archive_after_days_since_creation)
         if change_tier_to_cool_after_days_since_creation is not None:
@@ -3263,7 +3533,15 @@ class ManagementPolicyRuleFiltersArgs:
              blob_types: pulumi.Input[Sequence[pulumi.Input[str]]],
              match_blob_index_tags: Optional[pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleFiltersMatchBlobIndexTagArgs']]]] = None,
              prefix_matches: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'blobTypes' in kwargs:
+            blob_types = kwargs['blobTypes']
+        if 'matchBlobIndexTags' in kwargs:
+            match_blob_index_tags = kwargs['matchBlobIndexTags']
+        if 'prefixMatches' in kwargs:
+            prefix_matches = kwargs['prefixMatches']
+
         _setter("blob_types", blob_types)
         if match_blob_index_tags is not None:
             _setter("match_blob_index_tags", match_blob_index_tags)
@@ -3332,7 +3610,9 @@ class ManagementPolicyRuleFiltersMatchBlobIndexTagArgs:
              name: pulumi.Input[str],
              value: pulumi.Input[str],
              operation: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
         if operation is not None:
@@ -3405,7 +3685,17 @@ class ObjectReplicationRuleArgs:
              copy_blobs_created_after: Optional[pulumi.Input[str]] = None,
              filter_out_blobs_with_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationContainerName' in kwargs:
+            destination_container_name = kwargs['destinationContainerName']
+        if 'sourceContainerName' in kwargs:
+            source_container_name = kwargs['sourceContainerName']
+        if 'copyBlobsCreatedAfter' in kwargs:
+            copy_blobs_created_after = kwargs['copyBlobsCreatedAfter']
+        if 'filterOutBlobsWithPrefixes' in kwargs:
+            filter_out_blobs_with_prefixes = kwargs['filterOutBlobsWithPrefixes']
+
         _setter("destination_container_name", destination_container_name)
         _setter("source_container_name", source_container_name)
         if copy_blobs_created_after is not None:
@@ -3492,7 +3782,11 @@ class ShareAclArgs:
              _setter: Callable[[Any, Any], None],
              id: pulumi.Input[str],
              access_policies: Optional[pulumi.Input[Sequence[pulumi.Input['ShareAclAccessPolicyArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessPolicies' in kwargs:
+            access_policies = kwargs['accessPolicies']
+
         _setter("id", id)
         if access_policies is not None:
             _setter("access_policies", access_policies)
@@ -3547,7 +3841,9 @@ class ShareAclAccessPolicyArgs:
              permissions: pulumi.Input[str],
              expiry: Optional[pulumi.Input[str]] = None,
              start: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("permissions", permissions)
         if expiry is not None:
             _setter("expiry", expiry)
@@ -3612,7 +3908,11 @@ class TableAclArgs:
              _setter: Callable[[Any, Any], None],
              id: pulumi.Input[str],
              access_policies: Optional[pulumi.Input[Sequence[pulumi.Input['TableAclAccessPolicyArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessPolicies' in kwargs:
+            access_policies = kwargs['accessPolicies']
+
         _setter("id", id)
         if access_policies is not None:
             _setter("access_policies", access_policies)
@@ -3665,7 +3965,9 @@ class TableAclAccessPolicyArgs:
              expiry: pulumi.Input[str],
              permissions: pulumi.Input[str],
              start: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("expiry", expiry)
         _setter("permissions", permissions)
         _setter("start", start)
@@ -3745,7 +4047,9 @@ class GetAccountBlobContainerSASPermissionsArgs:
              list: bool,
              read: bool,
              write: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("add", add)
         _setter("create", create)
         _setter("delete", delete)
@@ -3883,7 +4187,9 @@ class GetAccountSASPermissionsArgs:
              tag: bool,
              update: bool,
              write: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("add", add)
         _setter("create", create)
         _setter("delete", delete)
@@ -4042,7 +4348,9 @@ class GetAccountSASResourceTypesArgs:
              container: bool,
              object: bool,
              service: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("container", container)
         _setter("object", object)
         _setter("service", service)
@@ -4111,7 +4419,9 @@ class GetAccountSASServicesArgs:
              file: bool,
              queue: bool,
              table: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("blob", blob)
         _setter("file", file)
         _setter("queue", queue)
@@ -4185,7 +4495,11 @@ class GetShareAclArgs:
              _setter: Callable[[Any, Any], None],
              access_policies: Sequence['GetShareAclAccessPolicyArgs'],
              id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessPolicies' in kwargs:
+            access_policies = kwargs['accessPolicies']
+
         _setter("access_policies", access_policies)
         _setter("id", id)
 
@@ -4237,7 +4551,9 @@ class GetShareAclAccessPolicyArgs:
              expiry: str,
              permissions: str,
              start: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("expiry", expiry)
         _setter("permissions", permissions)
         _setter("start", start)

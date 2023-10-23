@@ -72,7 +72,17 @@ class ConfigurationFeatureArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              targeting_filters: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterArgs']]]] = None,
              timewindow_filters: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTimewindowFilterArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'configurationStoreId' in kwargs:
+            configuration_store_id = kwargs['configurationStoreId']
+        if 'percentageFilterValue' in kwargs:
+            percentage_filter_value = kwargs['percentageFilterValue']
+        if 'targetingFilters' in kwargs:
+            targeting_filters = kwargs['targetingFilters']
+        if 'timewindowFilters' in kwargs:
+            timewindow_filters = kwargs['timewindowFilters']
+
         _setter("configuration_store_id", configuration_store_id)
         if description is not None:
             _setter("description", description)
@@ -298,7 +308,17 @@ class _ConfigurationFeatureState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              targeting_filters: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterArgs']]]] = None,
              timewindow_filters: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTimewindowFilterArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'configurationStoreId' in kwargs:
+            configuration_store_id = kwargs['configurationStoreId']
+        if 'percentageFilterValue' in kwargs:
+            percentage_filter_value = kwargs['percentageFilterValue']
+        if 'targetingFilters' in kwargs:
+            targeting_filters = kwargs['targetingFilters']
+        if 'timewindowFilters' in kwargs:
+            timewindow_filters = kwargs['timewindowFilters']
+
         if configuration_store_id is not None:
             _setter("configuration_store_id", configuration_store_id)
         if description is not None:

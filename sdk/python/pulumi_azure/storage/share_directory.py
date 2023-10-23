@@ -39,7 +39,13 @@ class ShareDirectoryArgs:
              storage_account_name: pulumi.Input[str],
              metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'shareName' in kwargs:
+            share_name = kwargs['shareName']
+        if 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+
         _setter("share_name", share_name)
         _setter("storage_account_name", storage_account_name)
         if metadata is not None:
@@ -124,7 +130,13 @@ class _ShareDirectoryState:
              name: Optional[pulumi.Input[str]] = None,
              share_name: Optional[pulumi.Input[str]] = None,
              storage_account_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'shareName' in kwargs:
+            share_name = kwargs['shareName']
+        if 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+
         if metadata is not None:
             _setter("metadata", metadata)
         if name is not None:

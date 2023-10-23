@@ -54,7 +54,23 @@ class ProtectedVMArgs:
              include_disk_luns: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
              protection_state: Optional[pulumi.Input[str]] = None,
              source_vm_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'recoveryVaultName' in kwargs:
+            recovery_vault_name = kwargs['recoveryVaultName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'backupPolicyId' in kwargs:
+            backup_policy_id = kwargs['backupPolicyId']
+        if 'excludeDiskLuns' in kwargs:
+            exclude_disk_luns = kwargs['excludeDiskLuns']
+        if 'includeDiskLuns' in kwargs:
+            include_disk_luns = kwargs['includeDiskLuns']
+        if 'protectionState' in kwargs:
+            protection_state = kwargs['protectionState']
+        if 'sourceVmId' in kwargs:
+            source_vm_id = kwargs['sourceVmId']
+
         _setter("recovery_vault_name", recovery_vault_name)
         _setter("resource_group_name", resource_group_name)
         if backup_policy_id is not None:
@@ -199,7 +215,23 @@ class _ProtectedVMState:
              recovery_vault_name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              source_vm_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backupPolicyId' in kwargs:
+            backup_policy_id = kwargs['backupPolicyId']
+        if 'excludeDiskLuns' in kwargs:
+            exclude_disk_luns = kwargs['excludeDiskLuns']
+        if 'includeDiskLuns' in kwargs:
+            include_disk_luns = kwargs['includeDiskLuns']
+        if 'protectionState' in kwargs:
+            protection_state = kwargs['protectionState']
+        if 'recoveryVaultName' in kwargs:
+            recovery_vault_name = kwargs['recoveryVaultName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'sourceVmId' in kwargs:
+            source_vm_id = kwargs['sourceVmId']
+
         if backup_policy_id is not None:
             _setter("backup_policy_id", backup_policy_id)
         if exclude_disk_luns is not None:

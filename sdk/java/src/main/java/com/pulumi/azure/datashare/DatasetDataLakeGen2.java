@@ -122,7 +122,7 @@ public class DatasetDataLakeGen2 extends com.pulumi.resources.CustomResource {
      * The name of the Data Share Dataset.
      * 
      */
-    @Export(name="displayName", refs={String.class}, tree="[0]")
+    @Export(name="displayName", type=String.class, parameters={})
     private Output<String> displayName;
 
     /**
@@ -136,7 +136,7 @@ public class DatasetDataLakeGen2 extends com.pulumi.resources.CustomResource {
      * The path of the file in the data lake file system to be shared with the receiver. Conflicts with `folder_path` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
      * 
      */
-    @Export(name="filePath", refs={String.class}, tree="[0]")
+    @Export(name="filePath", type=String.class, parameters={})
     private Output</* @Nullable */ String> filePath;
 
     /**
@@ -150,7 +150,7 @@ public class DatasetDataLakeGen2 extends com.pulumi.resources.CustomResource {
      * The name of the data lake file system to be shared with the receiver. Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
      * 
      */
-    @Export(name="fileSystemName", refs={String.class}, tree="[0]")
+    @Export(name="fileSystemName", type=String.class, parameters={})
     private Output<String> fileSystemName;
 
     /**
@@ -164,7 +164,7 @@ public class DatasetDataLakeGen2 extends com.pulumi.resources.CustomResource {
      * The folder path in the data lake file system to be shared with the receiver. Conflicts with `file_path` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
      * 
      */
-    @Export(name="folderPath", refs={String.class}, tree="[0]")
+    @Export(name="folderPath", type=String.class, parameters={})
     private Output</* @Nullable */ String> folderPath;
 
     /**
@@ -178,7 +178,7 @@ public class DatasetDataLakeGen2 extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Data Share Data Lake Gen2 Dataset. Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -192,7 +192,7 @@ public class DatasetDataLakeGen2 extends com.pulumi.resources.CustomResource {
      * The resource ID of the Data Share where this Data Share Data Lake Gen2 Dataset should be created. Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
      * 
      */
-    @Export(name="shareId", refs={String.class}, tree="[0]")
+    @Export(name="shareId", type=String.class, parameters={})
     private Output<String> shareId;
 
     /**
@@ -206,7 +206,7 @@ public class DatasetDataLakeGen2 extends com.pulumi.resources.CustomResource {
      * The resource id of the storage account of the data lake file system to be shared with the receiver. Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
      * 
      */
-    @Export(name="storageAccountId", refs={String.class}, tree="[0]")
+    @Export(name="storageAccountId", type=String.class, parameters={})
     private Output<String> storageAccountId;
 
     /**

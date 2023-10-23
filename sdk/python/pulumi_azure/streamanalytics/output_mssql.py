@@ -67,7 +67,19 @@ class OutputMssqlArgs:
              name: Optional[pulumi.Input[str]] = None,
              password: Optional[pulumi.Input[str]] = None,
              user: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'streamAnalyticsJobName' in kwargs:
+            stream_analytics_job_name = kwargs['streamAnalyticsJobName']
+        if 'authenticationMode' in kwargs:
+            authentication_mode = kwargs['authenticationMode']
+        if 'maxBatchCount' in kwargs:
+            max_batch_count = kwargs['maxBatchCount']
+        if 'maxWriterCount' in kwargs:
+            max_writer_count = kwargs['maxWriterCount']
+
         _setter("database", database)
         _setter("resource_group_name", resource_group_name)
         _setter("server", server)
@@ -275,7 +287,19 @@ class _OutputMssqlState:
              stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
              table: Optional[pulumi.Input[str]] = None,
              user: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authenticationMode' in kwargs:
+            authentication_mode = kwargs['authenticationMode']
+        if 'maxBatchCount' in kwargs:
+            max_batch_count = kwargs['maxBatchCount']
+        if 'maxWriterCount' in kwargs:
+            max_writer_count = kwargs['maxWriterCount']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'streamAnalyticsJobName' in kwargs:
+            stream_analytics_job_name = kwargs['streamAnalyticsJobName']
+
         if authentication_mode is not None:
             _setter("authentication_mode", authentication_mode)
         if database is not None:

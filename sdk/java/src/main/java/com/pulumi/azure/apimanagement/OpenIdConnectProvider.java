@@ -84,7 +84,7 @@ public class OpenIdConnectProvider extends com.pulumi.resources.CustomResource {
      * The name of the API Management Service in which this OpenID Connect Provider should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="apiManagementName", refs={String.class}, tree="[0]")
+    @Export(name="apiManagementName", type=String.class, parameters={})
     private Output<String> apiManagementName;
 
     /**
@@ -98,7 +98,7 @@ public class OpenIdConnectProvider extends com.pulumi.resources.CustomResource {
      * The Client ID used for the Client Application.
      * 
      */
-    @Export(name="clientId", refs={String.class}, tree="[0]")
+    @Export(name="clientId", type=String.class, parameters={})
     private Output<String> clientId;
 
     /**
@@ -112,7 +112,7 @@ public class OpenIdConnectProvider extends com.pulumi.resources.CustomResource {
      * The Client Secret used for the Client Application.
      * 
      */
-    @Export(name="clientSecret", refs={String.class}, tree="[0]")
+    @Export(name="clientSecret", type=String.class, parameters={})
     private Output<String> clientSecret;
 
     /**
@@ -126,7 +126,7 @@ public class OpenIdConnectProvider extends com.pulumi.resources.CustomResource {
      * A description of this OpenID Connect Provider.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -140,7 +140,7 @@ public class OpenIdConnectProvider extends com.pulumi.resources.CustomResource {
      * A user-friendly name for this OpenID Connect Provider.
      * 
      */
-    @Export(name="displayName", refs={String.class}, tree="[0]")
+    @Export(name="displayName", type=String.class, parameters={})
     private Output<String> displayName;
 
     /**
@@ -154,7 +154,7 @@ public class OpenIdConnectProvider extends com.pulumi.resources.CustomResource {
      * The URI of the Metadata endpoint.
      * 
      */
-    @Export(name="metadataEndpoint", refs={String.class}, tree="[0]")
+    @Export(name="metadataEndpoint", type=String.class, parameters={})
     private Output<String> metadataEndpoint;
 
     /**
@@ -168,7 +168,7 @@ public class OpenIdConnectProvider extends com.pulumi.resources.CustomResource {
      * the Name of the OpenID Connect Provider which should be created within the API Management Service. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -182,7 +182,7 @@ public class OpenIdConnectProvider extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**

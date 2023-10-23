@@ -95,7 +95,7 @@ public class AuthorizationRule extends com.pulumi.resources.CustomResource {
      * Specifies the name of the EventHub. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="eventhubName", refs={String.class}, tree="[0]")
+    @Export(name="eventhubName", type=String.class, parameters={})
     private Output<String> eventhubName;
 
     /**
@@ -109,7 +109,7 @@ public class AuthorizationRule extends com.pulumi.resources.CustomResource {
      * Does this Authorization Rule have permissions to Listen to the Event Hub? Defaults to `false`.
      * 
      */
-    @Export(name="listen", refs={Boolean.class}, tree="[0]")
+    @Export(name="listen", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> listen;
 
     /**
@@ -123,7 +123,7 @@ public class AuthorizationRule extends com.pulumi.resources.CustomResource {
      * Does this Authorization Rule have permissions to Manage to the Event Hub? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
      * 
      */
-    @Export(name="manage", refs={Boolean.class}, tree="[0]")
+    @Export(name="manage", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> manage;
 
     /**
@@ -137,7 +137,7 @@ public class AuthorizationRule extends com.pulumi.resources.CustomResource {
      * Specifies the name of the EventHub Authorization Rule resource. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -151,7 +151,7 @@ public class AuthorizationRule extends com.pulumi.resources.CustomResource {
      * Specifies the name of the grandparent EventHub Namespace. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="namespaceName", refs={String.class}, tree="[0]")
+    @Export(name="namespaceName", type=String.class, parameters={})
     private Output<String> namespaceName;
 
     /**
@@ -165,7 +165,7 @@ public class AuthorizationRule extends com.pulumi.resources.CustomResource {
      * The Primary Connection String for the Event Hubs authorization Rule.
      * 
      */
-    @Export(name="primaryConnectionString", refs={String.class}, tree="[0]")
+    @Export(name="primaryConnectionString", type=String.class, parameters={})
     private Output<String> primaryConnectionString;
 
     /**
@@ -179,7 +179,7 @@ public class AuthorizationRule extends com.pulumi.resources.CustomResource {
      * The alias of the Primary Connection String for the Event Hubs authorization Rule, which is generated when disaster recovery is enabled.
      * 
      */
-    @Export(name="primaryConnectionStringAlias", refs={String.class}, tree="[0]")
+    @Export(name="primaryConnectionStringAlias", type=String.class, parameters={})
     private Output<String> primaryConnectionStringAlias;
 
     /**
@@ -193,7 +193,7 @@ public class AuthorizationRule extends com.pulumi.resources.CustomResource {
      * The Primary Key for the Event Hubs authorization Rule.
      * 
      */
-    @Export(name="primaryKey", refs={String.class}, tree="[0]")
+    @Export(name="primaryKey", type=String.class, parameters={})
     private Output<String> primaryKey;
 
     /**
@@ -209,7 +209,7 @@ public class AuthorizationRule extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE** At least one of the 3 permissions below needs to be set.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -225,7 +225,7 @@ public class AuthorizationRule extends com.pulumi.resources.CustomResource {
      * The Secondary Connection String for the Event Hubs Authorization Rule.
      * 
      */
-    @Export(name="secondaryConnectionString", refs={String.class}, tree="[0]")
+    @Export(name="secondaryConnectionString", type=String.class, parameters={})
     private Output<String> secondaryConnectionString;
 
     /**
@@ -239,7 +239,7 @@ public class AuthorizationRule extends com.pulumi.resources.CustomResource {
      * The alias of the Secondary Connection String for the Event Hubs Authorization Rule, which is generated when disaster recovery is enabled.
      * 
      */
-    @Export(name="secondaryConnectionStringAlias", refs={String.class}, tree="[0]")
+    @Export(name="secondaryConnectionStringAlias", type=String.class, parameters={})
     private Output<String> secondaryConnectionStringAlias;
 
     /**
@@ -253,7 +253,7 @@ public class AuthorizationRule extends com.pulumi.resources.CustomResource {
      * The Secondary Key for the Event Hubs Authorization Rule.
      * 
      */
-    @Export(name="secondaryKey", refs={String.class}, tree="[0]")
+    @Export(name="secondaryKey", type=String.class, parameters={})
     private Output<String> secondaryKey;
 
     /**
@@ -267,7 +267,7 @@ public class AuthorizationRule extends com.pulumi.resources.CustomResource {
      * Does this Authorization Rule have permissions to Send to the Event Hub? Defaults to `false`.
      * 
      */
-    @Export(name="send", refs={Boolean.class}, tree="[0]")
+    @Export(name="send", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> send;
 
     /**

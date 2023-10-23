@@ -93,7 +93,27 @@ class VirtualMachineScaleSetExtensionArgs:
              protected_settings_from_key_vault: Optional[pulumi.Input['VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs']] = None,
              provision_after_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              settings: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'typeHandlerVersion' in kwargs:
+            type_handler_version = kwargs['typeHandlerVersion']
+        if 'virtualMachineScaleSetId' in kwargs:
+            virtual_machine_scale_set_id = kwargs['virtualMachineScaleSetId']
+        if 'autoUpgradeMinorVersion' in kwargs:
+            auto_upgrade_minor_version = kwargs['autoUpgradeMinorVersion']
+        if 'automaticUpgradeEnabled' in kwargs:
+            automatic_upgrade_enabled = kwargs['automaticUpgradeEnabled']
+        if 'failureSuppressionEnabled' in kwargs:
+            failure_suppression_enabled = kwargs['failureSuppressionEnabled']
+        if 'forceUpdateTag' in kwargs:
+            force_update_tag = kwargs['forceUpdateTag']
+        if 'protectedSettings' in kwargs:
+            protected_settings = kwargs['protectedSettings']
+        if 'protectedSettingsFromKeyVault' in kwargs:
+            protected_settings_from_key_vault = kwargs['protectedSettingsFromKeyVault']
+        if 'provisionAfterExtensions' in kwargs:
+            provision_after_extensions = kwargs['provisionAfterExtensions']
+
         _setter("publisher", publisher)
         _setter("type", type)
         _setter("type_handler_version", type_handler_version)
@@ -370,7 +390,27 @@ class _VirtualMachineScaleSetExtensionState:
              type: Optional[pulumi.Input[str]] = None,
              type_handler_version: Optional[pulumi.Input[str]] = None,
              virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoUpgradeMinorVersion' in kwargs:
+            auto_upgrade_minor_version = kwargs['autoUpgradeMinorVersion']
+        if 'automaticUpgradeEnabled' in kwargs:
+            automatic_upgrade_enabled = kwargs['automaticUpgradeEnabled']
+        if 'failureSuppressionEnabled' in kwargs:
+            failure_suppression_enabled = kwargs['failureSuppressionEnabled']
+        if 'forceUpdateTag' in kwargs:
+            force_update_tag = kwargs['forceUpdateTag']
+        if 'protectedSettings' in kwargs:
+            protected_settings = kwargs['protectedSettings']
+        if 'protectedSettingsFromKeyVault' in kwargs:
+            protected_settings_from_key_vault = kwargs['protectedSettingsFromKeyVault']
+        if 'provisionAfterExtensions' in kwargs:
+            provision_after_extensions = kwargs['provisionAfterExtensions']
+        if 'typeHandlerVersion' in kwargs:
+            type_handler_version = kwargs['typeHandlerVersion']
+        if 'virtualMachineScaleSetId' in kwargs:
+            virtual_machine_scale_set_id = kwargs['virtualMachineScaleSetId']
+
         if auto_upgrade_minor_version is not None:
             _setter("auto_upgrade_minor_version", auto_upgrade_minor_version)
         if automatic_upgrade_enabled is not None:

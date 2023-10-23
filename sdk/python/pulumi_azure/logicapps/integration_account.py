@@ -47,7 +47,15 @@ class IntegrationAccountArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'integrationServiceEnvironmentId' in kwargs:
+            integration_service_environment_id = kwargs['integrationServiceEnvironmentId']
+
         _setter("resource_group_name", resource_group_name)
         _setter("sku_name", sku_name)
         if integration_service_environment_id is not None:
@@ -168,7 +176,15 @@ class _IntegrationAccountState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              sku_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'integrationServiceEnvironmentId' in kwargs:
+            integration_service_environment_id = kwargs['integrationServiceEnvironmentId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+
         if integration_service_environment_id is not None:
             _setter("integration_service_environment_id", integration_service_environment_id)
         if location is not None:

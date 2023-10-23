@@ -90,7 +90,7 @@ public class TriggerSchedule extends com.pulumi.resources.CustomResource {
      * Specifies if the Data Factory Schedule Trigger is activated. Defaults to `true`.
      * 
      */
-    @Export(name="activated", refs={Boolean.class}, tree="[0]")
+    @Export(name="activated", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> activated;
 
     /**
@@ -104,7 +104,7 @@ public class TriggerSchedule extends com.pulumi.resources.CustomResource {
      * List of tags that can be used for describing the Data Factory Schedule Trigger.
      * 
      */
-    @Export(name="annotations", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="annotations", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> annotations;
 
     /**
@@ -118,7 +118,7 @@ public class TriggerSchedule extends com.pulumi.resources.CustomResource {
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      * 
      */
-    @Export(name="dataFactoryId", refs={String.class}, tree="[0]")
+    @Export(name="dataFactoryId", type=String.class, parameters={})
     private Output<String> dataFactoryId;
 
     /**
@@ -132,7 +132,7 @@ public class TriggerSchedule extends com.pulumi.resources.CustomResource {
      * The Schedule Trigger&#39;s description.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -146,7 +146,7 @@ public class TriggerSchedule extends com.pulumi.resources.CustomResource {
      * The time the Schedule Trigger should end. The time will be represented in UTC.
      * 
      */
-    @Export(name="endTime", refs={String.class}, tree="[0]")
+    @Export(name="endTime", type=String.class, parameters={})
     private Output</* @Nullable */ String> endTime;
 
     /**
@@ -160,7 +160,7 @@ public class TriggerSchedule extends com.pulumi.resources.CustomResource {
      * The trigger frequency. Valid values include `Minute`, `Hour`, `Day`, `Week`, `Month`. Defaults to `Minute`.
      * 
      */
-    @Export(name="frequency", refs={String.class}, tree="[0]")
+    @Export(name="frequency", type=String.class, parameters={})
     private Output</* @Nullable */ String> frequency;
 
     /**
@@ -174,7 +174,7 @@ public class TriggerSchedule extends com.pulumi.resources.CustomResource {
      * The interval for how often the trigger occurs. This defaults to `1`.
      * 
      */
-    @Export(name="interval", refs={Integer.class}, tree="[0]")
+    @Export(name="interval", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> interval;
 
     /**
@@ -188,7 +188,7 @@ public class TriggerSchedule extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Data Factory Schedule Trigger. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -202,7 +202,7 @@ public class TriggerSchedule extends com.pulumi.resources.CustomResource {
      * The Data Factory Pipeline name that the trigger will act on.
      * 
      */
-    @Export(name="pipelineName", refs={String.class}, tree="[0]")
+    @Export(name="pipelineName", type=String.class, parameters={})
     private Output<String> pipelineName;
 
     /**
@@ -216,7 +216,7 @@ public class TriggerSchedule extends com.pulumi.resources.CustomResource {
      * The pipeline parameters that the trigger will act upon.
      * 
      */
-    @Export(name="pipelineParameters", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="pipelineParameters", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> pipelineParameters;
 
     /**
@@ -230,7 +230,7 @@ public class TriggerSchedule extends com.pulumi.resources.CustomResource {
      * block as defined below.
      * 
      */
-    @Export(name="pipelines", refs={List.class,TriggerSchedulePipeline.class}, tree="[0,1]")
+    @Export(name="pipelines", type=List.class, parameters={TriggerSchedulePipeline.class})
     private Output<List<TriggerSchedulePipeline>> pipelines;
 
     /**
@@ -244,7 +244,7 @@ public class TriggerSchedule extends com.pulumi.resources.CustomResource {
      * A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.
      * 
      */
-    @Export(name="schedule", refs={TriggerScheduleSchedule.class}, tree="[0]")
+    @Export(name="schedule", type=TriggerScheduleSchedule.class, parameters={})
     private Output</* @Nullable */ TriggerScheduleSchedule> schedule;
 
     /**
@@ -258,7 +258,7 @@ public class TriggerSchedule extends com.pulumi.resources.CustomResource {
      * The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
      * 
      */
-    @Export(name="startTime", refs={String.class}, tree="[0]")
+    @Export(name="startTime", type=String.class, parameters={})
     private Output<String> startTime;
 
     /**
@@ -272,7 +272,7 @@ public class TriggerSchedule extends com.pulumi.resources.CustomResource {
      * The timezone of the start/end time.
      * 
      */
-    @Export(name="timeZone", refs={String.class}, tree="[0]")
+    @Export(name="timeZone", type=String.class, parameters={})
     private Output</* @Nullable */ String> timeZone;
 
     /**

@@ -37,7 +37,13 @@ class CacheAccessPolicyArgs:
              access_rules: pulumi.Input[Sequence[pulumi.Input['CacheAccessPolicyAccessRuleArgs']]],
              hpc_cache_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessRules' in kwargs:
+            access_rules = kwargs['accessRules']
+        if 'hpcCacheId' in kwargs:
+            hpc_cache_id = kwargs['hpcCacheId']
+
         _setter("access_rules", access_rules)
         _setter("hpc_cache_id", hpc_cache_id)
         if name is not None:
@@ -104,7 +110,13 @@ class _CacheAccessPolicyState:
              access_rules: Optional[pulumi.Input[Sequence[pulumi.Input['CacheAccessPolicyAccessRuleArgs']]]] = None,
              hpc_cache_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessRules' in kwargs:
+            access_rules = kwargs['accessRules']
+        if 'hpcCacheId' in kwargs:
+            hpc_cache_id = kwargs['hpcCacheId']
+
         if access_rules is not None:
             _setter("access_rules", access_rules)
         if hpc_cache_id is not None:

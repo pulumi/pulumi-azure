@@ -47,7 +47,17 @@ class SharedPrivateLinkResourceArgs:
              web_pubsub_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
              request_message: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subresourceName' in kwargs:
+            subresource_name = kwargs['subresourceName']
+        if 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+        if 'webPubsubId' in kwargs:
+            web_pubsub_id = kwargs['webPubsubId']
+        if 'requestMessage' in kwargs:
+            request_message = kwargs['requestMessage']
+
         _setter("subresource_name", subresource_name)
         _setter("target_resource_id", target_resource_id)
         _setter("web_pubsub_id", web_pubsub_id)
@@ -161,7 +171,17 @@ class _SharedPrivateLinkResourceState:
              subresource_name: Optional[pulumi.Input[str]] = None,
              target_resource_id: Optional[pulumi.Input[str]] = None,
              web_pubsub_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'requestMessage' in kwargs:
+            request_message = kwargs['requestMessage']
+        if 'subresourceName' in kwargs:
+            subresource_name = kwargs['subresourceName']
+        if 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+        if 'webPubsubId' in kwargs:
+            web_pubsub_id = kwargs['webPubsubId']
+
         if name is not None:
             _setter("name", name)
         if request_message is not None:

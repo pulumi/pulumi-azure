@@ -47,7 +47,17 @@ class DatabaseArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              soft_delete_period: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'hotCachePeriod' in kwargs:
+            hot_cache_period = kwargs['hotCachePeriod']
+        if 'softDeletePeriod' in kwargs:
+            soft_delete_period = kwargs['softDeletePeriod']
+
         _setter("cluster_name", cluster_name)
         _setter("resource_group_name", resource_group_name)
         if hot_cache_period is not None:
@@ -172,7 +182,17 @@ class _DatabaseState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              size: Optional[pulumi.Input[float]] = None,
              soft_delete_period: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if 'hotCachePeriod' in kwargs:
+            hot_cache_period = kwargs['hotCachePeriod']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'softDeletePeriod' in kwargs:
+            soft_delete_period = kwargs['softDeletePeriod']
+
         if cluster_name is not None:
             _setter("cluster_name", cluster_name)
         if hot_cache_period is not None:

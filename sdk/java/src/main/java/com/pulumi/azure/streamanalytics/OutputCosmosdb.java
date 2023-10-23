@@ -117,7 +117,7 @@ public class OutputCosmosdb extends com.pulumi.resources.CustomResource {
      * The name of the CosmosDB container.
      * 
      */
-    @Export(name="containerName", refs={String.class}, tree="[0]")
+    @Export(name="containerName", type=String.class, parameters={})
     private Output<String> containerName;
 
     /**
@@ -131,7 +131,7 @@ public class OutputCosmosdb extends com.pulumi.resources.CustomResource {
      * The account key for the CosmosDB database.
      * 
      */
-    @Export(name="cosmosdbAccountKey", refs={String.class}, tree="[0]")
+    @Export(name="cosmosdbAccountKey", type=String.class, parameters={})
     private Output<String> cosmosdbAccountKey;
 
     /**
@@ -145,7 +145,7 @@ public class OutputCosmosdb extends com.pulumi.resources.CustomResource {
      * The ID of the CosmosDB database.
      * 
      */
-    @Export(name="cosmosdbSqlDatabaseId", refs={String.class}, tree="[0]")
+    @Export(name="cosmosdbSqlDatabaseId", type=String.class, parameters={})
     private Output<String> cosmosdbSqlDatabaseId;
 
     /**
@@ -159,7 +159,7 @@ public class OutputCosmosdb extends com.pulumi.resources.CustomResource {
      * The name of the field in output events used to specify the primary key which insert or update operations are based on.
      * 
      */
-    @Export(name="documentId", refs={String.class}, tree="[0]")
+    @Export(name="documentId", type=String.class, parameters={})
     private Output</* @Nullable */ String> documentId;
 
     /**
@@ -173,7 +173,7 @@ public class OutputCosmosdb extends com.pulumi.resources.CustomResource {
      * The name of the Stream Analytics Output. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -187,7 +187,7 @@ public class OutputCosmosdb extends com.pulumi.resources.CustomResource {
      * The name of the field in output events used to specify the key for partitioning output across collections. If `container_name` contains `{partition}` token, this property is required to be specified.
      * 
      */
-    @Export(name="partitionKey", refs={String.class}, tree="[0]")
+    @Export(name="partitionKey", type=String.class, parameters={})
     private Output</* @Nullable */ String> partitionKey;
 
     /**
@@ -201,7 +201,7 @@ public class OutputCosmosdb extends com.pulumi.resources.CustomResource {
      * The ID of the Stream Analytics Job. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="streamAnalyticsJobId", refs={String.class}, tree="[0]")
+    @Export(name="streamAnalyticsJobId", type=String.class, parameters={})
     private Output<String> streamAnalyticsJobId;
 
     /**

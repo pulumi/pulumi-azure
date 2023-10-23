@@ -55,7 +55,11 @@ class ActiveRoleAssignmentSchedule(dict):
              _setter: Callable[[Any, Any], None],
              expiration: Optional['outputs.ActiveRoleAssignmentScheduleExpiration'] = None,
              start_date_time: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'startDateTime' in kwargs:
+            start_date_time = kwargs['startDateTime']
+
         if expiration is not None:
             _setter("expiration", expiration)
         if start_date_time is not None:
@@ -122,7 +126,15 @@ class ActiveRoleAssignmentScheduleExpiration(dict):
              duration_days: Optional[int] = None,
              duration_hours: Optional[int] = None,
              end_date_time: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'durationDays' in kwargs:
+            duration_days = kwargs['durationDays']
+        if 'durationHours' in kwargs:
+            duration_hours = kwargs['durationHours']
+        if 'endDateTime' in kwargs:
+            end_date_time = kwargs['endDateTime']
+
         if duration_days is not None:
             _setter("duration_days", duration_days)
         if duration_hours is not None:
@@ -174,7 +186,9 @@ class ActiveRoleAssignmentTicket(dict):
              _setter: Callable[[Any, Any], None],
              number: Optional[str] = None,
              system: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if number is not None:
             _setter("number", number)
         if system is not None:
@@ -233,7 +247,11 @@ class EligibleRoleAssignmentSchedule(dict):
              _setter: Callable[[Any, Any], None],
              expiration: Optional['outputs.EligibleRoleAssignmentScheduleExpiration'] = None,
              start_date_time: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'startDateTime' in kwargs:
+            start_date_time = kwargs['startDateTime']
+
         if expiration is not None:
             _setter("expiration", expiration)
         if start_date_time is not None:
@@ -300,7 +318,15 @@ class EligibleRoleAssignmentScheduleExpiration(dict):
              duration_days: Optional[int] = None,
              duration_hours: Optional[int] = None,
              end_date_time: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'durationDays' in kwargs:
+            duration_days = kwargs['durationDays']
+        if 'durationHours' in kwargs:
+            duration_hours = kwargs['durationHours']
+        if 'endDateTime' in kwargs:
+            end_date_time = kwargs['endDateTime']
+
         if duration_days is not None:
             _setter("duration_days", duration_days)
         if duration_hours is not None:
@@ -352,7 +378,9 @@ class EligibleRoleAssignmentTicket(dict):
              _setter: Callable[[Any, Any], None],
              number: Optional[str] = None,
              system: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if number is not None:
             _setter("number", number)
         if system is not None:

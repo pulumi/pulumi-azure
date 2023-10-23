@@ -63,7 +63,23 @@ class MongoCollectionArgs:
              name: Optional[pulumi.Input[str]] = None,
              shard_key: Optional[pulumi.Input[str]] = None,
              throughput: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'analyticalStorageTtl' in kwargs:
+            analytical_storage_ttl = kwargs['analyticalStorageTtl']
+        if 'autoscaleSettings' in kwargs:
+            autoscale_settings = kwargs['autoscaleSettings']
+        if 'defaultTtlSeconds' in kwargs:
+            default_ttl_seconds = kwargs['defaultTtlSeconds']
+        if 'shardKey' in kwargs:
+            shard_key = kwargs['shardKey']
+
         _setter("account_name", account_name)
         _setter("database_name", database_name)
         _setter("resource_group_name", resource_group_name)
@@ -251,7 +267,25 @@ class _MongoCollectionState:
              shard_key: Optional[pulumi.Input[str]] = None,
              system_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['MongoCollectionSystemIndexArgs']]]] = None,
              throughput: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'analyticalStorageTtl' in kwargs:
+            analytical_storage_ttl = kwargs['analyticalStorageTtl']
+        if 'autoscaleSettings' in kwargs:
+            autoscale_settings = kwargs['autoscaleSettings']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'defaultTtlSeconds' in kwargs:
+            default_ttl_seconds = kwargs['defaultTtlSeconds']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'shardKey' in kwargs:
+            shard_key = kwargs['shardKey']
+        if 'systemIndexes' in kwargs:
+            system_indexes = kwargs['systemIndexes']
+
         if account_name is not None:
             _setter("account_name", account_name)
         if analytical_storage_ttl is not None:

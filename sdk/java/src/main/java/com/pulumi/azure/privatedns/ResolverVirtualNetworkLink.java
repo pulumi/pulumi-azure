@@ -122,7 +122,7 @@ public class ResolverVirtualNetworkLink extends com.pulumi.resources.CustomResou
      * Specifies the ID of the Private DNS Resolver DNS Forwarding Ruleset. Changing this forces a new Private DNS Resolver Virtual Network Link to be created.
      * 
      */
-    @Export(name="dnsForwardingRulesetId", refs={String.class}, tree="[0]")
+    @Export(name="dnsForwardingRulesetId", type=String.class, parameters={})
     private Output<String> dnsForwardingRulesetId;
 
     /**
@@ -136,7 +136,7 @@ public class ResolverVirtualNetworkLink extends com.pulumi.resources.CustomResou
      * Metadata attached to the Private DNS Resolver Virtual Network Link.
      * 
      */
-    @Export(name="metadata", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="metadata", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> metadata;
 
     /**
@@ -150,7 +150,7 @@ public class ResolverVirtualNetworkLink extends com.pulumi.resources.CustomResou
      * Specifies the name which should be used for this Private DNS Resolver Virtual Network Link. Changing this forces a new Private DNS Resolver Virtual Network Link to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -164,7 +164,7 @@ public class ResolverVirtualNetworkLink extends com.pulumi.resources.CustomResou
      * The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="virtualNetworkId", refs={String.class}, tree="[0]")
+    @Export(name="virtualNetworkId", type=String.class, parameters={})
     private Output<String> virtualNetworkId;
 
     /**

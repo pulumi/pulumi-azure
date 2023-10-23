@@ -107,7 +107,7 @@ public class IotHubDeviceUpdateInstance extends com.pulumi.resources.CustomResou
      * Specifies the ID of the IoT Hub Device Update Account where the IoT Hub Device Update Instance exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="deviceUpdateAccountId", refs={String.class}, tree="[0]")
+    @Export(name="deviceUpdateAccountId", type=String.class, parameters={})
     private Output<String> deviceUpdateAccountId;
 
     /**
@@ -121,7 +121,7 @@ public class IotHubDeviceUpdateInstance extends com.pulumi.resources.CustomResou
      * Whether the diagnostic log collection is enabled. Possible values are `true` and `false`. Defaults to `false`.
      * 
      */
-    @Export(name="diagnosticEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="diagnosticEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> diagnosticEnabled;
 
     /**
@@ -135,7 +135,7 @@ public class IotHubDeviceUpdateInstance extends com.pulumi.resources.CustomResou
      * A `diagnostic_storage_account` block as defined below.
      * 
      */
-    @Export(name="diagnosticStorageAccount", refs={IotHubDeviceUpdateInstanceDiagnosticStorageAccount.class}, tree="[0]")
+    @Export(name="diagnosticStorageAccount", type=IotHubDeviceUpdateInstanceDiagnosticStorageAccount.class, parameters={})
     private Output</* @Nullable */ IotHubDeviceUpdateInstanceDiagnosticStorageAccount> diagnosticStorageAccount;
 
     /**
@@ -149,7 +149,7 @@ public class IotHubDeviceUpdateInstance extends com.pulumi.resources.CustomResou
      * Specifies the ID of the IoT Hub associated with the IoT Hub Device Update Instance. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="iothubId", refs={String.class}, tree="[0]")
+    @Export(name="iothubId", type=String.class, parameters={})
     private Output<String> iothubId;
 
     /**
@@ -163,7 +163,7 @@ public class IotHubDeviceUpdateInstance extends com.pulumi.resources.CustomResou
      * Specifies the name which should be used for this IoT Hub Device Update Instance. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -177,7 +177,7 @@ public class IotHubDeviceUpdateInstance extends com.pulumi.resources.CustomResou
      * A mapping of tags which should be assigned to the IoT Hub Device Update Instance.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

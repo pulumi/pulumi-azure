@@ -76,7 +76,7 @@ public class WebApp extends com.pulumi.resources.CustomResource {
      * The Application Insights API Key to associate with the Web App Bot.
      * 
      */
-    @Export(name="developerAppInsightsApiKey", refs={String.class}, tree="[0]")
+    @Export(name="developerAppInsightsApiKey", type=String.class, parameters={})
     private Output<String> developerAppInsightsApiKey;
 
     /**
@@ -90,7 +90,7 @@ public class WebApp extends com.pulumi.resources.CustomResource {
      * The Application Insights Application ID to associate with the Web App Bot.
      * 
      */
-    @Export(name="developerAppInsightsApplicationId", refs={String.class}, tree="[0]")
+    @Export(name="developerAppInsightsApplicationId", type=String.class, parameters={})
     private Output<String> developerAppInsightsApplicationId;
 
     /**
@@ -104,7 +104,7 @@ public class WebApp extends com.pulumi.resources.CustomResource {
      * The Application Insights Key to associate with the Web App Bot.
      * 
      */
-    @Export(name="developerAppInsightsKey", refs={String.class}, tree="[0]")
+    @Export(name="developerAppInsightsKey", type=String.class, parameters={})
     private Output<String> developerAppInsightsKey;
 
     /**
@@ -118,7 +118,7 @@ public class WebApp extends com.pulumi.resources.CustomResource {
      * The name of the Web App Bot will be displayed as. This defaults to `name` if not specified.
      * 
      */
-    @Export(name="displayName", refs={String.class}, tree="[0]")
+    @Export(name="displayName", type=String.class, parameters={})
     private Output<String> displayName;
 
     /**
@@ -132,7 +132,7 @@ public class WebApp extends com.pulumi.resources.CustomResource {
      * The Web App Bot endpoint.
      * 
      */
-    @Export(name="endpoint", refs={String.class}, tree="[0]")
+    @Export(name="endpoint", type=String.class, parameters={})
     private Output</* @Nullable */ String> endpoint;
 
     /**
@@ -146,7 +146,7 @@ public class WebApp extends com.pulumi.resources.CustomResource {
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -160,7 +160,7 @@ public class WebApp extends com.pulumi.resources.CustomResource {
      * A list of LUIS App IDs to associate with the Web App Bot.
      * 
      */
-    @Export(name="luisAppIds", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="luisAppIds", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> luisAppIds;
 
     /**
@@ -174,7 +174,7 @@ public class WebApp extends com.pulumi.resources.CustomResource {
      * The LUIS key to associate with the Web App Bot.
      * 
      */
-    @Export(name="luisKey", refs={String.class}, tree="[0]")
+    @Export(name="luisKey", type=String.class, parameters={})
     private Output</* @Nullable */ String> luisKey;
 
     /**
@@ -188,7 +188,7 @@ public class WebApp extends com.pulumi.resources.CustomResource {
      * The Microsoft Application ID for the Web App Bot. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="microsoftAppId", refs={String.class}, tree="[0]")
+    @Export(name="microsoftAppId", type=String.class, parameters={})
     private Output<String> microsoftAppId;
 
     /**
@@ -202,7 +202,7 @@ public class WebApp extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Web App Bot. Changing this forces a new resource to be created. Must be globally unique.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -216,7 +216,7 @@ public class WebApp extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the Web App Bot. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -230,7 +230,7 @@ public class WebApp extends com.pulumi.resources.CustomResource {
      * The SKU of the Web App Bot. Valid values include `F0` or `S1`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="sku", refs={String.class}, tree="[0]")
+    @Export(name="sku", type=String.class, parameters={})
     private Output<String> sku;
 
     /**
@@ -244,7 +244,7 @@ public class WebApp extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

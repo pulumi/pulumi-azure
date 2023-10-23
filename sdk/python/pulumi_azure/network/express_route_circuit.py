@@ -79,7 +79,25 @@ class ExpressRouteCircuitArgs:
              peering_location: Optional[pulumi.Input[str]] = None,
              service_provider_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'allowClassicOperations' in kwargs:
+            allow_classic_operations = kwargs['allowClassicOperations']
+        if 'authorizationKey' in kwargs:
+            authorization_key = kwargs['authorizationKey']
+        if 'bandwidthInGbps' in kwargs:
+            bandwidth_in_gbps = kwargs['bandwidthInGbps']
+        if 'bandwidthInMbps' in kwargs:
+            bandwidth_in_mbps = kwargs['bandwidthInMbps']
+        if 'expressRoutePortId' in kwargs:
+            express_route_port_id = kwargs['expressRoutePortId']
+        if 'peeringLocation' in kwargs:
+            peering_location = kwargs['peeringLocation']
+        if 'serviceProviderName' in kwargs:
+            service_provider_name = kwargs['serviceProviderName']
+
         _setter("resource_group_name", resource_group_name)
         _setter("sku", sku)
         if allow_classic_operations is not None:
@@ -328,7 +346,29 @@ class _ExpressRouteCircuitState:
              service_provider_provisioning_state: Optional[pulumi.Input[str]] = None,
              sku: Optional[pulumi.Input['ExpressRouteCircuitSkuArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowClassicOperations' in kwargs:
+            allow_classic_operations = kwargs['allowClassicOperations']
+        if 'authorizationKey' in kwargs:
+            authorization_key = kwargs['authorizationKey']
+        if 'bandwidthInGbps' in kwargs:
+            bandwidth_in_gbps = kwargs['bandwidthInGbps']
+        if 'bandwidthInMbps' in kwargs:
+            bandwidth_in_mbps = kwargs['bandwidthInMbps']
+        if 'expressRoutePortId' in kwargs:
+            express_route_port_id = kwargs['expressRoutePortId']
+        if 'peeringLocation' in kwargs:
+            peering_location = kwargs['peeringLocation']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serviceKey' in kwargs:
+            service_key = kwargs['serviceKey']
+        if 'serviceProviderName' in kwargs:
+            service_provider_name = kwargs['serviceProviderName']
+        if 'serviceProviderProvisioningState' in kwargs:
+            service_provider_provisioning_state = kwargs['serviceProviderProvisioningState']
+
         if allow_classic_operations is not None:
             _setter("allow_classic_operations", allow_classic_operations)
         if authorization_key is not None:

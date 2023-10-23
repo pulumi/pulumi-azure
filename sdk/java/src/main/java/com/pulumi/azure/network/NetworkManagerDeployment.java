@@ -126,7 +126,7 @@ public class NetworkManagerDeployment extends com.pulumi.resources.CustomResourc
      * A list of Network Manager Configuration IDs which should be aligned with `scope_access`.
      * 
      */
-    @Export(name="configurationIds", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="configurationIds", type=List.class, parameters={String.class})
     private Output<List<String>> configurationIds;
 
     /**
@@ -140,7 +140,7 @@ public class NetworkManagerDeployment extends com.pulumi.resources.CustomResourc
      * Specifies the location which the configurations will be deployed to. Changing this forces a new Network Manager Deployment to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -154,7 +154,7 @@ public class NetworkManagerDeployment extends com.pulumi.resources.CustomResourc
      * Specifies the ID of the Network Manager. Changing this forces a new Network Manager Deployment to be created.
      * 
      */
-    @Export(name="networkManagerId", refs={String.class}, tree="[0]")
+    @Export(name="networkManagerId", type=String.class, parameters={})
     private Output<String> networkManagerId;
 
     /**
@@ -168,7 +168,7 @@ public class NetworkManagerDeployment extends com.pulumi.resources.CustomResourc
      * Specifies the configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`. Changing this forces a new Network Manager Deployment to be created.
      * 
      */
-    @Export(name="scopeAccess", refs={String.class}, tree="[0]")
+    @Export(name="scopeAccess", type=String.class, parameters={})
     private Output<String> scopeAccess;
 
     /**
@@ -182,7 +182,7 @@ public class NetworkManagerDeployment extends com.pulumi.resources.CustomResourc
      * A mapping of key values pairs that can be used to keep the deployment up with the Network Manager configurations and rules.
      * 
      */
-    @Export(name="triggers", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="triggers", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> triggers;
 
     /**

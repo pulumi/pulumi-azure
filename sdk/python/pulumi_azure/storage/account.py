@@ -190,7 +190,71 @@ class AccountArgs:
              static_website: Optional[pulumi.Input['AccountStaticWebsiteArgs']] = None,
              table_encryption_key_type: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountReplicationType' in kwargs:
+            account_replication_type = kwargs['accountReplicationType']
+        if 'accountTier' in kwargs:
+            account_tier = kwargs['accountTier']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'accessTier' in kwargs:
+            access_tier = kwargs['accessTier']
+        if 'accountKind' in kwargs:
+            account_kind = kwargs['accountKind']
+        if 'allowNestedItemsToBePublic' in kwargs:
+            allow_nested_items_to_be_public = kwargs['allowNestedItemsToBePublic']
+        if 'allowedCopyScope' in kwargs:
+            allowed_copy_scope = kwargs['allowedCopyScope']
+        if 'azureFilesAuthentication' in kwargs:
+            azure_files_authentication = kwargs['azureFilesAuthentication']
+        if 'blobProperties' in kwargs:
+            blob_properties = kwargs['blobProperties']
+        if 'crossTenantReplicationEnabled' in kwargs:
+            cross_tenant_replication_enabled = kwargs['crossTenantReplicationEnabled']
+        if 'customDomain' in kwargs:
+            custom_domain = kwargs['customDomain']
+        if 'customerManagedKey' in kwargs:
+            customer_managed_key = kwargs['customerManagedKey']
+        if 'defaultToOauthAuthentication' in kwargs:
+            default_to_oauth_authentication = kwargs['defaultToOauthAuthentication']
+        if 'edgeZone' in kwargs:
+            edge_zone = kwargs['edgeZone']
+        if 'enableHttpsTrafficOnly' in kwargs:
+            enable_https_traffic_only = kwargs['enableHttpsTrafficOnly']
+        if 'immutabilityPolicy' in kwargs:
+            immutability_policy = kwargs['immutabilityPolicy']
+        if 'infrastructureEncryptionEnabled' in kwargs:
+            infrastructure_encryption_enabled = kwargs['infrastructureEncryptionEnabled']
+        if 'isHnsEnabled' in kwargs:
+            is_hns_enabled = kwargs['isHnsEnabled']
+        if 'largeFileShareEnabled' in kwargs:
+            large_file_share_enabled = kwargs['largeFileShareEnabled']
+        if 'minTlsVersion' in kwargs:
+            min_tls_version = kwargs['minTlsVersion']
+        if 'networkRules' in kwargs:
+            network_rules = kwargs['networkRules']
+        if 'nfsv3Enabled' in kwargs:
+            nfsv3_enabled = kwargs['nfsv3Enabled']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'queueEncryptionKeyType' in kwargs:
+            queue_encryption_key_type = kwargs['queueEncryptionKeyType']
+        if 'queueProperties' in kwargs:
+            queue_properties = kwargs['queueProperties']
+        if 'sasPolicy' in kwargs:
+            sas_policy = kwargs['sasPolicy']
+        if 'sftpEnabled' in kwargs:
+            sftp_enabled = kwargs['sftpEnabled']
+        if 'shareProperties' in kwargs:
+            share_properties = kwargs['shareProperties']
+        if 'sharedAccessKeyEnabled' in kwargs:
+            shared_access_key_enabled = kwargs['sharedAccessKeyEnabled']
+        if 'staticWebsite' in kwargs:
+            static_website = kwargs['staticWebsite']
+        if 'tableEncryptionKeyType' in kwargs:
+            table_encryption_key_type = kwargs['tableEncryptionKeyType']
+
         _setter("account_replication_type", account_replication_type)
         _setter("account_tier", account_tier)
         _setter("resource_group_name", resource_group_name)
@@ -1018,7 +1082,135 @@ class _AccountState:
              static_website: Optional[pulumi.Input['AccountStaticWebsiteArgs']] = None,
              table_encryption_key_type: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessTier' in kwargs:
+            access_tier = kwargs['accessTier']
+        if 'accountKind' in kwargs:
+            account_kind = kwargs['accountKind']
+        if 'accountReplicationType' in kwargs:
+            account_replication_type = kwargs['accountReplicationType']
+        if 'accountTier' in kwargs:
+            account_tier = kwargs['accountTier']
+        if 'allowNestedItemsToBePublic' in kwargs:
+            allow_nested_items_to_be_public = kwargs['allowNestedItemsToBePublic']
+        if 'allowedCopyScope' in kwargs:
+            allowed_copy_scope = kwargs['allowedCopyScope']
+        if 'azureFilesAuthentication' in kwargs:
+            azure_files_authentication = kwargs['azureFilesAuthentication']
+        if 'blobProperties' in kwargs:
+            blob_properties = kwargs['blobProperties']
+        if 'crossTenantReplicationEnabled' in kwargs:
+            cross_tenant_replication_enabled = kwargs['crossTenantReplicationEnabled']
+        if 'customDomain' in kwargs:
+            custom_domain = kwargs['customDomain']
+        if 'customerManagedKey' in kwargs:
+            customer_managed_key = kwargs['customerManagedKey']
+        if 'defaultToOauthAuthentication' in kwargs:
+            default_to_oauth_authentication = kwargs['defaultToOauthAuthentication']
+        if 'edgeZone' in kwargs:
+            edge_zone = kwargs['edgeZone']
+        if 'enableHttpsTrafficOnly' in kwargs:
+            enable_https_traffic_only = kwargs['enableHttpsTrafficOnly']
+        if 'immutabilityPolicy' in kwargs:
+            immutability_policy = kwargs['immutabilityPolicy']
+        if 'infrastructureEncryptionEnabled' in kwargs:
+            infrastructure_encryption_enabled = kwargs['infrastructureEncryptionEnabled']
+        if 'isHnsEnabled' in kwargs:
+            is_hns_enabled = kwargs['isHnsEnabled']
+        if 'largeFileShareEnabled' in kwargs:
+            large_file_share_enabled = kwargs['largeFileShareEnabled']
+        if 'minTlsVersion' in kwargs:
+            min_tls_version = kwargs['minTlsVersion']
+        if 'networkRules' in kwargs:
+            network_rules = kwargs['networkRules']
+        if 'nfsv3Enabled' in kwargs:
+            nfsv3_enabled = kwargs['nfsv3Enabled']
+        if 'primaryAccessKey' in kwargs:
+            primary_access_key = kwargs['primaryAccessKey']
+        if 'primaryBlobConnectionString' in kwargs:
+            primary_blob_connection_string = kwargs['primaryBlobConnectionString']
+        if 'primaryBlobEndpoint' in kwargs:
+            primary_blob_endpoint = kwargs['primaryBlobEndpoint']
+        if 'primaryBlobHost' in kwargs:
+            primary_blob_host = kwargs['primaryBlobHost']
+        if 'primaryConnectionString' in kwargs:
+            primary_connection_string = kwargs['primaryConnectionString']
+        if 'primaryDfsEndpoint' in kwargs:
+            primary_dfs_endpoint = kwargs['primaryDfsEndpoint']
+        if 'primaryDfsHost' in kwargs:
+            primary_dfs_host = kwargs['primaryDfsHost']
+        if 'primaryFileEndpoint' in kwargs:
+            primary_file_endpoint = kwargs['primaryFileEndpoint']
+        if 'primaryFileHost' in kwargs:
+            primary_file_host = kwargs['primaryFileHost']
+        if 'primaryLocation' in kwargs:
+            primary_location = kwargs['primaryLocation']
+        if 'primaryQueueEndpoint' in kwargs:
+            primary_queue_endpoint = kwargs['primaryQueueEndpoint']
+        if 'primaryQueueHost' in kwargs:
+            primary_queue_host = kwargs['primaryQueueHost']
+        if 'primaryTableEndpoint' in kwargs:
+            primary_table_endpoint = kwargs['primaryTableEndpoint']
+        if 'primaryTableHost' in kwargs:
+            primary_table_host = kwargs['primaryTableHost']
+        if 'primaryWebEndpoint' in kwargs:
+            primary_web_endpoint = kwargs['primaryWebEndpoint']
+        if 'primaryWebHost' in kwargs:
+            primary_web_host = kwargs['primaryWebHost']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'queueEncryptionKeyType' in kwargs:
+            queue_encryption_key_type = kwargs['queueEncryptionKeyType']
+        if 'queueProperties' in kwargs:
+            queue_properties = kwargs['queueProperties']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'sasPolicy' in kwargs:
+            sas_policy = kwargs['sasPolicy']
+        if 'secondaryAccessKey' in kwargs:
+            secondary_access_key = kwargs['secondaryAccessKey']
+        if 'secondaryBlobConnectionString' in kwargs:
+            secondary_blob_connection_string = kwargs['secondaryBlobConnectionString']
+        if 'secondaryBlobEndpoint' in kwargs:
+            secondary_blob_endpoint = kwargs['secondaryBlobEndpoint']
+        if 'secondaryBlobHost' in kwargs:
+            secondary_blob_host = kwargs['secondaryBlobHost']
+        if 'secondaryConnectionString' in kwargs:
+            secondary_connection_string = kwargs['secondaryConnectionString']
+        if 'secondaryDfsEndpoint' in kwargs:
+            secondary_dfs_endpoint = kwargs['secondaryDfsEndpoint']
+        if 'secondaryDfsHost' in kwargs:
+            secondary_dfs_host = kwargs['secondaryDfsHost']
+        if 'secondaryFileEndpoint' in kwargs:
+            secondary_file_endpoint = kwargs['secondaryFileEndpoint']
+        if 'secondaryFileHost' in kwargs:
+            secondary_file_host = kwargs['secondaryFileHost']
+        if 'secondaryLocation' in kwargs:
+            secondary_location = kwargs['secondaryLocation']
+        if 'secondaryQueueEndpoint' in kwargs:
+            secondary_queue_endpoint = kwargs['secondaryQueueEndpoint']
+        if 'secondaryQueueHost' in kwargs:
+            secondary_queue_host = kwargs['secondaryQueueHost']
+        if 'secondaryTableEndpoint' in kwargs:
+            secondary_table_endpoint = kwargs['secondaryTableEndpoint']
+        if 'secondaryTableHost' in kwargs:
+            secondary_table_host = kwargs['secondaryTableHost']
+        if 'secondaryWebEndpoint' in kwargs:
+            secondary_web_endpoint = kwargs['secondaryWebEndpoint']
+        if 'secondaryWebHost' in kwargs:
+            secondary_web_host = kwargs['secondaryWebHost']
+        if 'sftpEnabled' in kwargs:
+            sftp_enabled = kwargs['sftpEnabled']
+        if 'shareProperties' in kwargs:
+            share_properties = kwargs['shareProperties']
+        if 'sharedAccessKeyEnabled' in kwargs:
+            shared_access_key_enabled = kwargs['sharedAccessKeyEnabled']
+        if 'staticWebsite' in kwargs:
+            static_website = kwargs['staticWebsite']
+        if 'tableEncryptionKeyType' in kwargs:
+            table_encryption_key_type = kwargs['tableEncryptionKeyType']
+
         if access_tier is not None:
             _setter("access_tier", access_tier)
         if account_kind is not None:

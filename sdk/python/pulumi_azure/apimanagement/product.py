@@ -67,7 +67,23 @@ class ProductArgs:
              subscription_required: Optional[pulumi.Input[bool]] = None,
              subscriptions_limit: Optional[pulumi.Input[int]] = None,
              terms: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'productId' in kwargs:
+            product_id = kwargs['productId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'approvalRequired' in kwargs:
+            approval_required = kwargs['approvalRequired']
+        if 'subscriptionRequired' in kwargs:
+            subscription_required = kwargs['subscriptionRequired']
+        if 'subscriptionsLimit' in kwargs:
+            subscriptions_limit = kwargs['subscriptionsLimit']
+
         _setter("api_management_name", api_management_name)
         _setter("display_name", display_name)
         _setter("product_id", product_id)
@@ -265,7 +281,23 @@ class _ProductState:
              subscription_required: Optional[pulumi.Input[bool]] = None,
              subscriptions_limit: Optional[pulumi.Input[int]] = None,
              terms: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if 'approvalRequired' in kwargs:
+            approval_required = kwargs['approvalRequired']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'productId' in kwargs:
+            product_id = kwargs['productId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'subscriptionRequired' in kwargs:
+            subscription_required = kwargs['subscriptionRequired']
+        if 'subscriptionsLimit' in kwargs:
+            subscriptions_limit = kwargs['subscriptionsLimit']
+
         if api_management_name is not None:
             _setter("api_management_name", api_management_name)
         if approval_required is not None:

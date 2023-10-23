@@ -77,7 +77,17 @@ class WebTestArgs:
              retry_enabled: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              timeout: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationInsightsId' in kwargs:
+            application_insights_id = kwargs['applicationInsightsId']
+        if 'geoLocations' in kwargs:
+            geo_locations = kwargs['geoLocations']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'retryEnabled' in kwargs:
+            retry_enabled = kwargs['retryEnabled']
+
         _setter("application_insights_id", application_insights_id)
         _setter("configuration", configuration)
         _setter("geo_locations", geo_locations)
@@ -328,7 +338,19 @@ class _WebTestState:
              synthetic_monitor_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              timeout: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationInsightsId' in kwargs:
+            application_insights_id = kwargs['applicationInsightsId']
+        if 'geoLocations' in kwargs:
+            geo_locations = kwargs['geoLocations']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'retryEnabled' in kwargs:
+            retry_enabled = kwargs['retryEnabled']
+        if 'syntheticMonitorId' in kwargs:
+            synthetic_monitor_id = kwargs['syntheticMonitorId']
+
         if application_insights_id is not None:
             _setter("application_insights_id", application_insights_id)
         if configuration is not None:

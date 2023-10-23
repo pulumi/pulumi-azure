@@ -29,7 +29,7 @@ public class WorkspaceCustomerManagedKey extends com.pulumi.resources.CustomReso
      * The ID of the Key Vault.
      * 
      */
-    @Export(name="keyVaultKeyId", refs={String.class}, tree="[0]")
+    @Export(name="keyVaultKeyId", type=String.class, parameters={})
     private Output<String> keyVaultKeyId;
 
     /**
@@ -47,7 +47,7 @@ public class WorkspaceCustomerManagedKey extends com.pulumi.resources.CustomReso
      * 
      */
     @Deprecated /* this resource has been deprecated in favour of the `azurerm_databricks_workspace_root_dbfs_customer_managed_key` resource and will be removed from the v4.0 azurerm provider. */
-    @Export(name="workspaceId", refs={String.class}, tree="[0]")
+    @Export(name="workspaceId", type=String.class, parameters={})
     private Output<String> workspaceId;
 
     /**

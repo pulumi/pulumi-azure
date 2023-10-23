@@ -49,7 +49,13 @@ class AnalyzerArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'storageAccount' in kwargs:
+            storage_account = kwargs['storageAccount']
+
         _setter("identity", identity)
         _setter("resource_group_name", resource_group_name)
         _setter("storage_account", storage_account)
@@ -169,7 +175,13 @@ class _AnalyzerState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              storage_account: Optional[pulumi.Input['AnalyzerStorageAccountArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'storageAccount' in kwargs:
+            storage_account = kwargs['storageAccount']
+
         if identity is not None:
             _setter("identity", identity)
         if location is not None:

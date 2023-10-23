@@ -57,7 +57,23 @@ class EndpointServicebusTopicArgs:
              entity_path: Optional[pulumi.Input[str]] = None,
              identity_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'iothubId' in kwargs:
+            iothub_id = kwargs['iothubId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+        if 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+        if 'endpointUri' in kwargs:
+            endpoint_uri = kwargs['endpointUri']
+        if 'entityPath' in kwargs:
+            entity_path = kwargs['entityPath']
+        if 'identityId' in kwargs:
+            identity_id = kwargs['identityId']
+
         _setter("iothub_id", iothub_id)
         _setter("resource_group_name", resource_group_name)
         if authentication_type is not None:
@@ -218,7 +234,23 @@ class _EndpointServicebusTopicState:
              iothub_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+        if 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+        if 'endpointUri' in kwargs:
+            endpoint_uri = kwargs['endpointUri']
+        if 'entityPath' in kwargs:
+            entity_path = kwargs['entityPath']
+        if 'identityId' in kwargs:
+            identity_id = kwargs['identityId']
+        if 'iothubId' in kwargs:
+            iothub_id = kwargs['iothubId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if authentication_type is not None:
             _setter("authentication_type", authentication_type)
         if connection_string is not None:

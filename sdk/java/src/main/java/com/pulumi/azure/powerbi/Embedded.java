@@ -73,7 +73,7 @@ public class Embedded extends com.pulumi.resources.CustomResource {
      * A set of administrator user identities, which manages the Power BI Embedded and must be a member user or a service principal in your AAD tenant.
      * 
      */
-    @Export(name="administrators", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="administrators", type=List.class, parameters={String.class})
     private Output<List<String>> administrators;
 
     /**
@@ -87,7 +87,7 @@ public class Embedded extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -101,7 +101,7 @@ public class Embedded extends com.pulumi.resources.CustomResource {
      * Sets the PowerBI Embedded&#39;s mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen1`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="mode", refs={String.class}, tree="[0]")
+    @Export(name="mode", type=String.class, parameters={})
     private Output</* @Nullable */ String> mode;
 
     /**
@@ -115,7 +115,7 @@ public class Embedded extends com.pulumi.resources.CustomResource {
      * The name of the PowerBI Embedded. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -129,7 +129,7 @@ public class Embedded extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the PowerBI Embedded should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -143,7 +143,7 @@ public class Embedded extends com.pulumi.resources.CustomResource {
      * Sets the PowerBI Embedded&#39;s pricing level&#39;s SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`.
      * 
      */
-    @Export(name="skuName", refs={String.class}, tree="[0]")
+    @Export(name="skuName", type=String.class, parameters={})
     private Output<String> skuName;
 
     /**
@@ -157,7 +157,7 @@ public class Embedded extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

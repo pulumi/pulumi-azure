@@ -104,7 +104,7 @@ public class MedtechService extends com.pulumi.resources.CustomResource {
      * Specifies the Device Mappings of the Med Tech Service.
      * 
      */
-    @Export(name="deviceMappingJson", refs={String.class}, tree="[0]")
+    @Export(name="deviceMappingJson", type=String.class, parameters={})
     private Output<String> deviceMappingJson;
 
     /**
@@ -118,7 +118,7 @@ public class MedtechService extends com.pulumi.resources.CustomResource {
      * Specifies the Consumer Group of the Event Hub to connect to.
      * 
      */
-    @Export(name="eventhubConsumerGroupName", refs={String.class}, tree="[0]")
+    @Export(name="eventhubConsumerGroupName", type=String.class, parameters={})
     private Output<String> eventhubConsumerGroupName;
 
     /**
@@ -132,7 +132,7 @@ public class MedtechService extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Event Hub to connect to.
      * 
      */
-    @Export(name="eventhubName", refs={String.class}, tree="[0]")
+    @Export(name="eventhubName", type=String.class, parameters={})
     private Output<String> eventhubName;
 
     /**
@@ -146,7 +146,7 @@ public class MedtechService extends com.pulumi.resources.CustomResource {
      * Specifies the namespace name of the Event Hub to connect to.
      * 
      */
-    @Export(name="eventhubNamespaceName", refs={String.class}, tree="[0]")
+    @Export(name="eventhubNamespaceName", type=String.class, parameters={})
     private Output<String> eventhubNamespaceName;
 
     /**
@@ -160,7 +160,7 @@ public class MedtechService extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", refs={MedtechServiceIdentity.class}, tree="[0]")
+    @Export(name="identity", type=MedtechServiceIdentity.class, parameters={})
     private Output</* @Nullable */ MedtechServiceIdentity> identity;
 
     /**
@@ -174,7 +174,7 @@ public class MedtechService extends com.pulumi.resources.CustomResource {
      * Specifies the Azure Region where the Healthcare Med Tech Service should be created. Changing this forces a new Healthcare Med Tech Service to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -188,7 +188,7 @@ public class MedtechService extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Healthcare Med Tech Service. Changing this forces a new Healthcare Med Tech Service to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -202,7 +202,7 @@ public class MedtechService extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the Healthcare Med Tech Service.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -216,7 +216,7 @@ public class MedtechService extends com.pulumi.resources.CustomResource {
      * Specifies the id of the Healthcare Workspace where the Healthcare Med Tech Service should exist. Changing this forces a new Healthcare Med Tech Service to be created.
      * 
      */
-    @Export(name="workspaceId", refs={String.class}, tree="[0]")
+    @Export(name="workspaceId", type=String.class, parameters={})
     private Output<String> workspaceId;
 
     /**

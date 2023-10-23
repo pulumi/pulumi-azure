@@ -136,7 +136,7 @@ public class ExpressRouteConnection extends com.pulumi.resources.CustomResource 
      * The authorization key to establish the Express Route Connection.
      * 
      */
-    @Export(name="authorizationKey", refs={String.class}, tree="[0]")
+    @Export(name="authorizationKey", type=String.class, parameters={})
     private Output</* @Nullable */ String> authorizationKey;
 
     /**
@@ -150,7 +150,7 @@ public class ExpressRouteConnection extends com.pulumi.resources.CustomResource 
      * Is Internet security enabled for this Express Route Connection?
      * 
      */
-    @Export(name="enableInternetSecurity", refs={Boolean.class}, tree="[0]")
+    @Export(name="enableInternetSecurity", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enableInternetSecurity;
 
     /**
@@ -164,7 +164,7 @@ public class ExpressRouteConnection extends com.pulumi.resources.CustomResource 
      * The ID of the Express Route Circuit Peering that this Express Route Connection connects with. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="expressRouteCircuitPeeringId", refs={String.class}, tree="[0]")
+    @Export(name="expressRouteCircuitPeeringId", type=String.class, parameters={})
     private Output<String> expressRouteCircuitPeeringId;
 
     /**
@@ -178,7 +178,7 @@ public class ExpressRouteConnection extends com.pulumi.resources.CustomResource 
      * Specified whether Fast Path is enabled for Virtual Wan Firewall Hub. Defaults to `false`.
      * 
      */
-    @Export(name="expressRouteGatewayBypassEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="expressRouteGatewayBypassEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> expressRouteGatewayBypassEnabled;
 
     /**
@@ -192,7 +192,7 @@ public class ExpressRouteConnection extends com.pulumi.resources.CustomResource 
      * The ID of the Express Route Gateway that this Express Route Connection connects with. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="expressRouteGatewayId", refs={String.class}, tree="[0]")
+    @Export(name="expressRouteGatewayId", type=String.class, parameters={})
     private Output<String> expressRouteGatewayId;
 
     /**
@@ -206,7 +206,7 @@ public class ExpressRouteConnection extends com.pulumi.resources.CustomResource 
      * The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -220,7 +220,7 @@ public class ExpressRouteConnection extends com.pulumi.resources.CustomResource 
      * A `routing` block as defined below.
      * 
      */
-    @Export(name="routing", refs={ExpressRouteConnectionRouting.class}, tree="[0]")
+    @Export(name="routing", type=ExpressRouteConnectionRouting.class, parameters={})
     private Output<ExpressRouteConnectionRouting> routing;
 
     /**
@@ -234,7 +234,7 @@ public class ExpressRouteConnection extends com.pulumi.resources.CustomResource 
      * The routing weight associated to the Express Route Connection. Possible value is between `0` and `32000`. Defaults to `0`.
      * 
      */
-    @Export(name="routingWeight", refs={Integer.class}, tree="[0]")
+    @Export(name="routingWeight", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> routingWeight;
 
     /**

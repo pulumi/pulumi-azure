@@ -77,7 +77,23 @@ class CustomHttpsConfigurationCustomHttpsConfigurationArgs:
              minimum_tls_version: Optional[pulumi.Input[str]] = None,
              provisioning_state: Optional[pulumi.Input[str]] = None,
              provisioning_substate: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azureKeyVaultCertificateSecretName' in kwargs:
+            azure_key_vault_certificate_secret_name = kwargs['azureKeyVaultCertificateSecretName']
+        if 'azureKeyVaultCertificateSecretVersion' in kwargs:
+            azure_key_vault_certificate_secret_version = kwargs['azureKeyVaultCertificateSecretVersion']
+        if 'azureKeyVaultCertificateVaultId' in kwargs:
+            azure_key_vault_certificate_vault_id = kwargs['azureKeyVaultCertificateVaultId']
+        if 'certificateSource' in kwargs:
+            certificate_source = kwargs['certificateSource']
+        if 'minimumTlsVersion' in kwargs:
+            minimum_tls_version = kwargs['minimumTlsVersion']
+        if 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if 'provisioningSubstate' in kwargs:
+            provisioning_substate = kwargs['provisioningSubstate']
+
         if azure_key_vault_certificate_secret_name is not None:
             _setter("azure_key_vault_certificate_secret_name", azure_key_vault_certificate_secret_name)
         if azure_key_vault_certificate_secret_version is not None:
@@ -219,7 +235,15 @@ class FirewallPolicyCustomRuleArgs:
              priority: Optional[pulumi.Input[int]] = None,
              rate_limit_duration_in_minutes: Optional[pulumi.Input[int]] = None,
              rate_limit_threshold: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchConditions' in kwargs:
+            match_conditions = kwargs['matchConditions']
+        if 'rateLimitDurationInMinutes' in kwargs:
+            rate_limit_duration_in_minutes = kwargs['rateLimitDurationInMinutes']
+        if 'rateLimitThreshold' in kwargs:
+            rate_limit_threshold = kwargs['rateLimitThreshold']
+
         _setter("action", action)
         _setter("name", name)
         _setter("type", type)
@@ -366,7 +390,15 @@ class FirewallPolicyCustomRuleMatchConditionArgs:
              negation_condition: Optional[pulumi.Input[bool]] = None,
              selector: Optional[pulumi.Input[str]] = None,
              transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'matchVariable' in kwargs:
+            match_variable = kwargs['matchVariable']
+        if 'negationCondition' in kwargs:
+            negation_condition = kwargs['negationCondition']
+
         _setter("match_values", match_values)
         _setter("match_variable", match_variable)
         _setter("operator", operator)
@@ -477,7 +509,9 @@ class FirewallPolicyManagedRuleArgs:
              version: pulumi.Input[str],
              exclusions: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleExclusionArgs']]]] = None,
              overrides: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         _setter("version", version)
         if exclusions is not None:
@@ -557,7 +591,11 @@ class FirewallPolicyManagedRuleExclusionArgs:
              match_variable: pulumi.Input[str],
              operator: pulumi.Input[str],
              selector: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchVariable' in kwargs:
+            match_variable = kwargs['matchVariable']
+
         _setter("match_variable", match_variable)
         _setter("operator", operator)
         _setter("selector", selector)
@@ -622,7 +660,11 @@ class FirewallPolicyManagedRuleOverrideArgs:
              rule_group_name: pulumi.Input[str],
              exclusions: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideExclusionArgs']]]] = None,
              rules: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ruleGroupName' in kwargs:
+            rule_group_name = kwargs['ruleGroupName']
+
         _setter("rule_group_name", rule_group_name)
         if exclusions is not None:
             _setter("exclusions", exclusions)
@@ -689,7 +731,11 @@ class FirewallPolicyManagedRuleOverrideExclusionArgs:
              match_variable: pulumi.Input[str],
              operator: pulumi.Input[str],
              selector: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchVariable' in kwargs:
+            match_variable = kwargs['matchVariable']
+
         _setter("match_variable", match_variable)
         _setter("operator", operator)
         _setter("selector", selector)
@@ -758,7 +804,11 @@ class FirewallPolicyManagedRuleOverrideRuleArgs:
              rule_id: pulumi.Input[str],
              enabled: Optional[pulumi.Input[bool]] = None,
              exclusions: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideRuleExclusionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ruleId' in kwargs:
+            rule_id = kwargs['ruleId']
+
         _setter("action", action)
         _setter("rule_id", rule_id)
         if enabled is not None:
@@ -838,7 +888,11 @@ class FirewallPolicyManagedRuleOverrideRuleExclusionArgs:
              match_variable: pulumi.Input[str],
              operator: pulumi.Input[str],
              selector: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchVariable' in kwargs:
+            match_variable = kwargs['matchVariable']
+
         _setter("match_variable", match_variable)
         _setter("operator", operator)
         _setter("selector", selector)
@@ -911,7 +965,13 @@ class FrontdoorBackendPoolArgs:
              load_balancing_name: pulumi.Input[str],
              name: pulumi.Input[str],
              id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'healthProbeName' in kwargs:
+            health_probe_name = kwargs['healthProbeName']
+        if 'loadBalancingName' in kwargs:
+            load_balancing_name = kwargs['loadBalancingName']
+
         _setter("backends", backends)
         _setter("health_probe_name", health_probe_name)
         _setter("load_balancing_name", load_balancing_name)
@@ -1019,7 +1079,15 @@ class FrontdoorBackendPoolBackendArgs:
              enabled: Optional[pulumi.Input[bool]] = None,
              priority: Optional[pulumi.Input[int]] = None,
              weight: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hostHeader' in kwargs:
+            host_header = kwargs['hostHeader']
+        if 'httpPort' in kwargs:
+            http_port = kwargs['httpPort']
+        if 'httpsPort' in kwargs:
+            https_port = kwargs['httpsPort']
+
         _setter("address", address)
         _setter("host_header", host_header)
         _setter("http_port", http_port)
@@ -1157,7 +1225,13 @@ class FrontdoorBackendPoolHealthProbeArgs:
              path: Optional[pulumi.Input[str]] = None,
              probe_method: Optional[pulumi.Input[str]] = None,
              protocol: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'intervalInSeconds' in kwargs:
+            interval_in_seconds = kwargs['intervalInSeconds']
+        if 'probeMethod' in kwargs:
+            probe_method = kwargs['probeMethod']
+
         _setter("name", name)
         if enabled is not None:
             _setter("enabled", enabled)
@@ -1290,7 +1364,15 @@ class FrontdoorBackendPoolLoadBalancingArgs:
              id: Optional[pulumi.Input[str]] = None,
              sample_size: Optional[pulumi.Input[int]] = None,
              successful_samples_required: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalLatencyMilliseconds' in kwargs:
+            additional_latency_milliseconds = kwargs['additionalLatencyMilliseconds']
+        if 'sampleSize' in kwargs:
+            sample_size = kwargs['sampleSize']
+        if 'successfulSamplesRequired' in kwargs:
+            successful_samples_required = kwargs['successfulSamplesRequired']
+
         _setter("name", name)
         if additional_latency_milliseconds is not None:
             _setter("additional_latency_milliseconds", additional_latency_milliseconds)
@@ -1383,7 +1465,13 @@ class FrontdoorBackendPoolSettingArgs:
              _setter: Callable[[Any, Any], None],
              enforce_backend_pools_certificate_name_check: pulumi.Input[bool],
              backend_pools_send_receive_timeout_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'enforceBackendPoolsCertificateNameCheck' in kwargs:
+            enforce_backend_pools_certificate_name_check = kwargs['enforceBackendPoolsCertificateNameCheck']
+        if 'backendPoolsSendReceiveTimeoutSeconds' in kwargs:
+            backend_pools_send_receive_timeout_seconds = kwargs['backendPoolsSendReceiveTimeoutSeconds']
+
         _setter("enforce_backend_pools_certificate_name_check", enforce_backend_pools_certificate_name_check)
         if backend_pools_send_receive_timeout_seconds is not None:
             _setter("backend_pools_send_receive_timeout_seconds", backend_pools_send_receive_timeout_seconds)
@@ -1439,7 +1527,19 @@ class FrontdoorExplicitResourceOrderArgs:
              backend_pool_load_balancing_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              frontend_endpoint_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              routing_rule_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backendPoolHealthProbeIds' in kwargs:
+            backend_pool_health_probe_ids = kwargs['backendPoolHealthProbeIds']
+        if 'backendPoolIds' in kwargs:
+            backend_pool_ids = kwargs['backendPoolIds']
+        if 'backendPoolLoadBalancingIds' in kwargs:
+            backend_pool_load_balancing_ids = kwargs['backendPoolLoadBalancingIds']
+        if 'frontendEndpointIds' in kwargs:
+            frontend_endpoint_ids = kwargs['frontendEndpointIds']
+        if 'routingRuleIds' in kwargs:
+            routing_rule_ids = kwargs['routingRuleIds']
+
         if backend_pool_health_probe_ids is not None:
             _setter("backend_pool_health_probe_ids", backend_pool_health_probe_ids)
         if backend_pool_ids is not None:
@@ -1532,7 +1632,17 @@ class FrontdoorFrontendEndpointArgs:
              session_affinity_enabled: Optional[pulumi.Input[bool]] = None,
              session_affinity_ttl_seconds: Optional[pulumi.Input[int]] = None,
              web_application_firewall_policy_link_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hostName' in kwargs:
+            host_name = kwargs['hostName']
+        if 'sessionAffinityEnabled' in kwargs:
+            session_affinity_enabled = kwargs['sessionAffinityEnabled']
+        if 'sessionAffinityTtlSeconds' in kwargs:
+            session_affinity_ttl_seconds = kwargs['sessionAffinityTtlSeconds']
+        if 'webApplicationFirewallPolicyLinkId' in kwargs:
+            web_application_firewall_policy_link_id = kwargs['webApplicationFirewallPolicyLinkId']
+
         _setter("host_name", host_name)
         _setter("name", name)
         if id is not None:
@@ -1660,7 +1770,19 @@ class FrontdoorRoutingRuleArgs:
              forwarding_configuration: Optional[pulumi.Input['FrontdoorRoutingRuleForwardingConfigurationArgs']] = None,
              id: Optional[pulumi.Input[str]] = None,
              redirect_configuration: Optional[pulumi.Input['FrontdoorRoutingRuleRedirectConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'acceptedProtocols' in kwargs:
+            accepted_protocols = kwargs['acceptedProtocols']
+        if 'frontendEndpoints' in kwargs:
+            frontend_endpoints = kwargs['frontendEndpoints']
+        if 'patternsToMatches' in kwargs:
+            patterns_to_matches = kwargs['patternsToMatches']
+        if 'forwardingConfiguration' in kwargs:
+            forwarding_configuration = kwargs['forwardingConfiguration']
+        if 'redirectConfiguration' in kwargs:
+            redirect_configuration = kwargs['redirectConfiguration']
+
         _setter("accepted_protocols", accepted_protocols)
         _setter("frontend_endpoints", frontend_endpoints)
         _setter("name", name)
@@ -1814,7 +1936,25 @@ class FrontdoorRoutingRuleForwardingConfigurationArgs:
              cache_use_dynamic_compression: Optional[pulumi.Input[bool]] = None,
              custom_forwarding_path: Optional[pulumi.Input[str]] = None,
              forwarding_protocol: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backendPoolName' in kwargs:
+            backend_pool_name = kwargs['backendPoolName']
+        if 'cacheDuration' in kwargs:
+            cache_duration = kwargs['cacheDuration']
+        if 'cacheEnabled' in kwargs:
+            cache_enabled = kwargs['cacheEnabled']
+        if 'cacheQueryParameterStripDirective' in kwargs:
+            cache_query_parameter_strip_directive = kwargs['cacheQueryParameterStripDirective']
+        if 'cacheQueryParameters' in kwargs:
+            cache_query_parameters = kwargs['cacheQueryParameters']
+        if 'cacheUseDynamicCompression' in kwargs:
+            cache_use_dynamic_compression = kwargs['cacheUseDynamicCompression']
+        if 'customForwardingPath' in kwargs:
+            custom_forwarding_path = kwargs['customForwardingPath']
+        if 'forwardingProtocol' in kwargs:
+            forwarding_protocol = kwargs['forwardingProtocol']
+
         _setter("backend_pool_name", backend_pool_name)
         if cache_duration is not None:
             _setter("cache_duration", cache_duration)
@@ -1963,7 +2103,21 @@ class FrontdoorRoutingRuleRedirectConfigurationArgs:
              custom_host: Optional[pulumi.Input[str]] = None,
              custom_path: Optional[pulumi.Input[str]] = None,
              custom_query_string: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'redirectProtocol' in kwargs:
+            redirect_protocol = kwargs['redirectProtocol']
+        if 'redirectType' in kwargs:
+            redirect_type = kwargs['redirectType']
+        if 'customFragment' in kwargs:
+            custom_fragment = kwargs['customFragment']
+        if 'customHost' in kwargs:
+            custom_host = kwargs['customHost']
+        if 'customPath' in kwargs:
+            custom_path = kwargs['customPath']
+        if 'customQueryString' in kwargs:
+            custom_query_string = kwargs['customQueryString']
+
         _setter("redirect_protocol", redirect_protocol)
         _setter("redirect_type", redirect_type)
         if custom_fragment is not None:
@@ -2075,7 +2229,11 @@ class RulesEngineRuleArgs:
              priority: pulumi.Input[int],
              action: Optional[pulumi.Input['RulesEngineRuleActionArgs']] = None,
              match_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleMatchConditionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchConditions' in kwargs:
+            match_conditions = kwargs['matchConditions']
+
         _setter("name", name)
         _setter("priority", priority)
         if action is not None:
@@ -2151,7 +2309,13 @@ class RulesEngineRuleActionArgs:
              _setter: Callable[[Any, Any], None],
              request_headers: Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleActionRequestHeaderArgs']]]] = None,
              response_headers: Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleActionResponseHeaderArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'requestHeaders' in kwargs:
+            request_headers = kwargs['requestHeaders']
+        if 'responseHeaders' in kwargs:
+            response_headers = kwargs['responseHeaders']
+
         if request_headers is not None:
             _setter("request_headers", request_headers)
         if response_headers is not None:
@@ -2205,7 +2369,13 @@ class RulesEngineRuleActionRequestHeaderArgs:
              header_action_type: Optional[pulumi.Input[str]] = None,
              header_name: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'headerActionType' in kwargs:
+            header_action_type = kwargs['headerActionType']
+        if 'headerName' in kwargs:
+            header_name = kwargs['headerName']
+
         if header_action_type is not None:
             _setter("header_action_type", header_action_type)
         if header_name is not None:
@@ -2273,7 +2443,13 @@ class RulesEngineRuleActionResponseHeaderArgs:
              header_action_type: Optional[pulumi.Input[str]] = None,
              header_name: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'headerActionType' in kwargs:
+            header_action_type = kwargs['headerActionType']
+        if 'headerName' in kwargs:
+            header_name = kwargs['headerName']
+
         if header_action_type is not None:
             _setter("header_action_type", header_action_type)
         if header_name is not None:
@@ -2353,7 +2529,11 @@ class RulesEngineRuleMatchConditionArgs:
              transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              variable: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'negateCondition' in kwargs:
+            negate_condition = kwargs['negateCondition']
+
         _setter("operator", operator)
         if negate_condition is not None:
             _setter("negate_condition", negate_condition)

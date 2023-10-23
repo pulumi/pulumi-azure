@@ -69,7 +69,21 @@ class NetworkWatcherFlowLogArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              traffic_analytics: Optional[pulumi.Input['NetworkWatcherFlowLogTrafficAnalyticsArgs']] = None,
              version: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkSecurityGroupId' in kwargs:
+            network_security_group_id = kwargs['networkSecurityGroupId']
+        if 'networkWatcherName' in kwargs:
+            network_watcher_name = kwargs['networkWatcherName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'retentionPolicy' in kwargs:
+            retention_policy = kwargs['retentionPolicy']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if 'trafficAnalytics' in kwargs:
+            traffic_analytics = kwargs['trafficAnalytics']
+
         _setter("enabled", enabled)
         _setter("network_security_group_id", network_security_group_id)
         _setter("network_watcher_name", network_watcher_name)
@@ -276,7 +290,21 @@ class _NetworkWatcherFlowLogState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              traffic_analytics: Optional[pulumi.Input['NetworkWatcherFlowLogTrafficAnalyticsArgs']] = None,
              version: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkSecurityGroupId' in kwargs:
+            network_security_group_id = kwargs['networkSecurityGroupId']
+        if 'networkWatcherName' in kwargs:
+            network_watcher_name = kwargs['networkWatcherName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'retentionPolicy' in kwargs:
+            retention_policy = kwargs['retentionPolicy']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if 'trafficAnalytics' in kwargs:
+            traffic_analytics = kwargs['trafficAnalytics']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if location is not None:

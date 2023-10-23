@@ -59,7 +59,17 @@ class AvailabilitySetArgs:
              platform_update_domain_count: Optional[pulumi.Input[int]] = None,
              proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'platformFaultDomainCount' in kwargs:
+            platform_fault_domain_count = kwargs['platformFaultDomainCount']
+        if 'platformUpdateDomainCount' in kwargs:
+            platform_update_domain_count = kwargs['platformUpdateDomainCount']
+        if 'proximityPlacementGroupId' in kwargs:
+            proximity_placement_group_id = kwargs['proximityPlacementGroupId']
+
         _setter("resource_group_name", resource_group_name)
         if location is not None:
             _setter("location", location)
@@ -225,7 +235,17 @@ class _AvailabilitySetState:
              proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'platformFaultDomainCount' in kwargs:
+            platform_fault_domain_count = kwargs['platformFaultDomainCount']
+        if 'platformUpdateDomainCount' in kwargs:
+            platform_update_domain_count = kwargs['platformUpdateDomainCount']
+        if 'proximityPlacementGroupId' in kwargs:
+            proximity_placement_group_id = kwargs['proximityPlacementGroupId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if location is not None:
             _setter("location", location)
         if managed is not None:

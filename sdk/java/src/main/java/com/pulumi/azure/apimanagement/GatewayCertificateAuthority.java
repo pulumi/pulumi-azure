@@ -104,7 +104,7 @@ public class GatewayCertificateAuthority extends com.pulumi.resources.CustomReso
      * The ID of the API Management Service. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="apiManagementId", refs={String.class}, tree="[0]")
+    @Export(name="apiManagementId", type=String.class, parameters={})
     private Output<String> apiManagementId;
 
     /**
@@ -118,7 +118,7 @@ public class GatewayCertificateAuthority extends com.pulumi.resources.CustomReso
      * The name of the API Management Certificate. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="certificateName", refs={String.class}, tree="[0]")
+    @Export(name="certificateName", type=String.class, parameters={})
     private Output<String> certificateName;
 
     /**
@@ -132,7 +132,7 @@ public class GatewayCertificateAuthority extends com.pulumi.resources.CustomReso
      * The name of the API Management Gateway. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="gatewayName", refs={String.class}, tree="[0]")
+    @Export(name="gatewayName", type=String.class, parameters={})
     private Output<String> gatewayName;
 
     /**
@@ -146,7 +146,7 @@ public class GatewayCertificateAuthority extends com.pulumi.resources.CustomReso
      * Whether the API Management Gateway Certificate Authority is trusted.
      * 
      */
-    @Export(name="isTrusted", refs={Boolean.class}, tree="[0]")
+    @Export(name="isTrusted", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> isTrusted;
 
     /**

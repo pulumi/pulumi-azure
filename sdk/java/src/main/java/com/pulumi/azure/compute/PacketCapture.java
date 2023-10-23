@@ -170,7 +170,7 @@ public class PacketCapture extends com.pulumi.resources.CustomResource {
      * One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="filters", refs={List.class,PacketCaptureFilter.class}, tree="[0,1]")
+    @Export(name="filters", type=List.class, parameters={PacketCaptureFilter.class})
     private Output</* @Nullable */ List<PacketCaptureFilter>> filters;
 
     /**
@@ -184,7 +184,7 @@ public class PacketCapture extends com.pulumi.resources.CustomResource {
      * The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="maximumBytesPerPacket", refs={Integer.class}, tree="[0]")
+    @Export(name="maximumBytesPerPacket", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> maximumBytesPerPacket;
 
     /**
@@ -198,7 +198,7 @@ public class PacketCapture extends com.pulumi.resources.CustomResource {
      * Maximum size of the capture in Bytes. Defaults to `1073741824` (1GB). Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="maximumBytesPerSession", refs={Integer.class}, tree="[0]")
+    @Export(name="maximumBytesPerSession", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> maximumBytesPerSession;
 
     /**
@@ -212,7 +212,7 @@ public class PacketCapture extends com.pulumi.resources.CustomResource {
      * The maximum duration of the capture session in seconds. Defaults to `18000` (5 hours). Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="maximumCaptureDurationInSeconds", refs={Integer.class}, tree="[0]")
+    @Export(name="maximumCaptureDurationInSeconds", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> maximumCaptureDurationInSeconds;
 
     /**
@@ -226,7 +226,7 @@ public class PacketCapture extends com.pulumi.resources.CustomResource {
      * The name to use for this Network Packet Capture. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -240,7 +240,7 @@ public class PacketCapture extends com.pulumi.resources.CustomResource {
      * The resource ID of the Network Watcher. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="networkWatcherId", refs={String.class}, tree="[0]")
+    @Export(name="networkWatcherId", type=String.class, parameters={})
     private Output<String> networkWatcherId;
 
     /**
@@ -254,7 +254,7 @@ public class PacketCapture extends com.pulumi.resources.CustomResource {
      * A `storage_location` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="storageLocation", refs={PacketCaptureStorageLocation.class}, tree="[0]")
+    @Export(name="storageLocation", type=PacketCaptureStorageLocation.class, parameters={})
     private Output<PacketCaptureStorageLocation> storageLocation;
 
     /**
@@ -268,7 +268,7 @@ public class PacketCapture extends com.pulumi.resources.CustomResource {
      * The resource ID of the target Virtual Machine to capture packets from. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="virtualMachineId", refs={String.class}, tree="[0]")
+    @Export(name="virtualMachineId", type=String.class, parameters={})
     private Output<String> virtualMachineId;
 
     /**

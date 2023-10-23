@@ -121,7 +121,7 @@ public class NetworkWatcherFlowLog extends com.pulumi.resources.CustomResource {
      * Should Network Flow Logging be Enabled?
      * 
      */
-    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="enabled", type=Boolean.class, parameters={})
     private Output<Boolean> enabled;
 
     /**
@@ -135,7 +135,7 @@ public class NetworkWatcherFlowLog extends com.pulumi.resources.CustomResource {
      * The location where the Network Watcher Flow Log resides. Changing this forces a new resource to be created. Defaults to the `location` of the Network Watcher.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -149,7 +149,7 @@ public class NetworkWatcherFlowLog extends com.pulumi.resources.CustomResource {
      * The name of the Network Watcher Flow Log. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -163,7 +163,7 @@ public class NetworkWatcherFlowLog extends com.pulumi.resources.CustomResource {
      * The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="networkSecurityGroupId", refs={String.class}, tree="[0]")
+    @Export(name="networkSecurityGroupId", type=String.class, parameters={})
     private Output<String> networkSecurityGroupId;
 
     /**
@@ -177,7 +177,7 @@ public class NetworkWatcherFlowLog extends com.pulumi.resources.CustomResource {
      * The name of the Network Watcher. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="networkWatcherName", refs={String.class}, tree="[0]")
+    @Export(name="networkWatcherName", type=String.class, parameters={})
     private Output<String> networkWatcherName;
 
     /**
@@ -191,7 +191,7 @@ public class NetworkWatcherFlowLog extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which the Network Watcher was deployed. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -205,7 +205,7 @@ public class NetworkWatcherFlowLog extends com.pulumi.resources.CustomResource {
      * A `retention_policy` block as documented below.
      * 
      */
-    @Export(name="retentionPolicy", refs={NetworkWatcherFlowLogRetentionPolicy.class}, tree="[0]")
+    @Export(name="retentionPolicy", type=NetworkWatcherFlowLogRetentionPolicy.class, parameters={})
     private Output<NetworkWatcherFlowLogRetentionPolicy> retentionPolicy;
 
     /**
@@ -219,7 +219,7 @@ public class NetworkWatcherFlowLog extends com.pulumi.resources.CustomResource {
      * The ID of the Storage Account where flow logs are stored.
      * 
      */
-    @Export(name="storageAccountId", refs={String.class}, tree="[0]")
+    @Export(name="storageAccountId", type=String.class, parameters={})
     private Output<String> storageAccountId;
 
     /**
@@ -233,7 +233,7 @@ public class NetworkWatcherFlowLog extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Network Watcher Flow Log.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -247,7 +247,7 @@ public class NetworkWatcherFlowLog extends com.pulumi.resources.CustomResource {
      * A `traffic_analytics` block as documented below.
      * 
      */
-    @Export(name="trafficAnalytics", refs={NetworkWatcherFlowLogTrafficAnalytics.class}, tree="[0]")
+    @Export(name="trafficAnalytics", type=NetworkWatcherFlowLogTrafficAnalytics.class, parameters={})
     private Output</* @Nullable */ NetworkWatcherFlowLogTrafficAnalytics> trafficAnalytics;
 
     /**
@@ -261,7 +261,7 @@ public class NetworkWatcherFlowLog extends com.pulumi.resources.CustomResource {
      * The version (revision) of the flow log. Possible values are `1` and `2`.
      * 
      */
-    @Export(name="version", refs={Integer.class}, tree="[0]")
+    @Export(name="version", type=Integer.class, parameters={})
     private Output<Integer> version;
 
     /**

@@ -132,7 +132,7 @@ public class TemplateDeployment extends com.pulumi.resources.CustomResource {
      * specified within the template, and this provider will not be aware of this.
      * 
      */
-    @Export(name="deploymentMode", refs={String.class}, tree="[0]")
+    @Export(name="deploymentMode", type=String.class, parameters={})
     private Output<String> deploymentMode;
 
     /**
@@ -148,7 +148,7 @@ public class TemplateDeployment extends com.pulumi.resources.CustomResource {
      * Specifies the name of the template deployment. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -162,7 +162,7 @@ public class TemplateDeployment extends com.pulumi.resources.CustomResource {
      * A map of supported scalar output types returned from the deployment (currently, Azure Template Deployment outputs of type String, Int and Bool are supported, and are converted to strings - others will be ignored) and can be accessed using `.outputs[&#34;name&#34;]`.
      * 
      */
-    @Export(name="outputs", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="outputs", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> outputs;
 
     /**
@@ -176,7 +176,7 @@ public class TemplateDeployment extends com.pulumi.resources.CustomResource {
      * Specifies the name and value pairs that define the deployment parameters for the template.
      * 
      */
-    @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="parameters", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> parameters;
 
     /**
@@ -190,7 +190,7 @@ public class TemplateDeployment extends com.pulumi.resources.CustomResource {
      * Specifies a valid Azure JSON parameters file that define the deployment parameters. It can contain KeyVault references
      * 
      */
-    @Export(name="parametersBody", refs={String.class}, tree="[0]")
+    @Export(name="parametersBody", type=String.class, parameters={})
     private Output</* @Nullable */ String> parametersBody;
 
     /**
@@ -204,7 +204,7 @@ public class TemplateDeployment extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the template deployment. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -218,7 +218,7 @@ public class TemplateDeployment extends com.pulumi.resources.CustomResource {
      * Specifies the JSON definition for the template.
      * 
      */
-    @Export(name="templateBody", refs={String.class}, tree="[0]")
+    @Export(name="templateBody", type=String.class, parameters={})
     private Output<String> templateBody;
 
     /**

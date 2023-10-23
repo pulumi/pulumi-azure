@@ -15,13 +15,13 @@ import javax.annotation.Nullable;
 
 @ResourceType(type="azure:paloalto/virtualNetworkAppliance:VirtualNetworkAppliance")
 public class VirtualNetworkAppliance extends com.pulumi.resources.CustomResource {
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     public Output<String> name() {
         return this.name;
     }
-    @Export(name="virtualHubId", refs={String.class}, tree="[0]")
+    @Export(name="virtualHubId", type=String.class, parameters={})
     private Output<String> virtualHubId;
 
     public Output<String> virtualHubId() {

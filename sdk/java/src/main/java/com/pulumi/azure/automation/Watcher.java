@@ -108,7 +108,7 @@ public class Watcher extends com.pulumi.resources.CustomResource {
      * The ID of Automation Account to manage this Watcher. Changing this forces a new Watcher to be created.
      * 
      */
-    @Export(name="automationAccountId", refs={String.class}, tree="[0]")
+    @Export(name="automationAccountId", type=String.class, parameters={})
     private Output<String> automationAccountId;
 
     /**
@@ -122,7 +122,7 @@ public class Watcher extends com.pulumi.resources.CustomResource {
      * A description of this Automation Watcher.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -136,7 +136,7 @@ public class Watcher extends com.pulumi.resources.CustomResource {
      * A string of etag assigned to this Automation Watcher.
      * 
      */
-    @Export(name="etag", refs={String.class}, tree="[0]")
+    @Export(name="etag", type=String.class, parameters={})
     private Output</* @Nullable */ String> etag;
 
     /**
@@ -150,7 +150,7 @@ public class Watcher extends com.pulumi.resources.CustomResource {
      * Specify the frequency at which the watcher is invoked.
      * 
      */
-    @Export(name="executionFrequencyInSeconds", refs={Integer.class}, tree="[0]")
+    @Export(name="executionFrequencyInSeconds", type=Integer.class, parameters={})
     private Output<Integer> executionFrequencyInSeconds;
 
     /**
@@ -164,7 +164,7 @@ public class Watcher extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Automation Watcher should exist. Changing this forces a new Automation Watcher to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -178,7 +178,7 @@ public class Watcher extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Automation Watcher. Changing this forces a new Automation Watcher to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -192,7 +192,7 @@ public class Watcher extends com.pulumi.resources.CustomResource {
      * Specify the name of an existing runbook this watcher is attached to. Changing this forces a new Automation to be created.
      * 
      */
-    @Export(name="scriptName", refs={String.class}, tree="[0]")
+    @Export(name="scriptName", type=String.class, parameters={})
     private Output<String> scriptName;
 
     /**
@@ -206,7 +206,7 @@ public class Watcher extends com.pulumi.resources.CustomResource {
      * Specifies a list of key-vaule parameters. Changing this forces a new Automation watcher to be created.
      * 
      */
-    @Export(name="scriptParameters", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="scriptParameters", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> scriptParameters;
 
     /**
@@ -220,7 +220,7 @@ public class Watcher extends com.pulumi.resources.CustomResource {
      * Specify the name of the Hybrid work group the watcher will run on.
      * 
      */
-    @Export(name="scriptRunOn", refs={String.class}, tree="[0]")
+    @Export(name="scriptRunOn", type=String.class, parameters={})
     private Output<String> scriptRunOn;
 
     /**
@@ -234,7 +234,7 @@ public class Watcher extends com.pulumi.resources.CustomResource {
      * The current status of the Automation Watcher.
      * 
      */
-    @Export(name="status", refs={String.class}, tree="[0]")
+    @Export(name="status", type=String.class, parameters={})
     private Output<String> status;
 
     /**
@@ -248,7 +248,7 @@ public class Watcher extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Automation Watcher.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

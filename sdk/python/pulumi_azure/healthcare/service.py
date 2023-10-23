@@ -72,7 +72,23 @@ class ServiceArgs:
              name: Optional[pulumi.Input[str]] = None,
              public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'accessPolicyObjectIds' in kwargs:
+            access_policy_object_ids = kwargs['accessPolicyObjectIds']
+        if 'authenticationConfiguration' in kwargs:
+            authentication_configuration = kwargs['authenticationConfiguration']
+        if 'corsConfiguration' in kwargs:
+            cors_configuration = kwargs['corsConfiguration']
+        if 'cosmosdbKeyVaultKeyVersionlessId' in kwargs:
+            cosmosdb_key_vault_key_versionless_id = kwargs['cosmosdbKeyVaultKeyVersionlessId']
+        if 'cosmosdbThroughput' in kwargs:
+            cosmosdb_throughput = kwargs['cosmosdbThroughput']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+
         _setter("resource_group_name", resource_group_name)
         if access_policy_object_ids is not None:
             _setter("access_policy_object_ids", access_policy_object_ids)
@@ -288,7 +304,23 @@ class _ServiceState:
              public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessPolicyObjectIds' in kwargs:
+            access_policy_object_ids = kwargs['accessPolicyObjectIds']
+        if 'authenticationConfiguration' in kwargs:
+            authentication_configuration = kwargs['authenticationConfiguration']
+        if 'corsConfiguration' in kwargs:
+            cors_configuration = kwargs['corsConfiguration']
+        if 'cosmosdbKeyVaultKeyVersionlessId' in kwargs:
+            cosmosdb_key_vault_key_versionless_id = kwargs['cosmosdbKeyVaultKeyVersionlessId']
+        if 'cosmosdbThroughput' in kwargs:
+            cosmosdb_throughput = kwargs['cosmosdbThroughput']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if access_policy_object_ids is not None:
             _setter("access_policy_object_ids", access_policy_object_ids)
         if authentication_configuration is not None:

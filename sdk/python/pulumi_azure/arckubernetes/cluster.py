@@ -49,7 +49,13 @@ class ClusterArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'agentPublicKeyCertificate' in kwargs:
+            agent_public_key_certificate = kwargs['agentPublicKeyCertificate']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         _setter("agent_public_key_certificate", agent_public_key_certificate)
         _setter("identity", identity)
         _setter("resource_group_name", resource_group_name)
@@ -197,7 +203,21 @@ class _ClusterState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              total_core_count: Optional[pulumi.Input[int]] = None,
              total_node_count: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'agentPublicKeyCertificate' in kwargs:
+            agent_public_key_certificate = kwargs['agentPublicKeyCertificate']
+        if 'agentVersion' in kwargs:
+            agent_version = kwargs['agentVersion']
+        if 'kubernetesVersion' in kwargs:
+            kubernetes_version = kwargs['kubernetesVersion']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'totalCoreCount' in kwargs:
+            total_core_count = kwargs['totalCoreCount']
+        if 'totalNodeCount' in kwargs:
+            total_node_count = kwargs['totalNodeCount']
+
         if agent_public_key_certificate is not None:
             _setter("agent_public_key_certificate", agent_public_key_certificate)
         if agent_version is not None:

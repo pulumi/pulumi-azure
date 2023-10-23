@@ -157,7 +157,7 @@ public class DiskPoolIscsiTarget extends com.pulumi.resources.CustomResource {
      * Mode for Target connectivity. The only supported value is `Dynamic` for now. Changing this forces a new iSCSI Target to be created.
      * 
      */
-    @Export(name="aclMode", refs={String.class}, tree="[0]")
+    @Export(name="aclMode", type=String.class, parameters={})
     private Output<String> aclMode;
 
     /**
@@ -171,7 +171,7 @@ public class DiskPoolIscsiTarget extends com.pulumi.resources.CustomResource {
      * The ID of the Disk Pool. Changing this forces a new iSCSI Target to be created.
      * 
      */
-    @Export(name="disksPoolId", refs={String.class}, tree="[0]")
+    @Export(name="disksPoolId", type=String.class, parameters={})
     private Output<String> disksPoolId;
 
     /**
@@ -185,7 +185,7 @@ public class DiskPoolIscsiTarget extends com.pulumi.resources.CustomResource {
      * List of private IPv4 addresses to connect to the iSCSI Target.
      * 
      */
-    @Export(name="endpoints", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="endpoints", type=List.class, parameters={String.class})
     private Output<List<String>> endpoints;
 
     /**
@@ -199,7 +199,7 @@ public class DiskPoolIscsiTarget extends com.pulumi.resources.CustomResource {
      * The name of the iSCSI Target. The name can only contain lowercase letters, numbers, periods, or hyphens, and length should between [5-223]. Changing this forces a new iSCSI Target to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -213,7 +213,7 @@ public class DiskPoolIscsiTarget extends com.pulumi.resources.CustomResource {
      * The port used by iSCSI Target portal group.
      * 
      */
-    @Export(name="port", refs={Integer.class}, tree="[0]")
+    @Export(name="port", type=Integer.class, parameters={})
     private Output<Integer> port;
 
     /**
@@ -227,7 +227,7 @@ public class DiskPoolIscsiTarget extends com.pulumi.resources.CustomResource {
      * ISCSI Target IQN (iSCSI Qualified Name); example: `iqn.2005-03.org.iscsi:server`. IQN should follow the format `iqn.yyyy-mm.&lt;abc&gt;.&lt;pqr&gt;[:xyz]`; supported characters include alphanumeric characters in lower case, hyphen, dot and colon, and the length should between `4` and `223`. Changing this forces a new iSCSI Target to be created.
      * 
      */
-    @Export(name="targetIqn", refs={String.class}, tree="[0]")
+    @Export(name="targetIqn", type=String.class, parameters={})
     private Output</* @Nullable */ String> targetIqn;
 
     /**

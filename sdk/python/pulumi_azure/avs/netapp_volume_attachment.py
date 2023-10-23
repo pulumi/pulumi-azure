@@ -37,7 +37,13 @@ class NetappVolumeAttachmentArgs:
              netapp_volume_id: pulumi.Input[str],
              vmware_cluster_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'netappVolumeId' in kwargs:
+            netapp_volume_id = kwargs['netappVolumeId']
+        if 'vmwareClusterId' in kwargs:
+            vmware_cluster_id = kwargs['vmwareClusterId']
+
         _setter("netapp_volume_id", netapp_volume_id)
         _setter("vmware_cluster_id", vmware_cluster_id)
         if name is not None:
@@ -108,7 +114,13 @@ class _NetappVolumeAttachmentState:
              name: Optional[pulumi.Input[str]] = None,
              netapp_volume_id: Optional[pulumi.Input[str]] = None,
              vmware_cluster_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'netappVolumeId' in kwargs:
+            netapp_volume_id = kwargs['netappVolumeId']
+        if 'vmwareClusterId' in kwargs:
+            vmware_cluster_id = kwargs['vmwareClusterId']
+
         if name is not None:
             _setter("name", name)
         if netapp_volume_id is not None:

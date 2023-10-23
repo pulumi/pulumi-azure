@@ -51,7 +51,13 @@ class ClusterArgs:
              name: Optional[pulumi.Input[str]] = None,
              size_gb: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'sizeGb' in kwargs:
+            size_gb = kwargs['sizeGb']
+
         _setter("identity", identity)
         _setter("resource_group_name", resource_group_name)
         if location is not None:
@@ -180,7 +186,15 @@ class _ClusterState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              size_gb: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterId' in kwargs:
+            cluster_id = kwargs['clusterId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'sizeGb' in kwargs:
+            size_gb = kwargs['sizeGb']
+
         if cluster_id is not None:
             _setter("cluster_id", cluster_id)
         if identity is not None:

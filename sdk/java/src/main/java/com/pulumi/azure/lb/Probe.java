@@ -93,7 +93,7 @@ public class Probe extends com.pulumi.resources.CustomResource {
      * The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
      * 
      */
-    @Export(name="intervalInSeconds", refs={Integer.class}, tree="[0]")
+    @Export(name="intervalInSeconds", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> intervalInSeconds;
 
     /**
@@ -103,7 +103,7 @@ public class Probe extends com.pulumi.resources.CustomResource {
     public Output<Optional<Integer>> intervalInSeconds() {
         return Codegen.optional(this.intervalInSeconds);
     }
-    @Export(name="loadBalancerRules", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="loadBalancerRules", type=List.class, parameters={String.class})
     private Output<List<String>> loadBalancerRules;
 
     public Output<List<String>> loadBalancerRules() {
@@ -113,7 +113,7 @@ public class Probe extends com.pulumi.resources.CustomResource {
      * The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="loadbalancerId", refs={String.class}, tree="[0]")
+    @Export(name="loadbalancerId", type=String.class, parameters={})
     private Output<String> loadbalancerId;
 
     /**
@@ -127,7 +127,7 @@ public class Probe extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Probe. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -141,7 +141,7 @@ public class Probe extends com.pulumi.resources.CustomResource {
      * The number of failed probe attempts after which the backend endpoint is removed from rotation. The default value is 2. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
      * 
      */
-    @Export(name="numberOfProbes", refs={Integer.class}, tree="[0]")
+    @Export(name="numberOfProbes", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> numberOfProbes;
 
     /**
@@ -155,7 +155,7 @@ public class Probe extends com.pulumi.resources.CustomResource {
      * Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
      * 
      */
-    @Export(name="port", refs={Integer.class}, tree="[0]")
+    @Export(name="port", type=Integer.class, parameters={})
     private Output<Integer> port;
 
     /**
@@ -169,7 +169,7 @@ public class Probe extends com.pulumi.resources.CustomResource {
      * The number of consecutive successful or failed probes that allow or deny traffic to this endpoint. Possible values range from `1` to `100`. The default value is `1`.
      * 
      */
-    @Export(name="probeThreshold", refs={Integer.class}, tree="[0]")
+    @Export(name="probeThreshold", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> probeThreshold;
 
     /**
@@ -183,7 +183,7 @@ public class Probe extends com.pulumi.resources.CustomResource {
      * Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If TCP is specified, a received ACK is required for the probe to be successful. If HTTP is specified, a 200 OK response from the specified URI is required for the probe to be successful.
      * 
      */
-    @Export(name="protocol", refs={String.class}, tree="[0]")
+    @Export(name="protocol", type=String.class, parameters={})
     private Output<String> protocol;
 
     /**
@@ -197,7 +197,7 @@ public class Probe extends com.pulumi.resources.CustomResource {
      * The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
      * 
      */
-    @Export(name="requestPath", refs={String.class}, tree="[0]")
+    @Export(name="requestPath", type=String.class, parameters={})
     private Output</* @Nullable */ String> requestPath;
 
     /**

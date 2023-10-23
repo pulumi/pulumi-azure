@@ -46,7 +46,9 @@ class LinkedServiceIntegrationRuntimeArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if parameters is not None:
             _setter("parameters", parameters)
@@ -91,7 +93,11 @@ class SparkPoolAutoPauseArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              delay_in_minutes: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'delayInMinutes' in kwargs:
+            delay_in_minutes = kwargs['delayInMinutes']
+
         _setter("delay_in_minutes", delay_in_minutes)
 
     @property
@@ -126,7 +132,13 @@ class SparkPoolAutoScaleArgs:
              _setter: Callable[[Any, Any], None],
              max_node_count: pulumi.Input[int],
              min_node_count: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxNodeCount' in kwargs:
+            max_node_count = kwargs['maxNodeCount']
+        if 'minNodeCount' in kwargs:
+            min_node_count = kwargs['minNodeCount']
+
         _setter("max_node_count", max_node_count)
         _setter("min_node_count", min_node_count)
 
@@ -174,7 +186,9 @@ class SparkPoolLibraryRequirementArgs:
              _setter: Callable[[Any, Any], None],
              content: pulumi.Input[str],
              filename: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("content", content)
         _setter("filename", filename)
 
@@ -222,7 +236,9 @@ class SparkPoolSparkConfigArgs:
              _setter: Callable[[Any, Any], None],
              content: pulumi.Input[str],
              filename: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("content", content)
         _setter("filename", filename)
 
@@ -270,7 +286,13 @@ class SqlPoolRestoreArgs:
              _setter: Callable[[Any, Any], None],
              point_in_time: pulumi.Input[str],
              source_database_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'pointInTime' in kwargs:
+            point_in_time = kwargs['pointInTime']
+        if 'sourceDatabaseId' in kwargs:
+            source_database_id = kwargs['sourceDatabaseId']
+
         _setter("point_in_time", point_in_time)
         _setter("source_database_id", source_database_id)
 
@@ -314,7 +336,9 @@ class SqlPoolVulnerabilityAssessmentBaselineBaselineArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              results: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("results", results)
 
     @property
@@ -353,7 +377,11 @@ class SqlPoolVulnerabilityAssessmentRecurringScansArgs:
              email_subscription_admins_enabled: Optional[pulumi.Input[bool]] = None,
              emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'emailSubscriptionAdminsEnabled' in kwargs:
+            email_subscription_admins_enabled = kwargs['emailSubscriptionAdminsEnabled']
+
         if email_subscription_admins_enabled is not None:
             _setter("email_subscription_admins_enabled", email_subscription_admins_enabled)
         if emails is not None:
@@ -421,7 +449,13 @@ class WorkspaceAadAdminArgs:
              login: pulumi.Input[str],
              object_id: pulumi.Input[str],
              tenant_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("login", login)
         _setter("object_id", object_id)
         _setter("tenant_id", tenant_id)
@@ -502,7 +536,23 @@ class WorkspaceAzureDevopsRepoArgs:
              root_folder: pulumi.Input[str],
              last_commit_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'branchName' in kwargs:
+            branch_name = kwargs['branchName']
+        if 'projectName' in kwargs:
+            project_name = kwargs['projectName']
+        if 'repositoryName' in kwargs:
+            repository_name = kwargs['repositoryName']
+        if 'rootFolder' in kwargs:
+            root_folder = kwargs['rootFolder']
+        if 'lastCommitId' in kwargs:
+            last_commit_id = kwargs['lastCommitId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("account_name", account_name)
         _setter("branch_name", branch_name)
         _setter("project_name", project_name)
@@ -617,7 +667,13 @@ class WorkspaceCustomerManagedKeyArgs:
              _setter: Callable[[Any, Any], None],
              key_versionless_id: pulumi.Input[str],
              key_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyVersionlessId' in kwargs:
+            key_versionless_id = kwargs['keyVersionlessId']
+        if 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+
         _setter("key_versionless_id", key_versionless_id)
         if key_name is not None:
             _setter("key_name", key_name)
@@ -684,7 +740,21 @@ class WorkspaceGithubRepoArgs:
              root_folder: pulumi.Input[str],
              git_url: Optional[pulumi.Input[str]] = None,
              last_commit_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'branchName' in kwargs:
+            branch_name = kwargs['branchName']
+        if 'repositoryName' in kwargs:
+            repository_name = kwargs['repositoryName']
+        if 'rootFolder' in kwargs:
+            root_folder = kwargs['rootFolder']
+        if 'gitUrl' in kwargs:
+            git_url = kwargs['gitUrl']
+        if 'lastCommitId' in kwargs:
+            last_commit_id = kwargs['lastCommitId']
+
         _setter("account_name", account_name)
         _setter("branch_name", branch_name)
         _setter("repository_name", repository_name)
@@ -798,7 +868,15 @@ class WorkspaceIdentityArgs:
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -881,7 +959,13 @@ class WorkspaceSqlAadAdminArgs:
              login: pulumi.Input[str],
              object_id: pulumi.Input[str],
              tenant_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("login", login)
         _setter("object_id", object_id)
         _setter("tenant_id", tenant_id)
@@ -946,7 +1030,11 @@ class WorkspaceVulnerabilityAssessmentRecurringScansArgs:
              email_subscription_admins_enabled: Optional[pulumi.Input[bool]] = None,
              emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'emailSubscriptionAdminsEnabled' in kwargs:
+            email_subscription_admins_enabled = kwargs['emailSubscriptionAdminsEnabled']
+
         if email_subscription_admins_enabled is not None:
             _setter("email_subscription_admins_enabled", email_subscription_admins_enabled)
         if emails is not None:

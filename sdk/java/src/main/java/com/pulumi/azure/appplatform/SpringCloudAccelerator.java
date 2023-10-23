@@ -77,7 +77,7 @@ public class SpringCloudAccelerator extends com.pulumi.resources.CustomResource 
      * The name which should be used for this Spring Cloud Accelerator. Changing this forces a new Spring Cloud Accelerator to be created. The only possible value is `default`.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -91,7 +91,7 @@ public class SpringCloudAccelerator extends com.pulumi.resources.CustomResource 
      * The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Accelerator to be created.
      * 
      */
-    @Export(name="springCloudServiceId", refs={String.class}, tree="[0]")
+    @Export(name="springCloudServiceId", type=String.class, parameters={})
     private Output<String> springCloudServiceId;
 
     /**

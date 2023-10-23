@@ -53,7 +53,15 @@ class StaticSiteArgs:
              sku_size: Optional[pulumi.Input[str]] = None,
              sku_tier: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skuSize' in kwargs:
+            sku_size = kwargs['skuSize']
+        if 'skuTier' in kwargs:
+            sku_tier = kwargs['skuTier']
+
         _setter("resource_group_name", resource_group_name)
         if identity is not None:
             _setter("identity", identity)
@@ -201,7 +209,19 @@ class _StaticSiteState:
              sku_size: Optional[pulumi.Input[str]] = None,
              sku_tier: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+        if 'defaultHostName' in kwargs:
+            default_host_name = kwargs['defaultHostName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skuSize' in kwargs:
+            sku_size = kwargs['skuSize']
+        if 'skuTier' in kwargs:
+            sku_tier = kwargs['skuTier']
+
         if api_key is not None:
             _setter("api_key", api_key)
         if default_host_name is not None:

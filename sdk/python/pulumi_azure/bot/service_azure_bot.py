@@ -99,7 +99,37 @@ class ServiceAzureBotArgs:
              name: Optional[pulumi.Input[str]] = None,
              streaming_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'microsoftAppId' in kwargs:
+            microsoft_app_id = kwargs['microsoftAppId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'developerAppInsightsApiKey' in kwargs:
+            developer_app_insights_api_key = kwargs['developerAppInsightsApiKey']
+        if 'developerAppInsightsApplicationId' in kwargs:
+            developer_app_insights_application_id = kwargs['developerAppInsightsApplicationId']
+        if 'developerAppInsightsKey' in kwargs:
+            developer_app_insights_key = kwargs['developerAppInsightsKey']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'iconUrl' in kwargs:
+            icon_url = kwargs['iconUrl']
+        if 'localAuthenticationEnabled' in kwargs:
+            local_authentication_enabled = kwargs['localAuthenticationEnabled']
+        if 'luisAppIds' in kwargs:
+            luis_app_ids = kwargs['luisAppIds']
+        if 'luisKey' in kwargs:
+            luis_key = kwargs['luisKey']
+        if 'microsoftAppMsiId' in kwargs:
+            microsoft_app_msi_id = kwargs['microsoftAppMsiId']
+        if 'microsoftAppTenantId' in kwargs:
+            microsoft_app_tenant_id = kwargs['microsoftAppTenantId']
+        if 'microsoftAppType' in kwargs:
+            microsoft_app_type = kwargs['microsoftAppType']
+        if 'streamingEndpointEnabled' in kwargs:
+            streaming_endpoint_enabled = kwargs['streamingEndpointEnabled']
+
         _setter("microsoft_app_id", microsoft_app_id)
         _setter("resource_group_name", resource_group_name)
         _setter("sku", sku)
@@ -453,7 +483,37 @@ class _ServiceAzureBotState:
              sku: Optional[pulumi.Input[str]] = None,
              streaming_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'developerAppInsightsApiKey' in kwargs:
+            developer_app_insights_api_key = kwargs['developerAppInsightsApiKey']
+        if 'developerAppInsightsApplicationId' in kwargs:
+            developer_app_insights_application_id = kwargs['developerAppInsightsApplicationId']
+        if 'developerAppInsightsKey' in kwargs:
+            developer_app_insights_key = kwargs['developerAppInsightsKey']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'iconUrl' in kwargs:
+            icon_url = kwargs['iconUrl']
+        if 'localAuthenticationEnabled' in kwargs:
+            local_authentication_enabled = kwargs['localAuthenticationEnabled']
+        if 'luisAppIds' in kwargs:
+            luis_app_ids = kwargs['luisAppIds']
+        if 'luisKey' in kwargs:
+            luis_key = kwargs['luisKey']
+        if 'microsoftAppId' in kwargs:
+            microsoft_app_id = kwargs['microsoftAppId']
+        if 'microsoftAppMsiId' in kwargs:
+            microsoft_app_msi_id = kwargs['microsoftAppMsiId']
+        if 'microsoftAppTenantId' in kwargs:
+            microsoft_app_tenant_id = kwargs['microsoftAppTenantId']
+        if 'microsoftAppType' in kwargs:
+            microsoft_app_type = kwargs['microsoftAppType']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'streamingEndpointEnabled' in kwargs:
+            streaming_endpoint_enabled = kwargs['streamingEndpointEnabled']
+
         if developer_app_insights_api_key is not None:
             _setter("developer_app_insights_api_key", developer_app_insights_api_key)
         if developer_app_insights_application_id is not None:

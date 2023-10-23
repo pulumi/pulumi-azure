@@ -41,7 +41,9 @@ class AssessmentStatusArgs:
              code: pulumi.Input[str],
              cause: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("code", code)
         if cause is not None:
             _setter("cause", cause)
@@ -112,7 +114,15 @@ class AutomationActionArgs:
              type: pulumi.Input[str],
              connection_string: Optional[pulumi.Input[str]] = None,
              trigger_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+        if 'triggerUrl' in kwargs:
+            trigger_url = kwargs['triggerUrl']
+
         _setter("resource_id", resource_id)
         _setter("type", type)
         if connection_string is not None:
@@ -190,7 +200,13 @@ class AutomationSourceArgs:
              _setter: Callable[[Any, Any], None],
              event_source: pulumi.Input[str],
              rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationSourceRuleSetArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventSource' in kwargs:
+            event_source = kwargs['eventSource']
+        if 'ruleSets' in kwargs:
+            rule_sets = kwargs['ruleSets']
+
         _setter("event_source", event_source)
         if rule_sets is not None:
             _setter("rule_sets", rule_sets)
@@ -239,7 +255,9 @@ class AutomationSourceRuleSetArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              rules: pulumi.Input[Sequence[pulumi.Input['AutomationSourceRuleSetRuleArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("rules", rules)
 
     @property
@@ -286,7 +304,15 @@ class AutomationSourceRuleSetRuleArgs:
              operator: pulumi.Input[str],
              property_path: pulumi.Input[str],
              property_type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expectedValue' in kwargs:
+            expected_value = kwargs['expectedValue']
+        if 'propertyPath' in kwargs:
+            property_path = kwargs['propertyPath']
+        if 'propertyType' in kwargs:
+            property_type = kwargs['propertyType']
+
         _setter("expected_value", expected_value)
         _setter("operator", operator)
         _setter("property_path", property_path)
@@ -366,7 +392,11 @@ class SubscriptionPricingExtensionArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              additional_extension_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalExtensionProperties' in kwargs:
+            additional_extension_properties = kwargs['additionalExtensionProperties']
+
         _setter("name", name)
         if additional_extension_properties is not None:
             _setter("additional_extension_properties", additional_extension_properties)

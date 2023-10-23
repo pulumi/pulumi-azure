@@ -63,7 +63,19 @@ class ModuleArgs:
              stamp_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkProfile' in kwargs:
+            network_profile = kwargs['networkProfile']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'managementNetworkProfile' in kwargs:
+            management_network_profile = kwargs['managementNetworkProfile']
+        if 'stampId' in kwargs:
+            stamp_id = kwargs['stampId']
+
         _setter("network_profile", network_profile)
         _setter("resource_group_name", resource_group_name)
         _setter("sku_name", sku_name)
@@ -241,7 +253,19 @@ class _ModuleState:
              stamp_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'managementNetworkProfile' in kwargs:
+            management_network_profile = kwargs['managementNetworkProfile']
+        if 'networkProfile' in kwargs:
+            network_profile = kwargs['networkProfile']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'stampId' in kwargs:
+            stamp_id = kwargs['stampId']
+
         if location is not None:
             _setter("location", location)
         if management_network_profile is not None:

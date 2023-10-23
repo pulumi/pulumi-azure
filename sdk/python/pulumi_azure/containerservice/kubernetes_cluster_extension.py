@@ -65,7 +65,23 @@ class KubernetesClusterExtensionArgs:
              release_train: Optional[pulumi.Input[str]] = None,
              target_namespace: Optional[pulumi.Input[str]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterId' in kwargs:
+            cluster_id = kwargs['clusterId']
+        if 'extensionType' in kwargs:
+            extension_type = kwargs['extensionType']
+        if 'configurationProtectedSettings' in kwargs:
+            configuration_protected_settings = kwargs['configurationProtectedSettings']
+        if 'configurationSettings' in kwargs:
+            configuration_settings = kwargs['configurationSettings']
+        if 'releaseNamespace' in kwargs:
+            release_namespace = kwargs['releaseNamespace']
+        if 'releaseTrain' in kwargs:
+            release_train = kwargs['releaseTrain']
+        if 'targetNamespace' in kwargs:
+            target_namespace = kwargs['targetNamespace']
+
         _setter("cluster_id", cluster_id)
         _setter("extension_type", extension_type)
         if configuration_protected_settings is not None:
@@ -266,7 +282,27 @@ class _KubernetesClusterExtensionState:
              release_train: Optional[pulumi.Input[str]] = None,
              target_namespace: Optional[pulumi.Input[str]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'aksAssignedIdentities' in kwargs:
+            aks_assigned_identities = kwargs['aksAssignedIdentities']
+        if 'clusterId' in kwargs:
+            cluster_id = kwargs['clusterId']
+        if 'configurationProtectedSettings' in kwargs:
+            configuration_protected_settings = kwargs['configurationProtectedSettings']
+        if 'configurationSettings' in kwargs:
+            configuration_settings = kwargs['configurationSettings']
+        if 'currentVersion' in kwargs:
+            current_version = kwargs['currentVersion']
+        if 'extensionType' in kwargs:
+            extension_type = kwargs['extensionType']
+        if 'releaseNamespace' in kwargs:
+            release_namespace = kwargs['releaseNamespace']
+        if 'releaseTrain' in kwargs:
+            release_train = kwargs['releaseTrain']
+        if 'targetNamespace' in kwargs:
+            target_namespace = kwargs['targetNamespace']
+
         if aks_assigned_identities is not None:
             _setter("aks_assigned_identities", aks_assigned_identities)
         if cluster_id is not None:

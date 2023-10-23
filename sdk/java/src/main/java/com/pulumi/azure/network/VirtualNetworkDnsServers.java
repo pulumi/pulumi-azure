@@ -84,7 +84,7 @@ public class VirtualNetworkDnsServers extends com.pulumi.resources.CustomResourc
      * List of IP addresses of DNS servers
      * 
      */
-    @Export(name="dnsServers", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="dnsServers", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> dnsServers;
 
     /**
@@ -98,7 +98,7 @@ public class VirtualNetworkDnsServers extends com.pulumi.resources.CustomResourc
      * The ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="virtualNetworkId", refs={String.class}, tree="[0]")
+    @Export(name="virtualNetworkId", type=String.class, parameters={})
     private Output<String> virtualNetworkId;
 
     /**

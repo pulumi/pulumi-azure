@@ -69,7 +69,27 @@ class OutputEventHubArgs:
              property_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              shared_access_policy_key: Optional[pulumi.Input[str]] = None,
              shared_access_policy_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventhubName' in kwargs:
+            eventhub_name = kwargs['eventhubName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'servicebusNamespace' in kwargs:
+            servicebus_namespace = kwargs['servicebusNamespace']
+        if 'streamAnalyticsJobName' in kwargs:
+            stream_analytics_job_name = kwargs['streamAnalyticsJobName']
+        if 'authenticationMode' in kwargs:
+            authentication_mode = kwargs['authenticationMode']
+        if 'partitionKey' in kwargs:
+            partition_key = kwargs['partitionKey']
+        if 'propertyColumns' in kwargs:
+            property_columns = kwargs['propertyColumns']
+        if 'sharedAccessPolicyKey' in kwargs:
+            shared_access_policy_key = kwargs['sharedAccessPolicyKey']
+        if 'sharedAccessPolicyName' in kwargs:
+            shared_access_policy_name = kwargs['sharedAccessPolicyName']
+
         _setter("eventhub_name", eventhub_name)
         _setter("resource_group_name", resource_group_name)
         _setter("serialization", serialization)
@@ -277,7 +297,27 @@ class _OutputEventHubState:
              shared_access_policy_key: Optional[pulumi.Input[str]] = None,
              shared_access_policy_name: Optional[pulumi.Input[str]] = None,
              stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authenticationMode' in kwargs:
+            authentication_mode = kwargs['authenticationMode']
+        if 'eventhubName' in kwargs:
+            eventhub_name = kwargs['eventhubName']
+        if 'partitionKey' in kwargs:
+            partition_key = kwargs['partitionKey']
+        if 'propertyColumns' in kwargs:
+            property_columns = kwargs['propertyColumns']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'servicebusNamespace' in kwargs:
+            servicebus_namespace = kwargs['servicebusNamespace']
+        if 'sharedAccessPolicyKey' in kwargs:
+            shared_access_policy_key = kwargs['sharedAccessPolicyKey']
+        if 'sharedAccessPolicyName' in kwargs:
+            shared_access_policy_name = kwargs['sharedAccessPolicyName']
+        if 'streamAnalyticsJobName' in kwargs:
+            stream_analytics_job_name = kwargs['streamAnalyticsJobName']
+
         if authentication_mode is not None:
             _setter("authentication_mode", authentication_mode)
         if eventhub_name is not None:

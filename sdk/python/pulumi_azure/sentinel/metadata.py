@@ -107,7 +107,33 @@ class MetadataArgs:
              threat_analysis_tactics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              threat_analysis_techniques: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contentId' in kwargs:
+            content_id = kwargs['contentId']
+        if 'parentId' in kwargs:
+            parent_id = kwargs['parentId']
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+        if 'contentSchemaVersion' in kwargs:
+            content_schema_version = kwargs['contentSchemaVersion']
+        if 'customVersion' in kwargs:
+            custom_version = kwargs['customVersion']
+        if 'firstPublishDate' in kwargs:
+            first_publish_date = kwargs['firstPublishDate']
+        if 'iconId' in kwargs:
+            icon_id = kwargs['iconId']
+        if 'lastPublishDate' in kwargs:
+            last_publish_date = kwargs['lastPublishDate']
+        if 'previewImages' in kwargs:
+            preview_images = kwargs['previewImages']
+        if 'previewImagesDarks' in kwargs:
+            preview_images_darks = kwargs['previewImagesDarks']
+        if 'threatAnalysisTactics' in kwargs:
+            threat_analysis_tactics = kwargs['threatAnalysisTactics']
+        if 'threatAnalysisTechniques' in kwargs:
+            threat_analysis_techniques = kwargs['threatAnalysisTechniques']
+
         _setter("content_id", content_id)
         _setter("kind", kind)
         _setter("parent_id", parent_id)
@@ -488,7 +514,33 @@ class _MetadataState:
              threat_analysis_techniques: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              version: Optional[pulumi.Input[str]] = None,
              workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contentId' in kwargs:
+            content_id = kwargs['contentId']
+        if 'contentSchemaVersion' in kwargs:
+            content_schema_version = kwargs['contentSchemaVersion']
+        if 'customVersion' in kwargs:
+            custom_version = kwargs['customVersion']
+        if 'firstPublishDate' in kwargs:
+            first_publish_date = kwargs['firstPublishDate']
+        if 'iconId' in kwargs:
+            icon_id = kwargs['iconId']
+        if 'lastPublishDate' in kwargs:
+            last_publish_date = kwargs['lastPublishDate']
+        if 'parentId' in kwargs:
+            parent_id = kwargs['parentId']
+        if 'previewImages' in kwargs:
+            preview_images = kwargs['previewImages']
+        if 'previewImagesDarks' in kwargs:
+            preview_images_darks = kwargs['previewImagesDarks']
+        if 'threatAnalysisTactics' in kwargs:
+            threat_analysis_tactics = kwargs['threatAnalysisTactics']
+        if 'threatAnalysisTechniques' in kwargs:
+            threat_analysis_techniques = kwargs['threatAnalysisTechniques']
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+
         if author is not None:
             _setter("author", author)
         if category is not None:

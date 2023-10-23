@@ -103,7 +103,7 @@ public class IdentityProviderAadb2c extends com.pulumi.resources.CustomResource 
      * The allowed AAD tenant, usually your B2C tenant domain.
      * 
      */
-    @Export(name="allowedTenant", refs={String.class}, tree="[0]")
+    @Export(name="allowedTenant", type=String.class, parameters={})
     private Output<String> allowedTenant;
 
     /**
@@ -117,7 +117,7 @@ public class IdentityProviderAadb2c extends com.pulumi.resources.CustomResource 
      * The Name of the API Management Service where this AAD Identity Provider should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="apiManagementName", refs={String.class}, tree="[0]")
+    @Export(name="apiManagementName", type=String.class, parameters={})
     private Output<String> apiManagementName;
 
     /**
@@ -131,7 +131,7 @@ public class IdentityProviderAadb2c extends com.pulumi.resources.CustomResource 
      * OpenID Connect discovery endpoint hostname, usually your b2clogin.com domain.
      * 
      */
-    @Export(name="authority", refs={String.class}, tree="[0]")
+    @Export(name="authority", type=String.class, parameters={})
     private Output<String> authority;
 
     /**
@@ -145,7 +145,7 @@ public class IdentityProviderAadb2c extends com.pulumi.resources.CustomResource 
      * Client ID of the Application in your B2C tenant.
      * 
      */
-    @Export(name="clientId", refs={String.class}, tree="[0]")
+    @Export(name="clientId", type=String.class, parameters={})
     private Output<String> clientId;
 
     /**
@@ -159,7 +159,7 @@ public class IdentityProviderAadb2c extends com.pulumi.resources.CustomResource 
      * Client secret of the Application in your B2C tenant.
      * 
      */
-    @Export(name="clientSecret", refs={String.class}, tree="[0]")
+    @Export(name="clientSecret", type=String.class, parameters={})
     private Output<String> clientSecret;
 
     /**
@@ -173,7 +173,7 @@ public class IdentityProviderAadb2c extends com.pulumi.resources.CustomResource 
      * Password reset Policy Name.
      * 
      */
-    @Export(name="passwordResetPolicy", refs={String.class}, tree="[0]")
+    @Export(name="passwordResetPolicy", type=String.class, parameters={})
     private Output</* @Nullable */ String> passwordResetPolicy;
 
     /**
@@ -187,7 +187,7 @@ public class IdentityProviderAadb2c extends com.pulumi.resources.CustomResource 
      * Profile editing Policy Name.
      * 
      */
-    @Export(name="profileEditingPolicy", refs={String.class}, tree="[0]")
+    @Export(name="profileEditingPolicy", type=String.class, parameters={})
     private Output</* @Nullable */ String> profileEditingPolicy;
 
     /**
@@ -201,7 +201,7 @@ public class IdentityProviderAadb2c extends com.pulumi.resources.CustomResource 
      * The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -215,7 +215,7 @@ public class IdentityProviderAadb2c extends com.pulumi.resources.CustomResource 
      * Signin Policy Name.
      * 
      */
-    @Export(name="signinPolicy", refs={String.class}, tree="[0]")
+    @Export(name="signinPolicy", type=String.class, parameters={})
     private Output<String> signinPolicy;
 
     /**
@@ -229,7 +229,7 @@ public class IdentityProviderAadb2c extends com.pulumi.resources.CustomResource 
      * The tenant to use instead of Common when logging into Active Directory, usually your B2C tenant domain.
      * 
      */
-    @Export(name="signinTenant", refs={String.class}, tree="[0]")
+    @Export(name="signinTenant", type=String.class, parameters={})
     private Output<String> signinTenant;
 
     /**
@@ -243,7 +243,7 @@ public class IdentityProviderAadb2c extends com.pulumi.resources.CustomResource 
      * Signup Policy Name.
      * 
      */
-    @Export(name="signupPolicy", refs={String.class}, tree="[0]")
+    @Export(name="signupPolicy", type=String.class, parameters={})
     private Output<String> signupPolicy;
 
     /**

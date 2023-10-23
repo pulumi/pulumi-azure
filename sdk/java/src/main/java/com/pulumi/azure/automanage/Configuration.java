@@ -136,7 +136,7 @@ public class Configuration extends com.pulumi.resources.CustomResource {
      * A `antimalware` block as defined below.
      * 
      */
-    @Export(name="antimalware", refs={ConfigurationAntimalware.class}, tree="[0]")
+    @Export(name="antimalware", type=ConfigurationAntimalware.class, parameters={})
     private Output</* @Nullable */ ConfigurationAntimalware> antimalware;
 
     /**
@@ -150,7 +150,7 @@ public class Configuration extends com.pulumi.resources.CustomResource {
      * Whether the automation account is enabled. Defaults to `false`.
      * 
      */
-    @Export(name="automationAccountEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="automationAccountEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> automationAccountEnabled;
 
     /**
@@ -164,7 +164,7 @@ public class Configuration extends com.pulumi.resources.CustomResource {
      * A `azure_security_baseline` block as defined below.
      * 
      */
-    @Export(name="azureSecurityBaseline", refs={ConfigurationAzureSecurityBaseline.class}, tree="[0]")
+    @Export(name="azureSecurityBaseline", type=ConfigurationAzureSecurityBaseline.class, parameters={})
     private Output</* @Nullable */ ConfigurationAzureSecurityBaseline> azureSecurityBaseline;
 
     /**
@@ -178,7 +178,7 @@ public class Configuration extends com.pulumi.resources.CustomResource {
      * A `backup` block as defined below.
      * 
      */
-    @Export(name="backup", refs={ConfigurationBackup.class}, tree="[0]")
+    @Export(name="backup", type=ConfigurationBackup.class, parameters={})
     private Output</* @Nullable */ ConfigurationBackup> backup;
 
     /**
@@ -192,7 +192,7 @@ public class Configuration extends com.pulumi.resources.CustomResource {
      * Whether the boot diagnostics are enabled. Defaults to `false`.
      * 
      */
-    @Export(name="bootDiagnosticsEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="bootDiagnosticsEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> bootDiagnosticsEnabled;
 
     /**
@@ -206,7 +206,7 @@ public class Configuration extends com.pulumi.resources.CustomResource {
      * Whether the defender for cloud is enabled. Defaults to `false`.
      * 
      */
-    @Export(name="defenderForCloudEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="defenderForCloudEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> defenderForCloudEnabled;
 
     /**
@@ -220,7 +220,7 @@ public class Configuration extends com.pulumi.resources.CustomResource {
      * Whether the guest configuration is enabled. Defaults to `false`.
      * 
      */
-    @Export(name="guestConfigurationEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="guestConfigurationEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> guestConfigurationEnabled;
 
     /**
@@ -234,7 +234,7 @@ public class Configuration extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Automanage Configuration should exist. Changing this forces a new Automanage Configuration to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -248,7 +248,7 @@ public class Configuration extends com.pulumi.resources.CustomResource {
      * Whether log analytics are enabled. Defaults to `false`.
      * 
      */
-    @Export(name="logAnalyticsEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="logAnalyticsEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> logAnalyticsEnabled;
 
     /**
@@ -262,7 +262,7 @@ public class Configuration extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Automanage Configuration. Changing this forces a new Automanage Configuration to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -276,7 +276,7 @@ public class Configuration extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Automanage Configuration should exist. Changing this forces a new Automanage Configuration to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -290,7 +290,7 @@ public class Configuration extends com.pulumi.resources.CustomResource {
      * Whether the status change alert is enabled. Defaults to `false`.
      * 
      */
-    @Export(name="statusChangeAlertEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="statusChangeAlertEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> statusChangeAlertEnabled;
 
     /**
@@ -304,7 +304,7 @@ public class Configuration extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

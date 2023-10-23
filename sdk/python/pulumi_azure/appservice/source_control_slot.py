@@ -59,7 +59,23 @@ class SourceControlSlotArgs:
              use_local_git: Optional[pulumi.Input[bool]] = None,
              use_manual_integration: Optional[pulumi.Input[bool]] = None,
              use_mercurial: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'slotId' in kwargs:
+            slot_id = kwargs['slotId']
+        if 'githubActionConfiguration' in kwargs:
+            github_action_configuration = kwargs['githubActionConfiguration']
+        if 'repoUrl' in kwargs:
+            repo_url = kwargs['repoUrl']
+        if 'rollbackEnabled' in kwargs:
+            rollback_enabled = kwargs['rollbackEnabled']
+        if 'useLocalGit' in kwargs:
+            use_local_git = kwargs['useLocalGit']
+        if 'useManualIntegration' in kwargs:
+            use_manual_integration = kwargs['useManualIntegration']
+        if 'useMercurial' in kwargs:
+            use_mercurial = kwargs['useMercurial']
+
         _setter("slot_id", slot_id)
         if branch is not None:
             _setter("branch", branch)
@@ -229,7 +245,27 @@ class _SourceControlSlotState:
              use_manual_integration: Optional[pulumi.Input[bool]] = None,
              use_mercurial: Optional[pulumi.Input[bool]] = None,
              uses_github_action: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'githubActionConfiguration' in kwargs:
+            github_action_configuration = kwargs['githubActionConfiguration']
+        if 'repoUrl' in kwargs:
+            repo_url = kwargs['repoUrl']
+        if 'rollbackEnabled' in kwargs:
+            rollback_enabled = kwargs['rollbackEnabled']
+        if 'scmType' in kwargs:
+            scm_type = kwargs['scmType']
+        if 'slotId' in kwargs:
+            slot_id = kwargs['slotId']
+        if 'useLocalGit' in kwargs:
+            use_local_git = kwargs['useLocalGit']
+        if 'useManualIntegration' in kwargs:
+            use_manual_integration = kwargs['useManualIntegration']
+        if 'useMercurial' in kwargs:
+            use_mercurial = kwargs['useMercurial']
+        if 'usesGithubAction' in kwargs:
+            uses_github_action = kwargs['usesGithubAction']
+
         if branch is not None:
             _setter("branch", branch)
         if github_action_configuration is not None:

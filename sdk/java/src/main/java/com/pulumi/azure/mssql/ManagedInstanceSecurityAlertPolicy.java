@@ -271,7 +271,7 @@ public class ManagedInstanceSecurityAlertPolicy extends com.pulumi.resources.Cus
      * Specifies an array of alerts that are disabled. Possible values are `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action` and `Brute_Force`.
      * 
      */
-    @Export(name="disabledAlerts", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="disabledAlerts", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> disabledAlerts;
 
     /**
@@ -285,7 +285,7 @@ public class ManagedInstanceSecurityAlertPolicy extends com.pulumi.resources.Cus
      * Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
      * 
      */
-    @Export(name="emailAccountAdminsEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="emailAccountAdminsEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> emailAccountAdminsEnabled;
 
     /**
@@ -299,7 +299,7 @@ public class ManagedInstanceSecurityAlertPolicy extends com.pulumi.resources.Cus
      * Specifies an array of email addresses to which the alert is sent.
      * 
      */
-    @Export(name="emailAddresses", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="emailAddresses", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> emailAddresses;
 
     /**
@@ -313,7 +313,7 @@ public class ManagedInstanceSecurityAlertPolicy extends com.pulumi.resources.Cus
      * Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`.
      * 
      */
-    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -327,7 +327,7 @@ public class ManagedInstanceSecurityAlertPolicy extends com.pulumi.resources.Cus
      * Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="managedInstanceName", refs={String.class}, tree="[0]")
+    @Export(name="managedInstanceName", type=String.class, parameters={})
     private Output<String> managedInstanceName;
 
     /**
@@ -341,7 +341,7 @@ public class ManagedInstanceSecurityAlertPolicy extends com.pulumi.resources.Cus
      * The name of the resource group that contains the MS SQL Managed Instance. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -355,7 +355,7 @@ public class ManagedInstanceSecurityAlertPolicy extends com.pulumi.resources.Cus
      * Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
      * 
      */
-    @Export(name="retentionDays", refs={Integer.class}, tree="[0]")
+    @Export(name="retentionDays", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> retentionDays;
 
     /**
@@ -371,7 +371,7 @@ public class ManagedInstanceSecurityAlertPolicy extends com.pulumi.resources.Cus
      * &gt; **NOTE:**  Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `azure.mssql.ManagedInstanceSecurityAlertPolicy` with `storage_endpoint` for now.
      * 
      */
-    @Export(name="storageAccountAccessKey", refs={String.class}, tree="[0]")
+    @Export(name="storageAccountAccessKey", type=String.class, parameters={})
     private Output</* @Nullable */ String> storageAccountAccessKey;
 
     /**
@@ -387,7 +387,7 @@ public class ManagedInstanceSecurityAlertPolicy extends com.pulumi.resources.Cus
      * Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
      * 
      */
-    @Export(name="storageEndpoint", refs={String.class}, tree="[0]")
+    @Export(name="storageEndpoint", type=String.class, parameters={})
     private Output</* @Nullable */ String> storageEndpoint;
 
     /**

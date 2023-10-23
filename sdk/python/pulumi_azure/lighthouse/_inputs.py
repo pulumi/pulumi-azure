@@ -44,7 +44,17 @@ class DefinitionAuthorizationArgs:
              role_definition_id: pulumi.Input[str],
              delegated_role_definition_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_display_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'roleDefinitionId' in kwargs:
+            role_definition_id = kwargs['roleDefinitionId']
+        if 'delegatedRoleDefinitionIds' in kwargs:
+            delegated_role_definition_ids = kwargs['delegatedRoleDefinitionIds']
+        if 'principalDisplayName' in kwargs:
+            principal_display_name = kwargs['principalDisplayName']
+
         _setter("principal_id", principal_id)
         _setter("role_definition_id", role_definition_id)
         if delegated_role_definition_ids is not None:
@@ -128,7 +138,17 @@ class DefinitionEligibleAuthorizationArgs:
              role_definition_id: pulumi.Input[str],
              just_in_time_access_policy: Optional[pulumi.Input['DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs']] = None,
              principal_display_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'roleDefinitionId' in kwargs:
+            role_definition_id = kwargs['roleDefinitionId']
+        if 'justInTimeAccessPolicy' in kwargs:
+            just_in_time_access_policy = kwargs['justInTimeAccessPolicy']
+        if 'principalDisplayName' in kwargs:
+            principal_display_name = kwargs['principalDisplayName']
+
         _setter("principal_id", principal_id)
         _setter("role_definition_id", role_definition_id)
         if just_in_time_access_policy is not None:
@@ -210,7 +230,13 @@ class DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs:
              approvers: Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArgs']]]] = None,
              maximum_activation_duration: Optional[pulumi.Input[str]] = None,
              multi_factor_auth_provider: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maximumActivationDuration' in kwargs:
+            maximum_activation_duration = kwargs['maximumActivationDuration']
+        if 'multiFactorAuthProvider' in kwargs:
+            multi_factor_auth_provider = kwargs['multiFactorAuthProvider']
+
         if approvers is not None:
             _setter("approvers", approvers)
         if maximum_activation_duration is not None:
@@ -276,7 +302,13 @@ class DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArgs:
              _setter: Callable[[Any, Any], None],
              principal_id: pulumi.Input[str],
              principal_display_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'principalDisplayName' in kwargs:
+            principal_display_name = kwargs['principalDisplayName']
+
         _setter("principal_id", principal_id)
         if principal_display_name is not None:
             _setter("principal_display_name", principal_display_name)
@@ -333,7 +365,9 @@ class DefinitionPlanArgs:
              product: pulumi.Input[str],
              publisher: pulumi.Input[str],
              version: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("product", product)
         _setter("publisher", publisher)

@@ -35,7 +35,13 @@ class HyperVReplicationPolicyAssociationArgs:
              hyperv_site_id: pulumi.Input[str],
              policy_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hypervSiteId' in kwargs:
+            hyperv_site_id = kwargs['hypervSiteId']
+        if 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+
         _setter("hyperv_site_id", hyperv_site_id)
         _setter("policy_id", policy_id)
         if name is not None:
@@ -102,7 +108,13 @@ class _HyperVReplicationPolicyAssociationState:
              hyperv_site_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              policy_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hypervSiteId' in kwargs:
+            hyperv_site_id = kwargs['hypervSiteId']
+        if 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+
         if hyperv_site_id is not None:
             _setter("hyperv_site_id", hyperv_site_id)
         if name is not None:

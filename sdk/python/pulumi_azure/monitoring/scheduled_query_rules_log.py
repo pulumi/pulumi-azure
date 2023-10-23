@@ -61,7 +61,15 @@ class ScheduledQueryRulesLogArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataSourceId' in kwargs:
+            data_source_id = kwargs['dataSourceId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'authorizedResourceIds' in kwargs:
+            authorized_resource_ids = kwargs['authorizedResourceIds']
+
         _setter("criteria", criteria)
         _setter("data_source_id", data_source_id)
         _setter("resource_group_name", resource_group_name)
@@ -235,7 +243,15 @@ class _ScheduledQueryRulesLogState:
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authorizedResourceIds' in kwargs:
+            authorized_resource_ids = kwargs['authorizedResourceIds']
+        if 'dataSourceId' in kwargs:
+            data_source_id = kwargs['dataSourceId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if authorized_resource_ids is not None:
             _setter("authorized_resource_ids", authorized_resource_ids)
         if criteria is not None:

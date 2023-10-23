@@ -39,7 +39,15 @@ class RouteServerBgpConnectionArgs:
              peer_ip: pulumi.Input[str],
              route_server_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'peerAsn' in kwargs:
+            peer_asn = kwargs['peerAsn']
+        if 'peerIp' in kwargs:
+            peer_ip = kwargs['peerIp']
+        if 'routeServerId' in kwargs:
+            route_server_id = kwargs['routeServerId']
+
         _setter("peer_asn", peer_asn)
         _setter("peer_ip", peer_ip)
         _setter("route_server_id", route_server_id)
@@ -123,7 +131,15 @@ class _RouteServerBgpConnectionState:
              peer_asn: Optional[pulumi.Input[int]] = None,
              peer_ip: Optional[pulumi.Input[str]] = None,
              route_server_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'peerAsn' in kwargs:
+            peer_asn = kwargs['peerAsn']
+        if 'peerIp' in kwargs:
+            peer_ip = kwargs['peerIp']
+        if 'routeServerId' in kwargs:
+            route_server_id = kwargs['routeServerId']
+
         if name is not None:
             _setter("name", name)
         if peer_asn is not None:

@@ -33,7 +33,7 @@ public class FrontdoorOrigin extends com.pulumi.resources.CustomResource {
      * The ID of the Front Door Origin Group within which this Front Door Origin should exist. Changing this forces a new Front Door Origin to be created.
      * 
      */
-    @Export(name="cdnFrontdoorOriginGroupId", refs={String.class}, tree="[0]")
+    @Export(name="cdnFrontdoorOriginGroupId", type=String.class, parameters={})
     private Output<String> cdnFrontdoorOriginGroupId;
 
     /**
@@ -47,7 +47,7 @@ public class FrontdoorOrigin extends com.pulumi.resources.CustomResource {
      * Specifies whether certificate name checks are enabled for this origin.
      * 
      */
-    @Export(name="certificateNameCheckEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="certificateNameCheckEnabled", type=Boolean.class, parameters={})
     private Output<Boolean> certificateNameCheckEnabled;
 
     /**
@@ -63,7 +63,7 @@ public class FrontdoorOrigin extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** The `enabled` field will need to be explicitly set until the 4.0 provider is released due to the deprecation of the `health_probes_enabled` property in version 3.x of the AzureRM Provider.
      * 
      */
-    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="enabled", type=Boolean.class, parameters={})
     private Output<Boolean> enabled;
 
     /**
@@ -81,7 +81,7 @@ public class FrontdoorOrigin extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* `health_probes_enabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider. */
-    @Export(name="healthProbesEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="healthProbesEnabled", type=Boolean.class, parameters={})
     private Output<Boolean> healthProbesEnabled;
 
     public Output<Boolean> healthProbesEnabled() {
@@ -93,7 +93,7 @@ public class FrontdoorOrigin extends com.pulumi.resources.CustomResource {
      * !&gt; **IMPORTANT:** This must be unique across all Front Door Origins within a Front Door Endpoint.
      * 
      */
-    @Export(name="hostName", refs={String.class}, tree="[0]")
+    @Export(name="hostName", type=String.class, parameters={})
     private Output<String> hostName;
 
     /**
@@ -109,7 +109,7 @@ public class FrontdoorOrigin extends com.pulumi.resources.CustomResource {
      * The value of the HTTP port. Must be between `1` and `65535`. Defaults to `80`.
      * 
      */
-    @Export(name="httpPort", refs={Integer.class}, tree="[0]")
+    @Export(name="httpPort", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> httpPort;
 
     /**
@@ -123,7 +123,7 @@ public class FrontdoorOrigin extends com.pulumi.resources.CustomResource {
      * The value of the HTTPS port. Must be between `1` and `65535`. Defaults to `443`.
      * 
      */
-    @Export(name="httpsPort", refs={Integer.class}, tree="[0]")
+    @Export(name="httpsPort", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> httpsPort;
 
     /**
@@ -137,7 +137,7 @@ public class FrontdoorOrigin extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Front Door Origin. Changing this forces a new Front Door Origin to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -153,7 +153,7 @@ public class FrontdoorOrigin extends com.pulumi.resources.CustomResource {
      * &gt; Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin&#39;s hostname. This field&#39;s value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
      * 
      */
-    @Export(name="originHostHeader", refs={String.class}, tree="[0]")
+    @Export(name="originHostHeader", type=String.class, parameters={})
     private Output</* @Nullable */ String> originHostHeader;
 
     /**
@@ -169,7 +169,7 @@ public class FrontdoorOrigin extends com.pulumi.resources.CustomResource {
      * Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy. Must be between `1` and `5` (inclusive). Defaults to `1`.
      * 
      */
-    @Export(name="priority", refs={Integer.class}, tree="[0]")
+    @Export(name="priority", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> priority;
 
     /**
@@ -185,7 +185,7 @@ public class FrontdoorOrigin extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificate_name_check_enabled` field is set to `true`.
      * 
      */
-    @Export(name="privateLink", refs={FrontdoorOriginPrivateLink.class}, tree="[0]")
+    @Export(name="privateLink", type=FrontdoorOriginPrivateLink.class, parameters={})
     private Output</* @Nullable */ FrontdoorOriginPrivateLink> privateLink;
 
     /**
@@ -201,7 +201,7 @@ public class FrontdoorOrigin extends com.pulumi.resources.CustomResource {
      * The weight of the origin in a given origin group for load balancing. Must be between `1` and `1000`. Defaults to `500`.
      * 
      */
-    @Export(name="weight", refs={Integer.class}, tree="[0]")
+    @Export(name="weight", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> weight;
 
     /**

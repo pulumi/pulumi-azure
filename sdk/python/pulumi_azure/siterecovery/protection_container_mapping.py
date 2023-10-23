@@ -57,7 +57,23 @@ class ProtectionContainerMappingArgs:
              resource_group_name: pulumi.Input[str],
              automatic_update: Optional[pulumi.Input['ProtectionContainerMappingAutomaticUpdateArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'recoveryFabricName' in kwargs:
+            recovery_fabric_name = kwargs['recoveryFabricName']
+        if 'recoveryReplicationPolicyId' in kwargs:
+            recovery_replication_policy_id = kwargs['recoveryReplicationPolicyId']
+        if 'recoverySourceProtectionContainerName' in kwargs:
+            recovery_source_protection_container_name = kwargs['recoverySourceProtectionContainerName']
+        if 'recoveryTargetProtectionContainerId' in kwargs:
+            recovery_target_protection_container_id = kwargs['recoveryTargetProtectionContainerId']
+        if 'recoveryVaultName' in kwargs:
+            recovery_vault_name = kwargs['recoveryVaultName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'automaticUpdate' in kwargs:
+            automatic_update = kwargs['automaticUpdate']
+
         _setter("recovery_fabric_name", recovery_fabric_name)
         _setter("recovery_replication_policy_id", recovery_replication_policy_id)
         _setter("recovery_source_protection_container_name", recovery_source_protection_container_name)
@@ -210,7 +226,23 @@ class _ProtectionContainerMappingState:
              recovery_target_protection_container_id: Optional[pulumi.Input[str]] = None,
              recovery_vault_name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'automaticUpdate' in kwargs:
+            automatic_update = kwargs['automaticUpdate']
+        if 'recoveryFabricName' in kwargs:
+            recovery_fabric_name = kwargs['recoveryFabricName']
+        if 'recoveryReplicationPolicyId' in kwargs:
+            recovery_replication_policy_id = kwargs['recoveryReplicationPolicyId']
+        if 'recoverySourceProtectionContainerName' in kwargs:
+            recovery_source_protection_container_name = kwargs['recoverySourceProtectionContainerName']
+        if 'recoveryTargetProtectionContainerId' in kwargs:
+            recovery_target_protection_container_id = kwargs['recoveryTargetProtectionContainerId']
+        if 'recoveryVaultName' in kwargs:
+            recovery_vault_name = kwargs['recoveryVaultName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if automatic_update is not None:
             _setter("automatic_update", automatic_update)
         if name is not None:

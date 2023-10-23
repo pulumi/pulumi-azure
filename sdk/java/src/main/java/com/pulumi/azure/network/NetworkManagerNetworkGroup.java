@@ -87,7 +87,7 @@ public class NetworkManagerNetworkGroup extends com.pulumi.resources.CustomResou
      * A description of the Network Manager Network Group.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -101,7 +101,7 @@ public class NetworkManagerNetworkGroup extends com.pulumi.resources.CustomResou
      * Specifies the name which should be used for this Network Manager Network Group. Changing this forces a new Network Manager Network Group to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -115,7 +115,7 @@ public class NetworkManagerNetworkGroup extends com.pulumi.resources.CustomResou
      * Specifies the ID of the Network Manager. Changing this forces a new Network Manager Network Group to be created.
      * 
      */
-    @Export(name="networkManagerId", refs={String.class}, tree="[0]")
+    @Export(name="networkManagerId", type=String.class, parameters={})
     private Output<String> networkManagerId;
 
     /**

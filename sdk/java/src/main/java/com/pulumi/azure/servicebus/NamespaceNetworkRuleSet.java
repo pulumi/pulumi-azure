@@ -108,7 +108,7 @@ public class NamespaceNetworkRuleSet extends com.pulumi.resources.CustomResource
      * Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
      * 
      */
-    @Export(name="defaultAction", refs={String.class}, tree="[0]")
+    @Export(name="defaultAction", type=String.class, parameters={})
     private Output</* @Nullable */ String> defaultAction;
 
     /**
@@ -122,7 +122,7 @@ public class NamespaceNetworkRuleSet extends com.pulumi.resources.CustomResource
      * One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
      * 
      */
-    @Export(name="ipRules", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="ipRules", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> ipRules;
 
     /**
@@ -138,7 +138,7 @@ public class NamespaceNetworkRuleSet extends com.pulumi.resources.CustomResource
      * &gt; **NOTE:** The ServiceBus Namespace must be `Premium` in order to attach a ServiceBus Namespace Network Rule Set.
      * 
      */
-    @Export(name="namespaceId", refs={String.class}, tree="[0]")
+    @Export(name="namespaceId", type=String.class, parameters={})
     private Output<String> namespaceId;
 
     /**
@@ -154,7 +154,7 @@ public class NamespaceNetworkRuleSet extends com.pulumi.resources.CustomResource
      * One or more `network_rules` blocks as defined below.
      * 
      */
-    @Export(name="networkRules", refs={List.class,NamespaceNetworkRuleSetNetworkRule.class}, tree="[0,1]")
+    @Export(name="networkRules", type=List.class, parameters={NamespaceNetworkRuleSetNetworkRule.class})
     private Output</* @Nullable */ List<NamespaceNetworkRuleSetNetworkRule>> networkRules;
 
     /**
@@ -168,7 +168,7 @@ public class NamespaceNetworkRuleSet extends com.pulumi.resources.CustomResource
      * Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
      * 
      */
-    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
@@ -182,7 +182,7 @@ public class NamespaceNetworkRuleSet extends com.pulumi.resources.CustomResource
      * If True, then Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration. See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
      * 
      */
-    @Export(name="trustedServicesAllowed", refs={Boolean.class}, tree="[0]")
+    @Export(name="trustedServicesAllowed", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> trustedServicesAllowed;
 
     /**

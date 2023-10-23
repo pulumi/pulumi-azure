@@ -125,7 +125,7 @@ public class Automation extends com.pulumi.resources.CustomResource {
      * One or more `action` blocks as defined below. An `action` tells this automation where the data is to be sent to upon being evaluated by the rules in the `source`.
      * 
      */
-    @Export(name="actions", refs={List.class,AutomationAction.class}, tree="[0,1]")
+    @Export(name="actions", type=List.class, parameters={AutomationAction.class})
     private Output<List<AutomationAction>> actions;
 
     /**
@@ -139,7 +139,7 @@ public class Automation extends com.pulumi.resources.CustomResource {
      * Specifies the description for the Security Center Automation.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -153,7 +153,7 @@ public class Automation extends com.pulumi.resources.CustomResource {
      * Boolean to enable or disable this Security Center Automation. Defaults to `true`.
      * 
      */
-    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -167,7 +167,7 @@ public class Automation extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Security Center Automation should exist. Changing this forces a new Security Center Automation to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -181,7 +181,7 @@ public class Automation extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Security Center Automation. Changing this forces a new Security Center Automation to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -195,7 +195,7 @@ public class Automation extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Security Center Automation should exist. Changing this forces a new Security Center Automation to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -209,7 +209,7 @@ public class Automation extends com.pulumi.resources.CustomResource {
      * A list of scopes on which the automation logic is applied, at least one is required. Supported scopes are a subscription (in this format `/subscriptions/00000000-0000-0000-0000-000000000000`) or a resource group under that subscription (in the format `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example`). The automation will only apply on defined scopes.
      * 
      */
-    @Export(name="scopes", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="scopes", type=List.class, parameters={String.class})
     private Output<List<String>> scopes;
 
     /**
@@ -223,7 +223,7 @@ public class Automation extends com.pulumi.resources.CustomResource {
      * One or more `source` blocks as defined below. A `source` defines what data types will be processed and a set of rules to filter that data.
      * 
      */
-    @Export(name="sources", refs={List.class,AutomationSource.class}, tree="[0,1]")
+    @Export(name="sources", type=List.class, parameters={AutomationSource.class})
     private Output<List<AutomationSource>> sources;
 
     /**
@@ -237,7 +237,7 @@ public class Automation extends com.pulumi.resources.CustomResource {
      * A mapping of tags assigned to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

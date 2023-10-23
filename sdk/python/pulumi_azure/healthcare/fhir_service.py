@@ -77,7 +77,21 @@ class FhirServiceArgs:
              name: Optional[pulumi.Input[str]] = None,
              oci_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input['FhirServiceOciArtifactArgs']]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+        if 'accessPolicyObjectIds' in kwargs:
+            access_policy_object_ids = kwargs['accessPolicyObjectIds']
+        if 'configurationExportStorageAccountName' in kwargs:
+            configuration_export_storage_account_name = kwargs['configurationExportStorageAccountName']
+        if 'containerRegistryLoginServerUrls' in kwargs:
+            container_registry_login_server_urls = kwargs['containerRegistryLoginServerUrls']
+        if 'ociArtifacts' in kwargs:
+            oci_artifacts = kwargs['ociArtifacts']
+
         _setter("authentication", authentication)
         _setter("resource_group_name", resource_group_name)
         _setter("workspace_id", workspace_id)
@@ -327,7 +341,23 @@ class _FhirServiceState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessPolicyObjectIds' in kwargs:
+            access_policy_object_ids = kwargs['accessPolicyObjectIds']
+        if 'configurationExportStorageAccountName' in kwargs:
+            configuration_export_storage_account_name = kwargs['configurationExportStorageAccountName']
+        if 'containerRegistryLoginServerUrls' in kwargs:
+            container_registry_login_server_urls = kwargs['containerRegistryLoginServerUrls']
+        if 'ociArtifacts' in kwargs:
+            oci_artifacts = kwargs['ociArtifacts']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+
         if access_policy_object_ids is not None:
             _setter("access_policy_object_ids", access_policy_object_ids)
         if authentication is not None:

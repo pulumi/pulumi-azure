@@ -95,7 +95,7 @@ public class Share extends com.pulumi.resources.CustomResource {
      * ~&gt;**NOTE:** The `FileStorage` `account_kind` of the `azure.storage.Account` requires `Premium` `access_tier`.
      * 
      */
-    @Export(name="accessTier", refs={String.class}, tree="[0]")
+    @Export(name="accessTier", type=String.class, parameters={})
     private Output<String> accessTier;
 
     /**
@@ -111,7 +111,7 @@ public class Share extends com.pulumi.resources.CustomResource {
      * One or more `acl` blocks as defined below.
      * 
      */
-    @Export(name="acls", refs={List.class,ShareAcl.class}, tree="[0,1]")
+    @Export(name="acls", type=List.class, parameters={ShareAcl.class})
     private Output</* @Nullable */ List<ShareAcl>> acls;
 
     /**
@@ -127,7 +127,7 @@ public class Share extends com.pulumi.resources.CustomResource {
      * ~&gt;**NOTE:** The `Premium` SKU of the `azure.storage.Account` is required for the `NFS` protocol.
      * 
      */
-    @Export(name="enabledProtocol", refs={String.class}, tree="[0]")
+    @Export(name="enabledProtocol", type=String.class, parameters={})
     private Output</* @Nullable */ String> enabledProtocol;
 
     /**
@@ -143,7 +143,7 @@ public class Share extends com.pulumi.resources.CustomResource {
      * A mapping of MetaData for this File Share.
      * 
      */
-    @Export(name="metadata", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="metadata", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> metadata;
 
     /**
@@ -157,7 +157,7 @@ public class Share extends com.pulumi.resources.CustomResource {
      * The name of the share. Must be unique within the storage account where the share is located. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -175,7 +175,7 @@ public class Share extends com.pulumi.resources.CustomResource {
      * ~&gt;**NOTE:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
      * 
      */
-    @Export(name="quota", refs={Integer.class}, tree="[0]")
+    @Export(name="quota", type=Integer.class, parameters={})
     private Output<Integer> quota;
 
     /**
@@ -193,7 +193,7 @@ public class Share extends com.pulumi.resources.CustomResource {
      * The Resource Manager ID of this File Share.
      * 
      */
-    @Export(name="resourceManagerId", refs={String.class}, tree="[0]")
+    @Export(name="resourceManagerId", type=String.class, parameters={})
     private Output<String> resourceManagerId;
 
     /**
@@ -207,7 +207,7 @@ public class Share extends com.pulumi.resources.CustomResource {
      * Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="storageAccountName", refs={String.class}, tree="[0]")
+    @Export(name="storageAccountName", type=String.class, parameters={})
     private Output<String> storageAccountName;
 
     /**
@@ -221,7 +221,7 @@ public class Share extends com.pulumi.resources.CustomResource {
      * The URL of the File Share
      * 
      */
-    @Export(name="url", refs={String.class}, tree="[0]")
+    @Export(name="url", type=String.class, parameters={})
     private Output<String> url;
 
     /**

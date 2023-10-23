@@ -65,7 +65,19 @@ class SqlServerArgs:
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              threat_detection_policy: Optional[pulumi.Input['SqlServerThreatDetectionPolicyArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'administratorLogin' in kwargs:
+            administrator_login = kwargs['administratorLogin']
+        if 'administratorLoginPassword' in kwargs:
+            administrator_login_password = kwargs['administratorLoginPassword']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'connectionPolicy' in kwargs:
+            connection_policy = kwargs['connectionPolicy']
+        if 'threatDetectionPolicy' in kwargs:
+            threat_detection_policy = kwargs['threatDetectionPolicy']
+
         _setter("administrator_login", administrator_login)
         _setter("administrator_login_password", administrator_login_password)
         _setter("resource_group_name", resource_group_name)
@@ -260,7 +272,21 @@ class _SqlServerState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              threat_detection_policy: Optional[pulumi.Input['SqlServerThreatDetectionPolicyArgs']] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'administratorLogin' in kwargs:
+            administrator_login = kwargs['administratorLogin']
+        if 'administratorLoginPassword' in kwargs:
+            administrator_login_password = kwargs['administratorLoginPassword']
+        if 'connectionPolicy' in kwargs:
+            connection_policy = kwargs['connectionPolicy']
+        if 'fullyQualifiedDomainName' in kwargs:
+            fully_qualified_domain_name = kwargs['fullyQualifiedDomainName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'threatDetectionPolicy' in kwargs:
+            threat_detection_policy = kwargs['threatDetectionPolicy']
+
         if administrator_login is not None:
             _setter("administrator_login", administrator_login)
         if administrator_login_password is not None:

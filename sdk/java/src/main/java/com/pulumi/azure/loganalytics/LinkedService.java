@@ -88,7 +88,7 @@ public class LinkedService extends com.pulumi.resources.CustomResource {
      * The generated name of the Linked Service. The format for this attribute is always `&lt;workspace name&gt;/&lt;linked service type&gt;`(e.g. `workspace1/Automation` or `workspace1/Cluster`)
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -102,7 +102,7 @@ public class LinkedService extends com.pulumi.resources.CustomResource {
      * The ID of the readable Resource that will be linked to the workspace. This should be used for linking to an Automation Account resource.
      * 
      */
-    @Export(name="readAccessId", refs={String.class}, tree="[0]")
+    @Export(name="readAccessId", type=String.class, parameters={})
     private Output<String> readAccessId;
 
     /**
@@ -116,7 +116,7 @@ public class LinkedService extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which the Log Analytics Linked Service is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -130,7 +130,7 @@ public class LinkedService extends com.pulumi.resources.CustomResource {
      * The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource.
      * 
      */
-    @Export(name="workspaceId", refs={String.class}, tree="[0]")
+    @Export(name="workspaceId", type=String.class, parameters={})
     private Output<String> workspaceId;
 
     /**
@@ -146,7 +146,7 @@ public class LinkedService extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** You must define at least one of the above access resource id attributes (e.g. `read_access_id` or `write_access_id`).
      * 
      */
-    @Export(name="writeAccessId", refs={String.class}, tree="[0]")
+    @Export(name="writeAccessId", type=String.class, parameters={})
     private Output</* @Nullable */ String> writeAccessId;
 
     /**

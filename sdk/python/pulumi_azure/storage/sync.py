@@ -43,7 +43,13 @@ class SyncArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'incomingTrafficPolicy' in kwargs:
+            incoming_traffic_policy = kwargs['incomingTrafficPolicy']
+
         _setter("resource_group_name", resource_group_name)
         if incoming_traffic_policy is not None:
             _setter("incoming_traffic_policy", incoming_traffic_policy)
@@ -147,7 +153,13 @@ class _SyncState:
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'incomingTrafficPolicy' in kwargs:
+            incoming_traffic_policy = kwargs['incomingTrafficPolicy']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if incoming_traffic_policy is not None:
             _setter("incoming_traffic_policy", incoming_traffic_policy)
         if location is not None:

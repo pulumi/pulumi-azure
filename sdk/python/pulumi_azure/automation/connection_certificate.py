@@ -47,7 +47,17 @@ class ConnectionCertificateArgs:
              subscription_id: pulumi.Input[str],
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'automationAccountName' in kwargs:
+            automation_account_name = kwargs['automationAccountName']
+        if 'automationCertificateName' in kwargs:
+            automation_certificate_name = kwargs['automationCertificateName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+
         _setter("automation_account_name", automation_account_name)
         _setter("automation_certificate_name", automation_certificate_name)
         _setter("resource_group_name", resource_group_name)
@@ -166,7 +176,17 @@ class _ConnectionCertificateState:
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              subscription_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'automationAccountName' in kwargs:
+            automation_account_name = kwargs['automationAccountName']
+        if 'automationCertificateName' in kwargs:
+            automation_certificate_name = kwargs['automationCertificateName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+
         if automation_account_name is not None:
             _setter("automation_account_name", automation_account_name)
         if automation_certificate_name is not None:

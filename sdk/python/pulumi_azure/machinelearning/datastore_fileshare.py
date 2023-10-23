@@ -55,7 +55,19 @@ class DatastoreFileshareArgs:
              service_data_identity: Optional[pulumi.Input[str]] = None,
              shared_access_signature: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageFileshareId' in kwargs:
+            storage_fileshare_id = kwargs['storageFileshareId']
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+        if 'accountKey' in kwargs:
+            account_key = kwargs['accountKey']
+        if 'serviceDataIdentity' in kwargs:
+            service_data_identity = kwargs['serviceDataIdentity']
+        if 'sharedAccessSignature' in kwargs:
+            shared_access_signature = kwargs['sharedAccessSignature']
+
         _setter("storage_fileshare_id", storage_fileshare_id)
         _setter("workspace_id", workspace_id)
         if account_key is not None:
@@ -216,7 +228,21 @@ class _DatastoreFileshareState:
              storage_fileshare_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountKey' in kwargs:
+            account_key = kwargs['accountKey']
+        if 'isDefault' in kwargs:
+            is_default = kwargs['isDefault']
+        if 'serviceDataIdentity' in kwargs:
+            service_data_identity = kwargs['serviceDataIdentity']
+        if 'sharedAccessSignature' in kwargs:
+            shared_access_signature = kwargs['sharedAccessSignature']
+        if 'storageFileshareId' in kwargs:
+            storage_fileshare_id = kwargs['storageFileshareId']
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+
         if account_key is not None:
             _setter("account_key", account_key)
         if description is not None:

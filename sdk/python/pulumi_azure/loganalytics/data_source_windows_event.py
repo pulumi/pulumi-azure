@@ -43,7 +43,17 @@ class DataSourceWindowsEventArgs:
              resource_group_name: pulumi.Input[str],
              workspace_name: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventLogName' in kwargs:
+            event_log_name = kwargs['eventLogName']
+        if 'eventTypes' in kwargs:
+            event_types = kwargs['eventTypes']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+
         _setter("event_log_name", event_log_name)
         _setter("event_types", event_types)
         _setter("resource_group_name", resource_group_name)
@@ -144,7 +154,17 @@ class _DataSourceWindowsEventState:
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              workspace_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventLogName' in kwargs:
+            event_log_name = kwargs['eventLogName']
+        if 'eventTypes' in kwargs:
+            event_types = kwargs['eventTypes']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+
         if event_log_name is not None:
             _setter("event_log_name", event_log_name)
         if event_types is not None:

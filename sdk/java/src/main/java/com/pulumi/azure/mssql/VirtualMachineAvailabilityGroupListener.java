@@ -37,7 +37,7 @@ public class VirtualMachineAvailabilityGroupListener extends com.pulumi.resource
      * The name of the Availability Group. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="availabilityGroupName", refs={String.class}, tree="[0]")
+    @Export(name="availabilityGroupName", type=String.class, parameters={})
     private Output</* @Nullable */ String> availabilityGroupName;
 
     /**
@@ -53,7 +53,7 @@ public class VirtualMachineAvailabilityGroupListener extends com.pulumi.resource
      * &gt; **NOTE:** Either one of `load_balancer_configuration` or `multi_subnet_ip_configuration` must be specified.
      * 
      */
-    @Export(name="loadBalancerConfiguration", refs={VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration.class}, tree="[0]")
+    @Export(name="loadBalancerConfiguration", type=VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration.class, parameters={})
     private Output</* @Nullable */ VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration> loadBalancerConfiguration;
 
     /**
@@ -69,7 +69,7 @@ public class VirtualMachineAvailabilityGroupListener extends com.pulumi.resource
      * One or more `multi_subnet_ip_configuration` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="multiSubnetIpConfigurations", refs={List.class,VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfiguration.class}, tree="[0,1]")
+    @Export(name="multiSubnetIpConfigurations", type=List.class, parameters={VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfiguration.class})
     private Output</* @Nullable */ List<VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfiguration>> multiSubnetIpConfigurations;
 
     /**
@@ -83,7 +83,7 @@ public class VirtualMachineAvailabilityGroupListener extends com.pulumi.resource
      * The name which should be used for the Microsoft SQL Virtual Machine Availability Group Listener. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -97,7 +97,7 @@ public class VirtualMachineAvailabilityGroupListener extends com.pulumi.resource
      * The port of the listener. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="port", refs={Integer.class}, tree="[0]")
+    @Export(name="port", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> port;
 
     /**
@@ -111,7 +111,7 @@ public class VirtualMachineAvailabilityGroupListener extends com.pulumi.resource
      * One or more `replica` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="replicas", refs={List.class,VirtualMachineAvailabilityGroupListenerReplica.class}, tree="[0,1]")
+    @Export(name="replicas", type=List.class, parameters={VirtualMachineAvailabilityGroupListenerReplica.class})
     private Output<List<VirtualMachineAvailabilityGroupListenerReplica>> replicas;
 
     /**
@@ -125,7 +125,7 @@ public class VirtualMachineAvailabilityGroupListener extends com.pulumi.resource
      * The ID of the SQL Virtual Machine Group to create the listener. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="sqlVirtualMachineGroupId", refs={String.class}, tree="[0]")
+    @Export(name="sqlVirtualMachineGroupId", type=String.class, parameters={})
     private Output<String> sqlVirtualMachineGroupId;
 
     /**

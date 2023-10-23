@@ -68,7 +68,7 @@ public class PrivateLink extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Resource Management Private Link should exist. Changing this forces a new Resource Management Private Link to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -82,7 +82,7 @@ public class PrivateLink extends com.pulumi.resources.CustomResource {
      * Specifies the name of this Resource Management Private Link. Changing this forces a new Resource Management Private Link to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -96,7 +96,7 @@ public class PrivateLink extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Resource Group within which this Resource Management Private Link should exist. Changing this forces a new Resource Management Private Link to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**

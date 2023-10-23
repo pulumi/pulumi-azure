@@ -37,7 +37,11 @@ class FrontdoorSecretArgs:
              cdn_frontdoor_profile_id: pulumi.Input[str],
              secret: pulumi.Input['FrontdoorSecretSecretArgs'],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cdnFrontdoorProfileId' in kwargs:
+            cdn_frontdoor_profile_id = kwargs['cdnFrontdoorProfileId']
+
         _setter("cdn_frontdoor_profile_id", cdn_frontdoor_profile_id)
         _setter("secret", secret)
         if name is not None:
@@ -108,7 +112,13 @@ class _FrontdoorSecretState:
              cdn_frontdoor_profile_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              secret: Optional[pulumi.Input['FrontdoorSecretSecretArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cdnFrontdoorProfileId' in kwargs:
+            cdn_frontdoor_profile_id = kwargs['cdnFrontdoorProfileId']
+        if 'cdnFrontdoorProfileName' in kwargs:
+            cdn_frontdoor_profile_name = kwargs['cdnFrontdoorProfileName']
+
         if cdn_frontdoor_profile_id is not None:
             _setter("cdn_frontdoor_profile_id", cdn_frontdoor_profile_id)
         if cdn_frontdoor_profile_name is not None:

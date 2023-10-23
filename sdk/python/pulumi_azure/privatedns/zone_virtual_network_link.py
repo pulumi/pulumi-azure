@@ -47,7 +47,17 @@ class ZoneVirtualNetworkLinkArgs:
              name: Optional[pulumi.Input[str]] = None,
              registration_enabled: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateDnsZoneName' in kwargs:
+            private_dns_zone_name = kwargs['privateDnsZoneName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'virtualNetworkId' in kwargs:
+            virtual_network_id = kwargs['virtualNetworkId']
+        if 'registrationEnabled' in kwargs:
+            registration_enabled = kwargs['registrationEnabled']
+
         _setter("private_dns_zone_name", private_dns_zone_name)
         _setter("resource_group_name", resource_group_name)
         _setter("virtual_network_id", virtual_network_id)
@@ -167,7 +177,17 @@ class _ZoneVirtualNetworkLinkState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              virtual_network_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateDnsZoneName' in kwargs:
+            private_dns_zone_name = kwargs['privateDnsZoneName']
+        if 'registrationEnabled' in kwargs:
+            registration_enabled = kwargs['registrationEnabled']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'virtualNetworkId' in kwargs:
+            virtual_network_id = kwargs['virtualNetworkId']
+
         if name is not None:
             _setter("name", name)
         if private_dns_zone_name is not None:

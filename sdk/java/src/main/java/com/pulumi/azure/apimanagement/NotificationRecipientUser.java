@@ -91,7 +91,7 @@ public class NotificationRecipientUser extends com.pulumi.resources.CustomResour
      * The ID of the API Management Service from which to create this Notification Recipient User. Changing this forces a new API Management Notification Recipient User to be created.
      * 
      */
-    @Export(name="apiManagementId", refs={String.class}, tree="[0]")
+    @Export(name="apiManagementId", type=String.class, parameters={})
     private Output<String> apiManagementId;
 
     /**
@@ -105,7 +105,7 @@ public class NotificationRecipientUser extends com.pulumi.resources.CustomResour
      * The Notification Name to be received. Changing this forces a new API Management Notification Recipient User to be created. Possible values are `AccountClosedPublisher`, `BCC`, `NewApplicationNotificationMessage`, `NewIssuePublisherNotificationMessage`, `PurchasePublisherNotificationMessage`, `QuotaLimitApproachingPublisherNotificationMessage`, and `RequestPublisherNotificationMessage`.
      * 
      */
-    @Export(name="notificationType", refs={String.class}, tree="[0]")
+    @Export(name="notificationType", type=String.class, parameters={})
     private Output<String> notificationType;
 
     /**
@@ -119,7 +119,7 @@ public class NotificationRecipientUser extends com.pulumi.resources.CustomResour
      * The recipient user ID. Changing this forces a new API Management Notification Recipient User to be created.
      * 
      */
-    @Export(name="userId", refs={String.class}, tree="[0]")
+    @Export(name="userId", type=String.class, parameters={})
     private Output<String> userId;
 
     /**

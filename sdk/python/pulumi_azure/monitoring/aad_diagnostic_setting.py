@@ -61,7 +61,19 @@ class AadDiagnosticSettingArgs:
              logs: Optional[pulumi.Input[Sequence[pulumi.Input['AadDiagnosticSettingLogArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              storage_account_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'enabledLogs' in kwargs:
+            enabled_logs = kwargs['enabledLogs']
+        if 'eventhubAuthorizationRuleId' in kwargs:
+            eventhub_authorization_rule_id = kwargs['eventhubAuthorizationRuleId']
+        if 'eventhubName' in kwargs:
+            eventhub_name = kwargs['eventhubName']
+        if 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+
         if enabled_logs is not None:
             _setter("enabled_logs", enabled_logs)
         if eventhub_authorization_rule_id is not None:
@@ -224,7 +236,19 @@ class _AadDiagnosticSettingState:
              logs: Optional[pulumi.Input[Sequence[pulumi.Input['AadDiagnosticSettingLogArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              storage_account_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'enabledLogs' in kwargs:
+            enabled_logs = kwargs['enabledLogs']
+        if 'eventhubAuthorizationRuleId' in kwargs:
+            eventhub_authorization_rule_id = kwargs['eventhubAuthorizationRuleId']
+        if 'eventhubName' in kwargs:
+            eventhub_name = kwargs['eventhubName']
+        if 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+
         if enabled_logs is not None:
             _setter("enabled_logs", enabled_logs)
         if eventhub_authorization_rule_id is not None:

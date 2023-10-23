@@ -79,7 +79,7 @@ public class ProductPolicy extends com.pulumi.resources.CustomResource {
      * The name of the API Management Service. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="apiManagementName", refs={String.class}, tree="[0]")
+    @Export(name="apiManagementName", type=String.class, parameters={})
     private Output<String> apiManagementName;
 
     /**
@@ -93,7 +93,7 @@ public class ProductPolicy extends com.pulumi.resources.CustomResource {
      * The ID of the API Management Product within the API Management Service. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="productId", refs={String.class}, tree="[0]")
+    @Export(name="productId", type=String.class, parameters={})
     private Output<String> productId;
 
     /**
@@ -107,7 +107,7 @@ public class ProductPolicy extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -121,7 +121,7 @@ public class ProductPolicy extends com.pulumi.resources.CustomResource {
      * The XML Content for this Policy.
      * 
      */
-    @Export(name="xmlContent", refs={String.class}, tree="[0]")
+    @Export(name="xmlContent", type=String.class, parameters={})
     private Output<String> xmlContent;
 
     /**
@@ -135,7 +135,7 @@ public class ProductPolicy extends com.pulumi.resources.CustomResource {
      * A link to a Policy XML Document, which must be publicly available.
      * 
      */
-    @Export(name="xmlLink", refs={String.class}, tree="[0]")
+    @Export(name="xmlLink", type=String.class, parameters={})
     private Output</* @Nullable */ String> xmlLink;
 
     /**

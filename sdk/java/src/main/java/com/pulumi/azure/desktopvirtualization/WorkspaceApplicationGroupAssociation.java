@@ -93,7 +93,7 @@ public class WorkspaceApplicationGroupAssociation extends com.pulumi.resources.C
      * The resource ID for the Virtual Desktop Application Group. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="applicationGroupId", refs={String.class}, tree="[0]")
+    @Export(name="applicationGroupId", type=String.class, parameters={})
     private Output<String> applicationGroupId;
 
     /**
@@ -107,7 +107,7 @@ public class WorkspaceApplicationGroupAssociation extends com.pulumi.resources.C
      * The resource ID for the Virtual Desktop Workspace. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="workspaceId", refs={String.class}, tree="[0]")
+    @Export(name="workspaceId", type=String.class, parameters={})
     private Output<String> workspaceId;
 
     /**

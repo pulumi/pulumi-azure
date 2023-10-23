@@ -68,7 +68,21 @@ class ProviderArgs:
              sgx_enclave_policy_base64: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              tpm_policy_base64: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'openEnclavePolicyBase64' in kwargs:
+            open_enclave_policy_base64 = kwargs['openEnclavePolicyBase64']
+        if 'policySigningCertificateData' in kwargs:
+            policy_signing_certificate_data = kwargs['policySigningCertificateData']
+        if 'sevSnpPolicyBase64' in kwargs:
+            sev_snp_policy_base64 = kwargs['sevSnpPolicyBase64']
+        if 'sgxEnclavePolicyBase64' in kwargs:
+            sgx_enclave_policy_base64 = kwargs['sgxEnclavePolicyBase64']
+        if 'tpmPolicyBase64' in kwargs:
+            tpm_policy_base64 = kwargs['tpmPolicyBase64']
+
         _setter("resource_group_name", resource_group_name)
         if location is not None:
             _setter("location", location)
@@ -280,7 +294,25 @@ class _ProviderState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              tpm_policy_base64: Optional[pulumi.Input[str]] = None,
              trust_model: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'attestationUri' in kwargs:
+            attestation_uri = kwargs['attestationUri']
+        if 'openEnclavePolicyBase64' in kwargs:
+            open_enclave_policy_base64 = kwargs['openEnclavePolicyBase64']
+        if 'policySigningCertificateData' in kwargs:
+            policy_signing_certificate_data = kwargs['policySigningCertificateData']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'sevSnpPolicyBase64' in kwargs:
+            sev_snp_policy_base64 = kwargs['sevSnpPolicyBase64']
+        if 'sgxEnclavePolicyBase64' in kwargs:
+            sgx_enclave_policy_base64 = kwargs['sgxEnclavePolicyBase64']
+        if 'tpmPolicyBase64' in kwargs:
+            tpm_policy_base64 = kwargs['tpmPolicyBase64']
+        if 'trustModel' in kwargs:
+            trust_model = kwargs['trustModel']
+
         if attestation_uri is not None:
             _setter("attestation_uri", attestation_uri)
         if location is not None:

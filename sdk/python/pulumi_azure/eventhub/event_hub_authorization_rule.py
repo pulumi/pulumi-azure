@@ -53,7 +53,15 @@ class EventHubAuthorizationRuleArgs:
              manage: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              send: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventhubName' in kwargs:
+            eventhub_name = kwargs['eventhubName']
+        if 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         _setter("eventhub_name", eventhub_name)
         _setter("namespace_name", namespace_name)
         _setter("resource_group_name", resource_group_name)
@@ -219,7 +227,27 @@ class _EventHubAuthorizationRuleState:
              secondary_connection_string_alias: Optional[pulumi.Input[str]] = None,
              secondary_key: Optional[pulumi.Input[str]] = None,
              send: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventhubName' in kwargs:
+            eventhub_name = kwargs['eventhubName']
+        if 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if 'primaryConnectionString' in kwargs:
+            primary_connection_string = kwargs['primaryConnectionString']
+        if 'primaryConnectionStringAlias' in kwargs:
+            primary_connection_string_alias = kwargs['primaryConnectionStringAlias']
+        if 'primaryKey' in kwargs:
+            primary_key = kwargs['primaryKey']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'secondaryConnectionString' in kwargs:
+            secondary_connection_string = kwargs['secondaryConnectionString']
+        if 'secondaryConnectionStringAlias' in kwargs:
+            secondary_connection_string_alias = kwargs['secondaryConnectionStringAlias']
+        if 'secondaryKey' in kwargs:
+            secondary_key = kwargs['secondaryKey']
+
         if eventhub_name is not None:
             _setter("eventhub_name", eventhub_name)
         if listen is not None:
