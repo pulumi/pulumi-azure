@@ -15,60 +15,6 @@ import (
 
 // Manages the Shared Private Link Service for an Azure Search Service.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/search"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testResourceGroup, err := core.NewResourceGroup(ctx, "testResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("east us"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testService, err := search.NewService(ctx, "testService", &search.ServiceArgs{
-//				ResourceGroupName: testResourceGroup.Name,
-//				Location:          testResourceGroup.Location,
-//				Sku:               pulumi.String("standard"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testAccount, err := storage.NewAccount(ctx, "testAccount", &storage.AccountArgs{
-//				ResourceGroupName:      testResourceGroup.Name,
-//				Location:               testResourceGroup.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = search.NewSharedPrivateLinkService(ctx, "testSharedPrivateLinkService", &search.SharedPrivateLinkServiceArgs{
-//				SearchServiceId:  testService.ID(),
-//				SubresourceName:  pulumi.String("blob"),
-//				TargetResourceId: testAccount.ID(),
-//				RequestMessage:   pulumi.String("please approve"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Azure Search Shared Private Link Resource can be imported using the `resource id`, e.g.

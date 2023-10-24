@@ -54,8 +54,8 @@ class DatastoreBlobstorageArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             storage_container_id: pulumi.Input[str],
-             workspace_id: pulumi.Input[str],
+             storage_container_id: Optional[pulumi.Input[str]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
              account_key: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              is_default: Optional[pulumi.Input[bool]] = None,
@@ -63,19 +63,23 @@ class DatastoreBlobstorageArgs:
              service_data_auth_identity: Optional[pulumi.Input[str]] = None,
              shared_access_signature: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'storageContainerId' in kwargs:
+        if storage_container_id is None and 'storageContainerId' in kwargs:
             storage_container_id = kwargs['storageContainerId']
-        if 'workspaceId' in kwargs:
+        if storage_container_id is None:
+            raise TypeError("Missing 'storage_container_id' argument")
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
-        if 'accountKey' in kwargs:
+        if workspace_id is None:
+            raise TypeError("Missing 'workspace_id' argument")
+        if account_key is None and 'accountKey' in kwargs:
             account_key = kwargs['accountKey']
-        if 'isDefault' in kwargs:
+        if is_default is None and 'isDefault' in kwargs:
             is_default = kwargs['isDefault']
-        if 'serviceDataAuthIdentity' in kwargs:
+        if service_data_auth_identity is None and 'serviceDataAuthIdentity' in kwargs:
             service_data_auth_identity = kwargs['serviceDataAuthIdentity']
-        if 'sharedAccessSignature' in kwargs:
+        if shared_access_signature is None and 'sharedAccessSignature' in kwargs:
             shared_access_signature = kwargs['sharedAccessSignature']
 
         _setter("storage_container_id", storage_container_id)
@@ -260,19 +264,19 @@ class _DatastoreBlobstorageState:
              storage_container_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'accountKey' in kwargs:
+        if account_key is None and 'accountKey' in kwargs:
             account_key = kwargs['accountKey']
-        if 'isDefault' in kwargs:
+        if is_default is None and 'isDefault' in kwargs:
             is_default = kwargs['isDefault']
-        if 'serviceDataAuthIdentity' in kwargs:
+        if service_data_auth_identity is None and 'serviceDataAuthIdentity' in kwargs:
             service_data_auth_identity = kwargs['serviceDataAuthIdentity']
-        if 'sharedAccessSignature' in kwargs:
+        if shared_access_signature is None and 'sharedAccessSignature' in kwargs:
             shared_access_signature = kwargs['sharedAccessSignature']
-        if 'storageContainerId' in kwargs:
+        if storage_container_id is None and 'storageContainerId' in kwargs:
             storage_container_id = kwargs['storageContainerId']
-        if 'workspaceId' in kwargs:
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
 
         if account_key is not None:
@@ -426,45 +430,6 @@ class DatastoreBlobstorage(pulumi.CustomResource):
         Manages a Machine Learning Blob Storage DataStore.
 
         ## Example Usage
-        ### With Azure Blob
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_type="web")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="premium")
-        example_account = azure.storage.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_workspace = azure.machinelearning.Workspace("exampleWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_insights_id=example_insights.id,
-            key_vault_id=example_key_vault.id,
-            storage_account_id=example_account.id,
-            identity=azure.machinelearning.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_container = azure.storage.Container("exampleContainer",
-            storage_account_name=example_account.name,
-            container_access_type="private")
-        example_datastore_blobstorage = azure.machinelearning.DatastoreBlobstorage("exampleDatastoreBlobstorage",
-            workspace_id=example_workspace.id,
-            storage_container_id=example_container.resource_manager_id,
-            account_key=example_account.primary_access_key)
-        ```
 
         ## Import
 
@@ -500,45 +465,6 @@ class DatastoreBlobstorage(pulumi.CustomResource):
         Manages a Machine Learning Blob Storage DataStore.
 
         ## Example Usage
-        ### With Azure Blob
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_type="web")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="premium")
-        example_account = azure.storage.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_workspace = azure.machinelearning.Workspace("exampleWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_insights_id=example_insights.id,
-            key_vault_id=example_key_vault.id,
-            storage_account_id=example_account.id,
-            identity=azure.machinelearning.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_container = azure.storage.Container("exampleContainer",
-            storage_account_name=example_account.name,
-            container_access_type="private")
-        example_datastore_blobstorage = azure.machinelearning.DatastoreBlobstorage("exampleDatastoreBlobstorage",
-            workspace_id=example_workspace.id,
-            storage_container_id=example_container.resource_manager_id,
-            account_key=example_account.primary_access_key)
-        ```
 
         ## Import
 

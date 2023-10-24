@@ -67,7 +67,7 @@ class TriggerScheduleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_factory_id: pulumi.Input[str],
+             data_factory_id: Optional[pulumi.Input[str]] = None,
              activated: Optional[pulumi.Input[bool]] = None,
              annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -81,19 +81,21 @@ class TriggerScheduleArgs:
              schedule: Optional[pulumi.Input['TriggerScheduleScheduleArgs']] = None,
              start_time: Optional[pulumi.Input[str]] = None,
              time_zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'endTime' in kwargs:
+        if data_factory_id is None:
+            raise TypeError("Missing 'data_factory_id' argument")
+        if end_time is None and 'endTime' in kwargs:
             end_time = kwargs['endTime']
-        if 'pipelineName' in kwargs:
+        if pipeline_name is None and 'pipelineName' in kwargs:
             pipeline_name = kwargs['pipelineName']
-        if 'pipelineParameters' in kwargs:
+        if pipeline_parameters is None and 'pipelineParameters' in kwargs:
             pipeline_parameters = kwargs['pipelineParameters']
-        if 'startTime' in kwargs:
+        if start_time is None and 'startTime' in kwargs:
             start_time = kwargs['startTime']
-        if 'timeZone' in kwargs:
+        if time_zone is None and 'timeZone' in kwargs:
             time_zone = kwargs['timeZone']
 
         _setter("data_factory_id", data_factory_id)
@@ -361,19 +363,19 @@ class _TriggerScheduleState:
              schedule: Optional[pulumi.Input['TriggerScheduleScheduleArgs']] = None,
              start_time: Optional[pulumi.Input[str]] = None,
              time_zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'endTime' in kwargs:
+        if end_time is None and 'endTime' in kwargs:
             end_time = kwargs['endTime']
-        if 'pipelineName' in kwargs:
+        if pipeline_name is None and 'pipelineName' in kwargs:
             pipeline_name = kwargs['pipelineName']
-        if 'pipelineParameters' in kwargs:
+        if pipeline_parameters is None and 'pipelineParameters' in kwargs:
             pipeline_parameters = kwargs['pipelineParameters']
-        if 'startTime' in kwargs:
+        if start_time is None and 'startTime' in kwargs:
             start_time = kwargs['startTime']
-        if 'timeZone' in kwargs:
+        if time_zone is None and 'timeZone' in kwargs:
             time_zone = kwargs['timeZone']
 
         if activated is not None:
@@ -597,24 +599,6 @@ class TriggerSchedule(pulumi.CustomResource):
         """
         Manages a Trigger Schedule inside a Azure Data Factory.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_pipeline = azure.datafactory.Pipeline("examplePipeline", data_factory_id=example_factory.id)
-        example_trigger_schedule = azure.datafactory.TriggerSchedule("exampleTriggerSchedule",
-            data_factory_id=example_factory.id,
-            pipeline_name=example_pipeline.name,
-            interval=5,
-            frequency="Day")
-        ```
-
         ## Import
 
         Data Factory Schedule Trigger can be imported using the `resource id`, e.g.
@@ -648,24 +632,6 @@ class TriggerSchedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Trigger Schedule inside a Azure Data Factory.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_pipeline = azure.datafactory.Pipeline("examplePipeline", data_factory_id=example_factory.id)
-        example_trigger_schedule = azure.datafactory.TriggerSchedule("exampleTriggerSchedule",
-            data_factory_id=example_factory.id,
-            pipeline_name=example_pipeline.name,
-            interval=5,
-            frequency="Day")
-        ```
 
         ## Import
 
@@ -730,11 +696,7 @@ class TriggerSchedule(pulumi.CustomResource):
             __props__.__dict__["pipeline_name"] = pipeline_name
             __props__.__dict__["pipeline_parameters"] = pipeline_parameters
             __props__.__dict__["pipelines"] = pipelines
-            if schedule is not None and not isinstance(schedule, TriggerScheduleScheduleArgs):
-                schedule = schedule or {}
-                def _setter(key, value):
-                    schedule[key] = value
-                TriggerScheduleScheduleArgs._configure(_setter, **schedule)
+            schedule = _utilities.configure(schedule, TriggerScheduleScheduleArgs, True)
             __props__.__dict__["schedule"] = schedule
             __props__.__dict__["start_time"] = start_time
             __props__.__dict__["time_zone"] = time_zone

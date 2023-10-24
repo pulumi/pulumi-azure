@@ -12,48 +12,6 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Manages the association between a NAT Gateway and a Public IP Prefix.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var examplePublicIpPrefix = new Azure.Network.PublicIpPrefix("examplePublicIpPrefix", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         PrefixLength = 30,
-    ///         Zones = new[]
-    ///         {
-    ///             "1",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleNatGateway = new Azure.Network.NatGateway("exampleNatGateway", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         SkuName = "Standard",
-    ///     });
-    /// 
-    ///     var exampleNatGatewayPublicIpPrefixAssociation = new Azure.Network.NatGatewayPublicIpPrefixAssociation("exampleNatGatewayPublicIpPrefixAssociation", new()
-    ///     {
-    ///         NatGatewayId = exampleNatGateway.Id,
-    ///         PublicIpPrefixId = examplePublicIpPrefix.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Associations between NAT Gateway and Public IP Prefixes can be imported using the `resource id`, e.g.

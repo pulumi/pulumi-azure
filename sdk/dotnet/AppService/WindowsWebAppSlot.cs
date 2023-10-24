@@ -12,46 +12,6 @@ namespace Pulumi.Azure.AppService
     /// <summary>
     /// Manages a Windows Web App Slot.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleServicePlan = new Azure.AppService.ServicePlan("exampleServicePlan", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         OsType = "Windows",
-    ///         SkuName = "P1v2",
-    ///     });
-    /// 
-    ///     var exampleWindowsWebApp = new Azure.AppService.WindowsWebApp("exampleWindowsWebApp", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleServicePlan.Location,
-    ///         ServicePlanId = exampleServicePlan.Id,
-    ///         SiteConfig = null,
-    ///     });
-    /// 
-    ///     var exampleWindowsWebAppSlot = new Azure.AppService.WindowsWebAppSlot("exampleWindowsWebAppSlot", new()
-    ///     {
-    ///         AppServiceId = exampleWindowsWebApp.Id,
-    ///         SiteConfig = null,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Windows Web Apps can be imported using the `resource id`, e.g.

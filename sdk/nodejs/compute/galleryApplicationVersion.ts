@@ -9,55 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Gallery Application Version.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleSharedImageGallery = new azure.compute.SharedImageGallery("exampleSharedImageGallery", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- * });
- * const exampleGalleryApplication = new azure.compute.GalleryApplication("exampleGalleryApplication", {
- *     galleryId: exampleSharedImageGallery.id,
- *     location: exampleResourceGroup.location,
- *     supportedOsType: "Linux",
- * });
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "LRS",
- * });
- * const exampleContainer = new azure.storage.Container("exampleContainer", {
- *     storageAccountName: exampleAccount.name,
- *     containerAccessType: "blob",
- * });
- * const exampleBlob = new azure.storage.Blob("exampleBlob", {
- *     storageAccountName: exampleAccount.name,
- *     storageContainerName: exampleContainer.name,
- *     type: "Block",
- *     sourceContent: "[scripts file content]",
- * });
- * const exampleGalleryApplicationVersion = new azure.compute.GalleryApplicationVersion("exampleGalleryApplicationVersion", {
- *     galleryApplicationId: exampleGalleryApplication.id,
- *     location: exampleGalleryApplication.location,
- *     manageAction: {
- *         install: "[install command]",
- *         remove: "[remove command]",
- *     },
- *     source: {
- *         mediaLink: exampleBlob.id,
- *     },
- *     targetRegions: [{
- *         name: exampleGalleryApplication.location,
- *         regionalReplicaCount: 1,
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * Gallery Application Versions can be imported using the `resource id`, e.g.

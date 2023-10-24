@@ -29,13 +29,15 @@ class VirtualNetworkDnsServersArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             virtual_network_id: pulumi.Input[str],
+             virtual_network_id: Optional[pulumi.Input[str]] = None,
              dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'virtualNetworkId' in kwargs:
+        if virtual_network_id is None and 'virtualNetworkId' in kwargs:
             virtual_network_id = kwargs['virtualNetworkId']
-        if 'dnsServers' in kwargs:
+        if virtual_network_id is None:
+            raise TypeError("Missing 'virtual_network_id' argument")
+        if dns_servers is None and 'dnsServers' in kwargs:
             dns_servers = kwargs['dnsServers']
 
         _setter("virtual_network_id", virtual_network_id)
@@ -87,11 +89,11 @@ class _VirtualNetworkDnsServersState:
              _setter: Callable[[Any, Any], None],
              dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              virtual_network_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dnsServers' in kwargs:
+        if dns_servers is None and 'dnsServers' in kwargs:
             dns_servers = kwargs['dnsServers']
-        if 'virtualNetworkId' in kwargs:
+        if virtual_network_id is None and 'virtualNetworkId' in kwargs:
             virtual_network_id = kwargs['virtualNetworkId']
 
         if dns_servers is not None:
@@ -133,30 +135,6 @@ class VirtualNetworkDnsServers(pulumi.CustomResource):
                  virtual_network_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            subnets=[azure.network.VirtualNetworkSubnetArgs(
-                name="subnet1",
-                address_prefix="10.0.1.0/24",
-            )])
-        example_virtual_network_dns_servers = azure.network.VirtualNetworkDnsServers("exampleVirtualNetworkDnsServers",
-            virtual_network_id=example_virtual_network.id,
-            dns_servers=[
-                "10.7.7.2",
-                "10.7.7.7",
-                "10.7.7.1",
-            ])
-        ```
-
         ## Import
 
         Virtual Network DNS Servers can be imported using the `resource id`, e.g.
@@ -177,30 +155,6 @@ class VirtualNetworkDnsServers(pulumi.CustomResource):
                  args: VirtualNetworkDnsServersArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            subnets=[azure.network.VirtualNetworkSubnetArgs(
-                name="subnet1",
-                address_prefix="10.0.1.0/24",
-            )])
-        example_virtual_network_dns_servers = azure.network.VirtualNetworkDnsServers("exampleVirtualNetworkDnsServers",
-            virtual_network_id=example_virtual_network.id,
-            dns_servers=[
-                "10.7.7.2",
-                "10.7.7.7",
-                "10.7.7.1",
-            ])
-        ```
-
         ## Import
 
         Virtual Network DNS Servers can be imported using the `resource id`, e.g.

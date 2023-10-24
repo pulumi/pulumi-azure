@@ -158,17 +158,6 @@ def get_traffic_manager_profile(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Traffic Manager Profile.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.network.get_traffic_manager_profile(name="test",
-        resource_group_name="test")
-    pulumi.export("trafficRoutingMethod", example.traffic_routing_method)
-    ```
-
 
     :param str name: Specifies the name of the Traffic Manager Profile.
     :param str resource_group_name: Specifies the name of the resource group the Traffic Manager Profile is located in.
@@ -204,17 +193,6 @@ def get_traffic_manager_profile_output(name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrafficManagerProfileResult]:
     """
     Use this data source to access information about an existing Traffic Manager Profile.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.network.get_traffic_manager_profile(name="test",
-        resource_group_name="test")
-    pulumi.export("trafficRoutingMethod", example.traffic_routing_method)
-    ```
 
 
     :param str name: Specifies the name of the Traffic Manager Profile.

@@ -44,27 +44,39 @@ class NetworkMappingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             recovery_vault_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             source_network_id: pulumi.Input[str],
-             source_recovery_fabric_name: pulumi.Input[str],
-             target_network_id: pulumi.Input[str],
-             target_recovery_fabric_name: pulumi.Input[str],
+             recovery_vault_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             source_network_id: Optional[pulumi.Input[str]] = None,
+             source_recovery_fabric_name: Optional[pulumi.Input[str]] = None,
+             target_network_id: Optional[pulumi.Input[str]] = None,
+             target_recovery_fabric_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'recoveryVaultName' in kwargs:
+        if recovery_vault_name is None and 'recoveryVaultName' in kwargs:
             recovery_vault_name = kwargs['recoveryVaultName']
-        if 'resourceGroupName' in kwargs:
+        if recovery_vault_name is None:
+            raise TypeError("Missing 'recovery_vault_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'sourceNetworkId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if source_network_id is None and 'sourceNetworkId' in kwargs:
             source_network_id = kwargs['sourceNetworkId']
-        if 'sourceRecoveryFabricName' in kwargs:
+        if source_network_id is None:
+            raise TypeError("Missing 'source_network_id' argument")
+        if source_recovery_fabric_name is None and 'sourceRecoveryFabricName' in kwargs:
             source_recovery_fabric_name = kwargs['sourceRecoveryFabricName']
-        if 'targetNetworkId' in kwargs:
+        if source_recovery_fabric_name is None:
+            raise TypeError("Missing 'source_recovery_fabric_name' argument")
+        if target_network_id is None and 'targetNetworkId' in kwargs:
             target_network_id = kwargs['targetNetworkId']
-        if 'targetRecoveryFabricName' in kwargs:
+        if target_network_id is None:
+            raise TypeError("Missing 'target_network_id' argument")
+        if target_recovery_fabric_name is None and 'targetRecoveryFabricName' in kwargs:
             target_recovery_fabric_name = kwargs['targetRecoveryFabricName']
+        if target_recovery_fabric_name is None:
+            raise TypeError("Missing 'target_recovery_fabric_name' argument")
 
         _setter("recovery_vault_name", recovery_vault_name)
         _setter("resource_group_name", resource_group_name)
@@ -200,19 +212,19 @@ class _NetworkMappingState:
              source_recovery_fabric_name: Optional[pulumi.Input[str]] = None,
              target_network_id: Optional[pulumi.Input[str]] = None,
              target_recovery_fabric_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'recoveryVaultName' in kwargs:
+        if recovery_vault_name is None and 'recoveryVaultName' in kwargs:
             recovery_vault_name = kwargs['recoveryVaultName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'sourceNetworkId' in kwargs:
+        if source_network_id is None and 'sourceNetworkId' in kwargs:
             source_network_id = kwargs['sourceNetworkId']
-        if 'sourceRecoveryFabricName' in kwargs:
+        if source_recovery_fabric_name is None and 'sourceRecoveryFabricName' in kwargs:
             source_recovery_fabric_name = kwargs['sourceRecoveryFabricName']
-        if 'targetNetworkId' in kwargs:
+        if target_network_id is None and 'targetNetworkId' in kwargs:
             target_network_id = kwargs['targetNetworkId']
-        if 'targetRecoveryFabricName' in kwargs:
+        if target_recovery_fabric_name is None and 'targetRecoveryFabricName' in kwargs:
             target_recovery_fabric_name = kwargs['targetRecoveryFabricName']
 
         if name is not None:
@@ -331,45 +343,6 @@ class NetworkMapping(pulumi.CustomResource):
         """
         Manages a site recovery network mapping on Azure. A network mapping decides how to translate connected networks when a VM is migrated from one region to another.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        primary_resource_group = azure.core.ResourceGroup("primaryResourceGroup", location="West US")
-        secondary_resource_group = azure.core.ResourceGroup("secondaryResourceGroup", location="East US")
-        vault = azure.recoveryservices.Vault("vault",
-            location=secondary_resource_group.location,
-            resource_group_name=secondary_resource_group.name,
-            sku="Standard")
-        primary_fabric = azure.siterecovery.Fabric("primaryFabric",
-            resource_group_name=secondary_resource_group.name,
-            recovery_vault_name=vault.name,
-            location=primary_resource_group.location)
-        secondary_fabric = azure.siterecovery.Fabric("secondaryFabric",
-            resource_group_name=secondary_resource_group.name,
-            recovery_vault_name=vault.name,
-            location=secondary_resource_group.location,
-            opts=pulumi.ResourceOptions(depends_on=[primary_fabric]))
-        # Avoids issues with creating fabrics simultaneously
-        primary_virtual_network = azure.network.VirtualNetwork("primaryVirtualNetwork",
-            resource_group_name=primary_resource_group.name,
-            address_spaces=["192.168.1.0/24"],
-            location=primary_resource_group.location)
-        secondary_virtual_network = azure.network.VirtualNetwork("secondaryVirtualNetwork",
-            resource_group_name=secondary_resource_group.name,
-            address_spaces=["192.168.2.0/24"],
-            location=secondary_resource_group.location)
-        recovery_mapping = azure.siterecovery.NetworkMapping("recovery-mapping",
-            resource_group_name=secondary_resource_group.name,
-            recovery_vault_name=vault.name,
-            source_recovery_fabric_name="primary-fabric",
-            target_recovery_fabric_name="secondary-fabric",
-            source_network_id=primary_virtual_network.id,
-            target_network_id=secondary_virtual_network.id)
-        ```
-
         ## Import
 
         Site Recovery Network Mapping can be imported using the `resource id`, e.g.
@@ -396,45 +369,6 @@ class NetworkMapping(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a site recovery network mapping on Azure. A network mapping decides how to translate connected networks when a VM is migrated from one region to another.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        primary_resource_group = azure.core.ResourceGroup("primaryResourceGroup", location="West US")
-        secondary_resource_group = azure.core.ResourceGroup("secondaryResourceGroup", location="East US")
-        vault = azure.recoveryservices.Vault("vault",
-            location=secondary_resource_group.location,
-            resource_group_name=secondary_resource_group.name,
-            sku="Standard")
-        primary_fabric = azure.siterecovery.Fabric("primaryFabric",
-            resource_group_name=secondary_resource_group.name,
-            recovery_vault_name=vault.name,
-            location=primary_resource_group.location)
-        secondary_fabric = azure.siterecovery.Fabric("secondaryFabric",
-            resource_group_name=secondary_resource_group.name,
-            recovery_vault_name=vault.name,
-            location=secondary_resource_group.location,
-            opts=pulumi.ResourceOptions(depends_on=[primary_fabric]))
-        # Avoids issues with creating fabrics simultaneously
-        primary_virtual_network = azure.network.VirtualNetwork("primaryVirtualNetwork",
-            resource_group_name=primary_resource_group.name,
-            address_spaces=["192.168.1.0/24"],
-            location=primary_resource_group.location)
-        secondary_virtual_network = azure.network.VirtualNetwork("secondaryVirtualNetwork",
-            resource_group_name=secondary_resource_group.name,
-            address_spaces=["192.168.2.0/24"],
-            location=secondary_resource_group.location)
-        recovery_mapping = azure.siterecovery.NetworkMapping("recovery-mapping",
-            resource_group_name=secondary_resource_group.name,
-            recovery_vault_name=vault.name,
-            source_recovery_fabric_name="primary-fabric",
-            target_recovery_fabric_name="secondary-fabric",
-            source_network_id=primary_virtual_network.id,
-            target_network_id=secondary_virtual_network.id)
-        ```
 
         ## Import
 

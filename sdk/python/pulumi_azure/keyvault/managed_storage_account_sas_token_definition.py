@@ -41,22 +41,30 @@ class ManagedStorageAccountSasTokenDefinitionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             managed_storage_account_id: pulumi.Input[str],
-             sas_template_uri: pulumi.Input[str],
-             sas_type: pulumi.Input[str],
-             validity_period: pulumi.Input[str],
+             managed_storage_account_id: Optional[pulumi.Input[str]] = None,
+             sas_template_uri: Optional[pulumi.Input[str]] = None,
+             sas_type: Optional[pulumi.Input[str]] = None,
+             validity_period: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'managedStorageAccountId' in kwargs:
+        if managed_storage_account_id is None and 'managedStorageAccountId' in kwargs:
             managed_storage_account_id = kwargs['managedStorageAccountId']
-        if 'sasTemplateUri' in kwargs:
+        if managed_storage_account_id is None:
+            raise TypeError("Missing 'managed_storage_account_id' argument")
+        if sas_template_uri is None and 'sasTemplateUri' in kwargs:
             sas_template_uri = kwargs['sasTemplateUri']
-        if 'sasType' in kwargs:
+        if sas_template_uri is None:
+            raise TypeError("Missing 'sas_template_uri' argument")
+        if sas_type is None and 'sasType' in kwargs:
             sas_type = kwargs['sasType']
-        if 'validityPeriod' in kwargs:
+        if sas_type is None:
+            raise TypeError("Missing 'sas_type' argument")
+        if validity_period is None and 'validityPeriod' in kwargs:
             validity_period = kwargs['validityPeriod']
+        if validity_period is None:
+            raise TypeError("Missing 'validity_period' argument")
 
         _setter("managed_storage_account_id", managed_storage_account_id)
         _setter("sas_template_uri", sas_template_uri)
@@ -180,17 +188,17 @@ class _ManagedStorageAccountSasTokenDefinitionState:
              secret_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              validity_period: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'managedStorageAccountId' in kwargs:
+        if managed_storage_account_id is None and 'managedStorageAccountId' in kwargs:
             managed_storage_account_id = kwargs['managedStorageAccountId']
-        if 'sasTemplateUri' in kwargs:
+        if sas_template_uri is None and 'sasTemplateUri' in kwargs:
             sas_template_uri = kwargs['sasTemplateUri']
-        if 'sasType' in kwargs:
+        if sas_type is None and 'sasType' in kwargs:
             sas_type = kwargs['sasType']
-        if 'secretId' in kwargs:
+        if secret_id is None and 'secretId' in kwargs:
             secret_id = kwargs['secretId']
-        if 'validityPeriod' in kwargs:
+        if validity_period is None and 'validityPeriod' in kwargs:
             validity_period = kwargs['validityPeriod']
 
         if managed_storage_account_id is not None:
@@ -308,82 +316,6 @@ class ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
         """
         Manages a Key Vault Managed Storage Account SAS Definition.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_client_config = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_account_sas = azure.storage.get_account_sas_output(connection_string=example_account.primary_connection_string,
-            https_only=True,
-            resource_types=azure.storage.GetAccountSASResourceTypesArgs(
-                service=True,
-                container=False,
-                object=False,
-            ),
-            services=azure.storage.GetAccountSASServicesArgs(
-                blob=True,
-                queue=False,
-                table=False,
-                file=False,
-            ),
-            start="2021-04-30T00:00:00Z",
-            expiry="2023-04-30T00:00:00Z",
-            permissions=azure.storage.GetAccountSASPermissionsArgs(
-                read=True,
-                write=True,
-                delete=False,
-                list=False,
-                add=True,
-                create=True,
-                update=False,
-                process=False,
-                tag=False,
-                filter=False,
-            ))
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=example_client_config.tenant_id,
-            sku_name="standard",
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
-                tenant_id=example_client_config.tenant_id,
-                object_id=example_client_config.object_id,
-                secret_permissions=[
-                    "Get",
-                    "Delete",
-                ],
-                storage_permissions=[
-                    "Get",
-                    "List",
-                    "Set",
-                    "SetSAS",
-                    "GetSAS",
-                    "DeleteSAS",
-                    "Update",
-                    "RegenerateKey",
-                ],
-            )])
-        example_managed_storage_account = azure.keyvault.ManagedStorageAccount("exampleManagedStorageAccount",
-            key_vault_id=example_key_vault.id,
-            storage_account_id=example_account.id,
-            storage_account_key="key1",
-            regenerate_key_automatically=False,
-            regeneration_period="P1D")
-        example_managed_storage_account_sas_token_definition = azure.keyvault.ManagedStorageAccountSasTokenDefinition("exampleManagedStorageAccountSasTokenDefinition",
-            validity_period="P1D",
-            managed_storage_account_id=example_managed_storage_account.id,
-            sas_template_uri=example_account_sas.sas,
-            sas_type="account")
-        ```
-
         ## Import
 
         Key Vaults can be imported using the `resource id`, e.g.
@@ -409,82 +341,6 @@ class ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Key Vault Managed Storage Account SAS Definition.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_client_config = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_account_sas = azure.storage.get_account_sas_output(connection_string=example_account.primary_connection_string,
-            https_only=True,
-            resource_types=azure.storage.GetAccountSASResourceTypesArgs(
-                service=True,
-                container=False,
-                object=False,
-            ),
-            services=azure.storage.GetAccountSASServicesArgs(
-                blob=True,
-                queue=False,
-                table=False,
-                file=False,
-            ),
-            start="2021-04-30T00:00:00Z",
-            expiry="2023-04-30T00:00:00Z",
-            permissions=azure.storage.GetAccountSASPermissionsArgs(
-                read=True,
-                write=True,
-                delete=False,
-                list=False,
-                add=True,
-                create=True,
-                update=False,
-                process=False,
-                tag=False,
-                filter=False,
-            ))
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=example_client_config.tenant_id,
-            sku_name="standard",
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
-                tenant_id=example_client_config.tenant_id,
-                object_id=example_client_config.object_id,
-                secret_permissions=[
-                    "Get",
-                    "Delete",
-                ],
-                storage_permissions=[
-                    "Get",
-                    "List",
-                    "Set",
-                    "SetSAS",
-                    "GetSAS",
-                    "DeleteSAS",
-                    "Update",
-                    "RegenerateKey",
-                ],
-            )])
-        example_managed_storage_account = azure.keyvault.ManagedStorageAccount("exampleManagedStorageAccount",
-            key_vault_id=example_key_vault.id,
-            storage_account_id=example_account.id,
-            storage_account_key="key1",
-            regenerate_key_automatically=False,
-            regeneration_period="P1D")
-        example_managed_storage_account_sas_token_definition = azure.keyvault.ManagedStorageAccountSasTokenDefinition("exampleManagedStorageAccountSasTokenDefinition",
-            validity_period="P1D",
-            managed_storage_account_id=example_managed_storage_account.id,
-            sas_template_uri=example_account_sas.sas,
-            sas_type="account")
-        ```
 
         ## Import
 

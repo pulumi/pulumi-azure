@@ -37,17 +37,19 @@ class ManagedDatabaseArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             managed_instance_id: pulumi.Input[str],
+             managed_instance_id: Optional[pulumi.Input[str]] = None,
              long_term_retention_policy: Optional[pulumi.Input['ManagedDatabaseLongTermRetentionPolicyArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              short_term_retention_days: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'managedInstanceId' in kwargs:
+        if managed_instance_id is None and 'managedInstanceId' in kwargs:
             managed_instance_id = kwargs['managedInstanceId']
-        if 'longTermRetentionPolicy' in kwargs:
+        if managed_instance_id is None:
+            raise TypeError("Missing 'managed_instance_id' argument")
+        if long_term_retention_policy is None and 'longTermRetentionPolicy' in kwargs:
             long_term_retention_policy = kwargs['longTermRetentionPolicy']
-        if 'shortTermRetentionDays' in kwargs:
+        if short_term_retention_days is None and 'shortTermRetentionDays' in kwargs:
             short_term_retention_days = kwargs['shortTermRetentionDays']
 
         _setter("managed_instance_id", managed_instance_id)
@@ -135,13 +137,13 @@ class _ManagedDatabaseState:
              managed_instance_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              short_term_retention_days: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'longTermRetentionPolicy' in kwargs:
+        if long_term_retention_policy is None and 'longTermRetentionPolicy' in kwargs:
             long_term_retention_policy = kwargs['longTermRetentionPolicy']
-        if 'managedInstanceId' in kwargs:
+        if managed_instance_id is None and 'managedInstanceId' in kwargs:
             managed_instance_id = kwargs['managedInstanceId']
-        if 'shortTermRetentionDays' in kwargs:
+        if short_term_retention_days is None and 'shortTermRetentionDays' in kwargs:
             short_term_retention_days = kwargs['shortTermRetentionDays']
 
         if long_term_retention_policy is not None:
@@ -215,34 +217,6 @@ class ManagedDatabase(pulumi.CustomResource):
         """
         Manages an Azure SQL Azure Managed Database for a SQL Managed Instance.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            address_spaces=["10.0.0.0/16"])
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_managed_instance = azure.mssql.ManagedInstance("exampleManagedInstance",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            license_type="BasePrice",
-            sku_name="GP_Gen5",
-            storage_size_in_gb=32,
-            subnet_id=example_subnet.id,
-            vcores=4,
-            administrator_login="msadministrator",
-            administrator_login_password="thisIsDog11")
-        example_managed_database = azure.mssql.ManagedDatabase("exampleManagedDatabase", managed_instance_id=example_managed_instance.id)
-        ```
-
         ## Import
 
         SQL Managed Databases can be imported using the `resource id`, e.g.
@@ -266,34 +240,6 @@ class ManagedDatabase(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure SQL Azure Managed Database for a SQL Managed Instance.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            address_spaces=["10.0.0.0/16"])
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_managed_instance = azure.mssql.ManagedInstance("exampleManagedInstance",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            license_type="BasePrice",
-            sku_name="GP_Gen5",
-            storage_size_in_gb=32,
-            subnet_id=example_subnet.id,
-            vcores=4,
-            administrator_login="msadministrator",
-            administrator_login_password="thisIsDog11")
-        example_managed_database = azure.mssql.ManagedDatabase("exampleManagedDatabase", managed_instance_id=example_managed_instance.id)
-        ```
 
         ## Import
 
@@ -335,11 +281,7 @@ class ManagedDatabase(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ManagedDatabaseArgs.__new__(ManagedDatabaseArgs)
 
-            if long_term_retention_policy is not None and not isinstance(long_term_retention_policy, ManagedDatabaseLongTermRetentionPolicyArgs):
-                long_term_retention_policy = long_term_retention_policy or {}
-                def _setter(key, value):
-                    long_term_retention_policy[key] = value
-                ManagedDatabaseLongTermRetentionPolicyArgs._configure(_setter, **long_term_retention_policy)
+            long_term_retention_policy = _utilities.configure(long_term_retention_policy, ManagedDatabaseLongTermRetentionPolicyArgs, True)
             __props__.__dict__["long_term_retention_policy"] = long_term_retention_policy
             if managed_instance_id is None and not opts.urn:
                 raise TypeError("Missing required property 'managed_instance_id'")

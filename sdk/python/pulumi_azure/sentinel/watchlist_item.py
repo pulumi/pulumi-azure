@@ -32,13 +32,17 @@ class WatchlistItemArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             properties: pulumi.Input[Mapping[str, pulumi.Input[str]]],
-             watchlist_id: pulumi.Input[str],
+             properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             watchlist_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'watchlistId' in kwargs:
+        if properties is None:
+            raise TypeError("Missing 'properties' argument")
+        if watchlist_id is None and 'watchlistId' in kwargs:
             watchlist_id = kwargs['watchlistId']
+        if watchlist_id is None:
+            raise TypeError("Missing 'watchlist_id' argument")
 
         _setter("properties", properties)
         _setter("watchlist_id", watchlist_id)
@@ -106,9 +110,9 @@ class _WatchlistItemState:
              name: Optional[pulumi.Input[str]] = None,
              properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              watchlist_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'watchlistId' in kwargs:
+        if watchlist_id is None and 'watchlistId' in kwargs:
             watchlist_id = kwargs['watchlistId']
 
         if name is not None:
@@ -167,30 +171,6 @@ class WatchlistItem(pulumi.CustomResource):
         """
         Manages a Sentinel Watchlist Item.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="PerGB2018")
-        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", workspace_id=example_analytics_workspace.id)
-        example_watchlist = azure.sentinel.Watchlist("exampleWatchlist",
-            log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
-            display_name="example-wl",
-            item_search_key="Key")
-        example_watchlist_item = azure.sentinel.WatchlistItem("exampleWatchlistItem",
-            watchlist_id=example_watchlist.id,
-            properties={
-                "k1": "v1",
-                "k2": "v2",
-            })
-        ```
-
         ## Import
 
         Sentinel Watchlist Items can be imported using the `resource id`, e.g.
@@ -213,30 +193,6 @@ class WatchlistItem(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Sentinel Watchlist Item.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="PerGB2018")
-        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", workspace_id=example_analytics_workspace.id)
-        example_watchlist = azure.sentinel.Watchlist("exampleWatchlist",
-            log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
-            display_name="example-wl",
-            item_search_key="Key")
-        example_watchlist_item = azure.sentinel.WatchlistItem("exampleWatchlistItem",
-            watchlist_id=example_watchlist.id,
-            properties={
-                "k1": "v1",
-                "k2": "v2",
-            })
-        ```
 
         ## Import
 

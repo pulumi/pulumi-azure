@@ -150,22 +150,6 @@ def get_gateway_host_name_configuration(api_management_id: Optional[str] = None,
     """
     Use this data source to access information about an existing API Management Gateway Host Configuration.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example_service = azure.apimanagement.get_service(name="example-apim",
-        resource_group_name="example-resources")
-    example_gateway = azure.apimanagement.get_gateway(name="example-gateway",
-        api_management_id=data["azurerm_api_management"]["main"]["id"])
-    example_gateway_host_name_configuration = azure.apimanagement.get_gateway_host_name_configuration(name="example-host-configuration",
-        api_management_id=example_service.id,
-        gateway_name=example_gateway.name)
-    pulumi.export("hostName", example_gateway_host_name_configuration.host_name)
-    ```
-
 
     :param str api_management_id: The ID of the API Management Service.
     :param str gateway_name: The name of the API Management Gateway.
@@ -199,22 +183,6 @@ def get_gateway_host_name_configuration_output(api_management_id: Optional[pulum
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGatewayHostNameConfigurationResult]:
     """
     Use this data source to access information about an existing API Management Gateway Host Configuration.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example_service = azure.apimanagement.get_service(name="example-apim",
-        resource_group_name="example-resources")
-    example_gateway = azure.apimanagement.get_gateway(name="example-gateway",
-        api_management_id=data["azurerm_api_management"]["main"]["id"])
-    example_gateway_host_name_configuration = azure.apimanagement.get_gateway_host_name_configuration(name="example-host-configuration",
-        api_management_id=example_service.id,
-        gateway_name=example_gateway.name)
-    pulumi.export("hostName", example_gateway_host_name_configuration.host_name)
-    ```
 
 
     :param str api_management_id: The ID of the API Management Service.

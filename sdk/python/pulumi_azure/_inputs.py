@@ -70,29 +70,29 @@ class ProviderFeaturesArgs:
              template_deployment: Optional[pulumi.Input['ProviderFeaturesTemplateDeploymentArgs']] = None,
              virtual_machine: Optional[pulumi.Input['ProviderFeaturesVirtualMachineArgs']] = None,
              virtual_machine_scale_set: Optional[pulumi.Input['ProviderFeaturesVirtualMachineScaleSetArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiManagement' in kwargs:
+        if api_management is None and 'apiManagement' in kwargs:
             api_management = kwargs['apiManagement']
-        if 'appConfiguration' in kwargs:
+        if app_configuration is None and 'appConfiguration' in kwargs:
             app_configuration = kwargs['appConfiguration']
-        if 'applicationInsights' in kwargs:
+        if application_insights is None and 'applicationInsights' in kwargs:
             application_insights = kwargs['applicationInsights']
-        if 'cognitiveAccount' in kwargs:
+        if cognitive_account is None and 'cognitiveAccount' in kwargs:
             cognitive_account = kwargs['cognitiveAccount']
-        if 'keyVault' in kwargs:
+        if key_vault is None and 'keyVault' in kwargs:
             key_vault = kwargs['keyVault']
-        if 'logAnalyticsWorkspace' in kwargs:
+        if log_analytics_workspace is None and 'logAnalyticsWorkspace' in kwargs:
             log_analytics_workspace = kwargs['logAnalyticsWorkspace']
-        if 'managedDisk' in kwargs:
+        if managed_disk is None and 'managedDisk' in kwargs:
             managed_disk = kwargs['managedDisk']
-        if 'resourceGroup' in kwargs:
+        if resource_group is None and 'resourceGroup' in kwargs:
             resource_group = kwargs['resourceGroup']
-        if 'templateDeployment' in kwargs:
+        if template_deployment is None and 'templateDeployment' in kwargs:
             template_deployment = kwargs['templateDeployment']
-        if 'virtualMachine' in kwargs:
+        if virtual_machine is None and 'virtualMachine' in kwargs:
             virtual_machine = kwargs['virtualMachine']
-        if 'virtualMachineScaleSet' in kwargs:
+        if virtual_machine_scale_set is None and 'virtualMachineScaleSet' in kwargs:
             virtual_machine_scale_set = kwargs['virtualMachineScaleSet']
 
         if api_management is not None:
@@ -244,11 +244,11 @@ class ProviderFeaturesApiManagementArgs:
              _setter: Callable[[Any, Any], None],
              purge_soft_delete_on_destroy: Optional[pulumi.Input[bool]] = None,
              recover_soft_deleted: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'purgeSoftDeleteOnDestroy' in kwargs:
+        if purge_soft_delete_on_destroy is None and 'purgeSoftDeleteOnDestroy' in kwargs:
             purge_soft_delete_on_destroy = kwargs['purgeSoftDeleteOnDestroy']
-        if 'recoverSoftDeleted' in kwargs:
+        if recover_soft_deleted is None and 'recoverSoftDeleted' in kwargs:
             recover_soft_deleted = kwargs['recoverSoftDeleted']
 
         if purge_soft_delete_on_destroy is not None:
@@ -290,11 +290,11 @@ class ProviderFeaturesAppConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              purge_soft_delete_on_destroy: Optional[pulumi.Input[bool]] = None,
              recover_soft_deleted: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'purgeSoftDeleteOnDestroy' in kwargs:
+        if purge_soft_delete_on_destroy is None and 'purgeSoftDeleteOnDestroy' in kwargs:
             purge_soft_delete_on_destroy = kwargs['purgeSoftDeleteOnDestroy']
-        if 'recoverSoftDeleted' in kwargs:
+        if recover_soft_deleted is None and 'recoverSoftDeleted' in kwargs:
             recover_soft_deleted = kwargs['recoverSoftDeleted']
 
         if purge_soft_delete_on_destroy is not None:
@@ -333,9 +333,9 @@ class ProviderFeaturesApplicationInsightsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              disable_generated_rule: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'disableGeneratedRule' in kwargs:
+        if disable_generated_rule is None and 'disableGeneratedRule' in kwargs:
             disable_generated_rule = kwargs['disableGeneratedRule']
 
         if disable_generated_rule is not None:
@@ -363,9 +363,9 @@ class ProviderFeaturesCognitiveAccountArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              purge_soft_delete_on_destroy: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'purgeSoftDeleteOnDestroy' in kwargs:
+        if purge_soft_delete_on_destroy is None and 'purgeSoftDeleteOnDestroy' in kwargs:
             purge_soft_delete_on_destroy = kwargs['purgeSoftDeleteOnDestroy']
 
         if purge_soft_delete_on_destroy is not None:
@@ -417,25 +417,25 @@ class ProviderFeaturesKeyVaultArgs:
              recover_soft_deleted_key_vaults: Optional[pulumi.Input[bool]] = None,
              recover_soft_deleted_keys: Optional[pulumi.Input[bool]] = None,
              recover_soft_deleted_secrets: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'purgeSoftDeleteOnDestroy' in kwargs:
+        if purge_soft_delete_on_destroy is None and 'purgeSoftDeleteOnDestroy' in kwargs:
             purge_soft_delete_on_destroy = kwargs['purgeSoftDeleteOnDestroy']
-        if 'purgeSoftDeletedCertificatesOnDestroy' in kwargs:
+        if purge_soft_deleted_certificates_on_destroy is None and 'purgeSoftDeletedCertificatesOnDestroy' in kwargs:
             purge_soft_deleted_certificates_on_destroy = kwargs['purgeSoftDeletedCertificatesOnDestroy']
-        if 'purgeSoftDeletedHardwareSecurityModulesOnDestroy' in kwargs:
+        if purge_soft_deleted_hardware_security_modules_on_destroy is None and 'purgeSoftDeletedHardwareSecurityModulesOnDestroy' in kwargs:
             purge_soft_deleted_hardware_security_modules_on_destroy = kwargs['purgeSoftDeletedHardwareSecurityModulesOnDestroy']
-        if 'purgeSoftDeletedKeysOnDestroy' in kwargs:
+        if purge_soft_deleted_keys_on_destroy is None and 'purgeSoftDeletedKeysOnDestroy' in kwargs:
             purge_soft_deleted_keys_on_destroy = kwargs['purgeSoftDeletedKeysOnDestroy']
-        if 'purgeSoftDeletedSecretsOnDestroy' in kwargs:
+        if purge_soft_deleted_secrets_on_destroy is None and 'purgeSoftDeletedSecretsOnDestroy' in kwargs:
             purge_soft_deleted_secrets_on_destroy = kwargs['purgeSoftDeletedSecretsOnDestroy']
-        if 'recoverSoftDeletedCertificates' in kwargs:
+        if recover_soft_deleted_certificates is None and 'recoverSoftDeletedCertificates' in kwargs:
             recover_soft_deleted_certificates = kwargs['recoverSoftDeletedCertificates']
-        if 'recoverSoftDeletedKeyVaults' in kwargs:
+        if recover_soft_deleted_key_vaults is None and 'recoverSoftDeletedKeyVaults' in kwargs:
             recover_soft_deleted_key_vaults = kwargs['recoverSoftDeletedKeyVaults']
-        if 'recoverSoftDeletedKeys' in kwargs:
+        if recover_soft_deleted_keys is None and 'recoverSoftDeletedKeys' in kwargs:
             recover_soft_deleted_keys = kwargs['recoverSoftDeletedKeys']
-        if 'recoverSoftDeletedSecrets' in kwargs:
+        if recover_soft_deleted_secrets is None and 'recoverSoftDeletedSecrets' in kwargs:
             recover_soft_deleted_secrets = kwargs['recoverSoftDeletedSecrets']
 
         if purge_soft_delete_on_destroy is not None:
@@ -551,9 +551,9 @@ class ProviderFeaturesLogAnalyticsWorkspaceArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              permanently_delete_on_destroy: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'permanentlyDeleteOnDestroy' in kwargs:
+        if permanently_delete_on_destroy is None and 'permanentlyDeleteOnDestroy' in kwargs:
             permanently_delete_on_destroy = kwargs['permanentlyDeleteOnDestroy']
 
         if permanently_delete_on_destroy is not None:
@@ -581,9 +581,9 @@ class ProviderFeaturesManagedDiskArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              expand_without_downtime: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'expandWithoutDowntime' in kwargs:
+        if expand_without_downtime is None and 'expandWithoutDowntime' in kwargs:
             expand_without_downtime = kwargs['expandWithoutDowntime']
 
         if expand_without_downtime is not None:
@@ -611,9 +611,9 @@ class ProviderFeaturesResourceGroupArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              prevent_deletion_if_contains_resources: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'preventDeletionIfContainsResources' in kwargs:
+        if prevent_deletion_if_contains_resources is None and 'preventDeletionIfContainsResources' in kwargs:
             prevent_deletion_if_contains_resources = kwargs['preventDeletionIfContainsResources']
 
         if prevent_deletion_if_contains_resources is not None:
@@ -641,9 +641,9 @@ class ProviderFeaturesSubscriptionArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              prevent_cancellation_on_destroy: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'preventCancellationOnDestroy' in kwargs:
+        if prevent_cancellation_on_destroy is None and 'preventCancellationOnDestroy' in kwargs:
             prevent_cancellation_on_destroy = kwargs['preventCancellationOnDestroy']
 
         if prevent_cancellation_on_destroy is not None:
@@ -670,11 +670,13 @@ class ProviderFeaturesTemplateDeploymentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             delete_nested_items_during_deletion: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             delete_nested_items_during_deletion: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'deleteNestedItemsDuringDeletion' in kwargs:
+        if delete_nested_items_during_deletion is None and 'deleteNestedItemsDuringDeletion' in kwargs:
             delete_nested_items_during_deletion = kwargs['deleteNestedItemsDuringDeletion']
+        if delete_nested_items_during_deletion is None:
+            raise TypeError("Missing 'delete_nested_items_during_deletion' argument")
 
         _setter("delete_nested_items_during_deletion", delete_nested_items_during_deletion)
 
@@ -706,13 +708,13 @@ class ProviderFeaturesVirtualMachineArgs:
              delete_os_disk_on_deletion: Optional[pulumi.Input[bool]] = None,
              graceful_shutdown: Optional[pulumi.Input[bool]] = None,
              skip_shutdown_and_force_delete: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'deleteOsDiskOnDeletion' in kwargs:
+        if delete_os_disk_on_deletion is None and 'deleteOsDiskOnDeletion' in kwargs:
             delete_os_disk_on_deletion = kwargs['deleteOsDiskOnDeletion']
-        if 'gracefulShutdown' in kwargs:
+        if graceful_shutdown is None and 'gracefulShutdown' in kwargs:
             graceful_shutdown = kwargs['gracefulShutdown']
-        if 'skipShutdownAndForceDelete' in kwargs:
+        if skip_shutdown_and_force_delete is None and 'skipShutdownAndForceDelete' in kwargs:
             skip_shutdown_and_force_delete = kwargs['skipShutdownAndForceDelete']
 
         if delete_os_disk_on_deletion is not None:
@@ -768,13 +770,13 @@ class ProviderFeaturesVirtualMachineScaleSetArgs:
              force_delete: Optional[pulumi.Input[bool]] = None,
              roll_instances_when_required: Optional[pulumi.Input[bool]] = None,
              scale_to_zero_before_deletion: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'forceDelete' in kwargs:
+        if force_delete is None and 'forceDelete' in kwargs:
             force_delete = kwargs['forceDelete']
-        if 'rollInstancesWhenRequired' in kwargs:
+        if roll_instances_when_required is None and 'rollInstancesWhenRequired' in kwargs:
             roll_instances_when_required = kwargs['rollInstancesWhenRequired']
-        if 'scaleToZeroBeforeDeletion' in kwargs:
+        if scale_to_zero_before_deletion is None and 'scaleToZeroBeforeDeletion' in kwargs:
             scale_to_zero_before_deletion = kwargs['scaleToZeroBeforeDeletion']
 
         if force_delete is not None:

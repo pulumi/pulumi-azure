@@ -48,24 +48,30 @@ class ConnectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_service_id: pulumi.Input[str],
-             authentication: pulumi.Input['ConnectionAuthenticationArgs'],
-             target_resource_id: pulumi.Input[str],
+             app_service_id: Optional[pulumi.Input[str]] = None,
+             authentication: Optional[pulumi.Input['ConnectionAuthenticationArgs']] = None,
+             target_resource_id: Optional[pulumi.Input[str]] = None,
              client_type: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              secret_store: Optional[pulumi.Input['ConnectionSecretStoreArgs']] = None,
              vnet_solution: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'appServiceId' in kwargs:
+        if app_service_id is None and 'appServiceId' in kwargs:
             app_service_id = kwargs['appServiceId']
-        if 'targetResourceId' in kwargs:
+        if app_service_id is None:
+            raise TypeError("Missing 'app_service_id' argument")
+        if authentication is None:
+            raise TypeError("Missing 'authentication' argument")
+        if target_resource_id is None and 'targetResourceId' in kwargs:
             target_resource_id = kwargs['targetResourceId']
-        if 'clientType' in kwargs:
+        if target_resource_id is None:
+            raise TypeError("Missing 'target_resource_id' argument")
+        if client_type is None and 'clientType' in kwargs:
             client_type = kwargs['clientType']
-        if 'secretStore' in kwargs:
+        if secret_store is None and 'secretStore' in kwargs:
             secret_store = kwargs['secretStore']
-        if 'vnetSolution' in kwargs:
+        if vnet_solution is None and 'vnetSolution' in kwargs:
             vnet_solution = kwargs['vnetSolution']
 
         _setter("app_service_id", app_service_id)
@@ -209,17 +215,17 @@ class _ConnectionState:
              secret_store: Optional[pulumi.Input['ConnectionSecretStoreArgs']] = None,
              target_resource_id: Optional[pulumi.Input[str]] = None,
              vnet_solution: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'appServiceId' in kwargs:
+        if app_service_id is None and 'appServiceId' in kwargs:
             app_service_id = kwargs['appServiceId']
-        if 'clientType' in kwargs:
+        if client_type is None and 'clientType' in kwargs:
             client_type = kwargs['clientType']
-        if 'secretStore' in kwargs:
+        if secret_store is None and 'secretStore' in kwargs:
             secret_store = kwargs['secretStore']
-        if 'targetResourceId' in kwargs:
+        if target_resource_id is None and 'targetResourceId' in kwargs:
             target_resource_id = kwargs['targetResourceId']
-        if 'vnetSolution' in kwargs:
+        if vnet_solution is None and 'vnetSolution' in kwargs:
             vnet_solution = kwargs['vnetSolution']
 
         if app_service_id is not None:
@@ -340,54 +346,6 @@ class Connection(pulumi.CustomResource):
         """
         Manages a service connector for app service.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.cosmosdb.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            offer_type="Standard",
-            kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="BoundedStaleness",
-                max_interval_in_seconds=10,
-                max_staleness_prefix=200,
-            ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example_resource_group.location,
-                failover_priority=0,
-            )])
-        example_sql_database = azure.cosmosdb.SqlDatabase("exampleSqlDatabase",
-            resource_group_name=example_account.resource_group_name,
-            account_name=example_account.name,
-            throughput=400)
-        example_sql_container = azure.cosmosdb.SqlContainer("exampleSqlContainer",
-            resource_group_name=example_account.resource_group_name,
-            account_name=example_account.name,
-            database_name=example_sql_database.name,
-            partition_key_path="/definition")
-        example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="P1v2",
-            os_type="Linux")
-        example_linux_web_app = azure.appservice.LinuxWebApp("exampleLinuxWebApp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.LinuxWebAppSiteConfigArgs())
-        example_connection = azure.appservice.Connection("exampleConnection",
-            app_service_id=example_linux_web_app.id,
-            target_resource_id=example_sql_database.id,
-            authentication=azure.appservice.ConnectionAuthenticationArgs(
-                type="systemAssignedIdentity",
-            ))
-        ```
-
         ## Import
 
         Service Connector for app service can be imported using the `resource id`, e.g.
@@ -416,54 +374,6 @@ class Connection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a service connector for app service.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.cosmosdb.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            offer_type="Standard",
-            kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="BoundedStaleness",
-                max_interval_in_seconds=10,
-                max_staleness_prefix=200,
-            ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example_resource_group.location,
-                failover_priority=0,
-            )])
-        example_sql_database = azure.cosmosdb.SqlDatabase("exampleSqlDatabase",
-            resource_group_name=example_account.resource_group_name,
-            account_name=example_account.name,
-            throughput=400)
-        example_sql_container = azure.cosmosdb.SqlContainer("exampleSqlContainer",
-            resource_group_name=example_account.resource_group_name,
-            account_name=example_account.name,
-            database_name=example_sql_database.name,
-            partition_key_path="/definition")
-        example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="P1v2",
-            os_type="Linux")
-        example_linux_web_app = azure.appservice.LinuxWebApp("exampleLinuxWebApp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.LinuxWebAppSiteConfigArgs())
-        example_connection = azure.appservice.Connection("exampleConnection",
-            app_service_id=example_linux_web_app.id,
-            target_resource_id=example_sql_database.id,
-            authentication=azure.appservice.ConnectionAuthenticationArgs(
-                type="systemAssignedIdentity",
-            ))
-        ```
 
         ## Import
 
@@ -511,21 +421,13 @@ class Connection(pulumi.CustomResource):
             if app_service_id is None and not opts.urn:
                 raise TypeError("Missing required property 'app_service_id'")
             __props__.__dict__["app_service_id"] = app_service_id
-            if authentication is not None and not isinstance(authentication, ConnectionAuthenticationArgs):
-                authentication = authentication or {}
-                def _setter(key, value):
-                    authentication[key] = value
-                ConnectionAuthenticationArgs._configure(_setter, **authentication)
+            authentication = _utilities.configure(authentication, ConnectionAuthenticationArgs, True)
             if authentication is None and not opts.urn:
                 raise TypeError("Missing required property 'authentication'")
             __props__.__dict__["authentication"] = authentication
             __props__.__dict__["client_type"] = client_type
             __props__.__dict__["name"] = name
-            if secret_store is not None and not isinstance(secret_store, ConnectionSecretStoreArgs):
-                secret_store = secret_store or {}
-                def _setter(key, value):
-                    secret_store[key] = value
-                ConnectionSecretStoreArgs._configure(_setter, **secret_store)
+            secret_store = _utilities.configure(secret_store, ConnectionSecretStoreArgs, True)
             __props__.__dict__["secret_store"] = secret_store
             if target_resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'target_resource_id'")

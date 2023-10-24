@@ -9,20 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** Owner access permission is required.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = new azure.securitycenter.Contact("example", {
- *     alertNotifications: true,
- *     alertsToAdmins: true,
- *     email: "contact@example.com",
- *     phone: "+1-555-555-5555",
- * });
- * ```
- *
  * ## Import
  *
  * The contact can be imported using the `resource id`, e.g.

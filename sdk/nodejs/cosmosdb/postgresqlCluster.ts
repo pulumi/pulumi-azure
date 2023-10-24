@@ -9,23 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Cosmos DB for PostgreSQL Cluster.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const examplePostgresqlCluster = new azure.cosmosdb.PostgresqlCluster("examplePostgresqlCluster", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     administratorLoginPassword: "H@Sh1CoR3!",
- *     coordinatorStorageQuotaInMb: 131072,
- *     coordinatorVcoreCount: 2,
- *     nodeCount: 0,
- * });
- * ```
- *
  * ## Import
  *
  * Azure Cosmos DB for PostgreSQL Clusters can be imported using the `resource id`, e.g.

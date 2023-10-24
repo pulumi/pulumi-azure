@@ -47,29 +47,39 @@ class OutputFunctionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_key: pulumi.Input[str],
-             function_app: pulumi.Input[str],
-             function_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             stream_analytics_job_name: pulumi.Input[str],
+             api_key: Optional[pulumi.Input[str]] = None,
+             function_app: Optional[pulumi.Input[str]] = None,
+             function_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
              batch_max_count: Optional[pulumi.Input[int]] = None,
              batch_max_in_bytes: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiKey' in kwargs:
+        if api_key is None and 'apiKey' in kwargs:
             api_key = kwargs['apiKey']
-        if 'functionApp' in kwargs:
+        if api_key is None:
+            raise TypeError("Missing 'api_key' argument")
+        if function_app is None and 'functionApp' in kwargs:
             function_app = kwargs['functionApp']
-        if 'functionName' in kwargs:
+        if function_app is None:
+            raise TypeError("Missing 'function_app' argument")
+        if function_name is None and 'functionName' in kwargs:
             function_name = kwargs['functionName']
-        if 'resourceGroupName' in kwargs:
+        if function_name is None:
+            raise TypeError("Missing 'function_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'streamAnalyticsJobName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if stream_analytics_job_name is None and 'streamAnalyticsJobName' in kwargs:
             stream_analytics_job_name = kwargs['streamAnalyticsJobName']
-        if 'batchMaxCount' in kwargs:
+        if stream_analytics_job_name is None:
+            raise TypeError("Missing 'stream_analytics_job_name' argument")
+        if batch_max_count is None and 'batchMaxCount' in kwargs:
             batch_max_count = kwargs['batchMaxCount']
-        if 'batchMaxInBytes' in kwargs:
+        if batch_max_in_bytes is None and 'batchMaxInBytes' in kwargs:
             batch_max_in_bytes = kwargs['batchMaxInBytes']
 
         _setter("api_key", api_key)
@@ -225,21 +235,21 @@ class _OutputFunctionState:
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiKey' in kwargs:
+        if api_key is None and 'apiKey' in kwargs:
             api_key = kwargs['apiKey']
-        if 'batchMaxCount' in kwargs:
+        if batch_max_count is None and 'batchMaxCount' in kwargs:
             batch_max_count = kwargs['batchMaxCount']
-        if 'batchMaxInBytes' in kwargs:
+        if batch_max_in_bytes is None and 'batchMaxInBytes' in kwargs:
             batch_max_in_bytes = kwargs['batchMaxInBytes']
-        if 'functionApp' in kwargs:
+        if function_app is None and 'functionApp' in kwargs:
             function_app = kwargs['functionApp']
-        if 'functionName' in kwargs:
+        if function_name is None and 'functionName' in kwargs:
             function_name = kwargs['functionName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'streamAnalyticsJobName' in kwargs:
+        if stream_analytics_job_name is None and 'streamAnalyticsJobName' in kwargs:
             stream_analytics_job_name = kwargs['streamAnalyticsJobName']
 
         if api_key is not None:
@@ -373,51 +383,6 @@ class OutputFunction(pulumi.CustomResource):
         """
         Manages a Stream Analytics Output Function.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_plan = azure.appservice.Plan("examplePlan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            kind="FunctionApp",
-            reserved=True,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Dynamic",
-                size="Y1",
-            ))
-        example_function_app = azure.appservice.FunctionApp("exampleFunctionApp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            app_service_plan_id=example_plan.id,
-            storage_account_name=example_account.name,
-            storage_account_access_key=example_account.primary_access_key,
-            os_type="linux",
-            version="~3")
-        example_job = azure.streamanalytics.Job("exampleJob",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            streaming_units=3,
-            transformation_query=\"\"\"    SELECT *
-            INTO [YourOutputAlias]
-            FROM [YourInputAlias]
-        \"\"\")
-        example_output_function = azure.streamanalytics.OutputFunction("exampleOutputFunction",
-            resource_group_name=example_job.resource_group_name,
-            stream_analytics_job_name=example_job.name,
-            function_app=example_function_app.name,
-            function_name="examplefunctionname",
-            api_key="exampleapikey")
-        ```
-
         ## Import
 
         Stream Analytics Output Functions can be imported using the `resource id`, e.g.
@@ -445,51 +410,6 @@ class OutputFunction(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Stream Analytics Output Function.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_plan = azure.appservice.Plan("examplePlan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            kind="FunctionApp",
-            reserved=True,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Dynamic",
-                size="Y1",
-            ))
-        example_function_app = azure.appservice.FunctionApp("exampleFunctionApp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            app_service_plan_id=example_plan.id,
-            storage_account_name=example_account.name,
-            storage_account_access_key=example_account.primary_access_key,
-            os_type="linux",
-            version="~3")
-        example_job = azure.streamanalytics.Job("exampleJob",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            streaming_units=3,
-            transformation_query=\"\"\"    SELECT *
-            INTO [YourOutputAlias]
-            FROM [YourInputAlias]
-        \"\"\")
-        example_output_function = azure.streamanalytics.OutputFunction("exampleOutputFunction",
-            resource_group_name=example_job.resource_group_name,
-            stream_analytics_job_name=example_job.name,
-            function_app=example_function_app.name,
-            function_name="examplefunctionname",
-            api_key="exampleapikey")
-        ```
 
         ## Import
 

@@ -90,8 +90,8 @@ class RegistryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             sku: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
              admin_enabled: Optional[pulumi.Input[bool]] = None,
              anonymous_pull_enabled: Optional[pulumi.Input[bool]] = None,
              data_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
@@ -109,31 +109,35 @@ class RegistryArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              trust_policy: Optional[pulumi.Input['RegistryTrustPolicyArgs']] = None,
              zone_redundancy_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'adminEnabled' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if admin_enabled is None and 'adminEnabled' in kwargs:
             admin_enabled = kwargs['adminEnabled']
-        if 'anonymousPullEnabled' in kwargs:
+        if anonymous_pull_enabled is None and 'anonymousPullEnabled' in kwargs:
             anonymous_pull_enabled = kwargs['anonymousPullEnabled']
-        if 'dataEndpointEnabled' in kwargs:
+        if data_endpoint_enabled is None and 'dataEndpointEnabled' in kwargs:
             data_endpoint_enabled = kwargs['dataEndpointEnabled']
-        if 'exportPolicyEnabled' in kwargs:
+        if export_policy_enabled is None and 'exportPolicyEnabled' in kwargs:
             export_policy_enabled = kwargs['exportPolicyEnabled']
-        if 'networkRuleBypassOption' in kwargs:
+        if network_rule_bypass_option is None and 'networkRuleBypassOption' in kwargs:
             network_rule_bypass_option = kwargs['networkRuleBypassOption']
-        if 'networkRuleSet' in kwargs:
+        if network_rule_set is None and 'networkRuleSet' in kwargs:
             network_rule_set = kwargs['networkRuleSet']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'quarantinePolicyEnabled' in kwargs:
+        if quarantine_policy_enabled is None and 'quarantinePolicyEnabled' in kwargs:
             quarantine_policy_enabled = kwargs['quarantinePolicyEnabled']
-        if 'retentionPolicy' in kwargs:
+        if retention_policy is None and 'retentionPolicy' in kwargs:
             retention_policy = kwargs['retentionPolicy']
-        if 'trustPolicy' in kwargs:
+        if trust_policy is None and 'trustPolicy' in kwargs:
             trust_policy = kwargs['trustPolicy']
-        if 'zoneRedundancyEnabled' in kwargs:
+        if zone_redundancy_enabled is None and 'zoneRedundancyEnabled' in kwargs:
             zone_redundancy_enabled = kwargs['zoneRedundancyEnabled']
 
         _setter("resource_group_name", resource_group_name)
@@ -518,37 +522,37 @@ class _RegistryState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              trust_policy: Optional[pulumi.Input['RegistryTrustPolicyArgs']] = None,
              zone_redundancy_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'adminEnabled' in kwargs:
+        if admin_enabled is None and 'adminEnabled' in kwargs:
             admin_enabled = kwargs['adminEnabled']
-        if 'adminPassword' in kwargs:
+        if admin_password is None and 'adminPassword' in kwargs:
             admin_password = kwargs['adminPassword']
-        if 'adminUsername' in kwargs:
+        if admin_username is None and 'adminUsername' in kwargs:
             admin_username = kwargs['adminUsername']
-        if 'anonymousPullEnabled' in kwargs:
+        if anonymous_pull_enabled is None and 'anonymousPullEnabled' in kwargs:
             anonymous_pull_enabled = kwargs['anonymousPullEnabled']
-        if 'dataEndpointEnabled' in kwargs:
+        if data_endpoint_enabled is None and 'dataEndpointEnabled' in kwargs:
             data_endpoint_enabled = kwargs['dataEndpointEnabled']
-        if 'exportPolicyEnabled' in kwargs:
+        if export_policy_enabled is None and 'exportPolicyEnabled' in kwargs:
             export_policy_enabled = kwargs['exportPolicyEnabled']
-        if 'loginServer' in kwargs:
+        if login_server is None and 'loginServer' in kwargs:
             login_server = kwargs['loginServer']
-        if 'networkRuleBypassOption' in kwargs:
+        if network_rule_bypass_option is None and 'networkRuleBypassOption' in kwargs:
             network_rule_bypass_option = kwargs['networkRuleBypassOption']
-        if 'networkRuleSet' in kwargs:
+        if network_rule_set is None and 'networkRuleSet' in kwargs:
             network_rule_set = kwargs['networkRuleSet']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'quarantinePolicyEnabled' in kwargs:
+        if quarantine_policy_enabled is None and 'quarantinePolicyEnabled' in kwargs:
             quarantine_policy_enabled = kwargs['quarantinePolicyEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'retentionPolicy' in kwargs:
+        if retention_policy is None and 'retentionPolicy' in kwargs:
             retention_policy = kwargs['retentionPolicy']
-        if 'trustPolicy' in kwargs:
+        if trust_policy is None and 'trustPolicy' in kwargs:
             trust_policy = kwargs['trustPolicy']
-        if 'zoneRedundancyEnabled' in kwargs:
+        if zone_redundancy_enabled is None and 'zoneRedundancyEnabled' in kwargs:
             zone_redundancy_enabled = kwargs['zoneRedundancyEnabled']
 
         if admin_enabled is not None:
@@ -897,90 +901,6 @@ class Registry(pulumi.CustomResource):
         """
         Manages an Azure Container Registry.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example", location="West Europe")
-        acr = azure.containerservice.Registry("acr",
-            resource_group_name=example.name,
-            location=example.location,
-            sku="Premium",
-            admin_enabled=False,
-            georeplications=[
-                azure.containerservice.RegistryGeoreplicationArgs(
-                    location="East US",
-                    zone_redundancy_enabled=True,
-                    tags={},
-                ),
-                azure.containerservice.RegistryGeoreplicationArgs(
-                    location="North Europe",
-                    zone_redundancy_enabled=True,
-                    tags={},
-                ),
-            ])
-        ```
-        ### Encryption)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_key = azure.keyvault.get_key(name="super-secret",
-            key_vault_id=data["azurerm_key_vault"]["existing"]["id"])
-        acr = azure.containerservice.Registry("acr",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku="Premium",
-            identity=azure.containerservice.RegistryIdentityArgs(
-                type="UserAssigned",
-                identity_ids=[example_user_assigned_identity.id],
-            ),
-            encryption=azure.containerservice.RegistryEncryptionArgs(
-                enabled=True,
-                key_vault_key_id=example_key.id,
-                identity_client_id=example_user_assigned_identity.client_id,
-            ))
-        ```
-        ### Attaching A Container Registry To A Kubernetes Cluster)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_registry = azure.containerservice.Registry("exampleRegistry",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku="Premium")
-        example_kubernetes_cluster = azure.containerservice.KubernetesCluster("exampleKubernetesCluster",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            dns_prefix="exampleaks1",
-            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
-                name="default",
-                node_count=1,
-                vm_size="Standard_D2_v2",
-            ),
-            identity=azure.containerservice.KubernetesClusterIdentityArgs(
-                type="SystemAssigned",
-            ),
-            tags={
-                "Environment": "Production",
-            })
-        example_assignment = azure.authorization.Assignment("exampleAssignment",
-            principal_id=example_kubernetes_cluster.kubelet_identity.object_id,
-            role_definition_name="AcrPull",
-            scope=example_registry.id,
-            skip_service_principal_aad_check=True)
-        ```
-
         ## Import
 
         Container Registries can be imported using the `resource id`, e.g.
@@ -1027,90 +947,6 @@ class Registry(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Container Registry.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example", location="West Europe")
-        acr = azure.containerservice.Registry("acr",
-            resource_group_name=example.name,
-            location=example.location,
-            sku="Premium",
-            admin_enabled=False,
-            georeplications=[
-                azure.containerservice.RegistryGeoreplicationArgs(
-                    location="East US",
-                    zone_redundancy_enabled=True,
-                    tags={},
-                ),
-                azure.containerservice.RegistryGeoreplicationArgs(
-                    location="North Europe",
-                    zone_redundancy_enabled=True,
-                    tags={},
-                ),
-            ])
-        ```
-        ### Encryption)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_key = azure.keyvault.get_key(name="super-secret",
-            key_vault_id=data["azurerm_key_vault"]["existing"]["id"])
-        acr = azure.containerservice.Registry("acr",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku="Premium",
-            identity=azure.containerservice.RegistryIdentityArgs(
-                type="UserAssigned",
-                identity_ids=[example_user_assigned_identity.id],
-            ),
-            encryption=azure.containerservice.RegistryEncryptionArgs(
-                enabled=True,
-                key_vault_key_id=example_key.id,
-                identity_client_id=example_user_assigned_identity.client_id,
-            ))
-        ```
-        ### Attaching A Container Registry To A Kubernetes Cluster)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_registry = azure.containerservice.Registry("exampleRegistry",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku="Premium")
-        example_kubernetes_cluster = azure.containerservice.KubernetesCluster("exampleKubernetesCluster",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            dns_prefix="exampleaks1",
-            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
-                name="default",
-                node_count=1,
-                vm_size="Standard_D2_v2",
-            ),
-            identity=azure.containerservice.KubernetesClusterIdentityArgs(
-                type="SystemAssigned",
-            ),
-            tags={
-                "Environment": "Production",
-            })
-        example_assignment = azure.authorization.Assignment("exampleAssignment",
-            principal_id=example_kubernetes_cluster.kubelet_identity.object_id,
-            role_definition_name="AcrPull",
-            scope=example_registry.id,
-            skip_service_principal_aad_check=True)
-        ```
 
         ## Import
 
@@ -1170,49 +1006,29 @@ class Registry(pulumi.CustomResource):
             __props__.__dict__["admin_enabled"] = admin_enabled
             __props__.__dict__["anonymous_pull_enabled"] = anonymous_pull_enabled
             __props__.__dict__["data_endpoint_enabled"] = data_endpoint_enabled
-            if encryption is not None and not isinstance(encryption, RegistryEncryptionArgs):
-                encryption = encryption or {}
-                def _setter(key, value):
-                    encryption[key] = value
-                RegistryEncryptionArgs._configure(_setter, **encryption)
+            encryption = _utilities.configure(encryption, RegistryEncryptionArgs, True)
             __props__.__dict__["encryption"] = encryption
             __props__.__dict__["export_policy_enabled"] = export_policy_enabled
             __props__.__dict__["georeplications"] = georeplications
-            if identity is not None and not isinstance(identity, RegistryIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                RegistryIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, RegistryIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             __props__.__dict__["network_rule_bypass_option"] = network_rule_bypass_option
-            if network_rule_set is not None and not isinstance(network_rule_set, RegistryNetworkRuleSetArgs):
-                network_rule_set = network_rule_set or {}
-                def _setter(key, value):
-                    network_rule_set[key] = value
-                RegistryNetworkRuleSetArgs._configure(_setter, **network_rule_set)
+            network_rule_set = _utilities.configure(network_rule_set, RegistryNetworkRuleSetArgs, True)
             __props__.__dict__["network_rule_set"] = network_rule_set
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             __props__.__dict__["quarantine_policy_enabled"] = quarantine_policy_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if retention_policy is not None and not isinstance(retention_policy, RegistryRetentionPolicyArgs):
-                retention_policy = retention_policy or {}
-                def _setter(key, value):
-                    retention_policy[key] = value
-                RegistryRetentionPolicyArgs._configure(_setter, **retention_policy)
+            retention_policy = _utilities.configure(retention_policy, RegistryRetentionPolicyArgs, True)
             __props__.__dict__["retention_policy"] = retention_policy
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
-            if trust_policy is not None and not isinstance(trust_policy, RegistryTrustPolicyArgs):
-                trust_policy = trust_policy or {}
-                def _setter(key, value):
-                    trust_policy[key] = value
-                RegistryTrustPolicyArgs._configure(_setter, **trust_policy)
+            trust_policy = _utilities.configure(trust_policy, RegistryTrustPolicyArgs, True)
             __props__.__dict__["trust_policy"] = trust_policy
             __props__.__dict__["zone_redundancy_enabled"] = zone_redundancy_enabled
             __props__.__dict__["admin_password"] = None

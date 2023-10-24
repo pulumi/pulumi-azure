@@ -16,40 +16,6 @@ namespace Pulumi.Azure.MySql
     /// 
     /// &gt; **Note:** Since this resource is provisioned by default, the Azure Provider will not check for the presence of an existing resource prior to attempting to create it.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleFlexibleServer = new Azure.MySql.FlexibleServer("exampleFlexibleServer", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         AdministratorLogin = "adminTerraform",
-    ///         AdministratorPassword = "H@Sh1CoR3!",
-    ///         SkuName = "GP_Standard_D2ds_v4",
-    ///     });
-    /// 
-    ///     var exampleFlexibleServerConfiguration = new Azure.MySql.FlexibleServerConfiguration("exampleFlexibleServerConfiguration", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         ServerName = exampleFlexibleServer.Name,
-    ///         Value = "600",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// MySQL Flexible Server Configurations can be imported using the `resource id`, e.g.

@@ -46,23 +46,31 @@ class VirtualMachineGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             sql_image_offer: pulumi.Input[str],
-             sql_image_sku: pulumi.Input[str],
-             wsfc_domain_profile: pulumi.Input['VirtualMachineGroupWsfcDomainProfileArgs'],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sql_image_offer: Optional[pulumi.Input[str]] = None,
+             sql_image_sku: Optional[pulumi.Input[str]] = None,
+             wsfc_domain_profile: Optional[pulumi.Input['VirtualMachineGroupWsfcDomainProfileArgs']] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'sqlImageOffer' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sql_image_offer is None and 'sqlImageOffer' in kwargs:
             sql_image_offer = kwargs['sqlImageOffer']
-        if 'sqlImageSku' in kwargs:
+        if sql_image_offer is None:
+            raise TypeError("Missing 'sql_image_offer' argument")
+        if sql_image_sku is None and 'sqlImageSku' in kwargs:
             sql_image_sku = kwargs['sqlImageSku']
-        if 'wsfcDomainProfile' in kwargs:
+        if sql_image_sku is None:
+            raise TypeError("Missing 'sql_image_sku' argument")
+        if wsfc_domain_profile is None and 'wsfcDomainProfile' in kwargs:
             wsfc_domain_profile = kwargs['wsfcDomainProfile']
+        if wsfc_domain_profile is None:
+            raise TypeError("Missing 'wsfc_domain_profile' argument")
 
         _setter("resource_group_name", resource_group_name)
         _setter("sql_image_offer", sql_image_offer)
@@ -200,15 +208,15 @@ class _VirtualMachineGroupState:
              sql_image_sku: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              wsfc_domain_profile: Optional[pulumi.Input['VirtualMachineGroupWsfcDomainProfileArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'sqlImageOffer' in kwargs:
+        if sql_image_offer is None and 'sqlImageOffer' in kwargs:
             sql_image_offer = kwargs['sqlImageOffer']
-        if 'sqlImageSku' in kwargs:
+        if sql_image_sku is None and 'sqlImageSku' in kwargs:
             sql_image_sku = kwargs['sqlImageSku']
-        if 'wsfcDomainProfile' in kwargs:
+        if wsfc_domain_profile is None and 'wsfcDomainProfile' in kwargs:
             wsfc_domain_profile = kwargs['wsfcDomainProfile']
 
         if location is not None:
@@ -327,24 +335,6 @@ class VirtualMachineGroup(pulumi.CustomResource):
         """
         Manages a Microsoft SQL Virtual Machine Group.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_machine_group = azure.mssql.VirtualMachineGroup("exampleVirtualMachineGroup",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sql_image_offer="SQL2017-WS2016",
-            sql_image_sku="Developer",
-            wsfc_domain_profile=azure.mssql.VirtualMachineGroupWsfcDomainProfileArgs(
-                fqdn="testdomain.com",
-                cluster_subnet_type="SingleSubnet",
-            ))
-        ```
-
         ## Import
 
         Microsoft SQL Virtual Machine Groups can be imported using the `resource id`, e.g.
@@ -371,24 +361,6 @@ class VirtualMachineGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Microsoft SQL Virtual Machine Group.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_machine_group = azure.mssql.VirtualMachineGroup("exampleVirtualMachineGroup",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sql_image_offer="SQL2017-WS2016",
-            sql_image_sku="Developer",
-            wsfc_domain_profile=azure.mssql.VirtualMachineGroupWsfcDomainProfileArgs(
-                fqdn="testdomain.com",
-                cluster_subnet_type="SingleSubnet",
-            ))
-        ```
 
         ## Import
 
@@ -445,11 +417,7 @@ class VirtualMachineGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sql_image_sku'")
             __props__.__dict__["sql_image_sku"] = sql_image_sku
             __props__.__dict__["tags"] = tags
-            if wsfc_domain_profile is not None and not isinstance(wsfc_domain_profile, VirtualMachineGroupWsfcDomainProfileArgs):
-                wsfc_domain_profile = wsfc_domain_profile or {}
-                def _setter(key, value):
-                    wsfc_domain_profile[key] = value
-                VirtualMachineGroupWsfcDomainProfileArgs._configure(_setter, **wsfc_domain_profile)
+            wsfc_domain_profile = _utilities.configure(wsfc_domain_profile, VirtualMachineGroupWsfcDomainProfileArgs, True)
             if wsfc_domain_profile is None and not opts.urn:
                 raise TypeError("Missing required property 'wsfc_domain_profile'")
             __props__.__dict__["wsfc_domain_profile"] = wsfc_domain_profile

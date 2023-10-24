@@ -74,8 +74,8 @@ class WorkspaceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             sku: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
              custom_parameters: Optional[pulumi.Input['WorkspaceCustomParametersArgs']] = None,
              customer_managed_key_enabled: Optional[pulumi.Input[bool]] = None,
              infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
@@ -89,29 +89,33 @@ class WorkspaceArgs:
              network_security_group_rules_required: Optional[pulumi.Input[str]] = None,
              public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'customParameters' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if custom_parameters is None and 'customParameters' in kwargs:
             custom_parameters = kwargs['customParameters']
-        if 'customerManagedKeyEnabled' in kwargs:
+        if customer_managed_key_enabled is None and 'customerManagedKeyEnabled' in kwargs:
             customer_managed_key_enabled = kwargs['customerManagedKeyEnabled']
-        if 'infrastructureEncryptionEnabled' in kwargs:
+        if infrastructure_encryption_enabled is None and 'infrastructureEncryptionEnabled' in kwargs:
             infrastructure_encryption_enabled = kwargs['infrastructureEncryptionEnabled']
-        if 'loadBalancerBackendAddressPoolId' in kwargs:
+        if load_balancer_backend_address_pool_id is None and 'loadBalancerBackendAddressPoolId' in kwargs:
             load_balancer_backend_address_pool_id = kwargs['loadBalancerBackendAddressPoolId']
-        if 'managedDiskCmkKeyVaultKeyId' in kwargs:
+        if managed_disk_cmk_key_vault_key_id is None and 'managedDiskCmkKeyVaultKeyId' in kwargs:
             managed_disk_cmk_key_vault_key_id = kwargs['managedDiskCmkKeyVaultKeyId']
-        if 'managedDiskCmkRotationToLatestVersionEnabled' in kwargs:
+        if managed_disk_cmk_rotation_to_latest_version_enabled is None and 'managedDiskCmkRotationToLatestVersionEnabled' in kwargs:
             managed_disk_cmk_rotation_to_latest_version_enabled = kwargs['managedDiskCmkRotationToLatestVersionEnabled']
-        if 'managedResourceGroupName' in kwargs:
+        if managed_resource_group_name is None and 'managedResourceGroupName' in kwargs:
             managed_resource_group_name = kwargs['managedResourceGroupName']
-        if 'managedServicesCmkKeyVaultKeyId' in kwargs:
+        if managed_services_cmk_key_vault_key_id is None and 'managedServicesCmkKeyVaultKeyId' in kwargs:
             managed_services_cmk_key_vault_key_id = kwargs['managedServicesCmkKeyVaultKeyId']
-        if 'networkSecurityGroupRulesRequired' in kwargs:
+        if network_security_group_rules_required is None and 'networkSecurityGroupRulesRequired' in kwargs:
             network_security_group_rules_required = kwargs['networkSecurityGroupRulesRequired']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
 
         _setter("resource_group_name", resource_group_name)
@@ -428,41 +432,41 @@ class _WorkspaceState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              workspace_id: Optional[pulumi.Input[str]] = None,
              workspace_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'customParameters' in kwargs:
+        if custom_parameters is None and 'customParameters' in kwargs:
             custom_parameters = kwargs['customParameters']
-        if 'customerManagedKeyEnabled' in kwargs:
+        if customer_managed_key_enabled is None and 'customerManagedKeyEnabled' in kwargs:
             customer_managed_key_enabled = kwargs['customerManagedKeyEnabled']
-        if 'diskEncryptionSetId' in kwargs:
+        if disk_encryption_set_id is None and 'diskEncryptionSetId' in kwargs:
             disk_encryption_set_id = kwargs['diskEncryptionSetId']
-        if 'infrastructureEncryptionEnabled' in kwargs:
+        if infrastructure_encryption_enabled is None and 'infrastructureEncryptionEnabled' in kwargs:
             infrastructure_encryption_enabled = kwargs['infrastructureEncryptionEnabled']
-        if 'loadBalancerBackendAddressPoolId' in kwargs:
+        if load_balancer_backend_address_pool_id is None and 'loadBalancerBackendAddressPoolId' in kwargs:
             load_balancer_backend_address_pool_id = kwargs['loadBalancerBackendAddressPoolId']
-        if 'managedDiskCmkKeyVaultKeyId' in kwargs:
+        if managed_disk_cmk_key_vault_key_id is None and 'managedDiskCmkKeyVaultKeyId' in kwargs:
             managed_disk_cmk_key_vault_key_id = kwargs['managedDiskCmkKeyVaultKeyId']
-        if 'managedDiskCmkRotationToLatestVersionEnabled' in kwargs:
+        if managed_disk_cmk_rotation_to_latest_version_enabled is None and 'managedDiskCmkRotationToLatestVersionEnabled' in kwargs:
             managed_disk_cmk_rotation_to_latest_version_enabled = kwargs['managedDiskCmkRotationToLatestVersionEnabled']
-        if 'managedDiskIdentities' in kwargs:
+        if managed_disk_identities is None and 'managedDiskIdentities' in kwargs:
             managed_disk_identities = kwargs['managedDiskIdentities']
-        if 'managedResourceGroupId' in kwargs:
+        if managed_resource_group_id is None and 'managedResourceGroupId' in kwargs:
             managed_resource_group_id = kwargs['managedResourceGroupId']
-        if 'managedResourceGroupName' in kwargs:
+        if managed_resource_group_name is None and 'managedResourceGroupName' in kwargs:
             managed_resource_group_name = kwargs['managedResourceGroupName']
-        if 'managedServicesCmkKeyVaultKeyId' in kwargs:
+        if managed_services_cmk_key_vault_key_id is None and 'managedServicesCmkKeyVaultKeyId' in kwargs:
             managed_services_cmk_key_vault_key_id = kwargs['managedServicesCmkKeyVaultKeyId']
-        if 'networkSecurityGroupRulesRequired' in kwargs:
+        if network_security_group_rules_required is None and 'networkSecurityGroupRulesRequired' in kwargs:
             network_security_group_rules_required = kwargs['networkSecurityGroupRulesRequired']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'storageAccountIdentities' in kwargs:
+        if storage_account_identities is None and 'storageAccountIdentities' in kwargs:
             storage_account_identities = kwargs['storageAccountIdentities']
-        if 'workspaceId' in kwargs:
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
-        if 'workspaceUrl' in kwargs:
+        if workspace_url is None and 'workspaceUrl' in kwargs:
             workspace_url = kwargs['workspaceUrl']
 
         if custom_parameters is not None:
@@ -875,11 +879,7 @@ class Workspace(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WorkspaceArgs.__new__(WorkspaceArgs)
 
-            if custom_parameters is not None and not isinstance(custom_parameters, WorkspaceCustomParametersArgs):
-                custom_parameters = custom_parameters or {}
-                def _setter(key, value):
-                    custom_parameters[key] = value
-                WorkspaceCustomParametersArgs._configure(_setter, **custom_parameters)
+            custom_parameters = _utilities.configure(custom_parameters, WorkspaceCustomParametersArgs, True)
             __props__.__dict__["custom_parameters"] = custom_parameters
             __props__.__dict__["customer_managed_key_enabled"] = customer_managed_key_enabled
             __props__.__dict__["infrastructure_encryption_enabled"] = infrastructure_encryption_enabled

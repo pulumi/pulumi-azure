@@ -69,7 +69,7 @@ class ConfigurationStoreArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              encryption: Optional[pulumi.Input['ConfigurationStoreEncryptionArgs']] = None,
              identity: Optional[pulumi.Input['ConfigurationStoreIdentityArgs']] = None,
              local_auth_enabled: Optional[pulumi.Input[bool]] = None,
@@ -81,17 +81,19 @@ class ConfigurationStoreArgs:
              sku: Optional[pulumi.Input[str]] = None,
              soft_delete_retention_days: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'localAuthEnabled' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if local_auth_enabled is None and 'localAuthEnabled' in kwargs:
             local_auth_enabled = kwargs['localAuthEnabled']
-        if 'publicNetworkAccess' in kwargs:
+        if public_network_access is None and 'publicNetworkAccess' in kwargs:
             public_network_access = kwargs['publicNetworkAccess']
-        if 'purgeProtectionEnabled' in kwargs:
+        if purge_protection_enabled is None and 'purgeProtectionEnabled' in kwargs:
             purge_protection_enabled = kwargs['purgeProtectionEnabled']
-        if 'softDeleteRetentionDays' in kwargs:
+        if soft_delete_retention_days is None and 'softDeleteRetentionDays' in kwargs:
             soft_delete_retention_days = kwargs['softDeleteRetentionDays']
 
         _setter("resource_group_name", resource_group_name)
@@ -359,25 +361,25 @@ class _ConfigurationStoreState:
              sku: Optional[pulumi.Input[str]] = None,
              soft_delete_retention_days: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'localAuthEnabled' in kwargs:
+        if local_auth_enabled is None and 'localAuthEnabled' in kwargs:
             local_auth_enabled = kwargs['localAuthEnabled']
-        if 'primaryReadKeys' in kwargs:
+        if primary_read_keys is None and 'primaryReadKeys' in kwargs:
             primary_read_keys = kwargs['primaryReadKeys']
-        if 'primaryWriteKeys' in kwargs:
+        if primary_write_keys is None and 'primaryWriteKeys' in kwargs:
             primary_write_keys = kwargs['primaryWriteKeys']
-        if 'publicNetworkAccess' in kwargs:
+        if public_network_access is None and 'publicNetworkAccess' in kwargs:
             public_network_access = kwargs['publicNetworkAccess']
-        if 'purgeProtectionEnabled' in kwargs:
+        if purge_protection_enabled is None and 'purgeProtectionEnabled' in kwargs:
             purge_protection_enabled = kwargs['purgeProtectionEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'secondaryReadKeys' in kwargs:
+        if secondary_read_keys is None and 'secondaryReadKeys' in kwargs:
             secondary_read_keys = kwargs['secondaryReadKeys']
-        if 'secondaryWriteKeys' in kwargs:
+        if secondary_write_keys is None and 'secondaryWriteKeys' in kwargs:
             secondary_write_keys = kwargs['secondaryWriteKeys']
-        if 'softDeleteRetentionDays' in kwargs:
+        if soft_delete_retention_days is None and 'softDeleteRetentionDays' in kwargs:
             soft_delete_retention_days = kwargs['softDeleteRetentionDays']
 
         if encryption is not None:
@@ -647,111 +649,6 @@ class ConfigurationStore(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example", location="West Europe")
-        appconf = azure.appconfiguration.ConfigurationStore("appconf",
-            resource_group_name=example.name,
-            location=example.location)
-        ```
-        ### Encryption)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        current = azure.core.get_client_config()
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="standard",
-            soft_delete_retention_days=7,
-            purge_protection_enabled=True)
-        server = azure.keyvault.AccessPolicy("server",
-            key_vault_id=example_key_vault.id,
-            tenant_id=current.tenant_id,
-            object_id=example_user_assigned_identity.principal_id,
-            key_permissions=[
-                "Get",
-                "UnwrapKey",
-                "WrapKey",
-            ],
-            secret_permissions=["Get"])
-        client = azure.keyvault.AccessPolicy("client",
-            key_vault_id=example_key_vault.id,
-            tenant_id=current.tenant_id,
-            object_id=current.object_id,
-            key_permissions=[
-                "Get",
-                "Create",
-                "Delete",
-                "List",
-                "Restore",
-                "Recover",
-                "UnwrapKey",
-                "WrapKey",
-                "Purge",
-                "Encrypt",
-                "Decrypt",
-                "Sign",
-                "Verify",
-                "GetRotationPolicy",
-            ],
-            secret_permissions=["Get"])
-        example_key = azure.keyvault.Key("exampleKey",
-            key_vault_id=example_key_vault.id,
-            key_type="RSA",
-            key_size=2048,
-            key_opts=[
-                "decrypt",
-                "encrypt",
-                "sign",
-                "unwrapKey",
-                "verify",
-                "wrapKey",
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    client,
-                    server,
-                ]))
-        example_configuration_store = azure.appconfiguration.ConfigurationStore("exampleConfigurationStore",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku="standard",
-            local_auth_enabled=True,
-            public_network_access="Enabled",
-            purge_protection_enabled=False,
-            soft_delete_retention_days=1,
-            identity=azure.appconfiguration.ConfigurationStoreIdentityArgs(
-                type="UserAssigned",
-                identity_ids=[example_user_assigned_identity.id],
-            ),
-            encryption=azure.appconfiguration.ConfigurationStoreEncryptionArgs(
-                key_vault_key_identifier=example_key.id,
-                identity_client_id=example_user_assigned_identity.client_id,
-            ),
-            replicas=[azure.appconfiguration.ConfigurationStoreReplicaArgs(
-                name="replica1",
-                location="West US",
-            )],
-            tags={
-                "environment": "development",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[
-                    client,
-                    server,
-                ]))
-        ```
-
         ## Import
 
         App Configurations can be imported using the `resource id`, e.g.
@@ -790,111 +687,6 @@ class ConfigurationStore(pulumi.CustomResource):
                  args: ConfigurationStoreArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example", location="West Europe")
-        appconf = azure.appconfiguration.ConfigurationStore("appconf",
-            resource_group_name=example.name,
-            location=example.location)
-        ```
-        ### Encryption)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        current = azure.core.get_client_config()
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="standard",
-            soft_delete_retention_days=7,
-            purge_protection_enabled=True)
-        server = azure.keyvault.AccessPolicy("server",
-            key_vault_id=example_key_vault.id,
-            tenant_id=current.tenant_id,
-            object_id=example_user_assigned_identity.principal_id,
-            key_permissions=[
-                "Get",
-                "UnwrapKey",
-                "WrapKey",
-            ],
-            secret_permissions=["Get"])
-        client = azure.keyvault.AccessPolicy("client",
-            key_vault_id=example_key_vault.id,
-            tenant_id=current.tenant_id,
-            object_id=current.object_id,
-            key_permissions=[
-                "Get",
-                "Create",
-                "Delete",
-                "List",
-                "Restore",
-                "Recover",
-                "UnwrapKey",
-                "WrapKey",
-                "Purge",
-                "Encrypt",
-                "Decrypt",
-                "Sign",
-                "Verify",
-                "GetRotationPolicy",
-            ],
-            secret_permissions=["Get"])
-        example_key = azure.keyvault.Key("exampleKey",
-            key_vault_id=example_key_vault.id,
-            key_type="RSA",
-            key_size=2048,
-            key_opts=[
-                "decrypt",
-                "encrypt",
-                "sign",
-                "unwrapKey",
-                "verify",
-                "wrapKey",
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    client,
-                    server,
-                ]))
-        example_configuration_store = azure.appconfiguration.ConfigurationStore("exampleConfigurationStore",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku="standard",
-            local_auth_enabled=True,
-            public_network_access="Enabled",
-            purge_protection_enabled=False,
-            soft_delete_retention_days=1,
-            identity=azure.appconfiguration.ConfigurationStoreIdentityArgs(
-                type="UserAssigned",
-                identity_ids=[example_user_assigned_identity.id],
-            ),
-            encryption=azure.appconfiguration.ConfigurationStoreEncryptionArgs(
-                key_vault_key_identifier=example_key.id,
-                identity_client_id=example_user_assigned_identity.client_id,
-            ),
-            replicas=[azure.appconfiguration.ConfigurationStoreReplicaArgs(
-                name="replica1",
-                location="West US",
-            )],
-            tags={
-                "environment": "development",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[
-                    client,
-                    server,
-                ]))
-        ```
-
         ## Import
 
         App Configurations can be imported using the `resource id`, e.g.
@@ -943,17 +735,9 @@ class ConfigurationStore(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ConfigurationStoreArgs.__new__(ConfigurationStoreArgs)
 
-            if encryption is not None and not isinstance(encryption, ConfigurationStoreEncryptionArgs):
-                encryption = encryption or {}
-                def _setter(key, value):
-                    encryption[key] = value
-                ConfigurationStoreEncryptionArgs._configure(_setter, **encryption)
+            encryption = _utilities.configure(encryption, ConfigurationStoreEncryptionArgs, True)
             __props__.__dict__["encryption"] = encryption
-            if identity is not None and not isinstance(identity, ConfigurationStoreIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                ConfigurationStoreIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, ConfigurationStoreIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["local_auth_enabled"] = local_auth_enabled
             __props__.__dict__["location"] = location

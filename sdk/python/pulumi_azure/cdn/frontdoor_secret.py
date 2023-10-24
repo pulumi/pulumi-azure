@@ -34,13 +34,17 @@ class FrontdoorSecretArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cdn_frontdoor_profile_id: pulumi.Input[str],
-             secret: pulumi.Input['FrontdoorSecretSecretArgs'],
+             cdn_frontdoor_profile_id: Optional[pulumi.Input[str]] = None,
+             secret: Optional[pulumi.Input['FrontdoorSecretSecretArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'cdnFrontdoorProfileId' in kwargs:
+        if cdn_frontdoor_profile_id is None and 'cdnFrontdoorProfileId' in kwargs:
             cdn_frontdoor_profile_id = kwargs['cdnFrontdoorProfileId']
+        if cdn_frontdoor_profile_id is None:
+            raise TypeError("Missing 'cdn_frontdoor_profile_id' argument")
+        if secret is None:
+            raise TypeError("Missing 'secret' argument")
 
         _setter("cdn_frontdoor_profile_id", cdn_frontdoor_profile_id)
         _setter("secret", secret)
@@ -112,11 +116,11 @@ class _FrontdoorSecretState:
              cdn_frontdoor_profile_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              secret: Optional[pulumi.Input['FrontdoorSecretSecretArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'cdnFrontdoorProfileId' in kwargs:
+        if cdn_frontdoor_profile_id is None and 'cdnFrontdoorProfileId' in kwargs:
             cdn_frontdoor_profile_id = kwargs['cdnFrontdoorProfileId']
-        if 'cdnFrontdoorProfileName' in kwargs:
+        if cdn_frontdoor_profile_name is None and 'cdnFrontdoorProfileName' in kwargs:
             cdn_frontdoor_profile_name = kwargs['cdnFrontdoorProfileName']
 
         if cdn_frontdoor_profile_id is not None:
@@ -189,63 +193,6 @@ class FrontdoorSecret(pulumi.CustomResource):
         """
         Manages a Front Door (standard/premium) Secret.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import base64
-        import pulumi_azure as azure
-        import pulumi_azuread as azuread
-
-        current = azure.core.get_client_config()
-        frontdoor = azuread.get_service_principal(display_name="Microsoft.Azure.Cdn")
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="premium",
-            soft_delete_retention_days=7,
-            network_acls=azure.keyvault.KeyVaultNetworkAclsArgs(
-                default_action="Deny",
-                bypass="AzureServices",
-                ip_rules=["10.0.0.0/24"],
-            ),
-            access_policies=[
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=current.tenant_id,
-                    object_id=frontdoor.object_id,
-                    secret_permissions=["Get"],
-                ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=current.tenant_id,
-                    object_id=current.object_id,
-                    certificate_permissions=[
-                        "Get",
-                        "Import",
-                        "Delete",
-                        "Purge",
-                    ],
-                    secret_permissions=["Get"],
-                ),
-            ])
-        example_certificate = azure.keyvault.Certificate("exampleCertificate",
-            key_vault_id=example_key_vault.id,
-            certificate=azure.keyvault.CertificateCertificateArgs(
-                contents=(lambda path: base64.b64encode(open(path).read().encode()).decode())("my-certificate.pfx"),
-            ))
-        example_frontdoor_profile = azure.cdn.FrontdoorProfile("exampleFrontdoorProfile",
-            resource_group_name=example_resource_group.name,
-            sku_name="Standard_AzureFrontDoor")
-        example_frontdoor_secret = azure.cdn.FrontdoorSecret("exampleFrontdoorSecret",
-            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
-            secret=azure.cdn.FrontdoorSecretSecretArgs(
-                customer_certificates=[azure.cdn.FrontdoorSecretSecretCustomerCertificateArgs(
-                    key_vault_certificate_id=example_certificate.id,
-                )],
-            ))
-        ```
-
         ## Import
 
         Front Door Secrets can be imported using the `resource id`, e.g.
@@ -268,63 +215,6 @@ class FrontdoorSecret(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Front Door (standard/premium) Secret.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import base64
-        import pulumi_azure as azure
-        import pulumi_azuread as azuread
-
-        current = azure.core.get_client_config()
-        frontdoor = azuread.get_service_principal(display_name="Microsoft.Azure.Cdn")
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="premium",
-            soft_delete_retention_days=7,
-            network_acls=azure.keyvault.KeyVaultNetworkAclsArgs(
-                default_action="Deny",
-                bypass="AzureServices",
-                ip_rules=["10.0.0.0/24"],
-            ),
-            access_policies=[
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=current.tenant_id,
-                    object_id=frontdoor.object_id,
-                    secret_permissions=["Get"],
-                ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=current.tenant_id,
-                    object_id=current.object_id,
-                    certificate_permissions=[
-                        "Get",
-                        "Import",
-                        "Delete",
-                        "Purge",
-                    ],
-                    secret_permissions=["Get"],
-                ),
-            ])
-        example_certificate = azure.keyvault.Certificate("exampleCertificate",
-            key_vault_id=example_key_vault.id,
-            certificate=azure.keyvault.CertificateCertificateArgs(
-                contents=(lambda path: base64.b64encode(open(path).read().encode()).decode())("my-certificate.pfx"),
-            ))
-        example_frontdoor_profile = azure.cdn.FrontdoorProfile("exampleFrontdoorProfile",
-            resource_group_name=example_resource_group.name,
-            sku_name="Standard_AzureFrontDoor")
-        example_frontdoor_secret = azure.cdn.FrontdoorSecret("exampleFrontdoorSecret",
-            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
-            secret=azure.cdn.FrontdoorSecretSecretArgs(
-                customer_certificates=[azure.cdn.FrontdoorSecretSecretCustomerCertificateArgs(
-                    key_vault_certificate_id=example_certificate.id,
-                )],
-            ))
-        ```
 
         ## Import
 
@@ -369,11 +259,7 @@ class FrontdoorSecret(pulumi.CustomResource):
                 raise TypeError("Missing required property 'cdn_frontdoor_profile_id'")
             __props__.__dict__["cdn_frontdoor_profile_id"] = cdn_frontdoor_profile_id
             __props__.__dict__["name"] = name
-            if secret is not None and not isinstance(secret, FrontdoorSecretSecretArgs):
-                secret = secret or {}
-                def _setter(key, value):
-                    secret[key] = value
-                FrontdoorSecretSecretArgs._configure(_setter, **secret)
+            secret = _utilities.configure(secret, FrontdoorSecretSecretArgs, True)
             if secret is None and not opts.urn:
                 raise TypeError("Missing required property 'secret'")
             __props__.__dict__["secret"] = secret

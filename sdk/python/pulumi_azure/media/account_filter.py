@@ -43,23 +43,27 @@ class AccountFilterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             media_services_account_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             media_services_account_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              first_quality_bitrate: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
              presentation_time_range: Optional[pulumi.Input['AccountFilterPresentationTimeRangeArgs']] = None,
              track_selections: Optional[pulumi.Input[Sequence[pulumi.Input['AccountFilterTrackSelectionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'mediaServicesAccountName' in kwargs:
+        if media_services_account_name is None and 'mediaServicesAccountName' in kwargs:
             media_services_account_name = kwargs['mediaServicesAccountName']
-        if 'resourceGroupName' in kwargs:
+        if media_services_account_name is None:
+            raise TypeError("Missing 'media_services_account_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'firstQualityBitrate' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if first_quality_bitrate is None and 'firstQualityBitrate' in kwargs:
             first_quality_bitrate = kwargs['firstQualityBitrate']
-        if 'presentationTimeRange' in kwargs:
+        if presentation_time_range is None and 'presentationTimeRange' in kwargs:
             presentation_time_range = kwargs['presentationTimeRange']
-        if 'trackSelections' in kwargs:
+        if track_selections is None and 'trackSelections' in kwargs:
             track_selections = kwargs['trackSelections']
 
         _setter("media_services_account_name", media_services_account_name)
@@ -182,17 +186,17 @@ class _AccountFilterState:
              presentation_time_range: Optional[pulumi.Input['AccountFilterPresentationTimeRangeArgs']] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              track_selections: Optional[pulumi.Input[Sequence[pulumi.Input['AccountFilterTrackSelectionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'firstQualityBitrate' in kwargs:
+        if first_quality_bitrate is None and 'firstQualityBitrate' in kwargs:
             first_quality_bitrate = kwargs['firstQualityBitrate']
-        if 'mediaServicesAccountName' in kwargs:
+        if media_services_account_name is None and 'mediaServicesAccountName' in kwargs:
             media_services_account_name = kwargs['mediaServicesAccountName']
-        if 'presentationTimeRange' in kwargs:
+        if presentation_time_range is None and 'presentationTimeRange' in kwargs:
             presentation_time_range = kwargs['presentationTimeRange']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'trackSelections' in kwargs:
+        if track_selections is None and 'trackSelections' in kwargs:
             track_selections = kwargs['trackSelections']
 
         if first_quality_bitrate is not None:
@@ -296,74 +300,6 @@ class AccountFilter(pulumi.CustomResource):
         """
         Manages a Media Services Account Filter.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
-                id=example_account.id,
-                is_primary=True,
-            )])
-        example_account_filter = azure.media.AccountFilter("exampleAccountFilter",
-            resource_group_name=azurerm_resource_group["test"]["name"],
-            media_services_account_name=azurerm_media_services_account["test"]["name"],
-            first_quality_bitrate=128000,
-            presentation_time_range=azure.media.AccountFilterPresentationTimeRangeArgs(
-                start_in_units=0,
-                end_in_units=15,
-                presentation_window_in_units=90,
-                live_backoff_in_units=0,
-                unit_timescale_in_milliseconds=1000,
-                force_end=False,
-            ),
-            track_selections=[
-                azure.media.AccountFilterTrackSelectionArgs(
-                    conditions=[
-                        azure.media.AccountFilterTrackSelectionConditionArgs(
-                            property="Type",
-                            operation="Equal",
-                            value="Audio",
-                        ),
-                        azure.media.AccountFilterTrackSelectionConditionArgs(
-                            property="Language",
-                            operation="NotEqual",
-                            value="en",
-                        ),
-                        azure.media.AccountFilterTrackSelectionConditionArgs(
-                            property="FourCC",
-                            operation="NotEqual",
-                            value="EC-3",
-                        ),
-                    ],
-                ),
-                azure.media.AccountFilterTrackSelectionArgs(
-                    conditions=[
-                        azure.media.AccountFilterTrackSelectionConditionArgs(
-                            property="Type",
-                            operation="Equal",
-                            value="Video",
-                        ),
-                        azure.media.AccountFilterTrackSelectionConditionArgs(
-                            property="Bitrate",
-                            operation="Equal",
-                            value="3000000-5000000",
-                        ),
-                    ],
-                ),
-            ])
-        ```
-
         ## Import
 
         Account Filters can be imported using the `resource id`, e.g.
@@ -389,74 +325,6 @@ class AccountFilter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Media Services Account Filter.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
-                id=example_account.id,
-                is_primary=True,
-            )])
-        example_account_filter = azure.media.AccountFilter("exampleAccountFilter",
-            resource_group_name=azurerm_resource_group["test"]["name"],
-            media_services_account_name=azurerm_media_services_account["test"]["name"],
-            first_quality_bitrate=128000,
-            presentation_time_range=azure.media.AccountFilterPresentationTimeRangeArgs(
-                start_in_units=0,
-                end_in_units=15,
-                presentation_window_in_units=90,
-                live_backoff_in_units=0,
-                unit_timescale_in_milliseconds=1000,
-                force_end=False,
-            ),
-            track_selections=[
-                azure.media.AccountFilterTrackSelectionArgs(
-                    conditions=[
-                        azure.media.AccountFilterTrackSelectionConditionArgs(
-                            property="Type",
-                            operation="Equal",
-                            value="Audio",
-                        ),
-                        azure.media.AccountFilterTrackSelectionConditionArgs(
-                            property="Language",
-                            operation="NotEqual",
-                            value="en",
-                        ),
-                        azure.media.AccountFilterTrackSelectionConditionArgs(
-                            property="FourCC",
-                            operation="NotEqual",
-                            value="EC-3",
-                        ),
-                    ],
-                ),
-                azure.media.AccountFilterTrackSelectionArgs(
-                    conditions=[
-                        azure.media.AccountFilterTrackSelectionConditionArgs(
-                            property="Type",
-                            operation="Equal",
-                            value="Video",
-                        ),
-                        azure.media.AccountFilterTrackSelectionConditionArgs(
-                            property="Bitrate",
-                            operation="Equal",
-                            value="3000000-5000000",
-                        ),
-                    ],
-                ),
-            ])
-        ```
 
         ## Import
 
@@ -505,11 +373,7 @@ class AccountFilter(pulumi.CustomResource):
                 raise TypeError("Missing required property 'media_services_account_name'")
             __props__.__dict__["media_services_account_name"] = media_services_account_name
             __props__.__dict__["name"] = name
-            if presentation_time_range is not None and not isinstance(presentation_time_range, AccountFilterPresentationTimeRangeArgs):
-                presentation_time_range = presentation_time_range or {}
-                def _setter(key, value):
-                    presentation_time_range[key] = value
-                AccountFilterPresentationTimeRangeArgs._configure(_setter, **presentation_time_range)
+            presentation_time_range = _utilities.configure(presentation_time_range, AccountFilterPresentationTimeRangeArgs, True)
             __props__.__dict__["presentation_time_range"] = presentation_time_range
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

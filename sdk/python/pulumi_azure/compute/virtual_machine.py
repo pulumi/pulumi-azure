@@ -107,10 +107,10 @@ class VirtualMachineArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             network_interface_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             resource_group_name: pulumi.Input[str],
-             storage_os_disk: pulumi.Input['VirtualMachineStorageOsDiskArgs'],
-             vm_size: pulumi.Input[str],
+             network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             storage_os_disk: Optional[pulumi.Input['VirtualMachineStorageOsDiskArgs']] = None,
+             vm_size: Optional[pulumi.Input[str]] = None,
              additional_capabilities: Optional[pulumi.Input['VirtualMachineAdditionalCapabilitiesArgs']] = None,
              availability_set_id: Optional[pulumi.Input[str]] = None,
              boot_diagnostics: Optional[pulumi.Input['VirtualMachineBootDiagnosticsArgs']] = None,
@@ -131,43 +131,51 @@ class VirtualMachineArgs:
              storage_image_reference: Optional[pulumi.Input['VirtualMachineStorageImageReferenceArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zones: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'networkInterfaceIds' in kwargs:
+        if network_interface_ids is None and 'networkInterfaceIds' in kwargs:
             network_interface_ids = kwargs['networkInterfaceIds']
-        if 'resourceGroupName' in kwargs:
+        if network_interface_ids is None:
+            raise TypeError("Missing 'network_interface_ids' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'storageOsDisk' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if storage_os_disk is None and 'storageOsDisk' in kwargs:
             storage_os_disk = kwargs['storageOsDisk']
-        if 'vmSize' in kwargs:
+        if storage_os_disk is None:
+            raise TypeError("Missing 'storage_os_disk' argument")
+        if vm_size is None and 'vmSize' in kwargs:
             vm_size = kwargs['vmSize']
-        if 'additionalCapabilities' in kwargs:
+        if vm_size is None:
+            raise TypeError("Missing 'vm_size' argument")
+        if additional_capabilities is None and 'additionalCapabilities' in kwargs:
             additional_capabilities = kwargs['additionalCapabilities']
-        if 'availabilitySetId' in kwargs:
+        if availability_set_id is None and 'availabilitySetId' in kwargs:
             availability_set_id = kwargs['availabilitySetId']
-        if 'bootDiagnostics' in kwargs:
+        if boot_diagnostics is None and 'bootDiagnostics' in kwargs:
             boot_diagnostics = kwargs['bootDiagnostics']
-        if 'deleteDataDisksOnTermination' in kwargs:
+        if delete_data_disks_on_termination is None and 'deleteDataDisksOnTermination' in kwargs:
             delete_data_disks_on_termination = kwargs['deleteDataDisksOnTermination']
-        if 'deleteOsDiskOnTermination' in kwargs:
+        if delete_os_disk_on_termination is None and 'deleteOsDiskOnTermination' in kwargs:
             delete_os_disk_on_termination = kwargs['deleteOsDiskOnTermination']
-        if 'licenseType' in kwargs:
+        if license_type is None and 'licenseType' in kwargs:
             license_type = kwargs['licenseType']
-        if 'osProfile' in kwargs:
+        if os_profile is None and 'osProfile' in kwargs:
             os_profile = kwargs['osProfile']
-        if 'osProfileLinuxConfig' in kwargs:
+        if os_profile_linux_config is None and 'osProfileLinuxConfig' in kwargs:
             os_profile_linux_config = kwargs['osProfileLinuxConfig']
-        if 'osProfileSecrets' in kwargs:
+        if os_profile_secrets is None and 'osProfileSecrets' in kwargs:
             os_profile_secrets = kwargs['osProfileSecrets']
-        if 'osProfileWindowsConfig' in kwargs:
+        if os_profile_windows_config is None and 'osProfileWindowsConfig' in kwargs:
             os_profile_windows_config = kwargs['osProfileWindowsConfig']
-        if 'primaryNetworkInterfaceId' in kwargs:
+        if primary_network_interface_id is None and 'primaryNetworkInterfaceId' in kwargs:
             primary_network_interface_id = kwargs['primaryNetworkInterfaceId']
-        if 'proximityPlacementGroupId' in kwargs:
+        if proximity_placement_group_id is None and 'proximityPlacementGroupId' in kwargs:
             proximity_placement_group_id = kwargs['proximityPlacementGroupId']
-        if 'storageDataDisks' in kwargs:
+        if storage_data_disks is None and 'storageDataDisks' in kwargs:
             storage_data_disks = kwargs['storageDataDisks']
-        if 'storageImageReference' in kwargs:
+        if storage_image_reference is None and 'storageImageReference' in kwargs:
             storage_image_reference = kwargs['storageImageReference']
 
         _setter("network_interface_ids", network_interface_ids)
@@ -632,43 +640,43 @@ class _VirtualMachineState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              vm_size: Optional[pulumi.Input[str]] = None,
              zones: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'additionalCapabilities' in kwargs:
+        if additional_capabilities is None and 'additionalCapabilities' in kwargs:
             additional_capabilities = kwargs['additionalCapabilities']
-        if 'availabilitySetId' in kwargs:
+        if availability_set_id is None and 'availabilitySetId' in kwargs:
             availability_set_id = kwargs['availabilitySetId']
-        if 'bootDiagnostics' in kwargs:
+        if boot_diagnostics is None and 'bootDiagnostics' in kwargs:
             boot_diagnostics = kwargs['bootDiagnostics']
-        if 'deleteDataDisksOnTermination' in kwargs:
+        if delete_data_disks_on_termination is None and 'deleteDataDisksOnTermination' in kwargs:
             delete_data_disks_on_termination = kwargs['deleteDataDisksOnTermination']
-        if 'deleteOsDiskOnTermination' in kwargs:
+        if delete_os_disk_on_termination is None and 'deleteOsDiskOnTermination' in kwargs:
             delete_os_disk_on_termination = kwargs['deleteOsDiskOnTermination']
-        if 'licenseType' in kwargs:
+        if license_type is None and 'licenseType' in kwargs:
             license_type = kwargs['licenseType']
-        if 'networkInterfaceIds' in kwargs:
+        if network_interface_ids is None and 'networkInterfaceIds' in kwargs:
             network_interface_ids = kwargs['networkInterfaceIds']
-        if 'osProfile' in kwargs:
+        if os_profile is None and 'osProfile' in kwargs:
             os_profile = kwargs['osProfile']
-        if 'osProfileLinuxConfig' in kwargs:
+        if os_profile_linux_config is None and 'osProfileLinuxConfig' in kwargs:
             os_profile_linux_config = kwargs['osProfileLinuxConfig']
-        if 'osProfileSecrets' in kwargs:
+        if os_profile_secrets is None and 'osProfileSecrets' in kwargs:
             os_profile_secrets = kwargs['osProfileSecrets']
-        if 'osProfileWindowsConfig' in kwargs:
+        if os_profile_windows_config is None and 'osProfileWindowsConfig' in kwargs:
             os_profile_windows_config = kwargs['osProfileWindowsConfig']
-        if 'primaryNetworkInterfaceId' in kwargs:
+        if primary_network_interface_id is None and 'primaryNetworkInterfaceId' in kwargs:
             primary_network_interface_id = kwargs['primaryNetworkInterfaceId']
-        if 'proximityPlacementGroupId' in kwargs:
+        if proximity_placement_group_id is None and 'proximityPlacementGroupId' in kwargs:
             proximity_placement_group_id = kwargs['proximityPlacementGroupId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'storageDataDisks' in kwargs:
+        if storage_data_disks is None and 'storageDataDisks' in kwargs:
             storage_data_disks = kwargs['storageDataDisks']
-        if 'storageImageReference' in kwargs:
+        if storage_image_reference is None and 'storageImageReference' in kwargs:
             storage_image_reference = kwargs['storageImageReference']
-        if 'storageOsDisk' in kwargs:
+        if storage_os_disk is None and 'storageOsDisk' in kwargs:
             storage_os_disk = kwargs['storageOsDisk']
-        if 'vmSize' in kwargs:
+        if vm_size is None and 'vmSize' in kwargs:
             vm_size = kwargs['vmSize']
 
         if additional_capabilities is not None:
@@ -1059,64 +1067,6 @@ class VirtualMachine(pulumi.CustomResource):
         > **Note:** Data Disks can be attached either directly on the `compute.VirtualMachine` resource, or using the `compute.DataDiskAttachment` resource - but the two cannot be used together. If both are used against the same Virtual Machine, spurious changes will occur.
 
         ## Example Usage
-        ### From An Azure Platform Image)
-
-        This example provisions a Virtual Machine with Managed Disks.
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        config = pulumi.Config()
-        prefix = config.get("prefix")
-        if prefix is None:
-            prefix = "tfvmex"
-        example = azure.core.ResourceGroup("example", location="West Europe")
-        main_virtual_network = azure.network.VirtualNetwork("mainVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example.location,
-            resource_group_name=example.name)
-        internal = azure.network.Subnet("internal",
-            resource_group_name=example.name,
-            virtual_network_name=main_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        main_network_interface = azure.network.NetworkInterface("mainNetworkInterface",
-            location=example.location,
-            resource_group_name=example.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="testconfiguration1",
-                subnet_id=internal.id,
-                private_ip_address_allocation="Dynamic",
-            )])
-        main_virtual_machine = azure.compute.VirtualMachine("mainVirtualMachine",
-            location=example.location,
-            resource_group_name=example.name,
-            network_interface_ids=[main_network_interface.id],
-            vm_size="Standard_DS1_v2",
-            storage_image_reference=azure.compute.VirtualMachineStorageImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-focal",
-                sku="20_04-lts",
-                version="latest",
-            ),
-            storage_os_disk=azure.compute.VirtualMachineStorageOsDiskArgs(
-                name="myosdisk1",
-                caching="ReadWrite",
-                create_option="FromImage",
-                managed_disk_type="Standard_LRS",
-            ),
-            os_profile=azure.compute.VirtualMachineOsProfileArgs(
-                computer_name="hostname",
-                admin_username="testadmin",
-                admin_password="Password1234!",
-            ),
-            os_profile_linux_config=azure.compute.VirtualMachineOsProfileLinuxConfigArgs(
-                disable_password_authentication=False,
-            ),
-            tags={
-                "environment": "staging",
-            })
-        ```
 
         ## Import
 
@@ -1179,64 +1129,6 @@ class VirtualMachine(pulumi.CustomResource):
         > **Note:** Data Disks can be attached either directly on the `compute.VirtualMachine` resource, or using the `compute.DataDiskAttachment` resource - but the two cannot be used together. If both are used against the same Virtual Machine, spurious changes will occur.
 
         ## Example Usage
-        ### From An Azure Platform Image)
-
-        This example provisions a Virtual Machine with Managed Disks.
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        config = pulumi.Config()
-        prefix = config.get("prefix")
-        if prefix is None:
-            prefix = "tfvmex"
-        example = azure.core.ResourceGroup("example", location="West Europe")
-        main_virtual_network = azure.network.VirtualNetwork("mainVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example.location,
-            resource_group_name=example.name)
-        internal = azure.network.Subnet("internal",
-            resource_group_name=example.name,
-            virtual_network_name=main_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        main_network_interface = azure.network.NetworkInterface("mainNetworkInterface",
-            location=example.location,
-            resource_group_name=example.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="testconfiguration1",
-                subnet_id=internal.id,
-                private_ip_address_allocation="Dynamic",
-            )])
-        main_virtual_machine = azure.compute.VirtualMachine("mainVirtualMachine",
-            location=example.location,
-            resource_group_name=example.name,
-            network_interface_ids=[main_network_interface.id],
-            vm_size="Standard_DS1_v2",
-            storage_image_reference=azure.compute.VirtualMachineStorageImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-focal",
-                sku="20_04-lts",
-                version="latest",
-            ),
-            storage_os_disk=azure.compute.VirtualMachineStorageOsDiskArgs(
-                name="myosdisk1",
-                caching="ReadWrite",
-                create_option="FromImage",
-                managed_disk_type="Standard_LRS",
-            ),
-            os_profile=azure.compute.VirtualMachineOsProfileArgs(
-                computer_name="hostname",
-                admin_username="testadmin",
-                admin_password="Password1234!",
-            ),
-            os_profile_linux_config=azure.compute.VirtualMachineOsProfileLinuxConfigArgs(
-                disable_password_authentication=False,
-            ),
-            tags={
-                "environment": "staging",
-            })
-        ```
 
         ## Import
 
@@ -1298,26 +1190,14 @@ class VirtualMachine(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VirtualMachineArgs.__new__(VirtualMachineArgs)
 
-            if additional_capabilities is not None and not isinstance(additional_capabilities, VirtualMachineAdditionalCapabilitiesArgs):
-                additional_capabilities = additional_capabilities or {}
-                def _setter(key, value):
-                    additional_capabilities[key] = value
-                VirtualMachineAdditionalCapabilitiesArgs._configure(_setter, **additional_capabilities)
+            additional_capabilities = _utilities.configure(additional_capabilities, VirtualMachineAdditionalCapabilitiesArgs, True)
             __props__.__dict__["additional_capabilities"] = additional_capabilities
             __props__.__dict__["availability_set_id"] = availability_set_id
-            if boot_diagnostics is not None and not isinstance(boot_diagnostics, VirtualMachineBootDiagnosticsArgs):
-                boot_diagnostics = boot_diagnostics or {}
-                def _setter(key, value):
-                    boot_diagnostics[key] = value
-                VirtualMachineBootDiagnosticsArgs._configure(_setter, **boot_diagnostics)
+            boot_diagnostics = _utilities.configure(boot_diagnostics, VirtualMachineBootDiagnosticsArgs, True)
             __props__.__dict__["boot_diagnostics"] = boot_diagnostics
             __props__.__dict__["delete_data_disks_on_termination"] = delete_data_disks_on_termination
             __props__.__dict__["delete_os_disk_on_termination"] = delete_os_disk_on_termination
-            if identity is not None and not isinstance(identity, VirtualMachineIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                VirtualMachineIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, VirtualMachineIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["license_type"] = license_type
             __props__.__dict__["location"] = location
@@ -1325,30 +1205,14 @@ class VirtualMachine(pulumi.CustomResource):
             if network_interface_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'network_interface_ids'")
             __props__.__dict__["network_interface_ids"] = network_interface_ids
-            if os_profile is not None and not isinstance(os_profile, VirtualMachineOsProfileArgs):
-                os_profile = os_profile or {}
-                def _setter(key, value):
-                    os_profile[key] = value
-                VirtualMachineOsProfileArgs._configure(_setter, **os_profile)
+            os_profile = _utilities.configure(os_profile, VirtualMachineOsProfileArgs, True)
             __props__.__dict__["os_profile"] = os_profile
-            if os_profile_linux_config is not None and not isinstance(os_profile_linux_config, VirtualMachineOsProfileLinuxConfigArgs):
-                os_profile_linux_config = os_profile_linux_config or {}
-                def _setter(key, value):
-                    os_profile_linux_config[key] = value
-                VirtualMachineOsProfileLinuxConfigArgs._configure(_setter, **os_profile_linux_config)
+            os_profile_linux_config = _utilities.configure(os_profile_linux_config, VirtualMachineOsProfileLinuxConfigArgs, True)
             __props__.__dict__["os_profile_linux_config"] = os_profile_linux_config
             __props__.__dict__["os_profile_secrets"] = os_profile_secrets
-            if os_profile_windows_config is not None and not isinstance(os_profile_windows_config, VirtualMachineOsProfileWindowsConfigArgs):
-                os_profile_windows_config = os_profile_windows_config or {}
-                def _setter(key, value):
-                    os_profile_windows_config[key] = value
-                VirtualMachineOsProfileWindowsConfigArgs._configure(_setter, **os_profile_windows_config)
+            os_profile_windows_config = _utilities.configure(os_profile_windows_config, VirtualMachineOsProfileWindowsConfigArgs, True)
             __props__.__dict__["os_profile_windows_config"] = os_profile_windows_config
-            if plan is not None and not isinstance(plan, VirtualMachinePlanArgs):
-                plan = plan or {}
-                def _setter(key, value):
-                    plan[key] = value
-                VirtualMachinePlanArgs._configure(_setter, **plan)
+            plan = _utilities.configure(plan, VirtualMachinePlanArgs, True)
             __props__.__dict__["plan"] = plan
             __props__.__dict__["primary_network_interface_id"] = primary_network_interface_id
             __props__.__dict__["proximity_placement_group_id"] = proximity_placement_group_id
@@ -1356,17 +1220,9 @@ class VirtualMachine(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["storage_data_disks"] = storage_data_disks
-            if storage_image_reference is not None and not isinstance(storage_image_reference, VirtualMachineStorageImageReferenceArgs):
-                storage_image_reference = storage_image_reference or {}
-                def _setter(key, value):
-                    storage_image_reference[key] = value
-                VirtualMachineStorageImageReferenceArgs._configure(_setter, **storage_image_reference)
+            storage_image_reference = _utilities.configure(storage_image_reference, VirtualMachineStorageImageReferenceArgs, True)
             __props__.__dict__["storage_image_reference"] = storage_image_reference
-            if storage_os_disk is not None and not isinstance(storage_os_disk, VirtualMachineStorageOsDiskArgs):
-                storage_os_disk = storage_os_disk or {}
-                def _setter(key, value):
-                    storage_os_disk[key] = value
-                VirtualMachineStorageOsDiskArgs._configure(_setter, **storage_os_disk)
+            storage_os_disk = _utilities.configure(storage_os_disk, VirtualMachineStorageOsDiskArgs, True)
             if storage_os_disk is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_os_disk'")
             __props__.__dict__["storage_os_disk"] = storage_os_disk

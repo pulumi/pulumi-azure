@@ -29,14 +29,18 @@ class VirtualNetworkSwiftConnectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_service_id: pulumi.Input[str],
-             subnet_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             app_service_id: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'appServiceId' in kwargs:
+        if app_service_id is None and 'appServiceId' in kwargs:
             app_service_id = kwargs['appServiceId']
-        if 'subnetId' in kwargs:
+        if app_service_id is None:
+            raise TypeError("Missing 'app_service_id' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
 
         _setter("app_service_id", app_service_id)
         _setter("subnet_id", subnet_id)
@@ -86,11 +90,11 @@ class _VirtualNetworkSwiftConnectionState:
              _setter: Callable[[Any, Any], None],
              app_service_id: Optional[pulumi.Input[str]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'appServiceId' in kwargs:
+        if app_service_id is None and 'appServiceId' in kwargs:
             app_service_id = kwargs['appServiceId']
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
 
         if app_service_id is not None:
@@ -156,87 +160,6 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
         Multiple apps in the same App Service plan can use the same VNet.
 
         ## Example Usage
-        ### With App Service)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="example-delegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.Web/serverFarms",
-                    actions=["Microsoft.Network/virtualNetworks/subnets/action"],
-                ),
-            )])
-        example_plan = azure.appservice.Plan("examplePlan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Standard",
-                size="S1",
-            ))
-        example_app_service = azure.appservice.AppService("exampleAppService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            app_service_plan_id=example_plan.id)
-        example_virtual_network_swift_connection = azure.appservice.VirtualNetworkSwiftConnection("exampleVirtualNetworkSwiftConnection",
-            app_service_id=example_app_service.id,
-            subnet_id=example_subnet.id)
-        ```
-        ### With Function App)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="example-delegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.Web/serverFarms",
-                    actions=["Microsoft.Network/virtualNetworks/subnets/action"],
-                ),
-            )])
-        example_plan = azure.appservice.Plan("examplePlan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Standard",
-                size="S1",
-            ))
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_function_app = azure.appservice.FunctionApp("exampleFunctionApp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            app_service_plan_id=example_plan.id,
-            storage_account_name=example_account.name,
-            storage_account_access_key=example_account.primary_access_key)
-        example_virtual_network_swift_connection = azure.appservice.VirtualNetworkSwiftConnection("exampleVirtualNetworkSwiftConnection",
-            app_service_id=example_function_app.id,
-            subnet_id=example_subnet.id)
-        ```
 
         ## Import
 
@@ -282,87 +205,6 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
         Multiple apps in the same App Service plan can use the same VNet.
 
         ## Example Usage
-        ### With App Service)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="example-delegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.Web/serverFarms",
-                    actions=["Microsoft.Network/virtualNetworks/subnets/action"],
-                ),
-            )])
-        example_plan = azure.appservice.Plan("examplePlan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Standard",
-                size="S1",
-            ))
-        example_app_service = azure.appservice.AppService("exampleAppService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            app_service_plan_id=example_plan.id)
-        example_virtual_network_swift_connection = azure.appservice.VirtualNetworkSwiftConnection("exampleVirtualNetworkSwiftConnection",
-            app_service_id=example_app_service.id,
-            subnet_id=example_subnet.id)
-        ```
-        ### With Function App)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="example-delegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.Web/serverFarms",
-                    actions=["Microsoft.Network/virtualNetworks/subnets/action"],
-                ),
-            )])
-        example_plan = azure.appservice.Plan("examplePlan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Standard",
-                size="S1",
-            ))
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_function_app = azure.appservice.FunctionApp("exampleFunctionApp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            app_service_plan_id=example_plan.id,
-            storage_account_name=example_account.name,
-            storage_account_access_key=example_account.primary_access_key)
-        example_virtual_network_swift_connection = azure.appservice.VirtualNetworkSwiftConnection("exampleVirtualNetworkSwiftConnection",
-            app_service_id=example_function_app.id,
-            subnet_id=example_subnet.id)
-        ```
 
         ## Import
 

@@ -40,15 +40,19 @@ class LogzSubAccountArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             logz_monitor_id: pulumi.Input[str],
-             user: pulumi.Input['LogzSubAccountUserArgs'],
+             logz_monitor_id: Optional[pulumi.Input[str]] = None,
+             user: Optional[pulumi.Input['LogzSubAccountUserArgs']] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'logzMonitorId' in kwargs:
+        if logz_monitor_id is None and 'logzMonitorId' in kwargs:
             logz_monitor_id = kwargs['logzMonitorId']
+        if logz_monitor_id is None:
+            raise TypeError("Missing 'logz_monitor_id' argument")
+        if user is None:
+            raise TypeError("Missing 'user' argument")
 
         _setter("logz_monitor_id", logz_monitor_id)
         _setter("user", user)
@@ -152,9 +156,9 @@ class _LogzSubAccountState:
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              user: Optional[pulumi.Input['LogzSubAccountUserArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'logzMonitorId' in kwargs:
+        if logz_monitor_id is None and 'logzMonitorId' in kwargs:
             logz_monitor_id = kwargs['logzMonitorId']
 
         if enabled is not None:
@@ -243,37 +247,6 @@ class LogzSubAccount(pulumi.CustomResource):
         """
         Manages a logz Sub Account.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_logz_monitor = azure.monitoring.LogzMonitor("exampleLogzMonitor",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            plan=azure.monitoring.LogzMonitorPlanArgs(
-                billing_cycle="MONTHLY",
-                effective_date="2022-06-06T00:00:00Z",
-                usage_type="COMMITTED",
-            ),
-            user=azure.monitoring.LogzMonitorUserArgs(
-                email="user@example.com",
-                first_name="Example",
-                last_name="User",
-                phone_number="+12313803556",
-            ))
-        example_logz_sub_account = azure.monitoring.LogzSubAccount("exampleLogzSubAccount",
-            logz_monitor_id=example_logz_monitor.id,
-            user=azure.monitoring.LogzSubAccountUserArgs(
-                email=example_logz_monitor.user.email,
-                first_name=example_logz_monitor.user.first_name,
-                last_name=example_logz_monitor.user.last_name,
-                phone_number=example_logz_monitor.user.phone_number,
-            ))
-        ```
-
         ## Import
 
         logz SubAccounts can be imported using the `resource id`, e.g.
@@ -298,37 +271,6 @@ class LogzSubAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a logz Sub Account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_logz_monitor = azure.monitoring.LogzMonitor("exampleLogzMonitor",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            plan=azure.monitoring.LogzMonitorPlanArgs(
-                billing_cycle="MONTHLY",
-                effective_date="2022-06-06T00:00:00Z",
-                usage_type="COMMITTED",
-            ),
-            user=azure.monitoring.LogzMonitorUserArgs(
-                email="user@example.com",
-                first_name="Example",
-                last_name="User",
-                phone_number="+12313803556",
-            ))
-        example_logz_sub_account = azure.monitoring.LogzSubAccount("exampleLogzSubAccount",
-            logz_monitor_id=example_logz_monitor.id,
-            user=azure.monitoring.LogzSubAccountUserArgs(
-                email=example_logz_monitor.user.email,
-                first_name=example_logz_monitor.user.first_name,
-                last_name=example_logz_monitor.user.last_name,
-                phone_number=example_logz_monitor.user.phone_number,
-            ))
-        ```
 
         ## Import
 
@@ -377,11 +319,7 @@ class LogzSubAccount(pulumi.CustomResource):
             __props__.__dict__["logz_monitor_id"] = logz_monitor_id
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
-            if user is not None and not isinstance(user, LogzSubAccountUserArgs):
-                user = user or {}
-                def _setter(key, value):
-                    user[key] = value
-                LogzSubAccountUserArgs._configure(_setter, **user)
+            user = _utilities.configure(user, LogzSubAccountUserArgs, True)
             if user is None and not opts.urn:
                 raise TypeError("Missing required property 'user'")
             __props__.__dict__["user"] = user

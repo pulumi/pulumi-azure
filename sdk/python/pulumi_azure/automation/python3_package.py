@@ -47,27 +47,33 @@ class Python3PackageArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             automation_account_name: pulumi.Input[str],
-             content_uri: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             automation_account_name: Optional[pulumi.Input[str]] = None,
+             content_uri: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              content_version: Optional[pulumi.Input[str]] = None,
              hash_algorithm: Optional[pulumi.Input[str]] = None,
              hash_value: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'automationAccountName' in kwargs:
+        if automation_account_name is None and 'automationAccountName' in kwargs:
             automation_account_name = kwargs['automationAccountName']
-        if 'contentUri' in kwargs:
+        if automation_account_name is None:
+            raise TypeError("Missing 'automation_account_name' argument")
+        if content_uri is None and 'contentUri' in kwargs:
             content_uri = kwargs['contentUri']
-        if 'resourceGroupName' in kwargs:
+        if content_uri is None:
+            raise TypeError("Missing 'content_uri' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'contentVersion' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if content_version is None and 'contentVersion' in kwargs:
             content_version = kwargs['contentVersion']
-        if 'hashAlgorithm' in kwargs:
+        if hash_algorithm is None and 'hashAlgorithm' in kwargs:
             hash_algorithm = kwargs['hashAlgorithm']
-        if 'hashValue' in kwargs:
+        if hash_value is None and 'hashValue' in kwargs:
             hash_value = kwargs['hashValue']
 
         _setter("automation_account_name", automation_account_name)
@@ -225,19 +231,19 @@ class _Python3PackageState:
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'automationAccountName' in kwargs:
+        if automation_account_name is None and 'automationAccountName' in kwargs:
             automation_account_name = kwargs['automationAccountName']
-        if 'contentUri' in kwargs:
+        if content_uri is None and 'contentUri' in kwargs:
             content_uri = kwargs['contentUri']
-        if 'contentVersion' in kwargs:
+        if content_version is None and 'contentVersion' in kwargs:
             content_version = kwargs['contentVersion']
-        if 'hashAlgorithm' in kwargs:
+        if hash_algorithm is None and 'hashAlgorithm' in kwargs:
             hash_algorithm = kwargs['hashAlgorithm']
-        if 'hashValue' in kwargs:
+        if hash_value is None and 'hashValue' in kwargs:
             hash_value = kwargs['hashValue']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if automation_account_name is not None:
@@ -371,29 +377,6 @@ class Python3Package(pulumi.CustomResource):
         """
         Manages a Automation Python3 Package.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="%[2]s")
-        example_account = azure.automation.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Basic")
-        example_python3_package = azure.automation.Python3Package("examplePython3Package",
-            resource_group_name=example_resource_group.name,
-            automation_account_name=example_account.name,
-            content_uri="https://pypi.org/packages/source/r/requests/requests-2.31.0.tar.gz",
-            content_version="2.31.0",
-            hash_algorithm="sha256",
-            hash_value="942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1",
-            tags={
-                "key": "foo",
-            })
-        ```
-
         ## Import
 
         Automation Python3 Packages can be imported using the `resource id`, e.g.
@@ -421,29 +404,6 @@ class Python3Package(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Automation Python3 Package.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="%[2]s")
-        example_account = azure.automation.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Basic")
-        example_python3_package = azure.automation.Python3Package("examplePython3Package",
-            resource_group_name=example_resource_group.name,
-            automation_account_name=example_account.name,
-            content_uri="https://pypi.org/packages/source/r/requests/requests-2.31.0.tar.gz",
-            content_version="2.31.0",
-            hash_algorithm="sha256",
-            hash_value="942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1",
-            tags={
-                "key": "foo",
-            })
-        ```
 
         ## Import
 

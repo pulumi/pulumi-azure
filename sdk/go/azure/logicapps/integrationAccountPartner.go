@@ -15,54 +15,6 @@ import (
 
 // Manages a Logic App Integration Account Partner.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/logicapps"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleIntegrationAccount, err := logicapps.NewIntegrationAccount(ctx, "exampleIntegrationAccount", &logicapps.IntegrationAccountArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				SkuName:           pulumi.String("Standard"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = logicapps.NewIntegrationAccountPartner(ctx, "exampleIntegrationAccountPartner", &logicapps.IntegrationAccountPartnerArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
-//				IntegrationAccountName: exampleIntegrationAccount.Name,
-//				BusinessIdentities: logicapps.IntegrationAccountPartnerBusinessIdentityArray{
-//					&logicapps.IntegrationAccountPartnerBusinessIdentityArgs{
-//						Qualifier: pulumi.String("ZZ"),
-//						Value:     pulumi.String("AA"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Logic App Integration Account Partners can be imported using the `resource id`, e.g.

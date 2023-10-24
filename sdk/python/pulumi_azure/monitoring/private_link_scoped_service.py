@@ -35,18 +35,24 @@ class PrivateLinkScopedServiceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             linked_resource_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             scope_name: pulumi.Input[str],
+             linked_resource_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             scope_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'linkedResourceId' in kwargs:
+        if linked_resource_id is None and 'linkedResourceId' in kwargs:
             linked_resource_id = kwargs['linkedResourceId']
-        if 'resourceGroupName' in kwargs:
+        if linked_resource_id is None:
+            raise TypeError("Missing 'linked_resource_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'scopeName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if scope_name is None and 'scopeName' in kwargs:
             scope_name = kwargs['scopeName']
+        if scope_name is None:
+            raise TypeError("Missing 'scope_name' argument")
 
         _setter("linked_resource_id", linked_resource_id)
         _setter("resource_group_name", resource_group_name)
@@ -131,13 +137,13 @@ class _PrivateLinkScopedServiceState:
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              scope_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'linkedResourceId' in kwargs:
+        if linked_resource_id is None and 'linkedResourceId' in kwargs:
             linked_resource_id = kwargs['linkedResourceId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'scopeName' in kwargs:
+        if scope_name is None and 'scopeName' in kwargs:
             scope_name = kwargs['scopeName']
 
         if linked_resource_id is not None:
@@ -211,24 +217,6 @@ class PrivateLinkScopedService(pulumi.CustomResource):
         """
         Manages an Azure Monitor Private Link Scoped Service.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_type="web")
-        example_private_link_scope = azure.monitoring.PrivateLinkScope("examplePrivateLinkScope", resource_group_name=example_resource_group.name)
-        example_private_link_scoped_service = azure.monitoring.PrivateLinkScopedService("examplePrivateLinkScopedService",
-            resource_group_name=example_resource_group.name,
-            scope_name=example_private_link_scope.name,
-            linked_resource_id=example_insights.id)
-        ```
-
         ## Import
 
         Azure Monitor Private Link Scoped Services can be imported using the `resource id`, e.g.
@@ -252,24 +240,6 @@ class PrivateLinkScopedService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Monitor Private Link Scoped Service.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_type="web")
-        example_private_link_scope = azure.monitoring.PrivateLinkScope("examplePrivateLinkScope", resource_group_name=example_resource_group.name)
-        example_private_link_scoped_service = azure.monitoring.PrivateLinkScopedService("examplePrivateLinkScopedService",
-            resource_group_name=example_resource_group.name,
-            scope_name=example_private_link_scope.name,
-            linked_resource_id=example_insights.id)
-        ```
 
         ## Import
 

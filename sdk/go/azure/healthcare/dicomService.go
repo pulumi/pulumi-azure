@@ -15,46 +15,6 @@ import (
 
 // Manages a Healthcare DICOM Service
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/healthcare"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testWorkspace, err := healthcare.NewWorkspace(ctx, "testWorkspace", &healthcare.WorkspaceArgs{
-//				ResourceGroupName: pulumi.String("tfex-resource_group"),
-//				Location:          pulumi.String("east us"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = healthcare.NewDicomService(ctx, "testDicomService", &healthcare.DicomServiceArgs{
-//				WorkspaceId: testWorkspace.ID(),
-//				Location:    pulumi.String("east us"),
-//				Identity: &healthcare.DicomServiceIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"environment": pulumi.String("None"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Healthcare DICOM Service can be imported using the resource`id`, e.g.

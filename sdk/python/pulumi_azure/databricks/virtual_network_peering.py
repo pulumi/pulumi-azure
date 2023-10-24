@@ -54,32 +54,40 @@ class VirtualNetworkPeeringArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             remote_address_space_prefixes: pulumi.Input[Sequence[pulumi.Input[str]]],
-             remote_virtual_network_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             workspace_id: pulumi.Input[str],
+             remote_address_space_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             remote_virtual_network_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
              allow_forwarded_traffic: Optional[pulumi.Input[bool]] = None,
              allow_gateway_transit: Optional[pulumi.Input[bool]] = None,
              allow_virtual_network_access: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              use_remote_gateways: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'remoteAddressSpacePrefixes' in kwargs:
+        if remote_address_space_prefixes is None and 'remoteAddressSpacePrefixes' in kwargs:
             remote_address_space_prefixes = kwargs['remoteAddressSpacePrefixes']
-        if 'remoteVirtualNetworkId' in kwargs:
+        if remote_address_space_prefixes is None:
+            raise TypeError("Missing 'remote_address_space_prefixes' argument")
+        if remote_virtual_network_id is None and 'remoteVirtualNetworkId' in kwargs:
             remote_virtual_network_id = kwargs['remoteVirtualNetworkId']
-        if 'resourceGroupName' in kwargs:
+        if remote_virtual_network_id is None:
+            raise TypeError("Missing 'remote_virtual_network_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'workspaceId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
-        if 'allowForwardedTraffic' in kwargs:
+        if workspace_id is None:
+            raise TypeError("Missing 'workspace_id' argument")
+        if allow_forwarded_traffic is None and 'allowForwardedTraffic' in kwargs:
             allow_forwarded_traffic = kwargs['allowForwardedTraffic']
-        if 'allowGatewayTransit' in kwargs:
+        if allow_gateway_transit is None and 'allowGatewayTransit' in kwargs:
             allow_gateway_transit = kwargs['allowGatewayTransit']
-        if 'allowVirtualNetworkAccess' in kwargs:
+        if allow_virtual_network_access is None and 'allowVirtualNetworkAccess' in kwargs:
             allow_virtual_network_access = kwargs['allowVirtualNetworkAccess']
-        if 'useRemoteGateways' in kwargs:
+        if use_remote_gateways is None and 'useRemoteGateways' in kwargs:
             use_remote_gateways = kwargs['useRemoteGateways']
 
         _setter("remote_address_space_prefixes", remote_address_space_prefixes)
@@ -272,27 +280,27 @@ class _VirtualNetworkPeeringState:
              use_remote_gateways: Optional[pulumi.Input[bool]] = None,
              virtual_network_id: Optional[pulumi.Input[str]] = None,
              workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'addressSpacePrefixes' in kwargs:
+        if address_space_prefixes is None and 'addressSpacePrefixes' in kwargs:
             address_space_prefixes = kwargs['addressSpacePrefixes']
-        if 'allowForwardedTraffic' in kwargs:
+        if allow_forwarded_traffic is None and 'allowForwardedTraffic' in kwargs:
             allow_forwarded_traffic = kwargs['allowForwardedTraffic']
-        if 'allowGatewayTransit' in kwargs:
+        if allow_gateway_transit is None and 'allowGatewayTransit' in kwargs:
             allow_gateway_transit = kwargs['allowGatewayTransit']
-        if 'allowVirtualNetworkAccess' in kwargs:
+        if allow_virtual_network_access is None and 'allowVirtualNetworkAccess' in kwargs:
             allow_virtual_network_access = kwargs['allowVirtualNetworkAccess']
-        if 'remoteAddressSpacePrefixes' in kwargs:
+        if remote_address_space_prefixes is None and 'remoteAddressSpacePrefixes' in kwargs:
             remote_address_space_prefixes = kwargs['remoteAddressSpacePrefixes']
-        if 'remoteVirtualNetworkId' in kwargs:
+        if remote_virtual_network_id is None and 'remoteVirtualNetworkId' in kwargs:
             remote_virtual_network_id = kwargs['remoteVirtualNetworkId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'useRemoteGateways' in kwargs:
+        if use_remote_gateways is None and 'useRemoteGateways' in kwargs:
             use_remote_gateways = kwargs['useRemoteGateways']
-        if 'virtualNetworkId' in kwargs:
+        if virtual_network_id is None and 'virtualNetworkId' in kwargs:
             virtual_network_id = kwargs['virtualNetworkId']
-        if 'workspaceId' in kwargs:
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
 
         if address_space_prefixes is not None:
@@ -475,34 +483,6 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         """
         Manages a Databricks Virtual Network Peering
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        remote_virtual_network = azure.network.VirtualNetwork("remoteVirtualNetwork",
-            resource_group_name=example_resource_group.name,
-            address_spaces=["10.0.1.0/24"],
-            location=example_resource_group.location)
-        example_workspace = azure.databricks.Workspace("exampleWorkspace",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku="standard")
-        example_virtual_network_peering = azure.databricks.VirtualNetworkPeering("exampleVirtualNetworkPeering",
-            resource_group_name=example_resource_group.name,
-            workspace_id=example_workspace.id,
-            remote_address_space_prefixes=remote_virtual_network.address_spaces,
-            remote_virtual_network_id=remote_virtual_network.id,
-            allow_virtual_network_access=True)
-        remote_virtual_network_peering = azure.network.VirtualNetworkPeering("remoteVirtualNetworkPeering",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=remote_virtual_network.name,
-            remote_virtual_network_id=example_virtual_network_peering.virtual_network_id,
-            allow_virtual_network_access=True)
-        ```
-
         ## Import
 
         Databrick Virtual Network Peerings can be imported using the `resource id`, e.g.
@@ -535,34 +515,6 @@ class VirtualNetworkPeering(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Databricks Virtual Network Peering
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        remote_virtual_network = azure.network.VirtualNetwork("remoteVirtualNetwork",
-            resource_group_name=example_resource_group.name,
-            address_spaces=["10.0.1.0/24"],
-            location=example_resource_group.location)
-        example_workspace = azure.databricks.Workspace("exampleWorkspace",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku="standard")
-        example_virtual_network_peering = azure.databricks.VirtualNetworkPeering("exampleVirtualNetworkPeering",
-            resource_group_name=example_resource_group.name,
-            workspace_id=example_workspace.id,
-            remote_address_space_prefixes=remote_virtual_network.address_spaces,
-            remote_virtual_network_id=remote_virtual_network.id,
-            allow_virtual_network_access=True)
-        remote_virtual_network_peering = azure.network.VirtualNetworkPeering("remoteVirtualNetworkPeering",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=remote_virtual_network.name,
-            remote_virtual_network_id=example_virtual_network_peering.virtual_network_id,
-            allow_virtual_network_access=True)
-        ```
 
         ## Import
 

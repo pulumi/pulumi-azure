@@ -40,16 +40,22 @@ class DeploymentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cognitive_account_id: pulumi.Input[str],
-             model: pulumi.Input['DeploymentModelArgs'],
-             scale: pulumi.Input['DeploymentScaleArgs'],
+             cognitive_account_id: Optional[pulumi.Input[str]] = None,
+             model: Optional[pulumi.Input['DeploymentModelArgs']] = None,
+             scale: Optional[pulumi.Input['DeploymentScaleArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              rai_policy_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'cognitiveAccountId' in kwargs:
+        if cognitive_account_id is None and 'cognitiveAccountId' in kwargs:
             cognitive_account_id = kwargs['cognitiveAccountId']
-        if 'raiPolicyName' in kwargs:
+        if cognitive_account_id is None:
+            raise TypeError("Missing 'cognitive_account_id' argument")
+        if model is None:
+            raise TypeError("Missing 'model' argument")
+        if scale is None:
+            raise TypeError("Missing 'scale' argument")
+        if rai_policy_name is None and 'raiPolicyName' in kwargs:
             rai_policy_name = kwargs['raiPolicyName']
 
         _setter("cognitive_account_id", cognitive_account_id)
@@ -153,11 +159,11 @@ class _DeploymentState:
              name: Optional[pulumi.Input[str]] = None,
              rai_policy_name: Optional[pulumi.Input[str]] = None,
              scale: Optional[pulumi.Input['DeploymentScaleArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'cognitiveAccountId' in kwargs:
+        if cognitive_account_id is None and 'cognitiveAccountId' in kwargs:
             cognitive_account_id = kwargs['cognitiveAccountId']
-        if 'raiPolicyName' in kwargs:
+        if rai_policy_name is None and 'raiPolicyName' in kwargs:
             rai_policy_name = kwargs['raiPolicyName']
 
         if cognitive_account_id is not None:
@@ -246,30 +252,6 @@ class Deployment(pulumi.CustomResource):
         """
         Manages a Cognitive Services Account Deployment.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.cognitive.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            kind="OpenAI",
-            sku_name="S0")
-        example_deployment = azure.cognitive.Deployment("exampleDeployment",
-            cognitive_account_id=example_account.id,
-            model=azure.cognitive.DeploymentModelArgs(
-                format="OpenAI",
-                name="text-curie-001",
-                version="1",
-            ),
-            scale=azure.cognitive.DeploymentScaleArgs(
-                type="Standard",
-            ))
-        ```
-
         ## Import
 
         Cognitive Services Account Deployment can be imported using the `resource id`, e.g.
@@ -294,30 +276,6 @@ class Deployment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Cognitive Services Account Deployment.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.cognitive.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            kind="OpenAI",
-            sku_name="S0")
-        example_deployment = azure.cognitive.Deployment("exampleDeployment",
-            cognitive_account_id=example_account.id,
-            model=azure.cognitive.DeploymentModelArgs(
-                format="OpenAI",
-                name="text-curie-001",
-                version="1",
-            ),
-            scale=azure.cognitive.DeploymentScaleArgs(
-                type="Standard",
-            ))
-        ```
 
         ## Import
 
@@ -363,21 +321,13 @@ class Deployment(pulumi.CustomResource):
             if cognitive_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'cognitive_account_id'")
             __props__.__dict__["cognitive_account_id"] = cognitive_account_id
-            if model is not None and not isinstance(model, DeploymentModelArgs):
-                model = model or {}
-                def _setter(key, value):
-                    model[key] = value
-                DeploymentModelArgs._configure(_setter, **model)
+            model = _utilities.configure(model, DeploymentModelArgs, True)
             if model is None and not opts.urn:
                 raise TypeError("Missing required property 'model'")
             __props__.__dict__["model"] = model
             __props__.__dict__["name"] = name
             __props__.__dict__["rai_policy_name"] = rai_policy_name
-            if scale is not None and not isinstance(scale, DeploymentScaleArgs):
-                scale = scale or {}
-                def _setter(key, value):
-                    scale[key] = value
-                DeploymentScaleArgs._configure(_setter, **scale)
+            scale = _utilities.configure(scale, DeploymentScaleArgs, True)
             if scale is None and not opts.urn:
                 raise TypeError("Missing required property 'scale'")
             __props__.__dict__["scale"] = scale

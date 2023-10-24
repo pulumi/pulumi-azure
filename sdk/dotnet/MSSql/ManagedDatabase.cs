@@ -12,62 +12,6 @@ namespace Pulumi.Azure.MSSql
     /// <summary>
     /// Manages an Azure SQL Azure Managed Database for a SQL Managed Instance.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         AddressSpaces = new[]
-    ///         {
-    ///             "10.0.0.0/16",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///         AddressPrefixes = new[]
-    ///         {
-    ///             "10.0.2.0/24",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleManagedInstance = new Azure.MSSql.ManagedInstance("exampleManagedInstance", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         LicenseType = "BasePrice",
-    ///         SkuName = "GP_Gen5",
-    ///         StorageSizeInGb = 32,
-    ///         SubnetId = exampleSubnet.Id,
-    ///         Vcores = 4,
-    ///         AdministratorLogin = "msadministrator",
-    ///         AdministratorLoginPassword = "thisIsDog11",
-    ///     });
-    /// 
-    ///     var exampleManagedDatabase = new Azure.MSSql.ManagedDatabase("exampleManagedDatabase", new()
-    ///     {
-    ///         ManagedInstanceId = exampleManagedInstance.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// SQL Managed Databases can be imported using the `resource id`, e.g.

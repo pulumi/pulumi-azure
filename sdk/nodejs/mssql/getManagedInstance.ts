@@ -8,18 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Microsoft SQL Azure Managed Instance.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.mssql.getManagedInstance({
- *     name: "managedsqlinstance",
- *     resourceGroupName: azurerm_resource_group.example.name,
- * });
- * ```
  */
 export function getManagedInstance(args: GetManagedInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedInstanceResult> {
 
@@ -126,18 +114,6 @@ export interface GetManagedInstanceResult {
 }
 /**
  * Use this data source to access information about an existing Microsoft SQL Azure Managed Instance.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.mssql.getManagedInstance({
- *     name: "managedsqlinstance",
- *     resourceGroupName: azurerm_resource_group.example.name,
- * });
- * ```
  */
 export function getManagedInstanceOutput(args: GetManagedInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedInstanceResult> {
     return pulumi.output(args).apply((a: any) => getManagedInstance(a, opts))

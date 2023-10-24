@@ -9,30 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Virtual Network within a DevTest Lab.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleLab = new azure.devtest.Lab("exampleLab", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     tags: {
- *         Sydney: "Australia",
- *     },
- * });
- * const exampleVirtualNetwork = new azure.devtest.VirtualNetwork("exampleVirtualNetwork", {
- *     labName: exampleLab.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     subnet: {
- *         usePublicIpAddress: "Allow",
- *         useInVirtualMachineCreation: "Allow",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * DevTest Virtual Networks can be imported using the `resource id`, e.g.

@@ -49,7 +49,7 @@ class ServerExtendedAuditingPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             server_id: pulumi.Input[str],
+             server_id: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              log_monitoring_enabled: Optional[pulumi.Input[bool]] = None,
              retention_in_days: Optional[pulumi.Input[int]] = None,
@@ -57,21 +57,23 @@ class ServerExtendedAuditingPolicyArgs:
              storage_account_access_key_is_secondary: Optional[pulumi.Input[bool]] = None,
              storage_account_subscription_id: Optional[pulumi.Input[str]] = None,
              storage_endpoint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'serverId' in kwargs:
+        if server_id is None and 'serverId' in kwargs:
             server_id = kwargs['serverId']
-        if 'logMonitoringEnabled' in kwargs:
+        if server_id is None:
+            raise TypeError("Missing 'server_id' argument")
+        if log_monitoring_enabled is None and 'logMonitoringEnabled' in kwargs:
             log_monitoring_enabled = kwargs['logMonitoringEnabled']
-        if 'retentionInDays' in kwargs:
+        if retention_in_days is None and 'retentionInDays' in kwargs:
             retention_in_days = kwargs['retentionInDays']
-        if 'storageAccountAccessKey' in kwargs:
+        if storage_account_access_key is None and 'storageAccountAccessKey' in kwargs:
             storage_account_access_key = kwargs['storageAccountAccessKey']
-        if 'storageAccountAccessKeyIsSecondary' in kwargs:
+        if storage_account_access_key_is_secondary is None and 'storageAccountAccessKeyIsSecondary' in kwargs:
             storage_account_access_key_is_secondary = kwargs['storageAccountAccessKeyIsSecondary']
-        if 'storageAccountSubscriptionId' in kwargs:
+        if storage_account_subscription_id is None and 'storageAccountSubscriptionId' in kwargs:
             storage_account_subscription_id = kwargs['storageAccountSubscriptionId']
-        if 'storageEndpoint' in kwargs:
+        if storage_endpoint is None and 'storageEndpoint' in kwargs:
             storage_endpoint = kwargs['storageEndpoint']
 
         _setter("server_id", server_id)
@@ -235,21 +237,21 @@ class _ServerExtendedAuditingPolicyState:
              storage_account_access_key_is_secondary: Optional[pulumi.Input[bool]] = None,
              storage_account_subscription_id: Optional[pulumi.Input[str]] = None,
              storage_endpoint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'logMonitoringEnabled' in kwargs:
+        if log_monitoring_enabled is None and 'logMonitoringEnabled' in kwargs:
             log_monitoring_enabled = kwargs['logMonitoringEnabled']
-        if 'retentionInDays' in kwargs:
+        if retention_in_days is None and 'retentionInDays' in kwargs:
             retention_in_days = kwargs['retentionInDays']
-        if 'serverId' in kwargs:
+        if server_id is None and 'serverId' in kwargs:
             server_id = kwargs['serverId']
-        if 'storageAccountAccessKey' in kwargs:
+        if storage_account_access_key is None and 'storageAccountAccessKey' in kwargs:
             storage_account_access_key = kwargs['storageAccountAccessKey']
-        if 'storageAccountAccessKeyIsSecondary' in kwargs:
+        if storage_account_access_key_is_secondary is None and 'storageAccountAccessKeyIsSecondary' in kwargs:
             storage_account_access_key_is_secondary = kwargs['storageAccountAccessKeyIsSecondary']
-        if 'storageAccountSubscriptionId' in kwargs:
+        if storage_account_subscription_id is None and 'storageAccountSubscriptionId' in kwargs:
             storage_account_subscription_id = kwargs['storageAccountSubscriptionId']
-        if 'storageEndpoint' in kwargs:
+        if storage_endpoint is None and 'storageEndpoint' in kwargs:
             storage_endpoint = kwargs['storageEndpoint']
 
         if enabled is not None:
@@ -385,104 +387,6 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
         """
         Manages a MS SQL Server Extended Auditing Policy.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_server = azure.mssql.Server("exampleServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            version="12.0",
-            administrator_login="missadministrator",
-            administrator_login_password="AdminPassword123!")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_server_extended_auditing_policy = azure.mssql.ServerExtendedAuditingPolicy("exampleServerExtendedAuditingPolicy",
-            server_id=example_server.id,
-            storage_endpoint=example_account.primary_blob_endpoint,
-            storage_account_access_key=example_account.primary_access_key,
-            storage_account_access_key_is_secondary=False,
-            retention_in_days=6)
-        ```
-        ### With Storage Account Behind VNet And Firewall
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        primary = azure.core.get_subscription()
-        example_client_config = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"],
-            service_endpoints=[
-                "Microsoft.Sql",
-                "Microsoft.Storage",
-            ],
-            enforce_private_link_endpoint_network_policies=True)
-        example_server = azure.mssql.Server("exampleServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            version="12.0",
-            administrator_login="missadministrator",
-            administrator_login_password="AdminPassword123!",
-            minimum_tls_version="1.2",
-            identity=azure.mssql.ServerIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_assignment = azure.authorization.Assignment("exampleAssignment",
-            scope=primary.id,
-            role_definition_name="Storage Blob Data Contributor",
-            principal_id=example_server.identity.principal_id)
-        sqlvnetrule = azure.sql.VirtualNetworkRule("sqlvnetrule",
-            resource_group_name=example_resource_group.name,
-            server_name=example_server.name,
-            subnet_id=example_subnet.id)
-        example_firewall_rule = azure.sql.FirewallRule("exampleFirewallRule",
-            resource_group_name=example_resource_group.name,
-            server_name=example_server.name,
-            start_ip_address="0.0.0.0",
-            end_ip_address="0.0.0.0")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            account_kind="StorageV2",
-            allow_nested_items_to_be_public=False,
-            network_rules=azure.storage.AccountNetworkRulesArgs(
-                default_action="Deny",
-                ip_rules=["127.0.0.1"],
-                virtual_network_subnet_ids=[example_subnet.id],
-                bypasses=["AzureServices"],
-            ),
-            identity=azure.storage.AccountIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_server_extended_auditing_policy = azure.mssql.ServerExtendedAuditingPolicy("exampleServerExtendedAuditingPolicy",
-            storage_endpoint=example_account.primary_blob_endpoint,
-            server_id=example_server.id,
-            retention_in_days=6,
-            log_monitoring_enabled=False,
-            storage_account_subscription_id=azurerm_subscription["primary"]["subscription_id"],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    example_assignment,
-                    example_account,
-                ]))
-        ```
-
         ## Import
 
         MS SQL Server Extended Auditing Policies can be imported using the `resource id`, e.g.
@@ -512,104 +416,6 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a MS SQL Server Extended Auditing Policy.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_server = azure.mssql.Server("exampleServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            version="12.0",
-            administrator_login="missadministrator",
-            administrator_login_password="AdminPassword123!")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_server_extended_auditing_policy = azure.mssql.ServerExtendedAuditingPolicy("exampleServerExtendedAuditingPolicy",
-            server_id=example_server.id,
-            storage_endpoint=example_account.primary_blob_endpoint,
-            storage_account_access_key=example_account.primary_access_key,
-            storage_account_access_key_is_secondary=False,
-            retention_in_days=6)
-        ```
-        ### With Storage Account Behind VNet And Firewall
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        primary = azure.core.get_subscription()
-        example_client_config = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"],
-            service_endpoints=[
-                "Microsoft.Sql",
-                "Microsoft.Storage",
-            ],
-            enforce_private_link_endpoint_network_policies=True)
-        example_server = azure.mssql.Server("exampleServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            version="12.0",
-            administrator_login="missadministrator",
-            administrator_login_password="AdminPassword123!",
-            minimum_tls_version="1.2",
-            identity=azure.mssql.ServerIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_assignment = azure.authorization.Assignment("exampleAssignment",
-            scope=primary.id,
-            role_definition_name="Storage Blob Data Contributor",
-            principal_id=example_server.identity.principal_id)
-        sqlvnetrule = azure.sql.VirtualNetworkRule("sqlvnetrule",
-            resource_group_name=example_resource_group.name,
-            server_name=example_server.name,
-            subnet_id=example_subnet.id)
-        example_firewall_rule = azure.sql.FirewallRule("exampleFirewallRule",
-            resource_group_name=example_resource_group.name,
-            server_name=example_server.name,
-            start_ip_address="0.0.0.0",
-            end_ip_address="0.0.0.0")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            account_kind="StorageV2",
-            allow_nested_items_to_be_public=False,
-            network_rules=azure.storage.AccountNetworkRulesArgs(
-                default_action="Deny",
-                ip_rules=["127.0.0.1"],
-                virtual_network_subnet_ids=[example_subnet.id],
-                bypasses=["AzureServices"],
-            ),
-            identity=azure.storage.AccountIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_server_extended_auditing_policy = azure.mssql.ServerExtendedAuditingPolicy("exampleServerExtendedAuditingPolicy",
-            storage_endpoint=example_account.primary_blob_endpoint,
-            server_id=example_server.id,
-            retention_in_days=6,
-            log_monitoring_enabled=False,
-            storage_account_subscription_id=azurerm_subscription["primary"]["subscription_id"],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    example_assignment,
-                    example_account,
-                ]))
-        ```
 
         ## Import
 

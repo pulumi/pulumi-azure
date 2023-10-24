@@ -32,13 +32,17 @@ class AssignmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             lighthouse_definition_id: pulumi.Input[str],
-             scope: pulumi.Input[str],
+             lighthouse_definition_id: Optional[pulumi.Input[str]] = None,
+             scope: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'lighthouseDefinitionId' in kwargs:
+        if lighthouse_definition_id is None and 'lighthouseDefinitionId' in kwargs:
             lighthouse_definition_id = kwargs['lighthouseDefinitionId']
+        if lighthouse_definition_id is None:
+            raise TypeError("Missing 'lighthouse_definition_id' argument")
+        if scope is None:
+            raise TypeError("Missing 'scope' argument")
 
         _setter("lighthouse_definition_id", lighthouse_definition_id)
         _setter("scope", scope)
@@ -106,9 +110,9 @@ class _AssignmentState:
              lighthouse_definition_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              scope: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'lighthouseDefinitionId' in kwargs:
+        if lighthouse_definition_id is None and 'lighthouseDefinitionId' in kwargs:
             lighthouse_definition_id = kwargs['lighthouseDefinitionId']
 
         if lighthouse_definition_id is not None:
@@ -167,18 +171,6 @@ class Assignment(pulumi.CustomResource):
         """
         Manages a [Lighthouse](https://docs.microsoft.com/azure/lighthouse) Assignment to a subscription, or to a resource group.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        primary = azure.core.get_subscription()
-        example = azure.lighthouse.Assignment("example",
-            scope=primary.id,
-            lighthouse_definition_id="/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedServices/registrationDefinitions/00000000-0000-0000-0000-000000000000")
-        ```
-
         ## Import
 
         Lighthouse Assignments can be imported using the `resource id`, e.g.
@@ -201,18 +193,6 @@ class Assignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a [Lighthouse](https://docs.microsoft.com/azure/lighthouse) Assignment to a subscription, or to a resource group.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        primary = azure.core.get_subscription()
-        example = azure.lighthouse.Assignment("example",
-            scope=primary.id,
-            lighthouse_definition_id="/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedServices/registrationDefinitions/00000000-0000-0000-0000-000000000000")
-        ```
 
         ## Import
 

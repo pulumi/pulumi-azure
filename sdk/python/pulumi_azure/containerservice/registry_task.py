@@ -83,7 +83,7 @@ class RegistryTaskArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             container_registry_id: pulumi.Input[str],
+             container_registry_id: Optional[pulumi.Input[str]] = None,
              agent_pool_name: Optional[pulumi.Input[str]] = None,
              agent_setting: Optional[pulumi.Input['RegistryTaskAgentSettingArgs']] = None,
              base_image_trigger: Optional[pulumi.Input['RegistryTaskBaseImageTriggerArgs']] = None,
@@ -101,33 +101,35 @@ class RegistryTaskArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              timeout_in_seconds: Optional[pulumi.Input[int]] = None,
              timer_triggers: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryTaskTimerTriggerArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'containerRegistryId' in kwargs:
+        if container_registry_id is None and 'containerRegistryId' in kwargs:
             container_registry_id = kwargs['containerRegistryId']
-        if 'agentPoolName' in kwargs:
+        if container_registry_id is None:
+            raise TypeError("Missing 'container_registry_id' argument")
+        if agent_pool_name is None and 'agentPoolName' in kwargs:
             agent_pool_name = kwargs['agentPoolName']
-        if 'agentSetting' in kwargs:
+        if agent_setting is None and 'agentSetting' in kwargs:
             agent_setting = kwargs['agentSetting']
-        if 'baseImageTrigger' in kwargs:
+        if base_image_trigger is None and 'baseImageTrigger' in kwargs:
             base_image_trigger = kwargs['baseImageTrigger']
-        if 'dockerStep' in kwargs:
+        if docker_step is None and 'dockerStep' in kwargs:
             docker_step = kwargs['dockerStep']
-        if 'encodedStep' in kwargs:
+        if encoded_step is None and 'encodedStep' in kwargs:
             encoded_step = kwargs['encodedStep']
-        if 'fileStep' in kwargs:
+        if file_step is None and 'fileStep' in kwargs:
             file_step = kwargs['fileStep']
-        if 'isSystemTask' in kwargs:
+        if is_system_task is None and 'isSystemTask' in kwargs:
             is_system_task = kwargs['isSystemTask']
-        if 'logTemplate' in kwargs:
+        if log_template is None and 'logTemplate' in kwargs:
             log_template = kwargs['logTemplate']
-        if 'registryCredential' in kwargs:
+        if registry_credential is None and 'registryCredential' in kwargs:
             registry_credential = kwargs['registryCredential']
-        if 'sourceTriggers' in kwargs:
+        if source_triggers is None and 'sourceTriggers' in kwargs:
             source_triggers = kwargs['sourceTriggers']
-        if 'timeoutInSeconds' in kwargs:
+        if timeout_in_seconds is None and 'timeoutInSeconds' in kwargs:
             timeout_in_seconds = kwargs['timeoutInSeconds']
-        if 'timerTriggers' in kwargs:
+        if timer_triggers is None and 'timerTriggers' in kwargs:
             timer_triggers = kwargs['timerTriggers']
 
         _setter("container_registry_id", container_registry_id)
@@ -475,33 +477,33 @@ class _RegistryTaskState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              timeout_in_seconds: Optional[pulumi.Input[int]] = None,
              timer_triggers: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryTaskTimerTriggerArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'agentPoolName' in kwargs:
+        if agent_pool_name is None and 'agentPoolName' in kwargs:
             agent_pool_name = kwargs['agentPoolName']
-        if 'agentSetting' in kwargs:
+        if agent_setting is None and 'agentSetting' in kwargs:
             agent_setting = kwargs['agentSetting']
-        if 'baseImageTrigger' in kwargs:
+        if base_image_trigger is None and 'baseImageTrigger' in kwargs:
             base_image_trigger = kwargs['baseImageTrigger']
-        if 'containerRegistryId' in kwargs:
+        if container_registry_id is None and 'containerRegistryId' in kwargs:
             container_registry_id = kwargs['containerRegistryId']
-        if 'dockerStep' in kwargs:
+        if docker_step is None and 'dockerStep' in kwargs:
             docker_step = kwargs['dockerStep']
-        if 'encodedStep' in kwargs:
+        if encoded_step is None and 'encodedStep' in kwargs:
             encoded_step = kwargs['encodedStep']
-        if 'fileStep' in kwargs:
+        if file_step is None and 'fileStep' in kwargs:
             file_step = kwargs['fileStep']
-        if 'isSystemTask' in kwargs:
+        if is_system_task is None and 'isSystemTask' in kwargs:
             is_system_task = kwargs['isSystemTask']
-        if 'logTemplate' in kwargs:
+        if log_template is None and 'logTemplate' in kwargs:
             log_template = kwargs['logTemplate']
-        if 'registryCredential' in kwargs:
+        if registry_credential is None and 'registryCredential' in kwargs:
             registry_credential = kwargs['registryCredential']
-        if 'sourceTriggers' in kwargs:
+        if source_triggers is None and 'sourceTriggers' in kwargs:
             source_triggers = kwargs['sourceTriggers']
-        if 'timeoutInSeconds' in kwargs:
+        if timeout_in_seconds is None and 'timeoutInSeconds' in kwargs:
             timeout_in_seconds = kwargs['timeoutInSeconds']
-        if 'timerTriggers' in kwargs:
+        if timer_triggers is None and 'timerTriggers' in kwargs:
             timer_triggers = kwargs['timerTriggers']
 
         if agent_pool_name is not None:
@@ -789,30 +791,6 @@ class RegistryTask(pulumi.CustomResource):
         """
         Manages a Container Registry Task.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_registry = azure.containerservice.Registry("exampleRegistry",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku="Basic")
-        example_registry_task = azure.containerservice.RegistryTask("exampleRegistryTask",
-            container_registry_id=example_registry.id,
-            platform=azure.containerservice.RegistryTaskPlatformArgs(
-                os="Linux",
-            ),
-            docker_step=azure.containerservice.RegistryTaskDockerStepArgs(
-                dockerfile_path="Dockerfile",
-                context_path="https://github.com/<username>/<repository>#<branch>:<folder>",
-                context_access_token="<github personal access token>",
-                image_names=["helloworld:{{.Run.ID}}"],
-            ))
-        ```
-
         ## Import
 
         Container Registry Tasks can be imported using the `resource id`, e.g.
@@ -854,30 +832,6 @@ class RegistryTask(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Container Registry Task.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_registry = azure.containerservice.Registry("exampleRegistry",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku="Basic")
-        example_registry_task = azure.containerservice.RegistryTask("exampleRegistryTask",
-            container_registry_id=example_registry.id,
-            platform=azure.containerservice.RegistryTaskPlatformArgs(
-                os="Linux",
-            ),
-            docker_step=azure.containerservice.RegistryTaskDockerStepArgs(
-                dockerfile_path="Dockerfile",
-                context_path="https://github.com/<username>/<repository>#<branch>:<folder>",
-                context_access_token="<github personal access token>",
-                image_names=["helloworld:{{.Run.ID}}"],
-            ))
-        ```
 
         ## Import
 
@@ -934,60 +888,28 @@ class RegistryTask(pulumi.CustomResource):
             __props__ = RegistryTaskArgs.__new__(RegistryTaskArgs)
 
             __props__.__dict__["agent_pool_name"] = agent_pool_name
-            if agent_setting is not None and not isinstance(agent_setting, RegistryTaskAgentSettingArgs):
-                agent_setting = agent_setting or {}
-                def _setter(key, value):
-                    agent_setting[key] = value
-                RegistryTaskAgentSettingArgs._configure(_setter, **agent_setting)
+            agent_setting = _utilities.configure(agent_setting, RegistryTaskAgentSettingArgs, True)
             __props__.__dict__["agent_setting"] = agent_setting
-            if base_image_trigger is not None and not isinstance(base_image_trigger, RegistryTaskBaseImageTriggerArgs):
-                base_image_trigger = base_image_trigger or {}
-                def _setter(key, value):
-                    base_image_trigger[key] = value
-                RegistryTaskBaseImageTriggerArgs._configure(_setter, **base_image_trigger)
+            base_image_trigger = _utilities.configure(base_image_trigger, RegistryTaskBaseImageTriggerArgs, True)
             __props__.__dict__["base_image_trigger"] = base_image_trigger
             if container_registry_id is None and not opts.urn:
                 raise TypeError("Missing required property 'container_registry_id'")
             __props__.__dict__["container_registry_id"] = container_registry_id
-            if docker_step is not None and not isinstance(docker_step, RegistryTaskDockerStepArgs):
-                docker_step = docker_step or {}
-                def _setter(key, value):
-                    docker_step[key] = value
-                RegistryTaskDockerStepArgs._configure(_setter, **docker_step)
+            docker_step = _utilities.configure(docker_step, RegistryTaskDockerStepArgs, True)
             __props__.__dict__["docker_step"] = docker_step
             __props__.__dict__["enabled"] = enabled
-            if encoded_step is not None and not isinstance(encoded_step, RegistryTaskEncodedStepArgs):
-                encoded_step = encoded_step or {}
-                def _setter(key, value):
-                    encoded_step[key] = value
-                RegistryTaskEncodedStepArgs._configure(_setter, **encoded_step)
+            encoded_step = _utilities.configure(encoded_step, RegistryTaskEncodedStepArgs, True)
             __props__.__dict__["encoded_step"] = encoded_step
-            if file_step is not None and not isinstance(file_step, RegistryTaskFileStepArgs):
-                file_step = file_step or {}
-                def _setter(key, value):
-                    file_step[key] = value
-                RegistryTaskFileStepArgs._configure(_setter, **file_step)
+            file_step = _utilities.configure(file_step, RegistryTaskFileStepArgs, True)
             __props__.__dict__["file_step"] = file_step
-            if identity is not None and not isinstance(identity, RegistryTaskIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                RegistryTaskIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, RegistryTaskIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["is_system_task"] = is_system_task
             __props__.__dict__["log_template"] = log_template
             __props__.__dict__["name"] = name
-            if platform is not None and not isinstance(platform, RegistryTaskPlatformArgs):
-                platform = platform or {}
-                def _setter(key, value):
-                    platform[key] = value
-                RegistryTaskPlatformArgs._configure(_setter, **platform)
+            platform = _utilities.configure(platform, RegistryTaskPlatformArgs, True)
             __props__.__dict__["platform"] = platform
-            if registry_credential is not None and not isinstance(registry_credential, RegistryTaskRegistryCredentialArgs):
-                registry_credential = registry_credential or {}
-                def _setter(key, value):
-                    registry_credential[key] = value
-                RegistryTaskRegistryCredentialArgs._configure(_setter, **registry_credential)
+            registry_credential = _utilities.configure(registry_credential, RegistryTaskRegistryCredentialArgs, True)
             __props__.__dict__["registry_credential"] = registry_credential
             __props__.__dict__["source_triggers"] = source_triggers
             __props__.__dict__["tags"] = tags

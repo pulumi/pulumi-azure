@@ -52,27 +52,37 @@ class MedtechServiceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             device_mapping_json: pulumi.Input[str],
-             eventhub_consumer_group_name: pulumi.Input[str],
-             eventhub_name: pulumi.Input[str],
-             eventhub_namespace_name: pulumi.Input[str],
-             workspace_id: pulumi.Input[str],
+             device_mapping_json: Optional[pulumi.Input[str]] = None,
+             eventhub_consumer_group_name: Optional[pulumi.Input[str]] = None,
+             eventhub_name: Optional[pulumi.Input[str]] = None,
+             eventhub_namespace_name: Optional[pulumi.Input[str]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
              identity: Optional[pulumi.Input['MedtechServiceIdentityArgs']] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'deviceMappingJson' in kwargs:
+        if device_mapping_json is None and 'deviceMappingJson' in kwargs:
             device_mapping_json = kwargs['deviceMappingJson']
-        if 'eventhubConsumerGroupName' in kwargs:
+        if device_mapping_json is None:
+            raise TypeError("Missing 'device_mapping_json' argument")
+        if eventhub_consumer_group_name is None and 'eventhubConsumerGroupName' in kwargs:
             eventhub_consumer_group_name = kwargs['eventhubConsumerGroupName']
-        if 'eventhubName' in kwargs:
+        if eventhub_consumer_group_name is None:
+            raise TypeError("Missing 'eventhub_consumer_group_name' argument")
+        if eventhub_name is None and 'eventhubName' in kwargs:
             eventhub_name = kwargs['eventhubName']
-        if 'eventhubNamespaceName' in kwargs:
+        if eventhub_name is None:
+            raise TypeError("Missing 'eventhub_name' argument")
+        if eventhub_namespace_name is None and 'eventhubNamespaceName' in kwargs:
             eventhub_namespace_name = kwargs['eventhubNamespaceName']
-        if 'workspaceId' in kwargs:
+        if eventhub_namespace_name is None:
+            raise TypeError("Missing 'eventhub_namespace_name' argument")
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
+        if workspace_id is None:
+            raise TypeError("Missing 'workspace_id' argument")
 
         _setter("device_mapping_json", device_mapping_json)
         _setter("eventhub_consumer_group_name", eventhub_consumer_group_name)
@@ -245,17 +255,17 @@ class _MedtechServiceState:
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'deviceMappingJson' in kwargs:
+        if device_mapping_json is None and 'deviceMappingJson' in kwargs:
             device_mapping_json = kwargs['deviceMappingJson']
-        if 'eventhubConsumerGroupName' in kwargs:
+        if eventhub_consumer_group_name is None and 'eventhubConsumerGroupName' in kwargs:
             eventhub_consumer_group_name = kwargs['eventhubConsumerGroupName']
-        if 'eventhubName' in kwargs:
+        if eventhub_name is None and 'eventhubName' in kwargs:
             eventhub_name = kwargs['eventhubName']
-        if 'eventhubNamespaceName' in kwargs:
+        if eventhub_namespace_name is None and 'eventhubNamespaceName' in kwargs:
             eventhub_namespace_name = kwargs['eventhubNamespaceName']
-        if 'workspaceId' in kwargs:
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
 
         if device_mapping_json is not None:
@@ -404,45 +414,6 @@ class MedtechService(pulumi.CustomResource):
         """
         Manages a Healthcare Med Tech Service.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="east us")
-        example_workspace = azure.healthcare.Workspace("exampleWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_medtech_service = azure.healthcare.MedtechService("exampleMedtechService",
-            workspace_id=example_workspace.id,
-            location="east us",
-            identity=azure.healthcare.MedtechServiceIdentityArgs(
-                type="SystemAssigned",
-            ),
-            eventhub_namespace_name="example-eventhub-namespace",
-            eventhub_name="example-eventhub",
-            eventhub_consumer_group_name="$Default",
-            device_mapping_json=json.dumps({
-                "templateType": "CollectionContent",
-                "template": [{
-                    "templateType": "JsonPathContent",
-                    "template": {
-                        "typeName": "heartrate",
-                        "typeMatchExpression": "$..[?(@heartrate)]",
-                        "deviceIdExpression": "$.deviceid",
-                        "timestampExpression": "$.measurementdatetime",
-                        "values": [{
-                            "required": "true",
-                            "valueExpression": "$.heartrate",
-                            "valueName": "hr",
-                        }],
-                    },
-                }],
-            }))
-        ```
-
         ## Import
 
         Healthcare Med Tech Service can be imported using the resource`id`, e.g.
@@ -471,45 +442,6 @@ class MedtechService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Healthcare Med Tech Service.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="east us")
-        example_workspace = azure.healthcare.Workspace("exampleWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_medtech_service = azure.healthcare.MedtechService("exampleMedtechService",
-            workspace_id=example_workspace.id,
-            location="east us",
-            identity=azure.healthcare.MedtechServiceIdentityArgs(
-                type="SystemAssigned",
-            ),
-            eventhub_namespace_name="example-eventhub-namespace",
-            eventhub_name="example-eventhub",
-            eventhub_consumer_group_name="$Default",
-            device_mapping_json=json.dumps({
-                "templateType": "CollectionContent",
-                "template": [{
-                    "templateType": "JsonPathContent",
-                    "template": {
-                        "typeName": "heartrate",
-                        "typeMatchExpression": "$..[?(@heartrate)]",
-                        "deviceIdExpression": "$.deviceid",
-                        "timestampExpression": "$.measurementdatetime",
-                        "values": [{
-                            "required": "true",
-                            "valueExpression": "$.heartrate",
-                            "valueName": "hr",
-                        }],
-                    },
-                }],
-            }))
-        ```
 
         ## Import
 
@@ -568,11 +500,7 @@ class MedtechService(pulumi.CustomResource):
             if eventhub_namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'eventhub_namespace_name'")
             __props__.__dict__["eventhub_namespace_name"] = eventhub_namespace_name
-            if identity is not None and not isinstance(identity, MedtechServiceIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                MedtechServiceIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, MedtechServiceIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name

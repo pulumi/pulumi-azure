@@ -12,37 +12,6 @@ namespace Pulumi.Azure.SiteRecovery
     /// <summary>
     /// Manages a HyperV Site in Recovery Service Vault.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "eastus",
-    ///     });
-    /// 
-    ///     var exampleVault = new Azure.RecoveryServices.Vault("exampleVault", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Sku = "Standard",
-    ///         SoftDeleteEnabled = false,
-    ///     });
-    /// 
-    ///     var exampleHyperVSite = new Azure.SiteRecovery.HyperVSite("exampleHyperVSite", new()
-    ///     {
-    ///         RecoveryVaultId = exampleVault.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Recovery Services can be imported using the `resource id`, e.g.

@@ -54,8 +54,8 @@ class LinkedServiceSynapseArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             connection_string: pulumi.Input[str],
-             data_factory_id: pulumi.Input[str],
+             connection_string: Optional[pulumi.Input[str]] = None,
+             data_factory_id: Optional[pulumi.Input[str]] = None,
              additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -63,17 +63,21 @@ class LinkedServiceSynapseArgs:
              key_vault_password: Optional[pulumi.Input['LinkedServiceSynapseKeyVaultPasswordArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
-        if 'dataFactoryId' in kwargs:
+        if connection_string is None:
+            raise TypeError("Missing 'connection_string' argument")
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'additionalProperties' in kwargs:
+        if data_factory_id is None:
+            raise TypeError("Missing 'data_factory_id' argument")
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'integrationRuntimeName' in kwargs:
+        if integration_runtime_name is None and 'integrationRuntimeName' in kwargs:
             integration_runtime_name = kwargs['integrationRuntimeName']
-        if 'keyVaultPassword' in kwargs:
+        if key_vault_password is None and 'keyVaultPassword' in kwargs:
             key_vault_password = kwargs['keyVaultPassword']
 
         _setter("connection_string", connection_string)
@@ -254,17 +258,17 @@ class _LinkedServiceSynapseState:
              key_vault_password: Optional[pulumi.Input['LinkedServiceSynapseKeyVaultPasswordArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'additionalProperties' in kwargs:
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'integrationRuntimeName' in kwargs:
+        if integration_runtime_name is None and 'integrationRuntimeName' in kwargs:
             integration_runtime_name = kwargs['integrationRuntimeName']
-        if 'keyVaultPassword' in kwargs:
+        if key_vault_password is None and 'keyVaultPassword' in kwargs:
             key_vault_password = kwargs['keyVaultPassword']
 
         if additional_properties is not None:
@@ -415,48 +419,6 @@ class LinkedServiceSynapse(pulumi.CustomResource):
         """
         Manages a Linked Service (connection) between Synapse and Azure Data Factory.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_linked_service_synapse = azure.datafactory.LinkedServiceSynapse("exampleLinkedServiceSynapse",
-            data_factory_id=example_factory.id,
-            connection_string="Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;Password=test")
-        ```
-        ### With Password In Key Vault
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="standard")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_linked_service_key_vault = azure.datafactory.LinkedServiceKeyVault("exampleLinkedServiceKeyVault",
-            data_factory_id=example_factory.id,
-            key_vault_id=example_key_vault.id)
-        example_linked_service_synapse = azure.datafactory.LinkedServiceSynapse("exampleLinkedServiceSynapse",
-            data_factory_id=example_factory.id,
-            connection_string="Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;",
-            key_vault_password=azure.datafactory.LinkedServiceSynapseKeyVaultPasswordArgs(
-                linked_service_name=example_linked_service_key_vault.name,
-                secret_name="secret",
-            ))
-        ```
-
         ## Import
 
         Data Factory Synapse Linked Service's can be imported using the `resource id`, e.g.
@@ -487,48 +449,6 @@ class LinkedServiceSynapse(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Linked Service (connection) between Synapse and Azure Data Factory.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_linked_service_synapse = azure.datafactory.LinkedServiceSynapse("exampleLinkedServiceSynapse",
-            data_factory_id=example_factory.id,
-            connection_string="Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;Password=test")
-        ```
-        ### With Password In Key Vault
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="standard")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_linked_service_key_vault = azure.datafactory.LinkedServiceKeyVault("exampleLinkedServiceKeyVault",
-            data_factory_id=example_factory.id,
-            key_vault_id=example_key_vault.id)
-        example_linked_service_synapse = azure.datafactory.LinkedServiceSynapse("exampleLinkedServiceSynapse",
-            data_factory_id=example_factory.id,
-            connection_string="Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;",
-            key_vault_password=azure.datafactory.LinkedServiceSynapseKeyVaultPasswordArgs(
-                linked_service_name=example_linked_service_key_vault.name,
-                secret_name="secret",
-            ))
-        ```
 
         ## Import
 
@@ -585,11 +505,7 @@ class LinkedServiceSynapse(pulumi.CustomResource):
             __props__.__dict__["data_factory_id"] = data_factory_id
             __props__.__dict__["description"] = description
             __props__.__dict__["integration_runtime_name"] = integration_runtime_name
-            if key_vault_password is not None and not isinstance(key_vault_password, LinkedServiceSynapseKeyVaultPasswordArgs):
-                key_vault_password = key_vault_password or {}
-                def _setter(key, value):
-                    key_vault_password[key] = value
-                LinkedServiceSynapseKeyVaultPasswordArgs._configure(_setter, **key_vault_password)
+            key_vault_password = _utilities.configure(key_vault_password, LinkedServiceSynapseKeyVaultPasswordArgs, True)
             __props__.__dict__["key_vault_password"] = key_vault_password
             __props__.__dict__["name"] = name
             __props__.__dict__["parameters"] = parameters

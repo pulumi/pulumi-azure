@@ -9,53 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Mobile Network Packet Core Control Plane.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleNetwork = new azure.mobile.Network("exampleNetwork", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     mobileCountryCode: "001",
- *     mobileNetworkCode: "01",
- * });
- * const exampleNetworkSite = new azure.mobile.NetworkSite("exampleNetworkSite", {
- *     mobileNetworkId: azurerm_mobile_network.test.id,
- *     location: exampleResourceGroup.location,
- * });
- * const exampleDevice = new azure.databoxedge.Device("exampleDevice", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     skuName: "EdgeP_Base-Standard",
- * });
- * const exampleNetworkPacketCoreControlPlane = new azure.mobile.NetworkPacketCoreControlPlane("exampleNetworkPacketCoreControlPlane", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     sku: "G0",
- *     controlPlaneAccessName: "default-interface",
- *     controlPlaneAccessIpv4Address: "192.168.1.199",
- *     controlPlaneAccessIpv4Gateway: "192.168.1.1",
- *     controlPlaneAccessIpv4Subnet: "192.168.1.0/25",
- *     siteIds: [exampleNetworkSite.id],
- *     localDiagnosticsAccess: {
- *         authenticationType: "AAD",
- *     },
- *     platform: {
- *         type: "AKS-HCI",
- *         edgeDeviceId: exampleDevice.id,
- *     },
- *     interoperabilitySettingsJson: JSON.stringify({
- *         key: "value",
- *     }),
- *     tags: {
- *         key: "value",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Mobile Network Packet Core Control Plane can be imported using the `resource id`, e.g.

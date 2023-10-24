@@ -9,50 +9,6 @@ import * as utilities from "../utilities";
  *
  * Policy definitions do not take effect until they are assigned to a scope using a Policy Assignment.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const policy = new azure.policy.Definition("policy", {
- *     displayName: "acceptance test policy definition",
- *     metadata: `    {
- *     "category": "General"
- *     }
- *
- *
- * `,
- *     mode: "Indexed",
- *     parameters: ` {
- *     "allowedLocations": {
- *       "type": "Array",
- *       "metadata": {
- *         "description": "The list of allowed locations for resources.",
- *         "displayName": "Allowed locations",
- *         "strongType": "location"
- *       }
- *     }
- *   }
- *
- * `,
- *     policyRule: ` {
- *     "if": {
- *       "not": {
- *         "field": "location",
- *         "in": "[parameters('allowedLocations')]"
- *       }
- *     },
- *     "then": {
- *       "effect": "audit"
- *     }
- *   }
- *
- * `,
- *     policyType: "Custom",
- * });
- * ```
- *
  * ## Import
  *
  * Policy Definitions can be imported using the `policy name`, e.g.

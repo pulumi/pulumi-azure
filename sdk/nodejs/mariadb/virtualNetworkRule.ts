@@ -9,40 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** MariaDB Virtual Network Rules [can only be used with SKU Tiers of `GeneralPurpose` or `MemoryOptimized`](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     addressSpaces: ["10.7.29.0/29"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const internal = new azure.network.Subnet("internal", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.7.29.0/29"],
- *     serviceEndpoints: ["Microsoft.Sql"],
- * });
- * const exampleServer = new azure.mariadb.Server("exampleServer", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     administratorLogin: "mariadbadminun",
- *     administratorLoginPassword: "H@Sh1CoR3!",
- *     version: "10.2",
- *     sslEnforcementEnabled: true,
- *     skuName: "GP_Gen5_2",
- * });
- * const exampleVirtualNetworkRule = new azure.mariadb.VirtualNetworkRule("exampleVirtualNetworkRule", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     serverName: exampleServer.name,
- *     subnetId: internal.id,
- * });
- * ```
- *
  * ## Import
  *
  * MariaDB Virtual Network Rules can be imported using the `resource id`, e.g.

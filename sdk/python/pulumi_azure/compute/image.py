@@ -56,7 +56,7 @@ class ImageArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              data_disks: Optional[pulumi.Input[Sequence[pulumi.Input['ImageDataDiskArgs']]]] = None,
              hyper_v_generation: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
@@ -65,19 +65,21 @@ class ImageArgs:
              source_virtual_machine_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zone_resilient: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'dataDisks' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if data_disks is None and 'dataDisks' in kwargs:
             data_disks = kwargs['dataDisks']
-        if 'hyperVGeneration' in kwargs:
+        if hyper_v_generation is None and 'hyperVGeneration' in kwargs:
             hyper_v_generation = kwargs['hyperVGeneration']
-        if 'osDisk' in kwargs:
+        if os_disk is None and 'osDisk' in kwargs:
             os_disk = kwargs['osDisk']
-        if 'sourceVirtualMachineId' in kwargs:
+        if source_virtual_machine_id is None and 'sourceVirtualMachineId' in kwargs:
             source_virtual_machine_id = kwargs['sourceVirtualMachineId']
-        if 'zoneResilient' in kwargs:
+        if zone_resilient is None and 'zoneResilient' in kwargs:
             zone_resilient = kwargs['zoneResilient']
 
         _setter("resource_group_name", resource_group_name)
@@ -263,19 +265,19 @@ class _ImageState:
              source_virtual_machine_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zone_resilient: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dataDisks' in kwargs:
+        if data_disks is None and 'dataDisks' in kwargs:
             data_disks = kwargs['dataDisks']
-        if 'hyperVGeneration' in kwargs:
+        if hyper_v_generation is None and 'hyperVGeneration' in kwargs:
             hyper_v_generation = kwargs['hyperVGeneration']
-        if 'osDisk' in kwargs:
+        if os_disk is None and 'osDisk' in kwargs:
             os_disk = kwargs['osDisk']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'sourceVirtualMachineId' in kwargs:
+        if source_virtual_machine_id is None and 'sourceVirtualMachineId' in kwargs:
             source_virtual_machine_id = kwargs['sourceVirtualMachineId']
-        if 'zoneResilient' in kwargs:
+        if zone_resilient is None and 'zoneResilient' in kwargs:
             zone_resilient = kwargs['zoneResilient']
 
         if data_disks is not None:
@@ -506,11 +508,7 @@ class Image(pulumi.CustomResource):
             __props__.__dict__["hyper_v_generation"] = hyper_v_generation
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
-            if os_disk is not None and not isinstance(os_disk, ImageOsDiskArgs):
-                os_disk = os_disk or {}
-                def _setter(key, value):
-                    os_disk[key] = value
-                ImageOsDiskArgs._configure(_setter, **os_disk)
+            os_disk = _utilities.configure(os_disk, ImageOsDiskArgs, True)
             __props__.__dict__["os_disk"] = os_disk
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

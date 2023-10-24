@@ -47,23 +47,27 @@ class RegistryAgentPoolArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             container_registry_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             container_registry_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              instance_count: Optional[pulumi.Input[int]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              tier: Optional[pulumi.Input[str]] = None,
              virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'containerRegistryName' in kwargs:
+        if container_registry_name is None and 'containerRegistryName' in kwargs:
             container_registry_name = kwargs['containerRegistryName']
-        if 'resourceGroupName' in kwargs:
+        if container_registry_name is None:
+            raise TypeError("Missing 'container_registry_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'instanceCount' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if instance_count is None and 'instanceCount' in kwargs:
             instance_count = kwargs['instanceCount']
-        if 'virtualNetworkSubnetId' in kwargs:
+        if virtual_network_subnet_id is None and 'virtualNetworkSubnetId' in kwargs:
             virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
 
         _setter("container_registry_name", container_registry_name)
@@ -222,15 +226,15 @@ class _RegistryAgentPoolState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              tier: Optional[pulumi.Input[str]] = None,
              virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'containerRegistryName' in kwargs:
+        if container_registry_name is None and 'containerRegistryName' in kwargs:
             container_registry_name = kwargs['containerRegistryName']
-        if 'instanceCount' in kwargs:
+        if instance_count is None and 'instanceCount' in kwargs:
             instance_count = kwargs['instanceCount']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'virtualNetworkSubnetId' in kwargs:
+        if virtual_network_subnet_id is None and 'virtualNetworkSubnetId' in kwargs:
             virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
 
         if container_registry_name is not None:
@@ -364,23 +368,6 @@ class RegistryAgentPool(pulumi.CustomResource):
         """
         Manages an Azure Container Registry Agent Pool.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europ")
-        example_registry = azure.containerservice.Registry("exampleRegistry",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku="Premium")
-        example_registry_agent_pool = azure.containerservice.RegistryAgentPool("exampleRegistryAgentPool",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            container_registry_name=example_registry.name)
-        ```
-
         ## Import
 
         Azure Container Registry Agent Pool can be imported using the `resource id`, e.g.
@@ -408,23 +395,6 @@ class RegistryAgentPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Container Registry Agent Pool.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europ")
-        example_registry = azure.containerservice.Registry("exampleRegistry",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku="Premium")
-        example_registry_agent_pool = azure.containerservice.RegistryAgentPool("exampleRegistryAgentPool",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            container_registry_name=example_registry.name)
-        ```
 
         ## Import
 

@@ -46,26 +46,28 @@ class LocalUserArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             storage_account_id: pulumi.Input[str],
+             storage_account_id: Optional[pulumi.Input[str]] = None,
              home_directory: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              permission_scopes: Optional[pulumi.Input[Sequence[pulumi.Input['LocalUserPermissionScopeArgs']]]] = None,
              ssh_authorized_keys: Optional[pulumi.Input[Sequence[pulumi.Input['LocalUserSshAuthorizedKeyArgs']]]] = None,
              ssh_key_enabled: Optional[pulumi.Input[bool]] = None,
              ssh_password_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'homeDirectory' in kwargs:
+        if storage_account_id is None:
+            raise TypeError("Missing 'storage_account_id' argument")
+        if home_directory is None and 'homeDirectory' in kwargs:
             home_directory = kwargs['homeDirectory']
-        if 'permissionScopes' in kwargs:
+        if permission_scopes is None and 'permissionScopes' in kwargs:
             permission_scopes = kwargs['permissionScopes']
-        if 'sshAuthorizedKeys' in kwargs:
+        if ssh_authorized_keys is None and 'sshAuthorizedKeys' in kwargs:
             ssh_authorized_keys = kwargs['sshAuthorizedKeys']
-        if 'sshKeyEnabled' in kwargs:
+        if ssh_key_enabled is None and 'sshKeyEnabled' in kwargs:
             ssh_key_enabled = kwargs['sshKeyEnabled']
-        if 'sshPasswordEnabled' in kwargs:
+        if ssh_password_enabled is None and 'sshPasswordEnabled' in kwargs:
             ssh_password_enabled = kwargs['sshPasswordEnabled']
 
         _setter("storage_account_id", storage_account_id)
@@ -215,19 +217,19 @@ class _LocalUserState:
              ssh_key_enabled: Optional[pulumi.Input[bool]] = None,
              ssh_password_enabled: Optional[pulumi.Input[bool]] = None,
              storage_account_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'homeDirectory' in kwargs:
+        if home_directory is None and 'homeDirectory' in kwargs:
             home_directory = kwargs['homeDirectory']
-        if 'permissionScopes' in kwargs:
+        if permission_scopes is None and 'permissionScopes' in kwargs:
             permission_scopes = kwargs['permissionScopes']
-        if 'sshAuthorizedKeys' in kwargs:
+        if ssh_authorized_keys is None and 'sshAuthorizedKeys' in kwargs:
             ssh_authorized_keys = kwargs['sshAuthorizedKeys']
-        if 'sshKeyEnabled' in kwargs:
+        if ssh_key_enabled is None and 'sshKeyEnabled' in kwargs:
             ssh_key_enabled = kwargs['sshKeyEnabled']
-        if 'sshPasswordEnabled' in kwargs:
+        if ssh_password_enabled is None and 'sshPasswordEnabled' in kwargs:
             ssh_password_enabled = kwargs['sshPasswordEnabled']
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
 
         if home_directory is not None:
@@ -374,46 +376,6 @@ class LocalUser(pulumi.CustomResource):
         """
         Manages a Storage Account Local User.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="WestEurope")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_kind="StorageV2",
-            account_tier="Standard",
-            account_replication_type="LRS",
-            is_hns_enabled=True)
-        example_container = azure.storage.Container("exampleContainer", storage_account_name=example_account.name)
-        example_local_user = azure.storage.LocalUser("exampleLocalUser",
-            storage_account_id=example_account.id,
-            ssh_key_enabled=True,
-            ssh_password_enabled=True,
-            home_directory="example_path",
-            ssh_authorized_keys=[
-                azure.storage.LocalUserSshAuthorizedKeyArgs(
-                    description="key1",
-                    key=local["first_public_key"],
-                ),
-                azure.storage.LocalUserSshAuthorizedKeyArgs(
-                    description="key2",
-                    key=local["second_public_key"],
-                ),
-            ],
-            permission_scopes=[azure.storage.LocalUserPermissionScopeArgs(
-                permissions=azure.storage.LocalUserPermissionScopePermissionsArgs(
-                    read=True,
-                    create=True,
-                ),
-                service="blob",
-                resource_name=example_container.name,
-            )])
-        ```
-
         ## Import
 
         Storage Account Local Users can be imported using the `resource id`, e.g.
@@ -440,46 +402,6 @@ class LocalUser(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Storage Account Local User.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="WestEurope")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_kind="StorageV2",
-            account_tier="Standard",
-            account_replication_type="LRS",
-            is_hns_enabled=True)
-        example_container = azure.storage.Container("exampleContainer", storage_account_name=example_account.name)
-        example_local_user = azure.storage.LocalUser("exampleLocalUser",
-            storage_account_id=example_account.id,
-            ssh_key_enabled=True,
-            ssh_password_enabled=True,
-            home_directory="example_path",
-            ssh_authorized_keys=[
-                azure.storage.LocalUserSshAuthorizedKeyArgs(
-                    description="key1",
-                    key=local["first_public_key"],
-                ),
-                azure.storage.LocalUserSshAuthorizedKeyArgs(
-                    description="key2",
-                    key=local["second_public_key"],
-                ),
-            ],
-            permission_scopes=[azure.storage.LocalUserPermissionScopeArgs(
-                permissions=azure.storage.LocalUserPermissionScopePermissionsArgs(
-                    read=True,
-                    create=True,
-                ),
-                service="blob",
-                resource_name=example_container.name,
-            )])
-        ```
 
         ## Import
 

@@ -32,15 +32,19 @@ class AssignmentDedicatedHostArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             dedicated_host_id: pulumi.Input[str],
-             maintenance_configuration_id: pulumi.Input[str],
+             dedicated_host_id: Optional[pulumi.Input[str]] = None,
+             maintenance_configuration_id: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dedicatedHostId' in kwargs:
+        if dedicated_host_id is None and 'dedicatedHostId' in kwargs:
             dedicated_host_id = kwargs['dedicatedHostId']
-        if 'maintenanceConfigurationId' in kwargs:
+        if dedicated_host_id is None:
+            raise TypeError("Missing 'dedicated_host_id' argument")
+        if maintenance_configuration_id is None and 'maintenanceConfigurationId' in kwargs:
             maintenance_configuration_id = kwargs['maintenanceConfigurationId']
+        if maintenance_configuration_id is None:
+            raise TypeError("Missing 'maintenance_configuration_id' argument")
 
         _setter("dedicated_host_id", dedicated_host_id)
         _setter("maintenance_configuration_id", maintenance_configuration_id)
@@ -108,11 +112,11 @@ class _AssignmentDedicatedHostState:
              dedicated_host_id: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              maintenance_configuration_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dedicatedHostId' in kwargs:
+        if dedicated_host_id is None and 'dedicatedHostId' in kwargs:
             dedicated_host_id = kwargs['dedicatedHostId']
-        if 'maintenanceConfigurationId' in kwargs:
+        if maintenance_configuration_id is None and 'maintenanceConfigurationId' in kwargs:
             maintenance_configuration_id = kwargs['maintenanceConfigurationId']
 
         if dedicated_host_id is not None:
@@ -171,32 +175,6 @@ class AssignmentDedicatedHost(pulumi.CustomResource):
         """
         Manages a maintenance assignment to Dedicated Host.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_dedicated_host_group = azure.compute.DedicatedHostGroup("exampleDedicatedHostGroup",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            platform_fault_domain_count=2)
-        example_dedicated_host = azure.compute.DedicatedHost("exampleDedicatedHost",
-            location=example_resource_group.location,
-            dedicated_host_group_id=example_dedicated_host_group.id,
-            sku_name="DSv3-Type1",
-            platform_fault_domain=1)
-        example_configuration = azure.maintenance.Configuration("exampleConfiguration",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            scope="Host")
-        example_assignment_dedicated_host = azure.maintenance.AssignmentDedicatedHost("exampleAssignmentDedicatedHost",
-            location=example_resource_group.location,
-            maintenance_configuration_id=example_configuration.id,
-            dedicated_host_id=example_dedicated_host.id)
-        ```
-
         ## Import
 
         Maintenance Assignment can be imported using the `resource id`, e.g.
@@ -219,32 +197,6 @@ class AssignmentDedicatedHost(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a maintenance assignment to Dedicated Host.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_dedicated_host_group = azure.compute.DedicatedHostGroup("exampleDedicatedHostGroup",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            platform_fault_domain_count=2)
-        example_dedicated_host = azure.compute.DedicatedHost("exampleDedicatedHost",
-            location=example_resource_group.location,
-            dedicated_host_group_id=example_dedicated_host_group.id,
-            sku_name="DSv3-Type1",
-            platform_fault_domain=1)
-        example_configuration = azure.maintenance.Configuration("exampleConfiguration",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            scope="Host")
-        example_assignment_dedicated_host = azure.maintenance.AssignmentDedicatedHost("exampleAssignmentDedicatedHost",
-            location=example_resource_group.location,
-            maintenance_configuration_id=example_configuration.id,
-            dedicated_host_id=example_dedicated_host.id)
-        ```
 
         ## Import
 

@@ -9,32 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure IoT Time Series Insights Gen2 Environment.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const storage = new azure.storage.Account("storage", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     accountTier: "Standard",
- *     accountReplicationType: "LRS",
- * });
- * const exampleTimeSeriesInsightsGen2Environment = new azure.iot.TimeSeriesInsightsGen2Environment("exampleTimeSeriesInsightsGen2Environment", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "L1",
- *     warmStoreDataRetentionTime: "P30D",
- *     idProperties: ["id"],
- *     storage: {
- *         name: storage.name,
- *         key: storage.primaryAccessKey,
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Azure IoT Time Series Insights Gen2 Environment can be imported using the `resource id`, e.g.

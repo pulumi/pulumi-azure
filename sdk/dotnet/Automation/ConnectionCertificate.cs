@@ -12,54 +12,6 @@ namespace Pulumi.Azure.Automation
     /// <summary>
     /// Manages an Automation Connection with type `Azure`.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System;
-    /// using System.Collections.Generic;
-    /// using System.IO;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// 	private static string ReadFileBase64(string path) {
-    /// 		return Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(File.ReadAllText(path)));
-    /// 	}
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleClientConfig = Azure.Core.GetClientConfig.Invoke();
-    /// 
-    ///     var exampleAccount = new Azure.Automation.Account("exampleAccount", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         SkuName = "Basic",
-    ///     });
-    /// 
-    ///     var exampleCertificate = new Azure.Automation.Certificate("exampleCertificate", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         AutomationAccountName = exampleAccount.Name,
-    ///         Base64 = ReadFileBase64("certificate.pfx"),
-    ///     });
-    /// 
-    ///     var exampleConnectionCertificate = new Azure.Automation.ConnectionCertificate("exampleConnectionCertificate", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         AutomationAccountName = exampleAccount.Name,
-    ///         AutomationCertificateName = exampleCertificate.Name,
-    ///         SubscriptionId = exampleClientConfig.Apply(getClientConfigResult =&gt; getClientConfigResult.SubscriptionId),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Automation Connection can be imported using the `resource id`, e.g.

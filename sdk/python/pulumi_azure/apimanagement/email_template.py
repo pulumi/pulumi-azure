@@ -40,19 +40,29 @@ class EmailTemplateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_management_name: pulumi.Input[str],
-             body: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             subject: pulumi.Input[str],
-             template_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             api_management_name: Optional[pulumi.Input[str]] = None,
+             body: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             subject: Optional[pulumi.Input[str]] = None,
+             template_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'resourceGroupName' in kwargs:
+        if api_management_name is None:
+            raise TypeError("Missing 'api_management_name' argument")
+        if body is None:
+            raise TypeError("Missing 'body' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'templateName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if subject is None:
+            raise TypeError("Missing 'subject' argument")
+        if template_name is None and 'templateName' in kwargs:
             template_name = kwargs['templateName']
+        if template_name is None:
+            raise TypeError("Missing 'template_name' argument")
 
         _setter("api_management_name", api_management_name)
         _setter("body", body)
@@ -165,13 +175,13 @@ class _EmailTemplateState:
              subject: Optional[pulumi.Input[str]] = None,
              template_name: Optional[pulumi.Input[str]] = None,
              title: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'templateName' in kwargs:
+        if template_name is None and 'templateName' in kwargs:
             template_name = kwargs['templateName']
 
         if api_management_name is not None:
@@ -290,37 +300,6 @@ class EmailTemplate(pulumi.CustomResource):
         """
         Manages a API Management Email Template.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            publisher_name="My Company",
-            publisher_email="company@terraform.io",
-            sku_name="Developer_1")
-        example_email_template = azure.apimanagement.EmailTemplate("exampleEmailTemplate",
-            template_name="ConfirmSignUpIdentityDefault",
-            resource_group_name=example_resource_group.name,
-            api_management_name=example_service.name,
-            subject="Customized confirmation email for your new $OrganizationName API account",
-            body=\"\"\"<!DOCTYPE html >
-        <html>
-        <head>
-          <meta charset="UTF-8" />
-          <title>Customized Letter Title</title>
-        </head>
-        <body>
-          <p style="font-size:12pt;font-family:'Segoe UI'">Dear $DevFirstName $DevLastName,</p>
-        </body>
-        </html>
-        \"\"\")
-        ```
-
         ## Import
 
         API Management Email Templates can be imported using the `resource id`, e.g.
@@ -347,37 +326,6 @@ class EmailTemplate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a API Management Email Template.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            publisher_name="My Company",
-            publisher_email="company@terraform.io",
-            sku_name="Developer_1")
-        example_email_template = azure.apimanagement.EmailTemplate("exampleEmailTemplate",
-            template_name="ConfirmSignUpIdentityDefault",
-            resource_group_name=example_resource_group.name,
-            api_management_name=example_service.name,
-            subject="Customized confirmation email for your new $OrganizationName API account",
-            body=\"\"\"<!DOCTYPE html >
-        <html>
-        <head>
-          <meta charset="UTF-8" />
-          <title>Customized Letter Title</title>
-        </head>
-        <body>
-          <p style="font-size:12pt;font-family:'Segoe UI'">Dear $DevFirstName $DevLastName,</p>
-        </body>
-        </html>
-        \"\"\")
-        ```
 
         ## Import
 

@@ -29,12 +29,16 @@ class SettingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: pulumi.Input[bool],
-             setting_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             setting_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'settingName' in kwargs:
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if setting_name is None and 'settingName' in kwargs:
             setting_name = kwargs['settingName']
+        if setting_name is None:
+            raise TypeError("Missing 'setting_name' argument")
 
         _setter("enabled", enabled)
         _setter("setting_name", setting_name)
@@ -84,9 +88,9 @@ class _SettingState:
              _setter: Callable[[Any, Any], None],
              enabled: Optional[pulumi.Input[bool]] = None,
              setting_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'settingName' in kwargs:
+        if setting_name is None and 'settingName' in kwargs:
             setting_name = kwargs['settingName']
 
         if enabled is not None:
@@ -134,17 +138,6 @@ class Setting(pulumi.CustomResource):
 
         > **NOTE:** Deletion of this resource disables the setting.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.securitycenter.Setting("example",
-            enabled=True,
-            setting_name="MCAS")
-        ```
-
         ## Import
 
         The setting can be imported using the `resource id`, e.g.
@@ -170,17 +163,6 @@ class Setting(pulumi.CustomResource):
         > **NOTE:** This resource requires the `Owner` permission on the Subscription.
 
         > **NOTE:** Deletion of this resource disables the setting.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.securitycenter.Setting("example",
-            enabled=True,
-            setting_name="MCAS")
-        ```
 
         ## Import
 

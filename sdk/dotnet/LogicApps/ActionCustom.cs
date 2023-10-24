@@ -12,50 +12,6 @@ namespace Pulumi.Azure.LogicApps
     /// <summary>
     /// Manages a Custom Action within a Logic App Workflow
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleWorkflow = new Azure.LogicApps.Workflow("exampleWorkflow", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///     });
-    /// 
-    ///     var exampleActionCustom = new Azure.LogicApps.ActionCustom("exampleActionCustom", new()
-    ///     {
-    ///         LogicAppId = exampleWorkflow.Id,
-    ///         Body = @"{
-    ///     ""description"": ""A variable to configure the auto expiration age in days. Configured in negative number. Default is -30 (30 days old)."",
-    ///     ""inputs"": {
-    ///         ""variables"": [
-    ///             {
-    ///                 ""name"": ""ExpirationAgeInDays"",
-    ///                 ""type"": ""Integer"",
-    ///                 ""value"": -30
-    ///             }
-    ///         ]
-    ///     },
-    ///     ""runAfter"": {},
-    ///     ""type"": ""InitializeVariable""
-    /// }
-    /// ",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Logic App Custom Actions can be imported using the `resource id`, e.g.

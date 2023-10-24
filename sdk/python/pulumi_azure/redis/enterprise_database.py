@@ -59,7 +59,7 @@ class EnterpriseDatabaseArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cluster_id: pulumi.Input[str],
+             cluster_id: Optional[pulumi.Input[str]] = None,
              client_protocol: Optional[pulumi.Input[str]] = None,
              clustering_policy: Optional[pulumi.Input[str]] = None,
              eviction_policy: Optional[pulumi.Input[str]] = None,
@@ -69,21 +69,23 @@ class EnterpriseDatabaseArgs:
              name: Optional[pulumi.Input[str]] = None,
              port: Optional[pulumi.Input[int]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'clusterId' in kwargs:
+        if cluster_id is None and 'clusterId' in kwargs:
             cluster_id = kwargs['clusterId']
-        if 'clientProtocol' in kwargs:
+        if cluster_id is None:
+            raise TypeError("Missing 'cluster_id' argument")
+        if client_protocol is None and 'clientProtocol' in kwargs:
             client_protocol = kwargs['clientProtocol']
-        if 'clusteringPolicy' in kwargs:
+        if clustering_policy is None and 'clusteringPolicy' in kwargs:
             clustering_policy = kwargs['clusteringPolicy']
-        if 'evictionPolicy' in kwargs:
+        if eviction_policy is None and 'evictionPolicy' in kwargs:
             eviction_policy = kwargs['evictionPolicy']
-        if 'linkedDatabaseGroupNickname' in kwargs:
+        if linked_database_group_nickname is None and 'linkedDatabaseGroupNickname' in kwargs:
             linked_database_group_nickname = kwargs['linkedDatabaseGroupNickname']
-        if 'linkedDatabaseIds' in kwargs:
+        if linked_database_ids is None and 'linkedDatabaseIds' in kwargs:
             linked_database_ids = kwargs['linkedDatabaseIds']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         _setter("cluster_id", cluster_id)
@@ -301,25 +303,25 @@ class _EnterpriseDatabaseState:
              primary_access_key: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              secondary_access_key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'clientProtocol' in kwargs:
+        if client_protocol is None and 'clientProtocol' in kwargs:
             client_protocol = kwargs['clientProtocol']
-        if 'clusterId' in kwargs:
+        if cluster_id is None and 'clusterId' in kwargs:
             cluster_id = kwargs['clusterId']
-        if 'clusteringPolicy' in kwargs:
+        if clustering_policy is None and 'clusteringPolicy' in kwargs:
             clustering_policy = kwargs['clusteringPolicy']
-        if 'evictionPolicy' in kwargs:
+        if eviction_policy is None and 'evictionPolicy' in kwargs:
             eviction_policy = kwargs['evictionPolicy']
-        if 'linkedDatabaseGroupNickname' in kwargs:
+        if linked_database_group_nickname is None and 'linkedDatabaseGroupNickname' in kwargs:
             linked_database_group_nickname = kwargs['linkedDatabaseGroupNickname']
-        if 'linkedDatabaseIds' in kwargs:
+        if linked_database_ids is None and 'linkedDatabaseIds' in kwargs:
             linked_database_ids = kwargs['linkedDatabaseIds']
-        if 'primaryAccessKey' in kwargs:
+        if primary_access_key is None and 'primaryAccessKey' in kwargs:
             primary_access_key = kwargs['primaryAccessKey']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'secondaryAccessKey' in kwargs:
+        if secondary_access_key is None and 'secondaryAccessKey' in kwargs:
             secondary_access_key = kwargs['secondaryAccessKey']
 
         if client_protocol is not None:
@@ -521,35 +523,6 @@ class EnterpriseDatabase(pulumi.CustomResource):
         """
         Manages a Redis Enterprise Database.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_enterprise_cluster = azure.redis.EnterpriseCluster("exampleEnterpriseCluster",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku_name="Enterprise_E20-4")
-        example1 = azure.redis.EnterpriseCluster("example1",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku_name="Enterprise_E20-4")
-        example_enterprise_database = azure.redis.EnterpriseDatabase("exampleEnterpriseDatabase",
-            resource_group_name=example_resource_group.name,
-            cluster_id=example_enterprise_cluster.id,
-            client_protocol="Encrypted",
-            clustering_policy="EnterpriseCluster",
-            eviction_policy="NoEviction",
-            port=10000,
-            linked_database_ids=[
-                example_enterprise_cluster.id.apply(lambda id: f"{id}/databases/default"),
-                example1.id.apply(lambda id: f"{id}/databases/default"),
-            ],
-            linked_database_group_nickname="tftestGeoGroup")
-        ```
-
         ## Import
 
         Redis Enterprise Databases can be imported using the `resource id`, e.g.
@@ -583,35 +556,6 @@ class EnterpriseDatabase(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Redis Enterprise Database.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_enterprise_cluster = azure.redis.EnterpriseCluster("exampleEnterpriseCluster",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku_name="Enterprise_E20-4")
-        example1 = azure.redis.EnterpriseCluster("example1",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku_name="Enterprise_E20-4")
-        example_enterprise_database = azure.redis.EnterpriseDatabase("exampleEnterpriseDatabase",
-            resource_group_name=example_resource_group.name,
-            cluster_id=example_enterprise_cluster.id,
-            client_protocol="Encrypted",
-            clustering_policy="EnterpriseCluster",
-            eviction_policy="NoEviction",
-            port=10000,
-            linked_database_ids=[
-                example_enterprise_cluster.id.apply(lambda id: f"{id}/databases/default"),
-                example1.id.apply(lambda id: f"{id}/databases/default"),
-            ],
-            linked_database_group_nickname="tftestGeoGroup")
-        ```
 
         ## Import
 

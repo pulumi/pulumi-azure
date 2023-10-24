@@ -38,19 +38,25 @@ class NetworkManagerDeploymentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             configuration_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             network_manager_id: pulumi.Input[str],
-             scope_access: pulumi.Input[str],
+             configuration_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             network_manager_id: Optional[pulumi.Input[str]] = None,
+             scope_access: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'configurationIds' in kwargs:
+        if configuration_ids is None and 'configurationIds' in kwargs:
             configuration_ids = kwargs['configurationIds']
-        if 'networkManagerId' in kwargs:
+        if configuration_ids is None:
+            raise TypeError("Missing 'configuration_ids' argument")
+        if network_manager_id is None and 'networkManagerId' in kwargs:
             network_manager_id = kwargs['networkManagerId']
-        if 'scopeAccess' in kwargs:
+        if network_manager_id is None:
+            raise TypeError("Missing 'network_manager_id' argument")
+        if scope_access is None and 'scopeAccess' in kwargs:
             scope_access = kwargs['scopeAccess']
+        if scope_access is None:
+            raise TypeError("Missing 'scope_access' argument")
 
         _setter("configuration_ids", configuration_ids)
         _setter("network_manager_id", network_manager_id)
@@ -153,13 +159,13 @@ class _NetworkManagerDeploymentState:
              network_manager_id: Optional[pulumi.Input[str]] = None,
              scope_access: Optional[pulumi.Input[str]] = None,
              triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'configurationIds' in kwargs:
+        if configuration_ids is None and 'configurationIds' in kwargs:
             configuration_ids = kwargs['configurationIds']
-        if 'networkManagerId' in kwargs:
+        if network_manager_id is None and 'networkManagerId' in kwargs:
             network_manager_id = kwargs['networkManagerId']
-        if 'scopeAccess' in kwargs:
+        if scope_access is None and 'scopeAccess' in kwargs:
             scope_access = kwargs['scopeAccess']
 
         if configuration_ids is not None:
@@ -250,49 +256,6 @@ class NetworkManagerDeployment(pulumi.CustomResource):
 
         > **NOTE on Virtual Network Peering:** Using Network Manager Deployment to deploy Connectivity Configuration may modify or delete existing Virtual Network Peering. At this time you should not use Network Peering resource in conjunction with Network Manager Deployment. Doing so may cause a conflict of Peering configurations.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        current = azure.core.get_subscription()
-        example_network_manager = azure.network.NetworkManager("exampleNetworkManager",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            scope=azure.network.NetworkManagerScopeArgs(
-                subscription_ids=[current.id],
-            ),
-            scope_accesses=[
-                "Connectivity",
-                "SecurityAdmin",
-            ],
-            description="example network manager")
-        example_network_manager_network_group = azure.network.NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup", network_manager_id=example_network_manager.id)
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            address_spaces=["10.0.0.0/16"],
-            flow_timeout_in_minutes=10)
-        example_network_manager_connectivity_configuration = azure.network.NetworkManagerConnectivityConfiguration("exampleNetworkManagerConnectivityConfiguration",
-            network_manager_id=example_network_manager.id,
-            connectivity_topology="HubAndSpoke",
-            applies_to_groups=[azure.network.NetworkManagerConnectivityConfigurationAppliesToGroupArgs(
-                group_connectivity="None",
-                network_group_id=example_network_manager_network_group.id,
-            )],
-            hub=azure.network.NetworkManagerConnectivityConfigurationHubArgs(
-                resource_id=example_virtual_network.id,
-                resource_type="Microsoft.Network/virtualNetworks",
-            ))
-        example_network_manager_deployment = azure.network.NetworkManagerDeployment("exampleNetworkManagerDeployment",
-            network_manager_id=example_network_manager.id,
-            location="eastus",
-            scope_access="Connectivity",
-            configuration_ids=[example_network_manager_connectivity_configuration.id])
-        ```
-
         ## Import
 
         Network Manager Deployment can be imported using the `resource id`, e.g.
@@ -319,49 +282,6 @@ class NetworkManagerDeployment(pulumi.CustomResource):
         Manages a Network Manager Deployment.
 
         > **NOTE on Virtual Network Peering:** Using Network Manager Deployment to deploy Connectivity Configuration may modify or delete existing Virtual Network Peering. At this time you should not use Network Peering resource in conjunction with Network Manager Deployment. Doing so may cause a conflict of Peering configurations.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        current = azure.core.get_subscription()
-        example_network_manager = azure.network.NetworkManager("exampleNetworkManager",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            scope=azure.network.NetworkManagerScopeArgs(
-                subscription_ids=[current.id],
-            ),
-            scope_accesses=[
-                "Connectivity",
-                "SecurityAdmin",
-            ],
-            description="example network manager")
-        example_network_manager_network_group = azure.network.NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup", network_manager_id=example_network_manager.id)
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            address_spaces=["10.0.0.0/16"],
-            flow_timeout_in_minutes=10)
-        example_network_manager_connectivity_configuration = azure.network.NetworkManagerConnectivityConfiguration("exampleNetworkManagerConnectivityConfiguration",
-            network_manager_id=example_network_manager.id,
-            connectivity_topology="HubAndSpoke",
-            applies_to_groups=[azure.network.NetworkManagerConnectivityConfigurationAppliesToGroupArgs(
-                group_connectivity="None",
-                network_group_id=example_network_manager_network_group.id,
-            )],
-            hub=azure.network.NetworkManagerConnectivityConfigurationHubArgs(
-                resource_id=example_virtual_network.id,
-                resource_type="Microsoft.Network/virtualNetworks",
-            ))
-        example_network_manager_deployment = azure.network.NetworkManagerDeployment("exampleNetworkManagerDeployment",
-            network_manager_id=example_network_manager.id,
-            location="eastus",
-            scope_access="Connectivity",
-            configuration_ids=[example_network_manager_connectivity_configuration.id])
-        ```
 
         ## Import
 

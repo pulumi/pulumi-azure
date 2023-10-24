@@ -90,11 +90,11 @@ class FunctionAppSlotArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_service_plan_id: pulumi.Input[str],
-             function_app_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             storage_account_access_key: pulumi.Input[str],
-             storage_account_name: pulumi.Input[str],
+             app_service_plan_id: Optional[pulumi.Input[str]] = None,
+             function_app_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             storage_account_access_key: Optional[pulumi.Input[str]] = None,
+             storage_account_name: Optional[pulumi.Input[str]] = None,
              app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              auth_settings: Optional[pulumi.Input['FunctionAppSlotAuthSettingsArgs']] = None,
              connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSlotConnectionStringArgs']]]] = None,
@@ -109,33 +109,43 @@ class FunctionAppSlotArgs:
              site_config: Optional[pulumi.Input['FunctionAppSlotSiteConfigArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'appServicePlanId' in kwargs:
+        if app_service_plan_id is None and 'appServicePlanId' in kwargs:
             app_service_plan_id = kwargs['appServicePlanId']
-        if 'functionAppName' in kwargs:
+        if app_service_plan_id is None:
+            raise TypeError("Missing 'app_service_plan_id' argument")
+        if function_app_name is None and 'functionAppName' in kwargs:
             function_app_name = kwargs['functionAppName']
-        if 'resourceGroupName' in kwargs:
+        if function_app_name is None:
+            raise TypeError("Missing 'function_app_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'storageAccountAccessKey' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if storage_account_access_key is None and 'storageAccountAccessKey' in kwargs:
             storage_account_access_key = kwargs['storageAccountAccessKey']
-        if 'storageAccountName' in kwargs:
+        if storage_account_access_key is None:
+            raise TypeError("Missing 'storage_account_access_key' argument")
+        if storage_account_name is None and 'storageAccountName' in kwargs:
             storage_account_name = kwargs['storageAccountName']
-        if 'appSettings' in kwargs:
+        if storage_account_name is None:
+            raise TypeError("Missing 'storage_account_name' argument")
+        if app_settings is None and 'appSettings' in kwargs:
             app_settings = kwargs['appSettings']
-        if 'authSettings' in kwargs:
+        if auth_settings is None and 'authSettings' in kwargs:
             auth_settings = kwargs['authSettings']
-        if 'connectionStrings' in kwargs:
+        if connection_strings is None and 'connectionStrings' in kwargs:
             connection_strings = kwargs['connectionStrings']
-        if 'dailyMemoryTimeQuota' in kwargs:
+        if daily_memory_time_quota is None and 'dailyMemoryTimeQuota' in kwargs:
             daily_memory_time_quota = kwargs['dailyMemoryTimeQuota']
-        if 'enableBuiltinLogging' in kwargs:
+        if enable_builtin_logging is None and 'enableBuiltinLogging' in kwargs:
             enable_builtin_logging = kwargs['enableBuiltinLogging']
-        if 'httpsOnly' in kwargs:
+        if https_only is None and 'httpsOnly' in kwargs:
             https_only = kwargs['httpsOnly']
-        if 'osType' in kwargs:
+        if os_type is None and 'osType' in kwargs:
             os_type = kwargs['osType']
-        if 'siteConfig' in kwargs:
+        if site_config is None and 'siteConfig' in kwargs:
             site_config = kwargs['siteConfig']
 
         _setter("app_service_plan_id", app_service_plan_id)
@@ -525,41 +535,41 @@ class _FunctionAppSlotState:
              storage_account_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'appServicePlanId' in kwargs:
+        if app_service_plan_id is None and 'appServicePlanId' in kwargs:
             app_service_plan_id = kwargs['appServicePlanId']
-        if 'appSettings' in kwargs:
+        if app_settings is None and 'appSettings' in kwargs:
             app_settings = kwargs['appSettings']
-        if 'authSettings' in kwargs:
+        if auth_settings is None and 'authSettings' in kwargs:
             auth_settings = kwargs['authSettings']
-        if 'connectionStrings' in kwargs:
+        if connection_strings is None and 'connectionStrings' in kwargs:
             connection_strings = kwargs['connectionStrings']
-        if 'dailyMemoryTimeQuota' in kwargs:
+        if daily_memory_time_quota is None and 'dailyMemoryTimeQuota' in kwargs:
             daily_memory_time_quota = kwargs['dailyMemoryTimeQuota']
-        if 'defaultHostname' in kwargs:
+        if default_hostname is None and 'defaultHostname' in kwargs:
             default_hostname = kwargs['defaultHostname']
-        if 'enableBuiltinLogging' in kwargs:
+        if enable_builtin_logging is None and 'enableBuiltinLogging' in kwargs:
             enable_builtin_logging = kwargs['enableBuiltinLogging']
-        if 'functionAppName' in kwargs:
+        if function_app_name is None and 'functionAppName' in kwargs:
             function_app_name = kwargs['functionAppName']
-        if 'httpsOnly' in kwargs:
+        if https_only is None and 'httpsOnly' in kwargs:
             https_only = kwargs['httpsOnly']
-        if 'osType' in kwargs:
+        if os_type is None and 'osType' in kwargs:
             os_type = kwargs['osType']
-        if 'outboundIpAddresses' in kwargs:
+        if outbound_ip_addresses is None and 'outboundIpAddresses' in kwargs:
             outbound_ip_addresses = kwargs['outboundIpAddresses']
-        if 'possibleOutboundIpAddresses' in kwargs:
+        if possible_outbound_ip_addresses is None and 'possibleOutboundIpAddresses' in kwargs:
             possible_outbound_ip_addresses = kwargs['possibleOutboundIpAddresses']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'siteConfig' in kwargs:
+        if site_config is None and 'siteConfig' in kwargs:
             site_config = kwargs['siteConfig']
-        if 'siteCredentials' in kwargs:
+        if site_credentials is None and 'siteCredentials' in kwargs:
             site_credentials = kwargs['siteCredentials']
-        if 'storageAccountAccessKey' in kwargs:
+        if storage_account_access_key is None and 'storageAccountAccessKey' in kwargs:
             storage_account_access_key = kwargs['storageAccountAccessKey']
-        if 'storageAccountName' in kwargs:
+        if storage_account_name is None and 'storageAccountName' in kwargs:
             storage_account_name = kwargs['storageAccountName']
 
         if app_service_plan_id is not None:
@@ -939,39 +949,6 @@ class FunctionAppSlot(pulumi.CustomResource):
         !> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `appservice.LinuxFunctionAppSlot` resources instead.
 
         ## Example Usage
-        ### With App Service Plan)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_plan = azure.appservice.Plan("examplePlan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Standard",
-                size="S1",
-            ))
-        example_function_app = azure.appservice.FunctionApp("exampleFunctionApp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            app_service_plan_id=example_plan.id,
-            storage_account_name=example_account.name,
-            storage_account_access_key=example_account.primary_access_key)
-        example_function_app_slot = azure.appservice.FunctionAppSlot("exampleFunctionAppSlot",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            app_service_plan_id=example_plan.id,
-            function_app_name=example_function_app.name,
-            storage_account_name=example_account.name,
-            storage_account_access_key=example_account.primary_access_key)
-        ```
 
         ## Import
 
@@ -1023,39 +1000,6 @@ class FunctionAppSlot(pulumi.CustomResource):
         !> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `appservice.LinuxFunctionAppSlot` resources instead.
 
         ## Example Usage
-        ### With App Service Plan)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_plan = azure.appservice.Plan("examplePlan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Standard",
-                size="S1",
-            ))
-        example_function_app = azure.appservice.FunctionApp("exampleFunctionApp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            app_service_plan_id=example_plan.id,
-            storage_account_name=example_account.name,
-            storage_account_access_key=example_account.primary_access_key)
-        example_function_app_slot = azure.appservice.FunctionAppSlot("exampleFunctionAppSlot",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            app_service_plan_id=example_plan.id,
-            function_app_name=example_function_app.name,
-            storage_account_name=example_account.name,
-            storage_account_access_key=example_account.primary_access_key)
-        ```
 
         ## Import
 
@@ -1116,11 +1060,7 @@ class FunctionAppSlot(pulumi.CustomResource):
                 raise TypeError("Missing required property 'app_service_plan_id'")
             __props__.__dict__["app_service_plan_id"] = app_service_plan_id
             __props__.__dict__["app_settings"] = app_settings
-            if auth_settings is not None and not isinstance(auth_settings, FunctionAppSlotAuthSettingsArgs):
-                auth_settings = auth_settings or {}
-                def _setter(key, value):
-                    auth_settings[key] = value
-                FunctionAppSlotAuthSettingsArgs._configure(_setter, **auth_settings)
+            auth_settings = _utilities.configure(auth_settings, FunctionAppSlotAuthSettingsArgs, True)
             __props__.__dict__["auth_settings"] = auth_settings
             __props__.__dict__["connection_strings"] = connection_strings
             __props__.__dict__["daily_memory_time_quota"] = daily_memory_time_quota
@@ -1130,11 +1070,7 @@ class FunctionAppSlot(pulumi.CustomResource):
                 raise TypeError("Missing required property 'function_app_name'")
             __props__.__dict__["function_app_name"] = function_app_name
             __props__.__dict__["https_only"] = https_only
-            if identity is not None and not isinstance(identity, FunctionAppSlotIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                FunctionAppSlotIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, FunctionAppSlotIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
@@ -1142,11 +1078,7 @@ class FunctionAppSlot(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if site_config is not None and not isinstance(site_config, FunctionAppSlotSiteConfigArgs):
-                site_config = site_config or {}
-                def _setter(key, value):
-                    site_config[key] = value
-                FunctionAppSlotSiteConfigArgs._configure(_setter, **site_config)
+            site_config = _utilities.configure(site_config, FunctionAppSlotSiteConfigArgs, True)
             __props__.__dict__["site_config"] = site_config
             if storage_account_access_key is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_access_key'")

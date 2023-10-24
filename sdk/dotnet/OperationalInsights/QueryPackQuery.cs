@@ -12,49 +12,6 @@ namespace Pulumi.Azure.OperationalInsights
     /// <summary>
     /// Manages a Log Analytics Query Pack Query.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleQueryPack = new Azure.LogAnalytics.QueryPack("exampleQueryPack", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///     });
-    /// 
-    ///     var exampleQueryPackQuery = new Azure.OperationalInsights.QueryPackQuery("exampleQueryPackQuery", new()
-    ///     {
-    ///         QueryPackId = exampleQueryPack.Id,
-    ///         Body = @"let newExceptionsTimeRange = 1d;
-    /// let timeRangeToCheckBefore = 7d;
-    /// exceptions
-    /// | where timestamp &lt; ago(timeRangeToCheckBefore)
-    /// | summarize count() by problemId
-    /// | join kind= rightanti (
-    /// exceptions
-    /// | where timestamp &gt;= ago(newExceptionsTimeRange)
-    /// | extend stack = tostring(details[0].rawStack)
-    /// | summarize count(), dcount(user_AuthenticatedId), min(timestamp), max(timestamp), any(stack) by problemId  
-    /// ) on problemId 
-    /// | order by  count_ desc
-    /// ",
-    ///         DisplayName = "Exceptions - New in the last 24 hours",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Log Analytics Query Pack Queries can be imported using the `resource id`, e.g.

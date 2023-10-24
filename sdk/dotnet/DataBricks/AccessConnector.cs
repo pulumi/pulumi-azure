@@ -12,38 +12,6 @@ namespace Pulumi.Azure.DataBricks
     /// <summary>
     /// Manages a Databricks Access Connector
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleAccessConnector = new Azure.DataBricks.AccessConnector("exampleAccessConnector", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         Identity = new Azure.DataBricks.Inputs.AccessConnectorIdentityArgs
-    ///         {
-    ///             Type = "SystemAssigned",
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Environment", "Production" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Databricks Access Connectors can be imported using the `resource id`, e.g.

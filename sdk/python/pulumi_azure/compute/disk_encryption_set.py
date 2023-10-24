@@ -56,26 +56,32 @@ class DiskEncryptionSetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             identity: pulumi.Input['DiskEncryptionSetIdentityArgs'],
-             key_vault_key_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             identity: Optional[pulumi.Input['DiskEncryptionSetIdentityArgs']] = None,
+             key_vault_key_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              auto_key_rotation_enabled: Optional[pulumi.Input[bool]] = None,
              encryption_type: Optional[pulumi.Input[str]] = None,
              federated_client_id: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'keyVaultKeyId' in kwargs:
+        if identity is None:
+            raise TypeError("Missing 'identity' argument")
+        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
             key_vault_key_id = kwargs['keyVaultKeyId']
-        if 'resourceGroupName' in kwargs:
+        if key_vault_key_id is None:
+            raise TypeError("Missing 'key_vault_key_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'autoKeyRotationEnabled' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if auto_key_rotation_enabled is None and 'autoKeyRotationEnabled' in kwargs:
             auto_key_rotation_enabled = kwargs['autoKeyRotationEnabled']
-        if 'encryptionType' in kwargs:
+        if encryption_type is None and 'encryptionType' in kwargs:
             encryption_type = kwargs['encryptionType']
-        if 'federatedClientId' in kwargs:
+        if federated_client_id is None and 'federatedClientId' in kwargs:
             federated_client_id = kwargs['federatedClientId']
 
         _setter("identity", identity)
@@ -261,19 +267,19 @@ class _DiskEncryptionSetState:
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'autoKeyRotationEnabled' in kwargs:
+        if auto_key_rotation_enabled is None and 'autoKeyRotationEnabled' in kwargs:
             auto_key_rotation_enabled = kwargs['autoKeyRotationEnabled']
-        if 'encryptionType' in kwargs:
+        if encryption_type is None and 'encryptionType' in kwargs:
             encryption_type = kwargs['encryptionType']
-        if 'federatedClientId' in kwargs:
+        if federated_client_id is None and 'federatedClientId' in kwargs:
             federated_client_id = kwargs['federatedClientId']
-        if 'keyVaultKeyId' in kwargs:
+        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
             key_vault_key_id = kwargs['keyVaultKeyId']
-        if 'keyVaultKeyUrl' in kwargs:
+        if key_vault_key_url is None and 'keyVaultKeyUrl' in kwargs:
             key_vault_key_url = kwargs['keyVaultKeyUrl']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if auto_key_rotation_enabled is not None:
@@ -440,150 +446,6 @@ class DiskEncryptionSet(pulumi.CustomResource):
 
         > **NOTE:** At this time the Key Vault used to store the Active Key for this Disk Encryption Set must have both Soft Delete & Purge Protection enabled - which are not yet supported by this provider.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="premium",
-            enabled_for_disk_encryption=True,
-            purge_protection_enabled=True)
-        example_user = azure.keyvault.AccessPolicy("example-user",
-            key_vault_id=example_key_vault.id,
-            tenant_id=current.tenant_id,
-            object_id=current.object_id,
-            key_permissions=[
-                "Create",
-                "Delete",
-                "Get",
-                "Purge",
-                "Recover",
-                "Update",
-                "List",
-                "Decrypt",
-                "Sign",
-                "GetRotationPolicy",
-            ])
-        example_key = azure.keyvault.Key("exampleKey",
-            key_vault_id=example_key_vault.id,
-            key_type="RSA",
-            key_size=2048,
-            key_opts=[
-                "decrypt",
-                "encrypt",
-                "sign",
-                "unwrapKey",
-                "verify",
-                "wrapKey",
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[example_user]))
-        example_disk_encryption_set = azure.compute.DiskEncryptionSet("exampleDiskEncryptionSet",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            key_vault_key_id=example_key.id,
-            identity=azure.compute.DiskEncryptionSetIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_disk_access_policy = azure.keyvault.AccessPolicy("example-diskAccessPolicy",
-            key_vault_id=example_key_vault.id,
-            tenant_id=example_disk_encryption_set.identity.tenant_id,
-            object_id=example_disk_encryption_set.identity.principal_id,
-            key_permissions=[
-                "Create",
-                "Delete",
-                "Get",
-                "Purge",
-                "Recover",
-                "Update",
-                "List",
-                "Decrypt",
-                "Sign",
-            ])
-        example_disk_assignment = azure.authorization.Assignment("example-diskAssignment",
-            scope=example_key_vault.id,
-            role_definition_name="Key Vault Crypto Service Encryption User",
-            principal_id=example_disk_encryption_set.identity.principal_id)
-        ```
-        ### With Automatic Key Rotation Enabled
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="premium",
-            enabled_for_disk_encryption=True,
-            purge_protection_enabled=True)
-        example_user = azure.keyvault.AccessPolicy("example-user",
-            key_vault_id=example_key_vault.id,
-            tenant_id=current.tenant_id,
-            object_id=current.object_id,
-            key_permissions=[
-                "Create",
-                "Delete",
-                "Get",
-                "Purge",
-                "Recover",
-                "Update",
-                "List",
-                "Decrypt",
-                "Sign",
-                "GetRotationPolicy",
-            ])
-        example_key = azure.keyvault.Key("exampleKey",
-            key_vault_id=example_key_vault.id,
-            key_type="RSA",
-            key_size=2048,
-            key_opts=[
-                "decrypt",
-                "encrypt",
-                "sign",
-                "unwrapKey",
-                "verify",
-                "wrapKey",
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[example_user]))
-        example_disk_encryption_set = azure.compute.DiskEncryptionSet("exampleDiskEncryptionSet",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            key_vault_key_id=example_key.versionless_id,
-            auto_key_rotation_enabled=True,
-            identity=azure.compute.DiskEncryptionSetIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_disk_access_policy = azure.keyvault.AccessPolicy("example-diskAccessPolicy",
-            key_vault_id=example_key_vault.id,
-            tenant_id=example_disk_encryption_set.identity.tenant_id,
-            object_id=example_disk_encryption_set.identity.principal_id,
-            key_permissions=[
-                "Create",
-                "Delete",
-                "Get",
-                "Purge",
-                "Recover",
-                "Update",
-                "List",
-                "Decrypt",
-                "Sign",
-            ])
-        example_disk_assignment = azure.authorization.Assignment("example-diskAssignment",
-            scope=example_key_vault.id,
-            role_definition_name="Key Vault Crypto Service Encryption User",
-            principal_id=example_disk_encryption_set.identity.principal_id)
-        ```
-
         ## Import
 
         Disk Encryption Sets can be imported using the `resource id`, e.g.
@@ -618,150 +480,6 @@ class DiskEncryptionSet(pulumi.CustomResource):
         Manages a Disk Encryption Set.
 
         > **NOTE:** At this time the Key Vault used to store the Active Key for this Disk Encryption Set must have both Soft Delete & Purge Protection enabled - which are not yet supported by this provider.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="premium",
-            enabled_for_disk_encryption=True,
-            purge_protection_enabled=True)
-        example_user = azure.keyvault.AccessPolicy("example-user",
-            key_vault_id=example_key_vault.id,
-            tenant_id=current.tenant_id,
-            object_id=current.object_id,
-            key_permissions=[
-                "Create",
-                "Delete",
-                "Get",
-                "Purge",
-                "Recover",
-                "Update",
-                "List",
-                "Decrypt",
-                "Sign",
-                "GetRotationPolicy",
-            ])
-        example_key = azure.keyvault.Key("exampleKey",
-            key_vault_id=example_key_vault.id,
-            key_type="RSA",
-            key_size=2048,
-            key_opts=[
-                "decrypt",
-                "encrypt",
-                "sign",
-                "unwrapKey",
-                "verify",
-                "wrapKey",
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[example_user]))
-        example_disk_encryption_set = azure.compute.DiskEncryptionSet("exampleDiskEncryptionSet",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            key_vault_key_id=example_key.id,
-            identity=azure.compute.DiskEncryptionSetIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_disk_access_policy = azure.keyvault.AccessPolicy("example-diskAccessPolicy",
-            key_vault_id=example_key_vault.id,
-            tenant_id=example_disk_encryption_set.identity.tenant_id,
-            object_id=example_disk_encryption_set.identity.principal_id,
-            key_permissions=[
-                "Create",
-                "Delete",
-                "Get",
-                "Purge",
-                "Recover",
-                "Update",
-                "List",
-                "Decrypt",
-                "Sign",
-            ])
-        example_disk_assignment = azure.authorization.Assignment("example-diskAssignment",
-            scope=example_key_vault.id,
-            role_definition_name="Key Vault Crypto Service Encryption User",
-            principal_id=example_disk_encryption_set.identity.principal_id)
-        ```
-        ### With Automatic Key Rotation Enabled
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="premium",
-            enabled_for_disk_encryption=True,
-            purge_protection_enabled=True)
-        example_user = azure.keyvault.AccessPolicy("example-user",
-            key_vault_id=example_key_vault.id,
-            tenant_id=current.tenant_id,
-            object_id=current.object_id,
-            key_permissions=[
-                "Create",
-                "Delete",
-                "Get",
-                "Purge",
-                "Recover",
-                "Update",
-                "List",
-                "Decrypt",
-                "Sign",
-                "GetRotationPolicy",
-            ])
-        example_key = azure.keyvault.Key("exampleKey",
-            key_vault_id=example_key_vault.id,
-            key_type="RSA",
-            key_size=2048,
-            key_opts=[
-                "decrypt",
-                "encrypt",
-                "sign",
-                "unwrapKey",
-                "verify",
-                "wrapKey",
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[example_user]))
-        example_disk_encryption_set = azure.compute.DiskEncryptionSet("exampleDiskEncryptionSet",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            key_vault_key_id=example_key.versionless_id,
-            auto_key_rotation_enabled=True,
-            identity=azure.compute.DiskEncryptionSetIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_disk_access_policy = azure.keyvault.AccessPolicy("example-diskAccessPolicy",
-            key_vault_id=example_key_vault.id,
-            tenant_id=example_disk_encryption_set.identity.tenant_id,
-            object_id=example_disk_encryption_set.identity.principal_id,
-            key_permissions=[
-                "Create",
-                "Delete",
-                "Get",
-                "Purge",
-                "Recover",
-                "Update",
-                "List",
-                "Decrypt",
-                "Sign",
-            ])
-        example_disk_assignment = azure.authorization.Assignment("example-diskAssignment",
-            scope=example_key_vault.id,
-            role_definition_name="Key Vault Crypto Service Encryption User",
-            principal_id=example_disk_encryption_set.identity.principal_id)
-        ```
 
         ## Import
 
@@ -811,11 +529,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
             __props__.__dict__["auto_key_rotation_enabled"] = auto_key_rotation_enabled
             __props__.__dict__["encryption_type"] = encryption_type
             __props__.__dict__["federated_client_id"] = federated_client_id
-            if identity is not None and not isinstance(identity, DiskEncryptionSetIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                DiskEncryptionSetIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, DiskEncryptionSetIdentityArgs, True)
             if identity is None and not opts.urn:
                 raise TypeError("Missing required property 'identity'")
             __props__.__dict__["identity"] = identity

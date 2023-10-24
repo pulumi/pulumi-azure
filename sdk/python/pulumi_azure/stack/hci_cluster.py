@@ -46,22 +46,26 @@ class HciClusterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              automanage_configuration_id: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'resourceGroupName' in kwargs:
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'automanageConfigurationId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if automanage_configuration_id is None and 'automanageConfigurationId' in kwargs:
             automanage_configuration_id = kwargs['automanageConfigurationId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("client_id", client_id)
@@ -206,15 +210,15 @@ class _HciClusterState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'automanageConfigurationId' in kwargs:
+        if automanage_configuration_id is None and 'automanageConfigurationId' in kwargs:
             automanage_configuration_id = kwargs['automanageConfigurationId']
-        if 'clientId' in kwargs:
+        if client_id is None and 'clientId' in kwargs:
             client_id = kwargs['clientId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         if automanage_configuration_id is not None:
@@ -335,23 +339,6 @@ class HciCluster(pulumi.CustomResource):
         """
         Manages an Azure Stack HCI Cluster.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_azuread as azuread
-
-        example_application = azuread.get_application(display_name="Allowed resource types")
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_hci_cluster = azure.stack.HciCluster("exampleHciCluster",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            client_id=example_application.application_id,
-            tenant_id=current.tenant_id)
-        ```
-
         ## Import
 
         Azure Stack HCI Clusters can be imported using the `resource id`, e.g.
@@ -380,23 +367,6 @@ class HciCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Stack HCI Cluster.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_azuread as azuread
-
-        example_application = azuread.get_application(display_name="Allowed resource types")
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_hci_cluster = azure.stack.HciCluster("exampleHciCluster",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            client_id=example_application.application_id,
-            tenant_id=current.tenant_id)
-        ```
 
         ## Import
 

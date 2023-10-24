@@ -7,35 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Batch Job.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "west europe"});
- * const exampleAccount = new azure.batch.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- * });
- * const examplePool = new azure.batch.Pool("examplePool", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     accountName: exampleAccount.name,
- *     nodeAgentSkuId: "batch.node.ubuntu 16.04",
- *     vmSize: "Standard_A1",
- *     fixedScale: {
- *         targetDedicatedNodes: 1,
- *     },
- *     storageImageReference: {
- *         publisher: "Canonical",
- *         offer: "UbuntuServer",
- *         sku: "16.04.0-LTS",
- *         version: "latest",
- *     },
- * });
- * const exampleJob = new azure.batch.Job("exampleJob", {batchPoolId: examplePool.id});
- * ```
- *
  * ## Import
  *
  * Batch Jobs can be imported using the `resource id`, e.g.

@@ -144,16 +144,6 @@ def get_public_ip_prefix(name: Optional[str] = None,
     Use this data source to access information about an existing Public IP Prefix.
 
     ## Example Usage
-    ### Reference An Existing)
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.network.get_public_ip_prefix(name="name_of_public_ip",
-        resource_group_name="name_of_resource_group")
-    pulumi.export("publicIpPrefix", example.ip_prefix)
-    ```
 
 
     :param str name: Specifies the name of the public IP prefix.
@@ -185,16 +175,6 @@ def get_public_ip_prefix_output(name: Optional[pulumi.Input[str]] = None,
     Use this data source to access information about an existing Public IP Prefix.
 
     ## Example Usage
-    ### Reference An Existing)
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.network.get_public_ip_prefix(name="name_of_public_ip",
-        resource_group_name="name_of_resource_group")
-    pulumi.export("publicIpPrefix", example.ip_prefix)
-    ```
 
 
     :param str name: Specifies the name of the public IP prefix.

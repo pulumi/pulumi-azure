@@ -140,18 +140,6 @@ def get_network_packet_core_data_plane(mobile_network_packet_core_control_plane_
     """
     Get information a Mobile Network Packet Core Data Plane.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example_network_packet_core_control_plane = azure.mobile.get_network_packet_core_control_plane(name="example-mnpccp",
-        resource_group_name="example-rg")
-    example_network_packet_core_data_plane = azure.mobile.get_network_packet_core_data_plane(name="example-mnpcdp",
-        mobile_network_packet_core_control_plane_id=example_network_packet_core_control_plane.id)
-    ```
-
 
     :param str mobile_network_packet_core_control_plane_id: The ID of the Mobile Network Packet Core Data Plane.
     :param str name: The name of the Mobile Network Packet Core Data Plane.
@@ -180,18 +168,6 @@ def get_network_packet_core_data_plane_output(mobile_network_packet_core_control
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkPacketCoreDataPlaneResult]:
     """
     Get information a Mobile Network Packet Core Data Plane.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example_network_packet_core_control_plane = azure.mobile.get_network_packet_core_control_plane(name="example-mnpccp",
-        resource_group_name="example-rg")
-    example_network_packet_core_data_plane = azure.mobile.get_network_packet_core_data_plane(name="example-mnpcdp",
-        mobile_network_packet_core_control_plane_id=example_network_packet_core_control_plane.id)
-    ```
 
 
     :param str mobile_network_packet_core_control_plane_id: The ID of the Mobile Network Packet Core Data Plane.

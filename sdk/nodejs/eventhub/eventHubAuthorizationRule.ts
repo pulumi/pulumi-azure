@@ -7,38 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Event Hubs authorization Rule within an Event Hub.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("exampleEventHubNamespace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "Basic",
- *     capacity: 2,
- *     tags: {
- *         environment: "Production",
- *     },
- * });
- * const exampleEventHub = new azure.eventhub.EventHub("exampleEventHub", {
- *     namespaceName: exampleEventHubNamespace.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     partitionCount: 2,
- *     messageRetention: 2,
- * });
- * const exampleAuthorizationRule = new azure.eventhub.AuthorizationRule("exampleAuthorizationRule", {
- *     namespaceName: exampleEventHubNamespace.name,
- *     eventhubName: exampleEventHub.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     listen: true,
- *     send: false,
- *     manage: false,
- * });
- * ```
- *
  * ## Import
  *
  * EventHub Authorization Rules can be imported using the `resource id`, e.g.

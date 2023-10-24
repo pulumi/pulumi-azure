@@ -65,8 +65,8 @@ class NamespaceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             sku: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
              capacity: Optional[pulumi.Input[int]] = None,
              customer_managed_key: Optional[pulumi.Input['NamespaceCustomerManagedKeyArgs']] = None,
              identity: Optional[pulumi.Input['NamespaceIdentityArgs']] = None,
@@ -78,21 +78,25 @@ class NamespaceArgs:
              public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zone_redundant: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'customerManagedKey' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if customer_managed_key is None and 'customerManagedKey' in kwargs:
             customer_managed_key = kwargs['customerManagedKey']
-        if 'localAuthEnabled' in kwargs:
+        if local_auth_enabled is None and 'localAuthEnabled' in kwargs:
             local_auth_enabled = kwargs['localAuthEnabled']
-        if 'minimumTlsVersion' in kwargs:
+        if minimum_tls_version is None and 'minimumTlsVersion' in kwargs:
             minimum_tls_version = kwargs['minimumTlsVersion']
-        if 'networkRuleSet' in kwargs:
+        if network_rule_set is None and 'networkRuleSet' in kwargs:
             network_rule_set = kwargs['networkRuleSet']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'zoneRedundant' in kwargs:
+        if zone_redundant is None and 'zoneRedundant' in kwargs:
             zone_redundant = kwargs['zoneRedundant']
 
         _setter("resource_group_name", resource_group_name)
@@ -363,29 +367,29 @@ class _NamespaceState:
              sku: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zone_redundant: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'customerManagedKey' in kwargs:
+        if customer_managed_key is None and 'customerManagedKey' in kwargs:
             customer_managed_key = kwargs['customerManagedKey']
-        if 'defaultPrimaryConnectionString' in kwargs:
+        if default_primary_connection_string is None and 'defaultPrimaryConnectionString' in kwargs:
             default_primary_connection_string = kwargs['defaultPrimaryConnectionString']
-        if 'defaultPrimaryKey' in kwargs:
+        if default_primary_key is None and 'defaultPrimaryKey' in kwargs:
             default_primary_key = kwargs['defaultPrimaryKey']
-        if 'defaultSecondaryConnectionString' in kwargs:
+        if default_secondary_connection_string is None and 'defaultSecondaryConnectionString' in kwargs:
             default_secondary_connection_string = kwargs['defaultSecondaryConnectionString']
-        if 'defaultSecondaryKey' in kwargs:
+        if default_secondary_key is None and 'defaultSecondaryKey' in kwargs:
             default_secondary_key = kwargs['defaultSecondaryKey']
-        if 'localAuthEnabled' in kwargs:
+        if local_auth_enabled is None and 'localAuthEnabled' in kwargs:
             local_auth_enabled = kwargs['localAuthEnabled']
-        if 'minimumTlsVersion' in kwargs:
+        if minimum_tls_version is None and 'minimumTlsVersion' in kwargs:
             minimum_tls_version = kwargs['minimumTlsVersion']
-        if 'networkRuleSet' in kwargs:
+        if network_rule_set is None and 'networkRuleSet' in kwargs:
             network_rule_set = kwargs['networkRuleSet']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'zoneRedundant' in kwargs:
+        if zone_redundant is None and 'zoneRedundant' in kwargs:
             zone_redundant = kwargs['zoneRedundant']
 
         if capacity is not None:
@@ -670,22 +674,6 @@ class Namespace(pulumi.CustomResource):
         """
         Manages a ServiceBus Namespace.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_namespace = azure.servicebus.Namespace("exampleNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard",
-            tags={
-                "source": "example",
-            })
-        ```
-
         ## Import
 
         Service Bus Namespace can be imported using the `resource id`, e.g.
@@ -719,22 +707,6 @@ class Namespace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a ServiceBus Namespace.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_namespace = azure.servicebus.Namespace("exampleNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard",
-            tags={
-                "source": "example",
-            })
-        ```
 
         ## Import
 
@@ -787,27 +759,15 @@ class Namespace(pulumi.CustomResource):
             __props__ = NamespaceArgs.__new__(NamespaceArgs)
 
             __props__.__dict__["capacity"] = capacity
-            if customer_managed_key is not None and not isinstance(customer_managed_key, NamespaceCustomerManagedKeyArgs):
-                customer_managed_key = customer_managed_key or {}
-                def _setter(key, value):
-                    customer_managed_key[key] = value
-                NamespaceCustomerManagedKeyArgs._configure(_setter, **customer_managed_key)
+            customer_managed_key = _utilities.configure(customer_managed_key, NamespaceCustomerManagedKeyArgs, True)
             __props__.__dict__["customer_managed_key"] = customer_managed_key
-            if identity is not None and not isinstance(identity, NamespaceIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                NamespaceIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, NamespaceIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["local_auth_enabled"] = local_auth_enabled
             __props__.__dict__["location"] = location
             __props__.__dict__["minimum_tls_version"] = minimum_tls_version
             __props__.__dict__["name"] = name
-            if network_rule_set is not None and not isinstance(network_rule_set, NamespaceNetworkRuleSetArgs):
-                network_rule_set = network_rule_set or {}
-                def _setter(key, value):
-                    network_rule_set[key] = value
-                NamespaceNetworkRuleSetArgs._configure(_setter, **network_rule_set)
+            network_rule_set = _utilities.configure(network_rule_set, NamespaceNetworkRuleSetArgs, True)
             __props__.__dict__["network_rule_set"] = network_rule_set
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             if resource_group_name is None and not opts.urn:

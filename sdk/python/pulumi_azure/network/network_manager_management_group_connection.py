@@ -35,16 +35,20 @@ class NetworkManagerManagementGroupConnectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             management_group_id: pulumi.Input[str],
-             network_manager_id: pulumi.Input[str],
+             management_group_id: Optional[pulumi.Input[str]] = None,
+             network_manager_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'managementGroupId' in kwargs:
+        if management_group_id is None and 'managementGroupId' in kwargs:
             management_group_id = kwargs['managementGroupId']
-        if 'networkManagerId' in kwargs:
+        if management_group_id is None:
+            raise TypeError("Missing 'management_group_id' argument")
+        if network_manager_id is None and 'networkManagerId' in kwargs:
             network_manager_id = kwargs['networkManagerId']
+        if network_manager_id is None:
+            raise TypeError("Missing 'network_manager_id' argument")
 
         _setter("management_group_id", management_group_id)
         _setter("network_manager_id", network_manager_id)
@@ -134,13 +138,13 @@ class _NetworkManagerManagementGroupConnectionState:
              management_group_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              network_manager_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'connectionState' in kwargs:
+        if connection_state is None and 'connectionState' in kwargs:
             connection_state = kwargs['connectionState']
-        if 'managementGroupId' in kwargs:
+        if management_group_id is None and 'managementGroupId' in kwargs:
             management_group_id = kwargs['managementGroupId']
-        if 'networkManagerId' in kwargs:
+        if network_manager_id is None and 'networkManagerId' in kwargs:
             network_manager_id = kwargs['networkManagerId']
 
         if connection_state is not None:
@@ -228,38 +232,6 @@ class NetworkManagerManagementGroupConnection(pulumi.CustomResource):
         """
         Manages a Network Manager Management Group Connection which may cross tenants.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_group = azure.management.Group("exampleGroup")
-        alt = azure.core.get_subscription(subscription_id="00000000-0000-0000-0000-000000000000")
-        example_group_subscription_association = azure.management.GroupSubscriptionAssociation("exampleGroupSubscriptionAssociation",
-            management_group_id=example_group.id,
-            subscription_id=alt.id)
-        current_subscription = azure.core.get_subscription()
-        current_client_config = azure.core.get_client_config()
-        network_contributor = azure.authorization.Assignment("networkContributor",
-            scope=example_group.id,
-            role_definition_name="Network Contributor",
-            principal_id=current_client_config.object_id)
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_network_manager = azure.network.NetworkManager("exampleNetworkManager",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            scope=azure.network.NetworkManagerScopeArgs(
-                subscription_ids=[current_subscription.id],
-            ),
-            scope_accesses=["SecurityAdmin"])
-        example_network_manager_management_group_connection = azure.network.NetworkManagerManagementGroupConnection("exampleNetworkManagerManagementGroupConnection",
-            management_group_id=example_group.id,
-            network_manager_id=example_network_manager.id,
-            description="example",
-            opts=pulumi.ResourceOptions(depends_on=[network_contributor]))
-        ```
-
         ## Import
 
         Network Manager Management Group Connection can be imported using the `resource id`, e.g.
@@ -283,38 +255,6 @@ class NetworkManagerManagementGroupConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Network Manager Management Group Connection which may cross tenants.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_group = azure.management.Group("exampleGroup")
-        alt = azure.core.get_subscription(subscription_id="00000000-0000-0000-0000-000000000000")
-        example_group_subscription_association = azure.management.GroupSubscriptionAssociation("exampleGroupSubscriptionAssociation",
-            management_group_id=example_group.id,
-            subscription_id=alt.id)
-        current_subscription = azure.core.get_subscription()
-        current_client_config = azure.core.get_client_config()
-        network_contributor = azure.authorization.Assignment("networkContributor",
-            scope=example_group.id,
-            role_definition_name="Network Contributor",
-            principal_id=current_client_config.object_id)
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_network_manager = azure.network.NetworkManager("exampleNetworkManager",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            scope=azure.network.NetworkManagerScopeArgs(
-                subscription_ids=[current_subscription.id],
-            ),
-            scope_accesses=["SecurityAdmin"])
-        example_network_manager_management_group_connection = azure.network.NetworkManagerManagementGroupConnection("exampleNetworkManagerManagementGroupConnection",
-            management_group_id=example_group.id,
-            network_manager_id=example_network_manager.id,
-            description="example",
-            opts=pulumi.ResourceOptions(depends_on=[network_contributor]))
-        ```
 
         ## Import
 

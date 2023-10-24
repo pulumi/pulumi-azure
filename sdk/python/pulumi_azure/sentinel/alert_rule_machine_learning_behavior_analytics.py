@@ -35,16 +35,20 @@ class AlertRuleMachineLearningBehaviorAnalyticsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             alert_rule_template_guid: pulumi.Input[str],
-             log_analytics_workspace_id: pulumi.Input[str],
+             alert_rule_template_guid: Optional[pulumi.Input[str]] = None,
+             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'alertRuleTemplateGuid' in kwargs:
+        if alert_rule_template_guid is None and 'alertRuleTemplateGuid' in kwargs:
             alert_rule_template_guid = kwargs['alertRuleTemplateGuid']
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if alert_rule_template_guid is None:
+            raise TypeError("Missing 'alert_rule_template_guid' argument")
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if log_analytics_workspace_id is None:
+            raise TypeError("Missing 'log_analytics_workspace_id' argument")
 
         _setter("alert_rule_template_guid", alert_rule_template_guid)
         _setter("log_analytics_workspace_id", log_analytics_workspace_id)
@@ -130,11 +134,11 @@ class _AlertRuleMachineLearningBehaviorAnalyticsState:
              enabled: Optional[pulumi.Input[bool]] = None,
              log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'alertRuleTemplateGuid' in kwargs:
+        if alert_rule_template_guid is None and 'alertRuleTemplateGuid' in kwargs:
             alert_rule_template_guid = kwargs['alertRuleTemplateGuid']
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
 
         if alert_rule_template_guid is not None:
@@ -208,23 +212,6 @@ class AlertRuleMachineLearningBehaviorAnalytics(pulumi.CustomResource):
         """
         Manages a Sentinel Machine Learning Behavior Analytics Alert Rule.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="PerGB2018")
-        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", workspace_id=example_analytics_workspace.id)
-        example_alert_rule_machine_learning_behavior_analytics = azure.sentinel.AlertRuleMachineLearningBehaviorAnalytics("exampleAlertRuleMachineLearningBehaviorAnalytics",
-            log_analytics_workspace_id=example_analytics_workspace.id,
-            alert_rule_template_guid="737a2ce1-70a3-4968-9e90-3e6aca836abf")
-        ```
-
         ## Import
 
         Sentinel Machine Learning Behavior Analytics Rules can be imported using the `resource id`, e.g.
@@ -248,23 +235,6 @@ class AlertRuleMachineLearningBehaviorAnalytics(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Sentinel Machine Learning Behavior Analytics Alert Rule.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="PerGB2018")
-        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", workspace_id=example_analytics_workspace.id)
-        example_alert_rule_machine_learning_behavior_analytics = azure.sentinel.AlertRuleMachineLearningBehaviorAnalytics("exampleAlertRuleMachineLearningBehaviorAnalytics",
-            log_analytics_workspace_id=example_analytics_workspace.id,
-            alert_rule_template_guid="737a2ce1-70a3-4968-9e90-3e6aca836abf")
-        ```
 
         ## Import
 

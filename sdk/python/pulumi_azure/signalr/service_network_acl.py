@@ -37,19 +37,25 @@ class ServiceNetworkAclArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             default_action: pulumi.Input[str],
-             public_network: pulumi.Input['ServiceNetworkAclPublicNetworkArgs'],
-             signalr_service_id: pulumi.Input[str],
+             default_action: Optional[pulumi.Input[str]] = None,
+             public_network: Optional[pulumi.Input['ServiceNetworkAclPublicNetworkArgs']] = None,
+             signalr_service_id: Optional[pulumi.Input[str]] = None,
              private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceNetworkAclPrivateEndpointArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'defaultAction' in kwargs:
+        if default_action is None and 'defaultAction' in kwargs:
             default_action = kwargs['defaultAction']
-        if 'publicNetwork' in kwargs:
+        if default_action is None:
+            raise TypeError("Missing 'default_action' argument")
+        if public_network is None and 'publicNetwork' in kwargs:
             public_network = kwargs['publicNetwork']
-        if 'signalrServiceId' in kwargs:
+        if public_network is None:
+            raise TypeError("Missing 'public_network' argument")
+        if signalr_service_id is None and 'signalrServiceId' in kwargs:
             signalr_service_id = kwargs['signalrServiceId']
-        if 'privateEndpoints' in kwargs:
+        if signalr_service_id is None:
+            raise TypeError("Missing 'signalr_service_id' argument")
+        if private_endpoints is None and 'privateEndpoints' in kwargs:
             private_endpoints = kwargs['privateEndpoints']
 
         _setter("default_action", default_action)
@@ -135,15 +141,15 @@ class _ServiceNetworkAclState:
              private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceNetworkAclPrivateEndpointArgs']]]] = None,
              public_network: Optional[pulumi.Input['ServiceNetworkAclPublicNetworkArgs']] = None,
              signalr_service_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'defaultAction' in kwargs:
+        if default_action is None and 'defaultAction' in kwargs:
             default_action = kwargs['defaultAction']
-        if 'privateEndpoints' in kwargs:
+        if private_endpoints is None and 'privateEndpoints' in kwargs:
             private_endpoints = kwargs['privateEndpoints']
-        if 'publicNetwork' in kwargs:
+        if public_network is None and 'publicNetwork' in kwargs:
             public_network = kwargs['publicNetwork']
-        if 'signalrServiceId' in kwargs:
+        if signalr_service_id is None and 'signalrServiceId' in kwargs:
             signalr_service_id = kwargs['signalrServiceId']
 
         if default_action is not None:
@@ -217,51 +223,6 @@ class ServiceNetworkAcl(pulumi.CustomResource):
         """
         Manages the Network ACL for a SignalR service.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.signalr.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku=azure.signalr.ServiceSkuArgs(
-                name="Standard_S1",
-                capacity=1,
-            ))
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            address_spaces=["10.5.0.0/16"])
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.5.2.0/24"],
-            enforce_private_link_endpoint_network_policies=True)
-        example_endpoint = azure.privatelink.Endpoint("exampleEndpoint",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            subnet_id=example_subnet.id,
-            private_service_connection=azure.privatelink.EndpointPrivateServiceConnectionArgs(
-                name="psc-sig-test",
-                is_manual_connection=False,
-                private_connection_resource_id=example_service.id,
-                subresource_names=["signalr"],
-            ))
-        example_service_network_acl = azure.signalr.ServiceNetworkAcl("exampleServiceNetworkAcl",
-            signalr_service_id=example_service.id,
-            default_action="Deny",
-            public_network=azure.signalr.ServiceNetworkAclPublicNetworkArgs(
-                allowed_request_types=["ClientConnection"],
-            ),
-            private_endpoints=[azure.signalr.ServiceNetworkAclPrivateEndpointArgs(
-                id=example_endpoint.id,
-                allowed_request_types=["ServerConnection"],
-            )])
-        ```
-
         ## Import
 
         Network ACLs for a SignalR service can be imported using the `resource id`, e.g.
@@ -285,51 +246,6 @@ class ServiceNetworkAcl(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages the Network ACL for a SignalR service.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.signalr.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku=azure.signalr.ServiceSkuArgs(
-                name="Standard_S1",
-                capacity=1,
-            ))
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            address_spaces=["10.5.0.0/16"])
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.5.2.0/24"],
-            enforce_private_link_endpoint_network_policies=True)
-        example_endpoint = azure.privatelink.Endpoint("exampleEndpoint",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            subnet_id=example_subnet.id,
-            private_service_connection=azure.privatelink.EndpointPrivateServiceConnectionArgs(
-                name="psc-sig-test",
-                is_manual_connection=False,
-                private_connection_resource_id=example_service.id,
-                subresource_names=["signalr"],
-            ))
-        example_service_network_acl = azure.signalr.ServiceNetworkAcl("exampleServiceNetworkAcl",
-            signalr_service_id=example_service.id,
-            default_action="Deny",
-            public_network=azure.signalr.ServiceNetworkAclPublicNetworkArgs(
-                allowed_request_types=["ClientConnection"],
-            ),
-            private_endpoints=[azure.signalr.ServiceNetworkAclPrivateEndpointArgs(
-                id=example_endpoint.id,
-                allowed_request_types=["ServerConnection"],
-            )])
-        ```
 
         ## Import
 
@@ -375,11 +291,7 @@ class ServiceNetworkAcl(pulumi.CustomResource):
                 raise TypeError("Missing required property 'default_action'")
             __props__.__dict__["default_action"] = default_action
             __props__.__dict__["private_endpoints"] = private_endpoints
-            if public_network is not None and not isinstance(public_network, ServiceNetworkAclPublicNetworkArgs):
-                public_network = public_network or {}
-                def _setter(key, value):
-                    public_network[key] = value
-                ServiceNetworkAclPublicNetworkArgs._configure(_setter, **public_network)
+            public_network = _utilities.configure(public_network, ServiceNetworkAclPublicNetworkArgs, True)
             if public_network is None and not opts.urn:
                 raise TypeError("Missing required property 'public_network'")
             __props__.__dict__["public_network"] = public_network

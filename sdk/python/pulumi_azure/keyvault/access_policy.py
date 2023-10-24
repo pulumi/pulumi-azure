@@ -47,31 +47,37 @@ class AccessPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_vault_id: pulumi.Input[str],
-             object_id: pulumi.Input[str],
-             tenant_id: pulumi.Input[str],
+             key_vault_id: Optional[pulumi.Input[str]] = None,
+             object_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
              application_id: Optional[pulumi.Input[str]] = None,
              certificate_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              key_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              secret_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              storage_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'keyVaultId' in kwargs:
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
-        if 'objectId' in kwargs:
+        if key_vault_id is None:
+            raise TypeError("Missing 'key_vault_id' argument")
+        if object_id is None and 'objectId' in kwargs:
             object_id = kwargs['objectId']
-        if 'tenantId' in kwargs:
+        if object_id is None:
+            raise TypeError("Missing 'object_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
-        if 'applicationId' in kwargs:
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if application_id is None and 'applicationId' in kwargs:
             application_id = kwargs['applicationId']
-        if 'certificatePermissions' in kwargs:
+        if certificate_permissions is None and 'certificatePermissions' in kwargs:
             certificate_permissions = kwargs['certificatePermissions']
-        if 'keyPermissions' in kwargs:
+        if key_permissions is None and 'keyPermissions' in kwargs:
             key_permissions = kwargs['keyPermissions']
-        if 'secretPermissions' in kwargs:
+        if secret_permissions is None and 'secretPermissions' in kwargs:
             secret_permissions = kwargs['secretPermissions']
-        if 'storagePermissions' in kwargs:
+        if storage_permissions is None and 'storagePermissions' in kwargs:
             storage_permissions = kwargs['storagePermissions']
 
         _setter("key_vault_id", key_vault_id)
@@ -229,23 +235,23 @@ class _AccessPolicyState:
              secret_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              storage_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'applicationId' in kwargs:
+        if application_id is None and 'applicationId' in kwargs:
             application_id = kwargs['applicationId']
-        if 'certificatePermissions' in kwargs:
+        if certificate_permissions is None and 'certificatePermissions' in kwargs:
             certificate_permissions = kwargs['certificatePermissions']
-        if 'keyPermissions' in kwargs:
+        if key_permissions is None and 'keyPermissions' in kwargs:
             key_permissions = kwargs['keyPermissions']
-        if 'keyVaultId' in kwargs:
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
-        if 'objectId' in kwargs:
+        if object_id is None and 'objectId' in kwargs:
             object_id = kwargs['objectId']
-        if 'secretPermissions' in kwargs:
+        if secret_permissions is None and 'secretPermissions' in kwargs:
             secret_permissions = kwargs['secretPermissions']
-        if 'storagePermissions' in kwargs:
+        if storage_permissions is None and 'storagePermissions' in kwargs:
             storage_permissions = kwargs['storagePermissions']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         if application_id is not None:
@@ -383,39 +389,6 @@ class AccessPolicy(pulumi.CustomResource):
 
         > **NOTE:** Azure permits a maximum of 1024 Access Policies per Key Vault - [more information can be found in this document](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault#data-plane-access-control).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_azuread as azuread
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="premium")
-        example_access_policy = azure.keyvault.AccessPolicy("exampleAccessPolicy",
-            key_vault_id=example_key_vault.id,
-            tenant_id=current.tenant_id,
-            object_id=current.object_id,
-            key_permissions=["Get"],
-            secret_permissions=["Get"])
-        example_service_principal = azuread.get_service_principal(display_name="example-app")
-        example_principal = azure.keyvault.AccessPolicy("example-principal",
-            key_vault_id=example_key_vault.id,
-            tenant_id=current.tenant_id,
-            object_id=example_service_principal.object_id,
-            key_permissions=[
-                "Get",
-                "List",
-                "Encrypt",
-                "Decrypt",
-            ])
-        ```
-
         ## Import
 
         Key Vault Access Policies can be imported using the Resource ID of the Key Vault, plus some additional metadata. If both an `object_id` and `application_id` are specified, then the Access Policy can be imported using the following code
@@ -455,39 +428,6 @@ class AccessPolicy(pulumi.CustomResource):
         > **NOTE:** It's possible to define Key Vault Access Policies both within the `keyvault.KeyVault` resource via the `access_policy` block and by using the `keyvault.AccessPolicy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
 
         > **NOTE:** Azure permits a maximum of 1024 Access Policies per Key Vault - [more information can be found in this document](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault#data-plane-access-control).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_azuread as azuread
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="premium")
-        example_access_policy = azure.keyvault.AccessPolicy("exampleAccessPolicy",
-            key_vault_id=example_key_vault.id,
-            tenant_id=current.tenant_id,
-            object_id=current.object_id,
-            key_permissions=["Get"],
-            secret_permissions=["Get"])
-        example_service_principal = azuread.get_service_principal(display_name="example-app")
-        example_principal = azure.keyvault.AccessPolicy("example-principal",
-            key_vault_id=example_key_vault.id,
-            tenant_id=current.tenant_id,
-            object_id=example_service_principal.object_id,
-            key_permissions=[
-                "Get",
-                "List",
-                "Encrypt",
-                "Decrypt",
-            ])
-        ```
 
         ## Import
 

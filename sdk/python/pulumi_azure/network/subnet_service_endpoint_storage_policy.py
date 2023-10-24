@@ -40,15 +40,17 @@ class SubnetServiceEndpointStoragePolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              definition: Optional[pulumi.Input['SubnetServiceEndpointStoragePolicyDefinitionArgs']] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("resource_group_name", resource_group_name)
         if definition is not None:
@@ -153,9 +155,9 @@ class _SubnetServiceEndpointStoragePolicyState:
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if definition is not None:
@@ -310,11 +312,7 @@ class SubnetServiceEndpointStoragePolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SubnetServiceEndpointStoragePolicyArgs.__new__(SubnetServiceEndpointStoragePolicyArgs)
 
-            if definition is not None and not isinstance(definition, SubnetServiceEndpointStoragePolicyDefinitionArgs):
-                definition = definition or {}
-                def _setter(key, value):
-                    definition[key] = value
-                SubnetServiceEndpointStoragePolicyDefinitionArgs._configure(_setter, **definition)
+            definition = _utilities.configure(definition, SubnetServiceEndpointStoragePolicyDefinitionArgs, True)
             __props__.__dict__["definition"] = definition
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name

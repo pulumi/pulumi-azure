@@ -54,8 +54,8 @@ class InferenceClusterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             kubernetes_cluster_id: pulumi.Input[str],
-             machine_learning_workspace_id: pulumi.Input[str],
+             kubernetes_cluster_id: Optional[pulumi.Input[str]] = None,
+             machine_learning_workspace_id: Optional[pulumi.Input[str]] = None,
              cluster_purpose: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              identity: Optional[pulumi.Input['InferenceClusterIdentityArgs']] = None,
@@ -63,13 +63,17 @@ class InferenceClusterArgs:
              name: Optional[pulumi.Input[str]] = None,
              ssl: Optional[pulumi.Input['InferenceClusterSslArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'kubernetesClusterId' in kwargs:
+        if kubernetes_cluster_id is None and 'kubernetesClusterId' in kwargs:
             kubernetes_cluster_id = kwargs['kubernetesClusterId']
-        if 'machineLearningWorkspaceId' in kwargs:
+        if kubernetes_cluster_id is None:
+            raise TypeError("Missing 'kubernetes_cluster_id' argument")
+        if machine_learning_workspace_id is None and 'machineLearningWorkspaceId' in kwargs:
             machine_learning_workspace_id = kwargs['machineLearningWorkspaceId']
-        if 'clusterPurpose' in kwargs:
+        if machine_learning_workspace_id is None:
+            raise TypeError("Missing 'machine_learning_workspace_id' argument")
+        if cluster_purpose is None and 'clusterPurpose' in kwargs:
             cluster_purpose = kwargs['clusterPurpose']
 
         _setter("kubernetes_cluster_id", kubernetes_cluster_id)
@@ -250,13 +254,13 @@ class _InferenceClusterState:
              name: Optional[pulumi.Input[str]] = None,
              ssl: Optional[pulumi.Input['InferenceClusterSslArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'clusterPurpose' in kwargs:
+        if cluster_purpose is None and 'clusterPurpose' in kwargs:
             cluster_purpose = kwargs['clusterPurpose']
-        if 'kubernetesClusterId' in kwargs:
+        if kubernetes_cluster_id is None and 'kubernetesClusterId' in kwargs:
             kubernetes_cluster_id = kwargs['kubernetesClusterId']
-        if 'machineLearningWorkspaceId' in kwargs:
+        if machine_learning_workspace_id is None and 'machineLearningWorkspaceId' in kwargs:
             machine_learning_workspace_id = kwargs['machineLearningWorkspaceId']
 
         if cluster_purpose is not None:
@@ -409,74 +413,6 @@ class InferenceCluster(pulumi.CustomResource):
 
         > **NOTE:** The Machine Learning Inference Cluster resource is used to attach an existing AKS cluster to the Machine Learning Workspace, it doesn't create the AKS cluster itself. Therefore it can only be created and deleted, not updated. Any change to the configuration will recreate the resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup",
-            location="west europe",
-            tags={
-                "stage": "example",
-            })
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_type="web")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="standard",
-            purge_protection_enabled=True)
-        example_account = azure.storage.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_workspace = azure.machinelearning.Workspace("exampleWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_insights_id=example_insights.id,
-            key_vault_id=example_key_vault.id,
-            storage_account_id=example_account.id,
-            identity=azure.machinelearning.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.1.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.1.0.0/24"])
-        example_kubernetes_cluster = azure.containerservice.KubernetesCluster("exampleKubernetesCluster",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            dns_prefix_private_cluster="prefix",
-            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
-                name="default",
-                node_count=3,
-                vm_size="Standard_D3_v2",
-                vnet_subnet_id=example_subnet.id,
-            ),
-            identity=azure.containerservice.KubernetesClusterIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_inference_cluster = azure.machinelearning.InferenceCluster("exampleInferenceCluster",
-            location=example_resource_group.location,
-            cluster_purpose="FastProd",
-            kubernetes_cluster_id=example_kubernetes_cluster.id,
-            description="This is an example cluster used with Terraform",
-            machine_learning_workspace_id=example_workspace.id,
-            tags={
-                "stage": "example",
-            })
-        ```
-
         ## Import
 
         Machine Learning Inference Clusters can be imported using the `resource id`, e.g.
@@ -509,74 +445,6 @@ class InferenceCluster(pulumi.CustomResource):
         Manages a Machine Learning Inference Cluster.
 
         > **NOTE:** The Machine Learning Inference Cluster resource is used to attach an existing AKS cluster to the Machine Learning Workspace, it doesn't create the AKS cluster itself. Therefore it can only be created and deleted, not updated. Any change to the configuration will recreate the resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup",
-            location="west europe",
-            tags={
-                "stage": "example",
-            })
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_type="web")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="standard",
-            purge_protection_enabled=True)
-        example_account = azure.storage.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_workspace = azure.machinelearning.Workspace("exampleWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_insights_id=example_insights.id,
-            key_vault_id=example_key_vault.id,
-            storage_account_id=example_account.id,
-            identity=azure.machinelearning.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.1.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.1.0.0/24"])
-        example_kubernetes_cluster = azure.containerservice.KubernetesCluster("exampleKubernetesCluster",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            dns_prefix_private_cluster="prefix",
-            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
-                name="default",
-                node_count=3,
-                vm_size="Standard_D3_v2",
-                vnet_subnet_id=example_subnet.id,
-            ),
-            identity=azure.containerservice.KubernetesClusterIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_inference_cluster = azure.machinelearning.InferenceCluster("exampleInferenceCluster",
-            location=example_resource_group.location,
-            cluster_purpose="FastProd",
-            kubernetes_cluster_id=example_kubernetes_cluster.id,
-            description="This is an example cluster used with Terraform",
-            machine_learning_workspace_id=example_workspace.id,
-            tags={
-                "stage": "example",
-            })
-        ```
 
         ## Import
 
@@ -625,11 +493,7 @@ class InferenceCluster(pulumi.CustomResource):
 
             __props__.__dict__["cluster_purpose"] = cluster_purpose
             __props__.__dict__["description"] = description
-            if identity is not None and not isinstance(identity, InferenceClusterIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                InferenceClusterIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, InferenceClusterIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             if kubernetes_cluster_id is None and not opts.urn:
                 raise TypeError("Missing required property 'kubernetes_cluster_id'")
@@ -639,11 +503,7 @@ class InferenceCluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'machine_learning_workspace_id'")
             __props__.__dict__["machine_learning_workspace_id"] = machine_learning_workspace_id
             __props__.__dict__["name"] = name
-            if ssl is not None and not isinstance(ssl, InferenceClusterSslArgs):
-                ssl = ssl or {}
-                def _setter(key, value):
-                    ssl[key] = value
-                InferenceClusterSslArgs._configure(_setter, **ssl)
+            ssl = _utilities.configure(ssl, InferenceClusterSslArgs, True)
             __props__.__dict__["ssl"] = ssl
             __props__.__dict__["tags"] = tags
         super(InferenceCluster, __self__).__init__(

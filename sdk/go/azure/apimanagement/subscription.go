@@ -15,59 +15,6 @@ import (
 
 // Manages a Subscription within a API Management Service.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleService, err := apimanagement.LookupService(ctx, &apimanagement.LookupServiceArgs{
-//				Name:              "example-apim",
-//				ResourceGroupName: "example-resources",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleProduct, err := apimanagement.LookupProduct(ctx, &apimanagement.LookupProductArgs{
-//				ProductId:         "00000000-0000-0000-0000-000000000000",
-//				ApiManagementName: exampleService.Name,
-//				ResourceGroupName: exampleService.ResourceGroupName,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleUser, err := apimanagement.LookupUser(ctx, &apimanagement.LookupUserArgs{
-//				UserId:            "11111111-1111-1111-1111-111111111111",
-//				ApiManagementName: exampleService.Name,
-//				ResourceGroupName: exampleService.ResourceGroupName,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = apimanagement.NewSubscription(ctx, "exampleSubscription", &apimanagement.SubscriptionArgs{
-//				ApiManagementName: *pulumi.String(exampleService.Name),
-//				ResourceGroupName: *pulumi.String(exampleService.ResourceGroupName),
-//				UserId:            *pulumi.String(exampleUser.Id),
-//				ProductId:         *pulumi.String(exampleProduct.Id),
-//				DisplayName:       pulumi.String("Parser API"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // API Management Subscriptions can be imported using the `resource id`, e.g.

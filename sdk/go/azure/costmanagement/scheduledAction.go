@@ -15,42 +15,6 @@ import (
 
 // Manages an Azure Cost Management Scheduled Action.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/costmanagement"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := costmanagement.NewScheduledAction(ctx, "example", &costmanagement.ScheduledActionArgs{
-//				DisplayName:        pulumi.String("Report Last 6 Months"),
-//				EmailAddressSender: pulumi.String("platformteam@test.com"),
-//				EmailAddresses: pulumi.StringArray{
-//					pulumi.String("example@example.com"),
-//				},
-//				EmailSubject: pulumi.String("Cost Management Report"),
-//				EndDate:      pulumi.String("2023-02-02T00:00:00Z"),
-//				Frequency:    pulumi.String("Daily"),
-//				Message:      pulumi.String("Hi all, take a look at last 6 months spending!"),
-//				StartDate:    pulumi.String("2023-01-02T00:00:00Z"),
-//				ViewId:       pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.CostManagement/views/ms:CostByService"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Azure Cost Management Scheduled Actions can be imported using the `resource id`, e.g.

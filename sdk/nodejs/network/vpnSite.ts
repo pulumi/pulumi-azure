@@ -9,29 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a VPN Site.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualWan = new azure.network.VirtualWan("exampleVirtualWan", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- * });
- * const exampleVpnSite = new azure.network.VpnSite("exampleVpnSite", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     virtualWanId: exampleVirtualWan.id,
- *     addressCidrs: ["10.0.0.0/24"],
- *     links: [{
- *         name: "link1",
- *         ipAddress: "10.0.0.1",
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * VPN Sites can be imported using the `resource id`, e.g.

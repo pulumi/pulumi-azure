@@ -41,18 +41,24 @@ class ServicesCommunicationsGatewayTestLineArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             phone_number: pulumi.Input[str],
-             purpose: pulumi.Input[str],
-             voice_services_communications_gateway_id: pulumi.Input[str],
+             phone_number: Optional[pulumi.Input[str]] = None,
+             purpose: Optional[pulumi.Input[str]] = None,
+             voice_services_communications_gateway_id: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'phoneNumber' in kwargs:
+        if phone_number is None and 'phoneNumber' in kwargs:
             phone_number = kwargs['phoneNumber']
-        if 'voiceServicesCommunicationsGatewayId' in kwargs:
+        if phone_number is None:
+            raise TypeError("Missing 'phone_number' argument")
+        if purpose is None:
+            raise TypeError("Missing 'purpose' argument")
+        if voice_services_communications_gateway_id is None and 'voiceServicesCommunicationsGatewayId' in kwargs:
             voice_services_communications_gateway_id = kwargs['voiceServicesCommunicationsGatewayId']
+        if voice_services_communications_gateway_id is None:
+            raise TypeError("Missing 'voice_services_communications_gateway_id' argument")
 
         _setter("phone_number", phone_number)
         _setter("purpose", purpose)
@@ -173,11 +179,11 @@ class _ServicesCommunicationsGatewayTestLineState:
              purpose: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              voice_services_communications_gateway_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'phoneNumber' in kwargs:
+        if phone_number is None and 'phoneNumber' in kwargs:
             phone_number = kwargs['phoneNumber']
-        if 'voiceServicesCommunicationsGatewayId' in kwargs:
+        if voice_services_communications_gateway_id is None and 'voiceServicesCommunicationsGatewayId' in kwargs:
             voice_services_communications_gateway_id = kwargs['voiceServicesCommunicationsGatewayId']
 
         if location is not None:
@@ -281,24 +287,6 @@ class ServicesCommunicationsGatewayTestLine(pulumi.CustomResource):
         """
         Manages a Voice Services Communications Gateway Test Line.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Central US")
-        example_services_communications_gateway = azure.voice.ServicesCommunicationsGateway("exampleServicesCommunicationsGateway", resource_group_name=example_resource_group.name)
-        example_services_communications_gateway_test_line = azure.voice.ServicesCommunicationsGatewayTestLine("exampleServicesCommunicationsGatewayTestLine",
-            location="West Central US",
-            voice_services_communications_gateway_id=example_services_communications_gateway.id,
-            phone_number="123456789",
-            purpose="Automated",
-            tags={
-                "key": "value",
-            })
-        ```
-
         ## Import
 
         Voice Services Communications Gateway Test Line can be imported using the `resource id`, e.g.
@@ -324,24 +312,6 @@ class ServicesCommunicationsGatewayTestLine(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Voice Services Communications Gateway Test Line.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Central US")
-        example_services_communications_gateway = azure.voice.ServicesCommunicationsGateway("exampleServicesCommunicationsGateway", resource_group_name=example_resource_group.name)
-        example_services_communications_gateway_test_line = azure.voice.ServicesCommunicationsGatewayTestLine("exampleServicesCommunicationsGatewayTestLine",
-            location="West Central US",
-            voice_services_communications_gateway_id=example_services_communications_gateway.id,
-            phone_number="123456789",
-            purpose="Automated",
-            tags={
-                "key": "value",
-            })
-        ```
 
         ## Import
 

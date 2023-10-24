@@ -7,30 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Sets a MariaDB Configuration value on a MariaDB Server.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleServer = new azure.mariadb.Server("exampleServer", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "B_Gen5_2",
- *     sslEnforcementEnabled: true,
- *     administratorLogin: "mariadbadmin",
- *     administratorLoginPassword: "H@Sh1CoR3!",
- *     version: "10.2",
- * });
- * const exampleConfiguration = new azure.mariadb.Configuration("exampleConfiguration", {
- *     name: "interactive_timeout",
- *     resourceGroupName: exampleResourceGroup.name,
- *     serverName: exampleServer.name,
- *     value: "600",
- * });
- * ```
- *
  * ## Import
  *
  * MariaDB Configurations can be imported using the `resource id`, e.g.

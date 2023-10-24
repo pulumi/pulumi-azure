@@ -11,65 +11,9 @@ namespace Pulumi.Azure.Dns
 {
     public static class GetTxtRecord
     {
-        /// <summary>
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = new Azure.Dns.TxtRecord("example", new()
-        ///     {
-        ///         ZoneName = "test-zone",
-        ///         ResourceGroupName = "test-rg",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["dnsTxtRecordId"] = example.Id,
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetTxtRecordResult> InvokeAsync(GetTxtRecordArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTxtRecordResult>("azure:dns/getTxtRecord:getTxtRecord", args ?? new GetTxtRecordArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = new Azure.Dns.TxtRecord("example", new()
-        ///     {
-        ///         ZoneName = "test-zone",
-        ///         ResourceGroupName = "test-rg",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["dnsTxtRecordId"] = example.Id,
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetTxtRecordResult> Invoke(GetTxtRecordInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTxtRecordResult>("azure:dns/getTxtRecord:getTxtRecord", args ?? new GetTxtRecordInvokeArgs(), options.WithDefaults());
     }

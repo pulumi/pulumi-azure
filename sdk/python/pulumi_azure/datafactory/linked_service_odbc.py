@@ -52,8 +52,8 @@ class LinkedServiceOdbcArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             connection_string: pulumi.Input[str],
-             data_factory_id: pulumi.Input[str],
+             connection_string: Optional[pulumi.Input[str]] = None,
+             data_factory_id: Optional[pulumi.Input[str]] = None,
              additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              basic_authentication: Optional[pulumi.Input['LinkedServiceOdbcBasicAuthenticationArgs']] = None,
@@ -61,17 +61,21 @@ class LinkedServiceOdbcArgs:
              integration_runtime_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
-        if 'dataFactoryId' in kwargs:
+        if connection_string is None:
+            raise TypeError("Missing 'connection_string' argument")
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'additionalProperties' in kwargs:
+        if data_factory_id is None:
+            raise TypeError("Missing 'data_factory_id' argument")
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'basicAuthentication' in kwargs:
+        if basic_authentication is None and 'basicAuthentication' in kwargs:
             basic_authentication = kwargs['basicAuthentication']
-        if 'integrationRuntimeName' in kwargs:
+        if integration_runtime_name is None and 'integrationRuntimeName' in kwargs:
             integration_runtime_name = kwargs['integrationRuntimeName']
 
         _setter("connection_string", connection_string)
@@ -248,17 +252,17 @@ class _LinkedServiceOdbcState:
              integration_runtime_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'additionalProperties' in kwargs:
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'basicAuthentication' in kwargs:
+        if basic_authentication is None and 'basicAuthentication' in kwargs:
             basic_authentication = kwargs['basicAuthentication']
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'integrationRuntimeName' in kwargs:
+        if integration_runtime_name is None and 'integrationRuntimeName' in kwargs:
             integration_runtime_name = kwargs['integrationRuntimeName']
 
         if additional_properties is not None:
@@ -409,28 +413,6 @@ class LinkedServiceOdbc(pulumi.CustomResource):
 
         > **Note:** All arguments including the connection_string will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        anonymous = azure.datafactory.LinkedServiceOdbc("anonymous",
-            data_factory_id=example_factory.id,
-            connection_string="Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;")
-        basic_auth = azure.datafactory.LinkedServiceOdbc("basicAuth",
-            data_factory_id=example_factory.id,
-            connection_string="Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;",
-            basic_authentication=azure.datafactory.LinkedServiceOdbcBasicAuthenticationArgs(
-                username="onrylmz",
-                password="Ch4ngeM3!",
-            ))
-        ```
-
         ## Import
 
         Data Factory ODBC Linked Service's can be imported using the `resource id`, e.g.
@@ -461,28 +443,6 @@ class LinkedServiceOdbc(pulumi.CustomResource):
         Manages a Linked Service (connection) between a Database and Azure Data Factory through ODBC protocol.
 
         > **Note:** All arguments including the connection_string will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        anonymous = azure.datafactory.LinkedServiceOdbc("anonymous",
-            data_factory_id=example_factory.id,
-            connection_string="Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;")
-        basic_auth = azure.datafactory.LinkedServiceOdbc("basicAuth",
-            data_factory_id=example_factory.id,
-            connection_string="Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;",
-            basic_authentication=azure.datafactory.LinkedServiceOdbcBasicAuthenticationArgs(
-                username="onrylmz",
-                password="Ch4ngeM3!",
-            ))
-        ```
 
         ## Import
 
@@ -531,11 +491,7 @@ class LinkedServiceOdbc(pulumi.CustomResource):
 
             __props__.__dict__["additional_properties"] = additional_properties
             __props__.__dict__["annotations"] = annotations
-            if basic_authentication is not None and not isinstance(basic_authentication, LinkedServiceOdbcBasicAuthenticationArgs):
-                basic_authentication = basic_authentication or {}
-                def _setter(key, value):
-                    basic_authentication[key] = value
-                LinkedServiceOdbcBasicAuthenticationArgs._configure(_setter, **basic_authentication)
+            basic_authentication = _utilities.configure(basic_authentication, LinkedServiceOdbcBasicAuthenticationArgs, True)
             __props__.__dict__["basic_authentication"] = basic_authentication
             if connection_string is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_string'")

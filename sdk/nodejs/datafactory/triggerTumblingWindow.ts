@@ -9,52 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Tumbling Window Trigger inside an Azure Data Factory.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const examplePipeline = new azure.datafactory.Pipeline("examplePipeline", {dataFactoryId: exampleFactory.id});
- * const exampleTriggerTumblingWindow = new azure.datafactory.TriggerTumblingWindow("exampleTriggerTumblingWindow", {
- *     dataFactoryId: exampleFactory.id,
- *     startTime: "2022-09-21T00:00:00Z",
- *     endTime: "2022-09-21T08:00:00Z",
- *     frequency: "Minute",
- *     interval: 15,
- *     delay: "16:00:00",
- *     annotations: [
- *         "example1",
- *         "example2",
- *         "example3",
- *     ],
- *     description: "example description",
- *     retry: {
- *         count: 1,
- *         interval: 30,
- *     },
- *     pipeline: {
- *         name: examplePipeline.name,
- *         parameters: {
- *             Env: "Prod",
- *         },
- *     },
- *     triggerDependencies: [{
- *         size: "24:00:00",
- *         offset: "-24:00:00",
- *     }],
- *     additionalProperties: {
- *         foo: "value1",
- *         bar: "value2",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Data Factory Tumbling Window Trigger can be imported using the `resource id`, e.g.

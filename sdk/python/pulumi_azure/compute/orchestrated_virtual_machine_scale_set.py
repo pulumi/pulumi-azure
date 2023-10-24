@@ -141,8 +141,8 @@ class OrchestratedVirtualMachineScaleSetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             platform_fault_domain_count: pulumi.Input[int],
-             resource_group_name: pulumi.Input[str],
+             platform_fault_domain_count: Optional[pulumi.Input[int]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              additional_capabilities: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs']] = None,
              automatic_instance_repair: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs']] = None,
              boot_diagnostics: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs']] = None,
@@ -175,57 +175,61 @@ class OrchestratedVirtualMachineScaleSetArgs:
              user_data_base64: Optional[pulumi.Input[str]] = None,
              zone_balance: Optional[pulumi.Input[bool]] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'platformFaultDomainCount' in kwargs:
+        if platform_fault_domain_count is None and 'platformFaultDomainCount' in kwargs:
             platform_fault_domain_count = kwargs['platformFaultDomainCount']
-        if 'resourceGroupName' in kwargs:
+        if platform_fault_domain_count is None:
+            raise TypeError("Missing 'platform_fault_domain_count' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'additionalCapabilities' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if additional_capabilities is None and 'additionalCapabilities' in kwargs:
             additional_capabilities = kwargs['additionalCapabilities']
-        if 'automaticInstanceRepair' in kwargs:
+        if automatic_instance_repair is None and 'automaticInstanceRepair' in kwargs:
             automatic_instance_repair = kwargs['automaticInstanceRepair']
-        if 'bootDiagnostics' in kwargs:
+        if boot_diagnostics is None and 'bootDiagnostics' in kwargs:
             boot_diagnostics = kwargs['bootDiagnostics']
-        if 'capacityReservationGroupId' in kwargs:
+        if capacity_reservation_group_id is None and 'capacityReservationGroupId' in kwargs:
             capacity_reservation_group_id = kwargs['capacityReservationGroupId']
-        if 'dataDisks' in kwargs:
+        if data_disks is None and 'dataDisks' in kwargs:
             data_disks = kwargs['dataDisks']
-        if 'encryptionAtHostEnabled' in kwargs:
+        if encryption_at_host_enabled is None and 'encryptionAtHostEnabled' in kwargs:
             encryption_at_host_enabled = kwargs['encryptionAtHostEnabled']
-        if 'evictionPolicy' in kwargs:
+        if eviction_policy is None and 'evictionPolicy' in kwargs:
             eviction_policy = kwargs['evictionPolicy']
-        if 'extensionOperationsEnabled' in kwargs:
+        if extension_operations_enabled is None and 'extensionOperationsEnabled' in kwargs:
             extension_operations_enabled = kwargs['extensionOperationsEnabled']
-        if 'extensionsTimeBudget' in kwargs:
+        if extensions_time_budget is None and 'extensionsTimeBudget' in kwargs:
             extensions_time_budget = kwargs['extensionsTimeBudget']
-        if 'licenseType' in kwargs:
+        if license_type is None and 'licenseType' in kwargs:
             license_type = kwargs['licenseType']
-        if 'maxBidPrice' in kwargs:
+        if max_bid_price is None and 'maxBidPrice' in kwargs:
             max_bid_price = kwargs['maxBidPrice']
-        if 'networkInterfaces' in kwargs:
+        if network_interfaces is None and 'networkInterfaces' in kwargs:
             network_interfaces = kwargs['networkInterfaces']
-        if 'osDisk' in kwargs:
+        if os_disk is None and 'osDisk' in kwargs:
             os_disk = kwargs['osDisk']
-        if 'osProfile' in kwargs:
+        if os_profile is None and 'osProfile' in kwargs:
             os_profile = kwargs['osProfile']
-        if 'priorityMix' in kwargs:
+        if priority_mix is None and 'priorityMix' in kwargs:
             priority_mix = kwargs['priorityMix']
-        if 'proximityPlacementGroupId' in kwargs:
+        if proximity_placement_group_id is None and 'proximityPlacementGroupId' in kwargs:
             proximity_placement_group_id = kwargs['proximityPlacementGroupId']
-        if 'singlePlacementGroup' in kwargs:
+        if single_placement_group is None and 'singlePlacementGroup' in kwargs:
             single_placement_group = kwargs['singlePlacementGroup']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'sourceImageId' in kwargs:
+        if source_image_id is None and 'sourceImageId' in kwargs:
             source_image_id = kwargs['sourceImageId']
-        if 'sourceImageReference' in kwargs:
+        if source_image_reference is None and 'sourceImageReference' in kwargs:
             source_image_reference = kwargs['sourceImageReference']
-        if 'terminationNotification' in kwargs:
+        if termination_notification is None and 'terminationNotification' in kwargs:
             termination_notification = kwargs['terminationNotification']
-        if 'userDataBase64' in kwargs:
+        if user_data_base64 is None and 'userDataBase64' in kwargs:
             user_data_base64 = kwargs['userDataBase64']
-        if 'zoneBalance' in kwargs:
+        if zone_balance is None and 'zoneBalance' in kwargs:
             zone_balance = kwargs['zoneBalance']
 
         _setter("platform_fault_domain_count", platform_fault_domain_count)
@@ -884,59 +888,59 @@ class _OrchestratedVirtualMachineScaleSetState:
              user_data_base64: Optional[pulumi.Input[str]] = None,
              zone_balance: Optional[pulumi.Input[bool]] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'additionalCapabilities' in kwargs:
+        if additional_capabilities is None and 'additionalCapabilities' in kwargs:
             additional_capabilities = kwargs['additionalCapabilities']
-        if 'automaticInstanceRepair' in kwargs:
+        if automatic_instance_repair is None and 'automaticInstanceRepair' in kwargs:
             automatic_instance_repair = kwargs['automaticInstanceRepair']
-        if 'bootDiagnostics' in kwargs:
+        if boot_diagnostics is None and 'bootDiagnostics' in kwargs:
             boot_diagnostics = kwargs['bootDiagnostics']
-        if 'capacityReservationGroupId' in kwargs:
+        if capacity_reservation_group_id is None and 'capacityReservationGroupId' in kwargs:
             capacity_reservation_group_id = kwargs['capacityReservationGroupId']
-        if 'dataDisks' in kwargs:
+        if data_disks is None and 'dataDisks' in kwargs:
             data_disks = kwargs['dataDisks']
-        if 'encryptionAtHostEnabled' in kwargs:
+        if encryption_at_host_enabled is None and 'encryptionAtHostEnabled' in kwargs:
             encryption_at_host_enabled = kwargs['encryptionAtHostEnabled']
-        if 'evictionPolicy' in kwargs:
+        if eviction_policy is None and 'evictionPolicy' in kwargs:
             eviction_policy = kwargs['evictionPolicy']
-        if 'extensionOperationsEnabled' in kwargs:
+        if extension_operations_enabled is None and 'extensionOperationsEnabled' in kwargs:
             extension_operations_enabled = kwargs['extensionOperationsEnabled']
-        if 'extensionsTimeBudget' in kwargs:
+        if extensions_time_budget is None and 'extensionsTimeBudget' in kwargs:
             extensions_time_budget = kwargs['extensionsTimeBudget']
-        if 'licenseType' in kwargs:
+        if license_type is None and 'licenseType' in kwargs:
             license_type = kwargs['licenseType']
-        if 'maxBidPrice' in kwargs:
+        if max_bid_price is None and 'maxBidPrice' in kwargs:
             max_bid_price = kwargs['maxBidPrice']
-        if 'networkInterfaces' in kwargs:
+        if network_interfaces is None and 'networkInterfaces' in kwargs:
             network_interfaces = kwargs['networkInterfaces']
-        if 'osDisk' in kwargs:
+        if os_disk is None and 'osDisk' in kwargs:
             os_disk = kwargs['osDisk']
-        if 'osProfile' in kwargs:
+        if os_profile is None and 'osProfile' in kwargs:
             os_profile = kwargs['osProfile']
-        if 'platformFaultDomainCount' in kwargs:
+        if platform_fault_domain_count is None and 'platformFaultDomainCount' in kwargs:
             platform_fault_domain_count = kwargs['platformFaultDomainCount']
-        if 'priorityMix' in kwargs:
+        if priority_mix is None and 'priorityMix' in kwargs:
             priority_mix = kwargs['priorityMix']
-        if 'proximityPlacementGroupId' in kwargs:
+        if proximity_placement_group_id is None and 'proximityPlacementGroupId' in kwargs:
             proximity_placement_group_id = kwargs['proximityPlacementGroupId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'singlePlacementGroup' in kwargs:
+        if single_placement_group is None and 'singlePlacementGroup' in kwargs:
             single_placement_group = kwargs['singlePlacementGroup']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'sourceImageId' in kwargs:
+        if source_image_id is None and 'sourceImageId' in kwargs:
             source_image_id = kwargs['sourceImageId']
-        if 'sourceImageReference' in kwargs:
+        if source_image_reference is None and 'sourceImageReference' in kwargs:
             source_image_reference = kwargs['sourceImageReference']
-        if 'terminationNotification' in kwargs:
+        if termination_notification is None and 'terminationNotification' in kwargs:
             termination_notification = kwargs['terminationNotification']
-        if 'uniqueId' in kwargs:
+        if unique_id is None and 'uniqueId' in kwargs:
             unique_id = kwargs['uniqueId']
-        if 'userDataBase64' in kwargs:
+        if user_data_base64 is None and 'userDataBase64' in kwargs:
             user_data_base64 = kwargs['userDataBase64']
-        if 'zoneBalance' in kwargs:
+        if zone_balance is None and 'zoneBalance' in kwargs:
             zone_balance = kwargs['zoneBalance']
 
         if additional_capabilities is not None:
@@ -1494,20 +1498,6 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
 
         > **NOTE:** All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_orchestrated_virtual_machine_scale_set = azure.compute.OrchestratedVirtualMachineScaleSet("exampleOrchestratedVirtualMachineScaleSet",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            platform_fault_domain_count=1,
-            zones=["1"])
-        ```
-
         ## Import
 
         An Orchestrated Virtual Machine Scale Set can be imported using the `resource id`, e.g.
@@ -1582,20 +1572,6 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
 
         > **NOTE:** All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_orchestrated_virtual_machine_scale_set = azure.compute.OrchestratedVirtualMachineScaleSet("exampleOrchestratedVirtualMachineScaleSet",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            platform_fault_domain_count=1,
-            zones=["1"])
-        ```
-
         ## Import
 
         An Orchestrated Virtual Machine Scale Set can be imported using the `resource id`, e.g.
@@ -1666,23 +1642,11 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = OrchestratedVirtualMachineScaleSetArgs.__new__(OrchestratedVirtualMachineScaleSetArgs)
 
-            if additional_capabilities is not None and not isinstance(additional_capabilities, OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs):
-                additional_capabilities = additional_capabilities or {}
-                def _setter(key, value):
-                    additional_capabilities[key] = value
-                OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs._configure(_setter, **additional_capabilities)
+            additional_capabilities = _utilities.configure(additional_capabilities, OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs, True)
             __props__.__dict__["additional_capabilities"] = additional_capabilities
-            if automatic_instance_repair is not None and not isinstance(automatic_instance_repair, OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs):
-                automatic_instance_repair = automatic_instance_repair or {}
-                def _setter(key, value):
-                    automatic_instance_repair[key] = value
-                OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs._configure(_setter, **automatic_instance_repair)
+            automatic_instance_repair = _utilities.configure(automatic_instance_repair, OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs, True)
             __props__.__dict__["automatic_instance_repair"] = automatic_instance_repair
-            if boot_diagnostics is not None and not isinstance(boot_diagnostics, OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs):
-                boot_diagnostics = boot_diagnostics or {}
-                def _setter(key, value):
-                    boot_diagnostics[key] = value
-                OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs._configure(_setter, **boot_diagnostics)
+            boot_diagnostics = _utilities.configure(boot_diagnostics, OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs, True)
             __props__.__dict__["boot_diagnostics"] = boot_diagnostics
             __props__.__dict__["capacity_reservation_group_id"] = capacity_reservation_group_id
             __props__.__dict__["data_disks"] = data_disks
@@ -1691,11 +1655,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
             __props__.__dict__["extension_operations_enabled"] = extension_operations_enabled
             __props__.__dict__["extensions"] = extensions
             __props__.__dict__["extensions_time_budget"] = extensions_time_budget
-            if identity is not None and not isinstance(identity, OrchestratedVirtualMachineScaleSetIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                OrchestratedVirtualMachineScaleSetIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, OrchestratedVirtualMachineScaleSetIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["instances"] = instances
             __props__.__dict__["license_type"] = license_type
@@ -1703,33 +1663,17 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
             __props__.__dict__["max_bid_price"] = max_bid_price
             __props__.__dict__["name"] = name
             __props__.__dict__["network_interfaces"] = network_interfaces
-            if os_disk is not None and not isinstance(os_disk, OrchestratedVirtualMachineScaleSetOsDiskArgs):
-                os_disk = os_disk or {}
-                def _setter(key, value):
-                    os_disk[key] = value
-                OrchestratedVirtualMachineScaleSetOsDiskArgs._configure(_setter, **os_disk)
+            os_disk = _utilities.configure(os_disk, OrchestratedVirtualMachineScaleSetOsDiskArgs, True)
             __props__.__dict__["os_disk"] = os_disk
-            if os_profile is not None and not isinstance(os_profile, OrchestratedVirtualMachineScaleSetOsProfileArgs):
-                os_profile = os_profile or {}
-                def _setter(key, value):
-                    os_profile[key] = value
-                OrchestratedVirtualMachineScaleSetOsProfileArgs._configure(_setter, **os_profile)
+            os_profile = _utilities.configure(os_profile, OrchestratedVirtualMachineScaleSetOsProfileArgs, True)
             __props__.__dict__["os_profile"] = os_profile
-            if plan is not None and not isinstance(plan, OrchestratedVirtualMachineScaleSetPlanArgs):
-                plan = plan or {}
-                def _setter(key, value):
-                    plan[key] = value
-                OrchestratedVirtualMachineScaleSetPlanArgs._configure(_setter, **plan)
+            plan = _utilities.configure(plan, OrchestratedVirtualMachineScaleSetPlanArgs, True)
             __props__.__dict__["plan"] = plan
             if platform_fault_domain_count is None and not opts.urn:
                 raise TypeError("Missing required property 'platform_fault_domain_count'")
             __props__.__dict__["platform_fault_domain_count"] = platform_fault_domain_count
             __props__.__dict__["priority"] = priority
-            if priority_mix is not None and not isinstance(priority_mix, OrchestratedVirtualMachineScaleSetPriorityMixArgs):
-                priority_mix = priority_mix or {}
-                def _setter(key, value):
-                    priority_mix[key] = value
-                OrchestratedVirtualMachineScaleSetPriorityMixArgs._configure(_setter, **priority_mix)
+            priority_mix = _utilities.configure(priority_mix, OrchestratedVirtualMachineScaleSetPriorityMixArgs, True)
             __props__.__dict__["priority_mix"] = priority_mix
             __props__.__dict__["proximity_placement_group_id"] = proximity_placement_group_id
             if resource_group_name is None and not opts.urn:
@@ -1738,18 +1682,10 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
             __props__.__dict__["single_placement_group"] = single_placement_group
             __props__.__dict__["sku_name"] = sku_name
             __props__.__dict__["source_image_id"] = source_image_id
-            if source_image_reference is not None and not isinstance(source_image_reference, OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs):
-                source_image_reference = source_image_reference or {}
-                def _setter(key, value):
-                    source_image_reference[key] = value
-                OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs._configure(_setter, **source_image_reference)
+            source_image_reference = _utilities.configure(source_image_reference, OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs, True)
             __props__.__dict__["source_image_reference"] = source_image_reference
             __props__.__dict__["tags"] = tags
-            if termination_notification is not None and not isinstance(termination_notification, OrchestratedVirtualMachineScaleSetTerminationNotificationArgs):
-                termination_notification = termination_notification or {}
-                def _setter(key, value):
-                    termination_notification[key] = value
-                OrchestratedVirtualMachineScaleSetTerminationNotificationArgs._configure(_setter, **termination_notification)
+            termination_notification = _utilities.configure(termination_notification, OrchestratedVirtualMachineScaleSetTerminationNotificationArgs, True)
             __props__.__dict__["termination_notification"] = termination_notification
             __props__.__dict__["user_data_base64"] = None if user_data_base64 is None else pulumi.Output.secret(user_data_base64)
             __props__.__dict__["zone_balance"] = zone_balance

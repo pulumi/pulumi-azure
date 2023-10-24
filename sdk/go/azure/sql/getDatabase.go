@@ -15,35 +15,6 @@ import (
 // Use this data source to access information about an existing SQL Azure Database.
 //
 // > **Note:** The `sql.Database` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.Database` data source instead.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sql"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := sql.LookupDatabase(ctx, &sql.LookupDatabaseArgs{
-//				Name:              "example_db",
-//				ServerName:        "example_db_server",
-//				ResourceGroupName: "example-resources",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("sqlDatabaseId", example.Id)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupDatabase(ctx *pulumi.Context, args *LookupDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDatabaseResult

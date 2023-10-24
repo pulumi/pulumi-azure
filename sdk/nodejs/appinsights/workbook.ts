@@ -9,35 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Workbook.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleWorkbook = new azure.appinsights.Workbook("exampleWorkbook", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     displayName: "workbook1",
- *     dataJson: JSON.stringify({
- *         version: "Notebook/1.0",
- *         items: [{
- *             type: 1,
- *             content: {
- *                 json: "Test2022",
- *             },
- *             name: "text - 0",
- *         }],
- *         isLocked: false,
- *         fallbackResourceIds: ["Azure Monitor"],
- *     }),
- *     tags: {
- *         ENV: "Test",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Workbooks can be imported using the `resource id`, e.g.

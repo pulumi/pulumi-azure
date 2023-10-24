@@ -41,20 +41,24 @@ class ServicesCommunicationsGatewayServiceLocationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             location: pulumi.Input[str],
-             operator_addresses: pulumi.Input[Sequence[pulumi.Input[str]]],
+             location: Optional[pulumi.Input[str]] = None,
+             operator_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              allowed_media_source_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              allowed_signaling_source_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              esrp_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'operatorAddresses' in kwargs:
+        if location is None:
+            raise TypeError("Missing 'location' argument")
+        if operator_addresses is None and 'operatorAddresses' in kwargs:
             operator_addresses = kwargs['operatorAddresses']
-        if 'allowedMediaSourceAddressPrefixes' in kwargs:
+        if operator_addresses is None:
+            raise TypeError("Missing 'operator_addresses' argument")
+        if allowed_media_source_address_prefixes is None and 'allowedMediaSourceAddressPrefixes' in kwargs:
             allowed_media_source_address_prefixes = kwargs['allowedMediaSourceAddressPrefixes']
-        if 'allowedSignalingSourceAddressPrefixes' in kwargs:
+        if allowed_signaling_source_address_prefixes is None and 'allowedSignalingSourceAddressPrefixes' in kwargs:
             allowed_signaling_source_address_prefixes = kwargs['allowedSignalingSourceAddressPrefixes']
-        if 'esrpAddresses' in kwargs:
+        if esrp_addresses is None and 'esrpAddresses' in kwargs:
             esrp_addresses = kwargs['esrpAddresses']
 
         _setter("location", location)

@@ -9,47 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Sentinel Metadata.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "pergb2018",
- * });
- * const exampleAnalyticsSolution = new azure.operationalinsights.AnalyticsSolution("exampleAnalyticsSolution", {
- *     solutionName: "SecurityInsights",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     workspaceResourceId: exampleAnalyticsWorkspace.id,
- *     workspaceName: exampleAnalyticsWorkspace.name,
- *     plan: {
- *         publisher: "Microsoft",
- *         product: "OMSGallery/SecurityInsights",
- *     },
- * });
- * const exampleAlertRuleNrt = new azure.sentinel.AlertRuleNrt("exampleAlertRuleNrt", {
- *     logAnalyticsWorkspaceId: exampleAnalyticsSolution.workspaceResourceId,
- *     displayName: "example",
- *     severity: "High",
- *     query: `AzureActivity |
- *   where OperationName == "Create or Update Virtual Machine" or OperationName =="Create Deployment" |
- *   where ActivityStatus == "Succeeded" |
- *   make-series dcount(ResourceId) default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
- * `,
- * });
- * const exampleMetadata = new azure.sentinel.Metadata("exampleMetadata", {
- *     workspaceId: exampleAnalyticsSolution.workspaceResourceId,
- *     contentId: exampleAlertRuleNrt.name,
- *     kind: "AnalyticsRule",
- *     parentId: exampleAlertRuleNrt.id,
- * });
- * ```
- *
  * ## Import
  *
  * Sentinel Metadata can be imported using the `resource id`, e.g.

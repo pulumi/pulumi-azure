@@ -9,30 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Cost Management View for a Resource Group.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleResourceGroupCostManagementView = new azure.core.ResourceGroupCostManagementView("exampleResourceGroupCostManagementView", {
- *     displayName: "Cost View per Month",
- *     chartType: "StackedColumn",
- *     accumulated: false,
- *     resourceGroupId: exampleResourceGroup.id,
- *     reportType: "Usage",
- *     timeframe: "MonthToDate",
- *     dataset: {
- *         granularity: "Monthly",
- *         aggregations: [{
- *             name: "totalCost",
- *             columnName: "Cost",
- *         }],
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Cost Management View for a Resource Groups can be imported using the `resource id`, e.g.

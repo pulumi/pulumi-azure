@@ -38,20 +38,26 @@ class EndpointEventHubArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             digital_twins_id: pulumi.Input[str],
-             eventhub_primary_connection_string: pulumi.Input[str],
-             eventhub_secondary_connection_string: pulumi.Input[str],
+             digital_twins_id: Optional[pulumi.Input[str]] = None,
+             eventhub_primary_connection_string: Optional[pulumi.Input[str]] = None,
+             eventhub_secondary_connection_string: Optional[pulumi.Input[str]] = None,
              dead_letter_storage_secret: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'digitalTwinsId' in kwargs:
+        if digital_twins_id is None and 'digitalTwinsId' in kwargs:
             digital_twins_id = kwargs['digitalTwinsId']
-        if 'eventhubPrimaryConnectionString' in kwargs:
+        if digital_twins_id is None:
+            raise TypeError("Missing 'digital_twins_id' argument")
+        if eventhub_primary_connection_string is None and 'eventhubPrimaryConnectionString' in kwargs:
             eventhub_primary_connection_string = kwargs['eventhubPrimaryConnectionString']
-        if 'eventhubSecondaryConnectionString' in kwargs:
+        if eventhub_primary_connection_string is None:
+            raise TypeError("Missing 'eventhub_primary_connection_string' argument")
+        if eventhub_secondary_connection_string is None and 'eventhubSecondaryConnectionString' in kwargs:
             eventhub_secondary_connection_string = kwargs['eventhubSecondaryConnectionString']
-        if 'deadLetterStorageSecret' in kwargs:
+        if eventhub_secondary_connection_string is None:
+            raise TypeError("Missing 'eventhub_secondary_connection_string' argument")
+        if dead_letter_storage_secret is None and 'deadLetterStorageSecret' in kwargs:
             dead_letter_storage_secret = kwargs['deadLetterStorageSecret']
 
         _setter("digital_twins_id", digital_twins_id)
@@ -155,15 +161,15 @@ class _EndpointEventHubState:
              eventhub_primary_connection_string: Optional[pulumi.Input[str]] = None,
              eventhub_secondary_connection_string: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'deadLetterStorageSecret' in kwargs:
+        if dead_letter_storage_secret is None and 'deadLetterStorageSecret' in kwargs:
             dead_letter_storage_secret = kwargs['deadLetterStorageSecret']
-        if 'digitalTwinsId' in kwargs:
+        if digital_twins_id is None and 'digitalTwinsId' in kwargs:
             digital_twins_id = kwargs['digitalTwinsId']
-        if 'eventhubPrimaryConnectionString' in kwargs:
+        if eventhub_primary_connection_string is None and 'eventhubPrimaryConnectionString' in kwargs:
             eventhub_primary_connection_string = kwargs['eventhubPrimaryConnectionString']
-        if 'eventhubSecondaryConnectionString' in kwargs:
+        if eventhub_secondary_connection_string is None and 'eventhubSecondaryConnectionString' in kwargs:
             eventhub_secondary_connection_string = kwargs['eventhubSecondaryConnectionString']
 
         if dead_letter_storage_secret is not None:
@@ -252,38 +258,6 @@ class EndpointEventHub(pulumi.CustomResource):
         """
         Manages a Digital Twins Event Hub Endpoint.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_instance = azure.digitaltwins.Instance("exampleInstance",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard")
-        example_event_hub = azure.eventhub.EventHub("exampleEventHub",
-            namespace_name=example_event_hub_namespace.name,
-            resource_group_name=example_resource_group.name,
-            partition_count=2,
-            message_retention=1)
-        example_authorization_rule = azure.eventhub.AuthorizationRule("exampleAuthorizationRule",
-            namespace_name=example_event_hub_namespace.name,
-            eventhub_name=example_event_hub.name,
-            resource_group_name=example_resource_group.name,
-            listen=False,
-            send=True,
-            manage=False)
-        example_endpoint_event_hub = azure.digitaltwins.EndpointEventHub("exampleEndpointEventHub",
-            digital_twins_id=example_instance.id,
-            eventhub_primary_connection_string=example_authorization_rule.primary_connection_string,
-            eventhub_secondary_connection_string=example_authorization_rule.secondary_connection_string)
-        ```
-
         ## Import
 
         Digital Twins Eventhub Endpoints can be imported using the `resource id`, e.g.
@@ -308,38 +282,6 @@ class EndpointEventHub(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Digital Twins Event Hub Endpoint.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_instance = azure.digitaltwins.Instance("exampleInstance",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard")
-        example_event_hub = azure.eventhub.EventHub("exampleEventHub",
-            namespace_name=example_event_hub_namespace.name,
-            resource_group_name=example_resource_group.name,
-            partition_count=2,
-            message_retention=1)
-        example_authorization_rule = azure.eventhub.AuthorizationRule("exampleAuthorizationRule",
-            namespace_name=example_event_hub_namespace.name,
-            eventhub_name=example_event_hub.name,
-            resource_group_name=example_resource_group.name,
-            listen=False,
-            send=True,
-            manage=False)
-        example_endpoint_event_hub = azure.digitaltwins.EndpointEventHub("exampleEndpointEventHub",
-            digital_twins_id=example_instance.id,
-            eventhub_primary_connection_string=example_authorization_rule.primary_connection_string,
-            eventhub_secondary_connection_string=example_authorization_rule.secondary_connection_string)
-        ```
 
         ## Import
 

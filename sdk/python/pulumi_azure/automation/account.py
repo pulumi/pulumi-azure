@@ -52,8 +52,8 @@ class AccountArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             sku_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
              encryptions: Optional[pulumi.Input[Sequence[pulumi.Input['AccountEncryptionArgs']]]] = None,
              identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
              local_authentication_enabled: Optional[pulumi.Input[bool]] = None,
@@ -61,15 +61,19 @@ class AccountArgs:
              name: Optional[pulumi.Input[str]] = None,
              public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'localAuthenticationEnabled' in kwargs:
+        if sku_name is None:
+            raise TypeError("Missing 'sku_name' argument")
+        if local_authentication_enabled is None and 'localAuthenticationEnabled' in kwargs:
             local_authentication_enabled = kwargs['localAuthenticationEnabled']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
 
         _setter("resource_group_name", resource_group_name)
@@ -265,25 +269,25 @@ class _AccountState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              sku_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dscPrimaryAccessKey' in kwargs:
+        if dsc_primary_access_key is None and 'dscPrimaryAccessKey' in kwargs:
             dsc_primary_access_key = kwargs['dscPrimaryAccessKey']
-        if 'dscSecondaryAccessKey' in kwargs:
+        if dsc_secondary_access_key is None and 'dscSecondaryAccessKey' in kwargs:
             dsc_secondary_access_key = kwargs['dscSecondaryAccessKey']
-        if 'dscServerEndpoint' in kwargs:
+        if dsc_server_endpoint is None and 'dscServerEndpoint' in kwargs:
             dsc_server_endpoint = kwargs['dscServerEndpoint']
-        if 'hybridServiceUrl' in kwargs:
+        if hybrid_service_url is None and 'hybridServiceUrl' in kwargs:
             hybrid_service_url = kwargs['hybridServiceUrl']
-        if 'localAuthenticationEnabled' in kwargs:
+        if local_authentication_enabled is None and 'localAuthenticationEnabled' in kwargs:
             local_authentication_enabled = kwargs['localAuthenticationEnabled']
-        if 'privateEndpointConnections' in kwargs:
+        if private_endpoint_connections is None and 'privateEndpointConnections' in kwargs:
             private_endpoint_connections = kwargs['privateEndpointConnections']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
 
         if dsc_primary_access_key is not None:
@@ -499,22 +503,6 @@ class Account(pulumi.CustomResource):
         """
         Manages a Automation Account.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.automation.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Basic",
-            tags={
-                "environment": "development",
-            })
-        ```
-
         ## Import
 
         Automation Accounts can be imported using the `resource id`, e.g.
@@ -543,22 +531,6 @@ class Account(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Automation Account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.automation.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Basic",
-            tags={
-                "environment": "development",
-            })
-        ```
 
         ## Import
 
@@ -606,11 +578,7 @@ class Account(pulumi.CustomResource):
             __props__ = AccountArgs.__new__(AccountArgs)
 
             __props__.__dict__["encryptions"] = encryptions
-            if identity is not None and not isinstance(identity, AccountIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                AccountIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, AccountIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["local_authentication_enabled"] = local_authentication_enabled
             __props__.__dict__["location"] = location

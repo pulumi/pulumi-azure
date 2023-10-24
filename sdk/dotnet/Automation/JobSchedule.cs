@@ -12,34 +12,6 @@ namespace Pulumi.Azure.Automation
     /// <summary>
     /// Links an Automation Runbook and Schedule.
     /// 
-    /// ## Example Usage
-    /// 
-    /// This is an example of just the Job Schedule.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.Automation.JobSchedule("example", new()
-    ///     {
-    ///         AutomationAccountName = "tf-automation-account",
-    ///         Parameters = 
-    ///         {
-    ///             { "resourcegroup", "tf-rgr-vm" },
-    ///             { "vmname", "TF-VM-01" },
-    ///         },
-    ///         ResourceGroupName = "tf-rgr-automation",
-    ///         RunbookName = "Get-VirtualMachine",
-    ///         ScheduleName = "hour",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Automation Job Schedules can be imported using the `resource id`, e.g.

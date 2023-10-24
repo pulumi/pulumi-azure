@@ -38,19 +38,25 @@ class RegistryTokenArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             container_registry_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             scope_map_id: pulumi.Input[str],
+             container_registry_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             scope_map_id: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'containerRegistryName' in kwargs:
+        if container_registry_name is None and 'containerRegistryName' in kwargs:
             container_registry_name = kwargs['containerRegistryName']
-        if 'resourceGroupName' in kwargs:
+        if container_registry_name is None:
+            raise TypeError("Missing 'container_registry_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'scopeMapId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if scope_map_id is None and 'scopeMapId' in kwargs:
             scope_map_id = kwargs['scopeMapId']
+        if scope_map_id is None:
+            raise TypeError("Missing 'scope_map_id' argument")
 
         _setter("container_registry_name", container_registry_name)
         _setter("resource_group_name", resource_group_name)
@@ -153,13 +159,13 @@ class _RegistryTokenState:
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              scope_map_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'containerRegistryName' in kwargs:
+        if container_registry_name is None and 'containerRegistryName' in kwargs:
             container_registry_name = kwargs['containerRegistryName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'scopeMapId' in kwargs:
+        if scope_map_id is None and 'scopeMapId' in kwargs:
             scope_map_id = kwargs['scopeMapId']
 
         if container_registry_name is not None:
@@ -248,37 +254,6 @@ class RegistryToken(pulumi.CustomResource):
         """
         Manages an Azure Container Registry token. Tokens are a preview feature only available in Premium SKU Container registries.
 
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_registry = azure.containerservice.Registry("exampleRegistry",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku="Premium",
-            admin_enabled=False,
-            georeplications=[
-                azure.containerservice.RegistryGeoreplicationArgs(
-                    location="East US",
-                ),
-                azure.containerservice.RegistryGeoreplicationArgs(
-                    location="West Europe",
-                ),
-            ])
-        example_registry_scope_map = azure.containerservice.RegistryScopeMap("exampleRegistryScopeMap",
-            container_registry_name=example_registry.name,
-            resource_group_name=example_resource_group.name,
-            actions=[
-                "repositories/repo1/content/read",
-                "repositories/repo1/content/write",
-            ])
-        example_registry_token = azure.containerservice.RegistryToken("exampleRegistryToken",
-            container_registry_name=example_registry.name,
-            resource_group_name=example_resource_group.name,
-            scope_map_id=example_registry_scope_map.id)
-        ```
-
         ## Import
 
         Container Registries can be imported using the `resource id`, e.g.
@@ -303,37 +278,6 @@ class RegistryToken(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Container Registry token. Tokens are a preview feature only available in Premium SKU Container registries.
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_registry = azure.containerservice.Registry("exampleRegistry",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku="Premium",
-            admin_enabled=False,
-            georeplications=[
-                azure.containerservice.RegistryGeoreplicationArgs(
-                    location="East US",
-                ),
-                azure.containerservice.RegistryGeoreplicationArgs(
-                    location="West Europe",
-                ),
-            ])
-        example_registry_scope_map = azure.containerservice.RegistryScopeMap("exampleRegistryScopeMap",
-            container_registry_name=example_registry.name,
-            resource_group_name=example_resource_group.name,
-            actions=[
-                "repositories/repo1/content/read",
-                "repositories/repo1/content/write",
-            ])
-        example_registry_token = azure.containerservice.RegistryToken("exampleRegistryToken",
-            container_registry_name=example_registry.name,
-            resource_group_name=example_resource_group.name,
-            scope_map_id=example_registry_scope_map.id)
-        ```
 
         ## Import
 

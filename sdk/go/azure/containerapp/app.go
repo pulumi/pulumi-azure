@@ -15,69 +15,6 @@ import (
 
 // Manages a Container App.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerapp"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Sku:               pulumi.String("PerGB2018"),
-//				RetentionInDays:   pulumi.Int(30),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleEnvironment, err := containerapp.NewEnvironment(ctx, "exampleEnvironment", &containerapp.EnvironmentArgs{
-//				Location:                exampleResourceGroup.Location,
-//				ResourceGroupName:       exampleResourceGroup.Name,
-//				LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = containerapp.NewApp(ctx, "exampleApp", &containerapp.AppArgs{
-//				ContainerAppEnvironmentId: exampleEnvironment.ID(),
-//				ResourceGroupName:         exampleResourceGroup.Name,
-//				RevisionMode:              pulumi.String("Single"),
-//				Template: &containerapp.AppTemplateArgs{
-//					Containers: containerapp.AppTemplateContainerArray{
-//						&containerapp.AppTemplateContainerArgs{
-//							Name:   pulumi.String("examplecontainerapp"),
-//							Image:  pulumi.String("mcr.microsoft.com/azuredocs/containerapps-helloworld:latest"),
-//							Cpu:    pulumi.Float64(0.25),
-//							Memory: pulumi.String("0.5Gi"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // A Container App can be imported using the `resource id`, e.g.

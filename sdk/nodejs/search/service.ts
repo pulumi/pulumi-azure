@@ -10,48 +10,6 @@ import * as utilities from "../utilities";
  * Manages a Search Service.
  *
  * ## Example Usage
- * ### Supporting API Keys)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleService = new azure.search.Service("exampleService", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     sku: "standard",
- * });
- * ```
- * ### Using Both AzureAD And API Keys)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleService = new azure.search.Service("exampleService", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     sku: "standard",
- *     localAuthenticationEnabled: true,
- *     authenticationFailureMode: "http403",
- * });
- * ```
- * ### Supporting Only AzureAD Authentication)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleService = new azure.search.Service("exampleService", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     sku: "standard",
- *     localAuthenticationEnabled: false,
- * });
- * ```
  *
  * ## Import
  *

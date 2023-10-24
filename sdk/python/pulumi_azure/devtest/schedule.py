@@ -61,11 +61,11 @@ class ScheduleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             lab_name: pulumi.Input[str],
-             notification_settings: pulumi.Input['ScheduleNotificationSettingsArgs'],
-             resource_group_name: pulumi.Input[str],
-             task_type: pulumi.Input[str],
-             time_zone_id: pulumi.Input[str],
+             lab_name: Optional[pulumi.Input[str]] = None,
+             notification_settings: Optional[pulumi.Input['ScheduleNotificationSettingsArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             task_type: Optional[pulumi.Input[str]] = None,
+             time_zone_id: Optional[pulumi.Input[str]] = None,
              daily_recurrence: Optional[pulumi.Input['ScheduleDailyRecurrenceArgs']] = None,
              hourly_recurrence: Optional[pulumi.Input['ScheduleHourlyRecurrenceArgs']] = None,
              location: Optional[pulumi.Input[str]] = None,
@@ -73,23 +73,33 @@ class ScheduleArgs:
              status: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              weekly_recurrence: Optional[pulumi.Input['ScheduleWeeklyRecurrenceArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'labName' in kwargs:
+        if lab_name is None and 'labName' in kwargs:
             lab_name = kwargs['labName']
-        if 'notificationSettings' in kwargs:
+        if lab_name is None:
+            raise TypeError("Missing 'lab_name' argument")
+        if notification_settings is None and 'notificationSettings' in kwargs:
             notification_settings = kwargs['notificationSettings']
-        if 'resourceGroupName' in kwargs:
+        if notification_settings is None:
+            raise TypeError("Missing 'notification_settings' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'taskType' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if task_type is None and 'taskType' in kwargs:
             task_type = kwargs['taskType']
-        if 'timeZoneId' in kwargs:
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if time_zone_id is None and 'timeZoneId' in kwargs:
             time_zone_id = kwargs['timeZoneId']
-        if 'dailyRecurrence' in kwargs:
+        if time_zone_id is None:
+            raise TypeError("Missing 'time_zone_id' argument")
+        if daily_recurrence is None and 'dailyRecurrence' in kwargs:
             daily_recurrence = kwargs['dailyRecurrence']
-        if 'hourlyRecurrence' in kwargs:
+        if hourly_recurrence is None and 'hourlyRecurrence' in kwargs:
             hourly_recurrence = kwargs['hourlyRecurrence']
-        if 'weeklyRecurrence' in kwargs:
+        if weekly_recurrence is None and 'weeklyRecurrence' in kwargs:
             weekly_recurrence = kwargs['weeklyRecurrence']
 
         _setter("lab_name", lab_name)
@@ -317,23 +327,23 @@ class _ScheduleState:
              task_type: Optional[pulumi.Input[str]] = None,
              time_zone_id: Optional[pulumi.Input[str]] = None,
              weekly_recurrence: Optional[pulumi.Input['ScheduleWeeklyRecurrenceArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dailyRecurrence' in kwargs:
+        if daily_recurrence is None and 'dailyRecurrence' in kwargs:
             daily_recurrence = kwargs['dailyRecurrence']
-        if 'hourlyRecurrence' in kwargs:
+        if hourly_recurrence is None and 'hourlyRecurrence' in kwargs:
             hourly_recurrence = kwargs['hourlyRecurrence']
-        if 'labName' in kwargs:
+        if lab_name is None and 'labName' in kwargs:
             lab_name = kwargs['labName']
-        if 'notificationSettings' in kwargs:
+        if notification_settings is None and 'notificationSettings' in kwargs:
             notification_settings = kwargs['notificationSettings']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'taskType' in kwargs:
+        if task_type is None and 'taskType' in kwargs:
             task_type = kwargs['taskType']
-        if 'timeZoneId' in kwargs:
+        if time_zone_id is None and 'timeZoneId' in kwargs:
             time_zone_id = kwargs['timeZoneId']
-        if 'weeklyRecurrence' in kwargs:
+        if weekly_recurrence is None and 'weeklyRecurrence' in kwargs:
             weekly_recurrence = kwargs['weeklyRecurrence']
 
         if daily_recurrence is not None:
@@ -527,35 +537,6 @@ class Schedule(pulumi.CustomResource):
         """
         Manages automated startup and shutdown schedules for Azure Dev Test Lab.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_lab = azure.devtest.Lab("exampleLab",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_schedule = azure.devtest.Schedule("exampleSchedule",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            lab_name=example_lab.name,
-            weekly_recurrence=azure.devtest.ScheduleWeeklyRecurrenceArgs(
-                time="1100",
-                week_days=[
-                    "Monday",
-                    "Tuesday",
-                ],
-            ),
-            time_zone_id="Pacific Standard Time",
-            task_type="LabVmsStartupTask",
-            notification_settings=azure.devtest.ScheduleNotificationSettingsArgs(),
-            tags={
-                "environment": "Production",
-            })
-        ```
-
         ## Import
 
         DevTest Schedule's can be imported using the `resource id`, e.g.
@@ -587,35 +568,6 @@ class Schedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages automated startup and shutdown schedules for Azure Dev Test Lab.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_lab = azure.devtest.Lab("exampleLab",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_schedule = azure.devtest.Schedule("exampleSchedule",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            lab_name=example_lab.name,
-            weekly_recurrence=azure.devtest.ScheduleWeeklyRecurrenceArgs(
-                time="1100",
-                week_days=[
-                    "Monday",
-                    "Tuesday",
-                ],
-            ),
-            time_zone_id="Pacific Standard Time",
-            task_type="LabVmsStartupTask",
-            notification_settings=azure.devtest.ScheduleNotificationSettingsArgs(),
-            tags={
-                "environment": "Production",
-            })
-        ```
 
         ## Import
 
@@ -665,28 +617,16 @@ class Schedule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ScheduleArgs.__new__(ScheduleArgs)
 
-            if daily_recurrence is not None and not isinstance(daily_recurrence, ScheduleDailyRecurrenceArgs):
-                daily_recurrence = daily_recurrence or {}
-                def _setter(key, value):
-                    daily_recurrence[key] = value
-                ScheduleDailyRecurrenceArgs._configure(_setter, **daily_recurrence)
+            daily_recurrence = _utilities.configure(daily_recurrence, ScheduleDailyRecurrenceArgs, True)
             __props__.__dict__["daily_recurrence"] = daily_recurrence
-            if hourly_recurrence is not None and not isinstance(hourly_recurrence, ScheduleHourlyRecurrenceArgs):
-                hourly_recurrence = hourly_recurrence or {}
-                def _setter(key, value):
-                    hourly_recurrence[key] = value
-                ScheduleHourlyRecurrenceArgs._configure(_setter, **hourly_recurrence)
+            hourly_recurrence = _utilities.configure(hourly_recurrence, ScheduleHourlyRecurrenceArgs, True)
             __props__.__dict__["hourly_recurrence"] = hourly_recurrence
             if lab_name is None and not opts.urn:
                 raise TypeError("Missing required property 'lab_name'")
             __props__.__dict__["lab_name"] = lab_name
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
-            if notification_settings is not None and not isinstance(notification_settings, ScheduleNotificationSettingsArgs):
-                notification_settings = notification_settings or {}
-                def _setter(key, value):
-                    notification_settings[key] = value
-                ScheduleNotificationSettingsArgs._configure(_setter, **notification_settings)
+            notification_settings = _utilities.configure(notification_settings, ScheduleNotificationSettingsArgs, True)
             if notification_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'notification_settings'")
             __props__.__dict__["notification_settings"] = notification_settings
@@ -701,11 +641,7 @@ class Schedule(pulumi.CustomResource):
             if time_zone_id is None and not opts.urn:
                 raise TypeError("Missing required property 'time_zone_id'")
             __props__.__dict__["time_zone_id"] = time_zone_id
-            if weekly_recurrence is not None and not isinstance(weekly_recurrence, ScheduleWeeklyRecurrenceArgs):
-                weekly_recurrence = weekly_recurrence or {}
-                def _setter(key, value):
-                    weekly_recurrence[key] = value
-                ScheduleWeeklyRecurrenceArgs._configure(_setter, **weekly_recurrence)
+            weekly_recurrence = _utilities.configure(weekly_recurrence, ScheduleWeeklyRecurrenceArgs, True)
             __props__.__dict__["weekly_recurrence"] = weekly_recurrence
         super(Schedule, __self__).__init__(
             'azure:devtest/schedule:Schedule',

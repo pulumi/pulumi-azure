@@ -13,66 +13,12 @@ namespace Pulumi.Azure.Compute
     {
         /// <summary>
         /// Use this data source to access information about an existing Managed Disk.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var existing = Azure.Compute.GetManagedDisk.Invoke(new()
-        ///     {
-        ///         Name = "example-datadisk",
-        ///         ResourceGroupName = "example-resources",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["id"] = existing.Apply(getManagedDiskResult =&gt; getManagedDiskResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetManagedDiskResult> InvokeAsync(GetManagedDiskArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedDiskResult>("azure:compute/getManagedDisk:getManagedDisk", args ?? new GetManagedDiskArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Managed Disk.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var existing = Azure.Compute.GetManagedDisk.Invoke(new()
-        ///     {
-        ///         Name = "example-datadisk",
-        ///         ResourceGroupName = "example-resources",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["id"] = existing.Apply(getManagedDiskResult =&gt; getManagedDiskResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetManagedDiskResult> Invoke(GetManagedDiskInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedDiskResult>("azure:compute/getManagedDisk:getManagedDisk", args ?? new GetManagedDiskInvokeArgs(), options.WithDefaults());

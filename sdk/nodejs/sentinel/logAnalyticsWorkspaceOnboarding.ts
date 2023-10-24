@@ -7,25 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Security Insights Sentinel Onboarding.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "PerGB2018",
- * });
- * const exampleLogAnalyticsWorkspaceOnboarding = new azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     workspaceName: exampleAnalyticsWorkspace.name,
- *     customerManagedKeyEnabled: false,
- * });
- * ```
- *
  * ## Import
  *
  * Security Insights Sentinel Onboarding States can be imported using the `resource id`, e.g.

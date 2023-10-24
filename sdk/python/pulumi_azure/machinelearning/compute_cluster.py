@@ -67,10 +67,10 @@ class ComputeClusterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             machine_learning_workspace_id: pulumi.Input[str],
-             scale_settings: pulumi.Input['ComputeClusterScaleSettingsArgs'],
-             vm_priority: pulumi.Input[str],
-             vm_size: pulumi.Input[str],
+             machine_learning_workspace_id: Optional[pulumi.Input[str]] = None,
+             scale_settings: Optional[pulumi.Input['ComputeClusterScaleSettingsArgs']] = None,
+             vm_priority: Optional[pulumi.Input[str]] = None,
+             vm_size: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              identity: Optional[pulumi.Input['ComputeClusterIdentityArgs']] = None,
              local_auth_enabled: Optional[pulumi.Input[bool]] = None,
@@ -81,23 +81,31 @@ class ComputeClusterArgs:
              ssh_public_access_enabled: Optional[pulumi.Input[bool]] = None,
              subnet_resource_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'machineLearningWorkspaceId' in kwargs:
+        if machine_learning_workspace_id is None and 'machineLearningWorkspaceId' in kwargs:
             machine_learning_workspace_id = kwargs['machineLearningWorkspaceId']
-        if 'scaleSettings' in kwargs:
+        if machine_learning_workspace_id is None:
+            raise TypeError("Missing 'machine_learning_workspace_id' argument")
+        if scale_settings is None and 'scaleSettings' in kwargs:
             scale_settings = kwargs['scaleSettings']
-        if 'vmPriority' in kwargs:
+        if scale_settings is None:
+            raise TypeError("Missing 'scale_settings' argument")
+        if vm_priority is None and 'vmPriority' in kwargs:
             vm_priority = kwargs['vmPriority']
-        if 'vmSize' in kwargs:
+        if vm_priority is None:
+            raise TypeError("Missing 'vm_priority' argument")
+        if vm_size is None and 'vmSize' in kwargs:
             vm_size = kwargs['vmSize']
-        if 'localAuthEnabled' in kwargs:
+        if vm_size is None:
+            raise TypeError("Missing 'vm_size' argument")
+        if local_auth_enabled is None and 'localAuthEnabled' in kwargs:
             local_auth_enabled = kwargs['localAuthEnabled']
-        if 'nodePublicIpEnabled' in kwargs:
+        if node_public_ip_enabled is None and 'nodePublicIpEnabled' in kwargs:
             node_public_ip_enabled = kwargs['nodePublicIpEnabled']
-        if 'sshPublicAccessEnabled' in kwargs:
+        if ssh_public_access_enabled is None and 'sshPublicAccessEnabled' in kwargs:
             ssh_public_access_enabled = kwargs['sshPublicAccessEnabled']
-        if 'subnetResourceId' in kwargs:
+        if subnet_resource_id is None and 'subnetResourceId' in kwargs:
             subnet_resource_id = kwargs['subnetResourceId']
 
         _setter("machine_learning_workspace_id", machine_learning_workspace_id)
@@ -362,23 +370,23 @@ class _ComputeClusterState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              vm_priority: Optional[pulumi.Input[str]] = None,
              vm_size: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'localAuthEnabled' in kwargs:
+        if local_auth_enabled is None and 'localAuthEnabled' in kwargs:
             local_auth_enabled = kwargs['localAuthEnabled']
-        if 'machineLearningWorkspaceId' in kwargs:
+        if machine_learning_workspace_id is None and 'machineLearningWorkspaceId' in kwargs:
             machine_learning_workspace_id = kwargs['machineLearningWorkspaceId']
-        if 'nodePublicIpEnabled' in kwargs:
+        if node_public_ip_enabled is None and 'nodePublicIpEnabled' in kwargs:
             node_public_ip_enabled = kwargs['nodePublicIpEnabled']
-        if 'scaleSettings' in kwargs:
+        if scale_settings is None and 'scaleSettings' in kwargs:
             scale_settings = kwargs['scaleSettings']
-        if 'sshPublicAccessEnabled' in kwargs:
+        if ssh_public_access_enabled is None and 'sshPublicAccessEnabled' in kwargs:
             ssh_public_access_enabled = kwargs['sshPublicAccessEnabled']
-        if 'subnetResourceId' in kwargs:
+        if subnet_resource_id is None and 'subnetResourceId' in kwargs:
             subnet_resource_id = kwargs['subnetResourceId']
-        if 'vmPriority' in kwargs:
+        if vm_priority is None and 'vmPriority' in kwargs:
             vm_priority = kwargs['vmPriority']
-        if 'vmSize' in kwargs:
+        if vm_size is None and 'vmSize' in kwargs:
             vm_size = kwargs['vmSize']
 
         if description is not None:
@@ -603,66 +611,6 @@ class ComputeCluster(pulumi.CustomResource):
         Manages a Machine Learning Compute Cluster.
         **NOTE:** At this point in time the resource cannot be updated (not supported by the backend Azure Go SDK). Therefore it can only be created and deleted, not updated. At the moment, there is also no possibility to specify ssh User Account Credentials to ssh into the compute cluster.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup",
-            location="west europe",
-            tags={
-                "stage": "example",
-            })
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_type="web")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="standard",
-            purge_protection_enabled=True)
-        example_account = azure.storage.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_workspace = azure.machinelearning.Workspace("exampleWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_insights_id=example_insights.id,
-            key_vault_id=example_key_vault.id,
-            storage_account_id=example_account.id,
-            identity=azure.machinelearning.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.1.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.1.0.0/24"])
-        test = azure.machinelearning.ComputeCluster("test",
-            location=example_resource_group.location,
-            vm_priority="LowPriority",
-            vm_size="Standard_DS2_v2",
-            machine_learning_workspace_id=example_workspace.id,
-            subnet_resource_id=example_subnet.id,
-            scale_settings=azure.machinelearning.ComputeClusterScaleSettingsArgs(
-                min_node_count=0,
-                max_node_count=1,
-                scale_down_nodes_after_idle_duration="PT30S",
-            ),
-            identity=azure.machinelearning.ComputeClusterIdentityArgs(
-                type="SystemAssigned",
-            ))
-        ```
-
         ## Import
 
         Machine Learning Compute Clusters can be imported using the `resource id`, e.g.
@@ -697,66 +645,6 @@ class ComputeCluster(pulumi.CustomResource):
         """
         Manages a Machine Learning Compute Cluster.
         **NOTE:** At this point in time the resource cannot be updated (not supported by the backend Azure Go SDK). Therefore it can only be created and deleted, not updated. At the moment, there is also no possibility to specify ssh User Account Credentials to ssh into the compute cluster.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup",
-            location="west europe",
-            tags={
-                "stage": "example",
-            })
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_type="web")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="standard",
-            purge_protection_enabled=True)
-        example_account = azure.storage.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_workspace = azure.machinelearning.Workspace("exampleWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_insights_id=example_insights.id,
-            key_vault_id=example_key_vault.id,
-            storage_account_id=example_account.id,
-            identity=azure.machinelearning.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.1.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.1.0.0/24"])
-        test = azure.machinelearning.ComputeCluster("test",
-            location=example_resource_group.location,
-            vm_priority="LowPriority",
-            vm_size="Standard_DS2_v2",
-            machine_learning_workspace_id=example_workspace.id,
-            subnet_resource_id=example_subnet.id,
-            scale_settings=azure.machinelearning.ComputeClusterScaleSettingsArgs(
-                min_node_count=0,
-                max_node_count=1,
-                scale_down_nodes_after_idle_duration="PT30S",
-            ),
-            identity=azure.machinelearning.ComputeClusterIdentityArgs(
-                type="SystemAssigned",
-            ))
-        ```
 
         ## Import
 
@@ -809,11 +697,7 @@ class ComputeCluster(pulumi.CustomResource):
             __props__ = ComputeClusterArgs.__new__(ComputeClusterArgs)
 
             __props__.__dict__["description"] = description
-            if identity is not None and not isinstance(identity, ComputeClusterIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                ComputeClusterIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, ComputeClusterIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["local_auth_enabled"] = local_auth_enabled
             __props__.__dict__["location"] = location
@@ -822,19 +706,11 @@ class ComputeCluster(pulumi.CustomResource):
             __props__.__dict__["machine_learning_workspace_id"] = machine_learning_workspace_id
             __props__.__dict__["name"] = name
             __props__.__dict__["node_public_ip_enabled"] = node_public_ip_enabled
-            if scale_settings is not None and not isinstance(scale_settings, ComputeClusterScaleSettingsArgs):
-                scale_settings = scale_settings or {}
-                def _setter(key, value):
-                    scale_settings[key] = value
-                ComputeClusterScaleSettingsArgs._configure(_setter, **scale_settings)
+            scale_settings = _utilities.configure(scale_settings, ComputeClusterScaleSettingsArgs, True)
             if scale_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'scale_settings'")
             __props__.__dict__["scale_settings"] = scale_settings
-            if ssh is not None and not isinstance(ssh, ComputeClusterSshArgs):
-                ssh = ssh or {}
-                def _setter(key, value):
-                    ssh[key] = value
-                ComputeClusterSshArgs._configure(_setter, **ssh)
+            ssh = _utilities.configure(ssh, ComputeClusterSshArgs, True)
             __props__.__dict__["ssh"] = ssh
             __props__.__dict__["ssh_public_access_enabled"] = ssh_public_access_enabled
             __props__.__dict__["subnet_resource_id"] = subnet_resource_id

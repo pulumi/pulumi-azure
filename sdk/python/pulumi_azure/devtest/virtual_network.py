@@ -43,18 +43,22 @@ class VirtualNetworkArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             lab_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             lab_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              subnet: Optional[pulumi.Input['VirtualNetworkSubnetArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'labName' in kwargs:
+        if lab_name is None and 'labName' in kwargs:
             lab_name = kwargs['labName']
-        if 'resourceGroupName' in kwargs:
+        if lab_name is None:
+            raise TypeError("Missing 'lab_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("lab_name", lab_name)
         _setter("resource_group_name", resource_group_name)
@@ -180,13 +184,13 @@ class _VirtualNetworkState:
              subnet: Optional[pulumi.Input['VirtualNetworkSubnetArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              unique_identifier: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'labName' in kwargs:
+        if lab_name is None and 'labName' in kwargs:
             lab_name = kwargs['labName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'uniqueIdentifier' in kwargs:
+        if unique_identifier is None and 'uniqueIdentifier' in kwargs:
             unique_identifier = kwargs['uniqueIdentifier']
 
         if description is not None:
@@ -304,28 +308,6 @@ class VirtualNetwork(pulumi.CustomResource):
         """
         Manages a Virtual Network within a DevTest Lab.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_lab = azure.devtest.Lab("exampleLab",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tags={
-                "Sydney": "Australia",
-            })
-        example_virtual_network = azure.devtest.VirtualNetwork("exampleVirtualNetwork",
-            lab_name=example_lab.name,
-            resource_group_name=example_resource_group.name,
-            subnet=azure.devtest.VirtualNetworkSubnetArgs(
-                use_public_ip_address="Allow",
-                use_in_virtual_machine_creation="Allow",
-            ))
-        ```
-
         ## Import
 
         DevTest Virtual Networks can be imported using the `resource id`, e.g.
@@ -351,28 +333,6 @@ class VirtualNetwork(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Virtual Network within a DevTest Lab.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_lab = azure.devtest.Lab("exampleLab",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tags={
-                "Sydney": "Australia",
-            })
-        example_virtual_network = azure.devtest.VirtualNetwork("exampleVirtualNetwork",
-            lab_name=example_lab.name,
-            resource_group_name=example_resource_group.name,
-            subnet=azure.devtest.VirtualNetworkSubnetArgs(
-                use_public_ip_address="Allow",
-                use_in_virtual_machine_creation="Allow",
-            ))
-        ```
 
         ## Import
 
@@ -424,11 +384,7 @@ class VirtualNetwork(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if subnet is not None and not isinstance(subnet, VirtualNetworkSubnetArgs):
-                subnet = subnet or {}
-                def _setter(key, value):
-                    subnet[key] = value
-                VirtualNetworkSubnetArgs._configure(_setter, **subnet)
+            subnet = _utilities.configure(subnet, VirtualNetworkSubnetArgs, True)
             __props__.__dict__["subnet"] = subnet
             __props__.__dict__["tags"] = tags
             __props__.__dict__["unique_identifier"] = None

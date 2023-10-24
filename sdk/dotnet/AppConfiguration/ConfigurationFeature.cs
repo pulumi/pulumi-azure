@@ -14,47 +14,6 @@ namespace Pulumi.Azure.AppConfiguration
     /// 
     /// &gt; **Note:** App Configuration Features are provisioned using a Data Plane API which requires the role `App Configuration Data Owner` on either the App Configuration or a parent scope (such as the Resource Group/Subscription). [More information can be found in the Azure Documentation for App Configuration](https://docs.microsoft.com/azure/azure-app-configuration/concept-enable-rbac#azure-built-in-roles-for-azure-app-configuration). This is similar to providing App Configuration Keys.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var appconf = new Azure.AppConfiguration.ConfigurationStore("appconf", new()
-    ///     {
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///     });
-    /// 
-    ///     var current = Azure.Core.GetClientConfig.Invoke();
-    /// 
-    ///     var appconfDataowner = new Azure.Authorization.Assignment("appconfDataowner", new()
-    ///     {
-    ///         Scope = appconf.Id,
-    ///         RoleDefinitionName = "App Configuration Data Owner",
-    ///         PrincipalId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
-    ///     });
-    /// 
-    ///     var test = new Azure.AppConfiguration.ConfigurationFeature("test", new()
-    ///     {
-    ///         ConfigurationStoreId = appconf.Id,
-    ///         Description = "test description",
-    ///         Label = "test-ackeylabel",
-    ///         Enabled = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// App Configuration Features can be imported using the `resource id`, e.g.

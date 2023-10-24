@@ -94,8 +94,8 @@ class ClusterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             sku: pulumi.Input['ClusterSkuArgs'],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['ClusterSkuArgs']] = None,
              allowed_fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              allowed_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              auto_stop_enabled: Optional[pulumi.Input[bool]] = None,
@@ -116,37 +116,41 @@ class ClusterArgs:
              trusted_external_tenants: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              virtual_network_configuration: Optional[pulumi.Input['ClusterVirtualNetworkConfigurationArgs']] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'allowedFqdns' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if allowed_fqdns is None and 'allowedFqdns' in kwargs:
             allowed_fqdns = kwargs['allowedFqdns']
-        if 'allowedIpRanges' in kwargs:
+        if allowed_ip_ranges is None and 'allowedIpRanges' in kwargs:
             allowed_ip_ranges = kwargs['allowedIpRanges']
-        if 'autoStopEnabled' in kwargs:
+        if auto_stop_enabled is None and 'autoStopEnabled' in kwargs:
             auto_stop_enabled = kwargs['autoStopEnabled']
-        if 'diskEncryptionEnabled' in kwargs:
+        if disk_encryption_enabled is None and 'diskEncryptionEnabled' in kwargs:
             disk_encryption_enabled = kwargs['diskEncryptionEnabled']
-        if 'doubleEncryptionEnabled' in kwargs:
+        if double_encryption_enabled is None and 'doubleEncryptionEnabled' in kwargs:
             double_encryption_enabled = kwargs['doubleEncryptionEnabled']
-        if 'languageExtensions' in kwargs:
+        if language_extensions is None and 'languageExtensions' in kwargs:
             language_extensions = kwargs['languageExtensions']
-        if 'optimizedAutoScale' in kwargs:
+        if optimized_auto_scale is None and 'optimizedAutoScale' in kwargs:
             optimized_auto_scale = kwargs['optimizedAutoScale']
-        if 'outboundNetworkAccessRestricted' in kwargs:
+        if outbound_network_access_restricted is None and 'outboundNetworkAccessRestricted' in kwargs:
             outbound_network_access_restricted = kwargs['outboundNetworkAccessRestricted']
-        if 'publicIpType' in kwargs:
+        if public_ip_type is None and 'publicIpType' in kwargs:
             public_ip_type = kwargs['publicIpType']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'purgeEnabled' in kwargs:
+        if purge_enabled is None and 'purgeEnabled' in kwargs:
             purge_enabled = kwargs['purgeEnabled']
-        if 'streamingIngestionEnabled' in kwargs:
+        if streaming_ingestion_enabled is None and 'streamingIngestionEnabled' in kwargs:
             streaming_ingestion_enabled = kwargs['streamingIngestionEnabled']
-        if 'trustedExternalTenants' in kwargs:
+        if trusted_external_tenants is None and 'trustedExternalTenants' in kwargs:
             trusted_external_tenants = kwargs['trustedExternalTenants']
-        if 'virtualNetworkConfiguration' in kwargs:
+        if virtual_network_configuration is None and 'virtualNetworkConfiguration' in kwargs:
             virtual_network_configuration = kwargs['virtualNetworkConfiguration']
 
         _setter("resource_group_name", resource_group_name)
@@ -575,39 +579,39 @@ class _ClusterState:
              uri: Optional[pulumi.Input[str]] = None,
              virtual_network_configuration: Optional[pulumi.Input['ClusterVirtualNetworkConfigurationArgs']] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'allowedFqdns' in kwargs:
+        if allowed_fqdns is None and 'allowedFqdns' in kwargs:
             allowed_fqdns = kwargs['allowedFqdns']
-        if 'allowedIpRanges' in kwargs:
+        if allowed_ip_ranges is None and 'allowedIpRanges' in kwargs:
             allowed_ip_ranges = kwargs['allowedIpRanges']
-        if 'autoStopEnabled' in kwargs:
+        if auto_stop_enabled is None and 'autoStopEnabled' in kwargs:
             auto_stop_enabled = kwargs['autoStopEnabled']
-        if 'dataIngestionUri' in kwargs:
+        if data_ingestion_uri is None and 'dataIngestionUri' in kwargs:
             data_ingestion_uri = kwargs['dataIngestionUri']
-        if 'diskEncryptionEnabled' in kwargs:
+        if disk_encryption_enabled is None and 'diskEncryptionEnabled' in kwargs:
             disk_encryption_enabled = kwargs['diskEncryptionEnabled']
-        if 'doubleEncryptionEnabled' in kwargs:
+        if double_encryption_enabled is None and 'doubleEncryptionEnabled' in kwargs:
             double_encryption_enabled = kwargs['doubleEncryptionEnabled']
-        if 'languageExtensions' in kwargs:
+        if language_extensions is None and 'languageExtensions' in kwargs:
             language_extensions = kwargs['languageExtensions']
-        if 'optimizedAutoScale' in kwargs:
+        if optimized_auto_scale is None and 'optimizedAutoScale' in kwargs:
             optimized_auto_scale = kwargs['optimizedAutoScale']
-        if 'outboundNetworkAccessRestricted' in kwargs:
+        if outbound_network_access_restricted is None and 'outboundNetworkAccessRestricted' in kwargs:
             outbound_network_access_restricted = kwargs['outboundNetworkAccessRestricted']
-        if 'publicIpType' in kwargs:
+        if public_ip_type is None and 'publicIpType' in kwargs:
             public_ip_type = kwargs['publicIpType']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'purgeEnabled' in kwargs:
+        if purge_enabled is None and 'purgeEnabled' in kwargs:
             purge_enabled = kwargs['purgeEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'streamingIngestionEnabled' in kwargs:
+        if streaming_ingestion_enabled is None and 'streamingIngestionEnabled' in kwargs:
             streaming_ingestion_enabled = kwargs['streamingIngestionEnabled']
-        if 'trustedExternalTenants' in kwargs:
+        if trusted_external_tenants is None and 'trustedExternalTenants' in kwargs:
             trusted_external_tenants = kwargs['trustedExternalTenants']
-        if 'virtualNetworkConfiguration' in kwargs:
+        if virtual_network_configuration is None and 'virtualNetworkConfiguration' in kwargs:
             virtual_network_configuration = kwargs['virtualNetworkConfiguration']
 
         if allowed_fqdns is not None:
@@ -986,25 +990,6 @@ class Cluster(pulumi.CustomResource):
         """
         Manages a Kusto (also known as Azure Data Explorer) Cluster
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_cluster = azure.kusto.Cluster("exampleCluster",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Standard_D13_v2",
-                capacity=2,
-            ),
-            tags={
-                "Environment": "Production",
-            })
-        ```
-
         ## Import
 
         Kusto Clusters can be imported using the `resource id`, e.g.
@@ -1049,25 +1034,6 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Kusto (also known as Azure Data Explorer) Cluster
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_cluster = azure.kusto.Cluster("exampleCluster",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Standard_D13_v2",
-                capacity=2,
-            ),
-            tags={
-                "Environment": "Production",
-            })
-        ```
 
         ## Import
 
@@ -1133,20 +1099,12 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["disk_encryption_enabled"] = disk_encryption_enabled
             __props__.__dict__["double_encryption_enabled"] = double_encryption_enabled
             __props__.__dict__["engine"] = engine
-            if identity is not None and not isinstance(identity, ClusterIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                ClusterIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, ClusterIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["language_extensions"] = language_extensions
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
-            if optimized_auto_scale is not None and not isinstance(optimized_auto_scale, ClusterOptimizedAutoScaleArgs):
-                optimized_auto_scale = optimized_auto_scale or {}
-                def _setter(key, value):
-                    optimized_auto_scale[key] = value
-                ClusterOptimizedAutoScaleArgs._configure(_setter, **optimized_auto_scale)
+            optimized_auto_scale = _utilities.configure(optimized_auto_scale, ClusterOptimizedAutoScaleArgs, True)
             __props__.__dict__["optimized_auto_scale"] = optimized_auto_scale
             __props__.__dict__["outbound_network_access_restricted"] = outbound_network_access_restricted
             __props__.__dict__["public_ip_type"] = public_ip_type
@@ -1155,22 +1113,14 @@ class Cluster(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if sku is not None and not isinstance(sku, ClusterSkuArgs):
-                sku = sku or {}
-                def _setter(key, value):
-                    sku[key] = value
-                ClusterSkuArgs._configure(_setter, **sku)
+            sku = _utilities.configure(sku, ClusterSkuArgs, True)
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
             __props__.__dict__["streaming_ingestion_enabled"] = streaming_ingestion_enabled
             __props__.__dict__["tags"] = tags
             __props__.__dict__["trusted_external_tenants"] = trusted_external_tenants
-            if virtual_network_configuration is not None and not isinstance(virtual_network_configuration, ClusterVirtualNetworkConfigurationArgs):
-                virtual_network_configuration = virtual_network_configuration or {}
-                def _setter(key, value):
-                    virtual_network_configuration[key] = value
-                ClusterVirtualNetworkConfigurationArgs._configure(_setter, **virtual_network_configuration)
+            virtual_network_configuration = _utilities.configure(virtual_network_configuration, ClusterVirtualNetworkConfigurationArgs, True)
             __props__.__dict__["virtual_network_configuration"] = virtual_network_configuration
             __props__.__dict__["zones"] = zones
             __props__.__dict__["data_ingestion_uri"] = None

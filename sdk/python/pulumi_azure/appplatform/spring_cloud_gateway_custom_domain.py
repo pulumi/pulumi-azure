@@ -32,13 +32,15 @@ class SpringCloudGatewayCustomDomainArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             spring_cloud_gateway_id: pulumi.Input[str],
+             spring_cloud_gateway_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              thumbprint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'springCloudGatewayId' in kwargs:
+        if spring_cloud_gateway_id is None and 'springCloudGatewayId' in kwargs:
             spring_cloud_gateway_id = kwargs['springCloudGatewayId']
+        if spring_cloud_gateway_id is None:
+            raise TypeError("Missing 'spring_cloud_gateway_id' argument")
 
         _setter("spring_cloud_gateway_id", spring_cloud_gateway_id)
         if name is not None:
@@ -107,9 +109,9 @@ class _SpringCloudGatewayCustomDomainState:
              name: Optional[pulumi.Input[str]] = None,
              spring_cloud_gateway_id: Optional[pulumi.Input[str]] = None,
              thumbprint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'springCloudGatewayId' in kwargs:
+        if spring_cloud_gateway_id is None and 'springCloudGatewayId' in kwargs:
             spring_cloud_gateway_id = kwargs['springCloudGatewayId']
 
         if name is not None:
@@ -170,21 +172,6 @@ class SpringCloudGatewayCustomDomain(pulumi.CustomResource):
 
         > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="E0")
-        example_spring_cloud_gateway = azure.appplatform.SpringCloudGateway("exampleSpringCloudGateway", spring_cloud_service_id=example_spring_cloud_service.id)
-        example_spring_cloud_gateway_custom_domain = azure.appplatform.SpringCloudGatewayCustomDomain("exampleSpringCloudGatewayCustomDomain", spring_cloud_gateway_id=example_spring_cloud_gateway.id)
-        ```
-
         ## Import
 
         Spring Cloud Gateway Custom Domains can be imported using the `resource id`, e.g.
@@ -209,21 +196,6 @@ class SpringCloudGatewayCustomDomain(pulumi.CustomResource):
         Manages a Spring Cloud Gateway Custom Domain.
 
         > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="E0")
-        example_spring_cloud_gateway = azure.appplatform.SpringCloudGateway("exampleSpringCloudGateway", spring_cloud_service_id=example_spring_cloud_service.id)
-        example_spring_cloud_gateway_custom_domain = azure.appplatform.SpringCloudGatewayCustomDomain("exampleSpringCloudGatewayCustomDomain", spring_cloud_gateway_id=example_spring_cloud_gateway.id)
-        ```
 
         ## Import
 

@@ -13,40 +13,6 @@ import (
 )
 
 // Get information about a Mobile Network Sim Policy.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mobile"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleNetwork, err := mobile.LookupNetwork(ctx, &mobile.LookupNetworkArgs{
-//				Name:              "example-mn",
-//				ResourceGroupName: "example-rg",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = mobile.LookupNetworkSimPolicy(ctx, &mobile.LookupNetworkSimPolicyArgs{
-//				Name:            "example-mnsp",
-//				MobileNetworkId: exampleNetwork.Id,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupNetworkSimPolicy(ctx *pulumi.Context, args *LookupNetworkSimPolicyArgs, opts ...pulumi.InvokeOption) (*LookupNetworkSimPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNetworkSimPolicyResult

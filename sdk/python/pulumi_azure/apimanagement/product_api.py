@@ -35,20 +35,28 @@ class ProductApiArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_management_name: pulumi.Input[str],
-             api_name: pulumi.Input[str],
-             product_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             api_management_name: Optional[pulumi.Input[str]] = None,
+             api_name: Optional[pulumi.Input[str]] = None,
+             product_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'apiName' in kwargs:
+        if api_management_name is None:
+            raise TypeError("Missing 'api_management_name' argument")
+        if api_name is None and 'apiName' in kwargs:
             api_name = kwargs['apiName']
-        if 'productId' in kwargs:
+        if api_name is None:
+            raise TypeError("Missing 'api_name' argument")
+        if product_id is None and 'productId' in kwargs:
             product_id = kwargs['productId']
-        if 'resourceGroupName' in kwargs:
+        if product_id is None:
+            raise TypeError("Missing 'product_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("api_management_name", api_management_name)
         _setter("api_name", api_name)
@@ -132,15 +140,15 @@ class _ProductApiState:
              api_name: Optional[pulumi.Input[str]] = None,
              product_id: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiManagementName' in kwargs:
+        if api_management_name is None and 'apiManagementName' in kwargs:
             api_management_name = kwargs['apiManagementName']
-        if 'apiName' in kwargs:
+        if api_name is None and 'apiName' in kwargs:
             api_name = kwargs['apiName']
-        if 'productId' in kwargs:
+        if product_id is None and 'productId' in kwargs:
             product_id = kwargs['productId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if api_management_name is not None:
@@ -214,28 +222,6 @@ class ProductApi(pulumi.CustomResource):
         """
         Manages an API Management API Assignment to a Product.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_service = azure.apimanagement.get_service(name="example-api",
-            resource_group_name="example-resources")
-        example_api = azure.apimanagement.get_api(name="search-api",
-            api_management_name=example_service.name,
-            resource_group_name=example_service.resource_group_name,
-            revision="2")
-        example_product = azure.apimanagement.get_product(product_id="my-product",
-            api_management_name=example_service.name,
-            resource_group_name=example_service.resource_group_name)
-        example_product_api = azure.apimanagement.ProductApi("exampleProductApi",
-            api_name=example_api.name,
-            product_id=example_product.product_id,
-            api_management_name=example_service.name,
-            resource_group_name=example_service.resource_group_name)
-        ```
-
         ## Import
 
         API Management Product API's can be imported using the `resource id`, e.g.
@@ -259,28 +245,6 @@ class ProductApi(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an API Management API Assignment to a Product.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_service = azure.apimanagement.get_service(name="example-api",
-            resource_group_name="example-resources")
-        example_api = azure.apimanagement.get_api(name="search-api",
-            api_management_name=example_service.name,
-            resource_group_name=example_service.resource_group_name,
-            revision="2")
-        example_product = azure.apimanagement.get_product(product_id="my-product",
-            api_management_name=example_service.name,
-            resource_group_name=example_service.resource_group_name)
-        example_product_api = azure.apimanagement.ProductApi("exampleProductApi",
-            api_name=example_api.name,
-            product_id=example_product.product_id,
-            api_management_name=example_service.name,
-            resource_group_name=example_service.resource_group_name)
-        ```
 
         ## Import
 

@@ -12,51 +12,6 @@ namespace Pulumi.Azure.Sentinel
     /// <summary>
     /// Manages a Sentinel Fusion Alert Rule.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Sku = "PerGB2018",
-    ///     });
-    /// 
-    ///     var exampleAnalyticsSolution = new Azure.OperationalInsights.AnalyticsSolution("exampleAnalyticsSolution", new()
-    ///     {
-    ///         SolutionName = "SecurityInsights",
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
-    ///         WorkspaceName = exampleAnalyticsWorkspace.Name,
-    ///         Plan = new Azure.OperationalInsights.Inputs.AnalyticsSolutionPlanArgs
-    ///         {
-    ///             Publisher = "Microsoft",
-    ///             Product = "OMSGallery/SecurityInsights",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleAlertRuleFusion = new Azure.Sentinel.AlertRuleFusion("exampleAlertRuleFusion", new()
-    ///     {
-    ///         LogAnalyticsWorkspaceId = exampleAnalyticsSolution.WorkspaceResourceId,
-    ///         AlertRuleTemplateGuid = "f71aba3d-28fb-450b-b192-4e76a83015c8",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Sentinel Fusion Alert Rules can be imported using the `resource id`, e.g.

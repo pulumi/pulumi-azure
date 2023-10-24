@@ -14,64 +14,6 @@ namespace Pulumi.Azure.ContainerService
     /// 
     /// &gt; **Note** `network_profile_id` is [deprecated](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-vnet) by Azure. For users who want to continue to manage existing `azure.containerservice.Group` that rely on `network_profile_id`, please stay on provider versions prior to v3.16.0. Otherwise, use `subnet_ids` instead.
     /// 
-    /// ## Example Usage
-    /// 
-    /// This example provisions a Basic Container.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleGroup = new Azure.ContainerService.Group("exampleGroup", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         IpAddressType = "Public",
-    ///         DnsNameLabel = "aci-label",
-    ///         OsType = "Linux",
-    ///         Containers = new[]
-    ///         {
-    ///             new Azure.ContainerService.Inputs.GroupContainerArgs
-    ///             {
-    ///                 Name = "hello-world",
-    ///                 Image = "mcr.microsoft.com/azuredocs/aci-helloworld:latest",
-    ///                 Cpu = 0.5,
-    ///                 Memory = 1.5,
-    ///                 Ports = new[]
-    ///                 {
-    ///                     new Azure.ContainerService.Inputs.GroupContainerPortArgs
-    ///                     {
-    ///                         Port = 443,
-    ///                         Protocol = "TCP",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             new Azure.ContainerService.Inputs.GroupContainerArgs
-    ///             {
-    ///                 Name = "sidecar",
-    ///                 Image = "mcr.microsoft.com/azuredocs/aci-tutorial-sidecar",
-    ///                 Cpu = 0.5,
-    ///                 Memory = 1.5,
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "environment", "testing" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Container Group's can be imported using the `resource id`, e.g.

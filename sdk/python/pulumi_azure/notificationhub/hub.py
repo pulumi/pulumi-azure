@@ -50,22 +50,26 @@ class HubArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             namespace_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             namespace_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              apns_credential: Optional[pulumi.Input['HubApnsCredentialArgs']] = None,
              gcm_credential: Optional[pulumi.Input['HubGcmCredentialArgs']] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'namespaceName' in kwargs:
+        if namespace_name is None and 'namespaceName' in kwargs:
             namespace_name = kwargs['namespaceName']
-        if 'resourceGroupName' in kwargs:
+        if namespace_name is None:
+            raise TypeError("Missing 'namespace_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'apnsCredential' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if apns_credential is None and 'apnsCredential' in kwargs:
             apns_credential = kwargs['apnsCredential']
-        if 'gcmCredential' in kwargs:
+        if gcm_credential is None and 'gcmCredential' in kwargs:
             gcm_credential = kwargs['gcmCredential']
 
         _setter("namespace_name", namespace_name)
@@ -214,15 +218,15 @@ class _HubState:
              namespace_name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apnsCredential' in kwargs:
+        if apns_credential is None and 'apnsCredential' in kwargs:
             apns_credential = kwargs['apnsCredential']
-        if 'gcmCredential' in kwargs:
+        if gcm_credential is None and 'gcmCredential' in kwargs:
             gcm_credential = kwargs['gcmCredential']
-        if 'namespaceName' in kwargs:
+        if namespace_name is None and 'namespaceName' in kwargs:
             namespace_name = kwargs['namespaceName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if apns_credential is not None:
@@ -345,24 +349,6 @@ class Hub(pulumi.CustomResource):
         """
         Manages a Notification Hub within a Notification Hub Namespace.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_namespace = azure.notificationhub.Namespace("exampleNamespace",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            namespace_type="NotificationHub",
-            sku_name="Free")
-        example_hub = azure.notificationhub.Hub("exampleHub",
-            namespace_name=example_namespace.name,
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        ```
-
         ## Import
 
         Notification Hubs can be imported using the `resource id`, e.g.
@@ -393,24 +379,6 @@ class Hub(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Notification Hub within a Notification Hub Namespace.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_namespace = azure.notificationhub.Namespace("exampleNamespace",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            namespace_type="NotificationHub",
-            sku_name="Free")
-        example_hub = azure.notificationhub.Hub("exampleHub",
-            namespace_name=example_namespace.name,
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        ```
 
         ## Import
 
@@ -455,17 +423,9 @@ class Hub(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = HubArgs.__new__(HubArgs)
 
-            if apns_credential is not None and not isinstance(apns_credential, HubApnsCredentialArgs):
-                apns_credential = apns_credential or {}
-                def _setter(key, value):
-                    apns_credential[key] = value
-                HubApnsCredentialArgs._configure(_setter, **apns_credential)
+            apns_credential = _utilities.configure(apns_credential, HubApnsCredentialArgs, True)
             __props__.__dict__["apns_credential"] = apns_credential
-            if gcm_credential is not None and not isinstance(gcm_credential, HubGcmCredentialArgs):
-                gcm_credential = gcm_credential or {}
-                def _setter(key, value):
-                    gcm_credential[key] = value
-                HubGcmCredentialArgs._configure(_setter, **gcm_credential)
+            gcm_credential = _utilities.configure(gcm_credential, HubGcmCredentialArgs, True)
             __props__.__dict__["gcm_credential"] = gcm_credential
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name

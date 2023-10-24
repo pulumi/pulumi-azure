@@ -67,8 +67,8 @@ class PlanArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             sku: pulumi.Input['PlanSkuArgs'],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['PlanSkuArgs']] = None,
              app_service_environment_id: Optional[pulumi.Input[str]] = None,
              is_xenon: Optional[pulumi.Input[bool]] = None,
              kind: Optional[pulumi.Input[str]] = None,
@@ -79,19 +79,23 @@ class PlanArgs:
              reserved: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zone_redundant: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'appServiceEnvironmentId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if app_service_environment_id is None and 'appServiceEnvironmentId' in kwargs:
             app_service_environment_id = kwargs['appServiceEnvironmentId']
-        if 'isXenon' in kwargs:
+        if is_xenon is None and 'isXenon' in kwargs:
             is_xenon = kwargs['isXenon']
-        if 'maximumElasticWorkerCount' in kwargs:
+        if maximum_elastic_worker_count is None and 'maximumElasticWorkerCount' in kwargs:
             maximum_elastic_worker_count = kwargs['maximumElasticWorkerCount']
-        if 'perSiteScaling' in kwargs:
+        if per_site_scaling is None and 'perSiteScaling' in kwargs:
             per_site_scaling = kwargs['perSiteScaling']
-        if 'zoneRedundant' in kwargs:
+        if zone_redundant is None and 'zoneRedundant' in kwargs:
             zone_redundant = kwargs['zoneRedundant']
 
         _setter("resource_group_name", resource_group_name)
@@ -338,21 +342,21 @@ class _PlanState:
              sku: Optional[pulumi.Input['PlanSkuArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zone_redundant: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'appServiceEnvironmentId' in kwargs:
+        if app_service_environment_id is None and 'appServiceEnvironmentId' in kwargs:
             app_service_environment_id = kwargs['appServiceEnvironmentId']
-        if 'isXenon' in kwargs:
+        if is_xenon is None and 'isXenon' in kwargs:
             is_xenon = kwargs['isXenon']
-        if 'maximumElasticWorkerCount' in kwargs:
+        if maximum_elastic_worker_count is None and 'maximumElasticWorkerCount' in kwargs:
             maximum_elastic_worker_count = kwargs['maximumElasticWorkerCount']
-        if 'maximumNumberOfWorkers' in kwargs:
+        if maximum_number_of_workers is None and 'maximumNumberOfWorkers' in kwargs:
             maximum_number_of_workers = kwargs['maximumNumberOfWorkers']
-        if 'perSiteScaling' in kwargs:
+        if per_site_scaling is None and 'perSiteScaling' in kwargs:
             per_site_scaling = kwargs['perSiteScaling']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'zoneRedundant' in kwargs:
+        if zone_redundant is None and 'zoneRedundant' in kwargs:
             zone_redundant = kwargs['zoneRedundant']
 
         if app_service_environment_id is not None:
@@ -569,71 +573,6 @@ class Plan(pulumi.CustomResource):
         !> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `appservice.ServicePlan` resource instead.
 
         ## Example Usage
-        ### Dedicated)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_plan = azure.appservice.Plan("examplePlan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Standard",
-                size="S1",
-            ))
-        ```
-        ### Shared / Consumption Plan)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_plan = azure.appservice.Plan("examplePlan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            kind="FunctionApp",
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Dynamic",
-                size="Y1",
-            ))
-        ```
-        ### Linux)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_plan = azure.appservice.Plan("examplePlan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            kind="Linux",
-            reserved=True,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Standard",
-                size="S1",
-            ))
-        ```
-        ### Windows Container)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_plan = azure.appservice.Plan("examplePlan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            kind="xenon",
-            is_xenon=True,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="PremiumContainer",
-                size="PC2",
-            ))
-        ```
 
         ## Import
 
@@ -676,71 +615,6 @@ class Plan(pulumi.CustomResource):
         !> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `appservice.ServicePlan` resource instead.
 
         ## Example Usage
-        ### Dedicated)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_plan = azure.appservice.Plan("examplePlan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Standard",
-                size="S1",
-            ))
-        ```
-        ### Shared / Consumption Plan)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_plan = azure.appservice.Plan("examplePlan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            kind="FunctionApp",
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Dynamic",
-                size="Y1",
-            ))
-        ```
-        ### Linux)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_plan = azure.appservice.Plan("examplePlan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            kind="Linux",
-            reserved=True,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Standard",
-                size="S1",
-            ))
-        ```
-        ### Windows Container)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_plan = azure.appservice.Plan("examplePlan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            kind="xenon",
-            is_xenon=True,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="PremiumContainer",
-                size="PC2",
-            ))
-        ```
 
         ## Import
 
@@ -801,11 +675,7 @@ class Plan(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if sku is not None and not isinstance(sku, PlanSkuArgs):
-                sku = sku or {}
-                def _setter(key, value):
-                    sku[key] = value
-                PlanSkuArgs._configure(_setter, **sku)
+            sku = _utilities.configure(sku, PlanSkuArgs, True)
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku

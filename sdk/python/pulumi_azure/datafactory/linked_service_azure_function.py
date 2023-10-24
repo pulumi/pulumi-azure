@@ -57,8 +57,8 @@ class LinkedServiceAzureFunctionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_factory_id: pulumi.Input[str],
-             url: pulumi.Input[str],
+             data_factory_id: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
              additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -67,15 +67,19 @@ class LinkedServiceAzureFunctionArgs:
              key_vault_key: Optional[pulumi.Input['LinkedServiceAzureFunctionKeyVaultKeyArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'additionalProperties' in kwargs:
+        if data_factory_id is None:
+            raise TypeError("Missing 'data_factory_id' argument")
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'integrationRuntimeName' in kwargs:
+        if integration_runtime_name is None and 'integrationRuntimeName' in kwargs:
             integration_runtime_name = kwargs['integrationRuntimeName']
-        if 'keyVaultKey' in kwargs:
+        if key_vault_key is None and 'keyVaultKey' in kwargs:
             key_vault_key = kwargs['keyVaultKey']
 
         _setter("data_factory_id", data_factory_id)
@@ -274,15 +278,15 @@ class _LinkedServiceAzureFunctionState:
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'additionalProperties' in kwargs:
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'integrationRuntimeName' in kwargs:
+        if integration_runtime_name is None and 'integrationRuntimeName' in kwargs:
             integration_runtime_name = kwargs['integrationRuntimeName']
-        if 'keyVaultKey' in kwargs:
+        if key_vault_key is None and 'keyVaultKey' in kwargs:
             key_vault_key = kwargs['keyVaultKey']
 
         if additional_properties is not None:
@@ -448,24 +452,6 @@ class LinkedServiceAzureFunction(pulumi.CustomResource):
         """
         Manages a Linked Service (connection) between an Azure Function and Azure Data Factory.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_function_app = azure.appservice.get_function_app_output(name="test-azure-functions",
-            resource_group_name=example_resource_group.name)
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_linked_service_azure_function = azure.datafactory.LinkedServiceAzureFunction("exampleLinkedServiceAzureFunction",
-            data_factory_id=example_factory.id,
-            url=example_function_app.apply(lambda example_function_app: f"https://{example_function_app.default_hostname}"),
-            key="foo")
-        ```
-
         ## Import
 
         Data Factory Linked Service's can be imported using the `resource id`, e.g.
@@ -497,24 +483,6 @@ class LinkedServiceAzureFunction(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Linked Service (connection) between an Azure Function and Azure Data Factory.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_function_app = azure.appservice.get_function_app_output(name="test-azure-functions",
-            resource_group_name=example_resource_group.name)
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_linked_service_azure_function = azure.datafactory.LinkedServiceAzureFunction("exampleLinkedServiceAzureFunction",
-            data_factory_id=example_factory.id,
-            url=example_function_app.apply(lambda example_function_app: f"https://{example_function_app.default_hostname}"),
-            key="foo")
-        ```
 
         ## Import
 
@@ -570,11 +538,7 @@ class LinkedServiceAzureFunction(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["integration_runtime_name"] = integration_runtime_name
             __props__.__dict__["key"] = None if key is None else pulumi.Output.secret(key)
-            if key_vault_key is not None and not isinstance(key_vault_key, LinkedServiceAzureFunctionKeyVaultKeyArgs):
-                key_vault_key = key_vault_key or {}
-                def _setter(key, value):
-                    key_vault_key[key] = value
-                LinkedServiceAzureFunctionKeyVaultKeyArgs._configure(_setter, **key_vault_key)
+            key_vault_key = _utilities.configure(key_vault_key, LinkedServiceAzureFunctionKeyVaultKeyArgs, True)
             __props__.__dict__["key_vault_key"] = key_vault_key
             __props__.__dict__["name"] = name
             __props__.__dict__["parameters"] = parameters

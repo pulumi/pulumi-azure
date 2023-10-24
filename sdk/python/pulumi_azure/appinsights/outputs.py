@@ -69,19 +69,21 @@ class StandardWebTestRequest(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             url: str,
+             url: Optional[str] = None,
              body: Optional[str] = None,
              follow_redirects_enabled: Optional[bool] = None,
              headers: Optional[Sequence['outputs.StandardWebTestRequestHeader']] = None,
              http_verb: Optional[str] = None,
              parse_dependent_requests_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'followRedirectsEnabled' in kwargs:
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+        if follow_redirects_enabled is None and 'followRedirectsEnabled' in kwargs:
             follow_redirects_enabled = kwargs['followRedirectsEnabled']
-        if 'httpVerb' in kwargs:
+        if http_verb is None and 'httpVerb' in kwargs:
             http_verb = kwargs['httpVerb']
-        if 'parseDependentRequestsEnabled' in kwargs:
+        if parse_dependent_requests_enabled is None and 'parseDependentRequestsEnabled' in kwargs:
             parse_dependent_requests_enabled = kwargs['parseDependentRequestsEnabled']
 
         _setter("url", url)
@@ -162,10 +164,14 @@ class StandardWebTestRequestHeader(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("name", name)
         _setter("value", value)
@@ -235,13 +241,13 @@ class StandardWebTestValidationRules(dict):
              expected_status_code: Optional[int] = None,
              ssl_cert_remaining_lifetime: Optional[int] = None,
              ssl_check_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'expectedStatusCode' in kwargs:
+        if expected_status_code is None and 'expectedStatusCode' in kwargs:
             expected_status_code = kwargs['expectedStatusCode']
-        if 'sslCertRemainingLifetime' in kwargs:
+        if ssl_cert_remaining_lifetime is None and 'sslCertRemainingLifetime' in kwargs:
             ssl_cert_remaining_lifetime = kwargs['sslCertRemainingLifetime']
-        if 'sslCheckEnabled' in kwargs:
+        if ssl_check_enabled is None and 'sslCheckEnabled' in kwargs:
             ssl_check_enabled = kwargs['sslCheckEnabled']
 
         if content is not None:
@@ -327,16 +333,18 @@ class StandardWebTestValidationRulesContent(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             content_match: str,
+             content_match: Optional[str] = None,
              ignore_case: Optional[bool] = None,
              pass_if_text_found: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'contentMatch' in kwargs:
+        if content_match is None and 'contentMatch' in kwargs:
             content_match = kwargs['contentMatch']
-        if 'ignoreCase' in kwargs:
+        if content_match is None:
+            raise TypeError("Missing 'content_match' argument")
+        if ignore_case is None and 'ignoreCase' in kwargs:
             ignore_case = kwargs['ignoreCase']
-        if 'passIfTextFound' in kwargs:
+        if pass_if_text_found is None and 'passIfTextFound' in kwargs:
             pass_if_text_found = kwargs['passIfTextFound']
 
         _setter("content_match", content_match)
@@ -414,17 +422,19 @@ class WorkbookIdentity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -513,14 +523,18 @@ class WorkbookTemplateGallery(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             category: str,
-             name: str,
+             category: Optional[str] = None,
+             name: Optional[str] = None,
              order: Optional[int] = None,
              resource_type: Optional[str] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceType' in kwargs:
+        if category is None:
+            raise TypeError("Missing 'category' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if resource_type is None and 'resourceType' in kwargs:
             resource_type = kwargs['resourceType']
 
         _setter("category", category)

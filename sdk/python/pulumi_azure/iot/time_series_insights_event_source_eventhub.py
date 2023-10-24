@@ -56,34 +56,48 @@ class TimeSeriesInsightsEventSourceEventhubArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             consumer_group_name: pulumi.Input[str],
-             environment_id: pulumi.Input[str],
-             event_source_resource_id: pulumi.Input[str],
-             eventhub_name: pulumi.Input[str],
-             namespace_name: pulumi.Input[str],
-             shared_access_key: pulumi.Input[str],
-             shared_access_key_name: pulumi.Input[str],
+             consumer_group_name: Optional[pulumi.Input[str]] = None,
+             environment_id: Optional[pulumi.Input[str]] = None,
+             event_source_resource_id: Optional[pulumi.Input[str]] = None,
+             eventhub_name: Optional[pulumi.Input[str]] = None,
+             namespace_name: Optional[pulumi.Input[str]] = None,
+             shared_access_key: Optional[pulumi.Input[str]] = None,
+             shared_access_key_name: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              timestamp_property_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'consumerGroupName' in kwargs:
+        if consumer_group_name is None and 'consumerGroupName' in kwargs:
             consumer_group_name = kwargs['consumerGroupName']
-        if 'environmentId' in kwargs:
+        if consumer_group_name is None:
+            raise TypeError("Missing 'consumer_group_name' argument")
+        if environment_id is None and 'environmentId' in kwargs:
             environment_id = kwargs['environmentId']
-        if 'eventSourceResourceId' in kwargs:
+        if environment_id is None:
+            raise TypeError("Missing 'environment_id' argument")
+        if event_source_resource_id is None and 'eventSourceResourceId' in kwargs:
             event_source_resource_id = kwargs['eventSourceResourceId']
-        if 'eventhubName' in kwargs:
+        if event_source_resource_id is None:
+            raise TypeError("Missing 'event_source_resource_id' argument")
+        if eventhub_name is None and 'eventhubName' in kwargs:
             eventhub_name = kwargs['eventhubName']
-        if 'namespaceName' in kwargs:
+        if eventhub_name is None:
+            raise TypeError("Missing 'eventhub_name' argument")
+        if namespace_name is None and 'namespaceName' in kwargs:
             namespace_name = kwargs['namespaceName']
-        if 'sharedAccessKey' in kwargs:
+        if namespace_name is None:
+            raise TypeError("Missing 'namespace_name' argument")
+        if shared_access_key is None and 'sharedAccessKey' in kwargs:
             shared_access_key = kwargs['sharedAccessKey']
-        if 'sharedAccessKeyName' in kwargs:
+        if shared_access_key is None:
+            raise TypeError("Missing 'shared_access_key' argument")
+        if shared_access_key_name is None and 'sharedAccessKeyName' in kwargs:
             shared_access_key_name = kwargs['sharedAccessKeyName']
-        if 'timestampPropertyName' in kwargs:
+        if shared_access_key_name is None:
+            raise TypeError("Missing 'shared_access_key_name' argument")
+        if timestamp_property_name is None and 'timestampPropertyName' in kwargs:
             timestamp_property_name = kwargs['timestampPropertyName']
 
         _setter("consumer_group_name", consumer_group_name)
@@ -291,23 +305,23 @@ class _TimeSeriesInsightsEventSourceEventhubState:
              shared_access_key_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              timestamp_property_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'consumerGroupName' in kwargs:
+        if consumer_group_name is None and 'consumerGroupName' in kwargs:
             consumer_group_name = kwargs['consumerGroupName']
-        if 'environmentId' in kwargs:
+        if environment_id is None and 'environmentId' in kwargs:
             environment_id = kwargs['environmentId']
-        if 'eventSourceResourceId' in kwargs:
+        if event_source_resource_id is None and 'eventSourceResourceId' in kwargs:
             event_source_resource_id = kwargs['eventSourceResourceId']
-        if 'eventhubName' in kwargs:
+        if eventhub_name is None and 'eventhubName' in kwargs:
             eventhub_name = kwargs['eventhubName']
-        if 'namespaceName' in kwargs:
+        if namespace_name is None and 'namespaceName' in kwargs:
             namespace_name = kwargs['namespaceName']
-        if 'sharedAccessKey' in kwargs:
+        if shared_access_key is None and 'sharedAccessKey' in kwargs:
             shared_access_key = kwargs['sharedAccessKey']
-        if 'sharedAccessKeyName' in kwargs:
+        if shared_access_key_name is None and 'sharedAccessKeyName' in kwargs:
             shared_access_key_name = kwargs['sharedAccessKeyName']
-        if 'timestampPropertyName' in kwargs:
+        if timestamp_property_name is None and 'timestampPropertyName' in kwargs:
             timestamp_property_name = kwargs['timestampPropertyName']
 
         if consumer_group_name is not None:
@@ -486,58 +500,6 @@ class TimeSeriesInsightsEventSourceEventhub(pulumi.CustomResource):
         """
         Manages an Azure IoT Time Series Insights EventHub Event Source.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard")
-        example_event_hub = azure.eventhub.EventHub("exampleEventHub",
-            namespace_name=example_event_hub_namespace.name,
-            resource_group_name=example_resource_group.name,
-            partition_count=2,
-            message_retention=7)
-        example_consumer_group = azure.eventhub.ConsumerGroup("exampleConsumerGroup",
-            namespace_name=example_event_hub_namespace.name,
-            eventhub_name=example_event_hub.name,
-            resource_group_name=example_resource_group.name)
-        example_authorization_rule = azure.eventhub.AuthorizationRule("exampleAuthorizationRule",
-            namespace_name=example_event_hub_namespace.name,
-            eventhub_name=example_event_hub.name,
-            resource_group_name=example_resource_group.name,
-            listen=True,
-            send=False,
-            manage=False)
-        example_account = azure.storage.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_time_series_insights_gen2_environment = azure.iot.TimeSeriesInsightsGen2Environment("exampleTimeSeriesInsightsGen2Environment",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="L1",
-            id_properties=["id"],
-            storage=azure.iot.TimeSeriesInsightsGen2EnvironmentStorageArgs(
-                name=example_account.name,
-                key=example_account.primary_access_key,
-            ))
-        example_time_series_insights_event_source_eventhub = azure.iot.TimeSeriesInsightsEventSourceEventhub("exampleTimeSeriesInsightsEventSourceEventhub",
-            location=example_resource_group.location,
-            environment_id=example_time_series_insights_gen2_environment.id,
-            eventhub_name=example_event_hub.name,
-            namespace_name=example_event_hub_namespace.name,
-            shared_access_key=example_authorization_rule.primary_key,
-            shared_access_key_name=example_authorization_rule.name,
-            consumer_group_name=example_consumer_group.name,
-            event_source_resource_id=example_event_hub.id)
-        ```
-
         ## Import
 
         Azure IoT Time Series Insights EventHub Event Source can be imported using the `resource id`, e.g.
@@ -568,58 +530,6 @@ class TimeSeriesInsightsEventSourceEventhub(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure IoT Time Series Insights EventHub Event Source.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard")
-        example_event_hub = azure.eventhub.EventHub("exampleEventHub",
-            namespace_name=example_event_hub_namespace.name,
-            resource_group_name=example_resource_group.name,
-            partition_count=2,
-            message_retention=7)
-        example_consumer_group = azure.eventhub.ConsumerGroup("exampleConsumerGroup",
-            namespace_name=example_event_hub_namespace.name,
-            eventhub_name=example_event_hub.name,
-            resource_group_name=example_resource_group.name)
-        example_authorization_rule = azure.eventhub.AuthorizationRule("exampleAuthorizationRule",
-            namespace_name=example_event_hub_namespace.name,
-            eventhub_name=example_event_hub.name,
-            resource_group_name=example_resource_group.name,
-            listen=True,
-            send=False,
-            manage=False)
-        example_account = azure.storage.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_time_series_insights_gen2_environment = azure.iot.TimeSeriesInsightsGen2Environment("exampleTimeSeriesInsightsGen2Environment",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="L1",
-            id_properties=["id"],
-            storage=azure.iot.TimeSeriesInsightsGen2EnvironmentStorageArgs(
-                name=example_account.name,
-                key=example_account.primary_access_key,
-            ))
-        example_time_series_insights_event_source_eventhub = azure.iot.TimeSeriesInsightsEventSourceEventhub("exampleTimeSeriesInsightsEventSourceEventhub",
-            location=example_resource_group.location,
-            environment_id=example_time_series_insights_gen2_environment.id,
-            eventhub_name=example_event_hub.name,
-            namespace_name=example_event_hub_namespace.name,
-            shared_access_key=example_authorization_rule.primary_key,
-            shared_access_key_name=example_authorization_rule.name,
-            consumer_group_name=example_consumer_group.name,
-            event_source_resource_id=example_event_hub.id)
-        ```
 
         ## Import
 

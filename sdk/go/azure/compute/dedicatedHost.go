@@ -15,50 +15,6 @@ import (
 
 // Manage a Dedicated Host within a Dedicated Host Group.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleDedicatedHostGroup, err := compute.NewDedicatedHostGroup(ctx, "exampleDedicatedHostGroup", &compute.DedicatedHostGroupArgs{
-//				ResourceGroupName:        exampleResourceGroup.Name,
-//				Location:                 exampleResourceGroup.Location,
-//				PlatformFaultDomainCount: pulumi.Int(2),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = compute.NewDedicatedHost(ctx, "exampleDedicatedHost", &compute.DedicatedHostArgs{
-//				Location:             exampleResourceGroup.Location,
-//				DedicatedHostGroupId: exampleDedicatedHostGroup.ID(),
-//				SkuName:              pulumi.String("DSv3-Type1"),
-//				PlatformFaultDomain:  pulumi.Int(1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Dedicated Hosts can be imported using the `resource id`, e.g.

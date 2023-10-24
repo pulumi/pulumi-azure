@@ -7,49 +7,6 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleZone = new azure.dns.Zone("exampleZone", {resourceGroupName: exampleResourceGroup.name});
- * const exampleFrontdoorProfile = new azure.cdn.FrontdoorProfile("exampleFrontdoorProfile", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "Standard_AzureFrontDoor",
- * });
- * const exampleFrontdoorCustomDomain = new azure.cdn.FrontdoorCustomDomain("exampleFrontdoorCustomDomain", {
- *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
- *     dnsZoneId: exampleZone.id,
- *     hostName: "contoso.fabrikam.com",
- *     tls: {
- *         certificateType: "ManagedCertificate",
- *         minimumTlsVersion: "TLS12",
- *     },
- * });
- * ```
- * ## Example CNAME Record Usage
- *
- * !>**IMPORTANT:** You **must** include the `dependsOn` meta-argument which references both the `azure.cdn.FrontdoorRoute` and the `azure.cdn.FrontdoorSecurityPolicy` that are associated with your Custom Domain. The reason for these `dependsOn` meta-arguments is because all of the resources for the Custom Domain need to be associated within Front Door before the CNAME record can be written to the domains DNS, else the CNAME validation will fail and Front Door will not enable traffic to the Domain.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = new azure.dns.CNameRecord("example", {
- *     zoneName: azurerm_dns_zone.example.name,
- *     resourceGroupName: azurerm_resource_group.example.name,
- *     ttl: 3600,
- *     record: azurerm_cdn_frontdoor_endpoint.example.host_name,
- * }, {
- *     dependsOn: [
- *         azurerm_cdn_frontdoor_route.example,
- *         azurerm_cdn_frontdoor_security_policy.example,
- *     ],
- * });
- * ```
- *
  * ## Import
  *
  * Front Door Custom Domains can be imported using the `resource id`, e.g.

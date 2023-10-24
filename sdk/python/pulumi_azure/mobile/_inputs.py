@@ -69,21 +69,21 @@ class NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs:
              tcp_port_reuse_minimum_hold_time_in_seconds: Optional[pulumi.Input[int]] = None,
              udp_pinhole_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
              udp_port_reuse_minimum_hold_time_in_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'icmpPinholeTimeoutInSeconds' in kwargs:
+        if icmp_pinhole_timeout_in_seconds is None and 'icmpPinholeTimeoutInSeconds' in kwargs:
             icmp_pinhole_timeout_in_seconds = kwargs['icmpPinholeTimeoutInSeconds']
-        if 'pinholeMaximumNumber' in kwargs:
+        if pinhole_maximum_number is None and 'pinholeMaximumNumber' in kwargs:
             pinhole_maximum_number = kwargs['pinholeMaximumNumber']
-        if 'portRange' in kwargs:
+        if port_range is None and 'portRange' in kwargs:
             port_range = kwargs['portRange']
-        if 'tcpPinholeTimeoutInSeconds' in kwargs:
+        if tcp_pinhole_timeout_in_seconds is None and 'tcpPinholeTimeoutInSeconds' in kwargs:
             tcp_pinhole_timeout_in_seconds = kwargs['tcpPinholeTimeoutInSeconds']
-        if 'tcpPortReuseMinimumHoldTimeInSeconds' in kwargs:
+        if tcp_port_reuse_minimum_hold_time_in_seconds is None and 'tcpPortReuseMinimumHoldTimeInSeconds' in kwargs:
             tcp_port_reuse_minimum_hold_time_in_seconds = kwargs['tcpPortReuseMinimumHoldTimeInSeconds']
-        if 'udpPinholeTimeoutInSeconds' in kwargs:
+        if udp_pinhole_timeout_in_seconds is None and 'udpPinholeTimeoutInSeconds' in kwargs:
             udp_pinhole_timeout_in_seconds = kwargs['udpPinholeTimeoutInSeconds']
-        if 'udpPortReuseMinimumHoldTimeInSeconds' in kwargs:
+        if udp_port_reuse_minimum_hold_time_in_seconds is None and 'udpPortReuseMinimumHoldTimeInSeconds' in kwargs:
             udp_port_reuse_minimum_hold_time_in_seconds = kwargs['udpPortReuseMinimumHoldTimeInSeconds']
 
         if icmp_pinhole_timeout_in_seconds is not None:
@@ -202,7 +202,7 @@ class NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArgs:
              _setter: Callable[[Any, Any], None],
              maximum: Optional[pulumi.Input[int]] = None,
              minimum: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
 
         if maximum is not None:
@@ -252,12 +252,16 @@ class NetworkPacketCoreControlPlaneIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
+        if identity_ids is None:
+            raise TypeError("Missing 'identity_ids' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("identity_ids", identity_ids)
         _setter("type", type)
@@ -304,13 +308,15 @@ class NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             authentication_type: pulumi.Input[str],
+             authentication_type: Optional[pulumi.Input[str]] = None,
              https_server_certificate_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'authenticationType' in kwargs:
+        if authentication_type is None and 'authenticationType' in kwargs:
             authentication_type = kwargs['authenticationType']
-        if 'httpsServerCertificateUrl' in kwargs:
+        if authentication_type is None:
+            raise TypeError("Missing 'authentication_type' argument")
+        if https_server_certificate_url is None and 'httpsServerCertificateUrl' in kwargs:
             https_server_certificate_url = kwargs['httpsServerCertificateUrl']
 
         _setter("authentication_type", authentication_type)
@@ -370,20 +376,22 @@ class NetworkPacketCoreControlPlanePlatformArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              arc_kubernetes_cluster_id: Optional[pulumi.Input[str]] = None,
              custom_location_id: Optional[pulumi.Input[str]] = None,
              edge_device_id: Optional[pulumi.Input[str]] = None,
              stack_hci_cluster_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'arcKubernetesClusterId' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if arc_kubernetes_cluster_id is None and 'arcKubernetesClusterId' in kwargs:
             arc_kubernetes_cluster_id = kwargs['arcKubernetesClusterId']
-        if 'customLocationId' in kwargs:
+        if custom_location_id is None and 'customLocationId' in kwargs:
             custom_location_id = kwargs['customLocationId']
-        if 'edgeDeviceId' in kwargs:
+        if edge_device_id is None and 'edgeDeviceId' in kwargs:
             edge_device_id = kwargs['edgeDeviceId']
-        if 'stackHciClusterId' in kwargs:
+        if stack_hci_cluster_id is None and 'stackHciClusterId' in kwargs:
             stack_hci_cluster_id = kwargs['stackHciClusterId']
 
         _setter("type", type)
@@ -485,18 +493,24 @@ class NetworkServicePccRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             precedence: pulumi.Input[int],
-             service_data_flow_templates: pulumi.Input[Sequence[pulumi.Input['NetworkServicePccRuleServiceDataFlowTemplateArgs']]],
+             name: Optional[pulumi.Input[str]] = None,
+             precedence: Optional[pulumi.Input[int]] = None,
+             service_data_flow_templates: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkServicePccRuleServiceDataFlowTemplateArgs']]]] = None,
              qos_policy: Optional[pulumi.Input['NetworkServicePccRuleQosPolicyArgs']] = None,
              traffic_control_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'serviceDataFlowTemplates' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if precedence is None:
+            raise TypeError("Missing 'precedence' argument")
+        if service_data_flow_templates is None and 'serviceDataFlowTemplates' in kwargs:
             service_data_flow_templates = kwargs['serviceDataFlowTemplates']
-        if 'qosPolicy' in kwargs:
+        if service_data_flow_templates is None:
+            raise TypeError("Missing 'service_data_flow_templates' argument")
+        if qos_policy is None and 'qosPolicy' in kwargs:
             qos_policy = kwargs['qosPolicy']
-        if 'trafficControlEnabled' in kwargs:
+        if traffic_control_enabled is None and 'trafficControlEnabled' in kwargs:
             traffic_control_enabled = kwargs['trafficControlEnabled']
 
         _setter("name", name)
@@ -597,25 +611,29 @@ class NetworkServicePccRuleQosPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             maximum_bit_rate: pulumi.Input['NetworkServicePccRuleQosPolicyMaximumBitRateArgs'],
-             qos_indicator: pulumi.Input[int],
+             maximum_bit_rate: Optional[pulumi.Input['NetworkServicePccRuleQosPolicyMaximumBitRateArgs']] = None,
+             qos_indicator: Optional[pulumi.Input[int]] = None,
              allocation_and_retention_priority_level: Optional[pulumi.Input[int]] = None,
              guaranteed_bit_rate: Optional[pulumi.Input['NetworkServicePccRuleQosPolicyGuaranteedBitRateArgs']] = None,
              preemption_capability: Optional[pulumi.Input[str]] = None,
              preemption_vulnerability: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'maximumBitRate' in kwargs:
+        if maximum_bit_rate is None and 'maximumBitRate' in kwargs:
             maximum_bit_rate = kwargs['maximumBitRate']
-        if 'qosIndicator' in kwargs:
+        if maximum_bit_rate is None:
+            raise TypeError("Missing 'maximum_bit_rate' argument")
+        if qos_indicator is None and 'qosIndicator' in kwargs:
             qos_indicator = kwargs['qosIndicator']
-        if 'allocationAndRetentionPriorityLevel' in kwargs:
+        if qos_indicator is None:
+            raise TypeError("Missing 'qos_indicator' argument")
+        if allocation_and_retention_priority_level is None and 'allocationAndRetentionPriorityLevel' in kwargs:
             allocation_and_retention_priority_level = kwargs['allocationAndRetentionPriorityLevel']
-        if 'guaranteedBitRate' in kwargs:
+        if guaranteed_bit_rate is None and 'guaranteedBitRate' in kwargs:
             guaranteed_bit_rate = kwargs['guaranteedBitRate']
-        if 'preemptionCapability' in kwargs:
+        if preemption_capability is None and 'preemptionCapability' in kwargs:
             preemption_capability = kwargs['preemptionCapability']
-        if 'preemptionVulnerability' in kwargs:
+        if preemption_vulnerability is None and 'preemptionVulnerability' in kwargs:
             preemption_vulnerability = kwargs['preemptionVulnerability']
 
         _setter("maximum_bit_rate", maximum_bit_rate)
@@ -719,10 +737,14 @@ class NetworkServicePccRuleQosPolicyGuaranteedBitRateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             downlink: pulumi.Input[str],
-             uplink: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             downlink: Optional[pulumi.Input[str]] = None,
+             uplink: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if downlink is None:
+            raise TypeError("Missing 'downlink' argument")
+        if uplink is None:
+            raise TypeError("Missing 'uplink' argument")
 
         _setter("downlink", downlink)
         _setter("uplink", uplink)
@@ -769,10 +791,14 @@ class NetworkServicePccRuleQosPolicyMaximumBitRateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             downlink: pulumi.Input[str],
-             uplink: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             downlink: Optional[pulumi.Input[str]] = None,
+             uplink: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if downlink is None:
+            raise TypeError("Missing 'downlink' argument")
+        if uplink is None:
+            raise TypeError("Missing 'uplink' argument")
 
         _setter("downlink", downlink)
         _setter("uplink", uplink)
@@ -828,15 +854,23 @@ class NetworkServicePccRuleServiceDataFlowTemplateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             direction: pulumi.Input[str],
-             name: pulumi.Input[str],
-             protocols: pulumi.Input[Sequence[pulumi.Input[str]]],
-             remote_ip_lists: pulumi.Input[Sequence[pulumi.Input[str]]],
+             direction: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             remote_ip_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              ports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'remoteIpLists' in kwargs:
+        if direction is None:
+            raise TypeError("Missing 'direction' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if protocols is None:
+            raise TypeError("Missing 'protocols' argument")
+        if remote_ip_lists is None and 'remoteIpLists' in kwargs:
             remote_ip_lists = kwargs['remoteIpLists']
+        if remote_ip_lists is None:
+            raise TypeError("Missing 'remote_ip_lists' argument")
 
         _setter("direction", direction)
         _setter("name", name)
@@ -932,22 +966,24 @@ class NetworkServiceServiceQosPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             maximum_bit_rate: pulumi.Input['NetworkServiceServiceQosPolicyMaximumBitRateArgs'],
+             maximum_bit_rate: Optional[pulumi.Input['NetworkServiceServiceQosPolicyMaximumBitRateArgs']] = None,
              allocation_and_retention_priority_level: Optional[pulumi.Input[int]] = None,
              preemption_capability: Optional[pulumi.Input[str]] = None,
              preemption_vulnerability: Optional[pulumi.Input[str]] = None,
              qos_indicator: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'maximumBitRate' in kwargs:
+        if maximum_bit_rate is None and 'maximumBitRate' in kwargs:
             maximum_bit_rate = kwargs['maximumBitRate']
-        if 'allocationAndRetentionPriorityLevel' in kwargs:
+        if maximum_bit_rate is None:
+            raise TypeError("Missing 'maximum_bit_rate' argument")
+        if allocation_and_retention_priority_level is None and 'allocationAndRetentionPriorityLevel' in kwargs:
             allocation_and_retention_priority_level = kwargs['allocationAndRetentionPriorityLevel']
-        if 'preemptionCapability' in kwargs:
+        if preemption_capability is None and 'preemptionCapability' in kwargs:
             preemption_capability = kwargs['preemptionCapability']
-        if 'preemptionVulnerability' in kwargs:
+        if preemption_vulnerability is None and 'preemptionVulnerability' in kwargs:
             preemption_vulnerability = kwargs['preemptionVulnerability']
-        if 'qosIndicator' in kwargs:
+        if qos_indicator is None and 'qosIndicator' in kwargs:
             qos_indicator = kwargs['qosIndicator']
 
         _setter("maximum_bit_rate", maximum_bit_rate)
@@ -1038,10 +1074,14 @@ class NetworkServiceServiceQosPolicyMaximumBitRateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             downlink: pulumi.Input[str],
-             uplink: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             downlink: Optional[pulumi.Input[str]] = None,
+             uplink: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if downlink is None:
+            raise TypeError("Missing 'downlink' argument")
+        if uplink is None:
+            raise TypeError("Missing 'uplink' argument")
 
         _setter("downlink", downlink)
         _setter("uplink", uplink)
@@ -1088,12 +1128,16 @@ class NetworkSimGroupIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
+        if identity_ids is None:
+            raise TypeError("Missing 'identity_ids' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("identity_ids", identity_ids)
         _setter("type", type)
@@ -1143,17 +1187,23 @@ class NetworkSimPolicySliceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_networks: pulumi.Input[Sequence[pulumi.Input['NetworkSimPolicySliceDataNetworkArgs']]],
-             default_data_network_id: pulumi.Input[str],
-             slice_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             data_networks: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSimPolicySliceDataNetworkArgs']]]] = None,
+             default_data_network_id: Optional[pulumi.Input[str]] = None,
+             slice_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dataNetworks' in kwargs:
+        if data_networks is None and 'dataNetworks' in kwargs:
             data_networks = kwargs['dataNetworks']
-        if 'defaultDataNetworkId' in kwargs:
+        if data_networks is None:
+            raise TypeError("Missing 'data_networks' argument")
+        if default_data_network_id is None and 'defaultDataNetworkId' in kwargs:
             default_data_network_id = kwargs['defaultDataNetworkId']
-        if 'sliceId' in kwargs:
+        if default_data_network_id is None:
+            raise TypeError("Missing 'default_data_network_id' argument")
+        if slice_id is None and 'sliceId' in kwargs:
             slice_id = kwargs['sliceId']
+        if slice_id is None:
+            raise TypeError("Missing 'slice_id' argument")
 
         _setter("data_networks", data_networks)
         _setter("default_data_network_id", default_data_network_id)
@@ -1237,37 +1287,45 @@ class NetworkSimPolicySliceDataNetworkArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             allowed_services_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             data_network_id: pulumi.Input[str],
-             qos_indicator: pulumi.Input[int],
-             session_aggregate_maximum_bit_rate: pulumi.Input['NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs'],
+             allowed_services_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             data_network_id: Optional[pulumi.Input[str]] = None,
+             qos_indicator: Optional[pulumi.Input[int]] = None,
+             session_aggregate_maximum_bit_rate: Optional[pulumi.Input['NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs']] = None,
              additional_allowed_session_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              allocation_and_retention_priority_level: Optional[pulumi.Input[int]] = None,
              default_session_type: Optional[pulumi.Input[str]] = None,
              max_buffered_packets: Optional[pulumi.Input[int]] = None,
              preemption_capability: Optional[pulumi.Input[str]] = None,
              preemption_vulnerability: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'allowedServicesIds' in kwargs:
+        if allowed_services_ids is None and 'allowedServicesIds' in kwargs:
             allowed_services_ids = kwargs['allowedServicesIds']
-        if 'dataNetworkId' in kwargs:
+        if allowed_services_ids is None:
+            raise TypeError("Missing 'allowed_services_ids' argument")
+        if data_network_id is None and 'dataNetworkId' in kwargs:
             data_network_id = kwargs['dataNetworkId']
-        if 'qosIndicator' in kwargs:
+        if data_network_id is None:
+            raise TypeError("Missing 'data_network_id' argument")
+        if qos_indicator is None and 'qosIndicator' in kwargs:
             qos_indicator = kwargs['qosIndicator']
-        if 'sessionAggregateMaximumBitRate' in kwargs:
+        if qos_indicator is None:
+            raise TypeError("Missing 'qos_indicator' argument")
+        if session_aggregate_maximum_bit_rate is None and 'sessionAggregateMaximumBitRate' in kwargs:
             session_aggregate_maximum_bit_rate = kwargs['sessionAggregateMaximumBitRate']
-        if 'additionalAllowedSessionTypes' in kwargs:
+        if session_aggregate_maximum_bit_rate is None:
+            raise TypeError("Missing 'session_aggregate_maximum_bit_rate' argument")
+        if additional_allowed_session_types is None and 'additionalAllowedSessionTypes' in kwargs:
             additional_allowed_session_types = kwargs['additionalAllowedSessionTypes']
-        if 'allocationAndRetentionPriorityLevel' in kwargs:
+        if allocation_and_retention_priority_level is None and 'allocationAndRetentionPriorityLevel' in kwargs:
             allocation_and_retention_priority_level = kwargs['allocationAndRetentionPriorityLevel']
-        if 'defaultSessionType' in kwargs:
+        if default_session_type is None and 'defaultSessionType' in kwargs:
             default_session_type = kwargs['defaultSessionType']
-        if 'maxBufferedPackets' in kwargs:
+        if max_buffered_packets is None and 'maxBufferedPackets' in kwargs:
             max_buffered_packets = kwargs['maxBufferedPackets']
-        if 'preemptionCapability' in kwargs:
+        if preemption_capability is None and 'preemptionCapability' in kwargs:
             preemption_capability = kwargs['preemptionCapability']
-        if 'preemptionVulnerability' in kwargs:
+        if preemption_vulnerability is None and 'preemptionVulnerability' in kwargs:
             preemption_vulnerability = kwargs['preemptionVulnerability']
 
         _setter("allowed_services_ids", allowed_services_ids)
@@ -1425,10 +1483,14 @@ class NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             downlink: pulumi.Input[str],
-             uplink: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             downlink: Optional[pulumi.Input[str]] = None,
+             uplink: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if downlink is None:
+            raise TypeError("Missing 'downlink' argument")
+        if uplink is None:
+            raise TypeError("Missing 'uplink' argument")
 
         _setter("downlink", downlink)
         _setter("uplink", uplink)
@@ -1475,10 +1537,14 @@ class NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             downlink: pulumi.Input[str],
-             uplink: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             downlink: Optional[pulumi.Input[str]] = None,
+             uplink: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if downlink is None:
+            raise TypeError("Missing 'downlink' argument")
+        if uplink is None:
+            raise TypeError("Missing 'uplink' argument")
 
         _setter("downlink", downlink)
         _setter("uplink", uplink)
@@ -1527,16 +1593,20 @@ class NetworkSimStaticIpConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             attached_data_network_id: pulumi.Input[str],
-             slice_id: pulumi.Input[str],
+             attached_data_network_id: Optional[pulumi.Input[str]] = None,
+             slice_id: Optional[pulumi.Input[str]] = None,
              static_ipv4_address: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'attachedDataNetworkId' in kwargs:
+        if attached_data_network_id is None and 'attachedDataNetworkId' in kwargs:
             attached_data_network_id = kwargs['attachedDataNetworkId']
-        if 'sliceId' in kwargs:
+        if attached_data_network_id is None:
+            raise TypeError("Missing 'attached_data_network_id' argument")
+        if slice_id is None and 'sliceId' in kwargs:
             slice_id = kwargs['sliceId']
-        if 'staticIpv4Address' in kwargs:
+        if slice_id is None:
+            raise TypeError("Missing 'slice_id' argument")
+        if static_ipv4_address is None and 'staticIpv4Address' in kwargs:
             static_ipv4_address = kwargs['staticIpv4Address']
 
         _setter("attached_data_network_id", attached_data_network_id)
@@ -1595,13 +1665,15 @@ class NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             slice_service_type: pulumi.Input[int],
+             slice_service_type: Optional[pulumi.Input[int]] = None,
              slice_differentiator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'sliceServiceType' in kwargs:
+        if slice_service_type is None and 'sliceServiceType' in kwargs:
             slice_service_type = kwargs['sliceServiceType']
-        if 'sliceDifferentiator' in kwargs:
+        if slice_service_type is None:
+            raise TypeError("Missing 'slice_service_type' argument")
+        if slice_differentiator is None and 'sliceDifferentiator' in kwargs:
             slice_differentiator = kwargs['sliceDifferentiator']
 
         _setter("slice_service_type", slice_service_type)

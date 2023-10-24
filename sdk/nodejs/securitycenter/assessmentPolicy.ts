@@ -7,19 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages the Security Center Assessment Metadata for Azure Security Center.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = new azure.securitycenter.AssessmentPolicy("example", {
- *     description: "Test Description",
- *     displayName: "Test Display Name",
- *     severity: "Medium",
- * });
- * ```
- *
  * ## Import
  *
  * Security Assessments Policy can be imported using the `resource id`, e.g.

@@ -82,14 +82,14 @@ class ManagedInstanceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             administrator_login: pulumi.Input[str],
-             administrator_login_password: pulumi.Input[str],
-             license_type: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             sku_name: pulumi.Input[str],
-             storage_size_in_gb: pulumi.Input[int],
-             subnet_id: pulumi.Input[str],
-             vcores: pulumi.Input[int],
+             administrator_login: Optional[pulumi.Input[str]] = None,
+             administrator_login_password: Optional[pulumi.Input[str]] = None,
+             license_type: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
+             storage_size_in_gb: Optional[pulumi.Input[int]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             vcores: Optional[pulumi.Input[int]] = None,
              collation: Optional[pulumi.Input[str]] = None,
              dns_zone_partner_id: Optional[pulumi.Input[str]] = None,
              identity: Optional[pulumi.Input['ManagedInstanceIdentityArgs']] = None,
@@ -101,33 +101,49 @@ class ManagedInstanceArgs:
              storage_account_type: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              timezone_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'administratorLogin' in kwargs:
+        if administrator_login is None and 'administratorLogin' in kwargs:
             administrator_login = kwargs['administratorLogin']
-        if 'administratorLoginPassword' in kwargs:
+        if administrator_login is None:
+            raise TypeError("Missing 'administrator_login' argument")
+        if administrator_login_password is None and 'administratorLoginPassword' in kwargs:
             administrator_login_password = kwargs['administratorLoginPassword']
-        if 'licenseType' in kwargs:
+        if administrator_login_password is None:
+            raise TypeError("Missing 'administrator_login_password' argument")
+        if license_type is None and 'licenseType' in kwargs:
             license_type = kwargs['licenseType']
-        if 'resourceGroupName' in kwargs:
+        if license_type is None:
+            raise TypeError("Missing 'license_type' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'storageSizeInGb' in kwargs:
+        if sku_name is None:
+            raise TypeError("Missing 'sku_name' argument")
+        if storage_size_in_gb is None and 'storageSizeInGb' in kwargs:
             storage_size_in_gb = kwargs['storageSizeInGb']
-        if 'subnetId' in kwargs:
+        if storage_size_in_gb is None:
+            raise TypeError("Missing 'storage_size_in_gb' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'dnsZonePartnerId' in kwargs:
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+        if vcores is None:
+            raise TypeError("Missing 'vcores' argument")
+        if dns_zone_partner_id is None and 'dnsZonePartnerId' in kwargs:
             dns_zone_partner_id = kwargs['dnsZonePartnerId']
-        if 'minimumTlsVersion' in kwargs:
+        if minimum_tls_version is None and 'minimumTlsVersion' in kwargs:
             minimum_tls_version = kwargs['minimumTlsVersion']
-        if 'proxyOverride' in kwargs:
+        if proxy_override is None and 'proxyOverride' in kwargs:
             proxy_override = kwargs['proxyOverride']
-        if 'publicDataEndpointEnabled' in kwargs:
+        if public_data_endpoint_enabled is None and 'publicDataEndpointEnabled' in kwargs:
             public_data_endpoint_enabled = kwargs['publicDataEndpointEnabled']
-        if 'storageAccountType' in kwargs:
+        if storage_account_type is None and 'storageAccountType' in kwargs:
             storage_account_type = kwargs['storageAccountType']
-        if 'timezoneId' in kwargs:
+        if timezone_id is None and 'timezoneId' in kwargs:
             timezone_id = kwargs['timezoneId']
 
         _setter("administrator_login", administrator_login)
@@ -482,33 +498,33 @@ class _ManagedInstanceState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              timezone_id: Optional[pulumi.Input[str]] = None,
              vcores: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'administratorLogin' in kwargs:
+        if administrator_login is None and 'administratorLogin' in kwargs:
             administrator_login = kwargs['administratorLogin']
-        if 'administratorLoginPassword' in kwargs:
+        if administrator_login_password is None and 'administratorLoginPassword' in kwargs:
             administrator_login_password = kwargs['administratorLoginPassword']
-        if 'dnsZonePartnerId' in kwargs:
+        if dns_zone_partner_id is None and 'dnsZonePartnerId' in kwargs:
             dns_zone_partner_id = kwargs['dnsZonePartnerId']
-        if 'licenseType' in kwargs:
+        if license_type is None and 'licenseType' in kwargs:
             license_type = kwargs['licenseType']
-        if 'minimumTlsVersion' in kwargs:
+        if minimum_tls_version is None and 'minimumTlsVersion' in kwargs:
             minimum_tls_version = kwargs['minimumTlsVersion']
-        if 'proxyOverride' in kwargs:
+        if proxy_override is None and 'proxyOverride' in kwargs:
             proxy_override = kwargs['proxyOverride']
-        if 'publicDataEndpointEnabled' in kwargs:
+        if public_data_endpoint_enabled is None and 'publicDataEndpointEnabled' in kwargs:
             public_data_endpoint_enabled = kwargs['publicDataEndpointEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'storageAccountType' in kwargs:
+        if storage_account_type is None and 'storageAccountType' in kwargs:
             storage_account_type = kwargs['storageAccountType']
-        if 'storageSizeInGb' in kwargs:
+        if storage_size_in_gb is None and 'storageSizeInGb' in kwargs:
             storage_size_in_gb = kwargs['storageSizeInGb']
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'timezoneId' in kwargs:
+        if timezone_id is None and 'timezoneId' in kwargs:
             timezone_id = kwargs['timezoneId']
 
         if administrator_login is not None:
@@ -825,160 +841,6 @@ class ManagedInstance(pulumi.CustomResource):
 
         > **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text. Read more about sensitive data in state.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_network_security_group = azure.network.NetworkSecurityGroup("exampleNetworkSecurityGroup",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        allow_management_inbound = azure.network.NetworkSecurityRule("allowManagementInbound",
-            priority=106,
-            direction="Inbound",
-            access="Allow",
-            protocol="Tcp",
-            source_port_range="*",
-            destination_port_ranges=[
-                "9000",
-                "9003",
-                "1438",
-                "1440",
-                "1452",
-            ],
-            source_address_prefix="*",
-            destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
-            network_security_group_name=example_network_security_group.name)
-        allow_misubnet_inbound = azure.network.NetworkSecurityRule("allowMisubnetInbound",
-            priority=200,
-            direction="Inbound",
-            access="Allow",
-            protocol="*",
-            source_port_range="*",
-            destination_port_range="*",
-            source_address_prefix="10.0.0.0/24",
-            destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
-            network_security_group_name=example_network_security_group.name)
-        allow_health_probe_inbound = azure.network.NetworkSecurityRule("allowHealthProbeInbound",
-            priority=300,
-            direction="Inbound",
-            access="Allow",
-            protocol="*",
-            source_port_range="*",
-            destination_port_range="*",
-            source_address_prefix="AzureLoadBalancer",
-            destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
-            network_security_group_name=example_network_security_group.name)
-        allow_tds_inbound = azure.network.NetworkSecurityRule("allowTdsInbound",
-            priority=1000,
-            direction="Inbound",
-            access="Allow",
-            protocol="Tcp",
-            source_port_range="*",
-            destination_port_range="1433",
-            source_address_prefix="VirtualNetwork",
-            destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
-            network_security_group_name=example_network_security_group.name)
-        deny_all_inbound = azure.network.NetworkSecurityRule("denyAllInbound",
-            priority=4096,
-            direction="Inbound",
-            access="Deny",
-            protocol="*",
-            source_port_range="*",
-            destination_port_range="*",
-            source_address_prefix="*",
-            destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
-            network_security_group_name=example_network_security_group.name)
-        allow_management_outbound = azure.network.NetworkSecurityRule("allowManagementOutbound",
-            priority=102,
-            direction="Outbound",
-            access="Allow",
-            protocol="Tcp",
-            source_port_range="*",
-            destination_port_ranges=[
-                "80",
-                "443",
-                "12000",
-            ],
-            source_address_prefix="*",
-            destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
-            network_security_group_name=example_network_security_group.name)
-        allow_misubnet_outbound = azure.network.NetworkSecurityRule("allowMisubnetOutbound",
-            priority=200,
-            direction="Outbound",
-            access="Allow",
-            protocol="*",
-            source_port_range="*",
-            destination_port_range="*",
-            source_address_prefix="10.0.0.0/24",
-            destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
-            network_security_group_name=example_network_security_group.name)
-        deny_all_outbound = azure.network.NetworkSecurityRule("denyAllOutbound",
-            priority=4096,
-            direction="Outbound",
-            access="Deny",
-            protocol="*",
-            source_port_range="*",
-            destination_port_range="*",
-            source_address_prefix="*",
-            destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
-            network_security_group_name=example_network_security_group.name)
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            resource_group_name=example_resource_group.name,
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.0.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="managedinstancedelegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.Sql/managedInstances",
-                    actions=[
-                        "Microsoft.Network/virtualNetworks/subnets/join/action",
-                        "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
-                        "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action",
-                    ],
-                ),
-            )])
-        example_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("exampleSubnetNetworkSecurityGroupAssociation",
-            subnet_id=example_subnet.id,
-            network_security_group_id=example_network_security_group.id)
-        example_route_table = azure.network.RouteTable("exampleRouteTable",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            disable_bgp_route_propagation=False,
-            opts=pulumi.ResourceOptions(depends_on=[example_subnet]))
-        example_subnet_route_table_association = azure.network.SubnetRouteTableAssociation("exampleSubnetRouteTableAssociation",
-            subnet_id=example_subnet.id,
-            route_table_id=example_route_table.id)
-        example_managed_instance = azure.sql.ManagedInstance("exampleManagedInstance",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            administrator_login="mradministrator",
-            administrator_login_password="thisIsDog11",
-            license_type="BasePrice",
-            subnet_id=example_subnet.id,
-            sku_name="GP_Gen5",
-            vcores=4,
-            storage_size_in_gb=32,
-            opts=pulumi.ResourceOptions(depends_on=[
-                    example_subnet_network_security_group_association,
-                    example_subnet_route_table_association,
-                ]))
-        ```
-
         ## Import
 
         SQL Servers can be imported using the `resource id`, e.g.
@@ -1021,160 +883,6 @@ class ManagedInstance(pulumi.CustomResource):
         > **Note:** The `sql.ManagedInstance` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.ManagedInstance` resource instead.
 
         > **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text. Read more about sensitive data in state.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_network_security_group = azure.network.NetworkSecurityGroup("exampleNetworkSecurityGroup",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        allow_management_inbound = azure.network.NetworkSecurityRule("allowManagementInbound",
-            priority=106,
-            direction="Inbound",
-            access="Allow",
-            protocol="Tcp",
-            source_port_range="*",
-            destination_port_ranges=[
-                "9000",
-                "9003",
-                "1438",
-                "1440",
-                "1452",
-            ],
-            source_address_prefix="*",
-            destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
-            network_security_group_name=example_network_security_group.name)
-        allow_misubnet_inbound = azure.network.NetworkSecurityRule("allowMisubnetInbound",
-            priority=200,
-            direction="Inbound",
-            access="Allow",
-            protocol="*",
-            source_port_range="*",
-            destination_port_range="*",
-            source_address_prefix="10.0.0.0/24",
-            destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
-            network_security_group_name=example_network_security_group.name)
-        allow_health_probe_inbound = azure.network.NetworkSecurityRule("allowHealthProbeInbound",
-            priority=300,
-            direction="Inbound",
-            access="Allow",
-            protocol="*",
-            source_port_range="*",
-            destination_port_range="*",
-            source_address_prefix="AzureLoadBalancer",
-            destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
-            network_security_group_name=example_network_security_group.name)
-        allow_tds_inbound = azure.network.NetworkSecurityRule("allowTdsInbound",
-            priority=1000,
-            direction="Inbound",
-            access="Allow",
-            protocol="Tcp",
-            source_port_range="*",
-            destination_port_range="1433",
-            source_address_prefix="VirtualNetwork",
-            destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
-            network_security_group_name=example_network_security_group.name)
-        deny_all_inbound = azure.network.NetworkSecurityRule("denyAllInbound",
-            priority=4096,
-            direction="Inbound",
-            access="Deny",
-            protocol="*",
-            source_port_range="*",
-            destination_port_range="*",
-            source_address_prefix="*",
-            destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
-            network_security_group_name=example_network_security_group.name)
-        allow_management_outbound = azure.network.NetworkSecurityRule("allowManagementOutbound",
-            priority=102,
-            direction="Outbound",
-            access="Allow",
-            protocol="Tcp",
-            source_port_range="*",
-            destination_port_ranges=[
-                "80",
-                "443",
-                "12000",
-            ],
-            source_address_prefix="*",
-            destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
-            network_security_group_name=example_network_security_group.name)
-        allow_misubnet_outbound = azure.network.NetworkSecurityRule("allowMisubnetOutbound",
-            priority=200,
-            direction="Outbound",
-            access="Allow",
-            protocol="*",
-            source_port_range="*",
-            destination_port_range="*",
-            source_address_prefix="10.0.0.0/24",
-            destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
-            network_security_group_name=example_network_security_group.name)
-        deny_all_outbound = azure.network.NetworkSecurityRule("denyAllOutbound",
-            priority=4096,
-            direction="Outbound",
-            access="Deny",
-            protocol="*",
-            source_port_range="*",
-            destination_port_range="*",
-            source_address_prefix="*",
-            destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
-            network_security_group_name=example_network_security_group.name)
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            resource_group_name=example_resource_group.name,
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.0.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="managedinstancedelegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.Sql/managedInstances",
-                    actions=[
-                        "Microsoft.Network/virtualNetworks/subnets/join/action",
-                        "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
-                        "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action",
-                    ],
-                ),
-            )])
-        example_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("exampleSubnetNetworkSecurityGroupAssociation",
-            subnet_id=example_subnet.id,
-            network_security_group_id=example_network_security_group.id)
-        example_route_table = azure.network.RouteTable("exampleRouteTable",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            disable_bgp_route_propagation=False,
-            opts=pulumi.ResourceOptions(depends_on=[example_subnet]))
-        example_subnet_route_table_association = azure.network.SubnetRouteTableAssociation("exampleSubnetRouteTableAssociation",
-            subnet_id=example_subnet.id,
-            route_table_id=example_route_table.id)
-        example_managed_instance = azure.sql.ManagedInstance("exampleManagedInstance",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            administrator_login="mradministrator",
-            administrator_login_password="thisIsDog11",
-            license_type="BasePrice",
-            subnet_id=example_subnet.id,
-            sku_name="GP_Gen5",
-            vcores=4,
-            storage_size_in_gb=32,
-            opts=pulumi.ResourceOptions(depends_on=[
-                    example_subnet_network_security_group_association,
-                    example_subnet_route_table_association,
-                ]))
-        ```
 
         ## Import
 
@@ -1239,11 +947,7 @@ class ManagedInstance(pulumi.CustomResource):
             __props__.__dict__["administrator_login_password"] = None if administrator_login_password is None else pulumi.Output.secret(administrator_login_password)
             __props__.__dict__["collation"] = collation
             __props__.__dict__["dns_zone_partner_id"] = dns_zone_partner_id
-            if identity is not None and not isinstance(identity, ManagedInstanceIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                ManagedInstanceIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, ManagedInstanceIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             if license_type is None and not opts.urn:
                 raise TypeError("Missing required property 'license_type'")

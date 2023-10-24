@@ -7,43 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Container App Environment Storage.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "PerGB2018",
- *     retentionInDays: 30,
- * });
- * const exampleEnvironment = new azure.containerapp.Environment("exampleEnvironment", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     logAnalyticsWorkspaceId: exampleAnalyticsWorkspace.id,
- * });
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "LRS",
- * });
- * const exampleShare = new azure.storage.Share("exampleShare", {
- *     storageAccountName: exampleAccount.name,
- *     quota: 5,
- * });
- * const exampleEnvironmentStorage = new azure.containerapp.EnvironmentStorage("exampleEnvironmentStorage", {
- *     containerAppEnvironmentId: exampleEnvironment.id,
- *     accountName: exampleAccount.name,
- *     shareName: exampleShare.name,
- *     accessKey: exampleAccount.primaryAccessKey,
- *     accessMode: "ReadOnly",
- * });
- * ```
- *
  * ## Import
  *
  * A Container App Environment Storage can be imported using the `resource id`, e.g.

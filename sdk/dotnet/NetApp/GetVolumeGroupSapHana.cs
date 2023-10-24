@@ -13,68 +13,12 @@ namespace Pulumi.Azure.NetApp
     {
         /// <summary>
         /// Use this data source to access information about an existing Application Volume Group for SAP HANA application.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.NetApp.GetVolumeGroupSapHana.Invoke(new()
-        ///     {
-        ///         Name = "existing application volume group name",
-        ///         ResourceGroupName = "resource group name where the account and volume group belong to",
-        ///         AccountName = "existing account where the application volume group belong to",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["id"] = example.Apply(getVolumeGroupSapHanaResult =&gt; getVolumeGroupSapHanaResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetVolumeGroupSapHanaResult> InvokeAsync(GetVolumeGroupSapHanaArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVolumeGroupSapHanaResult>("azure:netapp/getVolumeGroupSapHana:getVolumeGroupSapHana", args ?? new GetVolumeGroupSapHanaArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Application Volume Group for SAP HANA application.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.NetApp.GetVolumeGroupSapHana.Invoke(new()
-        ///     {
-        ///         Name = "existing application volume group name",
-        ///         ResourceGroupName = "resource group name where the account and volume group belong to",
-        ///         AccountName = "existing account where the application volume group belong to",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["id"] = example.Apply(getVolumeGroupSapHanaResult =&gt; getVolumeGroupSapHanaResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetVolumeGroupSapHanaResult> Invoke(GetVolumeGroupSapHanaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeGroupSapHanaResult>("azure:netapp/getVolumeGroupSapHana:getVolumeGroupSapHana", args ?? new GetVolumeGroupSapHanaInvokeArgs(), options.WithDefaults());

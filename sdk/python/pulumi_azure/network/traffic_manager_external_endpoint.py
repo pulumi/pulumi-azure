@@ -55,8 +55,8 @@ class TrafficManagerExternalEndpointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             profile_id: pulumi.Input[str],
-             target: pulumi.Input[str],
+             profile_id: Optional[pulumi.Input[str]] = None,
+             target: Optional[pulumi.Input[str]] = None,
              custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerExternalEndpointCustomHeaderArgs']]]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              endpoint_location: Optional[pulumi.Input[str]] = None,
@@ -65,15 +65,19 @@ class TrafficManagerExternalEndpointArgs:
              priority: Optional[pulumi.Input[int]] = None,
              subnets: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerExternalEndpointSubnetArgs']]]] = None,
              weight: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'profileId' in kwargs:
+        if profile_id is None and 'profileId' in kwargs:
             profile_id = kwargs['profileId']
-        if 'customHeaders' in kwargs:
+        if profile_id is None:
+            raise TypeError("Missing 'profile_id' argument")
+        if target is None:
+            raise TypeError("Missing 'target' argument")
+        if custom_headers is None and 'customHeaders' in kwargs:
             custom_headers = kwargs['customHeaders']
-        if 'endpointLocation' in kwargs:
+        if endpoint_location is None and 'endpointLocation' in kwargs:
             endpoint_location = kwargs['endpointLocation']
-        if 'geoMappings' in kwargs:
+        if geo_mappings is None and 'geoMappings' in kwargs:
             geo_mappings = kwargs['geoMappings']
 
         _setter("profile_id", profile_id)
@@ -268,15 +272,15 @@ class _TrafficManagerExternalEndpointState:
              subnets: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerExternalEndpointSubnetArgs']]]] = None,
              target: Optional[pulumi.Input[str]] = None,
              weight: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'customHeaders' in kwargs:
+        if custom_headers is None and 'customHeaders' in kwargs:
             custom_headers = kwargs['customHeaders']
-        if 'endpointLocation' in kwargs:
+        if endpoint_location is None and 'endpointLocation' in kwargs:
             endpoint_location = kwargs['endpointLocation']
-        if 'geoMappings' in kwargs:
+        if geo_mappings is None and 'geoMappings' in kwargs:
             geo_mappings = kwargs['geoMappings']
-        if 'profileId' in kwargs:
+        if profile_id is None and 'profileId' in kwargs:
             profile_id = kwargs['profileId']
 
         if custom_headers is not None:
@@ -440,37 +444,6 @@ class TrafficManagerExternalEndpoint(pulumi.CustomResource):
         """
         Manages an External Endpoint within a Traffic Manager Profile.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_traffic_manager_profile = azure.network.TrafficManagerProfile("exampleTrafficManagerProfile",
-            resource_group_name=example_resource_group.name,
-            traffic_routing_method="Weighted",
-            dns_config=azure.network.TrafficManagerProfileDnsConfigArgs(
-                relative_name="example-profile",
-                ttl=100,
-            ),
-            monitor_config=azure.network.TrafficManagerProfileMonitorConfigArgs(
-                protocol="HTTP",
-                port=80,
-                path="/",
-                interval_in_seconds=30,
-                timeout_in_seconds=9,
-                tolerated_number_of_failures=3,
-            ),
-            tags={
-                "environment": "Production",
-            })
-        example_traffic_manager_external_endpoint = azure.network.TrafficManagerExternalEndpoint("exampleTrafficManagerExternalEndpoint",
-            profile_id=example_traffic_manager_profile.id,
-            weight=100,
-            target="www.example.com")
-        ```
-
         ## Import
 
         External Endpoints can be imported using the `resource id`, e.g.
@@ -500,37 +473,6 @@ class TrafficManagerExternalEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an External Endpoint within a Traffic Manager Profile.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_traffic_manager_profile = azure.network.TrafficManagerProfile("exampleTrafficManagerProfile",
-            resource_group_name=example_resource_group.name,
-            traffic_routing_method="Weighted",
-            dns_config=azure.network.TrafficManagerProfileDnsConfigArgs(
-                relative_name="example-profile",
-                ttl=100,
-            ),
-            monitor_config=azure.network.TrafficManagerProfileMonitorConfigArgs(
-                protocol="HTTP",
-                port=80,
-                path="/",
-                interval_in_seconds=30,
-                timeout_in_seconds=9,
-                tolerated_number_of_failures=3,
-            ),
-            tags={
-                "environment": "Production",
-            })
-        example_traffic_manager_external_endpoint = azure.network.TrafficManagerExternalEndpoint("exampleTrafficManagerExternalEndpoint",
-            profile_id=example_traffic_manager_profile.id,
-            weight=100,
-            target="www.example.com")
-        ```
 
         ## Import
 

@@ -7,34 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an ExpressRoute Circuit Authorization.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleExpressRouteCircuit = new azure.network.ExpressRouteCircuit("exampleExpressRouteCircuit", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     serviceProviderName: "Equinix",
- *     peeringLocation: "Silicon Valley",
- *     bandwidthInMbps: 50,
- *     sku: {
- *         tier: "Standard",
- *         family: "MeteredData",
- *     },
- *     allowClassicOperations: false,
- *     tags: {
- *         environment: "Production",
- *     },
- * });
- * const exampleExpressRouteCircuitAuthorization = new azure.network.ExpressRouteCircuitAuthorization("exampleExpressRouteCircuitAuthorization", {
- *     expressRouteCircuitName: exampleExpressRouteCircuit.name,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * ```
- *
  * ## Import
  *
  * ExpressRoute Circuit Authorizations can be imported using the `resource id`, e.g.

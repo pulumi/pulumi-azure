@@ -12,46 +12,6 @@ namespace Pulumi.Azure.Avs
     /// <summary>
     /// Manages a VMware Cluster.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var examplePrivateCloud = new Azure.Avs.PrivateCloud("examplePrivateCloud", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         SkuName = "av36",
-    ///         ManagementCluster = new Azure.Avs.Inputs.PrivateCloudManagementClusterArgs
-    ///         {
-    ///             Size = 3,
-    ///         },
-    ///         NetworkSubnetCidr = "192.168.48.0/22",
-    ///         InternetConnectionEnabled = false,
-    ///         NsxtPassword = "QazWsx13$Edc",
-    ///         VcenterPassword = "WsxEdc23$Rfv",
-    ///     });
-    /// 
-    ///     var exampleCluster = new Azure.Avs.Cluster("exampleCluster", new()
-    ///     {
-    ///         VmwareCloudId = examplePrivateCloud.Id,
-    ///         ClusterNodeCount = 3,
-    ///         SkuName = "av36",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// VMware Clusters can be imported using the `resource id`, e.g.

@@ -5,15 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
- * ```
- *
  * ## Import
  *
  * Resource Groups can be imported using the `resource id`, e.g.

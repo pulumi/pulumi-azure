@@ -41,23 +41,29 @@ class VirtualHubIpArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             public_ip_address_id: pulumi.Input[str],
-             subnet_id: pulumi.Input[str],
-             virtual_hub_id: pulumi.Input[str],
+             public_ip_address_id: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             virtual_hub_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              private_ip_address: Optional[pulumi.Input[str]] = None,
              private_ip_allocation_method: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'publicIpAddressId' in kwargs:
+        if public_ip_address_id is None and 'publicIpAddressId' in kwargs:
             public_ip_address_id = kwargs['publicIpAddressId']
-        if 'subnetId' in kwargs:
+        if public_ip_address_id is None:
+            raise TypeError("Missing 'public_ip_address_id' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'virtualHubId' in kwargs:
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+        if virtual_hub_id is None and 'virtualHubId' in kwargs:
             virtual_hub_id = kwargs['virtualHubId']
-        if 'privateIpAddress' in kwargs:
+        if virtual_hub_id is None:
+            raise TypeError("Missing 'virtual_hub_id' argument")
+        if private_ip_address is None and 'privateIpAddress' in kwargs:
             private_ip_address = kwargs['privateIpAddress']
-        if 'privateIpAllocationMethod' in kwargs:
+        if private_ip_allocation_method is None and 'privateIpAllocationMethod' in kwargs:
             private_ip_allocation_method = kwargs['privateIpAllocationMethod']
 
         _setter("public_ip_address_id", public_ip_address_id)
@@ -179,17 +185,17 @@ class _VirtualHubIpState:
              public_ip_address_id: Optional[pulumi.Input[str]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
              virtual_hub_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'privateIpAddress' in kwargs:
+        if private_ip_address is None and 'privateIpAddress' in kwargs:
             private_ip_address = kwargs['privateIpAddress']
-        if 'privateIpAllocationMethod' in kwargs:
+        if private_ip_allocation_method is None and 'privateIpAllocationMethod' in kwargs:
             private_ip_allocation_method = kwargs['privateIpAllocationMethod']
-        if 'publicIpAddressId' in kwargs:
+        if public_ip_address_id is None and 'publicIpAddressId' in kwargs:
             public_ip_address_id = kwargs['publicIpAddressId']
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'virtualHubId' in kwargs:
+        if virtual_hub_id is None and 'virtualHubId' in kwargs:
             virtual_hub_id = kwargs['virtualHubId']
 
         if name is not None:
@@ -295,38 +301,6 @@ class VirtualHubIp(pulumi.CustomResource):
 
         > **NOTE** Virtual Hub IP only supports Standard Virtual Hub without Virtual Wan.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_hub = azure.network.VirtualHub("exampleVirtualHub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku="Standard")
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            allocation_method="Static",
-            sku="Standard")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.5.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.5.1.0/24"])
-        example_virtual_hub_ip = azure.network.VirtualHubIp("exampleVirtualHubIp",
-            virtual_hub_id=example_virtual_hub.id,
-            private_ip_address="10.5.1.18",
-            private_ip_allocation_method="Static",
-            public_ip_address_id=example_public_ip.id,
-            subnet_id=example_subnet.id)
-        ```
-
         ## Import
 
         Virtual Hub IPs can be imported using the `resource id`, e.g.
@@ -354,38 +328,6 @@ class VirtualHubIp(pulumi.CustomResource):
         Manages a Virtual Hub IP. This resource is also known as a Route Server.
 
         > **NOTE** Virtual Hub IP only supports Standard Virtual Hub without Virtual Wan.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_hub = azure.network.VirtualHub("exampleVirtualHub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku="Standard")
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            allocation_method="Static",
-            sku="Standard")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.5.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.5.1.0/24"])
-        example_virtual_hub_ip = azure.network.VirtualHubIp("exampleVirtualHubIp",
-            virtual_hub_id=example_virtual_hub.id,
-            private_ip_address="10.5.1.18",
-            private_ip_allocation_method="Static",
-            public_ip_address_id=example_public_ip.id,
-            subnet_id=example_subnet.id)
-        ```
 
         ## Import
 

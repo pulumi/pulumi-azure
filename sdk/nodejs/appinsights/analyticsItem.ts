@@ -7,26 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Application Insights Analytics Item component.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleInsights = new azure.appinsights.Insights("exampleInsights", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     applicationType: "web",
- * });
- * const exampleAnalyticsItem = new azure.appinsights.AnalyticsItem("exampleAnalyticsItem", {
- *     applicationInsightsId: exampleInsights.id,
- *     content: "requests //simple example query",
- *     scope: "shared",
- *     type: "query",
- * });
- * ```
- *
  * ## Import
  *
  * Application Insights Analytics Items can be imported using the `resource id`, e.g.

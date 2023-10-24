@@ -95,16 +95,6 @@ class AwaitableGetClientConfigResult(GetClientConfigResult):
 def get_client_config(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClientConfigResult:
     """
     Use this data source to access the configuration of the AzureRM provider.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    current = azure.core.get_client_config()
-    pulumi.export("accountId", current.client_id)
-    ```
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -122,15 +112,5 @@ def get_client_config(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableG
 def get_client_config_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClientConfigResult]:
     """
     Use this data source to access the configuration of the AzureRM provider.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    current = azure.core.get_client_config()
-    pulumi.export("accountId", current.client_id)
-    ```
     """
     ...

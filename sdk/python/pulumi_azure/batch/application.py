@@ -41,23 +41,27 @@ class ApplicationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             account_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             account_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              allow_updates: Optional[pulumi.Input[bool]] = None,
              default_version: Optional[pulumi.Input[str]] = None,
              display_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'accountName' in kwargs:
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'resourceGroupName' in kwargs:
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'allowUpdates' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if allow_updates is None and 'allowUpdates' in kwargs:
             allow_updates = kwargs['allowUpdates']
-        if 'defaultVersion' in kwargs:
+        if default_version is None and 'defaultVersion' in kwargs:
             default_version = kwargs['defaultVersion']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
 
         _setter("account_name", account_name)
@@ -180,17 +184,17 @@ class _ApplicationState:
              display_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'accountName' in kwargs:
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'allowUpdates' in kwargs:
+        if allow_updates is None and 'allowUpdates' in kwargs:
             allow_updates = kwargs['allowUpdates']
-        if 'defaultVersion' in kwargs:
+        if default_version is None and 'defaultVersion' in kwargs:
             default_version = kwargs['defaultVersion']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if account_name is not None:
@@ -294,29 +298,6 @@ class Application(pulumi.CustomResource):
         """
         Manages Azure Batch Application instance.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_batch_account_account = azure.batch.Account("exampleBatch/accountAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            pool_allocation_mode="BatchService",
-            storage_account_id=example_account.id,
-            storage_account_authentication_mode="StorageKeys")
-        example_application = azure.batch.Application("exampleApplication",
-            resource_group_name=example_resource_group.name,
-            account_name=example_batch / account_account["name"])
-        ```
-
         ## Import
 
         Batch Applications can be imported using the `resource id`, e.g.
@@ -342,29 +323,6 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages Azure Batch Application instance.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_batch_account_account = azure.batch.Account("exampleBatch/accountAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            pool_allocation_mode="BatchService",
-            storage_account_id=example_account.id,
-            storage_account_authentication_mode="StorageKeys")
-        example_application = azure.batch.Application("exampleApplication",
-            resource_group_name=example_resource_group.name,
-            account_name=example_batch / account_account["name"])
-        ```
 
         ## Import
 

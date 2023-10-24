@@ -46,19 +46,25 @@ class NetworkManagerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             scope: pulumi.Input['NetworkManagerScopeArgs'],
-             scope_accesses: pulumi.Input[Sequence[pulumi.Input[str]]],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             scope: Optional[pulumi.Input['NetworkManagerScopeArgs']] = None,
+             scope_accesses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              description: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'scopeAccesses' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if scope is None:
+            raise TypeError("Missing 'scope' argument")
+        if scope_accesses is None and 'scopeAccesses' in kwargs:
             scope_accesses = kwargs['scopeAccesses']
+        if scope_accesses is None:
+            raise TypeError("Missing 'scope_accesses' argument")
 
         _setter("resource_group_name", resource_group_name)
         _setter("scope", scope)
@@ -201,13 +207,13 @@ class _NetworkManagerState:
              scope: Optional[pulumi.Input['NetworkManagerScopeArgs']] = None,
              scope_accesses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'crossTenantScopes' in kwargs:
+        if cross_tenant_scopes is None and 'crossTenantScopes' in kwargs:
             cross_tenant_scopes = kwargs['crossTenantScopes']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'scopeAccesses' in kwargs:
+        if scope_accesses is None and 'scopeAccesses' in kwargs:
             scope_accesses = kwargs['scopeAccesses']
 
         if cross_tenant_scopes is not None:
@@ -340,30 +346,6 @@ class NetworkManager(pulumi.CustomResource):
         """
         Manages a Network Managers.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        current = azure.core.get_subscription()
-        example_network_manager = azure.network.NetworkManager("exampleNetworkManager",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            scope=azure.network.NetworkManagerScopeArgs(
-                subscription_ids=[current.id],
-            ),
-            scope_accesses=[
-                "Connectivity",
-                "SecurityAdmin",
-            ],
-            description="example network manager",
-            tags={
-                "foo": "bar",
-            })
-        ```
-
         ## Import
 
         Network Managers can be imported using the `resource id`, e.g.
@@ -390,30 +372,6 @@ class NetworkManager(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Network Managers.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        current = azure.core.get_subscription()
-        example_network_manager = azure.network.NetworkManager("exampleNetworkManager",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            scope=azure.network.NetworkManagerScopeArgs(
-                subscription_ids=[current.id],
-            ),
-            scope_accesses=[
-                "Connectivity",
-                "SecurityAdmin",
-            ],
-            description="example network manager",
-            tags={
-                "foo": "bar",
-            })
-        ```
 
         ## Import
 
@@ -464,11 +422,7 @@ class NetworkManager(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if scope is not None and not isinstance(scope, NetworkManagerScopeArgs):
-                scope = scope or {}
-                def _setter(key, value):
-                    scope[key] = value
-                NetworkManagerScopeArgs._configure(_setter, **scope)
+            scope = _utilities.configure(scope, NetworkManagerScopeArgs, True)
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__.__dict__["scope"] = scope

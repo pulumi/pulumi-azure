@@ -118,10 +118,10 @@ class ServiceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             publisher_email: pulumi.Input[str],
-             publisher_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             sku_name: pulumi.Input[str],
+             publisher_email: Optional[pulumi.Input[str]] = None,
+             publisher_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
              additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceAdditionalLocationArgs']]]] = None,
              certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCertificateArgs']]]] = None,
              client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
@@ -145,41 +145,49 @@ class ServiceArgs:
              virtual_network_configuration: Optional[pulumi.Input['ServiceVirtualNetworkConfigurationArgs']] = None,
              virtual_network_type: Optional[pulumi.Input[str]] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'publisherEmail' in kwargs:
+        if publisher_email is None and 'publisherEmail' in kwargs:
             publisher_email = kwargs['publisherEmail']
-        if 'publisherName' in kwargs:
+        if publisher_email is None:
+            raise TypeError("Missing 'publisher_email' argument")
+        if publisher_name is None and 'publisherName' in kwargs:
             publisher_name = kwargs['publisherName']
-        if 'resourceGroupName' in kwargs:
+        if publisher_name is None:
+            raise TypeError("Missing 'publisher_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'additionalLocations' in kwargs:
+        if sku_name is None:
+            raise TypeError("Missing 'sku_name' argument")
+        if additional_locations is None and 'additionalLocations' in kwargs:
             additional_locations = kwargs['additionalLocations']
-        if 'clientCertificateEnabled' in kwargs:
+        if client_certificate_enabled is None and 'clientCertificateEnabled' in kwargs:
             client_certificate_enabled = kwargs['clientCertificateEnabled']
-        if 'gatewayDisabled' in kwargs:
+        if gateway_disabled is None and 'gatewayDisabled' in kwargs:
             gateway_disabled = kwargs['gatewayDisabled']
-        if 'hostnameConfiguration' in kwargs:
+        if hostname_configuration is None and 'hostnameConfiguration' in kwargs:
             hostname_configuration = kwargs['hostnameConfiguration']
-        if 'minApiVersion' in kwargs:
+        if min_api_version is None and 'minApiVersion' in kwargs:
             min_api_version = kwargs['minApiVersion']
-        if 'notificationSenderEmail' in kwargs:
+        if notification_sender_email is None and 'notificationSenderEmail' in kwargs:
             notification_sender_email = kwargs['notificationSenderEmail']
-        if 'publicIpAddressId' in kwargs:
+        if public_ip_address_id is None and 'publicIpAddressId' in kwargs:
             public_ip_address_id = kwargs['publicIpAddressId']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'signIn' in kwargs:
+        if sign_in is None and 'signIn' in kwargs:
             sign_in = kwargs['signIn']
-        if 'signUp' in kwargs:
+        if sign_up is None and 'signUp' in kwargs:
             sign_up = kwargs['signUp']
-        if 'tenantAccess' in kwargs:
+        if tenant_access is None and 'tenantAccess' in kwargs:
             tenant_access = kwargs['tenantAccess']
-        if 'virtualNetworkConfiguration' in kwargs:
+        if virtual_network_configuration is None and 'virtualNetworkConfiguration' in kwargs:
             virtual_network_configuration = kwargs['virtualNetworkConfiguration']
-        if 'virtualNetworkType' in kwargs:
+        if virtual_network_type is None and 'virtualNetworkType' in kwargs:
             virtual_network_type = kwargs['virtualNetworkType']
 
         _setter("publisher_email", publisher_email)
@@ -734,57 +742,57 @@ class _ServiceState:
              virtual_network_configuration: Optional[pulumi.Input['ServiceVirtualNetworkConfigurationArgs']] = None,
              virtual_network_type: Optional[pulumi.Input[str]] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'additionalLocations' in kwargs:
+        if additional_locations is None and 'additionalLocations' in kwargs:
             additional_locations = kwargs['additionalLocations']
-        if 'clientCertificateEnabled' in kwargs:
+        if client_certificate_enabled is None and 'clientCertificateEnabled' in kwargs:
             client_certificate_enabled = kwargs['clientCertificateEnabled']
-        if 'developerPortalUrl' in kwargs:
+        if developer_portal_url is None and 'developerPortalUrl' in kwargs:
             developer_portal_url = kwargs['developerPortalUrl']
-        if 'gatewayDisabled' in kwargs:
+        if gateway_disabled is None and 'gatewayDisabled' in kwargs:
             gateway_disabled = kwargs['gatewayDisabled']
-        if 'gatewayRegionalUrl' in kwargs:
+        if gateway_regional_url is None and 'gatewayRegionalUrl' in kwargs:
             gateway_regional_url = kwargs['gatewayRegionalUrl']
-        if 'gatewayUrl' in kwargs:
+        if gateway_url is None and 'gatewayUrl' in kwargs:
             gateway_url = kwargs['gatewayUrl']
-        if 'hostnameConfiguration' in kwargs:
+        if hostname_configuration is None and 'hostnameConfiguration' in kwargs:
             hostname_configuration = kwargs['hostnameConfiguration']
-        if 'managementApiUrl' in kwargs:
+        if management_api_url is None and 'managementApiUrl' in kwargs:
             management_api_url = kwargs['managementApiUrl']
-        if 'minApiVersion' in kwargs:
+        if min_api_version is None and 'minApiVersion' in kwargs:
             min_api_version = kwargs['minApiVersion']
-        if 'notificationSenderEmail' in kwargs:
+        if notification_sender_email is None and 'notificationSenderEmail' in kwargs:
             notification_sender_email = kwargs['notificationSenderEmail']
-        if 'portalUrl' in kwargs:
+        if portal_url is None and 'portalUrl' in kwargs:
             portal_url = kwargs['portalUrl']
-        if 'privateIpAddresses' in kwargs:
+        if private_ip_addresses is None and 'privateIpAddresses' in kwargs:
             private_ip_addresses = kwargs['privateIpAddresses']
-        if 'publicIpAddressId' in kwargs:
+        if public_ip_address_id is None and 'publicIpAddressId' in kwargs:
             public_ip_address_id = kwargs['publicIpAddressId']
-        if 'publicIpAddresses' in kwargs:
+        if public_ip_addresses is None and 'publicIpAddresses' in kwargs:
             public_ip_addresses = kwargs['publicIpAddresses']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'publisherEmail' in kwargs:
+        if publisher_email is None and 'publisherEmail' in kwargs:
             publisher_email = kwargs['publisherEmail']
-        if 'publisherName' in kwargs:
+        if publisher_name is None and 'publisherName' in kwargs:
             publisher_name = kwargs['publisherName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'scmUrl' in kwargs:
+        if scm_url is None and 'scmUrl' in kwargs:
             scm_url = kwargs['scmUrl']
-        if 'signIn' in kwargs:
+        if sign_in is None and 'signIn' in kwargs:
             sign_in = kwargs['signIn']
-        if 'signUp' in kwargs:
+        if sign_up is None and 'signUp' in kwargs:
             sign_up = kwargs['signUp']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'tenantAccess' in kwargs:
+        if tenant_access is None and 'tenantAccess' in kwargs:
             tenant_access = kwargs['tenantAccess']
-        if 'virtualNetworkConfiguration' in kwargs:
+        if virtual_network_configuration is None and 'virtualNetworkConfiguration' in kwargs:
             virtual_network_configuration = kwargs['virtualNetworkConfiguration']
-        if 'virtualNetworkType' in kwargs:
+        if virtual_network_type is None and 'virtualNetworkType' in kwargs:
             virtual_network_type = kwargs['virtualNetworkType']
 
         if additional_locations is not None:
@@ -1325,21 +1333,6 @@ class Service(pulumi.CustomResource):
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            publisher_name="My Company",
-            publisher_email="company@exmaple.com",
-            sku_name="Developer_1")
-        ```
-
         ## Import
 
         API Management Services can be imported using the `resource id`, e.g.
@@ -1397,21 +1390,6 @@ class Service(pulumi.CustomResource):
                  args: ServiceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            publisher_name="My Company",
-            publisher_email="company@exmaple.com",
-            sku_name="Developer_1")
-        ```
-
         ## Import
 
         API Management Services can be imported using the `resource id`, e.g.
@@ -1478,40 +1456,20 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["additional_locations"] = additional_locations
             __props__.__dict__["certificates"] = certificates
             __props__.__dict__["client_certificate_enabled"] = client_certificate_enabled
-            if delegation is not None and not isinstance(delegation, ServiceDelegationArgs):
-                delegation = delegation or {}
-                def _setter(key, value):
-                    delegation[key] = value
-                ServiceDelegationArgs._configure(_setter, **delegation)
+            delegation = _utilities.configure(delegation, ServiceDelegationArgs, True)
             __props__.__dict__["delegation"] = delegation
             __props__.__dict__["gateway_disabled"] = gateway_disabled
-            if hostname_configuration is not None and not isinstance(hostname_configuration, ServiceHostnameConfigurationArgs):
-                hostname_configuration = hostname_configuration or {}
-                def _setter(key, value):
-                    hostname_configuration[key] = value
-                ServiceHostnameConfigurationArgs._configure(_setter, **hostname_configuration)
+            hostname_configuration = _utilities.configure(hostname_configuration, ServiceHostnameConfigurationArgs, True)
             __props__.__dict__["hostname_configuration"] = hostname_configuration
-            if identity is not None and not isinstance(identity, ServiceIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                ServiceIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, ServiceIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["min_api_version"] = min_api_version
             __props__.__dict__["name"] = name
             __props__.__dict__["notification_sender_email"] = notification_sender_email
-            if policy is not None and not isinstance(policy, ServicePolicyArgs):
-                policy = policy or {}
-                def _setter(key, value):
-                    policy[key] = value
-                ServicePolicyArgs._configure(_setter, **policy)
+            policy = _utilities.configure(policy, ServicePolicyArgs, True)
             __props__.__dict__["policy"] = policy
-            if protocols is not None and not isinstance(protocols, ServiceProtocolsArgs):
-                protocols = protocols or {}
-                def _setter(key, value):
-                    protocols[key] = value
-                ServiceProtocolsArgs._configure(_setter, **protocols)
+            protocols = _utilities.configure(protocols, ServiceProtocolsArgs, True)
             __props__.__dict__["protocols"] = protocols
             __props__.__dict__["public_ip_address_id"] = public_ip_address_id
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
@@ -1524,39 +1482,19 @@ class Service(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if security is not None and not isinstance(security, ServiceSecurityArgs):
-                security = security or {}
-                def _setter(key, value):
-                    security[key] = value
-                ServiceSecurityArgs._configure(_setter, **security)
+            security = _utilities.configure(security, ServiceSecurityArgs, True)
             __props__.__dict__["security"] = security
-            if sign_in is not None and not isinstance(sign_in, ServiceSignInArgs):
-                sign_in = sign_in or {}
-                def _setter(key, value):
-                    sign_in[key] = value
-                ServiceSignInArgs._configure(_setter, **sign_in)
+            sign_in = _utilities.configure(sign_in, ServiceSignInArgs, True)
             __props__.__dict__["sign_in"] = sign_in
-            if sign_up is not None and not isinstance(sign_up, ServiceSignUpArgs):
-                sign_up = sign_up or {}
-                def _setter(key, value):
-                    sign_up[key] = value
-                ServiceSignUpArgs._configure(_setter, **sign_up)
+            sign_up = _utilities.configure(sign_up, ServiceSignUpArgs, True)
             __props__.__dict__["sign_up"] = sign_up
             if sku_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sku_name'")
             __props__.__dict__["sku_name"] = sku_name
             __props__.__dict__["tags"] = tags
-            if tenant_access is not None and not isinstance(tenant_access, ServiceTenantAccessArgs):
-                tenant_access = tenant_access or {}
-                def _setter(key, value):
-                    tenant_access[key] = value
-                ServiceTenantAccessArgs._configure(_setter, **tenant_access)
+            tenant_access = _utilities.configure(tenant_access, ServiceTenantAccessArgs, True)
             __props__.__dict__["tenant_access"] = tenant_access
-            if virtual_network_configuration is not None and not isinstance(virtual_network_configuration, ServiceVirtualNetworkConfigurationArgs):
-                virtual_network_configuration = virtual_network_configuration or {}
-                def _setter(key, value):
-                    virtual_network_configuration[key] = value
-                ServiceVirtualNetworkConfigurationArgs._configure(_setter, **virtual_network_configuration)
+            virtual_network_configuration = _utilities.configure(virtual_network_configuration, ServiceVirtualNetworkConfigurationArgs, True)
             __props__.__dict__["virtual_network_configuration"] = virtual_network_configuration
             __props__.__dict__["virtual_network_type"] = virtual_network_type
             __props__.__dict__["zones"] = zones

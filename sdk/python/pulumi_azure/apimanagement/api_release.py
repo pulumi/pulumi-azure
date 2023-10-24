@@ -32,13 +32,15 @@ class ApiReleaseArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_id: pulumi.Input[str],
+             api_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              notes: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiId' in kwargs:
+        if api_id is None and 'apiId' in kwargs:
             api_id = kwargs['apiId']
+        if api_id is None:
+            raise TypeError("Missing 'api_id' argument")
 
         _setter("api_id", api_id)
         if name is not None:
@@ -107,9 +109,9 @@ class _ApiReleaseState:
              api_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              notes: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiId' in kwargs:
+        if api_id is None and 'apiId' in kwargs:
             api_id = kwargs['apiId']
 
         if api_id is not None:
@@ -168,33 +170,6 @@ class ApiRelease(pulumi.CustomResource):
         """
         Manages a API Management API Release.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            publisher_name="My Company",
-            publisher_email="company@terraform.io",
-            sku_name="Developer_1")
-        example_api = azure.apimanagement.Api("exampleApi",
-            resource_group_name=example_resource_group.name,
-            api_management_name=example_service.name,
-            revision="1",
-            display_name="Example API",
-            path="example",
-            protocols=["https"],
-            import_=azure.apimanagement.ApiImportArgs(
-                content_format="swagger-link-json",
-                content_value="http://conferenceapi.azurewebsites.net/?format=json",
-            ))
-        example_api_release = azure.apimanagement.ApiRelease("exampleApiRelease", api_id=example_api.id)
-        ```
-
         ## Import
 
         API Management API Releases can be imported using the `resource id`, e.g.
@@ -217,33 +192,6 @@ class ApiRelease(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a API Management API Release.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            publisher_name="My Company",
-            publisher_email="company@terraform.io",
-            sku_name="Developer_1")
-        example_api = azure.apimanagement.Api("exampleApi",
-            resource_group_name=example_resource_group.name,
-            api_management_name=example_service.name,
-            revision="1",
-            display_name="Example API",
-            path="example",
-            protocols=["https"],
-            import_=azure.apimanagement.ApiImportArgs(
-                content_format="swagger-link-json",
-                content_value="http://conferenceapi.azurewebsites.net/?format=json",
-            ))
-        example_api_release = azure.apimanagement.ApiRelease("exampleApiRelease", api_id=example_api.id)
-        ```
 
         ## Import
 

@@ -47,7 +47,7 @@ class SpringCloudApplicationInsightsApplicationPerformanceMonitoringArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             spring_cloud_service_id: pulumi.Input[str],
+             spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
              connection_string: Optional[pulumi.Input[str]] = None,
              globally_enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
@@ -55,21 +55,23 @@ class SpringCloudApplicationInsightsApplicationPerformanceMonitoringArgs:
              role_name: Optional[pulumi.Input[str]] = None,
              sampling_percentage: Optional[pulumi.Input[int]] = None,
              sampling_requests_per_second: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'springCloudServiceId' in kwargs:
+        if spring_cloud_service_id is None and 'springCloudServiceId' in kwargs:
             spring_cloud_service_id = kwargs['springCloudServiceId']
-        if 'connectionString' in kwargs:
+        if spring_cloud_service_id is None:
+            raise TypeError("Missing 'spring_cloud_service_id' argument")
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
-        if 'globallyEnabled' in kwargs:
+        if globally_enabled is None and 'globallyEnabled' in kwargs:
             globally_enabled = kwargs['globallyEnabled']
-        if 'roleInstance' in kwargs:
+        if role_instance is None and 'roleInstance' in kwargs:
             role_instance = kwargs['roleInstance']
-        if 'roleName' in kwargs:
+        if role_name is None and 'roleName' in kwargs:
             role_name = kwargs['roleName']
-        if 'samplingPercentage' in kwargs:
+        if sampling_percentage is None and 'samplingPercentage' in kwargs:
             sampling_percentage = kwargs['samplingPercentage']
-        if 'samplingRequestsPerSecond' in kwargs:
+        if sampling_requests_per_second is None and 'samplingRequestsPerSecond' in kwargs:
             sampling_requests_per_second = kwargs['samplingRequestsPerSecond']
 
         _setter("spring_cloud_service_id", spring_cloud_service_id)
@@ -229,21 +231,21 @@ class _SpringCloudApplicationInsightsApplicationPerformanceMonitoringState:
              sampling_percentage: Optional[pulumi.Input[int]] = None,
              sampling_requests_per_second: Optional[pulumi.Input[int]] = None,
              spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
-        if 'globallyEnabled' in kwargs:
+        if globally_enabled is None and 'globallyEnabled' in kwargs:
             globally_enabled = kwargs['globallyEnabled']
-        if 'roleInstance' in kwargs:
+        if role_instance is None and 'roleInstance' in kwargs:
             role_instance = kwargs['roleInstance']
-        if 'roleName' in kwargs:
+        if role_name is None and 'roleName' in kwargs:
             role_name = kwargs['roleName']
-        if 'samplingPercentage' in kwargs:
+        if sampling_percentage is None and 'samplingPercentage' in kwargs:
             sampling_percentage = kwargs['samplingPercentage']
-        if 'samplingRequestsPerSecond' in kwargs:
+        if sampling_requests_per_second is None and 'samplingRequestsPerSecond' in kwargs:
             sampling_requests_per_second = kwargs['samplingRequestsPerSecond']
-        if 'springCloudServiceId' in kwargs:
+        if spring_cloud_service_id is None and 'springCloudServiceId' in kwargs:
             spring_cloud_service_id = kwargs['springCloudServiceId']
 
         if connection_string is not None:
@@ -379,31 +381,6 @@ class SpringCloudApplicationInsightsApplicationPerformanceMonitoring(pulumi.Cust
 
         Manages a Spring Cloud Application Performance Monitoring resource for Application Insights.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_type="web")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="E0")
-        example_spring_cloud_application_insights_application_performance_monitoring = azure.appplatform.SpringCloudApplicationInsightsApplicationPerformanceMonitoring("exampleSpringCloudApplicationInsightsApplicationPerformanceMonitoring",
-            spring_cloud_service_id=example_spring_cloud_service.id,
-            connection_string=example_insights.instrumentation_key,
-            globally_enabled=True,
-            role_name="test-role",
-            role_instance="test-instance",
-            sampling_percentage=50,
-            sampling_requests_per_second=10)
-        ```
-
         ## Import
 
         Spring Cloud Application Performance Monitoring resource for Application Insights can be imported using the `resource id`, e.g.
@@ -433,31 +410,6 @@ class SpringCloudApplicationInsightsApplicationPerformanceMonitoring(pulumi.Cust
         > **NOTE:** This resource is only applicable for Spring Cloud Service enterprise tier
 
         Manages a Spring Cloud Application Performance Monitoring resource for Application Insights.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_type="web")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="E0")
-        example_spring_cloud_application_insights_application_performance_monitoring = azure.appplatform.SpringCloudApplicationInsightsApplicationPerformanceMonitoring("exampleSpringCloudApplicationInsightsApplicationPerformanceMonitoring",
-            spring_cloud_service_id=example_spring_cloud_service.id,
-            connection_string=example_insights.instrumentation_key,
-            globally_enabled=True,
-            role_name="test-role",
-            role_instance="test-instance",
-            sampling_percentage=50,
-            sampling_requests_per_second=10)
-        ```
 
         ## Import
 

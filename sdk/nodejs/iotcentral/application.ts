@@ -9,26 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an IoT Central Application
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleApplication = new azure.iotcentral.Application("exampleApplication", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     subDomain: "example-iotcentral-app-subdomain",
- *     displayName: "example-iotcentral-app-display-name",
- *     sku: "ST1",
- *     template: "iotc-default@1.0.0",
- *     tags: {
- *         Foo: "Bar",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * The IoT Central Application can be imported using the `resource id`, e.g.

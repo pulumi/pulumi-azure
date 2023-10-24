@@ -40,21 +40,29 @@ class ReplicationPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_consistent_snapshot_frequency_in_minutes: pulumi.Input[int],
-             recovery_point_retention_in_minutes: pulumi.Input[int],
-             recovery_vault_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             application_consistent_snapshot_frequency_in_minutes: Optional[pulumi.Input[int]] = None,
+             recovery_point_retention_in_minutes: Optional[pulumi.Input[int]] = None,
+             recovery_vault_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'applicationConsistentSnapshotFrequencyInMinutes' in kwargs:
+        if application_consistent_snapshot_frequency_in_minutes is None and 'applicationConsistentSnapshotFrequencyInMinutes' in kwargs:
             application_consistent_snapshot_frequency_in_minutes = kwargs['applicationConsistentSnapshotFrequencyInMinutes']
-        if 'recoveryPointRetentionInMinutes' in kwargs:
+        if application_consistent_snapshot_frequency_in_minutes is None:
+            raise TypeError("Missing 'application_consistent_snapshot_frequency_in_minutes' argument")
+        if recovery_point_retention_in_minutes is None and 'recoveryPointRetentionInMinutes' in kwargs:
             recovery_point_retention_in_minutes = kwargs['recoveryPointRetentionInMinutes']
-        if 'recoveryVaultName' in kwargs:
+        if recovery_point_retention_in_minutes is None:
+            raise TypeError("Missing 'recovery_point_retention_in_minutes' argument")
+        if recovery_vault_name is None and 'recoveryVaultName' in kwargs:
             recovery_vault_name = kwargs['recoveryVaultName']
-        if 'resourceGroupName' in kwargs:
+        if recovery_vault_name is None:
+            raise TypeError("Missing 'recovery_vault_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("application_consistent_snapshot_frequency_in_minutes", application_consistent_snapshot_frequency_in_minutes)
         _setter("recovery_point_retention_in_minutes", recovery_point_retention_in_minutes)
@@ -160,15 +168,15 @@ class _ReplicationPolicyState:
              recovery_point_retention_in_minutes: Optional[pulumi.Input[int]] = None,
              recovery_vault_name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'applicationConsistentSnapshotFrequencyInMinutes' in kwargs:
+        if application_consistent_snapshot_frequency_in_minutes is None and 'applicationConsistentSnapshotFrequencyInMinutes' in kwargs:
             application_consistent_snapshot_frequency_in_minutes = kwargs['applicationConsistentSnapshotFrequencyInMinutes']
-        if 'recoveryPointRetentionInMinutes' in kwargs:
+        if recovery_point_retention_in_minutes is None and 'recoveryPointRetentionInMinutes' in kwargs:
             recovery_point_retention_in_minutes = kwargs['recoveryPointRetentionInMinutes']
-        if 'recoveryVaultName' in kwargs:
+        if recovery_vault_name is None and 'recoveryVaultName' in kwargs:
             recovery_vault_name = kwargs['recoveryVaultName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if application_consistent_snapshot_frequency_in_minutes is not None:
@@ -259,24 +267,6 @@ class ReplicationPolicy(pulumi.CustomResource):
         """
         Manages a Azure Site Recovery replication policy within a recovery vault. Replication policies define the frequency at which recovery points are created and how long they are stored.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example", location="East US")
-        vault = azure.recoveryservices.Vault("vault",
-            location=example.location,
-            resource_group_name=example.name,
-            sku="Standard")
-        policy = azure.siterecovery.ReplicationPolicy("policy",
-            resource_group_name=example.name,
-            recovery_vault_name=vault.name,
-            recovery_point_retention_in_minutes=24 * 60,
-            application_consistent_snapshot_frequency_in_minutes=4 * 60)
-        ```
-
         ## Import
 
         Site Recovery Replication Policies can be imported using the `resource id`, e.g.
@@ -303,24 +293,6 @@ class ReplicationPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Azure Site Recovery replication policy within a recovery vault. Replication policies define the frequency at which recovery points are created and how long they are stored.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example", location="East US")
-        vault = azure.recoveryservices.Vault("vault",
-            location=example.location,
-            resource_group_name=example.name,
-            sku="Standard")
-        policy = azure.siterecovery.ReplicationPolicy("policy",
-            resource_group_name=example.name,
-            recovery_vault_name=vault.name,
-            recovery_point_retention_in_minutes=24 * 60,
-            application_consistent_snapshot_frequency_in_minutes=4 * 60)
-        ```
 
         ## Import
 

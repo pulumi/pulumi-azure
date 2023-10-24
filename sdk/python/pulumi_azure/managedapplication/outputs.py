@@ -59,14 +59,22 @@ class ApplicationPlan(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             product: str,
-             publisher: str,
-             version: str,
+             name: Optional[str] = None,
+             product: Optional[str] = None,
+             publisher: Optional[str] = None,
+             version: Optional[str] = None,
              promotion_code: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'promotionCode' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if product is None:
+            raise TypeError("Missing 'product' argument")
+        if publisher is None:
+            raise TypeError("Missing 'publisher' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
+        if promotion_code is None and 'promotionCode' in kwargs:
             promotion_code = kwargs['promotionCode']
 
         _setter("name", name)
@@ -155,14 +163,18 @@ class DefinitionAuthorization(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             role_definition_id: str,
-             service_principal_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             role_definition_id: Optional[str] = None,
+             service_principal_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'roleDefinitionId' in kwargs:
+        if role_definition_id is None and 'roleDefinitionId' in kwargs:
             role_definition_id = kwargs['roleDefinitionId']
-        if 'servicePrincipalId' in kwargs:
+        if role_definition_id is None:
+            raise TypeError("Missing 'role_definition_id' argument")
+        if service_principal_id is None and 'servicePrincipalId' in kwargs:
             service_principal_id = kwargs['servicePrincipalId']
+        if service_principal_id is None:
+            raise TypeError("Missing 'service_principal_id' argument")
 
         _setter("role_definition_id", role_definition_id)
         _setter("service_principal_id", service_principal_id)

@@ -13,32 +13,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** However, CosmosDb Notebook feature no longer uses the permanent notebook workspace being referred to the public surface in the RP (have since moved to temporary notebooks workspaces which are short-lived <1 hour).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.cosmosdb.Account("exampleAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     offerType: "Standard",
- *     kind: "GlobalDocumentDB",
- *     consistencyPolicy: {
- *         consistencyLevel: "BoundedStaleness",
- *     },
- *     geoLocations: [{
- *         location: exampleResourceGroup.location,
- *         failoverPriority: 0,
- *     }],
- * });
- * const exampleNotebookWorkspace = new azure.cosmosdb.NotebookWorkspace("exampleNotebookWorkspace", {
- *     resourceGroupName: exampleAccount.resourceGroupName,
- *     accountName: exampleAccount.name,
- * });
- * ```
- *
  * ## Import
  *
  * =SQL Notebook Workspaces can be imported using the `resource id`, e.g.

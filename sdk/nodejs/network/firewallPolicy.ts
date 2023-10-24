@@ -9,19 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Firewall Policy.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleFirewallPolicy = new azure.network.FirewallPolicy("exampleFirewallPolicy", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- * });
- * ```
- *
  * ## Import
  *
  * Firewall Policies can be imported using the `resource id`, e.g.

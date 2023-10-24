@@ -13,60 +13,12 @@ namespace Pulumi.Azure.Cdn
     {
         /// <summary>
         /// Use this data source to access information about an existing Front Door (standard/premium) Secret.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Cdn.GetFrontdoorSecret.Invoke(new()
-        ///     {
-        ///         Name = "example-secret",
-        ///         ProfileName = "example-profile",
-        ///         ResourceGroupName = "example-resources",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetFrontdoorSecretResult> InvokeAsync(GetFrontdoorSecretArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFrontdoorSecretResult>("azure:cdn/getFrontdoorSecret:getFrontdoorSecret", args ?? new GetFrontdoorSecretArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Front Door (standard/premium) Secret.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Cdn.GetFrontdoorSecret.Invoke(new()
-        ///     {
-        ///         Name = "example-secret",
-        ///         ProfileName = "example-profile",
-        ///         ResourceGroupName = "example-resources",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetFrontdoorSecretResult> Invoke(GetFrontdoorSecretInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFrontdoorSecretResult>("azure:cdn/getFrontdoorSecret:getFrontdoorSecret", args ?? new GetFrontdoorSecretInvokeArgs(), options.WithDefaults());

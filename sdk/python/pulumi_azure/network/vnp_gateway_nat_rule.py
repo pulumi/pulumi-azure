@@ -59,8 +59,8 @@ class VnpGatewayNatRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             vpn_gateway_id: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             vpn_gateway_id: Optional[pulumi.Input[str]] = None,
              external_address_space_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              external_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleExternalMappingArgs']]]] = None,
              internal_address_space_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -69,21 +69,25 @@ class VnpGatewayNatRuleArgs:
              mode: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'vpnGatewayId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if vpn_gateway_id is None and 'vpnGatewayId' in kwargs:
             vpn_gateway_id = kwargs['vpnGatewayId']
-        if 'externalAddressSpaceMappings' in kwargs:
+        if vpn_gateway_id is None:
+            raise TypeError("Missing 'vpn_gateway_id' argument")
+        if external_address_space_mappings is None and 'externalAddressSpaceMappings' in kwargs:
             external_address_space_mappings = kwargs['externalAddressSpaceMappings']
-        if 'externalMappings' in kwargs:
+        if external_mappings is None and 'externalMappings' in kwargs:
             external_mappings = kwargs['externalMappings']
-        if 'internalAddressSpaceMappings' in kwargs:
+        if internal_address_space_mappings is None and 'internalAddressSpaceMappings' in kwargs:
             internal_address_space_mappings = kwargs['internalAddressSpaceMappings']
-        if 'internalMappings' in kwargs:
+        if internal_mappings is None and 'internalMappings' in kwargs:
             internal_mappings = kwargs['internalMappings']
-        if 'ipConfigurationId' in kwargs:
+        if ip_configuration_id is None and 'ipConfigurationId' in kwargs:
             ip_configuration_id = kwargs['ipConfigurationId']
 
         _setter("resource_group_name", resource_group_name)
@@ -298,21 +302,21 @@ class _VnpGatewayNatRuleState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
              vpn_gateway_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'externalAddressSpaceMappings' in kwargs:
+        if external_address_space_mappings is None and 'externalAddressSpaceMappings' in kwargs:
             external_address_space_mappings = kwargs['externalAddressSpaceMappings']
-        if 'externalMappings' in kwargs:
+        if external_mappings is None and 'externalMappings' in kwargs:
             external_mappings = kwargs['externalMappings']
-        if 'internalAddressSpaceMappings' in kwargs:
+        if internal_address_space_mappings is None and 'internalAddressSpaceMappings' in kwargs:
             internal_address_space_mappings = kwargs['internalAddressSpaceMappings']
-        if 'internalMappings' in kwargs:
+        if internal_mappings is None and 'internalMappings' in kwargs:
             internal_mappings = kwargs['internalMappings']
-        if 'ipConfigurationId' in kwargs:
+        if ip_configuration_id is None and 'ipConfigurationId' in kwargs:
             ip_configuration_id = kwargs['ipConfigurationId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'vpnGatewayId' in kwargs:
+        if vpn_gateway_id is None and 'vpnGatewayId' in kwargs:
             vpn_gateway_id = kwargs['vpnGatewayId']
 
         if external_address_space_mappings is not None:
@@ -492,36 +496,6 @@ class VnpGatewayNatRule(pulumi.CustomResource):
         """
         Manages a VPN Gateway NAT Rule.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_wan = azure.network.VirtualWan("exampleVirtualWan",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_virtual_hub = azure.network.VirtualHub("exampleVirtualHub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            address_prefix="10.0.1.0/24",
-            virtual_wan_id=example_virtual_wan.id)
-        example_vpn_gateway = azure.network.VpnGateway("exampleVpnGateway",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            virtual_hub_id=example_virtual_hub.id)
-        example_vnp_gateway_nat_rule = azure.network.VnpGatewayNatRule("exampleVnpGatewayNatRule",
-            resource_group_name=example_resource_group.name,
-            vpn_gateway_id=example_vpn_gateway.id,
-            external_mappings=[azure.network.VnpGatewayNatRuleExternalMappingArgs(
-                address_space="192.168.21.0/26",
-            )],
-            internal_mappings=[azure.network.VnpGatewayNatRuleInternalMappingArgs(
-                address_space="10.4.0.0/26",
-            )])
-        ```
-
         ## Import
 
         VPN Gateway NAT Rules can be imported using the `resource id`, e.g.
@@ -555,36 +529,6 @@ class VnpGatewayNatRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a VPN Gateway NAT Rule.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_wan = azure.network.VirtualWan("exampleVirtualWan",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_virtual_hub = azure.network.VirtualHub("exampleVirtualHub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            address_prefix="10.0.1.0/24",
-            virtual_wan_id=example_virtual_wan.id)
-        example_vpn_gateway = azure.network.VpnGateway("exampleVpnGateway",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            virtual_hub_id=example_virtual_hub.id)
-        example_vnp_gateway_nat_rule = azure.network.VnpGatewayNatRule("exampleVnpGatewayNatRule",
-            resource_group_name=example_resource_group.name,
-            vpn_gateway_id=example_vpn_gateway.id,
-            external_mappings=[azure.network.VnpGatewayNatRuleExternalMappingArgs(
-                address_space="192.168.21.0/26",
-            )],
-            internal_mappings=[azure.network.VnpGatewayNatRuleInternalMappingArgs(
-                address_space="10.4.0.0/26",
-            )])
-        ```
 
         ## Import
 

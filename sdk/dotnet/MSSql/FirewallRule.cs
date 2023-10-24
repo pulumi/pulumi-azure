@@ -12,40 +12,6 @@ namespace Pulumi.Azure.MSSql
     /// <summary>
     /// Allows you to manage an Azure SQL Firewall Rule.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleServer = new Azure.MSSql.Server("exampleServer", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         Version = "12.0",
-    ///         AdministratorLogin = "4dm1n157r470r",
-    ///         AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
-    ///     });
-    /// 
-    ///     var exampleFirewallRule = new Azure.MSSql.FirewallRule("exampleFirewallRule", new()
-    ///     {
-    ///         ServerId = exampleServer.Id,
-    ///         StartIpAddress = "10.0.17.62",
-    ///         EndIpAddress = "10.0.17.62",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// SQL Firewall Rules can be imported using the `resource id`, e.g.

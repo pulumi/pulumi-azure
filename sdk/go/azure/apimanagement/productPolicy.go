@@ -15,50 +15,6 @@ import (
 
 // Manages an API Management Product Policy
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProduct, err := apimanagement.LookupProduct(ctx, &apimanagement.LookupProductArgs{
-//				ProductId:         "my-product",
-//				ApiManagementName: "example-apim",
-//				ResourceGroupName: "search-service",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = apimanagement.NewProductPolicy(ctx, "exampleProductPolicy", &apimanagement.ProductPolicyArgs{
-//				ProductId:         *pulumi.String(exampleProduct.ProductId),
-//				ApiManagementName: *pulumi.String(exampleProduct.ApiManagementName),
-//				ResourceGroupName: *pulumi.String(exampleProduct.ResourceGroupName),
-//				XmlContent: pulumi.String(`<policies>
-//	  <inbound>
-//	    <find-and-replace from="xyz" to="abc" />
-//	  </inbound>
-//
-// </policies>
-// `),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // API Management Product Policy can be imported using the `resource id`, e.g.

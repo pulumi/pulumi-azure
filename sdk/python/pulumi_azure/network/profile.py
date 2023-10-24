@@ -40,17 +40,21 @@ class ProfileArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             container_network_interface: pulumi.Input['ProfileContainerNetworkInterfaceArgs'],
-             resource_group_name: pulumi.Input[str],
+             container_network_interface: Optional[pulumi.Input['ProfileContainerNetworkInterfaceArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'containerNetworkInterface' in kwargs:
+        if container_network_interface is None and 'containerNetworkInterface' in kwargs:
             container_network_interface = kwargs['containerNetworkInterface']
-        if 'resourceGroupName' in kwargs:
+        if container_network_interface is None:
+            raise TypeError("Missing 'container_network_interface' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("container_network_interface", container_network_interface)
         _setter("resource_group_name", resource_group_name)
@@ -158,13 +162,13 @@ class _ProfileState:
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'containerNetworkInterface' in kwargs:
+        if container_network_interface is None and 'containerNetworkInterface' in kwargs:
             container_network_interface = kwargs['containerNetworkInterface']
-        if 'containerNetworkInterfaceIds' in kwargs:
+        if container_network_interface_ids is None and 'containerNetworkInterfaceIds' in kwargs:
             container_network_interface_ids = kwargs['containerNetworkInterfaceIds']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if container_network_interface is not None:
@@ -267,40 +271,6 @@ class Profile(pulumi.CustomResource):
         """
         Manages a Network Profile.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            address_spaces=["10.1.0.0/16"])
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.1.0.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="delegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.ContainerInstance/containerGroups",
-                    actions=["Microsoft.Network/virtualNetworks/subnets/action"],
-                ),
-            )])
-        example_profile = azure.network.Profile("exampleProfile",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            container_network_interface=azure.network.ProfileContainerNetworkInterfaceArgs(
-                name="examplecnic",
-                ip_configurations=[azure.network.ProfileContainerNetworkInterfaceIpConfigurationArgs(
-                    name="exampleipconfig",
-                    subnet_id=example_subnet.id,
-                )],
-            ))
-        ```
-
         ## Import
 
         Network Profile can be imported using the `resource id`, e.g.
@@ -325,40 +295,6 @@ class Profile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Network Profile.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            address_spaces=["10.1.0.0/16"])
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.1.0.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="delegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.ContainerInstance/containerGroups",
-                    actions=["Microsoft.Network/virtualNetworks/subnets/action"],
-                ),
-            )])
-        example_profile = azure.network.Profile("exampleProfile",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            container_network_interface=azure.network.ProfileContainerNetworkInterfaceArgs(
-                name="examplecnic",
-                ip_configurations=[azure.network.ProfileContainerNetworkInterfaceIpConfigurationArgs(
-                    name="exampleipconfig",
-                    subnet_id=example_subnet.id,
-                )],
-            ))
-        ```
 
         ## Import
 
@@ -401,11 +337,7 @@ class Profile(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProfileArgs.__new__(ProfileArgs)
 
-            if container_network_interface is not None and not isinstance(container_network_interface, ProfileContainerNetworkInterfaceArgs):
-                container_network_interface = container_network_interface or {}
-                def _setter(key, value):
-                    container_network_interface[key] = value
-                ProfileContainerNetworkInterfaceArgs._configure(_setter, **container_network_interface)
+            container_network_interface = _utilities.configure(container_network_interface, ProfileContainerNetworkInterfaceArgs, True)
             if container_network_interface is None and not opts.urn:
                 raise TypeError("Missing required property 'container_network_interface'")
             __props__.__dict__["container_network_interface"] = container_network_interface

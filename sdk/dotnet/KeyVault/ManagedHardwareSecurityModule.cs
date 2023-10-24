@@ -14,44 +14,6 @@ namespace Pulumi.Azure.KeyVault
     /// 
     /// &gt; **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Managed Hardware Security Module resource on destroy, rather than the default soft-delete. See `purge_soft_deleted_hardware_security_modules_on_destroy` for more information.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Azure.Core.GetClientConfig.Invoke();
-    /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleManagedHardwareSecurityModule = new Azure.KeyVault.ManagedHardwareSecurityModule("exampleManagedHardwareSecurityModule", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         SkuName = "Standard_B1",
-    ///         PurgeProtectionEnabled = false,
-    ///         SoftDeleteRetentionDays = 90,
-    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///         AdminObjectIds = new[]
-    ///         {
-    ///             current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Env", "Test" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Key Vault Managed Hardware Security Module can be imported using the `resource id`, e.g.

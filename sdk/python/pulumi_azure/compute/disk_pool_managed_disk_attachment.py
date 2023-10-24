@@ -29,14 +29,18 @@ class DiskPoolManagedDiskAttachmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             disk_pool_id: pulumi.Input[str],
-             managed_disk_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             disk_pool_id: Optional[pulumi.Input[str]] = None,
+             managed_disk_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'diskPoolId' in kwargs:
+        if disk_pool_id is None and 'diskPoolId' in kwargs:
             disk_pool_id = kwargs['diskPoolId']
-        if 'managedDiskId' in kwargs:
+        if disk_pool_id is None:
+            raise TypeError("Missing 'disk_pool_id' argument")
+        if managed_disk_id is None and 'managedDiskId' in kwargs:
             managed_disk_id = kwargs['managedDiskId']
+        if managed_disk_id is None:
+            raise TypeError("Missing 'managed_disk_id' argument")
 
         _setter("disk_pool_id", disk_pool_id)
         _setter("managed_disk_id", managed_disk_id)
@@ -86,11 +90,11 @@ class _DiskPoolManagedDiskAttachmentState:
              _setter: Callable[[Any, Any], None],
              disk_pool_id: Optional[pulumi.Input[str]] = None,
              managed_disk_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'diskPoolId' in kwargs:
+        if disk_pool_id is None and 'diskPoolId' in kwargs:
             disk_pool_id = kwargs['diskPoolId']
-        if 'managedDiskId' in kwargs:
+        if managed_disk_id is None and 'managedDiskId' in kwargs:
             managed_disk_id = kwargs['managedDiskId']
 
         if disk_pool_id is not None:
@@ -144,60 +148,6 @@ class DiskPoolManagedDiskAttachment(pulumi.CustomResource):
 
         > **Note:** You must provide the StoragePool resource provider RBAC permissions to the disks that will be added to the disk pool.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_azuread as azuread
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            address_spaces=["10.0.0.0/16"])
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.0.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="diskspool",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    actions=["Microsoft.Network/virtualNetworks/read"],
-                    name="Microsoft.StoragePool/diskPools",
-                ),
-            )])
-        example_disk_pool = azure.compute.DiskPool("exampleDiskPool",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            subnet_id=example_subnet.id,
-            zones=["1"],
-            sku_name="Basic_B1")
-        example_managed_disk = azure.compute.ManagedDisk("exampleManagedDisk",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            create_option="Empty",
-            storage_account_type="Premium_LRS",
-            disk_size_gb=4,
-            max_shares=2,
-            zone="1")
-        example_service_principal = azuread.get_service_principal(display_name="StoragePool Resource Provider")
-        roles = [
-            "Disk Pool Operator",
-            "Virtual Machine Contributor",
-        ]
-        example_assignment = []
-        for range in [{"value": i} for i in range(0, len(roles))]:
-            example_assignment.append(azure.authorization.Assignment(f"exampleAssignment-{range['value']}",
-                principal_id=example_service_principal.id,
-                role_definition_name=roles[range["value"]],
-                scope=example_managed_disk.id))
-        example_disk_pool_managed_disk_attachment = azure.compute.DiskPoolManagedDiskAttachment("exampleDiskPoolManagedDiskAttachment",
-            disk_pool_id=example_disk_pool.id,
-            managed_disk_id=example_managed_disk.id,
-            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
-        ```
-
         ## Import
 
         Disks Pool Managed Disk Attachments can be imported using the `resource id`, e.g.
@@ -229,60 +179,6 @@ class DiskPoolManagedDiskAttachment(pulumi.CustomResource):
         > **Note:** Must be a shared disk, with a maxShares value of two or greater.
 
         > **Note:** You must provide the StoragePool resource provider RBAC permissions to the disks that will be added to the disk pool.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_azuread as azuread
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            address_spaces=["10.0.0.0/16"])
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.0.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="diskspool",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    actions=["Microsoft.Network/virtualNetworks/read"],
-                    name="Microsoft.StoragePool/diskPools",
-                ),
-            )])
-        example_disk_pool = azure.compute.DiskPool("exampleDiskPool",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            subnet_id=example_subnet.id,
-            zones=["1"],
-            sku_name="Basic_B1")
-        example_managed_disk = azure.compute.ManagedDisk("exampleManagedDisk",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            create_option="Empty",
-            storage_account_type="Premium_LRS",
-            disk_size_gb=4,
-            max_shares=2,
-            zone="1")
-        example_service_principal = azuread.get_service_principal(display_name="StoragePool Resource Provider")
-        roles = [
-            "Disk Pool Operator",
-            "Virtual Machine Contributor",
-        ]
-        example_assignment = []
-        for range in [{"value": i} for i in range(0, len(roles))]:
-            example_assignment.append(azure.authorization.Assignment(f"exampleAssignment-{range['value']}",
-                principal_id=example_service_principal.id,
-                role_definition_name=roles[range["value"]],
-                scope=example_managed_disk.id))
-        example_disk_pool_managed_disk_attachment = azure.compute.DiskPoolManagedDiskAttachment("exampleDiskPoolManagedDiskAttachment",
-            disk_pool_id=example_disk_pool.id,
-            managed_disk_id=example_managed_disk.id,
-            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
-        ```
 
         ## Import
 

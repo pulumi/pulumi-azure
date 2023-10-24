@@ -56,7 +56,7 @@ class EnvironmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              dapr_application_insights_connection_string: Optional[pulumi.Input[str]] = None,
              infrastructure_subnet_id: Optional[pulumi.Input[str]] = None,
              internal_load_balancer_enabled: Optional[pulumi.Input[bool]] = None,
@@ -65,19 +65,21 @@ class EnvironmentArgs:
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zone_redundancy_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'daprApplicationInsightsConnectionString' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if dapr_application_insights_connection_string is None and 'daprApplicationInsightsConnectionString' in kwargs:
             dapr_application_insights_connection_string = kwargs['daprApplicationInsightsConnectionString']
-        if 'infrastructureSubnetId' in kwargs:
+        if infrastructure_subnet_id is None and 'infrastructureSubnetId' in kwargs:
             infrastructure_subnet_id = kwargs['infrastructureSubnetId']
-        if 'internalLoadBalancerEnabled' in kwargs:
+        if internal_load_balancer_enabled is None and 'internalLoadBalancerEnabled' in kwargs:
             internal_load_balancer_enabled = kwargs['internalLoadBalancerEnabled']
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if 'zoneRedundancyEnabled' in kwargs:
+        if zone_redundancy_enabled is None and 'zoneRedundancyEnabled' in kwargs:
             zone_redundancy_enabled = kwargs['zoneRedundancyEnabled']
 
         _setter("resource_group_name", resource_group_name)
@@ -287,29 +289,29 @@ class _EnvironmentState:
              static_ip_address: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zone_redundancy_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'daprApplicationInsightsConnectionString' in kwargs:
+        if dapr_application_insights_connection_string is None and 'daprApplicationInsightsConnectionString' in kwargs:
             dapr_application_insights_connection_string = kwargs['daprApplicationInsightsConnectionString']
-        if 'defaultDomain' in kwargs:
+        if default_domain is None and 'defaultDomain' in kwargs:
             default_domain = kwargs['defaultDomain']
-        if 'dockerBridgeCidr' in kwargs:
+        if docker_bridge_cidr is None and 'dockerBridgeCidr' in kwargs:
             docker_bridge_cidr = kwargs['dockerBridgeCidr']
-        if 'infrastructureSubnetId' in kwargs:
+        if infrastructure_subnet_id is None and 'infrastructureSubnetId' in kwargs:
             infrastructure_subnet_id = kwargs['infrastructureSubnetId']
-        if 'internalLoadBalancerEnabled' in kwargs:
+        if internal_load_balancer_enabled is None and 'internalLoadBalancerEnabled' in kwargs:
             internal_load_balancer_enabled = kwargs['internalLoadBalancerEnabled']
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if 'platformReservedCidr' in kwargs:
+        if platform_reserved_cidr is None and 'platformReservedCidr' in kwargs:
             platform_reserved_cidr = kwargs['platformReservedCidr']
-        if 'platformReservedDnsIpAddress' in kwargs:
+        if platform_reserved_dns_ip_address is None and 'platformReservedDnsIpAddress' in kwargs:
             platform_reserved_dns_ip_address = kwargs['platformReservedDnsIpAddress']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'staticIpAddress' in kwargs:
+        if static_ip_address is None and 'staticIpAddress' in kwargs:
             static_ip_address = kwargs['staticIpAddress']
-        if 'zoneRedundancyEnabled' in kwargs:
+        if zone_redundancy_enabled is None and 'zoneRedundancyEnabled' in kwargs:
             zone_redundancy_enabled = kwargs['zoneRedundancyEnabled']
 
         if dapr_application_insights_connection_string is not None:
@@ -534,24 +536,6 @@ class Environment(pulumi.CustomResource):
         """
         Manages a Container App Environment.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="PerGB2018",
-            retention_in_days=30)
-        example_environment = azure.containerapp.Environment("exampleEnvironment",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            log_analytics_workspace_id=example_analytics_workspace.id)
-        ```
-
         ## Import
 
         A Container App Environment can be imported using the `resource id`, e.g.
@@ -586,24 +570,6 @@ class Environment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Container App Environment.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="PerGB2018",
-            retention_in_days=30)
-        example_environment = azure.containerapp.Environment("exampleEnvironment",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            log_analytics_workspace_id=example_analytics_workspace.id)
-        ```
 
         ## Import
 

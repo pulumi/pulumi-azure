@@ -8,19 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Bastion Host.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.compute.getBastionHost({
- *     name: "existing-bastion",
- *     resourceGroupName: "existing-resources",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getBastionHost(args: GetBastionHostArgs, opts?: pulumi.InvokeOptions): Promise<GetBastionHostResult> {
 
@@ -105,19 +92,6 @@ export interface GetBastionHostResult {
 }
 /**
  * Use this data source to access information about an existing Bastion Host.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.compute.getBastionHost({
- *     name: "existing-bastion",
- *     resourceGroupName: "existing-resources",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getBastionHostOutput(args: GetBastionHostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBastionHostResult> {
     return pulumi.output(args).apply((a: any) => getBastionHost(a, opts))

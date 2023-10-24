@@ -45,17 +45,19 @@ class RouteTableArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              disable_bgp_route_propagation: Optional[pulumi.Input[bool]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              routes: Optional[pulumi.Input[Sequence[pulumi.Input['RouteTableRouteArgs']]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'disableBgpRoutePropagation' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if disable_bgp_route_propagation is None and 'disableBgpRoutePropagation' in kwargs:
             disable_bgp_route_propagation = kwargs['disableBgpRoutePropagation']
 
         _setter("resource_group_name", resource_group_name)
@@ -187,11 +189,11 @@ class _RouteTableState:
              routes: Optional[pulumi.Input[Sequence[pulumi.Input['RouteTableRouteArgs']]]] = None,
              subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'disableBgpRoutePropagation' in kwargs:
+        if disable_bgp_route_propagation is None and 'disableBgpRoutePropagation' in kwargs:
             disable_bgp_route_propagation = kwargs['disableBgpRoutePropagation']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if disable_bgp_route_propagation is not None:
@@ -314,27 +316,6 @@ class RouteTable(pulumi.CustomResource):
         > **NOTE on Route Tables and Routes:** There is both a standalone `route` resource, and allows for Routes to be defined in-line within the `route_table` resource.
         At this time you cannot use a Route Table with in-line Routes in conjunction with any Route resources. Doing so will cause a conflict of Route configurations and will overwrite Routes.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_route_table = azure.network.RouteTable("exampleRouteTable",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            disable_bgp_route_propagation=False,
-            routes=[azure.network.RouteTableRouteArgs(
-                name="route1",
-                address_prefix="10.1.0.0/16",
-                next_hop_type="VnetLocal",
-            )],
-            tags={
-                "environment": "Production",
-            })
-        ```
-
         ## Import
 
         Route Tables can be imported using the `resource id`, e.g.
@@ -365,27 +346,6 @@ class RouteTable(pulumi.CustomResource):
 
         > **NOTE on Route Tables and Routes:** There is both a standalone `route` resource, and allows for Routes to be defined in-line within the `route_table` resource.
         At this time you cannot use a Route Table with in-line Routes in conjunction with any Route resources. Doing so will cause a conflict of Route configurations and will overwrite Routes.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_route_table = azure.network.RouteTable("exampleRouteTable",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            disable_bgp_route_propagation=False,
-            routes=[azure.network.RouteTableRouteArgs(
-                name="route1",
-                address_prefix="10.1.0.0/16",
-                next_hop_type="VnetLocal",
-            )],
-            tags={
-                "environment": "Production",
-            })
-        ```
 
         ## Import
 

@@ -12,37 +12,6 @@ namespace Pulumi.Azure.MSSql
     /// <summary>
     /// Manages a Microsoft SQL Virtual Machine Group.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleVirtualMachineGroup = new Azure.MSSql.VirtualMachineGroup("exampleVirtualMachineGroup", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         SqlImageOffer = "SQL2017-WS2016",
-    ///         SqlImageSku = "Developer",
-    ///         WsfcDomainProfile = new Azure.MSSql.Inputs.VirtualMachineGroupWsfcDomainProfileArgs
-    ///         {
-    ///             Fqdn = "testdomain.com",
-    ///             ClusterSubnetType = "SingleSubnet",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Microsoft SQL Virtual Machine Groups can be imported using the `resource id`, e.g.

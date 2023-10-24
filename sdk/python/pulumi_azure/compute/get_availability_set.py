@@ -128,17 +128,6 @@ def get_availability_set(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Availability Set.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.compute.get_availability_set(name="tf-appsecuritygroup",
-        resource_group_name="my-resource-group")
-    pulumi.export("availabilitySetId", example.id)
-    ```
-
 
     :param str name: The name of the Availability Set.
     :param str resource_group_name: The name of the resource group in which the Availability Set exists.
@@ -166,17 +155,6 @@ def get_availability_set_output(name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAvailabilitySetResult]:
     """
     Use this data source to access information about an existing Availability Set.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.compute.get_availability_set(name="tf-appsecuritygroup",
-        resource_group_name="my-resource-group")
-    pulumi.export("availabilitySetId", example.id)
-    ```
 
 
     :param str name: The name of the Availability Set.

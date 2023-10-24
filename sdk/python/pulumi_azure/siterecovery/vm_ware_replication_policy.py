@@ -35,18 +35,24 @@ class VMWareReplicationPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_consistent_snapshot_frequency_in_minutes: pulumi.Input[int],
-             recovery_point_retention_in_minutes: pulumi.Input[int],
-             recovery_vault_id: pulumi.Input[str],
+             application_consistent_snapshot_frequency_in_minutes: Optional[pulumi.Input[int]] = None,
+             recovery_point_retention_in_minutes: Optional[pulumi.Input[int]] = None,
+             recovery_vault_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'applicationConsistentSnapshotFrequencyInMinutes' in kwargs:
+        if application_consistent_snapshot_frequency_in_minutes is None and 'applicationConsistentSnapshotFrequencyInMinutes' in kwargs:
             application_consistent_snapshot_frequency_in_minutes = kwargs['applicationConsistentSnapshotFrequencyInMinutes']
-        if 'recoveryPointRetentionInMinutes' in kwargs:
+        if application_consistent_snapshot_frequency_in_minutes is None:
+            raise TypeError("Missing 'application_consistent_snapshot_frequency_in_minutes' argument")
+        if recovery_point_retention_in_minutes is None and 'recoveryPointRetentionInMinutes' in kwargs:
             recovery_point_retention_in_minutes = kwargs['recoveryPointRetentionInMinutes']
-        if 'recoveryVaultId' in kwargs:
+        if recovery_point_retention_in_minutes is None:
+            raise TypeError("Missing 'recovery_point_retention_in_minutes' argument")
+        if recovery_vault_id is None and 'recoveryVaultId' in kwargs:
             recovery_vault_id = kwargs['recoveryVaultId']
+        if recovery_vault_id is None:
+            raise TypeError("Missing 'recovery_vault_id' argument")
 
         _setter("application_consistent_snapshot_frequency_in_minutes", application_consistent_snapshot_frequency_in_minutes)
         _setter("recovery_point_retention_in_minutes", recovery_point_retention_in_minutes)
@@ -131,13 +137,13 @@ class _VMWareReplicationPolicyState:
              name: Optional[pulumi.Input[str]] = None,
              recovery_point_retention_in_minutes: Optional[pulumi.Input[int]] = None,
              recovery_vault_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'applicationConsistentSnapshotFrequencyInMinutes' in kwargs:
+        if application_consistent_snapshot_frequency_in_minutes is None and 'applicationConsistentSnapshotFrequencyInMinutes' in kwargs:
             application_consistent_snapshot_frequency_in_minutes = kwargs['applicationConsistentSnapshotFrequencyInMinutes']
-        if 'recoveryPointRetentionInMinutes' in kwargs:
+        if recovery_point_retention_in_minutes is None and 'recoveryPointRetentionInMinutes' in kwargs:
             recovery_point_retention_in_minutes = kwargs['recoveryPointRetentionInMinutes']
-        if 'recoveryVaultId' in kwargs:
+        if recovery_vault_id is None and 'recoveryVaultId' in kwargs:
             recovery_vault_id = kwargs['recoveryVaultId']
 
         if application_consistent_snapshot_frequency_in_minutes is not None:
@@ -211,25 +217,6 @@ class VMWareReplicationPolicy(pulumi.CustomResource):
         """
         Manages a VMWare Replication Policy.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="eastus")
-        example_vault = azure.recoveryservices.Vault("exampleVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard",
-            classic_vmware_replication_enabled=True,
-            soft_delete_enabled=False)
-        example_vm_ware_replication_policy = azure.siterecovery.VMWareReplicationPolicy("exampleVMWareReplicationPolicy",
-            recovery_vault_id=example_vault.id,
-            recovery_point_retention_in_minutes=1440,
-            application_consistent_snapshot_frequency_in_minutes=240)
-        ```
-
         ## Import
 
         VMWare Replication Policy can be imported using the `resource id`, e.g.
@@ -253,25 +240,6 @@ class VMWareReplicationPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a VMWare Replication Policy.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="eastus")
-        example_vault = azure.recoveryservices.Vault("exampleVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard",
-            classic_vmware_replication_enabled=True,
-            soft_delete_enabled=False)
-        example_vm_ware_replication_policy = azure.siterecovery.VMWareReplicationPolicy("exampleVMWareReplicationPolicy",
-            recovery_vault_id=example_vault.id,
-            recovery_point_retention_in_minutes=1440,
-            application_consistent_snapshot_frequency_in_minutes=240)
-        ```
 
         ## Import
 

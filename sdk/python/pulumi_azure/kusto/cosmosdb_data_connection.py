@@ -47,27 +47,35 @@ class CosmosdbDataConnectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cosmosdb_container_id: pulumi.Input[str],
-             kusto_database_id: pulumi.Input[str],
-             managed_identity_id: pulumi.Input[str],
-             table_name: pulumi.Input[str],
+             cosmosdb_container_id: Optional[pulumi.Input[str]] = None,
+             kusto_database_id: Optional[pulumi.Input[str]] = None,
+             managed_identity_id: Optional[pulumi.Input[str]] = None,
+             table_name: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              mapping_rule_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              retrieval_start_date: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'cosmosdbContainerId' in kwargs:
+        if cosmosdb_container_id is None and 'cosmosdbContainerId' in kwargs:
             cosmosdb_container_id = kwargs['cosmosdbContainerId']
-        if 'kustoDatabaseId' in kwargs:
+        if cosmosdb_container_id is None:
+            raise TypeError("Missing 'cosmosdb_container_id' argument")
+        if kusto_database_id is None and 'kustoDatabaseId' in kwargs:
             kusto_database_id = kwargs['kustoDatabaseId']
-        if 'managedIdentityId' in kwargs:
+        if kusto_database_id is None:
+            raise TypeError("Missing 'kusto_database_id' argument")
+        if managed_identity_id is None and 'managedIdentityId' in kwargs:
             managed_identity_id = kwargs['managedIdentityId']
-        if 'tableName' in kwargs:
+        if managed_identity_id is None:
+            raise TypeError("Missing 'managed_identity_id' argument")
+        if table_name is None and 'tableName' in kwargs:
             table_name = kwargs['tableName']
-        if 'mappingRuleName' in kwargs:
+        if table_name is None:
+            raise TypeError("Missing 'table_name' argument")
+        if mapping_rule_name is None and 'mappingRuleName' in kwargs:
             mapping_rule_name = kwargs['mappingRuleName']
-        if 'retrievalStartDate' in kwargs:
+        if retrieval_start_date is None and 'retrievalStartDate' in kwargs:
             retrieval_start_date = kwargs['retrievalStartDate']
 
         _setter("cosmosdb_container_id", cosmosdb_container_id)
@@ -224,19 +232,19 @@ class _CosmosdbDataConnectionState:
              name: Optional[pulumi.Input[str]] = None,
              retrieval_start_date: Optional[pulumi.Input[str]] = None,
              table_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'cosmosdbContainerId' in kwargs:
+        if cosmosdb_container_id is None and 'cosmosdbContainerId' in kwargs:
             cosmosdb_container_id = kwargs['cosmosdbContainerId']
-        if 'kustoDatabaseId' in kwargs:
+        if kusto_database_id is None and 'kustoDatabaseId' in kwargs:
             kusto_database_id = kwargs['kustoDatabaseId']
-        if 'managedIdentityId' in kwargs:
+        if managed_identity_id is None and 'managedIdentityId' in kwargs:
             managed_identity_id = kwargs['managedIdentityId']
-        if 'mappingRuleName' in kwargs:
+        if mapping_rule_name is None and 'mappingRuleName' in kwargs:
             mapping_rule_name = kwargs['mappingRuleName']
-        if 'retrievalStartDate' in kwargs:
+        if retrieval_start_date is None and 'retrievalStartDate' in kwargs:
             retrieval_start_date = kwargs['retrievalStartDate']
-        if 'tableName' in kwargs:
+        if table_name is None and 'tableName' in kwargs:
             table_name = kwargs['tableName']
 
         if cosmosdb_container_id is not None:
@@ -370,87 +378,6 @@ class CosmosdbDataConnection(pulumi.CustomResource):
         """
         Manages a Kusto / Cosmos Database Data Connection.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        builtin = azure.authorization.get_role_definition(role_definition_id="fbdf93bf-df7d-467e-a4d2-9458aa1360c8")
-        example_cluster = azure.kusto.Cluster("exampleCluster",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Dev(No SLA)_Standard_D11_v2",
-                capacity=1,
-            ),
-            identity=azure.kusto.ClusterIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_assignment = azure.authorization.Assignment("exampleAssignment",
-            scope=example_resource_group.id,
-            role_definition_name=builtin.name,
-            principal_id=example_cluster.identity.principal_id)
-        example_account = azure.cosmosdb.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            offer_type="Standard",
-            kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="Session",
-                max_interval_in_seconds=5,
-                max_staleness_prefix=100,
-            ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example_resource_group.location,
-                failover_priority=0,
-            )])
-        example_sql_database = azure.cosmosdb.SqlDatabase("exampleSqlDatabase",
-            resource_group_name=example_account.resource_group_name,
-            account_name=example_account.name)
-        example_sql_container = azure.cosmosdb.SqlContainer("exampleSqlContainer",
-            resource_group_name=example_account.resource_group_name,
-            account_name=example_account.name,
-            database_name=example_sql_database.name,
-            partition_key_path="/part",
-            throughput=400)
-        example_sql_role_definition = azure.cosmosdb.get_sql_role_definition_output(role_definition_id="00000000-0000-0000-0000-000000000001",
-            resource_group_name=example_resource_group.name,
-            account_name=example_account.name)
-        example_sql_role_assignment = azure.cosmosdb.SqlRoleAssignment("exampleSqlRoleAssignment",
-            resource_group_name=example_resource_group.name,
-            account_name=example_account.name,
-            role_definition_id=example_sql_role_definition.id,
-            principal_id=example_cluster.identity.principal_id,
-            scope=example_account.id)
-        example_database = azure.kusto.Database("exampleDatabase",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            cluster_name=example_cluster.name)
-        example_script = azure.kusto.Script("exampleScript",
-            database_id=example_database.id,
-            script_content=\"\"\".create table TestTable(Id:string, Name:string, _ts:long, _timestamp:datetime)
-        .create table TestTable ingestion json mapping "TestMapping"
-        '['
-        '    {"column":"Id","path":"$.id"},'
-        '    {"column":"Name","path":"$.name"},'
-        '    {"column":"_ts","path":"$._ts"},'
-        '    {"column":"_timestamp","path":"$._ts", "transform":"DateTimeFromUnixSeconds"}'
-        ']'
-        .alter table TestTable policy ingestionbatching "{'MaximumBatchingTimeSpan': '0:0:10', 'MaximumNumberOfItems': 10000}"
-        \"\"\")
-        example_cosmosdb_data_connection = azure.kusto.CosmosdbDataConnection("exampleCosmosdbDataConnection",
-            location=example_resource_group.location,
-            cosmosdb_container_id=example_sql_container.id,
-            kusto_database_id=example_database.id,
-            managed_identity_id=example_cluster.id,
-            table_name="TestTable",
-            mapping_rule_name="TestMapping",
-            retrieval_start_date="2023-06-26T12:00:00.6554616Z")
-        ```
-
         ## Import
 
         Kusto / Cosmos Database Data Connection can be imported using the `resource id`, e.g.
@@ -478,87 +405,6 @@ class CosmosdbDataConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Kusto / Cosmos Database Data Connection.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        builtin = azure.authorization.get_role_definition(role_definition_id="fbdf93bf-df7d-467e-a4d2-9458aa1360c8")
-        example_cluster = azure.kusto.Cluster("exampleCluster",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Dev(No SLA)_Standard_D11_v2",
-                capacity=1,
-            ),
-            identity=azure.kusto.ClusterIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_assignment = azure.authorization.Assignment("exampleAssignment",
-            scope=example_resource_group.id,
-            role_definition_name=builtin.name,
-            principal_id=example_cluster.identity.principal_id)
-        example_account = azure.cosmosdb.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            offer_type="Standard",
-            kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="Session",
-                max_interval_in_seconds=5,
-                max_staleness_prefix=100,
-            ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example_resource_group.location,
-                failover_priority=0,
-            )])
-        example_sql_database = azure.cosmosdb.SqlDatabase("exampleSqlDatabase",
-            resource_group_name=example_account.resource_group_name,
-            account_name=example_account.name)
-        example_sql_container = azure.cosmosdb.SqlContainer("exampleSqlContainer",
-            resource_group_name=example_account.resource_group_name,
-            account_name=example_account.name,
-            database_name=example_sql_database.name,
-            partition_key_path="/part",
-            throughput=400)
-        example_sql_role_definition = azure.cosmosdb.get_sql_role_definition_output(role_definition_id="00000000-0000-0000-0000-000000000001",
-            resource_group_name=example_resource_group.name,
-            account_name=example_account.name)
-        example_sql_role_assignment = azure.cosmosdb.SqlRoleAssignment("exampleSqlRoleAssignment",
-            resource_group_name=example_resource_group.name,
-            account_name=example_account.name,
-            role_definition_id=example_sql_role_definition.id,
-            principal_id=example_cluster.identity.principal_id,
-            scope=example_account.id)
-        example_database = azure.kusto.Database("exampleDatabase",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            cluster_name=example_cluster.name)
-        example_script = azure.kusto.Script("exampleScript",
-            database_id=example_database.id,
-            script_content=\"\"\".create table TestTable(Id:string, Name:string, _ts:long, _timestamp:datetime)
-        .create table TestTable ingestion json mapping "TestMapping"
-        '['
-        '    {"column":"Id","path":"$.id"},'
-        '    {"column":"Name","path":"$.name"},'
-        '    {"column":"_ts","path":"$._ts"},'
-        '    {"column":"_timestamp","path":"$._ts", "transform":"DateTimeFromUnixSeconds"}'
-        ']'
-        .alter table TestTable policy ingestionbatching "{'MaximumBatchingTimeSpan': '0:0:10', 'MaximumNumberOfItems': 10000}"
-        \"\"\")
-        example_cosmosdb_data_connection = azure.kusto.CosmosdbDataConnection("exampleCosmosdbDataConnection",
-            location=example_resource_group.location,
-            cosmosdb_container_id=example_sql_container.id,
-            kusto_database_id=example_database.id,
-            managed_identity_id=example_cluster.id,
-            table_name="TestTable",
-            mapping_rule_name="TestMapping",
-            retrieval_start_date="2023-06-26T12:00:00.6554616Z")
-        ```
 
         ## Import
 

@@ -9,30 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Web PubSub Service.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "east us"});
- * const exampleService = new azure.webpubsub.Service("exampleService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "Standard_S1",
- *     capacity: 1,
- *     publicNetworkAccessEnabled: false,
- *     liveTrace: {
- *         enabled: true,
- *         messagingLogsEnabled: true,
- *         connectivityLogsEnabled: false,
- *     },
- *     identity: {
- *         type: "SystemAssigned",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Web PubSub services can be imported using the `resource id`, e.g.

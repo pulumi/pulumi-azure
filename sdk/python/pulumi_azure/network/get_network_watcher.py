@@ -92,17 +92,6 @@ def get_network_watcher(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Network Watcher.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.network.get_network_watcher(name=azurerm_network_watcher["example"]["name"],
-        resource_group_name=azurerm_resource_group["example"]["name"])
-    pulumi.export("networkWatcherId", example.id)
-    ```
-
 
     :param str name: Specifies the Name of the Network Watcher.
     :param str resource_group_name: Specifies the Name of the Resource Group within which the Network Watcher exists.
@@ -127,17 +116,6 @@ def get_network_watcher_output(name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkWatcherResult]:
     """
     Use this data source to access information about an existing Network Watcher.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.network.get_network_watcher(name=azurerm_network_watcher["example"]["name"],
-        resource_group_name=azurerm_resource_group["example"]["name"])
-    pulumi.export("networkWatcherId", example.id)
-    ```
 
 
     :param str name: Specifies the Name of the Network Watcher.

@@ -7,37 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an API Management Product tag
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleService = new azure.apimanagement.Service("exampleService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     publisherName: "My Company",
- *     publisherEmail: "company@terraform.io",
- *     skuName: "Developer_1",
- * });
- * const exampleProduct = new azure.apimanagement.Product("exampleProduct", {
- *     productId: "test-product",
- *     apiManagementName: exampleService.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     displayName: "Test Product",
- *     subscriptionRequired: true,
- *     approvalRequired: true,
- *     published: true,
- * });
- * const exampleTag = new azure.apimanagement.Tag("exampleTag", {apiManagementId: exampleService.id});
- * const exampleProductTag = new azure.apimanagement.ProductTag("exampleProductTag", {
- *     apiManagementProductId: exampleProduct.productId,
- *     apiManagementName: exampleService.name,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * ```
- *
  * ## Import
  *
  * API Management Products can be imported using the `resource id`, e.g.

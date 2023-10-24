@@ -67,7 +67,7 @@ class LinkedServiceAzureSqlDatabaseArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_factory_id: pulumi.Input[str],
+             data_factory_id: Optional[pulumi.Input[str]] = None,
              additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              connection_string: Optional[pulumi.Input[str]] = None,
@@ -81,27 +81,29 @@ class LinkedServiceAzureSqlDatabaseArgs:
              service_principal_key: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              use_managed_identity: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'additionalProperties' in kwargs:
+        if data_factory_id is None:
+            raise TypeError("Missing 'data_factory_id' argument")
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
-        if 'integrationRuntimeName' in kwargs:
+        if integration_runtime_name is None and 'integrationRuntimeName' in kwargs:
             integration_runtime_name = kwargs['integrationRuntimeName']
-        if 'keyVaultConnectionString' in kwargs:
+        if key_vault_connection_string is None and 'keyVaultConnectionString' in kwargs:
             key_vault_connection_string = kwargs['keyVaultConnectionString']
-        if 'keyVaultPassword' in kwargs:
+        if key_vault_password is None and 'keyVaultPassword' in kwargs:
             key_vault_password = kwargs['keyVaultPassword']
-        if 'servicePrincipalId' in kwargs:
+        if service_principal_id is None and 'servicePrincipalId' in kwargs:
             service_principal_id = kwargs['servicePrincipalId']
-        if 'servicePrincipalKey' in kwargs:
+        if service_principal_key is None and 'servicePrincipalKey' in kwargs:
             service_principal_key = kwargs['servicePrincipalKey']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
-        if 'useManagedIdentity' in kwargs:
+        if use_managed_identity is None and 'useManagedIdentity' in kwargs:
             use_managed_identity = kwargs['useManagedIdentity']
 
         _setter("data_factory_id", data_factory_id)
@@ -369,27 +371,27 @@ class _LinkedServiceAzureSqlDatabaseState:
              service_principal_key: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              use_managed_identity: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'additionalProperties' in kwargs:
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'integrationRuntimeName' in kwargs:
+        if integration_runtime_name is None and 'integrationRuntimeName' in kwargs:
             integration_runtime_name = kwargs['integrationRuntimeName']
-        if 'keyVaultConnectionString' in kwargs:
+        if key_vault_connection_string is None and 'keyVaultConnectionString' in kwargs:
             key_vault_connection_string = kwargs['keyVaultConnectionString']
-        if 'keyVaultPassword' in kwargs:
+        if key_vault_password is None and 'keyVaultPassword' in kwargs:
             key_vault_password = kwargs['keyVaultPassword']
-        if 'servicePrincipalId' in kwargs:
+        if service_principal_id is None and 'servicePrincipalId' in kwargs:
             service_principal_id = kwargs['servicePrincipalId']
-        if 'servicePrincipalKey' in kwargs:
+        if service_principal_key is None and 'servicePrincipalKey' in kwargs:
             service_principal_key = kwargs['servicePrincipalKey']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
-        if 'useManagedIdentity' in kwargs:
+        if use_managed_identity is None and 'useManagedIdentity' in kwargs:
             use_managed_identity = kwargs['useManagedIdentity']
 
         if additional_properties is not None:
@@ -613,21 +615,6 @@ class LinkedServiceAzureSqlDatabase(pulumi.CustomResource):
         """
         Manages a Linked Service (connection) between Azure SQL Database and Azure Data Factory.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_linked_service_azure_sql_database = azure.datafactory.LinkedServiceAzureSqlDatabase("exampleLinkedServiceAzureSqlDatabase",
-            data_factory_id=example_factory.id,
-            connection_string="data source=serverhostname;initial catalog=master;user id=testUser;Password=test;integrated security=False;encrypt=True;connection timeout=30")
-        ```
-
         ## Import
 
         Data Factory Azure SQL Database Linked Service's can be imported using the `resource id`, e.g.
@@ -661,21 +648,6 @@ class LinkedServiceAzureSqlDatabase(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Linked Service (connection) between Azure SQL Database and Azure Data Factory.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_linked_service_azure_sql_database = azure.datafactory.LinkedServiceAzureSqlDatabase("exampleLinkedServiceAzureSqlDatabase",
-            data_factory_id=example_factory.id,
-            connection_string="data source=serverhostname;initial catalog=master;user id=testUser;Password=test;integrated security=False;encrypt=True;connection timeout=30")
-        ```
 
         ## Import
 
@@ -735,17 +707,9 @@ class LinkedServiceAzureSqlDatabase(pulumi.CustomResource):
             __props__.__dict__["data_factory_id"] = data_factory_id
             __props__.__dict__["description"] = description
             __props__.__dict__["integration_runtime_name"] = integration_runtime_name
-            if key_vault_connection_string is not None and not isinstance(key_vault_connection_string, LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringArgs):
-                key_vault_connection_string = key_vault_connection_string or {}
-                def _setter(key, value):
-                    key_vault_connection_string[key] = value
-                LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringArgs._configure(_setter, **key_vault_connection_string)
+            key_vault_connection_string = _utilities.configure(key_vault_connection_string, LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringArgs, True)
             __props__.__dict__["key_vault_connection_string"] = key_vault_connection_string
-            if key_vault_password is not None and not isinstance(key_vault_password, LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs):
-                key_vault_password = key_vault_password or {}
-                def _setter(key, value):
-                    key_vault_password[key] = value
-                LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs._configure(_setter, **key_vault_password)
+            key_vault_password = _utilities.configure(key_vault_password, LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs, True)
             __props__.__dict__["key_vault_password"] = key_vault_password
             __props__.__dict__["name"] = name
             __props__.__dict__["parameters"] = parameters

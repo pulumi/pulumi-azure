@@ -51,29 +51,47 @@ class GetRecommendationsRecommendationResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             category: str,
-             description: str,
-             impact: str,
-             recommendation_name: str,
-             recommendation_type_id: str,
-             resource_name: str,
-             resource_type: str,
-             suppression_names: Sequence[str],
-             updated_time: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             category: Optional[str] = None,
+             description: Optional[str] = None,
+             impact: Optional[str] = None,
+             recommendation_name: Optional[str] = None,
+             recommendation_type_id: Optional[str] = None,
+             resource_name: Optional[str] = None,
+             resource_type: Optional[str] = None,
+             suppression_names: Optional[Sequence[str]] = None,
+             updated_time: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'recommendationName' in kwargs:
+        if category is None:
+            raise TypeError("Missing 'category' argument")
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if impact is None:
+            raise TypeError("Missing 'impact' argument")
+        if recommendation_name is None and 'recommendationName' in kwargs:
             recommendation_name = kwargs['recommendationName']
-        if 'recommendationTypeId' in kwargs:
+        if recommendation_name is None:
+            raise TypeError("Missing 'recommendation_name' argument")
+        if recommendation_type_id is None and 'recommendationTypeId' in kwargs:
             recommendation_type_id = kwargs['recommendationTypeId']
-        if 'resourceName' in kwargs:
+        if recommendation_type_id is None:
+            raise TypeError("Missing 'recommendation_type_id' argument")
+        if resource_name is None and 'resourceName' in kwargs:
             resource_name = kwargs['resourceName']
-        if 'resourceType' in kwargs:
+        if resource_name is None:
+            raise TypeError("Missing 'resource_name' argument")
+        if resource_type is None and 'resourceType' in kwargs:
             resource_type = kwargs['resourceType']
-        if 'suppressionNames' in kwargs:
+        if resource_type is None:
+            raise TypeError("Missing 'resource_type' argument")
+        if suppression_names is None and 'suppressionNames' in kwargs:
             suppression_names = kwargs['suppressionNames']
-        if 'updatedTime' in kwargs:
+        if suppression_names is None:
+            raise TypeError("Missing 'suppression_names' argument")
+        if updated_time is None and 'updatedTime' in kwargs:
             updated_time = kwargs['updatedTime']
+        if updated_time is None:
+            raise TypeError("Missing 'updated_time' argument")
 
         _setter("category", category)
         _setter("description", description)

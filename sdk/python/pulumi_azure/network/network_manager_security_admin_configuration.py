@@ -35,15 +35,17 @@ class NetworkManagerSecurityAdminConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             network_manager_id: pulumi.Input[str],
+             network_manager_id: Optional[pulumi.Input[str]] = None,
              apply_on_network_intent_policy_based_services: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'networkManagerId' in kwargs:
+        if network_manager_id is None and 'networkManagerId' in kwargs:
             network_manager_id = kwargs['networkManagerId']
-        if 'applyOnNetworkIntentPolicyBasedServices' in kwargs:
+        if network_manager_id is None:
+            raise TypeError("Missing 'network_manager_id' argument")
+        if apply_on_network_intent_policy_based_services is None and 'applyOnNetworkIntentPolicyBasedServices' in kwargs:
             apply_on_network_intent_policy_based_services = kwargs['applyOnNetworkIntentPolicyBasedServices']
 
         _setter("network_manager_id", network_manager_id)
@@ -131,11 +133,11 @@ class _NetworkManagerSecurityAdminConfigurationState:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              network_manager_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'applyOnNetworkIntentPolicyBasedServices' in kwargs:
+        if apply_on_network_intent_policy_based_services is None and 'applyOnNetworkIntentPolicyBasedServices' in kwargs:
             apply_on_network_intent_policy_based_services = kwargs['applyOnNetworkIntentPolicyBasedServices']
-        if 'networkManagerId' in kwargs:
+        if network_manager_id is None and 'networkManagerId' in kwargs:
             network_manager_id = kwargs['networkManagerId']
 
         if apply_on_network_intent_policy_based_services is not None:

@@ -12,51 +12,6 @@ namespace Pulumi.Azure.AnalysisServices
     /// <summary>
     /// Manages an Analysis Services Server.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var server = new Azure.AnalysisServices.Server("server", new()
-    ///     {
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         Sku = "S0",
-    ///         AdminUsers = new[]
-    ///         {
-    ///             "myuser@domain.tld",
-    ///         },
-    ///         EnablePowerBiService = true,
-    ///         Ipv4FirewallRules = new[]
-    ///         {
-    ///             new Azure.AnalysisServices.Inputs.ServerIpv4FirewallRuleArgs
-    ///             {
-    ///                 Name = "myRule1",
-    ///                 RangeStart = "210.117.252.0",
-    ///                 RangeEnd = "210.117.252.255",
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "abc", "123" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// &gt; **NOTE:** The server resource will automatically be started and stopped during an update if it is in `paused` state.
-    /// 
     /// ## Import
     /// 
     /// Analysis Services Server can be imported using the `resource id`, e.g.

@@ -43,17 +43,19 @@ class DicomServiceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             workspace_id: pulumi.Input[str],
+             workspace_id: Optional[pulumi.Input[str]] = None,
              identity: Optional[pulumi.Input['DicomServiceIdentityArgs']] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'workspaceId' in kwargs:
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if workspace_id is None:
+            raise TypeError("Missing 'workspace_id' argument")
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
 
         _setter("workspace_id", workspace_id)
@@ -188,15 +190,15 @@ class _DicomServiceState:
              service_url: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'privateEndpoints' in kwargs:
+        if private_endpoints is None and 'privateEndpoints' in kwargs:
             private_endpoints = kwargs['privateEndpoints']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'serviceUrl' in kwargs:
+        if service_url is None and 'serviceUrl' in kwargs:
             service_url = kwargs['serviceUrl']
-        if 'workspaceId' in kwargs:
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
 
         if authentications is not None:
@@ -339,26 +341,6 @@ class DicomService(pulumi.CustomResource):
         """
         Manages a Healthcare DICOM Service
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        test_workspace = azure.healthcare.Workspace("testWorkspace",
-            resource_group_name="tfex-resource_group",
-            location="east us")
-        test_dicom_service = azure.healthcare.DicomService("testDicomService",
-            workspace_id=test_workspace.id,
-            location="east us",
-            identity=azure.healthcare.DicomServiceIdentityArgs(
-                type="SystemAssigned",
-            ),
-            tags={
-                "environment": "None",
-            })
-        ```
-
         ## Import
 
         Healthcare DICOM Service can be imported using the resource`id`, e.g.
@@ -384,26 +366,6 @@ class DicomService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Healthcare DICOM Service
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        test_workspace = azure.healthcare.Workspace("testWorkspace",
-            resource_group_name="tfex-resource_group",
-            location="east us")
-        test_dicom_service = azure.healthcare.DicomService("testDicomService",
-            workspace_id=test_workspace.id,
-            location="east us",
-            identity=azure.healthcare.DicomServiceIdentityArgs(
-                type="SystemAssigned",
-            ),
-            tags={
-                "environment": "None",
-            })
-        ```
 
         ## Import
 
@@ -447,11 +409,7 @@ class DicomService(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DicomServiceArgs.__new__(DicomServiceArgs)
 
-            if identity is not None and not isinstance(identity, DicomServiceIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                DicomServiceIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, DicomServiceIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name

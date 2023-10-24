@@ -29,12 +29,14 @@ class HyperVSiteArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             recovery_vault_id: pulumi.Input[str],
+             recovery_vault_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'recoveryVaultId' in kwargs:
+        if recovery_vault_id is None and 'recoveryVaultId' in kwargs:
             recovery_vault_id = kwargs['recoveryVaultId']
+        if recovery_vault_id is None:
+            raise TypeError("Missing 'recovery_vault_id' argument")
 
         _setter("recovery_vault_id", recovery_vault_id)
         if name is not None:
@@ -85,9 +87,9 @@ class _HyperVSiteState:
              _setter: Callable[[Any, Any], None],
              name: Optional[pulumi.Input[str]] = None,
              recovery_vault_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'recoveryVaultId' in kwargs:
+        if recovery_vault_id is None and 'recoveryVaultId' in kwargs:
             recovery_vault_id = kwargs['recoveryVaultId']
 
         if name is not None:
@@ -131,21 +133,6 @@ class HyperVSite(pulumi.CustomResource):
         """
         Manages a HyperV Site in Recovery Service Vault.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="eastus")
-        example_vault = azure.recoveryservices.Vault("exampleVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard",
-            soft_delete_enabled=False)
-        example_hyper_v_site = azure.siterecovery.HyperVSite("exampleHyperVSite", recovery_vault_id=example_vault.id)
-        ```
-
         ## Import
 
         Recovery Services can be imported using the `resource id`, e.g.
@@ -167,21 +154,6 @@ class HyperVSite(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a HyperV Site in Recovery Service Vault.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="eastus")
-        example_vault = azure.recoveryservices.Vault("exampleVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard",
-            soft_delete_enabled=False)
-        example_hyper_v_site = azure.siterecovery.HyperVSite("exampleHyperVSite", recovery_vault_id=example_vault.id)
-        ```
 
         ## Import
 

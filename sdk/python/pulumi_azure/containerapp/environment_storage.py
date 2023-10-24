@@ -41,24 +41,34 @@ class EnvironmentStorageArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             access_key: pulumi.Input[str],
-             access_mode: pulumi.Input[str],
-             account_name: pulumi.Input[str],
-             container_app_environment_id: pulumi.Input[str],
-             share_name: pulumi.Input[str],
+             access_key: Optional[pulumi.Input[str]] = None,
+             access_mode: Optional[pulumi.Input[str]] = None,
+             account_name: Optional[pulumi.Input[str]] = None,
+             container_app_environment_id: Optional[pulumi.Input[str]] = None,
+             share_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'accessKey' in kwargs:
+        if access_key is None and 'accessKey' in kwargs:
             access_key = kwargs['accessKey']
-        if 'accessMode' in kwargs:
+        if access_key is None:
+            raise TypeError("Missing 'access_key' argument")
+        if access_mode is None and 'accessMode' in kwargs:
             access_mode = kwargs['accessMode']
-        if 'accountName' in kwargs:
+        if access_mode is None:
+            raise TypeError("Missing 'access_mode' argument")
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'containerAppEnvironmentId' in kwargs:
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if container_app_environment_id is None and 'containerAppEnvironmentId' in kwargs:
             container_app_environment_id = kwargs['containerAppEnvironmentId']
-        if 'shareName' in kwargs:
+        if container_app_environment_id is None:
+            raise TypeError("Missing 'container_app_environment_id' argument")
+        if share_name is None and 'shareName' in kwargs:
             share_name = kwargs['shareName']
+        if share_name is None:
+            raise TypeError("Missing 'share_name' argument")
 
         _setter("access_key", access_key)
         _setter("access_mode", access_mode)
@@ -177,17 +187,17 @@ class _EnvironmentStorageState:
              container_app_environment_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              share_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'accessKey' in kwargs:
+        if access_key is None and 'accessKey' in kwargs:
             access_key = kwargs['accessKey']
-        if 'accessMode' in kwargs:
+        if access_mode is None and 'accessMode' in kwargs:
             access_mode = kwargs['accessMode']
-        if 'accountName' in kwargs:
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'containerAppEnvironmentId' in kwargs:
+        if container_app_environment_id is None and 'containerAppEnvironmentId' in kwargs:
             container_app_environment_id = kwargs['containerAppEnvironmentId']
-        if 'shareName' in kwargs:
+        if share_name is None and 'shareName' in kwargs:
             share_name = kwargs['shareName']
 
         if access_key is not None:
@@ -291,38 +301,6 @@ class EnvironmentStorage(pulumi.CustomResource):
         """
         Manages a Container App Environment Storage.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="PerGB2018",
-            retention_in_days=30)
-        example_environment = azure.containerapp.Environment("exampleEnvironment",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            log_analytics_workspace_id=example_analytics_workspace.id)
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_share = azure.storage.Share("exampleShare",
-            storage_account_name=example_account.name,
-            quota=5)
-        example_environment_storage = azure.containerapp.EnvironmentStorage("exampleEnvironmentStorage",
-            container_app_environment_id=example_environment.id,
-            account_name=example_account.name,
-            share_name=example_share.name,
-            access_key=example_account.primary_access_key,
-            access_mode="ReadOnly")
-        ```
-
         ## Import
 
         A Container App Environment Storage can be imported using the `resource id`, e.g.
@@ -348,38 +326,6 @@ class EnvironmentStorage(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Container App Environment Storage.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="PerGB2018",
-            retention_in_days=30)
-        example_environment = azure.containerapp.Environment("exampleEnvironment",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            log_analytics_workspace_id=example_analytics_workspace.id)
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_share = azure.storage.Share("exampleShare",
-            storage_account_name=example_account.name,
-            quota=5)
-        example_environment_storage = azure.containerapp.EnvironmentStorage("exampleEnvironmentStorage",
-            container_app_environment_id=example_environment.id,
-            account_name=example_account.name,
-            share_name=example_share.name,
-            access_key=example_account.primary_access_key,
-            access_mode="ReadOnly")
-        ```
 
         ## Import
 

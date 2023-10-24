@@ -38,22 +38,30 @@ class ManagedInstanceActiveDirectoryAdministratorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             login_username: pulumi.Input[str],
-             managed_instance_id: pulumi.Input[str],
-             object_id: pulumi.Input[str],
-             tenant_id: pulumi.Input[str],
+             login_username: Optional[pulumi.Input[str]] = None,
+             managed_instance_id: Optional[pulumi.Input[str]] = None,
+             object_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
              azuread_authentication_only: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'loginUsername' in kwargs:
+        if login_username is None and 'loginUsername' in kwargs:
             login_username = kwargs['loginUsername']
-        if 'managedInstanceId' in kwargs:
+        if login_username is None:
+            raise TypeError("Missing 'login_username' argument")
+        if managed_instance_id is None and 'managedInstanceId' in kwargs:
             managed_instance_id = kwargs['managedInstanceId']
-        if 'objectId' in kwargs:
+        if managed_instance_id is None:
+            raise TypeError("Missing 'managed_instance_id' argument")
+        if object_id is None and 'objectId' in kwargs:
             object_id = kwargs['objectId']
-        if 'tenantId' in kwargs:
+        if object_id is None:
+            raise TypeError("Missing 'object_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
-        if 'azureadAuthenticationOnly' in kwargs:
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if azuread_authentication_only is None and 'azureadAuthenticationOnly' in kwargs:
             azuread_authentication_only = kwargs['azureadAuthenticationOnly']
 
         _setter("login_username", login_username)
@@ -156,17 +164,17 @@ class _ManagedInstanceActiveDirectoryAdministratorState:
              managed_instance_id: Optional[pulumi.Input[str]] = None,
              object_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'azureadAuthenticationOnly' in kwargs:
+        if azuread_authentication_only is None and 'azureadAuthenticationOnly' in kwargs:
             azuread_authentication_only = kwargs['azureadAuthenticationOnly']
-        if 'loginUsername' in kwargs:
+        if login_username is None and 'loginUsername' in kwargs:
             login_username = kwargs['loginUsername']
-        if 'managedInstanceId' in kwargs:
+        if managed_instance_id is None and 'managedInstanceId' in kwargs:
             managed_instance_id = kwargs['managedInstanceId']
-        if 'objectId' in kwargs:
+        if object_id is None and 'objectId' in kwargs:
             object_id = kwargs['objectId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         if azuread_authentication_only is not None:
@@ -255,52 +263,6 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
         """
         Allows you to set a user, group or service principal as the AAD Administrator for an Azure SQL Managed Instance.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_azuread as azuread
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        current = azure.core.get_client_config()
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            address_spaces=["10.0.0.0/16"])
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_managed_instance = azure.mssql.ManagedInstance("exampleManagedInstance",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            license_type="BasePrice",
-            sku_name="GP_Gen5",
-            storage_size_in_gb=32,
-            subnet_id=example_subnet.id,
-            vcores=4,
-            administrator_login="msadministrator",
-            administrator_login_password="thisIsDog11",
-            identity=azure.mssql.ManagedInstanceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        reader = azuread.DirectoryRole("reader", display_name="Directory Readers")
-        example_directory_role_member = azuread.DirectoryRoleMember("exampleDirectoryRoleMember",
-            role_object_id=reader.object_id,
-            member_object_id=example_managed_instance.identity.principal_id)
-        admin = azuread.User("admin",
-            user_principal_name="ms.admin@hashicorp.com",
-            display_name="Ms Admin",
-            mail_nickname="ms.admin",
-            password="SecretP@sswd99!")
-        example_managed_instance_active_directory_administrator = azure.mssql.ManagedInstanceActiveDirectoryAdministrator("exampleManagedInstanceActiveDirectoryAdministrator",
-            managed_instance_id=example_managed_instance.id,
-            login_username="msadmin",
-            object_id=admin.object_id,
-            tenant_id=current.tenant_id)
-        ```
-
         ## Import
 
         An Azure SQL Active Directory Administrator can be imported using the `resource id`, e.g.
@@ -325,52 +287,6 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Allows you to set a user, group or service principal as the AAD Administrator for an Azure SQL Managed Instance.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_azuread as azuread
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        current = azure.core.get_client_config()
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            address_spaces=["10.0.0.0/16"])
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_managed_instance = azure.mssql.ManagedInstance("exampleManagedInstance",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            license_type="BasePrice",
-            sku_name="GP_Gen5",
-            storage_size_in_gb=32,
-            subnet_id=example_subnet.id,
-            vcores=4,
-            administrator_login="msadministrator",
-            administrator_login_password="thisIsDog11",
-            identity=azure.mssql.ManagedInstanceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        reader = azuread.DirectoryRole("reader", display_name="Directory Readers")
-        example_directory_role_member = azuread.DirectoryRoleMember("exampleDirectoryRoleMember",
-            role_object_id=reader.object_id,
-            member_object_id=example_managed_instance.identity.principal_id)
-        admin = azuread.User("admin",
-            user_principal_name="ms.admin@hashicorp.com",
-            display_name="Ms Admin",
-            mail_nickname="ms.admin",
-            password="SecretP@sswd99!")
-        example_managed_instance_active_directory_administrator = azure.mssql.ManagedInstanceActiveDirectoryAdministrator("exampleManagedInstanceActiveDirectoryAdministrator",
-            managed_instance_id=example_managed_instance.id,
-            login_username="msadmin",
-            object_id=admin.object_id,
-            tenant_id=current.tenant_id)
-        ```
 
         ## Import
 

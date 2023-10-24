@@ -12,49 +12,6 @@ namespace Pulumi.Azure.Bot
     /// <summary>
     /// Manages a Directline integration for a Bot Channel
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Azure.Core.GetClientConfig.Invoke();
-    /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleChannelsRegistration = new Azure.Bot.ChannelsRegistration("exampleChannelsRegistration", new()
-    ///     {
-    ///         Location = "global",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Sku = "F0",
-    ///         MicrosoftAppId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ClientId),
-    ///     });
-    /// 
-    ///     var exampleChannelDirectLine = new Azure.Bot.ChannelDirectLine("exampleChannelDirectLine", new()
-    ///     {
-    ///         BotName = exampleChannelsRegistration.Name,
-    ///         Location = exampleChannelsRegistration.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Sites = new[]
-    ///         {
-    ///             new Azure.Bot.Inputs.ChannelDirectLineSiteArgs
-    ///             {
-    ///                 Name = "default",
-    ///                 Enabled = true,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// The Directline Channel for a Bot can be imported using the `resource id`, e.g.

@@ -29,12 +29,16 @@ class WorkspaceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             scope: pulumi.Input[str],
-             workspace_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             scope: Optional[pulumi.Input[str]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'workspaceId' in kwargs:
+        if scope is None:
+            raise TypeError("Missing 'scope' argument")
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
+        if workspace_id is None:
+            raise TypeError("Missing 'workspace_id' argument")
 
         _setter("scope", scope)
         _setter("workspace_id", workspace_id)
@@ -84,9 +88,9 @@ class _WorkspaceState:
              _setter: Callable[[Any, Any], None],
              scope: Optional[pulumi.Input[str]] = None,
              workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'workspaceId' in kwargs:
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
 
         if scope is not None:
@@ -132,22 +136,6 @@ class Workspace(pulumi.CustomResource):
 
         > **NOTE:** Owner access permission is required.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="PerGB2018")
-        example_workspace = azure.securitycenter.Workspace("exampleWorkspace",
-            scope="/subscriptions/00000000-0000-0000-0000-000000000000",
-            workspace_id=example_analytics_workspace.id)
-        ```
-
         ## Import
 
         The contact can be imported using the `resource id`, e.g.
@@ -171,22 +159,6 @@ class Workspace(pulumi.CustomResource):
         Manages the subscription's Security Center Workspace.
 
         > **NOTE:** Owner access permission is required.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="PerGB2018")
-        example_workspace = azure.securitycenter.Workspace("exampleWorkspace",
-            scope="/subscriptions/00000000-0000-0000-0000-000000000000",
-            workspace_id=example_analytics_workspace.id)
-        ```
 
         ## Import
 

@@ -55,8 +55,8 @@ class AccountArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             storage_accounts: pulumi.Input[Sequence[pulumi.Input['AccountStorageAccountArgs']]],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['AccountStorageAccountArgs']]]] = None,
              encryption: Optional[pulumi.Input['AccountEncryptionArgs']] = None,
              identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
              key_delivery_access_control: Optional[pulumi.Input['AccountKeyDeliveryAccessControlArgs']] = None,
@@ -65,17 +65,21 @@ class AccountArgs:
              public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
              storage_authentication_type: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'storageAccounts' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if storage_accounts is None and 'storageAccounts' in kwargs:
             storage_accounts = kwargs['storageAccounts']
-        if 'keyDeliveryAccessControl' in kwargs:
+        if storage_accounts is None:
+            raise TypeError("Missing 'storage_accounts' argument")
+        if key_delivery_access_control is None and 'keyDeliveryAccessControl' in kwargs:
             key_delivery_access_control = kwargs['keyDeliveryAccessControl']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'storageAuthenticationType' in kwargs:
+        if storage_authentication_type is None and 'storageAuthenticationType' in kwargs:
             storage_authentication_type = kwargs['storageAuthenticationType']
 
         _setter("resource_group_name", resource_group_name)
@@ -270,17 +274,17 @@ class _AccountState:
              storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['AccountStorageAccountArgs']]]] = None,
              storage_authentication_type: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'keyDeliveryAccessControl' in kwargs:
+        if key_delivery_access_control is None and 'keyDeliveryAccessControl' in kwargs:
             key_delivery_access_control = kwargs['keyDeliveryAccessControl']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'storageAccounts' in kwargs:
+        if storage_accounts is None and 'storageAccounts' in kwargs:
             storage_accounts = kwargs['storageAccounts']
-        if 'storageAuthenticationType' in kwargs:
+        if storage_authentication_type is None and 'storageAuthenticationType' in kwargs:
             storage_authentication_type = kwargs['storageAuthenticationType']
 
         if encryption is not None:
@@ -449,27 +453,6 @@ class Account(pulumi.CustomResource):
         """
         Manages a Media Services Account.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
-                id=example_account.id,
-                is_primary=True,
-            )])
-        ```
-
         ## Import
 
         Media Services Accounts can be imported using the `resource id`, e.g.
@@ -499,27 +482,6 @@ class Account(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Media Services Account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
-                id=example_account.id,
-                is_primary=True,
-            )])
-        ```
 
         ## Import
 
@@ -568,23 +530,11 @@ class Account(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AccountArgs.__new__(AccountArgs)
 
-            if encryption is not None and not isinstance(encryption, AccountEncryptionArgs):
-                encryption = encryption or {}
-                def _setter(key, value):
-                    encryption[key] = value
-                AccountEncryptionArgs._configure(_setter, **encryption)
+            encryption = _utilities.configure(encryption, AccountEncryptionArgs, True)
             __props__.__dict__["encryption"] = encryption
-            if identity is not None and not isinstance(identity, AccountIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                AccountIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, AccountIdentityArgs, True)
             __props__.__dict__["identity"] = identity
-            if key_delivery_access_control is not None and not isinstance(key_delivery_access_control, AccountKeyDeliveryAccessControlArgs):
-                key_delivery_access_control = key_delivery_access_control or {}
-                def _setter(key, value):
-                    key_delivery_access_control[key] = value
-                AccountKeyDeliveryAccessControlArgs._configure(_setter, **key_delivery_access_control)
+            key_delivery_access_control = _utilities.configure(key_delivery_access_control, AccountKeyDeliveryAccessControlArgs, True)
             __props__.__dict__["key_delivery_access_control"] = key_delivery_access_control
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name

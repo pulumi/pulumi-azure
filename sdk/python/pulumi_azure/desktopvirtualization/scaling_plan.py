@@ -55,9 +55,9 @@ class ScalingPlanArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             schedules: pulumi.Input[Sequence[pulumi.Input['ScalingPlanScheduleArgs']]],
-             time_zone: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             schedules: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPlanScheduleArgs']]]] = None,
+             time_zone: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              exclusion_tag: Optional[pulumi.Input[str]] = None,
              friendly_name: Optional[pulumi.Input[str]] = None,
@@ -65,17 +65,23 @@ class ScalingPlanArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'timeZone' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if schedules is None:
+            raise TypeError("Missing 'schedules' argument")
+        if time_zone is None and 'timeZone' in kwargs:
             time_zone = kwargs['timeZone']
-        if 'exclusionTag' in kwargs:
+        if time_zone is None:
+            raise TypeError("Missing 'time_zone' argument")
+        if exclusion_tag is None and 'exclusionTag' in kwargs:
             exclusion_tag = kwargs['exclusionTag']
-        if 'friendlyName' in kwargs:
+        if friendly_name is None and 'friendlyName' in kwargs:
             friendly_name = kwargs['friendlyName']
-        if 'hostPools' in kwargs:
+        if host_pools is None and 'hostPools' in kwargs:
             host_pools = kwargs['hostPools']
 
         _setter("resource_group_name", resource_group_name)
@@ -269,17 +275,17 @@ class _ScalingPlanState:
              schedules: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPlanScheduleArgs']]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              time_zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'exclusionTag' in kwargs:
+        if exclusion_tag is None and 'exclusionTag' in kwargs:
             exclusion_tag = kwargs['exclusionTag']
-        if 'friendlyName' in kwargs:
+        if friendly_name is None and 'friendlyName' in kwargs:
             friendly_name = kwargs['friendlyName']
-        if 'hostPools' in kwargs:
+        if host_pools is None and 'hostPools' in kwargs:
             host_pools = kwargs['hostPools']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'timeZone' in kwargs:
+        if time_zone is None and 'timeZone' in kwargs:
             time_zone = kwargs['timeZone']
 
         if description is not None:
@@ -449,90 +455,6 @@ class ScalingPlan(pulumi.CustomResource):
 
         > **Note** Scaling Plans require specific permissions to be granted to the Windows Virtual Desktop application before a 'host_pool' can be configured. [Required Permissions for Scaling Plans](https://docs.microsoft.com/azure/virtual-desktop/autoscale-scaling-plan#create-a-custom-rbac-role).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_azuread as azuread
-        import pulumi_random as random
-
-        example_random_uuid = random.RandomUuid("exampleRandomUuid")
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_role_definition = azure.authorization.RoleDefinition("exampleRoleDefinition",
-            scope=example_resource_group.id,
-            description="AVD AutoScale Role",
-            permissions=[azure.authorization.RoleDefinitionPermissionArgs(
-                actions=[
-                    "Microsoft.Insights/eventtypes/values/read",
-                    "Microsoft.Compute/virtualMachines/deallocate/action",
-                    "Microsoft.Compute/virtualMachines/restart/action",
-                    "Microsoft.Compute/virtualMachines/powerOff/action",
-                    "Microsoft.Compute/virtualMachines/start/action",
-                    "Microsoft.Compute/virtualMachines/read",
-                    "Microsoft.DesktopVirtualization/hostpools/read",
-                    "Microsoft.DesktopVirtualization/hostpools/write",
-                    "Microsoft.DesktopVirtualization/hostpools/sessionhosts/read",
-                    "Microsoft.DesktopVirtualization/hostpools/sessionhosts/write",
-                    "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/delete",
-                    "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read",
-                    "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/sendMessage/action",
-                    "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read",
-                ],
-                not_actions=[],
-            )],
-            assignable_scopes=[example_resource_group.id])
-        example_service_principal = azuread.get_service_principal(display_name="Windows Virtual Desktop")
-        example_assignment = azure.authorization.Assignment("exampleAssignment",
-            name=example_random_uuid.result,
-            scope=example_resource_group.id,
-            role_definition_id=example_role_definition.role_definition_resource_id,
-            principal_id=example_service_principal.id,
-            skip_service_principal_aad_check=True)
-        example_host_pool = azure.desktopvirtualization.HostPool("exampleHostPool",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            type="Pooled",
-            validate_environment=True,
-            load_balancer_type="BreadthFirst")
-        example_scaling_plan = azure.desktopvirtualization.ScalingPlan("exampleScalingPlan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            friendly_name="Scaling Plan Example",
-            description="Example Scaling Plan",
-            time_zone="GMT Standard Time",
-            schedules=[azure.desktopvirtualization.ScalingPlanScheduleArgs(
-                name="Weekdays",
-                days_of_weeks=[
-                    "Monday",
-                    "Tuesday",
-                    "Wednesday",
-                    "Thursday",
-                    "Friday",
-                ],
-                ramp_up_start_time="05:00",
-                ramp_up_load_balancing_algorithm="BreadthFirst",
-                ramp_up_minimum_hosts_percent=20,
-                ramp_up_capacity_threshold_percent=10,
-                peak_start_time="09:00",
-                peak_load_balancing_algorithm="BreadthFirst",
-                ramp_down_start_time="19:00",
-                ramp_down_load_balancing_algorithm="DepthFirst",
-                ramp_down_minimum_hosts_percent=10,
-                ramp_down_force_logoff_users=False,
-                ramp_down_wait_time_minutes=45,
-                ramp_down_notification_message="Please log off in the next 45 minutes...",
-                ramp_down_capacity_threshold_percent=5,
-                ramp_down_stop_hosts_when="ZeroSessions",
-                off_peak_start_time="22:00",
-                off_peak_load_balancing_algorithm="DepthFirst",
-            )],
-            host_pools=[azure.desktopvirtualization.ScalingPlanHostPoolArgs(
-                hostpool_id=example_host_pool.id,
-                scaling_plan_enabled=True,
-            )])
-        ```
-
         ## Import
 
         Virtual Desktop Scaling Plans can be imported using the `resource id`, e.g.
@@ -568,90 +490,6 @@ class ScalingPlan(pulumi.CustomResource):
         > **Note** Scaling Plans are currently in preview and are only supported in a limited number of regions. Both the Scaling Plan and any referenced Host Pools must be deployed in a supported region. [Autoscale (preview) for Azure Virtual Desktop host pools](https://docs.microsoft.com/azure/virtual-desktop/autoscale-scaling-plan).
 
         > **Note** Scaling Plans require specific permissions to be granted to the Windows Virtual Desktop application before a 'host_pool' can be configured. [Required Permissions for Scaling Plans](https://docs.microsoft.com/azure/virtual-desktop/autoscale-scaling-plan#create-a-custom-rbac-role).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_azuread as azuread
-        import pulumi_random as random
-
-        example_random_uuid = random.RandomUuid("exampleRandomUuid")
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_role_definition = azure.authorization.RoleDefinition("exampleRoleDefinition",
-            scope=example_resource_group.id,
-            description="AVD AutoScale Role",
-            permissions=[azure.authorization.RoleDefinitionPermissionArgs(
-                actions=[
-                    "Microsoft.Insights/eventtypes/values/read",
-                    "Microsoft.Compute/virtualMachines/deallocate/action",
-                    "Microsoft.Compute/virtualMachines/restart/action",
-                    "Microsoft.Compute/virtualMachines/powerOff/action",
-                    "Microsoft.Compute/virtualMachines/start/action",
-                    "Microsoft.Compute/virtualMachines/read",
-                    "Microsoft.DesktopVirtualization/hostpools/read",
-                    "Microsoft.DesktopVirtualization/hostpools/write",
-                    "Microsoft.DesktopVirtualization/hostpools/sessionhosts/read",
-                    "Microsoft.DesktopVirtualization/hostpools/sessionhosts/write",
-                    "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/delete",
-                    "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read",
-                    "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/sendMessage/action",
-                    "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read",
-                ],
-                not_actions=[],
-            )],
-            assignable_scopes=[example_resource_group.id])
-        example_service_principal = azuread.get_service_principal(display_name="Windows Virtual Desktop")
-        example_assignment = azure.authorization.Assignment("exampleAssignment",
-            name=example_random_uuid.result,
-            scope=example_resource_group.id,
-            role_definition_id=example_role_definition.role_definition_resource_id,
-            principal_id=example_service_principal.id,
-            skip_service_principal_aad_check=True)
-        example_host_pool = azure.desktopvirtualization.HostPool("exampleHostPool",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            type="Pooled",
-            validate_environment=True,
-            load_balancer_type="BreadthFirst")
-        example_scaling_plan = azure.desktopvirtualization.ScalingPlan("exampleScalingPlan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            friendly_name="Scaling Plan Example",
-            description="Example Scaling Plan",
-            time_zone="GMT Standard Time",
-            schedules=[azure.desktopvirtualization.ScalingPlanScheduleArgs(
-                name="Weekdays",
-                days_of_weeks=[
-                    "Monday",
-                    "Tuesday",
-                    "Wednesday",
-                    "Thursday",
-                    "Friday",
-                ],
-                ramp_up_start_time="05:00",
-                ramp_up_load_balancing_algorithm="BreadthFirst",
-                ramp_up_minimum_hosts_percent=20,
-                ramp_up_capacity_threshold_percent=10,
-                peak_start_time="09:00",
-                peak_load_balancing_algorithm="BreadthFirst",
-                ramp_down_start_time="19:00",
-                ramp_down_load_balancing_algorithm="DepthFirst",
-                ramp_down_minimum_hosts_percent=10,
-                ramp_down_force_logoff_users=False,
-                ramp_down_wait_time_minutes=45,
-                ramp_down_notification_message="Please log off in the next 45 minutes...",
-                ramp_down_capacity_threshold_percent=5,
-                ramp_down_stop_hosts_when="ZeroSessions",
-                off_peak_start_time="22:00",
-                off_peak_load_balancing_algorithm="DepthFirst",
-            )],
-            host_pools=[azure.desktopvirtualization.ScalingPlanHostPoolArgs(
-                hostpool_id=example_host_pool.id,
-                scaling_plan_enabled=True,
-            )])
-        ```
 
         ## Import
 

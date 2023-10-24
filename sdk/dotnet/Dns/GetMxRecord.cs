@@ -11,65 +11,9 @@ namespace Pulumi.Azure.Dns
 {
     public static class GetMxRecord
     {
-        /// <summary>
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = new Azure.Dns.MxRecord("example", new()
-        ///     {
-        ///         ZoneName = "test-zone",
-        ///         ResourceGroupName = "test-rg",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["dnsMxRecordId"] = example.Id,
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetMxRecordResult> InvokeAsync(GetMxRecordArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMxRecordResult>("azure:dns/getMxRecord:getMxRecord", args ?? new GetMxRecordArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = new Azure.Dns.MxRecord("example", new()
-        ///     {
-        ///         ZoneName = "test-zone",
-        ///         ResourceGroupName = "test-rg",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["dnsMxRecordId"] = example.Id,
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetMxRecordResult> Invoke(GetMxRecordInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMxRecordResult>("azure:dns/getMxRecord:getMxRecord", args ?? new GetMxRecordInvokeArgs(), options.WithDefaults());
     }

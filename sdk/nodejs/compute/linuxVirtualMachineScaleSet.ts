@@ -13,58 +13,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** This provider will automatically update & reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `features` setting within the Provider block.
  *
- * ## Example Usage
- *
- * This example provisions a basic Linux Virtual Machine Scale Set on an internal network.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const firstPublicKey = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC+wWK73dCr+jgQOAxNsHAnNNNMEMWOHYEccp6wJm2gotpr9katuF/ZAdou5AaW1C61slRkHRkpRRX9FA9CYBiitZgvCCz+3nWNN7l/Up54Zps/pHWGZLHNJZRYyAB6j5yVLMVHIHriY49d/GZTZVNB8GoJv9Gakwc/fuEZYYl4YDFiGMBP///TzlI4jhiJzjKnEvqPFki5p2ZRJqcbCiF4pJrxUQR/RXqVFQdbRLZgYfJ8xGB878RENq3yQ39d8dVOkq4edbkzwcUmwwwkYVPIoDGsYLaRHnG+To7FvMeyO7xDVQkMKzopTQV8AuKpyvpqu0a9pWOMaiCyDytO7GGN you@me.com";
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     addressSpaces: ["10.0.0.0/16"],
- * });
- * const internal = new azure.network.Subnet("internal", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.0.2.0/24"],
- * });
- * const exampleLinuxVirtualMachineScaleSet = new azure.compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     sku: "Standard_F2",
- *     instances: 1,
- *     adminUsername: "adminuser",
- *     adminSshKeys: [{
- *         username: "adminuser",
- *         publicKey: firstPublicKey,
- *     }],
- *     sourceImageReference: {
- *         publisher: "Canonical",
- *         offer: "0001-com-ubuntu-server-focal",
- *         sku: "20_04-lts",
- *         version: "latest",
- *     },
- *     osDisk: {
- *         storageAccountType: "Standard_LRS",
- *         caching: "ReadWrite",
- *     },
- *     networkInterfaces: [{
- *         name: "example",
- *         primary: true,
- *         ipConfigurations: [{
- *             name: "internal",
- *             primary: true,
- *             subnetId: internal.id,
- *         }],
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * Linux Virtual Machine Scale Sets can be imported using the `resource id`, e.g.

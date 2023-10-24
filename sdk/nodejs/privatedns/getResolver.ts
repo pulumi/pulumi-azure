@@ -6,18 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about an existing Private DNS Resolver.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const test = azure.privatedns.getResolver({
- *     name: "example",
- *     resourceGroupName: "example-resourcegroup-name",
- * });
- * ```
  */
 export function getResolver(args: GetResolverArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverResult> {
 
@@ -67,18 +55,6 @@ export interface GetResolverResult {
 }
 /**
  * Gets information about an existing Private DNS Resolver.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const test = azure.privatedns.getResolver({
- *     name: "example",
- *     resourceGroupName: "example-resourcegroup-name",
- * });
- * ```
  */
 export function getResolverOutput(args: GetResolverOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverResult> {
     return pulumi.output(args).apply((a: any) => getResolver(a, opts))

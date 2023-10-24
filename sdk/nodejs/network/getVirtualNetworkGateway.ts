@@ -8,19 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Virtual Network Gateway.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.network.getVirtualNetworkGateway({
- *     name: "production",
- *     resourceGroupName: "networking",
- * });
- * export const virtualNetworkGatewayId = example.then(example => example.id);
- * ```
  */
 export function getVirtualNetworkGateway(args: GetVirtualNetworkGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayResult> {
 
@@ -115,19 +102,6 @@ export interface GetVirtualNetworkGatewayResult {
 }
 /**
  * Use this data source to access information about an existing Virtual Network Gateway.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.network.getVirtualNetworkGateway({
- *     name: "production",
- *     resourceGroupName: "networking",
- * });
- * export const virtualNetworkGatewayId = example.then(example => example.id);
- * ```
  */
 export function getVirtualNetworkGatewayOutput(args: GetVirtualNetworkGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkGatewayResult> {
     return pulumi.output(args).apply((a: any) => getVirtualNetworkGateway(a, opts))

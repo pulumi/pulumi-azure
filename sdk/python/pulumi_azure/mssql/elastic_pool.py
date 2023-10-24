@@ -63,10 +63,10 @@ class ElasticPoolArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             per_database_settings: pulumi.Input['ElasticPoolPerDatabaseSettingsArgs'],
-             resource_group_name: pulumi.Input[str],
-             server_name: pulumi.Input[str],
-             sku: pulumi.Input['ElasticPoolSkuArgs'],
+             per_database_settings: Optional[pulumi.Input['ElasticPoolPerDatabaseSettingsArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['ElasticPoolSkuArgs']] = None,
              license_type: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              maintenance_configuration_name: Optional[pulumi.Input[str]] = None,
@@ -75,23 +75,31 @@ class ElasticPoolArgs:
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zone_redundant: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'perDatabaseSettings' in kwargs:
+        if per_database_settings is None and 'perDatabaseSettings' in kwargs:
             per_database_settings = kwargs['perDatabaseSettings']
-        if 'resourceGroupName' in kwargs:
+        if per_database_settings is None:
+            raise TypeError("Missing 'per_database_settings' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serverName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if server_name is None and 'serverName' in kwargs:
             server_name = kwargs['serverName']
-        if 'licenseType' in kwargs:
+        if server_name is None:
+            raise TypeError("Missing 'server_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if license_type is None and 'licenseType' in kwargs:
             license_type = kwargs['licenseType']
-        if 'maintenanceConfigurationName' in kwargs:
+        if maintenance_configuration_name is None and 'maintenanceConfigurationName' in kwargs:
             maintenance_configuration_name = kwargs['maintenanceConfigurationName']
-        if 'maxSizeBytes' in kwargs:
+        if max_size_bytes is None and 'maxSizeBytes' in kwargs:
             max_size_bytes = kwargs['maxSizeBytes']
-        if 'maxSizeGb' in kwargs:
+        if max_size_gb is None and 'maxSizeGb' in kwargs:
             max_size_gb = kwargs['maxSizeGb']
-        if 'zoneRedundant' in kwargs:
+        if zone_redundant is None and 'zoneRedundant' in kwargs:
             zone_redundant = kwargs['zoneRedundant']
 
         _setter("per_database_settings", per_database_settings)
@@ -324,23 +332,23 @@ class _ElasticPoolState:
              sku: Optional[pulumi.Input['ElasticPoolSkuArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zone_redundant: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'licenseType' in kwargs:
+        if license_type is None and 'licenseType' in kwargs:
             license_type = kwargs['licenseType']
-        if 'maintenanceConfigurationName' in kwargs:
+        if maintenance_configuration_name is None and 'maintenanceConfigurationName' in kwargs:
             maintenance_configuration_name = kwargs['maintenanceConfigurationName']
-        if 'maxSizeBytes' in kwargs:
+        if max_size_bytes is None and 'maxSizeBytes' in kwargs:
             max_size_bytes = kwargs['maxSizeBytes']
-        if 'maxSizeGb' in kwargs:
+        if max_size_gb is None and 'maxSizeGb' in kwargs:
             max_size_gb = kwargs['maxSizeGb']
-        if 'perDatabaseSettings' in kwargs:
+        if per_database_settings is None and 'perDatabaseSettings' in kwargs:
             per_database_settings = kwargs['perDatabaseSettings']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serverName' in kwargs:
+        if server_name is None and 'serverName' in kwargs:
             server_name = kwargs['serverName']
-        if 'zoneRedundant' in kwargs:
+        if zone_redundant is None and 'zoneRedundant' in kwargs:
             zone_redundant = kwargs['zoneRedundant']
 
         if license_type is not None:
@@ -536,37 +544,6 @@ class ElasticPool(pulumi.CustomResource):
         """
         Allows you to manage an Azure SQL Elastic Pool via the `v3.0` API which allows for `vCore` and `DTU` based configurations.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_server = azure.mssql.Server("exampleServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            version="12.0",
-            administrator_login="4dm1n157r470r",
-            administrator_login_password="4-v3ry-53cr37-p455w0rd")
-        example_elastic_pool = azure.mssql.ElasticPool("exampleElasticPool",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            server_name=example_server.name,
-            license_type="LicenseIncluded",
-            max_size_gb=756,
-            sku=azure.mssql.ElasticPoolSkuArgs(
-                name="BasicPool",
-                tier="Basic",
-                family="Gen4",
-                capacity=4,
-            ),
-            per_database_settings=azure.mssql.ElasticPoolPerDatabaseSettingsArgs(
-                min_capacity=0.25,
-                max_capacity=4,
-            ))
-        ```
-
         ## Import
 
         SQL Elastic Pool can be imported using the `resource id`, e.g.
@@ -600,37 +577,6 @@ class ElasticPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Allows you to manage an Azure SQL Elastic Pool via the `v3.0` API which allows for `vCore` and `DTU` based configurations.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_server = azure.mssql.Server("exampleServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            version="12.0",
-            administrator_login="4dm1n157r470r",
-            administrator_login_password="4-v3ry-53cr37-p455w0rd")
-        example_elastic_pool = azure.mssql.ElasticPool("exampleElasticPool",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            server_name=example_server.name,
-            license_type="LicenseIncluded",
-            max_size_gb=756,
-            sku=azure.mssql.ElasticPoolSkuArgs(
-                name="BasicPool",
-                tier="Basic",
-                family="Gen4",
-                capacity=4,
-            ),
-            per_database_settings=azure.mssql.ElasticPoolPerDatabaseSettingsArgs(
-                min_capacity=0.25,
-                max_capacity=4,
-            ))
-        ```
 
         ## Import
 
@@ -686,11 +632,7 @@ class ElasticPool(pulumi.CustomResource):
             __props__.__dict__["max_size_bytes"] = max_size_bytes
             __props__.__dict__["max_size_gb"] = max_size_gb
             __props__.__dict__["name"] = name
-            if per_database_settings is not None and not isinstance(per_database_settings, ElasticPoolPerDatabaseSettingsArgs):
-                per_database_settings = per_database_settings or {}
-                def _setter(key, value):
-                    per_database_settings[key] = value
-                ElasticPoolPerDatabaseSettingsArgs._configure(_setter, **per_database_settings)
+            per_database_settings = _utilities.configure(per_database_settings, ElasticPoolPerDatabaseSettingsArgs, True)
             if per_database_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'per_database_settings'")
             __props__.__dict__["per_database_settings"] = per_database_settings
@@ -700,11 +642,7 @@ class ElasticPool(pulumi.CustomResource):
             if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
             __props__.__dict__["server_name"] = server_name
-            if sku is not None and not isinstance(sku, ElasticPoolSkuArgs):
-                sku = sku or {}
-                def _setter(key, value):
-                    sku[key] = value
-                ElasticPoolSkuArgs._configure(_setter, **sku)
+            sku = _utilities.configure(sku, ElasticPoolSkuArgs, True)
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku

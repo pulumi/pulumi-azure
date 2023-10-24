@@ -46,24 +46,30 @@ class VpnGatewayConnectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             remote_vpn_site_id: pulumi.Input[str],
-             vpn_gateway_id: pulumi.Input[str],
-             vpn_links: pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkArgs']]],
+             remote_vpn_site_id: Optional[pulumi.Input[str]] = None,
+             vpn_gateway_id: Optional[pulumi.Input[str]] = None,
+             vpn_links: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkArgs']]]] = None,
              internet_security_enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              routing: Optional[pulumi.Input['VpnGatewayConnectionRoutingArgs']] = None,
              traffic_selector_policies: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionTrafficSelectorPolicyArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'remoteVpnSiteId' in kwargs:
+        if remote_vpn_site_id is None and 'remoteVpnSiteId' in kwargs:
             remote_vpn_site_id = kwargs['remoteVpnSiteId']
-        if 'vpnGatewayId' in kwargs:
+        if remote_vpn_site_id is None:
+            raise TypeError("Missing 'remote_vpn_site_id' argument")
+        if vpn_gateway_id is None and 'vpnGatewayId' in kwargs:
             vpn_gateway_id = kwargs['vpnGatewayId']
-        if 'vpnLinks' in kwargs:
+        if vpn_gateway_id is None:
+            raise TypeError("Missing 'vpn_gateway_id' argument")
+        if vpn_links is None and 'vpnLinks' in kwargs:
             vpn_links = kwargs['vpnLinks']
-        if 'internetSecurityEnabled' in kwargs:
+        if vpn_links is None:
+            raise TypeError("Missing 'vpn_links' argument")
+        if internet_security_enabled is None and 'internetSecurityEnabled' in kwargs:
             internet_security_enabled = kwargs['internetSecurityEnabled']
-        if 'trafficSelectorPolicies' in kwargs:
+        if traffic_selector_policies is None and 'trafficSelectorPolicies' in kwargs:
             traffic_selector_policies = kwargs['trafficSelectorPolicies']
 
         _setter("remote_vpn_site_id", remote_vpn_site_id)
@@ -203,17 +209,17 @@ class _VpnGatewayConnectionState:
              traffic_selector_policies: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionTrafficSelectorPolicyArgs']]]] = None,
              vpn_gateway_id: Optional[pulumi.Input[str]] = None,
              vpn_links: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'internetSecurityEnabled' in kwargs:
+        if internet_security_enabled is None and 'internetSecurityEnabled' in kwargs:
             internet_security_enabled = kwargs['internetSecurityEnabled']
-        if 'remoteVpnSiteId' in kwargs:
+        if remote_vpn_site_id is None and 'remoteVpnSiteId' in kwargs:
             remote_vpn_site_id = kwargs['remoteVpnSiteId']
-        if 'trafficSelectorPolicies' in kwargs:
+        if traffic_selector_policies is None and 'trafficSelectorPolicies' in kwargs:
             traffic_selector_policies = kwargs['trafficSelectorPolicies']
-        if 'vpnGatewayId' in kwargs:
+        if vpn_gateway_id is None and 'vpnGatewayId' in kwargs:
             vpn_gateway_id = kwargs['vpnGatewayId']
-        if 'vpnLinks' in kwargs:
+        if vpn_links is None and 'vpnLinks' in kwargs:
             vpn_links = kwargs['vpnLinks']
 
         if internet_security_enabled is not None:
@@ -332,54 +338,6 @@ class VpnGatewayConnection(pulumi.CustomResource):
         """
         Manages a VPN Gateway Connection.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_wan = azure.network.VirtualWan("exampleVirtualWan",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_virtual_hub = azure.network.VirtualHub("exampleVirtualHub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            virtual_wan_id=example_virtual_wan.id,
-            address_prefix="10.0.0.0/24")
-        example_vpn_gateway = azure.network.VpnGateway("exampleVpnGateway",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            virtual_hub_id=example_virtual_hub.id)
-        example_vpn_site = azure.network.VpnSite("exampleVpnSite",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            virtual_wan_id=example_virtual_wan.id,
-            links=[
-                azure.network.VpnSiteLinkArgs(
-                    name="link1",
-                    ip_address="10.1.0.0",
-                ),
-                azure.network.VpnSiteLinkArgs(
-                    name="link2",
-                    ip_address="10.2.0.0",
-                ),
-            ])
-        example_vpn_gateway_connection = azure.network.VpnGatewayConnection("exampleVpnGatewayConnection",
-            vpn_gateway_id=example_vpn_gateway.id,
-            remote_vpn_site_id=example_vpn_site.id,
-            vpn_links=[
-                azure.network.VpnGatewayConnectionVpnLinkArgs(
-                    name="link1",
-                    vpn_site_link_id=example_vpn_site.links[0].id,
-                ),
-                azure.network.VpnGatewayConnectionVpnLinkArgs(
-                    name="link2",
-                    vpn_site_link_id=example_vpn_site.links[1].id,
-                ),
-            ])
-        ```
-
         ## Import
 
         VPN Gateway Connections can be imported using the `resource id`, e.g.
@@ -406,54 +364,6 @@ class VpnGatewayConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a VPN Gateway Connection.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_wan = azure.network.VirtualWan("exampleVirtualWan",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_virtual_hub = azure.network.VirtualHub("exampleVirtualHub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            virtual_wan_id=example_virtual_wan.id,
-            address_prefix="10.0.0.0/24")
-        example_vpn_gateway = azure.network.VpnGateway("exampleVpnGateway",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            virtual_hub_id=example_virtual_hub.id)
-        example_vpn_site = azure.network.VpnSite("exampleVpnSite",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            virtual_wan_id=example_virtual_wan.id,
-            links=[
-                azure.network.VpnSiteLinkArgs(
-                    name="link1",
-                    ip_address="10.1.0.0",
-                ),
-                azure.network.VpnSiteLinkArgs(
-                    name="link2",
-                    ip_address="10.2.0.0",
-                ),
-            ])
-        example_vpn_gateway_connection = azure.network.VpnGatewayConnection("exampleVpnGatewayConnection",
-            vpn_gateway_id=example_vpn_gateway.id,
-            remote_vpn_site_id=example_vpn_site.id,
-            vpn_links=[
-                azure.network.VpnGatewayConnectionVpnLinkArgs(
-                    name="link1",
-                    vpn_site_link_id=example_vpn_site.links[0].id,
-                ),
-                azure.network.VpnGatewayConnectionVpnLinkArgs(
-                    name="link2",
-                    vpn_site_link_id=example_vpn_site.links[1].id,
-                ),
-            ])
-        ```
 
         ## Import
 
@@ -503,11 +413,7 @@ class VpnGatewayConnection(pulumi.CustomResource):
             if remote_vpn_site_id is None and not opts.urn:
                 raise TypeError("Missing required property 'remote_vpn_site_id'")
             __props__.__dict__["remote_vpn_site_id"] = remote_vpn_site_id
-            if routing is not None and not isinstance(routing, VpnGatewayConnectionRoutingArgs):
-                routing = routing or {}
-                def _setter(key, value):
-                    routing[key] = value
-                VpnGatewayConnectionRoutingArgs._configure(_setter, **routing)
+            routing = _utilities.configure(routing, VpnGatewayConnectionRoutingArgs, True)
             __props__.__dict__["routing"] = routing
             __props__.__dict__["traffic_selector_policies"] = traffic_selector_policies
             if vpn_gateway_id is None and not opts.urn:

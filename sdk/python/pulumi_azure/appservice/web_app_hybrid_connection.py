@@ -38,18 +38,26 @@ class WebAppHybridConnectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             hostname: pulumi.Input[str],
-             port: pulumi.Input[int],
-             relay_id: pulumi.Input[str],
-             web_app_id: pulumi.Input[str],
+             hostname: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             relay_id: Optional[pulumi.Input[str]] = None,
+             web_app_id: Optional[pulumi.Input[str]] = None,
              send_key_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'relayId' in kwargs:
+        if hostname is None:
+            raise TypeError("Missing 'hostname' argument")
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if relay_id is None and 'relayId' in kwargs:
             relay_id = kwargs['relayId']
-        if 'webAppId' in kwargs:
+        if relay_id is None:
+            raise TypeError("Missing 'relay_id' argument")
+        if web_app_id is None and 'webAppId' in kwargs:
             web_app_id = kwargs['webAppId']
-        if 'sendKeyName' in kwargs:
+        if web_app_id is None:
+            raise TypeError("Missing 'web_app_id' argument")
+        if send_key_name is None and 'sendKeyName' in kwargs:
             send_key_name = kwargs['sendKeyName']
 
         _setter("hostname", hostname)
@@ -172,23 +180,23 @@ class _WebAppHybridConnectionState:
              service_bus_namespace: Optional[pulumi.Input[str]] = None,
              service_bus_suffix: Optional[pulumi.Input[str]] = None,
              web_app_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'namespaceName' in kwargs:
+        if namespace_name is None and 'namespaceName' in kwargs:
             namespace_name = kwargs['namespaceName']
-        if 'relayId' in kwargs:
+        if relay_id is None and 'relayId' in kwargs:
             relay_id = kwargs['relayId']
-        if 'relayName' in kwargs:
+        if relay_name is None and 'relayName' in kwargs:
             relay_name = kwargs['relayName']
-        if 'sendKeyName' in kwargs:
+        if send_key_name is None and 'sendKeyName' in kwargs:
             send_key_name = kwargs['sendKeyName']
-        if 'sendKeyValue' in kwargs:
+        if send_key_value is None and 'sendKeyValue' in kwargs:
             send_key_value = kwargs['sendKeyValue']
-        if 'serviceBusNamespace' in kwargs:
+        if service_bus_namespace is None and 'serviceBusNamespace' in kwargs:
             service_bus_namespace = kwargs['serviceBusNamespace']
-        if 'serviceBusSuffix' in kwargs:
+        if service_bus_suffix is None and 'serviceBusSuffix' in kwargs:
             service_bus_suffix = kwargs['serviceBusSuffix']
-        if 'webAppId' in kwargs:
+        if web_app_id is None and 'webAppId' in kwargs:
             web_app_id = kwargs['webAppId']
 
         if hostname is not None:
@@ -347,37 +355,6 @@ class WebAppHybridConnection(pulumi.CustomResource):
         """
         Manages a Web App Hybrid Connection.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            os_type="Windows",
-            sku_name="S1")
-        example_namespace = azure.relay.Namespace("exampleNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Standard")
-        example_hybrid_connection = azure.relay.HybridConnection("exampleHybridConnection",
-            resource_group_name=example_resource_group.name,
-            relay_namespace_name=example_namespace.name)
-        example_windows_web_app = azure.appservice.WindowsWebApp("exampleWindowsWebApp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.WindowsWebAppSiteConfigArgs())
-        example_web_app_hybrid_connection = azure.appservice.WebAppHybridConnection("exampleWebAppHybridConnection",
-            web_app_id=example_windows_web_app.id,
-            relay_id=example_hybrid_connection.id,
-            hostname="myhostname.example",
-            port=8081)
-        ```
-
         ## Import
 
         a Web App Hybrid Connection can be imported using the `resource id`, e.g.
@@ -402,37 +379,6 @@ class WebAppHybridConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Web App Hybrid Connection.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            os_type="Windows",
-            sku_name="S1")
-        example_namespace = azure.relay.Namespace("exampleNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Standard")
-        example_hybrid_connection = azure.relay.HybridConnection("exampleHybridConnection",
-            resource_group_name=example_resource_group.name,
-            relay_namespace_name=example_namespace.name)
-        example_windows_web_app = azure.appservice.WindowsWebApp("exampleWindowsWebApp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.WindowsWebAppSiteConfigArgs())
-        example_web_app_hybrid_connection = azure.appservice.WebAppHybridConnection("exampleWebAppHybridConnection",
-            web_app_id=example_windows_web_app.id,
-            relay_id=example_hybrid_connection.id,
-            hostname="myhostname.example",
-            port=8081)
-        ```
 
         ## Import
 

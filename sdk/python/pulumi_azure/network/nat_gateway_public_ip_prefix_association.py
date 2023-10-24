@@ -29,14 +29,18 @@ class NatGatewayPublicIpPrefixAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             nat_gateway_id: pulumi.Input[str],
-             public_ip_prefix_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             nat_gateway_id: Optional[pulumi.Input[str]] = None,
+             public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'natGatewayId' in kwargs:
+        if nat_gateway_id is None and 'natGatewayId' in kwargs:
             nat_gateway_id = kwargs['natGatewayId']
-        if 'publicIpPrefixId' in kwargs:
+        if nat_gateway_id is None:
+            raise TypeError("Missing 'nat_gateway_id' argument")
+        if public_ip_prefix_id is None and 'publicIpPrefixId' in kwargs:
             public_ip_prefix_id = kwargs['publicIpPrefixId']
+        if public_ip_prefix_id is None:
+            raise TypeError("Missing 'public_ip_prefix_id' argument")
 
         _setter("nat_gateway_id", nat_gateway_id)
         _setter("public_ip_prefix_id", public_ip_prefix_id)
@@ -86,11 +90,11 @@ class _NatGatewayPublicIpPrefixAssociationState:
              _setter: Callable[[Any, Any], None],
              nat_gateway_id: Optional[pulumi.Input[str]] = None,
              public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'natGatewayId' in kwargs:
+        if nat_gateway_id is None and 'natGatewayId' in kwargs:
             nat_gateway_id = kwargs['natGatewayId']
-        if 'publicIpPrefixId' in kwargs:
+        if public_ip_prefix_id is None and 'publicIpPrefixId' in kwargs:
             public_ip_prefix_id = kwargs['publicIpPrefixId']
 
         if nat_gateway_id is not None:
@@ -134,27 +138,6 @@ class NatGatewayPublicIpPrefixAssociation(pulumi.CustomResource):
         """
         Manages the association between a NAT Gateway and a Public IP Prefix.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_public_ip_prefix = azure.network.PublicIpPrefix("examplePublicIpPrefix",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            prefix_length=30,
-            zones=["1"])
-        example_nat_gateway = azure.network.NatGateway("exampleNatGateway",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Standard")
-        example_nat_gateway_public_ip_prefix_association = azure.network.NatGatewayPublicIpPrefixAssociation("exampleNatGatewayPublicIpPrefixAssociation",
-            nat_gateway_id=example_nat_gateway.id,
-            public_ip_prefix_id=example_public_ip_prefix.id)
-        ```
-
         ## Import
 
         Associations between NAT Gateway and Public IP Prefixes can be imported using the `resource id`, e.g.
@@ -176,27 +159,6 @@ class NatGatewayPublicIpPrefixAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages the association between a NAT Gateway and a Public IP Prefix.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_public_ip_prefix = azure.network.PublicIpPrefix("examplePublicIpPrefix",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            prefix_length=30,
-            zones=["1"])
-        example_nat_gateway = azure.network.NatGateway("exampleNatGateway",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Standard")
-        example_nat_gateway_public_ip_prefix_association = azure.network.NatGatewayPublicIpPrefixAssociation("exampleNatGatewayPublicIpPrefixAssociation",
-            nat_gateway_id=example_nat_gateway.id,
-            public_ip_prefix_id=example_public_ip_prefix.id)
-        ```
 
         ## Import
 

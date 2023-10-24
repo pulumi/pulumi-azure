@@ -64,19 +64,23 @@ class DefinitionAuthorization(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             principal_id: str,
-             role_definition_id: str,
+             principal_id: Optional[str] = None,
+             role_definition_id: Optional[str] = None,
              delegated_role_definition_ids: Optional[Sequence[str]] = None,
              principal_display_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'roleDefinitionId' in kwargs:
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if role_definition_id is None and 'roleDefinitionId' in kwargs:
             role_definition_id = kwargs['roleDefinitionId']
-        if 'delegatedRoleDefinitionIds' in kwargs:
+        if role_definition_id is None:
+            raise TypeError("Missing 'role_definition_id' argument")
+        if delegated_role_definition_ids is None and 'delegatedRoleDefinitionIds' in kwargs:
             delegated_role_definition_ids = kwargs['delegatedRoleDefinitionIds']
-        if 'principalDisplayName' in kwargs:
+        if principal_display_name is None and 'principalDisplayName' in kwargs:
             principal_display_name = kwargs['principalDisplayName']
 
         _setter("principal_id", principal_id)
@@ -165,19 +169,23 @@ class DefinitionEligibleAuthorization(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             principal_id: str,
-             role_definition_id: str,
+             principal_id: Optional[str] = None,
+             role_definition_id: Optional[str] = None,
              just_in_time_access_policy: Optional['outputs.DefinitionEligibleAuthorizationJustInTimeAccessPolicy'] = None,
              principal_display_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'roleDefinitionId' in kwargs:
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if role_definition_id is None and 'roleDefinitionId' in kwargs:
             role_definition_id = kwargs['roleDefinitionId']
-        if 'justInTimeAccessPolicy' in kwargs:
+        if role_definition_id is None:
+            raise TypeError("Missing 'role_definition_id' argument")
+        if just_in_time_access_policy is None and 'justInTimeAccessPolicy' in kwargs:
             just_in_time_access_policy = kwargs['justInTimeAccessPolicy']
-        if 'principalDisplayName' in kwargs:
+        if principal_display_name is None and 'principalDisplayName' in kwargs:
             principal_display_name = kwargs['principalDisplayName']
 
         _setter("principal_id", principal_id)
@@ -264,11 +272,11 @@ class DefinitionEligibleAuthorizationJustInTimeAccessPolicy(dict):
              approvers: Optional[Sequence['outputs.DefinitionEligibleAuthorizationJustInTimeAccessPolicyApprover']] = None,
              maximum_activation_duration: Optional[str] = None,
              multi_factor_auth_provider: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'maximumActivationDuration' in kwargs:
+        if maximum_activation_duration is None and 'maximumActivationDuration' in kwargs:
             maximum_activation_duration = kwargs['maximumActivationDuration']
-        if 'multiFactorAuthProvider' in kwargs:
+        if multi_factor_auth_provider is None and 'multiFactorAuthProvider' in kwargs:
             multi_factor_auth_provider = kwargs['multiFactorAuthProvider']
 
         if approvers is not None:
@@ -341,13 +349,15 @@ class DefinitionEligibleAuthorizationJustInTimeAccessPolicyApprover(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             principal_id: str,
+             principal_id: Optional[str] = None,
              principal_display_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'principalDisplayName' in kwargs:
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if principal_display_name is None and 'principalDisplayName' in kwargs:
             principal_display_name = kwargs['principalDisplayName']
 
         _setter("principal_id", principal_id)
@@ -394,12 +404,20 @@ class DefinitionPlan(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             product: str,
-             publisher: str,
-             version: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             name: Optional[str] = None,
+             product: Optional[str] = None,
+             publisher: Optional[str] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if product is None:
+            raise TypeError("Missing 'product' argument")
+        if publisher is None:
+            raise TypeError("Missing 'publisher' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
 
         _setter("name", name)
         _setter("product", product)

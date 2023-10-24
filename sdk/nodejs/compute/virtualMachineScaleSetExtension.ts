@@ -11,47 +11,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** This resource is not intended to be used with the `azure.compute.ScaleSet` resource - instead it's intended for this to be used with the `azure.compute.LinuxVirtualMachineScaleSet` and `azure.compute.WindowsVirtualMachineScaleSet` resources.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleLinuxVirtualMachineScaleSet = new azure.compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     sku: "Standard_F2",
- *     adminUsername: "adminuser",
- *     instances: 1,
- *     sourceImageReference: {
- *         publisher: "Canonical",
- *         offer: "0001-com-ubuntu-server-focal",
- *         sku: "20_04-lts",
- *         version: "latest",
- *     },
- *     networkInterfaces: [{
- *         name: "example",
- *         ipConfigurations: [{
- *             name: "internal",
- *         }],
- *     }],
- *     osDisk: {
- *         storageAccountType: "Standard_LRS",
- *         caching: "ReadWrite",
- *     },
- * });
- * const exampleVirtualMachineScaleSetExtension = new azure.compute.VirtualMachineScaleSetExtension("exampleVirtualMachineScaleSetExtension", {
- *     virtualMachineScaleSetId: exampleLinuxVirtualMachineScaleSet.id,
- *     publisher: "Microsoft.Azure.Extensions",
- *     type: "CustomScript",
- *     typeHandlerVersion: "2.0",
- *     settings: JSON.stringify({
- *         commandToExecute: "echo $HOSTNAME",
- *     }),
- * });
- * ```
- *
  * ## Import
  *
  * Virtual Machine Scale Set Extensions can be imported using the `resource id`, e.g.
@@ -144,10 +103,6 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
      * Specifies the version of the extension to use, available versions can be found using the Azure CLI.
      *
      * > **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
-     *
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
      */
     public readonly typeHandlerVersion!: pulumi.Output<string>;
     /**
@@ -278,10 +233,6 @@ export interface VirtualMachineScaleSetExtensionState {
      * Specifies the version of the extension to use, available versions can be found using the Azure CLI.
      *
      * > **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
-     *
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
      */
     typeHandlerVersion?: pulumi.Input<string>;
     /**
@@ -352,10 +303,6 @@ export interface VirtualMachineScaleSetExtensionArgs {
      * Specifies the version of the extension to use, available versions can be found using the Azure CLI.
      *
      * > **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
-     *
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
      */
     typeHandlerVersion: pulumi.Input<string>;
     /**

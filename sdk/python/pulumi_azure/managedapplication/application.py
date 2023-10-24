@@ -57,9 +57,9 @@ class ApplicationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             kind: pulumi.Input[str],
-             managed_resource_group_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             kind: Optional[pulumi.Input[str]] = None,
+             managed_resource_group_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              application_definition_id: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
@@ -67,15 +67,21 @@ class ApplicationArgs:
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              plan: Optional[pulumi.Input['ApplicationPlanArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'managedResourceGroupName' in kwargs:
+        if kind is None:
+            raise TypeError("Missing 'kind' argument")
+        if managed_resource_group_name is None and 'managedResourceGroupName' in kwargs:
             managed_resource_group_name = kwargs['managedResourceGroupName']
-        if 'resourceGroupName' in kwargs:
+        if managed_resource_group_name is None:
+            raise TypeError("Missing 'managed_resource_group_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'applicationDefinitionId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if application_definition_id is None and 'applicationDefinitionId' in kwargs:
             application_definition_id = kwargs['applicationDefinitionId']
-        if 'parameterValues' in kwargs:
+        if parameter_values is None and 'parameterValues' in kwargs:
             parameter_values = kwargs['parameterValues']
 
         _setter("kind", kind)
@@ -283,15 +289,15 @@ class _ApplicationState:
              plan: Optional[pulumi.Input['ApplicationPlanArgs']] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'applicationDefinitionId' in kwargs:
+        if application_definition_id is None and 'applicationDefinitionId' in kwargs:
             application_definition_id = kwargs['applicationDefinitionId']
-        if 'managedResourceGroupName' in kwargs:
+        if managed_resource_group_name is None and 'managedResourceGroupName' in kwargs:
             managed_resource_group_name = kwargs['managedResourceGroupName']
-        if 'parameterValues' in kwargs:
+        if parameter_values is None and 'parameterValues' in kwargs:
             parameter_values = kwargs['parameterValues']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if application_definition_id is not None:
@@ -477,46 +483,6 @@ class Application(pulumi.CustomResource):
         """
         Manages a Managed Application.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        builtin = azure.authorization.get_role_definition(name="Contributor")
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_definition = azure.managedapplication.Definition("exampleDefinition",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            lock_level="ReadOnly",
-            package_file_uri="https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip",
-            display_name="TestManagedAppDefinition",
-            description="Test Managed App Definition",
-            authorizations=[azure.managedapplication.DefinitionAuthorizationArgs(
-                service_principal_id=current.object_id,
-                role_definition_id=builtin.id.split("/")[len(builtin.id.split("/")) - 1],
-            )])
-        example_application = azure.managedapplication.Application("exampleApplication",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            kind="ServiceCatalog",
-            managed_resource_group_name="infrastructureGroup",
-            application_definition_id=example_definition.id,
-            parameter_values=example_resource_group.location.apply(lambda location: json.dumps({
-                "location": {
-                    "value": location,
-                },
-                "storageAccountNamePrefix": {
-                    "value": "storeNamePrefix",
-                },
-                "storageAccountType": {
-                    "value": "Standard_LRS",
-                },
-            })))
-        ```
-
         ## Import
 
         Managed Application can be imported using the `resource id`, e.g.
@@ -548,46 +514,6 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Managed Application.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        builtin = azure.authorization.get_role_definition(name="Contributor")
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_definition = azure.managedapplication.Definition("exampleDefinition",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            lock_level="ReadOnly",
-            package_file_uri="https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip",
-            display_name="TestManagedAppDefinition",
-            description="Test Managed App Definition",
-            authorizations=[azure.managedapplication.DefinitionAuthorizationArgs(
-                service_principal_id=current.object_id,
-                role_definition_id=builtin.id.split("/")[len(builtin.id.split("/")) - 1],
-            )])
-        example_application = azure.managedapplication.Application("exampleApplication",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            kind="ServiceCatalog",
-            managed_resource_group_name="infrastructureGroup",
-            application_definition_id=example_definition.id,
-            parameter_values=example_resource_group.location.apply(lambda location: json.dumps({
-                "location": {
-                    "value": location,
-                },
-                "storageAccountNamePrefix": {
-                    "value": "storeNamePrefix",
-                },
-                "storageAccountType": {
-                    "value": "Standard_LRS",
-                },
-            })))
-        ```
 
         ## Import
 
@@ -646,11 +572,7 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["parameter_values"] = parameter_values
             __props__.__dict__["parameters"] = parameters
-            if plan is not None and not isinstance(plan, ApplicationPlanArgs):
-                plan = plan or {}
-                def _setter(key, value):
-                    plan[key] = value
-                ApplicationPlanArgs._configure(_setter, **plan)
+            plan = _utilities.configure(plan, ApplicationPlanArgs, True)
             __props__.__dict__["plan"] = plan
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

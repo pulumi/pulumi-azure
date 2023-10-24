@@ -9,34 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Microsoft SQL Virtual Machine
  *
- * ## Example Usage
- *
- * This example provisions a brief Managed Microsoft SQL Virtual Machine.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleVirtualMachine = azure.compute.getVirtualMachine({
- *     name: "example-vm",
- *     resourceGroupName: "example-resources",
- * });
- * const exampleMssql_virtualMachineVirtualMachine = new azure.mssql.VirtualMachine("exampleMssql/virtualMachineVirtualMachine", {
- *     virtualMachineId: exampleVirtualMachine.then(exampleVirtualMachine => exampleVirtualMachine.id),
- *     sqlLicenseType: "PAYG",
- *     rServicesEnabled: true,
- *     sqlConnectivityPort: 1433,
- *     sqlConnectivityType: "PRIVATE",
- *     sqlConnectivityUpdatePassword: "Password1234!",
- *     sqlConnectivityUpdateUsername: "sqllogin",
- *     autoPatching: {
- *         dayOfWeek: "Sunday",
- *         maintenanceWindowDurationInMinutes: 60,
- *         maintenanceWindowStartingHour: 2,
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Microsoft SQL Virtual Machines can be imported using the `resource id`, e.g.

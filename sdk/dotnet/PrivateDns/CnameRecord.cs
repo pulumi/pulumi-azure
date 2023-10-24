@@ -12,37 +12,6 @@ namespace Pulumi.Azure.PrivateDns
     /// <summary>
     /// Enables you to manage DNS CNAME Records within Azure Private DNS.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleZone = new Azure.PrivateDns.Zone("exampleZone", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///     });
-    /// 
-    ///     var exampleCnameRecord = new Azure.PrivateDns.CnameRecord("exampleCnameRecord", new()
-    ///     {
-    ///         ZoneName = exampleZone.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Ttl = 300,
-    ///         Record = "contoso.com",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Private DNS CName Records can be imported using the `resource id`, e.g.

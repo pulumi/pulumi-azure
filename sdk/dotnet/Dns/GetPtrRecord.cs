@@ -11,65 +11,9 @@ namespace Pulumi.Azure.Dns
 {
     public static class GetPtrRecord
     {
-        /// <summary>
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = new Azure.Dns.PtrRecord("example", new()
-        ///     {
-        ///         ZoneName = "test-zone",
-        ///         ResourceGroupName = "test-rg",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["dnsPtrRecordId"] = example.Id,
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetPtrRecordResult> InvokeAsync(GetPtrRecordArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPtrRecordResult>("azure:dns/getPtrRecord:getPtrRecord", args ?? new GetPtrRecordArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = new Azure.Dns.PtrRecord("example", new()
-        ///     {
-        ///         ZoneName = "test-zone",
-        ///         ResourceGroupName = "test-rg",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["dnsPtrRecordId"] = example.Id,
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetPtrRecordResult> Invoke(GetPtrRecordInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPtrRecordResult>("azure:dns/getPtrRecord:getPtrRecord", args ?? new GetPtrRecordInvokeArgs(), options.WithDefaults());
     }

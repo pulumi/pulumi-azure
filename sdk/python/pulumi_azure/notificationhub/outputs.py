@@ -66,21 +66,31 @@ class HubApnsCredential(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_mode: str,
-             bundle_id: str,
-             key_id: str,
-             team_id: str,
-             token: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             application_mode: Optional[str] = None,
+             bundle_id: Optional[str] = None,
+             key_id: Optional[str] = None,
+             team_id: Optional[str] = None,
+             token: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'applicationMode' in kwargs:
+        if application_mode is None and 'applicationMode' in kwargs:
             application_mode = kwargs['applicationMode']
-        if 'bundleId' in kwargs:
+        if application_mode is None:
+            raise TypeError("Missing 'application_mode' argument")
+        if bundle_id is None and 'bundleId' in kwargs:
             bundle_id = kwargs['bundleId']
-        if 'keyId' in kwargs:
+        if bundle_id is None:
+            raise TypeError("Missing 'bundle_id' argument")
+        if key_id is None and 'keyId' in kwargs:
             key_id = kwargs['keyId']
-        if 'teamId' in kwargs:
+        if key_id is None:
+            raise TypeError("Missing 'key_id' argument")
+        if team_id is None and 'teamId' in kwargs:
             team_id = kwargs['teamId']
+        if team_id is None:
+            raise TypeError("Missing 'team_id' argument")
+        if token is None:
+            raise TypeError("Missing 'token' argument")
 
         _setter("application_mode", application_mode)
         _setter("bundle_id", bundle_id)
@@ -160,11 +170,13 @@ class HubGcmCredential(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_key: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             api_key: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiKey' in kwargs:
+        if api_key is None and 'apiKey' in kwargs:
             api_key = kwargs['apiKey']
+        if api_key is None:
+            raise TypeError("Missing 'api_key' argument")
 
         _setter("api_key", api_key)
 
@@ -203,21 +215,31 @@ class GetHubApnsCredentialResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_mode: str,
-             bundle_id: str,
-             key_id: str,
-             team_id: str,
-             token: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             application_mode: Optional[str] = None,
+             bundle_id: Optional[str] = None,
+             key_id: Optional[str] = None,
+             team_id: Optional[str] = None,
+             token: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'applicationMode' in kwargs:
+        if application_mode is None and 'applicationMode' in kwargs:
             application_mode = kwargs['applicationMode']
-        if 'bundleId' in kwargs:
+        if application_mode is None:
+            raise TypeError("Missing 'application_mode' argument")
+        if bundle_id is None and 'bundleId' in kwargs:
             bundle_id = kwargs['bundleId']
-        if 'keyId' in kwargs:
+        if bundle_id is None:
+            raise TypeError("Missing 'bundle_id' argument")
+        if key_id is None and 'keyId' in kwargs:
             key_id = kwargs['keyId']
-        if 'teamId' in kwargs:
+        if key_id is None:
+            raise TypeError("Missing 'key_id' argument")
+        if team_id is None and 'teamId' in kwargs:
             team_id = kwargs['teamId']
+        if team_id is None:
+            raise TypeError("Missing 'team_id' argument")
+        if token is None:
+            raise TypeError("Missing 'token' argument")
 
         _setter("application_mode", application_mode)
         _setter("bundle_id", bundle_id)
@@ -280,11 +302,13 @@ class GetHubGcmCredentialResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_key: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             api_key: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiKey' in kwargs:
+        if api_key is None and 'apiKey' in kwargs:
             api_key = kwargs['apiKey']
+        if api_key is None:
+            raise TypeError("Missing 'api_key' argument")
 
         _setter("api_key", api_key)
 
@@ -311,9 +335,11 @@ class GetNamespaceSkuResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
 
         _setter("name", name)
 

@@ -64,7 +64,7 @@ class DomainArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              auto_create_topic_with_first_subscription: Optional[pulumi.Input[bool]] = None,
              auto_delete_topic_with_last_subscription: Optional[pulumi.Input[bool]] = None,
              identity: Optional[pulumi.Input['DomainIdentityArgs']] = None,
@@ -77,25 +77,27 @@ class DomainArgs:
              name: Optional[pulumi.Input[str]] = None,
              public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'autoCreateTopicWithFirstSubscription' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if auto_create_topic_with_first_subscription is None and 'autoCreateTopicWithFirstSubscription' in kwargs:
             auto_create_topic_with_first_subscription = kwargs['autoCreateTopicWithFirstSubscription']
-        if 'autoDeleteTopicWithLastSubscription' in kwargs:
+        if auto_delete_topic_with_last_subscription is None and 'autoDeleteTopicWithLastSubscription' in kwargs:
             auto_delete_topic_with_last_subscription = kwargs['autoDeleteTopicWithLastSubscription']
-        if 'inboundIpRules' in kwargs:
+        if inbound_ip_rules is None and 'inboundIpRules' in kwargs:
             inbound_ip_rules = kwargs['inboundIpRules']
-        if 'inputMappingDefaultValues' in kwargs:
+        if input_mapping_default_values is None and 'inputMappingDefaultValues' in kwargs:
             input_mapping_default_values = kwargs['inputMappingDefaultValues']
-        if 'inputMappingFields' in kwargs:
+        if input_mapping_fields is None and 'inputMappingFields' in kwargs:
             input_mapping_fields = kwargs['inputMappingFields']
-        if 'inputSchema' in kwargs:
+        if input_schema is None and 'inputSchema' in kwargs:
             input_schema = kwargs['inputSchema']
-        if 'localAuthEnabled' in kwargs:
+        if local_auth_enabled is None and 'localAuthEnabled' in kwargs:
             local_auth_enabled = kwargs['localAuthEnabled']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
 
         _setter("resource_group_name", resource_group_name)
@@ -357,29 +359,29 @@ class _DomainState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              secondary_access_key: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'autoCreateTopicWithFirstSubscription' in kwargs:
+        if auto_create_topic_with_first_subscription is None and 'autoCreateTopicWithFirstSubscription' in kwargs:
             auto_create_topic_with_first_subscription = kwargs['autoCreateTopicWithFirstSubscription']
-        if 'autoDeleteTopicWithLastSubscription' in kwargs:
+        if auto_delete_topic_with_last_subscription is None and 'autoDeleteTopicWithLastSubscription' in kwargs:
             auto_delete_topic_with_last_subscription = kwargs['autoDeleteTopicWithLastSubscription']
-        if 'inboundIpRules' in kwargs:
+        if inbound_ip_rules is None and 'inboundIpRules' in kwargs:
             inbound_ip_rules = kwargs['inboundIpRules']
-        if 'inputMappingDefaultValues' in kwargs:
+        if input_mapping_default_values is None and 'inputMappingDefaultValues' in kwargs:
             input_mapping_default_values = kwargs['inputMappingDefaultValues']
-        if 'inputMappingFields' in kwargs:
+        if input_mapping_fields is None and 'inputMappingFields' in kwargs:
             input_mapping_fields = kwargs['inputMappingFields']
-        if 'inputSchema' in kwargs:
+        if input_schema is None and 'inputSchema' in kwargs:
             input_schema = kwargs['inputSchema']
-        if 'localAuthEnabled' in kwargs:
+        if local_auth_enabled is None and 'localAuthEnabled' in kwargs:
             local_auth_enabled = kwargs['localAuthEnabled']
-        if 'primaryAccessKey' in kwargs:
+        if primary_access_key is None and 'primaryAccessKey' in kwargs:
             primary_access_key = kwargs['primaryAccessKey']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'secondaryAccessKey' in kwargs:
+        if secondary_access_key is None and 'secondaryAccessKey' in kwargs:
             secondary_access_key = kwargs['secondaryAccessKey']
 
         if auto_create_topic_with_first_subscription is not None:
@@ -635,21 +637,6 @@ class Domain(pulumi.CustomResource):
         """
         Manages an EventGrid Domain
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_domain = azure.eventgrid.Domain("exampleDomain",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tags={
-                "environment": "Production",
-            })
-        ```
-
         ## Import
 
         EventGrid Domains can be imported using the `resource id`, e.g.
@@ -682,21 +669,6 @@ class Domain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an EventGrid Domain
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_domain = azure.eventgrid.Domain("exampleDomain",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tags={
-                "environment": "Production",
-            })
-        ```
 
         ## Import
 
@@ -750,24 +722,12 @@ class Domain(pulumi.CustomResource):
 
             __props__.__dict__["auto_create_topic_with_first_subscription"] = auto_create_topic_with_first_subscription
             __props__.__dict__["auto_delete_topic_with_last_subscription"] = auto_delete_topic_with_last_subscription
-            if identity is not None and not isinstance(identity, DomainIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                DomainIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, DomainIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["inbound_ip_rules"] = inbound_ip_rules
-            if input_mapping_default_values is not None and not isinstance(input_mapping_default_values, DomainInputMappingDefaultValuesArgs):
-                input_mapping_default_values = input_mapping_default_values or {}
-                def _setter(key, value):
-                    input_mapping_default_values[key] = value
-                DomainInputMappingDefaultValuesArgs._configure(_setter, **input_mapping_default_values)
+            input_mapping_default_values = _utilities.configure(input_mapping_default_values, DomainInputMappingDefaultValuesArgs, True)
             __props__.__dict__["input_mapping_default_values"] = input_mapping_default_values
-            if input_mapping_fields is not None and not isinstance(input_mapping_fields, DomainInputMappingFieldsArgs):
-                input_mapping_fields = input_mapping_fields or {}
-                def _setter(key, value):
-                    input_mapping_fields[key] = value
-                DomainInputMappingFieldsArgs._configure(_setter, **input_mapping_fields)
+            input_mapping_fields = _utilities.configure(input_mapping_fields, DomainInputMappingFieldsArgs, True)
             __props__.__dict__["input_mapping_fields"] = input_mapping_fields
             __props__.__dict__["input_schema"] = input_schema
             __props__.__dict__["local_auth_enabled"] = local_auth_enabled

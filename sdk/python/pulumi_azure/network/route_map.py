@@ -34,13 +34,15 @@ class RouteMapArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             virtual_hub_id: pulumi.Input[str],
+             virtual_hub_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              rules: Optional[pulumi.Input[Sequence[pulumi.Input['RouteMapRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'virtualHubId' in kwargs:
+        if virtual_hub_id is None and 'virtualHubId' in kwargs:
             virtual_hub_id = kwargs['virtualHubId']
+        if virtual_hub_id is None:
+            raise TypeError("Missing 'virtual_hub_id' argument")
 
         _setter("virtual_hub_id", virtual_hub_id)
         if name is not None:
@@ -109,9 +111,9 @@ class _RouteMapState:
              name: Optional[pulumi.Input[str]] = None,
              rules: Optional[pulumi.Input[Sequence[pulumi.Input['RouteMapRuleArgs']]]] = None,
              virtual_hub_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'virtualHubId' in kwargs:
+        if virtual_hub_id is None and 'virtualHubId' in kwargs:
             virtual_hub_id = kwargs['virtualHubId']
 
         if name is not None:
@@ -170,39 +172,6 @@ class RouteMap(pulumi.CustomResource):
         """
         Manages a Route Map.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_wan = azure.network.VirtualWan("exampleVirtualWan",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_virtual_hub = azure.network.VirtualHub("exampleVirtualHub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            virtual_wan_id=example_virtual_wan.id,
-            address_prefix="10.0.1.0/24")
-        example_route_map = azure.network.RouteMap("exampleRouteMap",
-            virtual_hub_id=example_virtual_hub.id,
-            rules=[azure.network.RouteMapRuleArgs(
-                name="rule1",
-                next_step_if_matched="Continue",
-                actions=[azure.network.RouteMapRuleActionArgs(
-                    type="Add",
-                    parameters=[azure.network.RouteMapRuleActionParameterArgs(
-                        as_paths=["22334"],
-                    )],
-                )],
-                match_criterions=[azure.network.RouteMapRuleMatchCriterionArgs(
-                    match_condition="Contains",
-                    route_prefixes=["10.0.0.0/8"],
-                )],
-            )])
-        ```
-
         ## Import
 
         Route Maps can be imported using the `resource id`, e.g.
@@ -225,39 +194,6 @@ class RouteMap(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Route Map.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_wan = azure.network.VirtualWan("exampleVirtualWan",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_virtual_hub = azure.network.VirtualHub("exampleVirtualHub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            virtual_wan_id=example_virtual_wan.id,
-            address_prefix="10.0.1.0/24")
-        example_route_map = azure.network.RouteMap("exampleRouteMap",
-            virtual_hub_id=example_virtual_hub.id,
-            rules=[azure.network.RouteMapRuleArgs(
-                name="rule1",
-                next_step_if_matched="Continue",
-                actions=[azure.network.RouteMapRuleActionArgs(
-                    type="Add",
-                    parameters=[azure.network.RouteMapRuleActionParameterArgs(
-                        as_paths=["22334"],
-                    )],
-                )],
-                match_criterions=[azure.network.RouteMapRuleMatchCriterionArgs(
-                    match_condition="Contains",
-                    route_prefixes=["10.0.0.0/8"],
-                )],
-            )])
-        ```
 
         ## Import
 

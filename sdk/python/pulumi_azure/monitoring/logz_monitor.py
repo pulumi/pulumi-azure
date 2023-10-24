@@ -54,22 +54,28 @@ class LogzMonitorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             plan: pulumi.Input['LogzMonitorPlanArgs'],
-             resource_group_name: pulumi.Input[str],
-             user: pulumi.Input['LogzMonitorUserArgs'],
+             plan: Optional[pulumi.Input['LogzMonitorPlanArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             user: Optional[pulumi.Input['LogzMonitorUserArgs']] = None,
              company_name: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              enterprise_app_id: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if plan is None:
+            raise TypeError("Missing 'plan' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'companyName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if user is None:
+            raise TypeError("Missing 'user' argument")
+        if company_name is None and 'companyName' in kwargs:
             company_name = kwargs['companyName']
-        if 'enterpriseAppId' in kwargs:
+        if enterprise_app_id is None and 'enterpriseAppId' in kwargs:
             enterprise_app_id = kwargs['enterpriseAppId']
 
         _setter("plan", plan)
@@ -257,17 +263,17 @@ class _LogzMonitorState:
              single_sign_on_url: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              user: Optional[pulumi.Input['LogzMonitorUserArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'companyName' in kwargs:
+        if company_name is None and 'companyName' in kwargs:
             company_name = kwargs['companyName']
-        if 'enterpriseAppId' in kwargs:
+        if enterprise_app_id is None and 'enterpriseAppId' in kwargs:
             enterprise_app_id = kwargs['enterpriseAppId']
-        if 'logzOrganizationId' in kwargs:
+        if logz_organization_id is None and 'logzOrganizationId' in kwargs:
             logz_organization_id = kwargs['logzOrganizationId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'singleSignOnUrl' in kwargs:
+        if single_sign_on_url is None and 'singleSignOnUrl' in kwargs:
             single_sign_on_url = kwargs['singleSignOnUrl']
 
         if company_name is not None:
@@ -446,29 +452,6 @@ class LogzMonitor(pulumi.CustomResource):
         """
         Manages a logz Monitor.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_logz_monitor = azure.monitoring.LogzMonitor("exampleLogzMonitor",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            plan=azure.monitoring.LogzMonitorPlanArgs(
-                billing_cycle="MONTHLY",
-                effective_date="2022-06-06T00:00:00Z",
-                usage_type="COMMITTED",
-            ),
-            user=azure.monitoring.LogzMonitorUserArgs(
-                email="user@example.com",
-                first_name="Example",
-                last_name="User",
-                phone_number="+12313803556",
-            ))
-        ```
-
         ## Import
 
         logz Monitors can be imported using the `resource id`, e.g.
@@ -499,29 +482,6 @@ class LogzMonitor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a logz Monitor.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_logz_monitor = azure.monitoring.LogzMonitor("exampleLogzMonitor",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            plan=azure.monitoring.LogzMonitorPlanArgs(
-                billing_cycle="MONTHLY",
-                effective_date="2022-06-06T00:00:00Z",
-                usage_type="COMMITTED",
-            ),
-            user=azure.monitoring.LogzMonitorUserArgs(
-                email="user@example.com",
-                first_name="Example",
-                last_name="User",
-                phone_number="+12313803556",
-            ))
-        ```
 
         ## Import
 
@@ -573,11 +533,7 @@ class LogzMonitor(pulumi.CustomResource):
             __props__.__dict__["enterprise_app_id"] = enterprise_app_id
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
-            if plan is not None and not isinstance(plan, LogzMonitorPlanArgs):
-                plan = plan or {}
-                def _setter(key, value):
-                    plan[key] = value
-                LogzMonitorPlanArgs._configure(_setter, **plan)
+            plan = _utilities.configure(plan, LogzMonitorPlanArgs, True)
             if plan is None and not opts.urn:
                 raise TypeError("Missing required property 'plan'")
             __props__.__dict__["plan"] = plan
@@ -585,11 +541,7 @@ class LogzMonitor(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
-            if user is not None and not isinstance(user, LogzMonitorUserArgs):
-                user = user or {}
-                def _setter(key, value):
-                    user[key] = value
-                LogzMonitorUserArgs._configure(_setter, **user)
+            user = _utilities.configure(user, LogzMonitorUserArgs, True)
             if user is None and not opts.urn:
                 raise TypeError("Missing required property 'user'")
             __props__.__dict__["user"] = user

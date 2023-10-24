@@ -7,35 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Container Registry scope map.  Scope Maps are a preview feature only available in Premium SKU Container registries.
  *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleRegistry = new azure.containerservice.Registry("exampleRegistry", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     sku: "Premium",
- *     adminEnabled: false,
- *     georeplications: [
- *         {
- *             location: "East US",
- *         },
- *         {
- *             location: "West Europe",
- *         },
- *     ],
- * });
- * const exampleRegistryScopeMap = new azure.containerservice.RegistryScopeMap("exampleRegistryScopeMap", {
- *     containerRegistryName: exampleRegistry.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     actions: [
- *         "repositories/repo1/content/read",
- *         "repositories/repo1/content/write",
- *     ],
- * });
- * ```
- *
  * ## Import
  *
  * Container Registries can be imported using the `resource id`, e.g.

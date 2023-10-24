@@ -8,18 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing EventGrid System Topic
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.eventgrid.getSystemTopic({
- *     name: "eventgrid-system-topic",
- *     resourceGroupName: "example-resources",
- * });
- * ```
  */
 export function getSystemTopic(args: GetSystemTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetSystemTopicResult> {
 
@@ -78,18 +66,6 @@ export interface GetSystemTopicResult {
 }
 /**
  * Use this data source to access information about an existing EventGrid System Topic
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.eventgrid.getSystemTopic({
- *     name: "eventgrid-system-topic",
- *     resourceGroupName: "example-resources",
- * });
- * ```
  */
 export function getSystemTopicOutput(args: GetSystemTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSystemTopicResult> {
     return pulumi.output(args).apply((a: any) => getSystemTopic(a, opts))

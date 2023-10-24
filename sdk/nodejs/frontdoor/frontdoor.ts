@@ -19,52 +19,6 @@ import * as utilities from "../utilities";
  * * Use Front Door to improve application performance with SSL offload and routing requests to the fastest available application backend.
  * * Use Front Door for application layer security and DDoS protection for your application.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleFrontdoor = new azure.frontdoor.Frontdoor("exampleFrontdoor", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     routingRules: [{
- *         name: "exampleRoutingRule1",
- *         acceptedProtocols: [
- *             "Http",
- *             "Https",
- *         ],
- *         patternsToMatches: ["/*"],
- *         frontendEndpoints: ["exampleFrontendEndpoint1"],
- *         forwardingConfiguration: {
- *             forwardingProtocol: "MatchRequest",
- *             backendPoolName: "exampleBackendBing",
- *         },
- *     }],
- *     backendPoolLoadBalancings: [{
- *         name: "exampleLoadBalancingSettings1",
- *     }],
- *     backendPoolHealthProbes: [{
- *         name: "exampleHealthProbeSetting1",
- *     }],
- *     backendPools: [{
- *         name: "exampleBackendBing",
- *         backends: [{
- *             hostHeader: "www.bing.com",
- *             address: "www.bing.com",
- *             httpPort: 80,
- *             httpsPort: 443,
- *         }],
- *         loadBalancingName: "exampleLoadBalancingSettings1",
- *         healthProbeName: "exampleHealthProbeSetting1",
- *     }],
- *     frontendEndpoints: [{
- *         name: "exampleFrontendEndpoint1",
- *         hostName: "example-FrontDoor.azurefd.net",
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * Front Doors can be imported using the `resource id`, e.g.

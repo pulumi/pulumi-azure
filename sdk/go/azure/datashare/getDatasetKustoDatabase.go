@@ -13,34 +13,6 @@ import (
 )
 
 // Use this data source to access information about an existing Data Share Kusto Database Dataset.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datashare"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := datashare.LookupDatasetKustoDatabase(ctx, &datashare.LookupDatasetKustoDatabaseArgs{
-//				Name:    "example-dskdds",
-//				ShareId: "example-share-id",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("id", example.Id)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupDatasetKustoDatabase(ctx *pulumi.Context, args *LookupDatasetKustoDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupDatasetKustoDatabaseResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDatasetKustoDatabaseResult

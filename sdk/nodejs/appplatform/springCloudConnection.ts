@@ -9,60 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a service connector for spring cloud app.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.cosmosdb.Account("exampleAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     offerType: "Standard",
- *     kind: "GlobalDocumentDB",
- *     consistencyPolicy: {
- *         consistencyLevel: "BoundedStaleness",
- *         maxIntervalInSeconds: 10,
- *         maxStalenessPrefix: 200,
- *     },
- *     geoLocations: [{
- *         location: exampleResourceGroup.location,
- *         failoverPriority: 0,
- *     }],
- * });
- * const exampleSqlDatabase = new azure.cosmosdb.SqlDatabase("exampleSqlDatabase", {
- *     resourceGroupName: exampleAccount.resourceGroupName,
- *     accountName: exampleAccount.name,
- *     throughput: 400,
- * });
- * const exampleSqlContainer = new azure.cosmosdb.SqlContainer("exampleSqlContainer", {
- *     resourceGroupName: exampleAccount.resourceGroupName,
- *     accountName: exampleAccount.name,
- *     databaseName: exampleSqlDatabase.name,
- *     partitionKeyPath: "/definition",
- * });
- * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("exampleSpringCloudService", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- * });
- * const exampleSpringCloudApp = new azure.appplatform.SpringCloudApp("exampleSpringCloudApp", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     serviceName: exampleSpringCloudService.name,
- *     identity: {
- *         type: "SystemAssigned",
- *     },
- * });
- * const exampleSpringCloudJavaDeployment = new azure.appplatform.SpringCloudJavaDeployment("exampleSpringCloudJavaDeployment", {springCloudAppId: exampleSpringCloudApp.id});
- * const exampleSpringCloudConnection = new azure.appplatform.SpringCloudConnection("exampleSpringCloudConnection", {
- *     springCloudId: exampleSpringCloudJavaDeployment.id,
- *     targetResourceId: exampleSqlDatabase.id,
- *     authentication: {
- *         type: "systemAssignedIdentity",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Service Connector for spring cloud can be imported using the `resource id`, e.g.

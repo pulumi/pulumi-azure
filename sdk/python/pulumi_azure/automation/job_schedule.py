@@ -46,26 +46,34 @@ class JobScheduleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             automation_account_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             runbook_name: pulumi.Input[str],
-             schedule_name: pulumi.Input[str],
+             automation_account_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             runbook_name: Optional[pulumi.Input[str]] = None,
+             schedule_name: Optional[pulumi.Input[str]] = None,
              job_schedule_id: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              run_on: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'automationAccountName' in kwargs:
+        if automation_account_name is None and 'automationAccountName' in kwargs:
             automation_account_name = kwargs['automationAccountName']
-        if 'resourceGroupName' in kwargs:
+        if automation_account_name is None:
+            raise TypeError("Missing 'automation_account_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'runbookName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if runbook_name is None and 'runbookName' in kwargs:
             runbook_name = kwargs['runbookName']
-        if 'scheduleName' in kwargs:
+        if runbook_name is None:
+            raise TypeError("Missing 'runbook_name' argument")
+        if schedule_name is None and 'scheduleName' in kwargs:
             schedule_name = kwargs['scheduleName']
-        if 'jobScheduleId' in kwargs:
+        if schedule_name is None:
+            raise TypeError("Missing 'schedule_name' argument")
+        if job_schedule_id is None and 'jobScheduleId' in kwargs:
             job_schedule_id = kwargs['jobScheduleId']
-        if 'runOn' in kwargs:
+        if run_on is None and 'runOn' in kwargs:
             run_on = kwargs['runOn']
 
         _setter("automation_account_name", automation_account_name)
@@ -208,19 +216,19 @@ class _JobScheduleState:
              run_on: Optional[pulumi.Input[str]] = None,
              runbook_name: Optional[pulumi.Input[str]] = None,
              schedule_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'automationAccountName' in kwargs:
+        if automation_account_name is None and 'automationAccountName' in kwargs:
             automation_account_name = kwargs['automationAccountName']
-        if 'jobScheduleId' in kwargs:
+        if job_schedule_id is None and 'jobScheduleId' in kwargs:
             job_schedule_id = kwargs['jobScheduleId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'runOn' in kwargs:
+        if run_on is None and 'runOn' in kwargs:
             run_on = kwargs['runOn']
-        if 'runbookName' in kwargs:
+        if runbook_name is None and 'runbookName' in kwargs:
             runbook_name = kwargs['runbookName']
-        if 'scheduleName' in kwargs:
+        if schedule_name is None and 'scheduleName' in kwargs:
             schedule_name = kwargs['scheduleName']
 
         if automation_account_name is not None:
@@ -341,25 +349,6 @@ class JobSchedule(pulumi.CustomResource):
         """
         Links an Automation Runbook and Schedule.
 
-        ## Example Usage
-
-        This is an example of just the Job Schedule.
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.automation.JobSchedule("example",
-            automation_account_name="tf-automation-account",
-            parameters={
-                "resourcegroup": "tf-rgr-vm",
-                "vmname": "TF-VM-01",
-            },
-            resource_group_name="tf-rgr-automation",
-            runbook_name="Get-VirtualMachine",
-            schedule_name="hour")
-        ```
-
         ## Import
 
         Automation Job Schedules can be imported using the `resource id`, e.g.
@@ -388,25 +377,6 @@ class JobSchedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Links an Automation Runbook and Schedule.
-
-        ## Example Usage
-
-        This is an example of just the Job Schedule.
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.automation.JobSchedule("example",
-            automation_account_name="tf-automation-account",
-            parameters={
-                "resourcegroup": "tf-rgr-vm",
-                "vmname": "TF-VM-01",
-            },
-            resource_group_name="tf-rgr-automation",
-            runbook_name="Get-VirtualMachine",
-            schedule_name="hour")
-        ```
 
         ## Import
 

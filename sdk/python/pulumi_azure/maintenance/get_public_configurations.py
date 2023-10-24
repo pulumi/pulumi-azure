@@ -97,18 +97,6 @@ def get_public_configurations(location: Optional[str] = None,
     """
     Use this data source to access information about existing Public Maintenance Configurations.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    existing = azure.maintenance.get_public_configurations(location="West Europe",
-        scope="SQLManagedInstance",
-        recur_every="Monday-Thursday")
-    pulumi.export("name", existing.configs[0].name)
-    ```
-
 
     :param str location: The Azure location to filter the list of Public Maintenance Configurations against.
     :param str recur_every: The recurring window to filter the list of Public Maintenance Configurations against. Possible values are `Monday-Thursday` and `Friday-Sunday`
@@ -136,18 +124,6 @@ def get_public_configurations_output(location: Optional[pulumi.Input[Optional[st
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPublicConfigurationsResult]:
     """
     Use this data source to access information about existing Public Maintenance Configurations.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    existing = azure.maintenance.get_public_configurations(location="West Europe",
-        scope="SQLManagedInstance",
-        recur_every="Monday-Thursday")
-    pulumi.export("name", existing.configs[0].name)
-    ```
 
 
     :param str location: The Azure location to filter the list of Public Maintenance Configurations against.

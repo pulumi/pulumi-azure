@@ -15,55 +15,6 @@ import (
 
 // Manages a Application Insights Standard WebTest.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				ApplicationType:   pulumi.String("web"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appinsights.NewStandardWebTest(ctx, "exampleStandardWebTest", &appinsights.StandardWebTestArgs{
-//				ResourceGroupName:     exampleResourceGroup.Name,
-//				Location:              pulumi.String("West Europe"),
-//				ApplicationInsightsId: exampleInsights.ID(),
-//				GeoLocations: pulumi.StringArray{
-//					pulumi.String("example"),
-//				},
-//				Request: &appinsights.StandardWebTestRequestArgs{
-//					Url: pulumi.String("http://www.example.com"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Application Insights Standard WebTests can be imported using the `resource id`, e.g.

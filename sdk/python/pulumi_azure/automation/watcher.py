@@ -53,27 +53,35 @@ class WatcherArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             automation_account_id: pulumi.Input[str],
-             execution_frequency_in_seconds: pulumi.Input[int],
-             script_name: pulumi.Input[str],
-             script_run_on: pulumi.Input[str],
+             automation_account_id: Optional[pulumi.Input[str]] = None,
+             execution_frequency_in_seconds: Optional[pulumi.Input[int]] = None,
+             script_name: Optional[pulumi.Input[str]] = None,
+             script_run_on: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              etag: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              script_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'automationAccountId' in kwargs:
+        if automation_account_id is None and 'automationAccountId' in kwargs:
             automation_account_id = kwargs['automationAccountId']
-        if 'executionFrequencyInSeconds' in kwargs:
+        if automation_account_id is None:
+            raise TypeError("Missing 'automation_account_id' argument")
+        if execution_frequency_in_seconds is None and 'executionFrequencyInSeconds' in kwargs:
             execution_frequency_in_seconds = kwargs['executionFrequencyInSeconds']
-        if 'scriptName' in kwargs:
+        if execution_frequency_in_seconds is None:
+            raise TypeError("Missing 'execution_frequency_in_seconds' argument")
+        if script_name is None and 'scriptName' in kwargs:
             script_name = kwargs['scriptName']
-        if 'scriptRunOn' in kwargs:
+        if script_name is None:
+            raise TypeError("Missing 'script_name' argument")
+        if script_run_on is None and 'scriptRunOn' in kwargs:
             script_run_on = kwargs['scriptRunOn']
-        if 'scriptParameters' in kwargs:
+        if script_run_on is None:
+            raise TypeError("Missing 'script_run_on' argument")
+        if script_parameters is None and 'scriptParameters' in kwargs:
             script_parameters = kwargs['scriptParameters']
 
         _setter("automation_account_id", automation_account_id)
@@ -270,17 +278,17 @@ class _WatcherState:
              script_run_on: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'automationAccountId' in kwargs:
+        if automation_account_id is None and 'automationAccountId' in kwargs:
             automation_account_id = kwargs['automationAccountId']
-        if 'executionFrequencyInSeconds' in kwargs:
+        if execution_frequency_in_seconds is None and 'executionFrequencyInSeconds' in kwargs:
             execution_frequency_in_seconds = kwargs['executionFrequencyInSeconds']
-        if 'scriptName' in kwargs:
+        if script_name is None and 'scriptName' in kwargs:
             script_name = kwargs['scriptName']
-        if 'scriptParameters' in kwargs:
+        if script_parameters is None and 'scriptParameters' in kwargs:
             script_parameters = kwargs['scriptParameters']
-        if 'scriptRunOn' in kwargs:
+        if script_run_on is None and 'scriptRunOn' in kwargs:
             script_run_on = kwargs['scriptRunOn']
 
         if automation_account_id is not None:
@@ -458,46 +466,6 @@ class Watcher(pulumi.CustomResource):
         """
         Manages an Automation Wacher.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.automation.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Basic")
-        example_hybrid_runbook_worker_group = azure.automation.HybridRunbookWorkerGroup("exampleHybridRunbookWorkerGroup",
-            resource_group_name=example_resource_group.name,
-            automation_account_name=example_account.name)
-        example_run_book = azure.automation.RunBook("exampleRunBook",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            automation_account_name=example_account.name,
-            log_verbose=True,
-            log_progress=True,
-            description="This is an example runbook",
-            runbook_type="PowerShellWorkflow",
-            publish_content_link=azure.automation.RunBookPublishContentLinkArgs(
-                uri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
-            ))
-        example_watcher = azure.automation.Watcher("exampleWatcher",
-            automation_account_id=example_account.id,
-            location="West Europe",
-            script_name=example_run_book.name,
-            script_run_on=example_hybrid_runbook_worker_group.name,
-            description="example-watcher desc",
-            execution_frequency_in_seconds=42,
-            tags={
-                "foo": "bar",
-            },
-            script_parameters={
-                "foo": "bar",
-            })
-        ```
-
         ## Import
 
         Automation Watchers can be imported using the `resource id`, e.g.
@@ -527,46 +495,6 @@ class Watcher(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Automation Wacher.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.automation.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Basic")
-        example_hybrid_runbook_worker_group = azure.automation.HybridRunbookWorkerGroup("exampleHybridRunbookWorkerGroup",
-            resource_group_name=example_resource_group.name,
-            automation_account_name=example_account.name)
-        example_run_book = azure.automation.RunBook("exampleRunBook",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            automation_account_name=example_account.name,
-            log_verbose=True,
-            log_progress=True,
-            description="This is an example runbook",
-            runbook_type="PowerShellWorkflow",
-            publish_content_link=azure.automation.RunBookPublishContentLinkArgs(
-                uri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
-            ))
-        example_watcher = azure.automation.Watcher("exampleWatcher",
-            automation_account_id=example_account.id,
-            location="West Europe",
-            script_name=example_run_book.name,
-            script_run_on=example_hybrid_runbook_worker_group.name,
-            description="example-watcher desc",
-            execution_frequency_in_seconds=42,
-            tags={
-                "foo": "bar",
-            },
-            script_parameters={
-                "foo": "bar",
-            })
-        ```
 
         ## Import
 

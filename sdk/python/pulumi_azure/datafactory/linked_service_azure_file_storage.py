@@ -66,8 +66,8 @@ class LinkedServiceAzureFileStorageArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             connection_string: pulumi.Input[str],
-             data_factory_id: pulumi.Input[str],
+             connection_string: Optional[pulumi.Input[str]] = None,
+             data_factory_id: Optional[pulumi.Input[str]] = None,
              additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -79,21 +79,25 @@ class LinkedServiceAzureFileStorageArgs:
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              password: Optional[pulumi.Input[str]] = None,
              user_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
-        if 'dataFactoryId' in kwargs:
+        if connection_string is None:
+            raise TypeError("Missing 'connection_string' argument")
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'additionalProperties' in kwargs:
+        if data_factory_id is None:
+            raise TypeError("Missing 'data_factory_id' argument")
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'fileShare' in kwargs:
+        if file_share is None and 'fileShare' in kwargs:
             file_share = kwargs['fileShare']
-        if 'integrationRuntimeName' in kwargs:
+        if integration_runtime_name is None and 'integrationRuntimeName' in kwargs:
             integration_runtime_name = kwargs['integrationRuntimeName']
-        if 'keyVaultPassword' in kwargs:
+        if key_vault_password is None and 'keyVaultPassword' in kwargs:
             key_vault_password = kwargs['keyVaultPassword']
-        if 'userId' in kwargs:
+        if user_id is None and 'userId' in kwargs:
             user_id = kwargs['userId']
 
         _setter("connection_string", connection_string)
@@ -346,21 +350,21 @@ class _LinkedServiceAzureFileStorageState:
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              password: Optional[pulumi.Input[str]] = None,
              user_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'additionalProperties' in kwargs:
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'fileShare' in kwargs:
+        if file_share is None and 'fileShare' in kwargs:
             file_share = kwargs['fileShare']
-        if 'integrationRuntimeName' in kwargs:
+        if integration_runtime_name is None and 'integrationRuntimeName' in kwargs:
             integration_runtime_name = kwargs['integrationRuntimeName']
-        if 'keyVaultPassword' in kwargs:
+        if key_vault_password is None and 'keyVaultPassword' in kwargs:
             key_vault_password = kwargs['keyVaultPassword']
-        if 'userId' in kwargs:
+        if user_id is None and 'userId' in kwargs:
             user_id = kwargs['userId']
 
         if additional_properties is not None:
@@ -571,23 +575,6 @@ class LinkedServiceAzureFileStorage(pulumi.CustomResource):
         """
         Manages a Linked Service (connection) between a SFTP Server and Azure Data Factory.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.get_account_output(name="storageaccountname",
-            resource_group_name=example_resource_group.name)
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_linked_service_azure_file_storage = azure.datafactory.LinkedServiceAzureFileStorage("exampleLinkedServiceAzureFileStorage",
-            data_factory_id=example_factory.id,
-            connection_string=example_account.primary_connection_string)
-        ```
-
         ## Import
 
         Data Factory Linked Service's can be imported using the `resource id`, e.g.
@@ -622,23 +609,6 @@ class LinkedServiceAzureFileStorage(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Linked Service (connection) between a SFTP Server and Azure Data Factory.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.get_account_output(name="storageaccountname",
-            resource_group_name=example_resource_group.name)
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_linked_service_azure_file_storage = azure.datafactory.LinkedServiceAzureFileStorage("exampleLinkedServiceAzureFileStorage",
-            data_factory_id=example_factory.id,
-            connection_string=example_account.primary_connection_string)
-        ```
 
         ## Import
 
@@ -701,11 +671,7 @@ class LinkedServiceAzureFileStorage(pulumi.CustomResource):
             __props__.__dict__["file_share"] = file_share
             __props__.__dict__["host"] = host
             __props__.__dict__["integration_runtime_name"] = integration_runtime_name
-            if key_vault_password is not None and not isinstance(key_vault_password, LinkedServiceAzureFileStorageKeyVaultPasswordArgs):
-                key_vault_password = key_vault_password or {}
-                def _setter(key, value):
-                    key_vault_password[key] = value
-                LinkedServiceAzureFileStorageKeyVaultPasswordArgs._configure(_setter, **key_vault_password)
+            key_vault_password = _utilities.configure(key_vault_password, LinkedServiceAzureFileStorageKeyVaultPasswordArgs, True)
             __props__.__dict__["key_vault_password"] = key_vault_password
             __props__.__dict__["name"] = name
             __props__.__dict__["parameters"] = parameters

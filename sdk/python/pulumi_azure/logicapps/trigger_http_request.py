@@ -42,16 +42,20 @@ class TriggerHttpRequestArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             logic_app_id: pulumi.Input[str],
-             schema: pulumi.Input[str],
+             logic_app_id: Optional[pulumi.Input[str]] = None,
+             schema: Optional[pulumi.Input[str]] = None,
              method: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              relative_path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'logicAppId' in kwargs:
+        if logic_app_id is None and 'logicAppId' in kwargs:
             logic_app_id = kwargs['logicAppId']
-        if 'relativePath' in kwargs:
+        if logic_app_id is None:
+            raise TypeError("Missing 'logic_app_id' argument")
+        if schema is None:
+            raise TypeError("Missing 'schema' argument")
+        if relative_path is None and 'relativePath' in kwargs:
             relative_path = kwargs['relativePath']
 
         _setter("logic_app_id", logic_app_id)
@@ -168,13 +172,13 @@ class _TriggerHttpRequestState:
              name: Optional[pulumi.Input[str]] = None,
              relative_path: Optional[pulumi.Input[str]] = None,
              schema: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'callbackUrl' in kwargs:
+        if callback_url is None and 'callbackUrl' in kwargs:
             callback_url = kwargs['callbackUrl']
-        if 'logicAppId' in kwargs:
+        if logic_app_id is None and 'logicAppId' in kwargs:
             logic_app_id = kwargs['logicAppId']
-        if 'relativePath' in kwargs:
+        if relative_path is None and 'relativePath' in kwargs:
             relative_path = kwargs['relativePath']
 
         if callback_url is not None:
@@ -281,29 +285,6 @@ class TriggerHttpRequest(pulumi.CustomResource):
         """
         Manages a HTTP Request Trigger within a Logic App Workflow
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_workflow = azure.logicapps.Workflow("exampleWorkflow",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_trigger_http_request = azure.logicapps.TriggerHttpRequest("exampleTriggerHttpRequest",
-            logic_app_id=example_workflow.id,
-            schema=\"\"\"{
-            "type": "object",
-            "properties": {
-                "hello": {
-                    "type": "string"
-                }
-            }
-        }
-        \"\"\")
-        ```
-
         ## Import
 
         Logic App HTTP Request Triggers can be imported using the `resource id`, e.g.
@@ -332,29 +313,6 @@ class TriggerHttpRequest(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a HTTP Request Trigger within a Logic App Workflow
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_workflow = azure.logicapps.Workflow("exampleWorkflow",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_trigger_http_request = azure.logicapps.TriggerHttpRequest("exampleTriggerHttpRequest",
-            logic_app_id=example_workflow.id,
-            schema=\"\"\"{
-            "type": "object",
-            "properties": {
-                "hello": {
-                    "type": "string"
-                }
-            }
-        }
-        \"\"\")
-        ```
 
         ## Import
 

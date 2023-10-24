@@ -36,10 +36,6 @@ class VirtualMachineScaleSetExtensionArgs:
         :param pulumi.Input[str] type_handler_version: Specifies the version of the extension to use, available versions can be found using the Azure CLI.
                
                > **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
-               
-               ```python
-               import pulumi
-               ```
         :param pulumi.Input[str] virtual_machine_scale_set_id: The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
                
                > **NOTE:** This should be the ID from the `compute.LinuxVirtualMachineScaleSet` or `compute.WindowsVirtualMachineScaleSet` resource - when using the older `compute.ScaleSet` resource extensions should instead be defined inline.
@@ -80,10 +76,10 @@ class VirtualMachineScaleSetExtensionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             publisher: pulumi.Input[str],
-             type: pulumi.Input[str],
-             type_handler_version: pulumi.Input[str],
-             virtual_machine_scale_set_id: pulumi.Input[str],
+             publisher: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             type_handler_version: Optional[pulumi.Input[str]] = None,
+             virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
              auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
              automatic_upgrade_enabled: Optional[pulumi.Input[bool]] = None,
              failure_suppression_enabled: Optional[pulumi.Input[bool]] = None,
@@ -93,25 +89,33 @@ class VirtualMachineScaleSetExtensionArgs:
              protected_settings_from_key_vault: Optional[pulumi.Input['VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs']] = None,
              provision_after_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              settings: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'typeHandlerVersion' in kwargs:
+        if publisher is None:
+            raise TypeError("Missing 'publisher' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if type_handler_version is None and 'typeHandlerVersion' in kwargs:
             type_handler_version = kwargs['typeHandlerVersion']
-        if 'virtualMachineScaleSetId' in kwargs:
+        if type_handler_version is None:
+            raise TypeError("Missing 'type_handler_version' argument")
+        if virtual_machine_scale_set_id is None and 'virtualMachineScaleSetId' in kwargs:
             virtual_machine_scale_set_id = kwargs['virtualMachineScaleSetId']
-        if 'autoUpgradeMinorVersion' in kwargs:
+        if virtual_machine_scale_set_id is None:
+            raise TypeError("Missing 'virtual_machine_scale_set_id' argument")
+        if auto_upgrade_minor_version is None and 'autoUpgradeMinorVersion' in kwargs:
             auto_upgrade_minor_version = kwargs['autoUpgradeMinorVersion']
-        if 'automaticUpgradeEnabled' in kwargs:
+        if automatic_upgrade_enabled is None and 'automaticUpgradeEnabled' in kwargs:
             automatic_upgrade_enabled = kwargs['automaticUpgradeEnabled']
-        if 'failureSuppressionEnabled' in kwargs:
+        if failure_suppression_enabled is None and 'failureSuppressionEnabled' in kwargs:
             failure_suppression_enabled = kwargs['failureSuppressionEnabled']
-        if 'forceUpdateTag' in kwargs:
+        if force_update_tag is None and 'forceUpdateTag' in kwargs:
             force_update_tag = kwargs['forceUpdateTag']
-        if 'protectedSettings' in kwargs:
+        if protected_settings is None and 'protectedSettings' in kwargs:
             protected_settings = kwargs['protectedSettings']
-        if 'protectedSettingsFromKeyVault' in kwargs:
+        if protected_settings_from_key_vault is None and 'protectedSettingsFromKeyVault' in kwargs:
             protected_settings_from_key_vault = kwargs['protectedSettingsFromKeyVault']
-        if 'provisionAfterExtensions' in kwargs:
+        if provision_after_extensions is None and 'provisionAfterExtensions' in kwargs:
             provision_after_extensions = kwargs['provisionAfterExtensions']
 
         _setter("publisher", publisher)
@@ -168,10 +172,6 @@ class VirtualMachineScaleSetExtensionArgs:
         Specifies the version of the extension to use, available versions can be found using the Azure CLI.
 
         > **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
-
-        ```python
-        import pulumi
-        ```
         """
         return pulumi.get(self, "type_handler_version")
 
@@ -350,10 +350,6 @@ class _VirtualMachineScaleSetExtensionState:
         :param pulumi.Input[str] type_handler_version: Specifies the version of the extension to use, available versions can be found using the Azure CLI.
                
                > **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
-               
-               ```python
-               import pulumi
-               ```
         :param pulumi.Input[str] virtual_machine_scale_set_id: The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
                
                > **NOTE:** This should be the ID from the `compute.LinuxVirtualMachineScaleSet` or `compute.WindowsVirtualMachineScaleSet` resource - when using the older `compute.ScaleSet` resource extensions should instead be defined inline.
@@ -390,25 +386,25 @@ class _VirtualMachineScaleSetExtensionState:
              type: Optional[pulumi.Input[str]] = None,
              type_handler_version: Optional[pulumi.Input[str]] = None,
              virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'autoUpgradeMinorVersion' in kwargs:
+        if auto_upgrade_minor_version is None and 'autoUpgradeMinorVersion' in kwargs:
             auto_upgrade_minor_version = kwargs['autoUpgradeMinorVersion']
-        if 'automaticUpgradeEnabled' in kwargs:
+        if automatic_upgrade_enabled is None and 'automaticUpgradeEnabled' in kwargs:
             automatic_upgrade_enabled = kwargs['automaticUpgradeEnabled']
-        if 'failureSuppressionEnabled' in kwargs:
+        if failure_suppression_enabled is None and 'failureSuppressionEnabled' in kwargs:
             failure_suppression_enabled = kwargs['failureSuppressionEnabled']
-        if 'forceUpdateTag' in kwargs:
+        if force_update_tag is None and 'forceUpdateTag' in kwargs:
             force_update_tag = kwargs['forceUpdateTag']
-        if 'protectedSettings' in kwargs:
+        if protected_settings is None and 'protectedSettings' in kwargs:
             protected_settings = kwargs['protectedSettings']
-        if 'protectedSettingsFromKeyVault' in kwargs:
+        if protected_settings_from_key_vault is None and 'protectedSettingsFromKeyVault' in kwargs:
             protected_settings_from_key_vault = kwargs['protectedSettingsFromKeyVault']
-        if 'provisionAfterExtensions' in kwargs:
+        if provision_after_extensions is None and 'provisionAfterExtensions' in kwargs:
             provision_after_extensions = kwargs['provisionAfterExtensions']
-        if 'typeHandlerVersion' in kwargs:
+        if type_handler_version is None and 'typeHandlerVersion' in kwargs:
             type_handler_version = kwargs['typeHandlerVersion']
-        if 'virtualMachineScaleSetId' in kwargs:
+        if virtual_machine_scale_set_id is None and 'virtualMachineScaleSetId' in kwargs:
             virtual_machine_scale_set_id = kwargs['virtualMachineScaleSetId']
 
         if auto_upgrade_minor_version is not None:
@@ -585,10 +581,6 @@ class _VirtualMachineScaleSetExtensionState:
         Specifies the version of the extension to use, available versions can be found using the Azure CLI.
 
         > **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
-
-        ```python
-        import pulumi
-        ```
         """
         return pulumi.get(self, "type_handler_version")
 
@@ -635,46 +627,6 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
 
         > **NOTE:** This resource is not intended to be used with the `compute.ScaleSet` resource - instead it's intended for this to be used with the `compute.LinuxVirtualMachineScaleSet` and `compute.WindowsVirtualMachineScaleSet` resources.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku="Standard_F2",
-            admin_username="adminuser",
-            instances=1,
-            source_image_reference=azure.compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-focal",
-                sku="20_04-lts",
-                version="latest",
-            ),
-            network_interfaces=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs(
-                name="example",
-                ip_configurations=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs(
-                    name="internal",
-                )],
-            )],
-            os_disk=azure.compute.LinuxVirtualMachineScaleSetOsDiskArgs(
-                storage_account_type="Standard_LRS",
-                caching="ReadWrite",
-            ))
-        example_virtual_machine_scale_set_extension = azure.compute.VirtualMachineScaleSetExtension("exampleVirtualMachineScaleSetExtension",
-            virtual_machine_scale_set_id=example_linux_virtual_machine_scale_set.id,
-            publisher="Microsoft.Azure.Extensions",
-            type="CustomScript",
-            type_handler_version="2.0",
-            settings=json.dumps({
-                "commandToExecute": "echo $HOSTNAME",
-            }))
-        ```
-
         ## Import
 
         Virtual Machine Scale Set Extensions can be imported using the `resource id`, e.g.
@@ -707,10 +659,6 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
         :param pulumi.Input[str] type_handler_version: Specifies the version of the extension to use, available versions can be found using the Azure CLI.
                
                > **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
-               
-               ```python
-               import pulumi
-               ```
         :param pulumi.Input[str] virtual_machine_scale_set_id: The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
                
                > **NOTE:** This should be the ID from the `compute.LinuxVirtualMachineScaleSet` or `compute.WindowsVirtualMachineScaleSet` resource - when using the older `compute.ScaleSet` resource extensions should instead be defined inline.
@@ -725,46 +673,6 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
         Manages an Extension for a Virtual Machine Scale Set.
 
         > **NOTE:** This resource is not intended to be used with the `compute.ScaleSet` resource - instead it's intended for this to be used with the `compute.LinuxVirtualMachineScaleSet` and `compute.WindowsVirtualMachineScaleSet` resources.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku="Standard_F2",
-            admin_username="adminuser",
-            instances=1,
-            source_image_reference=azure.compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-focal",
-                sku="20_04-lts",
-                version="latest",
-            ),
-            network_interfaces=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs(
-                name="example",
-                ip_configurations=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs(
-                    name="internal",
-                )],
-            )],
-            os_disk=azure.compute.LinuxVirtualMachineScaleSetOsDiskArgs(
-                storage_account_type="Standard_LRS",
-                caching="ReadWrite",
-            ))
-        example_virtual_machine_scale_set_extension = azure.compute.VirtualMachineScaleSetExtension("exampleVirtualMachineScaleSetExtension",
-            virtual_machine_scale_set_id=example_linux_virtual_machine_scale_set.id,
-            publisher="Microsoft.Azure.Extensions",
-            type="CustomScript",
-            type_handler_version="2.0",
-            settings=json.dumps({
-                "commandToExecute": "echo $HOSTNAME",
-            }))
-        ```
 
         ## Import
 
@@ -821,11 +729,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
             __props__.__dict__["force_update_tag"] = force_update_tag
             __props__.__dict__["name"] = name
             __props__.__dict__["protected_settings"] = None if protected_settings is None else pulumi.Output.secret(protected_settings)
-            if protected_settings_from_key_vault is not None and not isinstance(protected_settings_from_key_vault, VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs):
-                protected_settings_from_key_vault = protected_settings_from_key_vault or {}
-                def _setter(key, value):
-                    protected_settings_from_key_vault[key] = value
-                VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs._configure(_setter, **protected_settings_from_key_vault)
+            protected_settings_from_key_vault = _utilities.configure(protected_settings_from_key_vault, VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs, True)
             __props__.__dict__["protected_settings_from_key_vault"] = protected_settings_from_key_vault
             __props__.__dict__["provision_after_extensions"] = provision_after_extensions
             if publisher is None and not opts.urn:
@@ -895,10 +799,6 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
         :param pulumi.Input[str] type_handler_version: Specifies the version of the extension to use, available versions can be found using the Azure CLI.
                
                > **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
-               
-               ```python
-               import pulumi
-               ```
         :param pulumi.Input[str] virtual_machine_scale_set_id: The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
                
                > **NOTE:** This should be the ID from the `compute.LinuxVirtualMachineScaleSet` or `compute.WindowsVirtualMachineScaleSet` resource - when using the older `compute.ScaleSet` resource extensions should instead be defined inline.
@@ -1025,10 +925,6 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
         Specifies the version of the extension to use, available versions can be found using the Azure CLI.
 
         > **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
-
-        ```python
-        import pulumi
-        ```
         """
         return pulumi.get(self, "type_handler_version")
 

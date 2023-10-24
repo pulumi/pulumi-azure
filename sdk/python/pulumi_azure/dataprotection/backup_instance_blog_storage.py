@@ -38,19 +38,25 @@ class BackupInstanceBlogStorageArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             backup_policy_id: pulumi.Input[str],
-             storage_account_id: pulumi.Input[str],
-             vault_id: pulumi.Input[str],
+             backup_policy_id: Optional[pulumi.Input[str]] = None,
+             storage_account_id: Optional[pulumi.Input[str]] = None,
+             vault_id: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'backupPolicyId' in kwargs:
+        if backup_policy_id is None and 'backupPolicyId' in kwargs:
             backup_policy_id = kwargs['backupPolicyId']
-        if 'storageAccountId' in kwargs:
+        if backup_policy_id is None:
+            raise TypeError("Missing 'backup_policy_id' argument")
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'vaultId' in kwargs:
+        if storage_account_id is None:
+            raise TypeError("Missing 'storage_account_id' argument")
+        if vault_id is None and 'vaultId' in kwargs:
             vault_id = kwargs['vaultId']
+        if vault_id is None:
+            raise TypeError("Missing 'vault_id' argument")
 
         _setter("backup_policy_id", backup_policy_id)
         _setter("storage_account_id", storage_account_id)
@@ -153,13 +159,13 @@ class _BackupInstanceBlogStorageState:
              name: Optional[pulumi.Input[str]] = None,
              storage_account_id: Optional[pulumi.Input[str]] = None,
              vault_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'backupPolicyId' in kwargs:
+        if backup_policy_id is None and 'backupPolicyId' in kwargs:
             backup_policy_id = kwargs['backupPolicyId']
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'vaultId' in kwargs:
+        if vault_id is None and 'vaultId' in kwargs:
             vault_id = kwargs['vaultId']
 
         if backup_policy_id is not None:
@@ -248,41 +254,6 @@ class BackupInstanceBlogStorage(pulumi.CustomResource):
         """
         Manages a Backup Instance Blob Storage.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_backup_vault = azure.dataprotection.BackupVault("exampleBackupVault",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            datastore_type="VaultStore",
-            redundancy="LocallyRedundant",
-            identity=azure.dataprotection.BackupVaultIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_assignment = azure.authorization.Assignment("exampleAssignment",
-            scope=example_account.id,
-            role_definition_name="Storage Account Backup Contributor",
-            principal_id=example_backup_vault.identity.principal_id)
-        example_backup_policy_blob_storage = azure.dataprotection.BackupPolicyBlobStorage("exampleBackupPolicyBlobStorage",
-            vault_id=example_backup_vault.id,
-            retention_duration="P30D")
-        example_backup_instance_blog_storage = azure.dataprotection.BackupInstanceBlogStorage("exampleBackupInstanceBlogStorage",
-            vault_id=example_backup_vault.id,
-            location=example_resource_group.location,
-            storage_account_id=example_account.id,
-            backup_policy_id=example_backup_policy_blob_storage.id,
-            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
-        ```
-
         ## Import
 
         Backup Instance Blob Storages can be imported using the `resource id`, e.g.
@@ -307,41 +278,6 @@ class BackupInstanceBlogStorage(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Backup Instance Blob Storage.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_backup_vault = azure.dataprotection.BackupVault("exampleBackupVault",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            datastore_type="VaultStore",
-            redundancy="LocallyRedundant",
-            identity=azure.dataprotection.BackupVaultIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_assignment = azure.authorization.Assignment("exampleAssignment",
-            scope=example_account.id,
-            role_definition_name="Storage Account Backup Contributor",
-            principal_id=example_backup_vault.identity.principal_id)
-        example_backup_policy_blob_storage = azure.dataprotection.BackupPolicyBlobStorage("exampleBackupPolicyBlobStorage",
-            vault_id=example_backup_vault.id,
-            retention_duration="P30D")
-        example_backup_instance_blog_storage = azure.dataprotection.BackupInstanceBlogStorage("exampleBackupInstanceBlogStorage",
-            vault_id=example_backup_vault.id,
-            location=example_resource_group.location,
-            storage_account_id=example_account.id,
-            backup_policy_id=example_backup_policy_blob_storage.id,
-            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
-        ```
 
         ## Import
 

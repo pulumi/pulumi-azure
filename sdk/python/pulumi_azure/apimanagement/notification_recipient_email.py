@@ -32,15 +32,21 @@ class NotificationRecipientEmailArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_management_id: pulumi.Input[str],
-             email: pulumi.Input[str],
-             notification_type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             api_management_id: Optional[pulumi.Input[str]] = None,
+             email: Optional[pulumi.Input[str]] = None,
+             notification_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiManagementId' in kwargs:
+        if api_management_id is None and 'apiManagementId' in kwargs:
             api_management_id = kwargs['apiManagementId']
-        if 'notificationType' in kwargs:
+        if api_management_id is None:
+            raise TypeError("Missing 'api_management_id' argument")
+        if email is None:
+            raise TypeError("Missing 'email' argument")
+        if notification_type is None and 'notificationType' in kwargs:
             notification_type = kwargs['notificationType']
+        if notification_type is None:
+            raise TypeError("Missing 'notification_type' argument")
 
         _setter("api_management_id", api_management_id)
         _setter("email", email)
@@ -107,11 +113,11 @@ class _NotificationRecipientEmailState:
              api_management_id: Optional[pulumi.Input[str]] = None,
              email: Optional[pulumi.Input[str]] = None,
              notification_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiManagementId' in kwargs:
+        if api_management_id is None and 'apiManagementId' in kwargs:
             api_management_id = kwargs['apiManagementId']
-        if 'notificationType' in kwargs:
+        if notification_type is None and 'notificationType' in kwargs:
             notification_type = kwargs['notificationType']
 
         if api_management_id is not None:
@@ -170,25 +176,6 @@ class NotificationRecipientEmail(pulumi.CustomResource):
         """
         Manages a API Management Notification Recipient Email.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            publisher_name="My Company",
-            publisher_email="company@terraform.io",
-            sku_name="Developer_1")
-        example_notification_recipient_email = azure.apimanagement.NotificationRecipientEmail("exampleNotificationRecipientEmail",
-            api_management_id=example_service.id,
-            notification_type="AccountClosedPublisher",
-            email="foo@bar.com")
-        ```
-
         ## Import
 
         API Management Notification Recipient Emails can be imported using the `resource id`, e.g.
@@ -211,25 +198,6 @@ class NotificationRecipientEmail(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a API Management Notification Recipient Email.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            publisher_name="My Company",
-            publisher_email="company@terraform.io",
-            sku_name="Developer_1")
-        example_notification_recipient_email = azure.apimanagement.NotificationRecipientEmail("exampleNotificationRecipientEmail",
-            api_management_id=example_service.id,
-            notification_type="AccountClosedPublisher",
-            email="foo@bar.com")
-        ```
 
         ## Import
 

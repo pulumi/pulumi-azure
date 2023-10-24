@@ -12,54 +12,6 @@ namespace Pulumi.Azure.Redis
     /// <summary>
     /// Manages a Redis Enterprise Database.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleEnterpriseCluster = new Azure.Redis.EnterpriseCluster("exampleEnterpriseCluster", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         SkuName = "Enterprise_E20-4",
-    ///     });
-    /// 
-    ///     var example1 = new Azure.Redis.EnterpriseCluster("example1", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         SkuName = "Enterprise_E20-4",
-    ///     });
-    /// 
-    ///     var exampleEnterpriseDatabase = new Azure.Redis.EnterpriseDatabase("exampleEnterpriseDatabase", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         ClusterId = exampleEnterpriseCluster.Id,
-    ///         ClientProtocol = "Encrypted",
-    ///         ClusteringPolicy = "EnterpriseCluster",
-    ///         EvictionPolicy = "NoEviction",
-    ///         Port = 10000,
-    ///         LinkedDatabaseIds = new[]
-    ///         {
-    ///             exampleEnterpriseCluster.Id.Apply(id =&gt; $"{id}/databases/default"),
-    ///             example1.Id.Apply(id =&gt; $"{id}/databases/default"),
-    ///         },
-    ///         LinkedDatabaseGroupNickname = "tftestGeoGroup",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Redis Enterprise Databases can be imported using the `resource id`, e.g.

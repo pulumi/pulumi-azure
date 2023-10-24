@@ -74,12 +74,14 @@ class LocalRulestackRuleCategory(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             custom_urls: Sequence[str],
+             custom_urls: Optional[Sequence[str]] = None,
              feeds: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'customUrls' in kwargs:
+        if custom_urls is None and 'customUrls' in kwargs:
             custom_urls = kwargs['customUrls']
+        if custom_urls is None:
+            raise TypeError("Missing 'custom_urls' argument")
 
         _setter("custom_urls", custom_urls)
         if feeds is not None:
@@ -156,11 +158,11 @@ class LocalRulestackRuleDestination(dict):
              feeds: Optional[Sequence[str]] = None,
              local_rulestack_fqdn_list_ids: Optional[Sequence[str]] = None,
              local_rulestack_prefix_list_ids: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'localRulestackFqdnListIds' in kwargs:
+        if local_rulestack_fqdn_list_ids is None and 'localRulestackFqdnListIds' in kwargs:
             local_rulestack_fqdn_list_ids = kwargs['localRulestackFqdnListIds']
-        if 'localRulestackPrefixListIds' in kwargs:
+        if local_rulestack_prefix_list_ids is None and 'localRulestackPrefixListIds' in kwargs:
             local_rulestack_prefix_list_ids = kwargs['localRulestackPrefixListIds']
 
         if cidrs is not None:
@@ -265,9 +267,9 @@ class LocalRulestackRuleSource(dict):
              countries: Optional[Sequence[str]] = None,
              feeds: Optional[Sequence[str]] = None,
              local_rulestack_prefix_list_ids: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'localRulestackPrefixListIds' in kwargs:
+        if local_rulestack_prefix_list_ids is None and 'localRulestackPrefixListIds' in kwargs:
             local_rulestack_prefix_list_ids = kwargs['localRulestackPrefixListIds']
 
         if cidrs is not None:
@@ -350,15 +352,19 @@ class NextGenerationFirewallVirtualHubLocalRulestackDestinationNat(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             protocol: str,
+             name: Optional[str] = None,
+             protocol: Optional[str] = None,
              backend_config: Optional['outputs.NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfig'] = None,
              frontend_config: Optional['outputs.NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'backendConfig' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if backend_config is None and 'backendConfig' in kwargs:
             backend_config = kwargs['backendConfig']
-        if 'frontendConfig' in kwargs:
+        if frontend_config is None and 'frontendConfig' in kwargs:
             frontend_config = kwargs['frontendConfig']
 
         _setter("name", name)
@@ -419,12 +425,16 @@ class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfig(
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             port: int,
-             public_ip_address: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             port: Optional[int] = None,
+             public_ip_address: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'publicIpAddress' in kwargs:
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if public_ip_address is None and 'publicIpAddress' in kwargs:
             public_ip_address = kwargs['publicIpAddress']
+        if public_ip_address is None:
+            raise TypeError("Missing 'public_ip_address' argument")
 
         _setter("port", port)
         _setter("public_ip_address", public_ip_address)
@@ -470,12 +480,16 @@ class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfig
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             port: int,
-             public_ip_address_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             port: Optional[int] = None,
+             public_ip_address_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'publicIpAddressId' in kwargs:
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if public_ip_address_id is None and 'publicIpAddressId' in kwargs:
             public_ip_address_id = kwargs['publicIpAddressId']
+        if public_ip_address_id is None:
+            raise TypeError("Missing 'public_ip_address_id' argument")
 
         _setter("port", port)
         _setter("public_ip_address_id", public_ip_address_id)
@@ -530,13 +544,13 @@ class NextGenerationFirewallVirtualHubLocalRulestackDnsSettings(dict):
              azure_dns_servers: Optional[Sequence[str]] = None,
              dns_servers: Optional[Sequence[str]] = None,
              use_azure_dns: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'azureDnsServers' in kwargs:
+        if azure_dns_servers is None and 'azureDnsServers' in kwargs:
             azure_dns_servers = kwargs['azureDnsServers']
-        if 'dnsServers' in kwargs:
+        if dns_servers is None and 'dnsServers' in kwargs:
             dns_servers = kwargs['dnsServers']
-        if 'useAzureDns' in kwargs:
+        if use_azure_dns is None and 'useAzureDns' in kwargs:
             use_azure_dns = kwargs['useAzureDns']
 
         if azure_dns_servers is not None:
@@ -622,34 +636,40 @@ class NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             network_virtual_appliance_id: str,
-             public_ip_address_ids: Sequence[str],
-             virtual_hub_id: str,
+             network_virtual_appliance_id: Optional[str] = None,
+             public_ip_address_ids: Optional[Sequence[str]] = None,
+             virtual_hub_id: Optional[str] = None,
              egress_nat_ip_address_ids: Optional[Sequence[str]] = None,
              egress_nat_ip_addresses: Optional[Sequence[str]] = None,
              ip_of_trust_for_user_defined_routes: Optional[str] = None,
              public_ip_addresses: Optional[Sequence[str]] = None,
              trusted_subnet_id: Optional[str] = None,
              untrusted_subnet_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'networkVirtualApplianceId' in kwargs:
+        if network_virtual_appliance_id is None and 'networkVirtualApplianceId' in kwargs:
             network_virtual_appliance_id = kwargs['networkVirtualApplianceId']
-        if 'publicIpAddressIds' in kwargs:
+        if network_virtual_appliance_id is None:
+            raise TypeError("Missing 'network_virtual_appliance_id' argument")
+        if public_ip_address_ids is None and 'publicIpAddressIds' in kwargs:
             public_ip_address_ids = kwargs['publicIpAddressIds']
-        if 'virtualHubId' in kwargs:
+        if public_ip_address_ids is None:
+            raise TypeError("Missing 'public_ip_address_ids' argument")
+        if virtual_hub_id is None and 'virtualHubId' in kwargs:
             virtual_hub_id = kwargs['virtualHubId']
-        if 'egressNatIpAddressIds' in kwargs:
+        if virtual_hub_id is None:
+            raise TypeError("Missing 'virtual_hub_id' argument")
+        if egress_nat_ip_address_ids is None and 'egressNatIpAddressIds' in kwargs:
             egress_nat_ip_address_ids = kwargs['egressNatIpAddressIds']
-        if 'egressNatIpAddresses' in kwargs:
+        if egress_nat_ip_addresses is None and 'egressNatIpAddresses' in kwargs:
             egress_nat_ip_addresses = kwargs['egressNatIpAddresses']
-        if 'ipOfTrustForUserDefinedRoutes' in kwargs:
+        if ip_of_trust_for_user_defined_routes is None and 'ipOfTrustForUserDefinedRoutes' in kwargs:
             ip_of_trust_for_user_defined_routes = kwargs['ipOfTrustForUserDefinedRoutes']
-        if 'publicIpAddresses' in kwargs:
+        if public_ip_addresses is None and 'publicIpAddresses' in kwargs:
             public_ip_addresses = kwargs['publicIpAddresses']
-        if 'trustedSubnetId' in kwargs:
+        if trusted_subnet_id is None and 'trustedSubnetId' in kwargs:
             trusted_subnet_id = kwargs['trustedSubnetId']
-        if 'untrustedSubnetId' in kwargs:
+        if untrusted_subnet_id is None and 'untrustedSubnetId' in kwargs:
             untrusted_subnet_id = kwargs['untrustedSubnetId']
 
         _setter("network_virtual_appliance_id", network_virtual_appliance_id)
@@ -750,15 +770,19 @@ class NextGenerationFirewallVirtualHubPanoramaDestinationNat(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             protocol: str,
+             name: Optional[str] = None,
+             protocol: Optional[str] = None,
              backend_config: Optional['outputs.NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfig'] = None,
              frontend_config: Optional['outputs.NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'backendConfig' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if backend_config is None and 'backendConfig' in kwargs:
             backend_config = kwargs['backendConfig']
-        if 'frontendConfig' in kwargs:
+        if frontend_config is None and 'frontendConfig' in kwargs:
             frontend_config = kwargs['frontendConfig']
 
         _setter("name", name)
@@ -819,12 +843,16 @@ class NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             port: int,
-             public_ip_address: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             port: Optional[int] = None,
+             public_ip_address: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'publicIpAddress' in kwargs:
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if public_ip_address is None and 'publicIpAddress' in kwargs:
             public_ip_address = kwargs['publicIpAddress']
+        if public_ip_address is None:
+            raise TypeError("Missing 'public_ip_address' argument")
 
         _setter("port", port)
         _setter("public_ip_address", public_ip_address)
@@ -870,12 +898,16 @@ class NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfig(dict)
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             port: int,
-             public_ip_address_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             port: Optional[int] = None,
+             public_ip_address_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'publicIpAddressId' in kwargs:
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if public_ip_address_id is None and 'publicIpAddressId' in kwargs:
             public_ip_address_id = kwargs['publicIpAddressId']
+        if public_ip_address_id is None:
+            raise TypeError("Missing 'public_ip_address_id' argument")
 
         _setter("port", port)
         _setter("public_ip_address_id", public_ip_address_id)
@@ -930,13 +962,13 @@ class NextGenerationFirewallVirtualHubPanoramaDnsSettings(dict):
              azure_dns_servers: Optional[Sequence[str]] = None,
              dns_servers: Optional[Sequence[str]] = None,
              use_azure_dns: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'azureDnsServers' in kwargs:
+        if azure_dns_servers is None and 'azureDnsServers' in kwargs:
             azure_dns_servers = kwargs['azureDnsServers']
-        if 'dnsServers' in kwargs:
+        if dns_servers is None and 'dnsServers' in kwargs:
             dns_servers = kwargs['dnsServers']
-        if 'useAzureDns' in kwargs:
+        if use_azure_dns is None and 'useAzureDns' in kwargs:
             use_azure_dns = kwargs['useAzureDns']
 
         if azure_dns_servers is not None:
@@ -1022,34 +1054,40 @@ class NextGenerationFirewallVirtualHubPanoramaNetworkProfile(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             network_virtual_appliance_id: str,
-             public_ip_address_ids: Sequence[str],
-             virtual_hub_id: str,
+             network_virtual_appliance_id: Optional[str] = None,
+             public_ip_address_ids: Optional[Sequence[str]] = None,
+             virtual_hub_id: Optional[str] = None,
              egress_nat_ip_address_ids: Optional[Sequence[str]] = None,
              egress_nat_ip_addresses: Optional[Sequence[str]] = None,
              ip_of_trust_for_user_defined_routes: Optional[str] = None,
              public_ip_addresses: Optional[Sequence[str]] = None,
              trusted_subnet_id: Optional[str] = None,
              untrusted_subnet_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'networkVirtualApplianceId' in kwargs:
+        if network_virtual_appliance_id is None and 'networkVirtualApplianceId' in kwargs:
             network_virtual_appliance_id = kwargs['networkVirtualApplianceId']
-        if 'publicIpAddressIds' in kwargs:
+        if network_virtual_appliance_id is None:
+            raise TypeError("Missing 'network_virtual_appliance_id' argument")
+        if public_ip_address_ids is None and 'publicIpAddressIds' in kwargs:
             public_ip_address_ids = kwargs['publicIpAddressIds']
-        if 'virtualHubId' in kwargs:
+        if public_ip_address_ids is None:
+            raise TypeError("Missing 'public_ip_address_ids' argument")
+        if virtual_hub_id is None and 'virtualHubId' in kwargs:
             virtual_hub_id = kwargs['virtualHubId']
-        if 'egressNatIpAddressIds' in kwargs:
+        if virtual_hub_id is None:
+            raise TypeError("Missing 'virtual_hub_id' argument")
+        if egress_nat_ip_address_ids is None and 'egressNatIpAddressIds' in kwargs:
             egress_nat_ip_address_ids = kwargs['egressNatIpAddressIds']
-        if 'egressNatIpAddresses' in kwargs:
+        if egress_nat_ip_addresses is None and 'egressNatIpAddresses' in kwargs:
             egress_nat_ip_addresses = kwargs['egressNatIpAddresses']
-        if 'ipOfTrustForUserDefinedRoutes' in kwargs:
+        if ip_of_trust_for_user_defined_routes is None and 'ipOfTrustForUserDefinedRoutes' in kwargs:
             ip_of_trust_for_user_defined_routes = kwargs['ipOfTrustForUserDefinedRoutes']
-        if 'publicIpAddresses' in kwargs:
+        if public_ip_addresses is None and 'publicIpAddresses' in kwargs:
             public_ip_addresses = kwargs['publicIpAddresses']
-        if 'trustedSubnetId' in kwargs:
+        if trusted_subnet_id is None and 'trustedSubnetId' in kwargs:
             trusted_subnet_id = kwargs['trustedSubnetId']
-        if 'untrustedSubnetId' in kwargs:
+        if untrusted_subnet_id is None and 'untrustedSubnetId' in kwargs:
             untrusted_subnet_id = kwargs['untrustedSubnetId']
 
         _setter("network_virtual_appliance_id", network_virtual_appliance_id)
@@ -1171,19 +1209,19 @@ class NextGenerationFirewallVirtualHubPanoramaPanorama(dict):
              panorama_server2: Optional[str] = None,
              template_name: Optional[str] = None,
              virtual_machine_ssh_key: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'deviceGroupName' in kwargs:
+        if device_group_name is None and 'deviceGroupName' in kwargs:
             device_group_name = kwargs['deviceGroupName']
-        if 'hostName' in kwargs:
+        if host_name is None and 'hostName' in kwargs:
             host_name = kwargs['hostName']
-        if 'panoramaServer1' in kwargs:
+        if panorama_server1 is None and 'panoramaServer1' in kwargs:
             panorama_server1 = kwargs['panoramaServer1']
-        if 'panoramaServer2' in kwargs:
+        if panorama_server2 is None and 'panoramaServer2' in kwargs:
             panorama_server2 = kwargs['panoramaServer2']
-        if 'templateName' in kwargs:
+        if template_name is None and 'templateName' in kwargs:
             template_name = kwargs['templateName']
-        if 'virtualMachineSshKey' in kwargs:
+        if virtual_machine_ssh_key is None and 'virtualMachineSshKey' in kwargs:
             virtual_machine_ssh_key = kwargs['virtualMachineSshKey']
 
         if device_group_name is not None:
@@ -1279,15 +1317,19 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNat(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             protocol: str,
+             name: Optional[str] = None,
+             protocol: Optional[str] = None,
              backend_config: Optional['outputs.NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfig'] = None,
              frontend_config: Optional['outputs.NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'backendConfig' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if backend_config is None and 'backendConfig' in kwargs:
             backend_config = kwargs['backendConfig']
-        if 'frontendConfig' in kwargs:
+        if frontend_config is None and 'frontendConfig' in kwargs:
             frontend_config = kwargs['frontendConfig']
 
         _setter("name", name)
@@ -1364,12 +1406,16 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendCon
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             port: int,
-             public_ip_address: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             port: Optional[int] = None,
+             public_ip_address: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'publicIpAddress' in kwargs:
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if public_ip_address is None and 'publicIpAddress' in kwargs:
             public_ip_address = kwargs['publicIpAddress']
+        if public_ip_address is None:
+            raise TypeError("Missing 'public_ip_address' argument")
 
         _setter("port", port)
         _setter("public_ip_address", public_ip_address)
@@ -1427,12 +1473,16 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendCo
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             port: int,
-             public_ip_address_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             port: Optional[int] = None,
+             public_ip_address_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'publicIpAddressId' in kwargs:
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if public_ip_address_id is None and 'publicIpAddressId' in kwargs:
             public_ip_address_id = kwargs['publicIpAddressId']
+        if public_ip_address_id is None:
+            raise TypeError("Missing 'public_ip_address_id' argument")
 
         _setter("port", port)
         _setter("public_ip_address_id", public_ip_address_id)
@@ -1499,13 +1549,13 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings(dict):
              azure_dns_servers: Optional[Sequence[str]] = None,
              dns_servers: Optional[Sequence[str]] = None,
              use_azure_dns: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'azureDnsServers' in kwargs:
+        if azure_dns_servers is None and 'azureDnsServers' in kwargs:
             azure_dns_servers = kwargs['azureDnsServers']
-        if 'dnsServers' in kwargs:
+        if dns_servers is None and 'dnsServers' in kwargs:
             dns_servers = kwargs['dnsServers']
-        if 'useAzureDns' in kwargs:
+        if use_azure_dns is None and 'useAzureDns' in kwargs:
             use_azure_dns = kwargs['useAzureDns']
 
         if azure_dns_servers is not None:
@@ -1586,22 +1636,26 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             public_ip_address_ids: Sequence[str],
-             vnet_configuration: 'outputs.NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfiguration',
+             public_ip_address_ids: Optional[Sequence[str]] = None,
+             vnet_configuration: Optional['outputs.NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfiguration'] = None,
              egress_nat_ip_address_ids: Optional[Sequence[str]] = None,
              egress_nat_ip_addresses: Optional[Sequence[str]] = None,
              public_ip_addresses: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'publicIpAddressIds' in kwargs:
+        if public_ip_address_ids is None and 'publicIpAddressIds' in kwargs:
             public_ip_address_ids = kwargs['publicIpAddressIds']
-        if 'vnetConfiguration' in kwargs:
+        if public_ip_address_ids is None:
+            raise TypeError("Missing 'public_ip_address_ids' argument")
+        if vnet_configuration is None and 'vnetConfiguration' in kwargs:
             vnet_configuration = kwargs['vnetConfiguration']
-        if 'egressNatIpAddressIds' in kwargs:
+        if vnet_configuration is None:
+            raise TypeError("Missing 'vnet_configuration' argument")
+        if egress_nat_ip_address_ids is None and 'egressNatIpAddressIds' in kwargs:
             egress_nat_ip_address_ids = kwargs['egressNatIpAddressIds']
-        if 'egressNatIpAddresses' in kwargs:
+        if egress_nat_ip_addresses is None and 'egressNatIpAddresses' in kwargs:
             egress_nat_ip_addresses = kwargs['egressNatIpAddresses']
-        if 'publicIpAddresses' in kwargs:
+        if public_ip_addresses is None and 'publicIpAddresses' in kwargs:
             public_ip_addresses = kwargs['publicIpAddresses']
 
         _setter("public_ip_address_ids", public_ip_address_ids)
@@ -1693,19 +1747,21 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfig
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             virtual_network_id: str,
+             virtual_network_id: Optional[str] = None,
              ip_of_trust_for_user_defined_routes: Optional[str] = None,
              trusted_subnet_id: Optional[str] = None,
              untrusted_subnet_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'virtualNetworkId' in kwargs:
+        if virtual_network_id is None and 'virtualNetworkId' in kwargs:
             virtual_network_id = kwargs['virtualNetworkId']
-        if 'ipOfTrustForUserDefinedRoutes' in kwargs:
+        if virtual_network_id is None:
+            raise TypeError("Missing 'virtual_network_id' argument")
+        if ip_of_trust_for_user_defined_routes is None and 'ipOfTrustForUserDefinedRoutes' in kwargs:
             ip_of_trust_for_user_defined_routes = kwargs['ipOfTrustForUserDefinedRoutes']
-        if 'trustedSubnetId' in kwargs:
+        if trusted_subnet_id is None and 'trustedSubnetId' in kwargs:
             trusted_subnet_id = kwargs['trustedSubnetId']
-        if 'untrustedSubnetId' in kwargs:
+        if untrusted_subnet_id is None and 'untrustedSubnetId' in kwargs:
             untrusted_subnet_id = kwargs['untrustedSubnetId']
 
         _setter("virtual_network_id", virtual_network_id)
@@ -1788,15 +1844,19 @@ class NextGenerationFirewallVirtualNetworkPanoramaDestinationNat(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             protocol: str,
+             name: Optional[str] = None,
+             protocol: Optional[str] = None,
              backend_config: Optional['outputs.NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfig'] = None,
              frontend_config: Optional['outputs.NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'backendConfig' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if backend_config is None and 'backendConfig' in kwargs:
             backend_config = kwargs['backendConfig']
-        if 'frontendConfig' in kwargs:
+        if frontend_config is None and 'frontendConfig' in kwargs:
             frontend_config = kwargs['frontendConfig']
 
         _setter("name", name)
@@ -1873,12 +1933,16 @@ class NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfig(di
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             port: int,
-             public_ip_address: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             port: Optional[int] = None,
+             public_ip_address: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'publicIpAddress' in kwargs:
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if public_ip_address is None and 'publicIpAddress' in kwargs:
             public_ip_address = kwargs['publicIpAddress']
+        if public_ip_address is None:
+            raise TypeError("Missing 'public_ip_address' argument")
 
         _setter("port", port)
         _setter("public_ip_address", public_ip_address)
@@ -1936,12 +2000,16 @@ class NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfig(d
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             port: int,
-             public_ip_address_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             port: Optional[int] = None,
+             public_ip_address_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'publicIpAddressId' in kwargs:
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if public_ip_address_id is None and 'publicIpAddressId' in kwargs:
             public_ip_address_id = kwargs['publicIpAddressId']
+        if public_ip_address_id is None:
+            raise TypeError("Missing 'public_ip_address_id' argument")
 
         _setter("port", port)
         _setter("public_ip_address_id", public_ip_address_id)
@@ -2008,13 +2076,13 @@ class NextGenerationFirewallVirtualNetworkPanoramaDnsSettings(dict):
              azure_dns_servers: Optional[Sequence[str]] = None,
              dns_servers: Optional[Sequence[str]] = None,
              use_azure_dns: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'azureDnsServers' in kwargs:
+        if azure_dns_servers is None and 'azureDnsServers' in kwargs:
             azure_dns_servers = kwargs['azureDnsServers']
-        if 'dnsServers' in kwargs:
+        if dns_servers is None and 'dnsServers' in kwargs:
             dns_servers = kwargs['dnsServers']
-        if 'useAzureDns' in kwargs:
+        if use_azure_dns is None and 'useAzureDns' in kwargs:
             use_azure_dns = kwargs['useAzureDns']
 
         if azure_dns_servers is not None:
@@ -2095,22 +2163,26 @@ class NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             public_ip_address_ids: Sequence[str],
-             vnet_configuration: 'outputs.NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfiguration',
+             public_ip_address_ids: Optional[Sequence[str]] = None,
+             vnet_configuration: Optional['outputs.NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfiguration'] = None,
              egress_nat_ip_address_ids: Optional[Sequence[str]] = None,
              egress_nat_ip_addresses: Optional[Sequence[str]] = None,
              public_ip_addresses: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'publicIpAddressIds' in kwargs:
+        if public_ip_address_ids is None and 'publicIpAddressIds' in kwargs:
             public_ip_address_ids = kwargs['publicIpAddressIds']
-        if 'vnetConfiguration' in kwargs:
+        if public_ip_address_ids is None:
+            raise TypeError("Missing 'public_ip_address_ids' argument")
+        if vnet_configuration is None and 'vnetConfiguration' in kwargs:
             vnet_configuration = kwargs['vnetConfiguration']
-        if 'egressNatIpAddressIds' in kwargs:
+        if vnet_configuration is None:
+            raise TypeError("Missing 'vnet_configuration' argument")
+        if egress_nat_ip_address_ids is None and 'egressNatIpAddressIds' in kwargs:
             egress_nat_ip_address_ids = kwargs['egressNatIpAddressIds']
-        if 'egressNatIpAddresses' in kwargs:
+        if egress_nat_ip_addresses is None and 'egressNatIpAddresses' in kwargs:
             egress_nat_ip_addresses = kwargs['egressNatIpAddresses']
-        if 'publicIpAddresses' in kwargs:
+        if public_ip_addresses is None and 'publicIpAddresses' in kwargs:
             public_ip_addresses = kwargs['publicIpAddresses']
 
         _setter("public_ip_address_ids", public_ip_address_ids)
@@ -2202,19 +2274,21 @@ class NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfiguratio
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             virtual_network_id: str,
+             virtual_network_id: Optional[str] = None,
              ip_of_trust_for_user_defined_routes: Optional[str] = None,
              trusted_subnet_id: Optional[str] = None,
              untrusted_subnet_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'virtualNetworkId' in kwargs:
+        if virtual_network_id is None and 'virtualNetworkId' in kwargs:
             virtual_network_id = kwargs['virtualNetworkId']
-        if 'ipOfTrustForUserDefinedRoutes' in kwargs:
+        if virtual_network_id is None:
+            raise TypeError("Missing 'virtual_network_id' argument")
+        if ip_of_trust_for_user_defined_routes is None and 'ipOfTrustForUserDefinedRoutes' in kwargs:
             ip_of_trust_for_user_defined_routes = kwargs['ipOfTrustForUserDefinedRoutes']
-        if 'trustedSubnetId' in kwargs:
+        if trusted_subnet_id is None and 'trustedSubnetId' in kwargs:
             trusted_subnet_id = kwargs['trustedSubnetId']
-        if 'untrustedSubnetId' in kwargs:
+        if untrusted_subnet_id is None and 'untrustedSubnetId' in kwargs:
             untrusted_subnet_id = kwargs['untrustedSubnetId']
 
         _setter("virtual_network_id", virtual_network_id)
@@ -2321,19 +2395,19 @@ class NextGenerationFirewallVirtualNetworkPanoramaPanorama(dict):
              panorama_server2: Optional[str] = None,
              template_name: Optional[str] = None,
              virtual_machine_ssh_key: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'deviceGroupName' in kwargs:
+        if device_group_name is None and 'deviceGroupName' in kwargs:
             device_group_name = kwargs['deviceGroupName']
-        if 'hostName' in kwargs:
+        if host_name is None and 'hostName' in kwargs:
             host_name = kwargs['hostName']
-        if 'panoramaServer1' in kwargs:
+        if panorama_server1 is None and 'panoramaServer1' in kwargs:
             panorama_server1 = kwargs['panoramaServer1']
-        if 'panoramaServer2' in kwargs:
+        if panorama_server2 is None and 'panoramaServer2' in kwargs:
             panorama_server2 = kwargs['panoramaServer2']
-        if 'templateName' in kwargs:
+        if template_name is None and 'templateName' in kwargs:
             template_name = kwargs['templateName']
-        if 'virtualMachineSshKey' in kwargs:
+        if virtual_machine_ssh_key is None and 'virtualMachineSshKey' in kwargs:
             virtual_machine_ssh_key = kwargs['virtualMachineSshKey']
 
         if device_group_name is not None:

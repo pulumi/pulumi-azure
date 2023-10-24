@@ -15,66 +15,6 @@ import (
 
 // Manages an Elastic Job Credential.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("northeurope"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleServer, err := mssql.NewServer(ctx, "exampleServer", &mssql.ServerArgs{
-//				ResourceGroupName:          exampleResourceGroup.Name,
-//				Location:                   exampleResourceGroup.Location,
-//				Version:                    pulumi.String("12.0"),
-//				AdministratorLogin:         pulumi.String("4dm1n157r470r"),
-//				AdministratorLoginPassword: pulumi.String("4-v3ry-53cr37-p455w0rd"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleDatabase, err := mssql.NewDatabase(ctx, "exampleDatabase", &mssql.DatabaseArgs{
-//				ServerId:  exampleServer.ID(),
-//				Collation: pulumi.String("SQL_Latin1_General_CP1_CI_AS"),
-//				SkuName:   pulumi.String("S1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleJobAgent, err := mssql.NewJobAgent(ctx, "exampleJobAgent", &mssql.JobAgentArgs{
-//				Location:   exampleResourceGroup.Location,
-//				DatabaseId: exampleDatabase.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = mssql.NewJobCredential(ctx, "exampleJobCredential", &mssql.JobCredentialArgs{
-//				JobAgentId: exampleJobAgent.ID(),
-//				Username:   pulumi.String("my-username"),
-//				Password:   pulumi.String("MyP4ssw0rd!!!"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Elastic Job Credentials can be imported using the `resource id`, e.g.

@@ -50,28 +50,34 @@ class GroupPolicyExemptionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             exemption_category: pulumi.Input[str],
-             management_group_id: pulumi.Input[str],
-             policy_assignment_id: pulumi.Input[str],
+             exemption_category: Optional[pulumi.Input[str]] = None,
+             management_group_id: Optional[pulumi.Input[str]] = None,
+             policy_assignment_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              display_name: Optional[pulumi.Input[str]] = None,
              expires_on: Optional[pulumi.Input[str]] = None,
              metadata: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              policy_definition_reference_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'exemptionCategory' in kwargs:
+        if exemption_category is None and 'exemptionCategory' in kwargs:
             exemption_category = kwargs['exemptionCategory']
-        if 'managementGroupId' in kwargs:
+        if exemption_category is None:
+            raise TypeError("Missing 'exemption_category' argument")
+        if management_group_id is None and 'managementGroupId' in kwargs:
             management_group_id = kwargs['managementGroupId']
-        if 'policyAssignmentId' in kwargs:
+        if management_group_id is None:
+            raise TypeError("Missing 'management_group_id' argument")
+        if policy_assignment_id is None and 'policyAssignmentId' in kwargs:
             policy_assignment_id = kwargs['policyAssignmentId']
-        if 'displayName' in kwargs:
+        if policy_assignment_id is None:
+            raise TypeError("Missing 'policy_assignment_id' argument")
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'expiresOn' in kwargs:
+        if expires_on is None and 'expiresOn' in kwargs:
             expires_on = kwargs['expiresOn']
-        if 'policyDefinitionReferenceIds' in kwargs:
+        if policy_definition_reference_ids is None and 'policyDefinitionReferenceIds' in kwargs:
             policy_definition_reference_ids = kwargs['policyDefinitionReferenceIds']
 
         _setter("exemption_category", exemption_category)
@@ -247,19 +253,19 @@ class _GroupPolicyExemptionState:
              name: Optional[pulumi.Input[str]] = None,
              policy_assignment_id: Optional[pulumi.Input[str]] = None,
              policy_definition_reference_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'exemptionCategory' in kwargs:
+        if exemption_category is None and 'exemptionCategory' in kwargs:
             exemption_category = kwargs['exemptionCategory']
-        if 'expiresOn' in kwargs:
+        if expires_on is None and 'expiresOn' in kwargs:
             expires_on = kwargs['expiresOn']
-        if 'managementGroupId' in kwargs:
+        if management_group_id is None and 'managementGroupId' in kwargs:
             management_group_id = kwargs['managementGroupId']
-        if 'policyAssignmentId' in kwargs:
+        if policy_assignment_id is None and 'policyAssignmentId' in kwargs:
             policy_assignment_id = kwargs['policyAssignmentId']
-        if 'policyDefinitionReferenceIds' in kwargs:
+        if policy_definition_reference_ids is None and 'policyDefinitionReferenceIds' in kwargs:
             policy_definition_reference_ids = kwargs['policyDefinitionReferenceIds']
 
         if description is not None:
@@ -408,27 +414,6 @@ class GroupPolicyExemption(pulumi.CustomResource):
         """
         Manages a Management Group Policy Exemption.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_group = azure.management.Group("exampleGroup", display_name="Example MgmtGroup")
-        example_policy_set_definition = azure.policy.get_policy_set_definition(display_name="Audit machines with insecure password security settings")
-        example_group_policy_assignment = azure.management.GroupPolicyAssignment("exampleGroupPolicyAssignment",
-            management_group_id=example_group.id,
-            policy_definition_id=example_policy_set_definition.id,
-            location="westus",
-            identity=azure.management.GroupPolicyAssignmentIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_group_policy_exemption = azure.management.GroupPolicyExemption("exampleGroupPolicyExemption",
-            management_group_id=example_group.id,
-            policy_assignment_id=example_group_policy_assignment.id,
-            exemption_category="Mitigated")
-        ```
-
         ## Import
 
         Policy Exemptions can be imported using the `resource id`, e.g.
@@ -457,27 +442,6 @@ class GroupPolicyExemption(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Management Group Policy Exemption.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_group = azure.management.Group("exampleGroup", display_name="Example MgmtGroup")
-        example_policy_set_definition = azure.policy.get_policy_set_definition(display_name="Audit machines with insecure password security settings")
-        example_group_policy_assignment = azure.management.GroupPolicyAssignment("exampleGroupPolicyAssignment",
-            management_group_id=example_group.id,
-            policy_definition_id=example_policy_set_definition.id,
-            location="westus",
-            identity=azure.management.GroupPolicyAssignmentIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_group_policy_exemption = azure.management.GroupPolicyExemption("exampleGroupPolicyExemption",
-            management_group_id=example_group.id,
-            policy_assignment_id=example_group_policy_assignment.id,
-            exemption_category="Mitigated")
-        ```
 
         ## Import
 

@@ -58,8 +58,8 @@ class VpnServerConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             vpn_authentication_types: pulumi.Input[Sequence[pulumi.Input[str]]],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             vpn_authentication_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              azure_active_directory_authentications: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs']]]] = None,
              client_revoked_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationClientRevokedCertificateArgs']]]] = None,
              client_root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationClientRootCertificateArgs']]]] = None,
@@ -69,21 +69,25 @@ class VpnServerConfigurationArgs:
              radius: Optional[pulumi.Input['VpnServerConfigurationRadiusArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              vpn_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'vpnAuthenticationTypes' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if vpn_authentication_types is None and 'vpnAuthenticationTypes' in kwargs:
             vpn_authentication_types = kwargs['vpnAuthenticationTypes']
-        if 'azureActiveDirectoryAuthentications' in kwargs:
+        if vpn_authentication_types is None:
+            raise TypeError("Missing 'vpn_authentication_types' argument")
+        if azure_active_directory_authentications is None and 'azureActiveDirectoryAuthentications' in kwargs:
             azure_active_directory_authentications = kwargs['azureActiveDirectoryAuthentications']
-        if 'clientRevokedCertificates' in kwargs:
+        if client_revoked_certificates is None and 'clientRevokedCertificates' in kwargs:
             client_revoked_certificates = kwargs['clientRevokedCertificates']
-        if 'clientRootCertificates' in kwargs:
+        if client_root_certificates is None and 'clientRootCertificates' in kwargs:
             client_root_certificates = kwargs['clientRootCertificates']
-        if 'ipsecPolicy' in kwargs:
+        if ipsec_policy is None and 'ipsecPolicy' in kwargs:
             ipsec_policy = kwargs['ipsecPolicy']
-        if 'vpnProtocols' in kwargs:
+        if vpn_protocols is None and 'vpnProtocols' in kwargs:
             vpn_protocols = kwargs['vpnProtocols']
 
         _setter("resource_group_name", resource_group_name)
@@ -296,21 +300,21 @@ class _VpnServerConfigurationState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              vpn_authentication_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              vpn_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'azureActiveDirectoryAuthentications' in kwargs:
+        if azure_active_directory_authentications is None and 'azureActiveDirectoryAuthentications' in kwargs:
             azure_active_directory_authentications = kwargs['azureActiveDirectoryAuthentications']
-        if 'clientRevokedCertificates' in kwargs:
+        if client_revoked_certificates is None and 'clientRevokedCertificates' in kwargs:
             client_revoked_certificates = kwargs['clientRevokedCertificates']
-        if 'clientRootCertificates' in kwargs:
+        if client_root_certificates is None and 'clientRootCertificates' in kwargs:
             client_root_certificates = kwargs['clientRootCertificates']
-        if 'ipsecPolicy' in kwargs:
+        if ipsec_policy is None and 'ipsecPolicy' in kwargs:
             ipsec_policy = kwargs['ipsecPolicy']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'vpnAuthenticationTypes' in kwargs:
+        if vpn_authentication_types is None and 'vpnAuthenticationTypes' in kwargs:
             vpn_authentication_types = kwargs['vpnAuthenticationTypes']
-        if 'vpnProtocols' in kwargs:
+        if vpn_protocols is None and 'vpnProtocols' in kwargs:
             vpn_protocols = kwargs['vpnProtocols']
 
         if azure_active_directory_authentications is not None:
@@ -489,43 +493,6 @@ class VpnServerConfiguration(pulumi.CustomResource):
         """
         Manages a VPN Server Configuration.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example", location="West Europe")
-        test = azure.network.VpnServerConfiguration("test",
-            resource_group_name=example.name,
-            location=example.location,
-            vpn_authentication_types=["Certificate"],
-            client_root_certificates=[azure.network.VpnServerConfigurationClientRootCertificateArgs(
-                name="DigiCert-Federated-ID-Root-CA",
-                public_cert_data=\"\"\"MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
-        MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
-        d3cuZGlnaWNlcnQuY29tMSYwJAYDVQQDEx1EaWdpQ2VydCBGZWRlcmF0ZWQgSUQg
-        Um9vdCBDQTAeFw0xMzAxMTUxMjAwMDBaFw0zMzAxMTUxMjAwMDBaMGcxCzAJBgNV
-        BAYTAlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdp
-        Y2VydC5jb20xJjAkBgNVBAMTHURpZ2lDZXJ0IEZlZGVyYXRlZCBJRCBSb290IENB
-        MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvAEB4pcCqnNNOWE6Ur5j
-        QPUH+1y1F9KdHTRSza6k5iDlXq1kGS1qAkuKtw9JsiNRrjltmFnzMZRBbX8Tlfl8
-        zAhBmb6dDduDGED01kBsTkgywYPxXVTKec0WxYEEF0oMn4wSYNl0lt2eJAKHXjNf
-        GTwiibdP8CUR2ghSM2sUTI8Nt1Omfc4SMHhGhYD64uJMbX98THQ/4LMGuYegou+d
-        GTiahfHtjn7AboSEknwAMJHCh5RlYZZ6B1O4QbKJ+34Q0eKgnI3X6Vc9u0zf6DH8
-        Dk+4zQDYRRTqTnVO3VT8jzqDlCRuNtq6YvryOWN74/dq8LQhUnXHvFyrsdMaE1X2
-        DwIDAQABo2MwYTAPBgNVHRMBAf8EBTADAQH/MA4GA1UdDwEB/wQEAwIBhjAdBgNV
-        HQ4EFgQUGRdkFnbGt1EWjKwbUne+5OaZvRYwHwYDVR0jBBgwFoAUGRdkFnbGt1EW
-        jKwbUne+5OaZvRYwDQYJKoZIhvcNAQELBQADggEBAHcqsHkrjpESqfuVTRiptJfP
-        9JbdtWqRTmOf6uJi2c8YVqI6XlKXsD8C1dUUaaHKLUJzvKiazibVuBwMIT84AyqR
-        QELn3e0BtgEymEygMU569b01ZPxoFSnNXc7qDZBDef8WfqAV/sxkTi8L9BkmFYfL
-        uGLOhRJOFprPdoDIUBB+tmCl3oDcBy3vnUeOEioz8zAkprcb3GHwHAK+vHmmfgcn
-        WsfMLH4JCLa/tRYL+Rw/N3ybCkDp00s0WUZ+AoDywSl0Q/ZEnNY0MsFiw6LyIdbq
-        M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
-        \"\"\",
-            )])
-        ```
-
         ## Import
 
         VPN Server Configurations can be imported using the `resource id`, e.g.
@@ -556,43 +523,6 @@ class VpnServerConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a VPN Server Configuration.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example", location="West Europe")
-        test = azure.network.VpnServerConfiguration("test",
-            resource_group_name=example.name,
-            location=example.location,
-            vpn_authentication_types=["Certificate"],
-            client_root_certificates=[azure.network.VpnServerConfigurationClientRootCertificateArgs(
-                name="DigiCert-Federated-ID-Root-CA",
-                public_cert_data=\"\"\"MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
-        MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
-        d3cuZGlnaWNlcnQuY29tMSYwJAYDVQQDEx1EaWdpQ2VydCBGZWRlcmF0ZWQgSUQg
-        Um9vdCBDQTAeFw0xMzAxMTUxMjAwMDBaFw0zMzAxMTUxMjAwMDBaMGcxCzAJBgNV
-        BAYTAlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdp
-        Y2VydC5jb20xJjAkBgNVBAMTHURpZ2lDZXJ0IEZlZGVyYXRlZCBJRCBSb290IENB
-        MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvAEB4pcCqnNNOWE6Ur5j
-        QPUH+1y1F9KdHTRSza6k5iDlXq1kGS1qAkuKtw9JsiNRrjltmFnzMZRBbX8Tlfl8
-        zAhBmb6dDduDGED01kBsTkgywYPxXVTKec0WxYEEF0oMn4wSYNl0lt2eJAKHXjNf
-        GTwiibdP8CUR2ghSM2sUTI8Nt1Omfc4SMHhGhYD64uJMbX98THQ/4LMGuYegou+d
-        GTiahfHtjn7AboSEknwAMJHCh5RlYZZ6B1O4QbKJ+34Q0eKgnI3X6Vc9u0zf6DH8
-        Dk+4zQDYRRTqTnVO3VT8jzqDlCRuNtq6YvryOWN74/dq8LQhUnXHvFyrsdMaE1X2
-        DwIDAQABo2MwYTAPBgNVHRMBAf8EBTADAQH/MA4GA1UdDwEB/wQEAwIBhjAdBgNV
-        HQ4EFgQUGRdkFnbGt1EWjKwbUne+5OaZvRYwHwYDVR0jBBgwFoAUGRdkFnbGt1EW
-        jKwbUne+5OaZvRYwDQYJKoZIhvcNAQELBQADggEBAHcqsHkrjpESqfuVTRiptJfP
-        9JbdtWqRTmOf6uJi2c8YVqI6XlKXsD8C1dUUaaHKLUJzvKiazibVuBwMIT84AyqR
-        QELn3e0BtgEymEygMU569b01ZPxoFSnNXc7qDZBDef8WfqAV/sxkTi8L9BkmFYfL
-        uGLOhRJOFprPdoDIUBB+tmCl3oDcBy3vnUeOEioz8zAkprcb3GHwHAK+vHmmfgcn
-        WsfMLH4JCLa/tRYL+Rw/N3ybCkDp00s0WUZ+AoDywSl0Q/ZEnNY0MsFiw6LyIdbq
-        M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
-        \"\"\",
-            )])
-        ```
 
         ## Import
 
@@ -644,19 +574,11 @@ class VpnServerConfiguration(pulumi.CustomResource):
             __props__.__dict__["azure_active_directory_authentications"] = azure_active_directory_authentications
             __props__.__dict__["client_revoked_certificates"] = client_revoked_certificates
             __props__.__dict__["client_root_certificates"] = client_root_certificates
-            if ipsec_policy is not None and not isinstance(ipsec_policy, VpnServerConfigurationIpsecPolicyArgs):
-                ipsec_policy = ipsec_policy or {}
-                def _setter(key, value):
-                    ipsec_policy[key] = value
-                VpnServerConfigurationIpsecPolicyArgs._configure(_setter, **ipsec_policy)
+            ipsec_policy = _utilities.configure(ipsec_policy, VpnServerConfigurationIpsecPolicyArgs, True)
             __props__.__dict__["ipsec_policy"] = ipsec_policy
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
-            if radius is not None and not isinstance(radius, VpnServerConfigurationRadiusArgs):
-                radius = radius or {}
-                def _setter(key, value):
-                    radius[key] = value
-                VpnServerConfigurationRadiusArgs._configure(_setter, **radius)
+            radius = _utilities.configure(radius, VpnServerConfigurationRadiusArgs, True)
             __props__.__dict__["radius"] = radius
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

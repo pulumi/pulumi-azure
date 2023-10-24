@@ -63,9 +63,9 @@ class DataCollectionRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_flows: pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataFlowArgs']]],
-             destinations: pulumi.Input['DataCollectionRuleDestinationsArgs'],
-             resource_group_name: pulumi.Input[str],
+             data_flows: Optional[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataFlowArgs']]]] = None,
+             destinations: Optional[pulumi.Input['DataCollectionRuleDestinationsArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              data_collection_endpoint_id: Optional[pulumi.Input[str]] = None,
              data_sources: Optional[pulumi.Input['DataCollectionRuleDataSourcesArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -75,17 +75,23 @@ class DataCollectionRuleArgs:
              name: Optional[pulumi.Input[str]] = None,
              stream_declarations: Optional[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleStreamDeclarationArgs']]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dataFlows' in kwargs:
+        if data_flows is None and 'dataFlows' in kwargs:
             data_flows = kwargs['dataFlows']
-        if 'resourceGroupName' in kwargs:
+        if data_flows is None:
+            raise TypeError("Missing 'data_flows' argument")
+        if destinations is None:
+            raise TypeError("Missing 'destinations' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'dataCollectionEndpointId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if data_collection_endpoint_id is None and 'dataCollectionEndpointId' in kwargs:
             data_collection_endpoint_id = kwargs['dataCollectionEndpointId']
-        if 'dataSources' in kwargs:
+        if data_sources is None and 'dataSources' in kwargs:
             data_sources = kwargs['dataSources']
-        if 'streamDeclarations' in kwargs:
+        if stream_declarations is None and 'streamDeclarations' in kwargs:
             stream_declarations = kwargs['streamDeclarations']
 
         _setter("data_flows", data_flows)
@@ -323,19 +329,19 @@ class _DataCollectionRuleState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              stream_declarations: Optional[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleStreamDeclarationArgs']]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dataCollectionEndpointId' in kwargs:
+        if data_collection_endpoint_id is None and 'dataCollectionEndpointId' in kwargs:
             data_collection_endpoint_id = kwargs['dataCollectionEndpointId']
-        if 'dataFlows' in kwargs:
+        if data_flows is None and 'dataFlows' in kwargs:
             data_flows = kwargs['dataFlows']
-        if 'dataSources' in kwargs:
+        if data_sources is None and 'dataSources' in kwargs:
             data_sources = kwargs['dataSources']
-        if 'immutableId' in kwargs:
+        if immutable_id is None and 'immutableId' in kwargs:
             immutable_id = kwargs['immutableId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'streamDeclarations' in kwargs:
+        if stream_declarations is None and 'streamDeclarations' in kwargs:
             stream_declarations = kwargs['streamDeclarations']
 
         if data_collection_endpoint_id is not None:
@@ -545,169 +551,6 @@ class DataCollectionRule(pulumi.CustomResource):
         """
         Manages a Data Collection Rule.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_analytics_solution = azure.operationalinsights.AnalyticsSolution("exampleAnalyticsSolution",
-            solution_name="WindowsEventForwarding",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            workspace_resource_id=example_analytics_workspace.id,
-            workspace_name=example_analytics_workspace.name,
-            plan=azure.operationalinsights.AnalyticsSolutionPlanArgs(
-                publisher="Microsoft",
-                product="OMSGallery/WindowsEventForwarding",
-            ))
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard",
-            capacity=1)
-        example_event_hub = azure.eventhub.EventHub("exampleEventHub",
-            namespace_name=example_event_hub_namespace.name,
-            resource_group_name=example_resource_group.name,
-            partition_count=2,
-            message_retention=1)
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("exampleContainer",
-            storage_account_name=example_account.name,
-            container_access_type="private")
-        example_data_collection_endpoint = azure.monitoring.DataCollectionEndpoint("exampleDataCollectionEndpoint",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_data_collection_rule = azure.monitoring.DataCollectionRule("exampleDataCollectionRule",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            data_collection_endpoint_id=example_data_collection_endpoint.id,
-            destinations=azure.monitoring.DataCollectionRuleDestinationsArgs(
-                log_analytics=[azure.monitoring.DataCollectionRuleDestinationsLogAnalyticArgs(
-                    workspace_resource_id=example_analytics_workspace.id,
-                    name="example-destination-log",
-                )],
-                event_hub=azure.monitoring.DataCollectionRuleDestinationsEventHubArgs(
-                    event_hub_id=example_event_hub.id,
-                    name="example-destination-eventhub",
-                ),
-                storage_blobs=[azure.monitoring.DataCollectionRuleDestinationsStorageBlobArgs(
-                    storage_account_id=example_account.id,
-                    container_name=example_container.name,
-                    name="example-destination-storage",
-                )],
-                azure_monitor_metrics=azure.monitoring.DataCollectionRuleDestinationsAzureMonitorMetricsArgs(
-                    name="example-destination-metrics",
-                ),
-            ),
-            data_flows=[
-                azure.monitoring.DataCollectionRuleDataFlowArgs(
-                    streams=["Microsoft-InsightsMetrics"],
-                    destinations=["example-destination-metrics"],
-                ),
-                azure.monitoring.DataCollectionRuleDataFlowArgs(
-                    streams=[
-                        "Microsoft-InsightsMetrics",
-                        "Microsoft-Syslog",
-                        "Microsoft-Perf",
-                    ],
-                    destinations=["example-destination-log"],
-                ),
-                azure.monitoring.DataCollectionRuleDataFlowArgs(
-                    streams=["Custom-MyTableRawData"],
-                    destinations=["example-destination-log"],
-                    output_stream="Microsoft-Syslog",
-                    transform_kql="source | project TimeGenerated = Time, Computer, Message = AdditionalContext",
-                ),
-            ],
-            data_sources=azure.monitoring.DataCollectionRuleDataSourcesArgs(
-                syslogs=[azure.monitoring.DataCollectionRuleDataSourcesSyslogArgs(
-                    facility_names=["*"],
-                    log_levels=["*"],
-                    name="example-datasource-syslog",
-                    streams=["Microsoft-Syslog"],
-                )],
-                iis_logs=[azure.monitoring.DataCollectionRuleDataSourcesIisLogArgs(
-                    streams=["Microsoft-W3CIISLog"],
-                    name="example-datasource-iis",
-                    log_directories=["C:\\\\Logs\\\\W3SVC1"],
-                )],
-                log_files=[azure.monitoring.DataCollectionRuleDataSourcesLogFileArgs(
-                    name="example-datasource-logfile",
-                    format="text",
-                    streams=["Custom-MyTableRawData"],
-                    file_patterns=["C:\\\\JavaLogs\\\\*.log"],
-                    settings=azure.monitoring.DataCollectionRuleDataSourcesLogFileSettingsArgs(
-                        text=azure.monitoring.DataCollectionRuleDataSourcesLogFileSettingsTextArgs(
-                            record_start_timestamp_format="ISO 8601",
-                        ),
-                    ),
-                )],
-                performance_counters=[azure.monitoring.DataCollectionRuleDataSourcesPerformanceCounterArgs(
-                    streams=[
-                        "Microsoft-Perf",
-                        "Microsoft-InsightsMetrics",
-                    ],
-                    sampling_frequency_in_seconds=60,
-                    counter_specifiers=["Processor(*)\\\\% Processor Time"],
-                    name="example-datasource-perfcounter",
-                )],
-                windows_event_logs=[azure.monitoring.DataCollectionRuleDataSourcesWindowsEventLogArgs(
-                    streams=["Microsoft-WindowsEvent"],
-                    x_path_queries=["*![System/Level=1]"],
-                    name="example-datasource-wineventlog",
-                )],
-                extensions=[azure.monitoring.DataCollectionRuleDataSourcesExtensionArgs(
-                    streams=["Microsoft-WindowsEvent"],
-                    input_data_sources=["example-datasource-wineventlog"],
-                    extension_name="example-extension-name",
-                    extension_json=json.dumps({
-                        "a": 1,
-                        "b": "hello",
-                    }),
-                    name="example-datasource-extension",
-                )],
-            ),
-            stream_declarations=[azure.monitoring.DataCollectionRuleStreamDeclarationArgs(
-                stream_name="Custom-MyTableRawData",
-                columns=[
-                    azure.monitoring.DataCollectionRuleStreamDeclarationColumnArgs(
-                        name="Time",
-                        type="datetime",
-                    ),
-                    azure.monitoring.DataCollectionRuleStreamDeclarationColumnArgs(
-                        name="Computer",
-                        type="string",
-                    ),
-                    azure.monitoring.DataCollectionRuleStreamDeclarationColumnArgs(
-                        name="AdditionalContext",
-                        type="string",
-                    ),
-                ],
-            )],
-            identity=azure.monitoring.DataCollectionRuleIdentityArgs(
-                type="UserAssigned",
-                identity_ids=[example_user_assigned_identity.id],
-            ),
-            description="data collection rule example",
-            tags={
-                "foo": "bar",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[example_analytics_solution]))
-        ```
-
         ## Import
 
         Data Collection Rules can be imported using the `resource id`, e.g.
@@ -741,169 +584,6 @@ class DataCollectionRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Data Collection Rule.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_analytics_solution = azure.operationalinsights.AnalyticsSolution("exampleAnalyticsSolution",
-            solution_name="WindowsEventForwarding",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            workspace_resource_id=example_analytics_workspace.id,
-            workspace_name=example_analytics_workspace.name,
-            plan=azure.operationalinsights.AnalyticsSolutionPlanArgs(
-                publisher="Microsoft",
-                product="OMSGallery/WindowsEventForwarding",
-            ))
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard",
-            capacity=1)
-        example_event_hub = azure.eventhub.EventHub("exampleEventHub",
-            namespace_name=example_event_hub_namespace.name,
-            resource_group_name=example_resource_group.name,
-            partition_count=2,
-            message_retention=1)
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("exampleContainer",
-            storage_account_name=example_account.name,
-            container_access_type="private")
-        example_data_collection_endpoint = azure.monitoring.DataCollectionEndpoint("exampleDataCollectionEndpoint",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_data_collection_rule = azure.monitoring.DataCollectionRule("exampleDataCollectionRule",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            data_collection_endpoint_id=example_data_collection_endpoint.id,
-            destinations=azure.monitoring.DataCollectionRuleDestinationsArgs(
-                log_analytics=[azure.monitoring.DataCollectionRuleDestinationsLogAnalyticArgs(
-                    workspace_resource_id=example_analytics_workspace.id,
-                    name="example-destination-log",
-                )],
-                event_hub=azure.monitoring.DataCollectionRuleDestinationsEventHubArgs(
-                    event_hub_id=example_event_hub.id,
-                    name="example-destination-eventhub",
-                ),
-                storage_blobs=[azure.monitoring.DataCollectionRuleDestinationsStorageBlobArgs(
-                    storage_account_id=example_account.id,
-                    container_name=example_container.name,
-                    name="example-destination-storage",
-                )],
-                azure_monitor_metrics=azure.monitoring.DataCollectionRuleDestinationsAzureMonitorMetricsArgs(
-                    name="example-destination-metrics",
-                ),
-            ),
-            data_flows=[
-                azure.monitoring.DataCollectionRuleDataFlowArgs(
-                    streams=["Microsoft-InsightsMetrics"],
-                    destinations=["example-destination-metrics"],
-                ),
-                azure.monitoring.DataCollectionRuleDataFlowArgs(
-                    streams=[
-                        "Microsoft-InsightsMetrics",
-                        "Microsoft-Syslog",
-                        "Microsoft-Perf",
-                    ],
-                    destinations=["example-destination-log"],
-                ),
-                azure.monitoring.DataCollectionRuleDataFlowArgs(
-                    streams=["Custom-MyTableRawData"],
-                    destinations=["example-destination-log"],
-                    output_stream="Microsoft-Syslog",
-                    transform_kql="source | project TimeGenerated = Time, Computer, Message = AdditionalContext",
-                ),
-            ],
-            data_sources=azure.monitoring.DataCollectionRuleDataSourcesArgs(
-                syslogs=[azure.monitoring.DataCollectionRuleDataSourcesSyslogArgs(
-                    facility_names=["*"],
-                    log_levels=["*"],
-                    name="example-datasource-syslog",
-                    streams=["Microsoft-Syslog"],
-                )],
-                iis_logs=[azure.monitoring.DataCollectionRuleDataSourcesIisLogArgs(
-                    streams=["Microsoft-W3CIISLog"],
-                    name="example-datasource-iis",
-                    log_directories=["C:\\\\Logs\\\\W3SVC1"],
-                )],
-                log_files=[azure.monitoring.DataCollectionRuleDataSourcesLogFileArgs(
-                    name="example-datasource-logfile",
-                    format="text",
-                    streams=["Custom-MyTableRawData"],
-                    file_patterns=["C:\\\\JavaLogs\\\\*.log"],
-                    settings=azure.monitoring.DataCollectionRuleDataSourcesLogFileSettingsArgs(
-                        text=azure.monitoring.DataCollectionRuleDataSourcesLogFileSettingsTextArgs(
-                            record_start_timestamp_format="ISO 8601",
-                        ),
-                    ),
-                )],
-                performance_counters=[azure.monitoring.DataCollectionRuleDataSourcesPerformanceCounterArgs(
-                    streams=[
-                        "Microsoft-Perf",
-                        "Microsoft-InsightsMetrics",
-                    ],
-                    sampling_frequency_in_seconds=60,
-                    counter_specifiers=["Processor(*)\\\\% Processor Time"],
-                    name="example-datasource-perfcounter",
-                )],
-                windows_event_logs=[azure.monitoring.DataCollectionRuleDataSourcesWindowsEventLogArgs(
-                    streams=["Microsoft-WindowsEvent"],
-                    x_path_queries=["*![System/Level=1]"],
-                    name="example-datasource-wineventlog",
-                )],
-                extensions=[azure.monitoring.DataCollectionRuleDataSourcesExtensionArgs(
-                    streams=["Microsoft-WindowsEvent"],
-                    input_data_sources=["example-datasource-wineventlog"],
-                    extension_name="example-extension-name",
-                    extension_json=json.dumps({
-                        "a": 1,
-                        "b": "hello",
-                    }),
-                    name="example-datasource-extension",
-                )],
-            ),
-            stream_declarations=[azure.monitoring.DataCollectionRuleStreamDeclarationArgs(
-                stream_name="Custom-MyTableRawData",
-                columns=[
-                    azure.monitoring.DataCollectionRuleStreamDeclarationColumnArgs(
-                        name="Time",
-                        type="datetime",
-                    ),
-                    azure.monitoring.DataCollectionRuleStreamDeclarationColumnArgs(
-                        name="Computer",
-                        type="string",
-                    ),
-                    azure.monitoring.DataCollectionRuleStreamDeclarationColumnArgs(
-                        name="AdditionalContext",
-                        type="string",
-                    ),
-                ],
-            )],
-            identity=azure.monitoring.DataCollectionRuleIdentityArgs(
-                type="UserAssigned",
-                identity_ids=[example_user_assigned_identity.id],
-            ),
-            description="data collection rule example",
-            tags={
-                "foo": "bar",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[example_analytics_solution]))
-        ```
 
         ## Import
 
@@ -957,26 +637,14 @@ class DataCollectionRule(pulumi.CustomResource):
             if data_flows is None and not opts.urn:
                 raise TypeError("Missing required property 'data_flows'")
             __props__.__dict__["data_flows"] = data_flows
-            if data_sources is not None and not isinstance(data_sources, DataCollectionRuleDataSourcesArgs):
-                data_sources = data_sources or {}
-                def _setter(key, value):
-                    data_sources[key] = value
-                DataCollectionRuleDataSourcesArgs._configure(_setter, **data_sources)
+            data_sources = _utilities.configure(data_sources, DataCollectionRuleDataSourcesArgs, True)
             __props__.__dict__["data_sources"] = data_sources
             __props__.__dict__["description"] = description
-            if destinations is not None and not isinstance(destinations, DataCollectionRuleDestinationsArgs):
-                destinations = destinations or {}
-                def _setter(key, value):
-                    destinations[key] = value
-                DataCollectionRuleDestinationsArgs._configure(_setter, **destinations)
+            destinations = _utilities.configure(destinations, DataCollectionRuleDestinationsArgs, True)
             if destinations is None and not opts.urn:
                 raise TypeError("Missing required property 'destinations'")
             __props__.__dict__["destinations"] = destinations
-            if identity is not None and not isinstance(identity, DataCollectionRuleIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                DataCollectionRuleIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, DataCollectionRuleIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location

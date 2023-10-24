@@ -13,62 +13,12 @@ namespace Pulumi.Azure.EventHub
     {
         /// <summary>
         /// Use this data source to access information about an existing Event Hubs Authorization Rule within an Event Hub.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Azure.EventHub.GetAuthorizationRule.Invoke(new()
-        ///     {
-        ///         Name = "test",
-        ///         NamespaceName = azurerm_eventhub_namespace.Test.Name,
-        ///         EventhubName = azurerm_eventhub.Test.Name,
-        ///         ResourceGroupName = azurerm_resource_group.Test.Name,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetAuthorizationRuleResult> InvokeAsync(GetAuthorizationRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizationRuleResult>("azure:eventhub/getAuthorizationRule:getAuthorizationRule", args ?? new GetAuthorizationRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Event Hubs Authorization Rule within an Event Hub.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Azure.EventHub.GetAuthorizationRule.Invoke(new()
-        ///     {
-        ///         Name = "test",
-        ///         NamespaceName = azurerm_eventhub_namespace.Test.Name,
-        ///         EventhubName = azurerm_eventhub.Test.Name,
-        ///         ResourceGroupName = azurerm_resource_group.Test.Name,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetAuthorizationRuleResult> Invoke(GetAuthorizationRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAuthorizationRuleResult>("azure:eventhub/getAuthorizationRule:getAuthorizationRule", args ?? new GetAuthorizationRuleInvokeArgs(), options.WithDefaults());

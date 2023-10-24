@@ -12,44 +12,6 @@ namespace Pulumi.Azure.ManagedApplication
     /// <summary>
     /// Manages a Managed Application Definition.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Azure.Core.GetClientConfig.Invoke();
-    /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleDefinition = new Azure.ManagedApplication.Definition("exampleDefinition", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         LockLevel = "ReadOnly",
-    ///         PackageFileUri = "https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip",
-    ///         DisplayName = "TestManagedApplicationDefinition",
-    ///         Description = "Test Managed Application Definition",
-    ///         Authorizations = new[]
-    ///         {
-    ///             new Azure.ManagedApplication.Inputs.DefinitionAuthorizationArgs
-    ///             {
-    ///                 ServicePrincipalId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
-    ///                 RoleDefinitionId = "a094b430-dad3-424d-ae58-13f72fd72591",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Managed Application Definition can be imported using the `resource id`, e.g.

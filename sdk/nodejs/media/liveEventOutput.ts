@@ -7,58 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Azure Media Live Event Output.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "GRS",
- * });
- * const exampleServiceAccount = new azure.media.ServiceAccount("exampleServiceAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     storageAccounts: [{
- *         id: exampleAccount.id,
- *         isPrimary: true,
- *     }],
- * });
- * const exampleAsset = new azure.media.Asset("exampleAsset", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     mediaServicesAccountName: exampleServiceAccount.name,
- * });
- * const exampleLiveEvent = new azure.media.LiveEvent("exampleLiveEvent", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     mediaServicesAccountName: exampleServiceAccount.name,
- *     description: "My Event Description",
- *     input: {
- *         streamingProtocol: "RTMP",
- *         keyFrameIntervalDuration: "PT6S",
- *         ipAccessControlAllows: [{
- *             name: "AllowAll",
- *             address: "0.0.0.0",
- *             subnetPrefixLength: 0,
- *         }],
- *     },
- * });
- * const exampleLiveEventOutput = new azure.media.LiveEventOutput("exampleLiveEventOutput", {
- *     liveEventId: exampleLiveEvent.id,
- *     archiveWindowDuration: "PT5M",
- *     assetName: exampleAsset.name,
- *     description: "Test live output 1",
- *     manifestName: "testmanifest",
- *     outputSnapTimeInSeconds: 0,
- *     hlsFragmentsPerTsSegment: 5,
- *     rewindWindowDuration: "PT5M",
- * });
- * ```
- *
  * ## Import
  *
  * Live Outputs can be imported using the `resource id`, e.g.

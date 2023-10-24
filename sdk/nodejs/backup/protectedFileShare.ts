@@ -7,53 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Backup Protected File Share to enable backups for file shares within an Azure Storage Account
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const vault = new azure.recoveryservices.Vault("vault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "Standard",
- * });
- * const sa = new azure.storage.Account("sa", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     accountTier: "Standard",
- *     accountReplicationType: "LRS",
- * });
- * const exampleShare = new azure.storage.Share("exampleShare", {
- *     storageAccountName: sa.name,
- *     quota: 1,
- * });
- * const protection_container = new azure.backup.ContainerStorageAccount("protection-container", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     recoveryVaultName: vault.name,
- *     storageAccountId: sa.id,
- * });
- * const examplePolicyFileShare = new azure.backup.PolicyFileShare("examplePolicyFileShare", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     recoveryVaultName: vault.name,
- *     backup: {
- *         frequency: "Daily",
- *         time: "23:00",
- *     },
- *     retentionDaily: {
- *         count: 10,
- *     },
- * });
- * const share1 = new azure.backup.ProtectedFileShare("share1", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     recoveryVaultName: vault.name,
- *     sourceStorageAccountId: protection_container.storageAccountId,
- *     sourceFileShareName: exampleShare.name,
- *     backupPolicyId: examplePolicyFileShare.id,
- * });
- * ```
- *
  * ## Import
  *
  * Azure Backup Protected File Shares can be imported using the `resource id`, e.g.

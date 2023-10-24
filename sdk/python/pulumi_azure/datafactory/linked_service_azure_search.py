@@ -52,24 +52,30 @@ class LinkedServiceAzureSearchArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_factory_id: pulumi.Input[str],
-             search_service_key: pulumi.Input[str],
-             url: pulumi.Input[str],
+             data_factory_id: Optional[pulumi.Input[str]] = None,
+             search_service_key: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
              additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              description: Optional[pulumi.Input[str]] = None,
              integration_runtime_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'searchServiceKey' in kwargs:
+        if data_factory_id is None:
+            raise TypeError("Missing 'data_factory_id' argument")
+        if search_service_key is None and 'searchServiceKey' in kwargs:
             search_service_key = kwargs['searchServiceKey']
-        if 'additionalProperties' in kwargs:
+        if search_service_key is None:
+            raise TypeError("Missing 'search_service_key' argument")
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'integrationRuntimeName' in kwargs:
+        if integration_runtime_name is None and 'integrationRuntimeName' in kwargs:
             integration_runtime_name = kwargs['integrationRuntimeName']
 
         _setter("data_factory_id", data_factory_id)
@@ -253,17 +259,17 @@ class _LinkedServiceAzureSearchState:
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              search_service_key: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'additionalProperties' in kwargs:
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'encryptedCredential' in kwargs:
+        if encrypted_credential is None and 'encryptedCredential' in kwargs:
             encrypted_credential = kwargs['encryptedCredential']
-        if 'integrationRuntimeName' in kwargs:
+        if integration_runtime_name is None and 'integrationRuntimeName' in kwargs:
             integration_runtime_name = kwargs['integrationRuntimeName']
-        if 'searchServiceKey' in kwargs:
+        if search_service_key is None and 'searchServiceKey' in kwargs:
             search_service_key = kwargs['searchServiceKey']
 
         if additional_properties is not None:

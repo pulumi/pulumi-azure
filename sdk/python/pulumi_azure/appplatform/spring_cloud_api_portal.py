@@ -46,24 +46,26 @@ class SpringCloudApiPortalArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             spring_cloud_service_id: pulumi.Input[str],
+             spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
              gateway_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              https_only_enabled: Optional[pulumi.Input[bool]] = None,
              instance_count: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
              public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
              sso: Optional[pulumi.Input['SpringCloudApiPortalSsoArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'springCloudServiceId' in kwargs:
+        if spring_cloud_service_id is None and 'springCloudServiceId' in kwargs:
             spring_cloud_service_id = kwargs['springCloudServiceId']
-        if 'gatewayIds' in kwargs:
+        if spring_cloud_service_id is None:
+            raise TypeError("Missing 'spring_cloud_service_id' argument")
+        if gateway_ids is None and 'gatewayIds' in kwargs:
             gateway_ids = kwargs['gatewayIds']
-        if 'httpsOnlyEnabled' in kwargs:
+        if https_only_enabled is None and 'httpsOnlyEnabled' in kwargs:
             https_only_enabled = kwargs['httpsOnlyEnabled']
-        if 'instanceCount' in kwargs:
+        if instance_count is None and 'instanceCount' in kwargs:
             instance_count = kwargs['instanceCount']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
 
         _setter("spring_cloud_service_id", spring_cloud_service_id)
@@ -209,17 +211,17 @@ class _SpringCloudApiPortalState:
              spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
              sso: Optional[pulumi.Input['SpringCloudApiPortalSsoArgs']] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'gatewayIds' in kwargs:
+        if gateway_ids is None and 'gatewayIds' in kwargs:
             gateway_ids = kwargs['gatewayIds']
-        if 'httpsOnlyEnabled' in kwargs:
+        if https_only_enabled is None and 'httpsOnlyEnabled' in kwargs:
             https_only_enabled = kwargs['httpsOnlyEnabled']
-        if 'instanceCount' in kwargs:
+        if instance_count is None and 'instanceCount' in kwargs:
             instance_count = kwargs['instanceCount']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'springCloudServiceId' in kwargs:
+        if spring_cloud_service_id is None and 'springCloudServiceId' in kwargs:
             spring_cloud_service_id = kwargs['springCloudServiceId']
 
         if gateway_ids is not None:
@@ -354,32 +356,6 @@ class SpringCloudApiPortal(pulumi.CustomResource):
 
         > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="E0")
-        example_spring_cloud_gateway = azure.appplatform.SpringCloudGateway("exampleSpringCloudGateway", spring_cloud_service_id=example_spring_cloud_service.id)
-        example_spring_cloud_api_portal = azure.appplatform.SpringCloudApiPortal("exampleSpringCloudApiPortal",
-            spring_cloud_service_id=example_spring_cloud_service.id,
-            gateway_ids=[example_spring_cloud_gateway.id],
-            https_only_enabled=False,
-            public_network_access_enabled=True,
-            instance_count=1,
-            sso=azure.appplatform.SpringCloudApiPortalSsoArgs(
-                client_id="test",
-                client_secret="secret",
-                issuer_uri="https://www.example.com/issueToken",
-                scopes=["read"],
-            ))
-        ```
-
         ## Import
 
         Spring Cloud API Portals can be imported using the `resource id`, e.g.
@@ -408,32 +384,6 @@ class SpringCloudApiPortal(pulumi.CustomResource):
         Manages a Spring Cloud API Portal.
 
         > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="E0")
-        example_spring_cloud_gateway = azure.appplatform.SpringCloudGateway("exampleSpringCloudGateway", spring_cloud_service_id=example_spring_cloud_service.id)
-        example_spring_cloud_api_portal = azure.appplatform.SpringCloudApiPortal("exampleSpringCloudApiPortal",
-            spring_cloud_service_id=example_spring_cloud_service.id,
-            gateway_ids=[example_spring_cloud_gateway.id],
-            https_only_enabled=False,
-            public_network_access_enabled=True,
-            instance_count=1,
-            sso=azure.appplatform.SpringCloudApiPortalSsoArgs(
-                client_id="test",
-                client_secret="secret",
-                issuer_uri="https://www.example.com/issueToken",
-                scopes=["read"],
-            ))
-        ```
 
         ## Import
 
@@ -486,11 +436,7 @@ class SpringCloudApiPortal(pulumi.CustomResource):
             if spring_cloud_service_id is None and not opts.urn:
                 raise TypeError("Missing required property 'spring_cloud_service_id'")
             __props__.__dict__["spring_cloud_service_id"] = spring_cloud_service_id
-            if sso is not None and not isinstance(sso, SpringCloudApiPortalSsoArgs):
-                sso = sso or {}
-                def _setter(key, value):
-                    sso[key] = value
-                SpringCloudApiPortalSsoArgs._configure(_setter, **sso)
+            sso = _utilities.configure(sso, SpringCloudApiPortalSsoArgs, True)
             __props__.__dict__["sso"] = sso
             __props__.__dict__["url"] = None
         super(SpringCloudApiPortal, __self__).__init__(

@@ -104,9 +104,9 @@ class AccountArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             kind: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             sku_name: pulumi.Input[str],
+             kind: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
              custom_question_answering_search_service_id: Optional[pulumi.Input[str]] = None,
              custom_question_answering_search_service_key: Optional[pulumi.Input[str]] = None,
              custom_subdomain_name: Optional[pulumi.Input[str]] = None,
@@ -127,39 +127,45 @@ class AccountArgs:
              qna_runtime_endpoint: Optional[pulumi.Input[str]] = None,
              storages: Optional[pulumi.Input[Sequence[pulumi.Input['AccountStorageArgs']]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if kind is None:
+            raise TypeError("Missing 'kind' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'customQuestionAnsweringSearchServiceId' in kwargs:
+        if sku_name is None:
+            raise TypeError("Missing 'sku_name' argument")
+        if custom_question_answering_search_service_id is None and 'customQuestionAnsweringSearchServiceId' in kwargs:
             custom_question_answering_search_service_id = kwargs['customQuestionAnsweringSearchServiceId']
-        if 'customQuestionAnsweringSearchServiceKey' in kwargs:
+        if custom_question_answering_search_service_key is None and 'customQuestionAnsweringSearchServiceKey' in kwargs:
             custom_question_answering_search_service_key = kwargs['customQuestionAnsweringSearchServiceKey']
-        if 'customSubdomainName' in kwargs:
+        if custom_subdomain_name is None and 'customSubdomainName' in kwargs:
             custom_subdomain_name = kwargs['customSubdomainName']
-        if 'customerManagedKey' in kwargs:
+        if customer_managed_key is None and 'customerManagedKey' in kwargs:
             customer_managed_key = kwargs['customerManagedKey']
-        if 'dynamicThrottlingEnabled' in kwargs:
+        if dynamic_throttling_enabled is None and 'dynamicThrottlingEnabled' in kwargs:
             dynamic_throttling_enabled = kwargs['dynamicThrottlingEnabled']
-        if 'localAuthEnabled' in kwargs:
+        if local_auth_enabled is None and 'localAuthEnabled' in kwargs:
             local_auth_enabled = kwargs['localAuthEnabled']
-        if 'metricsAdvisorAadClientId' in kwargs:
+        if metrics_advisor_aad_client_id is None and 'metricsAdvisorAadClientId' in kwargs:
             metrics_advisor_aad_client_id = kwargs['metricsAdvisorAadClientId']
-        if 'metricsAdvisorAadTenantId' in kwargs:
+        if metrics_advisor_aad_tenant_id is None and 'metricsAdvisorAadTenantId' in kwargs:
             metrics_advisor_aad_tenant_id = kwargs['metricsAdvisorAadTenantId']
-        if 'metricsAdvisorSuperUserName' in kwargs:
+        if metrics_advisor_super_user_name is None and 'metricsAdvisorSuperUserName' in kwargs:
             metrics_advisor_super_user_name = kwargs['metricsAdvisorSuperUserName']
-        if 'metricsAdvisorWebsiteName' in kwargs:
+        if metrics_advisor_website_name is None and 'metricsAdvisorWebsiteName' in kwargs:
             metrics_advisor_website_name = kwargs['metricsAdvisorWebsiteName']
-        if 'networkAcls' in kwargs:
+        if network_acls is None and 'networkAcls' in kwargs:
             network_acls = kwargs['networkAcls']
-        if 'outboundNetworkAccessRestricted' in kwargs:
+        if outbound_network_access_restricted is None and 'outboundNetworkAccessRestricted' in kwargs:
             outbound_network_access_restricted = kwargs['outboundNetworkAccessRestricted']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'qnaRuntimeEndpoint' in kwargs:
+        if qna_runtime_endpoint is None and 'qnaRuntimeEndpoint' in kwargs:
             qna_runtime_endpoint = kwargs['qnaRuntimeEndpoint']
 
         _setter("kind", kind)
@@ -619,43 +625,43 @@ class _AccountState:
              sku_name: Optional[pulumi.Input[str]] = None,
              storages: Optional[pulumi.Input[Sequence[pulumi.Input['AccountStorageArgs']]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'customQuestionAnsweringSearchServiceId' in kwargs:
+        if custom_question_answering_search_service_id is None and 'customQuestionAnsweringSearchServiceId' in kwargs:
             custom_question_answering_search_service_id = kwargs['customQuestionAnsweringSearchServiceId']
-        if 'customQuestionAnsweringSearchServiceKey' in kwargs:
+        if custom_question_answering_search_service_key is None and 'customQuestionAnsweringSearchServiceKey' in kwargs:
             custom_question_answering_search_service_key = kwargs['customQuestionAnsweringSearchServiceKey']
-        if 'customSubdomainName' in kwargs:
+        if custom_subdomain_name is None and 'customSubdomainName' in kwargs:
             custom_subdomain_name = kwargs['customSubdomainName']
-        if 'customerManagedKey' in kwargs:
+        if customer_managed_key is None and 'customerManagedKey' in kwargs:
             customer_managed_key = kwargs['customerManagedKey']
-        if 'dynamicThrottlingEnabled' in kwargs:
+        if dynamic_throttling_enabled is None and 'dynamicThrottlingEnabled' in kwargs:
             dynamic_throttling_enabled = kwargs['dynamicThrottlingEnabled']
-        if 'localAuthEnabled' in kwargs:
+        if local_auth_enabled is None and 'localAuthEnabled' in kwargs:
             local_auth_enabled = kwargs['localAuthEnabled']
-        if 'metricsAdvisorAadClientId' in kwargs:
+        if metrics_advisor_aad_client_id is None and 'metricsAdvisorAadClientId' in kwargs:
             metrics_advisor_aad_client_id = kwargs['metricsAdvisorAadClientId']
-        if 'metricsAdvisorAadTenantId' in kwargs:
+        if metrics_advisor_aad_tenant_id is None and 'metricsAdvisorAadTenantId' in kwargs:
             metrics_advisor_aad_tenant_id = kwargs['metricsAdvisorAadTenantId']
-        if 'metricsAdvisorSuperUserName' in kwargs:
+        if metrics_advisor_super_user_name is None and 'metricsAdvisorSuperUserName' in kwargs:
             metrics_advisor_super_user_name = kwargs['metricsAdvisorSuperUserName']
-        if 'metricsAdvisorWebsiteName' in kwargs:
+        if metrics_advisor_website_name is None and 'metricsAdvisorWebsiteName' in kwargs:
             metrics_advisor_website_name = kwargs['metricsAdvisorWebsiteName']
-        if 'networkAcls' in kwargs:
+        if network_acls is None and 'networkAcls' in kwargs:
             network_acls = kwargs['networkAcls']
-        if 'outboundNetworkAccessRestricted' in kwargs:
+        if outbound_network_access_restricted is None and 'outboundNetworkAccessRestricted' in kwargs:
             outbound_network_access_restricted = kwargs['outboundNetworkAccessRestricted']
-        if 'primaryAccessKey' in kwargs:
+        if primary_access_key is None and 'primaryAccessKey' in kwargs:
             primary_access_key = kwargs['primaryAccessKey']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'qnaRuntimeEndpoint' in kwargs:
+        if qna_runtime_endpoint is None and 'qnaRuntimeEndpoint' in kwargs:
             qna_runtime_endpoint = kwargs['qnaRuntimeEndpoint']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'secondaryAccessKey' in kwargs:
+        if secondary_access_key is None and 'secondaryAccessKey' in kwargs:
             secondary_access_key = kwargs['secondaryAccessKey']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
 
         if custom_question_answering_search_service_id is not None:
@@ -1068,23 +1074,6 @@ class Account(pulumi.CustomResource):
 
         > **Note:** Version v2.65.0 of the Azure Provider and later will attempt to Purge the Cognitive Account during deletion. This feature can be disabled using the `features` block within the `provider` block, see the provider documentation on the features block for more information.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.cognitive.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            kind="Face",
-            sku_name="S0",
-            tags={
-                "Acceptance": "Test",
-            })
-        ```
-
         ## Import
 
         Cognitive Service Accounts can be imported using the `resource id`, e.g.
@@ -1139,23 +1128,6 @@ class Account(pulumi.CustomResource):
         Manages a Cognitive Services Account.
 
         > **Note:** Version v2.65.0 of the Azure Provider and later will attempt to Purge the Cognitive Account during deletion. This feature can be disabled using the `features` block within the `provider` block, see the provider documentation on the features block for more information.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.cognitive.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            kind="Face",
-            sku_name="S0",
-            tags={
-                "Acceptance": "Test",
-            })
-        ```
 
         ## Import
 
@@ -1219,19 +1191,11 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["custom_question_answering_search_service_id"] = custom_question_answering_search_service_id
             __props__.__dict__["custom_question_answering_search_service_key"] = None if custom_question_answering_search_service_key is None else pulumi.Output.secret(custom_question_answering_search_service_key)
             __props__.__dict__["custom_subdomain_name"] = custom_subdomain_name
-            if customer_managed_key is not None and not isinstance(customer_managed_key, AccountCustomerManagedKeyArgs):
-                customer_managed_key = customer_managed_key or {}
-                def _setter(key, value):
-                    customer_managed_key[key] = value
-                AccountCustomerManagedKeyArgs._configure(_setter, **customer_managed_key)
+            customer_managed_key = _utilities.configure(customer_managed_key, AccountCustomerManagedKeyArgs, True)
             __props__.__dict__["customer_managed_key"] = customer_managed_key
             __props__.__dict__["dynamic_throttling_enabled"] = dynamic_throttling_enabled
             __props__.__dict__["fqdns"] = fqdns
-            if identity is not None and not isinstance(identity, AccountIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                AccountIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, AccountIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
@@ -1243,11 +1207,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["metrics_advisor_super_user_name"] = metrics_advisor_super_user_name
             __props__.__dict__["metrics_advisor_website_name"] = metrics_advisor_website_name
             __props__.__dict__["name"] = name
-            if network_acls is not None and not isinstance(network_acls, AccountNetworkAclsArgs):
-                network_acls = network_acls or {}
-                def _setter(key, value):
-                    network_acls[key] = value
-                AccountNetworkAclsArgs._configure(_setter, **network_acls)
+            network_acls = _utilities.configure(network_acls, AccountNetworkAclsArgs, True)
             __props__.__dict__["network_acls"] = network_acls
             __props__.__dict__["outbound_network_access_restricted"] = outbound_network_access_restricted
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled

@@ -8,19 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Azure Firewall.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.network.getFirewall({
- *     name: "firewall1",
- *     resourceGroupName: "firewall-RG",
- * });
- * export const firewallPrivateIp = example.then(example => example.ipConfigurations?.[0]?.privateIpAddress);
- * ```
  */
 export function getFirewall(args: GetFirewallArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallResult> {
 
@@ -102,19 +89,6 @@ export interface GetFirewallResult {
 }
 /**
  * Use this data source to access information about an existing Azure Firewall.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.network.getFirewall({
- *     name: "firewall1",
- *     resourceGroupName: "firewall-RG",
- * });
- * export const firewallPrivateIp = example.then(example => example.ipConfigurations?.[0]?.privateIpAddress);
- * ```
  */
 export function getFirewallOutput(args: GetFirewallOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallResult> {
     return pulumi.output(args).apply((a: any) => getFirewall(a, opts))

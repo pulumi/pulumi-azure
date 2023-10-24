@@ -13,49 +13,6 @@ import (
 )
 
 // Use this data source to access information about an existing API Management Gateway Host Configuration.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleService, err := apimanagement.LookupService(ctx, &apimanagement.LookupServiceArgs{
-//				Name:              "example-apim",
-//				ResourceGroupName: "example-resources",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleGateway, err := apimanagement.LookupGateway(ctx, &apimanagement.LookupGatewayArgs{
-//				Name:            "example-gateway",
-//				ApiManagementId: data.Azurerm_api_management.Main.Id,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleGatewayHostNameConfiguration, err := apimanagement.LookupGatewayHostNameConfiguration(ctx, &apimanagement.LookupGatewayHostNameConfigurationArgs{
-//				Name:            "example-host-configuration",
-//				ApiManagementId: exampleService.Id,
-//				GatewayName:     exampleGateway.Name,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("hostName", exampleGatewayHostNameConfiguration.HostName)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupGatewayHostNameConfiguration(ctx *pulumi.Context, args *LookupGatewayHostNameConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupGatewayHostNameConfigurationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupGatewayHostNameConfigurationResult

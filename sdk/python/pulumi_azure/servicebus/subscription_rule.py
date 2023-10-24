@@ -43,21 +43,25 @@ class SubscriptionRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             filter_type: pulumi.Input[str],
-             subscription_id: pulumi.Input[str],
+             filter_type: Optional[pulumi.Input[str]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
              action: Optional[pulumi.Input[str]] = None,
              correlation_filter: Optional[pulumi.Input['SubscriptionRuleCorrelationFilterArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              sql_filter: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'filterType' in kwargs:
+        if filter_type is None and 'filterType' in kwargs:
             filter_type = kwargs['filterType']
-        if 'subscriptionId' in kwargs:
+        if filter_type is None:
+            raise TypeError("Missing 'filter_type' argument")
+        if subscription_id is None and 'subscriptionId' in kwargs:
             subscription_id = kwargs['subscriptionId']
-        if 'correlationFilter' in kwargs:
+        if subscription_id is None:
+            raise TypeError("Missing 'subscription_id' argument")
+        if correlation_filter is None and 'correlationFilter' in kwargs:
             correlation_filter = kwargs['correlationFilter']
-        if 'sqlFilter' in kwargs:
+        if sql_filter is None and 'sqlFilter' in kwargs:
             sql_filter = kwargs['sqlFilter']
 
         _setter("filter_type", filter_type)
@@ -183,17 +187,17 @@ class _SubscriptionRuleState:
              sql_filter: Optional[pulumi.Input[str]] = None,
              sql_filter_compatibility_level: Optional[pulumi.Input[int]] = None,
              subscription_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'correlationFilter' in kwargs:
+        if correlation_filter is None and 'correlationFilter' in kwargs:
             correlation_filter = kwargs['correlationFilter']
-        if 'filterType' in kwargs:
+        if filter_type is None and 'filterType' in kwargs:
             filter_type = kwargs['filterType']
-        if 'sqlFilter' in kwargs:
+        if sql_filter is None and 'sqlFilter' in kwargs:
             sql_filter = kwargs['sqlFilter']
-        if 'sqlFilterCompatibilityLevel' in kwargs:
+        if sql_filter_compatibility_level is None and 'sqlFilterCompatibilityLevel' in kwargs:
             sql_filter_compatibility_level = kwargs['sqlFilterCompatibilityLevel']
-        if 'subscriptionId' in kwargs:
+        if subscription_id is None and 'subscriptionId' in kwargs:
             subscription_id = kwargs['subscriptionId']
 
         if action is not None:
@@ -309,62 +313,6 @@ class SubscriptionRule(pulumi.CustomResource):
         Manages a ServiceBus Subscription Rule.
 
         ## Example Usage
-        ### SQL Filter)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_namespace = azure.servicebus.Namespace("exampleNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard",
-            tags={
-                "source": "example",
-            })
-        example_topic = azure.servicebus.Topic("exampleTopic",
-            namespace_id=example_namespace.id,
-            enable_partitioning=True)
-        example_subscription = azure.servicebus.Subscription("exampleSubscription",
-            topic_id=example_topic.id,
-            max_delivery_count=1)
-        example_subscription_rule = azure.servicebus.SubscriptionRule("exampleSubscriptionRule",
-            subscription_id=example_subscription.id,
-            filter_type="SqlFilter",
-            sql_filter="colour = 'red'")
-        ```
-        ### Correlation Filter)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_namespace = azure.servicebus.Namespace("exampleNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard",
-            tags={
-                "source": "example",
-            })
-        example_topic = azure.servicebus.Topic("exampleTopic",
-            namespace_id=example_namespace.id,
-            enable_partitioning=True)
-        example_subscription = azure.servicebus.Subscription("exampleSubscription",
-            topic_id=example_topic.id,
-            max_delivery_count=1)
-        example_subscription_rule = azure.servicebus.SubscriptionRule("exampleSubscriptionRule",
-            subscription_id=example_subscription.id,
-            filter_type="CorrelationFilter",
-            correlation_filter=azure.servicebus.SubscriptionRuleCorrelationFilterArgs(
-                correlation_id="high",
-                label="red",
-                properties={
-                    "customProperty": "value",
-                },
-            ))
-        ```
 
         ## Import
 
@@ -393,62 +341,6 @@ class SubscriptionRule(pulumi.CustomResource):
         Manages a ServiceBus Subscription Rule.
 
         ## Example Usage
-        ### SQL Filter)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_namespace = azure.servicebus.Namespace("exampleNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard",
-            tags={
-                "source": "example",
-            })
-        example_topic = azure.servicebus.Topic("exampleTopic",
-            namespace_id=example_namespace.id,
-            enable_partitioning=True)
-        example_subscription = azure.servicebus.Subscription("exampleSubscription",
-            topic_id=example_topic.id,
-            max_delivery_count=1)
-        example_subscription_rule = azure.servicebus.SubscriptionRule("exampleSubscriptionRule",
-            subscription_id=example_subscription.id,
-            filter_type="SqlFilter",
-            sql_filter="colour = 'red'")
-        ```
-        ### Correlation Filter)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_namespace = azure.servicebus.Namespace("exampleNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard",
-            tags={
-                "source": "example",
-            })
-        example_topic = azure.servicebus.Topic("exampleTopic",
-            namespace_id=example_namespace.id,
-            enable_partitioning=True)
-        example_subscription = azure.servicebus.Subscription("exampleSubscription",
-            topic_id=example_topic.id,
-            max_delivery_count=1)
-        example_subscription_rule = azure.servicebus.SubscriptionRule("exampleSubscriptionRule",
-            subscription_id=example_subscription.id,
-            filter_type="CorrelationFilter",
-            correlation_filter=azure.servicebus.SubscriptionRuleCorrelationFilterArgs(
-                correlation_id="high",
-                label="red",
-                properties={
-                    "customProperty": "value",
-                },
-            ))
-        ```
 
         ## Import
 
@@ -493,11 +385,7 @@ class SubscriptionRule(pulumi.CustomResource):
             __props__ = SubscriptionRuleArgs.__new__(SubscriptionRuleArgs)
 
             __props__.__dict__["action"] = action
-            if correlation_filter is not None and not isinstance(correlation_filter, SubscriptionRuleCorrelationFilterArgs):
-                correlation_filter = correlation_filter or {}
-                def _setter(key, value):
-                    correlation_filter[key] = value
-                SubscriptionRuleCorrelationFilterArgs._configure(_setter, **correlation_filter)
+            correlation_filter = _utilities.configure(correlation_filter, SubscriptionRuleCorrelationFilterArgs, True)
             __props__.__dict__["correlation_filter"] = correlation_filter
             if filter_type is None and not opts.urn:
                 raise TypeError("Missing required property 'filter_type'")

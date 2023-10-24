@@ -34,15 +34,19 @@ class RoutingIntentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             routing_policies: pulumi.Input[Sequence[pulumi.Input['RoutingIntentRoutingPolicyArgs']]],
-             virtual_hub_id: pulumi.Input[str],
+             routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingIntentRoutingPolicyArgs']]]] = None,
+             virtual_hub_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'routingPolicies' in kwargs:
+        if routing_policies is None and 'routingPolicies' in kwargs:
             routing_policies = kwargs['routingPolicies']
-        if 'virtualHubId' in kwargs:
+        if routing_policies is None:
+            raise TypeError("Missing 'routing_policies' argument")
+        if virtual_hub_id is None and 'virtualHubId' in kwargs:
             virtual_hub_id = kwargs['virtualHubId']
+        if virtual_hub_id is None:
+            raise TypeError("Missing 'virtual_hub_id' argument")
 
         _setter("routing_policies", routing_policies)
         _setter("virtual_hub_id", virtual_hub_id)
@@ -110,11 +114,11 @@ class _RoutingIntentState:
              name: Optional[pulumi.Input[str]] = None,
              routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingIntentRoutingPolicyArgs']]]] = None,
              virtual_hub_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'routingPolicies' in kwargs:
+        if routing_policies is None and 'routingPolicies' in kwargs:
             routing_policies = kwargs['routingPolicies']
-        if 'virtualHubId' in kwargs:
+        if virtual_hub_id is None and 'virtualHubId' in kwargs:
             virtual_hub_id = kwargs['virtualHubId']
 
         if name is not None:
@@ -173,39 +177,6 @@ class RoutingIntent(pulumi.CustomResource):
         """
         Manages a Virtual Hub Routing Intent.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_wan = azure.network.VirtualWan("exampleVirtualWan",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_virtual_hub = azure.network.VirtualHub("exampleVirtualHub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            virtual_wan_id=example_virtual_wan.id,
-            address_prefix="10.0.1.0/24")
-        example_firewall = azure.network.Firewall("exampleFirewall",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="AZFW_Hub",
-            sku_tier="Standard",
-            virtual_hub=azure.network.FirewallVirtualHubArgs(
-                virtual_hub_id=example_virtual_hub.id,
-                public_ip_count=1,
-            ))
-        example_routing_intent = azure.network.RoutingIntent("exampleRoutingIntent",
-            virtual_hub_id=example_virtual_hub.id,
-            routing_policies=[azure.network.RoutingIntentRoutingPolicyArgs(
-                name="InternetTrafficPolicy",
-                destinations=["Internet"],
-                next_hop=example_firewall.id,
-            )])
-        ```
-
         ## Import
 
         Virtual Hub Routing Intents can be imported using the `resource id`, e.g.
@@ -228,39 +199,6 @@ class RoutingIntent(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Virtual Hub Routing Intent.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_wan = azure.network.VirtualWan("exampleVirtualWan",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_virtual_hub = azure.network.VirtualHub("exampleVirtualHub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            virtual_wan_id=example_virtual_wan.id,
-            address_prefix="10.0.1.0/24")
-        example_firewall = azure.network.Firewall("exampleFirewall",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="AZFW_Hub",
-            sku_tier="Standard",
-            virtual_hub=azure.network.FirewallVirtualHubArgs(
-                virtual_hub_id=example_virtual_hub.id,
-                public_ip_count=1,
-            ))
-        example_routing_intent = azure.network.RoutingIntent("exampleRoutingIntent",
-            virtual_hub_id=example_virtual_hub.id,
-            routing_policies=[azure.network.RoutingIntentRoutingPolicyArgs(
-                name="InternetTrafficPolicy",
-                destinations=["Internet"],
-                next_hop=example_firewall.id,
-            )])
-        ```
 
         ## Import
 

@@ -32,17 +32,23 @@ class NotificationRecipientUserArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_management_id: pulumi.Input[str],
-             notification_type: pulumi.Input[str],
-             user_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             api_management_id: Optional[pulumi.Input[str]] = None,
+             notification_type: Optional[pulumi.Input[str]] = None,
+             user_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiManagementId' in kwargs:
+        if api_management_id is None and 'apiManagementId' in kwargs:
             api_management_id = kwargs['apiManagementId']
-        if 'notificationType' in kwargs:
+        if api_management_id is None:
+            raise TypeError("Missing 'api_management_id' argument")
+        if notification_type is None and 'notificationType' in kwargs:
             notification_type = kwargs['notificationType']
-        if 'userId' in kwargs:
+        if notification_type is None:
+            raise TypeError("Missing 'notification_type' argument")
+        if user_id is None and 'userId' in kwargs:
             user_id = kwargs['userId']
+        if user_id is None:
+            raise TypeError("Missing 'user_id' argument")
 
         _setter("api_management_id", api_management_id)
         _setter("notification_type", notification_type)
@@ -109,13 +115,13 @@ class _NotificationRecipientUserState:
              api_management_id: Optional[pulumi.Input[str]] = None,
              notification_type: Optional[pulumi.Input[str]] = None,
              user_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'apiManagementId' in kwargs:
+        if api_management_id is None and 'apiManagementId' in kwargs:
             api_management_id = kwargs['apiManagementId']
-        if 'notificationType' in kwargs:
+        if notification_type is None and 'notificationType' in kwargs:
             notification_type = kwargs['notificationType']
-        if 'userId' in kwargs:
+        if user_id is None and 'userId' in kwargs:
             user_id = kwargs['userId']
 
         if api_management_id is not None:
@@ -174,33 +180,6 @@ class NotificationRecipientUser(pulumi.CustomResource):
         """
         Manages a API Management Notification Recipient User.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            publisher_name="My Company",
-            publisher_email="company@terraform.io",
-            sku_name="Developer_1")
-        example_user = azure.apimanagement.User("exampleUser",
-            user_id="123",
-            api_management_name=example_service.name,
-            resource_group_name=example_resource_group.name,
-            first_name="Example",
-            last_name="User",
-            email="foo@bar.com",
-            state="active")
-        example_notification_recipient_user = azure.apimanagement.NotificationRecipientUser("exampleNotificationRecipientUser",
-            api_management_id=example_service.id,
-            notification_type="AccountClosedPublisher",
-            user_id=example_user.user_id)
-        ```
-
         ## Import
 
         API Management Notification Recipient Users can be imported using the `resource id`, e.g.
@@ -223,33 +202,6 @@ class NotificationRecipientUser(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a API Management Notification Recipient User.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            publisher_name="My Company",
-            publisher_email="company@terraform.io",
-            sku_name="Developer_1")
-        example_user = azure.apimanagement.User("exampleUser",
-            user_id="123",
-            api_management_name=example_service.name,
-            resource_group_name=example_resource_group.name,
-            first_name="Example",
-            last_name="User",
-            email="foo@bar.com",
-            state="active")
-        example_notification_recipient_user = azure.apimanagement.NotificationRecipientUser("exampleNotificationRecipientUser",
-            api_management_id=example_service.id,
-            notification_type="AccountClosedPublisher",
-            user_id=example_user.user_id)
-        ```
 
         ## Import
 

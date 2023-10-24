@@ -9,21 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a local network gateway connection over which specific connections can be configured.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
- * const home = new azure.network.LocalNetworkGateway("home", {
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     gatewayAddress: "12.13.14.15",
- *     addressSpaces: ["10.0.0.0/16"],
- * });
- * ```
- *
  * ## Import
  *
  * Local Network Gateways can be imported using the `resource id`, e.g.

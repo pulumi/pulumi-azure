@@ -9,59 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a VPN Gateway Connection.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualWan = new azure.network.VirtualWan("exampleVirtualWan", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- * });
- * const exampleVirtualHub = new azure.network.VirtualHub("exampleVirtualHub", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     virtualWanId: exampleVirtualWan.id,
- *     addressPrefix: "10.0.0.0/24",
- * });
- * const exampleVpnGateway = new azure.network.VpnGateway("exampleVpnGateway", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     virtualHubId: exampleVirtualHub.id,
- * });
- * const exampleVpnSite = new azure.network.VpnSite("exampleVpnSite", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     virtualWanId: exampleVirtualWan.id,
- *     links: [
- *         {
- *             name: "link1",
- *             ipAddress: "10.1.0.0",
- *         },
- *         {
- *             name: "link2",
- *             ipAddress: "10.2.0.0",
- *         },
- *     ],
- * });
- * const exampleVpnGatewayConnection = new azure.network.VpnGatewayConnection("exampleVpnGatewayConnection", {
- *     vpnGatewayId: exampleVpnGateway.id,
- *     remoteVpnSiteId: exampleVpnSite.id,
- *     vpnLinks: [
- *         {
- *             name: "link1",
- *             vpnSiteLinkId: exampleVpnSite.links.apply(links => links?.[0]?.id),
- *         },
- *         {
- *             name: "link2",
- *             vpnSiteLinkId: exampleVpnSite.links.apply(links => links?.[1]?.id),
- *         },
- *     ],
- * });
- * ```
- *
  * ## Import
  *
  * VPN Gateway Connections can be imported using the `resource id`, e.g.

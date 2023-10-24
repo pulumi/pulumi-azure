@@ -53,19 +53,29 @@ class AccountActiveDirectoryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             dns_servers: pulumi.Input[Sequence[pulumi.Input[str]]],
-             domain: pulumi.Input[str],
-             password: pulumi.Input[str],
-             smb_server_name: pulumi.Input[str],
-             username: pulumi.Input[str],
+             dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             domain: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             smb_server_name: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
              organizational_unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dnsServers' in kwargs:
+        if dns_servers is None and 'dnsServers' in kwargs:
             dns_servers = kwargs['dnsServers']
-        if 'smbServerName' in kwargs:
+        if dns_servers is None:
+            raise TypeError("Missing 'dns_servers' argument")
+        if domain is None:
+            raise TypeError("Missing 'domain' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if smb_server_name is None and 'smbServerName' in kwargs:
             smb_server_name = kwargs['smbServerName']
-        if 'organizationalUnit' in kwargs:
+        if smb_server_name is None:
+            raise TypeError("Missing 'smb_server_name' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+        if organizational_unit is None and 'organizationalUnit' in kwargs:
             organizational_unit = kwargs['organizationalUnit']
 
         _setter("dns_servers", dns_servers)
@@ -169,13 +179,19 @@ class SnapshotPolicyDailyScheduleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             hour: pulumi.Input[int],
-             minute: pulumi.Input[int],
-             snapshots_to_keep: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             hour: Optional[pulumi.Input[int]] = None,
+             minute: Optional[pulumi.Input[int]] = None,
+             snapshots_to_keep: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'snapshotsToKeep' in kwargs:
+        if hour is None:
+            raise TypeError("Missing 'hour' argument")
+        if minute is None:
+            raise TypeError("Missing 'minute' argument")
+        if snapshots_to_keep is None and 'snapshotsToKeep' in kwargs:
             snapshots_to_keep = kwargs['snapshotsToKeep']
+        if snapshots_to_keep is None:
+            raise TypeError("Missing 'snapshots_to_keep' argument")
 
         _setter("hour", hour)
         _setter("minute", minute)
@@ -235,12 +251,16 @@ class SnapshotPolicyHourlyScheduleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             minute: pulumi.Input[int],
-             snapshots_to_keep: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             minute: Optional[pulumi.Input[int]] = None,
+             snapshots_to_keep: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'snapshotsToKeep' in kwargs:
+        if minute is None:
+            raise TypeError("Missing 'minute' argument")
+        if snapshots_to_keep is None and 'snapshotsToKeep' in kwargs:
             snapshots_to_keep = kwargs['snapshotsToKeep']
+        if snapshots_to_keep is None:
+            raise TypeError("Missing 'snapshots_to_keep' argument")
 
         _setter("minute", minute)
         _setter("snapshots_to_keep", snapshots_to_keep)
@@ -293,16 +313,24 @@ class SnapshotPolicyMonthlyScheduleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             days_of_months: pulumi.Input[Sequence[pulumi.Input[int]]],
-             hour: pulumi.Input[int],
-             minute: pulumi.Input[int],
-             snapshots_to_keep: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             days_of_months: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             hour: Optional[pulumi.Input[int]] = None,
+             minute: Optional[pulumi.Input[int]] = None,
+             snapshots_to_keep: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'daysOfMonths' in kwargs:
+        if days_of_months is None and 'daysOfMonths' in kwargs:
             days_of_months = kwargs['daysOfMonths']
-        if 'snapshotsToKeep' in kwargs:
+        if days_of_months is None:
+            raise TypeError("Missing 'days_of_months' argument")
+        if hour is None:
+            raise TypeError("Missing 'hour' argument")
+        if minute is None:
+            raise TypeError("Missing 'minute' argument")
+        if snapshots_to_keep is None and 'snapshotsToKeep' in kwargs:
             snapshots_to_keep = kwargs['snapshotsToKeep']
+        if snapshots_to_keep is None:
+            raise TypeError("Missing 'snapshots_to_keep' argument")
 
         _setter("days_of_months", days_of_months)
         _setter("hour", hour)
@@ -381,16 +409,24 @@ class SnapshotPolicyWeeklyScheduleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             days_of_weeks: pulumi.Input[Sequence[pulumi.Input[str]]],
-             hour: pulumi.Input[int],
-             minute: pulumi.Input[int],
-             snapshots_to_keep: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             days_of_weeks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             hour: Optional[pulumi.Input[int]] = None,
+             minute: Optional[pulumi.Input[int]] = None,
+             snapshots_to_keep: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'daysOfWeeks' in kwargs:
+        if days_of_weeks is None and 'daysOfWeeks' in kwargs:
             days_of_weeks = kwargs['daysOfWeeks']
-        if 'snapshotsToKeep' in kwargs:
+        if days_of_weeks is None:
+            raise TypeError("Missing 'days_of_weeks' argument")
+        if hour is None:
+            raise TypeError("Missing 'hour' argument")
+        if minute is None:
+            raise TypeError("Missing 'minute' argument")
+        if snapshots_to_keep is None and 'snapshotsToKeep' in kwargs:
             snapshots_to_keep = kwargs['snapshotsToKeep']
+        if snapshots_to_keep is None:
+            raise TypeError("Missing 'snapshots_to_keep' argument")
 
         _setter("days_of_weeks", days_of_weeks)
         _setter("hour", hour)
@@ -468,19 +504,25 @@ class VolumeDataProtectionReplicationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             remote_volume_location: pulumi.Input[str],
-             remote_volume_resource_id: pulumi.Input[str],
-             replication_frequency: pulumi.Input[str],
+             remote_volume_location: Optional[pulumi.Input[str]] = None,
+             remote_volume_resource_id: Optional[pulumi.Input[str]] = None,
+             replication_frequency: Optional[pulumi.Input[str]] = None,
              endpoint_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'remoteVolumeLocation' in kwargs:
+        if remote_volume_location is None and 'remoteVolumeLocation' in kwargs:
             remote_volume_location = kwargs['remoteVolumeLocation']
-        if 'remoteVolumeResourceId' in kwargs:
+        if remote_volume_location is None:
+            raise TypeError("Missing 'remote_volume_location' argument")
+        if remote_volume_resource_id is None and 'remoteVolumeResourceId' in kwargs:
             remote_volume_resource_id = kwargs['remoteVolumeResourceId']
-        if 'replicationFrequency' in kwargs:
+        if remote_volume_resource_id is None:
+            raise TypeError("Missing 'remote_volume_resource_id' argument")
+        if replication_frequency is None and 'replicationFrequency' in kwargs:
             replication_frequency = kwargs['replicationFrequency']
-        if 'endpointType' in kwargs:
+        if replication_frequency is None:
+            raise TypeError("Missing 'replication_frequency' argument")
+        if endpoint_type is None and 'endpointType' in kwargs:
             endpoint_type = kwargs['endpointType']
 
         _setter("remote_volume_location", remote_volume_location)
@@ -546,11 +588,13 @@ class VolumeDataProtectionSnapshotPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             snapshot_policy_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             snapshot_policy_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'snapshotPolicyId' in kwargs:
+        if snapshot_policy_id is None and 'snapshotPolicyId' in kwargs:
             snapshot_policy_id = kwargs['snapshotPolicyId']
+        if snapshot_policy_id is None:
+            raise TypeError("Missing 'snapshot_policy_id' argument")
 
         _setter("snapshot_policy_id", snapshot_policy_id)
 
@@ -593,25 +637,29 @@ class VolumeExportPolicyRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             allowed_clients: pulumi.Input[Sequence[pulumi.Input[str]]],
-             rule_index: pulumi.Input[int],
+             allowed_clients: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             rule_index: Optional[pulumi.Input[int]] = None,
              protocols_enabled: Optional[pulumi.Input[str]] = None,
              root_access_enabled: Optional[pulumi.Input[bool]] = None,
              unix_read_only: Optional[pulumi.Input[bool]] = None,
              unix_read_write: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'allowedClients' in kwargs:
+        if allowed_clients is None and 'allowedClients' in kwargs:
             allowed_clients = kwargs['allowedClients']
-        if 'ruleIndex' in kwargs:
+        if allowed_clients is None:
+            raise TypeError("Missing 'allowed_clients' argument")
+        if rule_index is None and 'ruleIndex' in kwargs:
             rule_index = kwargs['ruleIndex']
-        if 'protocolsEnabled' in kwargs:
+        if rule_index is None:
+            raise TypeError("Missing 'rule_index' argument")
+        if protocols_enabled is None and 'protocolsEnabled' in kwargs:
             protocols_enabled = kwargs['protocolsEnabled']
-        if 'rootAccessEnabled' in kwargs:
+        if root_access_enabled is None and 'rootAccessEnabled' in kwargs:
             root_access_enabled = kwargs['rootAccessEnabled']
-        if 'unixReadOnly' in kwargs:
+        if unix_read_only is None and 'unixReadOnly' in kwargs:
             unix_read_only = kwargs['unixReadOnly']
-        if 'unixReadWrite' in kwargs:
+        if unix_read_write is None and 'unixReadWrite' in kwargs:
             unix_read_write = kwargs['unixReadWrite']
 
         _setter("allowed_clients", allowed_clients)
@@ -762,53 +810,77 @@ class VolumeGroupSapHanaVolumeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             capacity_pool_id: pulumi.Input[str],
-             export_policy_rules: pulumi.Input[Sequence[pulumi.Input['VolumeGroupSapHanaVolumeExportPolicyRuleArgs']]],
-             name: pulumi.Input[str],
-             protocols: pulumi.Input[str],
-             security_style: pulumi.Input[str],
-             service_level: pulumi.Input[str],
-             snapshot_directory_visible: pulumi.Input[bool],
-             storage_quota_in_gb: pulumi.Input[int],
-             subnet_id: pulumi.Input[str],
-             throughput_in_mibps: pulumi.Input[float],
-             volume_path: pulumi.Input[str],
-             volume_spec_name: pulumi.Input[str],
+             capacity_pool_id: Optional[pulumi.Input[str]] = None,
+             export_policy_rules: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeGroupSapHanaVolumeExportPolicyRuleArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             protocols: Optional[pulumi.Input[str]] = None,
+             security_style: Optional[pulumi.Input[str]] = None,
+             service_level: Optional[pulumi.Input[str]] = None,
+             snapshot_directory_visible: Optional[pulumi.Input[bool]] = None,
+             storage_quota_in_gb: Optional[pulumi.Input[int]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             throughput_in_mibps: Optional[pulumi.Input[float]] = None,
+             volume_path: Optional[pulumi.Input[str]] = None,
+             volume_spec_name: Optional[pulumi.Input[str]] = None,
              data_protection_replication: Optional[pulumi.Input['VolumeGroupSapHanaVolumeDataProtectionReplicationArgs']] = None,
              data_protection_snapshot_policy: Optional[pulumi.Input['VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs']] = None,
              id: Optional[pulumi.Input[str]] = None,
              mount_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'capacityPoolId' in kwargs:
+        if capacity_pool_id is None and 'capacityPoolId' in kwargs:
             capacity_pool_id = kwargs['capacityPoolId']
-        if 'exportPolicyRules' in kwargs:
+        if capacity_pool_id is None:
+            raise TypeError("Missing 'capacity_pool_id' argument")
+        if export_policy_rules is None and 'exportPolicyRules' in kwargs:
             export_policy_rules = kwargs['exportPolicyRules']
-        if 'securityStyle' in kwargs:
+        if export_policy_rules is None:
+            raise TypeError("Missing 'export_policy_rules' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if protocols is None:
+            raise TypeError("Missing 'protocols' argument")
+        if security_style is None and 'securityStyle' in kwargs:
             security_style = kwargs['securityStyle']
-        if 'serviceLevel' in kwargs:
+        if security_style is None:
+            raise TypeError("Missing 'security_style' argument")
+        if service_level is None and 'serviceLevel' in kwargs:
             service_level = kwargs['serviceLevel']
-        if 'snapshotDirectoryVisible' in kwargs:
+        if service_level is None:
+            raise TypeError("Missing 'service_level' argument")
+        if snapshot_directory_visible is None and 'snapshotDirectoryVisible' in kwargs:
             snapshot_directory_visible = kwargs['snapshotDirectoryVisible']
-        if 'storageQuotaInGb' in kwargs:
+        if snapshot_directory_visible is None:
+            raise TypeError("Missing 'snapshot_directory_visible' argument")
+        if storage_quota_in_gb is None and 'storageQuotaInGb' in kwargs:
             storage_quota_in_gb = kwargs['storageQuotaInGb']
-        if 'subnetId' in kwargs:
+        if storage_quota_in_gb is None:
+            raise TypeError("Missing 'storage_quota_in_gb' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'throughputInMibps' in kwargs:
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+        if throughput_in_mibps is None and 'throughputInMibps' in kwargs:
             throughput_in_mibps = kwargs['throughputInMibps']
-        if 'volumePath' in kwargs:
+        if throughput_in_mibps is None:
+            raise TypeError("Missing 'throughput_in_mibps' argument")
+        if volume_path is None and 'volumePath' in kwargs:
             volume_path = kwargs['volumePath']
-        if 'volumeSpecName' in kwargs:
+        if volume_path is None:
+            raise TypeError("Missing 'volume_path' argument")
+        if volume_spec_name is None and 'volumeSpecName' in kwargs:
             volume_spec_name = kwargs['volumeSpecName']
-        if 'dataProtectionReplication' in kwargs:
+        if volume_spec_name is None:
+            raise TypeError("Missing 'volume_spec_name' argument")
+        if data_protection_replication is None and 'dataProtectionReplication' in kwargs:
             data_protection_replication = kwargs['dataProtectionReplication']
-        if 'dataProtectionSnapshotPolicy' in kwargs:
+        if data_protection_snapshot_policy is None and 'dataProtectionSnapshotPolicy' in kwargs:
             data_protection_snapshot_policy = kwargs['dataProtectionSnapshotPolicy']
-        if 'mountIpAddresses' in kwargs:
+        if mount_ip_addresses is None and 'mountIpAddresses' in kwargs:
             mount_ip_addresses = kwargs['mountIpAddresses']
-        if 'proximityPlacementGroupId' in kwargs:
+        if proximity_placement_group_id is None and 'proximityPlacementGroupId' in kwargs:
             proximity_placement_group_id = kwargs['proximityPlacementGroupId']
 
         _setter("capacity_pool_id", capacity_pool_id)
@@ -1073,19 +1145,25 @@ class VolumeGroupSapHanaVolumeDataProtectionReplicationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             remote_volume_location: pulumi.Input[str],
-             remote_volume_resource_id: pulumi.Input[str],
-             replication_frequency: pulumi.Input[str],
+             remote_volume_location: Optional[pulumi.Input[str]] = None,
+             remote_volume_resource_id: Optional[pulumi.Input[str]] = None,
+             replication_frequency: Optional[pulumi.Input[str]] = None,
              endpoint_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'remoteVolumeLocation' in kwargs:
+        if remote_volume_location is None and 'remoteVolumeLocation' in kwargs:
             remote_volume_location = kwargs['remoteVolumeLocation']
-        if 'remoteVolumeResourceId' in kwargs:
+        if remote_volume_location is None:
+            raise TypeError("Missing 'remote_volume_location' argument")
+        if remote_volume_resource_id is None and 'remoteVolumeResourceId' in kwargs:
             remote_volume_resource_id = kwargs['remoteVolumeResourceId']
-        if 'replicationFrequency' in kwargs:
+        if remote_volume_resource_id is None:
+            raise TypeError("Missing 'remote_volume_resource_id' argument")
+        if replication_frequency is None and 'replicationFrequency' in kwargs:
             replication_frequency = kwargs['replicationFrequency']
-        if 'endpointType' in kwargs:
+        if replication_frequency is None:
+            raise TypeError("Missing 'replication_frequency' argument")
+        if endpoint_type is None and 'endpointType' in kwargs:
             endpoint_type = kwargs['endpointType']
 
         _setter("remote_volume_location", remote_volume_location)
@@ -1157,11 +1235,13 @@ class VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             snapshot_policy_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             snapshot_policy_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'snapshotPolicyId' in kwargs:
+        if snapshot_policy_id is None and 'snapshotPolicyId' in kwargs:
             snapshot_policy_id = kwargs['snapshotPolicyId']
+        if snapshot_policy_id is None:
+            raise TypeError("Missing 'snapshot_policy_id' argument")
 
         _setter("snapshot_policy_id", snapshot_policy_id)
 
@@ -1210,28 +1290,36 @@ class VolumeGroupSapHanaVolumeExportPolicyRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             allowed_clients: pulumi.Input[str],
-             nfsv3_enabled: pulumi.Input[bool],
-             nfsv41_enabled: pulumi.Input[bool],
-             rule_index: pulumi.Input[int],
+             allowed_clients: Optional[pulumi.Input[str]] = None,
+             nfsv3_enabled: Optional[pulumi.Input[bool]] = None,
+             nfsv41_enabled: Optional[pulumi.Input[bool]] = None,
+             rule_index: Optional[pulumi.Input[int]] = None,
              root_access_enabled: Optional[pulumi.Input[bool]] = None,
              unix_read_only: Optional[pulumi.Input[bool]] = None,
              unix_read_write: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'allowedClients' in kwargs:
+        if allowed_clients is None and 'allowedClients' in kwargs:
             allowed_clients = kwargs['allowedClients']
-        if 'nfsv3Enabled' in kwargs:
+        if allowed_clients is None:
+            raise TypeError("Missing 'allowed_clients' argument")
+        if nfsv3_enabled is None and 'nfsv3Enabled' in kwargs:
             nfsv3_enabled = kwargs['nfsv3Enabled']
-        if 'nfsv41Enabled' in kwargs:
+        if nfsv3_enabled is None:
+            raise TypeError("Missing 'nfsv3_enabled' argument")
+        if nfsv41_enabled is None and 'nfsv41Enabled' in kwargs:
             nfsv41_enabled = kwargs['nfsv41Enabled']
-        if 'ruleIndex' in kwargs:
+        if nfsv41_enabled is None:
+            raise TypeError("Missing 'nfsv41_enabled' argument")
+        if rule_index is None and 'ruleIndex' in kwargs:
             rule_index = kwargs['ruleIndex']
-        if 'rootAccessEnabled' in kwargs:
+        if rule_index is None:
+            raise TypeError("Missing 'rule_index' argument")
+        if root_access_enabled is None and 'rootAccessEnabled' in kwargs:
             root_access_enabled = kwargs['rootAccessEnabled']
-        if 'unixReadOnly' in kwargs:
+        if unix_read_only is None and 'unixReadOnly' in kwargs:
             unix_read_only = kwargs['unixReadOnly']
-        if 'unixReadWrite' in kwargs:
+        if unix_read_write is None and 'unixReadWrite' in kwargs:
             unix_read_write = kwargs['unixReadWrite']
 
         _setter("allowed_clients", allowed_clients)

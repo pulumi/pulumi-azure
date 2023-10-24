@@ -34,15 +34,19 @@ class VaultResourceGuardAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_guard_id: pulumi.Input[str],
-             vault_id: pulumi.Input[str],
+             resource_guard_id: Optional[pulumi.Input[str]] = None,
+             vault_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGuardId' in kwargs:
+        if resource_guard_id is None and 'resourceGuardId' in kwargs:
             resource_guard_id = kwargs['resourceGuardId']
-        if 'vaultId' in kwargs:
+        if resource_guard_id is None:
+            raise TypeError("Missing 'resource_guard_id' argument")
+        if vault_id is None and 'vaultId' in kwargs:
             vault_id = kwargs['vaultId']
+        if vault_id is None:
+            raise TypeError("Missing 'vault_id' argument")
 
         _setter("resource_guard_id", resource_guard_id)
         _setter("vault_id", vault_id)
@@ -120,11 +124,11 @@ class _VaultResourceGuardAssociationState:
              name: Optional[pulumi.Input[str]] = None,
              resource_guard_id: Optional[pulumi.Input[str]] = None,
              vault_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGuardId' in kwargs:
+        if resource_guard_id is None and 'resourceGuardId' in kwargs:
             resource_guard_id = kwargs['resourceGuardId']
-        if 'vaultId' in kwargs:
+        if vault_id is None and 'vaultId' in kwargs:
             vault_id = kwargs['vaultId']
 
         if name is not None:
@@ -191,26 +195,6 @@ class VaultResourceGuardAssociation(pulumi.CustomResource):
         """
         Manages an association of a Resource Guard and Recovery Services Vault.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_resource_guard = azure.dataprotection.ResourceGuard("exampleResourceGuard",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        vault = azure.recoveryservices.Vault("vault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard",
-            soft_delete_enabled=True)
-        test = azure.recoveryservices.VaultResourceGuardAssociation("test",
-            vault_id=azurerm_recovery_services_vault["test"]["id"],
-            resource_guard_id=azurerm_data_protection_resource_guard["test"]["id"])
-        ```
-
         ## Import
 
         Resource Guards can be imported using the `resource id`, e.g.
@@ -235,26 +219,6 @@ class VaultResourceGuardAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an association of a Resource Guard and Recovery Services Vault.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_resource_guard = azure.dataprotection.ResourceGuard("exampleResourceGuard",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        vault = azure.recoveryservices.Vault("vault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard",
-            soft_delete_enabled=True)
-        test = azure.recoveryservices.VaultResourceGuardAssociation("test",
-            vault_id=azurerm_recovery_services_vault["test"]["id"],
-            resource_guard_id=azurerm_data_protection_resource_guard["test"]["id"])
-        ```
 
         ## Import
 

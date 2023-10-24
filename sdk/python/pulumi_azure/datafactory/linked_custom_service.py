@@ -52,24 +52,30 @@ class LinkedCustomServiceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_factory_id: pulumi.Input[str],
-             type: pulumi.Input[str],
-             type_properties_json: pulumi.Input[str],
+             data_factory_id: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             type_properties_json: Optional[pulumi.Input[str]] = None,
              additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              description: Optional[pulumi.Input[str]] = None,
              integration_runtime: Optional[pulumi.Input['LinkedCustomServiceIntegrationRuntimeArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'typePropertiesJson' in kwargs:
+        if data_factory_id is None:
+            raise TypeError("Missing 'data_factory_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if type_properties_json is None and 'typePropertiesJson' in kwargs:
             type_properties_json = kwargs['typePropertiesJson']
-        if 'additionalProperties' in kwargs:
+        if type_properties_json is None:
+            raise TypeError("Missing 'type_properties_json' argument")
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'integrationRuntime' in kwargs:
+        if integration_runtime is None and 'integrationRuntime' in kwargs:
             integration_runtime = kwargs['integrationRuntime']
 
         _setter("data_factory_id", data_factory_id)
@@ -245,15 +251,15 @@ class _LinkedCustomServiceState:
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              type: Optional[pulumi.Input[str]] = None,
              type_properties_json: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'additionalProperties' in kwargs:
+        if additional_properties is None and 'additionalProperties' in kwargs:
             additional_properties = kwargs['additionalProperties']
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'integrationRuntime' in kwargs:
+        if integration_runtime is None and 'integrationRuntime' in kwargs:
             integration_runtime = kwargs['integrationRuntime']
-        if 'typePropertiesJson' in kwargs:
+        if type_properties_json is None and 'typePropertiesJson' in kwargs:
             type_properties_json = kwargs['typePropertiesJson']
 
         if additional_properties is not None:
@@ -402,44 +408,6 @@ class LinkedCustomService(pulumi.CustomResource):
         """
         Manages a Linked Service (connection) between a resource and Azure Data Factory. This is a generic resource that supports all different Linked Service Types.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            identity=azure.datafactory.FactoryIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_kind="BlobStorage",
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_linked_custom_service = azure.datafactory.LinkedCustomService("exampleLinkedCustomService",
-            data_factory_id=example_factory.id,
-            type="AzureBlobStorage",
-            description="test description",
-            type_properties_json=example_account.primary_connection_string.apply(lambda primary_connection_string: f\"\"\"{{
-          "connectionString":"{primary_connection_string}"
-        }}
-        \"\"\"),
-            parameters={
-                "foo": "bar",
-                "Env": "Test",
-            },
-            annotations=[
-                "test1",
-                "test2",
-                "test3",
-            ])
-        ```
-
         ## Import
 
         Data Factory Linked Service's can be imported using the `resource id`, e.g.
@@ -468,44 +436,6 @@ class LinkedCustomService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Linked Service (connection) between a resource and Azure Data Factory. This is a generic resource that supports all different Linked Service Types.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            identity=azure.datafactory.FactoryIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_kind="BlobStorage",
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_linked_custom_service = azure.datafactory.LinkedCustomService("exampleLinkedCustomService",
-            data_factory_id=example_factory.id,
-            type="AzureBlobStorage",
-            description="test description",
-            type_properties_json=example_account.primary_connection_string.apply(lambda primary_connection_string: f\"\"\"{{
-          "connectionString":"{primary_connection_string}"
-        }}
-        \"\"\"),
-            parameters={
-                "foo": "bar",
-                "Env": "Test",
-            },
-            annotations=[
-                "test1",
-                "test2",
-                "test3",
-            ])
-        ```
 
         ## Import
 
@@ -558,11 +488,7 @@ class LinkedCustomService(pulumi.CustomResource):
                 raise TypeError("Missing required property 'data_factory_id'")
             __props__.__dict__["data_factory_id"] = data_factory_id
             __props__.__dict__["description"] = description
-            if integration_runtime is not None and not isinstance(integration_runtime, LinkedCustomServiceIntegrationRuntimeArgs):
-                integration_runtime = integration_runtime or {}
-                def _setter(key, value):
-                    integration_runtime[key] = value
-                LinkedCustomServiceIntegrationRuntimeArgs._configure(_setter, **integration_runtime)
+            integration_runtime = _utilities.configure(integration_runtime, LinkedCustomServiceIntegrationRuntimeArgs, True)
             __props__.__dict__["integration_runtime"] = integration_runtime
             __props__.__dict__["name"] = name
             __props__.__dict__["parameters"] = parameters

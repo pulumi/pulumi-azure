@@ -13,66 +13,12 @@ namespace Pulumi.Azure.Lb
     {
         /// <summary>
         /// Use this data source to access information about an existing Load Balancer Outbound Rule.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Lb.GetLBOutboundRule.Invoke(new()
-        ///     {
-        ///         Name = "existing_lb_outbound_rule",
-        ///         LoadbalancerId = "existing_load_balancer_id",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["id"] = example.Apply(getLBOutboundRuleResult =&gt; getLBOutboundRuleResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetLBOutboundRuleResult> InvokeAsync(GetLBOutboundRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLBOutboundRuleResult>("azure:lb/getLBOutboundRule:getLBOutboundRule", args ?? new GetLBOutboundRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Load Balancer Outbound Rule.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Lb.GetLBOutboundRule.Invoke(new()
-        ///     {
-        ///         Name = "existing_lb_outbound_rule",
-        ///         LoadbalancerId = "existing_load_balancer_id",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["id"] = example.Apply(getLBOutboundRuleResult =&gt; getLBOutboundRuleResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetLBOutboundRuleResult> Invoke(GetLBOutboundRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLBOutboundRuleResult>("azure:lb/getLBOutboundRule:getLBOutboundRule", args ?? new GetLBOutboundRuleInvokeArgs(), options.WithDefaults());

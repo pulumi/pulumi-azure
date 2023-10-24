@@ -70,8 +70,8 @@ class InsightsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_type: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             application_type: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              daily_data_cap_in_gb: Optional[pulumi.Input[float]] = None,
              daily_data_cap_notifications_disabled: Optional[pulumi.Input[bool]] = None,
              disable_ip_masking: Optional[pulumi.Input[bool]] = None,
@@ -85,31 +85,35 @@ class InsightsArgs:
              sampling_percentage: Optional[pulumi.Input[float]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'applicationType' in kwargs:
+        if application_type is None and 'applicationType' in kwargs:
             application_type = kwargs['applicationType']
-        if 'resourceGroupName' in kwargs:
+        if application_type is None:
+            raise TypeError("Missing 'application_type' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'dailyDataCapInGb' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if daily_data_cap_in_gb is None and 'dailyDataCapInGb' in kwargs:
             daily_data_cap_in_gb = kwargs['dailyDataCapInGb']
-        if 'dailyDataCapNotificationsDisabled' in kwargs:
+        if daily_data_cap_notifications_disabled is None and 'dailyDataCapNotificationsDisabled' in kwargs:
             daily_data_cap_notifications_disabled = kwargs['dailyDataCapNotificationsDisabled']
-        if 'disableIpMasking' in kwargs:
+        if disable_ip_masking is None and 'disableIpMasking' in kwargs:
             disable_ip_masking = kwargs['disableIpMasking']
-        if 'forceCustomerStorageForProfiler' in kwargs:
+        if force_customer_storage_for_profiler is None and 'forceCustomerStorageForProfiler' in kwargs:
             force_customer_storage_for_profiler = kwargs['forceCustomerStorageForProfiler']
-        if 'internetIngestionEnabled' in kwargs:
+        if internet_ingestion_enabled is None and 'internetIngestionEnabled' in kwargs:
             internet_ingestion_enabled = kwargs['internetIngestionEnabled']
-        if 'internetQueryEnabled' in kwargs:
+        if internet_query_enabled is None and 'internetQueryEnabled' in kwargs:
             internet_query_enabled = kwargs['internetQueryEnabled']
-        if 'localAuthenticationDisabled' in kwargs:
+        if local_authentication_disabled is None and 'localAuthenticationDisabled' in kwargs:
             local_authentication_disabled = kwargs['localAuthenticationDisabled']
-        if 'retentionInDays' in kwargs:
+        if retention_in_days is None and 'retentionInDays' in kwargs:
             retention_in_days = kwargs['retentionInDays']
-        if 'samplingPercentage' in kwargs:
+        if sampling_percentage is None and 'samplingPercentage' in kwargs:
             sampling_percentage = kwargs['samplingPercentage']
-        if 'workspaceId' in kwargs:
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
 
         _setter("application_type", application_type)
@@ -410,37 +414,37 @@ class _InsightsState:
              sampling_percentage: Optional[pulumi.Input[float]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'appId' in kwargs:
+        if app_id is None and 'appId' in kwargs:
             app_id = kwargs['appId']
-        if 'applicationType' in kwargs:
+        if application_type is None and 'applicationType' in kwargs:
             application_type = kwargs['applicationType']
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
-        if 'dailyDataCapInGb' in kwargs:
+        if daily_data_cap_in_gb is None and 'dailyDataCapInGb' in kwargs:
             daily_data_cap_in_gb = kwargs['dailyDataCapInGb']
-        if 'dailyDataCapNotificationsDisabled' in kwargs:
+        if daily_data_cap_notifications_disabled is None and 'dailyDataCapNotificationsDisabled' in kwargs:
             daily_data_cap_notifications_disabled = kwargs['dailyDataCapNotificationsDisabled']
-        if 'disableIpMasking' in kwargs:
+        if disable_ip_masking is None and 'disableIpMasking' in kwargs:
             disable_ip_masking = kwargs['disableIpMasking']
-        if 'forceCustomerStorageForProfiler' in kwargs:
+        if force_customer_storage_for_profiler is None and 'forceCustomerStorageForProfiler' in kwargs:
             force_customer_storage_for_profiler = kwargs['forceCustomerStorageForProfiler']
-        if 'instrumentationKey' in kwargs:
+        if instrumentation_key is None and 'instrumentationKey' in kwargs:
             instrumentation_key = kwargs['instrumentationKey']
-        if 'internetIngestionEnabled' in kwargs:
+        if internet_ingestion_enabled is None and 'internetIngestionEnabled' in kwargs:
             internet_ingestion_enabled = kwargs['internetIngestionEnabled']
-        if 'internetQueryEnabled' in kwargs:
+        if internet_query_enabled is None and 'internetQueryEnabled' in kwargs:
             internet_query_enabled = kwargs['internetQueryEnabled']
-        if 'localAuthenticationDisabled' in kwargs:
+        if local_authentication_disabled is None and 'localAuthenticationDisabled' in kwargs:
             local_authentication_disabled = kwargs['localAuthenticationDisabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'retentionInDays' in kwargs:
+        if retention_in_days is None and 'retentionInDays' in kwargs:
             retention_in_days = kwargs['retentionInDays']
-        if 'samplingPercentage' in kwargs:
+        if sampling_percentage is None and 'samplingPercentage' in kwargs:
             sampling_percentage = kwargs['samplingPercentage']
-        if 'workspaceId' in kwargs:
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
 
         if app_id is not None:
@@ -723,41 +727,6 @@ class Insights(pulumi.CustomResource):
         """
         Manages an Application Insights component.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_type="web")
-        pulumi.export("instrumentationKey", example_insights.instrumentation_key)
-        pulumi.export("appId", example_insights.app_id)
-        ```
-        ### Workspace Mode
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="PerGB2018",
-            retention_in_days=30)
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            workspace_id=example_analytics_workspace.id,
-            application_type="web")
-        pulumi.export("instrumentationKey", example_insights.instrumentation_key)
-        pulumi.export("appId", example_insights.app_id)
-        ```
-
         ## Import
 
         Application Insights instances can be imported using the `resource id`, e.g.
@@ -794,41 +763,6 @@ class Insights(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Application Insights component.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_type="web")
-        pulumi.export("instrumentationKey", example_insights.instrumentation_key)
-        pulumi.export("appId", example_insights.app_id)
-        ```
-        ### Workspace Mode
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="PerGB2018",
-            retention_in_days=30)
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            workspace_id=example_analytics_workspace.id,
-            application_type="web")
-        pulumi.export("instrumentationKey", example_insights.instrumentation_key)
-        pulumi.export("appId", example_insights.app_id)
-        ```
 
         ## Import
 

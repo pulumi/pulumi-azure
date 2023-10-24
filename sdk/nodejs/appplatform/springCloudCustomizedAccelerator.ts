@@ -9,36 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Spring Cloud Customized Accelerator.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "west europe"});
- * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("exampleSpringCloudService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "E0",
- * });
- * const exampleSpringCloudAccelerator = new azure.appplatform.SpringCloudAccelerator("exampleSpringCloudAccelerator", {springCloudServiceId: exampleSpringCloudService.id});
- * const exampleSpringCloudCustomizedAccelerator = new azure.appplatform.SpringCloudCustomizedAccelerator("exampleSpringCloudCustomizedAccelerator", {
- *     springCloudAcceleratorId: exampleSpringCloudAccelerator.id,
- *     gitRepository: {
- *         url: "https://github.com/Azure-Samples/piggymetrics",
- *         gitTag: "spring.version.2.0.3",
- *         intervalInSeconds: 100,
- *     },
- *     acceleratorTags: [
- *         "tag-a",
- *         "tag-b",
- *     ],
- *     description: "example description",
- *     displayName: "example name",
- *     iconUrl: "https://images.freecreatives.com/wp-content/uploads/2015/05/smiley-559124_640.jpg",
- * });
- * ```
- *
  * ## Import
  *
  * Spring Cloud Customized Accelerators can be imported using the `resource id`, e.g.

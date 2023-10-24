@@ -15,64 +15,6 @@ import (
 
 // Manages an Azure Cosmos DB SQL API Dataset inside an Azure Data Factory.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := cosmosdb.LookupAccount(ctx, &cosmosdb.LookupAccountArgs{
-//				Name:              "tfex-cosmosdb-account",
-//				ResourceGroupName: "tfex-cosmosdb-account-rg",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleLinkedServiceCosmosDb, err := datafactory.NewLinkedServiceCosmosDb(ctx, "exampleLinkedServiceCosmosDb", &datafactory.LinkedServiceCosmosDbArgs{
-//				DataFactoryId:   exampleFactory.ID(),
-//				AccountEndpoint: *pulumi.String(exampleAccount.Endpoint),
-//				Database:        pulumi.String("foo"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = datafactory.NewDatasetCosmosDBApi(ctx, "exampleDatasetCosmosDBApi", &datafactory.DatasetCosmosDBApiArgs{
-//				DataFactoryId:     exampleFactory.ID(),
-//				LinkedServiceName: exampleLinkedServiceCosmosDb.Name,
-//				CollectionName:    pulumi.String("bar"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Data Factory Datasets can be imported using the `resource id`, e.g.

@@ -9,31 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Palo Alto Local Rulestack Rule.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleLocalRulestack = new azure.paloalto.LocalRulestack("exampleLocalRulestack", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- * });
- * const exampleLocalRulestackRule = new azure.paloalto.LocalRulestackRule("exampleLocalRulestackRule", {
- *     rulestackId: exampleLocalRulestack.id,
- *     priority: 1000,
- *     action: "Allow",
- *     applications: ["any"],
- *     source: {
- *         cidrs: ["10.0.0.0/8"],
- *     },
- *     destination: {
- *         cidrs: ["192.168.16.0/24"],
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Palo Alto Local Rulestack Rules can be imported using the `resource id`, e.g.

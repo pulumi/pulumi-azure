@@ -9,33 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Cosmos DB SQL API Dataset inside an Azure Data Factory.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = azure.cosmosdb.getAccount({
- *     name: "tfex-cosmosdb-account",
- *     resourceGroupName: "tfex-cosmosdb-account-rg",
- * });
- * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleLinkedServiceCosmosDb = new azure.datafactory.LinkedServiceCosmosDb("exampleLinkedServiceCosmosDb", {
- *     dataFactoryId: exampleFactory.id,
- *     accountEndpoint: exampleAccount.then(exampleAccount => exampleAccount.endpoint),
- *     database: "foo",
- * });
- * const exampleDatasetCosmosDBApi = new azure.datafactory.DatasetCosmosDBApi("exampleDatasetCosmosDBApi", {
- *     dataFactoryId: exampleFactory.id,
- *     linkedServiceName: exampleLinkedServiceCosmosDb.name,
- *     collectionName: "bar",
- * });
- * ```
- *
  * ## Import
  *
  * Data Factory Datasets can be imported using the `resource id`, e.g.

@@ -47,25 +47,31 @@ class TimeSeriesInsightsStandardEnvironmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_retention_time: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             sku_name: pulumi.Input[str],
+             data_retention_time: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              partition_key: Optional[pulumi.Input[str]] = None,
              storage_limit_exceeded_behavior: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dataRetentionTime' in kwargs:
+        if data_retention_time is None and 'dataRetentionTime' in kwargs:
             data_retention_time = kwargs['dataRetentionTime']
-        if 'resourceGroupName' in kwargs:
+        if data_retention_time is None:
+            raise TypeError("Missing 'data_retention_time' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'partitionKey' in kwargs:
+        if sku_name is None:
+            raise TypeError("Missing 'sku_name' argument")
+        if partition_key is None and 'partitionKey' in kwargs:
             partition_key = kwargs['partitionKey']
-        if 'storageLimitExceededBehavior' in kwargs:
+        if storage_limit_exceeded_behavior is None and 'storageLimitExceededBehavior' in kwargs:
             storage_limit_exceeded_behavior = kwargs['storageLimitExceededBehavior']
 
         _setter("data_retention_time", data_retention_time)
@@ -223,17 +229,17 @@ class _TimeSeriesInsightsStandardEnvironmentState:
              sku_name: Optional[pulumi.Input[str]] = None,
              storage_limit_exceeded_behavior: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dataRetentionTime' in kwargs:
+        if data_retention_time is None and 'dataRetentionTime' in kwargs:
             data_retention_time = kwargs['dataRetentionTime']
-        if 'partitionKey' in kwargs:
+        if partition_key is None and 'partitionKey' in kwargs:
             partition_key = kwargs['partitionKey']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'storageLimitExceededBehavior' in kwargs:
+        if storage_limit_exceeded_behavior is None and 'storageLimitExceededBehavior' in kwargs:
             storage_limit_exceeded_behavior = kwargs['storageLimitExceededBehavior']
 
         if data_retention_time is not None:
@@ -367,20 +373,6 @@ class TimeSeriesInsightsStandardEnvironment(pulumi.CustomResource):
         """
         Manages an Azure IoT Time Series Insights Standard Environment.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_time_series_insights_standard_environment = azure.iot.TimeSeriesInsightsStandardEnvironment("exampleTimeSeriesInsightsStandardEnvironment",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="S1_1",
-            data_retention_time="P30D")
-        ```
-
         ## Import
 
         Azure IoT Time Series Insights Standard Environment can be imported using the `resource id`, e.g.
@@ -408,20 +400,6 @@ class TimeSeriesInsightsStandardEnvironment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure IoT Time Series Insights Standard Environment.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_time_series_insights_standard_environment = azure.iot.TimeSeriesInsightsStandardEnvironment("exampleTimeSeriesInsightsStandardEnvironment",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="S1_1",
-            data_retention_time="P30D")
-        ```
 
         ## Import
 

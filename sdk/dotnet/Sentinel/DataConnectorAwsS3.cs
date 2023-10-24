@@ -12,47 +12,6 @@ namespace Pulumi.Azure.Sentinel
     /// <summary>
     /// Manages a AWS S3 Data Connector.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Sku = "PerGB2018",
-    ///     });
-    /// 
-    ///     var exampleLogAnalyticsWorkspaceOnboarding = new Azure.Sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", new()
-    ///     {
-    ///         WorkspaceId = exampleAnalyticsWorkspace.Id,
-    ///     });
-    /// 
-    ///     var exampleDataConnectorAwsS3 = new Azure.Sentinel.DataConnectorAwsS3("exampleDataConnectorAwsS3", new()
-    ///     {
-    ///         LogAnalyticsWorkspaceId = exampleLogAnalyticsWorkspaceOnboarding.WorkspaceId,
-    ///         AwsRoleArn = "arn:aws:iam::000000000000:role/role1",
-    ///         DestinationTable = "AWSGuardDuty",
-    ///         SqsUrls = new[]
-    ///         {
-    ///             "https://sqs.us-east-1.amazonaws.com/000000000000/example",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// AWS S3 Data Connectors can be imported using the `resource id`, e.g.

@@ -15,52 +15,6 @@ import (
 
 // Manages a Confidential Ledger.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/confidentialledger"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := core.GetClientConfig(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = confidentialledger.NewLedger(ctx, "ledger", &confidentialledger.LedgerArgs{
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				LedgerType:        pulumi.String("Private"),
-//				AzureadBasedServicePrincipals: confidentialledger.LedgerAzureadBasedServicePrincipalArray{
-//					&confidentialledger.LedgerAzureadBasedServicePrincipalArgs{
-//						PrincipalId:    *pulumi.String(current.ObjectId),
-//						TenantId:       *pulumi.String(current.TenantId),
-//						LedgerRoleName: pulumi.String("Administrator"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Confidential Ledgers can be imported using the `resource id`, e.g.

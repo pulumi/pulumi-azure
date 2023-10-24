@@ -12,68 +12,6 @@ namespace Pulumi.Azure.Synapse
     /// <summary>
     /// Manages a Synapse Workspace Extended Auditing Policy.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         AccountTier = "Standard",
-    ///         AccountReplicationType = "LRS",
-    ///         AccountKind = "BlobStorage",
-    ///     });
-    /// 
-    ///     var exampleDataLakeGen2Filesystem = new Azure.Storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", new()
-    ///     {
-    ///         StorageAccountId = exampleAccount.Id,
-    ///     });
-    /// 
-    ///     var exampleWorkspace = new Azure.Synapse.Workspace("exampleWorkspace", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         StorageDataLakeGen2FilesystemId = exampleDataLakeGen2Filesystem.Id,
-    ///         SqlAdministratorLogin = "sqladminuser",
-    ///         SqlAdministratorLoginPassword = "H@Sh1CoR3!",
-    ///         Identity = new Azure.Synapse.Inputs.WorkspaceIdentityArgs
-    ///         {
-    ///             Type = "SystemAssigned",
-    ///         },
-    ///     });
-    /// 
-    ///     var auditLogs = new Azure.Storage.Account("auditLogs", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         AccountTier = "Standard",
-    ///         AccountReplicationType = "LRS",
-    ///     });
-    /// 
-    ///     var exampleWorkspaceExtendedAuditingPolicy = new Azure.Synapse.WorkspaceExtendedAuditingPolicy("exampleWorkspaceExtendedAuditingPolicy", new()
-    ///     {
-    ///         SynapseWorkspaceId = exampleWorkspace.Id,
-    ///         StorageEndpoint = auditLogs.PrimaryBlobEndpoint,
-    ///         StorageAccountAccessKey = auditLogs.PrimaryAccessKey,
-    ///         StorageAccountAccessKeyIsSecondary = false,
-    ///         RetentionInDays = 6,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Synapse Workspace Extended Auditing Policies can be imported using the `resource id`, e.g.

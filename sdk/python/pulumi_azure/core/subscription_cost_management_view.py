@@ -55,26 +55,40 @@ class SubscriptionCostManagementViewArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             accumulated: pulumi.Input[bool],
-             chart_type: pulumi.Input[str],
-             dataset: pulumi.Input['SubscriptionCostManagementViewDatasetArgs'],
-             display_name: pulumi.Input[str],
-             report_type: pulumi.Input[str],
-             subscription_id: pulumi.Input[str],
-             timeframe: pulumi.Input[str],
+             accumulated: Optional[pulumi.Input[bool]] = None,
+             chart_type: Optional[pulumi.Input[str]] = None,
+             dataset: Optional[pulumi.Input['SubscriptionCostManagementViewDatasetArgs']] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             report_type: Optional[pulumi.Input[str]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
+             timeframe: Optional[pulumi.Input[str]] = None,
              kpis: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewKpiArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              pivots: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewPivotArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'chartType' in kwargs:
+        if accumulated is None:
+            raise TypeError("Missing 'accumulated' argument")
+        if chart_type is None and 'chartType' in kwargs:
             chart_type = kwargs['chartType']
-        if 'displayName' in kwargs:
+        if chart_type is None:
+            raise TypeError("Missing 'chart_type' argument")
+        if dataset is None:
+            raise TypeError("Missing 'dataset' argument")
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'reportType' in kwargs:
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if report_type is None and 'reportType' in kwargs:
             report_type = kwargs['reportType']
-        if 'subscriptionId' in kwargs:
+        if report_type is None:
+            raise TypeError("Missing 'report_type' argument")
+        if subscription_id is None and 'subscriptionId' in kwargs:
             subscription_id = kwargs['subscriptionId']
+        if subscription_id is None:
+            raise TypeError("Missing 'subscription_id' argument")
+        if timeframe is None:
+            raise TypeError("Missing 'timeframe' argument")
 
         _setter("accumulated", accumulated)
         _setter("chart_type", chart_type)
@@ -263,15 +277,15 @@ class _SubscriptionCostManagementViewState:
              report_type: Optional[pulumi.Input[str]] = None,
              subscription_id: Optional[pulumi.Input[str]] = None,
              timeframe: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'chartType' in kwargs:
+        if chart_type is None and 'chartType' in kwargs:
             chart_type = kwargs['chartType']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'reportType' in kwargs:
+        if report_type is None and 'reportType' in kwargs:
             report_type = kwargs['reportType']
-        if 'subscriptionId' in kwargs:
+        if subscription_id is None and 'subscriptionId' in kwargs:
             subscription_id = kwargs['subscriptionId']
 
         if accumulated is not None:
@@ -435,28 +449,6 @@ class SubscriptionCostManagementView(pulumi.CustomResource):
         """
         Manages an Azure Cost Management View for a Subscription.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.SubscriptionCostManagementView("example",
-            accumulated=False,
-            chart_type="StackedColumn",
-            dataset=azure.core.SubscriptionCostManagementViewDatasetArgs(
-                aggregations=[azure.core.SubscriptionCostManagementViewDatasetAggregationArgs(
-                    column_name="Cost",
-                    name="totalCost",
-                )],
-                granularity="Monthly",
-            ),
-            display_name="Cost View per Month",
-            report_type="Usage",
-            subscription_id="/subscription/00000000-0000-0000-0000-000000000000",
-            timeframe="MonthToDate")
-        ```
-
         ## Import
 
         Cost Management View for a Subscriptions can be imported using the `resource id`, e.g.
@@ -486,28 +478,6 @@ class SubscriptionCostManagementView(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Cost Management View for a Subscription.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.SubscriptionCostManagementView("example",
-            accumulated=False,
-            chart_type="StackedColumn",
-            dataset=azure.core.SubscriptionCostManagementViewDatasetArgs(
-                aggregations=[azure.core.SubscriptionCostManagementViewDatasetAggregationArgs(
-                    column_name="Cost",
-                    name="totalCost",
-                )],
-                granularity="Monthly",
-            ),
-            display_name="Cost View per Month",
-            report_type="Usage",
-            subscription_id="/subscription/00000000-0000-0000-0000-000000000000",
-            timeframe="MonthToDate")
-        ```
 
         ## Import
 
@@ -561,11 +531,7 @@ class SubscriptionCostManagementView(pulumi.CustomResource):
             if chart_type is None and not opts.urn:
                 raise TypeError("Missing required property 'chart_type'")
             __props__.__dict__["chart_type"] = chart_type
-            if dataset is not None and not isinstance(dataset, SubscriptionCostManagementViewDatasetArgs):
-                dataset = dataset or {}
-                def _setter(key, value):
-                    dataset[key] = value
-                SubscriptionCostManagementViewDatasetArgs._configure(_setter, **dataset)
+            dataset = _utilities.configure(dataset, SubscriptionCostManagementViewDatasetArgs, True)
             if dataset is None and not opts.urn:
                 raise TypeError("Missing required property 'dataset'")
             __props__.__dict__["dataset"] = dataset

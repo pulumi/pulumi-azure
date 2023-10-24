@@ -15,26 +15,6 @@ import * as utilities from "../utilities";
  *
  * > **Note:** Adding or Removing a Preview Feature will re-register the Resource Provider.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = new azure.core.ResourceProviderRegistration("example", {});
- * ```
- * ### Registering A Preview Feature)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = new azure.core.ResourceProviderRegistration("example", {features: [{
- *     name: "AKS-DataPlaneAutoApprove",
- *     registered: true,
- * }]});
- * ```
- *
  * ## Import
  *
  * Resource Provider Registrations can be imported using the `resource id`, e.g.

@@ -58,10 +58,10 @@ class AppArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             container_app_environment_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             revision_mode: pulumi.Input[str],
-             template: pulumi.Input['AppTemplateArgs'],
+             container_app_environment_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             revision_mode: Optional[pulumi.Input[str]] = None,
+             template: Optional[pulumi.Input['AppTemplateArgs']] = None,
              dapr: Optional[pulumi.Input['AppDaprArgs']] = None,
              identity: Optional[pulumi.Input['AppIdentityArgs']] = None,
              ingress: Optional[pulumi.Input['AppIngressArgs']] = None,
@@ -69,14 +69,22 @@ class AppArgs:
              registries: Optional[pulumi.Input[Sequence[pulumi.Input['AppRegistryArgs']]]] = None,
              secrets: Optional[pulumi.Input[Sequence[pulumi.Input['AppSecretArgs']]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'containerAppEnvironmentId' in kwargs:
+        if container_app_environment_id is None and 'containerAppEnvironmentId' in kwargs:
             container_app_environment_id = kwargs['containerAppEnvironmentId']
-        if 'resourceGroupName' in kwargs:
+        if container_app_environment_id is None:
+            raise TypeError("Missing 'container_app_environment_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'revisionMode' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if revision_mode is None and 'revisionMode' in kwargs:
             revision_mode = kwargs['revisionMode']
+        if revision_mode is None:
+            raise TypeError("Missing 'revision_mode' argument")
+        if template is None:
+            raise TypeError("Missing 'template' argument")
 
         _setter("container_app_environment_id", container_app_environment_id)
         _setter("resource_group_name", resource_group_name)
@@ -306,21 +314,21 @@ class _AppState:
              secrets: Optional[pulumi.Input[Sequence[pulumi.Input['AppSecretArgs']]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              template: Optional[pulumi.Input['AppTemplateArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'containerAppEnvironmentId' in kwargs:
+        if container_app_environment_id is None and 'containerAppEnvironmentId' in kwargs:
             container_app_environment_id = kwargs['containerAppEnvironmentId']
-        if 'customDomainVerificationId' in kwargs:
+        if custom_domain_verification_id is None and 'customDomainVerificationId' in kwargs:
             custom_domain_verification_id = kwargs['customDomainVerificationId']
-        if 'latestRevisionFqdn' in kwargs:
+        if latest_revision_fqdn is None and 'latestRevisionFqdn' in kwargs:
             latest_revision_fqdn = kwargs['latestRevisionFqdn']
-        if 'latestRevisionName' in kwargs:
+        if latest_revision_name is None and 'latestRevisionName' in kwargs:
             latest_revision_name = kwargs['latestRevisionName']
-        if 'outboundIpAddresses' in kwargs:
+        if outbound_ip_addresses is None and 'outboundIpAddresses' in kwargs:
             outbound_ip_addresses = kwargs['outboundIpAddresses']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'revisionMode' in kwargs:
+        if revision_mode is None and 'revisionMode' in kwargs:
             revision_mode = kwargs['revisionMode']
 
         if container_app_environment_id is not None:
@@ -569,36 +577,6 @@ class App(pulumi.CustomResource):
         """
         Manages a Container App.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="PerGB2018",
-            retention_in_days=30)
-        example_environment = azure.containerapp.Environment("exampleEnvironment",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            log_analytics_workspace_id=example_analytics_workspace.id)
-        example_app = azure.containerapp.App("exampleApp",
-            container_app_environment_id=example_environment.id,
-            resource_group_name=example_resource_group.name,
-            revision_mode="Single",
-            template=azure.containerapp.AppTemplateArgs(
-                containers=[azure.containerapp.AppTemplateContainerArgs(
-                    name="examplecontainerapp",
-                    image="mcr.microsoft.com/azuredocs/containerapps-helloworld:latest",
-                    cpu=0.25,
-                    memory="0.5Gi",
-                )],
-            ))
-        ```
-
         ## Import
 
         A Container App can be imported using the `resource id`, e.g.
@@ -629,36 +607,6 @@ class App(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Container App.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="PerGB2018",
-            retention_in_days=30)
-        example_environment = azure.containerapp.Environment("exampleEnvironment",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            log_analytics_workspace_id=example_analytics_workspace.id)
-        example_app = azure.containerapp.App("exampleApp",
-            container_app_environment_id=example_environment.id,
-            resource_group_name=example_resource_group.name,
-            revision_mode="Single",
-            template=azure.containerapp.AppTemplateArgs(
-                containers=[azure.containerapp.AppTemplateContainerArgs(
-                    name="examplecontainerapp",
-                    image="mcr.microsoft.com/azuredocs/containerapps-helloworld:latest",
-                    cpu=0.25,
-                    memory="0.5Gi",
-                )],
-            ))
-        ```
 
         ## Import
 
@@ -710,23 +658,11 @@ class App(pulumi.CustomResource):
             if container_app_environment_id is None and not opts.urn:
                 raise TypeError("Missing required property 'container_app_environment_id'")
             __props__.__dict__["container_app_environment_id"] = container_app_environment_id
-            if dapr is not None and not isinstance(dapr, AppDaprArgs):
-                dapr = dapr or {}
-                def _setter(key, value):
-                    dapr[key] = value
-                AppDaprArgs._configure(_setter, **dapr)
+            dapr = _utilities.configure(dapr, AppDaprArgs, True)
             __props__.__dict__["dapr"] = dapr
-            if identity is not None and not isinstance(identity, AppIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                AppIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, AppIdentityArgs, True)
             __props__.__dict__["identity"] = identity
-            if ingress is not None and not isinstance(ingress, AppIngressArgs):
-                ingress = ingress or {}
-                def _setter(key, value):
-                    ingress[key] = value
-                AppIngressArgs._configure(_setter, **ingress)
+            ingress = _utilities.configure(ingress, AppIngressArgs, True)
             __props__.__dict__["ingress"] = ingress
             __props__.__dict__["name"] = name
             __props__.__dict__["registries"] = registries
@@ -738,11 +674,7 @@ class App(pulumi.CustomResource):
             __props__.__dict__["revision_mode"] = revision_mode
             __props__.__dict__["secrets"] = None if secrets is None else pulumi.Output.secret(secrets)
             __props__.__dict__["tags"] = tags
-            if template is not None and not isinstance(template, AppTemplateArgs):
-                template = template or {}
-                def _setter(key, value):
-                    template[key] = value
-                AppTemplateArgs._configure(_setter, **template)
+            template = _utilities.configure(template, AppTemplateArgs, True)
             if template is None and not opts.urn:
                 raise TypeError("Missing required property 'template'")
             __props__.__dict__["template"] = template

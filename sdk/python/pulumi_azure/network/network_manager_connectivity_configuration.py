@@ -49,25 +49,31 @@ class NetworkManagerConnectivityConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             applies_to_groups: pulumi.Input[Sequence[pulumi.Input['NetworkManagerConnectivityConfigurationAppliesToGroupArgs']]],
-             connectivity_topology: pulumi.Input[str],
-             network_manager_id: pulumi.Input[str],
+             applies_to_groups: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkManagerConnectivityConfigurationAppliesToGroupArgs']]]] = None,
+             connectivity_topology: Optional[pulumi.Input[str]] = None,
+             network_manager_id: Optional[pulumi.Input[str]] = None,
              delete_existing_peering_enabled: Optional[pulumi.Input[bool]] = None,
              description: Optional[pulumi.Input[str]] = None,
              global_mesh_enabled: Optional[pulumi.Input[bool]] = None,
              hub: Optional[pulumi.Input['NetworkManagerConnectivityConfigurationHubArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'appliesToGroups' in kwargs:
+        if applies_to_groups is None and 'appliesToGroups' in kwargs:
             applies_to_groups = kwargs['appliesToGroups']
-        if 'connectivityTopology' in kwargs:
+        if applies_to_groups is None:
+            raise TypeError("Missing 'applies_to_groups' argument")
+        if connectivity_topology is None and 'connectivityTopology' in kwargs:
             connectivity_topology = kwargs['connectivityTopology']
-        if 'networkManagerId' in kwargs:
+        if connectivity_topology is None:
+            raise TypeError("Missing 'connectivity_topology' argument")
+        if network_manager_id is None and 'networkManagerId' in kwargs:
             network_manager_id = kwargs['networkManagerId']
-        if 'deleteExistingPeeringEnabled' in kwargs:
+        if network_manager_id is None:
+            raise TypeError("Missing 'network_manager_id' argument")
+        if delete_existing_peering_enabled is None and 'deleteExistingPeeringEnabled' in kwargs:
             delete_existing_peering_enabled = kwargs['deleteExistingPeeringEnabled']
-        if 'globalMeshEnabled' in kwargs:
+        if global_mesh_enabled is None and 'globalMeshEnabled' in kwargs:
             global_mesh_enabled = kwargs['globalMeshEnabled']
 
         _setter("applies_to_groups", applies_to_groups)
@@ -225,17 +231,17 @@ class _NetworkManagerConnectivityConfigurationState:
              hub: Optional[pulumi.Input['NetworkManagerConnectivityConfigurationHubArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              network_manager_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'appliesToGroups' in kwargs:
+        if applies_to_groups is None and 'appliesToGroups' in kwargs:
             applies_to_groups = kwargs['appliesToGroups']
-        if 'connectivityTopology' in kwargs:
+        if connectivity_topology is None and 'connectivityTopology' in kwargs:
             connectivity_topology = kwargs['connectivityTopology']
-        if 'deleteExistingPeeringEnabled' in kwargs:
+        if delete_existing_peering_enabled is None and 'deleteExistingPeeringEnabled' in kwargs:
             delete_existing_peering_enabled = kwargs['deleteExistingPeeringEnabled']
-        if 'globalMeshEnabled' in kwargs:
+        if global_mesh_enabled is None and 'globalMeshEnabled' in kwargs:
             global_mesh_enabled = kwargs['globalMeshEnabled']
-        if 'networkManagerId' in kwargs:
+        if network_manager_id is None and 'networkManagerId' in kwargs:
             network_manager_id = kwargs['networkManagerId']
 
         if applies_to_groups is not None:
@@ -371,44 +377,6 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
 
         > **Note:** The `network.NetworkManagerConnectivityConfiguration` deployment may modify or delete existing Network Peering resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        current = azure.core.get_subscription()
-        example_network_manager = azure.network.NetworkManager("exampleNetworkManager",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            scope=azure.network.NetworkManagerScopeArgs(
-                subscription_ids=[current.id],
-            ),
-            scope_accesses=[
-                "Connectivity",
-                "SecurityAdmin",
-            ],
-            description="example network manager")
-        example_network_manager_network_group = azure.network.NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup", network_manager_id=example_network_manager.id)
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            address_spaces=["10.0.0.0/16"],
-            flow_timeout_in_minutes=10)
-        example_network_manager_connectivity_configuration = azure.network.NetworkManagerConnectivityConfiguration("exampleNetworkManagerConnectivityConfiguration",
-            network_manager_id=example_network_manager.id,
-            connectivity_topology="HubAndSpoke",
-            applies_to_groups=[azure.network.NetworkManagerConnectivityConfigurationAppliesToGroupArgs(
-                group_connectivity="DirectlyConnected",
-                network_group_id=example_network_manager_network_group.id,
-            )],
-            hub=azure.network.NetworkManagerConnectivityConfigurationHubArgs(
-                resource_id=example_virtual_network.id,
-                resource_type="Microsoft.Network/virtualNetworks",
-            ))
-        ```
-
         ## Import
 
         Network Manager Connectivity Configuration can be imported using the `resource id`, e.g.
@@ -438,44 +406,6 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
         Manages a Network Manager Connectivity Configuration.
 
         > **Note:** The `network.NetworkManagerConnectivityConfiguration` deployment may modify or delete existing Network Peering resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        current = azure.core.get_subscription()
-        example_network_manager = azure.network.NetworkManager("exampleNetworkManager",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            scope=azure.network.NetworkManagerScopeArgs(
-                subscription_ids=[current.id],
-            ),
-            scope_accesses=[
-                "Connectivity",
-                "SecurityAdmin",
-            ],
-            description="example network manager")
-        example_network_manager_network_group = azure.network.NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup", network_manager_id=example_network_manager.id)
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            address_spaces=["10.0.0.0/16"],
-            flow_timeout_in_minutes=10)
-        example_network_manager_connectivity_configuration = azure.network.NetworkManagerConnectivityConfiguration("exampleNetworkManagerConnectivityConfiguration",
-            network_manager_id=example_network_manager.id,
-            connectivity_topology="HubAndSpoke",
-            applies_to_groups=[azure.network.NetworkManagerConnectivityConfigurationAppliesToGroupArgs(
-                group_connectivity="DirectlyConnected",
-                network_group_id=example_network_manager_network_group.id,
-            )],
-            hub=azure.network.NetworkManagerConnectivityConfigurationHubArgs(
-                resource_id=example_virtual_network.id,
-                resource_type="Microsoft.Network/virtualNetworks",
-            ))
-        ```
 
         ## Import
 
@@ -530,11 +460,7 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
             __props__.__dict__["delete_existing_peering_enabled"] = delete_existing_peering_enabled
             __props__.__dict__["description"] = description
             __props__.__dict__["global_mesh_enabled"] = global_mesh_enabled
-            if hub is not None and not isinstance(hub, NetworkManagerConnectivityConfigurationHubArgs):
-                hub = hub or {}
-                def _setter(key, value):
-                    hub[key] = value
-                NetworkManagerConnectivityConfigurationHubArgs._configure(_setter, **hub)
+            hub = _utilities.configure(hub, NetworkManagerConnectivityConfigurationHubArgs, True)
             __props__.__dict__["hub"] = hub
             __props__.__dict__["name"] = name
             if network_manager_id is None and not opts.urn:

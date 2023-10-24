@@ -15,63 +15,6 @@ import (
 
 // Manages a Resource Deployment Script of Azure Cli.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "exampleUserAssignedIdentity", &authorization.UserAssignedIdentityArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = core.NewResourceDeploymentScriptAzureCli(ctx, "exampleResourceDeploymentScriptAzureCli", &core.ResourceDeploymentScriptAzureCliArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          pulumi.String("West Europe"),
-//				Version:           pulumi.String("2.40.0"),
-//				RetentionInterval: pulumi.String("P1D"),
-//				CommandLine:       pulumi.String("'foo' 'bar'"),
-//				CleanupPreference: pulumi.String("OnSuccess"),
-//				ForceUpdateTag:    pulumi.String("1"),
-//				Timeout:           pulumi.String("PT30M"),
-//				ScriptContent:     pulumi.String("            echo \"{\\\"name\\\":{\\\"displayName\\\":\\\"$1 $2\\\"}}\" > $AZ_SCRIPTS_OUTPUT_PATH\n"),
-//				Identity: &core.ResourceDeploymentScriptAzureCliIdentityArgs{
-//					Type: pulumi.String("UserAssigned"),
-//					IdentityIds: pulumi.StringArray{
-//						exampleUserAssignedIdentity.ID(),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"key": pulumi.String("value"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Resource Deployment Script can be imported using the `resource id`, e.g.

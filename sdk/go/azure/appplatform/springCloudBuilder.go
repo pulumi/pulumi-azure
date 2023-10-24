@@ -17,59 +17,6 @@ import (
 //
 // > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "exampleSpringCloudService", &appplatform.SpringCloudServiceArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
-//				SkuName:           pulumi.String("E0"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appplatform.NewSpringCloudBuilder(ctx, "exampleSpringCloudBuilder", &appplatform.SpringCloudBuilderArgs{
-//				SpringCloudServiceId: exampleSpringCloudService.ID(),
-//				BuildPackGroups: appplatform.SpringCloudBuilderBuildPackGroupArray{
-//					&appplatform.SpringCloudBuilderBuildPackGroupArgs{
-//						Name: pulumi.String("mix"),
-//						BuildPackIds: pulumi.StringArray{
-//							pulumi.String("tanzu-buildpacks/java-azure"),
-//						},
-//					},
-//				},
-//				Stack: &appplatform.SpringCloudBuilderStackArgs{
-//					Id:      pulumi.String("io.buildpacks.stacks.bionic"),
-//					Version: pulumi.String("base"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Spring Cloud Builders can be imported using the `resource id`, e.g.

@@ -154,19 +154,6 @@ def get_group(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Container Group instance.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.containerservice.get_group(name="existing",
-        resource_group_name="existing")
-    pulumi.export("id", example.id)
-    pulumi.export("ipAddress", example.ip_address)
-    pulumi.export("fqdn", example.fqdn)
-    ```
-
 
     :param str name: The name of this Container Group instance.
     :param str resource_group_name: The name of the Resource Group where the Container Group instance exists.
@@ -199,19 +186,6 @@ def get_group_output(name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupResult]:
     """
     Use this data source to access information about an existing Container Group instance.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.containerservice.get_group(name="existing",
-        resource_group_name="existing")
-    pulumi.export("id", example.id)
-    pulumi.export("ipAddress", example.ip_address)
-    pulumi.export("fqdn", example.fqdn)
-    ```
 
 
     :param str name: The name of this Container Group instance.

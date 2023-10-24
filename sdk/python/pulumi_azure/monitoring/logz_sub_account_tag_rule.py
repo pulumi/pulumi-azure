@@ -40,22 +40,24 @@ class LogzSubAccountTagRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             logz_sub_account_id: pulumi.Input[str],
+             logz_sub_account_id: Optional[pulumi.Input[str]] = None,
              send_aad_logs: Optional[pulumi.Input[bool]] = None,
              send_activity_logs: Optional[pulumi.Input[bool]] = None,
              send_subscription_logs: Optional[pulumi.Input[bool]] = None,
              tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['LogzSubAccountTagRuleTagFilterArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'logzSubAccountId' in kwargs:
+        if logz_sub_account_id is None and 'logzSubAccountId' in kwargs:
             logz_sub_account_id = kwargs['logzSubAccountId']
-        if 'sendAadLogs' in kwargs:
+        if logz_sub_account_id is None:
+            raise TypeError("Missing 'logz_sub_account_id' argument")
+        if send_aad_logs is None and 'sendAadLogs' in kwargs:
             send_aad_logs = kwargs['sendAadLogs']
-        if 'sendActivityLogs' in kwargs:
+        if send_activity_logs is None and 'sendActivityLogs' in kwargs:
             send_activity_logs = kwargs['sendActivityLogs']
-        if 'sendSubscriptionLogs' in kwargs:
+        if send_subscription_logs is None and 'sendSubscriptionLogs' in kwargs:
             send_subscription_logs = kwargs['sendSubscriptionLogs']
-        if 'tagFilters' in kwargs:
+        if tag_filters is None and 'tagFilters' in kwargs:
             tag_filters = kwargs['tagFilters']
 
         _setter("logz_sub_account_id", logz_sub_account_id)
@@ -161,17 +163,17 @@ class _LogzSubAccountTagRuleState:
              send_activity_logs: Optional[pulumi.Input[bool]] = None,
              send_subscription_logs: Optional[pulumi.Input[bool]] = None,
              tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['LogzSubAccountTagRuleTagFilterArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'logzSubAccountId' in kwargs:
+        if logz_sub_account_id is None and 'logzSubAccountId' in kwargs:
             logz_sub_account_id = kwargs['logzSubAccountId']
-        if 'sendAadLogs' in kwargs:
+        if send_aad_logs is None and 'sendAadLogs' in kwargs:
             send_aad_logs = kwargs['sendAadLogs']
-        if 'sendActivityLogs' in kwargs:
+        if send_activity_logs is None and 'sendActivityLogs' in kwargs:
             send_activity_logs = kwargs['sendActivityLogs']
-        if 'sendSubscriptionLogs' in kwargs:
+        if send_subscription_logs is None and 'sendSubscriptionLogs' in kwargs:
             send_subscription_logs = kwargs['sendSubscriptionLogs']
-        if 'tagFilters' in kwargs:
+        if tag_filters is None and 'tagFilters' in kwargs:
             tag_filters = kwargs['tagFilters']
 
         if logz_sub_account_id is not None:
@@ -260,54 +262,6 @@ class LogzSubAccountTagRule(pulumi.CustomResource):
         """
         Manages a Logz Sub Account Tag Rule.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_logz_monitor = azure.monitoring.LogzMonitor("exampleLogzMonitor",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            plan=azure.monitoring.LogzMonitorPlanArgs(
-                billing_cycle="MONTHLY",
-                effective_date="2022-06-06T00:00:00Z",
-                usage_type="COMMITTED",
-            ),
-            user=azure.monitoring.LogzMonitorUserArgs(
-                email="user@example.com",
-                first_name="Example",
-                last_name="User",
-                phone_number="+12313803556",
-            ))
-        example_logz_sub_account = azure.monitoring.LogzSubAccount("exampleLogzSubAccount",
-            logz_monitor_id=example_logz_monitor.id,
-            user=azure.monitoring.LogzSubAccountUserArgs(
-                email=example_logz_monitor.user.email,
-                first_name=example_logz_monitor.user.first_name,
-                last_name=example_logz_monitor.user.last_name,
-                phone_number=example_logz_monitor.user.phone_number,
-            ))
-        example_logz_sub_account_tag_rule = azure.monitoring.LogzSubAccountTagRule("exampleLogzSubAccountTagRule",
-            logz_sub_account_id=example_logz_sub_account.id,
-            send_aad_logs=True,
-            send_activity_logs=True,
-            send_subscription_logs=True,
-            tag_filters=[
-                azure.monitoring.LogzSubAccountTagRuleTagFilterArgs(
-                    name="name1",
-                    action="Include",
-                    value="value1",
-                ),
-                azure.monitoring.LogzSubAccountTagRuleTagFilterArgs(
-                    name="name2",
-                    action="Exclude",
-                    value="value2",
-                ),
-            ])
-        ```
-
         ## Import
 
         Logz Sub Account Tag Rules can be imported using the `resource id`, e.g.
@@ -332,54 +286,6 @@ class LogzSubAccountTagRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Logz Sub Account Tag Rule.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_logz_monitor = azure.monitoring.LogzMonitor("exampleLogzMonitor",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            plan=azure.monitoring.LogzMonitorPlanArgs(
-                billing_cycle="MONTHLY",
-                effective_date="2022-06-06T00:00:00Z",
-                usage_type="COMMITTED",
-            ),
-            user=azure.monitoring.LogzMonitorUserArgs(
-                email="user@example.com",
-                first_name="Example",
-                last_name="User",
-                phone_number="+12313803556",
-            ))
-        example_logz_sub_account = azure.monitoring.LogzSubAccount("exampleLogzSubAccount",
-            logz_monitor_id=example_logz_monitor.id,
-            user=azure.monitoring.LogzSubAccountUserArgs(
-                email=example_logz_monitor.user.email,
-                first_name=example_logz_monitor.user.first_name,
-                last_name=example_logz_monitor.user.last_name,
-                phone_number=example_logz_monitor.user.phone_number,
-            ))
-        example_logz_sub_account_tag_rule = azure.monitoring.LogzSubAccountTagRule("exampleLogzSubAccountTagRule",
-            logz_sub_account_id=example_logz_sub_account.id,
-            send_aad_logs=True,
-            send_activity_logs=True,
-            send_subscription_logs=True,
-            tag_filters=[
-                azure.monitoring.LogzSubAccountTagRuleTagFilterArgs(
-                    name="name1",
-                    action="Include",
-                    value="value1",
-                ),
-                azure.monitoring.LogzSubAccountTagRuleTagFilterArgs(
-                    name="name2",
-                    action="Exclude",
-                    value="value2",
-                ),
-            ])
-        ```
 
         ## Import
 

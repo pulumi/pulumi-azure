@@ -52,32 +52,38 @@ class ServerSecurityAlertPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             server_name: pulumi.Input[str],
-             state: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[str]] = None,
              disabled_alerts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              email_account_admins: Optional[pulumi.Input[bool]] = None,
              email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              retention_days: Optional[pulumi.Input[int]] = None,
              storage_account_access_key: Optional[pulumi.Input[str]] = None,
              storage_endpoint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serverName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if server_name is None and 'serverName' in kwargs:
             server_name = kwargs['serverName']
-        if 'disabledAlerts' in kwargs:
+        if server_name is None:
+            raise TypeError("Missing 'server_name' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if disabled_alerts is None and 'disabledAlerts' in kwargs:
             disabled_alerts = kwargs['disabledAlerts']
-        if 'emailAccountAdmins' in kwargs:
+        if email_account_admins is None and 'emailAccountAdmins' in kwargs:
             email_account_admins = kwargs['emailAccountAdmins']
-        if 'emailAddresses' in kwargs:
+        if email_addresses is None and 'emailAddresses' in kwargs:
             email_addresses = kwargs['emailAddresses']
-        if 'retentionDays' in kwargs:
+        if retention_days is None and 'retentionDays' in kwargs:
             retention_days = kwargs['retentionDays']
-        if 'storageAccountAccessKey' in kwargs:
+        if storage_account_access_key is None and 'storageAccountAccessKey' in kwargs:
             storage_account_access_key = kwargs['storageAccountAccessKey']
-        if 'storageEndpoint' in kwargs:
+        if storage_endpoint is None and 'storageEndpoint' in kwargs:
             storage_endpoint = kwargs['storageEndpoint']
 
         _setter("resource_group_name", resource_group_name)
@@ -257,23 +263,23 @@ class _ServerSecurityAlertPolicyState:
              state: Optional[pulumi.Input[str]] = None,
              storage_account_access_key: Optional[pulumi.Input[str]] = None,
              storage_endpoint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'disabledAlerts' in kwargs:
+        if disabled_alerts is None and 'disabledAlerts' in kwargs:
             disabled_alerts = kwargs['disabledAlerts']
-        if 'emailAccountAdmins' in kwargs:
+        if email_account_admins is None and 'emailAccountAdmins' in kwargs:
             email_account_admins = kwargs['emailAccountAdmins']
-        if 'emailAddresses' in kwargs:
+        if email_addresses is None and 'emailAddresses' in kwargs:
             email_addresses = kwargs['emailAddresses']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'retentionDays' in kwargs:
+        if retention_days is None and 'retentionDays' in kwargs:
             retention_days = kwargs['retentionDays']
-        if 'serverName' in kwargs:
+        if server_name is None and 'serverName' in kwargs:
             server_name = kwargs['serverName']
-        if 'storageAccountAccessKey' in kwargs:
+        if storage_account_access_key is None and 'storageAccountAccessKey' in kwargs:
             storage_account_access_key = kwargs['storageAccountAccessKey']
-        if 'storageEndpoint' in kwargs:
+        if storage_endpoint is None and 'storageEndpoint' in kwargs:
             storage_endpoint = kwargs['storageEndpoint']
 
         if disabled_alerts is not None:
@@ -426,37 +432,6 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
 
         > **NOTE** Security Alert Policy is currently only available for MS SQL databases.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_sql_server = azure.sql.SqlServer("exampleSqlServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            version="12.0",
-            administrator_login="4dm1n157r470r",
-            administrator_login_password="4-v3ry-53cr37-p455w0rd")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_server_security_alert_policy = azure.mssql.ServerSecurityAlertPolicy("exampleServerSecurityAlertPolicy",
-            resource_group_name=example_resource_group.name,
-            server_name=example_sql_server.name,
-            state="Enabled",
-            storage_endpoint=example_account.primary_blob_endpoint,
-            storage_account_access_key=example_account.primary_access_key,
-            disabled_alerts=[
-                "Sql_Injection",
-                "Data_Exfiltration",
-            ],
-            retention_days=20)
-        ```
-
         ## Import
 
         MS SQL Server Security Alert Policy can be imported using the `resource id`, e.g.
@@ -489,37 +464,6 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
         Manages a Security Alert Policy for a MSSQL Server.
 
         > **NOTE** Security Alert Policy is currently only available for MS SQL databases.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_sql_server = azure.sql.SqlServer("exampleSqlServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            version="12.0",
-            administrator_login="4dm1n157r470r",
-            administrator_login_password="4-v3ry-53cr37-p455w0rd")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_server_security_alert_policy = azure.mssql.ServerSecurityAlertPolicy("exampleServerSecurityAlertPolicy",
-            resource_group_name=example_resource_group.name,
-            server_name=example_sql_server.name,
-            state="Enabled",
-            storage_endpoint=example_account.primary_blob_endpoint,
-            storage_account_access_key=example_account.primary_access_key,
-            disabled_alerts=[
-                "Sql_Injection",
-                "Data_Exfiltration",
-            ],
-            retention_days=20)
-        ```
 
         ## Import
 

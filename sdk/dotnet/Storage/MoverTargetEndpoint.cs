@@ -12,53 +12,6 @@ namespace Pulumi.Azure.Storage
     /// <summary>
     /// Manages a Storage Mover Target Endpoint.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         AccountTier = "Standard",
-    ///         AccountReplicationType = "LRS",
-    ///         AllowNestedItemsToBePublic = true,
-    ///     });
-    /// 
-    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
-    ///     {
-    ///         StorageAccountName = exampleAccount.Name,
-    ///         ContainerAccessType = "blob",
-    ///     });
-    /// 
-    ///     var exampleMover = new Azure.Storage.Mover("exampleMover", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleMoverTargetEndpoint = new Azure.Storage.MoverTargetEndpoint("exampleMoverTargetEndpoint", new()
-    ///     {
-    ///         StorageMoverId = exampleMover.Id,
-    ///         StorageAccountId = exampleAccount.Id,
-    ///         StorageContainerName = exampleContainer.Name,
-    ///         Description = "Example Storage Container Endpoint Description",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Storage Mover Target Endpoint can be imported using the `resource id`, e.g.

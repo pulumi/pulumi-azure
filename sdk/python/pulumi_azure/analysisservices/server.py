@@ -55,8 +55,8 @@ class ServerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             sku: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
              admin_users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              backup_blob_container_uri: Optional[pulumi.Input[str]] = None,
              enable_power_bi_service: Optional[pulumi.Input[bool]] = None,
@@ -65,19 +65,23 @@ class ServerArgs:
              name: Optional[pulumi.Input[str]] = None,
              querypool_connection_mode: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'adminUsers' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if admin_users is None and 'adminUsers' in kwargs:
             admin_users = kwargs['adminUsers']
-        if 'backupBlobContainerUri' in kwargs:
+        if backup_blob_container_uri is None and 'backupBlobContainerUri' in kwargs:
             backup_blob_container_uri = kwargs['backupBlobContainerUri']
-        if 'enablePowerBiService' in kwargs:
+        if enable_power_bi_service is None and 'enablePowerBiService' in kwargs:
             enable_power_bi_service = kwargs['enablePowerBiService']
-        if 'ipv4FirewallRules' in kwargs:
+        if ipv4_firewall_rules is None and 'ipv4FirewallRules' in kwargs:
             ipv4_firewall_rules = kwargs['ipv4FirewallRules']
-        if 'querypoolConnectionMode' in kwargs:
+        if querypool_connection_mode is None and 'querypoolConnectionMode' in kwargs:
             querypool_connection_mode = kwargs['querypoolConnectionMode']
 
         _setter("resource_group_name", resource_group_name)
@@ -276,21 +280,21 @@ class _ServerState:
              server_full_name: Optional[pulumi.Input[str]] = None,
              sku: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'adminUsers' in kwargs:
+        if admin_users is None and 'adminUsers' in kwargs:
             admin_users = kwargs['adminUsers']
-        if 'backupBlobContainerUri' in kwargs:
+        if backup_blob_container_uri is None and 'backupBlobContainerUri' in kwargs:
             backup_blob_container_uri = kwargs['backupBlobContainerUri']
-        if 'enablePowerBiService' in kwargs:
+        if enable_power_bi_service is None and 'enablePowerBiService' in kwargs:
             enable_power_bi_service = kwargs['enablePowerBiService']
-        if 'ipv4FirewallRules' in kwargs:
+        if ipv4_firewall_rules is None and 'ipv4FirewallRules' in kwargs:
             ipv4_firewall_rules = kwargs['ipv4FirewallRules']
-        if 'querypoolConnectionMode' in kwargs:
+        if querypool_connection_mode is None and 'querypoolConnectionMode' in kwargs:
             querypool_connection_mode = kwargs['querypoolConnectionMode']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serverFullName' in kwargs:
+        if server_full_name is None and 'serverFullName' in kwargs:
             server_full_name = kwargs['serverFullName']
 
         if admin_users is not None:
@@ -468,31 +472,6 @@ class Server(pulumi.CustomResource):
         """
         Manages an Analysis Services Server.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example", location="West Europe")
-        server = azure.analysisservices.Server("server",
-            location=example.location,
-            resource_group_name=example.name,
-            sku="S0",
-            admin_users=["myuser@domain.tld"],
-            enable_power_bi_service=True,
-            ipv4_firewall_rules=[azure.analysisservices.ServerIpv4FirewallRuleArgs(
-                name="myRule1",
-                range_start="210.117.252.0",
-                range_end="210.117.252.255",
-            )],
-            tags={
-                "abc": "123",
-            })
-        ```
-
-        > **NOTE:** The server resource will automatically be started and stopped during an update if it is in `paused` state.
-
         ## Import
 
         Analysis Services Server can be imported using the `resource id`, e.g.
@@ -522,31 +501,6 @@ class Server(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Analysis Services Server.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example", location="West Europe")
-        server = azure.analysisservices.Server("server",
-            location=example.location,
-            resource_group_name=example.name,
-            sku="S0",
-            admin_users=["myuser@domain.tld"],
-            enable_power_bi_service=True,
-            ipv4_firewall_rules=[azure.analysisservices.ServerIpv4FirewallRuleArgs(
-                name="myRule1",
-                range_start="210.117.252.0",
-                range_end="210.117.252.255",
-            )],
-            tags={
-                "abc": "123",
-            })
-        ```
-
-        > **NOTE:** The server resource will automatically be started and stopped during an update if it is in `paused` state.
 
         ## Import
 

@@ -153,18 +153,6 @@ def get_network_sim_policy(mobile_network_id: Optional[str] = None,
     """
     Get information about a Mobile Network Sim Policy.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example_network = azure.mobile.get_network(name="example-mn",
-        resource_group_name="example-rg")
-    example_network_sim_policy = azure.mobile.get_network_sim_policy(name="example-mnsp",
-        mobile_network_id=example_network.id)
-    ```
-
 
     :param str mobile_network_id: The ID of the Mobile Network which the Sim Policy belongs to.
     :param str name: The name which should be used for this Mobile Network Sim Policies.
@@ -194,18 +182,6 @@ def get_network_sim_policy_output(mobile_network_id: Optional[pulumi.Input[str]]
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkSimPolicyResult]:
     """
     Get information about a Mobile Network Sim Policy.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example_network = azure.mobile.get_network(name="example-mn",
-        resource_group_name="example-rg")
-    example_network_sim_policy = azure.mobile.get_network_sim_policy(name="example-mnsp",
-        mobile_network_id=example_network.id)
-    ```
 
 
     :param str mobile_network_id: The ID of the Mobile Network which the Sim Policy belongs to.

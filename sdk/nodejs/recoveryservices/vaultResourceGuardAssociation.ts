@@ -7,29 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an association of a Resource Guard and Recovery Services Vault.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleResourceGuard = new azure.dataprotection.ResourceGuard("exampleResourceGuard", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- * });
- * const vault = new azure.recoveryservices.Vault("vault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "Standard",
- *     softDeleteEnabled: true,
- * });
- * const test = new azure.recoveryservices.VaultResourceGuardAssociation("test", {
- *     vaultId: azurerm_recovery_services_vault.test.id,
- *     resourceGuardId: azurerm_data_protection_resource_guard.test.id,
- * });
- * ```
- *
  * ## Import
  *
  * Resource Guards can be imported using the `resource id`, e.g.

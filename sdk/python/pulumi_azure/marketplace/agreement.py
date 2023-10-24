@@ -32,11 +32,17 @@ class AgreementArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             offer: pulumi.Input[str],
-             plan: pulumi.Input[str],
-             publisher: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             offer: Optional[pulumi.Input[str]] = None,
+             plan: Optional[pulumi.Input[str]] = None,
+             publisher: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if offer is None:
+            raise TypeError("Missing 'offer' argument")
+        if plan is None:
+            raise TypeError("Missing 'plan' argument")
+        if publisher is None:
+            raise TypeError("Missing 'publisher' argument")
 
         _setter("offer", offer)
         _setter("plan", plan)
@@ -109,11 +115,11 @@ class _AgreementState:
              plan: Optional[pulumi.Input[str]] = None,
              privacy_policy_link: Optional[pulumi.Input[str]] = None,
              publisher: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'licenseTextLink' in kwargs:
+        if license_text_link is None and 'licenseTextLink' in kwargs:
             license_text_link = kwargs['licenseTextLink']
-        if 'privacyPolicyLink' in kwargs:
+        if privacy_policy_link is None and 'privacyPolicyLink' in kwargs:
             privacy_policy_link = kwargs['privacyPolicyLink']
 
         if license_text_link is not None:
@@ -194,18 +200,6 @@ class Agreement(pulumi.CustomResource):
         """
         Allows accepting the Legal Terms for a Marketplace Image.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        barracuda = azure.marketplace.Agreement("barracuda",
-            offer="waf",
-            plan="hourly",
-            publisher="barracudanetworks")
-        ```
-
         ## Import
 
         Marketplace Agreement can be imported using the `resource id`, e.g.
@@ -228,18 +222,6 @@ class Agreement(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Allows accepting the Legal Terms for a Marketplace Image.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        barracuda = azure.marketplace.Agreement("barracuda",
-            offer="waf",
-            plan="hourly",
-            publisher="barracudanetworks")
-        ```
 
         ## Import
 

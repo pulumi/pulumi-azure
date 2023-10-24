@@ -38,20 +38,26 @@ class IotHubCertificateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             certificate_content: pulumi.Input[str],
-             iot_dps_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             certificate_content: Optional[pulumi.Input[str]] = None,
+             iot_dps_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              is_verified: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'certificateContent' in kwargs:
+        if certificate_content is None and 'certificateContent' in kwargs:
             certificate_content = kwargs['certificateContent']
-        if 'iotDpsName' in kwargs:
+        if certificate_content is None:
+            raise TypeError("Missing 'certificate_content' argument")
+        if iot_dps_name is None and 'iotDpsName' in kwargs:
             iot_dps_name = kwargs['iotDpsName']
-        if 'resourceGroupName' in kwargs:
+        if iot_dps_name is None:
+            raise TypeError("Missing 'iot_dps_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'isVerified' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if is_verified is None and 'isVerified' in kwargs:
             is_verified = kwargs['isVerified']
 
         _setter("certificate_content", certificate_content)
@@ -155,15 +161,15 @@ class _IotHubCertificateState:
              is_verified: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'certificateContent' in kwargs:
+        if certificate_content is None and 'certificateContent' in kwargs:
             certificate_content = kwargs['certificateContent']
-        if 'iotDpsName' in kwargs:
+        if iot_dps_name is None and 'iotDpsName' in kwargs:
             iot_dps_name = kwargs['iotDpsName']
-        if 'isVerified' in kwargs:
+        if is_verified is None and 'isVerified' in kwargs:
             is_verified = kwargs['isVerified']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if certificate_content is not None:
@@ -252,27 +258,6 @@ class IotHubCertificate(pulumi.CustomResource):
         """
         Manages an IotHub Device Provisioning Service Certificate.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import base64
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_iot_hub_dps = azure.iot.IotHubDps("exampleIotHubDps",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku=azure.iot.IotHubDpsSkuArgs(
-                name="S1",
-                capacity=1,
-            ))
-        example_iot_hub_certificate = azure.iot.IotHubCertificate("exampleIotHubCertificate",
-            resource_group_name=example_resource_group.name,
-            iot_dps_name=example_iot_hub_dps.name,
-            certificate_content=(lambda path: base64.b64encode(open(path).read().encode()).decode())("example.cer"))
-        ```
-
         ## Import
 
         IoTHub Device Provisioning Service Certificates can be imported using the `resource id`, e.g.
@@ -297,27 +282,6 @@ class IotHubCertificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an IotHub Device Provisioning Service Certificate.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import base64
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_iot_hub_dps = azure.iot.IotHubDps("exampleIotHubDps",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku=azure.iot.IotHubDpsSkuArgs(
-                name="S1",
-                capacity=1,
-            ))
-        example_iot_hub_certificate = azure.iot.IotHubCertificate("exampleIotHubCertificate",
-            resource_group_name=example_resource_group.name,
-            iot_dps_name=example_iot_hub_dps.name,
-            certificate_content=(lambda path: base64.b64encode(open(path).read().encode()).decode())("example.cer"))
-        ```
 
         ## Import
 

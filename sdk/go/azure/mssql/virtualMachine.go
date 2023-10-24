@@ -15,53 +15,6 @@ import (
 
 // Manages a Microsoft SQL Virtual Machine
 //
-// ## Example Usage
-//
-// This example provisions a brief Managed Microsoft SQL Virtual Machine.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleVirtualMachine, err := compute.LookupVirtualMachine(ctx, &compute.LookupVirtualMachineArgs{
-//				Name:              "example-vm",
-//				ResourceGroupName: "example-resources",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = mssql.NewVirtualMachine(ctx, "exampleMssql/virtualMachineVirtualMachine", &mssql.VirtualMachineArgs{
-//				VirtualMachineId:              *pulumi.String(exampleVirtualMachine.Id),
-//				SqlLicenseType:                pulumi.String("PAYG"),
-//				RServicesEnabled:              pulumi.Bool(true),
-//				SqlConnectivityPort:           pulumi.Int(1433),
-//				SqlConnectivityType:           pulumi.String("PRIVATE"),
-//				SqlConnectivityUpdatePassword: pulumi.String("Password1234!"),
-//				SqlConnectivityUpdateUsername: pulumi.String("sqllogin"),
-//				AutoPatching: &mssql.VirtualMachineAutoPatchingArgs{
-//					DayOfWeek:                          pulumi.String("Sunday"),
-//					MaintenanceWindowDurationInMinutes: pulumi.Int(60),
-//					MaintenanceWindowStartingHour:      pulumi.Int(2),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Microsoft SQL Virtual Machines can be imported using the `resource id`, e.g.

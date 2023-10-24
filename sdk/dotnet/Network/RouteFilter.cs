@@ -12,35 +12,6 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Manages a Route Filter.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.Network.RouteFilter("example", new()
-    ///     {
-    ///         Location = "East US",
-    ///         ResourceGroupName = "example",
-    ///         Rule = new Azure.Network.Inputs.RouteFilterRuleArgs
-    ///         {
-    ///             Access = "Allow",
-    ///             Communities = new[]
-    ///             {
-    ///                 "12076:52004",
-    ///             },
-    ///             Name = "rule",
-    ///             RuleType = "Community",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Route Filters can be imported using the `resource id`, e.g.

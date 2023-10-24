@@ -47,25 +47,29 @@ class ProbeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             loadbalancer_id: pulumi.Input[str],
-             port: pulumi.Input[int],
+             loadbalancer_id: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
              interval_in_seconds: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
              number_of_probes: Optional[pulumi.Input[int]] = None,
              probe_threshold: Optional[pulumi.Input[int]] = None,
              protocol: Optional[pulumi.Input[str]] = None,
              request_path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'loadbalancerId' in kwargs:
+        if loadbalancer_id is None and 'loadbalancerId' in kwargs:
             loadbalancer_id = kwargs['loadbalancerId']
-        if 'intervalInSeconds' in kwargs:
+        if loadbalancer_id is None:
+            raise TypeError("Missing 'loadbalancer_id' argument")
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if interval_in_seconds is None and 'intervalInSeconds' in kwargs:
             interval_in_seconds = kwargs['intervalInSeconds']
-        if 'numberOfProbes' in kwargs:
+        if number_of_probes is None and 'numberOfProbes' in kwargs:
             number_of_probes = kwargs['numberOfProbes']
-        if 'probeThreshold' in kwargs:
+        if probe_threshold is None and 'probeThreshold' in kwargs:
             probe_threshold = kwargs['probeThreshold']
-        if 'requestPath' in kwargs:
+        if request_path is None and 'requestPath' in kwargs:
             request_path = kwargs['requestPath']
 
         _setter("loadbalancer_id", loadbalancer_id)
@@ -227,19 +231,19 @@ class _ProbeState:
              probe_threshold: Optional[pulumi.Input[int]] = None,
              protocol: Optional[pulumi.Input[str]] = None,
              request_path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'intervalInSeconds' in kwargs:
+        if interval_in_seconds is None and 'intervalInSeconds' in kwargs:
             interval_in_seconds = kwargs['intervalInSeconds']
-        if 'loadBalancerRules' in kwargs:
+        if load_balancer_rules is None and 'loadBalancerRules' in kwargs:
             load_balancer_rules = kwargs['loadBalancerRules']
-        if 'loadbalancerId' in kwargs:
+        if loadbalancer_id is None and 'loadbalancerId' in kwargs:
             loadbalancer_id = kwargs['loadbalancerId']
-        if 'numberOfProbes' in kwargs:
+        if number_of_probes is None and 'numberOfProbes' in kwargs:
             number_of_probes = kwargs['numberOfProbes']
-        if 'probeThreshold' in kwargs:
+        if probe_threshold is None and 'probeThreshold' in kwargs:
             probe_threshold = kwargs['probeThreshold']
-        if 'requestPath' in kwargs:
+        if request_path is None and 'requestPath' in kwargs:
             request_path = kwargs['requestPath']
 
         if interval_in_seconds is not None:
@@ -386,29 +390,6 @@ class Probe(pulumi.CustomResource):
 
         > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            allocation_method="Static")
-        example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
-                name="PublicIPAddress",
-                public_ip_address_id=example_public_ip.id,
-            )])
-        example_probe = azure.lb.Probe("exampleProbe",
-            loadbalancer_id=example_load_balancer.id,
-            port=22)
-        ```
-
         ## Import
 
         Load Balancer Probes can be imported using the `resource id`, e.g.
@@ -438,29 +419,6 @@ class Probe(pulumi.CustomResource):
         Manages a LoadBalancer Probe Resource.
 
         > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            allocation_method="Static")
-        example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
-                name="PublicIPAddress",
-                public_ip_address_id=example_public_ip.id,
-            )])
-        example_probe = azure.lb.Probe("exampleProbe",
-            loadbalancer_id=example_load_balancer.id,
-            port=22)
-        ```
 
         ## Import
 

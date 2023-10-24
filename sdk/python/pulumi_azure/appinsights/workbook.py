@@ -60,9 +60,9 @@ class WorkbookArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_json: pulumi.Input[str],
-             display_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             data_json: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              category: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              identity: Optional[pulumi.Input['WorkbookIdentityArgs']] = None,
@@ -71,17 +71,23 @@ class WorkbookArgs:
              source_id: Optional[pulumi.Input[str]] = None,
              storage_container_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dataJson' in kwargs:
+        if data_json is None and 'dataJson' in kwargs:
             data_json = kwargs['dataJson']
-        if 'displayName' in kwargs:
+        if data_json is None:
+            raise TypeError("Missing 'data_json' argument")
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'resourceGroupName' in kwargs:
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'sourceId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if source_id is None and 'sourceId' in kwargs:
             source_id = kwargs['sourceId']
-        if 'storageContainerId' in kwargs:
+        if storage_container_id is None and 'storageContainerId' in kwargs:
             storage_container_id = kwargs['storageContainerId']
 
         _setter("data_json", data_json)
@@ -297,17 +303,17 @@ class _WorkbookState:
              source_id: Optional[pulumi.Input[str]] = None,
              storage_container_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dataJson' in kwargs:
+        if data_json is None and 'dataJson' in kwargs:
             data_json = kwargs['dataJson']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'sourceId' in kwargs:
+        if source_id is None and 'sourceId' in kwargs:
             source_id = kwargs['sourceId']
-        if 'storageContainerId' in kwargs:
+        if storage_container_id is None and 'storageContainerId' in kwargs:
             storage_container_id = kwargs['storageContainerId']
 
         if category is not None:
@@ -488,35 +494,6 @@ class Workbook(pulumi.CustomResource):
         """
         Manages an Azure Workbook.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_workbook = azure.appinsights.Workbook("exampleWorkbook",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            display_name="workbook1",
-            data_json=json.dumps({
-                "version": "Notebook/1.0",
-                "items": [{
-                    "type": 1,
-                    "content": {
-                        "json": "Test2022",
-                    },
-                    "name": "text - 0",
-                }],
-                "isLocked": False,
-                "fallbackResourceIds": ["Azure Monitor"],
-            }),
-            tags={
-                "ENV": "Test",
-            })
-        ```
-
         ## Import
 
         Workbooks can be imported using the `resource id`, e.g.
@@ -549,35 +526,6 @@ class Workbook(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Workbook.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_workbook = azure.appinsights.Workbook("exampleWorkbook",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            display_name="workbook1",
-            data_json=json.dumps({
-                "version": "Notebook/1.0",
-                "items": [{
-                    "type": 1,
-                    "content": {
-                        "json": "Test2022",
-                    },
-                    "name": "text - 0",
-                }],
-                "isLocked": False,
-                "fallbackResourceIds": ["Azure Monitor"],
-            }),
-            tags={
-                "ENV": "Test",
-            })
-        ```
 
         ## Import
 
@@ -634,11 +582,7 @@ class Workbook(pulumi.CustomResource):
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
-            if identity is not None and not isinstance(identity, WorkbookIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                WorkbookIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, WorkbookIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name

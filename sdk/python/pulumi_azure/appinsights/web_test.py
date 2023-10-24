@@ -64,11 +64,11 @@ class WebTestArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_insights_id: pulumi.Input[str],
-             configuration: pulumi.Input[str],
-             geo_locations: pulumi.Input[Sequence[pulumi.Input[str]]],
-             kind: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             application_insights_id: Optional[pulumi.Input[str]] = None,
+             configuration: Optional[pulumi.Input[str]] = None,
+             geo_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              frequency: Optional[pulumi.Input[int]] = None,
@@ -77,15 +77,25 @@ class WebTestArgs:
              retry_enabled: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              timeout: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'applicationInsightsId' in kwargs:
+        if application_insights_id is None and 'applicationInsightsId' in kwargs:
             application_insights_id = kwargs['applicationInsightsId']
-        if 'geoLocations' in kwargs:
+        if application_insights_id is None:
+            raise TypeError("Missing 'application_insights_id' argument")
+        if configuration is None:
+            raise TypeError("Missing 'configuration' argument")
+        if geo_locations is None and 'geoLocations' in kwargs:
             geo_locations = kwargs['geoLocations']
-        if 'resourceGroupName' in kwargs:
+        if geo_locations is None:
+            raise TypeError("Missing 'geo_locations' argument")
+        if kind is None:
+            raise TypeError("Missing 'kind' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'retryEnabled' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if retry_enabled is None and 'retryEnabled' in kwargs:
             retry_enabled = kwargs['retryEnabled']
 
         _setter("application_insights_id", application_insights_id)
@@ -338,17 +348,17 @@ class _WebTestState:
              synthetic_monitor_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              timeout: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'applicationInsightsId' in kwargs:
+        if application_insights_id is None and 'applicationInsightsId' in kwargs:
             application_insights_id = kwargs['applicationInsightsId']
-        if 'geoLocations' in kwargs:
+        if geo_locations is None and 'geoLocations' in kwargs:
             geo_locations = kwargs['geoLocations']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'retryEnabled' in kwargs:
+        if retry_enabled is None and 'retryEnabled' in kwargs:
             retry_enabled = kwargs['retryEnabled']
-        if 'syntheticMonitorId' in kwargs:
+        if synthetic_monitor_id is None and 'syntheticMonitorId' in kwargs:
             synthetic_monitor_id = kwargs['syntheticMonitorId']
 
         if application_insights_id is not None:
@@ -570,39 +580,6 @@ class WebTest(pulumi.CustomResource):
         """
         Manages an Application Insights WebTest.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_type="web")
-        example_web_test = azure.appinsights.WebTest("exampleWebTest",
-            location=example_insights.location,
-            resource_group_name=example_resource_group.name,
-            application_insights_id=example_insights.id,
-            kind="ping",
-            frequency=300,
-            timeout=60,
-            enabled=True,
-            geo_locations=[
-                "us-tx-sn1-azr",
-                "us-il-ch1-azr",
-            ],
-            configuration=\"\"\"<WebTest Name="WebTest1" Id="ABD48585-0831-40CB-9069-682EA6BB3583" Enabled="True" CssProjectStructure="" CssIteration="" Timeout="0" WorkItemIds="" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" Description="" CredentialUserName="" CredentialPassword="" PreAuthenticate="True" Proxy="default" StopOnError="False" RecordedResultFile="" ResultsLocale="">
-          <Items>
-            <Request Method="GET" Guid="a5f10126-e4cd-570d-961c-cea43999a200" Version="1.1" Url="http://microsoft.com" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="200" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False" />
-          </Items>
-        </WebTest>
-        \"\"\")
-        pulumi.export("webtestId", example_web_test.id)
-        pulumi.export("webtestsSyntheticId", example_web_test.synthetic_monitor_id)
-        ```
-
         ## Import
 
         Application Insights Web Tests can be imported using the `resource id`, e.g.
@@ -637,39 +614,6 @@ class WebTest(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Application Insights WebTest.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_type="web")
-        example_web_test = azure.appinsights.WebTest("exampleWebTest",
-            location=example_insights.location,
-            resource_group_name=example_resource_group.name,
-            application_insights_id=example_insights.id,
-            kind="ping",
-            frequency=300,
-            timeout=60,
-            enabled=True,
-            geo_locations=[
-                "us-tx-sn1-azr",
-                "us-il-ch1-azr",
-            ],
-            configuration=\"\"\"<WebTest Name="WebTest1" Id="ABD48585-0831-40CB-9069-682EA6BB3583" Enabled="True" CssProjectStructure="" CssIteration="" Timeout="0" WorkItemIds="" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" Description="" CredentialUserName="" CredentialPassword="" PreAuthenticate="True" Proxy="default" StopOnError="False" RecordedResultFile="" ResultsLocale="">
-          <Items>
-            <Request Method="GET" Guid="a5f10126-e4cd-570d-961c-cea43999a200" Version="1.1" Url="http://microsoft.com" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="200" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False" />
-          </Items>
-        </WebTest>
-        \"\"\")
-        pulumi.export("webtestId", example_web_test.id)
-        pulumi.export("webtestsSyntheticId", example_web_test.synthetic_monitor_id)
-        ```
 
         ## Import
 

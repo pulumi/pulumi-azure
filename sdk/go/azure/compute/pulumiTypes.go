@@ -15054,48 +15054,6 @@ func (o ScaleSetExtensionArrayOutput) Index(i pulumi.IntInput) ScaleSetExtension
 
 type ScaleSetIdentity struct {
 	// Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		example, err := compute.NewScaleSet(ctx, "example", &compute.ScaleSetArgs{
-	// 			ResourceGroupName: pulumi.Any(azurerm_resource_group.Example.Name),
-	// 			Location:          pulumi.Any(azurerm_resource_group.Example.Location),
-	// 			Sku: &compute.ScaleSetSkuArgs{
-	// 				Name:     pulumi.Any(_var.Vm_sku),
-	// 				Tier:     pulumi.String("Standard"),
-	// 				Capacity: pulumi.Any(_var.Instance_count),
-	// 			},
-	// 			Identity: &compute.ScaleSetIdentityArgs{
-	// 				Type: pulumi.String("SystemAssigned"),
-	// 			},
-	// 			Extensions: compute.ScaleSetExtensionArray{
-	// 				&compute.ScaleSetExtensionArgs{
-	// 					Name:               pulumi.String("MSILinuxExtension"),
-	// 					Publisher:          pulumi.String("Microsoft.ManagedIdentity"),
-	// 					Type:               pulumi.String("ManagedIdentityExtensionForLinux"),
-	// 					TypeHandlerVersion: pulumi.String("1.0"),
-	// 					Settings:           pulumi.String("{\"port\": 50342}"),
-	// 				},
-	// 			},
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		ctx.Export("principalId", example.Identity.ApplyT(func(identity compute.ScaleSetIdentity) (*string, error) {
-	// 			return &identity.PrincipalId, nil
-	// 		}).(pulumi.StringPtrOutput))
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	IdentityIds []string `pulumi:"identityIds"`
 	PrincipalId *string  `pulumi:"principalId"`
 	// Specifies the identity type to be assigned to the scale set. Allowable values are `SystemAssigned` and `UserAssigned`. For the `SystemAssigned` identity the scale set's Service Principal ID (SPN) can be retrieved after the scale set has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
@@ -15115,48 +15073,6 @@ type ScaleSetIdentityInput interface {
 
 type ScaleSetIdentityArgs struct {
 	// Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		example, err := compute.NewScaleSet(ctx, "example", &compute.ScaleSetArgs{
-	// 			ResourceGroupName: pulumi.Any(azurerm_resource_group.Example.Name),
-	// 			Location:          pulumi.Any(azurerm_resource_group.Example.Location),
-	// 			Sku: &compute.ScaleSetSkuArgs{
-	// 				Name:     pulumi.Any(_var.Vm_sku),
-	// 				Tier:     pulumi.String("Standard"),
-	// 				Capacity: pulumi.Any(_var.Instance_count),
-	// 			},
-	// 			Identity: &compute.ScaleSetIdentityArgs{
-	// 				Type: pulumi.String("SystemAssigned"),
-	// 			},
-	// 			Extensions: compute.ScaleSetExtensionArray{
-	// 				&compute.ScaleSetExtensionArgs{
-	// 					Name:               pulumi.String("MSILinuxExtension"),
-	// 					Publisher:          pulumi.String("Microsoft.ManagedIdentity"),
-	// 					Type:               pulumi.String("ManagedIdentityExtensionForLinux"),
-	// 					TypeHandlerVersion: pulumi.String("1.0"),
-	// 					Settings:           pulumi.String("{\"port\": 50342}"),
-	// 				},
-	// 			},
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		ctx.Export("principalId", example.Identity.ApplyT(func(identity compute.ScaleSetIdentity) (*string, error) {
-	// 			return &identity.PrincipalId, nil
-	// 		}).(pulumi.StringPtrOutput))
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
 	// Specifies the identity type to be assigned to the scale set. Allowable values are `SystemAssigned` and `UserAssigned`. For the `SystemAssigned` identity the scale set's Service Principal ID (SPN) can be retrieved after the scale set has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
@@ -15259,51 +15175,6 @@ func (o ScaleSetIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[Sca
 }
 
 // Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := compute.NewScaleSet(ctx, "example", &compute.ScaleSetArgs{
-//				ResourceGroupName: pulumi.Any(azurerm_resource_group.Example.Name),
-//				Location:          pulumi.Any(azurerm_resource_group.Example.Location),
-//				Sku: &compute.ScaleSetSkuArgs{
-//					Name:     pulumi.Any(_var.Vm_sku),
-//					Tier:     pulumi.String("Standard"),
-//					Capacity: pulumi.Any(_var.Instance_count),
-//				},
-//				Identity: &compute.ScaleSetIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
-//				Extensions: compute.ScaleSetExtensionArray{
-//					&compute.ScaleSetExtensionArgs{
-//						Name:               pulumi.String("MSILinuxExtension"),
-//						Publisher:          pulumi.String("Microsoft.ManagedIdentity"),
-//						Type:               pulumi.String("ManagedIdentityExtensionForLinux"),
-//						TypeHandlerVersion: pulumi.String("1.0"),
-//						Settings:           pulumi.String("{\"port\": 50342}"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("principalId", example.Identity.ApplyT(func(identity compute.ScaleSetIdentity) (*string, error) {
-//				return &identity.PrincipalId, nil
-//			}).(pulumi.StringPtrOutput))
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o ScaleSetIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ScaleSetIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -15348,51 +15219,6 @@ func (o ScaleSetIdentityPtrOutput) Elem() ScaleSetIdentityOutput {
 }
 
 // Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := compute.NewScaleSet(ctx, "example", &compute.ScaleSetArgs{
-//				ResourceGroupName: pulumi.Any(azurerm_resource_group.Example.Name),
-//				Location:          pulumi.Any(azurerm_resource_group.Example.Location),
-//				Sku: &compute.ScaleSetSkuArgs{
-//					Name:     pulumi.Any(_var.Vm_sku),
-//					Tier:     pulumi.String("Standard"),
-//					Capacity: pulumi.Any(_var.Instance_count),
-//				},
-//				Identity: &compute.ScaleSetIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
-//				Extensions: compute.ScaleSetExtensionArray{
-//					&compute.ScaleSetExtensionArgs{
-//						Name:               pulumi.String("MSILinuxExtension"),
-//						Publisher:          pulumi.String("Microsoft.ManagedIdentity"),
-//						Type:               pulumi.String("ManagedIdentityExtensionForLinux"),
-//						TypeHandlerVersion: pulumi.String("1.0"),
-//						Settings:           pulumi.String("{\"port\": 50342}"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("principalId", example.Identity.ApplyT(func(identity compute.ScaleSetIdentity) (*string, error) {
-//				return &identity.PrincipalId, nil
-//			}).(pulumi.StringPtrOutput))
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o ScaleSetIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ScaleSetIdentity) []string {
 		if v == nil {

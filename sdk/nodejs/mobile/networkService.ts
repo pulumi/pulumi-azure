@@ -9,65 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Mobile Network Service.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "east us"});
- * const exampleNetwork = new azure.mobile.Network("exampleNetwork", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     mobileCountryCode: "001",
- *     mobileNetworkCode: "01",
- * });
- * const exampleNetworkService = new azure.mobile.NetworkService("exampleNetworkService", {
- *     mobileNetworkId: exampleNetwork.id,
- *     location: exampleResourceGroup.location,
- *     servicePrecedence: 0,
- *     pccRules: [{
- *         name: "default-rule",
- *         precedence: 1,
- *         trafficControlEnabled: true,
- *         qosPolicy: {
- *             allocationAndRetentionPriorityLevel: 9,
- *             qosIndicator: 9,
- *             preemptionCapability: "NotPreempt",
- *             preemptionVulnerability: "Preemptable",
- *             guaranteedBitRate: {
- *                 downlink: "100 Mbps",
- *                 uplink: "10 Mbps",
- *             },
- *             maximumBitRate: {
- *                 downlink: "1 Gbps",
- *                 uplink: "100 Mbps",
- *             },
- *         },
- *         serviceDataFlowTemplates: [{
- *             direction: "Uplink",
- *             name: "IP-to-server",
- *             ports: [],
- *             protocols: ["ip"],
- *             remoteIpLists: ["10.3.4.0/24"],
- *         }],
- *     }],
- *     serviceQosPolicy: {
- *         allocationAndRetentionPriorityLevel: 9,
- *         qosIndicator: 9,
- *         preemptionCapability: "NotPreempt",
- *         preemptionVulnerability: "Preemptable",
- *         maximumBitRate: {
- *             downlink: "1 Gbps",
- *             uplink: "100 Mbps",
- *         },
- *     },
- *     tags: {
- *         key: "value",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Mobile Network Service can be imported using the `resource id`, e.g.

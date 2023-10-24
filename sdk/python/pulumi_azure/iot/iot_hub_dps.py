@@ -55,8 +55,8 @@ class IotHubDpsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             sku: pulumi.Input['IotHubDpsSkuArgs'],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['IotHubDpsSkuArgs']] = None,
              allocation_policy: Optional[pulumi.Input[str]] = None,
              data_residency_enabled: Optional[pulumi.Input[bool]] = None,
              ip_filter_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IotHubDpsIpFilterRuleArgs']]]] = None,
@@ -65,19 +65,23 @@ class IotHubDpsArgs:
              name: Optional[pulumi.Input[str]] = None,
              public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'allocationPolicy' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if allocation_policy is None and 'allocationPolicy' in kwargs:
             allocation_policy = kwargs['allocationPolicy']
-        if 'dataResidencyEnabled' in kwargs:
+        if data_residency_enabled is None and 'dataResidencyEnabled' in kwargs:
             data_residency_enabled = kwargs['dataResidencyEnabled']
-        if 'ipFilterRules' in kwargs:
+        if ip_filter_rules is None and 'ipFilterRules' in kwargs:
             ip_filter_rules = kwargs['ipFilterRules']
-        if 'linkedHubs' in kwargs:
+        if linked_hubs is None and 'linkedHubs' in kwargs:
             linked_hubs = kwargs['linkedHubs']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
 
         _setter("resource_group_name", resource_group_name)
@@ -284,25 +288,25 @@ class _IotHubDpsState:
              service_operations_host_name: Optional[pulumi.Input[str]] = None,
              sku: Optional[pulumi.Input['IotHubDpsSkuArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'allocationPolicy' in kwargs:
+        if allocation_policy is None and 'allocationPolicy' in kwargs:
             allocation_policy = kwargs['allocationPolicy']
-        if 'dataResidencyEnabled' in kwargs:
+        if data_residency_enabled is None and 'dataResidencyEnabled' in kwargs:
             data_residency_enabled = kwargs['dataResidencyEnabled']
-        if 'deviceProvisioningHostName' in kwargs:
+        if device_provisioning_host_name is None and 'deviceProvisioningHostName' in kwargs:
             device_provisioning_host_name = kwargs['deviceProvisioningHostName']
-        if 'idScope' in kwargs:
+        if id_scope is None and 'idScope' in kwargs:
             id_scope = kwargs['idScope']
-        if 'ipFilterRules' in kwargs:
+        if ip_filter_rules is None and 'ipFilterRules' in kwargs:
             ip_filter_rules = kwargs['ipFilterRules']
-        if 'linkedHubs' in kwargs:
+        if linked_hubs is None and 'linkedHubs' in kwargs:
             linked_hubs = kwargs['linkedHubs']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serviceOperationsHostName' in kwargs:
+        if service_operations_host_name is None and 'serviceOperationsHostName' in kwargs:
             service_operations_host_name = kwargs['serviceOperationsHostName']
 
         if allocation_policy is not None:
@@ -508,23 +512,6 @@ class IotHubDps(pulumi.CustomResource):
         """
         Manages an IotHub Device Provisioning Service.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_iot_hub_dps = azure.iot.IotHubDps("exampleIotHubDps",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            allocation_policy="Hashed",
-            sku=azure.iot.IotHubDpsSkuArgs(
-                name="S1",
-                capacity=1,
-            ))
-        ```
-
         ## Import
 
         IoT Device Provisioning Service can be imported using the `resource id`, e.g.
@@ -554,23 +541,6 @@ class IotHubDps(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an IotHub Device Provisioning Service.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_iot_hub_dps = azure.iot.IotHubDps("exampleIotHubDps",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            allocation_policy="Hashed",
-            sku=azure.iot.IotHubDpsSkuArgs(
-                name="S1",
-                capacity=1,
-            ))
-        ```
 
         ## Import
 
@@ -628,11 +598,7 @@ class IotHubDps(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if sku is not None and not isinstance(sku, IotHubDpsSkuArgs):
-                sku = sku or {}
-                def _setter(key, value):
-                    sku[key] = value
-                IotHubDpsSkuArgs._configure(_setter, **sku)
+            sku = _utilities.configure(sku, IotHubDpsSkuArgs, True)
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku

@@ -90,11 +90,11 @@ class ScheduledQueryRulesAlertV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             criterias: pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRulesAlertV2CriteriaArgs']]],
-             resource_group_name: pulumi.Input[str],
-             scopes: pulumi.Input[str],
-             severity: pulumi.Input[int],
-             window_duration: pulumi.Input[str],
+             criterias: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRulesAlertV2CriteriaArgs']]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             scopes: Optional[pulumi.Input[str]] = None,
+             severity: Optional[pulumi.Input[int]] = None,
+             window_duration: Optional[pulumi.Input[str]] = None,
              action: Optional[pulumi.Input['ScheduledQueryRulesAlertV2ActionArgs']] = None,
              auto_mitigation_enabled: Optional[pulumi.Input[bool]] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -109,27 +109,37 @@ class ScheduledQueryRulesAlertV2Args:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              target_resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              workspace_alerts_storage_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if criterias is None:
+            raise TypeError("Missing 'criterias' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'windowDuration' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if scopes is None:
+            raise TypeError("Missing 'scopes' argument")
+        if severity is None:
+            raise TypeError("Missing 'severity' argument")
+        if window_duration is None and 'windowDuration' in kwargs:
             window_duration = kwargs['windowDuration']
-        if 'autoMitigationEnabled' in kwargs:
+        if window_duration is None:
+            raise TypeError("Missing 'window_duration' argument")
+        if auto_mitigation_enabled is None and 'autoMitigationEnabled' in kwargs:
             auto_mitigation_enabled = kwargs['autoMitigationEnabled']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'evaluationFrequency' in kwargs:
+        if evaluation_frequency is None and 'evaluationFrequency' in kwargs:
             evaluation_frequency = kwargs['evaluationFrequency']
-        if 'muteActionsAfterAlertDuration' in kwargs:
+        if mute_actions_after_alert_duration is None and 'muteActionsAfterAlertDuration' in kwargs:
             mute_actions_after_alert_duration = kwargs['muteActionsAfterAlertDuration']
-        if 'queryTimeRangeOverride' in kwargs:
+        if query_time_range_override is None and 'queryTimeRangeOverride' in kwargs:
             query_time_range_override = kwargs['queryTimeRangeOverride']
-        if 'skipQueryValidation' in kwargs:
+        if skip_query_validation is None and 'skipQueryValidation' in kwargs:
             skip_query_validation = kwargs['skipQueryValidation']
-        if 'targetResourceTypes' in kwargs:
+        if target_resource_types is None and 'targetResourceTypes' in kwargs:
             target_resource_types = kwargs['targetResourceTypes']
-        if 'workspaceAlertsStorageEnabled' in kwargs:
+        if workspace_alerts_storage_enabled is None and 'workspaceAlertsStorageEnabled' in kwargs:
             workspace_alerts_storage_enabled = kwargs['workspaceAlertsStorageEnabled']
 
         _setter("criterias", criterias)
@@ -511,33 +521,33 @@ class _ScheduledQueryRulesAlertV2State:
              target_resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              window_duration: Optional[pulumi.Input[str]] = None,
              workspace_alerts_storage_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'autoMitigationEnabled' in kwargs:
+        if auto_mitigation_enabled is None and 'autoMitigationEnabled' in kwargs:
             auto_mitigation_enabled = kwargs['autoMitigationEnabled']
-        if 'createdWithApiVersion' in kwargs:
+        if created_with_api_version is None and 'createdWithApiVersion' in kwargs:
             created_with_api_version = kwargs['createdWithApiVersion']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'evaluationFrequency' in kwargs:
+        if evaluation_frequency is None and 'evaluationFrequency' in kwargs:
             evaluation_frequency = kwargs['evaluationFrequency']
-        if 'isALegacyLogAnalyticsRule' in kwargs:
+        if is_a_legacy_log_analytics_rule is None and 'isALegacyLogAnalyticsRule' in kwargs:
             is_a_legacy_log_analytics_rule = kwargs['isALegacyLogAnalyticsRule']
-        if 'isWorkspaceAlertsStorageConfigured' in kwargs:
+        if is_workspace_alerts_storage_configured is None and 'isWorkspaceAlertsStorageConfigured' in kwargs:
             is_workspace_alerts_storage_configured = kwargs['isWorkspaceAlertsStorageConfigured']
-        if 'muteActionsAfterAlertDuration' in kwargs:
+        if mute_actions_after_alert_duration is None and 'muteActionsAfterAlertDuration' in kwargs:
             mute_actions_after_alert_duration = kwargs['muteActionsAfterAlertDuration']
-        if 'queryTimeRangeOverride' in kwargs:
+        if query_time_range_override is None and 'queryTimeRangeOverride' in kwargs:
             query_time_range_override = kwargs['queryTimeRangeOverride']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skipQueryValidation' in kwargs:
+        if skip_query_validation is None and 'skipQueryValidation' in kwargs:
             skip_query_validation = kwargs['skipQueryValidation']
-        if 'targetResourceTypes' in kwargs:
+        if target_resource_types is None and 'targetResourceTypes' in kwargs:
             target_resource_types = kwargs['targetResourceTypes']
-        if 'windowDuration' in kwargs:
+        if window_duration is None and 'windowDuration' in kwargs:
             window_duration = kwargs['windowDuration']
-        if 'workspaceAlertsStorageEnabled' in kwargs:
+        if workspace_alerts_storage_enabled is None and 'workspaceAlertsStorageEnabled' in kwargs:
             workspace_alerts_storage_enabled = kwargs['workspaceAlertsStorageEnabled']
 
         if action is not None:
@@ -988,11 +998,7 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ScheduledQueryRulesAlertV2Args.__new__(ScheduledQueryRulesAlertV2Args)
 
-            if action is not None and not isinstance(action, ScheduledQueryRulesAlertV2ActionArgs):
-                action = action or {}
-                def _setter(key, value):
-                    action[key] = value
-                ScheduledQueryRulesAlertV2ActionArgs._configure(_setter, **action)
+            action = _utilities.configure(action, ScheduledQueryRulesAlertV2ActionArgs, True)
             __props__.__dict__["action"] = action
             __props__.__dict__["auto_mitigation_enabled"] = auto_mitigation_enabled
             if criterias is None and not opts.urn:

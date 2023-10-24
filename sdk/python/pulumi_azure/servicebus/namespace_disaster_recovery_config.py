@@ -35,17 +35,21 @@ class NamespaceDisasterRecoveryConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             partner_namespace_id: pulumi.Input[str],
-             primary_namespace_id: pulumi.Input[str],
+             partner_namespace_id: Optional[pulumi.Input[str]] = None,
+             primary_namespace_id: Optional[pulumi.Input[str]] = None,
              alias_authorization_rule_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'partnerNamespaceId' in kwargs:
+        if partner_namespace_id is None and 'partnerNamespaceId' in kwargs:
             partner_namespace_id = kwargs['partnerNamespaceId']
-        if 'primaryNamespaceId' in kwargs:
+        if partner_namespace_id is None:
+            raise TypeError("Missing 'partner_namespace_id' argument")
+        if primary_namespace_id is None and 'primaryNamespaceId' in kwargs:
             primary_namespace_id = kwargs['primaryNamespaceId']
-        if 'aliasAuthorizationRuleId' in kwargs:
+        if primary_namespace_id is None:
+            raise TypeError("Missing 'primary_namespace_id' argument")
+        if alias_authorization_rule_id is None and 'aliasAuthorizationRuleId' in kwargs:
             alias_authorization_rule_id = kwargs['aliasAuthorizationRuleId']
 
         _setter("partner_namespace_id", partner_namespace_id)
@@ -148,21 +152,21 @@ class _NamespaceDisasterRecoveryConfigState:
              primary_connection_string_alias: Optional[pulumi.Input[str]] = None,
              primary_namespace_id: Optional[pulumi.Input[str]] = None,
              secondary_connection_string_alias: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'aliasAuthorizationRuleId' in kwargs:
+        if alias_authorization_rule_id is None and 'aliasAuthorizationRuleId' in kwargs:
             alias_authorization_rule_id = kwargs['aliasAuthorizationRuleId']
-        if 'defaultPrimaryKey' in kwargs:
+        if default_primary_key is None and 'defaultPrimaryKey' in kwargs:
             default_primary_key = kwargs['defaultPrimaryKey']
-        if 'defaultSecondaryKey' in kwargs:
+        if default_secondary_key is None and 'defaultSecondaryKey' in kwargs:
             default_secondary_key = kwargs['defaultSecondaryKey']
-        if 'partnerNamespaceId' in kwargs:
+        if partner_namespace_id is None and 'partnerNamespaceId' in kwargs:
             partner_namespace_id = kwargs['partnerNamespaceId']
-        if 'primaryConnectionStringAlias' in kwargs:
+        if primary_connection_string_alias is None and 'primaryConnectionStringAlias' in kwargs:
             primary_connection_string_alias = kwargs['primaryConnectionStringAlias']
-        if 'primaryNamespaceId' in kwargs:
+        if primary_namespace_id is None and 'primaryNamespaceId' in kwargs:
             primary_namespace_id = kwargs['primaryNamespaceId']
-        if 'secondaryConnectionStringAlias' in kwargs:
+        if secondary_connection_string_alias is None and 'secondaryConnectionStringAlias' in kwargs:
             secondary_connection_string_alias = kwargs['secondaryConnectionStringAlias']
 
         if alias_authorization_rule_id is not None:
@@ -294,34 +298,6 @@ class NamespaceDisasterRecoveryConfig(pulumi.CustomResource):
 
         > **NOTE:** Disaster Recovery Config is a Premium SKU only capability.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        primary = azure.servicebus.Namespace("primary",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Premium",
-            capacity=1)
-        secondary = azure.servicebus.Namespace("secondary",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Premium",
-            capacity=1)
-        example_namespace_authorization_rule = azure.servicebus.NamespaceAuthorizationRule("exampleNamespaceAuthorizationRule",
-            namespace_id=azurerm_servicebus_namespace["example"]["id"],
-            listen=True,
-            send=True,
-            manage=False)
-        example_namespace_disaster_recovery_config = azure.servicebus.NamespaceDisasterRecoveryConfig("exampleNamespaceDisasterRecoveryConfig",
-            primary_namespace_id=primary.id,
-            partner_namespace_id=secondary.id,
-            alias_authorization_rule_id=example_namespace_authorization_rule.id)
-        ```
-
         ## Import
 
         Service Bus DR configs can be imported using the `resource id`, e.g.
@@ -347,34 +323,6 @@ class NamespaceDisasterRecoveryConfig(pulumi.CustomResource):
         Manages a Disaster Recovery Config for a Service Bus Namespace.
 
         > **NOTE:** Disaster Recovery Config is a Premium SKU only capability.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        primary = azure.servicebus.Namespace("primary",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Premium",
-            capacity=1)
-        secondary = azure.servicebus.Namespace("secondary",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Premium",
-            capacity=1)
-        example_namespace_authorization_rule = azure.servicebus.NamespaceAuthorizationRule("exampleNamespaceAuthorizationRule",
-            namespace_id=azurerm_servicebus_namespace["example"]["id"],
-            listen=True,
-            send=True,
-            manage=False)
-        example_namespace_disaster_recovery_config = azure.servicebus.NamespaceDisasterRecoveryConfig("exampleNamespaceDisasterRecoveryConfig",
-            primary_namespace_id=primary.id,
-            partner_namespace_id=secondary.id,
-            alias_authorization_rule_id=example_namespace_authorization_rule.id)
-        ```
 
         ## Import
 

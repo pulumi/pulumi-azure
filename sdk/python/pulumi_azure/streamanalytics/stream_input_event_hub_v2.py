@@ -55,33 +55,41 @@ class StreamInputEventHubV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             eventhub_name: pulumi.Input[str],
-             serialization: pulumi.Input['StreamInputEventHubV2SerializationArgs'],
-             servicebus_namespace: pulumi.Input[str],
-             stream_analytics_job_id: pulumi.Input[str],
+             eventhub_name: Optional[pulumi.Input[str]] = None,
+             serialization: Optional[pulumi.Input['StreamInputEventHubV2SerializationArgs']] = None,
+             servicebus_namespace: Optional[pulumi.Input[str]] = None,
+             stream_analytics_job_id: Optional[pulumi.Input[str]] = None,
              authentication_mode: Optional[pulumi.Input[str]] = None,
              eventhub_consumer_group_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              partition_key: Optional[pulumi.Input[str]] = None,
              shared_access_policy_key: Optional[pulumi.Input[str]] = None,
              shared_access_policy_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'eventhubName' in kwargs:
+        if eventhub_name is None and 'eventhubName' in kwargs:
             eventhub_name = kwargs['eventhubName']
-        if 'servicebusNamespace' in kwargs:
+        if eventhub_name is None:
+            raise TypeError("Missing 'eventhub_name' argument")
+        if serialization is None:
+            raise TypeError("Missing 'serialization' argument")
+        if servicebus_namespace is None and 'servicebusNamespace' in kwargs:
             servicebus_namespace = kwargs['servicebusNamespace']
-        if 'streamAnalyticsJobId' in kwargs:
+        if servicebus_namespace is None:
+            raise TypeError("Missing 'servicebus_namespace' argument")
+        if stream_analytics_job_id is None and 'streamAnalyticsJobId' in kwargs:
             stream_analytics_job_id = kwargs['streamAnalyticsJobId']
-        if 'authenticationMode' in kwargs:
+        if stream_analytics_job_id is None:
+            raise TypeError("Missing 'stream_analytics_job_id' argument")
+        if authentication_mode is None and 'authenticationMode' in kwargs:
             authentication_mode = kwargs['authenticationMode']
-        if 'eventhubConsumerGroupName' in kwargs:
+        if eventhub_consumer_group_name is None and 'eventhubConsumerGroupName' in kwargs:
             eventhub_consumer_group_name = kwargs['eventhubConsumerGroupName']
-        if 'partitionKey' in kwargs:
+        if partition_key is None and 'partitionKey' in kwargs:
             partition_key = kwargs['partitionKey']
-        if 'sharedAccessPolicyKey' in kwargs:
+        if shared_access_policy_key is None and 'sharedAccessPolicyKey' in kwargs:
             shared_access_policy_key = kwargs['sharedAccessPolicyKey']
-        if 'sharedAccessPolicyName' in kwargs:
+        if shared_access_policy_name is None and 'sharedAccessPolicyName' in kwargs:
             shared_access_policy_name = kwargs['sharedAccessPolicyName']
 
         _setter("eventhub_name", eventhub_name)
@@ -274,23 +282,23 @@ class _StreamInputEventHubV2State:
              shared_access_policy_key: Optional[pulumi.Input[str]] = None,
              shared_access_policy_name: Optional[pulumi.Input[str]] = None,
              stream_analytics_job_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'authenticationMode' in kwargs:
+        if authentication_mode is None and 'authenticationMode' in kwargs:
             authentication_mode = kwargs['authenticationMode']
-        if 'eventhubConsumerGroupName' in kwargs:
+        if eventhub_consumer_group_name is None and 'eventhubConsumerGroupName' in kwargs:
             eventhub_consumer_group_name = kwargs['eventhubConsumerGroupName']
-        if 'eventhubName' in kwargs:
+        if eventhub_name is None and 'eventhubName' in kwargs:
             eventhub_name = kwargs['eventhubName']
-        if 'partitionKey' in kwargs:
+        if partition_key is None and 'partitionKey' in kwargs:
             partition_key = kwargs['partitionKey']
-        if 'servicebusNamespace' in kwargs:
+        if servicebus_namespace is None and 'servicebusNamespace' in kwargs:
             servicebus_namespace = kwargs['servicebusNamespace']
-        if 'sharedAccessPolicyKey' in kwargs:
+        if shared_access_policy_key is None and 'sharedAccessPolicyKey' in kwargs:
             shared_access_policy_key = kwargs['sharedAccessPolicyKey']
-        if 'sharedAccessPolicyName' in kwargs:
+        if shared_access_policy_name is None and 'sharedAccessPolicyName' in kwargs:
             shared_access_policy_name = kwargs['sharedAccessPolicyName']
-        if 'streamAnalyticsJobId' in kwargs:
+        if stream_analytics_job_id is None and 'streamAnalyticsJobId' in kwargs:
             stream_analytics_job_id = kwargs['streamAnalyticsJobId']
 
         if authentication_mode is not None:
@@ -456,42 +464,6 @@ class StreamInputEventHubV2(pulumi.CustomResource):
 
         Manages a Stream Analytics Stream Input EventHub V2.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_job = azure.streamanalytics.get_job_output(name="example-job",
-            resource_group_name=example_resource_group.name)
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard",
-            capacity=1)
-        example_event_hub = azure.eventhub.EventHub("exampleEventHub",
-            namespace_name=example_event_hub_namespace.name,
-            resource_group_name=example_resource_group.name,
-            partition_count=2,
-            message_retention=1)
-        example_consumer_group = azure.eventhub.ConsumerGroup("exampleConsumerGroup",
-            namespace_name=example_event_hub_namespace.name,
-            eventhub_name=example_event_hub.name,
-            resource_group_name=example_resource_group.name)
-        example_stream_input_event_hub_v2 = azure.streamanalytics.StreamInputEventHubV2("exampleStreamInputEventHubV2",
-            stream_analytics_job_id=example_job.id,
-            eventhub_consumer_group_name=example_consumer_group.name,
-            eventhub_name=example_event_hub.name,
-            servicebus_namespace=example_event_hub_namespace.name,
-            shared_access_policy_key=example_event_hub_namespace.default_primary_key,
-            shared_access_policy_name="RootManageSharedAccessKey",
-            serialization=azure.streamanalytics.StreamInputEventHubV2SerializationArgs(
-                type="Json",
-                encoding="UTF8",
-            ))
-        ```
-
         ## Import
 
         Stream Analytics Stream Input EventHub's can be imported using the `resource id`, e.g.
@@ -523,42 +495,6 @@ class StreamInputEventHubV2(pulumi.CustomResource):
         > **Note:** This resource creates a Stream Input of type `Microsoft.EventHub/EventHub`, to create a Stream Input of type `Microsoft.ServiceBus/EventHub` please use the resource azurerm_stream_analytics_stream_input_eventhub.
 
         Manages a Stream Analytics Stream Input EventHub V2.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_job = azure.streamanalytics.get_job_output(name="example-job",
-            resource_group_name=example_resource_group.name)
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard",
-            capacity=1)
-        example_event_hub = azure.eventhub.EventHub("exampleEventHub",
-            namespace_name=example_event_hub_namespace.name,
-            resource_group_name=example_resource_group.name,
-            partition_count=2,
-            message_retention=1)
-        example_consumer_group = azure.eventhub.ConsumerGroup("exampleConsumerGroup",
-            namespace_name=example_event_hub_namespace.name,
-            eventhub_name=example_event_hub.name,
-            resource_group_name=example_resource_group.name)
-        example_stream_input_event_hub_v2 = azure.streamanalytics.StreamInputEventHubV2("exampleStreamInputEventHubV2",
-            stream_analytics_job_id=example_job.id,
-            eventhub_consumer_group_name=example_consumer_group.name,
-            eventhub_name=example_event_hub.name,
-            servicebus_namespace=example_event_hub_namespace.name,
-            shared_access_policy_key=example_event_hub_namespace.default_primary_key,
-            shared_access_policy_name="RootManageSharedAccessKey",
-            serialization=azure.streamanalytics.StreamInputEventHubV2SerializationArgs(
-                type="Json",
-                encoding="UTF8",
-            ))
-        ```
 
         ## Import
 
@@ -613,11 +549,7 @@ class StreamInputEventHubV2(pulumi.CustomResource):
             __props__.__dict__["eventhub_name"] = eventhub_name
             __props__.__dict__["name"] = name
             __props__.__dict__["partition_key"] = partition_key
-            if serialization is not None and not isinstance(serialization, StreamInputEventHubV2SerializationArgs):
-                serialization = serialization or {}
-                def _setter(key, value):
-                    serialization[key] = value
-                StreamInputEventHubV2SerializationArgs._configure(_setter, **serialization)
+            serialization = _utilities.configure(serialization, StreamInputEventHubV2SerializationArgs, True)
             if serialization is None and not opts.urn:
                 raise TypeError("Missing required property 'serialization'")
             __props__.__dict__["serialization"] = serialization

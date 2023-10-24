@@ -13,37 +13,6 @@ import (
 )
 
 // Uses this data source to access information about an existing NetApp Snapshot.
-//
-// ## NetApp Snapshot Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/netapp"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := netapp.LookupSnapshot(ctx, &netapp.LookupSnapshotArgs{
-//				ResourceGroupName: "acctestRG",
-//				Name:              "acctestnetappsnapshot",
-//				AccountName:       "acctestnetappaccount",
-//				PoolName:          "acctestnetapppool",
-//				VolumeName:        "acctestnetappvolume",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("netappSnapshotId", data.Azurerm_netapp_snapshot.Example.Id)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupSnapshot(ctx *pulumi.Context, args *LookupSnapshotArgs, opts ...pulumi.InvokeOption) (*LookupSnapshotResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSnapshotResult

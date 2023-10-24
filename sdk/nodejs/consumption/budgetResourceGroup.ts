@@ -9,64 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Resource Group Consumption Budget.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "eastus"});
- * const exampleActionGroup = new azure.monitoring.ActionGroup("exampleActionGroup", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     shortName: "example",
- * });
- * const exampleBudgetResourceGroup = new azure.consumption.BudgetResourceGroup("exampleBudgetResourceGroup", {
- *     resourceGroupId: exampleResourceGroup.id,
- *     amount: 1000,
- *     timeGrain: "Monthly",
- *     timePeriod: {
- *         startDate: "2022-06-01T00:00:00Z",
- *         endDate: "2022-07-01T00:00:00Z",
- *     },
- *     filter: {
- *         dimensions: [{
- *             name: "ResourceId",
- *             values: [exampleActionGroup.id],
- *         }],
- *         tags: [{
- *             name: "foo",
- *             values: [
- *                 "bar",
- *                 "baz",
- *             ],
- *         }],
- *     },
- *     notifications: [
- *         {
- *             enabled: true,
- *             threshold: 90,
- *             operator: "EqualTo",
- *             thresholdType: "Forecasted",
- *             contactEmails: [
- *                 "foo@example.com",
- *                 "bar@example.com",
- *             ],
- *             contactGroups: [exampleActionGroup.id],
- *             contactRoles: ["Owner"],
- *         },
- *         {
- *             enabled: false,
- *             threshold: 100,
- *             operator: "GreaterThan",
- *             contactEmails: [
- *                 "foo@example.com",
- *                 "bar@example.com",
- *             ],
- *         },
- *     ],
- * });
- * ```
- *
  * ## Import
  *
  * Resource Group Consumption Budgets can be imported using the `resource id`, e.g.

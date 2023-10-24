@@ -41,18 +41,26 @@ class NsRecordArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             records: pulumi.Input[Sequence[pulumi.Input[str]]],
-             resource_group_name: pulumi.Input[str],
-             ttl: pulumi.Input[int],
-             zone_name: pulumi.Input[str],
+             records: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             ttl: Optional[pulumi.Input[int]] = None,
+             zone_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if records is None:
+            raise TypeError("Missing 'records' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'zoneName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if ttl is None:
+            raise TypeError("Missing 'ttl' argument")
+        if zone_name is None and 'zoneName' in kwargs:
             zone_name = kwargs['zoneName']
+        if zone_name is None:
+            raise TypeError("Missing 'zone_name' argument")
 
         _setter("records", records)
         _setter("resource_group_name", resource_group_name)
@@ -176,11 +184,11 @@ class _NsRecordState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              ttl: Optional[pulumi.Input[int]] = None,
              zone_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'zoneName' in kwargs:
+        if zone_name is None and 'zoneName' in kwargs:
             zone_name = kwargs['zoneName']
 
         if fqdn is not None:
@@ -296,27 +304,6 @@ class NsRecord(pulumi.CustomResource):
                  zone_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_zone = azure.dns.Zone("exampleZone", resource_group_name=example_resource_group.name)
-        example_ns_record = azure.dns.NsRecord("exampleNsRecord",
-            zone_name=example_zone.name,
-            resource_group_name=example_resource_group.name,
-            ttl=300,
-            records=[
-                "ns1.contoso.com.",
-                "ns2.contoso.com.",
-            ],
-            tags={
-                "Environment": "Production",
-            })
-        ```
-
         ## Import
 
         NS records can be imported using the `resource id`, e.g.
@@ -341,27 +328,6 @@ class NsRecord(pulumi.CustomResource):
                  args: NsRecordArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_zone = azure.dns.Zone("exampleZone", resource_group_name=example_resource_group.name)
-        example_ns_record = azure.dns.NsRecord("exampleNsRecord",
-            zone_name=example_zone.name,
-            resource_group_name=example_resource_group.name,
-            ttl=300,
-            records=[
-                "ns1.contoso.com.",
-                "ns2.contoso.com.",
-            ],
-            tags={
-                "Environment": "Production",
-            })
-        ```
-
         ## Import
 
         NS records can be imported using the `resource id`, e.g.

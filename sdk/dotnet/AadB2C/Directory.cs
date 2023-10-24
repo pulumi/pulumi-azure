@@ -12,29 +12,6 @@ namespace Pulumi.Azure.AadB2C
     /// <summary>
     /// Manages an AAD B2C Directory.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.AadB2C.Directory("example", new()
-    ///     {
-    ///         CountryCode = "US",
-    ///         DataResidencyLocation = "United States",
-    ///         DisplayName = "example-b2c-tenant",
-    ///         DomainName = "exampleb2ctenant.onmicrosoft.com",
-    ///         ResourceGroupName = "example-rg",
-    ///         SkuName = "PremiumP1",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// AAD B2C Directories can be imported using the `resource id`, e.g.

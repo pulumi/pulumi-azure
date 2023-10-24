@@ -13,55 +13,6 @@ import * as utilities from "../utilities";
  *
  * Note that this is an [Account SAS](https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas)
  * and *not* a [Service SAS](https://docs.microsoft.com/rest/api/storageservices/constructing-a-service-sas).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "GRS",
- *     tags: {
- *         environment: "staging",
- *     },
- * });
- * const exampleAccountSAS = azure.storage.getAccountSASOutput({
- *     connectionString: exampleAccount.primaryConnectionString,
- *     httpsOnly: true,
- *     signedVersion: "2017-07-29",
- *     resourceTypes: {
- *         service: true,
- *         container: false,
- *         object: false,
- *     },
- *     services: {
- *         blob: true,
- *         queue: false,
- *         table: false,
- *         file: false,
- *     },
- *     start: "2018-03-21T00:00:00Z",
- *     expiry: "2020-03-21T00:00:00Z",
- *     permissions: {
- *         read: true,
- *         write: true,
- *         "delete": false,
- *         list: false,
- *         add: true,
- *         create: true,
- *         update: false,
- *         process: false,
- *         tag: false,
- *         filter: false,
- *     },
- * });
- * export const sasUrlQueryString = exampleAccountSAS.apply(exampleAccountSAS => exampleAccountSAS.sas);
- * ```
  */
 export function getAccountSAS(args: GetAccountSASArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountSASResult> {
 
@@ -152,55 +103,6 @@ export interface GetAccountSASResult {
  *
  * Note that this is an [Account SAS](https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas)
  * and *not* a [Service SAS](https://docs.microsoft.com/rest/api/storageservices/constructing-a-service-sas).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "GRS",
- *     tags: {
- *         environment: "staging",
- *     },
- * });
- * const exampleAccountSAS = azure.storage.getAccountSASOutput({
- *     connectionString: exampleAccount.primaryConnectionString,
- *     httpsOnly: true,
- *     signedVersion: "2017-07-29",
- *     resourceTypes: {
- *         service: true,
- *         container: false,
- *         object: false,
- *     },
- *     services: {
- *         blob: true,
- *         queue: false,
- *         table: false,
- *         file: false,
- *     },
- *     start: "2018-03-21T00:00:00Z",
- *     expiry: "2020-03-21T00:00:00Z",
- *     permissions: {
- *         read: true,
- *         write: true,
- *         "delete": false,
- *         list: false,
- *         add: true,
- *         create: true,
- *         update: false,
- *         process: false,
- *         tag: false,
- *         filter: false,
- *     },
- * });
- * export const sasUrlQueryString = exampleAccountSAS.apply(exampleAccountSAS => exampleAccountSAS.sas);
- * ```
  */
 export function getAccountSASOutput(args: GetAccountSASOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountSASResult> {
     return pulumi.output(args).apply((a: any) => getAccountSAS(a, opts))

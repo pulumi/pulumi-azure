@@ -114,17 +114,6 @@ def get_frontdoor_endpoint(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Front Door (standard/premium) Endpoint.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.cdn.get_frontdoor_endpoint(name="existing-endpoint",
-        profile_name="existing-cdn-profile",
-        resource_group_name="existing-resources")
-    ```
-
 
     :param str name: Specifies the name of the Front Door Endpoint.
     :param str profile_name: The name of the Front Door Profile within which Front Door Endpoint exists.
@@ -154,17 +143,6 @@ def get_frontdoor_endpoint_output(name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFrontdoorEndpointResult]:
     """
     Use this data source to access information about an existing Front Door (standard/premium) Endpoint.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.cdn.get_frontdoor_endpoint(name="existing-endpoint",
-        profile_name="existing-cdn-profile",
-        resource_group_name="existing-resources")
-    ```
 
 
     :param str name: Specifies the name of the Front Door Endpoint.

@@ -132,17 +132,6 @@ def get_spring_cloud_service(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Spring Cloud Service.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.appplatform.get_spring_cloud_service(name=azurerm_spring_cloud_service["example"]["name"],
-        resource_group_name=azurerm_spring_cloud_service["example"]["resource_group_name"])
-    pulumi.export("springCloudServiceId", example.id)
-    ```
-
 
     :param str name: Specifies The name of the Spring Cloud Service resource.
     :param str resource_group_name: Specifies the name of the Resource Group where the Spring Cloud Service exists.
@@ -170,17 +159,6 @@ def get_spring_cloud_service_output(name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSpringCloudServiceResult]:
     """
     Use this data source to access information about an existing Spring Cloud Service.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.appplatform.get_spring_cloud_service(name=azurerm_spring_cloud_service["example"]["name"],
-        resource_group_name=azurerm_spring_cloud_service["example"]["resource_group_name"])
-    pulumi.export("springCloudServiceId", example.id)
-    ```
 
 
     :param str name: Specifies The name of the Spring Cloud Service resource.

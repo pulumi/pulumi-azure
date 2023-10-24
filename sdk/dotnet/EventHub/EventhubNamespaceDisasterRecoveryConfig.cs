@@ -12,45 +12,6 @@ namespace Pulumi.Azure.EventHub
     /// <summary>
     /// Manages an Disaster Recovery Config for an Event Hub Namespace.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var primary = new Azure.EventHub.EventHubNamespace("primary", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Sku = "Standard",
-    ///     });
-    /// 
-    ///     var secondary = new Azure.EventHub.EventHubNamespace("secondary", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Sku = "Standard",
-    ///     });
-    /// 
-    ///     var exampleEventhubNamespaceDisasterRecoveryConfig = new Azure.EventHub.EventhubNamespaceDisasterRecoveryConfig("exampleEventhubNamespaceDisasterRecoveryConfig", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         NamespaceName = primary.Name,
-    ///         PartnerNamespaceId = secondary.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// EventHubs can be imported using the `resource id`, e.g.

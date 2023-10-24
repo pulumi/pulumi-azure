@@ -40,23 +40,33 @@ class ProtectedFileShareArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             backup_policy_id: pulumi.Input[str],
-             recovery_vault_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             source_file_share_name: pulumi.Input[str],
-             source_storage_account_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             backup_policy_id: Optional[pulumi.Input[str]] = None,
+             recovery_vault_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             source_file_share_name: Optional[pulumi.Input[str]] = None,
+             source_storage_account_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'backupPolicyId' in kwargs:
+        if backup_policy_id is None and 'backupPolicyId' in kwargs:
             backup_policy_id = kwargs['backupPolicyId']
-        if 'recoveryVaultName' in kwargs:
+        if backup_policy_id is None:
+            raise TypeError("Missing 'backup_policy_id' argument")
+        if recovery_vault_name is None and 'recoveryVaultName' in kwargs:
             recovery_vault_name = kwargs['recoveryVaultName']
-        if 'resourceGroupName' in kwargs:
+        if recovery_vault_name is None:
+            raise TypeError("Missing 'recovery_vault_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'sourceFileShareName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if source_file_share_name is None and 'sourceFileShareName' in kwargs:
             source_file_share_name = kwargs['sourceFileShareName']
-        if 'sourceStorageAccountId' in kwargs:
+        if source_file_share_name is None:
+            raise TypeError("Missing 'source_file_share_name' argument")
+        if source_storage_account_id is None and 'sourceStorageAccountId' in kwargs:
             source_storage_account_id = kwargs['sourceStorageAccountId']
+        if source_storage_account_id is None:
+            raise TypeError("Missing 'source_storage_account_id' argument")
 
         _setter("backup_policy_id", backup_policy_id)
         _setter("recovery_vault_name", recovery_vault_name)
@@ -161,17 +171,17 @@ class _ProtectedFileShareState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              source_file_share_name: Optional[pulumi.Input[str]] = None,
              source_storage_account_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'backupPolicyId' in kwargs:
+        if backup_policy_id is None and 'backupPolicyId' in kwargs:
             backup_policy_id = kwargs['backupPolicyId']
-        if 'recoveryVaultName' in kwargs:
+        if recovery_vault_name is None and 'recoveryVaultName' in kwargs:
             recovery_vault_name = kwargs['recoveryVaultName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'sourceFileShareName' in kwargs:
+        if source_file_share_name is None and 'sourceFileShareName' in kwargs:
             source_file_share_name = kwargs['sourceFileShareName']
-        if 'sourceStorageAccountId' in kwargs:
+        if source_storage_account_id is None and 'sourceStorageAccountId' in kwargs:
             source_storage_account_id = kwargs['sourceStorageAccountId']
 
         if backup_policy_id is not None:
@@ -262,47 +272,6 @@ class ProtectedFileShare(pulumi.CustomResource):
         """
         Manages an Azure Backup Protected File Share to enable backups for file shares within an Azure Storage Account
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        vault = azure.recoveryservices.Vault("vault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard")
-        sa = azure.storage.Account("sa",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_share = azure.storage.Share("exampleShare",
-            storage_account_name=sa.name,
-            quota=1)
-        protection_container = azure.backup.ContainerStorageAccount("protection-container",
-            resource_group_name=example_resource_group.name,
-            recovery_vault_name=vault.name,
-            storage_account_id=sa.id)
-        example_policy_file_share = azure.backup.PolicyFileShare("examplePolicyFileShare",
-            resource_group_name=example_resource_group.name,
-            recovery_vault_name=vault.name,
-            backup=azure.backup.PolicyFileShareBackupArgs(
-                frequency="Daily",
-                time="23:00",
-            ),
-            retention_daily=azure.backup.PolicyFileShareRetentionDailyArgs(
-                count=10,
-            ))
-        share1 = azure.backup.ProtectedFileShare("share1",
-            resource_group_name=example_resource_group.name,
-            recovery_vault_name=vault.name,
-            source_storage_account_id=protection_container.storage_account_id,
-            source_file_share_name=example_share.name,
-            backup_policy_id=example_policy_file_share.id)
-        ```
-
         ## Import
 
         Azure Backup Protected File Shares can be imported using the `resource id`, e.g.
@@ -331,47 +300,6 @@ class ProtectedFileShare(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Backup Protected File Share to enable backups for file shares within an Azure Storage Account
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        vault = azure.recoveryservices.Vault("vault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard")
-        sa = azure.storage.Account("sa",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_share = azure.storage.Share("exampleShare",
-            storage_account_name=sa.name,
-            quota=1)
-        protection_container = azure.backup.ContainerStorageAccount("protection-container",
-            resource_group_name=example_resource_group.name,
-            recovery_vault_name=vault.name,
-            storage_account_id=sa.id)
-        example_policy_file_share = azure.backup.PolicyFileShare("examplePolicyFileShare",
-            resource_group_name=example_resource_group.name,
-            recovery_vault_name=vault.name,
-            backup=azure.backup.PolicyFileShareBackupArgs(
-                frequency="Daily",
-                time="23:00",
-            ),
-            retention_daily=azure.backup.PolicyFileShareRetentionDailyArgs(
-                count=10,
-            ))
-        share1 = azure.backup.ProtectedFileShare("share1",
-            resource_group_name=example_resource_group.name,
-            recovery_vault_name=vault.name,
-            source_storage_account_id=protection_container.storage_account_id,
-            source_file_share_name=example_share.name,
-            backup_policy_id=example_policy_file_share.id)
-        ```
 
         ## Import
 

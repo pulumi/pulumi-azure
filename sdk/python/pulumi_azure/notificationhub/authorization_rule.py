@@ -46,21 +46,27 @@ class AuthorizationRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             namespace_name: pulumi.Input[str],
-             notification_hub_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             namespace_name: Optional[pulumi.Input[str]] = None,
+             notification_hub_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              listen: Optional[pulumi.Input[bool]] = None,
              manage: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              send: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'namespaceName' in kwargs:
+        if namespace_name is None and 'namespaceName' in kwargs:
             namespace_name = kwargs['namespaceName']
-        if 'notificationHubName' in kwargs:
+        if namespace_name is None:
+            raise TypeError("Missing 'namespace_name' argument")
+        if notification_hub_name is None and 'notificationHubName' in kwargs:
             notification_hub_name = kwargs['notificationHubName']
-        if 'resourceGroupName' in kwargs:
+        if notification_hub_name is None:
+            raise TypeError("Missing 'notification_hub_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("namespace_name", namespace_name)
         _setter("notification_hub_name", notification_hub_name)
@@ -211,17 +217,17 @@ class _AuthorizationRuleState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              secondary_access_key: Optional[pulumi.Input[str]] = None,
              send: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'namespaceName' in kwargs:
+        if namespace_name is None and 'namespaceName' in kwargs:
             namespace_name = kwargs['namespaceName']
-        if 'notificationHubName' in kwargs:
+        if notification_hub_name is None and 'notificationHubName' in kwargs:
             notification_hub_name = kwargs['notificationHubName']
-        if 'primaryAccessKey' in kwargs:
+        if primary_access_key is None and 'primaryAccessKey' in kwargs:
             primary_access_key = kwargs['primaryAccessKey']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'secondaryAccessKey' in kwargs:
+        if secondary_access_key is None and 'secondaryAccessKey' in kwargs:
             secondary_access_key = kwargs['secondaryAccessKey']
 
         if listen is not None:
@@ -370,31 +376,6 @@ class AuthorizationRule(pulumi.CustomResource):
         """
         Manages an Authorization Rule associated with a Notification Hub within a Notification Hub Namespace.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_namespace = azure.notificationhub.Namespace("exampleNamespace",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            namespace_type="NotificationHub",
-            sku_name="Free")
-        example_hub = azure.notificationhub.Hub("exampleHub",
-            namespace_name=example_namespace.name,
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_authorization_rule = azure.notificationhub.AuthorizationRule("exampleAuthorizationRule",
-            notification_hub_name=example_hub.name,
-            namespace_name=example_namespace.name,
-            resource_group_name=example_resource_group.name,
-            manage=True,
-            send=True,
-            listen=True)
-        ```
-
         ## Import
 
         Notification Hub Authorization Rule can be imported using the `resource id`, e.g.
@@ -423,31 +404,6 @@ class AuthorizationRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Authorization Rule associated with a Notification Hub within a Notification Hub Namespace.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_namespace = azure.notificationhub.Namespace("exampleNamespace",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            namespace_type="NotificationHub",
-            sku_name="Free")
-        example_hub = azure.notificationhub.Hub("exampleHub",
-            namespace_name=example_namespace.name,
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_authorization_rule = azure.notificationhub.AuthorizationRule("exampleAuthorizationRule",
-            notification_hub_name=example_hub.name,
-            namespace_name=example_namespace.name,
-            resource_group_name=example_resource_group.name,
-            manage=True,
-            send=True,
-            listen=True)
-        ```
 
         ## Import
 

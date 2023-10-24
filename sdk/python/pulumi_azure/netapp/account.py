@@ -40,16 +40,18 @@ class AccountArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              active_directory: Optional[pulumi.Input['AccountActiveDirectoryArgs']] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'activeDirectory' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if active_directory is None and 'activeDirectory' in kwargs:
             active_directory = kwargs['activeDirectory']
 
         _setter("resource_group_name", resource_group_name)
@@ -155,11 +157,11 @@ class _AccountState:
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'activeDirectory' in kwargs:
+        if active_directory is None and 'activeDirectory' in kwargs:
             active_directory = kwargs['activeDirectory']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if active_directory is not None:
@@ -250,26 +252,6 @@ class Account(pulumi.CustomResource):
 
         > **NOTE:** Azure allows only one active directory can be joined to a single subscription at a time for NetApp Account.
 
-        ## NetApp Account Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.netapp.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            active_directory=azure.netapp.AccountActiveDirectoryArgs(
-                username="aduser",
-                password="aduserpwd",
-                smb_server_name="SMBSERVER",
-                dns_servers=["1.2.3.4"],
-                domain="westcentralus.com",
-                organizational_unit="OU=FirstLevel",
-            ))
-        ```
-
         ## Import
 
         NetApp Accounts can be imported using the `resource id`, e.g.
@@ -296,26 +278,6 @@ class Account(pulumi.CustomResource):
         Manages a NetApp Account.
 
         > **NOTE:** Azure allows only one active directory can be joined to a single subscription at a time for NetApp Account.
-
-        ## NetApp Account Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.netapp.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            active_directory=azure.netapp.AccountActiveDirectoryArgs(
-                username="aduser",
-                password="aduserpwd",
-                smb_server_name="SMBSERVER",
-                dns_servers=["1.2.3.4"],
-                domain="westcentralus.com",
-                organizational_unit="OU=FirstLevel",
-            ))
-        ```
 
         ## Import
 
@@ -358,11 +320,7 @@ class Account(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AccountArgs.__new__(AccountArgs)
 
-            if active_directory is not None and not isinstance(active_directory, AccountActiveDirectoryArgs):
-                active_directory = active_directory or {}
-                def _setter(key, value):
-                    active_directory[key] = value
-                AccountActiveDirectoryArgs._configure(_setter, **active_directory)
+            active_directory = _utilities.configure(active_directory, AccountActiveDirectoryArgs, True)
             __props__.__dict__["active_directory"] = active_directory
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name

@@ -95,8 +95,8 @@ class SystemTopicEventSubscriptionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             system_topic: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             system_topic: Optional[pulumi.Input[str]] = None,
              advanced_filter: Optional[pulumi.Input['SystemTopicEventSubscriptionAdvancedFilterArgs']] = None,
              advanced_filtering_on_arrays_enabled: Optional[pulumi.Input[bool]] = None,
              azure_function_endpoint: Optional[pulumi.Input['SystemTopicEventSubscriptionAzureFunctionEndpointArgs']] = None,
@@ -117,47 +117,51 @@ class SystemTopicEventSubscriptionArgs:
              storage_queue_endpoint: Optional[pulumi.Input['SystemTopicEventSubscriptionStorageQueueEndpointArgs']] = None,
              subject_filter: Optional[pulumi.Input['SystemTopicEventSubscriptionSubjectFilterArgs']] = None,
              webhook_endpoint: Optional[pulumi.Input['SystemTopicEventSubscriptionWebhookEndpointArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'systemTopic' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if system_topic is None and 'systemTopic' in kwargs:
             system_topic = kwargs['systemTopic']
-        if 'advancedFilter' in kwargs:
+        if system_topic is None:
+            raise TypeError("Missing 'system_topic' argument")
+        if advanced_filter is None and 'advancedFilter' in kwargs:
             advanced_filter = kwargs['advancedFilter']
-        if 'advancedFilteringOnArraysEnabled' in kwargs:
+        if advanced_filtering_on_arrays_enabled is None and 'advancedFilteringOnArraysEnabled' in kwargs:
             advanced_filtering_on_arrays_enabled = kwargs['advancedFilteringOnArraysEnabled']
-        if 'azureFunctionEndpoint' in kwargs:
+        if azure_function_endpoint is None and 'azureFunctionEndpoint' in kwargs:
             azure_function_endpoint = kwargs['azureFunctionEndpoint']
-        if 'deadLetterIdentity' in kwargs:
+        if dead_letter_identity is None and 'deadLetterIdentity' in kwargs:
             dead_letter_identity = kwargs['deadLetterIdentity']
-        if 'deliveryIdentity' in kwargs:
+        if delivery_identity is None and 'deliveryIdentity' in kwargs:
             delivery_identity = kwargs['deliveryIdentity']
-        if 'deliveryProperties' in kwargs:
+        if delivery_properties is None and 'deliveryProperties' in kwargs:
             delivery_properties = kwargs['deliveryProperties']
-        if 'eventDeliverySchema' in kwargs:
+        if event_delivery_schema is None and 'eventDeliverySchema' in kwargs:
             event_delivery_schema = kwargs['eventDeliverySchema']
-        if 'eventhubEndpointId' in kwargs:
+        if eventhub_endpoint_id is None and 'eventhubEndpointId' in kwargs:
             eventhub_endpoint_id = kwargs['eventhubEndpointId']
-        if 'expirationTimeUtc' in kwargs:
+        if expiration_time_utc is None and 'expirationTimeUtc' in kwargs:
             expiration_time_utc = kwargs['expirationTimeUtc']
-        if 'hybridConnectionEndpointId' in kwargs:
+        if hybrid_connection_endpoint_id is None and 'hybridConnectionEndpointId' in kwargs:
             hybrid_connection_endpoint_id = kwargs['hybridConnectionEndpointId']
-        if 'includedEventTypes' in kwargs:
+        if included_event_types is None and 'includedEventTypes' in kwargs:
             included_event_types = kwargs['includedEventTypes']
-        if 'retryPolicy' in kwargs:
+        if retry_policy is None and 'retryPolicy' in kwargs:
             retry_policy = kwargs['retryPolicy']
-        if 'serviceBusQueueEndpointId' in kwargs:
+        if service_bus_queue_endpoint_id is None and 'serviceBusQueueEndpointId' in kwargs:
             service_bus_queue_endpoint_id = kwargs['serviceBusQueueEndpointId']
-        if 'serviceBusTopicEndpointId' in kwargs:
+        if service_bus_topic_endpoint_id is None and 'serviceBusTopicEndpointId' in kwargs:
             service_bus_topic_endpoint_id = kwargs['serviceBusTopicEndpointId']
-        if 'storageBlobDeadLetterDestination' in kwargs:
+        if storage_blob_dead_letter_destination is None and 'storageBlobDeadLetterDestination' in kwargs:
             storage_blob_dead_letter_destination = kwargs['storageBlobDeadLetterDestination']
-        if 'storageQueueEndpoint' in kwargs:
+        if storage_queue_endpoint is None and 'storageQueueEndpoint' in kwargs:
             storage_queue_endpoint = kwargs['storageQueueEndpoint']
-        if 'subjectFilter' in kwargs:
+        if subject_filter is None and 'subjectFilter' in kwargs:
             subject_filter = kwargs['subjectFilter']
-        if 'webhookEndpoint' in kwargs:
+        if webhook_endpoint is None and 'webhookEndpoint' in kwargs:
             webhook_endpoint = kwargs['webhookEndpoint']
 
         _setter("resource_group_name", resource_group_name)
@@ -576,47 +580,47 @@ class _SystemTopicEventSubscriptionState:
              subject_filter: Optional[pulumi.Input['SystemTopicEventSubscriptionSubjectFilterArgs']] = None,
              system_topic: Optional[pulumi.Input[str]] = None,
              webhook_endpoint: Optional[pulumi.Input['SystemTopicEventSubscriptionWebhookEndpointArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'advancedFilter' in kwargs:
+        if advanced_filter is None and 'advancedFilter' in kwargs:
             advanced_filter = kwargs['advancedFilter']
-        if 'advancedFilteringOnArraysEnabled' in kwargs:
+        if advanced_filtering_on_arrays_enabled is None and 'advancedFilteringOnArraysEnabled' in kwargs:
             advanced_filtering_on_arrays_enabled = kwargs['advancedFilteringOnArraysEnabled']
-        if 'azureFunctionEndpoint' in kwargs:
+        if azure_function_endpoint is None and 'azureFunctionEndpoint' in kwargs:
             azure_function_endpoint = kwargs['azureFunctionEndpoint']
-        if 'deadLetterIdentity' in kwargs:
+        if dead_letter_identity is None and 'deadLetterIdentity' in kwargs:
             dead_letter_identity = kwargs['deadLetterIdentity']
-        if 'deliveryIdentity' in kwargs:
+        if delivery_identity is None and 'deliveryIdentity' in kwargs:
             delivery_identity = kwargs['deliveryIdentity']
-        if 'deliveryProperties' in kwargs:
+        if delivery_properties is None and 'deliveryProperties' in kwargs:
             delivery_properties = kwargs['deliveryProperties']
-        if 'eventDeliverySchema' in kwargs:
+        if event_delivery_schema is None and 'eventDeliverySchema' in kwargs:
             event_delivery_schema = kwargs['eventDeliverySchema']
-        if 'eventhubEndpointId' in kwargs:
+        if eventhub_endpoint_id is None and 'eventhubEndpointId' in kwargs:
             eventhub_endpoint_id = kwargs['eventhubEndpointId']
-        if 'expirationTimeUtc' in kwargs:
+        if expiration_time_utc is None and 'expirationTimeUtc' in kwargs:
             expiration_time_utc = kwargs['expirationTimeUtc']
-        if 'hybridConnectionEndpointId' in kwargs:
+        if hybrid_connection_endpoint_id is None and 'hybridConnectionEndpointId' in kwargs:
             hybrid_connection_endpoint_id = kwargs['hybridConnectionEndpointId']
-        if 'includedEventTypes' in kwargs:
+        if included_event_types is None and 'includedEventTypes' in kwargs:
             included_event_types = kwargs['includedEventTypes']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'retryPolicy' in kwargs:
+        if retry_policy is None and 'retryPolicy' in kwargs:
             retry_policy = kwargs['retryPolicy']
-        if 'serviceBusQueueEndpointId' in kwargs:
+        if service_bus_queue_endpoint_id is None and 'serviceBusQueueEndpointId' in kwargs:
             service_bus_queue_endpoint_id = kwargs['serviceBusQueueEndpointId']
-        if 'serviceBusTopicEndpointId' in kwargs:
+        if service_bus_topic_endpoint_id is None and 'serviceBusTopicEndpointId' in kwargs:
             service_bus_topic_endpoint_id = kwargs['serviceBusTopicEndpointId']
-        if 'storageBlobDeadLetterDestination' in kwargs:
+        if storage_blob_dead_letter_destination is None and 'storageBlobDeadLetterDestination' in kwargs:
             storage_blob_dead_letter_destination = kwargs['storageBlobDeadLetterDestination']
-        if 'storageQueueEndpoint' in kwargs:
+        if storage_queue_endpoint is None and 'storageQueueEndpoint' in kwargs:
             storage_queue_endpoint = kwargs['storageQueueEndpoint']
-        if 'subjectFilter' in kwargs:
+        if subject_filter is None and 'subjectFilter' in kwargs:
             subject_filter = kwargs['subjectFilter']
-        if 'systemTopic' in kwargs:
+        if system_topic is None and 'systemTopic' in kwargs:
             system_topic = kwargs['systemTopic']
-        if 'webhookEndpoint' in kwargs:
+        if webhook_endpoint is None and 'webhookEndpoint' in kwargs:
             webhook_endpoint = kwargs['webhookEndpoint']
 
         if advanced_filter is not None:
@@ -964,36 +968,6 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
         """
         Manages an EventGrid System Topic Event Subscription.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            tags={
-                "environment": "staging",
-            })
-        example_queue = azure.storage.Queue("exampleQueue", storage_account_name=example_account.name)
-        example_system_topic = azure.eventgrid.SystemTopic("exampleSystemTopic",
-            location="Global",
-            resource_group_name=example_resource_group.name,
-            source_arm_resource_id=example_resource_group.id,
-            topic_type="Microsoft.Resources.ResourceGroups")
-        example_system_topic_event_subscription = azure.eventgrid.SystemTopicEventSubscription("exampleSystemTopicEventSubscription",
-            system_topic=example_system_topic.name,
-            resource_group_name=example_resource_group.name,
-            storage_queue_endpoint=azure.eventgrid.SystemTopicEventSubscriptionStorageQueueEndpointArgs(
-                storage_account_id=example_account.id,
-                queue_name=example_queue.name,
-            ))
-        ```
-
         ## Import
 
         EventGrid System Topic Event Subscriptions can be imported using the `resource id`, e.g.
@@ -1039,36 +1013,6 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an EventGrid System Topic Event Subscription.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            tags={
-                "environment": "staging",
-            })
-        example_queue = azure.storage.Queue("exampleQueue", storage_account_name=example_account.name)
-        example_system_topic = azure.eventgrid.SystemTopic("exampleSystemTopic",
-            location="Global",
-            resource_group_name=example_resource_group.name,
-            source_arm_resource_id=example_resource_group.id,
-            topic_type="Microsoft.Resources.ResourceGroups")
-        example_system_topic_event_subscription = azure.eventgrid.SystemTopicEventSubscription("exampleSystemTopicEventSubscription",
-            system_topic=example_system_topic.name,
-            resource_group_name=example_resource_group.name,
-            storage_queue_endpoint=azure.eventgrid.SystemTopicEventSubscriptionStorageQueueEndpointArgs(
-                storage_account_id=example_account.id,
-                queue_name=example_queue.name,
-            ))
-        ```
 
         ## Import
 
@@ -1128,30 +1072,14 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SystemTopicEventSubscriptionArgs.__new__(SystemTopicEventSubscriptionArgs)
 
-            if advanced_filter is not None and not isinstance(advanced_filter, SystemTopicEventSubscriptionAdvancedFilterArgs):
-                advanced_filter = advanced_filter or {}
-                def _setter(key, value):
-                    advanced_filter[key] = value
-                SystemTopicEventSubscriptionAdvancedFilterArgs._configure(_setter, **advanced_filter)
+            advanced_filter = _utilities.configure(advanced_filter, SystemTopicEventSubscriptionAdvancedFilterArgs, True)
             __props__.__dict__["advanced_filter"] = advanced_filter
             __props__.__dict__["advanced_filtering_on_arrays_enabled"] = advanced_filtering_on_arrays_enabled
-            if azure_function_endpoint is not None and not isinstance(azure_function_endpoint, SystemTopicEventSubscriptionAzureFunctionEndpointArgs):
-                azure_function_endpoint = azure_function_endpoint or {}
-                def _setter(key, value):
-                    azure_function_endpoint[key] = value
-                SystemTopicEventSubscriptionAzureFunctionEndpointArgs._configure(_setter, **azure_function_endpoint)
+            azure_function_endpoint = _utilities.configure(azure_function_endpoint, SystemTopicEventSubscriptionAzureFunctionEndpointArgs, True)
             __props__.__dict__["azure_function_endpoint"] = azure_function_endpoint
-            if dead_letter_identity is not None and not isinstance(dead_letter_identity, SystemTopicEventSubscriptionDeadLetterIdentityArgs):
-                dead_letter_identity = dead_letter_identity or {}
-                def _setter(key, value):
-                    dead_letter_identity[key] = value
-                SystemTopicEventSubscriptionDeadLetterIdentityArgs._configure(_setter, **dead_letter_identity)
+            dead_letter_identity = _utilities.configure(dead_letter_identity, SystemTopicEventSubscriptionDeadLetterIdentityArgs, True)
             __props__.__dict__["dead_letter_identity"] = dead_letter_identity
-            if delivery_identity is not None and not isinstance(delivery_identity, SystemTopicEventSubscriptionDeliveryIdentityArgs):
-                delivery_identity = delivery_identity or {}
-                def _setter(key, value):
-                    delivery_identity[key] = value
-                SystemTopicEventSubscriptionDeliveryIdentityArgs._configure(_setter, **delivery_identity)
+            delivery_identity = _utilities.configure(delivery_identity, SystemTopicEventSubscriptionDeliveryIdentityArgs, True)
             __props__.__dict__["delivery_identity"] = delivery_identity
             __props__.__dict__["delivery_properties"] = delivery_properties
             __props__.__dict__["event_delivery_schema"] = event_delivery_schema
@@ -1164,40 +1092,20 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if retry_policy is not None and not isinstance(retry_policy, SystemTopicEventSubscriptionRetryPolicyArgs):
-                retry_policy = retry_policy or {}
-                def _setter(key, value):
-                    retry_policy[key] = value
-                SystemTopicEventSubscriptionRetryPolicyArgs._configure(_setter, **retry_policy)
+            retry_policy = _utilities.configure(retry_policy, SystemTopicEventSubscriptionRetryPolicyArgs, True)
             __props__.__dict__["retry_policy"] = retry_policy
             __props__.__dict__["service_bus_queue_endpoint_id"] = service_bus_queue_endpoint_id
             __props__.__dict__["service_bus_topic_endpoint_id"] = service_bus_topic_endpoint_id
-            if storage_blob_dead_letter_destination is not None and not isinstance(storage_blob_dead_letter_destination, SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationArgs):
-                storage_blob_dead_letter_destination = storage_blob_dead_letter_destination or {}
-                def _setter(key, value):
-                    storage_blob_dead_letter_destination[key] = value
-                SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationArgs._configure(_setter, **storage_blob_dead_letter_destination)
+            storage_blob_dead_letter_destination = _utilities.configure(storage_blob_dead_letter_destination, SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationArgs, True)
             __props__.__dict__["storage_blob_dead_letter_destination"] = storage_blob_dead_letter_destination
-            if storage_queue_endpoint is not None and not isinstance(storage_queue_endpoint, SystemTopicEventSubscriptionStorageQueueEndpointArgs):
-                storage_queue_endpoint = storage_queue_endpoint or {}
-                def _setter(key, value):
-                    storage_queue_endpoint[key] = value
-                SystemTopicEventSubscriptionStorageQueueEndpointArgs._configure(_setter, **storage_queue_endpoint)
+            storage_queue_endpoint = _utilities.configure(storage_queue_endpoint, SystemTopicEventSubscriptionStorageQueueEndpointArgs, True)
             __props__.__dict__["storage_queue_endpoint"] = storage_queue_endpoint
-            if subject_filter is not None and not isinstance(subject_filter, SystemTopicEventSubscriptionSubjectFilterArgs):
-                subject_filter = subject_filter or {}
-                def _setter(key, value):
-                    subject_filter[key] = value
-                SystemTopicEventSubscriptionSubjectFilterArgs._configure(_setter, **subject_filter)
+            subject_filter = _utilities.configure(subject_filter, SystemTopicEventSubscriptionSubjectFilterArgs, True)
             __props__.__dict__["subject_filter"] = subject_filter
             if system_topic is None and not opts.urn:
                 raise TypeError("Missing required property 'system_topic'")
             __props__.__dict__["system_topic"] = system_topic
-            if webhook_endpoint is not None and not isinstance(webhook_endpoint, SystemTopicEventSubscriptionWebhookEndpointArgs):
-                webhook_endpoint = webhook_endpoint or {}
-                def _setter(key, value):
-                    webhook_endpoint[key] = value
-                SystemTopicEventSubscriptionWebhookEndpointArgs._configure(_setter, **webhook_endpoint)
+            webhook_endpoint = _utilities.configure(webhook_endpoint, SystemTopicEventSubscriptionWebhookEndpointArgs, True)
             __props__.__dict__["webhook_endpoint"] = webhook_endpoint
         super(SystemTopicEventSubscription, __self__).__init__(
             'azure:eventgrid/systemTopicEventSubscription:SystemTopicEventSubscription',

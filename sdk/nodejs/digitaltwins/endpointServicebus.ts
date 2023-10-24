@@ -7,36 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Digital Twins Service Bus Endpoint.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleInstance = new azure.digitaltwins.Instance("exampleInstance", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- * });
- * const exampleNamespace = new azure.servicebus.Namespace("exampleNamespace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "Standard",
- * });
- * const exampleTopic = new azure.servicebus.Topic("exampleTopic", {namespaceId: exampleNamespace.id});
- * const exampleTopicAuthorizationRule = new azure.servicebus.TopicAuthorizationRule("exampleTopicAuthorizationRule", {
- *     topicId: exampleTopic.id,
- *     listen: false,
- *     send: true,
- *     manage: false,
- * });
- * const exampleEndpointServicebus = new azure.digitaltwins.EndpointServicebus("exampleEndpointServicebus", {
- *     digitalTwinsId: exampleInstance.id,
- *     servicebusPrimaryConnectionString: exampleTopicAuthorizationRule.primaryConnectionString,
- *     servicebusSecondaryConnectionString: exampleTopicAuthorizationRule.secondaryConnectionString,
- * });
- * ```
- *
  * ## Import
  *
  * Digital Twins Service Bus Endpoints can be imported using the `resource id`, e.g.

@@ -46,24 +46,28 @@ class SpringCloudBuildDeploymentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             build_result_id: pulumi.Input[str],
-             spring_cloud_app_id: pulumi.Input[str],
+             build_result_id: Optional[pulumi.Input[str]] = None,
+             spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
              addon_json: Optional[pulumi.Input[str]] = None,
              environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              instance_count: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
              quota: Optional[pulumi.Input['SpringCloudBuildDeploymentQuotaArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'buildResultId' in kwargs:
+        if build_result_id is None and 'buildResultId' in kwargs:
             build_result_id = kwargs['buildResultId']
-        if 'springCloudAppId' in kwargs:
+        if build_result_id is None:
+            raise TypeError("Missing 'build_result_id' argument")
+        if spring_cloud_app_id is None and 'springCloudAppId' in kwargs:
             spring_cloud_app_id = kwargs['springCloudAppId']
-        if 'addonJson' in kwargs:
+        if spring_cloud_app_id is None:
+            raise TypeError("Missing 'spring_cloud_app_id' argument")
+        if addon_json is None and 'addonJson' in kwargs:
             addon_json = kwargs['addonJson']
-        if 'environmentVariables' in kwargs:
+        if environment_variables is None and 'environmentVariables' in kwargs:
             environment_variables = kwargs['environmentVariables']
-        if 'instanceCount' in kwargs:
+        if instance_count is None and 'instanceCount' in kwargs:
             instance_count = kwargs['instanceCount']
 
         _setter("build_result_id", build_result_id)
@@ -204,17 +208,17 @@ class _SpringCloudBuildDeploymentState:
              name: Optional[pulumi.Input[str]] = None,
              quota: Optional[pulumi.Input['SpringCloudBuildDeploymentQuotaArgs']] = None,
              spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'addonJson' in kwargs:
+        if addon_json is None and 'addonJson' in kwargs:
             addon_json = kwargs['addonJson']
-        if 'buildResultId' in kwargs:
+        if build_result_id is None and 'buildResultId' in kwargs:
             build_result_id = kwargs['buildResultId']
-        if 'environmentVariables' in kwargs:
+        if environment_variables is None and 'environmentVariables' in kwargs:
             environment_variables = kwargs['environmentVariables']
-        if 'instanceCount' in kwargs:
+        if instance_count is None and 'instanceCount' in kwargs:
             instance_count = kwargs['instanceCount']
-        if 'springCloudAppId' in kwargs:
+        if spring_cloud_app_id is None and 'springCloudAppId' in kwargs:
             spring_cloud_app_id = kwargs['springCloudAppId']
 
         if addon_json is not None:
@@ -335,34 +339,6 @@ class SpringCloudBuildDeployment(pulumi.CustomResource):
 
         > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="E0")
-        example_spring_cloud_app = azure.appplatform.SpringCloudApp("exampleSpringCloudApp",
-            resource_group_name=example_spring_cloud_service.resource_group_name,
-            service_name=example_spring_cloud_service.name)
-        example_spring_cloud_build_deployment = azure.appplatform.SpringCloudBuildDeployment("exampleSpringCloudBuildDeployment",
-            spring_cloud_app_id=example_spring_cloud_app.id,
-            build_result_id="<default>",
-            instance_count=2,
-            environment_variables={
-                "Foo": "Bar",
-                "Env": "Staging",
-            },
-            quota=azure.appplatform.SpringCloudBuildDeploymentQuotaArgs(
-                cpu="2",
-                memory="4Gi",
-            ))
-        ```
-
         ## Import
 
         Spring Cloud Build Deployments can be imported using the `resource id`, e.g.
@@ -391,34 +367,6 @@ class SpringCloudBuildDeployment(pulumi.CustomResource):
         Manages a Spring Cloud Build Deployment.
 
         > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="E0")
-        example_spring_cloud_app = azure.appplatform.SpringCloudApp("exampleSpringCloudApp",
-            resource_group_name=example_spring_cloud_service.resource_group_name,
-            service_name=example_spring_cloud_service.name)
-        example_spring_cloud_build_deployment = azure.appplatform.SpringCloudBuildDeployment("exampleSpringCloudBuildDeployment",
-            spring_cloud_app_id=example_spring_cloud_app.id,
-            build_result_id="<default>",
-            instance_count=2,
-            environment_variables={
-                "Foo": "Bar",
-                "Env": "Staging",
-            },
-            quota=azure.appplatform.SpringCloudBuildDeploymentQuotaArgs(
-                cpu="2",
-                memory="4Gi",
-            ))
-        ```
 
         ## Import
 
@@ -470,11 +418,7 @@ class SpringCloudBuildDeployment(pulumi.CustomResource):
             __props__.__dict__["environment_variables"] = environment_variables
             __props__.__dict__["instance_count"] = instance_count
             __props__.__dict__["name"] = name
-            if quota is not None and not isinstance(quota, SpringCloudBuildDeploymentQuotaArgs):
-                quota = quota or {}
-                def _setter(key, value):
-                    quota[key] = value
-                SpringCloudBuildDeploymentQuotaArgs._configure(_setter, **quota)
+            quota = _utilities.configure(quota, SpringCloudBuildDeploymentQuotaArgs, True)
             __props__.__dict__["quota"] = quota
             if spring_cloud_app_id is None and not opts.urn:
                 raise TypeError("Missing required property 'spring_cloud_app_id'")

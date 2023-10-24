@@ -120,17 +120,6 @@ def get_virtual_machine_scale_set(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Virtual Machine Scale Set.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.compute.get_virtual_machine_scale_set(name="existing",
-        resource_group_name="existing")
-    pulumi.export("id", example.id)
-    ```
-
 
     :param str name: The name of this Virtual Machine Scale Set.
     :param str resource_group_name: The name of the Resource Group where the Virtual Machine Scale Set exists.
@@ -157,17 +146,6 @@ def get_virtual_machine_scale_set_output(name: Optional[pulumi.Input[str]] = Non
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineScaleSetResult]:
     """
     Use this data source to access information about an existing Virtual Machine Scale Set.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.compute.get_virtual_machine_scale_set(name="existing",
-        resource_group_name="existing")
-    pulumi.export("id", example.id)
-    ```
 
 
     :param str name: The name of this Virtual Machine Scale Set.

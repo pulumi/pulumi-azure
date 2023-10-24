@@ -47,27 +47,33 @@ class SqlPoolWorkloadGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             max_resource_percent: pulumi.Input[int],
-             min_resource_percent: pulumi.Input[int],
-             sql_pool_id: pulumi.Input[str],
+             max_resource_percent: Optional[pulumi.Input[int]] = None,
+             min_resource_percent: Optional[pulumi.Input[int]] = None,
+             sql_pool_id: Optional[pulumi.Input[str]] = None,
              importance: Optional[pulumi.Input[str]] = None,
              max_resource_percent_per_request: Optional[pulumi.Input[float]] = None,
              min_resource_percent_per_request: Optional[pulumi.Input[float]] = None,
              name: Optional[pulumi.Input[str]] = None,
              query_execution_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'maxResourcePercent' in kwargs:
+        if max_resource_percent is None and 'maxResourcePercent' in kwargs:
             max_resource_percent = kwargs['maxResourcePercent']
-        if 'minResourcePercent' in kwargs:
+        if max_resource_percent is None:
+            raise TypeError("Missing 'max_resource_percent' argument")
+        if min_resource_percent is None and 'minResourcePercent' in kwargs:
             min_resource_percent = kwargs['minResourcePercent']
-        if 'sqlPoolId' in kwargs:
+        if min_resource_percent is None:
+            raise TypeError("Missing 'min_resource_percent' argument")
+        if sql_pool_id is None and 'sqlPoolId' in kwargs:
             sql_pool_id = kwargs['sqlPoolId']
-        if 'maxResourcePercentPerRequest' in kwargs:
+        if sql_pool_id is None:
+            raise TypeError("Missing 'sql_pool_id' argument")
+        if max_resource_percent_per_request is None and 'maxResourcePercentPerRequest' in kwargs:
             max_resource_percent_per_request = kwargs['maxResourcePercentPerRequest']
-        if 'minResourcePercentPerRequest' in kwargs:
+        if min_resource_percent_per_request is None and 'minResourcePercentPerRequest' in kwargs:
             min_resource_percent_per_request = kwargs['minResourcePercentPerRequest']
-        if 'queryExecutionTimeoutInSeconds' in kwargs:
+        if query_execution_timeout_in_seconds is None and 'queryExecutionTimeoutInSeconds' in kwargs:
             query_execution_timeout_in_seconds = kwargs['queryExecutionTimeoutInSeconds']
 
         _setter("max_resource_percent", max_resource_percent)
@@ -225,19 +231,19 @@ class _SqlPoolWorkloadGroupState:
              name: Optional[pulumi.Input[str]] = None,
              query_execution_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
              sql_pool_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'maxResourcePercent' in kwargs:
+        if max_resource_percent is None and 'maxResourcePercent' in kwargs:
             max_resource_percent = kwargs['maxResourcePercent']
-        if 'maxResourcePercentPerRequest' in kwargs:
+        if max_resource_percent_per_request is None and 'maxResourcePercentPerRequest' in kwargs:
             max_resource_percent_per_request = kwargs['maxResourcePercentPerRequest']
-        if 'minResourcePercent' in kwargs:
+        if min_resource_percent is None and 'minResourcePercent' in kwargs:
             min_resource_percent = kwargs['minResourcePercent']
-        if 'minResourcePercentPerRequest' in kwargs:
+        if min_resource_percent_per_request is None and 'minResourcePercentPerRequest' in kwargs:
             min_resource_percent_per_request = kwargs['minResourcePercentPerRequest']
-        if 'queryExecutionTimeoutInSeconds' in kwargs:
+        if query_execution_timeout_in_seconds is None and 'queryExecutionTimeoutInSeconds' in kwargs:
             query_execution_timeout_in_seconds = kwargs['queryExecutionTimeoutInSeconds']
-        if 'sqlPoolId' in kwargs:
+        if sql_pool_id is None and 'sqlPoolId' in kwargs:
             sql_pool_id = kwargs['sqlPoolId']
 
         if importance is not None:
@@ -371,43 +377,6 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
         """
         Manages a Synapse SQL Pool Workload Group.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="west europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_kind="BlobStorage",
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
-        example_workspace = azure.synapse.Workspace("exampleWorkspace",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
-            sql_administrator_login="sqladminuser",
-            sql_administrator_login_password="H@Sh1CoR3!",
-            identity=azure.synapse.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_sql_pool = azure.synapse.SqlPool("exampleSqlPool",
-            synapse_workspace_id=example_workspace.id,
-            sku_name="DW100c",
-            create_mode="Default")
-        example_sql_pool_workload_group = azure.synapse.SqlPoolWorkloadGroup("exampleSqlPoolWorkloadGroup",
-            sql_pool_id=example_sql_pool.id,
-            importance="normal",
-            max_resource_percent=100,
-            min_resource_percent=0,
-            max_resource_percent_per_request=3,
-            min_resource_percent_per_request=3,
-            query_execution_timeout_in_seconds=0)
-        ```
-
         ## Import
 
         Synapse SQL Pool Workload Groups can be imported using the `resource id`, e.g.
@@ -435,43 +404,6 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Synapse SQL Pool Workload Group.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="west europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_kind="BlobStorage",
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
-        example_workspace = azure.synapse.Workspace("exampleWorkspace",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
-            sql_administrator_login="sqladminuser",
-            sql_administrator_login_password="H@Sh1CoR3!",
-            identity=azure.synapse.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_sql_pool = azure.synapse.SqlPool("exampleSqlPool",
-            synapse_workspace_id=example_workspace.id,
-            sku_name="DW100c",
-            create_mode="Default")
-        example_sql_pool_workload_group = azure.synapse.SqlPoolWorkloadGroup("exampleSqlPoolWorkloadGroup",
-            sql_pool_id=example_sql_pool.id,
-            importance="normal",
-            max_resource_percent=100,
-            min_resource_percent=0,
-            max_resource_percent_per_request=3,
-            min_resource_percent_per_request=3,
-            query_execution_timeout_in_seconds=0)
-        ```
 
         ## Import
 

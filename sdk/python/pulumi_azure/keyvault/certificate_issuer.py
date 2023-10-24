@@ -46,22 +46,26 @@ class CertificateIssuerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_vault_id: pulumi.Input[str],
-             provider_name: pulumi.Input[str],
+             key_vault_id: Optional[pulumi.Input[str]] = None,
+             provider_name: Optional[pulumi.Input[str]] = None,
              account_id: Optional[pulumi.Input[str]] = None,
              admins: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateIssuerAdminArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              org_id: Optional[pulumi.Input[str]] = None,
              password: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'keyVaultId' in kwargs:
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
-        if 'providerName' in kwargs:
+        if key_vault_id is None:
+            raise TypeError("Missing 'key_vault_id' argument")
+        if provider_name is None and 'providerName' in kwargs:
             provider_name = kwargs['providerName']
-        if 'accountId' in kwargs:
+        if provider_name is None:
+            raise TypeError("Missing 'provider_name' argument")
+        if account_id is None and 'accountId' in kwargs:
             account_id = kwargs['accountId']
-        if 'orgId' in kwargs:
+        if org_id is None and 'orgId' in kwargs:
             org_id = kwargs['orgId']
 
         _setter("key_vault_id", key_vault_id)
@@ -202,15 +206,15 @@ class _CertificateIssuerState:
              org_id: Optional[pulumi.Input[str]] = None,
              password: Optional[pulumi.Input[str]] = None,
              provider_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'accountId' in kwargs:
+        if account_id is None and 'accountId' in kwargs:
             account_id = kwargs['accountId']
-        if 'keyVaultId' in kwargs:
+        if key_vault_id is None and 'keyVaultId' in kwargs:
             key_vault_id = kwargs['keyVaultId']
-        if 'orgId' in kwargs:
+        if org_id is None and 'orgId' in kwargs:
             org_id = kwargs['orgId']
-        if 'providerName' in kwargs:
+        if provider_name is None and 'providerName' in kwargs:
             provider_name = kwargs['providerName']
 
         if account_id is not None:
@@ -329,27 +333,6 @@ class CertificateIssuer(pulumi.CustomResource):
         """
         Manages a Key Vault Certificate Issuer.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="standard",
-            tenant_id=current.tenant_id)
-        example_certificate_issuer = azure.keyvault.CertificateIssuer("exampleCertificateIssuer",
-            org_id="ExampleOrgName",
-            key_vault_id=example_key_vault.id,
-            provider_name="DigiCert",
-            account_id="0000",
-            password="example-password")
-        ```
-
         ## Import
 
         Key Vault Certificate Issuers can be imported using the `resource id`, e.g.
@@ -376,27 +359,6 @@ class CertificateIssuer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Key Vault Certificate Issuer.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="standard",
-            tenant_id=current.tenant_id)
-        example_certificate_issuer = azure.keyvault.CertificateIssuer("exampleCertificateIssuer",
-            org_id="ExampleOrgName",
-            key_vault_id=example_key_vault.id,
-            provider_name="DigiCert",
-            account_id="0000",
-            password="example-password")
-        ```
 
         ## Import
 

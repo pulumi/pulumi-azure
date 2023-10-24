@@ -42,15 +42,15 @@ class LogAnalyticsWorkspaceOnboardingArgs:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              workspace_id: Optional[pulumi.Input[str]] = None,
              workspace_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'customerManagedKeyEnabled' in kwargs:
+        if customer_managed_key_enabled is None and 'customerManagedKeyEnabled' in kwargs:
             customer_managed_key_enabled = kwargs['customerManagedKeyEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'workspaceId' in kwargs:
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
-        if 'workspaceName' in kwargs:
+        if workspace_name is None and 'workspaceName' in kwargs:
             workspace_name = kwargs['workspaceName']
 
         if customer_managed_key_enabled is not None:
@@ -155,15 +155,15 @@ class _LogAnalyticsWorkspaceOnboardingState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              workspace_id: Optional[pulumi.Input[str]] = None,
              workspace_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'customerManagedKeyEnabled' in kwargs:
+        if customer_managed_key_enabled is None and 'customerManagedKeyEnabled' in kwargs:
             customer_managed_key_enabled = kwargs['customerManagedKeyEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'workspaceId' in kwargs:
+        if workspace_id is None and 'workspaceId' in kwargs:
             workspace_id = kwargs['workspaceId']
-        if 'workspaceName' in kwargs:
+        if workspace_name is None and 'workspaceName' in kwargs:
             workspace_name = kwargs['workspaceName']
 
         if customer_managed_key_enabled is not None:
@@ -250,23 +250,6 @@ class LogAnalyticsWorkspaceOnboarding(pulumi.CustomResource):
         """
         Manages a Security Insights Sentinel Onboarding.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="PerGB2018")
-        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding",
-            resource_group_name=example_resource_group.name,
-            workspace_name=example_analytics_workspace.name,
-            customer_managed_key_enabled=False)
-        ```
-
         ## Import
 
         Security Insights Sentinel Onboarding States can be imported using the `resource id`, e.g.
@@ -293,23 +276,6 @@ class LogAnalyticsWorkspaceOnboarding(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Security Insights Sentinel Onboarding.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="PerGB2018")
-        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding",
-            resource_group_name=example_resource_group.name,
-            workspace_name=example_analytics_workspace.name,
-            customer_managed_key_enabled=False)
-        ```
 
         ## Import
 

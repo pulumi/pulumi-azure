@@ -88,8 +88,8 @@ class WorkspaceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             storage_data_lake_gen2_filesystem_id: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             storage_data_lake_gen2_filesystem_id: Optional[pulumi.Input[str]] = None,
              aad_admin: Optional[pulumi.Input['WorkspaceAadAdminArgs']] = None,
              azure_devops_repo: Optional[pulumi.Input['WorkspaceAzureDevopsRepoArgs']] = None,
              compute_subnet_id: Optional[pulumi.Input[str]] = None,
@@ -109,41 +109,45 @@ class WorkspaceArgs:
              sql_administrator_login_password: Optional[pulumi.Input[str]] = None,
              sql_identity_control_enabled: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'storageDataLakeGen2FilesystemId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if storage_data_lake_gen2_filesystem_id is None and 'storageDataLakeGen2FilesystemId' in kwargs:
             storage_data_lake_gen2_filesystem_id = kwargs['storageDataLakeGen2FilesystemId']
-        if 'aadAdmin' in kwargs:
+        if storage_data_lake_gen2_filesystem_id is None:
+            raise TypeError("Missing 'storage_data_lake_gen2_filesystem_id' argument")
+        if aad_admin is None and 'aadAdmin' in kwargs:
             aad_admin = kwargs['aadAdmin']
-        if 'azureDevopsRepo' in kwargs:
+        if azure_devops_repo is None and 'azureDevopsRepo' in kwargs:
             azure_devops_repo = kwargs['azureDevopsRepo']
-        if 'computeSubnetId' in kwargs:
+        if compute_subnet_id is None and 'computeSubnetId' in kwargs:
             compute_subnet_id = kwargs['computeSubnetId']
-        if 'customerManagedKey' in kwargs:
+        if customer_managed_key is None and 'customerManagedKey' in kwargs:
             customer_managed_key = kwargs['customerManagedKey']
-        if 'dataExfiltrationProtectionEnabled' in kwargs:
+        if data_exfiltration_protection_enabled is None and 'dataExfiltrationProtectionEnabled' in kwargs:
             data_exfiltration_protection_enabled = kwargs['dataExfiltrationProtectionEnabled']
-        if 'githubRepo' in kwargs:
+        if github_repo is None and 'githubRepo' in kwargs:
             github_repo = kwargs['githubRepo']
-        if 'linkingAllowedForAadTenantIds' in kwargs:
+        if linking_allowed_for_aad_tenant_ids is None and 'linkingAllowedForAadTenantIds' in kwargs:
             linking_allowed_for_aad_tenant_ids = kwargs['linkingAllowedForAadTenantIds']
-        if 'managedResourceGroupName' in kwargs:
+        if managed_resource_group_name is None and 'managedResourceGroupName' in kwargs:
             managed_resource_group_name = kwargs['managedResourceGroupName']
-        if 'managedVirtualNetworkEnabled' in kwargs:
+        if managed_virtual_network_enabled is None and 'managedVirtualNetworkEnabled' in kwargs:
             managed_virtual_network_enabled = kwargs['managedVirtualNetworkEnabled']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'purviewId' in kwargs:
+        if purview_id is None and 'purviewId' in kwargs:
             purview_id = kwargs['purviewId']
-        if 'sqlAadAdmin' in kwargs:
+        if sql_aad_admin is None and 'sqlAadAdmin' in kwargs:
             sql_aad_admin = kwargs['sqlAadAdmin']
-        if 'sqlAdministratorLogin' in kwargs:
+        if sql_administrator_login is None and 'sqlAdministratorLogin' in kwargs:
             sql_administrator_login = kwargs['sqlAdministratorLogin']
-        if 'sqlAdministratorLoginPassword' in kwargs:
+        if sql_administrator_login_password is None and 'sqlAdministratorLoginPassword' in kwargs:
             sql_administrator_login_password = kwargs['sqlAdministratorLoginPassword']
-        if 'sqlIdentityControlEnabled' in kwargs:
+        if sql_identity_control_enabled is None and 'sqlIdentityControlEnabled' in kwargs:
             sql_identity_control_enabled = kwargs['sqlIdentityControlEnabled']
 
         _setter("resource_group_name", resource_group_name)
@@ -540,43 +544,43 @@ class _WorkspaceState:
              sql_identity_control_enabled: Optional[pulumi.Input[bool]] = None,
              storage_data_lake_gen2_filesystem_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'aadAdmin' in kwargs:
+        if aad_admin is None and 'aadAdmin' in kwargs:
             aad_admin = kwargs['aadAdmin']
-        if 'azureDevopsRepo' in kwargs:
+        if azure_devops_repo is None and 'azureDevopsRepo' in kwargs:
             azure_devops_repo = kwargs['azureDevopsRepo']
-        if 'computeSubnetId' in kwargs:
+        if compute_subnet_id is None and 'computeSubnetId' in kwargs:
             compute_subnet_id = kwargs['computeSubnetId']
-        if 'connectivityEndpoints' in kwargs:
+        if connectivity_endpoints is None and 'connectivityEndpoints' in kwargs:
             connectivity_endpoints = kwargs['connectivityEndpoints']
-        if 'customerManagedKey' in kwargs:
+        if customer_managed_key is None and 'customerManagedKey' in kwargs:
             customer_managed_key = kwargs['customerManagedKey']
-        if 'dataExfiltrationProtectionEnabled' in kwargs:
+        if data_exfiltration_protection_enabled is None and 'dataExfiltrationProtectionEnabled' in kwargs:
             data_exfiltration_protection_enabled = kwargs['dataExfiltrationProtectionEnabled']
-        if 'githubRepo' in kwargs:
+        if github_repo is None and 'githubRepo' in kwargs:
             github_repo = kwargs['githubRepo']
-        if 'linkingAllowedForAadTenantIds' in kwargs:
+        if linking_allowed_for_aad_tenant_ids is None and 'linkingAllowedForAadTenantIds' in kwargs:
             linking_allowed_for_aad_tenant_ids = kwargs['linkingAllowedForAadTenantIds']
-        if 'managedResourceGroupName' in kwargs:
+        if managed_resource_group_name is None and 'managedResourceGroupName' in kwargs:
             managed_resource_group_name = kwargs['managedResourceGroupName']
-        if 'managedVirtualNetworkEnabled' in kwargs:
+        if managed_virtual_network_enabled is None and 'managedVirtualNetworkEnabled' in kwargs:
             managed_virtual_network_enabled = kwargs['managedVirtualNetworkEnabled']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'purviewId' in kwargs:
+        if purview_id is None and 'purviewId' in kwargs:
             purview_id = kwargs['purviewId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'sqlAadAdmin' in kwargs:
+        if sql_aad_admin is None and 'sqlAadAdmin' in kwargs:
             sql_aad_admin = kwargs['sqlAadAdmin']
-        if 'sqlAdministratorLogin' in kwargs:
+        if sql_administrator_login is None and 'sqlAdministratorLogin' in kwargs:
             sql_administrator_login = kwargs['sqlAdministratorLogin']
-        if 'sqlAdministratorLoginPassword' in kwargs:
+        if sql_administrator_login_password is None and 'sqlAdministratorLoginPassword' in kwargs:
             sql_administrator_login_password = kwargs['sqlAdministratorLoginPassword']
-        if 'sqlIdentityControlEnabled' in kwargs:
+        if sql_identity_control_enabled is None and 'sqlIdentityControlEnabled' in kwargs:
             sql_identity_control_enabled = kwargs['sqlIdentityControlEnabled']
-        if 'storageDataLakeGen2FilesystemId' in kwargs:
+        if storage_data_lake_gen2_filesystem_id is None and 'storageDataLakeGen2FilesystemId' in kwargs:
             storage_data_lake_gen2_filesystem_id = kwargs['storageDataLakeGen2FilesystemId']
 
         if aad_admin is not None:
@@ -919,120 +923,6 @@ class Workspace(pulumi.CustomResource):
         """
         Manages a Synapse Workspace.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            account_kind="StorageV2",
-            is_hns_enabled=True)
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
-        example_workspace = azure.synapse.Workspace("exampleWorkspace",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
-            sql_administrator_login="sqladminuser",
-            sql_administrator_login_password="H@Sh1CoR3!",
-            aad_admin=azure.synapse.WorkspaceAadAdminArgs(
-                login="AzureAD Admin",
-                object_id="00000000-0000-0000-0000-000000000000",
-                tenant_id="00000000-0000-0000-0000-000000000000",
-            ),
-            identity=azure.synapse.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ),
-            tags={
-                "Env": "production",
-            })
-        ```
-        ### Creating A Workspace With Customer Managed Key And Azure AD Admin
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            account_kind="StorageV2",
-            is_hns_enabled=True)
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="standard",
-            purge_protection_enabled=True)
-        deployer = azure.keyvault.AccessPolicy("deployer",
-            key_vault_id=example_key_vault.id,
-            tenant_id=current.tenant_id,
-            object_id=current.object_id,
-            key_permissions=[
-                "Create",
-                "Get",
-                "Delete",
-                "Purge",
-                "GetRotationPolicy",
-            ])
-        example_key = azure.keyvault.Key("exampleKey",
-            key_vault_id=example_key_vault.id,
-            key_type="RSA",
-            key_size=2048,
-            key_opts=[
-                "unwrapKey",
-                "wrapKey",
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[deployer]))
-        example_workspace = azure.synapse.Workspace("exampleWorkspace",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
-            sql_administrator_login="sqladminuser",
-            sql_administrator_login_password="H@Sh1CoR3!",
-            customer_managed_key=azure.synapse.WorkspaceCustomerManagedKeyArgs(
-                key_versionless_id=example_key.versionless_id,
-                key_name="enckey",
-            ),
-            identity=azure.synapse.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ),
-            tags={
-                "Env": "production",
-            })
-        workspace_policy = azure.keyvault.AccessPolicy("workspacePolicy",
-            key_vault_id=example_key_vault.id,
-            tenant_id=example_workspace.identity.tenant_id,
-            object_id=example_workspace.identity.principal_id,
-            key_permissions=[
-                "Get",
-                "WrapKey",
-                "UnwrapKey",
-            ])
-        example_workspace_key = azure.synapse.WorkspaceKey("exampleWorkspaceKey",
-            customer_managed_key_versionless_id=example_key.versionless_id,
-            synapse_workspace_id=example_workspace.id,
-            active=True,
-            customer_managed_key_name="enckey",
-            opts=pulumi.ResourceOptions(depends_on=[workspace_policy]))
-        example_workspace_aad_admin = azure.synapse.WorkspaceAadAdmin("exampleWorkspaceAadAdmin",
-            synapse_workspace_id=example_workspace.id,
-            login="AzureAD Admin",
-            object_id="00000000-0000-0000-0000-000000000000",
-            tenant_id="00000000-0000-0000-0000-000000000000",
-            opts=pulumi.ResourceOptions(depends_on=[example_workspace_key]))
-        ```
-
         ## Import
 
         Synapse Workspace can be imported using the `resource id`, e.g.
@@ -1073,120 +963,6 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Synapse Workspace.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            account_kind="StorageV2",
-            is_hns_enabled=True)
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
-        example_workspace = azure.synapse.Workspace("exampleWorkspace",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
-            sql_administrator_login="sqladminuser",
-            sql_administrator_login_password="H@Sh1CoR3!",
-            aad_admin=azure.synapse.WorkspaceAadAdminArgs(
-                login="AzureAD Admin",
-                object_id="00000000-0000-0000-0000-000000000000",
-                tenant_id="00000000-0000-0000-0000-000000000000",
-            ),
-            identity=azure.synapse.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ),
-            tags={
-                "Env": "production",
-            })
-        ```
-        ### Creating A Workspace With Customer Managed Key And Azure AD Admin
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            account_kind="StorageV2",
-            is_hns_enabled=True)
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="standard",
-            purge_protection_enabled=True)
-        deployer = azure.keyvault.AccessPolicy("deployer",
-            key_vault_id=example_key_vault.id,
-            tenant_id=current.tenant_id,
-            object_id=current.object_id,
-            key_permissions=[
-                "Create",
-                "Get",
-                "Delete",
-                "Purge",
-                "GetRotationPolicy",
-            ])
-        example_key = azure.keyvault.Key("exampleKey",
-            key_vault_id=example_key_vault.id,
-            key_type="RSA",
-            key_size=2048,
-            key_opts=[
-                "unwrapKey",
-                "wrapKey",
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[deployer]))
-        example_workspace = azure.synapse.Workspace("exampleWorkspace",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
-            sql_administrator_login="sqladminuser",
-            sql_administrator_login_password="H@Sh1CoR3!",
-            customer_managed_key=azure.synapse.WorkspaceCustomerManagedKeyArgs(
-                key_versionless_id=example_key.versionless_id,
-                key_name="enckey",
-            ),
-            identity=azure.synapse.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ),
-            tags={
-                "Env": "production",
-            })
-        workspace_policy = azure.keyvault.AccessPolicy("workspacePolicy",
-            key_vault_id=example_key_vault.id,
-            tenant_id=example_workspace.identity.tenant_id,
-            object_id=example_workspace.identity.principal_id,
-            key_permissions=[
-                "Get",
-                "WrapKey",
-                "UnwrapKey",
-            ])
-        example_workspace_key = azure.synapse.WorkspaceKey("exampleWorkspaceKey",
-            customer_managed_key_versionless_id=example_key.versionless_id,
-            synapse_workspace_id=example_workspace.id,
-            active=True,
-            customer_managed_key_name="enckey",
-            opts=pulumi.ResourceOptions(depends_on=[workspace_policy]))
-        example_workspace_aad_admin = azure.synapse.WorkspaceAadAdmin("exampleWorkspaceAadAdmin",
-            synapse_workspace_id=example_workspace.id,
-            login="AzureAD Admin",
-            object_id="00000000-0000-0000-0000-000000000000",
-            tenant_id="00000000-0000-0000-0000-000000000000",
-            opts=pulumi.ResourceOptions(depends_on=[example_workspace_key]))
-        ```
 
         ## Import
 
@@ -1245,37 +1021,17 @@ class Workspace(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WorkspaceArgs.__new__(WorkspaceArgs)
 
-            if aad_admin is not None and not isinstance(aad_admin, WorkspaceAadAdminArgs):
-                aad_admin = aad_admin or {}
-                def _setter(key, value):
-                    aad_admin[key] = value
-                WorkspaceAadAdminArgs._configure(_setter, **aad_admin)
+            aad_admin = _utilities.configure(aad_admin, WorkspaceAadAdminArgs, True)
             __props__.__dict__["aad_admin"] = aad_admin
-            if azure_devops_repo is not None and not isinstance(azure_devops_repo, WorkspaceAzureDevopsRepoArgs):
-                azure_devops_repo = azure_devops_repo or {}
-                def _setter(key, value):
-                    azure_devops_repo[key] = value
-                WorkspaceAzureDevopsRepoArgs._configure(_setter, **azure_devops_repo)
+            azure_devops_repo = _utilities.configure(azure_devops_repo, WorkspaceAzureDevopsRepoArgs, True)
             __props__.__dict__["azure_devops_repo"] = azure_devops_repo
             __props__.__dict__["compute_subnet_id"] = compute_subnet_id
-            if customer_managed_key is not None and not isinstance(customer_managed_key, WorkspaceCustomerManagedKeyArgs):
-                customer_managed_key = customer_managed_key or {}
-                def _setter(key, value):
-                    customer_managed_key[key] = value
-                WorkspaceCustomerManagedKeyArgs._configure(_setter, **customer_managed_key)
+            customer_managed_key = _utilities.configure(customer_managed_key, WorkspaceCustomerManagedKeyArgs, True)
             __props__.__dict__["customer_managed_key"] = customer_managed_key
             __props__.__dict__["data_exfiltration_protection_enabled"] = data_exfiltration_protection_enabled
-            if github_repo is not None and not isinstance(github_repo, WorkspaceGithubRepoArgs):
-                github_repo = github_repo or {}
-                def _setter(key, value):
-                    github_repo[key] = value
-                WorkspaceGithubRepoArgs._configure(_setter, **github_repo)
+            github_repo = _utilities.configure(github_repo, WorkspaceGithubRepoArgs, True)
             __props__.__dict__["github_repo"] = github_repo
-            if identity is not None and not isinstance(identity, WorkspaceIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                WorkspaceIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, WorkspaceIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["linking_allowed_for_aad_tenant_ids"] = linking_allowed_for_aad_tenant_ids
             __props__.__dict__["location"] = location
@@ -1287,11 +1043,7 @@ class Workspace(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if sql_aad_admin is not None and not isinstance(sql_aad_admin, WorkspaceSqlAadAdminArgs):
-                sql_aad_admin = sql_aad_admin or {}
-                def _setter(key, value):
-                    sql_aad_admin[key] = value
-                WorkspaceSqlAadAdminArgs._configure(_setter, **sql_aad_admin)
+            sql_aad_admin = _utilities.configure(sql_aad_admin, WorkspaceSqlAadAdminArgs, True)
             __props__.__dict__["sql_aad_admin"] = sql_aad_admin
             __props__.__dict__["sql_administrator_login"] = sql_administrator_login
             __props__.__dict__["sql_administrator_login_password"] = None if sql_administrator_login_password is None else pulumi.Output.secret(sql_administrator_login_password)

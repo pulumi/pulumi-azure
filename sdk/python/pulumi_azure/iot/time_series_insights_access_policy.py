@@ -38,17 +38,23 @@ class TimeSeriesInsightsAccessPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             principal_object_id: pulumi.Input[str],
-             roles: pulumi.Input[Sequence[pulumi.Input[str]]],
-             time_series_insights_environment_id: pulumi.Input[str],
+             principal_object_id: Optional[pulumi.Input[str]] = None,
+             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             time_series_insights_environment_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'principalObjectId' in kwargs:
+        if principal_object_id is None and 'principalObjectId' in kwargs:
             principal_object_id = kwargs['principalObjectId']
-        if 'timeSeriesInsightsEnvironmentId' in kwargs:
+        if principal_object_id is None:
+            raise TypeError("Missing 'principal_object_id' argument")
+        if roles is None:
+            raise TypeError("Missing 'roles' argument")
+        if time_series_insights_environment_id is None and 'timeSeriesInsightsEnvironmentId' in kwargs:
             time_series_insights_environment_id = kwargs['timeSeriesInsightsEnvironmentId']
+        if time_series_insights_environment_id is None:
+            raise TypeError("Missing 'time_series_insights_environment_id' argument")
 
         _setter("principal_object_id", principal_object_id)
         _setter("roles", roles)
@@ -151,11 +157,11 @@ class _TimeSeriesInsightsAccessPolicyState:
              principal_object_id: Optional[pulumi.Input[str]] = None,
              roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              time_series_insights_environment_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'principalObjectId' in kwargs:
+        if principal_object_id is None and 'principalObjectId' in kwargs:
             principal_object_id = kwargs['principalObjectId']
-        if 'timeSeriesInsightsEnvironmentId' in kwargs:
+        if time_series_insights_environment_id is None and 'timeSeriesInsightsEnvironmentId' in kwargs:
             time_series_insights_environment_id = kwargs['timeSeriesInsightsEnvironmentId']
 
         if description is not None:
@@ -244,24 +250,6 @@ class TimeSeriesInsightsAccessPolicy(pulumi.CustomResource):
         """
         Manages an Azure IoT Time Series Insights Access Policy.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_time_series_insights_standard_environment = azure.iot.TimeSeriesInsightsStandardEnvironment("exampleTimeSeriesInsightsStandardEnvironment",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="S1_1",
-            data_retention_time="P30D")
-        example_time_series_insights_access_policy = azure.iot.TimeSeriesInsightsAccessPolicy("exampleTimeSeriesInsightsAccessPolicy",
-            time_series_insights_environment_id=example_time_series_insights_standard_environment.name,
-            principal_object_id="aGUID",
-            roles=["Reader"])
-        ```
-
         ## Import
 
         Azure IoT Time Series Insights Access Policy can be imported using the `resource id`, e.g.
@@ -286,24 +274,6 @@ class TimeSeriesInsightsAccessPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure IoT Time Series Insights Access Policy.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_time_series_insights_standard_environment = azure.iot.TimeSeriesInsightsStandardEnvironment("exampleTimeSeriesInsightsStandardEnvironment",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="S1_1",
-            data_retention_time="P30D")
-        example_time_series_insights_access_policy = azure.iot.TimeSeriesInsightsAccessPolicy("exampleTimeSeriesInsightsAccessPolicy",
-            time_series_insights_environment_id=example_time_series_insights_standard_environment.name,
-            principal_object_id="aGUID",
-            roles=["Reader"])
-        ```
 
         ## Import
 

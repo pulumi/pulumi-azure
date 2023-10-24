@@ -61,8 +61,8 @@ class CassandraDatacenterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cassandra_cluster_id: pulumi.Input[str],
-             delegated_management_subnet_id: pulumi.Input[str],
+             cassandra_cluster_id: Optional[pulumi.Input[str]] = None,
+             delegated_management_subnet_id: Optional[pulumi.Input[str]] = None,
              availability_zones_enabled: Optional[pulumi.Input[bool]] = None,
              backup_storage_customer_key_uri: Optional[pulumi.Input[str]] = None,
              base64_encoded_yaml_fragment: Optional[pulumi.Input[str]] = None,
@@ -73,27 +73,31 @@ class CassandraDatacenterArgs:
              name: Optional[pulumi.Input[str]] = None,
              node_count: Optional[pulumi.Input[int]] = None,
              sku_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'cassandraClusterId' in kwargs:
+        if cassandra_cluster_id is None and 'cassandraClusterId' in kwargs:
             cassandra_cluster_id = kwargs['cassandraClusterId']
-        if 'delegatedManagementSubnetId' in kwargs:
+        if cassandra_cluster_id is None:
+            raise TypeError("Missing 'cassandra_cluster_id' argument")
+        if delegated_management_subnet_id is None and 'delegatedManagementSubnetId' in kwargs:
             delegated_management_subnet_id = kwargs['delegatedManagementSubnetId']
-        if 'availabilityZonesEnabled' in kwargs:
+        if delegated_management_subnet_id is None:
+            raise TypeError("Missing 'delegated_management_subnet_id' argument")
+        if availability_zones_enabled is None and 'availabilityZonesEnabled' in kwargs:
             availability_zones_enabled = kwargs['availabilityZonesEnabled']
-        if 'backupStorageCustomerKeyUri' in kwargs:
+        if backup_storage_customer_key_uri is None and 'backupStorageCustomerKeyUri' in kwargs:
             backup_storage_customer_key_uri = kwargs['backupStorageCustomerKeyUri']
-        if 'base64EncodedYamlFragment' in kwargs:
+        if base64_encoded_yaml_fragment is None and 'base64EncodedYamlFragment' in kwargs:
             base64_encoded_yaml_fragment = kwargs['base64EncodedYamlFragment']
-        if 'diskCount' in kwargs:
+        if disk_count is None and 'diskCount' in kwargs:
             disk_count = kwargs['diskCount']
-        if 'diskSku' in kwargs:
+        if disk_sku is None and 'diskSku' in kwargs:
             disk_sku = kwargs['diskSku']
-        if 'managedDiskCustomerKeyUri' in kwargs:
+        if managed_disk_customer_key_uri is None and 'managedDiskCustomerKeyUri' in kwargs:
             managed_disk_customer_key_uri = kwargs['managedDiskCustomerKeyUri']
-        if 'nodeCount' in kwargs:
+        if node_count is None and 'nodeCount' in kwargs:
             node_count = kwargs['nodeCount']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
 
         _setter("cassandra_cluster_id", cassandra_cluster_id)
@@ -328,27 +332,27 @@ class _CassandraDatacenterState:
              name: Optional[pulumi.Input[str]] = None,
              node_count: Optional[pulumi.Input[int]] = None,
              sku_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'availabilityZonesEnabled' in kwargs:
+        if availability_zones_enabled is None and 'availabilityZonesEnabled' in kwargs:
             availability_zones_enabled = kwargs['availabilityZonesEnabled']
-        if 'backupStorageCustomerKeyUri' in kwargs:
+        if backup_storage_customer_key_uri is None and 'backupStorageCustomerKeyUri' in kwargs:
             backup_storage_customer_key_uri = kwargs['backupStorageCustomerKeyUri']
-        if 'base64EncodedYamlFragment' in kwargs:
+        if base64_encoded_yaml_fragment is None and 'base64EncodedYamlFragment' in kwargs:
             base64_encoded_yaml_fragment = kwargs['base64EncodedYamlFragment']
-        if 'cassandraClusterId' in kwargs:
+        if cassandra_cluster_id is None and 'cassandraClusterId' in kwargs:
             cassandra_cluster_id = kwargs['cassandraClusterId']
-        if 'delegatedManagementSubnetId' in kwargs:
+        if delegated_management_subnet_id is None and 'delegatedManagementSubnetId' in kwargs:
             delegated_management_subnet_id = kwargs['delegatedManagementSubnetId']
-        if 'diskCount' in kwargs:
+        if disk_count is None and 'diskCount' in kwargs:
             disk_count = kwargs['diskCount']
-        if 'diskSku' in kwargs:
+        if disk_sku is None and 'diskSku' in kwargs:
             disk_sku = kwargs['diskSku']
-        if 'managedDiskCustomerKeyUri' in kwargs:
+        if managed_disk_customer_key_uri is None and 'managedDiskCustomerKeyUri' in kwargs:
             managed_disk_customer_key_uri = kwargs['managedDiskCustomerKeyUri']
-        if 'nodeCount' in kwargs:
+        if node_count is None and 'nodeCount' in kwargs:
             node_count = kwargs['nodeCount']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
 
         if availability_zones_enabled is not None:
@@ -546,47 +550,6 @@ class CassandraDatacenter(pulumi.CustomResource):
 
         > **NOTE:** In order for the `Azure Managed Instances for Apache Cassandra` to work properly the product requires the `Azure Cosmos DB` Application ID to be present and working in your tenant. If the `Azure Cosmos DB` Application ID is missing in your environment you will need to have an administrator of your tenant run the following command to add the `Azure Cosmos DB` Application ID to your tenant:
 
-        ```python
-        import pulumi
-        ```
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_azuread as azuread
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            address_spaces=["10.0.0.0/16"])
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"])
-        example_service_principal = azuread.get_service_principal(display_name="Azure Cosmos DB")
-        example_assignment = azure.authorization.Assignment("exampleAssignment",
-            scope=example_virtual_network.id,
-            role_definition_name="Network Contributor",
-            principal_id=example_service_principal.object_id)
-        example_cassandra_cluster = azure.cosmosdb.CassandraCluster("exampleCassandraCluster",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            delegated_management_subnet_id=example_subnet.id,
-            default_admin_password="Password1234",
-            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
-        example_cassandra_datacenter = azure.cosmosdb.CassandraDatacenter("exampleCassandraDatacenter",
-            location=example_cassandra_cluster.location,
-            cassandra_cluster_id=example_cassandra_cluster.id,
-            delegated_management_subnet_id=example_subnet.id,
-            node_count=3,
-            disk_count=4,
-            sku_name="Standard_DS14_v2",
-            availability_zones_enabled=False)
-        ```
-
         ## Import
 
         Cassandra Datacenters can be imported using the `resource id`, e.g.
@@ -622,47 +585,6 @@ class CassandraDatacenter(pulumi.CustomResource):
         Manages a Cassandra Datacenter.
 
         > **NOTE:** In order for the `Azure Managed Instances for Apache Cassandra` to work properly the product requires the `Azure Cosmos DB` Application ID to be present and working in your tenant. If the `Azure Cosmos DB` Application ID is missing in your environment you will need to have an administrator of your tenant run the following command to add the `Azure Cosmos DB` Application ID to your tenant:
-
-        ```python
-        import pulumi
-        ```
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_azuread as azuread
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            address_spaces=["10.0.0.0/16"])
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"])
-        example_service_principal = azuread.get_service_principal(display_name="Azure Cosmos DB")
-        example_assignment = azure.authorization.Assignment("exampleAssignment",
-            scope=example_virtual_network.id,
-            role_definition_name="Network Contributor",
-            principal_id=example_service_principal.object_id)
-        example_cassandra_cluster = azure.cosmosdb.CassandraCluster("exampleCassandraCluster",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            delegated_management_subnet_id=example_subnet.id,
-            default_admin_password="Password1234",
-            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
-        example_cassandra_datacenter = azure.cosmosdb.CassandraDatacenter("exampleCassandraDatacenter",
-            location=example_cassandra_cluster.location,
-            cassandra_cluster_id=example_cassandra_cluster.id,
-            delegated_management_subnet_id=example_subnet.id,
-            node_count=3,
-            disk_count=4,
-            sku_name="Standard_DS14_v2",
-            availability_zones_enabled=False)
-        ```
 
         ## Import
 

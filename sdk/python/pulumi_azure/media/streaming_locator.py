@@ -61,10 +61,10 @@ class StreamingLocatorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             asset_name: pulumi.Input[str],
-             media_services_account_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             streaming_policy_name: pulumi.Input[str],
+             asset_name: Optional[pulumi.Input[str]] = None,
+             media_services_account_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             streaming_policy_name: Optional[pulumi.Input[str]] = None,
              alternative_media_id: Optional[pulumi.Input[str]] = None,
              content_keys: Optional[pulumi.Input[Sequence[pulumi.Input['StreamingLocatorContentKeyArgs']]]] = None,
              default_content_key_policy_name: Optional[pulumi.Input[str]] = None,
@@ -73,29 +73,37 @@ class StreamingLocatorArgs:
              name: Optional[pulumi.Input[str]] = None,
              start_time: Optional[pulumi.Input[str]] = None,
              streaming_locator_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'assetName' in kwargs:
+        if asset_name is None and 'assetName' in kwargs:
             asset_name = kwargs['assetName']
-        if 'mediaServicesAccountName' in kwargs:
+        if asset_name is None:
+            raise TypeError("Missing 'asset_name' argument")
+        if media_services_account_name is None and 'mediaServicesAccountName' in kwargs:
             media_services_account_name = kwargs['mediaServicesAccountName']
-        if 'resourceGroupName' in kwargs:
+        if media_services_account_name is None:
+            raise TypeError("Missing 'media_services_account_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'streamingPolicyName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if streaming_policy_name is None and 'streamingPolicyName' in kwargs:
             streaming_policy_name = kwargs['streamingPolicyName']
-        if 'alternativeMediaId' in kwargs:
+        if streaming_policy_name is None:
+            raise TypeError("Missing 'streaming_policy_name' argument")
+        if alternative_media_id is None and 'alternativeMediaId' in kwargs:
             alternative_media_id = kwargs['alternativeMediaId']
-        if 'contentKeys' in kwargs:
+        if content_keys is None and 'contentKeys' in kwargs:
             content_keys = kwargs['contentKeys']
-        if 'defaultContentKeyPolicyName' in kwargs:
+        if default_content_key_policy_name is None and 'defaultContentKeyPolicyName' in kwargs:
             default_content_key_policy_name = kwargs['defaultContentKeyPolicyName']
-        if 'endTime' in kwargs:
+        if end_time is None and 'endTime' in kwargs:
             end_time = kwargs['endTime']
-        if 'filterNames' in kwargs:
+        if filter_names is None and 'filterNames' in kwargs:
             filter_names = kwargs['filterNames']
-        if 'startTime' in kwargs:
+        if start_time is None and 'startTime' in kwargs:
             start_time = kwargs['startTime']
-        if 'streamingLocatorId' in kwargs:
+        if streaming_locator_id is None and 'streamingLocatorId' in kwargs:
             streaming_locator_id = kwargs['streamingLocatorId']
 
         _setter("asset_name", asset_name)
@@ -324,29 +332,29 @@ class _StreamingLocatorState:
              start_time: Optional[pulumi.Input[str]] = None,
              streaming_locator_id: Optional[pulumi.Input[str]] = None,
              streaming_policy_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'alternativeMediaId' in kwargs:
+        if alternative_media_id is None and 'alternativeMediaId' in kwargs:
             alternative_media_id = kwargs['alternativeMediaId']
-        if 'assetName' in kwargs:
+        if asset_name is None and 'assetName' in kwargs:
             asset_name = kwargs['assetName']
-        if 'contentKeys' in kwargs:
+        if content_keys is None and 'contentKeys' in kwargs:
             content_keys = kwargs['contentKeys']
-        if 'defaultContentKeyPolicyName' in kwargs:
+        if default_content_key_policy_name is None and 'defaultContentKeyPolicyName' in kwargs:
             default_content_key_policy_name = kwargs['defaultContentKeyPolicyName']
-        if 'endTime' in kwargs:
+        if end_time is None and 'endTime' in kwargs:
             end_time = kwargs['endTime']
-        if 'filterNames' in kwargs:
+        if filter_names is None and 'filterNames' in kwargs:
             filter_names = kwargs['filterNames']
-        if 'mediaServicesAccountName' in kwargs:
+        if media_services_account_name is None and 'mediaServicesAccountName' in kwargs:
             media_services_account_name = kwargs['mediaServicesAccountName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'startTime' in kwargs:
+        if start_time is None and 'startTime' in kwargs:
             start_time = kwargs['startTime']
-        if 'streamingLocatorId' in kwargs:
+        if streaming_locator_id is None and 'streamingLocatorId' in kwargs:
             streaming_locator_id = kwargs['streamingLocatorId']
-        if 'streamingPolicyName' in kwargs:
+        if streaming_policy_name is None and 'streamingPolicyName' in kwargs:
             streaming_policy_name = kwargs['streamingPolicyName']
 
         if alternative_media_id is not None:
@@ -540,40 +548,6 @@ class StreamingLocator(pulumi.CustomResource):
         """
         Manages a Media Streaming Locator.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
-                id=example_account.id,
-                is_primary=True,
-            )])
-        example_account_filter = azure.media.AccountFilter("exampleAccountFilter",
-            resource_group_name=example_resource_group.name,
-            media_services_account_name=example_service_account.name)
-        example_asset = azure.media.Asset("exampleAsset",
-            resource_group_name=example_resource_group.name,
-            media_services_account_name=example_service_account.name,
-            description="Asset description")
-        example_streaming_locator = azure.media.StreamingLocator("exampleStreamingLocator",
-            resource_group_name=example_resource_group.name,
-            media_services_account_name=example_service_account.name,
-            asset_name=example_asset.name,
-            streaming_policy_name="Predefined_ClearStreamingOnly",
-            filter_names=[example_account_filter.name])
-        ```
-
         ## Import
 
         Streaming Locators can be imported using the `resource id`, e.g.
@@ -605,40 +579,6 @@ class StreamingLocator(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Media Streaming Locator.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
-                id=example_account.id,
-                is_primary=True,
-            )])
-        example_account_filter = azure.media.AccountFilter("exampleAccountFilter",
-            resource_group_name=example_resource_group.name,
-            media_services_account_name=example_service_account.name)
-        example_asset = azure.media.Asset("exampleAsset",
-            resource_group_name=example_resource_group.name,
-            media_services_account_name=example_service_account.name,
-            description="Asset description")
-        example_streaming_locator = azure.media.StreamingLocator("exampleStreamingLocator",
-            resource_group_name=example_resource_group.name,
-            media_services_account_name=example_service_account.name,
-            asset_name=example_asset.name,
-            streaming_policy_name="Predefined_ClearStreamingOnly",
-            filter_names=[example_account_filter.name])
-        ```
 
         ## Import
 

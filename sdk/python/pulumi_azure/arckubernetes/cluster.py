@@ -43,18 +43,24 @@ class ClusterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             agent_public_key_certificate: pulumi.Input[str],
-             identity: pulumi.Input['ClusterIdentityArgs'],
-             resource_group_name: pulumi.Input[str],
+             agent_public_key_certificate: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ClusterIdentityArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'agentPublicKeyCertificate' in kwargs:
+        if agent_public_key_certificate is None and 'agentPublicKeyCertificate' in kwargs:
             agent_public_key_certificate = kwargs['agentPublicKeyCertificate']
-        if 'resourceGroupName' in kwargs:
+        if agent_public_key_certificate is None:
+            raise TypeError("Missing 'agent_public_key_certificate' argument")
+        if identity is None:
+            raise TypeError("Missing 'identity' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("agent_public_key_certificate", agent_public_key_certificate)
         _setter("identity", identity)
@@ -203,19 +209,19 @@ class _ClusterState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              total_core_count: Optional[pulumi.Input[int]] = None,
              total_node_count: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'agentPublicKeyCertificate' in kwargs:
+        if agent_public_key_certificate is None and 'agentPublicKeyCertificate' in kwargs:
             agent_public_key_certificate = kwargs['agentPublicKeyCertificate']
-        if 'agentVersion' in kwargs:
+        if agent_version is None and 'agentVersion' in kwargs:
             agent_version = kwargs['agentVersion']
-        if 'kubernetesVersion' in kwargs:
+        if kubernetes_version is None and 'kubernetesVersion' in kwargs:
             kubernetes_version = kwargs['kubernetesVersion']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'totalCoreCount' in kwargs:
+        if total_core_count is None and 'totalCoreCount' in kwargs:
             total_core_count = kwargs['totalCoreCount']
-        if 'totalNodeCount' in kwargs:
+        if total_node_count is None and 'totalNodeCount' in kwargs:
             total_node_count = kwargs['totalNodeCount']
 
         if agent_public_key_certificate is not None:
@@ -484,11 +490,7 @@ class Cluster(pulumi.CustomResource):
             if agent_public_key_certificate is None and not opts.urn:
                 raise TypeError("Missing required property 'agent_public_key_certificate'")
             __props__.__dict__["agent_public_key_certificate"] = agent_public_key_certificate
-            if identity is not None and not isinstance(identity, ClusterIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                ClusterIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, ClusterIdentityArgs, True)
             if identity is None and not opts.urn:
                 raise TypeError("Missing required property 'identity'")
             __props__.__dict__["identity"] = identity

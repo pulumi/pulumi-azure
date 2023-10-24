@@ -38,19 +38,29 @@ class EnrichmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             endpoint_names: pulumi.Input[Sequence[pulumi.Input[str]]],
-             iothub_name: pulumi.Input[str],
-             key: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             endpoint_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             iothub_name: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'endpointNames' in kwargs:
+        if endpoint_names is None and 'endpointNames' in kwargs:
             endpoint_names = kwargs['endpointNames']
-        if 'iothubName' in kwargs:
+        if endpoint_names is None:
+            raise TypeError("Missing 'endpoint_names' argument")
+        if iothub_name is None and 'iothubName' in kwargs:
             iothub_name = kwargs['iothubName']
-        if 'resourceGroupName' in kwargs:
+        if iothub_name is None:
+            raise TypeError("Missing 'iothub_name' argument")
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("endpoint_names", endpoint_names)
         _setter("iothub_name", iothub_name)
@@ -151,13 +161,13 @@ class _EnrichmentState:
              key: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'endpointNames' in kwargs:
+        if endpoint_names is None and 'endpointNames' in kwargs:
             endpoint_names = kwargs['endpointNames']
-        if 'iothubName' in kwargs:
+        if iothub_name is None and 'iothubName' in kwargs:
             iothub_name = kwargs['iothubName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if endpoint_names is not None:

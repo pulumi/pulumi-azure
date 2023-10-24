@@ -104,17 +104,6 @@ def get_instance(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Digital Twins instance.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.digitaltwins.get_instance(name="existing-digital-twins",
-        resource_group_name="existing-resgroup")
-    pulumi.export("id", example.id)
-    ```
-
 
     :param str name: The name of this Digital Twins instance.
     :param str resource_group_name: The name of the Resource Group where the Digital Twins instance exists.
@@ -140,17 +129,6 @@ def get_instance_output(name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceResult]:
     """
     Use this data source to access information about an existing Digital Twins instance.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.digitaltwins.get_instance(name="existing-digital-twins",
-        resource_group_name="existing-resgroup")
-    pulumi.export("id", example.id)
-    ```
 
 
     :param str name: The name of this Digital Twins instance.

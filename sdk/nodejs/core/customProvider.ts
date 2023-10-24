@@ -9,23 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Custom Provider.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleCustomProvider = new azure.core.CustomProvider("exampleCustomProvider", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     resourceTypes: [{
- *         name: "dEf1",
- *         endpoint: "https://testendpoint.com/",
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * Custom Provider can be imported using the `resource id`, e.g.

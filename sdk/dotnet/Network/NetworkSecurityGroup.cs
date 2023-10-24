@@ -16,49 +16,6 @@ namespace Pulumi.Azure.Network
     /// provides both a standalone Network Security Rule resource, and allows for Network Security Rules to be defined in-line within the Network Security Group resource.
     /// At this time you cannot use a Network Security Group with in-line Network Security Rules in conjunction with any Network Security Rule resources. Doing so will cause a conflict of rule settings and will overwrite rules.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup("exampleNetworkSecurityGroup", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         SecurityRules = new[]
-    ///         {
-    ///             new Azure.Network.Inputs.NetworkSecurityGroupSecurityRuleArgs
-    ///             {
-    ///                 Name = "test123",
-    ///                 Priority = 100,
-    ///                 Direction = "Inbound",
-    ///                 Access = "Allow",
-    ///                 Protocol = "Tcp",
-    ///                 SourcePortRange = "*",
-    ///                 DestinationPortRange = "*",
-    ///                 SourceAddressPrefix = "*",
-    ///                 DestinationAddressPrefix = "*",
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "environment", "Production" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Network Security Groups can be imported using the `resource id`, e.g.

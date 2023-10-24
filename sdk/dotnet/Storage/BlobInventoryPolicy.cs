@@ -12,63 +12,6 @@ namespace Pulumi.Azure.Storage
     /// <summary>
     /// Manages a Storage Blob Inventory Policy.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         AccountTier = "Standard",
-    ///         AccountReplicationType = "LRS",
-    ///         BlobProperties = new Azure.Storage.Inputs.AccountBlobPropertiesArgs
-    ///         {
-    ///             VersioningEnabled = true,
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
-    ///     {
-    ///         StorageAccountName = exampleAccount.Name,
-    ///         ContainerAccessType = "private",
-    ///     });
-    /// 
-    ///     var exampleBlobInventoryPolicy = new Azure.Storage.BlobInventoryPolicy("exampleBlobInventoryPolicy", new()
-    ///     {
-    ///         StorageAccountId = exampleAccount.Id,
-    ///         Rules = new[]
-    ///         {
-    ///             new Azure.Storage.Inputs.BlobInventoryPolicyRuleArgs
-    ///             {
-    ///                 Name = "rule1",
-    ///                 StorageContainerName = exampleContainer.Name,
-    ///                 Format = "Csv",
-    ///                 Schedule = "Daily",
-    ///                 Scope = "Container",
-    ///                 SchemaFields = new[]
-    ///                 {
-    ///                     "Name",
-    ///                     "Last-Modified",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Storage Blob Inventory Policies can be imported using the `resource id`, e.g.

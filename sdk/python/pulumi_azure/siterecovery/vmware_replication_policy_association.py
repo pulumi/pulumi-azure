@@ -35,15 +35,19 @@ class VmwareReplicationPolicyAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             policy_id: pulumi.Input[str],
-             recovery_vault_id: pulumi.Input[str],
+             policy_id: Optional[pulumi.Input[str]] = None,
+             recovery_vault_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'policyId' in kwargs:
+        if policy_id is None and 'policyId' in kwargs:
             policy_id = kwargs['policyId']
-        if 'recoveryVaultId' in kwargs:
+        if policy_id is None:
+            raise TypeError("Missing 'policy_id' argument")
+        if recovery_vault_id is None and 'recoveryVaultId' in kwargs:
             recovery_vault_id = kwargs['recoveryVaultId']
+        if recovery_vault_id is None:
+            raise TypeError("Missing 'recovery_vault_id' argument")
 
         _setter("policy_id", policy_id)
         _setter("recovery_vault_id", recovery_vault_id)
@@ -117,11 +121,11 @@ class _VmwareReplicationPolicyAssociationState:
              name: Optional[pulumi.Input[str]] = None,
              policy_id: Optional[pulumi.Input[str]] = None,
              recovery_vault_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'policyId' in kwargs:
+        if policy_id is None and 'policyId' in kwargs:
             policy_id = kwargs['policyId']
-        if 'recoveryVaultId' in kwargs:
+        if recovery_vault_id is None and 'recoveryVaultId' in kwargs:
             recovery_vault_id = kwargs['recoveryVaultId']
 
         if name is not None:
@@ -183,26 +187,6 @@ class VmwareReplicationPolicyAssociation(pulumi.CustomResource):
         """
         Manages an Azure Site Recovery replication policy for VMWare within a Recovery Vault.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="East US")
-        example_vault = azure.recoveryservices.Vault("exampleVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard")
-        example_vm_ware_replication_policy = azure.siterecovery.VMWareReplicationPolicy("exampleVMWareReplicationPolicy",
-            recovery_vault_id=example_vault.id,
-            recovery_point_retention_in_minutes=1440,
-            application_consistent_snapshot_frequency_in_minutes=240)
-        example_vmware_replication_policy_association = azure.siterecovery.VmwareReplicationPolicyAssociation("exampleVmwareReplicationPolicyAssociation",
-            recovery_vault_id=example_vault.id,
-            policy_id=example_vm_ware_replication_policy.id)
-        ```
-
         ## Import
 
         Site Recovery Replication Policies can be imported using the `resource id`, e.g.
@@ -228,26 +212,6 @@ class VmwareReplicationPolicyAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Site Recovery replication policy for VMWare within a Recovery Vault.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="East US")
-        example_vault = azure.recoveryservices.Vault("exampleVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard")
-        example_vm_ware_replication_policy = azure.siterecovery.VMWareReplicationPolicy("exampleVMWareReplicationPolicy",
-            recovery_vault_id=example_vault.id,
-            recovery_point_retention_in_minutes=1440,
-            application_consistent_snapshot_frequency_in_minutes=240)
-        example_vmware_replication_policy_association = azure.siterecovery.VmwareReplicationPolicyAssociation("exampleVmwareReplicationPolicyAssociation",
-            recovery_vault_id=example_vault.id,
-            policy_id=example_vm_ware_replication_policy.id)
-        ```
 
         ## Import
 

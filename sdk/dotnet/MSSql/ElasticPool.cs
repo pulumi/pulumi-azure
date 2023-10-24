@@ -12,54 +12,6 @@ namespace Pulumi.Azure.MSSql
     /// <summary>
     /// Allows you to manage an Azure SQL Elastic Pool via the `v3.0` API which allows for `vCore` and `DTU` based configurations.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleServer = new Azure.MSSql.Server("exampleServer", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         Version = "12.0",
-    ///         AdministratorLogin = "4dm1n157r470r",
-    ///         AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
-    ///     });
-    /// 
-    ///     var exampleElasticPool = new Azure.MSSql.ElasticPool("exampleElasticPool", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         ServerName = exampleServer.Name,
-    ///         LicenseType = "LicenseIncluded",
-    ///         MaxSizeGb = 756,
-    ///         Sku = new Azure.MSSql.Inputs.ElasticPoolSkuArgs
-    ///         {
-    ///             Name = "BasicPool",
-    ///             Tier = "Basic",
-    ///             Family = "Gen4",
-    ///             Capacity = 4,
-    ///         },
-    ///         PerDatabaseSettings = new Azure.MSSql.Inputs.ElasticPoolPerDatabaseSettingsArgs
-    ///         {
-    ///             MinCapacity = 0.25,
-    ///             MaxCapacity = 4,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// SQL Elastic Pool can be imported using the `resource id`, e.g.

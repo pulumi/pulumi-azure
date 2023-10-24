@@ -6,20 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing API Management Group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.apimanagement.getGroup({
- *     name: "my-group",
- *     apiManagementName: "example-apim",
- *     resourceGroupName: "search-service",
- * });
- * export const groupType = example.then(example => example.type);
- * ```
  */
 export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {
 
@@ -79,20 +65,6 @@ export interface GetGroupResult {
 }
 /**
  * Use this data source to access information about an existing API Management Group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.apimanagement.getGroup({
- *     name: "my-group",
- *     apiManagementName: "example-apim",
- *     resourceGroupName: "search-service",
- * });
- * export const groupType = example.then(example => example.type);
- * ```
  */
 export function getGroupOutput(args: GetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupResult> {
     return pulumi.output(args).apply((a: any) => getGroup(a, opts))

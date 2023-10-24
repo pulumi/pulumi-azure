@@ -49,29 +49,33 @@ class EndpointServicebusTopicArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             iothub_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             iothub_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              authentication_type: Optional[pulumi.Input[str]] = None,
              connection_string: Optional[pulumi.Input[str]] = None,
              endpoint_uri: Optional[pulumi.Input[str]] = None,
              entity_path: Optional[pulumi.Input[str]] = None,
              identity_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'iothubId' in kwargs:
+        if iothub_id is None and 'iothubId' in kwargs:
             iothub_id = kwargs['iothubId']
-        if 'resourceGroupName' in kwargs:
+        if iothub_id is None:
+            raise TypeError("Missing 'iothub_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'authenticationType' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if authentication_type is None and 'authenticationType' in kwargs:
             authentication_type = kwargs['authenticationType']
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
-        if 'endpointUri' in kwargs:
+        if endpoint_uri is None and 'endpointUri' in kwargs:
             endpoint_uri = kwargs['endpointUri']
-        if 'entityPath' in kwargs:
+        if entity_path is None and 'entityPath' in kwargs:
             entity_path = kwargs['entityPath']
-        if 'identityId' in kwargs:
+        if identity_id is None and 'identityId' in kwargs:
             identity_id = kwargs['identityId']
 
         _setter("iothub_id", iothub_id)
@@ -234,21 +238,21 @@ class _EndpointServicebusTopicState:
              iothub_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'authenticationType' in kwargs:
+        if authentication_type is None and 'authenticationType' in kwargs:
             authentication_type = kwargs['authenticationType']
-        if 'connectionString' in kwargs:
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
-        if 'endpointUri' in kwargs:
+        if endpoint_uri is None and 'endpointUri' in kwargs:
             endpoint_uri = kwargs['endpointUri']
-        if 'entityPath' in kwargs:
+        if entity_path is None and 'entityPath' in kwargs:
             entity_path = kwargs['entityPath']
-        if 'identityId' in kwargs:
+        if identity_id is None and 'identityId' in kwargs:
             identity_id = kwargs['identityId']
-        if 'iothubId' in kwargs:
+        if iothub_id is None and 'iothubId' in kwargs:
             iothub_id = kwargs['iothubId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if authentication_type is not None:
@@ -386,39 +390,6 @@ class EndpointServicebusTopic(pulumi.CustomResource):
 
         > **NOTE:** Endpoints can be defined either directly on the `iot.IoTHub` resource, or using the `azurerm_iothub_endpoint_*` resources - but the two ways of defining the endpoints cannot be used together. If both are used against the same IoTHub, spurious changes will occur. Also, defining a `azurerm_iothub_endpoint_*` resource and another endpoint of a different type directly on the `iot.IoTHub` resource is not supported.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_namespace = azure.servicebus.Namespace("exampleNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard")
-        example_topic = azure.servicebus.Topic("exampleTopic", namespace_id=example_namespace.id)
-        example_topic_authorization_rule = azure.servicebus.TopicAuthorizationRule("exampleTopicAuthorizationRule",
-            topic_id=example_topic.id,
-            listen=False,
-            send=True,
-            manage=False)
-        example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="B1",
-                capacity=1,
-            ),
-            tags={
-                "purpose": "example",
-            })
-        example_endpoint_servicebus_topic = azure.iot.EndpointServicebusTopic("exampleEndpointServicebusTopic",
-            resource_group_name=example_resource_group.name,
-            iothub_id=example_io_t_hub.id,
-            connection_string=example_topic_authorization_rule.primary_connection_string)
-        ```
-
         ## Import
 
         IoTHub ServiceBus Topic Endpoint can be imported using the `resource id`, e.g.
@@ -450,39 +421,6 @@ class EndpointServicebusTopic(pulumi.CustomResource):
         Manages an IotHub ServiceBus Topic Endpoint
 
         > **NOTE:** Endpoints can be defined either directly on the `iot.IoTHub` resource, or using the `azurerm_iothub_endpoint_*` resources - but the two ways of defining the endpoints cannot be used together. If both are used against the same IoTHub, spurious changes will occur. Also, defining a `azurerm_iothub_endpoint_*` resource and another endpoint of a different type directly on the `iot.IoTHub` resource is not supported.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_namespace = azure.servicebus.Namespace("exampleNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard")
-        example_topic = azure.servicebus.Topic("exampleTopic", namespace_id=example_namespace.id)
-        example_topic_authorization_rule = azure.servicebus.TopicAuthorizationRule("exampleTopicAuthorizationRule",
-            topic_id=example_topic.id,
-            listen=False,
-            send=True,
-            manage=False)
-        example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="B1",
-                capacity=1,
-            ),
-            tags={
-                "purpose": "example",
-            })
-        example_endpoint_servicebus_topic = azure.iot.EndpointServicebusTopic("exampleEndpointServicebusTopic",
-            resource_group_name=example_resource_group.name,
-            iothub_id=example_io_t_hub.id,
-            connection_string=example_topic_authorization_rule.primary_connection_string)
-        ```
 
         ## Import
 

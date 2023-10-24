@@ -7,40 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Hostname Binding within an App Service (or Function App).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as random from "@pulumi/random";
- *
- * const server = new random.RandomId("server", {
- *     keepers: {
- *         azi_id: 1,
- *     },
- *     byteLength: 8,
- * });
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const examplePlan = new azure.appservice.Plan("examplePlan", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: {
- *         tier: "Standard",
- *         size: "S1",
- *     },
- * });
- * const exampleAppService = new azure.appservice.AppService("exampleAppService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     appServicePlanId: examplePlan.id,
- * });
- * const exampleCustomHostnameBinding = new azure.appservice.CustomHostnameBinding("exampleCustomHostnameBinding", {
- *     hostname: "www.mywebsite.com",
- *     appServiceName: exampleAppService.name,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * ```
- *
  * ## Import
  *
  * App Service Custom Hostname Bindings can be imported using the `resource id`, e.g.

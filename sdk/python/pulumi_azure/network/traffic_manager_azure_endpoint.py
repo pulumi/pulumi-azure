@@ -52,8 +52,8 @@ class TrafficManagerAzureEndpointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             profile_id: pulumi.Input[str],
-             target_resource_id: pulumi.Input[str],
+             profile_id: Optional[pulumi.Input[str]] = None,
+             target_resource_id: Optional[pulumi.Input[str]] = None,
              custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerAzureEndpointCustomHeaderArgs']]]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              geo_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -61,15 +61,19 @@ class TrafficManagerAzureEndpointArgs:
              priority: Optional[pulumi.Input[int]] = None,
              subnets: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerAzureEndpointSubnetArgs']]]] = None,
              weight: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'profileId' in kwargs:
+        if profile_id is None and 'profileId' in kwargs:
             profile_id = kwargs['profileId']
-        if 'targetResourceId' in kwargs:
+        if profile_id is None:
+            raise TypeError("Missing 'profile_id' argument")
+        if target_resource_id is None and 'targetResourceId' in kwargs:
             target_resource_id = kwargs['targetResourceId']
-        if 'customHeaders' in kwargs:
+        if target_resource_id is None:
+            raise TypeError("Missing 'target_resource_id' argument")
+        if custom_headers is None and 'customHeaders' in kwargs:
             custom_headers = kwargs['customHeaders']
-        if 'geoMappings' in kwargs:
+        if geo_mappings is None and 'geoMappings' in kwargs:
             geo_mappings = kwargs['geoMappings']
 
         _setter("profile_id", profile_id)
@@ -246,15 +250,15 @@ class _TrafficManagerAzureEndpointState:
              subnets: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerAzureEndpointSubnetArgs']]]] = None,
              target_resource_id: Optional[pulumi.Input[str]] = None,
              weight: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'customHeaders' in kwargs:
+        if custom_headers is None and 'customHeaders' in kwargs:
             custom_headers = kwargs['customHeaders']
-        if 'geoMappings' in kwargs:
+        if geo_mappings is None and 'geoMappings' in kwargs:
             geo_mappings = kwargs['geoMappings']
-        if 'profileId' in kwargs:
+        if profile_id is None and 'profileId' in kwargs:
             profile_id = kwargs['profileId']
-        if 'targetResourceId' in kwargs:
+        if target_resource_id is None and 'targetResourceId' in kwargs:
             target_resource_id = kwargs['targetResourceId']
 
         if custom_headers is not None:
@@ -403,42 +407,6 @@ class TrafficManagerAzureEndpoint(pulumi.CustomResource):
         """
         Manages an Azure Endpoint within a Traffic Manager Profile.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            allocation_method="Static",
-            domain_name_label="example-public-ip")
-        example_traffic_manager_profile = azure.network.TrafficManagerProfile("exampleTrafficManagerProfile",
-            resource_group_name=example_resource_group.name,
-            traffic_routing_method="Weighted",
-            dns_config=azure.network.TrafficManagerProfileDnsConfigArgs(
-                relative_name="example-profile",
-                ttl=100,
-            ),
-            monitor_config=azure.network.TrafficManagerProfileMonitorConfigArgs(
-                protocol="HTTP",
-                port=80,
-                path="/",
-                interval_in_seconds=30,
-                timeout_in_seconds=9,
-                tolerated_number_of_failures=3,
-            ),
-            tags={
-                "environment": "Production",
-            })
-        example_traffic_manager_azure_endpoint = azure.network.TrafficManagerAzureEndpoint("exampleTrafficManagerAzureEndpoint",
-            profile_id=example_traffic_manager_profile.id,
-            weight=100,
-            target_resource_id=example_public_ip.id)
-        ```
-
         ## Import
 
         Azure Endpoints can be imported using the `resource id`, e.g.
@@ -467,42 +435,6 @@ class TrafficManagerAzureEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Endpoint within a Traffic Manager Profile.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            allocation_method="Static",
-            domain_name_label="example-public-ip")
-        example_traffic_manager_profile = azure.network.TrafficManagerProfile("exampleTrafficManagerProfile",
-            resource_group_name=example_resource_group.name,
-            traffic_routing_method="Weighted",
-            dns_config=azure.network.TrafficManagerProfileDnsConfigArgs(
-                relative_name="example-profile",
-                ttl=100,
-            ),
-            monitor_config=azure.network.TrafficManagerProfileMonitorConfigArgs(
-                protocol="HTTP",
-                port=80,
-                path="/",
-                interval_in_seconds=30,
-                timeout_in_seconds=9,
-                tolerated_number_of_failures=3,
-            ),
-            tags={
-                "environment": "Production",
-            })
-        example_traffic_manager_azure_endpoint = azure.network.TrafficManagerAzureEndpoint("exampleTrafficManagerAzureEndpoint",
-            profile_id=example_traffic_manager_profile.id,
-            weight=100,
-            target_resource_id=example_public_ip.id)
-        ```
 
         ## Import
 

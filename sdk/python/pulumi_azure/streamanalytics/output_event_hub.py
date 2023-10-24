@@ -58,36 +58,46 @@ class OutputEventHubArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             eventhub_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             serialization: pulumi.Input['OutputEventHubSerializationArgs'],
-             servicebus_namespace: pulumi.Input[str],
-             stream_analytics_job_name: pulumi.Input[str],
+             eventhub_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             serialization: Optional[pulumi.Input['OutputEventHubSerializationArgs']] = None,
+             servicebus_namespace: Optional[pulumi.Input[str]] = None,
+             stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
              authentication_mode: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              partition_key: Optional[pulumi.Input[str]] = None,
              property_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              shared_access_policy_key: Optional[pulumi.Input[str]] = None,
              shared_access_policy_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'eventhubName' in kwargs:
+        if eventhub_name is None and 'eventhubName' in kwargs:
             eventhub_name = kwargs['eventhubName']
-        if 'resourceGroupName' in kwargs:
+        if eventhub_name is None:
+            raise TypeError("Missing 'eventhub_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'servicebusNamespace' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if serialization is None:
+            raise TypeError("Missing 'serialization' argument")
+        if servicebus_namespace is None and 'servicebusNamespace' in kwargs:
             servicebus_namespace = kwargs['servicebusNamespace']
-        if 'streamAnalyticsJobName' in kwargs:
+        if servicebus_namespace is None:
+            raise TypeError("Missing 'servicebus_namespace' argument")
+        if stream_analytics_job_name is None and 'streamAnalyticsJobName' in kwargs:
             stream_analytics_job_name = kwargs['streamAnalyticsJobName']
-        if 'authenticationMode' in kwargs:
+        if stream_analytics_job_name is None:
+            raise TypeError("Missing 'stream_analytics_job_name' argument")
+        if authentication_mode is None and 'authenticationMode' in kwargs:
             authentication_mode = kwargs['authenticationMode']
-        if 'partitionKey' in kwargs:
+        if partition_key is None and 'partitionKey' in kwargs:
             partition_key = kwargs['partitionKey']
-        if 'propertyColumns' in kwargs:
+        if property_columns is None and 'propertyColumns' in kwargs:
             property_columns = kwargs['propertyColumns']
-        if 'sharedAccessPolicyKey' in kwargs:
+        if shared_access_policy_key is None and 'sharedAccessPolicyKey' in kwargs:
             shared_access_policy_key = kwargs['sharedAccessPolicyKey']
-        if 'sharedAccessPolicyName' in kwargs:
+        if shared_access_policy_name is None and 'sharedAccessPolicyName' in kwargs:
             shared_access_policy_name = kwargs['sharedAccessPolicyName']
 
         _setter("eventhub_name", eventhub_name)
@@ -297,25 +307,25 @@ class _OutputEventHubState:
              shared_access_policy_key: Optional[pulumi.Input[str]] = None,
              shared_access_policy_name: Optional[pulumi.Input[str]] = None,
              stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'authenticationMode' in kwargs:
+        if authentication_mode is None and 'authenticationMode' in kwargs:
             authentication_mode = kwargs['authenticationMode']
-        if 'eventhubName' in kwargs:
+        if eventhub_name is None and 'eventhubName' in kwargs:
             eventhub_name = kwargs['eventhubName']
-        if 'partitionKey' in kwargs:
+        if partition_key is None and 'partitionKey' in kwargs:
             partition_key = kwargs['partitionKey']
-        if 'propertyColumns' in kwargs:
+        if property_columns is None and 'propertyColumns' in kwargs:
             property_columns = kwargs['propertyColumns']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'servicebusNamespace' in kwargs:
+        if servicebus_namespace is None and 'servicebusNamespace' in kwargs:
             servicebus_namespace = kwargs['servicebusNamespace']
-        if 'sharedAccessPolicyKey' in kwargs:
+        if shared_access_policy_key is None and 'sharedAccessPolicyKey' in kwargs:
             shared_access_policy_key = kwargs['sharedAccessPolicyKey']
-        if 'sharedAccessPolicyName' in kwargs:
+        if shared_access_policy_name is None and 'sharedAccessPolicyName' in kwargs:
             shared_access_policy_name = kwargs['sharedAccessPolicyName']
-        if 'streamAnalyticsJobName' in kwargs:
+        if stream_analytics_job_name is None and 'streamAnalyticsJobName' in kwargs:
             stream_analytics_job_name = kwargs['streamAnalyticsJobName']
 
         if authentication_mode is not None:
@@ -494,37 +504,6 @@ class OutputEventHub(pulumi.CustomResource):
         """
         Manages a Stream Analytics Output to an EventHub.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_job = azure.streamanalytics.get_job_output(name="example-job",
-            resource_group_name=example_resource_group.name)
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard",
-            capacity=1)
-        example_event_hub = azure.eventhub.EventHub("exampleEventHub",
-            namespace_name=example_event_hub_namespace.name,
-            resource_group_name=example_resource_group.name,
-            partition_count=2,
-            message_retention=1)
-        example_output_event_hub = azure.streamanalytics.OutputEventHub("exampleOutputEventHub",
-            stream_analytics_job_name=example_job.name,
-            resource_group_name=example_job.resource_group_name,
-            eventhub_name=example_event_hub.name,
-            servicebus_namespace=example_event_hub_namespace.name,
-            shared_access_policy_key=example_event_hub_namespace.default_primary_key,
-            shared_access_policy_name="RootManageSharedAccessKey",
-            serialization=azure.streamanalytics.OutputEventHubSerializationArgs(
-                type="Avro",
-            ))
-        ```
-
         ## Import
 
         Stream Analytics Outputs to an EventHub can be imported using the `resource id`, e.g.
@@ -555,37 +534,6 @@ class OutputEventHub(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Stream Analytics Output to an EventHub.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_job = azure.streamanalytics.get_job_output(name="example-job",
-            resource_group_name=example_resource_group.name)
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard",
-            capacity=1)
-        example_event_hub = azure.eventhub.EventHub("exampleEventHub",
-            namespace_name=example_event_hub_namespace.name,
-            resource_group_name=example_resource_group.name,
-            partition_count=2,
-            message_retention=1)
-        example_output_event_hub = azure.streamanalytics.OutputEventHub("exampleOutputEventHub",
-            stream_analytics_job_name=example_job.name,
-            resource_group_name=example_job.resource_group_name,
-            eventhub_name=example_event_hub.name,
-            servicebus_namespace=example_event_hub_namespace.name,
-            shared_access_policy_key=example_event_hub_namespace.default_primary_key,
-            shared_access_policy_name="RootManageSharedAccessKey",
-            serialization=azure.streamanalytics.OutputEventHubSerializationArgs(
-                type="Avro",
-            ))
-        ```
 
         ## Import
 
@@ -644,11 +592,7 @@ class OutputEventHub(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if serialization is not None and not isinstance(serialization, OutputEventHubSerializationArgs):
-                serialization = serialization or {}
-                def _setter(key, value):
-                    serialization[key] = value
-                OutputEventHubSerializationArgs._configure(_setter, **serialization)
+            serialization = _utilities.configure(serialization, OutputEventHubSerializationArgs, True)
             if serialization is None and not opts.urn:
                 raise TypeError("Missing required property 'serialization'")
             __props__.__dict__["serialization"] = serialization

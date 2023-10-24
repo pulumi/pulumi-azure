@@ -130,10 +130,10 @@ class AccountArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             consistency_policy: pulumi.Input['AccountConsistencyPolicyArgs'],
-             geo_locations: pulumi.Input[Sequence[pulumi.Input['AccountGeoLocationArgs']]],
-             offer_type: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             consistency_policy: Optional[pulumi.Input['AccountConsistencyPolicyArgs']] = None,
+             geo_locations: Optional[pulumi.Input[Sequence[pulumi.Input['AccountGeoLocationArgs']]]] = None,
+             offer_type: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              access_key_metadata_writes_enabled: Optional[pulumi.Input[bool]] = None,
              analytical_storage: Optional[pulumi.Input['AccountAnalyticalStorageArgs']] = None,
              analytical_storage_enabled: Optional[pulumi.Input[bool]] = None,
@@ -161,51 +161,59 @@ class AccountArgs:
              restore: Optional[pulumi.Input['AccountRestoreArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'consistencyPolicy' in kwargs:
+        if consistency_policy is None and 'consistencyPolicy' in kwargs:
             consistency_policy = kwargs['consistencyPolicy']
-        if 'geoLocations' in kwargs:
+        if consistency_policy is None:
+            raise TypeError("Missing 'consistency_policy' argument")
+        if geo_locations is None and 'geoLocations' in kwargs:
             geo_locations = kwargs['geoLocations']
-        if 'offerType' in kwargs:
+        if geo_locations is None:
+            raise TypeError("Missing 'geo_locations' argument")
+        if offer_type is None and 'offerType' in kwargs:
             offer_type = kwargs['offerType']
-        if 'resourceGroupName' in kwargs:
+        if offer_type is None:
+            raise TypeError("Missing 'offer_type' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'accessKeyMetadataWritesEnabled' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if access_key_metadata_writes_enabled is None and 'accessKeyMetadataWritesEnabled' in kwargs:
             access_key_metadata_writes_enabled = kwargs['accessKeyMetadataWritesEnabled']
-        if 'analyticalStorage' in kwargs:
+        if analytical_storage is None and 'analyticalStorage' in kwargs:
             analytical_storage = kwargs['analyticalStorage']
-        if 'analyticalStorageEnabled' in kwargs:
+        if analytical_storage_enabled is None and 'analyticalStorageEnabled' in kwargs:
             analytical_storage_enabled = kwargs['analyticalStorageEnabled']
-        if 'corsRule' in kwargs:
+        if cors_rule is None and 'corsRule' in kwargs:
             cors_rule = kwargs['corsRule']
-        if 'createMode' in kwargs:
+        if create_mode is None and 'createMode' in kwargs:
             create_mode = kwargs['createMode']
-        if 'defaultIdentityType' in kwargs:
+        if default_identity_type is None and 'defaultIdentityType' in kwargs:
             default_identity_type = kwargs['defaultIdentityType']
-        if 'enableAutomaticFailover' in kwargs:
+        if enable_automatic_failover is None and 'enableAutomaticFailover' in kwargs:
             enable_automatic_failover = kwargs['enableAutomaticFailover']
-        if 'enableFreeTier' in kwargs:
+        if enable_free_tier is None and 'enableFreeTier' in kwargs:
             enable_free_tier = kwargs['enableFreeTier']
-        if 'enableMultipleWriteLocations' in kwargs:
+        if enable_multiple_write_locations is None and 'enableMultipleWriteLocations' in kwargs:
             enable_multiple_write_locations = kwargs['enableMultipleWriteLocations']
-        if 'ipRangeFilter' in kwargs:
+        if ip_range_filter is None and 'ipRangeFilter' in kwargs:
             ip_range_filter = kwargs['ipRangeFilter']
-        if 'isVirtualNetworkFilterEnabled' in kwargs:
+        if is_virtual_network_filter_enabled is None and 'isVirtualNetworkFilterEnabled' in kwargs:
             is_virtual_network_filter_enabled = kwargs['isVirtualNetworkFilterEnabled']
-        if 'keyVaultKeyId' in kwargs:
+        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
             key_vault_key_id = kwargs['keyVaultKeyId']
-        if 'localAuthenticationDisabled' in kwargs:
+        if local_authentication_disabled is None and 'localAuthenticationDisabled' in kwargs:
             local_authentication_disabled = kwargs['localAuthenticationDisabled']
-        if 'mongoServerVersion' in kwargs:
+        if mongo_server_version is None and 'mongoServerVersion' in kwargs:
             mongo_server_version = kwargs['mongoServerVersion']
-        if 'networkAclBypassForAzureServices' in kwargs:
+        if network_acl_bypass_for_azure_services is None and 'networkAclBypassForAzureServices' in kwargs:
             network_acl_bypass_for_azure_services = kwargs['networkAclBypassForAzureServices']
-        if 'networkAclBypassIds' in kwargs:
+        if network_acl_bypass_ids is None and 'networkAclBypassIds' in kwargs:
             network_acl_bypass_ids = kwargs['networkAclBypassIds']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'virtualNetworkRules' in kwargs:
+        if virtual_network_rules is None and 'virtualNetworkRules' in kwargs:
             virtual_network_rules = kwargs['virtualNetworkRules']
 
         _setter("consistency_policy", consistency_policy)
@@ -864,81 +872,81 @@ class _AccountState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]]] = None,
              write_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'accessKeyMetadataWritesEnabled' in kwargs:
+        if access_key_metadata_writes_enabled is None and 'accessKeyMetadataWritesEnabled' in kwargs:
             access_key_metadata_writes_enabled = kwargs['accessKeyMetadataWritesEnabled']
-        if 'analyticalStorage' in kwargs:
+        if analytical_storage is None and 'analyticalStorage' in kwargs:
             analytical_storage = kwargs['analyticalStorage']
-        if 'analyticalStorageEnabled' in kwargs:
+        if analytical_storage_enabled is None and 'analyticalStorageEnabled' in kwargs:
             analytical_storage_enabled = kwargs['analyticalStorageEnabled']
-        if 'connectionStrings' in kwargs:
+        if connection_strings is None and 'connectionStrings' in kwargs:
             connection_strings = kwargs['connectionStrings']
-        if 'consistencyPolicy' in kwargs:
+        if consistency_policy is None and 'consistencyPolicy' in kwargs:
             consistency_policy = kwargs['consistencyPolicy']
-        if 'corsRule' in kwargs:
+        if cors_rule is None and 'corsRule' in kwargs:
             cors_rule = kwargs['corsRule']
-        if 'createMode' in kwargs:
+        if create_mode is None and 'createMode' in kwargs:
             create_mode = kwargs['createMode']
-        if 'defaultIdentityType' in kwargs:
+        if default_identity_type is None and 'defaultIdentityType' in kwargs:
             default_identity_type = kwargs['defaultIdentityType']
-        if 'enableAutomaticFailover' in kwargs:
+        if enable_automatic_failover is None and 'enableAutomaticFailover' in kwargs:
             enable_automatic_failover = kwargs['enableAutomaticFailover']
-        if 'enableFreeTier' in kwargs:
+        if enable_free_tier is None and 'enableFreeTier' in kwargs:
             enable_free_tier = kwargs['enableFreeTier']
-        if 'enableMultipleWriteLocations' in kwargs:
+        if enable_multiple_write_locations is None and 'enableMultipleWriteLocations' in kwargs:
             enable_multiple_write_locations = kwargs['enableMultipleWriteLocations']
-        if 'geoLocations' in kwargs:
+        if geo_locations is None and 'geoLocations' in kwargs:
             geo_locations = kwargs['geoLocations']
-        if 'ipRangeFilter' in kwargs:
+        if ip_range_filter is None and 'ipRangeFilter' in kwargs:
             ip_range_filter = kwargs['ipRangeFilter']
-        if 'isVirtualNetworkFilterEnabled' in kwargs:
+        if is_virtual_network_filter_enabled is None and 'isVirtualNetworkFilterEnabled' in kwargs:
             is_virtual_network_filter_enabled = kwargs['isVirtualNetworkFilterEnabled']
-        if 'keyVaultKeyId' in kwargs:
+        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
             key_vault_key_id = kwargs['keyVaultKeyId']
-        if 'localAuthenticationDisabled' in kwargs:
+        if local_authentication_disabled is None and 'localAuthenticationDisabled' in kwargs:
             local_authentication_disabled = kwargs['localAuthenticationDisabled']
-        if 'mongoServerVersion' in kwargs:
+        if mongo_server_version is None and 'mongoServerVersion' in kwargs:
             mongo_server_version = kwargs['mongoServerVersion']
-        if 'networkAclBypassForAzureServices' in kwargs:
+        if network_acl_bypass_for_azure_services is None and 'networkAclBypassForAzureServices' in kwargs:
             network_acl_bypass_for_azure_services = kwargs['networkAclBypassForAzureServices']
-        if 'networkAclBypassIds' in kwargs:
+        if network_acl_bypass_ids is None and 'networkAclBypassIds' in kwargs:
             network_acl_bypass_ids = kwargs['networkAclBypassIds']
-        if 'offerType' in kwargs:
+        if offer_type is None and 'offerType' in kwargs:
             offer_type = kwargs['offerType']
-        if 'primaryKey' in kwargs:
+        if primary_key is None and 'primaryKey' in kwargs:
             primary_key = kwargs['primaryKey']
-        if 'primaryMongodbConnectionString' in kwargs:
+        if primary_mongodb_connection_string is None and 'primaryMongodbConnectionString' in kwargs:
             primary_mongodb_connection_string = kwargs['primaryMongodbConnectionString']
-        if 'primaryReadonlyKey' in kwargs:
+        if primary_readonly_key is None and 'primaryReadonlyKey' in kwargs:
             primary_readonly_key = kwargs['primaryReadonlyKey']
-        if 'primaryReadonlyMongodbConnectionString' in kwargs:
+        if primary_readonly_mongodb_connection_string is None and 'primaryReadonlyMongodbConnectionString' in kwargs:
             primary_readonly_mongodb_connection_string = kwargs['primaryReadonlyMongodbConnectionString']
-        if 'primaryReadonlySqlConnectionString' in kwargs:
+        if primary_readonly_sql_connection_string is None and 'primaryReadonlySqlConnectionString' in kwargs:
             primary_readonly_sql_connection_string = kwargs['primaryReadonlySqlConnectionString']
-        if 'primarySqlConnectionString' in kwargs:
+        if primary_sql_connection_string is None and 'primarySqlConnectionString' in kwargs:
             primary_sql_connection_string = kwargs['primarySqlConnectionString']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'readEndpoints' in kwargs:
+        if read_endpoints is None and 'readEndpoints' in kwargs:
             read_endpoints = kwargs['readEndpoints']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'secondaryKey' in kwargs:
+        if secondary_key is None and 'secondaryKey' in kwargs:
             secondary_key = kwargs['secondaryKey']
-        if 'secondaryMongodbConnectionString' in kwargs:
+        if secondary_mongodb_connection_string is None and 'secondaryMongodbConnectionString' in kwargs:
             secondary_mongodb_connection_string = kwargs['secondaryMongodbConnectionString']
-        if 'secondaryReadonlyKey' in kwargs:
+        if secondary_readonly_key is None and 'secondaryReadonlyKey' in kwargs:
             secondary_readonly_key = kwargs['secondaryReadonlyKey']
-        if 'secondaryReadonlyMongodbConnectionString' in kwargs:
+        if secondary_readonly_mongodb_connection_string is None and 'secondaryReadonlyMongodbConnectionString' in kwargs:
             secondary_readonly_mongodb_connection_string = kwargs['secondaryReadonlyMongodbConnectionString']
-        if 'secondaryReadonlySqlConnectionString' in kwargs:
+        if secondary_readonly_sql_connection_string is None and 'secondaryReadonlySqlConnectionString' in kwargs:
             secondary_readonly_sql_connection_string = kwargs['secondaryReadonlySqlConnectionString']
-        if 'secondarySqlConnectionString' in kwargs:
+        if secondary_sql_connection_string is None and 'secondarySqlConnectionString' in kwargs:
             secondary_sql_connection_string = kwargs['secondarySqlConnectionString']
-        if 'virtualNetworkRules' in kwargs:
+        if virtual_network_rules is None and 'virtualNetworkRules' in kwargs:
             virtual_network_rules = kwargs['virtualNetworkRules']
-        if 'writeEndpoints' in kwargs:
+        if write_endpoints is None and 'writeEndpoints' in kwargs:
             write_endpoints = kwargs['writeEndpoints']
 
         if access_key_metadata_writes_enabled is not None:
@@ -1653,54 +1661,6 @@ class Account(pulumi.CustomResource):
         """
         Manages a CosmosDB (formally DocumentDB) Account.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_random as random
-
-        rg = azure.core.ResourceGroup("rg", location="westus")
-        ri = random.RandomInteger("ri",
-            min=10000,
-            max=99999)
-        db = azure.cosmosdb.Account("db",
-            location=azurerm_resource_group["example"]["location"],
-            resource_group_name=azurerm_resource_group["example"]["name"],
-            offer_type="Standard",
-            kind="MongoDB",
-            enable_automatic_failover=True,
-            capabilities=[
-                azure.cosmosdb.AccountCapabilityArgs(
-                    name="EnableAggregationPipeline",
-                ),
-                azure.cosmosdb.AccountCapabilityArgs(
-                    name="mongoEnableDocLevelTTL",
-                ),
-                azure.cosmosdb.AccountCapabilityArgs(
-                    name="MongoDBv3.4",
-                ),
-                azure.cosmosdb.AccountCapabilityArgs(
-                    name="EnableMongo",
-                ),
-            ],
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="BoundedStaleness",
-                max_interval_in_seconds=300,
-                max_staleness_prefix=100000,
-            ),
-            geo_locations=[
-                azure.cosmosdb.AccountGeoLocationArgs(
-                    location="eastus",
-                    failover_priority=1,
-                ),
-                azure.cosmosdb.AccountGeoLocationArgs(
-                    location="westus",
-                    failover_priority=0,
-                ),
-            ])
-        ```
-
         ## Import
 
         CosmosDB Accounts can be imported using the `resource id`, e.g.
@@ -1763,54 +1723,6 @@ class Account(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a CosmosDB (formally DocumentDB) Account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_random as random
-
-        rg = azure.core.ResourceGroup("rg", location="westus")
-        ri = random.RandomInteger("ri",
-            min=10000,
-            max=99999)
-        db = azure.cosmosdb.Account("db",
-            location=azurerm_resource_group["example"]["location"],
-            resource_group_name=azurerm_resource_group["example"]["name"],
-            offer_type="Standard",
-            kind="MongoDB",
-            enable_automatic_failover=True,
-            capabilities=[
-                azure.cosmosdb.AccountCapabilityArgs(
-                    name="EnableAggregationPipeline",
-                ),
-                azure.cosmosdb.AccountCapabilityArgs(
-                    name="mongoEnableDocLevelTTL",
-                ),
-                azure.cosmosdb.AccountCapabilityArgs(
-                    name="MongoDBv3.4",
-                ),
-                azure.cosmosdb.AccountCapabilityArgs(
-                    name="EnableMongo",
-                ),
-            ],
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="BoundedStaleness",
-                max_interval_in_seconds=300,
-                max_staleness_prefix=100000,
-            ),
-            geo_locations=[
-                azure.cosmosdb.AccountGeoLocationArgs(
-                    location="eastus",
-                    failover_priority=1,
-                ),
-                azure.cosmosdb.AccountGeoLocationArgs(
-                    location="westus",
-                    failover_priority=0,
-                ),
-            ])
-        ```
 
         ## Import
 
@@ -1880,39 +1792,19 @@ class Account(pulumi.CustomResource):
             __props__ = AccountArgs.__new__(AccountArgs)
 
             __props__.__dict__["access_key_metadata_writes_enabled"] = access_key_metadata_writes_enabled
-            if analytical_storage is not None and not isinstance(analytical_storage, AccountAnalyticalStorageArgs):
-                analytical_storage = analytical_storage or {}
-                def _setter(key, value):
-                    analytical_storage[key] = value
-                AccountAnalyticalStorageArgs._configure(_setter, **analytical_storage)
+            analytical_storage = _utilities.configure(analytical_storage, AccountAnalyticalStorageArgs, True)
             __props__.__dict__["analytical_storage"] = analytical_storage
             __props__.__dict__["analytical_storage_enabled"] = analytical_storage_enabled
-            if backup is not None and not isinstance(backup, AccountBackupArgs):
-                backup = backup or {}
-                def _setter(key, value):
-                    backup[key] = value
-                AccountBackupArgs._configure(_setter, **backup)
+            backup = _utilities.configure(backup, AccountBackupArgs, True)
             __props__.__dict__["backup"] = backup
             __props__.__dict__["capabilities"] = capabilities
-            if capacity is not None and not isinstance(capacity, AccountCapacityArgs):
-                capacity = capacity or {}
-                def _setter(key, value):
-                    capacity[key] = value
-                AccountCapacityArgs._configure(_setter, **capacity)
+            capacity = _utilities.configure(capacity, AccountCapacityArgs, True)
             __props__.__dict__["capacity"] = capacity
-            if consistency_policy is not None and not isinstance(consistency_policy, AccountConsistencyPolicyArgs):
-                consistency_policy = consistency_policy or {}
-                def _setter(key, value):
-                    consistency_policy[key] = value
-                AccountConsistencyPolicyArgs._configure(_setter, **consistency_policy)
+            consistency_policy = _utilities.configure(consistency_policy, AccountConsistencyPolicyArgs, True)
             if consistency_policy is None and not opts.urn:
                 raise TypeError("Missing required property 'consistency_policy'")
             __props__.__dict__["consistency_policy"] = consistency_policy
-            if cors_rule is not None and not isinstance(cors_rule, AccountCorsRuleArgs):
-                cors_rule = cors_rule or {}
-                def _setter(key, value):
-                    cors_rule[key] = value
-                AccountCorsRuleArgs._configure(_setter, **cors_rule)
+            cors_rule = _utilities.configure(cors_rule, AccountCorsRuleArgs, True)
             __props__.__dict__["cors_rule"] = cors_rule
             __props__.__dict__["create_mode"] = create_mode
             __props__.__dict__["default_identity_type"] = default_identity_type
@@ -1922,11 +1814,7 @@ class Account(pulumi.CustomResource):
             if geo_locations is None and not opts.urn:
                 raise TypeError("Missing required property 'geo_locations'")
             __props__.__dict__["geo_locations"] = geo_locations
-            if identity is not None and not isinstance(identity, AccountIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                AccountIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, AccountIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["ip_range_filter"] = ip_range_filter
             __props__.__dict__["is_virtual_network_filter_enabled"] = is_virtual_network_filter_enabled
@@ -1945,11 +1833,7 @@ class Account(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if restore is not None and not isinstance(restore, AccountRestoreArgs):
-                restore = restore or {}
-                def _setter(key, value):
-                    restore[key] = value
-                AccountRestoreArgs._configure(_setter, **restore)
+            restore = _utilities.configure(restore, AccountRestoreArgs, True)
             __props__.__dict__["restore"] = restore
             __props__.__dict__["tags"] = tags
             __props__.__dict__["virtual_network_rules"] = virtual_network_rules

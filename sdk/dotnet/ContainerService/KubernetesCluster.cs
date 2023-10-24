@@ -12,52 +12,6 @@ namespace Pulumi.Azure.ContainerService
     /// <summary>
     /// Manages a Managed Kubernetes Cluster (also known as AKS / Azure Kubernetes Service)
     /// 
-    /// ## Example Usage
-    /// 
-    /// This example provisions a basic Managed Kubernetes Cluster.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleKubernetesCluster = new Azure.ContainerService.KubernetesCluster("exampleKubernetesCluster", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         DnsPrefix = "exampleaks1",
-    ///         DefaultNodePool = new Azure.ContainerService.Inputs.KubernetesClusterDefaultNodePoolArgs
-    ///         {
-    ///             Name = "default",
-    ///             NodeCount = 1,
-    ///             VmSize = "Standard_D2_v2",
-    ///         },
-    ///         Identity = new Azure.ContainerService.Inputs.KubernetesClusterIdentityArgs
-    ///         {
-    ///             Type = "SystemAssigned",
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Environment", "Production" },
-    ///         },
-    ///     });
-    /// 
-    ///     return new Dictionary&lt;string, object?&gt;
-    ///     {
-    ///         ["clientCertificate"] = exampleKubernetesCluster.KubeConfigs.Apply(kubeConfigs =&gt; kubeConfigs[0].ClientCertificate),
-    ///         ["kubeConfig"] = exampleKubernetesCluster.KubeConfigRaw,
-    ///     };
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Managed Kubernetes Clusters can be imported using the `resource id`, e.g.
@@ -397,55 +351,6 @@ namespace Pulumi.Azure.ContainerService
         /// Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
         /// 
         /// &gt; **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-        ///     {
-        ///         Location = "West Europe",
-        ///     });
-        /// 
-        ///     var exampleZone = new Azure.PrivateDns.Zone("exampleZone", new()
-        ///     {
-        ///         ResourceGroupName = exampleResourceGroup.Name,
-        ///     });
-        /// 
-        ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("exampleUserAssignedIdentity", new()
-        ///     {
-        ///         ResourceGroupName = exampleResourceGroup.Name,
-        ///         Location = exampleResourceGroup.Location,
-        ///     });
-        /// 
-        ///     var exampleAssignment = new Azure.Authorization.Assignment("exampleAssignment", new()
-        ///     {
-        ///         Scope = exampleZone.Id,
-        ///         RoleDefinitionName = "Private DNS Zone Contributor",
-        ///         PrincipalId = exampleUserAssignedIdentity.PrincipalId,
-        ///     });
-        /// 
-        ///     var exampleKubernetesCluster = new Azure.ContainerService.KubernetesCluster("exampleKubernetesCluster", new()
-        ///     {
-        ///         Location = exampleResourceGroup.Location,
-        ///         ResourceGroupName = exampleResourceGroup.Name,
-        ///         DnsPrefix = "aksexamplednsprefix1",
-        ///         PrivateClusterEnabled = true,
-        ///         PrivateDnsZoneId = exampleZone.Id,
-        ///     }, new CustomResourceOptions
-        ///     {
-        ///         DependsOn = new[]
-        ///         {
-        ///             exampleAssignment,
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
         /// </summary>
         [Output("privateClusterPublicFqdnEnabled")]
         public Output<bool?> PrivateClusterPublicFqdnEnabled { get; private set; } = null!;
@@ -891,55 +796,6 @@ namespace Pulumi.Azure.ContainerService
         /// Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
         /// 
         /// &gt; **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-        ///     {
-        ///         Location = "West Europe",
-        ///     });
-        /// 
-        ///     var exampleZone = new Azure.PrivateDns.Zone("exampleZone", new()
-        ///     {
-        ///         ResourceGroupName = exampleResourceGroup.Name,
-        ///     });
-        /// 
-        ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("exampleUserAssignedIdentity", new()
-        ///     {
-        ///         ResourceGroupName = exampleResourceGroup.Name,
-        ///         Location = exampleResourceGroup.Location,
-        ///     });
-        /// 
-        ///     var exampleAssignment = new Azure.Authorization.Assignment("exampleAssignment", new()
-        ///     {
-        ///         Scope = exampleZone.Id,
-        ///         RoleDefinitionName = "Private DNS Zone Contributor",
-        ///         PrincipalId = exampleUserAssignedIdentity.PrincipalId,
-        ///     });
-        /// 
-        ///     var exampleKubernetesCluster = new Azure.ContainerService.KubernetesCluster("exampleKubernetesCluster", new()
-        ///     {
-        ///         Location = exampleResourceGroup.Location,
-        ///         ResourceGroupName = exampleResourceGroup.Name,
-        ///         DnsPrefix = "aksexamplednsprefix1",
-        ///         PrivateClusterEnabled = true,
-        ///         PrivateDnsZoneId = exampleZone.Id,
-        ///     }, new CustomResourceOptions
-        ///     {
-        ///         DependsOn = new[]
-        ///         {
-        ///             exampleAssignment,
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
         /// </summary>
         [Input("privateClusterPublicFqdnEnabled")]
         public Input<bool>? PrivateClusterPublicFqdnEnabled { get; set; }
@@ -1434,55 +1290,6 @@ namespace Pulumi.Azure.ContainerService
         /// Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
         /// 
         /// &gt; **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-        ///     {
-        ///         Location = "West Europe",
-        ///     });
-        /// 
-        ///     var exampleZone = new Azure.PrivateDns.Zone("exampleZone", new()
-        ///     {
-        ///         ResourceGroupName = exampleResourceGroup.Name,
-        ///     });
-        /// 
-        ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("exampleUserAssignedIdentity", new()
-        ///     {
-        ///         ResourceGroupName = exampleResourceGroup.Name,
-        ///         Location = exampleResourceGroup.Location,
-        ///     });
-        /// 
-        ///     var exampleAssignment = new Azure.Authorization.Assignment("exampleAssignment", new()
-        ///     {
-        ///         Scope = exampleZone.Id,
-        ///         RoleDefinitionName = "Private DNS Zone Contributor",
-        ///         PrincipalId = exampleUserAssignedIdentity.PrincipalId,
-        ///     });
-        /// 
-        ///     var exampleKubernetesCluster = new Azure.ContainerService.KubernetesCluster("exampleKubernetesCluster", new()
-        ///     {
-        ///         Location = exampleResourceGroup.Location,
-        ///         ResourceGroupName = exampleResourceGroup.Name,
-        ///         DnsPrefix = "aksexamplednsprefix1",
-        ///         PrivateClusterEnabled = true,
-        ///         PrivateDnsZoneId = exampleZone.Id,
-        ///     }, new CustomResourceOptions
-        ///     {
-        ///         DependsOn = new[]
-        ///         {
-        ///             exampleAssignment,
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
         /// </summary>
         [Input("privateClusterPublicFqdnEnabled")]
         public Input<bool>? PrivateClusterPublicFqdnEnabled { get; set; }

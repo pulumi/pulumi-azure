@@ -6,19 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Application Insights component.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.appinsights.getInsights({
- *     name: "production",
- *     resourceGroupName: "networking",
- * });
- * export const applicationInsightsInstrumentationKey = example.then(example => example.instrumentationKey);
- * ```
  */
 export function getInsights(args: GetInsightsArgs, opts?: pulumi.InvokeOptions): Promise<GetInsightsResult> {
 
@@ -88,19 +75,6 @@ export interface GetInsightsResult {
 }
 /**
  * Use this data source to access information about an existing Application Insights component.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.appinsights.getInsights({
- *     name: "production",
- *     resourceGroupName: "networking",
- * });
- * export const applicationInsightsInstrumentationKey = example.then(example => example.instrumentationKey);
- * ```
  */
 export function getInsightsOutput(args: GetInsightsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInsightsResult> {
     return pulumi.output(args).apply((a: any) => getInsights(a, opts))

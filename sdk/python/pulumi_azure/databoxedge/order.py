@@ -37,18 +37,26 @@ class OrderArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             contact: pulumi.Input['OrderContactArgs'],
-             device_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             shipment_address: pulumi.Input['OrderShipmentAddressArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             contact: Optional[pulumi.Input['OrderContactArgs']] = None,
+             device_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             shipment_address: Optional[pulumi.Input['OrderShipmentAddressArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'deviceName' in kwargs:
+        if contact is None:
+            raise TypeError("Missing 'contact' argument")
+        if device_name is None and 'deviceName' in kwargs:
             device_name = kwargs['deviceName']
-        if 'resourceGroupName' in kwargs:
+        if device_name is None:
+            raise TypeError("Missing 'device_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'shipmentAddress' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if shipment_address is None and 'shipmentAddress' in kwargs:
             shipment_address = kwargs['shipmentAddress']
+        if shipment_address is None:
+            raise TypeError("Missing 'shipment_address' argument")
 
         _setter("contact", contact)
         _setter("device_name", device_name)
@@ -156,21 +164,21 @@ class _OrderState:
              shipment_histories: Optional[pulumi.Input[Sequence[pulumi.Input['OrderShipmentHistoryArgs']]]] = None,
              shipment_trackings: Optional[pulumi.Input[Sequence[pulumi.Input['OrderShipmentTrackingArgs']]]] = None,
              statuses: Optional[pulumi.Input[Sequence[pulumi.Input['OrderStatusArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'deviceName' in kwargs:
+        if device_name is None and 'deviceName' in kwargs:
             device_name = kwargs['deviceName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'returnTrackings' in kwargs:
+        if return_trackings is None and 'returnTrackings' in kwargs:
             return_trackings = kwargs['returnTrackings']
-        if 'serialNumber' in kwargs:
+        if serial_number is None and 'serialNumber' in kwargs:
             serial_number = kwargs['serialNumber']
-        if 'shipmentAddress' in kwargs:
+        if shipment_address is None and 'shipmentAddress' in kwargs:
             shipment_address = kwargs['shipmentAddress']
-        if 'shipmentHistories' in kwargs:
+        if shipment_histories is None and 'shipmentHistories' in kwargs:
             shipment_histories = kwargs['shipmentHistories']
-        if 'shipmentTrackings' in kwargs:
+        if shipment_trackings is None and 'shipmentTrackings' in kwargs:
             shipment_trackings = kwargs['shipmentTrackings']
 
         if contact is not None:
@@ -330,35 +338,6 @@ class Order(pulumi.CustomResource):
 
         !> Creation of Databox Edge Order is not supported by the Azure API - as such the `databoxedge.Order` resource is deprecated and will be removed in v4.0 of the AzureRM Provider.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_device = azure.databoxedge.Device("exampleDevice",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku_name="EdgeP_Base-Standard")
-        example_order = azure.databoxedge.Order("exampleOrder",
-            resource_group_name=example_resource_group.name,
-            device_name=example_device.name,
-            contact=azure.databoxedge.OrderContactArgs(
-                name="TerraForm Test",
-                emails=["creator4983@FlynnsArcade.com"],
-                company_name="Flynn's Arcade",
-                phone_number="(800) 555-1234",
-            ),
-            shipment_address=azure.databoxedge.OrderShipmentAddressArgs(
-                addresses=["One Microsoft Way"],
-                city="Redmond",
-                postal_code="98052",
-                state="WA",
-                country="United States",
-            ))
-        ```
-
         ## Import
 
         Databox Edge Orders can be imported using the `resource id`, e.g.
@@ -384,35 +363,6 @@ class Order(pulumi.CustomResource):
         Manages a Databox Edge Order.
 
         !> Creation of Databox Edge Order is not supported by the Azure API - as such the `databoxedge.Order` resource is deprecated and will be removed in v4.0 of the AzureRM Provider.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_device = azure.databoxedge.Device("exampleDevice",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku_name="EdgeP_Base-Standard")
-        example_order = azure.databoxedge.Order("exampleOrder",
-            resource_group_name=example_resource_group.name,
-            device_name=example_device.name,
-            contact=azure.databoxedge.OrderContactArgs(
-                name="TerraForm Test",
-                emails=["creator4983@FlynnsArcade.com"],
-                company_name="Flynn's Arcade",
-                phone_number="(800) 555-1234",
-            ),
-            shipment_address=azure.databoxedge.OrderShipmentAddressArgs(
-                addresses=["One Microsoft Way"],
-                city="Redmond",
-                postal_code="98052",
-                state="WA",
-                country="United States",
-            ))
-        ```
 
         ## Import
 
@@ -454,11 +404,7 @@ class Order(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = OrderArgs.__new__(OrderArgs)
 
-            if contact is not None and not isinstance(contact, OrderContactArgs):
-                contact = contact or {}
-                def _setter(key, value):
-                    contact[key] = value
-                OrderContactArgs._configure(_setter, **contact)
+            contact = _utilities.configure(contact, OrderContactArgs, True)
             if contact is None and not opts.urn:
                 raise TypeError("Missing required property 'contact'")
             __props__.__dict__["contact"] = contact
@@ -468,11 +414,7 @@ class Order(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if shipment_address is not None and not isinstance(shipment_address, OrderShipmentAddressArgs):
-                shipment_address = shipment_address or {}
-                def _setter(key, value):
-                    shipment_address[key] = value
-                OrderShipmentAddressArgs._configure(_setter, **shipment_address)
+            shipment_address = _utilities.configure(shipment_address, OrderShipmentAddressArgs, True)
             if shipment_address is None and not opts.urn:
                 raise TypeError("Missing required property 'shipment_address'")
             __props__.__dict__["shipment_address"] = shipment_address

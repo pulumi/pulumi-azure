@@ -65,17 +65,19 @@ class HubEventHandler(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             url_template: str,
+             url_template: Optional[str] = None,
              auth: Optional['outputs.HubEventHandlerAuth'] = None,
              system_events: Optional[Sequence[str]] = None,
              user_event_pattern: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'urlTemplate' in kwargs:
+        if url_template is None and 'urlTemplate' in kwargs:
             url_template = kwargs['urlTemplate']
-        if 'systemEvents' in kwargs:
+        if url_template is None:
+            raise TypeError("Missing 'url_template' argument")
+        if system_events is None and 'systemEvents' in kwargs:
             system_events = kwargs['systemEvents']
-        if 'userEventPattern' in kwargs:
+        if user_event_pattern is None and 'userEventPattern' in kwargs:
             user_event_pattern = kwargs['userEventPattern']
 
         _setter("url_template", url_template)
@@ -152,11 +154,13 @@ class HubEventHandlerAuth(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             managed_identity_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             managed_identity_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'managedIdentityId' in kwargs:
+        if managed_identity_id is None and 'managedIdentityId' in kwargs:
             managed_identity_id = kwargs['managedIdentityId']
+        if managed_identity_id is None:
+            raise TypeError("Missing 'managed_identity_id' argument")
 
         _setter("managed_identity_id", managed_identity_id)
 
@@ -217,19 +221,23 @@ class HubEventListener(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             eventhub_name: str,
-             eventhub_namespace_name: str,
+             eventhub_name: Optional[str] = None,
+             eventhub_namespace_name: Optional[str] = None,
              system_event_name_filters: Optional[Sequence[str]] = None,
              user_event_name_filters: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'eventhubName' in kwargs:
+        if eventhub_name is None and 'eventhubName' in kwargs:
             eventhub_name = kwargs['eventhubName']
-        if 'eventhubNamespaceName' in kwargs:
+        if eventhub_name is None:
+            raise TypeError("Missing 'eventhub_name' argument")
+        if eventhub_namespace_name is None and 'eventhubNamespaceName' in kwargs:
             eventhub_namespace_name = kwargs['eventhubNamespaceName']
-        if 'systemEventNameFilters' in kwargs:
+        if eventhub_namespace_name is None:
+            raise TypeError("Missing 'eventhub_namespace_name' argument")
+        if system_event_name_filters is None and 'systemEventNameFilters' in kwargs:
             system_event_name_filters = kwargs['systemEventNameFilters']
-        if 'userEventNameFilters' in kwargs:
+        if user_event_name_filters is None and 'userEventNameFilters' in kwargs:
             user_event_name_filters = kwargs['userEventNameFilters']
 
         _setter("eventhub_name", eventhub_name)
@@ -313,14 +321,16 @@ class NetworkAclPrivateEndpoint(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             id: str,
+             id: Optional[str] = None,
              allowed_request_types: Optional[Sequence[str]] = None,
              denied_request_types: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'allowedRequestTypes' in kwargs:
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if allowed_request_types is None and 'allowedRequestTypes' in kwargs:
             allowed_request_types = kwargs['allowedRequestTypes']
-        if 'deniedRequestTypes' in kwargs:
+        if denied_request_types is None and 'deniedRequestTypes' in kwargs:
             denied_request_types = kwargs['deniedRequestTypes']
 
         _setter("id", id)
@@ -396,11 +406,11 @@ class NetworkAclPublicNetwork(dict):
              _setter: Callable[[Any, Any], None],
              allowed_request_types: Optional[Sequence[str]] = None,
              denied_request_types: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'allowedRequestTypes' in kwargs:
+        if allowed_request_types is None and 'allowedRequestTypes' in kwargs:
             allowed_request_types = kwargs['allowedRequestTypes']
-        if 'deniedRequestTypes' in kwargs:
+        if denied_request_types is None and 'deniedRequestTypes' in kwargs:
             denied_request_types = kwargs['deniedRequestTypes']
 
         if allowed_request_types is not None:
@@ -473,17 +483,19 @@ class ServiceIdentity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -577,13 +589,13 @@ class ServiceLiveTrace(dict):
              enabled: Optional[bool] = None,
              http_request_logs_enabled: Optional[bool] = None,
              messaging_logs_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'connectivityLogsEnabled' in kwargs:
+        if connectivity_logs_enabled is None and 'connectivityLogsEnabled' in kwargs:
             connectivity_logs_enabled = kwargs['connectivityLogsEnabled']
-        if 'httpRequestLogsEnabled' in kwargs:
+        if http_request_logs_enabled is None and 'httpRequestLogsEnabled' in kwargs:
             http_request_logs_enabled = kwargs['httpRequestLogsEnabled']
-        if 'messagingLogsEnabled' in kwargs:
+        if messaging_logs_enabled is None and 'messagingLogsEnabled' in kwargs:
             messaging_logs_enabled = kwargs['messagingLogsEnabled']
 
         if connectivity_logs_enabled is not None:
@@ -645,12 +657,16 @@ class GetPrivateLinkResourceSharedPrivateLinkResourceTypeResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             description: str,
-             subresource_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             description: Optional[str] = None,
+             subresource_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'subresourceName' in kwargs:
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if subresource_name is None and 'subresourceName' in kwargs:
             subresource_name = kwargs['subresourceName']
+        if subresource_name is None:
+            raise TypeError("Missing 'subresource_name' argument")
 
         _setter("description", description)
         _setter("subresource_name", subresource_name)

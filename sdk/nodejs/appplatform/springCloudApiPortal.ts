@@ -11,34 +11,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("exampleSpringCloudService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "E0",
- * });
- * const exampleSpringCloudGateway = new azure.appplatform.SpringCloudGateway("exampleSpringCloudGateway", {springCloudServiceId: exampleSpringCloudService.id});
- * const exampleSpringCloudApiPortal = new azure.appplatform.SpringCloudApiPortal("exampleSpringCloudApiPortal", {
- *     springCloudServiceId: exampleSpringCloudService.id,
- *     gatewayIds: [exampleSpringCloudGateway.id],
- *     httpsOnlyEnabled: false,
- *     publicNetworkAccessEnabled: true,
- *     instanceCount: 1,
- *     sso: {
- *         clientId: "test",
- *         clientSecret: "secret",
- *         issuerUri: "https://www.example.com/issueToken",
- *         scopes: ["read"],
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Spring Cloud API Portals can be imported using the `resource id`, e.g.

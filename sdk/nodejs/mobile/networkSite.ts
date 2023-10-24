@@ -7,33 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Mobile Network Site.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleDevice = new azure.databoxedge.Device("exampleDevice", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     skuName: "EdgeP_Base-Standard",
- * });
- * const exampleNetwork = new azure.mobile.Network("exampleNetwork", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     mobileCountryCode: "001",
- *     mobileNetworkCode: "01",
- * });
- * const exampleNetworkSite = new azure.mobile.NetworkSite("exampleNetworkSite", {
- *     mobileNetworkId: exampleNetwork.id,
- *     location: exampleResourceGroup.location,
- *     tags: {
- *         key: "value",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Mobile Network Site can be imported using the `resource id`, e.g.

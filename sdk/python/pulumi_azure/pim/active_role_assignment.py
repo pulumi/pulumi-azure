@@ -43,18 +43,24 @@ class ActiveRoleAssignmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             principal_id: pulumi.Input[str],
-             role_definition_id: pulumi.Input[str],
-             scope: pulumi.Input[str],
+             principal_id: Optional[pulumi.Input[str]] = None,
+             role_definition_id: Optional[pulumi.Input[str]] = None,
+             scope: Optional[pulumi.Input[str]] = None,
              justification: Optional[pulumi.Input[str]] = None,
              schedule: Optional[pulumi.Input['ActiveRoleAssignmentScheduleArgs']] = None,
              ticket: Optional[pulumi.Input['ActiveRoleAssignmentTicketArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'roleDefinitionId' in kwargs:
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if role_definition_id is None and 'roleDefinitionId' in kwargs:
             role_definition_id = kwargs['roleDefinitionId']
+        if role_definition_id is None:
+            raise TypeError("Missing 'role_definition_id' argument")
+        if scope is None:
+            raise TypeError("Missing 'scope' argument")
 
         _setter("principal_id", principal_id)
         _setter("role_definition_id", role_definition_id)
@@ -179,13 +185,13 @@ class _ActiveRoleAssignmentState:
              schedule: Optional[pulumi.Input['ActiveRoleAssignmentScheduleArgs']] = None,
              scope: Optional[pulumi.Input[str]] = None,
              ticket: Optional[pulumi.Input['ActiveRoleAssignmentTicketArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'principalType' in kwargs:
+        if principal_type is None and 'principalType' in kwargs:
             principal_type = kwargs['principalType']
-        if 'roleDefinitionId' in kwargs:
+        if role_definition_id is None and 'roleDefinitionId' in kwargs:
             role_definition_id = kwargs['roleDefinitionId']
 
         if justification is not None:
@@ -304,60 +310,6 @@ class ActiveRoleAssignment(pulumi.CustomResource):
         Manages a Pim Active Role Assignment.
 
         ## Example Usage
-        ### Subscription)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumiverse_time as time
-
-        primary = azure.core.get_subscription()
-        example_client_config = azure.core.get_client_config()
-        example_role_definition = azure.authorization.get_role_definition(name="Reader")
-        example_static = time.Static("exampleStatic")
-        example_active_role_assignment = azure.pim.ActiveRoleAssignment("exampleActiveRoleAssignment",
-            scope=primary.id,
-            role_definition_id=f"{primary.id}{example_role_definition.id}",
-            principal_id=example_client_config.object_id,
-            schedule=azure.pim.ActiveRoleAssignmentScheduleArgs(
-                start_date_time=example_static.rfc3339,
-                expiration=azure.pim.ActiveRoleAssignmentScheduleExpirationArgs(
-                    duration_hours=8,
-                ),
-            ),
-            justification="Expiration Duration Set",
-            ticket=azure.pim.ActiveRoleAssignmentTicketArgs(
-                number="1",
-                system="example ticket system",
-            ))
-        ```
-        ### Management Group)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumiverse_time as time
-
-        example_client_config = azure.core.get_client_config()
-        example_role_definition = azure.authorization.get_role_definition(name="Reader")
-        example_group = azure.management.Group("exampleGroup")
-        example_static = time.Static("exampleStatic")
-        example_active_role_assignment = azure.pim.ActiveRoleAssignment("exampleActiveRoleAssignment",
-            scope=example_group.id,
-            role_definition_id=example_role_definition.id,
-            principal_id=example_client_config.object_id,
-            schedule=azure.pim.ActiveRoleAssignmentScheduleArgs(
-                start_date_time=example_static.rfc3339,
-                expiration=azure.pim.ActiveRoleAssignmentScheduleExpirationArgs(
-                    duration_hours=8,
-                ),
-            ),
-            justification="Expiration Duration Set",
-            ticket=azure.pim.ActiveRoleAssignmentTicketArgs(
-                number="1",
-                system="example ticket system",
-            ))
-        ```
 
         ## Import
 
@@ -386,60 +338,6 @@ class ActiveRoleAssignment(pulumi.CustomResource):
         Manages a Pim Active Role Assignment.
 
         ## Example Usage
-        ### Subscription)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumiverse_time as time
-
-        primary = azure.core.get_subscription()
-        example_client_config = azure.core.get_client_config()
-        example_role_definition = azure.authorization.get_role_definition(name="Reader")
-        example_static = time.Static("exampleStatic")
-        example_active_role_assignment = azure.pim.ActiveRoleAssignment("exampleActiveRoleAssignment",
-            scope=primary.id,
-            role_definition_id=f"{primary.id}{example_role_definition.id}",
-            principal_id=example_client_config.object_id,
-            schedule=azure.pim.ActiveRoleAssignmentScheduleArgs(
-                start_date_time=example_static.rfc3339,
-                expiration=azure.pim.ActiveRoleAssignmentScheduleExpirationArgs(
-                    duration_hours=8,
-                ),
-            ),
-            justification="Expiration Duration Set",
-            ticket=azure.pim.ActiveRoleAssignmentTicketArgs(
-                number="1",
-                system="example ticket system",
-            ))
-        ```
-        ### Management Group)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumiverse_time as time
-
-        example_client_config = azure.core.get_client_config()
-        example_role_definition = azure.authorization.get_role_definition(name="Reader")
-        example_group = azure.management.Group("exampleGroup")
-        example_static = time.Static("exampleStatic")
-        example_active_role_assignment = azure.pim.ActiveRoleAssignment("exampleActiveRoleAssignment",
-            scope=example_group.id,
-            role_definition_id=example_role_definition.id,
-            principal_id=example_client_config.object_id,
-            schedule=azure.pim.ActiveRoleAssignmentScheduleArgs(
-                start_date_time=example_static.rfc3339,
-                expiration=azure.pim.ActiveRoleAssignmentScheduleExpirationArgs(
-                    duration_hours=8,
-                ),
-            ),
-            justification="Expiration Duration Set",
-            ticket=azure.pim.ActiveRoleAssignmentTicketArgs(
-                number="1",
-                system="example ticket system",
-            ))
-        ```
 
         ## Import
 
@@ -490,20 +388,12 @@ class ActiveRoleAssignment(pulumi.CustomResource):
             if role_definition_id is None and not opts.urn:
                 raise TypeError("Missing required property 'role_definition_id'")
             __props__.__dict__["role_definition_id"] = role_definition_id
-            if schedule is not None and not isinstance(schedule, ActiveRoleAssignmentScheduleArgs):
-                schedule = schedule or {}
-                def _setter(key, value):
-                    schedule[key] = value
-                ActiveRoleAssignmentScheduleArgs._configure(_setter, **schedule)
+            schedule = _utilities.configure(schedule, ActiveRoleAssignmentScheduleArgs, True)
             __props__.__dict__["schedule"] = schedule
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__.__dict__["scope"] = scope
-            if ticket is not None and not isinstance(ticket, ActiveRoleAssignmentTicketArgs):
-                ticket = ticket or {}
-                def _setter(key, value):
-                    ticket[key] = value
-                ActiveRoleAssignmentTicketArgs._configure(_setter, **ticket)
+            ticket = _utilities.configure(ticket, ActiveRoleAssignmentTicketArgs, True)
             __props__.__dict__["ticket"] = ticket
             __props__.__dict__["principal_type"] = None
         super(ActiveRoleAssignment, __self__).__init__(

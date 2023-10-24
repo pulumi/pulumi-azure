@@ -7,36 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Log Analytics Query Pack Query.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleQueryPack = new azure.loganalytics.QueryPack("exampleQueryPack", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- * });
- * const exampleQueryPackQuery = new azure.operationalinsights.QueryPackQuery("exampleQueryPackQuery", {
- *     queryPackId: exampleQueryPack.id,
- *     body: `let newExceptionsTimeRange = 1d;
- * let timeRangeToCheckBefore = 7d;
- * exceptions
- * | where timestamp < ago(timeRangeToCheckBefore)
- * | summarize count() by problemId
- * | join kind= rightanti (
- * exceptions
- * | where timestamp >= ago(newExceptionsTimeRange)
- * | extend stack = tostring(details[0].rawStack)
- * | summarize count(), dcount(user_AuthenticatedId), min(timestamp), max(timestamp), any(stack) by problemId  
- * ) on problemId 
- * | order by  count_ desc
- * `,
- *     displayName: "Exceptions - New in the last 24 hours",
- * });
- * ```
- *
  * ## Import
  *
  * Log Analytics Query Pack Queries can be imported using the `resource id`, e.g.

@@ -12,35 +12,6 @@ namespace Pulumi.Azure.DataFactory
     /// <summary>
     /// Manages a Data Factory Self-hosted Integration Runtime.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///     });
-    /// 
-    ///     var exampleIntegrationRuntimeSelfHosted = new Azure.DataFactory.IntegrationRuntimeSelfHosted("exampleIntegrationRuntimeSelfHosted", new()
-    ///     {
-    ///         DataFactoryId = exampleFactory.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Data Factories can be imported using the `resource id`, e.g.

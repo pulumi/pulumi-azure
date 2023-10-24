@@ -12,35 +12,6 @@ namespace Pulumi.Azure.CostManagement
     /// <summary>
     /// Manages an Azure Cost Management Scheduled Action.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.CostManagement.ScheduledAction("example", new()
-    ///     {
-    ///         DisplayName = "Report Last 6 Months",
-    ///         EmailAddressSender = "platformteam@test.com",
-    ///         EmailAddresses = new[]
-    ///         {
-    ///             "example@example.com",
-    ///         },
-    ///         EmailSubject = "Cost Management Report",
-    ///         EndDate = "2023-02-02T00:00:00Z",
-    ///         Frequency = "Daily",
-    ///         Message = "Hi all, take a look at last 6 months spending!",
-    ///         StartDate = "2023-01-02T00:00:00Z",
-    ///         ViewId = "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.CostManagement/views/ms:CostByService",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Azure Cost Management Scheduled Actions can be imported using the `resource id`, e.g.

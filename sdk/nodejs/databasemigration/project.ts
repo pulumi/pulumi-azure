@@ -9,38 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** Destroying a Database Migration Project will leave any outstanding tasks untouched. This is to avoid unexpectedly deleting any tasks managed outside of this provider.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     addressSpaces: ["10.0.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.0.1.0/24"],
- * });
- * const exampleService = new azure.databasemigration.Service("exampleService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     subnetId: exampleSubnet.id,
- *     skuName: "Standard_1vCores",
- * });
- * const exampleProject = new azure.databasemigration.Project("exampleProject", {
- *     serviceName: exampleService.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     sourcePlatform: "SQL",
- *     targetPlatform: "SQLDB",
- * });
- * ```
- *
  * ## Import
  *
  * Database Migration Projects can be imported using the `resource id`, e.g.

@@ -57,11 +57,13 @@ class PolicyFileShareBackup(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             frequency: str,
+             frequency: Optional[str] = None,
              hourly: Optional['outputs.PolicyFileShareBackupHourly'] = None,
              time: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if frequency is None:
+            raise TypeError("Missing 'frequency' argument")
 
         _setter("frequency", frequency)
         if hourly is not None:
@@ -137,15 +139,21 @@ class PolicyFileShareBackupHourly(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             interval: int,
-             start_time: str,
-             window_duration: int,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             interval: Optional[int] = None,
+             start_time: Optional[str] = None,
+             window_duration: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'startTime' in kwargs:
+        if interval is None:
+            raise TypeError("Missing 'interval' argument")
+        if start_time is None and 'startTime' in kwargs:
             start_time = kwargs['startTime']
-        if 'windowDuration' in kwargs:
+        if start_time is None:
+            raise TypeError("Missing 'start_time' argument")
+        if window_duration is None and 'windowDuration' in kwargs:
             window_duration = kwargs['windowDuration']
+        if window_duration is None:
+            raise TypeError("Missing 'window_duration' argument")
 
         _setter("interval", interval)
         _setter("start_time", start_time)
@@ -190,9 +198,11 @@ class PolicyFileShareRetentionDaily(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             count: int,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             count: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if count is None:
+            raise TypeError("Missing 'count' argument")
 
         _setter("count", count)
 
@@ -250,14 +260,16 @@ class PolicyFileShareRetentionMonthly(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             count: int,
+             count: Optional[int] = None,
              days: Optional[Sequence[int]] = None,
              include_last_days: Optional[bool] = None,
              weekdays: Optional[Sequence[str]] = None,
              weeks: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'includeLastDays' in kwargs:
+        if count is None:
+            raise TypeError("Missing 'count' argument")
+        if include_last_days is None and 'includeLastDays' in kwargs:
             include_last_days = kwargs['includeLastDays']
 
         _setter("count", count)
@@ -330,10 +342,14 @@ class PolicyFileShareRetentionWeekly(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             count: int,
-             weekdays: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             count: Optional[int] = None,
+             weekdays: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if count is None:
+            raise TypeError("Missing 'count' argument")
+        if weekdays is None:
+            raise TypeError("Missing 'weekdays' argument")
 
         _setter("count", count)
         _setter("weekdays", weekdays)
@@ -403,15 +419,19 @@ class PolicyFileShareRetentionYearly(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             count: int,
-             months: Sequence[str],
+             count: Optional[int] = None,
+             months: Optional[Sequence[str]] = None,
              days: Optional[Sequence[int]] = None,
              include_last_days: Optional[bool] = None,
              weekdays: Optional[Sequence[str]] = None,
              weeks: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'includeLastDays' in kwargs:
+        if count is None:
+            raise TypeError("Missing 'count' argument")
+        if months is None:
+            raise TypeError("Missing 'months' argument")
+        if include_last_days is None and 'includeLastDays' in kwargs:
             include_last_days = kwargs['includeLastDays']
 
         _setter("count", count)
@@ -523,16 +543,20 @@ class PolicyVMBackup(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             frequency: str,
-             time: str,
+             frequency: Optional[str] = None,
+             time: Optional[str] = None,
              hour_duration: Optional[int] = None,
              hour_interval: Optional[int] = None,
              weekdays: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'hourDuration' in kwargs:
+        if frequency is None:
+            raise TypeError("Missing 'frequency' argument")
+        if time is None:
+            raise TypeError("Missing 'time' argument")
+        if hour_duration is None and 'hourDuration' in kwargs:
             hour_duration = kwargs['hourDuration']
-        if 'hourInterval' in kwargs:
+        if hour_interval is None and 'hourInterval' in kwargs:
             hour_interval = kwargs['hourInterval']
 
         _setter("frequency", frequency)
@@ -604,10 +628,12 @@ class PolicyVMInstantRestoreResourceGroup(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             prefix: str,
+             prefix: Optional[str] = None,
              suffix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if prefix is None:
+            raise TypeError("Missing 'prefix' argument")
 
         _setter("prefix", prefix)
         if suffix is not None:
@@ -646,9 +672,11 @@ class PolicyVMRetentionDaily(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             count: int,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             count: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if count is None:
+            raise TypeError("Missing 'count' argument")
 
         _setter("count", count)
 
@@ -708,14 +736,16 @@ class PolicyVMRetentionMonthly(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             count: int,
+             count: Optional[int] = None,
              days: Optional[Sequence[int]] = None,
              include_last_days: Optional[bool] = None,
              weekdays: Optional[Sequence[str]] = None,
              weeks: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'includeLastDays' in kwargs:
+        if count is None:
+            raise TypeError("Missing 'count' argument")
+        if include_last_days is None and 'includeLastDays' in kwargs:
             include_last_days = kwargs['includeLastDays']
 
         _setter("count", count)
@@ -788,10 +818,14 @@ class PolicyVMRetentionWeekly(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             count: int,
-             weekdays: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             count: Optional[int] = None,
+             weekdays: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if count is None:
+            raise TypeError("Missing 'count' argument")
+        if weekdays is None:
+            raise TypeError("Missing 'weekdays' argument")
 
         _setter("count", count)
         _setter("weekdays", weekdays)
@@ -861,15 +895,19 @@ class PolicyVMRetentionYearly(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             count: int,
-             months: Sequence[str],
+             count: Optional[int] = None,
+             months: Optional[Sequence[str]] = None,
              days: Optional[Sequence[int]] = None,
              include_last_days: Optional[bool] = None,
              weekdays: Optional[Sequence[str]] = None,
              weeks: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'includeLastDays' in kwargs:
+        if count is None:
+            raise TypeError("Missing 'count' argument")
+        if months is None:
+            raise TypeError("Missing 'months' argument")
+        if include_last_days is None and 'includeLastDays' in kwargs:
             include_last_days = kwargs['includeLastDays']
 
         _setter("count", count)
@@ -993,26 +1031,30 @@ class PolicyVMWorkloadProtectionPolicy(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             backup: 'outputs.PolicyVMWorkloadProtectionPolicyBackup',
-             policy_type: str,
+             backup: Optional['outputs.PolicyVMWorkloadProtectionPolicyBackup'] = None,
+             policy_type: Optional[str] = None,
              retention_daily: Optional['outputs.PolicyVMWorkloadProtectionPolicyRetentionDaily'] = None,
              retention_monthly: Optional['outputs.PolicyVMWorkloadProtectionPolicyRetentionMonthly'] = None,
              retention_weekly: Optional['outputs.PolicyVMWorkloadProtectionPolicyRetentionWeekly'] = None,
              retention_yearly: Optional['outputs.PolicyVMWorkloadProtectionPolicyRetentionYearly'] = None,
              simple_retention: Optional['outputs.PolicyVMWorkloadProtectionPolicySimpleRetention'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'policyType' in kwargs:
+        if backup is None:
+            raise TypeError("Missing 'backup' argument")
+        if policy_type is None and 'policyType' in kwargs:
             policy_type = kwargs['policyType']
-        if 'retentionDaily' in kwargs:
+        if policy_type is None:
+            raise TypeError("Missing 'policy_type' argument")
+        if retention_daily is None and 'retentionDaily' in kwargs:
             retention_daily = kwargs['retentionDaily']
-        if 'retentionMonthly' in kwargs:
+        if retention_monthly is None and 'retentionMonthly' in kwargs:
             retention_monthly = kwargs['retentionMonthly']
-        if 'retentionWeekly' in kwargs:
+        if retention_weekly is None and 'retentionWeekly' in kwargs:
             retention_weekly = kwargs['retentionWeekly']
-        if 'retentionYearly' in kwargs:
+        if retention_yearly is None and 'retentionYearly' in kwargs:
             retention_yearly = kwargs['retentionYearly']
-        if 'simpleRetention' in kwargs:
+        if simple_retention is None and 'simpleRetention' in kwargs:
             simple_retention = kwargs['simpleRetention']
 
         _setter("backup", backup)
@@ -1129,9 +1171,9 @@ class PolicyVMWorkloadProtectionPolicyBackup(dict):
              frequency_in_minutes: Optional[int] = None,
              time: Optional[str] = None,
              weekdays: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'frequencyInMinutes' in kwargs:
+        if frequency_in_minutes is None and 'frequencyInMinutes' in kwargs:
             frequency_in_minutes = kwargs['frequencyInMinutes']
 
         if frequency is not None:
@@ -1190,9 +1232,11 @@ class PolicyVMWorkloadProtectionPolicyRetentionDaily(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             count: int,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             count: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if count is None:
+            raise TypeError("Missing 'count' argument")
 
         _setter("count", count)
 
@@ -1248,15 +1292,19 @@ class PolicyVMWorkloadProtectionPolicyRetentionMonthly(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             count: int,
-             format_type: str,
+             count: Optional[int] = None,
+             format_type: Optional[str] = None,
              monthdays: Optional[Sequence[int]] = None,
              weekdays: Optional[Sequence[str]] = None,
              weeks: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'formatType' in kwargs:
+        if count is None:
+            raise TypeError("Missing 'count' argument")
+        if format_type is None and 'formatType' in kwargs:
             format_type = kwargs['formatType']
+        if format_type is None:
+            raise TypeError("Missing 'format_type' argument")
 
         _setter("count", count)
         _setter("format_type", format_type)
@@ -1325,10 +1373,14 @@ class PolicyVMWorkloadProtectionPolicyRetentionWeekly(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             count: int,
-             weekdays: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             count: Optional[int] = None,
+             weekdays: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if count is None:
+            raise TypeError("Missing 'count' argument")
+        if weekdays is None:
+            raise TypeError("Missing 'weekdays' argument")
 
         _setter("count", count)
         _setter("weekdays", weekdays)
@@ -1396,16 +1448,22 @@ class PolicyVMWorkloadProtectionPolicyRetentionYearly(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             count: int,
-             format_type: str,
-             months: Sequence[str],
+             count: Optional[int] = None,
+             format_type: Optional[str] = None,
+             months: Optional[Sequence[str]] = None,
              monthdays: Optional[Sequence[int]] = None,
              weekdays: Optional[Sequence[str]] = None,
              weeks: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'formatType' in kwargs:
+        if count is None:
+            raise TypeError("Missing 'count' argument")
+        if format_type is None and 'formatType' in kwargs:
             format_type = kwargs['formatType']
+        if format_type is None:
+            raise TypeError("Missing 'format_type' argument")
+        if months is None:
+            raise TypeError("Missing 'months' argument")
 
         _setter("count", count)
         _setter("format_type", format_type)
@@ -1480,9 +1538,11 @@ class PolicyVMWorkloadProtectionPolicySimpleRetention(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             count: int,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             count: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if count is None:
+            raise TypeError("Missing 'count' argument")
 
         _setter("count", count)
 
@@ -1531,13 +1591,15 @@ class PolicyVMWorkloadSettings(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             time_zone: str,
+             time_zone: Optional[str] = None,
              compression_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'timeZone' in kwargs:
+        if time_zone is None and 'timeZone' in kwargs:
             time_zone = kwargs['timeZone']
-        if 'compressionEnabled' in kwargs:
+        if time_zone is None:
+            raise TypeError("Missing 'time_zone' argument")
+        if compression_enabled is None and 'compressionEnabled' in kwargs:
             compression_enabled = kwargs['compressionEnabled']
 
         _setter("time_zone", time_zone)

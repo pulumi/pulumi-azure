@@ -14,63 +14,6 @@ namespace Pulumi.Azure.Sql
     /// 
     /// &gt; **Note:** The `azure.sql.ManagedDatabase` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.ManagedDatabase` resource instead.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
-    ///     {
-    ///         AddressSpaces = new[]
-    ///         {
-    ///             "10.0.0.0/16",
-    ///         },
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///     });
-    /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///         AddressPrefixes = new[]
-    ///         {
-    ///             "10.0.2.0/24",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleManagedInstance = new Azure.Sql.ManagedInstance("exampleManagedInstance", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         AdministratorLogin = "mradministrator",
-    ///         AdministratorLoginPassword = "thisIsDog11",
-    ///         LicenseType = "BasePrice",
-    ///         SubnetId = exampleSubnet.Id,
-    ///         SkuName = "GP_Gen5",
-    ///         Vcores = 4,
-    ///         StorageSizeInGb = 32,
-    ///     });
-    /// 
-    ///     var exampleManagedDatabase = new Azure.Sql.ManagedDatabase("exampleManagedDatabase", new()
-    ///     {
-    ///         SqlManagedInstanceId = exampleManagedInstance.Id,
-    ///         Location = exampleResourceGroup.Location,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// SQL Managed Databases can be imported using the `resource id`, e.g.

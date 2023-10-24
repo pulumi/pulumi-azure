@@ -11,37 +11,6 @@ import * as utilities from "../utilities";
  *
  * Manages a Spring Cloud Dev Tool Portal.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("exampleSpringCloudService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "E0",
- * });
- * const exampleSpringCloudDevToolPortal = new azure.appplatform.SpringCloudDevToolPortal("exampleSpringCloudDevToolPortal", {
- *     springCloudServiceId: exampleSpringCloudService.id,
- *     publicNetworkAccessEnabled: true,
- *     sso: {
- *         clientId: "example id",
- *         clientSecret: "example secret",
- *         metadataUrl: current.then(current => `https://login.microsoftonline.com/${current.tenantId}/v2.0/.well-known/openid-configuration`),
- *         scopes: [
- *             "openid",
- *             "profile",
- *             "email",
- *         ],
- *     },
- *     applicationAcceleratorEnabled: true,
- *     applicationLiveViewEnabled: true,
- * });
- * ```
- *
  * ## Import
  *
  * Spring Cloud Dev Tool Portals can be imported using the `resource id`, e.g.

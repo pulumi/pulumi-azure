@@ -56,13 +56,15 @@ class AccountCustomerManagedKey(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_vault_key_id: str,
+             key_vault_key_id: Optional[str] = None,
              identity_client_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'keyVaultKeyId' in kwargs:
+        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
             key_vault_key_id = kwargs['keyVaultKeyId']
-        if 'identityClientId' in kwargs:
+        if key_vault_key_id is None:
+            raise TypeError("Missing 'key_vault_key_id' argument")
+        if identity_client_id is None and 'identityClientId' in kwargs:
             identity_client_id = kwargs['identityClientId']
 
         _setter("key_vault_key_id", key_vault_key_id)
@@ -132,17 +134,19 @@ class AccountIdentity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'identityIds' in kwargs:
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
             identity_ids = kwargs['identityIds']
-        if 'principalId' in kwargs:
+        if principal_id is None and 'principalId' in kwargs:
             principal_id = kwargs['principalId']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         _setter("type", type)
@@ -229,16 +233,18 @@ class AccountNetworkAcls(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             default_action: str,
+             default_action: Optional[str] = None,
              ip_rules: Optional[Sequence[str]] = None,
              virtual_network_rules: Optional[Sequence['outputs.AccountNetworkAclsVirtualNetworkRule']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'defaultAction' in kwargs:
+        if default_action is None and 'defaultAction' in kwargs:
             default_action = kwargs['defaultAction']
-        if 'ipRules' in kwargs:
+        if default_action is None:
+            raise TypeError("Missing 'default_action' argument")
+        if ip_rules is None and 'ipRules' in kwargs:
             ip_rules = kwargs['ipRules']
-        if 'virtualNetworkRules' in kwargs:
+        if virtual_network_rules is None and 'virtualNetworkRules' in kwargs:
             virtual_network_rules = kwargs['virtualNetworkRules']
 
         _setter("default_action", default_action)
@@ -308,13 +314,15 @@ class AccountNetworkAclsVirtualNetworkRule(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             subnet_id: str,
+             subnet_id: Optional[str] = None,
              ignore_missing_vnet_service_endpoint: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'subnetId' in kwargs:
+        if subnet_id is None and 'subnetId' in kwargs:
             subnet_id = kwargs['subnetId']
-        if 'ignoreMissingVnetServiceEndpoint' in kwargs:
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+        if ignore_missing_vnet_service_endpoint is None and 'ignoreMissingVnetServiceEndpoint' in kwargs:
             ignore_missing_vnet_service_endpoint = kwargs['ignoreMissingVnetServiceEndpoint']
 
         _setter("subnet_id", subnet_id)
@@ -374,13 +382,15 @@ class AccountStorage(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             storage_account_id: str,
+             storage_account_id: Optional[str] = None,
              identity_client_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'storageAccountId' in kwargs:
+        if storage_account_id is None and 'storageAccountId' in kwargs:
             storage_account_id = kwargs['storageAccountId']
-        if 'identityClientId' in kwargs:
+        if storage_account_id is None:
+            raise TypeError("Missing 'storage_account_id' argument")
+        if identity_client_id is None and 'identityClientId' in kwargs:
             identity_client_id = kwargs['identityClientId']
 
         _setter("storage_account_id", storage_account_id)
@@ -424,11 +434,17 @@ class DeploymentModel(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             format: str,
-             name: str,
-             version: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             format: Optional[str] = None,
+             name: Optional[str] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if format is None:
+            raise TypeError("Missing 'format' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
 
         _setter("format", format)
         _setter("name", name)
@@ -485,13 +501,15 @@ class DeploymentScale(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              capacity: Optional[int] = None,
              family: Optional[str] = None,
              size: Optional[str] = None,
              tier: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
 
         _setter("type", type)
         if capacity is not None:

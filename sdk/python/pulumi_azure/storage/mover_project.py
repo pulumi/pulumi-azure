@@ -32,13 +32,15 @@ class MoverProjectArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             storage_mover_id: pulumi.Input[str],
+             storage_mover_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'storageMoverId' in kwargs:
+        if storage_mover_id is None and 'storageMoverId' in kwargs:
             storage_mover_id = kwargs['storageMoverId']
+        if storage_mover_id is None:
+            raise TypeError("Missing 'storage_mover_id' argument")
 
         _setter("storage_mover_id", storage_mover_id)
         if description is not None:
@@ -107,9 +109,9 @@ class _MoverProjectState:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              storage_mover_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'storageMoverId' in kwargs:
+        if storage_mover_id is None and 'storageMoverId' in kwargs:
             storage_mover_id = kwargs['storageMoverId']
 
         if description is not None:
@@ -168,21 +170,6 @@ class MoverProject(pulumi.CustomResource):
         """
         Manages a Storage Mover Project.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_mover = azure.storage.Mover("exampleMover",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_mover_project = azure.storage.MoverProject("exampleMoverProject",
-            storage_mover_id=example_mover.id,
-            description="Example Project Description")
-        ```
-
         ## Import
 
         Storage Mover Project can be imported using the `resource id`, e.g.
@@ -205,21 +192,6 @@ class MoverProject(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Storage Mover Project.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_mover = azure.storage.Mover("exampleMover",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_mover_project = azure.storage.MoverProject("exampleMoverProject",
-            storage_mover_id=example_mover.id,
-            description="Example Project Description")
-        ```
 
         ## Import
 

@@ -13,34 +13,6 @@ import (
 )
 
 // Use this data source to access information about an existing Consumption Budget for a specific subscription.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/consumption"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := consumption.LookupBudgetSubscription(ctx, &consumption.LookupBudgetSubscriptionArgs{
-//				Name:           "existing",
-//				SubscriptionId: "/subscriptions/00000000-0000-0000-0000-000000000000/",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("id", data.Azurerm_consumption_budget.Example.Id)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupBudgetSubscription(ctx *pulumi.Context, args *LookupBudgetSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupBudgetSubscriptionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBudgetSubscriptionResult

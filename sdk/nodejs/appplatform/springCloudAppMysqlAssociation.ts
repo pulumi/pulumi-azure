@@ -7,47 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Associates a Spring Cloud Application with a MySQL Database.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("exampleSpringCloudService", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- * });
- * const exampleSpringCloudApp = new azure.appplatform.SpringCloudApp("exampleSpringCloudApp", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     serviceName: exampleSpringCloudService.name,
- * });
- * const exampleServer = new azure.mysql.Server("exampleServer", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     administratorLogin: "mysqladminun",
- *     administratorLoginPassword: "H@Sh1CoR3!",
- *     skuName: "B_Gen5_2",
- *     storageMb: 5120,
- *     version: "5.7",
- *     sslEnforcementEnabled: true,
- *     sslMinimalTlsVersionEnforced: "TLS1_2",
- * });
- * const exampleDatabase = new azure.mysql.Database("exampleDatabase", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     serverName: exampleServer.name,
- *     charset: "utf8",
- *     collation: "utf8_unicode_ci",
- * });
- * const exampleSpringCloudAppMysqlAssociation = new azure.appplatform.SpringCloudAppMysqlAssociation("exampleSpringCloudAppMysqlAssociation", {
- *     springCloudAppId: exampleSpringCloudApp.id,
- *     mysqlServerId: exampleServer.id,
- *     databaseName: exampleDatabase.name,
- *     username: exampleServer.administratorLogin,
- *     password: exampleServer.administratorLoginPassword,
- * });
- * ```
- *
  * ## Import
  *
  * Spring Cloud Application MySQL Association can be imported using the `resource id`, e.g.

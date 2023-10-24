@@ -15,58 +15,6 @@ import (
 
 // Manages a Managed Kubernetes Cluster (also known as AKS / Azure Kubernetes Service)
 //
-// ## Example Usage
-//
-// This example provisions a basic Managed Kubernetes Cluster.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleKubernetesCluster, err := containerservice.NewKubernetesCluster(ctx, "exampleKubernetesCluster", &containerservice.KubernetesClusterArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				DnsPrefix:         pulumi.String("exampleaks1"),
-//				DefaultNodePool: &containerservice.KubernetesClusterDefaultNodePoolArgs{
-//					Name:      pulumi.String("default"),
-//					NodeCount: pulumi.Int(1),
-//					VmSize:    pulumi.String("Standard_D2_v2"),
-//				},
-//				Identity: &containerservice.KubernetesClusterIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("Production"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("clientCertificate", exampleKubernetesCluster.KubeConfigs.ApplyT(func(kubeConfigs []containerservice.KubernetesClusterKubeConfig) (*string, error) {
-//				return &kubeConfigs[0].ClientCertificate, nil
-//			}).(pulumi.StringPtrOutput))
-//			ctx.Export("kubeConfig", exampleKubernetesCluster.KubeConfigRaw)
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Managed Kubernetes Clusters can be imported using the `resource id`, e.g.
@@ -212,63 +160,6 @@ type KubernetesCluster struct {
 	// Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
 	//
 	// > **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-	// 			Location: pulumi.String("West Europe"),
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		exampleZone, err := privatedns.NewZone(ctx, "exampleZone", &privatedns.ZoneArgs{
-	// 			ResourceGroupName: exampleResourceGroup.Name,
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "exampleUserAssignedIdentity", &authorization.UserAssignedIdentityArgs{
-	// 			ResourceGroupName: exampleResourceGroup.Name,
-	// 			Location:          exampleResourceGroup.Location,
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		exampleAssignment, err := authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
-	// 			Scope:              exampleZone.ID(),
-	// 			RoleDefinitionName: pulumi.String("Private DNS Zone Contributor"),
-	// 			PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		_, err = containerservice.NewKubernetesCluster(ctx, "exampleKubernetesCluster", &containerservice.KubernetesClusterArgs{
-	// 			Location:              exampleResourceGroup.Location,
-	// 			ResourceGroupName:     exampleResourceGroup.Name,
-	// 			DnsPrefix:             pulumi.String("aksexamplednsprefix1"),
-	// 			PrivateClusterEnabled: pulumi.Bool(true),
-	// 			PrivateDnsZoneId:      exampleZone.ID(),
-	// 		}, pulumi.DependsOn([]pulumi.Resource{
-	// 			exampleAssignment,
-	// 		}))
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	PrivateClusterPublicFqdnEnabled pulumi.BoolPtrOutput `pulumi:"privateClusterPublicFqdnEnabled"`
 	// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
 	PrivateDnsZoneId pulumi.StringOutput `pulumi:"privateDnsZoneId"`
@@ -492,63 +383,6 @@ type kubernetesClusterState struct {
 	// Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
 	//
 	// > **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-	// 			Location: pulumi.String("West Europe"),
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		exampleZone, err := privatedns.NewZone(ctx, "exampleZone", &privatedns.ZoneArgs{
-	// 			ResourceGroupName: exampleResourceGroup.Name,
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "exampleUserAssignedIdentity", &authorization.UserAssignedIdentityArgs{
-	// 			ResourceGroupName: exampleResourceGroup.Name,
-	// 			Location:          exampleResourceGroup.Location,
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		exampleAssignment, err := authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
-	// 			Scope:              exampleZone.ID(),
-	// 			RoleDefinitionName: pulumi.String("Private DNS Zone Contributor"),
-	// 			PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		_, err = containerservice.NewKubernetesCluster(ctx, "exampleKubernetesCluster", &containerservice.KubernetesClusterArgs{
-	// 			Location:              exampleResourceGroup.Location,
-	// 			ResourceGroupName:     exampleResourceGroup.Name,
-	// 			DnsPrefix:             pulumi.String("aksexamplednsprefix1"),
-	// 			PrivateClusterEnabled: pulumi.Bool(true),
-	// 			PrivateDnsZoneId:      exampleZone.ID(),
-	// 		}, pulumi.DependsOn([]pulumi.Resource{
-	// 			exampleAssignment,
-	// 		}))
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	PrivateClusterPublicFqdnEnabled *bool `pulumi:"privateClusterPublicFqdnEnabled"`
 	// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
 	PrivateDnsZoneId *string `pulumi:"privateDnsZoneId"`
@@ -730,63 +564,6 @@ type KubernetesClusterState struct {
 	// Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
 	//
 	// > **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-	// 			Location: pulumi.String("West Europe"),
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		exampleZone, err := privatedns.NewZone(ctx, "exampleZone", &privatedns.ZoneArgs{
-	// 			ResourceGroupName: exampleResourceGroup.Name,
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "exampleUserAssignedIdentity", &authorization.UserAssignedIdentityArgs{
-	// 			ResourceGroupName: exampleResourceGroup.Name,
-	// 			Location:          exampleResourceGroup.Location,
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		exampleAssignment, err := authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
-	// 			Scope:              exampleZone.ID(),
-	// 			RoleDefinitionName: pulumi.String("Private DNS Zone Contributor"),
-	// 			PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		_, err = containerservice.NewKubernetesCluster(ctx, "exampleKubernetesCluster", &containerservice.KubernetesClusterArgs{
-	// 			Location:              exampleResourceGroup.Location,
-	// 			ResourceGroupName:     exampleResourceGroup.Name,
-	// 			DnsPrefix:             pulumi.String("aksexamplednsprefix1"),
-	// 			PrivateClusterEnabled: pulumi.Bool(true),
-	// 			PrivateDnsZoneId:      exampleZone.ID(),
-	// 		}, pulumi.DependsOn([]pulumi.Resource{
-	// 			exampleAssignment,
-	// 		}))
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	PrivateClusterPublicFqdnEnabled pulumi.BoolPtrInput
 	// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
 	PrivateDnsZoneId pulumi.StringPtrInput
@@ -954,63 +731,6 @@ type kubernetesClusterArgs struct {
 	// Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
 	//
 	// > **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-	// 			Location: pulumi.String("West Europe"),
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		exampleZone, err := privatedns.NewZone(ctx, "exampleZone", &privatedns.ZoneArgs{
-	// 			ResourceGroupName: exampleResourceGroup.Name,
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "exampleUserAssignedIdentity", &authorization.UserAssignedIdentityArgs{
-	// 			ResourceGroupName: exampleResourceGroup.Name,
-	// 			Location:          exampleResourceGroup.Location,
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		exampleAssignment, err := authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
-	// 			Scope:              exampleZone.ID(),
-	// 			RoleDefinitionName: pulumi.String("Private DNS Zone Contributor"),
-	// 			PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		_, err = containerservice.NewKubernetesCluster(ctx, "exampleKubernetesCluster", &containerservice.KubernetesClusterArgs{
-	// 			Location:              exampleResourceGroup.Location,
-	// 			ResourceGroupName:     exampleResourceGroup.Name,
-	// 			DnsPrefix:             pulumi.String("aksexamplednsprefix1"),
-	// 			PrivateClusterEnabled: pulumi.Bool(true),
-	// 			PrivateDnsZoneId:      exampleZone.ID(),
-	// 		}, pulumi.DependsOn([]pulumi.Resource{
-	// 			exampleAssignment,
-	// 		}))
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	PrivateClusterPublicFqdnEnabled *bool `pulumi:"privateClusterPublicFqdnEnabled"`
 	// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
 	PrivateDnsZoneId *string `pulumi:"privateDnsZoneId"`
@@ -1173,63 +893,6 @@ type KubernetesClusterArgs struct {
 	// Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
 	//
 	// > **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-	// 			Location: pulumi.String("West Europe"),
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		exampleZone, err := privatedns.NewZone(ctx, "exampleZone", &privatedns.ZoneArgs{
-	// 			ResourceGroupName: exampleResourceGroup.Name,
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "exampleUserAssignedIdentity", &authorization.UserAssignedIdentityArgs{
-	// 			ResourceGroupName: exampleResourceGroup.Name,
-	// 			Location:          exampleResourceGroup.Location,
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		exampleAssignment, err := authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
-	// 			Scope:              exampleZone.ID(),
-	// 			RoleDefinitionName: pulumi.String("Private DNS Zone Contributor"),
-	// 			PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		_, err = containerservice.NewKubernetesCluster(ctx, "exampleKubernetesCluster", &containerservice.KubernetesClusterArgs{
-	// 			Location:              exampleResourceGroup.Location,
-	// 			ResourceGroupName:     exampleResourceGroup.Name,
-	// 			DnsPrefix:             pulumi.String("aksexamplednsprefix1"),
-	// 			PrivateClusterEnabled: pulumi.Bool(true),
-	// 			PrivateDnsZoneId:      exampleZone.ID(),
-	// 		}, pulumi.DependsOn([]pulumi.Resource{
-	// 			exampleAssignment,
-	// 		}))
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	PrivateClusterPublicFqdnEnabled pulumi.BoolPtrInput
 	// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
 	PrivateDnsZoneId pulumi.StringPtrInput
@@ -1685,66 +1348,6 @@ func (o KubernetesClusterOutput) PrivateClusterEnabled() pulumi.BoolPtrOutput {
 // Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
 //
 // > **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleZone, err := privatedns.NewZone(ctx, "exampleZone", &privatedns.ZoneArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "exampleUserAssignedIdentity", &authorization.UserAssignedIdentityArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAssignment, err := authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
-//				Scope:              exampleZone.ID(),
-//				RoleDefinitionName: pulumi.String("Private DNS Zone Contributor"),
-//				PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = containerservice.NewKubernetesCluster(ctx, "exampleKubernetesCluster", &containerservice.KubernetesClusterArgs{
-//				Location:              exampleResourceGroup.Location,
-//				ResourceGroupName:     exampleResourceGroup.Name,
-//				DnsPrefix:             pulumi.String("aksexamplednsprefix1"),
-//				PrivateClusterEnabled: pulumi.Bool(true),
-//				PrivateDnsZoneId:      exampleZone.ID(),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAssignment,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o KubernetesClusterOutput) PrivateClusterPublicFqdnEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.BoolPtrOutput { return v.PrivateClusterPublicFqdnEnabled }).(pulumi.BoolPtrOutput)
 }

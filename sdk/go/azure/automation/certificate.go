@@ -15,62 +15,6 @@ import (
 
 // Manages an Automation Certificate.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/base64"
-//	"os"
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func filebase64OrPanic(path string) pulumi.StringPtrInput {
-//		if fileData, err := os.ReadFile(path); err == nil {
-//			return pulumi.String(base64.StdEncoding.EncodeToString(fileData[:]))
-//		} else {
-//			panic(err.Error())
-//		}
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				SkuName:           pulumi.String("Basic"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = automation.NewCertificate(ctx, "exampleCertificate", &automation.CertificateArgs{
-//				ResourceGroupName:     exampleResourceGroup.Name,
-//				AutomationAccountName: exampleAccount.Name,
-//				Description:           pulumi.String("This is an example certificate"),
-//				Base64:                filebase64OrPanic("certificate.pfx"),
-//				Exportable:            pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Automation Certificates can be imported using the `resource id`, e.g.

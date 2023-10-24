@@ -41,22 +41,32 @@ class SqlStoredProcedureArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             account_name: pulumi.Input[str],
-             body: pulumi.Input[str],
-             container_name: pulumi.Input[str],
-             database_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             account_name: Optional[pulumi.Input[str]] = None,
+             body: Optional[pulumi.Input[str]] = None,
+             container_name: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'accountName' in kwargs:
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'containerName' in kwargs:
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if body is None:
+            raise TypeError("Missing 'body' argument")
+        if container_name is None and 'containerName' in kwargs:
             container_name = kwargs['containerName']
-        if 'databaseName' in kwargs:
+        if container_name is None:
+            raise TypeError("Missing 'container_name' argument")
+        if database_name is None and 'databaseName' in kwargs:
             database_name = kwargs['databaseName']
-        if 'resourceGroupName' in kwargs:
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("account_name", account_name)
         _setter("body", body)
@@ -175,15 +185,15 @@ class _SqlStoredProcedureState:
              database_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'accountName' in kwargs:
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'containerName' in kwargs:
+        if container_name is None and 'containerName' in kwargs:
             container_name = kwargs['containerName']
-        if 'databaseName' in kwargs:
+        if database_name is None and 'databaseName' in kwargs:
             database_name = kwargs['databaseName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if account_name is not None:
@@ -287,31 +297,6 @@ class SqlStoredProcedure(pulumi.CustomResource):
         """
         Manages a SQL Stored Procedure within a Cosmos DB Account SQL Database.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_account = azure.cosmosdb.get_account(name="tfex-cosmosdb-account",
-            resource_group_name="tfex-cosmosdb-account-rg")
-        example_sql_database = azure.cosmosdb.SqlDatabase("exampleSqlDatabase",
-            resource_group_name=example_account.resource_group_name,
-            account_name=example_account.name,
-            throughput=400)
-        example_sql_container = azure.cosmosdb.SqlContainer("exampleSqlContainer",
-            resource_group_name=example_account.resource_group_name,
-            account_name=example_account.name,
-            database_name=example_sql_database.name,
-            partition_key_path="/id")
-        example_sql_stored_procedure = azure.cosmosdb.SqlStoredProcedure("exampleSqlStoredProcedure",
-            resource_group_name=example_account.resource_group_name,
-            account_name=example_account.name,
-            database_name=example_sql_database.name,
-            container_name=example_sql_container.name,
-            body="   function () { var context = getContext(); var response = context.getResponse(); response.setBody('Hello, World'); }\\n")
-        ```
-
         ## Import
 
         CosmosDB SQL Stored Procedures can be imported using the `resource id`, e.g.
@@ -337,31 +322,6 @@ class SqlStoredProcedure(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a SQL Stored Procedure within a Cosmos DB Account SQL Database.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_account = azure.cosmosdb.get_account(name="tfex-cosmosdb-account",
-            resource_group_name="tfex-cosmosdb-account-rg")
-        example_sql_database = azure.cosmosdb.SqlDatabase("exampleSqlDatabase",
-            resource_group_name=example_account.resource_group_name,
-            account_name=example_account.name,
-            throughput=400)
-        example_sql_container = azure.cosmosdb.SqlContainer("exampleSqlContainer",
-            resource_group_name=example_account.resource_group_name,
-            account_name=example_account.name,
-            database_name=example_sql_database.name,
-            partition_key_path="/id")
-        example_sql_stored_procedure = azure.cosmosdb.SqlStoredProcedure("exampleSqlStoredProcedure",
-            resource_group_name=example_account.resource_group_name,
-            account_name=example_account.name,
-            database_name=example_sql_database.name,
-            container_name=example_sql_container.name,
-            body="   function () { var context = getContext(); var response = context.getResponse(); response.setBody('Hello, World'); }\\n")
-        ```
 
         ## Import
 

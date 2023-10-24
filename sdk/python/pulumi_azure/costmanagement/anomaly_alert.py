@@ -38,19 +38,25 @@ class AnomalyAlertArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             display_name: pulumi.Input[str],
-             email_addresses: pulumi.Input[Sequence[pulumi.Input[str]]],
-             email_subject: pulumi.Input[str],
+             display_name: Optional[pulumi.Input[str]] = None,
+             email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             email_subject: Optional[pulumi.Input[str]] = None,
              message: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'emailAddresses' in kwargs:
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if email_addresses is None and 'emailAddresses' in kwargs:
             email_addresses = kwargs['emailAddresses']
-        if 'emailSubject' in kwargs:
+        if email_addresses is None:
+            raise TypeError("Missing 'email_addresses' argument")
+        if email_subject is None and 'emailSubject' in kwargs:
             email_subject = kwargs['emailSubject']
+        if email_subject is None:
+            raise TypeError("Missing 'email_subject' argument")
 
         _setter("display_name", display_name)
         _setter("email_addresses", email_addresses)
@@ -153,13 +159,13 @@ class _AnomalyAlertState:
              email_subject: Optional[pulumi.Input[str]] = None,
              message: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'emailAddresses' in kwargs:
+        if email_addresses is None and 'emailAddresses' in kwargs:
             email_addresses = kwargs['emailAddresses']
-        if 'emailSubject' in kwargs:
+        if email_subject is None and 'emailSubject' in kwargs:
             email_subject = kwargs['emailSubject']
 
         if display_name is not None:
@@ -248,18 +254,6 @@ class AnomalyAlert(pulumi.CustomResource):
         """
         Manages a Cost Anomaly Alert.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.costmanagement.AnomalyAlert("example",
-            display_name="Alert DisplayName",
-            email_addresses=["example@test.net"],
-            email_subject="My Test Anomaly Alert")
-        ```
-
         ## Import
 
         Cost Anomaly Alerts can be imported using the `resource id`, e.g.
@@ -284,18 +278,6 @@ class AnomalyAlert(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Cost Anomaly Alert.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.costmanagement.AnomalyAlert("example",
-            display_name="Alert DisplayName",
-            email_addresses=["example@test.net"],
-            email_subject="My Test Anomaly Alert")
-        ```
 
         ## Import
 

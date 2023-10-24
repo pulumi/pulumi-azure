@@ -42,16 +42,18 @@ class NetworkSecurityGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              security_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSecurityGroupSecurityRuleArgs']]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'securityRules' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if security_rules is None and 'securityRules' in kwargs:
             security_rules = kwargs['securityRules']
 
         _setter("resource_group_name", resource_group_name)
@@ -161,11 +163,11 @@ class _NetworkSecurityGroupState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              security_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSecurityGroupSecurityRuleArgs']]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'securityRules' in kwargs:
+        if security_rules is None and 'securityRules' in kwargs:
             security_rules = kwargs['securityRules']
 
         if location is not None:
@@ -260,32 +262,6 @@ class NetworkSecurityGroup(pulumi.CustomResource):
         provides both a standalone Network Security Rule resource, and allows for Network Security Rules to be defined in-line within the Network Security Group resource.
         At this time you cannot use a Network Security Group with in-line Network Security Rules in conjunction with any Network Security Rule resources. Doing so will cause a conflict of rule settings and will overwrite rules.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_network_security_group = azure.network.NetworkSecurityGroup("exampleNetworkSecurityGroup",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            security_rules=[azure.network.NetworkSecurityGroupSecurityRuleArgs(
-                name="test123",
-                priority=100,
-                direction="Inbound",
-                access="Allow",
-                protocol="Tcp",
-                source_port_range="*",
-                destination_port_range="*",
-                source_address_prefix="*",
-                destination_address_prefix="*",
-            )],
-            tags={
-                "environment": "Production",
-            })
-        ```
-
         ## Import
 
         Network Security Groups can be imported using the `resource id`, e.g.
@@ -316,32 +292,6 @@ class NetworkSecurityGroup(pulumi.CustomResource):
         > **NOTE on Network Security Groups and Network Security Rules:** This provider currently
         provides both a standalone Network Security Rule resource, and allows for Network Security Rules to be defined in-line within the Network Security Group resource.
         At this time you cannot use a Network Security Group with in-line Network Security Rules in conjunction with any Network Security Rule resources. Doing so will cause a conflict of rule settings and will overwrite rules.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_network_security_group = azure.network.NetworkSecurityGroup("exampleNetworkSecurityGroup",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            security_rules=[azure.network.NetworkSecurityGroupSecurityRuleArgs(
-                name="test123",
-                priority=100,
-                direction="Inbound",
-                access="Allow",
-                protocol="Tcp",
-                source_port_range="*",
-                destination_port_range="*",
-                source_address_prefix="*",
-                destination_address_prefix="*",
-            )],
-            tags={
-                "environment": "Production",
-            })
-        ```
 
         ## Import
 

@@ -34,12 +34,16 @@ class SourceControlTokenArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             token: pulumi.Input[str],
-             type: pulumi.Input[str],
+             token: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              token_secret: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'tokenSecret' in kwargs:
+        if token is None:
+            raise TypeError("Missing 'token' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if token_secret is None and 'tokenSecret' in kwargs:
             token_secret = kwargs['tokenSecret']
 
         _setter("token", token)
@@ -112,9 +116,9 @@ class _SourceControlTokenState:
              token: Optional[pulumi.Input[str]] = None,
              token_secret: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'tokenSecret' in kwargs:
+        if token_secret is None and 'tokenSecret' in kwargs:
             token_secret = kwargs['tokenSecret']
 
         if token is not None:
@@ -173,17 +177,6 @@ class SourceControlToken(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.appservice.SourceControlToken("example",
-            token="ghp_sometokenvaluesecretsauce",
-            type="GitHub")
-        ```
-
         ## Import
 
         App Service Source GitHub Tokens can be imported using the `resource id`, e.g.
@@ -207,17 +200,6 @@ class SourceControlToken(pulumi.CustomResource):
                  args: SourceControlTokenArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.appservice.SourceControlToken("example",
-            token="ghp_sometokenvaluesecretsauce",
-            type="GitHub")
-        ```
-
         ## Import
 
         App Service Source GitHub Tokens can be imported using the `resource id`, e.g.

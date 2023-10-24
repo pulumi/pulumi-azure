@@ -37,14 +37,16 @@ class SpringCloudConfigurationServiceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             spring_cloud_service_id: pulumi.Input[str],
+             spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
              generation: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              repositories: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudConfigurationServiceRepositoryArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'springCloudServiceId' in kwargs:
+        if spring_cloud_service_id is None and 'springCloudServiceId' in kwargs:
             spring_cloud_service_id = kwargs['springCloudServiceId']
+        if spring_cloud_service_id is None:
+            raise TypeError("Missing 'spring_cloud_service_id' argument")
 
         _setter("spring_cloud_service_id", spring_cloud_service_id)
         if generation is not None:
@@ -131,9 +133,9 @@ class _SpringCloudConfigurationServiceState:
              name: Optional[pulumi.Input[str]] = None,
              repositories: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudConfigurationServiceRepositoryArgs']]]] = None,
              spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'springCloudServiceId' in kwargs:
+        if spring_cloud_service_id is None and 'springCloudServiceId' in kwargs:
             spring_cloud_service_id = kwargs['springCloudServiceId']
 
         if generation is not None:
@@ -209,34 +211,6 @@ class SpringCloudConfigurationService(pulumi.CustomResource):
 
         > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="E0")
-        example_spring_cloud_configuration_service = azure.appplatform.SpringCloudConfigurationService("exampleSpringCloudConfigurationService",
-            spring_cloud_service_id=example_spring_cloud_service.id,
-            repositories=[azure.appplatform.SpringCloudConfigurationServiceRepositoryArgs(
-                name="fake",
-                label="master",
-                patterns=["app/dev"],
-                uri="https://github.com/Azure-Samples/piggymetrics",
-                search_paths=[
-                    "dir1",
-                    "dir2",
-                ],
-                strict_host_key_checking=False,
-                username="adminuser",
-                password="H@Sh1CoR3!",
-            )])
-        ```
-
         ## Import
 
         Spring Cloud Configuration Services can be imported using the `resource id`, e.g.
@@ -262,34 +236,6 @@ class SpringCloudConfigurationService(pulumi.CustomResource):
         Manages a Spring Cloud Configuration Service.
 
         > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="E0")
-        example_spring_cloud_configuration_service = azure.appplatform.SpringCloudConfigurationService("exampleSpringCloudConfigurationService",
-            spring_cloud_service_id=example_spring_cloud_service.id,
-            repositories=[azure.appplatform.SpringCloudConfigurationServiceRepositoryArgs(
-                name="fake",
-                label="master",
-                patterns=["app/dev"],
-                uri="https://github.com/Azure-Samples/piggymetrics",
-                search_paths=[
-                    "dir1",
-                    "dir2",
-                ],
-                strict_host_key_checking=False,
-                username="adminuser",
-                password="H@Sh1CoR3!",
-            )])
-        ```
 
         ## Import
 

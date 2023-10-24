@@ -52,21 +52,27 @@ class AlertProcessingRuleActionGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             add_action_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             resource_group_name: pulumi.Input[str],
-             scopes: pulumi.Input[Sequence[pulumi.Input[str]]],
+             add_action_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              condition: Optional[pulumi.Input['AlertProcessingRuleActionGroupConditionArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              schedule: Optional[pulumi.Input['AlertProcessingRuleActionGroupScheduleArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'addActionGroupIds' in kwargs:
+        if add_action_group_ids is None and 'addActionGroupIds' in kwargs:
             add_action_group_ids = kwargs['addActionGroupIds']
-        if 'resourceGroupName' in kwargs:
+        if add_action_group_ids is None:
+            raise TypeError("Missing 'add_action_group_ids' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if scopes is None:
+            raise TypeError("Missing 'scopes' argument")
 
         _setter("add_action_group_ids", add_action_group_ids)
         _setter("resource_group_name", resource_group_name)
@@ -241,11 +247,11 @@ class _AlertProcessingRuleActionGroupState:
              schedule: Optional[pulumi.Input['AlertProcessingRuleActionGroupScheduleArgs']] = None,
              scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'addActionGroupIds' in kwargs:
+        if add_action_group_ids is None and 'addActionGroupIds' in kwargs:
             add_action_group_ids = kwargs['addActionGroupIds']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if add_action_group_ids is not None:
@@ -394,56 +400,6 @@ class AlertProcessingRuleActionGroup(pulumi.CustomResource):
         """
         Manages an Alert Processing Rule which apply action group.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_action_group = azure.monitoring.ActionGroup("exampleActionGroup",
-            resource_group_name=example_resource_group.name,
-            short_name="action")
-        example_alert_processing_rule_action_group = azure.monitoring.AlertProcessingRuleActionGroup("exampleAlertProcessingRuleActionGroup",
-            resource_group_name="example",
-            scopes=[example_resource_group.id],
-            add_action_group_ids=[example_action_group.id],
-            condition=azure.monitoring.AlertProcessingRuleActionGroupConditionArgs(
-                target_resource_type=azure.monitoring.AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs(
-                    operator="Equals",
-                    values=["Microsoft.Compute/VirtualMachines"],
-                ),
-                severity=azure.monitoring.AlertProcessingRuleActionGroupConditionSeverityArgs(
-                    operator="Equals",
-                    values=[
-                        "Sev0",
-                        "Sev1",
-                        "Sev2",
-                    ],
-                ),
-            ),
-            schedule=azure.monitoring.AlertProcessingRuleActionGroupScheduleArgs(
-                effective_from="2022-01-01T01:02:03",
-                effective_until="2022-02-02T01:02:03",
-                time_zone="Pacific Standard Time",
-                recurrence=azure.monitoring.AlertProcessingRuleActionGroupScheduleRecurrenceArgs(
-                    dailies=[azure.monitoring.AlertProcessingRuleActionGroupScheduleRecurrenceDailyArgs(
-                        start_time="17:00:00",
-                        end_time="09:00:00",
-                    )],
-                    weeklies=[azure.monitoring.AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs(
-                        days_of_weeks=[
-                            "Saturday",
-                            "Sunday",
-                        ],
-                    )],
-                ),
-            ),
-            tags={
-                "foo": "bar",
-            })
-        ```
-
         ## Import
 
         Alert Processing Rules can be imported using the `resource id`, e.g.
@@ -472,56 +428,6 @@ class AlertProcessingRuleActionGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Alert Processing Rule which apply action group.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_action_group = azure.monitoring.ActionGroup("exampleActionGroup",
-            resource_group_name=example_resource_group.name,
-            short_name="action")
-        example_alert_processing_rule_action_group = azure.monitoring.AlertProcessingRuleActionGroup("exampleAlertProcessingRuleActionGroup",
-            resource_group_name="example",
-            scopes=[example_resource_group.id],
-            add_action_group_ids=[example_action_group.id],
-            condition=azure.monitoring.AlertProcessingRuleActionGroupConditionArgs(
-                target_resource_type=azure.monitoring.AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs(
-                    operator="Equals",
-                    values=["Microsoft.Compute/VirtualMachines"],
-                ),
-                severity=azure.monitoring.AlertProcessingRuleActionGroupConditionSeverityArgs(
-                    operator="Equals",
-                    values=[
-                        "Sev0",
-                        "Sev1",
-                        "Sev2",
-                    ],
-                ),
-            ),
-            schedule=azure.monitoring.AlertProcessingRuleActionGroupScheduleArgs(
-                effective_from="2022-01-01T01:02:03",
-                effective_until="2022-02-02T01:02:03",
-                time_zone="Pacific Standard Time",
-                recurrence=azure.monitoring.AlertProcessingRuleActionGroupScheduleRecurrenceArgs(
-                    dailies=[azure.monitoring.AlertProcessingRuleActionGroupScheduleRecurrenceDailyArgs(
-                        start_time="17:00:00",
-                        end_time="09:00:00",
-                    )],
-                    weeklies=[azure.monitoring.AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs(
-                        days_of_weeks=[
-                            "Saturday",
-                            "Sunday",
-                        ],
-                    )],
-                ),
-            ),
-            tags={
-                "foo": "bar",
-            })
-        ```
 
         ## Import
 
@@ -571,11 +477,7 @@ class AlertProcessingRuleActionGroup(pulumi.CustomResource):
             if add_action_group_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'add_action_group_ids'")
             __props__.__dict__["add_action_group_ids"] = add_action_group_ids
-            if condition is not None and not isinstance(condition, AlertProcessingRuleActionGroupConditionArgs):
-                condition = condition or {}
-                def _setter(key, value):
-                    condition[key] = value
-                AlertProcessingRuleActionGroupConditionArgs._configure(_setter, **condition)
+            condition = _utilities.configure(condition, AlertProcessingRuleActionGroupConditionArgs, True)
             __props__.__dict__["condition"] = condition
             __props__.__dict__["description"] = description
             __props__.__dict__["enabled"] = enabled
@@ -583,11 +485,7 @@ class AlertProcessingRuleActionGroup(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if schedule is not None and not isinstance(schedule, AlertProcessingRuleActionGroupScheduleArgs):
-                schedule = schedule or {}
-                def _setter(key, value):
-                    schedule[key] = value
-                AlertProcessingRuleActionGroupScheduleArgs._configure(_setter, **schedule)
+            schedule = _utilities.configure(schedule, AlertProcessingRuleActionGroupScheduleArgs, True)
             __props__.__dict__["schedule"] = schedule
             if scopes is None and not opts.urn:
                 raise TypeError("Missing required property 'scopes'")

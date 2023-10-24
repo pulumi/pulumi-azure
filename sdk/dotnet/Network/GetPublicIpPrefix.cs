@@ -16,30 +16,6 @@ namespace Pulumi.Azure.Network
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Reference An Existing)
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Network.GetPublicIpPrefix.Invoke(new()
-        ///     {
-        ///         Name = "name_of_public_ip",
-        ///         ResourceGroupName = "name_of_resource_group",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["publicIpPrefix"] = example.Apply(getPublicIpPrefixResult =&gt; getPublicIpPrefixResult.IpPrefix),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetPublicIpPrefixResult> InvokeAsync(GetPublicIpPrefixArgs args, InvokeOptions? options = null)
@@ -50,30 +26,6 @@ namespace Pulumi.Azure.Network
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Reference An Existing)
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Network.GetPublicIpPrefix.Invoke(new()
-        ///     {
-        ///         Name = "name_of_public_ip",
-        ///         ResourceGroupName = "name_of_resource_group",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["publicIpPrefix"] = example.Apply(getPublicIpPrefixResult =&gt; getPublicIpPrefixResult.IpPrefix),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetPublicIpPrefixResult> Invoke(GetPublicIpPrefixInvokeArgs args, InvokeOptions? options = null)

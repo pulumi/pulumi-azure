@@ -66,9 +66,9 @@ class TrafficManagerNestedEndpointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             minimum_child_endpoints: pulumi.Input[int],
-             profile_id: pulumi.Input[str],
-             target_resource_id: pulumi.Input[str],
+             minimum_child_endpoints: Optional[pulumi.Input[int]] = None,
+             profile_id: Optional[pulumi.Input[str]] = None,
+             target_resource_id: Optional[pulumi.Input[str]] = None,
              custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointCustomHeaderArgs']]]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              endpoint_location: Optional[pulumi.Input[str]] = None,
@@ -79,23 +79,29 @@ class TrafficManagerNestedEndpointArgs:
              priority: Optional[pulumi.Input[int]] = None,
              subnets: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointSubnetArgs']]]] = None,
              weight: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'minimumChildEndpoints' in kwargs:
+        if minimum_child_endpoints is None and 'minimumChildEndpoints' in kwargs:
             minimum_child_endpoints = kwargs['minimumChildEndpoints']
-        if 'profileId' in kwargs:
+        if minimum_child_endpoints is None:
+            raise TypeError("Missing 'minimum_child_endpoints' argument")
+        if profile_id is None and 'profileId' in kwargs:
             profile_id = kwargs['profileId']
-        if 'targetResourceId' in kwargs:
+        if profile_id is None:
+            raise TypeError("Missing 'profile_id' argument")
+        if target_resource_id is None and 'targetResourceId' in kwargs:
             target_resource_id = kwargs['targetResourceId']
-        if 'customHeaders' in kwargs:
+        if target_resource_id is None:
+            raise TypeError("Missing 'target_resource_id' argument")
+        if custom_headers is None and 'customHeaders' in kwargs:
             custom_headers = kwargs['customHeaders']
-        if 'endpointLocation' in kwargs:
+        if endpoint_location is None and 'endpointLocation' in kwargs:
             endpoint_location = kwargs['endpointLocation']
-        if 'geoMappings' in kwargs:
+        if geo_mappings is None and 'geoMappings' in kwargs:
             geo_mappings = kwargs['geoMappings']
-        if 'minimumRequiredChildEndpointsIpv4' in kwargs:
+        if minimum_required_child_endpoints_ipv4 is None and 'minimumRequiredChildEndpointsIpv4' in kwargs:
             minimum_required_child_endpoints_ipv4 = kwargs['minimumRequiredChildEndpointsIpv4']
-        if 'minimumRequiredChildEndpointsIpv6' in kwargs:
+        if minimum_required_child_endpoints_ipv6 is None and 'minimumRequiredChildEndpointsIpv6' in kwargs:
             minimum_required_child_endpoints_ipv6 = kwargs['minimumRequiredChildEndpointsIpv6']
 
         _setter("minimum_child_endpoints", minimum_child_endpoints)
@@ -347,23 +353,23 @@ class _TrafficManagerNestedEndpointState:
              subnets: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointSubnetArgs']]]] = None,
              target_resource_id: Optional[pulumi.Input[str]] = None,
              weight: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'customHeaders' in kwargs:
+        if custom_headers is None and 'customHeaders' in kwargs:
             custom_headers = kwargs['customHeaders']
-        if 'endpointLocation' in kwargs:
+        if endpoint_location is None and 'endpointLocation' in kwargs:
             endpoint_location = kwargs['endpointLocation']
-        if 'geoMappings' in kwargs:
+        if geo_mappings is None and 'geoMappings' in kwargs:
             geo_mappings = kwargs['geoMappings']
-        if 'minimumChildEndpoints' in kwargs:
+        if minimum_child_endpoints is None and 'minimumChildEndpoints' in kwargs:
             minimum_child_endpoints = kwargs['minimumChildEndpoints']
-        if 'minimumRequiredChildEndpointsIpv4' in kwargs:
+        if minimum_required_child_endpoints_ipv4 is None and 'minimumRequiredChildEndpointsIpv4' in kwargs:
             minimum_required_child_endpoints_ipv4 = kwargs['minimumRequiredChildEndpointsIpv4']
-        if 'minimumRequiredChildEndpointsIpv6' in kwargs:
+        if minimum_required_child_endpoints_ipv6 is None and 'minimumRequiredChildEndpointsIpv6' in kwargs:
             minimum_required_child_endpoints_ipv6 = kwargs['minimumRequiredChildEndpointsIpv6']
-        if 'profileId' in kwargs:
+        if profile_id is None and 'profileId' in kwargs:
             profile_id = kwargs['profileId']
-        if 'targetResourceId' in kwargs:
+        if target_resource_id is None and 'targetResourceId' in kwargs:
             target_resource_id = kwargs['targetResourceId']
 
         if custom_headers is not None:
@@ -574,56 +580,6 @@ class TrafficManagerNestedEndpoint(pulumi.CustomResource):
         """
         Manages a Nested Endpoint within a Traffic Manager Profile.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            allocation_method="Static",
-            domain_name_label="example-pip")
-        parent = azure.network.TrafficManagerProfile("parent",
-            resource_group_name=example_resource_group.name,
-            traffic_routing_method="Weighted",
-            dns_config=azure.network.TrafficManagerProfileDnsConfigArgs(
-                relative_name="parent-profile",
-                ttl=100,
-            ),
-            monitor_config=azure.network.TrafficManagerProfileMonitorConfigArgs(
-                protocol="HTTP",
-                port=80,
-                path="/",
-                interval_in_seconds=30,
-                timeout_in_seconds=9,
-                tolerated_number_of_failures=3,
-            ),
-            tags={
-                "environment": "Production",
-            })
-        nested = azure.network.TrafficManagerProfile("nested",
-            resource_group_name=example_resource_group.name,
-            traffic_routing_method="Priority",
-            dns_config=azure.network.TrafficManagerProfileDnsConfigArgs(
-                relative_name="nested-profile",
-                ttl=30,
-            ),
-            monitor_config=azure.network.TrafficManagerProfileMonitorConfigArgs(
-                protocol="HTTP",
-                port=443,
-                path="/",
-            ))
-        example_traffic_manager_nested_endpoint = azure.network.TrafficManagerNestedEndpoint("exampleTrafficManagerNestedEndpoint",
-            target_resource_id=nested.id,
-            priority=1,
-            profile_id=parent.id,
-            minimum_child_endpoints=9,
-            weight=5)
-        ```
-
         ## Import
 
         Nested Endpoints can be imported using the `resource id`, e.g.
@@ -658,56 +614,6 @@ class TrafficManagerNestedEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Nested Endpoint within a Traffic Manager Profile.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            allocation_method="Static",
-            domain_name_label="example-pip")
-        parent = azure.network.TrafficManagerProfile("parent",
-            resource_group_name=example_resource_group.name,
-            traffic_routing_method="Weighted",
-            dns_config=azure.network.TrafficManagerProfileDnsConfigArgs(
-                relative_name="parent-profile",
-                ttl=100,
-            ),
-            monitor_config=azure.network.TrafficManagerProfileMonitorConfigArgs(
-                protocol="HTTP",
-                port=80,
-                path="/",
-                interval_in_seconds=30,
-                timeout_in_seconds=9,
-                tolerated_number_of_failures=3,
-            ),
-            tags={
-                "environment": "Production",
-            })
-        nested = azure.network.TrafficManagerProfile("nested",
-            resource_group_name=example_resource_group.name,
-            traffic_routing_method="Priority",
-            dns_config=azure.network.TrafficManagerProfileDnsConfigArgs(
-                relative_name="nested-profile",
-                ttl=30,
-            ),
-            monitor_config=azure.network.TrafficManagerProfileMonitorConfigArgs(
-                protocol="HTTP",
-                port=443,
-                path="/",
-            ))
-        example_traffic_manager_nested_endpoint = azure.network.TrafficManagerNestedEndpoint("exampleTrafficManagerNestedEndpoint",
-            target_resource_id=nested.id,
-            priority=1,
-            profile_id=parent.id,
-            minimum_child_endpoints=9,
-            weight=5)
-        ```
 
         ## Import
 

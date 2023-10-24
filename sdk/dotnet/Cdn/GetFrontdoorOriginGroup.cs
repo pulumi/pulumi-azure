@@ -13,60 +13,12 @@ namespace Pulumi.Azure.Cdn
     {
         /// <summary>
         /// Use this data source to access information about an existing Front Door (standard/premium) Origin Group.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Cdn.GetFrontdoorOriginGroup.Invoke(new()
-        ///     {
-        ///         Name = "example-origin-group",
-        ///         ProfileName = "example-profile",
-        ///         ResourceGroupName = "example-resources",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetFrontdoorOriginGroupResult> InvokeAsync(GetFrontdoorOriginGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFrontdoorOriginGroupResult>("azure:cdn/getFrontdoorOriginGroup:getFrontdoorOriginGroup", args ?? new GetFrontdoorOriginGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Front Door (standard/premium) Origin Group.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Cdn.GetFrontdoorOriginGroup.Invoke(new()
-        ///     {
-        ///         Name = "example-origin-group",
-        ///         ProfileName = "example-profile",
-        ///         ResourceGroupName = "example-resources",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetFrontdoorOriginGroupResult> Invoke(GetFrontdoorOriginGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFrontdoorOriginGroupResult>("azure:cdn/getFrontdoorOriginGroup:getFrontdoorOriginGroup", args ?? new GetFrontdoorOriginGroupInvokeArgs(), options.WithDefaults());

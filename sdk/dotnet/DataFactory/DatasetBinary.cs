@@ -12,51 +12,6 @@ namespace Pulumi.Azure.DataFactory
     /// <summary>
     /// Manages a Data Factory Binary Dataset inside an Azure Data Factory.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///     });
-    /// 
-    ///     var exampleLinkedServiceSftp = new Azure.DataFactory.LinkedServiceSftp("exampleLinkedServiceSftp", new()
-    ///     {
-    ///         DataFactoryId = exampleFactory.Id,
-    ///         AuthenticationType = "Basic",
-    ///         Host = "http://www.bing.com",
-    ///         Port = 22,
-    ///         Username = "foo",
-    ///         Password = "bar",
-    ///     });
-    /// 
-    ///     var exampleDatasetBinary = new Azure.DataFactory.DatasetBinary("exampleDatasetBinary", new()
-    ///     {
-    ///         DataFactoryId = exampleFactory.Id,
-    ///         LinkedServiceName = exampleLinkedServiceSftp.Name,
-    ///         SftpServerLocation = new Azure.DataFactory.Inputs.DatasetBinarySftpServerLocationArgs
-    ///         {
-    ///             Path = "/test/",
-    ///             Filename = "**",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Data Factory Binary Datasets can be imported using the `resource id`, e.g.

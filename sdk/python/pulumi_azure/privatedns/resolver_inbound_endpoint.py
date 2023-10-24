@@ -40,17 +40,21 @@ class ResolverInboundEndpointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ip_configurations: pulumi.Input[Sequence[pulumi.Input['ResolverInboundEndpointIpConfigurationArgs']]],
-             private_dns_resolver_id: pulumi.Input[str],
+             ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ResolverInboundEndpointIpConfigurationArgs']]]] = None,
+             private_dns_resolver_id: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'ipConfigurations' in kwargs:
+        if ip_configurations is None and 'ipConfigurations' in kwargs:
             ip_configurations = kwargs['ipConfigurations']
-        if 'privateDnsResolverId' in kwargs:
+        if ip_configurations is None:
+            raise TypeError("Missing 'ip_configurations' argument")
+        if private_dns_resolver_id is None and 'privateDnsResolverId' in kwargs:
             private_dns_resolver_id = kwargs['privateDnsResolverId']
+        if private_dns_resolver_id is None:
+            raise TypeError("Missing 'private_dns_resolver_id' argument")
 
         _setter("ip_configurations", ip_configurations)
         _setter("private_dns_resolver_id", private_dns_resolver_id)
@@ -154,11 +158,11 @@ class _ResolverInboundEndpointState:
              name: Optional[pulumi.Input[str]] = None,
              private_dns_resolver_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'ipConfigurations' in kwargs:
+        if ip_configurations is None and 'ipConfigurations' in kwargs:
             ip_configurations = kwargs['ipConfigurations']
-        if 'privateDnsResolverId' in kwargs:
+        if private_dns_resolver_id is None and 'privateDnsResolverId' in kwargs:
             private_dns_resolver_id = kwargs['privateDnsResolverId']
 
         if ip_configurations is not None:
@@ -247,44 +251,6 @@ class ResolverInboundEndpoint(pulumi.CustomResource):
         """
         Manages a Private DNS Resolver Inbound Endpoint.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            address_spaces=["10.0.0.0/16"])
-        example_resolver = azure.privatedns.Resolver("exampleResolver",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            virtual_network_id=example_virtual_network.id)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.0.0/28"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="Microsoft.Network.dnsResolvers",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
-                    name="Microsoft.Network/dnsResolvers",
-                ),
-            )])
-        example_resolver_inbound_endpoint = azure.privatedns.ResolverInboundEndpoint("exampleResolverInboundEndpoint",
-            private_dns_resolver_id=example_resolver.id,
-            location=example_resolver.location,
-            ip_configurations=[azure.privatedns.ResolverInboundEndpointIpConfigurationArgs(
-                private_ip_allocation_method="Dynamic",
-                subnet_id=example_subnet.id,
-            )],
-            tags={
-                "key": "value",
-            })
-        ```
-
         ## Import
 
         Private DNS Resolver Inbound Endpoint can be imported using the `resource id`, e.g.
@@ -309,44 +275,6 @@ class ResolverInboundEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Private DNS Resolver Inbound Endpoint.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            address_spaces=["10.0.0.0/16"])
-        example_resolver = azure.privatedns.Resolver("exampleResolver",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            virtual_network_id=example_virtual_network.id)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.0.0/28"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="Microsoft.Network.dnsResolvers",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
-                    name="Microsoft.Network/dnsResolvers",
-                ),
-            )])
-        example_resolver_inbound_endpoint = azure.privatedns.ResolverInboundEndpoint("exampleResolverInboundEndpoint",
-            private_dns_resolver_id=example_resolver.id,
-            location=example_resolver.location,
-            ip_configurations=[azure.privatedns.ResolverInboundEndpointIpConfigurationArgs(
-                private_ip_allocation_method="Dynamic",
-                subnet_id=example_subnet.id,
-            )],
-            tags={
-                "key": "value",
-            })
-        ```
 
         ## Import
 

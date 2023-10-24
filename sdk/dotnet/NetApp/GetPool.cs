@@ -13,60 +13,12 @@ namespace Pulumi.Azure.NetApp
     {
         /// <summary>
         /// Uses this data source to access information about an existing NetApp Pool.
-        /// 
-        /// ## NetApp Pool Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.NetApp.GetPool.Invoke(new()
-        ///     {
-        ///         ResourceGroupName = "acctestRG",
-        ///         AccountName = "acctestnetappaccount",
-        ///         Name = "acctestnetapppool",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["netappPoolId"] = example.Apply(getPoolResult =&gt; getPoolResult.Id),
-        ///     };
-        /// });
-        /// ```
         /// </summary>
         public static Task<GetPoolResult> InvokeAsync(GetPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azure:netapp/getPool:getPool", args ?? new GetPoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// Uses this data source to access information about an existing NetApp Pool.
-        /// 
-        /// ## NetApp Pool Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.NetApp.GetPool.Invoke(new()
-        ///     {
-        ///         ResourceGroupName = "acctestRG",
-        ///         AccountName = "acctestnetappaccount",
-        ///         Name = "acctestnetapppool",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["netappPoolId"] = example.Apply(getPoolResult =&gt; getPoolResult.Id),
-        ///     };
-        /// });
-        /// ```
         /// </summary>
         public static Output<GetPoolResult> Invoke(GetPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azure:netapp/getPool:getPool", args ?? new GetPoolInvokeArgs(), options.WithDefaults());

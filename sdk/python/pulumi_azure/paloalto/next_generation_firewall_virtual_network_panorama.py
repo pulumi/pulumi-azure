@@ -49,25 +49,31 @@ class NextGenerationFirewallVirtualNetworkPanoramaArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             network_profile: pulumi.Input['NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgs'],
-             panorama_base64_config: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             network_profile: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgs']] = None,
+             panorama_base64_config: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              destination_nats: Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArgs']]]] = None,
              dns_settings: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsArgs']] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'networkProfile' in kwargs:
+        if network_profile is None and 'networkProfile' in kwargs:
             network_profile = kwargs['networkProfile']
-        if 'panoramaBase64Config' in kwargs:
+        if network_profile is None:
+            raise TypeError("Missing 'network_profile' argument")
+        if panorama_base64_config is None and 'panoramaBase64Config' in kwargs:
             panorama_base64_config = kwargs['panoramaBase64Config']
-        if 'resourceGroupName' in kwargs:
+        if panorama_base64_config is None:
+            raise TypeError("Missing 'panorama_base64_config' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'destinationNats' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if destination_nats is None and 'destinationNats' in kwargs:
             destination_nats = kwargs['destinationNats']
-        if 'dnsSettings' in kwargs:
+        if dns_settings is None and 'dnsSettings' in kwargs:
             dns_settings = kwargs['dnsSettings']
 
         _setter("network_profile", network_profile)
@@ -229,17 +235,17 @@ class _NextGenerationFirewallVirtualNetworkPanoramaState:
              panoramas: Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualNetworkPanoramaPanoramaArgs']]]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'destinationNats' in kwargs:
+        if destination_nats is None and 'destinationNats' in kwargs:
             destination_nats = kwargs['destinationNats']
-        if 'dnsSettings' in kwargs:
+        if dns_settings is None and 'dnsSettings' in kwargs:
             dns_settings = kwargs['dnsSettings']
-        if 'networkProfile' in kwargs:
+        if network_profile is None and 'networkProfile' in kwargs:
             network_profile = kwargs['networkProfile']
-        if 'panoramaBase64Config' in kwargs:
+        if panorama_base64_config is None and 'panoramaBase64Config' in kwargs:
             panorama_base64_config = kwargs['panoramaBase64Config']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if destination_nats is not None:
@@ -387,70 +393,6 @@ class NextGenerationFirewallVirtualNetworkPanorama(pulumi.CustomResource):
         """
         Manages a Palo Alto Next Generation Firewall Virtual Network Panorama.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="westeurope")
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            allocation_method="Static",
-            sku="Standard")
-        example_network_security_group = azure.network.NetworkSecurityGroup("exampleNetworkSecurityGroup",
-            location=azurerm_resource_group["test"]["location"],
-            resource_group_name=azurerm_resource_group["test"]["name"])
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tags={
-                "environment": "Production",
-            })
-        trust_subnet = azure.network.Subnet("trustSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="trusted",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="PaloAltoNetworks.Cloudngfw/firewalls",
-                    actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
-                ),
-            )])
-        trust_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("trustSubnetNetworkSecurityGroupAssociation",
-            subnet_id=trust_subnet.id,
-            network_security_group_id=example_network_security_group.id)
-        untrust_subnet = azure.network.Subnet("untrustSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="untrusted",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="PaloAltoNetworks.Cloudngfw/firewalls",
-                    actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
-                ),
-            )])
-        untrust_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("untrustSubnetNetworkSecurityGroupAssociation",
-            subnet_id=untrust_subnet.id,
-            network_security_group_id=example_network_security_group.id)
-        example_next_generation_firewall_virtual_network_panorama = azure.paloalto.NextGenerationFirewallVirtualNetworkPanorama("exampleNextGenerationFirewallVirtualNetworkPanorama",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            panorama_base64_config="e2RnbmFtZTogY25nZnctYXotZXhhbXBsZSwgdHBsbmFtZTogY25nZnctZXhhbXBsZS10ZW1wbGF0ZS1zdGFjaywgZXhhbXBsZS1wYW5vcmFtYS1zZXJ2ZXI6IDE5Mi4xNjguMC4xLCB2bS1hdXRoLWtleTogMDAwMDAwMDAwMDAwMDAwLCBleHBpcnk6IDIwMjQvMDcvMzF9Cg==",
-            network_profile=azure.paloalto.NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgs(
-                public_ip_address_ids=[example_public_ip.id],
-                vnet_configuration=azure.paloalto.NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationArgs(
-                    virtual_network_id=example_virtual_network.id,
-                    trusted_subnet_id=trust_subnet.id,
-                    untrusted_subnet_id=untrust_subnet.id,
-                ),
-            ))
-        ```
-
         ## Import
 
         Palo Alto Next Generation Firewall Virtual Network Panoramas can be imported using the `resource id`, e.g.
@@ -478,70 +420,6 @@ class NextGenerationFirewallVirtualNetworkPanorama(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Palo Alto Next Generation Firewall Virtual Network Panorama.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="westeurope")
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            allocation_method="Static",
-            sku="Standard")
-        example_network_security_group = azure.network.NetworkSecurityGroup("exampleNetworkSecurityGroup",
-            location=azurerm_resource_group["test"]["location"],
-            resource_group_name=azurerm_resource_group["test"]["name"])
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tags={
-                "environment": "Production",
-            })
-        trust_subnet = azure.network.Subnet("trustSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="trusted",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="PaloAltoNetworks.Cloudngfw/firewalls",
-                    actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
-                ),
-            )])
-        trust_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("trustSubnetNetworkSecurityGroupAssociation",
-            subnet_id=trust_subnet.id,
-            network_security_group_id=example_network_security_group.id)
-        untrust_subnet = azure.network.Subnet("untrustSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="untrusted",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="PaloAltoNetworks.Cloudngfw/firewalls",
-                    actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
-                ),
-            )])
-        untrust_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("untrustSubnetNetworkSecurityGroupAssociation",
-            subnet_id=untrust_subnet.id,
-            network_security_group_id=example_network_security_group.id)
-        example_next_generation_firewall_virtual_network_panorama = azure.paloalto.NextGenerationFirewallVirtualNetworkPanorama("exampleNextGenerationFirewallVirtualNetworkPanorama",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            panorama_base64_config="e2RnbmFtZTogY25nZnctYXotZXhhbXBsZSwgdHBsbmFtZTogY25nZnctZXhhbXBsZS10ZW1wbGF0ZS1zdGFjaywgZXhhbXBsZS1wYW5vcmFtYS1zZXJ2ZXI6IDE5Mi4xNjguMC4xLCB2bS1hdXRoLWtleTogMDAwMDAwMDAwMDAwMDAwLCBleHBpcnk6IDIwMjQvMDcvMzF9Cg==",
-            network_profile=azure.paloalto.NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgs(
-                public_ip_address_ids=[example_public_ip.id],
-                vnet_configuration=azure.paloalto.NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationArgs(
-                    virtual_network_id=example_virtual_network.id,
-                    trusted_subnet_id=trust_subnet.id,
-                    untrusted_subnet_id=untrust_subnet.id,
-                ),
-            ))
-        ```
 
         ## Import
 
@@ -588,19 +466,11 @@ class NextGenerationFirewallVirtualNetworkPanorama(pulumi.CustomResource):
             __props__ = NextGenerationFirewallVirtualNetworkPanoramaArgs.__new__(NextGenerationFirewallVirtualNetworkPanoramaArgs)
 
             __props__.__dict__["destination_nats"] = destination_nats
-            if dns_settings is not None and not isinstance(dns_settings, NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsArgs):
-                dns_settings = dns_settings or {}
-                def _setter(key, value):
-                    dns_settings[key] = value
-                NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsArgs._configure(_setter, **dns_settings)
+            dns_settings = _utilities.configure(dns_settings, NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsArgs, True)
             __props__.__dict__["dns_settings"] = dns_settings
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
-            if network_profile is not None and not isinstance(network_profile, NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgs):
-                network_profile = network_profile or {}
-                def _setter(key, value):
-                    network_profile[key] = value
-                NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgs._configure(_setter, **network_profile)
+            network_profile = _utilities.configure(network_profile, NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgs, True)
             if network_profile is None and not opts.urn:
                 raise TypeError("Missing required property 'network_profile'")
             __props__.__dict__["network_profile"] = network_profile

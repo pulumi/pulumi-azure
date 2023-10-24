@@ -68,11 +68,11 @@ class RunBookArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             automation_account_name: pulumi.Input[str],
-             log_progress: pulumi.Input[bool],
-             log_verbose: pulumi.Input[bool],
-             resource_group_name: pulumi.Input[str],
-             runbook_type: pulumi.Input[str],
+             automation_account_name: Optional[pulumi.Input[str]] = None,
+             log_progress: Optional[pulumi.Input[bool]] = None,
+             log_verbose: Optional[pulumi.Input[bool]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             runbook_type: Optional[pulumi.Input[str]] = None,
              content: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              draft: Optional[pulumi.Input['RunBookDraftArgs']] = None,
@@ -82,23 +82,33 @@ class RunBookArgs:
              name: Optional[pulumi.Input[str]] = None,
              publish_content_link: Optional[pulumi.Input['RunBookPublishContentLinkArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'automationAccountName' in kwargs:
+        if automation_account_name is None and 'automationAccountName' in kwargs:
             automation_account_name = kwargs['automationAccountName']
-        if 'logProgress' in kwargs:
+        if automation_account_name is None:
+            raise TypeError("Missing 'automation_account_name' argument")
+        if log_progress is None and 'logProgress' in kwargs:
             log_progress = kwargs['logProgress']
-        if 'logVerbose' in kwargs:
+        if log_progress is None:
+            raise TypeError("Missing 'log_progress' argument")
+        if log_verbose is None and 'logVerbose' in kwargs:
             log_verbose = kwargs['logVerbose']
-        if 'resourceGroupName' in kwargs:
+        if log_verbose is None:
+            raise TypeError("Missing 'log_verbose' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'runbookType' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if runbook_type is None and 'runbookType' in kwargs:
             runbook_type = kwargs['runbookType']
-        if 'jobSchedules' in kwargs:
+        if runbook_type is None:
+            raise TypeError("Missing 'runbook_type' argument")
+        if job_schedules is None and 'jobSchedules' in kwargs:
             job_schedules = kwargs['jobSchedules']
-        if 'logActivityTraceLevel' in kwargs:
+        if log_activity_trace_level is None and 'logActivityTraceLevel' in kwargs:
             log_activity_trace_level = kwargs['logActivityTraceLevel']
-        if 'publishContentLink' in kwargs:
+        if publish_content_link is None and 'publishContentLink' in kwargs:
             publish_content_link = kwargs['publishContentLink']
 
         _setter("automation_account_name", automation_account_name)
@@ -362,23 +372,23 @@ class _RunBookState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              runbook_type: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'automationAccountName' in kwargs:
+        if automation_account_name is None and 'automationAccountName' in kwargs:
             automation_account_name = kwargs['automationAccountName']
-        if 'jobSchedules' in kwargs:
+        if job_schedules is None and 'jobSchedules' in kwargs:
             job_schedules = kwargs['jobSchedules']
-        if 'logActivityTraceLevel' in kwargs:
+        if log_activity_trace_level is None and 'logActivityTraceLevel' in kwargs:
             log_activity_trace_level = kwargs['logActivityTraceLevel']
-        if 'logProgress' in kwargs:
+        if log_progress is None and 'logProgress' in kwargs:
             log_progress = kwargs['logProgress']
-        if 'logVerbose' in kwargs:
+        if log_verbose is None and 'logVerbose' in kwargs:
             log_verbose = kwargs['logVerbose']
-        if 'publishContentLink' in kwargs:
+        if publish_content_link is None and 'publishContentLink' in kwargs:
             publish_content_link = kwargs['publishContentLink']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'runbookType' in kwargs:
+        if runbook_type is None and 'runbookType' in kwargs:
             runbook_type = kwargs['runbookType']
 
         if automation_account_name is not None:
@@ -601,53 +611,6 @@ class RunBook(pulumi.CustomResource):
         """
         Manages a Automation Runbook.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.automation.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Basic")
-        example_run_book = azure.automation.RunBook("exampleRunBook",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            automation_account_name=example_account.name,
-            log_verbose=True,
-            log_progress=True,
-            description="This is an example runbook",
-            runbook_type="PowerShellWorkflow",
-            publish_content_link=azure.automation.RunBookPublishContentLinkArgs(
-                uri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
-            ))
-        ```
-        ### Custom Content
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_local as local
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.automation.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Basic")
-        example_file = local.get_file(filename=f"{path['module']}/example.ps1")
-        example_run_book = azure.automation.RunBook("exampleRunBook",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            automation_account_name=example_account.name,
-            log_verbose=True,
-            log_progress=True,
-            description="This is an example runbook",
-            runbook_type="PowerShell",
-            content=example_file.content)
-        ```
-
         ## Import
 
         Automation Runbooks can be imported using the `resource id`, e.g.
@@ -682,53 +645,6 @@ class RunBook(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Automation Runbook.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.automation.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Basic")
-        example_run_book = azure.automation.RunBook("exampleRunBook",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            automation_account_name=example_account.name,
-            log_verbose=True,
-            log_progress=True,
-            description="This is an example runbook",
-            runbook_type="PowerShellWorkflow",
-            publish_content_link=azure.automation.RunBookPublishContentLinkArgs(
-                uri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
-            ))
-        ```
-        ### Custom Content
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_local as local
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.automation.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Basic")
-        example_file = local.get_file(filename=f"{path['module']}/example.ps1")
-        example_run_book = azure.automation.RunBook("exampleRunBook",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            automation_account_name=example_account.name,
-            log_verbose=True,
-            log_progress=True,
-            description="This is an example runbook",
-            runbook_type="PowerShell",
-            content=example_file.content)
-        ```
 
         ## Import
 
@@ -785,11 +701,7 @@ class RunBook(pulumi.CustomResource):
             __props__.__dict__["automation_account_name"] = automation_account_name
             __props__.__dict__["content"] = content
             __props__.__dict__["description"] = description
-            if draft is not None and not isinstance(draft, RunBookDraftArgs):
-                draft = draft or {}
-                def _setter(key, value):
-                    draft[key] = value
-                RunBookDraftArgs._configure(_setter, **draft)
+            draft = _utilities.configure(draft, RunBookDraftArgs, True)
             __props__.__dict__["draft"] = draft
             __props__.__dict__["job_schedules"] = job_schedules
             __props__.__dict__["location"] = location
@@ -801,11 +713,7 @@ class RunBook(pulumi.CustomResource):
                 raise TypeError("Missing required property 'log_verbose'")
             __props__.__dict__["log_verbose"] = log_verbose
             __props__.__dict__["name"] = name
-            if publish_content_link is not None and not isinstance(publish_content_link, RunBookPublishContentLinkArgs):
-                publish_content_link = publish_content_link or {}
-                def _setter(key, value):
-                    publish_content_link[key] = value
-                RunBookPublishContentLinkArgs._configure(_setter, **publish_content_link)
+            publish_content_link = _utilities.configure(publish_content_link, RunBookPublishContentLinkArgs, True)
             __props__.__dict__["publish_content_link"] = publish_content_link
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

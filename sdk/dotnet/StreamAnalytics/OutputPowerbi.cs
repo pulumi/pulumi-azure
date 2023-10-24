@@ -12,39 +12,6 @@ namespace Pulumi.Azure.StreamAnalytics
     /// <summary>
     /// Manages a Stream Analytics Output powerBI.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = Azure.Core.GetResourceGroup.Invoke(new()
-    ///     {
-    ///         Name = "example-resources",
-    ///     });
-    /// 
-    ///     var exampleJob = Azure.StreamAnalytics.GetJob.Invoke(new()
-    ///     {
-    ///         Name = "example-job",
-    ///         ResourceGroupName = exampleResourceGroup.Apply(getResourceGroupResult =&gt; getResourceGroupResult.Name),
-    ///     });
-    /// 
-    ///     var exampleOutputPowerbi = new Azure.StreamAnalytics.OutputPowerbi("exampleOutputPowerbi", new()
-    ///     {
-    ///         StreamAnalyticsJobId = exampleJob.Apply(getJobResult =&gt; getJobResult.Id),
-    ///         Dataset = "example-dataset",
-    ///         Table = "example-table",
-    ///         GroupId = "00000000-0000-0000-0000-000000000000",
-    ///         GroupName = "some-group-name",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Stream Analytics Output to Power BI can be imported using the `resource id`, e.g.

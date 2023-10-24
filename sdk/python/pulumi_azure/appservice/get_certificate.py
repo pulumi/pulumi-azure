@@ -171,17 +171,6 @@ def get_certificate(name: Optional[str] = None,
     """
     Use this data source to access information about an App Service Certificate.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.appservice.get_certificate(name="example-app-service-certificate",
-        resource_group_name="example-rg")
-    pulumi.export("appServiceCertificateId", example.id)
-    ```
-
 
     :param str name: Specifies the name of the certificate.
     :param str resource_group_name: The name of the resource group in which to create the certificate.
@@ -215,17 +204,6 @@ def get_certificate_output(name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateResult]:
     """
     Use this data source to access information about an App Service Certificate.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.appservice.get_certificate(name="example-app-service-certificate",
-        resource_group_name="example-rg")
-    pulumi.export("appServiceCertificateId", example.id)
-    ```
 
 
     :param str name: Specifies the name of the certificate.

@@ -46,22 +46,28 @@ class InterationServiceEnvironmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             access_endpoint_type: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             virtual_network_subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             access_endpoint_type: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             virtual_network_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              sku_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'accessEndpointType' in kwargs:
+        if access_endpoint_type is None and 'accessEndpointType' in kwargs:
             access_endpoint_type = kwargs['accessEndpointType']
-        if 'resourceGroupName' in kwargs:
+        if access_endpoint_type is None:
+            raise TypeError("Missing 'access_endpoint_type' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'virtualNetworkSubnetIds' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if virtual_network_subnet_ids is None and 'virtualNetworkSubnetIds' in kwargs:
             virtual_network_subnet_ids = kwargs['virtualNetworkSubnetIds']
-        if 'skuName' in kwargs:
+        if virtual_network_subnet_ids is None:
+            raise TypeError("Missing 'virtual_network_subnet_ids' argument")
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
 
         _setter("access_endpoint_type", access_endpoint_type)
@@ -221,23 +227,23 @@ class _InterationServiceEnvironmentState:
              virtual_network_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              workflow_endpoint_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              workflow_outbound_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'accessEndpointType' in kwargs:
+        if access_endpoint_type is None and 'accessEndpointType' in kwargs:
             access_endpoint_type = kwargs['accessEndpointType']
-        if 'connectorEndpointIpAddresses' in kwargs:
+        if connector_endpoint_ip_addresses is None and 'connectorEndpointIpAddresses' in kwargs:
             connector_endpoint_ip_addresses = kwargs['connectorEndpointIpAddresses']
-        if 'connectorOutboundIpAddresses' in kwargs:
+        if connector_outbound_ip_addresses is None and 'connectorOutboundIpAddresses' in kwargs:
             connector_outbound_ip_addresses = kwargs['connectorOutboundIpAddresses']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'virtualNetworkSubnetIds' in kwargs:
+        if virtual_network_subnet_ids is None and 'virtualNetworkSubnetIds' in kwargs:
             virtual_network_subnet_ids = kwargs['virtualNetworkSubnetIds']
-        if 'workflowEndpointIpAddresses' in kwargs:
+        if workflow_endpoint_ip_addresses is None and 'workflowEndpointIpAddresses' in kwargs:
             workflow_endpoint_ip_addresses = kwargs['workflowEndpointIpAddresses']
-        if 'workflowOutboundIpAddresses' in kwargs:
+        if workflow_outbound_ip_addresses is None and 'workflowOutboundIpAddresses' in kwargs:
             workflow_outbound_ip_addresses = kwargs['workflowOutboundIpAddresses']
 
         if access_endpoint_type is not None:
@@ -416,55 +422,6 @@ class InterationServiceEnvironment(pulumi.CustomResource):
 
         !> **NOTE:** The `logicapps.InterationServiceEnvironment` resource is deprecated and will be removed in v4.0 of the Azure Provider. The underlying Azure Service is being retired on 2024-08-31 and new instances cannot be provisioned by default after 2022-11-01. More information on the retirement and how to migrate to Logic Apps Standard [can be found here](https://aka.ms/isedeprecation).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            address_spaces=["10.0.0.0/22"])
-        isesubnet1 = azure.network.Subnet("isesubnet1",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/27"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="integrationServiceEnvironments",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.Logic/integrationServiceEnvironments",
-                ),
-            )])
-        isesubnet2 = azure.network.Subnet("isesubnet2",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.32/27"])
-        isesubnet3 = azure.network.Subnet("isesubnet3",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.64/27"])
-        isesubnet4 = azure.network.Subnet("isesubnet4",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.96/27"])
-        example_interation_service_environment = azure.logicapps.InterationServiceEnvironment("exampleInterationServiceEnvironment",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Developer_0",
-            access_endpoint_type="Internal",
-            virtual_network_subnet_ids=[
-                isesubnet1.id,
-                isesubnet2.id,
-                isesubnet3.id,
-                isesubnet4.id,
-            ],
-            tags={
-                "environment": "development",
-            })
-        ```
-
         ## Import
 
         Integration Service Environments can be imported using the `resource id`, e.g.
@@ -495,55 +452,6 @@ class InterationServiceEnvironment(pulumi.CustomResource):
         Manages private and isolated Logic App instances within an Azure virtual network.
 
         !> **NOTE:** The `logicapps.InterationServiceEnvironment` resource is deprecated and will be removed in v4.0 of the Azure Provider. The underlying Azure Service is being retired on 2024-08-31 and new instances cannot be provisioned by default after 2022-11-01. More information on the retirement and how to migrate to Logic Apps Standard [can be found here](https://aka.ms/isedeprecation).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            address_spaces=["10.0.0.0/22"])
-        isesubnet1 = azure.network.Subnet("isesubnet1",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/27"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="integrationServiceEnvironments",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.Logic/integrationServiceEnvironments",
-                ),
-            )])
-        isesubnet2 = azure.network.Subnet("isesubnet2",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.32/27"])
-        isesubnet3 = azure.network.Subnet("isesubnet3",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.64/27"])
-        isesubnet4 = azure.network.Subnet("isesubnet4",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.96/27"])
-        example_interation_service_environment = azure.logicapps.InterationServiceEnvironment("exampleInterationServiceEnvironment",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Developer_0",
-            access_endpoint_type="Internal",
-            virtual_network_subnet_ids=[
-                isesubnet1.id,
-                isesubnet2.id,
-                isesubnet3.id,
-                isesubnet4.id,
-            ],
-            tags={
-                "environment": "development",
-            })
-        ```
 
         ## Import
 

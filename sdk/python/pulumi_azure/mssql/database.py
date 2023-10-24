@@ -123,7 +123,7 @@ class DatabaseArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             server_id: pulumi.Input[str],
+             server_id: Optional[pulumi.Input[str]] = None,
              auto_pause_delay_in_minutes: Optional[pulumi.Input[int]] = None,
              collation: Optional[pulumi.Input[str]] = None,
              create_mode: Optional[pulumi.Input[str]] = None,
@@ -151,57 +151,59 @@ class DatabaseArgs:
              threat_detection_policy: Optional[pulumi.Input['DatabaseThreatDetectionPolicyArgs']] = None,
              transparent_data_encryption_enabled: Optional[pulumi.Input[bool]] = None,
              zone_redundant: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'serverId' in kwargs:
+        if server_id is None and 'serverId' in kwargs:
             server_id = kwargs['serverId']
-        if 'autoPauseDelayInMinutes' in kwargs:
+        if server_id is None:
+            raise TypeError("Missing 'server_id' argument")
+        if auto_pause_delay_in_minutes is None and 'autoPauseDelayInMinutes' in kwargs:
             auto_pause_delay_in_minutes = kwargs['autoPauseDelayInMinutes']
-        if 'createMode' in kwargs:
+        if create_mode is None and 'createMode' in kwargs:
             create_mode = kwargs['createMode']
-        if 'creationSourceDatabaseId' in kwargs:
+        if creation_source_database_id is None and 'creationSourceDatabaseId' in kwargs:
             creation_source_database_id = kwargs['creationSourceDatabaseId']
-        if 'elasticPoolId' in kwargs:
+        if elastic_pool_id is None and 'elasticPoolId' in kwargs:
             elastic_pool_id = kwargs['elasticPoolId']
-        if 'geoBackupEnabled' in kwargs:
+        if geo_backup_enabled is None and 'geoBackupEnabled' in kwargs:
             geo_backup_enabled = kwargs['geoBackupEnabled']
-        if 'import' in kwargs:
+        if import_ is None and 'import' in kwargs:
             import_ = kwargs['import']
-        if 'ledgerEnabled' in kwargs:
+        if ledger_enabled is None and 'ledgerEnabled' in kwargs:
             ledger_enabled = kwargs['ledgerEnabled']
-        if 'licenseType' in kwargs:
+        if license_type is None and 'licenseType' in kwargs:
             license_type = kwargs['licenseType']
-        if 'longTermRetentionPolicy' in kwargs:
+        if long_term_retention_policy is None and 'longTermRetentionPolicy' in kwargs:
             long_term_retention_policy = kwargs['longTermRetentionPolicy']
-        if 'maintenanceConfigurationName' in kwargs:
+        if maintenance_configuration_name is None and 'maintenanceConfigurationName' in kwargs:
             maintenance_configuration_name = kwargs['maintenanceConfigurationName']
-        if 'maxSizeGb' in kwargs:
+        if max_size_gb is None and 'maxSizeGb' in kwargs:
             max_size_gb = kwargs['maxSizeGb']
-        if 'minCapacity' in kwargs:
+        if min_capacity is None and 'minCapacity' in kwargs:
             min_capacity = kwargs['minCapacity']
-        if 'readReplicaCount' in kwargs:
+        if read_replica_count is None and 'readReplicaCount' in kwargs:
             read_replica_count = kwargs['readReplicaCount']
-        if 'readScale' in kwargs:
+        if read_scale is None and 'readScale' in kwargs:
             read_scale = kwargs['readScale']
-        if 'recoverDatabaseId' in kwargs:
+        if recover_database_id is None and 'recoverDatabaseId' in kwargs:
             recover_database_id = kwargs['recoverDatabaseId']
-        if 'restoreDroppedDatabaseId' in kwargs:
+        if restore_dropped_database_id is None and 'restoreDroppedDatabaseId' in kwargs:
             restore_dropped_database_id = kwargs['restoreDroppedDatabaseId']
-        if 'restorePointInTime' in kwargs:
+        if restore_point_in_time is None and 'restorePointInTime' in kwargs:
             restore_point_in_time = kwargs['restorePointInTime']
-        if 'sampleName' in kwargs:
+        if sample_name is None and 'sampleName' in kwargs:
             sample_name = kwargs['sampleName']
-        if 'shortTermRetentionPolicy' in kwargs:
+        if short_term_retention_policy is None and 'shortTermRetentionPolicy' in kwargs:
             short_term_retention_policy = kwargs['shortTermRetentionPolicy']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'storageAccountType' in kwargs:
+        if storage_account_type is None and 'storageAccountType' in kwargs:
             storage_account_type = kwargs['storageAccountType']
-        if 'threatDetectionPolicy' in kwargs:
+        if threat_detection_policy is None and 'threatDetectionPolicy' in kwargs:
             threat_detection_policy = kwargs['threatDetectionPolicy']
-        if 'transparentDataEncryptionEnabled' in kwargs:
+        if transparent_data_encryption_enabled is None and 'transparentDataEncryptionEnabled' in kwargs:
             transparent_data_encryption_enabled = kwargs['transparentDataEncryptionEnabled']
-        if 'zoneRedundant' in kwargs:
+        if zone_redundant is None and 'zoneRedundant' in kwargs:
             zone_redundant = kwargs['zoneRedundant']
 
         _setter("server_id", server_id)
@@ -749,57 +751,57 @@ class _DatabaseState:
              threat_detection_policy: Optional[pulumi.Input['DatabaseThreatDetectionPolicyArgs']] = None,
              transparent_data_encryption_enabled: Optional[pulumi.Input[bool]] = None,
              zone_redundant: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'autoPauseDelayInMinutes' in kwargs:
+        if auto_pause_delay_in_minutes is None and 'autoPauseDelayInMinutes' in kwargs:
             auto_pause_delay_in_minutes = kwargs['autoPauseDelayInMinutes']
-        if 'createMode' in kwargs:
+        if create_mode is None and 'createMode' in kwargs:
             create_mode = kwargs['createMode']
-        if 'creationSourceDatabaseId' in kwargs:
+        if creation_source_database_id is None and 'creationSourceDatabaseId' in kwargs:
             creation_source_database_id = kwargs['creationSourceDatabaseId']
-        if 'elasticPoolId' in kwargs:
+        if elastic_pool_id is None and 'elasticPoolId' in kwargs:
             elastic_pool_id = kwargs['elasticPoolId']
-        if 'geoBackupEnabled' in kwargs:
+        if geo_backup_enabled is None and 'geoBackupEnabled' in kwargs:
             geo_backup_enabled = kwargs['geoBackupEnabled']
-        if 'import' in kwargs:
+        if import_ is None and 'import' in kwargs:
             import_ = kwargs['import']
-        if 'ledgerEnabled' in kwargs:
+        if ledger_enabled is None and 'ledgerEnabled' in kwargs:
             ledger_enabled = kwargs['ledgerEnabled']
-        if 'licenseType' in kwargs:
+        if license_type is None and 'licenseType' in kwargs:
             license_type = kwargs['licenseType']
-        if 'longTermRetentionPolicy' in kwargs:
+        if long_term_retention_policy is None and 'longTermRetentionPolicy' in kwargs:
             long_term_retention_policy = kwargs['longTermRetentionPolicy']
-        if 'maintenanceConfigurationName' in kwargs:
+        if maintenance_configuration_name is None and 'maintenanceConfigurationName' in kwargs:
             maintenance_configuration_name = kwargs['maintenanceConfigurationName']
-        if 'maxSizeGb' in kwargs:
+        if max_size_gb is None and 'maxSizeGb' in kwargs:
             max_size_gb = kwargs['maxSizeGb']
-        if 'minCapacity' in kwargs:
+        if min_capacity is None and 'minCapacity' in kwargs:
             min_capacity = kwargs['minCapacity']
-        if 'readReplicaCount' in kwargs:
+        if read_replica_count is None and 'readReplicaCount' in kwargs:
             read_replica_count = kwargs['readReplicaCount']
-        if 'readScale' in kwargs:
+        if read_scale is None and 'readScale' in kwargs:
             read_scale = kwargs['readScale']
-        if 'recoverDatabaseId' in kwargs:
+        if recover_database_id is None and 'recoverDatabaseId' in kwargs:
             recover_database_id = kwargs['recoverDatabaseId']
-        if 'restoreDroppedDatabaseId' in kwargs:
+        if restore_dropped_database_id is None and 'restoreDroppedDatabaseId' in kwargs:
             restore_dropped_database_id = kwargs['restoreDroppedDatabaseId']
-        if 'restorePointInTime' in kwargs:
+        if restore_point_in_time is None and 'restorePointInTime' in kwargs:
             restore_point_in_time = kwargs['restorePointInTime']
-        if 'sampleName' in kwargs:
+        if sample_name is None and 'sampleName' in kwargs:
             sample_name = kwargs['sampleName']
-        if 'serverId' in kwargs:
+        if server_id is None and 'serverId' in kwargs:
             server_id = kwargs['serverId']
-        if 'shortTermRetentionPolicy' in kwargs:
+        if short_term_retention_policy is None and 'shortTermRetentionPolicy' in kwargs:
             short_term_retention_policy = kwargs['shortTermRetentionPolicy']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'storageAccountType' in kwargs:
+        if storage_account_type is None and 'storageAccountType' in kwargs:
             storage_account_type = kwargs['storageAccountType']
-        if 'threatDetectionPolicy' in kwargs:
+        if threat_detection_policy is None and 'threatDetectionPolicy' in kwargs:
             threat_detection_policy = kwargs['threatDetectionPolicy']
-        if 'transparentDataEncryptionEnabled' in kwargs:
+        if transparent_data_encryption_enabled is None and 'transparentDataEncryptionEnabled' in kwargs:
             transparent_data_encryption_enabled = kwargs['transparentDataEncryptionEnabled']
-        if 'zoneRedundant' in kwargs:
+        if zone_redundant is None and 'zoneRedundant' in kwargs:
             zone_redundant = kwargs['zoneRedundant']
 
         if auto_pause_delay_in_minutes is not None:
@@ -1247,37 +1249,6 @@ class Database(pulumi.CustomResource):
         """
         Manages a MS SQL Database.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_server = azure.mssql.Server("exampleServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            version="12.0",
-            administrator_login="4dm1n157r470r",
-            administrator_login_password="4-v3ry-53cr37-p455w0rd")
-        test = azure.mssql.Database("test",
-            server_id=example_server.id,
-            collation="SQL_Latin1_General_CP1_CI_AS",
-            license_type="LicenseIncluded",
-            max_size_gb=4,
-            read_scale=True,
-            sku_name="S0",
-            zone_redundant=True,
-            tags={
-                "foo": "bar",
-            })
-        ```
-
         ## Import
 
         SQL Database can be imported using the `resource id`, e.g.
@@ -1339,37 +1310,6 @@ class Database(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a MS SQL Database.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_server = azure.mssql.Server("exampleServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            version="12.0",
-            administrator_login="4dm1n157r470r",
-            administrator_login_password="4-v3ry-53cr37-p455w0rd")
-        test = azure.mssql.Database("test",
-            server_id=example_server.id,
-            collation="SQL_Latin1_General_CP1_CI_AS",
-            license_type="LicenseIncluded",
-            max_size_gb=4,
-            read_scale=True,
-            sku_name="S0",
-            zone_redundant=True,
-            tags={
-                "foo": "bar",
-            })
-        ```
 
         ## Import
 
@@ -1441,19 +1381,11 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["creation_source_database_id"] = creation_source_database_id
             __props__.__dict__["elastic_pool_id"] = elastic_pool_id
             __props__.__dict__["geo_backup_enabled"] = geo_backup_enabled
-            if import_ is not None and not isinstance(import_, DatabaseImportArgs):
-                import_ = import_ or {}
-                def _setter(key, value):
-                    import_[key] = value
-                DatabaseImportArgs._configure(_setter, **import_)
+            import_ = _utilities.configure(import_, DatabaseImportArgs, True)
             __props__.__dict__["import_"] = import_
             __props__.__dict__["ledger_enabled"] = ledger_enabled
             __props__.__dict__["license_type"] = license_type
-            if long_term_retention_policy is not None and not isinstance(long_term_retention_policy, DatabaseLongTermRetentionPolicyArgs):
-                long_term_retention_policy = long_term_retention_policy or {}
-                def _setter(key, value):
-                    long_term_retention_policy[key] = value
-                DatabaseLongTermRetentionPolicyArgs._configure(_setter, **long_term_retention_policy)
+            long_term_retention_policy = _utilities.configure(long_term_retention_policy, DatabaseLongTermRetentionPolicyArgs, True)
             __props__.__dict__["long_term_retention_policy"] = long_term_retention_policy
             __props__.__dict__["maintenance_configuration_name"] = maintenance_configuration_name
             __props__.__dict__["max_size_gb"] = max_size_gb
@@ -1468,20 +1400,12 @@ class Database(pulumi.CustomResource):
             if server_id is None and not opts.urn:
                 raise TypeError("Missing required property 'server_id'")
             __props__.__dict__["server_id"] = server_id
-            if short_term_retention_policy is not None and not isinstance(short_term_retention_policy, DatabaseShortTermRetentionPolicyArgs):
-                short_term_retention_policy = short_term_retention_policy or {}
-                def _setter(key, value):
-                    short_term_retention_policy[key] = value
-                DatabaseShortTermRetentionPolicyArgs._configure(_setter, **short_term_retention_policy)
+            short_term_retention_policy = _utilities.configure(short_term_retention_policy, DatabaseShortTermRetentionPolicyArgs, True)
             __props__.__dict__["short_term_retention_policy"] = short_term_retention_policy
             __props__.__dict__["sku_name"] = sku_name
             __props__.__dict__["storage_account_type"] = storage_account_type
             __props__.__dict__["tags"] = tags
-            if threat_detection_policy is not None and not isinstance(threat_detection_policy, DatabaseThreatDetectionPolicyArgs):
-                threat_detection_policy = threat_detection_policy or {}
-                def _setter(key, value):
-                    threat_detection_policy[key] = value
-                DatabaseThreatDetectionPolicyArgs._configure(_setter, **threat_detection_policy)
+            threat_detection_policy = _utilities.configure(threat_detection_policy, DatabaseThreatDetectionPolicyArgs, True)
             __props__.__dict__["threat_detection_policy"] = threat_detection_policy
             __props__.__dict__["transparent_data_encryption_enabled"] = transparent_data_encryption_enabled
             __props__.__dict__["zone_redundant"] = zone_redundant

@@ -8,22 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Get information about an Azure Site Recovery Plan within a Recovery Services vault. A recovery plan gathers machines into recovery groups for the purpose of failover.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const vault = azure.recoveryservices.getVault({
- *     name: "tfex-recovery_vault",
- *     resourceGroupName: "tfex-resource_group",
- * });
- * const example = vault.then(vault => azure.siterecovery.getReplicationRecoveryPlan({
- *     name: "example-recovery-plan",
- *     recoveryVaultId: vault.id,
- * }));
- * ```
  */
 export function getReplicationRecoveryPlan(args: GetReplicationRecoveryPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationRecoveryPlanResult> {
 
@@ -79,22 +63,6 @@ export interface GetReplicationRecoveryPlanResult {
 }
 /**
  * Get information about an Azure Site Recovery Plan within a Recovery Services vault. A recovery plan gathers machines into recovery groups for the purpose of failover.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const vault = azure.recoveryservices.getVault({
- *     name: "tfex-recovery_vault",
- *     resourceGroupName: "tfex-resource_group",
- * });
- * const example = vault.then(vault => azure.siterecovery.getReplicationRecoveryPlan({
- *     name: "example-recovery-plan",
- *     recoveryVaultId: vault.id,
- * }));
- * ```
  */
 export function getReplicationRecoveryPlanOutput(args: GetReplicationRecoveryPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationRecoveryPlanResult> {
     return pulumi.output(args).apply((a: any) => getReplicationRecoveryPlan(a, opts))

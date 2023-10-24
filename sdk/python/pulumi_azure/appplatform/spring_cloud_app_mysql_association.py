@@ -41,20 +41,30 @@ class SpringCloudAppMysqlAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database_name: pulumi.Input[str],
-             mysql_server_id: pulumi.Input[str],
-             password: pulumi.Input[str],
-             spring_cloud_app_id: pulumi.Input[str],
-             username: pulumi.Input[str],
+             database_name: Optional[pulumi.Input[str]] = None,
+             mysql_server_id: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'databaseName' in kwargs:
+        if database_name is None and 'databaseName' in kwargs:
             database_name = kwargs['databaseName']
-        if 'mysqlServerId' in kwargs:
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if mysql_server_id is None and 'mysqlServerId' in kwargs:
             mysql_server_id = kwargs['mysqlServerId']
-        if 'springCloudAppId' in kwargs:
+        if mysql_server_id is None:
+            raise TypeError("Missing 'mysql_server_id' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if spring_cloud_app_id is None and 'springCloudAppId' in kwargs:
             spring_cloud_app_id = kwargs['springCloudAppId']
+        if spring_cloud_app_id is None:
+            raise TypeError("Missing 'spring_cloud_app_id' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
 
         _setter("database_name", database_name)
         _setter("mysql_server_id", mysql_server_id)
@@ -173,13 +183,13 @@ class _SpringCloudAppMysqlAssociationState:
              password: Optional[pulumi.Input[str]] = None,
              spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'databaseName' in kwargs:
+        if database_name is None and 'databaseName' in kwargs:
             database_name = kwargs['databaseName']
-        if 'mysqlServerId' in kwargs:
+        if mysql_server_id is None and 'mysqlServerId' in kwargs:
             mysql_server_id = kwargs['mysqlServerId']
-        if 'springCloudAppId' in kwargs:
+        if spring_cloud_app_id is None and 'springCloudAppId' in kwargs:
             spring_cloud_app_id = kwargs['springCloudAppId']
 
         if database_name is not None:
@@ -283,42 +293,6 @@ class SpringCloudAppMysqlAssociation(pulumi.CustomResource):
         """
         Associates a Spring Cloud Application with a MySQL Database.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_spring_cloud_app = azure.appplatform.SpringCloudApp("exampleSpringCloudApp",
-            resource_group_name=example_resource_group.name,
-            service_name=example_spring_cloud_service.name)
-        example_server = azure.mysql.Server("exampleServer",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            administrator_login="mysqladminun",
-            administrator_login_password="H@Sh1CoR3!",
-            sku_name="B_Gen5_2",
-            storage_mb=5120,
-            version="5.7",
-            ssl_enforcement_enabled=True,
-            ssl_minimal_tls_version_enforced="TLS1_2")
-        example_database = azure.mysql.Database("exampleDatabase",
-            resource_group_name=example_resource_group.name,
-            server_name=example_server.name,
-            charset="utf8",
-            collation="utf8_unicode_ci")
-        example_spring_cloud_app_mysql_association = azure.appplatform.SpringCloudAppMysqlAssociation("exampleSpringCloudAppMysqlAssociation",
-            spring_cloud_app_id=example_spring_cloud_app.id,
-            mysql_server_id=example_server.id,
-            database_name=example_database.name,
-            username=example_server.administrator_login,
-            password=example_server.administrator_login_password)
-        ```
-
         ## Import
 
         Spring Cloud Application MySQL Association can be imported using the `resource id`, e.g.
@@ -344,42 +318,6 @@ class SpringCloudAppMysqlAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Associates a Spring Cloud Application with a MySQL Database.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_spring_cloud_app = azure.appplatform.SpringCloudApp("exampleSpringCloudApp",
-            resource_group_name=example_resource_group.name,
-            service_name=example_spring_cloud_service.name)
-        example_server = azure.mysql.Server("exampleServer",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            administrator_login="mysqladminun",
-            administrator_login_password="H@Sh1CoR3!",
-            sku_name="B_Gen5_2",
-            storage_mb=5120,
-            version="5.7",
-            ssl_enforcement_enabled=True,
-            ssl_minimal_tls_version_enforced="TLS1_2")
-        example_database = azure.mysql.Database("exampleDatabase",
-            resource_group_name=example_resource_group.name,
-            server_name=example_server.name,
-            charset="utf8",
-            collation="utf8_unicode_ci")
-        example_spring_cloud_app_mysql_association = azure.appplatform.SpringCloudAppMysqlAssociation("exampleSpringCloudAppMysqlAssociation",
-            spring_cloud_app_id=example_spring_cloud_app.id,
-            mysql_server_id=example_server.id,
-            database_name=example_database.name,
-            username=example_server.administrator_login,
-            password=example_server.administrator_login_password)
-        ```
 
         ## Import
 

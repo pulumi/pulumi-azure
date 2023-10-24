@@ -34,13 +34,15 @@ class TableArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             storage_account_name: pulumi.Input[str],
+             storage_account_name: Optional[pulumi.Input[str]] = None,
              acls: Optional[pulumi.Input[Sequence[pulumi.Input['TableAclArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'storageAccountName' in kwargs:
+        if storage_account_name is None and 'storageAccountName' in kwargs:
             storage_account_name = kwargs['storageAccountName']
+        if storage_account_name is None:
+            raise TypeError("Missing 'storage_account_name' argument")
 
         _setter("storage_account_name", storage_account_name)
         if acls is not None:
@@ -109,9 +111,9 @@ class _TableState:
              acls: Optional[pulumi.Input[Sequence[pulumi.Input['TableAclArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              storage_account_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'storageAccountName' in kwargs:
+        if storage_account_name is None and 'storageAccountName' in kwargs:
             storage_account_name = kwargs['storageAccountName']
 
         if acls is not None:
@@ -170,21 +172,6 @@ class Table(pulumi.CustomResource):
         """
         Manages a Table within an Azure Storage Account.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_table = azure.storage.Table("exampleTable", storage_account_name=example_account.name)
-        ```
-
         ## Import
 
         Table's within a Storage Account can be imported using the `resource id`, e.g.
@@ -207,21 +194,6 @@ class Table(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Table within an Azure Storage Account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_table = azure.storage.Table("exampleTable", storage_account_name=example_account.name)
-        ```
 
         ## Import
 

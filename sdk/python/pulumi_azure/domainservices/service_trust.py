@@ -38,19 +38,27 @@ class ServiceTrustArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             domain_service_id: pulumi.Input[str],
-             password: pulumi.Input[str],
-             trusted_domain_dns_ips: pulumi.Input[Sequence[pulumi.Input[str]]],
-             trusted_domain_fqdn: pulumi.Input[str],
+             domain_service_id: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             trusted_domain_dns_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             trusted_domain_fqdn: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'domainServiceId' in kwargs:
+        if domain_service_id is None and 'domainServiceId' in kwargs:
             domain_service_id = kwargs['domainServiceId']
-        if 'trustedDomainDnsIps' in kwargs:
+        if domain_service_id is None:
+            raise TypeError("Missing 'domain_service_id' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if trusted_domain_dns_ips is None and 'trustedDomainDnsIps' in kwargs:
             trusted_domain_dns_ips = kwargs['trustedDomainDnsIps']
-        if 'trustedDomainFqdn' in kwargs:
+        if trusted_domain_dns_ips is None:
+            raise TypeError("Missing 'trusted_domain_dns_ips' argument")
+        if trusted_domain_fqdn is None and 'trustedDomainFqdn' in kwargs:
             trusted_domain_fqdn = kwargs['trustedDomainFqdn']
+        if trusted_domain_fqdn is None:
+            raise TypeError("Missing 'trusted_domain_fqdn' argument")
 
         _setter("domain_service_id", domain_service_id)
         _setter("password", password)
@@ -152,13 +160,13 @@ class _ServiceTrustState:
              password: Optional[pulumi.Input[str]] = None,
              trusted_domain_dns_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              trusted_domain_fqdn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'domainServiceId' in kwargs:
+        if domain_service_id is None and 'domainServiceId' in kwargs:
             domain_service_id = kwargs['domainServiceId']
-        if 'trustedDomainDnsIps' in kwargs:
+        if trusted_domain_dns_ips is None and 'trustedDomainDnsIps' in kwargs:
             trusted_domain_dns_ips = kwargs['trustedDomainDnsIps']
-        if 'trustedDomainFqdn' in kwargs:
+        if trusted_domain_fqdn is None and 'trustedDomainFqdn' in kwargs:
             trusted_domain_fqdn = kwargs['trustedDomainFqdn']
 
         if domain_service_id is not None:
@@ -247,24 +255,6 @@ class ServiceTrust(pulumi.CustomResource):
         """
         Manages a Active Directory Domain Service Trust.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_service = azure.domainservices.get_service(name="example-ds",
-            resource_group_name="example-rg")
-        example_service_trust = azure.domainservices.ServiceTrust("exampleServiceTrust",
-            domain_service_id=example_service.id,
-            trusted_domain_fqdn="example.com",
-            trusted_domain_dns_ips=[
-                "10.1.0.3",
-                "10.1.0.4",
-            ],
-            password="Password123")
-        ```
-
         ## Import
 
         Active Directory Domain Service Trusts can be imported using the `resource id`, e.g.
@@ -289,24 +279,6 @@ class ServiceTrust(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Active Directory Domain Service Trust.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_service = azure.domainservices.get_service(name="example-ds",
-            resource_group_name="example-rg")
-        example_service_trust = azure.domainservices.ServiceTrust("exampleServiceTrust",
-            domain_service_id=example_service.id,
-            trusted_domain_fqdn="example.com",
-            trusted_domain_dns_ips=[
-                "10.1.0.3",
-                "10.1.0.4",
-            ],
-            password="Password123")
-        ```
 
         ## Import
 

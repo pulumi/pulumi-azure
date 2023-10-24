@@ -86,10 +86,10 @@ class AlertRuleNrtArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             display_name: pulumi.Input[str],
-             log_analytics_workspace_id: pulumi.Input[str],
-             query: pulumi.Input[str],
-             severity: pulumi.Input[str],
+             display_name: Optional[pulumi.Input[str]] = None,
+             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+             query: Optional[pulumi.Input[str]] = None,
+             severity: Optional[pulumi.Input[str]] = None,
              alert_details_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtAlertDetailsOverrideArgs']]]] = None,
              alert_rule_template_guid: Optional[pulumi.Input[str]] = None,
              alert_rule_template_version: Optional[pulumi.Input[str]] = None,
@@ -105,29 +105,37 @@ class AlertRuleNrtArgs:
              suppression_enabled: Optional[pulumi.Input[bool]] = None,
              tactics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              techniques: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if 'alertDetailsOverrides' in kwargs:
+        if log_analytics_workspace_id is None:
+            raise TypeError("Missing 'log_analytics_workspace_id' argument")
+        if query is None:
+            raise TypeError("Missing 'query' argument")
+        if severity is None:
+            raise TypeError("Missing 'severity' argument")
+        if alert_details_overrides is None and 'alertDetailsOverrides' in kwargs:
             alert_details_overrides = kwargs['alertDetailsOverrides']
-        if 'alertRuleTemplateGuid' in kwargs:
+        if alert_rule_template_guid is None and 'alertRuleTemplateGuid' in kwargs:
             alert_rule_template_guid = kwargs['alertRuleTemplateGuid']
-        if 'alertRuleTemplateVersion' in kwargs:
+        if alert_rule_template_version is None and 'alertRuleTemplateVersion' in kwargs:
             alert_rule_template_version = kwargs['alertRuleTemplateVersion']
-        if 'customDetails' in kwargs:
+        if custom_details is None and 'customDetails' in kwargs:
             custom_details = kwargs['customDetails']
-        if 'entityMappings' in kwargs:
+        if entity_mappings is None and 'entityMappings' in kwargs:
             entity_mappings = kwargs['entityMappings']
-        if 'eventGrouping' in kwargs:
+        if event_grouping is None and 'eventGrouping' in kwargs:
             event_grouping = kwargs['eventGrouping']
-        if 'sentinelEntityMappings' in kwargs:
+        if sentinel_entity_mappings is None and 'sentinelEntityMappings' in kwargs:
             sentinel_entity_mappings = kwargs['sentinelEntityMappings']
-        if 'suppressionDuration' in kwargs:
+        if suppression_duration is None and 'suppressionDuration' in kwargs:
             suppression_duration = kwargs['suppressionDuration']
-        if 'suppressionEnabled' in kwargs:
+        if suppression_enabled is None and 'suppressionEnabled' in kwargs:
             suppression_enabled = kwargs['suppressionEnabled']
 
         _setter("display_name", display_name)
@@ -490,29 +498,29 @@ class _AlertRuleNrtState:
              suppression_enabled: Optional[pulumi.Input[bool]] = None,
              tactics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              techniques: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'alertDetailsOverrides' in kwargs:
+        if alert_details_overrides is None and 'alertDetailsOverrides' in kwargs:
             alert_details_overrides = kwargs['alertDetailsOverrides']
-        if 'alertRuleTemplateGuid' in kwargs:
+        if alert_rule_template_guid is None and 'alertRuleTemplateGuid' in kwargs:
             alert_rule_template_guid = kwargs['alertRuleTemplateGuid']
-        if 'alertRuleTemplateVersion' in kwargs:
+        if alert_rule_template_version is None and 'alertRuleTemplateVersion' in kwargs:
             alert_rule_template_version = kwargs['alertRuleTemplateVersion']
-        if 'customDetails' in kwargs:
+        if custom_details is None and 'customDetails' in kwargs:
             custom_details = kwargs['customDetails']
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'entityMappings' in kwargs:
+        if entity_mappings is None and 'entityMappings' in kwargs:
             entity_mappings = kwargs['entityMappings']
-        if 'eventGrouping' in kwargs:
+        if event_grouping is None and 'eventGrouping' in kwargs:
             event_grouping = kwargs['eventGrouping']
-        if 'logAnalyticsWorkspaceId' in kwargs:
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
             log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
-        if 'sentinelEntityMappings' in kwargs:
+        if sentinel_entity_mappings is None and 'sentinelEntityMappings' in kwargs:
             sentinel_entity_mappings = kwargs['sentinelEntityMappings']
-        if 'suppressionDuration' in kwargs:
+        if suppression_duration is None and 'suppressionDuration' in kwargs:
             suppression_duration = kwargs['suppressionDuration']
-        if 'suppressionEnabled' in kwargs:
+        if suppression_enabled is None and 'suppressionEnabled' in kwargs:
             suppression_enabled = kwargs['suppressionEnabled']
 
         if alert_details_overrides is not None:
@@ -815,29 +823,6 @@ class AlertRuleNrt(pulumi.CustomResource):
         """
         Manages a Sentinel NRT Alert Rule.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="pergb2018")
-        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", workspace_id=example_analytics_workspace.id)
-        example_alert_rule_nrt = azure.sentinel.AlertRuleNrt("exampleAlertRuleNrt",
-            log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
-            display_name="example",
-            severity="High",
-            query=\"\"\"AzureActivity |
-          where OperationName == "Create or Update Virtual Machine" or OperationName =="Create Deployment" |
-          where ActivityStatus == "Succeeded" |
-          make-series dcount(ResourceId) default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
-        \"\"\")
-        ```
-
         ## Import
 
         Sentinel NRT Alert Rules can be imported using the `resource id`, e.g.
@@ -880,29 +865,6 @@ class AlertRuleNrt(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Sentinel NRT Alert Rule.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="pergb2018")
-        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", workspace_id=example_analytics_workspace.id)
-        example_alert_rule_nrt = azure.sentinel.AlertRuleNrt("exampleAlertRuleNrt",
-            log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
-            display_name="example",
-            severity="High",
-            query=\"\"\"AzureActivity |
-          where OperationName == "Create or Update Virtual Machine" or OperationName =="Create Deployment" |
-          where ActivityStatus == "Succeeded" |
-          make-series dcount(ResourceId) default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
-        \"\"\")
-        ```
 
         ## Import
 
@@ -969,17 +931,9 @@ class AlertRuleNrt(pulumi.CustomResource):
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["entity_mappings"] = entity_mappings
-            if event_grouping is not None and not isinstance(event_grouping, AlertRuleNrtEventGroupingArgs):
-                event_grouping = event_grouping or {}
-                def _setter(key, value):
-                    event_grouping[key] = value
-                AlertRuleNrtEventGroupingArgs._configure(_setter, **event_grouping)
+            event_grouping = _utilities.configure(event_grouping, AlertRuleNrtEventGroupingArgs, True)
             __props__.__dict__["event_grouping"] = event_grouping
-            if incident is not None and not isinstance(incident, AlertRuleNrtIncidentArgs):
-                incident = incident or {}
-                def _setter(key, value):
-                    incident[key] = value
-                AlertRuleNrtIncidentArgs._configure(_setter, **incident)
+            incident = _utilities.configure(incident, AlertRuleNrtIncidentArgs, True)
             __props__.__dict__["incident"] = incident
             if log_analytics_workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'log_analytics_workspace_id'")

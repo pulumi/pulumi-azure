@@ -17,67 +17,6 @@ import (
 //
 // > **NOTE:** This resource is applicable only for Spring Cloud Service with basic and standard tier.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "exampleSpringCloudService", &appplatform.SpringCloudServiceArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSpringCloudApp, err := appplatform.NewSpringCloudApp(ctx, "exampleSpringCloudApp", &appplatform.SpringCloudAppArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				ServiceName:       exampleSpringCloudService.Name,
-//				Identity: &appplatform.SpringCloudAppIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appplatform.NewSpringCloudJavaDeployment(ctx, "exampleSpringCloudJavaDeployment", &appplatform.SpringCloudJavaDeploymentArgs{
-//				SpringCloudAppId: exampleSpringCloudApp.ID(),
-//				InstanceCount:    pulumi.Int(2),
-//				JvmOptions:       pulumi.String("-XX:+PrintGC"),
-//				Quota: &appplatform.SpringCloudJavaDeploymentQuotaArgs{
-//					Cpu:    pulumi.String("2"),
-//					Memory: pulumi.String("4Gi"),
-//				},
-//				RuntimeVersion: pulumi.String("Java_11"),
-//				EnvironmentVariables: pulumi.StringMap{
-//					"Foo": pulumi.String("Bar"),
-//					"Env": pulumi.String("Staging"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Spring Cloud Deployment can be imported using the `resource id`, e.g.

@@ -48,20 +48,24 @@ class FunctionAppFunctionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             config_json: pulumi.Input[str],
-             function_app_id: pulumi.Input[str],
+             config_json: Optional[pulumi.Input[str]] = None,
+             function_app_id: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              files: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppFunctionFileArgs']]]] = None,
              language: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              test_data: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'configJson' in kwargs:
+        if config_json is None and 'configJson' in kwargs:
             config_json = kwargs['configJson']
-        if 'functionAppId' in kwargs:
+        if config_json is None:
+            raise TypeError("Missing 'config_json' argument")
+        if function_app_id is None and 'functionAppId' in kwargs:
             function_app_id = kwargs['functionAppId']
-        if 'testData' in kwargs:
+        if function_app_id is None:
+            raise TypeError("Missing 'function_app_id' argument")
+        if test_data is None and 'testData' in kwargs:
             test_data = kwargs['testData']
 
         _setter("config_json", config_json)
@@ -234,25 +238,25 @@ class _FunctionAppFunctionState:
              test_data: Optional[pulumi.Input[str]] = None,
              test_data_url: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'configJson' in kwargs:
+        if config_json is None and 'configJson' in kwargs:
             config_json = kwargs['configJson']
-        if 'configUrl' in kwargs:
+        if config_url is None and 'configUrl' in kwargs:
             config_url = kwargs['configUrl']
-        if 'functionAppId' in kwargs:
+        if function_app_id is None and 'functionAppId' in kwargs:
             function_app_id = kwargs['functionAppId']
-        if 'invocationUrl' in kwargs:
+        if invocation_url is None and 'invocationUrl' in kwargs:
             invocation_url = kwargs['invocationUrl']
-        if 'scriptRootPathUrl' in kwargs:
+        if script_root_path_url is None and 'scriptRootPathUrl' in kwargs:
             script_root_path_url = kwargs['scriptRootPathUrl']
-        if 'scriptUrl' in kwargs:
+        if script_url is None and 'scriptUrl' in kwargs:
             script_url = kwargs['scriptUrl']
-        if 'secretsFileUrl' in kwargs:
+        if secrets_file_url is None and 'secretsFileUrl' in kwargs:
             secrets_file_url = kwargs['secretsFileUrl']
-        if 'testData' in kwargs:
+        if test_data is None and 'testData' in kwargs:
             test_data = kwargs['testData']
-        if 'testDataUrl' in kwargs:
+        if test_data_url is None and 'testDataUrl' in kwargs:
             test_data_url = kwargs['testDataUrl']
 
         if config_json is not None:
@@ -472,120 +476,6 @@ class FunctionAppFunction(pulumi.CustomResource):
         Manages a Function App Function.
 
         ## Example Usage
-        ### Basic HTTP Trigger
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            os_type="Linux",
-            sku_name="S1")
-        example_linux_function_app = azure.appservice.LinuxFunctionApp("exampleLinuxFunctionApp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            service_plan_id=example_service_plan.id,
-            storage_account_name=example_account.name,
-            storage_account_access_key=example_account.primary_access_key,
-            site_config=azure.appservice.LinuxFunctionAppSiteConfigArgs(
-                application_stack=azure.appservice.LinuxFunctionAppSiteConfigApplicationStackArgs(
-                    python_version="3.9",
-                ),
-            ))
-        example_function_app_function = azure.appservice.FunctionAppFunction("exampleFunctionAppFunction",
-            function_app_id=example_linux_function_app.id,
-            language="Python",
-            test_data=json.dumps({
-                "name": "Azure",
-            }),
-            config_json=json.dumps({
-                "bindings": [
-                    {
-                        "authLevel": "function",
-                        "direction": "in",
-                        "methods": [
-                            "get",
-                            "post",
-                        ],
-                        "name": "req",
-                        "type": "httpTrigger",
-                    },
-                    {
-                        "direction": "out",
-                        "name": "$return",
-                        "type": "http",
-                    },
-                ],
-            }))
-        ```
-        ### HTTP Trigger With Code Upload
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            os_type="Windows",
-            sku_name="S1")
-        example_windows_function_app = azure.appservice.WindowsFunctionApp("exampleWindowsFunctionApp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            service_plan_id=example_service_plan.id,
-            storage_account_name=example_account.name,
-            storage_account_access_key=example_account.primary_access_key,
-            site_config=azure.appservice.WindowsFunctionAppSiteConfigArgs(
-                application_stack=azure.appservice.WindowsFunctionAppSiteConfigApplicationStackArgs(
-                    dotnet_version="6",
-                ),
-            ))
-        example_function_app_function = azure.appservice.FunctionAppFunction("exampleFunctionAppFunction",
-            function_app_id=example_windows_function_app.id,
-            language="CSharp",
-            files=[azure.appservice.FunctionAppFunctionFileArgs(
-                name="run.csx",
-                content=(lambda path: open(path).read())("exampledata/run.csx"),
-            )],
-            test_data=json.dumps({
-                "name": "Azure",
-            }),
-            config_json=json.dumps({
-                "bindings": [
-                    {
-                        "authLevel": "function",
-                        "direction": "in",
-                        "methods": [
-                            "get",
-                            "post",
-                        ],
-                        "name": "req",
-                        "type": "httpTrigger",
-                    },
-                    {
-                        "direction": "out",
-                        "name": "$return",
-                        "type": "http",
-                    },
-                ],
-            }))
-        ```
 
         ## Import
 
@@ -617,120 +507,6 @@ class FunctionAppFunction(pulumi.CustomResource):
         Manages a Function App Function.
 
         ## Example Usage
-        ### Basic HTTP Trigger
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            os_type="Linux",
-            sku_name="S1")
-        example_linux_function_app = azure.appservice.LinuxFunctionApp("exampleLinuxFunctionApp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            service_plan_id=example_service_plan.id,
-            storage_account_name=example_account.name,
-            storage_account_access_key=example_account.primary_access_key,
-            site_config=azure.appservice.LinuxFunctionAppSiteConfigArgs(
-                application_stack=azure.appservice.LinuxFunctionAppSiteConfigApplicationStackArgs(
-                    python_version="3.9",
-                ),
-            ))
-        example_function_app_function = azure.appservice.FunctionAppFunction("exampleFunctionAppFunction",
-            function_app_id=example_linux_function_app.id,
-            language="Python",
-            test_data=json.dumps({
-                "name": "Azure",
-            }),
-            config_json=json.dumps({
-                "bindings": [
-                    {
-                        "authLevel": "function",
-                        "direction": "in",
-                        "methods": [
-                            "get",
-                            "post",
-                        ],
-                        "name": "req",
-                        "type": "httpTrigger",
-                    },
-                    {
-                        "direction": "out",
-                        "name": "$return",
-                        "type": "http",
-                    },
-                ],
-            }))
-        ```
-        ### HTTP Trigger With Code Upload
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            os_type="Windows",
-            sku_name="S1")
-        example_windows_function_app = azure.appservice.WindowsFunctionApp("exampleWindowsFunctionApp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            service_plan_id=example_service_plan.id,
-            storage_account_name=example_account.name,
-            storage_account_access_key=example_account.primary_access_key,
-            site_config=azure.appservice.WindowsFunctionAppSiteConfigArgs(
-                application_stack=azure.appservice.WindowsFunctionAppSiteConfigApplicationStackArgs(
-                    dotnet_version="6",
-                ),
-            ))
-        example_function_app_function = azure.appservice.FunctionAppFunction("exampleFunctionAppFunction",
-            function_app_id=example_windows_function_app.id,
-            language="CSharp",
-            files=[azure.appservice.FunctionAppFunctionFileArgs(
-                name="run.csx",
-                content=(lambda path: open(path).read())("exampledata/run.csx"),
-            )],
-            test_data=json.dumps({
-                "name": "Azure",
-            }),
-            config_json=json.dumps({
-                "bindings": [
-                    {
-                        "authLevel": "function",
-                        "direction": "in",
-                        "methods": [
-                            "get",
-                            "post",
-                        ],
-                        "name": "req",
-                        "type": "httpTrigger",
-                    },
-                    {
-                        "direction": "out",
-                        "name": "$return",
-                        "type": "http",
-                    },
-                ],
-            }))
-        ```
 
         ## Import
 

@@ -85,8 +85,8 @@ class DatabaseArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             server_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
              collation: Optional[pulumi.Input[str]] = None,
              create_mode: Optional[pulumi.Input[str]] = None,
              edition: Optional[pulumi.Input[str]] = None,
@@ -105,37 +105,41 @@ class DatabaseArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              threat_detection_policy: Optional[pulumi.Input['DatabaseThreatDetectionPolicyArgs']] = None,
              zone_redundant: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serverName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if server_name is None and 'serverName' in kwargs:
             server_name = kwargs['serverName']
-        if 'createMode' in kwargs:
+        if server_name is None:
+            raise TypeError("Missing 'server_name' argument")
+        if create_mode is None and 'createMode' in kwargs:
             create_mode = kwargs['createMode']
-        if 'elasticPoolName' in kwargs:
+        if elastic_pool_name is None and 'elasticPoolName' in kwargs:
             elastic_pool_name = kwargs['elasticPoolName']
-        if 'import' in kwargs:
+        if import_ is None and 'import' in kwargs:
             import_ = kwargs['import']
-        if 'maxSizeBytes' in kwargs:
+        if max_size_bytes is None and 'maxSizeBytes' in kwargs:
             max_size_bytes = kwargs['maxSizeBytes']
-        if 'maxSizeGb' in kwargs:
+        if max_size_gb is None and 'maxSizeGb' in kwargs:
             max_size_gb = kwargs['maxSizeGb']
-        if 'readScale' in kwargs:
+        if read_scale is None and 'readScale' in kwargs:
             read_scale = kwargs['readScale']
-        if 'requestedServiceObjectiveId' in kwargs:
+        if requested_service_objective_id is None and 'requestedServiceObjectiveId' in kwargs:
             requested_service_objective_id = kwargs['requestedServiceObjectiveId']
-        if 'requestedServiceObjectiveName' in kwargs:
+        if requested_service_objective_name is None and 'requestedServiceObjectiveName' in kwargs:
             requested_service_objective_name = kwargs['requestedServiceObjectiveName']
-        if 'restorePointInTime' in kwargs:
+        if restore_point_in_time is None and 'restorePointInTime' in kwargs:
             restore_point_in_time = kwargs['restorePointInTime']
-        if 'sourceDatabaseDeletionDate' in kwargs:
+        if source_database_deletion_date is None and 'sourceDatabaseDeletionDate' in kwargs:
             source_database_deletion_date = kwargs['sourceDatabaseDeletionDate']
-        if 'sourceDatabaseId' in kwargs:
+        if source_database_id is None and 'sourceDatabaseId' in kwargs:
             source_database_id = kwargs['sourceDatabaseId']
-        if 'threatDetectionPolicy' in kwargs:
+        if threat_detection_policy is None and 'threatDetectionPolicy' in kwargs:
             threat_detection_policy = kwargs['threatDetectionPolicy']
-        if 'zoneRedundant' in kwargs:
+        if zone_redundant is None and 'zoneRedundant' in kwargs:
             zone_redundant = kwargs['zoneRedundant']
 
         _setter("resource_group_name", resource_group_name)
@@ -519,41 +523,41 @@ class _DatabaseState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              threat_detection_policy: Optional[pulumi.Input['DatabaseThreatDetectionPolicyArgs']] = None,
              zone_redundant: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'createMode' in kwargs:
+        if create_mode is None and 'createMode' in kwargs:
             create_mode = kwargs['createMode']
-        if 'creationDate' in kwargs:
+        if creation_date is None and 'creationDate' in kwargs:
             creation_date = kwargs['creationDate']
-        if 'defaultSecondaryLocation' in kwargs:
+        if default_secondary_location is None and 'defaultSecondaryLocation' in kwargs:
             default_secondary_location = kwargs['defaultSecondaryLocation']
-        if 'elasticPoolName' in kwargs:
+        if elastic_pool_name is None and 'elasticPoolName' in kwargs:
             elastic_pool_name = kwargs['elasticPoolName']
-        if 'import' in kwargs:
+        if import_ is None and 'import' in kwargs:
             import_ = kwargs['import']
-        if 'maxSizeBytes' in kwargs:
+        if max_size_bytes is None and 'maxSizeBytes' in kwargs:
             max_size_bytes = kwargs['maxSizeBytes']
-        if 'maxSizeGb' in kwargs:
+        if max_size_gb is None and 'maxSizeGb' in kwargs:
             max_size_gb = kwargs['maxSizeGb']
-        if 'readScale' in kwargs:
+        if read_scale is None and 'readScale' in kwargs:
             read_scale = kwargs['readScale']
-        if 'requestedServiceObjectiveId' in kwargs:
+        if requested_service_objective_id is None and 'requestedServiceObjectiveId' in kwargs:
             requested_service_objective_id = kwargs['requestedServiceObjectiveId']
-        if 'requestedServiceObjectiveName' in kwargs:
+        if requested_service_objective_name is None and 'requestedServiceObjectiveName' in kwargs:
             requested_service_objective_name = kwargs['requestedServiceObjectiveName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'restorePointInTime' in kwargs:
+        if restore_point_in_time is None and 'restorePointInTime' in kwargs:
             restore_point_in_time = kwargs['restorePointInTime']
-        if 'serverName' in kwargs:
+        if server_name is None and 'serverName' in kwargs:
             server_name = kwargs['serverName']
-        if 'sourceDatabaseDeletionDate' in kwargs:
+        if source_database_deletion_date is None and 'sourceDatabaseDeletionDate' in kwargs:
             source_database_deletion_date = kwargs['sourceDatabaseDeletionDate']
-        if 'sourceDatabaseId' in kwargs:
+        if source_database_id is None and 'sourceDatabaseId' in kwargs:
             source_database_id = kwargs['sourceDatabaseId']
-        if 'threatDetectionPolicy' in kwargs:
+        if threat_detection_policy is None and 'threatDetectionPolicy' in kwargs:
             threat_detection_policy = kwargs['threatDetectionPolicy']
-        if 'zoneRedundant' in kwargs:
+        if zone_redundant is None and 'zoneRedundant' in kwargs:
             zone_redundant = kwargs['zoneRedundant']
 
         if collation is not None:
@@ -906,36 +910,6 @@ class Database(pulumi.CustomResource):
 
         > **Note:** The `sql.Database` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.Database` resource instead.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_sql_server = azure.sql.SqlServer("exampleSqlServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            version="12.0",
-            administrator_login="4dm1n157r470r",
-            administrator_login_password="4-v3ry-53cr37-p455w0rd",
-            tags={
-                "environment": "production",
-            })
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_database = azure.sql.Database("exampleDatabase",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            server_name=example_sql_server.name,
-            tags={
-                "environment": "production",
-            })
-        ```
-
         ## Import
 
         SQL Databases can be imported using the `resource id`, e.g.
@@ -977,36 +951,6 @@ class Database(pulumi.CustomResource):
         Allows you to manage an Azure SQL Database
 
         > **Note:** The `sql.Database` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.Database` resource instead.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_sql_server = azure.sql.SqlServer("exampleSqlServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            version="12.0",
-            administrator_login="4dm1n157r470r",
-            administrator_login_password="4-v3ry-53cr37-p455w0rd",
-            tags={
-                "environment": "production",
-            })
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_database = azure.sql.Database("exampleDatabase",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            server_name=example_sql_server.name,
-            tags={
-                "environment": "production",
-            })
-        ```
 
         ## Import
 
@@ -1068,11 +1012,7 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["create_mode"] = create_mode
             __props__.__dict__["edition"] = edition
             __props__.__dict__["elastic_pool_name"] = elastic_pool_name
-            if import_ is not None and not isinstance(import_, DatabaseImportArgs):
-                import_ = import_ or {}
-                def _setter(key, value):
-                    import_[key] = value
-                DatabaseImportArgs._configure(_setter, **import_)
+            import_ = _utilities.configure(import_, DatabaseImportArgs, True)
             __props__.__dict__["import_"] = import_
             __props__.__dict__["location"] = location
             __props__.__dict__["max_size_bytes"] = max_size_bytes
@@ -1091,11 +1031,7 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["source_database_deletion_date"] = source_database_deletion_date
             __props__.__dict__["source_database_id"] = source_database_id
             __props__.__dict__["tags"] = tags
-            if threat_detection_policy is not None and not isinstance(threat_detection_policy, DatabaseThreatDetectionPolicyArgs):
-                threat_detection_policy = threat_detection_policy or {}
-                def _setter(key, value):
-                    threat_detection_policy[key] = value
-                DatabaseThreatDetectionPolicyArgs._configure(_setter, **threat_detection_policy)
+            threat_detection_policy = _utilities.configure(threat_detection_policy, DatabaseThreatDetectionPolicyArgs, True)
             __props__.__dict__["threat_detection_policy"] = threat_detection_policy
             __props__.__dict__["zone_redundant"] = zone_redundant
             __props__.__dict__["creation_date"] = None

@@ -41,21 +41,29 @@ class VirtualHubRouteTableRouteInitArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             destinations: pulumi.Input[Sequence[pulumi.Input[str]]],
-             destinations_type: pulumi.Input[str],
-             next_hop: pulumi.Input[str],
-             route_table_id: pulumi.Input[str],
+             destinations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             destinations_type: Optional[pulumi.Input[str]] = None,
+             next_hop: Optional[pulumi.Input[str]] = None,
+             route_table_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              next_hop_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'destinationsType' in kwargs:
+        if destinations is None:
+            raise TypeError("Missing 'destinations' argument")
+        if destinations_type is None and 'destinationsType' in kwargs:
             destinations_type = kwargs['destinationsType']
-        if 'nextHop' in kwargs:
+        if destinations_type is None:
+            raise TypeError("Missing 'destinations_type' argument")
+        if next_hop is None and 'nextHop' in kwargs:
             next_hop = kwargs['nextHop']
-        if 'routeTableId' in kwargs:
+        if next_hop is None:
+            raise TypeError("Missing 'next_hop' argument")
+        if route_table_id is None and 'routeTableId' in kwargs:
             route_table_id = kwargs['routeTableId']
-        if 'nextHopType' in kwargs:
+        if route_table_id is None:
+            raise TypeError("Missing 'route_table_id' argument")
+        if next_hop_type is None and 'nextHopType' in kwargs:
             next_hop_type = kwargs['nextHopType']
 
         _setter("destinations", destinations)
@@ -176,15 +184,15 @@ class _VirtualHubRouteTableRouteState:
              next_hop: Optional[pulumi.Input[str]] = None,
              next_hop_type: Optional[pulumi.Input[str]] = None,
              route_table_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'destinationsType' in kwargs:
+        if destinations_type is None and 'destinationsType' in kwargs:
             destinations_type = kwargs['destinationsType']
-        if 'nextHop' in kwargs:
+        if next_hop is None and 'nextHop' in kwargs:
             next_hop = kwargs['nextHop']
-        if 'nextHopType' in kwargs:
+        if next_hop_type is None and 'nextHopType' in kwargs:
             next_hop_type = kwargs['nextHopType']
-        if 'routeTableId' in kwargs:
+        if route_table_id is None and 'routeTableId' in kwargs:
             route_table_id = kwargs['routeTableId']
 
         if destinations is not None:
@@ -290,52 +298,6 @@ class VirtualHubRouteTableRoute(pulumi.CustomResource):
 
         > **Note:** Route table routes can managed with this resource, or in-line with the virtual_hub_route_table resource. Using both is not supported.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.5.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_network_security_group = azure.network.NetworkSecurityGroup("exampleNetworkSecurityGroup",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.5.1.0/24"])
-        example_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("exampleSubnetNetworkSecurityGroupAssociation",
-            subnet_id=example_subnet.id,
-            network_security_group_id=example_network_security_group.id)
-        example_virtual_wan = azure.network.VirtualWan("exampleVirtualWan",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_virtual_hub = azure.network.VirtualHub("exampleVirtualHub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            virtual_wan_id=example_virtual_wan.id,
-            address_prefix="10.0.2.0/24")
-        example_virtual_hub_route_table = azure.network.VirtualHubRouteTable("exampleVirtualHubRouteTable",
-            virtual_hub_id=example_virtual_hub.id,
-            labels=["label1"])
-        example_virtual_hub_connection = azure.network.VirtualHubConnection("exampleVirtualHubConnection",
-            virtual_hub_id=example_virtual_hub.id,
-            remote_virtual_network_id=example_virtual_network.id,
-            routing=azure.network.VirtualHubConnectionRoutingArgs(
-                associated_route_table_id=example_virtual_hub_route_table.id,
-            ))
-        example_virtual_hub_route_table_route = azure.network.VirtualHubRouteTableRoute("exampleVirtualHubRouteTableRoute",
-            route_table_id=example_virtual_hub_route_table.id,
-            destinations_type="CIDR",
-            destinations=["10.0.0.0/16"],
-            next_hop_type="ResourceId",
-            next_hop=example_virtual_hub_connection.id)
-        ```
-
         ## Import
 
         Virtual Hub Route Table Routes can be imported using `<Route Table Resource Id>/routes/<Route Name>`, e.g.
@@ -363,52 +325,6 @@ class VirtualHubRouteTableRoute(pulumi.CustomResource):
         Manages a Route in a Virtual Hub Route Table.
 
         > **Note:** Route table routes can managed with this resource, or in-line with the virtual_hub_route_table resource. Using both is not supported.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.5.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_network_security_group = azure.network.NetworkSecurityGroup("exampleNetworkSecurityGroup",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.5.1.0/24"])
-        example_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("exampleSubnetNetworkSecurityGroupAssociation",
-            subnet_id=example_subnet.id,
-            network_security_group_id=example_network_security_group.id)
-        example_virtual_wan = azure.network.VirtualWan("exampleVirtualWan",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_virtual_hub = azure.network.VirtualHub("exampleVirtualHub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            virtual_wan_id=example_virtual_wan.id,
-            address_prefix="10.0.2.0/24")
-        example_virtual_hub_route_table = azure.network.VirtualHubRouteTable("exampleVirtualHubRouteTable",
-            virtual_hub_id=example_virtual_hub.id,
-            labels=["label1"])
-        example_virtual_hub_connection = azure.network.VirtualHubConnection("exampleVirtualHubConnection",
-            virtual_hub_id=example_virtual_hub.id,
-            remote_virtual_network_id=example_virtual_network.id,
-            routing=azure.network.VirtualHubConnectionRoutingArgs(
-                associated_route_table_id=example_virtual_hub_route_table.id,
-            ))
-        example_virtual_hub_route_table_route = azure.network.VirtualHubRouteTableRoute("exampleVirtualHubRouteTableRoute",
-            route_table_id=example_virtual_hub_route_table.id,
-            destinations_type="CIDR",
-            destinations=["10.0.0.0/16"],
-            next_hop_type="ResourceId",
-            next_hop=example_virtual_hub_connection.id)
-        ```
 
         ## Import
 

@@ -15,34 +15,6 @@ import (
 // Use this data source to access information about an existing SQL Azure Database Server.
 //
 // > **Note:** The `sql.SqlServer` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.Server` data source instead.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sql"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := sql.GetServer(ctx, &sql.GetServerArgs{
-//				Name:              "examplesqlservername",
-//				ResourceGroupName: "example-resources",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("sqlServerId", example.Id)
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetServer(ctx *pulumi.Context, args *GetServerArgs, opts ...pulumi.InvokeOption) (*GetServerResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetServerResult

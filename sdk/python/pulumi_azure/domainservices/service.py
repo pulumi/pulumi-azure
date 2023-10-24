@@ -61,10 +61,10 @@ class ServiceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             domain_name: pulumi.Input[str],
-             initial_replica_set: pulumi.Input['ServiceInitialReplicaSetArgs'],
-             resource_group_name: pulumi.Input[str],
-             sku: pulumi.Input[str],
+             domain_name: Optional[pulumi.Input[str]] = None,
+             initial_replica_set: Optional[pulumi.Input['ServiceInitialReplicaSetArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
              domain_configuration_type: Optional[pulumi.Input[str]] = None,
              filtered_sync_enabled: Optional[pulumi.Input[bool]] = None,
              location: Optional[pulumi.Input[str]] = None,
@@ -73,19 +73,27 @@ class ServiceArgs:
              secure_ldap: Optional[pulumi.Input['ServiceSecureLdapArgs']] = None,
              security: Optional[pulumi.Input['ServiceSecurityArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'domainName' in kwargs:
+        if domain_name is None and 'domainName' in kwargs:
             domain_name = kwargs['domainName']
-        if 'initialReplicaSet' in kwargs:
+        if domain_name is None:
+            raise TypeError("Missing 'domain_name' argument")
+        if initial_replica_set is None and 'initialReplicaSet' in kwargs:
             initial_replica_set = kwargs['initialReplicaSet']
-        if 'resourceGroupName' in kwargs:
+        if initial_replica_set is None:
+            raise TypeError("Missing 'initial_replica_set' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'domainConfigurationType' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if domain_configuration_type is None and 'domainConfigurationType' in kwargs:
             domain_configuration_type = kwargs['domainConfigurationType']
-        if 'filteredSyncEnabled' in kwargs:
+        if filtered_sync_enabled is None and 'filteredSyncEnabled' in kwargs:
             filtered_sync_enabled = kwargs['filteredSyncEnabled']
-        if 'secureLdap' in kwargs:
+        if secure_ldap is None and 'secureLdap' in kwargs:
             secure_ldap = kwargs['secureLdap']
 
         _setter("domain_name", domain_name)
@@ -331,27 +339,27 @@ class _ServiceState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              version: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'deploymentId' in kwargs:
+        if deployment_id is None and 'deploymentId' in kwargs:
             deployment_id = kwargs['deploymentId']
-        if 'domainConfigurationType' in kwargs:
+        if domain_configuration_type is None and 'domainConfigurationType' in kwargs:
             domain_configuration_type = kwargs['domainConfigurationType']
-        if 'domainName' in kwargs:
+        if domain_name is None and 'domainName' in kwargs:
             domain_name = kwargs['domainName']
-        if 'filteredSyncEnabled' in kwargs:
+        if filtered_sync_enabled is None and 'filteredSyncEnabled' in kwargs:
             filtered_sync_enabled = kwargs['filteredSyncEnabled']
-        if 'initialReplicaSet' in kwargs:
+        if initial_replica_set is None and 'initialReplicaSet' in kwargs:
             initial_replica_set = kwargs['initialReplicaSet']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'resourceId' in kwargs:
+        if resource_id is None and 'resourceId' in kwargs:
             resource_id = kwargs['resourceId']
-        if 'secureLdap' in kwargs:
+        if secure_ldap is None and 'secureLdap' in kwargs:
             secure_ldap = kwargs['secureLdap']
-        if 'syncOwner' in kwargs:
+        if sync_owner is None and 'syncOwner' in kwargs:
             sync_owner = kwargs['syncOwner']
-        if 'tenantId' in kwargs:
+        if tenant_id is None and 'tenantId' in kwargs:
             tenant_id = kwargs['tenantId']
 
         if deployment_id is not None:
@@ -604,118 +612,6 @@ class Service(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_azuread as azuread
-
-        deploy_resource_group = azure.core.ResourceGroup("deployResourceGroup", location="West Europe")
-        deploy_virtual_network = azure.network.VirtualNetwork("deployVirtualNetwork",
-            location=deploy_resource_group.location,
-            resource_group_name=deploy_resource_group.name,
-            address_spaces=["10.0.1.0/16"])
-        deploy_subnet = azure.network.Subnet("deploySubnet",
-            resource_group_name=deploy_resource_group.name,
-            virtual_network_name=deploy_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"])
-        deploy_network_security_group = azure.network.NetworkSecurityGroup("deployNetworkSecurityGroup",
-            location=deploy_resource_group.location,
-            resource_group_name=deploy_resource_group.name,
-            security_rules=[
-                azure.network.NetworkSecurityGroupSecurityRuleArgs(
-                    name="AllowSyncWithAzureAD",
-                    priority=101,
-                    direction="Inbound",
-                    access="Allow",
-                    protocol="Tcp",
-                    source_port_range="*",
-                    destination_port_range="443",
-                    source_address_prefix="AzureActiveDirectoryDomainServices",
-                    destination_address_prefix="*",
-                ),
-                azure.network.NetworkSecurityGroupSecurityRuleArgs(
-                    name="AllowRD",
-                    priority=201,
-                    direction="Inbound",
-                    access="Allow",
-                    protocol="Tcp",
-                    source_port_range="*",
-                    destination_port_range="3389",
-                    source_address_prefix="CorpNetSaw",
-                    destination_address_prefix="*",
-                ),
-                azure.network.NetworkSecurityGroupSecurityRuleArgs(
-                    name="AllowPSRemoting",
-                    priority=301,
-                    direction="Inbound",
-                    access="Allow",
-                    protocol="Tcp",
-                    source_port_range="*",
-                    destination_port_range="5986",
-                    source_address_prefix="AzureActiveDirectoryDomainServices",
-                    destination_address_prefix="*",
-                ),
-                azure.network.NetworkSecurityGroupSecurityRuleArgs(
-                    name="AllowLDAPS",
-                    priority=401,
-                    direction="Inbound",
-                    access="Allow",
-                    protocol="Tcp",
-                    source_port_range="*",
-                    destination_port_range="636",
-                    source_address_prefix="*",
-                    destination_address_prefix="*",
-                ),
-            ])
-        deploy_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("deploySubnetNetworkSecurityGroupAssociation",
-            subnet_id=deploy_subnet.id,
-            network_security_group_id=deploy_network_security_group.id)
-        dc_admins = azuread.Group("dcAdmins",
-            display_name="AAD DC Administrators",
-            security_enabled=True)
-        admin_user = azuread.User("adminUser",
-            user_principal_name="dc-admin@hashicorp-example.com",
-            display_name="DC Administrator",
-            password="Pa55w0Rd!!1")
-        admin_group_member = azuread.GroupMember("adminGroupMember",
-            group_object_id=dc_admins.object_id,
-            member_object_id=admin_user.object_id)
-        example_service_principal = azuread.ServicePrincipal("exampleServicePrincipal", application_id="2565bd9d-da50-47d4-8b85-4c97f669dc36")
-        # published app for domain services
-        aadds = azure.core.ResourceGroup("aadds", location="westeurope")
-        example_service = azure.domainservices.Service("exampleService",
-            location=aadds.location,
-            resource_group_name=aadds.name,
-            domain_name="widgetslogin.net",
-            sku="Enterprise",
-            filtered_sync_enabled=False,
-            initial_replica_set=azure.domainservices.ServiceInitialReplicaSetArgs(
-                subnet_id=deploy_subnet.id,
-            ),
-            notifications=azure.domainservices.ServiceNotificationsArgs(
-                additional_recipients=[
-                    "notifyA@example.net",
-                    "notifyB@example.org",
-                ],
-                notify_dc_admins=True,
-                notify_global_admins=True,
-            ),
-            security=azure.domainservices.ServiceSecurityArgs(
-                sync_kerberos_passwords=True,
-                sync_ntlm_passwords=True,
-                sync_on_prem_passwords=True,
-            ),
-            tags={
-                "Environment": "prod",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[
-                    example_service_principal,
-                    deploy_subnet_network_security_group_association,
-                ]))
-        ```
-
         ## Import
 
         Domain Services can be imported using the resource ID, together with the Replica Set ID that you wish to designate as the initial replica set, e.g.
@@ -746,118 +642,6 @@ class Service(pulumi.CustomResource):
                  args: ServiceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_azuread as azuread
-
-        deploy_resource_group = azure.core.ResourceGroup("deployResourceGroup", location="West Europe")
-        deploy_virtual_network = azure.network.VirtualNetwork("deployVirtualNetwork",
-            location=deploy_resource_group.location,
-            resource_group_name=deploy_resource_group.name,
-            address_spaces=["10.0.1.0/16"])
-        deploy_subnet = azure.network.Subnet("deploySubnet",
-            resource_group_name=deploy_resource_group.name,
-            virtual_network_name=deploy_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"])
-        deploy_network_security_group = azure.network.NetworkSecurityGroup("deployNetworkSecurityGroup",
-            location=deploy_resource_group.location,
-            resource_group_name=deploy_resource_group.name,
-            security_rules=[
-                azure.network.NetworkSecurityGroupSecurityRuleArgs(
-                    name="AllowSyncWithAzureAD",
-                    priority=101,
-                    direction="Inbound",
-                    access="Allow",
-                    protocol="Tcp",
-                    source_port_range="*",
-                    destination_port_range="443",
-                    source_address_prefix="AzureActiveDirectoryDomainServices",
-                    destination_address_prefix="*",
-                ),
-                azure.network.NetworkSecurityGroupSecurityRuleArgs(
-                    name="AllowRD",
-                    priority=201,
-                    direction="Inbound",
-                    access="Allow",
-                    protocol="Tcp",
-                    source_port_range="*",
-                    destination_port_range="3389",
-                    source_address_prefix="CorpNetSaw",
-                    destination_address_prefix="*",
-                ),
-                azure.network.NetworkSecurityGroupSecurityRuleArgs(
-                    name="AllowPSRemoting",
-                    priority=301,
-                    direction="Inbound",
-                    access="Allow",
-                    protocol="Tcp",
-                    source_port_range="*",
-                    destination_port_range="5986",
-                    source_address_prefix="AzureActiveDirectoryDomainServices",
-                    destination_address_prefix="*",
-                ),
-                azure.network.NetworkSecurityGroupSecurityRuleArgs(
-                    name="AllowLDAPS",
-                    priority=401,
-                    direction="Inbound",
-                    access="Allow",
-                    protocol="Tcp",
-                    source_port_range="*",
-                    destination_port_range="636",
-                    source_address_prefix="*",
-                    destination_address_prefix="*",
-                ),
-            ])
-        deploy_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("deploySubnetNetworkSecurityGroupAssociation",
-            subnet_id=deploy_subnet.id,
-            network_security_group_id=deploy_network_security_group.id)
-        dc_admins = azuread.Group("dcAdmins",
-            display_name="AAD DC Administrators",
-            security_enabled=True)
-        admin_user = azuread.User("adminUser",
-            user_principal_name="dc-admin@hashicorp-example.com",
-            display_name="DC Administrator",
-            password="Pa55w0Rd!!1")
-        admin_group_member = azuread.GroupMember("adminGroupMember",
-            group_object_id=dc_admins.object_id,
-            member_object_id=admin_user.object_id)
-        example_service_principal = azuread.ServicePrincipal("exampleServicePrincipal", application_id="2565bd9d-da50-47d4-8b85-4c97f669dc36")
-        # published app for domain services
-        aadds = azure.core.ResourceGroup("aadds", location="westeurope")
-        example_service = azure.domainservices.Service("exampleService",
-            location=aadds.location,
-            resource_group_name=aadds.name,
-            domain_name="widgetslogin.net",
-            sku="Enterprise",
-            filtered_sync_enabled=False,
-            initial_replica_set=azure.domainservices.ServiceInitialReplicaSetArgs(
-                subnet_id=deploy_subnet.id,
-            ),
-            notifications=azure.domainservices.ServiceNotificationsArgs(
-                additional_recipients=[
-                    "notifyA@example.net",
-                    "notifyB@example.org",
-                ],
-                notify_dc_admins=True,
-                notify_global_admins=True,
-            ),
-            security=azure.domainservices.ServiceSecurityArgs(
-                sync_kerberos_passwords=True,
-                sync_ntlm_passwords=True,
-                sync_on_prem_passwords=True,
-            ),
-            tags={
-                "Environment": "prod",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[
-                    example_service_principal,
-                    deploy_subnet_network_security_group_association,
-                ]))
-        ```
-
         ## Import
 
         Domain Services can be imported using the resource ID, together with the Replica Set ID that you wish to designate as the initial replica set, e.g.
@@ -911,36 +695,20 @@ class Service(pulumi.CustomResource):
                 raise TypeError("Missing required property 'domain_name'")
             __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["filtered_sync_enabled"] = filtered_sync_enabled
-            if initial_replica_set is not None and not isinstance(initial_replica_set, ServiceInitialReplicaSetArgs):
-                initial_replica_set = initial_replica_set or {}
-                def _setter(key, value):
-                    initial_replica_set[key] = value
-                ServiceInitialReplicaSetArgs._configure(_setter, **initial_replica_set)
+            initial_replica_set = _utilities.configure(initial_replica_set, ServiceInitialReplicaSetArgs, True)
             if initial_replica_set is None and not opts.urn:
                 raise TypeError("Missing required property 'initial_replica_set'")
             __props__.__dict__["initial_replica_set"] = initial_replica_set
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
-            if notifications is not None and not isinstance(notifications, ServiceNotificationsArgs):
-                notifications = notifications or {}
-                def _setter(key, value):
-                    notifications[key] = value
-                ServiceNotificationsArgs._configure(_setter, **notifications)
+            notifications = _utilities.configure(notifications, ServiceNotificationsArgs, True)
             __props__.__dict__["notifications"] = notifications
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if secure_ldap is not None and not isinstance(secure_ldap, ServiceSecureLdapArgs):
-                secure_ldap = secure_ldap or {}
-                def _setter(key, value):
-                    secure_ldap[key] = value
-                ServiceSecureLdapArgs._configure(_setter, **secure_ldap)
+            secure_ldap = _utilities.configure(secure_ldap, ServiceSecureLdapArgs, True)
             __props__.__dict__["secure_ldap"] = secure_ldap
-            if security is not None and not isinstance(security, ServiceSecurityArgs):
-                security = security or {}
-                def _setter(key, value):
-                    security[key] = value
-                ServiceSecurityArgs._configure(_setter, **security)
+            security = _utilities.configure(security, ServiceSecurityArgs, True)
             __props__.__dict__["security"] = security
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")

@@ -53,25 +53,33 @@ class RegistryWebookArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             actions: pulumi.Input[Sequence[pulumi.Input[str]]],
-             registry_name: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             service_uri: pulumi.Input[str],
+             actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             registry_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             service_uri: Optional[pulumi.Input[str]] = None,
              custom_headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              scope: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'registryName' in kwargs:
+        if actions is None:
+            raise TypeError("Missing 'actions' argument")
+        if registry_name is None and 'registryName' in kwargs:
             registry_name = kwargs['registryName']
-        if 'resourceGroupName' in kwargs:
+        if registry_name is None:
+            raise TypeError("Missing 'registry_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serviceUri' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if service_uri is None and 'serviceUri' in kwargs:
             service_uri = kwargs['serviceUri']
-        if 'customHeaders' in kwargs:
+        if service_uri is None:
+            raise TypeError("Missing 'service_uri' argument")
+        if custom_headers is None and 'customHeaders' in kwargs:
             custom_headers = kwargs['customHeaders']
 
         _setter("actions", actions)
@@ -264,15 +272,15 @@ class _RegistryWebookState:
              service_uri: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'customHeaders' in kwargs:
+        if custom_headers is None and 'customHeaders' in kwargs:
             custom_headers = kwargs['customHeaders']
-        if 'registryName' in kwargs:
+        if registry_name is None and 'registryName' in kwargs:
             registry_name = kwargs['registryName']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serviceUri' in kwargs:
+        if service_uri is None and 'serviceUri' in kwargs:
             service_uri = kwargs['serviceUri']
 
         if actions is not None:
@@ -441,31 +449,6 @@ class RegistryWebook(pulumi.CustomResource):
         """
         Manages an Azure Container Registry Webhook.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example", location="West Europe")
-        acr = azure.containerservice.Registry("acr",
-            resource_group_name=example.name,
-            location=example.location,
-            sku="Standard",
-            admin_enabled=False)
-        webhook = azure.containerservice.RegistryWebhook("webhook",
-            resource_group_name=example.name,
-            registry_name=acr.name,
-            location=example.location,
-            service_uri="https://mywebhookreceiver.example/mytag",
-            status="enabled",
-            scope="mytag:*",
-            actions=["push"],
-            custom_headers={
-                "Content-Type": "application/json",
-            })
-        ```
-
         ## Import
 
         Container Registry Webhooks can be imported using the `resource id`, e.g.
@@ -495,31 +478,6 @@ class RegistryWebook(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Container Registry Webhook.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example", location="West Europe")
-        acr = azure.containerservice.Registry("acr",
-            resource_group_name=example.name,
-            location=example.location,
-            sku="Standard",
-            admin_enabled=False)
-        webhook = azure.containerservice.RegistryWebhook("webhook",
-            resource_group_name=example.name,
-            registry_name=acr.name,
-            location=example.location,
-            service_uri="https://mywebhookreceiver.example/mytag",
-            status="enabled",
-            scope="mytag:*",
-            actions=["push"],
-            custom_headers={
-                "Content-Type": "application/json",
-            })
-        ```
 
         ## Import
 

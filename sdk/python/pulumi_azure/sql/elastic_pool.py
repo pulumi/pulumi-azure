@@ -53,27 +53,35 @@ class ElasticPoolArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             dtu: pulumi.Input[int],
-             edition: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             server_name: pulumi.Input[str],
+             dtu: Optional[pulumi.Input[int]] = None,
+             edition: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
              db_dtu_max: Optional[pulumi.Input[int]] = None,
              db_dtu_min: Optional[pulumi.Input[int]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              pool_size: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceGroupName' in kwargs:
+        if dtu is None:
+            raise TypeError("Missing 'dtu' argument")
+        if edition is None:
+            raise TypeError("Missing 'edition' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serverName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if server_name is None and 'serverName' in kwargs:
             server_name = kwargs['serverName']
-        if 'dbDtuMax' in kwargs:
+        if server_name is None:
+            raise TypeError("Missing 'server_name' argument")
+        if db_dtu_max is None and 'dbDtuMax' in kwargs:
             db_dtu_max = kwargs['dbDtuMax']
-        if 'dbDtuMin' in kwargs:
+        if db_dtu_min is None and 'dbDtuMin' in kwargs:
             db_dtu_min = kwargs['dbDtuMin']
-        if 'poolSize' in kwargs:
+        if pool_size is None and 'poolSize' in kwargs:
             pool_size = kwargs['poolSize']
 
         _setter("dtu", dtu)
@@ -270,19 +278,19 @@ class _ElasticPoolState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              server_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'creationDate' in kwargs:
+        if creation_date is None and 'creationDate' in kwargs:
             creation_date = kwargs['creationDate']
-        if 'dbDtuMax' in kwargs:
+        if db_dtu_max is None and 'dbDtuMax' in kwargs:
             db_dtu_max = kwargs['dbDtuMax']
-        if 'dbDtuMin' in kwargs:
+        if db_dtu_min is None and 'dbDtuMin' in kwargs:
             db_dtu_min = kwargs['dbDtuMin']
-        if 'poolSize' in kwargs:
+        if pool_size is None and 'poolSize' in kwargs:
             pool_size = kwargs['poolSize']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'serverName' in kwargs:
+        if server_name is None and 'serverName' in kwargs:
             server_name = kwargs['serverName']
 
         if creation_date is not None:
@@ -462,32 +470,6 @@ class ElasticPool(pulumi.CustomResource):
 
         > **Note:** The `sql.ElasticPool` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.ElasticPool` resource instead.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_sql_server = azure.sql.SqlServer("exampleSqlServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            version="12.0",
-            administrator_login="4dm1n157r470r",
-            administrator_login_password="4-v3ry-53cr37-p455w0rd")
-        example_elastic_pool = azure.sql.ElasticPool("exampleElasticPool",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            server_name=example_sql_server.name,
-            edition="Basic",
-            dtu=50,
-            db_dtu_min=0,
-            db_dtu_max=5,
-            pool_size=5000)
-        ```
-
-        > **NOTE on `sql.ElasticPool`:** -  The values of `edition`, `dtu`, and `pool_size` must be consistent with the [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus). Any inconsistent argument configuration will be rejected.
-
         ## Import
 
         SQL Elastic Pool's can be imported using the `resource id`, e.g.
@@ -519,32 +501,6 @@ class ElasticPool(pulumi.CustomResource):
         Allows you to manage an Azure SQL Elastic Pool.
 
         > **Note:** The `sql.ElasticPool` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.ElasticPool` resource instead.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_sql_server = azure.sql.SqlServer("exampleSqlServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            version="12.0",
-            administrator_login="4dm1n157r470r",
-            administrator_login_password="4-v3ry-53cr37-p455w0rd")
-        example_elastic_pool = azure.sql.ElasticPool("exampleElasticPool",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            server_name=example_sql_server.name,
-            edition="Basic",
-            dtu=50,
-            db_dtu_min=0,
-            db_dtu_max=5,
-            pool_size=5000)
-        ```
-
-        > **NOTE on `sql.ElasticPool`:** -  The values of `edition`, `dtu`, and `pool_size` must be consistent with the [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus). Any inconsistent argument configuration will be rejected.
 
         ## Import
 

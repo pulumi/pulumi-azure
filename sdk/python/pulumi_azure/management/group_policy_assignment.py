@@ -69,8 +69,8 @@ class GroupPolicyAssignmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             management_group_id: pulumi.Input[str],
-             policy_definition_id: pulumi.Input[str],
+             management_group_id: Optional[pulumi.Input[str]] = None,
+             policy_definition_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              display_name: Optional[pulumi.Input[str]] = None,
              enforce: Optional[pulumi.Input[bool]] = None,
@@ -83,19 +83,23 @@ class GroupPolicyAssignmentArgs:
              overrides: Optional[pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentOverrideArgs']]]] = None,
              parameters: Optional[pulumi.Input[str]] = None,
              resource_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentResourceSelectorArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'managementGroupId' in kwargs:
+        if management_group_id is None and 'managementGroupId' in kwargs:
             management_group_id = kwargs['managementGroupId']
-        if 'policyDefinitionId' in kwargs:
+        if management_group_id is None:
+            raise TypeError("Missing 'management_group_id' argument")
+        if policy_definition_id is None and 'policyDefinitionId' in kwargs:
             policy_definition_id = kwargs['policyDefinitionId']
-        if 'displayName' in kwargs:
+        if policy_definition_id is None:
+            raise TypeError("Missing 'policy_definition_id' argument")
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'nonComplianceMessages' in kwargs:
+        if non_compliance_messages is None and 'nonComplianceMessages' in kwargs:
             non_compliance_messages = kwargs['nonComplianceMessages']
-        if 'notScopes' in kwargs:
+        if not_scopes is None and 'notScopes' in kwargs:
             not_scopes = kwargs['notScopes']
-        if 'resourceSelectors' in kwargs:
+        if resource_selectors is None and 'resourceSelectors' in kwargs:
             resource_selectors = kwargs['resourceSelectors']
 
         _setter("management_group_id", management_group_id)
@@ -366,19 +370,19 @@ class _GroupPolicyAssignmentState:
              parameters: Optional[pulumi.Input[str]] = None,
              policy_definition_id: Optional[pulumi.Input[str]] = None,
              resource_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentResourceSelectorArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'displayName' in kwargs:
+        if display_name is None and 'displayName' in kwargs:
             display_name = kwargs['displayName']
-        if 'managementGroupId' in kwargs:
+        if management_group_id is None and 'managementGroupId' in kwargs:
             management_group_id = kwargs['managementGroupId']
-        if 'nonComplianceMessages' in kwargs:
+        if non_compliance_messages is None and 'nonComplianceMessages' in kwargs:
             non_compliance_messages = kwargs['nonComplianceMessages']
-        if 'notScopes' in kwargs:
+        if not_scopes is None and 'notScopes' in kwargs:
             not_scopes = kwargs['notScopes']
-        if 'policyDefinitionId' in kwargs:
+        if policy_definition_id is None and 'policyDefinitionId' in kwargs:
             policy_definition_id = kwargs['policyDefinitionId']
-        if 'resourceSelectors' in kwargs:
+        if resource_selectors is None and 'resourceSelectors' in kwargs:
             resource_selectors = kwargs['resourceSelectors']
 
         if description is not None:
@@ -604,35 +608,6 @@ class GroupPolicyAssignment(pulumi.CustomResource):
         """
         Manages a Policy Assignment to a Management Group.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_group = azure.management.Group("exampleGroup", display_name="Some Management Group")
-        example_definition = azure.policy.Definition("exampleDefinition",
-            policy_type="Custom",
-            mode="All",
-            display_name="my-policy-definition",
-            management_group_id=example_group.id,
-            policy_rule=\"\"\" {
-            "if": {
-              "not": {
-                "field": "location",
-                "equals": "westeurope"
-              }
-            },
-            "then": {
-              "effect": "Deny"
-            }
-          }
-        \"\"\")
-        example_group_policy_assignment = azure.management.GroupPolicyAssignment("exampleGroupPolicyAssignment",
-            policy_definition_id=example_definition.id,
-            management_group_id=example_group.id)
-        ```
-
         ## Import
 
         Management Group Policy Assignments can be imported using the `resource id`, e.g.
@@ -668,35 +643,6 @@ class GroupPolicyAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Policy Assignment to a Management Group.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_group = azure.management.Group("exampleGroup", display_name="Some Management Group")
-        example_definition = azure.policy.Definition("exampleDefinition",
-            policy_type="Custom",
-            mode="All",
-            display_name="my-policy-definition",
-            management_group_id=example_group.id,
-            policy_rule=\"\"\" {
-            "if": {
-              "not": {
-                "field": "location",
-                "equals": "westeurope"
-              }
-            },
-            "then": {
-              "effect": "Deny"
-            }
-          }
-        \"\"\")
-        example_group_policy_assignment = azure.management.GroupPolicyAssignment("exampleGroupPolicyAssignment",
-            policy_definition_id=example_definition.id,
-            management_group_id=example_group.id)
-        ```
 
         ## Import
 
@@ -751,11 +697,7 @@ class GroupPolicyAssignment(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["enforce"] = enforce
-            if identity is not None and not isinstance(identity, GroupPolicyAssignmentIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                GroupPolicyAssignmentIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, GroupPolicyAssignmentIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             if management_group_id is None and not opts.urn:

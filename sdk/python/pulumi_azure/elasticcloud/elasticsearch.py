@@ -49,23 +49,29 @@ class ElasticsearchArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             elastic_cloud_email_address: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             sku_name: pulumi.Input[str],
+             elastic_cloud_email_address: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              logs: Optional[pulumi.Input['ElasticsearchLogsArgs']] = None,
              monitoring_enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'elasticCloudEmailAddress' in kwargs:
+        if elastic_cloud_email_address is None and 'elasticCloudEmailAddress' in kwargs:
             elastic_cloud_email_address = kwargs['elasticCloudEmailAddress']
-        if 'resourceGroupName' in kwargs:
+        if elastic_cloud_email_address is None:
+            raise TypeError("Missing 'elastic_cloud_email_address' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
-        if 'monitoringEnabled' in kwargs:
+        if sku_name is None:
+            raise TypeError("Missing 'sku_name' argument")
+        if monitoring_enabled is None and 'monitoringEnabled' in kwargs:
             monitoring_enabled = kwargs['monitoringEnabled']
 
         _setter("elastic_cloud_email_address", elastic_cloud_email_address)
@@ -247,27 +253,27 @@ class _ElasticsearchState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              sku_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'elasticCloudDeploymentId' in kwargs:
+        if elastic_cloud_deployment_id is None and 'elasticCloudDeploymentId' in kwargs:
             elastic_cloud_deployment_id = kwargs['elasticCloudDeploymentId']
-        if 'elasticCloudEmailAddress' in kwargs:
+        if elastic_cloud_email_address is None and 'elasticCloudEmailAddress' in kwargs:
             elastic_cloud_email_address = kwargs['elasticCloudEmailAddress']
-        if 'elasticCloudSsoDefaultUrl' in kwargs:
+        if elastic_cloud_sso_default_url is None and 'elasticCloudSsoDefaultUrl' in kwargs:
             elastic_cloud_sso_default_url = kwargs['elasticCloudSsoDefaultUrl']
-        if 'elasticCloudUserId' in kwargs:
+        if elastic_cloud_user_id is None and 'elasticCloudUserId' in kwargs:
             elastic_cloud_user_id = kwargs['elasticCloudUserId']
-        if 'elasticsearchServiceUrl' in kwargs:
+        if elasticsearch_service_url is None and 'elasticsearchServiceUrl' in kwargs:
             elasticsearch_service_url = kwargs['elasticsearchServiceUrl']
-        if 'kibanaServiceUrl' in kwargs:
+        if kibana_service_url is None and 'kibanaServiceUrl' in kwargs:
             kibana_service_url = kwargs['kibanaServiceUrl']
-        if 'kibanaSsoUri' in kwargs:
+        if kibana_sso_uri is None and 'kibanaSsoUri' in kwargs:
             kibana_sso_uri = kwargs['kibanaSsoUri']
-        if 'monitoringEnabled' in kwargs:
+        if monitoring_enabled is None and 'monitoringEnabled' in kwargs:
             monitoring_enabled = kwargs['monitoringEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'skuName' in kwargs:
+        if sku_name is None and 'skuName' in kwargs:
             sku_name = kwargs['skuName']
 
         if elastic_cloud_deployment_id is not None:
@@ -485,20 +491,6 @@ class Elasticsearch(pulumi.CustomResource):
         """
         Manages an Elasticsearch in Elastic Cloud.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        test_resource_group = azure.core.ResourceGroup("testResourceGroup", location="West Europe")
-        test_elasticsearch = azure.elasticcloud.Elasticsearch("testElasticsearch",
-            resource_group_name=test_resource_group.name,
-            location=test_resource_group.location,
-            sku_name="ess-monthly-consumption_Monthly",
-            elastic_cloud_email_address="user@example.com")
-        ```
-
         ## Import
 
         Elasticsearch's can be imported using the `resource id`, e.g.
@@ -526,20 +518,6 @@ class Elasticsearch(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Elasticsearch in Elastic Cloud.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        test_resource_group = azure.core.ResourceGroup("testResourceGroup", location="West Europe")
-        test_elasticsearch = azure.elasticcloud.Elasticsearch("testElasticsearch",
-            resource_group_name=test_resource_group.name,
-            location=test_resource_group.location,
-            sku_name="ess-monthly-consumption_Monthly",
-            elastic_cloud_email_address="user@example.com")
-        ```
 
         ## Import
 
@@ -589,11 +567,7 @@ class Elasticsearch(pulumi.CustomResource):
                 raise TypeError("Missing required property 'elastic_cloud_email_address'")
             __props__.__dict__["elastic_cloud_email_address"] = elastic_cloud_email_address
             __props__.__dict__["location"] = location
-            if logs is not None and not isinstance(logs, ElasticsearchLogsArgs):
-                logs = logs or {}
-                def _setter(key, value):
-                    logs[key] = value
-                ElasticsearchLogsArgs._configure(_setter, **logs)
+            logs = _utilities.configure(logs, ElasticsearchLogsArgs, True)
             __props__.__dict__["logs"] = logs
             __props__.__dict__["monitoring_enabled"] = monitoring_enabled
             __props__.__dict__["name"] = name

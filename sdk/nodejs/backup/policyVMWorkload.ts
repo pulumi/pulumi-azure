@@ -9,51 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure VM Workload Backup Policy within a Recovery Services vault.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVault = new azure.recoveryservices.Vault("exampleVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "Standard",
- *     softDeleteEnabled: false,
- * });
- * const examplePolicyVMWorkload = new azure.backup.PolicyVMWorkload("examplePolicyVMWorkload", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     recoveryVaultName: exampleVault.name,
- *     workloadType: "SQLDataBase",
- *     settings: {
- *         timeZone: "UTC",
- *         compressionEnabled: false,
- *     },
- *     protectionPolicies: [
- *         {
- *             policyType: "Full",
- *             backup: {
- *                 frequency: "Daily",
- *                 time: "15:00",
- *             },
- *             retentionDaily: {
- *                 count: 8,
- *             },
- *         },
- *         {
- *             policyType: "Log",
- *             backup: {
- *                 frequencyInMinutes: 15,
- *             },
- *             simpleRetention: {
- *                 count: 8,
- *             },
- *         },
- *     ],
- * });
- * ```
- *
  * ## Import
  *
  * Azure VM Workload Backup Policies can be imported using the `resource id`, e.g.

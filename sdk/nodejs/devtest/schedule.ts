@@ -9,37 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages automated startup and shutdown schedules for Azure Dev Test Lab.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleLab = new azure.devtest.Lab("exampleLab", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleSchedule = new azure.devtest.Schedule("exampleSchedule", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     labName: exampleLab.name,
- *     weeklyRecurrence: {
- *         time: "1100",
- *         weekDays: [
- *             "Monday",
- *             "Tuesday",
- *         ],
- *     },
- *     timeZoneId: "Pacific Standard Time",
- *     taskType: "LabVmsStartupTask",
- *     notificationSettings: {},
- *     tags: {
- *         environment: "Production",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * DevTest Schedule's can be imported using the `resource id`, e.g.

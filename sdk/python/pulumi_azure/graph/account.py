@@ -35,16 +35,20 @@ class AccountArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             application_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'applicationId' in kwargs:
+        if application_id is None and 'applicationId' in kwargs:
             application_id = kwargs['applicationId']
-        if 'resourceGroupName' in kwargs:
+        if application_id is None:
+            raise TypeError("Missing 'application_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
 
         _setter("application_id", application_id)
         _setter("resource_group_name", resource_group_name)
@@ -134,13 +138,13 @@ class _AccountState:
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'applicationId' in kwargs:
+        if application_id is None and 'applicationId' in kwargs:
             application_id = kwargs['applicationId']
-        if 'billingPlanId' in kwargs:
+        if billing_plan_id is None and 'billingPlanId' in kwargs:
             billing_plan_id = kwargs['billingPlanId']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if application_id is not None:
@@ -230,23 +234,6 @@ class Account(pulumi.CustomResource):
 
         !> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `graph.ServicesAccount` resource instead.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_azuread as azuread
-
-        example_application = azuread.Application("exampleApplication", display_name="example-app")
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.graph.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            application_id=example_application.application_id,
-            tags={
-                "environment": "Production",
-            })
-        ```
-
         ## Import
 
         An existing Account can be imported into Terraform using the `resource id`, e.g.
@@ -272,23 +259,6 @@ class Account(pulumi.CustomResource):
         Manages a Microsoft Graph Services Account.
 
         !> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `graph.ServicesAccount` resource instead.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_azuread as azuread
-
-        example_application = azuread.Application("exampleApplication", display_name="example-app")
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.graph.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            application_id=example_application.application_id,
-            tags={
-                "environment": "Production",
-            })
-        ```
 
         ## Import
 

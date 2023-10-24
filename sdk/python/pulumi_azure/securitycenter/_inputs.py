@@ -38,11 +38,13 @@ class AssessmentStatusArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             code: pulumi.Input[str],
+             code: Optional[pulumi.Input[str]] = None,
              cause: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if code is None:
+            raise TypeError("Missing 'code' argument")
 
         _setter("code", code)
         if cause is not None:
@@ -110,17 +112,21 @@ class AutomationActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_id: pulumi.Input[str],
-             type: pulumi.Input[str],
+             resource_id: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              connection_string: Optional[pulumi.Input[str]] = None,
              trigger_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'resourceId' in kwargs:
+        if resource_id is None and 'resourceId' in kwargs:
             resource_id = kwargs['resourceId']
-        if 'connectionString' in kwargs:
+        if resource_id is None:
+            raise TypeError("Missing 'resource_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if connection_string is None and 'connectionString' in kwargs:
             connection_string = kwargs['connectionString']
-        if 'triggerUrl' in kwargs:
+        if trigger_url is None and 'triggerUrl' in kwargs:
             trigger_url = kwargs['triggerUrl']
 
         _setter("resource_id", resource_id)
@@ -198,13 +204,15 @@ class AutomationSourceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             event_source: pulumi.Input[str],
+             event_source: Optional[pulumi.Input[str]] = None,
              rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationSourceRuleSetArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'eventSource' in kwargs:
+        if event_source is None and 'eventSource' in kwargs:
             event_source = kwargs['eventSource']
-        if 'ruleSets' in kwargs:
+        if event_source is None:
+            raise TypeError("Missing 'event_source' argument")
+        if rule_sets is None and 'ruleSets' in kwargs:
             rule_sets = kwargs['ruleSets']
 
         _setter("event_source", event_source)
@@ -254,9 +262,11 @@ class AutomationSourceRuleSetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             rules: pulumi.Input[Sequence[pulumi.Input['AutomationSourceRuleSetRuleArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             rules: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationSourceRuleSetRuleArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if rules is None:
+            raise TypeError("Missing 'rules' argument")
 
         _setter("rules", rules)
 
@@ -300,18 +310,26 @@ class AutomationSourceRuleSetRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             expected_value: pulumi.Input[str],
-             operator: pulumi.Input[str],
-             property_path: pulumi.Input[str],
-             property_type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             expected_value: Optional[pulumi.Input[str]] = None,
+             operator: Optional[pulumi.Input[str]] = None,
+             property_path: Optional[pulumi.Input[str]] = None,
+             property_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'expectedValue' in kwargs:
+        if expected_value is None and 'expectedValue' in kwargs:
             expected_value = kwargs['expectedValue']
-        if 'propertyPath' in kwargs:
+        if expected_value is None:
+            raise TypeError("Missing 'expected_value' argument")
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if property_path is None and 'propertyPath' in kwargs:
             property_path = kwargs['propertyPath']
-        if 'propertyType' in kwargs:
+        if property_path is None:
+            raise TypeError("Missing 'property_path' argument")
+        if property_type is None and 'propertyType' in kwargs:
             property_type = kwargs['propertyType']
+        if property_type is None:
+            raise TypeError("Missing 'property_type' argument")
 
         _setter("expected_value", expected_value)
         _setter("operator", operator)
@@ -390,11 +408,13 @@ class SubscriptionPricingExtensionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              additional_extension_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'additionalExtensionProperties' in kwargs:
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if additional_extension_properties is None and 'additionalExtensionProperties' in kwargs:
             additional_extension_properties = kwargs['additionalExtensionProperties']
 
         _setter("name", name)

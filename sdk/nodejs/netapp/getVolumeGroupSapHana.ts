@@ -8,20 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Application Volume Group for SAP HANA application.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.netapp.getVolumeGroupSapHana({
- *     name: "existing application volume group name",
- *     resourceGroupName: "resource group name where the account and volume group belong to",
- *     accountName: "existing account where the application volume group belong to",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getVolumeGroupSapHana(args: GetVolumeGroupSapHanaArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeGroupSapHanaResult> {
 
@@ -84,20 +70,6 @@ export interface GetVolumeGroupSapHanaResult {
 }
 /**
  * Use this data source to access information about an existing Application Volume Group for SAP HANA application.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.netapp.getVolumeGroupSapHana({
- *     name: "existing application volume group name",
- *     resourceGroupName: "resource group name where the account and volume group belong to",
- *     accountName: "existing account where the application volume group belong to",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getVolumeGroupSapHanaOutput(args: GetVolumeGroupSapHanaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeGroupSapHanaResult> {
     return pulumi.output(args).apply((a: any) => getVolumeGroupSapHana(a, opts))

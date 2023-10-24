@@ -87,12 +87,12 @@ class SparkClusterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cluster_version: pulumi.Input[str],
-             component_version: pulumi.Input['SparkClusterComponentVersionArgs'],
-             gateway: pulumi.Input['SparkClusterGatewayArgs'],
-             resource_group_name: pulumi.Input[str],
-             roles: pulumi.Input['SparkClusterRolesArgs'],
-             tier: pulumi.Input[str],
+             cluster_version: Optional[pulumi.Input[str]] = None,
+             component_version: Optional[pulumi.Input['SparkClusterComponentVersionArgs']] = None,
+             gateway: Optional[pulumi.Input['SparkClusterGatewayArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             roles: Optional[pulumi.Input['SparkClusterRolesArgs']] = None,
+             tier: Optional[pulumi.Input[str]] = None,
              compute_isolation: Optional[pulumi.Input['SparkClusterComputeIsolationArgs']] = None,
              disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterDiskEncryptionArgs']]]] = None,
              encryption_in_transit_enabled: Optional[pulumi.Input[bool]] = None,
@@ -107,27 +107,39 @@ class SparkClusterArgs:
              storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterStorageAccountArgs']]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              tls_min_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'clusterVersion' in kwargs:
+        if cluster_version is None and 'clusterVersion' in kwargs:
             cluster_version = kwargs['clusterVersion']
-        if 'componentVersion' in kwargs:
+        if cluster_version is None:
+            raise TypeError("Missing 'cluster_version' argument")
+        if component_version is None and 'componentVersion' in kwargs:
             component_version = kwargs['componentVersion']
-        if 'resourceGroupName' in kwargs:
+        if component_version is None:
+            raise TypeError("Missing 'component_version' argument")
+        if gateway is None:
+            raise TypeError("Missing 'gateway' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'computeIsolation' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if roles is None:
+            raise TypeError("Missing 'roles' argument")
+        if tier is None:
+            raise TypeError("Missing 'tier' argument")
+        if compute_isolation is None and 'computeIsolation' in kwargs:
             compute_isolation = kwargs['computeIsolation']
-        if 'diskEncryptions' in kwargs:
+        if disk_encryptions is None and 'diskEncryptions' in kwargs:
             disk_encryptions = kwargs['diskEncryptions']
-        if 'encryptionInTransitEnabled' in kwargs:
+        if encryption_in_transit_enabled is None and 'encryptionInTransitEnabled' in kwargs:
             encryption_in_transit_enabled = kwargs['encryptionInTransitEnabled']
-        if 'securityProfile' in kwargs:
+        if security_profile is None and 'securityProfile' in kwargs:
             security_profile = kwargs['securityProfile']
-        if 'storageAccountGen2' in kwargs:
+        if storage_account_gen2 is None and 'storageAccountGen2' in kwargs:
             storage_account_gen2 = kwargs['storageAccountGen2']
-        if 'storageAccounts' in kwargs:
+        if storage_accounts is None and 'storageAccounts' in kwargs:
             storage_accounts = kwargs['storageAccounts']
-        if 'tlsMinVersion' in kwargs:
+        if tls_min_version is None and 'tlsMinVersion' in kwargs:
             tls_min_version = kwargs['tlsMinVersion']
 
         _setter("cluster_version", cluster_version)
@@ -510,31 +522,31 @@ class _SparkClusterState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              tier: Optional[pulumi.Input[str]] = None,
              tls_min_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'clusterVersion' in kwargs:
+        if cluster_version is None and 'clusterVersion' in kwargs:
             cluster_version = kwargs['clusterVersion']
-        if 'componentVersion' in kwargs:
+        if component_version is None and 'componentVersion' in kwargs:
             component_version = kwargs['componentVersion']
-        if 'computeIsolation' in kwargs:
+        if compute_isolation is None and 'computeIsolation' in kwargs:
             compute_isolation = kwargs['computeIsolation']
-        if 'diskEncryptions' in kwargs:
+        if disk_encryptions is None and 'diskEncryptions' in kwargs:
             disk_encryptions = kwargs['diskEncryptions']
-        if 'encryptionInTransitEnabled' in kwargs:
+        if encryption_in_transit_enabled is None and 'encryptionInTransitEnabled' in kwargs:
             encryption_in_transit_enabled = kwargs['encryptionInTransitEnabled']
-        if 'httpsEndpoint' in kwargs:
+        if https_endpoint is None and 'httpsEndpoint' in kwargs:
             https_endpoint = kwargs['httpsEndpoint']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'securityProfile' in kwargs:
+        if security_profile is None and 'securityProfile' in kwargs:
             security_profile = kwargs['securityProfile']
-        if 'sshEndpoint' in kwargs:
+        if ssh_endpoint is None and 'sshEndpoint' in kwargs:
             ssh_endpoint = kwargs['sshEndpoint']
-        if 'storageAccountGen2' in kwargs:
+        if storage_account_gen2 is None and 'storageAccountGen2' in kwargs:
             storage_account_gen2 = kwargs['storageAccountGen2']
-        if 'storageAccounts' in kwargs:
+        if storage_accounts is None and 'storageAccounts' in kwargs:
             storage_accounts = kwargs['storageAccounts']
-        if 'tlsMinVersion' in kwargs:
+        if tls_min_version is None and 'tlsMinVersion' in kwargs:
             tls_min_version = kwargs['tlsMinVersion']
 
         if cluster_version is not None:
@@ -878,58 +890,6 @@ class SparkCluster(pulumi.CustomResource):
         """
         Manages a HDInsight Spark Cluster.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("exampleContainer",
-            storage_account_name=example_account.name,
-            container_access_type="private")
-        example_spark_cluster = azure.hdinsight.SparkCluster("exampleSparkCluster",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            cluster_version="3.6",
-            tier="Standard",
-            component_version=azure.hdinsight.SparkClusterComponentVersionArgs(
-                spark="2.3",
-            ),
-            gateway=azure.hdinsight.SparkClusterGatewayArgs(
-                username="acctestusrgw",
-                password="Password123!",
-            ),
-            storage_accounts=[azure.hdinsight.SparkClusterStorageAccountArgs(
-                storage_container_id=example_container.id,
-                storage_account_key=example_account.primary_access_key,
-                is_default=True,
-            )],
-            roles=azure.hdinsight.SparkClusterRolesArgs(
-                head_node=azure.hdinsight.SparkClusterRolesHeadNodeArgs(
-                    vm_size="Standard_A3",
-                    username="acctestusrvm",
-                    password="AccTestvdSC4daf986!",
-                ),
-                worker_node=azure.hdinsight.SparkClusterRolesWorkerNodeArgs(
-                    vm_size="Standard_A3",
-                    username="acctestusrvm",
-                    password="AccTestvdSC4daf986!",
-                    target_instance_count=3,
-                ),
-                zookeeper_node=azure.hdinsight.SparkClusterRolesZookeeperNodeArgs(
-                    vm_size="Medium",
-                    username="acctestusrvm",
-                    password="AccTestvdSC4daf986!",
-                ),
-            ))
-        ```
-
         ## Import
 
         HDInsight Spark Clusters can be imported using the `resource id`, e.g.
@@ -971,58 +931,6 @@ class SparkCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a HDInsight Spark Cluster.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("exampleContainer",
-            storage_account_name=example_account.name,
-            container_access_type="private")
-        example_spark_cluster = azure.hdinsight.SparkCluster("exampleSparkCluster",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            cluster_version="3.6",
-            tier="Standard",
-            component_version=azure.hdinsight.SparkClusterComponentVersionArgs(
-                spark="2.3",
-            ),
-            gateway=azure.hdinsight.SparkClusterGatewayArgs(
-                username="acctestusrgw",
-                password="Password123!",
-            ),
-            storage_accounts=[azure.hdinsight.SparkClusterStorageAccountArgs(
-                storage_container_id=example_container.id,
-                storage_account_key=example_account.primary_access_key,
-                is_default=True,
-            )],
-            roles=azure.hdinsight.SparkClusterRolesArgs(
-                head_node=azure.hdinsight.SparkClusterRolesHeadNodeArgs(
-                    vm_size="Standard_A3",
-                    username="acctestusrvm",
-                    password="AccTestvdSC4daf986!",
-                ),
-                worker_node=azure.hdinsight.SparkClusterRolesWorkerNodeArgs(
-                    vm_size="Standard_A3",
-                    username="acctestusrvm",
-                    password="AccTestvdSC4daf986!",
-                    target_instance_count=3,
-                ),
-                zookeeper_node=azure.hdinsight.SparkClusterRolesZookeeperNodeArgs(
-                    vm_size="Medium",
-                    username="acctestusrvm",
-                    password="AccTestvdSC4daf986!",
-                ),
-            ))
-        ```
 
         ## Import
 
@@ -1083,78 +991,38 @@ class SparkCluster(pulumi.CustomResource):
             if cluster_version is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_version'")
             __props__.__dict__["cluster_version"] = cluster_version
-            if component_version is not None and not isinstance(component_version, SparkClusterComponentVersionArgs):
-                component_version = component_version or {}
-                def _setter(key, value):
-                    component_version[key] = value
-                SparkClusterComponentVersionArgs._configure(_setter, **component_version)
+            component_version = _utilities.configure(component_version, SparkClusterComponentVersionArgs, True)
             if component_version is None and not opts.urn:
                 raise TypeError("Missing required property 'component_version'")
             __props__.__dict__["component_version"] = component_version
-            if compute_isolation is not None and not isinstance(compute_isolation, SparkClusterComputeIsolationArgs):
-                compute_isolation = compute_isolation or {}
-                def _setter(key, value):
-                    compute_isolation[key] = value
-                SparkClusterComputeIsolationArgs._configure(_setter, **compute_isolation)
+            compute_isolation = _utilities.configure(compute_isolation, SparkClusterComputeIsolationArgs, True)
             __props__.__dict__["compute_isolation"] = compute_isolation
             __props__.__dict__["disk_encryptions"] = disk_encryptions
             __props__.__dict__["encryption_in_transit_enabled"] = encryption_in_transit_enabled
-            if extension is not None and not isinstance(extension, SparkClusterExtensionArgs):
-                extension = extension or {}
-                def _setter(key, value):
-                    extension[key] = value
-                SparkClusterExtensionArgs._configure(_setter, **extension)
+            extension = _utilities.configure(extension, SparkClusterExtensionArgs, True)
             __props__.__dict__["extension"] = extension
-            if gateway is not None and not isinstance(gateway, SparkClusterGatewayArgs):
-                gateway = gateway or {}
-                def _setter(key, value):
-                    gateway[key] = value
-                SparkClusterGatewayArgs._configure(_setter, **gateway)
+            gateway = _utilities.configure(gateway, SparkClusterGatewayArgs, True)
             if gateway is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway'")
             __props__.__dict__["gateway"] = gateway
             __props__.__dict__["location"] = location
-            if metastores is not None and not isinstance(metastores, SparkClusterMetastoresArgs):
-                metastores = metastores or {}
-                def _setter(key, value):
-                    metastores[key] = value
-                SparkClusterMetastoresArgs._configure(_setter, **metastores)
+            metastores = _utilities.configure(metastores, SparkClusterMetastoresArgs, True)
             __props__.__dict__["metastores"] = metastores
-            if monitor is not None and not isinstance(monitor, SparkClusterMonitorArgs):
-                monitor = monitor or {}
-                def _setter(key, value):
-                    monitor[key] = value
-                SparkClusterMonitorArgs._configure(_setter, **monitor)
+            monitor = _utilities.configure(monitor, SparkClusterMonitorArgs, True)
             __props__.__dict__["monitor"] = monitor
             __props__.__dict__["name"] = name
-            if network is not None and not isinstance(network, SparkClusterNetworkArgs):
-                network = network or {}
-                def _setter(key, value):
-                    network[key] = value
-                SparkClusterNetworkArgs._configure(_setter, **network)
+            network = _utilities.configure(network, SparkClusterNetworkArgs, True)
             __props__.__dict__["network"] = network
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if roles is not None and not isinstance(roles, SparkClusterRolesArgs):
-                roles = roles or {}
-                def _setter(key, value):
-                    roles[key] = value
-                SparkClusterRolesArgs._configure(_setter, **roles)
+            roles = _utilities.configure(roles, SparkClusterRolesArgs, True)
             if roles is None and not opts.urn:
                 raise TypeError("Missing required property 'roles'")
             __props__.__dict__["roles"] = roles
-            if security_profile is not None and not isinstance(security_profile, SparkClusterSecurityProfileArgs):
-                security_profile = security_profile or {}
-                def _setter(key, value):
-                    security_profile[key] = value
-                SparkClusterSecurityProfileArgs._configure(_setter, **security_profile)
+            security_profile = _utilities.configure(security_profile, SparkClusterSecurityProfileArgs, True)
             __props__.__dict__["security_profile"] = security_profile
-            if storage_account_gen2 is not None and not isinstance(storage_account_gen2, SparkClusterStorageAccountGen2Args):
-                storage_account_gen2 = storage_account_gen2 or {}
-                def _setter(key, value):
-                    storage_account_gen2[key] = value
-                SparkClusterStorageAccountGen2Args._configure(_setter, **storage_account_gen2)
+            storage_account_gen2 = _utilities.configure(storage_account_gen2, SparkClusterStorageAccountGen2Args, True)
             __props__.__dict__["storage_account_gen2"] = storage_account_gen2
             __props__.__dict__["storage_accounts"] = storage_accounts
             __props__.__dict__["tags"] = tags

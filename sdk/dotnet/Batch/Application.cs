@@ -12,47 +12,6 @@ namespace Pulumi.Azure.Batch
     /// <summary>
     /// Manages Azure Batch Application instance.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         AccountTier = "Standard",
-    ///         AccountReplicationType = "LRS",
-    ///     });
-    /// 
-    ///     var exampleBatch_accountAccount = new Azure.Batch.Account("exampleBatch/accountAccount", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         PoolAllocationMode = "BatchService",
-    ///         StorageAccountId = exampleAccount.Id,
-    ///         StorageAccountAuthenticationMode = "StorageKeys",
-    ///     });
-    /// 
-    ///     var exampleApplication = new Azure.Batch.Application("exampleApplication", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         AccountName = exampleBatch / accountAccount.Name,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Batch Applications can be imported using the `resource id`, e.g.

@@ -29,12 +29,14 @@ class OutboundFirewallRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             server_id: pulumi.Input[str],
+             server_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'serverId' in kwargs:
+        if server_id is None and 'serverId' in kwargs:
             server_id = kwargs['serverId']
+        if server_id is None:
+            raise TypeError("Missing 'server_id' argument")
 
         _setter("server_id", server_id)
         if name is not None:
@@ -85,9 +87,9 @@ class _OutboundFirewallRuleState:
              _setter: Callable[[Any, Any], None],
              name: Optional[pulumi.Input[str]] = None,
              server_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'serverId' in kwargs:
+        if server_id is None and 'serverId' in kwargs:
             server_id = kwargs['serverId']
 
         if name is not None:
@@ -131,23 +133,6 @@ class OutboundFirewallRule(pulumi.CustomResource):
         """
         Allows you to manage an Azure SQL Outbound Firewall Rule.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_server = azure.mssql.Server("exampleServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            version="12.0",
-            administrator_login="4dm1n157r470r",
-            administrator_login_password="4-v3ry-53cr37-p455w0rd",
-            outbound_network_restriction_enabled=True)
-        example_outbound_firewall_rule = azure.mssql.OutboundFirewallRule("exampleOutboundFirewallRule", server_id=example_server.id)
-        ```
-
         ## Import
 
         SQL Outbound Firewall Rules can be imported using the `resource id`, e.g.
@@ -169,23 +154,6 @@ class OutboundFirewallRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Allows you to manage an Azure SQL Outbound Firewall Rule.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_server = azure.mssql.Server("exampleServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            version="12.0",
-            administrator_login="4dm1n157r470r",
-            administrator_login_password="4-v3ry-53cr37-p455w0rd",
-            outbound_network_restriction_enabled=True)
-        example_outbound_firewall_rule = azure.mssql.OutboundFirewallRule("exampleOutboundFirewallRule", server_id=example_server.id)
-        ```
 
         ## Import
 

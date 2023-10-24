@@ -37,15 +37,17 @@ class IntegrationRuntimeSelfHostedArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_factory_id: pulumi.Input[str],
+             data_factory_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              rbac_authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'rbacAuthorizations' in kwargs:
+        if data_factory_id is None:
+            raise TypeError("Missing 'data_factory_id' argument")
+        if rbac_authorizations is None and 'rbacAuthorizations' in kwargs:
             rbac_authorizations = kwargs['rbacAuthorizations']
 
         _setter("data_factory_id", data_factory_id)
@@ -141,15 +143,15 @@ class _IntegrationRuntimeSelfHostedState:
              primary_authorization_key: Optional[pulumi.Input[str]] = None,
              rbac_authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]]] = None,
              secondary_authorization_key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dataFactoryId' in kwargs:
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
             data_factory_id = kwargs['dataFactoryId']
-        if 'primaryAuthorizationKey' in kwargs:
+        if primary_authorization_key is None and 'primaryAuthorizationKey' in kwargs:
             primary_authorization_key = kwargs['primaryAuthorizationKey']
-        if 'rbacAuthorizations' in kwargs:
+        if rbac_authorizations is None and 'rbacAuthorizations' in kwargs:
             rbac_authorizations = kwargs['rbacAuthorizations']
-        if 'secondaryAuthorizationKey' in kwargs:
+        if secondary_authorization_key is None and 'secondaryAuthorizationKey' in kwargs:
             secondary_authorization_key = kwargs['secondaryAuthorizationKey']
 
         if data_factory_id is not None:
@@ -251,19 +253,6 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
         """
         Manages a Data Factory Self-hosted Integration Runtime.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_integration_runtime_self_hosted = azure.datafactory.IntegrationRuntimeSelfHosted("exampleIntegrationRuntimeSelfHosted", data_factory_id=example_factory.id)
-        ```
-
         ## Import
 
         Data Factories can be imported using the `resource id`, e.g.
@@ -287,19 +276,6 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Data Factory Self-hosted Integration Runtime.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_integration_runtime_self_hosted = azure.datafactory.IntegrationRuntimeSelfHosted("exampleIntegrationRuntimeSelfHosted", data_factory_id=example_factory.id)
-        ```
 
         ## Import
 

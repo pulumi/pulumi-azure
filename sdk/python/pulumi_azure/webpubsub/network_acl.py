@@ -37,19 +37,23 @@ class NetworkAclArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             public_network: pulumi.Input['NetworkAclPublicNetworkArgs'],
-             web_pubsub_id: pulumi.Input[str],
+             public_network: Optional[pulumi.Input['NetworkAclPublicNetworkArgs']] = None,
+             web_pubsub_id: Optional[pulumi.Input[str]] = None,
              default_action: Optional[pulumi.Input[str]] = None,
              private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAclPrivateEndpointArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'publicNetwork' in kwargs:
+        if public_network is None and 'publicNetwork' in kwargs:
             public_network = kwargs['publicNetwork']
-        if 'webPubsubId' in kwargs:
+        if public_network is None:
+            raise TypeError("Missing 'public_network' argument")
+        if web_pubsub_id is None and 'webPubsubId' in kwargs:
             web_pubsub_id = kwargs['webPubsubId']
-        if 'defaultAction' in kwargs:
+        if web_pubsub_id is None:
+            raise TypeError("Missing 'web_pubsub_id' argument")
+        if default_action is None and 'defaultAction' in kwargs:
             default_action = kwargs['defaultAction']
-        if 'privateEndpoints' in kwargs:
+        if private_endpoints is None and 'privateEndpoints' in kwargs:
             private_endpoints = kwargs['privateEndpoints']
 
         _setter("public_network", public_network)
@@ -136,15 +140,15 @@ class _NetworkAclState:
              private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAclPrivateEndpointArgs']]]] = None,
              public_network: Optional[pulumi.Input['NetworkAclPublicNetworkArgs']] = None,
              web_pubsub_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'defaultAction' in kwargs:
+        if default_action is None and 'defaultAction' in kwargs:
             default_action = kwargs['defaultAction']
-        if 'privateEndpoints' in kwargs:
+        if private_endpoints is None and 'privateEndpoints' in kwargs:
             private_endpoints = kwargs['privateEndpoints']
-        if 'publicNetwork' in kwargs:
+        if public_network is None and 'publicNetwork' in kwargs:
             public_network = kwargs['publicNetwork']
-        if 'webPubsubId' in kwargs:
+        if web_pubsub_id is None and 'webPubsubId' in kwargs:
             web_pubsub_id = kwargs['webPubsubId']
 
         if default_action is not None:
@@ -218,53 +222,6 @@ class NetworkAcl(pulumi.CustomResource):
         """
         Manages the Network ACL for a Web Pubsub.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="east us")
-        example_service = azure.webpubsub.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard_S1",
-            capacity=1)
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            address_spaces=["10.5.0.0/16"])
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.5.2.0/24"],
-            enforce_private_link_endpoint_network_policies=True)
-        example_endpoint = azure.privatelink.Endpoint("exampleEndpoint",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            subnet_id=example_subnet.id,
-            private_service_connection=azure.privatelink.EndpointPrivateServiceConnectionArgs(
-                name="psc-sig-test",
-                is_manual_connection=False,
-                private_connection_resource_id=example_service.id,
-                subresource_names=["webpubsub"],
-            ))
-        example_network_acl = azure.webpubsub.NetworkAcl("exampleNetworkAcl",
-            web_pubsub_id=example_service.id,
-            default_action="Allow",
-            public_network=azure.webpubsub.NetworkAclPublicNetworkArgs(
-                denied_request_types=["ClientConnection"],
-            ),
-            private_endpoints=[azure.webpubsub.NetworkAclPrivateEndpointArgs(
-                id=example_endpoint.id,
-                denied_request_types=[
-                    "RESTAPI",
-                    "ClientConnection",
-                ],
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[example_endpoint]))
-        ```
-
         ## Import
 
         Network ACLs for a Web Pubsub service can be imported using the `resource id`, e.g.
@@ -288,53 +245,6 @@ class NetworkAcl(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages the Network ACL for a Web Pubsub.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="east us")
-        example_service = azure.webpubsub.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard_S1",
-            capacity=1)
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            address_spaces=["10.5.0.0/16"])
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.5.2.0/24"],
-            enforce_private_link_endpoint_network_policies=True)
-        example_endpoint = azure.privatelink.Endpoint("exampleEndpoint",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            subnet_id=example_subnet.id,
-            private_service_connection=azure.privatelink.EndpointPrivateServiceConnectionArgs(
-                name="psc-sig-test",
-                is_manual_connection=False,
-                private_connection_resource_id=example_service.id,
-                subresource_names=["webpubsub"],
-            ))
-        example_network_acl = azure.webpubsub.NetworkAcl("exampleNetworkAcl",
-            web_pubsub_id=example_service.id,
-            default_action="Allow",
-            public_network=azure.webpubsub.NetworkAclPublicNetworkArgs(
-                denied_request_types=["ClientConnection"],
-            ),
-            private_endpoints=[azure.webpubsub.NetworkAclPrivateEndpointArgs(
-                id=example_endpoint.id,
-                denied_request_types=[
-                    "RESTAPI",
-                    "ClientConnection",
-                ],
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[example_endpoint]))
-        ```
 
         ## Import
 
@@ -378,11 +288,7 @@ class NetworkAcl(pulumi.CustomResource):
 
             __props__.__dict__["default_action"] = default_action
             __props__.__dict__["private_endpoints"] = private_endpoints
-            if public_network is not None and not isinstance(public_network, NetworkAclPublicNetworkArgs):
-                public_network = public_network or {}
-                def _setter(key, value):
-                    public_network[key] = value
-                NetworkAclPublicNetworkArgs._configure(_setter, **public_network)
+            public_network = _utilities.configure(public_network, NetworkAclPublicNetworkArgs, True)
             if public_network is None and not opts.urn:
                 raise TypeError("Missing required property 'public_network'")
             __props__.__dict__["public_network"] = public_network

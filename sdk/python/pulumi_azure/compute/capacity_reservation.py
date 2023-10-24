@@ -40,15 +40,19 @@ class CapacityReservationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             capacity_reservation_group_id: pulumi.Input[str],
-             sku: pulumi.Input['CapacityReservationSkuArgs'],
+             capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['CapacityReservationSkuArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'capacityReservationGroupId' in kwargs:
+        if capacity_reservation_group_id is None and 'capacityReservationGroupId' in kwargs:
             capacity_reservation_group_id = kwargs['capacityReservationGroupId']
+        if capacity_reservation_group_id is None:
+            raise TypeError("Missing 'capacity_reservation_group_id' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
 
         _setter("capacity_reservation_group_id", capacity_reservation_group_id)
         _setter("sku", sku)
@@ -152,9 +156,9 @@ class _CapacityReservationState:
              sku: Optional[pulumi.Input['CapacityReservationSkuArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'capacityReservationGroupId' in kwargs:
+        if capacity_reservation_group_id is None and 'capacityReservationGroupId' in kwargs:
             capacity_reservation_group_id = kwargs['capacityReservationGroupId']
 
         if capacity_reservation_group_id is not None:
@@ -243,24 +247,6 @@ class CapacityReservation(pulumi.CustomResource):
         """
         Manages a Capacity Reservation within a Capacity Reservation Group.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_capacity_reservation_group = azure.compute.CapacityReservationGroup("exampleCapacityReservationGroup",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_capacity_reservation = azure.compute.CapacityReservation("exampleCapacityReservation",
-            capacity_reservation_group_id=example_capacity_reservation_group.id,
-            sku=azure.compute.CapacityReservationSkuArgs(
-                name="Standard_D2s_v3",
-                capacity=1,
-            ))
-        ```
-
         ## Import
 
         Capacity Reservations can be imported using the `resource id`, e.g.
@@ -285,24 +271,6 @@ class CapacityReservation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Capacity Reservation within a Capacity Reservation Group.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_capacity_reservation_group = azure.compute.CapacityReservationGroup("exampleCapacityReservationGroup",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_capacity_reservation = azure.compute.CapacityReservation("exampleCapacityReservation",
-            capacity_reservation_group_id=example_capacity_reservation_group.id,
-            sku=azure.compute.CapacityReservationSkuArgs(
-                name="Standard_D2s_v3",
-                capacity=1,
-            ))
-        ```
 
         ## Import
 
@@ -349,11 +317,7 @@ class CapacityReservation(pulumi.CustomResource):
                 raise TypeError("Missing required property 'capacity_reservation_group_id'")
             __props__.__dict__["capacity_reservation_group_id"] = capacity_reservation_group_id
             __props__.__dict__["name"] = name
-            if sku is not None and not isinstance(sku, CapacityReservationSkuArgs):
-                sku = sku or {}
-                def _setter(key, value):
-                    sku[key] = value
-                CapacityReservationSkuArgs._configure(_setter, **sku)
+            sku = _utilities.configure(sku, CapacityReservationSkuArgs, True)
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku

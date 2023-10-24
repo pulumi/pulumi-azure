@@ -15,65 +15,6 @@ import (
 
 // Manages a Virtual Desktop Workspace Application Group Association.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/desktopvirtualization"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			pooledbreadthfirst, err := desktopvirtualization.NewHostPool(ctx, "pooledbreadthfirst", &desktopvirtualization.HostPoolArgs{
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Type:              pulumi.String("Pooled"),
-//				LoadBalancerType:  pulumi.String("BreadthFirst"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			remoteapp, err := desktopvirtualization.NewApplicationGroup(ctx, "remoteapp", &desktopvirtualization.ApplicationGroupArgs{
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Type:              pulumi.String("RemoteApp"),
-//				HostPoolId:        pooledbreadthfirst.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			workspace, err := desktopvirtualization.NewWorkspace(ctx, "workspace", &desktopvirtualization.WorkspaceArgs{
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = desktopvirtualization.NewWorkspaceApplicationGroupAssociation(ctx, "workspaceremoteapp", &desktopvirtualization.WorkspaceApplicationGroupAssociationArgs{
-//				WorkspaceId:        workspace.ID(),
-//				ApplicationGroupId: remoteapp.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Associations between Virtual Desktop Workspaces and Virtual Desktop Application Groups can be imported using the `resource id`, e.g.

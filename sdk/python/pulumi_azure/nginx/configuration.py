@@ -40,22 +40,26 @@ class ConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             nginx_deployment_id: pulumi.Input[str],
-             root_file: pulumi.Input[str],
+             nginx_deployment_id: Optional[pulumi.Input[str]] = None,
+             root_file: Optional[pulumi.Input[str]] = None,
              config_files: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationConfigFileArgs']]]] = None,
              package_data: Optional[pulumi.Input[str]] = None,
              protected_files: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationProtectedFileArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'nginxDeploymentId' in kwargs:
+        if nginx_deployment_id is None and 'nginxDeploymentId' in kwargs:
             nginx_deployment_id = kwargs['nginxDeploymentId']
-        if 'rootFile' in kwargs:
+        if nginx_deployment_id is None:
+            raise TypeError("Missing 'nginx_deployment_id' argument")
+        if root_file is None and 'rootFile' in kwargs:
             root_file = kwargs['rootFile']
-        if 'configFiles' in kwargs:
+        if root_file is None:
+            raise TypeError("Missing 'root_file' argument")
+        if config_files is None and 'configFiles' in kwargs:
             config_files = kwargs['configFiles']
-        if 'packageData' in kwargs:
+        if package_data is None and 'packageData' in kwargs:
             package_data = kwargs['packageData']
-        if 'protectedFiles' in kwargs:
+        if protected_files is None and 'protectedFiles' in kwargs:
             protected_files = kwargs['protectedFiles']
 
         _setter("nginx_deployment_id", nginx_deployment_id)
@@ -160,17 +164,17 @@ class _ConfigurationState:
              package_data: Optional[pulumi.Input[str]] = None,
              protected_files: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationProtectedFileArgs']]]] = None,
              root_file: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'configFiles' in kwargs:
+        if config_files is None and 'configFiles' in kwargs:
             config_files = kwargs['configFiles']
-        if 'nginxDeploymentId' in kwargs:
+        if nginx_deployment_id is None and 'nginxDeploymentId' in kwargs:
             nginx_deployment_id = kwargs['nginxDeploymentId']
-        if 'packageData' in kwargs:
+        if package_data is None and 'packageData' in kwargs:
             package_data = kwargs['packageData']
-        if 'protectedFiles' in kwargs:
+        if protected_files is None and 'protectedFiles' in kwargs:
             protected_files = kwargs['protectedFiles']
-        if 'rootFile' in kwargs:
+        if root_file is None and 'rootFile' in kwargs:
             root_file = kwargs['rootFile']
 
         if config_files is not None:

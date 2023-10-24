@@ -55,34 +55,52 @@ class StreamInputBlobArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             date_format: pulumi.Input[str],
-             path_pattern: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             serialization: pulumi.Input['StreamInputBlobSerializationArgs'],
-             storage_account_key: pulumi.Input[str],
-             storage_account_name: pulumi.Input[str],
-             storage_container_name: pulumi.Input[str],
-             stream_analytics_job_name: pulumi.Input[str],
-             time_format: pulumi.Input[str],
+             date_format: Optional[pulumi.Input[str]] = None,
+             path_pattern: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             serialization: Optional[pulumi.Input['StreamInputBlobSerializationArgs']] = None,
+             storage_account_key: Optional[pulumi.Input[str]] = None,
+             storage_account_name: Optional[pulumi.Input[str]] = None,
+             storage_container_name: Optional[pulumi.Input[str]] = None,
+             stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
+             time_format: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dateFormat' in kwargs:
+        if date_format is None and 'dateFormat' in kwargs:
             date_format = kwargs['dateFormat']
-        if 'pathPattern' in kwargs:
+        if date_format is None:
+            raise TypeError("Missing 'date_format' argument")
+        if path_pattern is None and 'pathPattern' in kwargs:
             path_pattern = kwargs['pathPattern']
-        if 'resourceGroupName' in kwargs:
+        if path_pattern is None:
+            raise TypeError("Missing 'path_pattern' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'storageAccountKey' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if serialization is None:
+            raise TypeError("Missing 'serialization' argument")
+        if storage_account_key is None and 'storageAccountKey' in kwargs:
             storage_account_key = kwargs['storageAccountKey']
-        if 'storageAccountName' in kwargs:
+        if storage_account_key is None:
+            raise TypeError("Missing 'storage_account_key' argument")
+        if storage_account_name is None and 'storageAccountName' in kwargs:
             storage_account_name = kwargs['storageAccountName']
-        if 'storageContainerName' in kwargs:
+        if storage_account_name is None:
+            raise TypeError("Missing 'storage_account_name' argument")
+        if storage_container_name is None and 'storageContainerName' in kwargs:
             storage_container_name = kwargs['storageContainerName']
-        if 'streamAnalyticsJobName' in kwargs:
+        if storage_container_name is None:
+            raise TypeError("Missing 'storage_container_name' argument")
+        if stream_analytics_job_name is None and 'streamAnalyticsJobName' in kwargs:
             stream_analytics_job_name = kwargs['streamAnalyticsJobName']
-        if 'timeFormat' in kwargs:
+        if stream_analytics_job_name is None:
+            raise TypeError("Missing 'stream_analytics_job_name' argument")
+        if time_format is None and 'timeFormat' in kwargs:
             time_format = kwargs['timeFormat']
+        if time_format is None:
+            raise TypeError("Missing 'time_format' argument")
 
         _setter("date_format", date_format)
         _setter("path_pattern", path_pattern)
@@ -269,23 +287,23 @@ class _StreamInputBlobState:
              storage_container_name: Optional[pulumi.Input[str]] = None,
              stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
              time_format: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'dateFormat' in kwargs:
+        if date_format is None and 'dateFormat' in kwargs:
             date_format = kwargs['dateFormat']
-        if 'pathPattern' in kwargs:
+        if path_pattern is None and 'pathPattern' in kwargs:
             path_pattern = kwargs['pathPattern']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'storageAccountKey' in kwargs:
+        if storage_account_key is None and 'storageAccountKey' in kwargs:
             storage_account_key = kwargs['storageAccountKey']
-        if 'storageAccountName' in kwargs:
+        if storage_account_name is None and 'storageAccountName' in kwargs:
             storage_account_name = kwargs['storageAccountName']
-        if 'storageContainerName' in kwargs:
+        if storage_container_name is None and 'storageContainerName' in kwargs:
             storage_container_name = kwargs['storageContainerName']
-        if 'streamAnalyticsJobName' in kwargs:
+        if stream_analytics_job_name is None and 'streamAnalyticsJobName' in kwargs:
             stream_analytics_job_name = kwargs['streamAnalyticsJobName']
-        if 'timeFormat' in kwargs:
+        if time_format is None and 'timeFormat' in kwargs:
             time_format = kwargs['timeFormat']
 
         if date_format is not None:
@@ -449,38 +467,6 @@ class StreamInputBlob(pulumi.CustomResource):
         """
         Manages a Stream Analytics Stream Input Blob.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_job = azure.streamanalytics.get_job_output(name="example-job",
-            resource_group_name=example_resource_group.name)
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("exampleContainer",
-            storage_account_name=example_account.name,
-            container_access_type="private")
-        example_stream_input_blob = azure.streamanalytics.StreamInputBlob("exampleStreamInputBlob",
-            stream_analytics_job_name=example_job.name,
-            resource_group_name=example_job.resource_group_name,
-            storage_account_name=example_account.name,
-            storage_account_key=example_account.primary_access_key,
-            storage_container_name=example_container.name,
-            path_pattern="some-random-pattern",
-            date_format="yyyy/MM/dd",
-            time_format="HH",
-            serialization=azure.streamanalytics.StreamInputBlobSerializationArgs(
-                type="Json",
-                encoding="UTF8",
-            ))
-        ```
-
         ## Import
 
         Stream Analytics Stream Input Blob's can be imported using the `resource id`, e.g.
@@ -510,38 +496,6 @@ class StreamInputBlob(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Stream Analytics Stream Input Blob.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_job = azure.streamanalytics.get_job_output(name="example-job",
-            resource_group_name=example_resource_group.name)
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("exampleContainer",
-            storage_account_name=example_account.name,
-            container_access_type="private")
-        example_stream_input_blob = azure.streamanalytics.StreamInputBlob("exampleStreamInputBlob",
-            stream_analytics_job_name=example_job.name,
-            resource_group_name=example_job.resource_group_name,
-            storage_account_name=example_account.name,
-            storage_account_key=example_account.primary_access_key,
-            storage_container_name=example_container.name,
-            path_pattern="some-random-pattern",
-            date_format="yyyy/MM/dd",
-            time_format="HH",
-            serialization=azure.streamanalytics.StreamInputBlobSerializationArgs(
-                type="Json",
-                encoding="UTF8",
-            ))
-        ```
 
         ## Import
 
@@ -599,11 +553,7 @@ class StreamInputBlob(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if serialization is not None and not isinstance(serialization, StreamInputBlobSerializationArgs):
-                serialization = serialization or {}
-                def _setter(key, value):
-                    serialization[key] = value
-                StreamInputBlobSerializationArgs._configure(_setter, **serialization)
+            serialization = _utilities.configure(serialization, StreamInputBlobSerializationArgs, True)
             if serialization is None and not opts.urn:
                 raise TypeError("Missing required property 'serialization'")
             __props__.__dict__["serialization"] = serialization

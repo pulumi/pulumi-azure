@@ -12,56 +12,6 @@ namespace Pulumi.Azure.ApiManagement
     /// <summary>
     /// Manages an API Management Product tag
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         PublisherName = "My Company",
-    ///         PublisherEmail = "company@terraform.io",
-    ///         SkuName = "Developer_1",
-    ///     });
-    /// 
-    ///     var exampleProduct = new Azure.ApiManagement.Product("exampleProduct", new()
-    ///     {
-    ///         ProductId = "test-product",
-    ///         ApiManagementName = exampleService.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         DisplayName = "Test Product",
-    ///         SubscriptionRequired = true,
-    ///         ApprovalRequired = true,
-    ///         Published = true,
-    ///     });
-    /// 
-    ///     var exampleTag = new Azure.ApiManagement.Tag("exampleTag", new()
-    ///     {
-    ///         ApiManagementId = exampleService.Id,
-    ///     });
-    /// 
-    ///     var exampleProductTag = new Azure.ApiManagement.ProductTag("exampleProductTag", new()
-    ///     {
-    ///         ApiManagementProductId = exampleProduct.ProductId,
-    ///         ApiManagementName = exampleService.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// API Management Products can be imported using the `resource id`, e.g.

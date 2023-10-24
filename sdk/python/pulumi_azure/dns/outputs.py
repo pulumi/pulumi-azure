@@ -41,11 +41,17 @@ class CaaRecordRecord(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             flags: int,
-             tag: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             flags: Optional[int] = None,
+             tag: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if flags is None:
+            raise TypeError("Missing 'flags' argument")
+        if tag is None:
+            raise TypeError("Missing 'tag' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("flags", flags)
         _setter("tag", tag)
@@ -93,10 +99,14 @@ class MxRecordRecord(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             exchange: str,
-             preference: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             exchange: Optional[str] = None,
+             preference: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if exchange is None:
+            raise TypeError("Missing 'exchange' argument")
+        if preference is None:
+            raise TypeError("Missing 'preference' argument")
 
         _setter("exchange", exchange)
         _setter("preference", preference)
@@ -141,12 +151,20 @@ class SrvRecordRecord(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             port: int,
-             priority: int,
-             target: str,
-             weight: int,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             port: Optional[int] = None,
+             priority: Optional[int] = None,
+             target: Optional[str] = None,
+             weight: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if priority is None:
+            raise TypeError("Missing 'priority' argument")
+        if target is None:
+            raise TypeError("Missing 'target' argument")
+        if weight is None:
+            raise TypeError("Missing 'weight' argument")
 
         _setter("port", port)
         _setter("priority", priority)
@@ -200,9 +218,11 @@ class TxtRecordRecord(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("value", value)
 
@@ -282,7 +302,7 @@ class ZoneSoaRecord(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             email: str,
+             email: Optional[str] = None,
              expire_time: Optional[int] = None,
              fqdn: Optional[str] = None,
              host_name: Optional[str] = None,
@@ -292,19 +312,21 @@ class ZoneSoaRecord(dict):
              serial_number: Optional[int] = None,
              tags: Optional[Mapping[str, str]] = None,
              ttl: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'expireTime' in kwargs:
+        if email is None:
+            raise TypeError("Missing 'email' argument")
+        if expire_time is None and 'expireTime' in kwargs:
             expire_time = kwargs['expireTime']
-        if 'hostName' in kwargs:
+        if host_name is None and 'hostName' in kwargs:
             host_name = kwargs['hostName']
-        if 'minimumTtl' in kwargs:
+        if minimum_ttl is None and 'minimumTtl' in kwargs:
             minimum_ttl = kwargs['minimumTtl']
-        if 'refreshTime' in kwargs:
+        if refresh_time is None and 'refreshTime' in kwargs:
             refresh_time = kwargs['refreshTime']
-        if 'retryTime' in kwargs:
+        if retry_time is None and 'retryTime' in kwargs:
             retry_time = kwargs['retryTime']
-        if 'serialNumber' in kwargs:
+        if serial_number is None and 'serialNumber' in kwargs:
             serial_number = kwargs['serialNumber']
 
         _setter("email", email)
@@ -425,11 +447,17 @@ class GetCAARecordRecordResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             flags: int,
-             tag: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             flags: Optional[int] = None,
+             tag: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if flags is None:
+            raise TypeError("Missing 'flags' argument")
+        if tag is None:
+            raise TypeError("Missing 'tag' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("flags", flags)
         _setter("tag", tag)
@@ -477,10 +505,14 @@ class GetMxRecordRecordResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             exchange: str,
-             preference: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             exchange: Optional[str] = None,
+             preference: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if exchange is None:
+            raise TypeError("Missing 'exchange' argument")
+        if preference is None:
+            raise TypeError("Missing 'preference' argument")
 
         _setter("exchange", exchange)
         _setter("preference", preference)
@@ -525,12 +557,20 @@ class GetSrvRecordRecordResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             port: int,
-             priority: int,
-             target: str,
-             weight: int,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             port: Optional[int] = None,
+             priority: Optional[int] = None,
+             target: Optional[str] = None,
+             weight: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if priority is None:
+            raise TypeError("Missing 'priority' argument")
+        if target is None:
+            raise TypeError("Missing 'target' argument")
+        if weight is None:
+            raise TypeError("Missing 'weight' argument")
 
         _setter("port", port)
         _setter("priority", priority)
@@ -584,9 +624,11 @@ class GetTxtRecordRecordResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if value is None:
+            raise TypeError("Missing 'value' argument")
 
         _setter("value", value)
 

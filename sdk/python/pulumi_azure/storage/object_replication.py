@@ -34,15 +34,21 @@ class ObjectReplicationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             destination_storage_account_id: pulumi.Input[str],
-             rules: pulumi.Input[Sequence[pulumi.Input['ObjectReplicationRuleArgs']]],
-             source_storage_account_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             destination_storage_account_id: Optional[pulumi.Input[str]] = None,
+             rules: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectReplicationRuleArgs']]]] = None,
+             source_storage_account_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'destinationStorageAccountId' in kwargs:
+        if destination_storage_account_id is None and 'destinationStorageAccountId' in kwargs:
             destination_storage_account_id = kwargs['destinationStorageAccountId']
-        if 'sourceStorageAccountId' in kwargs:
+        if destination_storage_account_id is None:
+            raise TypeError("Missing 'destination_storage_account_id' argument")
+        if rules is None:
+            raise TypeError("Missing 'rules' argument")
+        if source_storage_account_id is None and 'sourceStorageAccountId' in kwargs:
             source_storage_account_id = kwargs['sourceStorageAccountId']
+        if source_storage_account_id is None:
+            raise TypeError("Missing 'source_storage_account_id' argument")
 
         _setter("destination_storage_account_id", destination_storage_account_id)
         _setter("rules", rules)
@@ -117,15 +123,15 @@ class _ObjectReplicationState:
              rules: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectReplicationRuleArgs']]]] = None,
              source_object_replication_id: Optional[pulumi.Input[str]] = None,
              source_storage_account_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'destinationObjectReplicationId' in kwargs:
+        if destination_object_replication_id is None and 'destinationObjectReplicationId' in kwargs:
             destination_object_replication_id = kwargs['destinationObjectReplicationId']
-        if 'destinationStorageAccountId' in kwargs:
+        if destination_storage_account_id is None and 'destinationStorageAccountId' in kwargs:
             destination_storage_account_id = kwargs['destinationStorageAccountId']
-        if 'sourceObjectReplicationId' in kwargs:
+        if source_object_replication_id is None and 'sourceObjectReplicationId' in kwargs:
             source_object_replication_id = kwargs['sourceObjectReplicationId']
-        if 'sourceStorageAccountId' in kwargs:
+        if source_storage_account_id is None and 'sourceStorageAccountId' in kwargs:
             source_storage_account_id = kwargs['sourceStorageAccountId']
 
         if destination_object_replication_id is not None:
@@ -212,47 +218,6 @@ class ObjectReplication(pulumi.CustomResource):
         """
         Manages a Storage Object Replication.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        src_resource_group = azure.core.ResourceGroup("srcResourceGroup", location="West Europe")
-        src_account = azure.storage.Account("srcAccount",
-            resource_group_name=src_resource_group.name,
-            location=src_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            blob_properties=azure.storage.AccountBlobPropertiesArgs(
-                versioning_enabled=True,
-                change_feed_enabled=True,
-            ))
-        src_container = azure.storage.Container("srcContainer",
-            storage_account_name=src_account.name,
-            container_access_type="private")
-        dst_resource_group = azure.core.ResourceGroup("dstResourceGroup", location="East US")
-        dst_account = azure.storage.Account("dstAccount",
-            resource_group_name=dst_resource_group.name,
-            location=dst_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            blob_properties=azure.storage.AccountBlobPropertiesArgs(
-                versioning_enabled=True,
-                change_feed_enabled=True,
-            ))
-        dst_container = azure.storage.Container("dstContainer",
-            storage_account_name=dst_account.name,
-            container_access_type="private")
-        example = azure.storage.ObjectReplication("example",
-            source_storage_account_id=src_account.id,
-            destination_storage_account_id=dst_account.id,
-            rules=[azure.storage.ObjectReplicationRuleArgs(
-                source_container_name=src_container.name,
-                destination_container_name=dst_container.name,
-            )])
-        ```
-
         ## Import
 
         Storage Object Replication Policies can be imported using the `resource id`, e.g.
@@ -275,47 +240,6 @@ class ObjectReplication(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Storage Object Replication.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        src_resource_group = azure.core.ResourceGroup("srcResourceGroup", location="West Europe")
-        src_account = azure.storage.Account("srcAccount",
-            resource_group_name=src_resource_group.name,
-            location=src_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            blob_properties=azure.storage.AccountBlobPropertiesArgs(
-                versioning_enabled=True,
-                change_feed_enabled=True,
-            ))
-        src_container = azure.storage.Container("srcContainer",
-            storage_account_name=src_account.name,
-            container_access_type="private")
-        dst_resource_group = azure.core.ResourceGroup("dstResourceGroup", location="East US")
-        dst_account = azure.storage.Account("dstAccount",
-            resource_group_name=dst_resource_group.name,
-            location=dst_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            blob_properties=azure.storage.AccountBlobPropertiesArgs(
-                versioning_enabled=True,
-                change_feed_enabled=True,
-            ))
-        dst_container = azure.storage.Container("dstContainer",
-            storage_account_name=dst_account.name,
-            container_access_type="private")
-        example = azure.storage.ObjectReplication("example",
-            source_storage_account_id=src_account.id,
-            destination_storage_account_id=dst_account.id,
-            rules=[azure.storage.ObjectReplicationRuleArgs(
-                source_container_name=src_container.name,
-                destination_container_name=dst_container.name,
-            )])
-        ```
 
         ## Import
 

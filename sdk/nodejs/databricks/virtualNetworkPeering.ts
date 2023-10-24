@@ -7,38 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Databricks Virtual Network Peering
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const remoteVirtualNetwork = new azure.network.VirtualNetwork("remoteVirtualNetwork", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     addressSpaces: ["10.0.1.0/24"],
- *     location: exampleResourceGroup.location,
- * });
- * const exampleWorkspace = new azure.databricks.Workspace("exampleWorkspace", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     sku: "standard",
- * });
- * const exampleVirtualNetworkPeering = new azure.databricks.VirtualNetworkPeering("exampleVirtualNetworkPeering", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     workspaceId: exampleWorkspace.id,
- *     remoteAddressSpacePrefixes: remoteVirtualNetwork.addressSpaces,
- *     remoteVirtualNetworkId: remoteVirtualNetwork.id,
- *     allowVirtualNetworkAccess: true,
- * });
- * const remoteVirtualNetworkPeering = new azure.network.VirtualNetworkPeering("remoteVirtualNetworkPeering", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     virtualNetworkName: remoteVirtualNetwork.name,
- *     remoteVirtualNetworkId: exampleVirtualNetworkPeering.virtualNetworkId,
- *     allowVirtualNetworkAccess: true,
- * });
- * ```
- *
  * ## Import
  *
  * Databrick Virtual Network Peerings can be imported using the `resource id`, e.g.

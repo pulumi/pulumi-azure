@@ -41,24 +41,34 @@ class ChannelSmsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bot_name: pulumi.Input[str],
-             phone_number: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
-             sms_channel_account_security_id: pulumi.Input[str],
-             sms_channel_auth_token: pulumi.Input[str],
+             bot_name: Optional[pulumi.Input[str]] = None,
+             phone_number: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sms_channel_account_security_id: Optional[pulumi.Input[str]] = None,
+             sms_channel_auth_token: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'botName' in kwargs:
+        if bot_name is None and 'botName' in kwargs:
             bot_name = kwargs['botName']
-        if 'phoneNumber' in kwargs:
+        if bot_name is None:
+            raise TypeError("Missing 'bot_name' argument")
+        if phone_number is None and 'phoneNumber' in kwargs:
             phone_number = kwargs['phoneNumber']
-        if 'resourceGroupName' in kwargs:
+        if phone_number is None:
+            raise TypeError("Missing 'phone_number' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'smsChannelAccountSecurityId' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sms_channel_account_security_id is None and 'smsChannelAccountSecurityId' in kwargs:
             sms_channel_account_security_id = kwargs['smsChannelAccountSecurityId']
-        if 'smsChannelAuthToken' in kwargs:
+        if sms_channel_account_security_id is None:
+            raise TypeError("Missing 'sms_channel_account_security_id' argument")
+        if sms_channel_auth_token is None and 'smsChannelAuthToken' in kwargs:
             sms_channel_auth_token = kwargs['smsChannelAuthToken']
+        if sms_channel_auth_token is None:
+            raise TypeError("Missing 'sms_channel_auth_token' argument")
 
         _setter("bot_name", bot_name)
         _setter("phone_number", phone_number)
@@ -177,17 +187,17 @@ class _ChannelSmsState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              sms_channel_account_security_id: Optional[pulumi.Input[str]] = None,
              sms_channel_auth_token: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'botName' in kwargs:
+        if bot_name is None and 'botName' in kwargs:
             bot_name = kwargs['botName']
-        if 'phoneNumber' in kwargs:
+        if phone_number is None and 'phoneNumber' in kwargs:
             phone_number = kwargs['phoneNumber']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'smsChannelAccountSecurityId' in kwargs:
+        if sms_channel_account_security_id is None and 'smsChannelAccountSecurityId' in kwargs:
             sms_channel_account_security_id = kwargs['smsChannelAccountSecurityId']
-        if 'smsChannelAuthToken' in kwargs:
+        if sms_channel_auth_token is None and 'smsChannelAuthToken' in kwargs:
             sms_channel_auth_token = kwargs['smsChannelAuthToken']
 
         if bot_name is not None:
@@ -293,28 +303,6 @@ class ChannelSms(pulumi.CustomResource):
 
         > **Note** A bot can only have a single SMS Channel associated with it.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_channels_registration = azure.bot.ChannelsRegistration("exampleChannelsRegistration",
-            location="global",
-            resource_group_name=example_resource_group.name,
-            sku="F0",
-            microsoft_app_id=current.client_id)
-        example_channel_sms = azure.bot.ChannelSms("exampleChannelSms",
-            bot_name=example_channels_registration.name,
-            location=example_channels_registration.location,
-            resource_group_name=example_resource_group.name,
-            sms_channel_account_security_id="BG61f7cf5157f439b084e98256409c2815",
-            sms_channel_auth_token="jh8980432610052ed4e29565c5e232f",
-            phone_number="+12313803556")
-        ```
-
         ## Import
 
         The SMS Integration for a Bot Channel can be imported using the `resource id`, e.g.
@@ -342,28 +330,6 @@ class ChannelSms(pulumi.CustomResource):
         Manages a SMS integration for a Bot Channel
 
         > **Note** A bot can only have a single SMS Channel associated with it.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_channels_registration = azure.bot.ChannelsRegistration("exampleChannelsRegistration",
-            location="global",
-            resource_group_name=example_resource_group.name,
-            sku="F0",
-            microsoft_app_id=current.client_id)
-        example_channel_sms = azure.bot.ChannelSms("exampleChannelSms",
-            bot_name=example_channels_registration.name,
-            location=example_channels_registration.location,
-            resource_group_name=example_resource_group.name,
-            sms_channel_account_security_id="BG61f7cf5157f439b084e98256409c2815",
-            sms_channel_auth_token="jh8980432610052ed4e29565c5e232f",
-            phone_number="+12313803556")
-        ```
 
         ## Import
 

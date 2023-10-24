@@ -45,25 +45,27 @@ class NamespaceNetworkRuleSetInitArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             namespace_id: pulumi.Input[str],
+             namespace_id: Optional[pulumi.Input[str]] = None,
              default_action: Optional[pulumi.Input[str]] = None,
              ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgs']]]] = None,
              public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
              trusted_services_allowed: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'namespaceId' in kwargs:
+        if namespace_id is None and 'namespaceId' in kwargs:
             namespace_id = kwargs['namespaceId']
-        if 'defaultAction' in kwargs:
+        if namespace_id is None:
+            raise TypeError("Missing 'namespace_id' argument")
+        if default_action is None and 'defaultAction' in kwargs:
             default_action = kwargs['defaultAction']
-        if 'ipRules' in kwargs:
+        if ip_rules is None and 'ipRules' in kwargs:
             ip_rules = kwargs['ipRules']
-        if 'networkRules' in kwargs:
+        if network_rules is None and 'networkRules' in kwargs:
             network_rules = kwargs['networkRules']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'trustedServicesAllowed' in kwargs:
+        if trusted_services_allowed is None and 'trustedServicesAllowed' in kwargs:
             trusted_services_allowed = kwargs['trustedServicesAllowed']
 
         _setter("namespace_id", namespace_id)
@@ -191,19 +193,19 @@ class _NamespaceNetworkRuleSetState:
              network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgs']]]] = None,
              public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
              trusted_services_allowed: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'defaultAction' in kwargs:
+        if default_action is None and 'defaultAction' in kwargs:
             default_action = kwargs['defaultAction']
-        if 'ipRules' in kwargs:
+        if ip_rules is None and 'ipRules' in kwargs:
             ip_rules = kwargs['ipRules']
-        if 'namespaceId' in kwargs:
+        if namespace_id is None and 'namespaceId' in kwargs:
             namespace_id = kwargs['namespaceId']
-        if 'networkRules' in kwargs:
+        if network_rules is None and 'networkRules' in kwargs:
             network_rules = kwargs['networkRules']
-        if 'publicNetworkAccessEnabled' in kwargs:
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
             public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
-        if 'trustedServicesAllowed' in kwargs:
+        if trusted_services_allowed is None and 'trustedServicesAllowed' in kwargs:
             trusted_services_allowed = kwargs['trustedServicesAllowed']
 
         if default_action is not None:
@@ -309,42 +311,6 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
         """
         Manages a ServiceBus Namespace Network Rule Set.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_namespace = azure.servicebus.Namespace("exampleNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Premium",
-            capacity=1)
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            address_spaces=["172.17.0.0/16"],
-            dns_servers=[
-                "10.0.0.4",
-                "10.0.0.5",
-            ])
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["172.17.0.0/24"],
-            service_endpoints=["Microsoft.ServiceBus"])
-        example_namespace_network_rule_set = azure.servicebus.NamespaceNetworkRuleSet("exampleNamespaceNetworkRuleSet",
-            namespace_id=example_namespace.id,
-            default_action="Deny",
-            public_network_access_enabled=True,
-            network_rules=[azure.servicebus.NamespaceNetworkRuleSetNetworkRuleArgs(
-                subnet_id=example_subnet.id,
-                ignore_missing_vnet_service_endpoint=False,
-            )],
-            ip_rules=["1.1.1.1"])
-        ```
-
         ## Import
 
         Service Bus Namespace can be imported using the `resource id`, e.g.
@@ -372,42 +338,6 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a ServiceBus Namespace Network Rule Set.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_namespace = azure.servicebus.Namespace("exampleNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Premium",
-            capacity=1)
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            address_spaces=["172.17.0.0/16"],
-            dns_servers=[
-                "10.0.0.4",
-                "10.0.0.5",
-            ])
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["172.17.0.0/24"],
-            service_endpoints=["Microsoft.ServiceBus"])
-        example_namespace_network_rule_set = azure.servicebus.NamespaceNetworkRuleSet("exampleNamespaceNetworkRuleSet",
-            namespace_id=example_namespace.id,
-            default_action="Deny",
-            public_network_access_enabled=True,
-            network_rules=[azure.servicebus.NamespaceNetworkRuleSetNetworkRuleArgs(
-                subnet_id=example_subnet.id,
-                ignore_missing_vnet_service_endpoint=False,
-            )],
-            ip_rules=["1.1.1.1"])
-        ```
 
         ## Import
 

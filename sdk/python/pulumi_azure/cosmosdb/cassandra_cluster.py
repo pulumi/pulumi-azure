@@ -69,9 +69,9 @@ class CassandraClusterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             default_admin_password: pulumi.Input[str],
-             delegated_management_subnet_id: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             default_admin_password: Optional[pulumi.Input[str]] = None,
+             delegated_management_subnet_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              authentication_method: Optional[pulumi.Input[str]] = None,
              client_certificate_pems: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              external_gossip_certificate_pems: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -83,25 +83,31 @@ class CassandraClusterArgs:
              repair_enabled: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'defaultAdminPassword' in kwargs:
+        if default_admin_password is None and 'defaultAdminPassword' in kwargs:
             default_admin_password = kwargs['defaultAdminPassword']
-        if 'delegatedManagementSubnetId' in kwargs:
+        if default_admin_password is None:
+            raise TypeError("Missing 'default_admin_password' argument")
+        if delegated_management_subnet_id is None and 'delegatedManagementSubnetId' in kwargs:
             delegated_management_subnet_id = kwargs['delegatedManagementSubnetId']
-        if 'resourceGroupName' in kwargs:
+        if delegated_management_subnet_id is None:
+            raise TypeError("Missing 'delegated_management_subnet_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'authenticationMethod' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if authentication_method is None and 'authenticationMethod' in kwargs:
             authentication_method = kwargs['authenticationMethod']
-        if 'clientCertificatePems' in kwargs:
+        if client_certificate_pems is None and 'clientCertificatePems' in kwargs:
             client_certificate_pems = kwargs['clientCertificatePems']
-        if 'externalGossipCertificatePems' in kwargs:
+        if external_gossip_certificate_pems is None and 'externalGossipCertificatePems' in kwargs:
             external_gossip_certificate_pems = kwargs['externalGossipCertificatePems']
-        if 'externalSeedNodeIpAddresses' in kwargs:
+        if external_seed_node_ip_addresses is None and 'externalSeedNodeIpAddresses' in kwargs:
             external_seed_node_ip_addresses = kwargs['externalSeedNodeIpAddresses']
-        if 'hoursBetweenBackups' in kwargs:
+        if hours_between_backups is None and 'hoursBetweenBackups' in kwargs:
             hours_between_backups = kwargs['hoursBetweenBackups']
-        if 'repairEnabled' in kwargs:
+        if repair_enabled is None and 'repairEnabled' in kwargs:
             repair_enabled = kwargs['repairEnabled']
 
         _setter("default_admin_password", default_admin_password)
@@ -371,25 +377,25 @@ class _CassandraClusterState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'authenticationMethod' in kwargs:
+        if authentication_method is None and 'authenticationMethod' in kwargs:
             authentication_method = kwargs['authenticationMethod']
-        if 'clientCertificatePems' in kwargs:
+        if client_certificate_pems is None and 'clientCertificatePems' in kwargs:
             client_certificate_pems = kwargs['clientCertificatePems']
-        if 'defaultAdminPassword' in kwargs:
+        if default_admin_password is None and 'defaultAdminPassword' in kwargs:
             default_admin_password = kwargs['defaultAdminPassword']
-        if 'delegatedManagementSubnetId' in kwargs:
+        if delegated_management_subnet_id is None and 'delegatedManagementSubnetId' in kwargs:
             delegated_management_subnet_id = kwargs['delegatedManagementSubnetId']
-        if 'externalGossipCertificatePems' in kwargs:
+        if external_gossip_certificate_pems is None and 'externalGossipCertificatePems' in kwargs:
             external_gossip_certificate_pems = kwargs['externalGossipCertificatePems']
-        if 'externalSeedNodeIpAddresses' in kwargs:
+        if external_seed_node_ip_addresses is None and 'externalSeedNodeIpAddresses' in kwargs:
             external_seed_node_ip_addresses = kwargs['externalSeedNodeIpAddresses']
-        if 'hoursBetweenBackups' in kwargs:
+        if hours_between_backups is None and 'hoursBetweenBackups' in kwargs:
             hours_between_backups = kwargs['hoursBetweenBackups']
-        if 'repairEnabled' in kwargs:
+        if repair_enabled is None and 'repairEnabled' in kwargs:
             repair_enabled = kwargs['repairEnabled']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
 
         if authentication_method is not None:
@@ -617,39 +623,6 @@ class CassandraCluster(pulumi.CustomResource):
 
         > **NOTE:** In order for the `Azure Managed Instances for Apache Cassandra` to work properly the product requires the `Azure Cosmos DB` Application ID to be present and working in your tenant. If the `Azure Cosmos DB` Application ID is missing in your environment you will need to have an administrator of your tenant run the following command to add the `Azure Cosmos DB` Application ID to your tenant:
 
-        ```python
-        import pulumi
-        ```
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_azuread as azuread
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            address_spaces=["10.0.0.0/16"])
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"])
-        example_service_principal = azuread.get_service_principal(display_name="Azure Cosmos DB")
-        example_assignment = azure.authorization.Assignment("exampleAssignment",
-            scope=example_virtual_network.id,
-            role_definition_name="Network Contributor",
-            principal_id=example_service_principal.object_id)
-        example_cassandra_cluster = azure.cosmosdb.CassandraCluster("exampleCassandraCluster",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            delegated_management_subnet_id=example_subnet.id,
-            default_admin_password="Password1234",
-            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
-        ```
-
         ## Import
 
         Cassandra Clusters can be imported using the `resource id`, e.g.
@@ -687,39 +660,6 @@ class CassandraCluster(pulumi.CustomResource):
         Manages a Cassandra Cluster.
 
         > **NOTE:** In order for the `Azure Managed Instances for Apache Cassandra` to work properly the product requires the `Azure Cosmos DB` Application ID to be present and working in your tenant. If the `Azure Cosmos DB` Application ID is missing in your environment you will need to have an administrator of your tenant run the following command to add the `Azure Cosmos DB` Application ID to your tenant:
-
-        ```python
-        import pulumi
-        ```
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_azuread as azuread
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            address_spaces=["10.0.0.0/16"])
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"])
-        example_service_principal = azuread.get_service_principal(display_name="Azure Cosmos DB")
-        example_assignment = azure.authorization.Assignment("exampleAssignment",
-            scope=example_virtual_network.id,
-            role_definition_name="Network Contributor",
-            principal_id=example_service_principal.object_id)
-        example_cassandra_cluster = azure.cosmosdb.CassandraCluster("exampleCassandraCluster",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            delegated_management_subnet_id=example_subnet.id,
-            default_admin_password="Password1234",
-            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
-        ```
 
         ## Import
 
@@ -782,11 +722,7 @@ class CassandraCluster(pulumi.CustomResource):
             __props__.__dict__["external_gossip_certificate_pems"] = external_gossip_certificate_pems
             __props__.__dict__["external_seed_node_ip_addresses"] = external_seed_node_ip_addresses
             __props__.__dict__["hours_between_backups"] = hours_between_backups
-            if identity is not None and not isinstance(identity, CassandraClusterIdentityArgs):
-                identity = identity or {}
-                def _setter(key, value):
-                    identity[key] = value
-                CassandraClusterIdentityArgs._configure(_setter, **identity)
+            identity = _utilities.configure(identity, CassandraClusterIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name

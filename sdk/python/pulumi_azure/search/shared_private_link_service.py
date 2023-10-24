@@ -40,20 +40,26 @@ class SharedPrivateLinkServiceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             search_service_id: pulumi.Input[str],
-             subresource_name: pulumi.Input[str],
-             target_resource_id: pulumi.Input[str],
+             search_service_id: Optional[pulumi.Input[str]] = None,
+             subresource_name: Optional[pulumi.Input[str]] = None,
+             target_resource_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              request_message: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'searchServiceId' in kwargs:
+        if search_service_id is None and 'searchServiceId' in kwargs:
             search_service_id = kwargs['searchServiceId']
-        if 'subresourceName' in kwargs:
+        if search_service_id is None:
+            raise TypeError("Missing 'search_service_id' argument")
+        if subresource_name is None and 'subresourceName' in kwargs:
             subresource_name = kwargs['subresourceName']
-        if 'targetResourceId' in kwargs:
+        if subresource_name is None:
+            raise TypeError("Missing 'subresource_name' argument")
+        if target_resource_id is None and 'targetResourceId' in kwargs:
             target_resource_id = kwargs['targetResourceId']
-        if 'requestMessage' in kwargs:
+        if target_resource_id is None:
+            raise TypeError("Missing 'target_resource_id' argument")
+        if request_message is None and 'requestMessage' in kwargs:
             request_message = kwargs['requestMessage']
 
         _setter("search_service_id", search_service_id)
@@ -165,15 +171,15 @@ class _SharedPrivateLinkServiceState:
              status: Optional[pulumi.Input[str]] = None,
              subresource_name: Optional[pulumi.Input[str]] = None,
              target_resource_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'requestMessage' in kwargs:
+        if request_message is None and 'requestMessage' in kwargs:
             request_message = kwargs['requestMessage']
-        if 'searchServiceId' in kwargs:
+        if search_service_id is None and 'searchServiceId' in kwargs:
             search_service_id = kwargs['searchServiceId']
-        if 'subresourceName' in kwargs:
+        if subresource_name is None and 'subresourceName' in kwargs:
             subresource_name = kwargs['subresourceName']
-        if 'targetResourceId' in kwargs:
+        if target_resource_id is None and 'targetResourceId' in kwargs:
             target_resource_id = kwargs['targetResourceId']
 
         if name is not None:
@@ -278,29 +284,6 @@ class SharedPrivateLinkService(pulumi.CustomResource):
         """
         Manages the Shared Private Link Service for an Azure Search Service.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        test_resource_group = azure.core.ResourceGroup("testResourceGroup", location="east us")
-        test_service = azure.search.Service("testService",
-            resource_group_name=test_resource_group.name,
-            location=test_resource_group.location,
-            sku="standard")
-        test_account = azure.storage.Account("testAccount",
-            resource_group_name=test_resource_group.name,
-            location=test_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        test_shared_private_link_service = azure.search.SharedPrivateLinkService("testSharedPrivateLinkService",
-            search_service_id=test_service.id,
-            subresource_name="blob",
-            target_resource_id=test_account.id,
-            request_message="please approve")
-        ```
-
         ## Import
 
         Azure Search Shared Private Link Resource can be imported using the `resource id`, e.g.
@@ -327,29 +310,6 @@ class SharedPrivateLinkService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages the Shared Private Link Service for an Azure Search Service.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        test_resource_group = azure.core.ResourceGroup("testResourceGroup", location="east us")
-        test_service = azure.search.Service("testService",
-            resource_group_name=test_resource_group.name,
-            location=test_resource_group.location,
-            sku="standard")
-        test_account = azure.storage.Account("testAccount",
-            resource_group_name=test_resource_group.name,
-            location=test_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        test_shared_private_link_service = azure.search.SharedPrivateLinkService("testSharedPrivateLinkService",
-            search_service_id=test_service.id,
-            subresource_name="blob",
-            target_resource_id=test_account.id,
-            request_message="please approve")
-        ```
 
         ## Import
 

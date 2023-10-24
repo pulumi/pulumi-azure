@@ -65,10 +65,10 @@ class GremlinGraphArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             account_name: pulumi.Input[str],
-             database_name: pulumi.Input[str],
-             partition_key_path: pulumi.Input[str],
-             resource_group_name: pulumi.Input[str],
+             account_name: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             partition_key_path: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              analytical_storage_ttl: Optional[pulumi.Input[int]] = None,
              autoscale_settings: Optional[pulumi.Input['GremlinGraphAutoscaleSettingsArgs']] = None,
              conflict_resolution_policy: Optional[pulumi.Input['GremlinGraphConflictResolutionPolicyArgs']] = None,
@@ -78,29 +78,37 @@ class GremlinGraphArgs:
              partition_key_version: Optional[pulumi.Input[int]] = None,
              throughput: Optional[pulumi.Input[int]] = None,
              unique_keys: Optional[pulumi.Input[Sequence[pulumi.Input['GremlinGraphUniqueKeyArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'accountName' in kwargs:
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'databaseName' in kwargs:
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if database_name is None and 'databaseName' in kwargs:
             database_name = kwargs['databaseName']
-        if 'partitionKeyPath' in kwargs:
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if partition_key_path is None and 'partitionKeyPath' in kwargs:
             partition_key_path = kwargs['partitionKeyPath']
-        if 'resourceGroupName' in kwargs:
+        if partition_key_path is None:
+            raise TypeError("Missing 'partition_key_path' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'analyticalStorageTtl' in kwargs:
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if analytical_storage_ttl is None and 'analyticalStorageTtl' in kwargs:
             analytical_storage_ttl = kwargs['analyticalStorageTtl']
-        if 'autoscaleSettings' in kwargs:
+        if autoscale_settings is None and 'autoscaleSettings' in kwargs:
             autoscale_settings = kwargs['autoscaleSettings']
-        if 'conflictResolutionPolicy' in kwargs:
+        if conflict_resolution_policy is None and 'conflictResolutionPolicy' in kwargs:
             conflict_resolution_policy = kwargs['conflictResolutionPolicy']
-        if 'defaultTtl' in kwargs:
+        if default_ttl is None and 'defaultTtl' in kwargs:
             default_ttl = kwargs['defaultTtl']
-        if 'indexPolicy' in kwargs:
+        if index_policy is None and 'indexPolicy' in kwargs:
             index_policy = kwargs['indexPolicy']
-        if 'partitionKeyVersion' in kwargs:
+        if partition_key_version is None and 'partitionKeyVersion' in kwargs:
             partition_key_version = kwargs['partitionKeyVersion']
-        if 'uniqueKeys' in kwargs:
+        if unique_keys is None and 'uniqueKeys' in kwargs:
             unique_keys = kwargs['uniqueKeys']
 
         _setter("account_name", account_name)
@@ -347,29 +355,29 @@ class _GremlinGraphState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              throughput: Optional[pulumi.Input[int]] = None,
              unique_keys: Optional[pulumi.Input[Sequence[pulumi.Input['GremlinGraphUniqueKeyArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'accountName' in kwargs:
+        if account_name is None and 'accountName' in kwargs:
             account_name = kwargs['accountName']
-        if 'analyticalStorageTtl' in kwargs:
+        if analytical_storage_ttl is None and 'analyticalStorageTtl' in kwargs:
             analytical_storage_ttl = kwargs['analyticalStorageTtl']
-        if 'autoscaleSettings' in kwargs:
+        if autoscale_settings is None and 'autoscaleSettings' in kwargs:
             autoscale_settings = kwargs['autoscaleSettings']
-        if 'conflictResolutionPolicy' in kwargs:
+        if conflict_resolution_policy is None and 'conflictResolutionPolicy' in kwargs:
             conflict_resolution_policy = kwargs['conflictResolutionPolicy']
-        if 'databaseName' in kwargs:
+        if database_name is None and 'databaseName' in kwargs:
             database_name = kwargs['databaseName']
-        if 'defaultTtl' in kwargs:
+        if default_ttl is None and 'defaultTtl' in kwargs:
             default_ttl = kwargs['defaultTtl']
-        if 'indexPolicy' in kwargs:
+        if index_policy is None and 'indexPolicy' in kwargs:
             index_policy = kwargs['indexPolicy']
-        if 'partitionKeyPath' in kwargs:
+        if partition_key_path is None and 'partitionKeyPath' in kwargs:
             partition_key_path = kwargs['partitionKeyPath']
-        if 'partitionKeyVersion' in kwargs:
+        if partition_key_version is None and 'partitionKeyVersion' in kwargs:
             partition_key_version = kwargs['partitionKeyVersion']
-        if 'resourceGroupName' in kwargs:
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
             resource_group_name = kwargs['resourceGroupName']
-        if 'uniqueKeys' in kwargs:
+        if unique_keys is None and 'uniqueKeys' in kwargs:
             unique_keys = kwargs['uniqueKeys']
 
         if account_name is not None:
@@ -577,43 +585,6 @@ class GremlinGraph(pulumi.CustomResource):
         """
         Manages a Gremlin Graph within a Cosmos DB Account.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_account = azure.cosmosdb.get_account(name="tfex-cosmosdb-account",
-            resource_group_name="tfex-cosmosdb-account-rg")
-        example_gremlin_database = azure.cosmosdb.GremlinDatabase("exampleGremlinDatabase",
-            resource_group_name=example_account.resource_group_name,
-            account_name=example_account.name)
-        example_gremlin_graph = azure.cosmosdb.GremlinGraph("exampleGremlinGraph",
-            resource_group_name=example_account.resource_group_name,
-            account_name=example_account.name,
-            database_name=example_gremlin_database.name,
-            partition_key_path="/Example",
-            throughput=400,
-            index_policy=azure.cosmosdb.GremlinGraphIndexPolicyArgs(
-                automatic=True,
-                indexing_mode="consistent",
-                included_paths=["/*"],
-                excluded_paths=["/\\"_etag\\"/?"],
-            ),
-            conflict_resolution_policy=azure.cosmosdb.GremlinGraphConflictResolutionPolicyArgs(
-                mode="LastWriterWins",
-                conflict_resolution_path="/_ts",
-            ),
-            unique_keys=[azure.cosmosdb.GremlinGraphUniqueKeyArgs(
-                paths=[
-                    "/definition/id1",
-                    "/definition/id2",
-                ],
-            )])
-        ```
-
-        > **NOTE:** The CosmosDB Account needs to have the `EnableGremlin` capability enabled to use this resource - which can be done by adding this to the `capabilities` list within the `cosmosdb.Account` resource.
-
         ## Import
 
         Cosmos Gremlin Graphs can be imported using the `resource id`, e.g.
@@ -647,43 +618,6 @@ class GremlinGraph(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Gremlin Graph within a Cosmos DB Account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_account = azure.cosmosdb.get_account(name="tfex-cosmosdb-account",
-            resource_group_name="tfex-cosmosdb-account-rg")
-        example_gremlin_database = azure.cosmosdb.GremlinDatabase("exampleGremlinDatabase",
-            resource_group_name=example_account.resource_group_name,
-            account_name=example_account.name)
-        example_gremlin_graph = azure.cosmosdb.GremlinGraph("exampleGremlinGraph",
-            resource_group_name=example_account.resource_group_name,
-            account_name=example_account.name,
-            database_name=example_gremlin_database.name,
-            partition_key_path="/Example",
-            throughput=400,
-            index_policy=azure.cosmosdb.GremlinGraphIndexPolicyArgs(
-                automatic=True,
-                indexing_mode="consistent",
-                included_paths=["/*"],
-                excluded_paths=["/\\"_etag\\"/?"],
-            ),
-            conflict_resolution_policy=azure.cosmosdb.GremlinGraphConflictResolutionPolicyArgs(
-                mode="LastWriterWins",
-                conflict_resolution_path="/_ts",
-            ),
-            unique_keys=[azure.cosmosdb.GremlinGraphUniqueKeyArgs(
-                paths=[
-                    "/definition/id1",
-                    "/definition/id2",
-                ],
-            )])
-        ```
-
-        > **NOTE:** The CosmosDB Account needs to have the `EnableGremlin` capability enabled to use this resource - which can be done by adding this to the `capabilities` list within the `cosmosdb.Account` resource.
 
         ## Import
 
@@ -738,27 +672,15 @@ class GremlinGraph(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["analytical_storage_ttl"] = analytical_storage_ttl
-            if autoscale_settings is not None and not isinstance(autoscale_settings, GremlinGraphAutoscaleSettingsArgs):
-                autoscale_settings = autoscale_settings or {}
-                def _setter(key, value):
-                    autoscale_settings[key] = value
-                GremlinGraphAutoscaleSettingsArgs._configure(_setter, **autoscale_settings)
+            autoscale_settings = _utilities.configure(autoscale_settings, GremlinGraphAutoscaleSettingsArgs, True)
             __props__.__dict__["autoscale_settings"] = autoscale_settings
-            if conflict_resolution_policy is not None and not isinstance(conflict_resolution_policy, GremlinGraphConflictResolutionPolicyArgs):
-                conflict_resolution_policy = conflict_resolution_policy or {}
-                def _setter(key, value):
-                    conflict_resolution_policy[key] = value
-                GremlinGraphConflictResolutionPolicyArgs._configure(_setter, **conflict_resolution_policy)
+            conflict_resolution_policy = _utilities.configure(conflict_resolution_policy, GremlinGraphConflictResolutionPolicyArgs, True)
             __props__.__dict__["conflict_resolution_policy"] = conflict_resolution_policy
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__.__dict__["database_name"] = database_name
             __props__.__dict__["default_ttl"] = default_ttl
-            if index_policy is not None and not isinstance(index_policy, GremlinGraphIndexPolicyArgs):
-                index_policy = index_policy or {}
-                def _setter(key, value):
-                    index_policy[key] = value
-                GremlinGraphIndexPolicyArgs._configure(_setter, **index_policy)
+            index_policy = _utilities.configure(index_policy, GremlinGraphIndexPolicyArgs, True)
             __props__.__dict__["index_policy"] = index_policy
             __props__.__dict__["name"] = name
             if partition_key_path is None and not opts.urn:

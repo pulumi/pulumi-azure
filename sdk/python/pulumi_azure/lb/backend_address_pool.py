@@ -37,17 +37,19 @@ class BackendAddressPoolArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             loadbalancer_id: pulumi.Input[str],
+             loadbalancer_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tunnel_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolTunnelInterfaceArgs']]]] = None,
              virtual_network_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'loadbalancerId' in kwargs:
+        if loadbalancer_id is None and 'loadbalancerId' in kwargs:
             loadbalancer_id = kwargs['loadbalancerId']
-        if 'tunnelInterfaces' in kwargs:
+        if loadbalancer_id is None:
+            raise TypeError("Missing 'loadbalancer_id' argument")
+        if tunnel_interfaces is None and 'tunnelInterfaces' in kwargs:
             tunnel_interfaces = kwargs['tunnelInterfaces']
-        if 'virtualNetworkId' in kwargs:
+        if virtual_network_id is None and 'virtualNetworkId' in kwargs:
             virtual_network_id = kwargs['virtualNetworkId']
 
         _setter("loadbalancer_id", loadbalancer_id)
@@ -151,21 +153,21 @@ class _BackendAddressPoolState:
              outbound_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tunnel_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolTunnelInterfaceArgs']]]] = None,
              virtual_network_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'backendIpConfigurations' in kwargs:
+        if backend_ip_configurations is None and 'backendIpConfigurations' in kwargs:
             backend_ip_configurations = kwargs['backendIpConfigurations']
-        if 'inboundNatRules' in kwargs:
+        if inbound_nat_rules is None and 'inboundNatRules' in kwargs:
             inbound_nat_rules = kwargs['inboundNatRules']
-        if 'loadBalancingRules' in kwargs:
+        if load_balancing_rules is None and 'loadBalancingRules' in kwargs:
             load_balancing_rules = kwargs['loadBalancingRules']
-        if 'loadbalancerId' in kwargs:
+        if loadbalancer_id is None and 'loadbalancerId' in kwargs:
             loadbalancer_id = kwargs['loadbalancerId']
-        if 'outboundRules' in kwargs:
+        if outbound_rules is None and 'outboundRules' in kwargs:
             outbound_rules = kwargs['outboundRules']
-        if 'tunnelInterfaces' in kwargs:
+        if tunnel_interfaces is None and 'tunnelInterfaces' in kwargs:
             tunnel_interfaces = kwargs['tunnelInterfaces']
-        if 'virtualNetworkId' in kwargs:
+        if virtual_network_id is None and 'virtualNetworkId' in kwargs:
             virtual_network_id = kwargs['virtualNetworkId']
 
         if backend_ip_configurations is not None:
@@ -297,27 +299,6 @@ class BackendAddressPool(pulumi.CustomResource):
 
         > **NOTE:** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            allocation_method="Static")
-        example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
-                name="PublicIPAddress",
-                public_ip_address_id=example_public_ip.id,
-            )])
-        example_backend_address_pool = azure.lb.BackendAddressPool("exampleBackendAddressPool", loadbalancer_id=example_load_balancer.id)
-        ```
-
         ## Import
 
         Load Balancer Backend Address Pools can be imported using the `resource id`, e.g.
@@ -343,27 +324,6 @@ class BackendAddressPool(pulumi.CustomResource):
         Manages a Load Balancer Backend Address Pool.
 
         > **NOTE:** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            allocation_method="Static")
-        example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
-                name="PublicIPAddress",
-                public_ip_address_id=example_public_ip.id,
-            )])
-        example_backend_address_pool = azure.lb.BackendAddressPool("exampleBackendAddressPool", loadbalancer_id=example_load_balancer.id)
-        ```
 
         ## Import
 

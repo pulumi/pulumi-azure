@@ -12,58 +12,6 @@ namespace Pulumi.Azure.AppInsights
     /// <summary>
     /// Manages an Application Insights WebTest.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         ApplicationType = "web",
-    ///     });
-    /// 
-    ///     var exampleWebTest = new Azure.AppInsights.WebTest("exampleWebTest", new()
-    ///     {
-    ///         Location = exampleInsights.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         ApplicationInsightsId = exampleInsights.Id,
-    ///         Kind = "ping",
-    ///         Frequency = 300,
-    ///         Timeout = 60,
-    ///         Enabled = true,
-    ///         GeoLocations = new[]
-    ///         {
-    ///             "us-tx-sn1-azr",
-    ///             "us-il-ch1-azr",
-    ///         },
-    ///         Configuration = @"&lt;WebTest Name=""WebTest1"" Id=""ABD48585-0831-40CB-9069-682EA6BB3583"" Enabled=""True"" CssProjectStructure="""" CssIteration="""" Timeout=""0"" WorkItemIds="""" xmlns=""http://microsoft.com/schemas/VisualStudio/TeamTest/2010"" Description="""" CredentialUserName="""" CredentialPassword="""" PreAuthenticate=""True"" Proxy=""default"" StopOnError=""False"" RecordedResultFile="""" ResultsLocale=""""&gt;
-    ///   &lt;Items&gt;
-    ///     &lt;Request Method=""GET"" Guid=""a5f10126-e4cd-570d-961c-cea43999a200"" Version=""1.1"" Url=""http://microsoft.com"" ThinkTime=""0"" Timeout=""300"" ParseDependentRequests=""True"" FollowRedirects=""True"" RecordResult=""True"" Cache=""False"" ResponseTimeGoal=""0"" Encoding=""utf-8"" ExpectedHttpStatusCode=""200"" ExpectedResponseUrl="""" ReportingName="""" IgnoreHttpStatusCode=""False"" /&gt;
-    ///   &lt;/Items&gt;
-    /// &lt;/WebTest&gt;
-    /// ",
-    ///     });
-    /// 
-    ///     return new Dictionary&lt;string, object?&gt;
-    ///     {
-    ///         ["webtestId"] = exampleWebTest.Id,
-    ///         ["webtestsSyntheticId"] = exampleWebTest.SyntheticMonitorId,
-    ///     };
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Application Insights Web Tests can be imported using the `resource id`, e.g.

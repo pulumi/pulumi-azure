@@ -17,62 +17,6 @@ import (
 //
 // > **Note** A bot can only have a single Facebook Channel associated with it.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/bot"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := core.GetClientConfig(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleChannelsRegistration, err := bot.NewChannelsRegistration(ctx, "exampleChannelsRegistration", &bot.ChannelsRegistrationArgs{
-//				Location:          pulumi.String("global"),
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Sku:               pulumi.String("F0"),
-//				MicrosoftAppId:    *pulumi.String(current.ClientId),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = bot.NewChannelFacebook(ctx, "exampleChannelFacebook", &bot.ChannelFacebookArgs{
-//				BotName:                   exampleChannelsRegistration.Name,
-//				Location:                  exampleChannelsRegistration.Location,
-//				ResourceGroupName:         exampleResourceGroup.Name,
-//				FacebookApplicationId:     pulumi.String("563490254873576"),
-//				FacebookApplicationSecret: pulumi.String("8976d2536445ad5b976dee8437b9beb0"),
-//				Pages: bot.ChannelFacebookPageArray{
-//					&bot.ChannelFacebookPageArgs{
-//						Id:          pulumi.String("876248795081953"),
-//						AccessToken: pulumi.String("CGGCec3UAFPMBAKwK3Ft8SEpO8ZCuvpNBI5DClaJCDfqJj2BgEHCKxcY0FDarmUQap6XxpZC9GWCW4nZCzjcKosAZAP7SO44X8Q8gAntbDIXgYUBGp9xtS8wUkwgKPobUePcOOVFkvClxvYZByuiQxoTiK9fQ9jZCPEorbmZCsKDZAx4VLnrNwCTZAPUwXxO61gfq4ZD"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // The Facebook Integration for a Bot Channel can be imported using the `resource id`, e.g.

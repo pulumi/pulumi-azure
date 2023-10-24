@@ -12,66 +12,6 @@ namespace Pulumi.Azure.Compute
     /// <summary>
     /// Manages a Bastion Host.
     /// 
-    /// ## Example Usage
-    /// 
-    /// This example deploys an Azure Bastion Host Instance to a target virtual network.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
-    ///     {
-    ///         AddressSpaces = new[]
-    ///         {
-    ///             "192.168.1.0/24",
-    ///         },
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///     });
-    /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///         AddressPrefixes = new[]
-    ///         {
-    ///             "192.168.1.224/27",
-    ///         },
-    ///     });
-    /// 
-    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         AllocationMethod = "Static",
-    ///         Sku = "Standard",
-    ///     });
-    /// 
-    ///     var exampleBastionHost = new Azure.Compute.BastionHost("exampleBastionHost", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         IpConfiguration = new Azure.Compute.Inputs.BastionHostIpConfigurationArgs
-    ///         {
-    ///             Name = "configuration",
-    ///             SubnetId = exampleSubnet.Id,
-    ///             PublicIpAddressId = examplePublicIp.Id,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Bastion Hosts can be imported using the `resource id`, e.g.

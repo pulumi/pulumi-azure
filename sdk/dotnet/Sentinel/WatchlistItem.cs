@@ -12,53 +12,6 @@ namespace Pulumi.Azure.Sentinel
     /// <summary>
     /// Manages a Sentinel Watchlist Item.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Sku = "PerGB2018",
-    ///     });
-    /// 
-    ///     var exampleLogAnalyticsWorkspaceOnboarding = new Azure.Sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", new()
-    ///     {
-    ///         WorkspaceId = exampleAnalyticsWorkspace.Id,
-    ///     });
-    /// 
-    ///     var exampleWatchlist = new Azure.Sentinel.Watchlist("exampleWatchlist", new()
-    ///     {
-    ///         LogAnalyticsWorkspaceId = exampleLogAnalyticsWorkspaceOnboarding.WorkspaceId,
-    ///         DisplayName = "example-wl",
-    ///         ItemSearchKey = "Key",
-    ///     });
-    /// 
-    ///     var exampleWatchlistItem = new Azure.Sentinel.WatchlistItem("exampleWatchlistItem", new()
-    ///     {
-    ///         WatchlistId = exampleWatchlist.Id,
-    ///         Properties = 
-    ///         {
-    ///             { "k1", "v1" },
-    ///             { "k2", "v2" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Sentinel Watchlist Items can be imported using the `resource id`, e.g.

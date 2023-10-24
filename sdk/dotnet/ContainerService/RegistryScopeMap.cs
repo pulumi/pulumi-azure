@@ -12,52 +12,6 @@ namespace Pulumi.Azure.ContainerService
     /// <summary>
     /// Manages an Azure Container Registry scope map.  Scope Maps are a preview feature only available in Premium SKU Container registries.
     /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleRegistry = new Azure.ContainerService.Registry("exampleRegistry", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         Sku = "Premium",
-    ///         AdminEnabled = false,
-    ///         Georeplications = new[]
-    ///         {
-    ///             new Azure.ContainerService.Inputs.RegistryGeoreplicationArgs
-    ///             {
-    ///                 Location = "East US",
-    ///             },
-    ///             new Azure.ContainerService.Inputs.RegistryGeoreplicationArgs
-    ///             {
-    ///                 Location = "West Europe",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleRegistryScopeMap = new Azure.ContainerService.RegistryScopeMap("exampleRegistryScopeMap", new()
-    ///     {
-    ///         ContainerRegistryName = exampleRegistry.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Actions = new[]
-    ///         {
-    ///             "repositories/repo1/content/read",
-    ///             "repositories/repo1/content/write",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Container Registries can be imported using the `resource id`, e.g.

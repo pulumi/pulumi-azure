@@ -46,24 +46,30 @@ class SpringCloudConnectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             authentication: pulumi.Input['SpringCloudConnectionAuthenticationArgs'],
-             spring_cloud_id: pulumi.Input[str],
-             target_resource_id: pulumi.Input[str],
+             authentication: Optional[pulumi.Input['SpringCloudConnectionAuthenticationArgs']] = None,
+             spring_cloud_id: Optional[pulumi.Input[str]] = None,
+             target_resource_id: Optional[pulumi.Input[str]] = None,
              client_type: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              secret_store: Optional[pulumi.Input['SpringCloudConnectionSecretStoreArgs']] = None,
              vnet_solution: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'springCloudId' in kwargs:
+        if authentication is None:
+            raise TypeError("Missing 'authentication' argument")
+        if spring_cloud_id is None and 'springCloudId' in kwargs:
             spring_cloud_id = kwargs['springCloudId']
-        if 'targetResourceId' in kwargs:
+        if spring_cloud_id is None:
+            raise TypeError("Missing 'spring_cloud_id' argument")
+        if target_resource_id is None and 'targetResourceId' in kwargs:
             target_resource_id = kwargs['targetResourceId']
-        if 'clientType' in kwargs:
+        if target_resource_id is None:
+            raise TypeError("Missing 'target_resource_id' argument")
+        if client_type is None and 'clientType' in kwargs:
             client_type = kwargs['clientType']
-        if 'secretStore' in kwargs:
+        if secret_store is None and 'secretStore' in kwargs:
             secret_store = kwargs['secretStore']
-        if 'vnetSolution' in kwargs:
+        if vnet_solution is None and 'vnetSolution' in kwargs:
             vnet_solution = kwargs['vnetSolution']
 
         _setter("authentication", authentication)
@@ -203,17 +209,17 @@ class _SpringCloudConnectionState:
              spring_cloud_id: Optional[pulumi.Input[str]] = None,
              target_resource_id: Optional[pulumi.Input[str]] = None,
              vnet_solution: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'clientType' in kwargs:
+        if client_type is None and 'clientType' in kwargs:
             client_type = kwargs['clientType']
-        if 'secretStore' in kwargs:
+        if secret_store is None and 'secretStore' in kwargs:
             secret_store = kwargs['secretStore']
-        if 'springCloudId' in kwargs:
+        if spring_cloud_id is None and 'springCloudId' in kwargs:
             spring_cloud_id = kwargs['springCloudId']
-        if 'targetResourceId' in kwargs:
+        if target_resource_id is None and 'targetResourceId' in kwargs:
             target_resource_id = kwargs['targetResourceId']
-        if 'vnetSolution' in kwargs:
+        if vnet_solution is None and 'vnetSolution' in kwargs:
             vnet_solution = kwargs['vnetSolution']
 
         if authentication is not None:
@@ -332,54 +338,6 @@ class SpringCloudConnection(pulumi.CustomResource):
         """
         Manages a service connector for spring cloud app.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.cosmosdb.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            offer_type="Standard",
-            kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="BoundedStaleness",
-                max_interval_in_seconds=10,
-                max_staleness_prefix=200,
-            ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example_resource_group.location,
-                failover_priority=0,
-            )])
-        example_sql_database = azure.cosmosdb.SqlDatabase("exampleSqlDatabase",
-            resource_group_name=example_account.resource_group_name,
-            account_name=example_account.name,
-            throughput=400)
-        example_sql_container = azure.cosmosdb.SqlContainer("exampleSqlContainer",
-            resource_group_name=example_account.resource_group_name,
-            account_name=example_account.name,
-            database_name=example_sql_database.name,
-            partition_key_path="/definition")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_spring_cloud_app = azure.appplatform.SpringCloudApp("exampleSpringCloudApp",
-            resource_group_name=example_resource_group.name,
-            service_name=example_spring_cloud_service.name,
-            identity=azure.appplatform.SpringCloudAppIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_spring_cloud_java_deployment = azure.appplatform.SpringCloudJavaDeployment("exampleSpringCloudJavaDeployment", spring_cloud_app_id=example_spring_cloud_app.id)
-        example_spring_cloud_connection = azure.appplatform.SpringCloudConnection("exampleSpringCloudConnection",
-            spring_cloud_id=example_spring_cloud_java_deployment.id,
-            target_resource_id=example_sql_database.id,
-            authentication=azure.appplatform.SpringCloudConnectionAuthenticationArgs(
-                type="systemAssignedIdentity",
-            ))
-        ```
-
         ## Import
 
         Service Connector for spring cloud can be imported using the `resource id`, e.g.
@@ -406,54 +364,6 @@ class SpringCloudConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a service connector for spring cloud app.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.cosmosdb.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            offer_type="Standard",
-            kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="BoundedStaleness",
-                max_interval_in_seconds=10,
-                max_staleness_prefix=200,
-            ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example_resource_group.location,
-                failover_priority=0,
-            )])
-        example_sql_database = azure.cosmosdb.SqlDatabase("exampleSqlDatabase",
-            resource_group_name=example_account.resource_group_name,
-            account_name=example_account.name,
-            throughput=400)
-        example_sql_container = azure.cosmosdb.SqlContainer("exampleSqlContainer",
-            resource_group_name=example_account.resource_group_name,
-            account_name=example_account.name,
-            database_name=example_sql_database.name,
-            partition_key_path="/definition")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_spring_cloud_app = azure.appplatform.SpringCloudApp("exampleSpringCloudApp",
-            resource_group_name=example_resource_group.name,
-            service_name=example_spring_cloud_service.name,
-            identity=azure.appplatform.SpringCloudAppIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_spring_cloud_java_deployment = azure.appplatform.SpringCloudJavaDeployment("exampleSpringCloudJavaDeployment", spring_cloud_app_id=example_spring_cloud_app.id)
-        example_spring_cloud_connection = azure.appplatform.SpringCloudConnection("exampleSpringCloudConnection",
-            spring_cloud_id=example_spring_cloud_java_deployment.id,
-            target_resource_id=example_sql_database.id,
-            authentication=azure.appplatform.SpringCloudConnectionAuthenticationArgs(
-                type="systemAssignedIdentity",
-            ))
-        ```
 
         ## Import
 
@@ -498,21 +408,13 @@ class SpringCloudConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SpringCloudConnectionArgs.__new__(SpringCloudConnectionArgs)
 
-            if authentication is not None and not isinstance(authentication, SpringCloudConnectionAuthenticationArgs):
-                authentication = authentication or {}
-                def _setter(key, value):
-                    authentication[key] = value
-                SpringCloudConnectionAuthenticationArgs._configure(_setter, **authentication)
+            authentication = _utilities.configure(authentication, SpringCloudConnectionAuthenticationArgs, True)
             if authentication is None and not opts.urn:
                 raise TypeError("Missing required property 'authentication'")
             __props__.__dict__["authentication"] = authentication
             __props__.__dict__["client_type"] = client_type
             __props__.__dict__["name"] = name
-            if secret_store is not None and not isinstance(secret_store, SpringCloudConnectionSecretStoreArgs):
-                secret_store = secret_store or {}
-                def _setter(key, value):
-                    secret_store[key] = value
-                SpringCloudConnectionSecretStoreArgs._configure(_setter, **secret_store)
+            secret_store = _utilities.configure(secret_store, SpringCloudConnectionSecretStoreArgs, True)
             __props__.__dict__["secret_store"] = secret_store
             if spring_cloud_id is None and not opts.urn:
                 raise TypeError("Missing required property 'spring_cloud_id'")

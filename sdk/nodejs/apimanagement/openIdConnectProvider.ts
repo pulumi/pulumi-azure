@@ -7,30 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an OpenID Connect Provider within a API Management Service.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleService = new azure.apimanagement.Service("exampleService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     publisherName: "My Company",
- *     publisherEmail: "company@exmaple.com",
- *     skuName: "Developer_1",
- * });
- * const exampleOpenIdConnectProvider = new azure.apimanagement.OpenIdConnectProvider("exampleOpenIdConnectProvider", {
- *     apiManagementName: exampleService.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     clientId: "00001111-2222-3333-4444-555566667777",
- *     clientSecret: "00001111-423egvwdcsjx-00001111",
- *     displayName: "Example Provider",
- *     metadataEndpoint: "https://example.com/example",
- * });
- * ```
- *
  * ## Import
  *
  * API Management OpenID Connect Providers can be imported using the `resource id`, e.g.
