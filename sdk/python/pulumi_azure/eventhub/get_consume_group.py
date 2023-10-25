@@ -100,6 +100,18 @@ def get_consume_group(eventhub_name: Optional[str] = None,
     """
     Use this data source to access information about an existing Event Hubs Consumer Group within an Event Hub.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    test = azure.eventhub.get_consume_group(name=azurerm_eventhub_consumer_group["test"]["name"],
+        namespace_name=azurerm_eventhub_namespace["test"]["name"],
+        eventhub_name=azurerm_eventhub["test"]["name"],
+        resource_group_name=azurerm_resource_group["test"]["name"])
+    ```
+
 
     :param str eventhub_name: Specifies the name of the EventHub.
     :param str name: Specifies the name of the EventHub Consumer Group resource.
@@ -131,6 +143,18 @@ def get_consume_group_output(eventhub_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConsumeGroupResult]:
     """
     Use this data source to access information about an existing Event Hubs Consumer Group within an Event Hub.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    test = azure.eventhub.get_consume_group(name=azurerm_eventhub_consumer_group["test"]["name"],
+        namespace_name=azurerm_eventhub_namespace["test"]["name"],
+        eventhub_name=azurerm_eventhub["test"]["name"],
+        resource_group_name=azurerm_resource_group["test"]["name"])
+    ```
 
 
     :param str eventhub_name: Specifies the name of the EventHub.

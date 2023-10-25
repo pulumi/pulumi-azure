@@ -183,6 +183,18 @@ def get_network_attached_data_network(mobile_network_data_network_name: Optional
     """
     Use this data source to access information about an existing Mobile Network Attached Data Network.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example_network_packet_core_control_plane = azure.mobile.get_network_packet_core_control_plane(name="example-mnpccp",
+        resource_group_name="example-rg")
+    example_network_attached_data_network = azure.mobile.get_network_attached_data_network(mobile_network_data_network_name=example_network_packet_core_control_plane.name,
+        mobile_network_packet_core_data_plane_id=example_network_packet_core_control_plane.id)
+    ```
+
 
     :param str mobile_network_data_network_name: The Name of the `mobile.NetworkDataNetwork` this resource belongs to.
     :param str mobile_network_packet_core_data_plane_id: The ID of the `mobile.NetworkPacketCoreDataPlane` which the Mobile Network Attached Data Network belongs to.
@@ -215,6 +227,18 @@ def get_network_attached_data_network_output(mobile_network_data_network_name: O
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkAttachedDataNetworkResult]:
     """
     Use this data source to access information about an existing Mobile Network Attached Data Network.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example_network_packet_core_control_plane = azure.mobile.get_network_packet_core_control_plane(name="example-mnpccp",
+        resource_group_name="example-rg")
+    example_network_attached_data_network = azure.mobile.get_network_attached_data_network(mobile_network_data_network_name=example_network_packet_core_control_plane.name,
+        mobile_network_packet_core_data_plane_id=example_network_packet_core_control_plane.id)
+    ```
 
 
     :param str mobile_network_data_network_name: The Name of the `mobile.NetworkDataNetwork` this resource belongs to.

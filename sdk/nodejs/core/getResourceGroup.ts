@@ -6,6 +6,18 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Resource Group.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.core.getResourceGroup({
+ *     name: "existing",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
  */
 export function getResourceGroup(args: GetResourceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceGroupResult> {
 
@@ -46,6 +58,18 @@ export interface GetResourceGroupResult {
 }
 /**
  * Use this data source to access information about an existing Resource Group.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.core.getResourceGroup({
+ *     name: "existing",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
  */
 export function getResourceGroupOutput(args: GetResourceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceGroupResult> {
     return pulumi.output(args).apply((a: any) => getResourceGroup(a, opts))

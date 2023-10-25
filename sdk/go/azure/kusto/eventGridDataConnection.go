@@ -15,6 +15,124 @@ import (
 
 // Manages a Kusto (also known as Azure Data Explorer) Event Grid Data Connection
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventgrid"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventhub"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/kusto"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleCluster, err := kusto.NewCluster(ctx, "exampleCluster", &kusto.ClusterArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku: &kusto.ClusterSkuArgs{
+//					Name:     pulumi.String("Standard_D13_v2"),
+//					Capacity: pulumi.Int(2),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDatabase, err := kusto.NewDatabase(ctx, "exampleDatabase", &kusto.DatabaseArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				ClusterName:       exampleCluster.Name,
+//				HotCachePeriod:    pulumi.String("P7D"),
+//				SoftDeletePeriod:  pulumi.String("P31D"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("GRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleEventHubNamespace, err := eventhub.NewEventHubNamespace(ctx, "exampleEventHubNamespace", &eventhub.EventHubNamespaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("Standard"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleEventHub, err := eventhub.NewEventHub(ctx, "exampleEventHub", &eventhub.EventHubArgs{
+//				NamespaceName:     exampleEventHubNamespace.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				PartitionCount:    pulumi.Int(1),
+//				MessageRetention:  pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleConsumerGroup, err := eventhub.NewConsumerGroup(ctx, "exampleConsumerGroup", &eventhub.ConsumerGroupArgs{
+//				NamespaceName:     exampleEventHubNamespace.Name,
+//				EventhubName:      exampleEventHub.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleEventSubscription, err := eventgrid.NewEventSubscription(ctx, "exampleEventSubscription", &eventgrid.EventSubscriptionArgs{
+//				Scope:               exampleAccount.ID(),
+//				EventhubEndpointId:  exampleEventHub.ID(),
+//				EventDeliverySchema: pulumi.String("EventGridSchema"),
+//				IncludedEventTypes: pulumi.StringArray{
+//					pulumi.String("Microsoft.Storage.BlobCreated"),
+//					pulumi.String("Microsoft.Storage.BlobRenamed"),
+//				},
+//				RetryPolicy: &eventgrid.EventSubscriptionRetryPolicyArgs{
+//					EventTimeToLive:     pulumi.Int(144),
+//					MaxDeliveryAttempts: pulumi.Int(10),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = kusto.NewEventGridDataConnection(ctx, "exampleEventGridDataConnection", &kusto.EventGridDataConnectionArgs{
+//				ResourceGroupName:         exampleResourceGroup.Name,
+//				Location:                  exampleResourceGroup.Location,
+//				ClusterName:               exampleCluster.Name,
+//				DatabaseName:              exampleDatabase.Name,
+//				StorageAccountId:          exampleAccount.ID(),
+//				EventhubId:                exampleEventHub.ID(),
+//				EventhubConsumerGroupName: exampleConsumerGroup.Name,
+//				TableName:                 pulumi.String("my-table"),
+//				MappingRuleName:           pulumi.String("my-table-mapping"),
+//				DataFormat:                pulumi.String("JSON"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleEventSubscription,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Kusto Event Grid Data Connections can be imported using the `resource id`, e.g.

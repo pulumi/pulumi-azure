@@ -7,6 +7,22 @@ import * as utilities from "../utilities";
 /**
  * Manages a Dynamics 365 Data Connector.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: "PerGB2018",
+ * });
+ * const exampleLogAnalyticsWorkspaceOnboarding = new azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", {workspaceId: exampleAnalyticsWorkspace.id});
+ * const exampleDataConnectorDynamics365 = new azure.sentinel.DataConnectorDynamics365("exampleDataConnectorDynamics365", {logAnalyticsWorkspaceId: exampleLogAnalyticsWorkspaceOnboarding.workspaceId});
+ * ```
+ *
  * ## Import
  *
  * Dynamics 365 Data Connectors can be imported using the `resource id`, e.g.

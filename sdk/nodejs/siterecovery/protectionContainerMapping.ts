@@ -9,6 +9,55 @@ import * as utilities from "../utilities";
 /**
  * Manages a Azure recovery vault protection container mapping. A protection container mapping decides how to translate the protection container when a VM is migrated from one region to another.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const primaryResourceGroup = new azure.core.ResourceGroup("primaryResourceGroup", {location: "West US"});
+ * const secondaryResourceGroup = new azure.core.ResourceGroup("secondaryResourceGroup", {location: "East US"});
+ * const vault = new azure.recoveryservices.Vault("vault", {
+ *     location: secondaryResourceGroup.location,
+ *     resourceGroupName: secondaryResourceGroup.name,
+ *     sku: "Standard",
+ * });
+ * const primaryFabric = new azure.siterecovery.Fabric("primaryFabric", {
+ *     resourceGroupName: secondaryResourceGroup.name,
+ *     recoveryVaultName: vault.name,
+ *     location: primaryResourceGroup.location,
+ * });
+ * const secondaryFabric = new azure.siterecovery.Fabric("secondaryFabric", {
+ *     resourceGroupName: secondaryResourceGroup.name,
+ *     recoveryVaultName: vault.name,
+ *     location: secondaryResourceGroup.location,
+ * });
+ * const primaryProtectionContainer = new azure.siterecovery.ProtectionContainer("primaryProtectionContainer", {
+ *     resourceGroupName: secondaryResourceGroup.name,
+ *     recoveryVaultName: vault.name,
+ *     recoveryFabricName: primaryFabric.name,
+ * });
+ * const secondaryProtectionContainer = new azure.siterecovery.ProtectionContainer("secondaryProtectionContainer", {
+ *     resourceGroupName: secondaryResourceGroup.name,
+ *     recoveryVaultName: vault.name,
+ *     recoveryFabricName: secondaryFabric.name,
+ * });
+ * const policy = new azure.siterecovery.ReplicationPolicy("policy", {
+ *     resourceGroupName: secondaryResourceGroup.name,
+ *     recoveryVaultName: vault.name,
+ *     recoveryPointRetentionInMinutes: 24 * 60,
+ *     applicationConsistentSnapshotFrequencyInMinutes: 4 * 60,
+ * });
+ * const container_mapping = new azure.siterecovery.ProtectionContainerMapping("container-mapping", {
+ *     resourceGroupName: secondaryResourceGroup.name,
+ *     recoveryVaultName: vault.name,
+ *     recoveryFabricName: primaryFabric.name,
+ *     recoverySourceProtectionContainerName: primaryProtectionContainer.name,
+ *     recoveryTargetProtectionContainerId: secondaryProtectionContainer.id,
+ *     recoveryReplicationPolicyId: policy.id,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Site Recovery Protection Container Mappings can be imported using the `resource id`, e.g.

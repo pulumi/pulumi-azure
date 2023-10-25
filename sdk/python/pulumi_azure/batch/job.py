@@ -293,6 +293,33 @@ class Job(pulumi.CustomResource):
         """
         Manages a Batch Job.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="west europe")
+        example_account = azure.batch.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        example_pool = azure.batch.Pool("examplePool",
+            resource_group_name=example_resource_group.name,
+            account_name=example_account.name,
+            node_agent_sku_id="batch.node.ubuntu 16.04",
+            vm_size="Standard_A1",
+            fixed_scale=azure.batch.PoolFixedScaleArgs(
+                target_dedicated_nodes=1,
+            ),
+            storage_image_reference=azure.batch.PoolStorageImageReferenceArgs(
+                publisher="Canonical",
+                offer="UbuntuServer",
+                sku="16.04.0-LTS",
+                version="latest",
+            ))
+        example_job = azure.batch.Job("exampleJob", batch_pool_id=example_pool.id)
+        ```
+
         ## Import
 
         Batch Jobs can be imported using the `resource id`, e.g.
@@ -318,6 +345,33 @@ class Job(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Batch Job.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="west europe")
+        example_account = azure.batch.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        example_pool = azure.batch.Pool("examplePool",
+            resource_group_name=example_resource_group.name,
+            account_name=example_account.name,
+            node_agent_sku_id="batch.node.ubuntu 16.04",
+            vm_size="Standard_A1",
+            fixed_scale=azure.batch.PoolFixedScaleArgs(
+                target_dedicated_nodes=1,
+            ),
+            storage_image_reference=azure.batch.PoolStorageImageReferenceArgs(
+                publisher="Canonical",
+                offer="UbuntuServer",
+                sku="16.04.0-LTS",
+                version="latest",
+            ))
+        example_job = azure.batch.Job("exampleJob", batch_pool_id=example_pool.id)
+        ```
 
         ## Import
 

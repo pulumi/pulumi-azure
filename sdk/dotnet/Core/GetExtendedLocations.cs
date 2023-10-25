@@ -13,12 +13,56 @@ namespace Pulumi.Azure.Core
     {
         /// <summary>
         /// This data source return the available Extended Locations for a specific Azure Region.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Core.GetExtendedLocations.Invoke(new()
+        ///     {
+        ///         Location = "West Europe",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetExtendedLocationsResult> InvokeAsync(GetExtendedLocationsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExtendedLocationsResult>("azure:core/getExtendedLocations:getExtendedLocations", args ?? new GetExtendedLocationsArgs(), options.WithDefaults());
 
         /// <summary>
         /// This data source return the available Extended Locations for a specific Azure Region.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Core.GetExtendedLocations.Invoke(new()
+        ///     {
+        ///         Location = "West Europe",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetExtendedLocationsResult> Invoke(GetExtendedLocationsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExtendedLocationsResult>("azure:core/getExtendedLocations:getExtendedLocations", args ?? new GetExtendedLocationsInvokeArgs(), options.WithDefaults());

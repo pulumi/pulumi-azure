@@ -12,6 +12,107 @@ namespace Pulumi.Azure.Media
     /// <summary>
     /// Manages a Media Services Account Filter.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "GRS",
+    ///     });
+    /// 
+    ///     var exampleServiceAccount = new Azure.Media.ServiceAccount("exampleServiceAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         StorageAccounts = new[]
+    ///         {
+    ///             new Azure.Media.Inputs.ServiceAccountStorageAccountArgs
+    ///             {
+    ///                 Id = exampleAccount.Id,
+    ///                 IsPrimary = true,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAccountFilter = new Azure.Media.AccountFilter("exampleAccountFilter", new()
+    ///     {
+    ///         ResourceGroupName = azurerm_resource_group.Test.Name,
+    ///         MediaServicesAccountName = azurerm_media_services_account.Test.Name,
+    ///         FirstQualityBitrate = 128000,
+    ///         PresentationTimeRange = new Azure.Media.Inputs.AccountFilterPresentationTimeRangeArgs
+    ///         {
+    ///             StartInUnits = 0,
+    ///             EndInUnits = 15,
+    ///             PresentationWindowInUnits = 90,
+    ///             LiveBackoffInUnits = 0,
+    ///             UnitTimescaleInMilliseconds = 1000,
+    ///             ForceEnd = false,
+    ///         },
+    ///         TrackSelections = new[]
+    ///         {
+    ///             new Azure.Media.Inputs.AccountFilterTrackSelectionArgs
+    ///             {
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Azure.Media.Inputs.AccountFilterTrackSelectionConditionArgs
+    ///                     {
+    ///                         Property = "Type",
+    ///                         Operation = "Equal",
+    ///                         Value = "Audio",
+    ///                     },
+    ///                     new Azure.Media.Inputs.AccountFilterTrackSelectionConditionArgs
+    ///                     {
+    ///                         Property = "Language",
+    ///                         Operation = "NotEqual",
+    ///                         Value = "en",
+    ///                     },
+    ///                     new Azure.Media.Inputs.AccountFilterTrackSelectionConditionArgs
+    ///                     {
+    ///                         Property = "FourCC",
+    ///                         Operation = "NotEqual",
+    ///                         Value = "EC-3",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Azure.Media.Inputs.AccountFilterTrackSelectionArgs
+    ///             {
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Azure.Media.Inputs.AccountFilterTrackSelectionConditionArgs
+    ///                     {
+    ///                         Property = "Type",
+    ///                         Operation = "Equal",
+    ///                         Value = "Video",
+    ///                     },
+    ///                     new Azure.Media.Inputs.AccountFilterTrackSelectionConditionArgs
+    ///                     {
+    ///                         Property = "Bitrate",
+    ///                         Operation = "Equal",
+    ///                         Value = "3000000-5000000",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Account Filters can be imported using the `resource id`, e.g.

@@ -12,6 +12,42 @@ namespace Pulumi.Azure.Sentinel
     /// <summary>
     /// Manages a AWS CloudTrail Data Connector.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "PerGB2018",
+    ///     });
+    /// 
+    ///     var exampleLogAnalyticsWorkspaceOnboarding = new Azure.Sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", new()
+    ///     {
+    ///         WorkspaceId = exampleAnalyticsWorkspace.Id,
+    ///     });
+    /// 
+    ///     var exampleDataConnectorAwsCloudTrail = new Azure.Sentinel.DataConnectorAwsCloudTrail("exampleDataConnectorAwsCloudTrail", new()
+    ///     {
+    ///         LogAnalyticsWorkspaceId = exampleLogAnalyticsWorkspaceOnboarding.WorkspaceId,
+    ///         AwsRoleArn = "arn:aws:iam::000000000000:role/role1",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// AWS CloudTrail Data Connectors can be imported using the `resource id`, e.g.

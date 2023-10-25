@@ -9,6 +9,39 @@ import * as utilities from "../utilities";
 /**
  * Manages an External Endpoint within a Traffic Manager Profile.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleTrafficManagerProfile = new azure.network.TrafficManagerProfile("exampleTrafficManagerProfile", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     trafficRoutingMethod: "Weighted",
+ *     dnsConfig: {
+ *         relativeName: "example-profile",
+ *         ttl: 100,
+ *     },
+ *     monitorConfig: {
+ *         protocol: "HTTP",
+ *         port: 80,
+ *         path: "/",
+ *         intervalInSeconds: 30,
+ *         timeoutInSeconds: 9,
+ *         toleratedNumberOfFailures: 3,
+ *     },
+ *     tags: {
+ *         environment: "Production",
+ *     },
+ * });
+ * const exampleTrafficManagerExternalEndpoint = new azure.network.TrafficManagerExternalEndpoint("exampleTrafficManagerExternalEndpoint", {
+ *     profileId: exampleTrafficManagerProfile.id,
+ *     weight: 100,
+ *     target: "www.example.com",
+ * });
+ * ```
+ *
  * ## Import
  *
  * External Endpoints can be imported using the `resource id`, e.g.

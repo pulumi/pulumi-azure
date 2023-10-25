@@ -492,6 +492,27 @@ class DpsSharedAccessPolicy(pulumi.CustomResource):
         """
         Manages an IotHub Device Provisioning Service Shared Access Policy
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_iot_hub_dps = azure.iot.IotHubDps("exampleIotHubDps",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku=azure.iot.IotHubDpsSkuArgs(
+                name="S1",
+                capacity=1,
+            ))
+        example_dps_shared_access_policy = azure.iot.DpsSharedAccessPolicy("exampleDpsSharedAccessPolicy",
+            resource_group_name=example_resource_group.name,
+            iothub_dps_name=example_iot_hub_dps.name,
+            enrollment_write=True,
+            enrollment_read=True)
+        ```
+
         ## Import
 
         IoTHub Device Provisioning Service Shared Access Policies can be imported using the `resource id`, e.g.
@@ -527,6 +548,27 @@ class DpsSharedAccessPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an IotHub Device Provisioning Service Shared Access Policy
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_iot_hub_dps = azure.iot.IotHubDps("exampleIotHubDps",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku=azure.iot.IotHubDpsSkuArgs(
+                name="S1",
+                capacity=1,
+            ))
+        example_dps_shared_access_policy = azure.iot.DpsSharedAccessPolicy("exampleDpsSharedAccessPolicy",
+            resource_group_name=example_resource_group.name,
+            iothub_dps_name=example_iot_hub_dps.name,
+            enrollment_write=True,
+            enrollment_read=True)
+        ```
 
         ## Import
 

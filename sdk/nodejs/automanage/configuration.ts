@@ -9,6 +9,74 @@ import * as utilities from "../utilities";
 /**
  * Manages an Automanage Configuration.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleConfiguration = new azure.automanage.Configuration("exampleConfiguration", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     antimalware: {
+ *         exclusions: {
+ *             extensions: "exe;dll",
+ *             paths: "C:\\Windows\\Temp;D:\\Temp",
+ *             processes: "svchost.exe;notepad.exe",
+ *         },
+ *         realTimeProtectionEnabled: true,
+ *         scheduledScanEnabled: true,
+ *         scheduledScanType: "Quick",
+ *         scheduledScanDay: 1,
+ *         scheduledScanTimeInMinutes: 1339,
+ *     },
+ *     azureSecurityBaseline: {
+ *         assignmentType: "ApplyAndAutoCorrect",
+ *     },
+ *     automationAccountEnabled: true,
+ *     backup: {
+ *         policyName: "acctest-backup-policy-%d",
+ *         timeZone: "UTC",
+ *         instantRpRetentionRangeInDays: 2,
+ *         schedulePolicy: {
+ *             scheduleRunFrequency: "Daily",
+ *             scheduleRunDays: [
+ *                 "Monday",
+ *                 "Tuesday",
+ *             ],
+ *             scheduleRunTimes: ["12:00"],
+ *             schedulePolicyType: "SimpleSchedulePolicy",
+ *         },
+ *         retentionPolicy: {
+ *             retentionPolicyType: "LongTermRetentionPolicy",
+ *             dailySchedule: {
+ *                 retentionTimes: ["12:00"],
+ *                 retentionDuration: {
+ *                     count: 7,
+ *                     durationType: "Days",
+ *                 },
+ *             },
+ *             weeklySchedule: {
+ *                 retentionTimes: ["14:00"],
+ *                 retentionDuration: {
+ *                     count: 4,
+ *                     durationType: "Weeks",
+ *                 },
+ *             },
+ *         },
+ *     },
+ *     bootDiagnosticsEnabled: true,
+ *     defenderForCloudEnabled: true,
+ *     guestConfigurationEnabled: true,
+ *     logAnalyticsEnabled: true,
+ *     statusChangeAlertEnabled: true,
+ *     tags: {
+ *         env: "test",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Automanage Configuration can be imported using the `resource id`, e.g.

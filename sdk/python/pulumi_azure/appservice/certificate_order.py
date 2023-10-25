@@ -635,6 +635,20 @@ class CertificateOrder(pulumi.CustomResource):
         """
         Manages an App Service Certificate Order.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_certificate_order = azure.appservice.CertificateOrder("exampleCertificateOrder",
+            resource_group_name=example_resource_group.name,
+            location="global",
+            distinguished_name="CN=example.com",
+            product_type="Standard")
+        ```
+
         ## Import
 
         App Service Certificate Orders can be imported using the `resource id`, e.g.
@@ -666,6 +680,20 @@ class CertificateOrder(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an App Service Certificate Order.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_certificate_order = azure.appservice.CertificateOrder("exampleCertificateOrder",
+            resource_group_name=example_resource_group.name,
+            location="global",
+            distinguished_name="CN=example.com",
+            product_type="Standard")
+        ```
 
         ## Import
 

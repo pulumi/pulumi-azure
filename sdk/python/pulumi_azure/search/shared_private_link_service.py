@@ -284,6 +284,29 @@ class SharedPrivateLinkService(pulumi.CustomResource):
         """
         Manages the Shared Private Link Service for an Azure Search Service.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        test_resource_group = azure.core.ResourceGroup("testResourceGroup", location="east us")
+        test_service = azure.search.Service("testService",
+            resource_group_name=test_resource_group.name,
+            location=test_resource_group.location,
+            sku="standard")
+        test_account = azure.storage.Account("testAccount",
+            resource_group_name=test_resource_group.name,
+            location=test_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        test_shared_private_link_service = azure.search.SharedPrivateLinkService("testSharedPrivateLinkService",
+            search_service_id=test_service.id,
+            subresource_name="blob",
+            target_resource_id=test_account.id,
+            request_message="please approve")
+        ```
+
         ## Import
 
         Azure Search Shared Private Link Resource can be imported using the `resource id`, e.g.
@@ -310,6 +333,29 @@ class SharedPrivateLinkService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages the Shared Private Link Service for an Azure Search Service.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        test_resource_group = azure.core.ResourceGroup("testResourceGroup", location="east us")
+        test_service = azure.search.Service("testService",
+            resource_group_name=test_resource_group.name,
+            location=test_resource_group.location,
+            sku="standard")
+        test_account = azure.storage.Account("testAccount",
+            resource_group_name=test_resource_group.name,
+            location=test_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        test_shared_private_link_service = azure.search.SharedPrivateLinkService("testSharedPrivateLinkService",
+            search_service_id=test_service.id,
+            subresource_name="blob",
+            target_resource_id=test_account.id,
+            request_message="please approve")
+        ```
 
         ## Import
 

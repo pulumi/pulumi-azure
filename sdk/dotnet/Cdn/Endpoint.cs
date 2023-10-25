@@ -10,6 +10,46 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Cdn
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleProfile = new Azure.Cdn.Profile("exampleProfile", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Standard_Verizon",
+    ///     });
+    /// 
+    ///     var exampleEndpoint = new Azure.Cdn.Endpoint("exampleEndpoint", new()
+    ///     {
+    ///         ProfileName = exampleProfile.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Origins = new[]
+    ///         {
+    ///             new Azure.Cdn.Inputs.EndpointOriginArgs
+    ///             {
+    ///                 Name = "example",
+    ///                 HostName = "www.contoso.com",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// CDN Endpoints can be imported using the `resource id`, e.g.

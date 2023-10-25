@@ -153,6 +153,17 @@ def get_server(name: Optional[str] = None,
     """
     Use this data source to access information about an existing PostgreSQL Azure Database Server.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.postgresql.get_server(name="postgresql-server-1",
+        resource_group_name="api-rg-pro")
+    pulumi.export("postgresqlServerId", example.id)
+    ```
+
 
     :param str name: The name of the PostgreSQL Server.
     :param str resource_group_name: Specifies the name of the Resource Group where the PostgreSQL Server exists.
@@ -182,6 +193,17 @@ def get_server_output(name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerResult]:
     """
     Use this data source to access information about an existing PostgreSQL Azure Database Server.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.postgresql.get_server(name="postgresql-server-1",
+        resource_group_name="api-rg-pro")
+    pulumi.export("postgresqlServerId", example.id)
+    ```
 
 
     :param str name: The name of the PostgreSQL Server.

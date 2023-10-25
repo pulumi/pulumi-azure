@@ -7,6 +7,43 @@ import * as utilities from "../utilities";
 /**
  * Manages a Digital Twins Event Hub Endpoint.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleInstance = new azure.digitaltwins.Instance("exampleInstance", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ * });
+ * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("exampleEventHubNamespace", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: "Standard",
+ * });
+ * const exampleEventHub = new azure.eventhub.EventHub("exampleEventHub", {
+ *     namespaceName: exampleEventHubNamespace.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     partitionCount: 2,
+ *     messageRetention: 1,
+ * });
+ * const exampleAuthorizationRule = new azure.eventhub.AuthorizationRule("exampleAuthorizationRule", {
+ *     namespaceName: exampleEventHubNamespace.name,
+ *     eventhubName: exampleEventHub.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     listen: false,
+ *     send: true,
+ *     manage: false,
+ * });
+ * const exampleEndpointEventHub = new azure.digitaltwins.EndpointEventHub("exampleEndpointEventHub", {
+ *     digitalTwinsId: exampleInstance.id,
+ *     eventhubPrimaryConnectionString: exampleAuthorizationRule.primaryConnectionString,
+ *     eventhubSecondaryConnectionString: exampleAuthorizationRule.secondaryConnectionString,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Digital Twins Eventhub Endpoints can be imported using the `resource id`, e.g.

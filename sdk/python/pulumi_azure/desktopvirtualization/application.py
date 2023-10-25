@@ -455,6 +455,43 @@ class Application(pulumi.CustomResource):
         """
         Manages a Virtual Desktop Application.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example", location="West Europe")
+        pooledbreadthfirst = azure.desktopvirtualization.HostPool("pooledbreadthfirst",
+            location=example.location,
+            resource_group_name=example.name,
+            type="Pooled",
+            load_balancer_type="BreadthFirst")
+        personalautomatic = azure.desktopvirtualization.HostPool("personalautomatic",
+            location=example.location,
+            resource_group_name=example.name,
+            type="Personal",
+            personal_desktop_assignment_type="Automatic",
+            load_balancer_type="BreadthFirst")
+        remoteapp = azure.desktopvirtualization.ApplicationGroup("remoteapp",
+            location=example.location,
+            resource_group_name=example.name,
+            type="RemoteApp",
+            host_pool_id=pooledbreadthfirst.id,
+            friendly_name="TestAppGroup",
+            description="Acceptance Test: An application group")
+        chrome = azure.desktopvirtualization.Application("chrome",
+            application_group_id=remoteapp.id,
+            friendly_name="Google Chrome",
+            description="Chromium based web browser",
+            path="C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe",
+            command_line_argument_policy="DoNotAllow",
+            command_line_arguments="--incognito",
+            show_in_portal=False,
+            icon_path="C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe",
+            icon_index=0)
+        ```
+
         ## Import
 
         Virtual Desktop Application can be imported using the `resource id`, e.g.
@@ -484,6 +521,43 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Virtual Desktop Application.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example", location="West Europe")
+        pooledbreadthfirst = azure.desktopvirtualization.HostPool("pooledbreadthfirst",
+            location=example.location,
+            resource_group_name=example.name,
+            type="Pooled",
+            load_balancer_type="BreadthFirst")
+        personalautomatic = azure.desktopvirtualization.HostPool("personalautomatic",
+            location=example.location,
+            resource_group_name=example.name,
+            type="Personal",
+            personal_desktop_assignment_type="Automatic",
+            load_balancer_type="BreadthFirst")
+        remoteapp = azure.desktopvirtualization.ApplicationGroup("remoteapp",
+            location=example.location,
+            resource_group_name=example.name,
+            type="RemoteApp",
+            host_pool_id=pooledbreadthfirst.id,
+            friendly_name="TestAppGroup",
+            description="Acceptance Test: An application group")
+        chrome = azure.desktopvirtualization.Application("chrome",
+            application_group_id=remoteapp.id,
+            friendly_name="Google Chrome",
+            description="Chromium based web browser",
+            path="C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe",
+            command_line_argument_policy="DoNotAllow",
+            command_line_arguments="--incognito",
+            show_in_portal=False,
+            icon_path="C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe",
+            icon_index=0)
+        ```
 
         ## Import
 

@@ -8,6 +8,19 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Data Collection Rule.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.monitoring.getDataCollectionRule({
+ *     name: "example-rule",
+ *     resourceGroupName: azurerm_resource_group.example.name,
+ * });
+ * export const ruleId = example.then(example => example.id);
+ * ```
  */
 export function getDataCollectionRule(args: GetDataCollectionRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetDataCollectionRuleResult> {
 
@@ -89,6 +102,19 @@ export interface GetDataCollectionRuleResult {
 }
 /**
  * Use this data source to access information about an existing Data Collection Rule.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.monitoring.getDataCollectionRule({
+ *     name: "example-rule",
+ *     resourceGroupName: azurerm_resource_group.example.name,
+ * });
+ * export const ruleId = example.then(example => example.id);
+ * ```
  */
 export function getDataCollectionRuleOutput(args: GetDataCollectionRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataCollectionRuleResult> {
     return pulumi.output(args).apply((a: any) => getDataCollectionRule(a, opts))

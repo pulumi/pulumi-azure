@@ -446,6 +446,22 @@ class GalleryApplication(pulumi.CustomResource):
         """
         Manages a Gallery Application.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_shared_image_gallery = azure.compute.SharedImageGallery("exampleSharedImageGallery",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        example_gallery_application = azure.compute.GalleryApplication("exampleGalleryApplication",
+            gallery_id=example_shared_image_gallery.id,
+            location=example_resource_group.location,
+            supported_os_type="Linux")
+        ```
+
         ## Import
 
         Gallery Applications can be imported using the `resource id`, e.g.
@@ -475,6 +491,22 @@ class GalleryApplication(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Gallery Application.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_shared_image_gallery = azure.compute.SharedImageGallery("exampleSharedImageGallery",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        example_gallery_application = azure.compute.GalleryApplication("exampleGalleryApplication",
+            gallery_id=example_shared_image_gallery.id,
+            location=example_resource_group.location,
+            supported_os_type="Linux")
+        ```
 
         ## Import
 

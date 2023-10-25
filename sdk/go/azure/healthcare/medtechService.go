@@ -15,6 +15,81 @@ import (
 
 // Manages a Healthcare Med Tech Service.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/healthcare"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("east us"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleWorkspace, err := healthcare.NewWorkspace(ctx, "exampleWorkspace", &healthcare.WorkspaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"templateType": "CollectionContent",
+//				"template": []map[string]interface{}{
+//					map[string]interface{}{
+//						"templateType": "JsonPathContent",
+//						"template": map[string]interface{}{
+//							"typeName":            "heartrate",
+//							"typeMatchExpression": "$..[?(@heartrate)]",
+//							"deviceIdExpression":  "$.deviceid",
+//							"timestampExpression": "$.measurementdatetime",
+//							"values": []map[string]interface{}{
+//								map[string]interface{}{
+//									"required":        "true",
+//									"valueExpression": "$.heartrate",
+//									"valueName":       "hr",
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = healthcare.NewMedtechService(ctx, "exampleMedtechService", &healthcare.MedtechServiceArgs{
+//				WorkspaceId: exampleWorkspace.ID(),
+//				Location:    pulumi.String("east us"),
+//				Identity: &healthcare.MedtechServiceIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//				EventhubNamespaceName:     pulumi.String("example-eventhub-namespace"),
+//				EventhubName:              pulumi.String("example-eventhub"),
+//				EventhubConsumerGroupName: pulumi.String("$Default"),
+//				DeviceMappingJson:         pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Healthcare Med Tech Service can be imported using the resource`id`, e.g.

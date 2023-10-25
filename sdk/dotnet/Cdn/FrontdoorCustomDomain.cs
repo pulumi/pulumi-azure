@@ -10,6 +10,76 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Cdn
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleZone = new Azure.Dns.Zone("exampleZone", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleFrontdoorProfile = new Azure.Cdn.FrontdoorProfile("exampleFrontdoorProfile", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "Standard_AzureFrontDoor",
+    ///     });
+    /// 
+    ///     var exampleFrontdoorCustomDomain = new Azure.Cdn.FrontdoorCustomDomain("exampleFrontdoorCustomDomain", new()
+    ///     {
+    ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
+    ///         DnsZoneId = exampleZone.Id,
+    ///         HostName = "contoso.fabrikam.com",
+    ///         Tls = new Azure.Cdn.Inputs.FrontdoorCustomDomainTlsArgs
+    ///         {
+    ///             CertificateType = "ManagedCertificate",
+    ///             MinimumTlsVersion = "TLS12",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ## Example CNAME Record Usage
+    /// 
+    /// !&gt;**IMPORTANT:** You **must** include the `depends_on` meta-argument which references both the `azure.cdn.FrontdoorRoute` and the `azure.cdn.FrontdoorSecurityPolicy` that are associated with your Custom Domain. The reason for these `depends_on` meta-arguments is because all of the resources for the Custom Domain need to be associated within Front Door before the CNAME record can be written to the domains DNS, else the CNAME validation will fail and Front Door will not enable traffic to the Domain.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Dns.CNameRecord("example", new()
+    ///     {
+    ///         ZoneName = azurerm_dns_zone.Example.Name,
+    ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+    ///         Ttl = 3600,
+    ///         Record = azurerm_cdn_frontdoor_endpoint.Example.Host_name,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             azurerm_cdn_frontdoor_route.Example,
+    ///             azurerm_cdn_frontdoor_security_policy.Example,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Front Door Custom Domains can be imported using the `resource id`, e.g.

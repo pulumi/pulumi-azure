@@ -17,6 +17,58 @@ import (
 //
 // > **Note:** All arguments including the connectionString will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datafactory.NewLinkedServiceOdata(ctx, "anonymous", &datafactory.LinkedServiceOdataArgs{
+//				DataFactoryId: exampleFactory.ID(),
+//				Url:           pulumi.String("https://services.odata.org/v4/TripPinServiceRW/People"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datafactory.NewLinkedServiceOdata(ctx, "basicAuth", &datafactory.LinkedServiceOdataArgs{
+//				DataFactoryId: exampleFactory.ID(),
+//				Url:           pulumi.String("https://services.odata.org/v4/TripPinServiceRW/People"),
+//				BasicAuthentication: &datafactory.LinkedServiceOdataBasicAuthenticationArgs{
+//					Username: pulumi.String("emma"),
+//					Password: pulumi.String("Ch4ngeM3!"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Data Factory OData Linked Service's can be imported using the `resource id`, e.g.

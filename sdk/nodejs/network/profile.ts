@@ -9,6 +9,43 @@ import * as utilities from "../utilities";
 /**
  * Manages a Network Profile.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     addressSpaces: ["10.1.0.0/16"],
+ * });
+ * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.1.0.0/24"],
+ *     delegations: [{
+ *         name: "delegation",
+ *         serviceDelegation: {
+ *             name: "Microsoft.ContainerInstance/containerGroups",
+ *             actions: ["Microsoft.Network/virtualNetworks/subnets/action"],
+ *         },
+ *     }],
+ * });
+ * const exampleProfile = new azure.network.Profile("exampleProfile", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     containerNetworkInterface: {
+ *         name: "examplecnic",
+ *         ipConfigurations: [{
+ *             name: "exampleipconfig",
+ *             subnetId: exampleSubnet.id,
+ *         }],
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Network Profile can be imported using the `resource id`, e.g.

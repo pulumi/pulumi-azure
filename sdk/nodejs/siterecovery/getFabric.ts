@@ -6,6 +6,19 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Site Recovery Replication Fabric.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const fabric = azure.siterecovery.getFabric({
+ *     name: "primary-fabric",
+ *     recoveryVaultName: "tfex-recovery_vault",
+ *     resourceGroupName: "tfex-resource_group",
+ * });
+ * ```
  */
 export function getFabric(args: GetFabricArgs, opts?: pulumi.InvokeOptions): Promise<GetFabricResult> {
 
@@ -53,6 +66,19 @@ export interface GetFabricResult {
 }
 /**
  * Use this data source to access information about an existing Site Recovery Replication Fabric.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const fabric = azure.siterecovery.getFabric({
+ *     name: "primary-fabric",
+ *     recoveryVaultName: "tfex-recovery_vault",
+ *     resourceGroupName: "tfex-resource_group",
+ * });
+ * ```
  */
 export function getFabricOutput(args: GetFabricOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFabricResult> {
     return pulumi.output(args).apply((a: any) => getFabric(a, opts))

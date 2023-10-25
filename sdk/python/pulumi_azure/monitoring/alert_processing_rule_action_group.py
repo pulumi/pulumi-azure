@@ -400,6 +400,56 @@ class AlertProcessingRuleActionGroup(pulumi.CustomResource):
         """
         Manages an Alert Processing Rule which apply action group.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_action_group = azure.monitoring.ActionGroup("exampleActionGroup",
+            resource_group_name=example_resource_group.name,
+            short_name="action")
+        example_alert_processing_rule_action_group = azure.monitoring.AlertProcessingRuleActionGroup("exampleAlertProcessingRuleActionGroup",
+            resource_group_name="example",
+            scopes=[example_resource_group.id],
+            add_action_group_ids=[example_action_group.id],
+            condition=azure.monitoring.AlertProcessingRuleActionGroupConditionArgs(
+                target_resource_type=azure.monitoring.AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs(
+                    operator="Equals",
+                    values=["Microsoft.Compute/VirtualMachines"],
+                ),
+                severity=azure.monitoring.AlertProcessingRuleActionGroupConditionSeverityArgs(
+                    operator="Equals",
+                    values=[
+                        "Sev0",
+                        "Sev1",
+                        "Sev2",
+                    ],
+                ),
+            ),
+            schedule=azure.monitoring.AlertProcessingRuleActionGroupScheduleArgs(
+                effective_from="2022-01-01T01:02:03",
+                effective_until="2022-02-02T01:02:03",
+                time_zone="Pacific Standard Time",
+                recurrence=azure.monitoring.AlertProcessingRuleActionGroupScheduleRecurrenceArgs(
+                    dailies=[azure.monitoring.AlertProcessingRuleActionGroupScheduleRecurrenceDailyArgs(
+                        start_time="17:00:00",
+                        end_time="09:00:00",
+                    )],
+                    weeklies=[azure.monitoring.AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs(
+                        days_of_weeks=[
+                            "Saturday",
+                            "Sunday",
+                        ],
+                    )],
+                ),
+            ),
+            tags={
+                "foo": "bar",
+            })
+        ```
+
         ## Import
 
         Alert Processing Rules can be imported using the `resource id`, e.g.
@@ -428,6 +478,56 @@ class AlertProcessingRuleActionGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Alert Processing Rule which apply action group.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_action_group = azure.monitoring.ActionGroup("exampleActionGroup",
+            resource_group_name=example_resource_group.name,
+            short_name="action")
+        example_alert_processing_rule_action_group = azure.monitoring.AlertProcessingRuleActionGroup("exampleAlertProcessingRuleActionGroup",
+            resource_group_name="example",
+            scopes=[example_resource_group.id],
+            add_action_group_ids=[example_action_group.id],
+            condition=azure.monitoring.AlertProcessingRuleActionGroupConditionArgs(
+                target_resource_type=azure.monitoring.AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs(
+                    operator="Equals",
+                    values=["Microsoft.Compute/VirtualMachines"],
+                ),
+                severity=azure.monitoring.AlertProcessingRuleActionGroupConditionSeverityArgs(
+                    operator="Equals",
+                    values=[
+                        "Sev0",
+                        "Sev1",
+                        "Sev2",
+                    ],
+                ),
+            ),
+            schedule=azure.monitoring.AlertProcessingRuleActionGroupScheduleArgs(
+                effective_from="2022-01-01T01:02:03",
+                effective_until="2022-02-02T01:02:03",
+                time_zone="Pacific Standard Time",
+                recurrence=azure.monitoring.AlertProcessingRuleActionGroupScheduleRecurrenceArgs(
+                    dailies=[azure.monitoring.AlertProcessingRuleActionGroupScheduleRecurrenceDailyArgs(
+                        start_time="17:00:00",
+                        end_time="09:00:00",
+                    )],
+                    weeklies=[azure.monitoring.AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs(
+                        days_of_weeks=[
+                            "Saturday",
+                            "Sunday",
+                        ],
+                    )],
+                ),
+            ),
+            tags={
+                "foo": "bar",
+            })
+        ```
 
         ## Import
 

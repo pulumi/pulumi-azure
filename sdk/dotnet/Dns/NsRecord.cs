@@ -10,6 +10,45 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Dns
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleZone = new Azure.Dns.Zone("exampleZone", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleNsRecord = new Azure.Dns.NsRecord("exampleNsRecord", new()
+    ///     {
+    ///         ZoneName = exampleZone.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Ttl = 300,
+    ///         Records = new[]
+    ///         {
+    ///             "ns1.contoso.com.",
+    ///             "ns2.contoso.com.",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// NS records can be imported using the `resource id`, e.g.

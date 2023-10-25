@@ -9,6 +9,35 @@ import * as utilities from "../utilities";
 /**
  * Manages a Version of a Shared Image within a Shared Image Gallery.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const existingImage = azure.compute.getImage({
+ *     name: "search-api",
+ *     resourceGroupName: "packerimages",
+ * });
+ * const existingSharedImage = azure.compute.getSharedImage({
+ *     name: "existing-image",
+ *     galleryName: "existing_gallery",
+ *     resourceGroupName: "existing-resources",
+ * });
+ * const example = new azure.compute.SharedImageVersion("example", {
+ *     galleryName: existingSharedImage.then(existingSharedImage => existingSharedImage.galleryName),
+ *     imageName: existingSharedImage.then(existingSharedImage => existingSharedImage.name),
+ *     resourceGroupName: existingSharedImage.then(existingSharedImage => existingSharedImage.resourceGroupName),
+ *     location: existingSharedImage.then(existingSharedImage => existingSharedImage.location),
+ *     managedImageId: existingImage.then(existingImage => existingImage.id),
+ *     targetRegions: [{
+ *         name: existingSharedImage.then(existingSharedImage => existingSharedImage.location),
+ *         regionalReplicaCount: 5,
+ *         storageAccountType: "Standard_LRS",
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Shared Image Versions can be imported using the `resource id`, e.g.

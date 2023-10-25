@@ -177,6 +177,39 @@ class RoutingIntent(pulumi.CustomResource):
         """
         Manages a Virtual Hub Routing Intent.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_wan = azure.network.VirtualWan("exampleVirtualWan",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        example_virtual_hub = azure.network.VirtualHub("exampleVirtualHub",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            virtual_wan_id=example_virtual_wan.id,
+            address_prefix="10.0.1.0/24")
+        example_firewall = azure.network.Firewall("exampleFirewall",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="AZFW_Hub",
+            sku_tier="Standard",
+            virtual_hub=azure.network.FirewallVirtualHubArgs(
+                virtual_hub_id=example_virtual_hub.id,
+                public_ip_count=1,
+            ))
+        example_routing_intent = azure.network.RoutingIntent("exampleRoutingIntent",
+            virtual_hub_id=example_virtual_hub.id,
+            routing_policies=[azure.network.RoutingIntentRoutingPolicyArgs(
+                name="InternetTrafficPolicy",
+                destinations=["Internet"],
+                next_hop=example_firewall.id,
+            )])
+        ```
+
         ## Import
 
         Virtual Hub Routing Intents can be imported using the `resource id`, e.g.
@@ -199,6 +232,39 @@ class RoutingIntent(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Virtual Hub Routing Intent.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_wan = azure.network.VirtualWan("exampleVirtualWan",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        example_virtual_hub = azure.network.VirtualHub("exampleVirtualHub",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            virtual_wan_id=example_virtual_wan.id,
+            address_prefix="10.0.1.0/24")
+        example_firewall = azure.network.Firewall("exampleFirewall",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="AZFW_Hub",
+            sku_tier="Standard",
+            virtual_hub=azure.network.FirewallVirtualHubArgs(
+                virtual_hub_id=example_virtual_hub.id,
+                public_ip_count=1,
+            ))
+        example_routing_intent = azure.network.RoutingIntent("exampleRoutingIntent",
+            virtual_hub_id=example_virtual_hub.id,
+            routing_policies=[azure.network.RoutingIntentRoutingPolicyArgs(
+                name="InternetTrafficPolicy",
+                destinations=["Internet"],
+                next_hop=example_firewall.id,
+            )])
+        ```
 
         ## Import
 

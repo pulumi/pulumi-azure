@@ -176,6 +176,25 @@ class NotificationRecipientEmail(pulumi.CustomResource):
         """
         Manages a API Management Notification Recipient Email.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_service = azure.apimanagement.Service("exampleService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            publisher_name="My Company",
+            publisher_email="company@terraform.io",
+            sku_name="Developer_1")
+        example_notification_recipient_email = azure.apimanagement.NotificationRecipientEmail("exampleNotificationRecipientEmail",
+            api_management_id=example_service.id,
+            notification_type="AccountClosedPublisher",
+            email="foo@bar.com")
+        ```
+
         ## Import
 
         API Management Notification Recipient Emails can be imported using the `resource id`, e.g.
@@ -198,6 +217,25 @@ class NotificationRecipientEmail(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a API Management Notification Recipient Email.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_service = azure.apimanagement.Service("exampleService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            publisher_name="My Company",
+            publisher_email="company@terraform.io",
+            sku_name="Developer_1")
+        example_notification_recipient_email = azure.apimanagement.NotificationRecipientEmail("exampleNotificationRecipientEmail",
+            api_management_id=example_service.id,
+            notification_type="AccountClosedPublisher",
+            email="foo@bar.com")
+        ```
 
         ## Import
 

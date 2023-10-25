@@ -616,6 +616,53 @@ class ServicesCommunicationsGateway(pulumi.CustomResource):
 
         !> **NOTE:** Access to Azure Communications Gateway is restricted, see [`Get access to Azure Communications Gateway for your Azure subscription`](https://learn.microsoft.com/en-us/azure/communications-gateway/prepare-to-deploy#9-get-access-to-azure-communications-gateway-for-your-azure-subscription) for details.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_services_communications_gateway = azure.voice.ServicesCommunicationsGateway("exampleServicesCommunicationsGateway",
+            location="West Europe",
+            resource_group_name=example_resource_group.name,
+            connectivity="PublicAddress",
+            codecs="PCMA",
+            e911_type="DirectToEsrp",
+            platforms=[
+                "OperatorConnect",
+                "TeamsPhoneMobile",
+            ],
+            service_locations=[
+                azure.voice.ServicesCommunicationsGatewayServiceLocationArgs(
+                    location="eastus",
+                    allowed_media_source_address_prefixes=["10.1.2.0/24"],
+                    allowed_signaling_source_address_prefixes=["10.1.1.0/24"],
+                    esrp_addresses=["198.51.100.3"],
+                    operator_addresses=["198.51.100.1"],
+                ),
+                azure.voice.ServicesCommunicationsGatewayServiceLocationArgs(
+                    location="eastus2",
+                    allowed_media_source_address_prefixes=["10.2.2.0/24"],
+                    allowed_signaling_source_address_prefixes=["10.2.1.0/24"],
+                    esrp_addresses=["198.51.100.4"],
+                    operator_addresses=["198.51.100.2"],
+                ),
+            ],
+            auto_generated_domain_name_label_scope="SubscriptionReuse",
+            api_bridge=json.dumps({}),
+            emergency_dial_strings=[
+                "911",
+                "933",
+            ],
+            on_prem_mcp_enabled=False,
+            tags={
+                "key": "value",
+            },
+            microsoft_teams_voicemail_pilot_number="1")
+        ```
+
         ## Import
 
         Voice Services Communications Gateways can be imported using the `resource id`, e.g.
@@ -653,6 +700,53 @@ class ServicesCommunicationsGateway(pulumi.CustomResource):
         !> **NOTE:** You must have signed an Operator Connect agreement with Microsoft to use this resource. For more information, see [`Prerequisites`](https://learn.microsoft.com/en-us/azure/communications-gateway/prepare-to-deploy#prerequisites).
 
         !> **NOTE:** Access to Azure Communications Gateway is restricted, see [`Get access to Azure Communications Gateway for your Azure subscription`](https://learn.microsoft.com/en-us/azure/communications-gateway/prepare-to-deploy#9-get-access-to-azure-communications-gateway-for-your-azure-subscription) for details.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_services_communications_gateway = azure.voice.ServicesCommunicationsGateway("exampleServicesCommunicationsGateway",
+            location="West Europe",
+            resource_group_name=example_resource_group.name,
+            connectivity="PublicAddress",
+            codecs="PCMA",
+            e911_type="DirectToEsrp",
+            platforms=[
+                "OperatorConnect",
+                "TeamsPhoneMobile",
+            ],
+            service_locations=[
+                azure.voice.ServicesCommunicationsGatewayServiceLocationArgs(
+                    location="eastus",
+                    allowed_media_source_address_prefixes=["10.1.2.0/24"],
+                    allowed_signaling_source_address_prefixes=["10.1.1.0/24"],
+                    esrp_addresses=["198.51.100.3"],
+                    operator_addresses=["198.51.100.1"],
+                ),
+                azure.voice.ServicesCommunicationsGatewayServiceLocationArgs(
+                    location="eastus2",
+                    allowed_media_source_address_prefixes=["10.2.2.0/24"],
+                    allowed_signaling_source_address_prefixes=["10.2.1.0/24"],
+                    esrp_addresses=["198.51.100.4"],
+                    operator_addresses=["198.51.100.2"],
+                ),
+            ],
+            auto_generated_domain_name_label_scope="SubscriptionReuse",
+            api_bridge=json.dumps({}),
+            emergency_dial_strings=[
+                "911",
+                "933",
+            ],
+            on_prem_mcp_enabled=False,
+            tags={
+                "key": "value",
+            },
+            microsoft_teams_voicemail_pilot_number="1")
+        ```
 
         ## Import
 

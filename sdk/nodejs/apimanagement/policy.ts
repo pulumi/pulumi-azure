@@ -9,6 +9,33 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** This resource will, upon creation, **overwrite any existing policy in the API Management service**, as there is no feasible way to test whether the policy has been modified from the default. Similarly, when this resource is destroyed, the API Management service will revert to its default policy.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as fs from "fs";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleService = new azure.apimanagement.Service("exampleService", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     publisherName: "pub1",
+ *     publisherEmail: "pub1@email.com",
+ *     skuName: "Developer_1",
+ * });
+ * const exampleNamedValue = new azure.apimanagement.NamedValue("exampleNamedValue", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     apiManagementName: exampleService.name,
+ *     displayName: "ExampleProperty",
+ *     value: "Example Value",
+ * });
+ * const examplePolicy = new azure.apimanagement.Policy("examplePolicy", {
+ *     apiManagementId: exampleService.id,
+ *     xmlContent: fs.readFileSync("example.xml"),
+ * });
+ * ```
+ *
  * ## Import
  *
  * API Management service Policys can be imported using the `resource id`, e.g.

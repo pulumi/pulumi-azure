@@ -12,6 +12,29 @@ namespace Pulumi.Azure.Monitoring
     /// <summary>
     /// Manages an Azure Monitor Private Link Scope.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var examplePrivateLinkScope = new Azure.Monitoring.PrivateLinkScope("examplePrivateLinkScope", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Azure Monitor Private Link Scopes can be imported using the `resource id`, e.g.

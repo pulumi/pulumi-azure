@@ -13,12 +13,66 @@ namespace Pulumi.Azure.Monitoring
     {
         /// <summary>
         /// Use this data source to access information about an existing Data Collection Endpoint.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Monitoring.GetDataCollectionEndpoint.Invoke(new()
+        ///     {
+        ///         Name = "example-mdce",
+        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["endpointId"] = example.Apply(getDataCollectionEndpointResult =&gt; getDataCollectionEndpointResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetDataCollectionEndpointResult> InvokeAsync(GetDataCollectionEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataCollectionEndpointResult>("azure:monitoring/getDataCollectionEndpoint:getDataCollectionEndpoint", args ?? new GetDataCollectionEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Data Collection Endpoint.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Monitoring.GetDataCollectionEndpoint.Invoke(new()
+        ///     {
+        ///         Name = "example-mdce",
+        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["endpointId"] = example.Apply(getDataCollectionEndpointResult =&gt; getDataCollectionEndpointResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetDataCollectionEndpointResult> Invoke(GetDataCollectionEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataCollectionEndpointResult>("azure:monitoring/getDataCollectionEndpoint:getDataCollectionEndpoint", args ?? new GetDataCollectionEndpointInvokeArgs(), options.WithDefaults());

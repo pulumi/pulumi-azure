@@ -481,6 +481,24 @@ class DatasetAzureSqlTable(pulumi.CustomResource):
         """
         Manages an Azure SQL Table Dataset inside an Azure Data Factory.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_factory = azure.datafactory.Factory("exampleFactory",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_linked_service_azure_sql_database = azure.datafactory.LinkedServiceAzureSqlDatabase("exampleLinkedServiceAzureSqlDatabase",
+            data_factory_id=example_factory.id,
+            connection_string="Integrated Security=False;Data Source=test;Initial Catalog=test;Initial Catalog=test;User ID=test;Password=test")
+        example_dataset_azure_sql_table = azure.datafactory.DatasetAzureSqlTable("exampleDatasetAzureSqlTable",
+            data_factory_id=example_factory.id,
+            linked_service_id=example_linked_service_azure_sql_database.id)
+        ```
+
         ## Import
 
         Data Factory Azure SQL Table Datasets can be imported using the `resource id`, e.g.
@@ -511,6 +529,24 @@ class DatasetAzureSqlTable(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure SQL Table Dataset inside an Azure Data Factory.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_factory = azure.datafactory.Factory("exampleFactory",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_linked_service_azure_sql_database = azure.datafactory.LinkedServiceAzureSqlDatabase("exampleLinkedServiceAzureSqlDatabase",
+            data_factory_id=example_factory.id,
+            connection_string="Integrated Security=False;Data Source=test;Initial Catalog=test;Initial Catalog=test;User ID=test;Password=test")
+        example_dataset_azure_sql_table = azure.datafactory.DatasetAzureSqlTable("exampleDatasetAzureSqlTable",
+            data_factory_id=example_factory.id,
+            linked_service_id=example_linked_service_azure_sql_database.id)
+        ```
 
         ## Import
 

@@ -1056,6 +1056,126 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         Manages a connection in an existing Virtual Network Gateway.
 
         ## Example Usage
+        ### Site-to-Site connection
+
+        The following example shows a connection between an Azure virtual network
+        and an on-premises VPN device and network.
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            address_spaces=["10.0.0.0/16"])
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.1.0/24"])
+        onpremise_local_network_gateway = azure.network.LocalNetworkGateway("onpremiseLocalNetworkGateway",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            gateway_address="168.62.225.23",
+            address_spaces=["10.1.1.0/24"])
+        example_public_ip = azure.network.PublicIp("examplePublicIp",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            allocation_method="Dynamic")
+        example_virtual_network_gateway = azure.network.VirtualNetworkGateway("exampleVirtualNetworkGateway",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            type="Vpn",
+            vpn_type="RouteBased",
+            active_active=False,
+            enable_bgp=False,
+            sku="Basic",
+            ip_configurations=[azure.network.VirtualNetworkGatewayIpConfigurationArgs(
+                public_ip_address_id=example_public_ip.id,
+                private_ip_address_allocation="Dynamic",
+                subnet_id=example_subnet.id,
+            )])
+        onpremise_virtual_network_gateway_connection = azure.network.VirtualNetworkGatewayConnection("onpremiseVirtualNetworkGatewayConnection",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            type="IPsec",
+            virtual_network_gateway_id=example_virtual_network_gateway.id,
+            local_network_gateway_id=onpremise_local_network_gateway.id,
+            shared_key="4-v3ry-53cr37-1p53c-5h4r3d-k3y")
+        ```
+        ### VNet-to-VNet connection
+
+        The following example shows a connection between two Azure virtual network
+        in different locations/regions.
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        us_resource_group = azure.core.ResourceGroup("usResourceGroup", location="East US")
+        us_virtual_network = azure.network.VirtualNetwork("usVirtualNetwork",
+            location=us_resource_group.location,
+            resource_group_name=us_resource_group.name,
+            address_spaces=["10.0.0.0/16"])
+        us_gateway = azure.network.Subnet("usGateway",
+            resource_group_name=us_resource_group.name,
+            virtual_network_name=us_virtual_network.name,
+            address_prefixes=["10.0.1.0/24"])
+        us_public_ip = azure.network.PublicIp("usPublicIp",
+            location=us_resource_group.location,
+            resource_group_name=us_resource_group.name,
+            allocation_method="Dynamic")
+        us_virtual_network_gateway = azure.network.VirtualNetworkGateway("usVirtualNetworkGateway",
+            location=us_resource_group.location,
+            resource_group_name=us_resource_group.name,
+            type="Vpn",
+            vpn_type="RouteBased",
+            sku="Basic",
+            ip_configurations=[azure.network.VirtualNetworkGatewayIpConfigurationArgs(
+                public_ip_address_id=us_public_ip.id,
+                private_ip_address_allocation="Dynamic",
+                subnet_id=us_gateway.id,
+            )])
+        europe_resource_group = azure.core.ResourceGroup("europeResourceGroup", location="West Europe")
+        europe_virtual_network = azure.network.VirtualNetwork("europeVirtualNetwork",
+            location=europe_resource_group.location,
+            resource_group_name=europe_resource_group.name,
+            address_spaces=["10.1.0.0/16"])
+        europe_gateway = azure.network.Subnet("europeGateway",
+            resource_group_name=europe_resource_group.name,
+            virtual_network_name=europe_virtual_network.name,
+            address_prefixes=["10.1.1.0/24"])
+        europe_public_ip = azure.network.PublicIp("europePublicIp",
+            location=europe_resource_group.location,
+            resource_group_name=europe_resource_group.name,
+            allocation_method="Dynamic")
+        europe_virtual_network_gateway = azure.network.VirtualNetworkGateway("europeVirtualNetworkGateway",
+            location=europe_resource_group.location,
+            resource_group_name=europe_resource_group.name,
+            type="Vpn",
+            vpn_type="RouteBased",
+            sku="Basic",
+            ip_configurations=[azure.network.VirtualNetworkGatewayIpConfigurationArgs(
+                public_ip_address_id=europe_public_ip.id,
+                private_ip_address_allocation="Dynamic",
+                subnet_id=europe_gateway.id,
+            )])
+        us_to_europe = azure.network.VirtualNetworkGatewayConnection("usToEurope",
+            location=us_resource_group.location,
+            resource_group_name=us_resource_group.name,
+            type="Vnet2Vnet",
+            virtual_network_gateway_id=us_virtual_network_gateway.id,
+            peer_virtual_network_gateway_id=europe_virtual_network_gateway.id,
+            shared_key="4-v3ry-53cr37-1p53c-5h4r3d-k3y")
+        europe_to_us = azure.network.VirtualNetworkGatewayConnection("europeToUs",
+            location=europe_resource_group.location,
+            resource_group_name=europe_resource_group.name,
+            type="Vnet2Vnet",
+            virtual_network_gateway_id=europe_virtual_network_gateway.id,
+            peer_virtual_network_gateway_id=us_virtual_network_gateway.id,
+            shared_key="4-v3ry-53cr37-1p53c-5h4r3d-k3y")
+        ```
 
         ## Import
 
@@ -1109,6 +1229,126 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         Manages a connection in an existing Virtual Network Gateway.
 
         ## Example Usage
+        ### Site-to-Site connection
+
+        The following example shows a connection between an Azure virtual network
+        and an on-premises VPN device and network.
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            address_spaces=["10.0.0.0/16"])
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.1.0/24"])
+        onpremise_local_network_gateway = azure.network.LocalNetworkGateway("onpremiseLocalNetworkGateway",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            gateway_address="168.62.225.23",
+            address_spaces=["10.1.1.0/24"])
+        example_public_ip = azure.network.PublicIp("examplePublicIp",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            allocation_method="Dynamic")
+        example_virtual_network_gateway = azure.network.VirtualNetworkGateway("exampleVirtualNetworkGateway",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            type="Vpn",
+            vpn_type="RouteBased",
+            active_active=False,
+            enable_bgp=False,
+            sku="Basic",
+            ip_configurations=[azure.network.VirtualNetworkGatewayIpConfigurationArgs(
+                public_ip_address_id=example_public_ip.id,
+                private_ip_address_allocation="Dynamic",
+                subnet_id=example_subnet.id,
+            )])
+        onpremise_virtual_network_gateway_connection = azure.network.VirtualNetworkGatewayConnection("onpremiseVirtualNetworkGatewayConnection",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            type="IPsec",
+            virtual_network_gateway_id=example_virtual_network_gateway.id,
+            local_network_gateway_id=onpremise_local_network_gateway.id,
+            shared_key="4-v3ry-53cr37-1p53c-5h4r3d-k3y")
+        ```
+        ### VNet-to-VNet connection
+
+        The following example shows a connection between two Azure virtual network
+        in different locations/regions.
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        us_resource_group = azure.core.ResourceGroup("usResourceGroup", location="East US")
+        us_virtual_network = azure.network.VirtualNetwork("usVirtualNetwork",
+            location=us_resource_group.location,
+            resource_group_name=us_resource_group.name,
+            address_spaces=["10.0.0.0/16"])
+        us_gateway = azure.network.Subnet("usGateway",
+            resource_group_name=us_resource_group.name,
+            virtual_network_name=us_virtual_network.name,
+            address_prefixes=["10.0.1.0/24"])
+        us_public_ip = azure.network.PublicIp("usPublicIp",
+            location=us_resource_group.location,
+            resource_group_name=us_resource_group.name,
+            allocation_method="Dynamic")
+        us_virtual_network_gateway = azure.network.VirtualNetworkGateway("usVirtualNetworkGateway",
+            location=us_resource_group.location,
+            resource_group_name=us_resource_group.name,
+            type="Vpn",
+            vpn_type="RouteBased",
+            sku="Basic",
+            ip_configurations=[azure.network.VirtualNetworkGatewayIpConfigurationArgs(
+                public_ip_address_id=us_public_ip.id,
+                private_ip_address_allocation="Dynamic",
+                subnet_id=us_gateway.id,
+            )])
+        europe_resource_group = azure.core.ResourceGroup("europeResourceGroup", location="West Europe")
+        europe_virtual_network = azure.network.VirtualNetwork("europeVirtualNetwork",
+            location=europe_resource_group.location,
+            resource_group_name=europe_resource_group.name,
+            address_spaces=["10.1.0.0/16"])
+        europe_gateway = azure.network.Subnet("europeGateway",
+            resource_group_name=europe_resource_group.name,
+            virtual_network_name=europe_virtual_network.name,
+            address_prefixes=["10.1.1.0/24"])
+        europe_public_ip = azure.network.PublicIp("europePublicIp",
+            location=europe_resource_group.location,
+            resource_group_name=europe_resource_group.name,
+            allocation_method="Dynamic")
+        europe_virtual_network_gateway = azure.network.VirtualNetworkGateway("europeVirtualNetworkGateway",
+            location=europe_resource_group.location,
+            resource_group_name=europe_resource_group.name,
+            type="Vpn",
+            vpn_type="RouteBased",
+            sku="Basic",
+            ip_configurations=[azure.network.VirtualNetworkGatewayIpConfigurationArgs(
+                public_ip_address_id=europe_public_ip.id,
+                private_ip_address_allocation="Dynamic",
+                subnet_id=europe_gateway.id,
+            )])
+        us_to_europe = azure.network.VirtualNetworkGatewayConnection("usToEurope",
+            location=us_resource_group.location,
+            resource_group_name=us_resource_group.name,
+            type="Vnet2Vnet",
+            virtual_network_gateway_id=us_virtual_network_gateway.id,
+            peer_virtual_network_gateway_id=europe_virtual_network_gateway.id,
+            shared_key="4-v3ry-53cr37-1p53c-5h4r3d-k3y")
+        europe_to_us = azure.network.VirtualNetworkGatewayConnection("europeToUs",
+            location=europe_resource_group.location,
+            resource_group_name=europe_resource_group.name,
+            type="Vnet2Vnet",
+            virtual_network_gateway_id=europe_virtual_network_gateway.id,
+            peer_virtual_network_gateway_id=us_virtual_network_gateway.id,
+            shared_key="4-v3ry-53cr37-1p53c-5h4r3d-k3y")
+        ```
 
         ## Import
 

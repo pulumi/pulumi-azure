@@ -12,6 +12,60 @@ namespace Pulumi.Azure.Backup
     /// <summary>
     /// Manages Azure Backup for an Azure VM
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVault = new Azure.RecoveryServices.Vault("exampleVault", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Standard",
+    ///     });
+    /// 
+    ///     var examplePolicyVM = new Azure.Backup.PolicyVM("examplePolicyVM", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         RecoveryVaultName = exampleVault.Name,
+    ///         Backup = new Azure.Backup.Inputs.PolicyVMBackupArgs
+    ///         {
+    ///             Frequency = "Daily",
+    ///             Time = "23:00",
+    ///         },
+    ///         RetentionDaily = new Azure.Backup.Inputs.PolicyVMRetentionDailyArgs
+    ///         {
+    ///             Count = 10,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleVirtualMachine = Azure.Compute.GetVirtualMachine.Invoke(new()
+    ///     {
+    ///         Name = "example-vm",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var vm1 = new Azure.Backup.ProtectedVM("vm1", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         RecoveryVaultName = exampleVault.Name,
+    ///         SourceVmId = exampleVirtualMachine.Apply(getVirtualMachineResult =&gt; getVirtualMachineResult.Id),
+    ///         BackupPolicyId = examplePolicyVM.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Recovery Services Protected VMs can be imported using the `resource id`, e.g.

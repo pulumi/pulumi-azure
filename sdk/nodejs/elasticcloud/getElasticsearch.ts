@@ -8,6 +8,20 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Elasticsearch resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.elasticcloud.getElasticsearch({
+ *     name: "my-elastic-search",
+ *     resourceGroupName: "example-resources",
+ * });
+ * export const elasticsearchEndpoint = example.then(example => example.elasticsearchServiceUrl);
+ * export const kibanaEndpoint = example.then(example => example.kibanaServiceUrl);
+ * ```
  */
 export function getElasticsearch(args: GetElasticsearchArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticsearchResult> {
 
@@ -101,6 +115,20 @@ export interface GetElasticsearchResult {
 }
 /**
  * Use this data source to access information about an existing Elasticsearch resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.elasticcloud.getElasticsearch({
+ *     name: "my-elastic-search",
+ *     resourceGroupName: "example-resources",
+ * });
+ * export const elasticsearchEndpoint = example.then(example => example.elasticsearchServiceUrl);
+ * export const kibanaEndpoint = example.then(example => example.kibanaServiceUrl);
+ * ```
  */
 export function getElasticsearchOutput(args: GetElasticsearchOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetElasticsearchResult> {
     return pulumi.output(args).apply((a: any) => getElasticsearch(a, opts))

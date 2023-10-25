@@ -13,6 +13,68 @@ namespace Pulumi.Azure.PostgreSql
     /// Manages a Firewall Rule for a PostgreSQL Server
     /// 
     /// ## Example Usage
+    /// ### Single IP Address)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleServer = new Azure.PostgreSql.Server("exampleServer", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "GP_Gen5_2",
+    ///         Version = "11",
+    ///         SslEnforcementEnabled = true,
+    ///     });
+    /// 
+    ///     var exampleFirewallRule = new Azure.PostgreSql.FirewallRule("exampleFirewallRule", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ServerName = exampleServer.Name,
+    ///         StartIpAddress = "40.112.8.12",
+    ///         EndIpAddress = "40.112.8.12",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### IP Range)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleServer = new Azure.PostgreSql.Server("exampleServer");
+    /// 
+    ///     // ...
+    ///     var exampleFirewallRule = new Azure.PostgreSql.FirewallRule("exampleFirewallRule", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ServerName = exampleServer.Name,
+    ///         StartIpAddress = "40.112.0.0",
+    ///         EndIpAddress = "40.112.255.255",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

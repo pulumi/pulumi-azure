@@ -17,6 +17,48 @@ import (
 //
 // > **NOTE:** The `datafactory.IntegrationRuntimeManaged` resource has been superseded by the `datafactory.IntegrationRuntimeSsis` resource. We recommend using the `datafactory.IntegrationRuntimeSsis` resource for new deployments.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datafactory.NewIntegrationRuntimeManaged(ctx, "exampleIntegrationRuntimeManaged", &datafactory.IntegrationRuntimeManagedArgs{
+//				DataFactoryId: exampleFactory.ID(),
+//				Location:      exampleResourceGroup.Location,
+//				NodeSize:      pulumi.String("Standard_D8_v3"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Data Factory Integration Managed Runtimes can be imported using the `resource id`, e.g.

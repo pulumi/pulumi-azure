@@ -9,6 +9,50 @@ import * as utilities from "../utilities";
 /**
  * Manages a SQL Container within a Cosmos DB Account.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleAccount = azure.cosmosdb.getAccount({
+ *     name: "tfex-cosmosdb-account",
+ *     resourceGroupName: "tfex-cosmosdb-account-rg",
+ * });
+ * const exampleSqlDatabase = new azure.cosmosdb.SqlDatabase("exampleSqlDatabase", {
+ *     resourceGroupName: exampleAccount.then(exampleAccount => exampleAccount.resourceGroupName),
+ *     accountName: exampleAccount.then(exampleAccount => exampleAccount.name),
+ * });
+ * const exampleSqlContainer = new azure.cosmosdb.SqlContainer("exampleSqlContainer", {
+ *     resourceGroupName: exampleAccount.then(exampleAccount => exampleAccount.resourceGroupName),
+ *     accountName: exampleAccount.then(exampleAccount => exampleAccount.name),
+ *     databaseName: exampleSqlDatabase.name,
+ *     partitionKeyPath: "/definition/id",
+ *     partitionKeyVersion: 1,
+ *     throughput: 400,
+ *     indexingPolicy: {
+ *         indexingMode: "consistent",
+ *         includedPaths: [
+ *             {
+ *                 path: "/*",
+ *             },
+ *             {
+ *                 path: "/included/?",
+ *             },
+ *         ],
+ *         excludedPaths: [{
+ *             path: "/excluded/?",
+ *         }],
+ *     },
+ *     uniqueKeys: [{
+ *         paths: [
+ *             "/definition/idlong",
+ *             "/definition/idshort",
+ *         ],
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Cosmos SQL Containers can be imported using the `resource id`, e.g.

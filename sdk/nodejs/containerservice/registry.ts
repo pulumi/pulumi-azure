@@ -9,6 +9,98 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Container Registry.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
+ * const acr = new azure.containerservice.Registry("acr", {
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     sku: "Premium",
+ *     adminEnabled: false,
+ *     georeplications: [
+ *         {
+ *             location: "East US",
+ *             zoneRedundancyEnabled: true,
+ *             tags: {},
+ *         },
+ *         {
+ *             location: "North Europe",
+ *             zoneRedundancyEnabled: true,
+ *             tags: {},
+ *         },
+ *     ],
+ * });
+ * ```
+ * ### Encryption)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ * });
+ * const exampleKey = azure.keyvault.getKey({
+ *     name: "super-secret",
+ *     keyVaultId: data.azurerm_key_vault.existing.id,
+ * });
+ * const acr = new azure.containerservice.Registry("acr", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     sku: "Premium",
+ *     identity: {
+ *         type: "UserAssigned",
+ *         identityIds: [exampleUserAssignedIdentity.id],
+ *     },
+ *     encryption: {
+ *         enabled: true,
+ *         keyVaultKeyId: exampleKey.then(exampleKey => exampleKey.id),
+ *         identityClientId: exampleUserAssignedIdentity.clientId,
+ *     },
+ * });
+ * ```
+ * ### Attaching A Container Registry To A Kubernetes Cluster)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleRegistry = new azure.containerservice.Registry("exampleRegistry", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     sku: "Premium",
+ * });
+ * const exampleKubernetesCluster = new azure.containerservice.KubernetesCluster("exampleKubernetesCluster", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     dnsPrefix: "exampleaks1",
+ *     defaultNodePool: {
+ *         name: "default",
+ *         nodeCount: 1,
+ *         vmSize: "Standard_D2_v2",
+ *     },
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ *     tags: {
+ *         Environment: "Production",
+ *     },
+ * });
+ * const exampleAssignment = new azure.authorization.Assignment("exampleAssignment", {
+ *     principalId: exampleKubernetesCluster.kubeletIdentity.apply(kubeletIdentity => kubeletIdentity.objectId),
+ *     roleDefinitionName: "AcrPull",
+ *     scope: exampleRegistry.id,
+ *     skipServicePrincipalAadCheck: true,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Container Registries can be imported using the `resource id`, e.g.

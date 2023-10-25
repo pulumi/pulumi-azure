@@ -9,6 +9,43 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** PostgreSQL Virtual Network Rules [can only be used with SKU Tiers of `GeneralPurpose` or `MemoryOptimized`](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-vnet)
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     addressSpaces: ["10.7.29.0/29"],
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const internal = new azure.network.Subnet("internal", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.7.29.0/29"],
+ *     serviceEndpoints: ["Microsoft.Sql"],
+ * });
+ * const exampleServer = new azure.postgresql.Server("exampleServer", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     skuName: "GP_Gen5_2",
+ *     storageMb: 5120,
+ *     backupRetentionDays: 7,
+ *     administratorLogin: "psqladmin",
+ *     administratorLoginPassword: "H@Sh1CoR3!",
+ *     version: "9.5",
+ *     sslEnforcementEnabled: true,
+ * });
+ * const exampleVirtualNetworkRule = new azure.postgresql.VirtualNetworkRule("exampleVirtualNetworkRule", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     serverName: exampleServer.name,
+ *     subnetId: internal.id,
+ *     ignoreMissingVnetServiceEndpoint: true,
+ * });
+ * ```
+ *
  * ## Import
  *
  * PostgreSQL Virtual Network Rules can be imported using the `resource id`, e.g.

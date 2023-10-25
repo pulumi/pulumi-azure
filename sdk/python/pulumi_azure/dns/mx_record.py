@@ -306,6 +306,33 @@ class MxRecord(pulumi.CustomResource):
                  zone_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_zone = azure.dns.Zone("exampleZone", resource_group_name=example_resource_group.name)
+        example_mx_record = azure.dns.MxRecord("exampleMxRecord",
+            zone_name=example_zone.name,
+            resource_group_name=example_resource_group.name,
+            ttl=300,
+            records=[
+                azure.dns.MxRecordRecordArgs(
+                    preference="10",
+                    exchange="mail1.contoso.com",
+                ),
+                azure.dns.MxRecordRecordArgs(
+                    preference="20",
+                    exchange="mail2.contoso.com",
+                ),
+            ],
+            tags={
+                "Environment": "Production",
+            })
+        ```
+
         ## Import
 
         MX records can be imported using the `resource id`, e.g.
@@ -330,6 +357,33 @@ class MxRecord(pulumi.CustomResource):
                  args: MxRecordArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_zone = azure.dns.Zone("exampleZone", resource_group_name=example_resource_group.name)
+        example_mx_record = azure.dns.MxRecord("exampleMxRecord",
+            zone_name=example_zone.name,
+            resource_group_name=example_resource_group.name,
+            ttl=300,
+            records=[
+                azure.dns.MxRecordRecordArgs(
+                    preference="10",
+                    exchange="mail1.contoso.com",
+                ),
+                azure.dns.MxRecordRecordArgs(
+                    preference="20",
+                    exchange="mail2.contoso.com",
+                ),
+            ],
+            tags={
+                "Environment": "Production",
+            })
+        ```
+
         ## Import
 
         MX records can be imported using the `resource id`, e.g.

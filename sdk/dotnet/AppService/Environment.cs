@@ -12,6 +12,76 @@ namespace Pulumi.Azure.AppService
     /// <summary>
     /// Manages an App Service Environment.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///     });
+    /// 
+    ///     var ase = new Azure.Network.Subnet("ase", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.1.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var gateway = new Azure.Network.Subnet("gateway", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleEnvironment = new Azure.AppService.Environment("exampleEnvironment", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SubnetId = ase.Id,
+    ///         PricingTier = "I2",
+    ///         FrontEndScaleFactor = 10,
+    ///         InternalLoadBalancingMode = "Web, Publishing",
+    ///         AllowedUserIpCidrs = new[]
+    ///         {
+    ///             "11.22.33.44/32",
+    ///             "55.66.77.0/24",
+    ///         },
+    ///         ClusterSettings = new[]
+    ///         {
+    ///             new Azure.AppService.Inputs.EnvironmentClusterSettingArgs
+    ///             {
+    ///                 Name = "DisableTls1.0",
+    ///                 Value = "1",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// The App Service Environment can be imported using the `resource id`, e.g.

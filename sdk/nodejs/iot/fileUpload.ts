@@ -9,6 +9,38 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** File upload can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azure.iot.FileUpload` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ * });
+ * const exampleContainer = new azure.storage.Container("exampleContainer", {
+ *     storageAccountName: exampleAccount.name,
+ *     containerAccessType: "private",
+ * });
+ * const exampleIoTHub = new azure.iot.IoTHub("exampleIoTHub", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     sku: {
+ *         name: "S1",
+ *         capacity: 1,
+ *     },
+ * });
+ * const exampleFileUpload = new azure.iot.FileUpload("exampleFileUpload", {
+ *     iothubId: exampleIoTHub.id,
+ *     connectionString: exampleAccount.primaryBlobConnectionString,
+ *     containerName: exampleContainer.name,
+ * });
+ * ```
+ *
  * ## Import
  *
  * IoT Hub File Uploads can be imported using the `resource id`, e.g.

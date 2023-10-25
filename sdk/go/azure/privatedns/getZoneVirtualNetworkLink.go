@@ -13,6 +13,35 @@ import (
 )
 
 // Use this data source to access information about an existing Private DNS zone Virtual Network Link. These Links enable DNS resolution and registration inside Azure Virtual Networks using Azure Private DNS.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := privatedns.LookupZoneVirtualNetworkLink(ctx, &privatedns.LookupZoneVirtualNetworkLinkArgs{
+//				Name:               "test",
+//				ResourceGroupName:  "test-rg",
+//				PrivateDnsZoneName: "test-zone",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("privateDnsARecordId", example.Id)
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupZoneVirtualNetworkLink(ctx *pulumi.Context, args *LookupZoneVirtualNetworkLinkArgs, opts ...pulumi.InvokeOption) (*LookupZoneVirtualNetworkLinkResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupZoneVirtualNetworkLinkResult

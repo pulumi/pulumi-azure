@@ -11,6 +11,83 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** The Machine Learning Inference Cluster resource is used to attach an existing AKS cluster to the Machine Learning Workspace, it doesn't create the AKS cluster itself. Therefore it can only be created and deleted, not updated. Any change to the configuration will recreate the resource.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const current = azure.core.getClientConfig({});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {
+ *     location: "west europe",
+ *     tags: {
+ *         stage: "example",
+ *     },
+ * });
+ * const exampleInsights = new azure.appinsights.Insights("exampleInsights", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     applicationType: "web",
+ * });
+ * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     tenantId: current.then(current => current.tenantId),
+ *     skuName: "standard",
+ *     purgeProtectionEnabled: true,
+ * });
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ * });
+ * const exampleWorkspace = new azure.machinelearning.Workspace("exampleWorkspace", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     applicationInsightsId: exampleInsights.id,
+ *     keyVaultId: exampleKeyVault.id,
+ *     storageAccountId: exampleAccount.id,
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     addressSpaces: ["10.1.0.0/16"],
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.1.0.0/24"],
+ * });
+ * const exampleKubernetesCluster = new azure.containerservice.KubernetesCluster("exampleKubernetesCluster", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     dnsPrefixPrivateCluster: "prefix",
+ *     defaultNodePool: {
+ *         name: "default",
+ *         nodeCount: 3,
+ *         vmSize: "Standard_D3_v2",
+ *         vnetSubnetId: exampleSubnet.id,
+ *     },
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ * });
+ * const exampleInferenceCluster = new azure.machinelearning.InferenceCluster("exampleInferenceCluster", {
+ *     location: exampleResourceGroup.location,
+ *     clusterPurpose: "FastProd",
+ *     kubernetesClusterId: exampleKubernetesCluster.id,
+ *     description: "This is an example cluster used with Terraform",
+ *     machineLearningWorkspaceId: exampleWorkspace.id,
+ *     tags: {
+ *         stage: "example",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Machine Learning Inference Clusters can be imported using the `resource id`, e.g.

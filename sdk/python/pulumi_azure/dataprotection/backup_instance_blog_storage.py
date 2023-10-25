@@ -254,6 +254,41 @@ class BackupInstanceBlogStorage(pulumi.CustomResource):
         """
         Manages a Backup Instance Blob Storage.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_backup_vault = azure.dataprotection.BackupVault("exampleBackupVault",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            datastore_type="VaultStore",
+            redundancy="LocallyRedundant",
+            identity=azure.dataprotection.BackupVaultIdentityArgs(
+                type="SystemAssigned",
+            ))
+        example_assignment = azure.authorization.Assignment("exampleAssignment",
+            scope=example_account.id,
+            role_definition_name="Storage Account Backup Contributor",
+            principal_id=example_backup_vault.identity.principal_id)
+        example_backup_policy_blob_storage = azure.dataprotection.BackupPolicyBlobStorage("exampleBackupPolicyBlobStorage",
+            vault_id=example_backup_vault.id,
+            retention_duration="P30D")
+        example_backup_instance_blog_storage = azure.dataprotection.BackupInstanceBlogStorage("exampleBackupInstanceBlogStorage",
+            vault_id=example_backup_vault.id,
+            location=example_resource_group.location,
+            storage_account_id=example_account.id,
+            backup_policy_id=example_backup_policy_blob_storage.id,
+            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
+        ```
+
         ## Import
 
         Backup Instance Blob Storages can be imported using the `resource id`, e.g.
@@ -278,6 +313,41 @@ class BackupInstanceBlogStorage(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Backup Instance Blob Storage.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_backup_vault = azure.dataprotection.BackupVault("exampleBackupVault",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            datastore_type="VaultStore",
+            redundancy="LocallyRedundant",
+            identity=azure.dataprotection.BackupVaultIdentityArgs(
+                type="SystemAssigned",
+            ))
+        example_assignment = azure.authorization.Assignment("exampleAssignment",
+            scope=example_account.id,
+            role_definition_name="Storage Account Backup Contributor",
+            principal_id=example_backup_vault.identity.principal_id)
+        example_backup_policy_blob_storage = azure.dataprotection.BackupPolicyBlobStorage("exampleBackupPolicyBlobStorage",
+            vault_id=example_backup_vault.id,
+            retention_duration="P30D")
+        example_backup_instance_blog_storage = azure.dataprotection.BackupInstanceBlogStorage("exampleBackupInstanceBlogStorage",
+            vault_id=example_backup_vault.id,
+            location=example_resource_group.location,
+            storage_account_id=example_account.id,
+            backup_policy_id=example_backup_policy_blob_storage.id,
+            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
+        ```
 
         ## Import
 

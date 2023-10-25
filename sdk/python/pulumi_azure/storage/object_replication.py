@@ -218,6 +218,47 @@ class ObjectReplication(pulumi.CustomResource):
         """
         Manages a Storage Object Replication.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        src_resource_group = azure.core.ResourceGroup("srcResourceGroup", location="West Europe")
+        src_account = azure.storage.Account("srcAccount",
+            resource_group_name=src_resource_group.name,
+            location=src_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS",
+            blob_properties=azure.storage.AccountBlobPropertiesArgs(
+                versioning_enabled=True,
+                change_feed_enabled=True,
+            ))
+        src_container = azure.storage.Container("srcContainer",
+            storage_account_name=src_account.name,
+            container_access_type="private")
+        dst_resource_group = azure.core.ResourceGroup("dstResourceGroup", location="East US")
+        dst_account = azure.storage.Account("dstAccount",
+            resource_group_name=dst_resource_group.name,
+            location=dst_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS",
+            blob_properties=azure.storage.AccountBlobPropertiesArgs(
+                versioning_enabled=True,
+                change_feed_enabled=True,
+            ))
+        dst_container = azure.storage.Container("dstContainer",
+            storage_account_name=dst_account.name,
+            container_access_type="private")
+        example = azure.storage.ObjectReplication("example",
+            source_storage_account_id=src_account.id,
+            destination_storage_account_id=dst_account.id,
+            rules=[azure.storage.ObjectReplicationRuleArgs(
+                source_container_name=src_container.name,
+                destination_container_name=dst_container.name,
+            )])
+        ```
+
         ## Import
 
         Storage Object Replication Policies can be imported using the `resource id`, e.g.
@@ -240,6 +281,47 @@ class ObjectReplication(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Storage Object Replication.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        src_resource_group = azure.core.ResourceGroup("srcResourceGroup", location="West Europe")
+        src_account = azure.storage.Account("srcAccount",
+            resource_group_name=src_resource_group.name,
+            location=src_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS",
+            blob_properties=azure.storage.AccountBlobPropertiesArgs(
+                versioning_enabled=True,
+                change_feed_enabled=True,
+            ))
+        src_container = azure.storage.Container("srcContainer",
+            storage_account_name=src_account.name,
+            container_access_type="private")
+        dst_resource_group = azure.core.ResourceGroup("dstResourceGroup", location="East US")
+        dst_account = azure.storage.Account("dstAccount",
+            resource_group_name=dst_resource_group.name,
+            location=dst_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS",
+            blob_properties=azure.storage.AccountBlobPropertiesArgs(
+                versioning_enabled=True,
+                change_feed_enabled=True,
+            ))
+        dst_container = azure.storage.Container("dstContainer",
+            storage_account_name=dst_account.name,
+            container_access_type="private")
+        example = azure.storage.ObjectReplication("example",
+            source_storage_account_id=src_account.id,
+            destination_storage_account_id=dst_account.id,
+            rules=[azure.storage.ObjectReplicationRuleArgs(
+                source_container_name=src_container.name,
+                destination_container_name=dst_container.name,
+            )])
+        ```
 
         ## Import
 

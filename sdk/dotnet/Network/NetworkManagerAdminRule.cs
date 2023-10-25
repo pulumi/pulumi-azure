@@ -12,6 +12,104 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Manages a Network Manager Admin Rule.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var current = Azure.Core.GetSubscription.Invoke();
+    /// 
+    ///     var exampleNetworkManager = new Azure.Network.NetworkManager("exampleNetworkManager", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Scope = new Azure.Network.Inputs.NetworkManagerScopeArgs
+    ///         {
+    ///             SubscriptionIds = new[]
+    ///             {
+    ///                 current.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
+    ///             },
+    ///         },
+    ///         ScopeAccesses = new[]
+    ///         {
+    ///             "Connectivity",
+    ///             "SecurityAdmin",
+    ///         },
+    ///         Description = "example network manager",
+    ///     });
+    /// 
+    ///     var exampleNetworkManagerNetworkGroup = new Azure.Network.NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup", new()
+    ///     {
+    ///         NetworkManagerId = exampleNetworkManager.Id,
+    ///     });
+    /// 
+    ///     var exampleNetworkManagerSecurityAdminConfiguration = new Azure.Network.NetworkManagerSecurityAdminConfiguration("exampleNetworkManagerSecurityAdminConfiguration", new()
+    ///     {
+    ///         NetworkManagerId = exampleNetworkManager.Id,
+    ///     });
+    /// 
+    ///     var exampleNetworkManagerAdminRuleCollection = new Azure.Network.NetworkManagerAdminRuleCollection("exampleNetworkManagerAdminRuleCollection", new()
+    ///     {
+    ///         SecurityAdminConfigurationId = exampleNetworkManagerSecurityAdminConfiguration.Id,
+    ///         NetworkGroupIds = new[]
+    ///         {
+    ///             exampleNetworkManagerNetworkGroup.Id,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleNetworkManagerAdminRule = new Azure.Network.NetworkManagerAdminRule("exampleNetworkManagerAdminRule", new()
+    ///     {
+    ///         AdminRuleCollectionId = exampleNetworkManagerAdminRuleCollection.Id,
+    ///         Action = "Deny",
+    ///         Direction = "Outbound",
+    ///         Priority = 1,
+    ///         Protocol = "Tcp",
+    ///         SourcePortRanges = new[]
+    ///         {
+    ///             "80",
+    ///             "1024-65535",
+    ///         },
+    ///         DestinationPortRanges = new[]
+    ///         {
+    ///             "80",
+    ///         },
+    ///         Sources = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.NetworkManagerAdminRuleSourceArgs
+    ///             {
+    ///                 AddressPrefixType = "ServiceTag",
+    ///                 AddressPrefix = "Internet",
+    ///             },
+    ///         },
+    ///         Destinations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.NetworkManagerAdminRuleDestinationArgs
+    ///             {
+    ///                 AddressPrefixType = "IPPrefix",
+    ///                 AddressPrefix = "10.1.0.1",
+    ///             },
+    ///             new Azure.Network.Inputs.NetworkManagerAdminRuleDestinationArgs
+    ///             {
+    ///                 AddressPrefixType = "IPPrefix",
+    ///                 AddressPrefix = "10.0.0.0/24",
+    ///             },
+    ///         },
+    ///         Description = "example admin rule",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Network Manager Admin Rule can be imported using the `resource id`, e.g.

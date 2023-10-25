@@ -227,6 +227,18 @@ class LicationLoadBalancer(pulumi.CustomResource):
         """
         Manages an Application Gateway for Containers (ALB).
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_lication_load_balancer = azure.appconfiguration.LicationLoadBalancer("exampleLicationLoadBalancer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        ```
+
         ## Import
 
         Application Gateway for Containers (ALB) can be imported using the `resource id`, e.g.
@@ -250,6 +262,18 @@ class LicationLoadBalancer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Application Gateway for Containers (ALB).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_lication_load_balancer = azure.appconfiguration.LicationLoadBalancer("exampleLicationLoadBalancer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        ```
 
         ## Import
 

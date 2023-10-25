@@ -12,6 +12,63 @@ namespace Pulumi.Azure.ContainerService
     /// <summary>
     /// Manages a Container Connected Registry.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleRegistry = new Azure.ContainerService.Registry("exampleRegistry", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Sku = "Premium",
+    ///         DataEndpointEnabled = true,
+    ///     });
+    /// 
+    ///     var exampleRegistryScopeMap = new Azure.ContainerService.RegistryScopeMap("exampleRegistryScopeMap", new()
+    ///     {
+    ///         ContainerRegistryName = exampleRegistry.Name,
+    ///         ResourceGroupName = exampleRegistry.ResourceGroupName,
+    ///         Actions = new[]
+    ///         {
+    ///             "repositories/hello-world/content/delete",
+    ///             "repositories/hello-world/content/read",
+    ///             "repositories/hello-world/content/write",
+    ///             "repositories/hello-world/metadata/read",
+    ///             "repositories/hello-world/metadata/write",
+    ///             "gateway/examplecr/config/read",
+    ///             "gateway/examplecr/config/write",
+    ///             "gateway/examplecr/message/read",
+    ///             "gateway/examplecr/message/write",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleRegistryToken = new Azure.ContainerService.RegistryToken("exampleRegistryToken", new()
+    ///     {
+    ///         ContainerRegistryName = exampleRegistry.Name,
+    ///         ResourceGroupName = exampleRegistry.ResourceGroupName,
+    ///         ScopeMapId = exampleRegistryScopeMap.Id,
+    ///     });
+    /// 
+    ///     var exampleConnectedRegistry = new Azure.ContainerService.ConnectedRegistry("exampleConnectedRegistry", new()
+    ///     {
+    ///         ContainerRegistryId = exampleRegistry.Id,
+    ///         SyncTokenId = exampleRegistryToken.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Container Connected Registries can be imported using the `resource id`, e.g.

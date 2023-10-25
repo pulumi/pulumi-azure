@@ -739,6 +739,93 @@ class ActionGroup(pulumi.CustomResource):
         """
         Manages an Action Group within Azure Monitor.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        current = azure.core.get_client_config()
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_action_group = azure.monitoring.ActionGroup("exampleActionGroup",
+            resource_group_name=example_resource_group.name,
+            short_name="p0action",
+            arm_role_receivers=[azure.monitoring.ActionGroupArmRoleReceiverArgs(
+                name="armroleaction",
+                role_id="de139f84-1756-47ae-9be6-808fbbe84772",
+                use_common_alert_schema=True,
+            )],
+            automation_runbook_receivers=[azure.monitoring.ActionGroupAutomationRunbookReceiverArgs(
+                name="action_name_1",
+                automation_account_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-runbooks/providers/Microsoft.Automation/automationAccounts/aaa001",
+                runbook_name="my runbook",
+                webhook_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-runbooks/providers/Microsoft.Automation/automationAccounts/aaa001/webHooks/webhook_alert",
+                is_global_runbook=True,
+                service_uri="https://s13events.azure-automation.net/webhooks?token=randomtoken",
+                use_common_alert_schema=True,
+            )],
+            azure_app_push_receivers=[azure.monitoring.ActionGroupAzureAppPushReceiverArgs(
+                name="pushtoadmin",
+                email_address="admin@contoso.com",
+            )],
+            azure_function_receivers=[azure.monitoring.ActionGroupAzureFunctionReceiverArgs(
+                name="funcaction",
+                function_app_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-funcapp/providers/Microsoft.Web/sites/funcapp",
+                function_name="myfunc",
+                http_trigger_url="https://example.com/trigger",
+                use_common_alert_schema=True,
+            )],
+            email_receivers=[
+                azure.monitoring.ActionGroupEmailReceiverArgs(
+                    name="sendtoadmin",
+                    email_address="admin@contoso.com",
+                ),
+                azure.monitoring.ActionGroupEmailReceiverArgs(
+                    name="sendtodevops",
+                    email_address="devops@contoso.com",
+                    use_common_alert_schema=True,
+                ),
+            ],
+            event_hub_receivers=[azure.monitoring.ActionGroupEventHubReceiverArgs(
+                name="sendtoeventhub",
+                event_hub_namespace="eventhubnamespace",
+                event_hub_name="eventhub1",
+                subscription_id="00000000-0000-0000-0000-000000000000",
+                use_common_alert_schema=False,
+            )],
+            itsm_receivers=[azure.monitoring.ActionGroupItsmReceiverArgs(
+                name="createorupdateticket",
+                workspace_id=example_analytics_workspace.workspace_id.apply(lambda workspace_id: f"{current.subscription_id}|{workspace_id}"),
+                connection_id="53de6956-42b4-41ba-be3c-b154cdf17b13",
+                ticket_configuration="{\\"PayloadRevision\\":0,\\"WorkItemType\\":\\"Incident\\",\\"UseTemplate\\":false,\\"WorkItemData\\":\\"{}\\",\\"CreateOneWIPerCI\\":false}",
+                region="southcentralus",
+            )],
+            logic_app_receivers=[azure.monitoring.ActionGroupLogicAppReceiverArgs(
+                name="logicappaction",
+                resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-logicapp/providers/Microsoft.Logic/workflows/logicapp",
+                callback_url="https://logicapptriggerurl/...",
+                use_common_alert_schema=True,
+            )],
+            sms_receivers=[azure.monitoring.ActionGroupSmsReceiverArgs(
+                name="oncallmsg",
+                country_code="1",
+                phone_number="1231231234",
+            )],
+            voice_receivers=[azure.monitoring.ActionGroupVoiceReceiverArgs(
+                name="remotesupport",
+                country_code="86",
+                phone_number="13888888888",
+            )],
+            webhook_receivers=[azure.monitoring.ActionGroupWebhookReceiverArgs(
+                name="callmyapiaswell",
+                service_uri="http://example.com/alert",
+                use_common_alert_schema=True,
+            )])
+        ```
+
         ## Import
 
         Action Groups can be imported using the `resource id`, e.g.
@@ -775,6 +862,93 @@ class ActionGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Action Group within Azure Monitor.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        current = azure.core.get_client_config()
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_action_group = azure.monitoring.ActionGroup("exampleActionGroup",
+            resource_group_name=example_resource_group.name,
+            short_name="p0action",
+            arm_role_receivers=[azure.monitoring.ActionGroupArmRoleReceiverArgs(
+                name="armroleaction",
+                role_id="de139f84-1756-47ae-9be6-808fbbe84772",
+                use_common_alert_schema=True,
+            )],
+            automation_runbook_receivers=[azure.monitoring.ActionGroupAutomationRunbookReceiverArgs(
+                name="action_name_1",
+                automation_account_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-runbooks/providers/Microsoft.Automation/automationAccounts/aaa001",
+                runbook_name="my runbook",
+                webhook_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-runbooks/providers/Microsoft.Automation/automationAccounts/aaa001/webHooks/webhook_alert",
+                is_global_runbook=True,
+                service_uri="https://s13events.azure-automation.net/webhooks?token=randomtoken",
+                use_common_alert_schema=True,
+            )],
+            azure_app_push_receivers=[azure.monitoring.ActionGroupAzureAppPushReceiverArgs(
+                name="pushtoadmin",
+                email_address="admin@contoso.com",
+            )],
+            azure_function_receivers=[azure.monitoring.ActionGroupAzureFunctionReceiverArgs(
+                name="funcaction",
+                function_app_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-funcapp/providers/Microsoft.Web/sites/funcapp",
+                function_name="myfunc",
+                http_trigger_url="https://example.com/trigger",
+                use_common_alert_schema=True,
+            )],
+            email_receivers=[
+                azure.monitoring.ActionGroupEmailReceiverArgs(
+                    name="sendtoadmin",
+                    email_address="admin@contoso.com",
+                ),
+                azure.monitoring.ActionGroupEmailReceiverArgs(
+                    name="sendtodevops",
+                    email_address="devops@contoso.com",
+                    use_common_alert_schema=True,
+                ),
+            ],
+            event_hub_receivers=[azure.monitoring.ActionGroupEventHubReceiverArgs(
+                name="sendtoeventhub",
+                event_hub_namespace="eventhubnamespace",
+                event_hub_name="eventhub1",
+                subscription_id="00000000-0000-0000-0000-000000000000",
+                use_common_alert_schema=False,
+            )],
+            itsm_receivers=[azure.monitoring.ActionGroupItsmReceiverArgs(
+                name="createorupdateticket",
+                workspace_id=example_analytics_workspace.workspace_id.apply(lambda workspace_id: f"{current.subscription_id}|{workspace_id}"),
+                connection_id="53de6956-42b4-41ba-be3c-b154cdf17b13",
+                ticket_configuration="{\\"PayloadRevision\\":0,\\"WorkItemType\\":\\"Incident\\",\\"UseTemplate\\":false,\\"WorkItemData\\":\\"{}\\",\\"CreateOneWIPerCI\\":false}",
+                region="southcentralus",
+            )],
+            logic_app_receivers=[azure.monitoring.ActionGroupLogicAppReceiverArgs(
+                name="logicappaction",
+                resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-logicapp/providers/Microsoft.Logic/workflows/logicapp",
+                callback_url="https://logicapptriggerurl/...",
+                use_common_alert_schema=True,
+            )],
+            sms_receivers=[azure.monitoring.ActionGroupSmsReceiverArgs(
+                name="oncallmsg",
+                country_code="1",
+                phone_number="1231231234",
+            )],
+            voice_receivers=[azure.monitoring.ActionGroupVoiceReceiverArgs(
+                name="remotesupport",
+                country_code="86",
+                phone_number="13888888888",
+            )],
+            webhook_receivers=[azure.monitoring.ActionGroupWebhookReceiverArgs(
+                name="callmyapiaswell",
+                service_uri="http://example.com/alert",
+                use_common_alert_schema=True,
+            )])
+        ```
 
         ## Import
 

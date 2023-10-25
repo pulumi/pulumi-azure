@@ -200,6 +200,17 @@ def get_service_plan(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Service Plan.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.appservice.get_service_plan(name="existing",
+        resource_group_name="existing")
+    pulumi.export("id", example.id)
+    ```
+
 
     :param str name: The name of this Service Plan.
     :param str resource_group_name: The name of the Resource Group where the Service Plan exists.
@@ -233,6 +244,17 @@ def get_service_plan_output(name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServicePlanResult]:
     """
     Use this data source to access information about an existing Service Plan.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.appservice.get_service_plan(name="existing",
+        resource_group_name="existing")
+    pulumi.export("id", example.id)
+    ```
 
 
     :param str name: The name of this Service Plan.

@@ -315,6 +315,17 @@ def get_account(name: Optional[str] = None,
     """
     Use this data source to access information about an existing CosmosDB (formally DocumentDB) Account.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.cosmosdb.get_account(name="tfex-cosmosdb-account",
+        resource_group_name="tfex-cosmosdb-account-rg")
+    pulumi.export("cosmosdbAccountEndpoint", example.endpoint)
+    ```
+
 
     :param str name: Specifies the name of the CosmosDB Account.
     :param str resource_group_name: Specifies the name of the resource group in which the CosmosDB Account resides.
@@ -358,6 +369,17 @@ def get_account_output(name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
     """
     Use this data source to access information about an existing CosmosDB (formally DocumentDB) Account.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.cosmosdb.get_account(name="tfex-cosmosdb-account",
+        resource_group_name="tfex-cosmosdb-account-rg")
+    pulumi.export("cosmosdbAccountEndpoint", example.endpoint)
+    ```
 
 
     :param str name: Specifies the name of the CosmosDB Account.

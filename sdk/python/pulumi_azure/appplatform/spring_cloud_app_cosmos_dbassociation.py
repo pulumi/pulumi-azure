@@ -464,6 +464,38 @@ class SpringCloudAppCosmosDBAssociation(pulumi.CustomResource):
         """
         Associates a Spring Cloud Application with a CosmosDB Account.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        example_spring_cloud_app = azure.appplatform.SpringCloudApp("exampleSpringCloudApp",
+            resource_group_name=example_resource_group.name,
+            service_name=example_spring_cloud_service.name)
+        example_account = azure.cosmosdb.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            offer_type="Standard",
+            kind="GlobalDocumentDB",
+            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
+                consistency_level="Strong",
+            ),
+            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
+                location=example_resource_group.location,
+                failover_priority=0,
+            )])
+        example_spring_cloud_app_cosmos_dbassociation = azure.appplatform.SpringCloudAppCosmosDBAssociation("exampleSpringCloudAppCosmosDBAssociation",
+            spring_cloud_app_id=example_spring_cloud_app.id,
+            cosmosdb_account_id=example_account.id,
+            api_type="table",
+            cosmosdb_access_key=example_account.primary_key)
+        ```
+
         ## Import
 
         Spring Cloud Application CosmosDB Association can be imported using the `resource id`, e.g.
@@ -493,6 +525,38 @@ class SpringCloudAppCosmosDBAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Associates a Spring Cloud Application with a CosmosDB Account.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        example_spring_cloud_app = azure.appplatform.SpringCloudApp("exampleSpringCloudApp",
+            resource_group_name=example_resource_group.name,
+            service_name=example_spring_cloud_service.name)
+        example_account = azure.cosmosdb.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            offer_type="Standard",
+            kind="GlobalDocumentDB",
+            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
+                consistency_level="Strong",
+            ),
+            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
+                location=example_resource_group.location,
+                failover_priority=0,
+            )])
+        example_spring_cloud_app_cosmos_dbassociation = azure.appplatform.SpringCloudAppCosmosDBAssociation("exampleSpringCloudAppCosmosDBAssociation",
+            spring_cloud_app_id=example_spring_cloud_app.id,
+            cosmosdb_account_id=example_account.id,
+            api_type="table",
+            cosmosdb_access_key=example_account.primary_key)
+        ```
 
         ## Import
 

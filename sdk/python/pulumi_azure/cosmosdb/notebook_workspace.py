@@ -201,6 +201,30 @@ class NotebookWorkspace(pulumi.CustomResource):
 
         > **NOTE:** However, CosmosDb Notebook feature no longer uses the permanent notebook workspace being referred to the public surface in the RP (have since moved to temporary notebooks workspaces which are short-lived <1 hour).
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.cosmosdb.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            offer_type="Standard",
+            kind="GlobalDocumentDB",
+            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
+                consistency_level="BoundedStaleness",
+            ),
+            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
+                location=example_resource_group.location,
+                failover_priority=0,
+            )])
+        example_notebook_workspace = azure.cosmosdb.NotebookWorkspace("exampleNotebookWorkspace",
+            resource_group_name=example_account.resource_group_name,
+            account_name=example_account.name)
+        ```
+
         ## Import
 
         =SQL Notebook Workspaces can be imported using the `resource id`, e.g.
@@ -229,6 +253,30 @@ class NotebookWorkspace(pulumi.CustomResource):
         > **NOTE:** CosmosDb Notebook (the feature itself) is not deprecated and will return: <https://learn.microsoft.com/en-us/azure/cosmos-db/notebooks-faq>.
 
         > **NOTE:** However, CosmosDb Notebook feature no longer uses the permanent notebook workspace being referred to the public surface in the RP (have since moved to temporary notebooks workspaces which are short-lived <1 hour).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.cosmosdb.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            offer_type="Standard",
+            kind="GlobalDocumentDB",
+            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
+                consistency_level="BoundedStaleness",
+            ),
+            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
+                location=example_resource_group.location,
+                failover_priority=0,
+            )])
+        example_notebook_workspace = azure.cosmosdb.NotebookWorkspace("exampleNotebookWorkspace",
+            resource_group_name=example_account.resource_group_name,
+            account_name=example_account.name)
+        ```
 
         ## Import
 

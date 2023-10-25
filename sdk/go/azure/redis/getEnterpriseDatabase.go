@@ -13,6 +13,36 @@ import (
 )
 
 // Use this data source to access information about an existing Redis Enterprise Database
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/redis"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := redis.LookupEnterpriseDatabase(ctx, &redis.LookupEnterpriseDatabaseArgs{
+//				Name:              "default",
+//				ResourceGroupName: pulumi.StringRef(azurerm_resource_group.Example.Name),
+//				ClusterId:         azurerm_redis_enterprise_cluster.Example.Id,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("redisEnterpriseDatabasePrimaryKey", example.PrimaryAccessKey)
+//			ctx.Export("redisEnterpriseDatabaseSecondaryKey", example.SecondaryAccessKey)
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupEnterpriseDatabase(ctx *pulumi.Context, args *LookupEnterpriseDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupEnterpriseDatabaseResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEnterpriseDatabaseResult

@@ -217,6 +217,61 @@ class ClusterTrustedAccessRoleBinding(pulumi.CustomResource):
         > **Note:** This Resource is in **Preview** to use this you must be opted into the Preview. You can do this by running `az feature register --namespace Microsoft.ContainerService --name TrustedAccessPreview` and then `az provider register -n Microsoft.ContainerService`
         .
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_insights = azure.appinsights.Insights("exampleInsights",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            application_type="example-value")
+        test = azure.core.get_client_config()
+        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            tenant_id=data["azurerm_client_config"]["example"]["tenant_id"],
+            sku_name="example-value",
+            soft_delete_retention_days="example-value")
+        example_access_policy = azure.keyvault.AccessPolicy("exampleAccessPolicy",
+            key_vault_id=example_key_vault.id,
+            tenant_id=data["azurerm_client_config"]["example"]["tenant_id"],
+            object_id=data["azurerm_client_config"]["example"]["object_id"],
+            key_permissions="example-value")
+        example_kubernetes_cluster = azure.containerservice.KubernetesCluster("exampleKubernetesCluster",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            dns_prefix="acctestaksexample",
+            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
+                name="example-value",
+                node_count="example-value",
+                vm_size="example-value",
+            ),
+            identity=azure.containerservice.KubernetesClusterIdentityArgs(
+                type="example-value",
+            ))
+        example_account = azure.storage.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            account_tier="example-value",
+            account_replication_type="example-value")
+        example_workspace = azure.machinelearning.Workspace("exampleWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            key_vault_id=example_key_vault.id,
+            storage_account_id=example_account.id,
+            application_insights_id=example_insights.id,
+            identity=azure.machinelearning.WorkspaceIdentityArgs(
+                type="example-value",
+            ))
+        example_cluster_trusted_access_role_binding = azure.containerservice.ClusterTrustedAccessRoleBinding("exampleClusterTrustedAccessRoleBinding",
+            kubernetes_cluster_id=example_kubernetes_cluster.id,
+            roles="example-value",
+            source_resource_id=example_workspace.id)
+        ```
+
         ## Import
 
         An existing Kubernetes Cluster Trusted Access Role Binding can be imported into Terraform using the `resource id`, e.g.
@@ -246,6 +301,61 @@ class ClusterTrustedAccessRoleBinding(pulumi.CustomResource):
         Manages a Kubernetes Cluster Trusted Access Role Binding
         > **Note:** This Resource is in **Preview** to use this you must be opted into the Preview. You can do this by running `az feature register --namespace Microsoft.ContainerService --name TrustedAccessPreview` and then `az provider register -n Microsoft.ContainerService`
         .
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_insights = azure.appinsights.Insights("exampleInsights",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            application_type="example-value")
+        test = azure.core.get_client_config()
+        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            tenant_id=data["azurerm_client_config"]["example"]["tenant_id"],
+            sku_name="example-value",
+            soft_delete_retention_days="example-value")
+        example_access_policy = azure.keyvault.AccessPolicy("exampleAccessPolicy",
+            key_vault_id=example_key_vault.id,
+            tenant_id=data["azurerm_client_config"]["example"]["tenant_id"],
+            object_id=data["azurerm_client_config"]["example"]["object_id"],
+            key_permissions="example-value")
+        example_kubernetes_cluster = azure.containerservice.KubernetesCluster("exampleKubernetesCluster",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            dns_prefix="acctestaksexample",
+            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
+                name="example-value",
+                node_count="example-value",
+                vm_size="example-value",
+            ),
+            identity=azure.containerservice.KubernetesClusterIdentityArgs(
+                type="example-value",
+            ))
+        example_account = azure.storage.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            account_tier="example-value",
+            account_replication_type="example-value")
+        example_workspace = azure.machinelearning.Workspace("exampleWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            key_vault_id=example_key_vault.id,
+            storage_account_id=example_account.id,
+            application_insights_id=example_insights.id,
+            identity=azure.machinelearning.WorkspaceIdentityArgs(
+                type="example-value",
+            ))
+        example_cluster_trusted_access_role_binding = azure.containerservice.ClusterTrustedAccessRoleBinding("exampleClusterTrustedAccessRoleBinding",
+            kubernetes_cluster_id=example_kubernetes_cluster.id,
+            roles="example-value",
+            source_resource_id=example_workspace.id)
+        ```
 
         ## Import
 

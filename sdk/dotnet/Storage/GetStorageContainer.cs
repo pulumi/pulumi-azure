@@ -13,12 +13,58 @@ namespace Pulumi.Azure.Storage
     {
         /// <summary>
         /// Use this data source to access information about an existing Storage Container.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Storage.GetStorageContainer.Invoke(new()
+        ///     {
+        ///         Name = "example-container-name",
+        ///         StorageAccountName = "example-storage-account-name",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetStorageContainerResult> InvokeAsync(GetStorageContainerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStorageContainerResult>("azure:storage/getStorageContainer:getStorageContainer", args ?? new GetStorageContainerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Storage Container.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Storage.GetStorageContainer.Invoke(new()
+        ///     {
+        ///         Name = "example-container-name",
+        ///         StorageAccountName = "example-storage-account-name",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetStorageContainerResult> Invoke(GetStorageContainerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageContainerResult>("azure:storage/getStorageContainer:getStorageContainer", args ?? new GetStorageContainerInvokeArgs(), options.WithDefaults());

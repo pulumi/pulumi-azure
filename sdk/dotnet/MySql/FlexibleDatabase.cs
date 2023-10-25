@@ -12,6 +12,41 @@ namespace Pulumi.Azure.MySql
     /// <summary>
     /// Manages a MySQL Database within a MySQL Flexible Server
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleFlexibleServer = new Azure.MySql.FlexibleServer("exampleFlexibleServer", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AdministratorLogin = "mysqladminun",
+    ///         AdministratorPassword = "H@Sh1CoR3!",
+    ///         SkuName = "B_Standard_B1s",
+    ///     });
+    /// 
+    ///     var exampleFlexibleDatabase = new Azure.MySql.FlexibleDatabase("exampleFlexibleDatabase", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ServerName = exampleFlexibleServer.Name,
+    ///         Charset = "utf8",
+    ///         Collation = "utf8_unicode_ci",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// MySQL Database's can be imported using the `resource id`, e.g.

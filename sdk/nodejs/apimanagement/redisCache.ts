@@ -7,6 +7,39 @@ import * as utilities from "../utilities";
 /**
  * Manages a API Management Redis Cache.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleService = new azure.apimanagement.Service("exampleService", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     publisherName: "pub1",
+ *     publisherEmail: "pub1@email.com",
+ *     skuName: "Consumption_0",
+ * });
+ * const exampleCache = new azure.redis.Cache("exampleCache", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     capacity: 1,
+ *     family: "C",
+ *     skuName: "Basic",
+ *     enableNonSslPort: false,
+ *     minimumTlsVersion: "1.2",
+ *     redisConfiguration: {},
+ * });
+ * const exampleRedisCache = new azure.apimanagement.RedisCache("exampleRedisCache", {
+ *     apiManagementId: exampleService.id,
+ *     connectionString: exampleCache.primaryConnectionString,
+ *     description: "Redis cache instances",
+ *     redisCacheId: exampleCache.id,
+ *     cacheLocation: "East Us",
+ * });
+ * ```
+ *
  * ## Import
  *
  * API Management Redis Caches can be imported using the `resource id`, e.g.

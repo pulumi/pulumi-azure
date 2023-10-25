@@ -114,6 +114,18 @@ def get_zone_virtual_network_link(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Private DNS zone Virtual Network Link. These Links enable DNS resolution and registration inside Azure Virtual Networks using Azure Private DNS.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.privatedns.get_zone_virtual_network_link(name="test",
+        resource_group_name="test-rg",
+        private_dns_zone_name="test-zone")
+    pulumi.export("privateDnsARecordId", example.id)
+    ```
+
 
     :param str name: The name of the Private DNS Zone Virtual Network Link.
     :param str private_dns_zone_name: The name of the Private DNS zone (without a terminating dot).
@@ -143,6 +155,18 @@ def get_zone_virtual_network_link_output(name: Optional[pulumi.Input[str]] = Non
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetZoneVirtualNetworkLinkResult]:
     """
     Use this data source to access information about an existing Private DNS zone Virtual Network Link. These Links enable DNS resolution and registration inside Azure Virtual Networks using Azure Private DNS.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.privatedns.get_zone_virtual_network_link(name="test",
+        resource_group_name="test-rg",
+        private_dns_zone_name="test-zone")
+    pulumi.export("privateDnsARecordId", example.id)
+    ```
 
 
     :param str name: The name of the Private DNS Zone Virtual Network Link.

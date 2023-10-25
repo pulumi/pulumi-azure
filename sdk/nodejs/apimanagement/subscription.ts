@@ -7,6 +7,35 @@ import * as utilities from "../utilities";
 /**
  * Manages a Subscription within a API Management Service.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleService = azure.apimanagement.getService({
+ *     name: "example-apim",
+ *     resourceGroupName: "example-resources",
+ * });
+ * const exampleProduct = Promise.all([exampleService, exampleService]).then(([exampleService, exampleService1]) => azure.apimanagement.getProduct({
+ *     productId: "00000000-0000-0000-0000-000000000000",
+ *     apiManagementName: exampleService.name,
+ *     resourceGroupName: exampleService1.resourceGroupName,
+ * }));
+ * const exampleUser = Promise.all([exampleService, exampleService]).then(([exampleService, exampleService1]) => azure.apimanagement.getUser({
+ *     userId: "11111111-1111-1111-1111-111111111111",
+ *     apiManagementName: exampleService.name,
+ *     resourceGroupName: exampleService1.resourceGroupName,
+ * }));
+ * const exampleSubscription = new azure.apimanagement.Subscription("exampleSubscription", {
+ *     apiManagementName: exampleService.then(exampleService => exampleService.name),
+ *     resourceGroupName: exampleService.then(exampleService => exampleService.resourceGroupName),
+ *     userId: exampleUser.then(exampleUser => exampleUser.id),
+ *     productId: exampleProduct.then(exampleProduct => exampleProduct.id),
+ *     displayName: "Parser API",
+ * });
+ * ```
+ *
  * ## Import
  *
  * API Management Subscriptions can be imported using the `resource id`, e.g.

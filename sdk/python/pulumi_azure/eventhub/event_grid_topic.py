@@ -557,6 +557,21 @@ class EventGridTopic(pulumi.CustomResource):
 
         > **Note:** at this time EventGrid Topic's are only available in a limited number of regions.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_topic = azure.eventgrid.Topic("exampleTopic",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            tags={
+                "environment": "Production",
+            })
+        ```
+
         ## Import
 
         EventGrid Topic's can be imported using the `resource id`, e.g.
@@ -589,6 +604,21 @@ class EventGridTopic(pulumi.CustomResource):
         Manages an EventGrid Topic
 
         > **Note:** at this time EventGrid Topic's are only available in a limited number of regions.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_topic = azure.eventgrid.Topic("exampleTopic",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            tags={
+                "environment": "Production",
+            })
+        ```
 
         ## Import
 

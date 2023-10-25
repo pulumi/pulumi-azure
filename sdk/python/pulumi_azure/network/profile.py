@@ -271,6 +271,40 @@ class Profile(pulumi.CustomResource):
         """
         Manages a Network Profile.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            address_spaces=["10.1.0.0/16"])
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.1.0.0/24"],
+            delegations=[azure.network.SubnetDelegationArgs(
+                name="delegation",
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                    name="Microsoft.ContainerInstance/containerGroups",
+                    actions=["Microsoft.Network/virtualNetworks/subnets/action"],
+                ),
+            )])
+        example_profile = azure.network.Profile("exampleProfile",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            container_network_interface=azure.network.ProfileContainerNetworkInterfaceArgs(
+                name="examplecnic",
+                ip_configurations=[azure.network.ProfileContainerNetworkInterfaceIpConfigurationArgs(
+                    name="exampleipconfig",
+                    subnet_id=example_subnet.id,
+                )],
+            ))
+        ```
+
         ## Import
 
         Network Profile can be imported using the `resource id`, e.g.
@@ -295,6 +329,40 @@ class Profile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Network Profile.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            address_spaces=["10.1.0.0/16"])
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.1.0.0/24"],
+            delegations=[azure.network.SubnetDelegationArgs(
+                name="delegation",
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                    name="Microsoft.ContainerInstance/containerGroups",
+                    actions=["Microsoft.Network/virtualNetworks/subnets/action"],
+                ),
+            )])
+        example_profile = azure.network.Profile("exampleProfile",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            container_network_interface=azure.network.ProfileContainerNetworkInterfaceArgs(
+                name="examplecnic",
+                ip_configurations=[azure.network.ProfileContainerNetworkInterfaceIpConfigurationArgs(
+                    name="exampleipconfig",
+                    subnet_id=example_subnet.id,
+                )],
+            ))
+        ```
 
         ## Import
 

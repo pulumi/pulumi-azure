@@ -12,6 +12,83 @@ namespace Pulumi.Azure.Automation
     /// <summary>
     /// Manages an Automation Software Update Configuraion.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "East US",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Automation.Account("exampleAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "Basic",
+    ///     });
+    /// 
+    ///     var exampleRunBook = new Azure.Automation.RunBook("exampleRunBook", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AutomationAccountName = exampleAccount.Name,
+    ///         LogVerbose = true,
+    ///         LogProgress = true,
+    ///         Description = "This is a example runbook for terraform acceptance example",
+    ///         RunbookType = "Python3",
+    ///         Content = @"# Some example content
+    /// # for Terraform acceptance example
+    /// ",
+    ///         Tags = 
+    ///         {
+    ///             { "ENV", "runbook_test" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSoftwareUpdateConfiguration = new Azure.Automation.SoftwareUpdateConfiguration("exampleSoftwareUpdateConfiguration", new()
+    ///     {
+    ///         AutomationAccountId = exampleAccount.Id,
+    ///         OperatingSystem = "Linux",
+    ///         Linuxes = new[]
+    ///         {
+    ///             new Azure.Automation.Inputs.SoftwareUpdateConfigurationLinuxArgs
+    ///             {
+    ///                 ClassificationIncluded = "Security",
+    ///                 ExcludedPackages = new[]
+    ///                 {
+    ///                     "apt",
+    ///                 },
+    ///                 IncludedPackages = new[]
+    ///                 {
+    ///                     "vim",
+    ///                 },
+    ///                 Reboot = "IfRequired",
+    ///             },
+    ///         },
+    ///         PreTasks = new[]
+    ///         {
+    ///             new Azure.Automation.Inputs.SoftwareUpdateConfigurationPreTaskArgs
+    ///             {
+    ///                 Source = exampleRunBook.Name,
+    ///                 Parameters = 
+    ///                 {
+    ///                     { "COMPUTER_NAME", "Foo" },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Duration = "PT2H2M2S",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Automations Software Update Configuration can be imported using the `resource id`, e.g.

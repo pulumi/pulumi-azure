@@ -14,6 +14,55 @@ namespace Pulumi.Azure.ServiceBus
     /// 
     /// &gt; **NOTE:** Disaster Recovery Config is a Premium SKU only capability.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var primary = new Azure.ServiceBus.Namespace("primary", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Premium",
+    ///         Capacity = 1,
+    ///     });
+    /// 
+    ///     var secondary = new Azure.ServiceBus.Namespace("secondary", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Premium",
+    ///         Capacity = 1,
+    ///     });
+    /// 
+    ///     var exampleNamespaceAuthorizationRule = new Azure.ServiceBus.NamespaceAuthorizationRule("exampleNamespaceAuthorizationRule", new()
+    ///     {
+    ///         NamespaceId = azurerm_servicebus_namespace.Example.Id,
+    ///         Listen = true,
+    ///         Send = true,
+    ///         Manage = false,
+    ///     });
+    /// 
+    ///     var exampleNamespaceDisasterRecoveryConfig = new Azure.ServiceBus.NamespaceDisasterRecoveryConfig("exampleNamespaceDisasterRecoveryConfig", new()
+    ///     {
+    ///         PrimaryNamespaceId = primary.Id,
+    ///         PartnerNamespaceId = secondary.Id,
+    ///         AliasAuthorizationRuleId = exampleNamespaceAuthorizationRule.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Service Bus DR configs can be imported using the `resource id`, e.g.

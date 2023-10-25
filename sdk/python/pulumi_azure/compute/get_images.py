@@ -81,6 +81,15 @@ def get_images(resource_group_name: Optional[str] = None,
     """
     Use this data source to access information about existing Images within a Resource Group.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.compute.get_images(resource_group_name="example-resources")
+    ```
+
 
     :param str resource_group_name: The name of the Resource Group in which the Image exists.
     :param Mapping[str, str] tags_filter: A mapping of tags to filter the list of images against.
@@ -104,6 +113,15 @@ def get_images_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImagesResult]:
     """
     Use this data source to access information about existing Images within a Resource Group.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.compute.get_images(resource_group_name="example-resources")
+    ```
 
 
     :param str resource_group_name: The name of the Resource Group in which the Image exists.

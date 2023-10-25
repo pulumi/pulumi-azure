@@ -458,6 +458,48 @@ class TimeSeriesInsightsEventSourceIothub(pulumi.CustomResource):
         """
         Manages an Azure IoT Time Series Insights IoTHub Event Source.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku=azure.iot.IoTHubSkuArgs(
+                name="B1",
+                capacity=1,
+            ))
+        example_consumer_group = azure.iot.ConsumerGroup("exampleConsumerGroup",
+            iothub_name=example_io_t_hub.name,
+            eventhub_endpoint_name="events",
+            resource_group_name=example_resource_group.name)
+        storage = azure.storage.Account("storage",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_time_series_insights_gen2_environment = azure.iot.TimeSeriesInsightsGen2Environment("exampleTimeSeriesInsightsGen2Environment",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="L1",
+            id_properties=["id"],
+            storage=azure.iot.TimeSeriesInsightsGen2EnvironmentStorageArgs(
+                name=storage.name,
+                key=storage.primary_access_key,
+            ))
+        example_time_series_insights_event_source_iothub = azure.iot.TimeSeriesInsightsEventSourceIothub("exampleTimeSeriesInsightsEventSourceIothub",
+            location=example_resource_group.location,
+            environment_id=example_time_series_insights_gen2_environment.id,
+            iothub_name=example_io_t_hub.name,
+            shared_access_key=example_io_t_hub.shared_access_policies[0].primary_key,
+            shared_access_key_name=example_io_t_hub.shared_access_policies[0].key_name,
+            consumer_group_name=example_consumer_group.name,
+            event_source_resource_id=example_io_t_hub.id)
+        ```
+
         ## Import
 
         Azure IoT Time Series Insights IoTHub Event Source can be imported using the `resource id`, e.g.
@@ -487,6 +529,48 @@ class TimeSeriesInsightsEventSourceIothub(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure IoT Time Series Insights IoTHub Event Source.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku=azure.iot.IoTHubSkuArgs(
+                name="B1",
+                capacity=1,
+            ))
+        example_consumer_group = azure.iot.ConsumerGroup("exampleConsumerGroup",
+            iothub_name=example_io_t_hub.name,
+            eventhub_endpoint_name="events",
+            resource_group_name=example_resource_group.name)
+        storage = azure.storage.Account("storage",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_time_series_insights_gen2_environment = azure.iot.TimeSeriesInsightsGen2Environment("exampleTimeSeriesInsightsGen2Environment",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="L1",
+            id_properties=["id"],
+            storage=azure.iot.TimeSeriesInsightsGen2EnvironmentStorageArgs(
+                name=storage.name,
+                key=storage.primary_access_key,
+            ))
+        example_time_series_insights_event_source_iothub = azure.iot.TimeSeriesInsightsEventSourceIothub("exampleTimeSeriesInsightsEventSourceIothub",
+            location=example_resource_group.location,
+            environment_id=example_time_series_insights_gen2_environment.id,
+            iothub_name=example_io_t_hub.name,
+            shared_access_key=example_io_t_hub.shared_access_policies[0].primary_key,
+            shared_access_key_name=example_io_t_hub.shared_access_policies[0].key_name,
+            consumer_group_name=example_consumer_group.name,
+            event_source_resource_id=example_io_t_hub.id)
+        ```
 
         ## Import
 

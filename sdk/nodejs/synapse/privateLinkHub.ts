@@ -7,6 +7,18 @@ import * as utilities from "../utilities";
 /**
  * Manages a Synapse Private Link Hub.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.synapse.PrivateLinkHub("example", {
+ *     location: "West Europe",
+ *     resourceGroupName: "example-rg",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Synapse Private Link Hub can be imported using the `resource id`, e.g.

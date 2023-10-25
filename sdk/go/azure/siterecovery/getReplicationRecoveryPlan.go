@@ -13,6 +13,41 @@ import (
 )
 
 // Get information about an Azure Site Recovery Plan within a Recovery Services vault. A recovery plan gathers machines into recovery groups for the purpose of failover.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/recoveryservices"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/siterecovery"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			vault, err := recoveryservices.LookupVault(ctx, &recoveryservices.LookupVaultArgs{
+//				Name:              "tfex-recovery_vault",
+//				ResourceGroupName: "tfex-resource_group",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = siterecovery.LookupReplicationRecoveryPlan(ctx, &siterecovery.LookupReplicationRecoveryPlanArgs{
+//				Name:            "example-recovery-plan",
+//				RecoveryVaultId: vault.Id,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupReplicationRecoveryPlan(ctx *pulumi.Context, args *LookupReplicationRecoveryPlanArgs, opts ...pulumi.InvokeOption) (*LookupReplicationRecoveryPlanResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupReplicationRecoveryPlanResult

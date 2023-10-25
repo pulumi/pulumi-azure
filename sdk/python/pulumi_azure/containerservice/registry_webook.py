@@ -449,6 +449,31 @@ class RegistryWebook(pulumi.CustomResource):
         """
         Manages an Azure Container Registry Webhook.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example", location="West Europe")
+        acr = azure.containerservice.Registry("acr",
+            resource_group_name=example.name,
+            location=example.location,
+            sku="Standard",
+            admin_enabled=False)
+        webhook = azure.containerservice.RegistryWebhook("webhook",
+            resource_group_name=example.name,
+            registry_name=acr.name,
+            location=example.location,
+            service_uri="https://mywebhookreceiver.example/mytag",
+            status="enabled",
+            scope="mytag:*",
+            actions=["push"],
+            custom_headers={
+                "Content-Type": "application/json",
+            })
+        ```
+
         ## Import
 
         Container Registry Webhooks can be imported using the `resource id`, e.g.
@@ -478,6 +503,31 @@ class RegistryWebook(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Container Registry Webhook.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example", location="West Europe")
+        acr = azure.containerservice.Registry("acr",
+            resource_group_name=example.name,
+            location=example.location,
+            sku="Standard",
+            admin_enabled=False)
+        webhook = azure.containerservice.RegistryWebhook("webhook",
+            resource_group_name=example.name,
+            registry_name=acr.name,
+            location=example.location,
+            service_uri="https://mywebhookreceiver.example/mytag",
+            status="enabled",
+            scope="mytag:*",
+            actions=["push"],
+            custom_headers={
+                "Content-Type": "application/json",
+            })
+        ```
 
         ## Import
 

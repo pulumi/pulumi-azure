@@ -7,6 +7,34 @@ import * as utilities from "../utilities";
 /**
  * Manages a Log Analytics Data Export Rule.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: "PerGB2018",
+ *     retentionInDays: 30,
+ * });
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ * });
+ * const exampleDataExportRule = new azure.loganalytics.DataExportRule("exampleDataExportRule", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     workspaceResourceId: exampleAnalyticsWorkspace.id,
+ *     destinationResourceId: exampleAccount.id,
+ *     tableNames: ["Heartbeat"],
+ *     enabled: true,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Log Analytics Data Export Rule can be imported using the `resource id`, e.g.

@@ -13,6 +13,33 @@ import (
 )
 
 // Gets information about an existing Private DNS Resolver Forwarding Rule.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := privatedns.LookupResolverForwardingRule(ctx, &privatedns.LookupResolverForwardingRuleArgs{
+//				DnsForwardingRulesetId: "example-forwarding-rulset-id",
+//				Name:                   "example-rule",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupResolverForwardingRule(ctx *pulumi.Context, args *LookupResolverForwardingRuleArgs, opts ...pulumi.InvokeOption) (*LookupResolverForwardingRuleResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResolverForwardingRuleResult

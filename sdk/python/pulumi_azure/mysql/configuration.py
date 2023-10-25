@@ -218,6 +218,35 @@ class Configuration(pulumi.CustomResource):
 
         > **Note:** Since this resource is provisioned by default, the Azure Provider will not check for the presence of an existing resource prior to attempting to create it.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_server = azure.mysql.Server("exampleServer",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            administrator_login="mysqladminun",
+            administrator_login_password="H@Sh1CoR3!",
+            sku_name="B_Gen5_2",
+            storage_mb=5120,
+            version="5.7",
+            auto_grow_enabled=True,
+            backup_retention_days=7,
+            geo_redundant_backup_enabled=True,
+            infrastructure_encryption_enabled=True,
+            public_network_access_enabled=False,
+            ssl_enforcement_enabled=True,
+            ssl_minimal_tls_version_enforced="TLS1_2")
+        example_configuration = azure.mysql.Configuration("exampleConfiguration",
+            name="interactive_timeout",
+            resource_group_name=example_resource_group.name,
+            server_name=example_server.name,
+            value="600")
+        ```
+
         ## Import
 
         MySQL Configurations can be imported using the `resource id`, e.g.
@@ -245,6 +274,35 @@ class Configuration(pulumi.CustomResource):
         ## Disclaimers
 
         > **Note:** Since this resource is provisioned by default, the Azure Provider will not check for the presence of an existing resource prior to attempting to create it.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_server = azure.mysql.Server("exampleServer",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            administrator_login="mysqladminun",
+            administrator_login_password="H@Sh1CoR3!",
+            sku_name="B_Gen5_2",
+            storage_mb=5120,
+            version="5.7",
+            auto_grow_enabled=True,
+            backup_retention_days=7,
+            geo_redundant_backup_enabled=True,
+            infrastructure_encryption_enabled=True,
+            public_network_access_enabled=False,
+            ssl_enforcement_enabled=True,
+            ssl_minimal_tls_version_enforced="TLS1_2")
+        example_configuration = azure.mysql.Configuration("exampleConfiguration",
+            name="interactive_timeout",
+            resource_group_name=example_resource_group.name,
+            server_name=example_server.name,
+            value="600")
+        ```
 
         ## Import
 

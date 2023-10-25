@@ -11,6 +11,30 @@ import * as utilities from "../utilities";
  *
  * !> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `azure.monitoring.AlertProcessingRuleActionGroup` resource instead.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleActionGroup = new azure.monitoring.ActionGroup("exampleActionGroup", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     shortName: "example",
+ * });
+ * const exampleActionRuleActionGroup = new azure.monitoring.ActionRuleActionGroup("exampleActionRuleActionGroup", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     actionGroupId: exampleActionGroup.id,
+ *     scope: {
+ *         type: "ResourceGroup",
+ *         resourceIds: [exampleResourceGroup.id],
+ *     },
+ *     tags: {
+ *         foo: "bar",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Monitor Action Rule can be imported using the `resource id`, e.g.

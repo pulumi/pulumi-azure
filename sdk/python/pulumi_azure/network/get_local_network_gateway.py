@@ -141,6 +141,17 @@ def get_local_network_gateway(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Local Network Gateway.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.network.get_local_network_gateway(name="existing-local-network-gateway",
+        resource_group_name="existing-resources")
+    pulumi.export("id", example.id)
+    ```
+
 
     :param str name: The name of the Local Network Gateway.
     :param str resource_group_name: The name of the Resource Group where the Local Network Gateway exists.
@@ -169,6 +180,17 @@ def get_local_network_gateway_output(name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalNetworkGatewayResult]:
     """
     Use this data source to access information about an existing Local Network Gateway.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.network.get_local_network_gateway(name="existing-local-network-gateway",
+        resource_group_name="existing-resources")
+    pulumi.export("id", example.id)
+    ```
 
 
     :param str name: The name of the Local Network Gateway.

@@ -13,6 +13,34 @@ import (
 )
 
 // Use this data source to access information about an existing AAD B2C Directory.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/aadb2c"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := aadb2c.LookupDirectory(ctx, &aadb2c.LookupDirectoryArgs{
+//				ResourceGroupName: "example-rg",
+//				DomainName:        "exampleb2ctenant.onmicrosoft.com",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("tenantId", example.TenantId)
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupDirectory(ctx *pulumi.Context, args *LookupDirectoryArgs, opts ...pulumi.InvokeOption) (*LookupDirectoryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDirectoryResult

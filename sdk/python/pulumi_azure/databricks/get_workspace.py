@@ -154,6 +154,17 @@ def get_workspace(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Databricks workspace.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.databricks.get_workspace(name="example-workspace",
+        resource_group_name="example-rg")
+    pulumi.export("databricksWorkspaceId", example.workspace_id)
+    ```
+
 
     :param str name: The name of the Databricks Workspace.
     :param str resource_group_name: The Name of the Resource Group where the Databricks Workspace exists.
@@ -186,6 +197,17 @@ def get_workspace_output(name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
     Use this data source to access information about an existing Databricks workspace.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.databricks.get_workspace(name="example-workspace",
+        resource_group_name="example-rg")
+    pulumi.export("databricksWorkspaceId", example.workspace_id)
+    ```
 
 
     :param str name: The name of the Databricks Workspace.

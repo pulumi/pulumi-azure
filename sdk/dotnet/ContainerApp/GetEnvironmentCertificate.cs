@@ -13,12 +13,70 @@ namespace Pulumi.Azure.ContainerApp
     {
         /// <summary>
         /// Use this data source to access information about an existing Container App Environment Certificate.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleEnvironment = Azure.ContainerApp.GetEnvironment.Invoke(new()
+        ///     {
+        ///         Name = "example-environment",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
+        /// 
+        ///     var exampleEnvironmentCertificate = Azure.ContainerApp.GetEnvironmentCertificate.Invoke(new()
+        ///     {
+        ///         Name = "mycertificate",
+        ///         ContainerAppEnvironmentId = exampleEnvironment.Apply(getEnvironmentResult =&gt; getEnvironmentResult.Id),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetEnvironmentCertificateResult> InvokeAsync(GetEnvironmentCertificateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentCertificateResult>("azure:containerapp/getEnvironmentCertificate:getEnvironmentCertificate", args ?? new GetEnvironmentCertificateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Container App Environment Certificate.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleEnvironment = Azure.ContainerApp.GetEnvironment.Invoke(new()
+        ///     {
+        ///         Name = "example-environment",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
+        /// 
+        ///     var exampleEnvironmentCertificate = Azure.ContainerApp.GetEnvironmentCertificate.Invoke(new()
+        ///     {
+        ///         Name = "mycertificate",
+        ///         ContainerAppEnvironmentId = exampleEnvironment.Apply(getEnvironmentResult =&gt; getEnvironmentResult.Id),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetEnvironmentCertificateResult> Invoke(GetEnvironmentCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentCertificateResult>("azure:containerapp/getEnvironmentCertificate:getEnvironmentCertificate", args ?? new GetEnvironmentCertificateInvokeArgs(), options.WithDefaults());

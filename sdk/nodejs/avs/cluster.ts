@@ -7,6 +7,32 @@ import * as utilities from "../utilities";
 /**
  * Manages a VMware Cluster.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const examplePrivateCloud = new azure.avs.PrivateCloud("examplePrivateCloud", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     skuName: "av36",
+ *     managementCluster: {
+ *         size: 3,
+ *     },
+ *     networkSubnetCidr: "192.168.48.0/22",
+ *     internetConnectionEnabled: false,
+ *     nsxtPassword: "QazWsx13$Edc",
+ *     vcenterPassword: "WsxEdc23$Rfv",
+ * });
+ * const exampleCluster = new azure.avs.Cluster("exampleCluster", {
+ *     vmwareCloudId: examplePrivateCloud.id,
+ *     clusterNodeCount: 3,
+ *     skuName: "av36",
+ * });
+ * ```
+ *
  * ## Import
  *
  * VMware Clusters can be imported using the `resource id`, e.g.

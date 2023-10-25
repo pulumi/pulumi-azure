@@ -7,6 +7,47 @@ import * as utilities from "../utilities";
 /**
  * Manages a Stream Analytics Output to an Azure Synapse Analytics Workspace.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleJob = azure.streamanalytics.getJobOutput({
+ *     name: "example-job",
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ *     accountKind: "StorageV2",
+ *     isHnsEnabled: true,
+ * });
+ * const exampleDataLakeGen2Filesystem = new azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", {storageAccountId: exampleAccount.id});
+ * const exampleWorkspace = new azure.synapse.Workspace("exampleWorkspace", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     storageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.id,
+ *     sqlAdministratorLogin: "sqladminuser",
+ *     sqlAdministratorLoginPassword: "H@Sh1CoR3!",
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ * });
+ * const exampleOutputSynapse = new azure.streamanalytics.OutputSynapse("exampleOutputSynapse", {
+ *     streamAnalyticsJobName: exampleJob.apply(exampleJob => exampleJob.name),
+ *     resourceGroupName: exampleJob.apply(exampleJob => exampleJob.resourceGroupName),
+ *     server: exampleWorkspace.connectivityEndpoints.sqlOnDemand,
+ *     user: exampleWorkspace.sqlAdministratorLogin,
+ *     password: exampleWorkspace.sqlAdministratorLoginPassword,
+ *     database: "master",
+ *     table: "ExampleTable",
+ * });
+ * ```
+ *
  * ## Import
  *
  * A Stream Analytics Output to an Azure Synapse Analytics Workspace can be imported using the `resource id`, e.g.

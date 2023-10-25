@@ -408,6 +408,42 @@ class FluxConfiguration(pulumi.CustomResource):
         """
         Manages a Kubernetes Flux Configuration.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_kubernetes_cluster = azure.containerservice.KubernetesCluster("exampleKubernetesCluster",
+            location="West Europe",
+            resource_group_name=example_resource_group.name,
+            dns_prefix="example-aks",
+            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
+                name="default",
+                node_count=1,
+                vm_size="Standard_DS2_v2",
+            ),
+            identity=azure.containerservice.KubernetesClusterIdentityArgs(
+                type="SystemAssigned",
+            ))
+        example_kubernetes_cluster_extension = azure.containerservice.KubernetesClusterExtension("exampleKubernetesClusterExtension",
+            cluster_id=azurerm_kubernetes_cluster["test"]["id"],
+            extension_type="microsoft.flux")
+        example_flux_configuration = azure.containerservice.FluxConfiguration("exampleFluxConfiguration",
+            cluster_id=azurerm_kubernetes_cluster["test"]["id"],
+            namespace="flux",
+            git_repository=azure.containerservice.FluxConfigurationGitRepositoryArgs(
+                url="https://github.com/Azure/arc-k8s-demo",
+                reference_type="branch",
+                reference_value="main",
+            ),
+            kustomizations=[azure.containerservice.FluxConfigurationKustomizationArgs(
+                name="kustomization-1",
+            )],
+            opts=pulumi.ResourceOptions(depends_on=[example_kubernetes_cluster_extension]))
+        ```
+
         ## Import
 
         Kubernetes Flux Configuration can be imported using the `resource id` for different `cluster_resource_name`, e.g.
@@ -436,6 +472,42 @@ class FluxConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Kubernetes Flux Configuration.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_kubernetes_cluster = azure.containerservice.KubernetesCluster("exampleKubernetesCluster",
+            location="West Europe",
+            resource_group_name=example_resource_group.name,
+            dns_prefix="example-aks",
+            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
+                name="default",
+                node_count=1,
+                vm_size="Standard_DS2_v2",
+            ),
+            identity=azure.containerservice.KubernetesClusterIdentityArgs(
+                type="SystemAssigned",
+            ))
+        example_kubernetes_cluster_extension = azure.containerservice.KubernetesClusterExtension("exampleKubernetesClusterExtension",
+            cluster_id=azurerm_kubernetes_cluster["test"]["id"],
+            extension_type="microsoft.flux")
+        example_flux_configuration = azure.containerservice.FluxConfiguration("exampleFluxConfiguration",
+            cluster_id=azurerm_kubernetes_cluster["test"]["id"],
+            namespace="flux",
+            git_repository=azure.containerservice.FluxConfigurationGitRepositoryArgs(
+                url="https://github.com/Azure/arc-k8s-demo",
+                reference_type="branch",
+                reference_value="main",
+            ),
+            kustomizations=[azure.containerservice.FluxConfigurationKustomizationArgs(
+                name="kustomization-1",
+            )],
+            opts=pulumi.ResourceOptions(depends_on=[example_kubernetes_cluster_extension]))
+        ```
 
         ## Import
 

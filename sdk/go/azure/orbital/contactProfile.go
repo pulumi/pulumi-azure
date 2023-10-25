@@ -15,6 +15,100 @@ import (
 
 // Manages a Contact profile.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/orbital"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.1.0/24"),
+//				},
+//				Delegations: network.SubnetDelegationArray{
+//					&network.SubnetDelegationArgs{
+//						Name: pulumi.String("orbitalgateway"),
+//						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
+//							Name: pulumi.String("Microsoft.Orbital/orbitalGateways"),
+//							Actions: pulumi.StringArray{
+//								pulumi.String("Microsoft.Network/publicIPAddresses/join/action"),
+//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
+//								pulumi.String("Microsoft.Network/virtualNetworks/read"),
+//								pulumi.String("Microsoft.Network/publicIPAddresses/read"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = orbital.NewContactProfile(ctx, "exampleContactProfile", &orbital.ContactProfileArgs{
+//				ResourceGroupName:              exampleResourceGroup.Name,
+//				Location:                       exampleResourceGroup.Location,
+//				MinimumVariableContactDuration: pulumi.String("PT1M"),
+//				AutoTracking:                   pulumi.String("disabled"),
+//				Links: orbital.ContactProfileLinkArray{
+//					&orbital.ContactProfileLinkArgs{
+//						Channels: orbital.ContactProfileLinkChannelArray{
+//							&orbital.ContactProfileLinkChannelArgs{
+//								Name:               pulumi.String("channelname"),
+//								BandwidthMhz:       pulumi.Float64(100),
+//								CenterFrequencyMhz: pulumi.Float64(101),
+//								EndPoints: orbital.ContactProfileLinkChannelEndPointArray{
+//									&orbital.ContactProfileLinkChannelEndPointArgs{
+//										EndPointName: pulumi.String("AQUA_command"),
+//										IpAddress:    pulumi.String("10.0.1.0"),
+//										Port:         pulumi.String("49513"),
+//										Protocol:     pulumi.String("TCP"),
+//									},
+//								},
+//							},
+//						},
+//						Direction:    pulumi.String("Uplink"),
+//						Name:         pulumi.String("RHCP_UL"),
+//						Polarization: pulumi.String("RHCP"),
+//					},
+//				},
+//				NetworkConfigurationSubnetId: exampleSubnet.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Contact profile can be imported using the `resource id`, e.g.

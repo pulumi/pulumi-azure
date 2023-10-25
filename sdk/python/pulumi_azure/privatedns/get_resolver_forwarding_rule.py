@@ -117,6 +117,16 @@ def get_resolver_forwarding_rule(dns_forwarding_ruleset_id: Optional[str] = None
     """
     Gets information about an existing Private DNS Resolver Forwarding Rule.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.privatedns.get_resolver_forwarding_rule(dns_forwarding_ruleset_id="example-forwarding-rulset-id",
+        name="example-rule")
+    ```
+
 
     :param str dns_forwarding_ruleset_id: ID of the Private DNS Resolver Forwarding Ruleset.
     :param str name: Name of the Private DNS Resolver Forwarding Rule.
@@ -143,6 +153,16 @@ def get_resolver_forwarding_rule_output(dns_forwarding_ruleset_id: Optional[pulu
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverForwardingRuleResult]:
     """
     Gets information about an existing Private DNS Resolver Forwarding Rule.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.privatedns.get_resolver_forwarding_rule(dns_forwarding_ruleset_id="example-forwarding-rulset-id",
+        name="example-rule")
+    ```
 
 
     :param str dns_forwarding_ruleset_id: ID of the Private DNS Resolver Forwarding Ruleset.

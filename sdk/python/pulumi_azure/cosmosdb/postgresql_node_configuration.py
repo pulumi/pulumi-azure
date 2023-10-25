@@ -171,6 +171,27 @@ class PostgresqlNodeConfiguration(pulumi.CustomResource):
         """
         Sets a Node Configuration value on Azure Cosmos DB for PostgreSQL Cluster.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_postgresql_cluster = azure.cosmosdb.PostgresqlCluster("examplePostgresqlCluster",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            administrator_login_password="H@Sh1CoR3!",
+            coordinator_storage_quota_in_mb=131072,
+            coordinator_vcore_count=2,
+            node_count=2,
+            node_storage_quota_in_mb=131072,
+            node_vcores=2)
+        example_postgresql_node_configuration = azure.cosmosdb.PostgresqlNodeConfiguration("examplePostgresqlNodeConfiguration",
+            cluster_id=example_postgresql_cluster.id,
+            value="on")
+        ```
+
         ## Import
 
         Node Configurations on Azure Cosmos DB for PostgreSQL Clusters can be imported using the `resource id`, e.g.
@@ -193,6 +214,27 @@ class PostgresqlNodeConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Sets a Node Configuration value on Azure Cosmos DB for PostgreSQL Cluster.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_postgresql_cluster = azure.cosmosdb.PostgresqlCluster("examplePostgresqlCluster",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            administrator_login_password="H@Sh1CoR3!",
+            coordinator_storage_quota_in_mb=131072,
+            coordinator_vcore_count=2,
+            node_count=2,
+            node_storage_quota_in_mb=131072,
+            node_vcores=2)
+        example_postgresql_node_configuration = azure.cosmosdb.PostgresqlNodeConfiguration("examplePostgresqlNodeConfiguration",
+            cluster_id=example_postgresql_cluster.id,
+            value="on")
+        ```
 
         ## Import
 

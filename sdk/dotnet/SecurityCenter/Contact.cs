@@ -14,6 +14,27 @@ namespace Pulumi.Azure.SecurityCenter
     /// 
     /// &gt; **NOTE:** Owner access permission is required.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.SecurityCenter.Contact("example", new()
+    ///     {
+    ///         AlertNotifications = true,
+    ///         AlertsToAdmins = true,
+    ///         Email = "contact@example.com",
+    ///         Phone = "+1-555-555-5555",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// The contact can be imported using the `resource id`, e.g.

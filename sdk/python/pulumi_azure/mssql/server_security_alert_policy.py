@@ -432,6 +432,37 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
 
         > **NOTE** Security Alert Policy is currently only available for MS SQL databases.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_sql_server = azure.sql.SqlServer("exampleSqlServer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            version="12.0",
+            administrator_login="4dm1n157r470r",
+            administrator_login_password="4-v3ry-53cr37-p455w0rd")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="GRS")
+        example_server_security_alert_policy = azure.mssql.ServerSecurityAlertPolicy("exampleServerSecurityAlertPolicy",
+            resource_group_name=example_resource_group.name,
+            server_name=example_sql_server.name,
+            state="Enabled",
+            storage_endpoint=example_account.primary_blob_endpoint,
+            storage_account_access_key=example_account.primary_access_key,
+            disabled_alerts=[
+                "Sql_Injection",
+                "Data_Exfiltration",
+            ],
+            retention_days=20)
+        ```
+
         ## Import
 
         MS SQL Server Security Alert Policy can be imported using the `resource id`, e.g.
@@ -464,6 +495,37 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
         Manages a Security Alert Policy for a MSSQL Server.
 
         > **NOTE** Security Alert Policy is currently only available for MS SQL databases.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_sql_server = azure.sql.SqlServer("exampleSqlServer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            version="12.0",
+            administrator_login="4dm1n157r470r",
+            administrator_login_password="4-v3ry-53cr37-p455w0rd")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="GRS")
+        example_server_security_alert_policy = azure.mssql.ServerSecurityAlertPolicy("exampleServerSecurityAlertPolicy",
+            resource_group_name=example_resource_group.name,
+            server_name=example_sql_server.name,
+            state="Enabled",
+            storage_endpoint=example_account.primary_blob_endpoint,
+            storage_account_access_key=example_account.primary_access_key,
+            disabled_alerts=[
+                "Sql_Injection",
+                "Data_Exfiltration",
+            ],
+            retention_days=20)
+        ```
 
         ## Import
 

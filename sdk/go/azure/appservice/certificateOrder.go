@@ -15,6 +15,42 @@ import (
 
 // Manages an App Service Certificate Order.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appservice.NewCertificateOrder(ctx, "exampleCertificateOrder", &appservice.CertificateOrderArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          pulumi.String("global"),
+//				DistinguishedName: pulumi.String("CN=example.com"),
+//				ProductType:       pulumi.String("Standard"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // App Service Certificate Orders can be imported using the `resource id`, e.g.

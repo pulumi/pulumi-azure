@@ -231,6 +231,18 @@ class DdosProtectionPlan(pulumi.CustomResource):
 
         > **NOTE** The DDoS Protection Plan is a [high-cost service](https://azure.microsoft.com/en-us/pricing/details/ddos-protection/#pricing). Please keep this in mind while testing and learning.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_ddos_protection_plan = azure.network.DdosProtectionPlan("exampleDdosProtectionPlan",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        ```
+
         ## Import
 
         Azure DDoS Protection Plan can be imported using the `resource id`, e.g.
@@ -258,6 +270,18 @@ class DdosProtectionPlan(pulumi.CustomResource):
         > **NOTE** Azure only allows `one` DDoS Protection Plan per region.
 
         > **NOTE** The DDoS Protection Plan is a [high-cost service](https://azure.microsoft.com/en-us/pricing/details/ddos-protection/#pricing). Please keep this in mind while testing and learning.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_ddos_protection_plan = azure.network.DdosProtectionPlan("exampleDdosProtectionPlan",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        ```
 
         ## Import
 

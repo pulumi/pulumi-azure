@@ -8,6 +8,60 @@ import * as utilities from "../utilities";
  * Manages a Firewall Rule for a MySQL Flexible Server.
  *
  * ## Example Usage
+ * ### Single IP Address)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleFlexibleServer = new azure.mysql.FlexibleServer("exampleFlexibleServer", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ * });
+ * const exampleFlexibleServerFirewallRule = new azure.mysql.FlexibleServerFirewallRule("exampleFlexibleServerFirewallRule", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     serverName: exampleFlexibleServer.name,
+ *     startIpAddress: "40.112.8.12",
+ *     endIpAddress: "40.112.8.12",
+ * });
+ * ```
+ * ### IP Range)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleFlexibleServer = new azure.mysql.FlexibleServer("exampleFlexibleServer", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ * });
+ * const exampleFlexibleServerFirewallRule = new azure.mysql.FlexibleServerFirewallRule("exampleFlexibleServerFirewallRule", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     serverName: exampleFlexibleServer.name,
+ *     startIpAddress: "40.112.0.0",
+ *     endIpAddress: "40.112.255.255",
+ * });
+ * ```
+ * ### Allow Access To Azure Services)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleFlexibleServer = new azure.mysql.FlexibleServer("exampleFlexibleServer", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ * });
+ * const exampleFlexibleServerFirewallRule = new azure.mysql.FlexibleServerFirewallRule("exampleFlexibleServerFirewallRule", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     serverName: exampleFlexibleServer.name,
+ *     startIpAddress: "0.0.0.0",
+ *     endIpAddress: "0.0.0.0",
+ * });
+ * ```
  *
  * ## Import
  *

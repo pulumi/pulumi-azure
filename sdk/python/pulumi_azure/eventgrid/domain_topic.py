@@ -175,6 +175,24 @@ class DomainTopic(pulumi.CustomResource):
         """
         Manages an EventGrid Domain Topic
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_domain = azure.eventgrid.Domain("exampleDomain",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            tags={
+                "environment": "Production",
+            })
+        example_domain_topic = azure.eventgrid.DomainTopic("exampleDomainTopic",
+            domain_name=example_domain.name,
+            resource_group_name=example_resource_group.name)
+        ```
+
         ## Import
 
         EventGrid Domain Topics can be imported using the `resource id`, e.g.
@@ -197,6 +215,24 @@ class DomainTopic(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an EventGrid Domain Topic
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_domain = azure.eventgrid.Domain("exampleDomain",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            tags={
+                "environment": "Production",
+            })
+        example_domain_topic = azure.eventgrid.DomainTopic("exampleDomainTopic",
+            domain_name=example_domain.name,
+            resource_group_name=example_resource_group.name)
+        ```
 
         ## Import
 

@@ -15,6 +15,70 @@ import (
 
 // Manages a Backup Policy Disk.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dataprotection"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleBackupVault, err := dataprotection.NewBackupVault(ctx, "exampleBackupVault", &dataprotection.BackupVaultArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				DatastoreType:     pulumi.String("VaultStore"),
+//				Redundancy:        pulumi.String("LocallyRedundant"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = dataprotection.NewBackupPolicyDisk(ctx, "exampleBackupPolicyDisk", &dataprotection.BackupPolicyDiskArgs{
+//				VaultId: exampleBackupVault.ID(),
+//				BackupRepeatingTimeIntervals: pulumi.StringArray{
+//					pulumi.String("R/2021-05-19T06:33:16+00:00/PT4H"),
+//				},
+//				DefaultRetentionDuration: pulumi.String("P7D"),
+//				RetentionRules: dataprotection.BackupPolicyDiskRetentionRuleArray{
+//					&dataprotection.BackupPolicyDiskRetentionRuleArgs{
+//						Name:     pulumi.String("Daily"),
+//						Duration: pulumi.String("P7D"),
+//						Priority: pulumi.Int(25),
+//						Criteria: &dataprotection.BackupPolicyDiskRetentionRuleCriteriaArgs{
+//							AbsoluteCriteria: pulumi.String("FirstOfDay"),
+//						},
+//					},
+//					&dataprotection.BackupPolicyDiskRetentionRuleArgs{
+//						Name:     pulumi.String("Weekly"),
+//						Duration: pulumi.String("P7D"),
+//						Priority: pulumi.Int(20),
+//						Criteria: &dataprotection.BackupPolicyDiskRetentionRuleCriteriaArgs{
+//							AbsoluteCriteria: pulumi.String("FirstOfWeek"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Backup Policy Disks can be imported using the `resource id`, e.g.

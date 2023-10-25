@@ -15,6 +15,67 @@ import (
 
 // Manages an Azure Container Registry token. Tokens are a preview feature only available in Premium SKU Container registries.
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleRegistry, err := containerservice.NewRegistry(ctx, "exampleRegistry", &containerservice.RegistryArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				Sku:               pulumi.String("Premium"),
+//				AdminEnabled:      pulumi.Bool(false),
+//				Georeplications: containerservice.RegistryGeoreplicationArray{
+//					&containerservice.RegistryGeoreplicationArgs{
+//						Location: pulumi.String("East US"),
+//					},
+//					&containerservice.RegistryGeoreplicationArgs{
+//						Location: pulumi.String("West Europe"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleRegistryScopeMap, err := containerservice.NewRegistryScopeMap(ctx, "exampleRegistryScopeMap", &containerservice.RegistryScopeMapArgs{
+//				ContainerRegistryName: exampleRegistry.Name,
+//				ResourceGroupName:     exampleResourceGroup.Name,
+//				Actions: pulumi.StringArray{
+//					pulumi.String("repositories/repo1/content/read"),
+//					pulumi.String("repositories/repo1/content/write"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = containerservice.NewRegistryToken(ctx, "exampleRegistryToken", &containerservice.RegistryTokenArgs{
+//				ContainerRegistryName: exampleRegistry.Name,
+//				ResourceGroupName:     exampleResourceGroup.Name,
+//				ScopeMapId:            exampleRegistryScopeMap.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Container Registries can be imported using the `resource id`, e.g.

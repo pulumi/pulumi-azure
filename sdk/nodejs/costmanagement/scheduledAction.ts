@@ -7,6 +7,25 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Cost Management Scheduled Action.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.costmanagement.ScheduledAction("example", {
+ *     displayName: "Report Last 6 Months",
+ *     emailAddressSender: "platformteam@test.com",
+ *     emailAddresses: ["example@example.com"],
+ *     emailSubject: "Cost Management Report",
+ *     endDate: "2023-02-02T00:00:00Z",
+ *     frequency: "Daily",
+ *     message: "Hi all, take a look at last 6 months spending!",
+ *     startDate: "2023-01-02T00:00:00Z",
+ *     viewId: "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.CostManagement/views/ms:CostByService",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Azure Cost Management Scheduled Actions can be imported using the `resource id`, e.g.

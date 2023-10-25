@@ -15,6 +15,53 @@ import (
 
 // Sets a Coordinator Configuration value on Azure Cosmos DB for PostgreSQL Cluster.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := core.NewResourceGroup(ctx, "test", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePostgresqlCluster, err := cosmosdb.NewPostgresqlCluster(ctx, "examplePostgresqlCluster", &cosmosdb.PostgresqlClusterArgs{
+//				ResourceGroupName:           pulumi.Any(azurerm_resource_group.Example.Name),
+//				Location:                    pulumi.Any(azurerm_resource_group.Example.Location),
+//				AdministratorLoginPassword:  pulumi.String("H@Sh1CoR3!"),
+//				CoordinatorStorageQuotaInMb: pulumi.Int(131072),
+//				CoordinatorVcoreCount:       pulumi.Int(2),
+//				NodeCount:                   pulumi.Int(2),
+//				NodeStorageQuotaInMb:        pulumi.Int(131072),
+//				NodeVcores:                  pulumi.Int(2),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cosmosdb.NewPostgresqlCoordinatorConfiguration(ctx, "examplePostgresqlCoordinatorConfiguration", &cosmosdb.PostgresqlCoordinatorConfigurationArgs{
+//				ClusterId: examplePostgresqlCluster.ID(),
+//				Value:     pulumi.String("on"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Coordinator Configurations on Azure Cosmos DB for PostgreSQL Clusters can be imported using the `resource id`, e.g.

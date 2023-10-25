@@ -141,6 +141,17 @@ def get_namespace(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Notification Hub Namespace.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.notificationhub.get_namespace(name="my-namespace",
+        resource_group_name="my-resource-group")
+    pulumi.export("servicebusEndpoint", example.servicebus_endpoint)
+    ```
+
 
     :param str name: Specifies the Name of the Notification Hub Namespace.
     :param str resource_group_name: Specifies the Name of the Resource Group within which the Notification Hub exists.
@@ -169,6 +180,17 @@ def get_namespace_output(name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNamespaceResult]:
     """
     Use this data source to access information about an existing Notification Hub Namespace.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.notificationhub.get_namespace(name="my-namespace",
+        resource_group_name="my-resource-group")
+    pulumi.export("servicebusEndpoint", example.servicebus_endpoint)
+    ```
 
 
     :param str name: Specifies the Name of the Notification Hub Namespace.

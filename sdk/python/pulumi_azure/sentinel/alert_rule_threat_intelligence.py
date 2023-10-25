@@ -212,6 +212,34 @@ class AlertRuleThreatIntelligence(pulumi.CustomResource):
         """
         Manages a Sentinel Threat Intelligence Alert Rule.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="pergb2018")
+        example_analytics_solution = azure.operationalinsights.AnalyticsSolution("exampleAnalyticsSolution",
+            solution_name="SecurityInsights",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            workspace_resource_id=example_analytics_workspace.id,
+            workspace_name=example_analytics_workspace.name,
+            plan=azure.operationalinsights.AnalyticsSolutionPlanArgs(
+                publisher="Microsoft",
+                product="OMSGallery/SecurityInsights",
+            ))
+        example_alert_rule_template = azure.sentinel.get_alert_rule_template_output(display_name="(Preview) Microsoft Defender Threat Intelligence Analytics",
+            log_analytics_workspace_id=example_analytics_solution.workspace_resource_id)
+        example_alert_rule_threat_intelligence = azure.sentinel.AlertRuleThreatIntelligence("exampleAlertRuleThreatIntelligence",
+            log_analytics_workspace_id=example_analytics_solution.workspace_resource_id,
+            alert_rule_template_guid=example_alert_rule_template.name)
+        ```
+
         ## Import
 
         Sentinel Threat Intelligence Alert Rules can be imported using the `resource id`, e.g.
@@ -235,6 +263,34 @@ class AlertRuleThreatIntelligence(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Sentinel Threat Intelligence Alert Rule.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="pergb2018")
+        example_analytics_solution = azure.operationalinsights.AnalyticsSolution("exampleAnalyticsSolution",
+            solution_name="SecurityInsights",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            workspace_resource_id=example_analytics_workspace.id,
+            workspace_name=example_analytics_workspace.name,
+            plan=azure.operationalinsights.AnalyticsSolutionPlanArgs(
+                publisher="Microsoft",
+                product="OMSGallery/SecurityInsights",
+            ))
+        example_alert_rule_template = azure.sentinel.get_alert_rule_template_output(display_name="(Preview) Microsoft Defender Threat Intelligence Analytics",
+            log_analytics_workspace_id=example_analytics_solution.workspace_resource_id)
+        example_alert_rule_threat_intelligence = azure.sentinel.AlertRuleThreatIntelligence("exampleAlertRuleThreatIntelligence",
+            log_analytics_workspace_id=example_analytics_solution.workspace_resource_id,
+            alert_rule_template_guid=example_alert_rule_template.name)
+        ```
 
         ## Import
 

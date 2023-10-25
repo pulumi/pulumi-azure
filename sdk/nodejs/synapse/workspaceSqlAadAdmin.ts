@@ -7,6 +7,74 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Active Directory SQL Administrator setting for a Synapse Workspace
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ *     accountKind: "StorageV2",
+ *     isHnsEnabled: true,
+ * });
+ * const exampleDataLakeGen2Filesystem = new azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", {storageAccountId: exampleAccount.id});
+ * const current = azure.core.getClientConfig({});
+ * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     tenantId: current.then(current => current.tenantId),
+ *     skuName: "standard",
+ *     purgeProtectionEnabled: true,
+ * });
+ * const deployer = new azure.keyvault.AccessPolicy("deployer", {
+ *     keyVaultId: exampleKeyVault.id,
+ *     tenantId: current.then(current => current.tenantId),
+ *     objectId: current.then(current => current.objectId),
+ *     keyPermissions: [
+ *         "Create",
+ *         "Get",
+ *         "Delete",
+ *         "Purge",
+ *         "GetRotationPolicy",
+ *     ],
+ * });
+ * const exampleKey = new azure.keyvault.Key("exampleKey", {
+ *     keyVaultId: exampleKeyVault.id,
+ *     keyType: "RSA",
+ *     keySize: 2048,
+ *     keyOpts: [
+ *         "unwrapKey",
+ *         "wrapKey",
+ *     ],
+ * }, {
+ *     dependsOn: [deployer],
+ * });
+ * const exampleWorkspace = new azure.synapse.Workspace("exampleWorkspace", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     storageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.id,
+ *     sqlAdministratorLogin: "sqladminuser",
+ *     sqlAdministratorLoginPassword: "H@Sh1CoR3!",
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ *     tags: {
+ *         Env: "production",
+ *     },
+ * });
+ * const exampleWorkspaceSqlAadAdmin = new azure.synapse.WorkspaceSqlAadAdmin("exampleWorkspaceSqlAadAdmin", {
+ *     synapseWorkspaceId: exampleWorkspace.id,
+ *     login: "AzureAD Admin",
+ *     objectId: current.then(current => current.objectId),
+ *     tenantId: current.then(current => current.tenantId),
+ * });
+ * ```
+ *
  * ## Import
  *
  * Synapse Workspace Azure AD Administrator can be imported using the `resource id`, e.g.

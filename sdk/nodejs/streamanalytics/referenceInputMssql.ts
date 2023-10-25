@@ -7,6 +7,41 @@ import * as utilities from "../utilities";
 /**
  * Manages a Stream Analytics Reference Input from MS SQL. Reference data (also known as a lookup table) is a finite data set that is static or slowly changing in nature, used to perform a lookup or to correlate with your data stream. Learn more [here](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-use-reference-data#azure-sql-database).
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleJob = azure.streamanalytics.getJobOutput({
+ *     name: "example-job",
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleServer = new azure.mssql.Server("exampleServer", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     version: "12.0",
+ *     administratorLogin: "admin",
+ *     administratorLoginPassword: "password",
+ * });
+ * const exampleDatabase = new azure.mssql.Database("exampleDatabase", {serverId: exampleServer.id});
+ * const exampleReferenceInputMssql = new azure.streamanalytics.ReferenceInputMssql("exampleReferenceInputMssql", {
+ *     resourceGroupName: exampleJob.apply(exampleJob => exampleJob.resourceGroupName),
+ *     streamAnalyticsJobName: exampleJob.apply(exampleJob => exampleJob.name),
+ *     server: exampleServer.fullyQualifiedDomainName,
+ *     database: exampleDatabase.name,
+ *     username: "exampleuser",
+ *     password: "examplepassword",
+ *     refreshType: "RefreshPeriodicallyWithFull",
+ *     refreshIntervalDuration: "00:20:00",
+ *     fullSnapshotQuery: `    SELECT *
+ *     INTO [YourOutputAlias]
+ *     FROM [YourInputAlias]
+ * `,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Stream Analytics can be imported using the `resource id`, e.g.

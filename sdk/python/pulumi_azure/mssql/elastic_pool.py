@@ -544,6 +544,37 @@ class ElasticPool(pulumi.CustomResource):
         """
         Allows you to manage an Azure SQL Elastic Pool via the `v3.0` API which allows for `vCore` and `DTU` based configurations.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_server = azure.mssql.Server("exampleServer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            version="12.0",
+            administrator_login="4dm1n157r470r",
+            administrator_login_password="4-v3ry-53cr37-p455w0rd")
+        example_elastic_pool = azure.mssql.ElasticPool("exampleElasticPool",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            server_name=example_server.name,
+            license_type="LicenseIncluded",
+            max_size_gb=756,
+            sku=azure.mssql.ElasticPoolSkuArgs(
+                name="BasicPool",
+                tier="Basic",
+                family="Gen4",
+                capacity=4,
+            ),
+            per_database_settings=azure.mssql.ElasticPoolPerDatabaseSettingsArgs(
+                min_capacity=0.25,
+                max_capacity=4,
+            ))
+        ```
+
         ## Import
 
         SQL Elastic Pool can be imported using the `resource id`, e.g.
@@ -577,6 +608,37 @@ class ElasticPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Allows you to manage an Azure SQL Elastic Pool via the `v3.0` API which allows for `vCore` and `DTU` based configurations.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_server = azure.mssql.Server("exampleServer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            version="12.0",
+            administrator_login="4dm1n157r470r",
+            administrator_login_password="4-v3ry-53cr37-p455w0rd")
+        example_elastic_pool = azure.mssql.ElasticPool("exampleElasticPool",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            server_name=example_server.name,
+            license_type="LicenseIncluded",
+            max_size_gb=756,
+            sku=azure.mssql.ElasticPoolSkuArgs(
+                name="BasicPool",
+                tier="Basic",
+                family="Gen4",
+                capacity=4,
+            ),
+            per_database_settings=azure.mssql.ElasticPoolPerDatabaseSettingsArgs(
+                min_capacity=0.25,
+                max_capacity=4,
+            ))
+        ```
 
         ## Import
 

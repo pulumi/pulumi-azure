@@ -696,6 +696,81 @@ class StreamingEndpoint(pulumi.CustomResource):
         """
         Manages a Streaming Endpoint.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="GRS")
+        example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
+                id=example_account.id,
+                is_primary=True,
+            )])
+        example_streaming_endpoint = azure.media.StreamingEndpoint("exampleStreamingEndpoint",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            media_services_account_name=example_service_account.name,
+            scale_units=2)
+        ```
+        ### With Access Control
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="GRS")
+        example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
+                id=example_account.id,
+                is_primary=True,
+            )])
+        example_streaming_endpoint = azure.media.StreamingEndpoint("exampleStreamingEndpoint",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            media_services_account_name=example_service_account.name,
+            scale_units=2,
+            access_control=azure.media.StreamingEndpointAccessControlArgs(
+                ip_allows=[
+                    azure.media.StreamingEndpointAccessControlIpAllowArgs(
+                        name="AllowedIP",
+                        address="192.168.1.1",
+                    ),
+                    azure.media.StreamingEndpointAccessControlIpAllowArgs(
+                        name="AnotherIp",
+                        address="192.168.1.2",
+                    ),
+                ],
+                akamai_signature_header_authentication_keys=[
+                    azure.media.StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs(
+                        identifier="id1",
+                        expiration="2030-12-31T16:00:00Z",
+                        base64_key="dGVzdGlkMQ==",
+                    ),
+                    azure.media.StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs(
+                        identifier="id2",
+                        expiration="2032-01-28T16:00:00Z",
+                        base64_key="dGVzdGlkMQ==",
+                    ),
+                ],
+            ))
+        ```
+
         ## Import
 
         Streaming Endpoints can be imported using the `resource id`, e.g.
@@ -730,6 +805,81 @@ class StreamingEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Streaming Endpoint.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="GRS")
+        example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
+                id=example_account.id,
+                is_primary=True,
+            )])
+        example_streaming_endpoint = azure.media.StreamingEndpoint("exampleStreamingEndpoint",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            media_services_account_name=example_service_account.name,
+            scale_units=2)
+        ```
+        ### With Access Control
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="GRS")
+        example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
+                id=example_account.id,
+                is_primary=True,
+            )])
+        example_streaming_endpoint = azure.media.StreamingEndpoint("exampleStreamingEndpoint",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            media_services_account_name=example_service_account.name,
+            scale_units=2,
+            access_control=azure.media.StreamingEndpointAccessControlArgs(
+                ip_allows=[
+                    azure.media.StreamingEndpointAccessControlIpAllowArgs(
+                        name="AllowedIP",
+                        address="192.168.1.1",
+                    ),
+                    azure.media.StreamingEndpointAccessControlIpAllowArgs(
+                        name="AnotherIp",
+                        address="192.168.1.2",
+                    ),
+                ],
+                akamai_signature_header_authentication_keys=[
+                    azure.media.StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs(
+                        identifier="id1",
+                        expiration="2030-12-31T16:00:00Z",
+                        base64_key="dGVzdGlkMQ==",
+                    ),
+                    azure.media.StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs(
+                        identifier="id2",
+                        expiration="2032-01-28T16:00:00Z",
+                        base64_key="dGVzdGlkMQ==",
+                    ),
+                ],
+            ))
+        ```
 
         ## Import
 

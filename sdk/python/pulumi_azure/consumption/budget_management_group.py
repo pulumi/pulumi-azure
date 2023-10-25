@@ -368,6 +368,58 @@ class BudgetManagementGroup(pulumi.CustomResource):
         """
         Manages a Consumption Budget for a Management Group.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_group = azure.management.Group("exampleGroup", display_name="example")
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="eastus")
+        example_budget_management_group = azure.consumption.BudgetManagementGroup("exampleBudgetManagementGroup",
+            management_group_id=example_group.id,
+            amount=1000,
+            time_grain="Monthly",
+            time_period=azure.consumption.BudgetManagementGroupTimePeriodArgs(
+                start_date="2022-06-01T00:00:00Z",
+                end_date="2022-07-01T00:00:00Z",
+            ),
+            filter=azure.consumption.BudgetManagementGroupFilterArgs(
+                dimensions=[azure.consumption.BudgetManagementGroupFilterDimensionArgs(
+                    name="ResourceGroupName",
+                    values=[example_resource_group.name],
+                )],
+                tags=[azure.consumption.BudgetManagementGroupFilterTagArgs(
+                    name="foo",
+                    values=[
+                        "bar",
+                        "baz",
+                    ],
+                )],
+            ),
+            notifications=[
+                azure.consumption.BudgetManagementGroupNotificationArgs(
+                    enabled=True,
+                    threshold=90,
+                    operator="EqualTo",
+                    contact_emails=[
+                        "foo@example.com",
+                        "bar@example.com",
+                    ],
+                ),
+                azure.consumption.BudgetManagementGroupNotificationArgs(
+                    enabled=False,
+                    threshold=100,
+                    operator="GreaterThan",
+                    threshold_type="Forecasted",
+                    contact_emails=[
+                        "foo@example.com",
+                        "bar@example.com",
+                    ],
+                ),
+            ])
+        ```
+
         ## Import
 
         Management Group Consumption Budgets can be imported using the `resource id`, e.g.
@@ -395,6 +447,58 @@ class BudgetManagementGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Consumption Budget for a Management Group.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_group = azure.management.Group("exampleGroup", display_name="example")
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="eastus")
+        example_budget_management_group = azure.consumption.BudgetManagementGroup("exampleBudgetManagementGroup",
+            management_group_id=example_group.id,
+            amount=1000,
+            time_grain="Monthly",
+            time_period=azure.consumption.BudgetManagementGroupTimePeriodArgs(
+                start_date="2022-06-01T00:00:00Z",
+                end_date="2022-07-01T00:00:00Z",
+            ),
+            filter=azure.consumption.BudgetManagementGroupFilterArgs(
+                dimensions=[azure.consumption.BudgetManagementGroupFilterDimensionArgs(
+                    name="ResourceGroupName",
+                    values=[example_resource_group.name],
+                )],
+                tags=[azure.consumption.BudgetManagementGroupFilterTagArgs(
+                    name="foo",
+                    values=[
+                        "bar",
+                        "baz",
+                    ],
+                )],
+            ),
+            notifications=[
+                azure.consumption.BudgetManagementGroupNotificationArgs(
+                    enabled=True,
+                    threshold=90,
+                    operator="EqualTo",
+                    contact_emails=[
+                        "foo@example.com",
+                        "bar@example.com",
+                    ],
+                ),
+                azure.consumption.BudgetManagementGroupNotificationArgs(
+                    enabled=False,
+                    threshold=100,
+                    operator="GreaterThan",
+                    threshold_type="Forecasted",
+                    contact_emails=[
+                        "foo@example.com",
+                        "bar@example.com",
+                    ],
+                ),
+            ])
+        ```
 
         ## Import
 

@@ -504,6 +504,37 @@ class OutputEventHub(pulumi.CustomResource):
         """
         Manages a Stream Analytics Output to an EventHub.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_job = azure.streamanalytics.get_job_output(name="example-job",
+            resource_group_name=example_resource_group.name)
+        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard",
+            capacity=1)
+        example_event_hub = azure.eventhub.EventHub("exampleEventHub",
+            namespace_name=example_event_hub_namespace.name,
+            resource_group_name=example_resource_group.name,
+            partition_count=2,
+            message_retention=1)
+        example_output_event_hub = azure.streamanalytics.OutputEventHub("exampleOutputEventHub",
+            stream_analytics_job_name=example_job.name,
+            resource_group_name=example_job.resource_group_name,
+            eventhub_name=example_event_hub.name,
+            servicebus_namespace=example_event_hub_namespace.name,
+            shared_access_policy_key=example_event_hub_namespace.default_primary_key,
+            shared_access_policy_name="RootManageSharedAccessKey",
+            serialization=azure.streamanalytics.OutputEventHubSerializationArgs(
+                type="Avro",
+            ))
+        ```
+
         ## Import
 
         Stream Analytics Outputs to an EventHub can be imported using the `resource id`, e.g.
@@ -534,6 +565,37 @@ class OutputEventHub(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Stream Analytics Output to an EventHub.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_job = azure.streamanalytics.get_job_output(name="example-job",
+            resource_group_name=example_resource_group.name)
+        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard",
+            capacity=1)
+        example_event_hub = azure.eventhub.EventHub("exampleEventHub",
+            namespace_name=example_event_hub_namespace.name,
+            resource_group_name=example_resource_group.name,
+            partition_count=2,
+            message_retention=1)
+        example_output_event_hub = azure.streamanalytics.OutputEventHub("exampleOutputEventHub",
+            stream_analytics_job_name=example_job.name,
+            resource_group_name=example_job.resource_group_name,
+            eventhub_name=example_event_hub.name,
+            servicebus_namespace=example_event_hub_namespace.name,
+            shared_access_policy_key=example_event_hub_namespace.default_primary_key,
+            shared_access_policy_name="RootManageSharedAccessKey",
+            serialization=azure.streamanalytics.OutputEventHubSerializationArgs(
+                type="Avro",
+            ))
+        ```
 
         ## Import
 

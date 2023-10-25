@@ -99,6 +99,18 @@ def get_registry_scope_map(container_registry_name: Optional[str] = None,
     """
     Use this data source to access information about an existing Container Registry scope map.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.containerservice.get_registry_scope_map(name="example-scope-map",
+        resource_group_name="example-resource-group",
+        container_registry_name="example-registry")
+    pulumi.export("actions", example.actions)
+    ```
+
 
     :param str container_registry_name: The Name of the Container Registry where the token exists.
     :param str name: The name of the Container Registry token.
@@ -127,6 +139,18 @@ def get_registry_scope_map_output(container_registry_name: Optional[pulumi.Input
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistryScopeMapResult]:
     """
     Use this data source to access information about an existing Container Registry scope map.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.containerservice.get_registry_scope_map(name="example-scope-map",
+        resource_group_name="example-resource-group",
+        container_registry_name="example-registry")
+    pulumi.export("actions", example.actions)
+    ```
 
 
     :param str container_registry_name: The Name of the Container Registry where the token exists.

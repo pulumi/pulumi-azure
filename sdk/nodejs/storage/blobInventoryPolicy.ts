@@ -9,6 +9,42 @@ import * as utilities from "../utilities";
 /**
  * Manages a Storage Blob Inventory Policy.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ *     blobProperties: {
+ *         versioningEnabled: true,
+ *     },
+ * });
+ * const exampleContainer = new azure.storage.Container("exampleContainer", {
+ *     storageAccountName: exampleAccount.name,
+ *     containerAccessType: "private",
+ * });
+ * const exampleBlobInventoryPolicy = new azure.storage.BlobInventoryPolicy("exampleBlobInventoryPolicy", {
+ *     storageAccountId: exampleAccount.id,
+ *     rules: [{
+ *         name: "rule1",
+ *         storageContainerName: exampleContainer.name,
+ *         format: "Csv",
+ *         schedule: "Daily",
+ *         scope: "Container",
+ *         schemaFields: [
+ *             "Name",
+ *             "Last-Modified",
+ *         ],
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Storage Blob Inventory Policies can be imported using the `resource id`, e.g.

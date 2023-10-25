@@ -9,6 +9,28 @@ import * as utilities from "../utilities";
  *
  * > **Note:** The `azure.sql.FirewallRule` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.FirewallRule` resource instead.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleSqlServer = new azure.sql.SqlServer("exampleSqlServer", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     version: "12.0",
+ *     administratorLogin: "4dm1n157r470r",
+ *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
+ * });
+ * const exampleFirewallRule = new azure.sql.FirewallRule("exampleFirewallRule", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     serverName: exampleSqlServer.name,
+ *     startIpAddress: "10.0.17.62",
+ *     endIpAddress: "10.0.17.62",
+ * });
+ * ```
+ *
  * ## Import
  *
  * SQL Firewall Rules can be imported using the `resource id`, e.g.

@@ -12,6 +12,107 @@ namespace Pulumi.Azure.Monitoring
     /// <summary>
     /// Manages a LogToMetricAction Scheduled Query Rules resource within Azure Monitor.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "PerGB2018",
+    ///         RetentionInDays = 30,
+    ///     });
+    /// 
+    ///     var exampleActionGroup = new Azure.Monitoring.ActionGroup("exampleActionGroup", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ShortName = "exampleact",
+    ///         WebhookReceivers = new[]
+    ///         {
+    ///             new Azure.Monitoring.Inputs.ActionGroupWebhookReceiverArgs
+    ///             {
+    ///                 Name = "callmyapi",
+    ///                 ServiceUri = "http://example.com/alert",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     // Example: Creates alert using the new Scheduled Query Rules metric
+    ///     var exampleMetricAlert = new Azure.Monitoring.MetricAlert("exampleMetricAlert", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Scopes = new[]
+    ///         {
+    ///             exampleAnalyticsWorkspace.Id,
+    ///         },
+    ///         Description = "Action will be triggered when Average_% Idle Time metric is less than 10.",
+    ///         Frequency = "PT1M",
+    ///         WindowSize = "PT5M",
+    ///         Criterias = new[]
+    ///         {
+    ///             new Azure.Monitoring.Inputs.MetricAlertCriteriaArgs
+    ///             {
+    ///                 MetricNamespace = "Microsoft.OperationalInsights/workspaces",
+    ///                 MetricName = "UsedCapacity",
+    ///                 Aggregation = "Average",
+    ///                 Operator = "LessThan",
+    ///                 Threshold = 10,
+    ///             },
+    ///         },
+    ///         Actions = new[]
+    ///         {
+    ///             new Azure.Monitoring.Inputs.MetricAlertActionArgs
+    ///             {
+    ///                 ActionGroupId = exampleActionGroup.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     // Example: LogToMetric Action for the named Computer
+    ///     var exampleScheduledQueryRulesLog = new Azure.Monitoring.ScheduledQueryRulesLog("exampleScheduledQueryRulesLog", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Criteria = new Azure.Monitoring.Inputs.ScheduledQueryRulesLogCriteriaArgs
+    ///         {
+    ///             MetricName = "Average_% Idle Time",
+    ///             Dimensions = new[]
+    ///             {
+    ///                 new Azure.Monitoring.Inputs.ScheduledQueryRulesLogCriteriaDimensionArgs
+    ///                 {
+    ///                     Name = "Computer",
+    ///                     Operator = "Include",
+    ///                     Values = new[]
+    ///                     {
+    ///                         "targetVM",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         DataSourceId = exampleAnalyticsWorkspace.Id,
+    ///         Description = "Scheduled query rule LogToMetric example",
+    ///         Enabled = true,
+    ///         Tags = 
+    ///         {
+    ///             { "foo", "bar" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Scheduled Query Rule Log can be imported using the `resource id`, e.g.

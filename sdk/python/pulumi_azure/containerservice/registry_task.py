@@ -791,6 +791,30 @@ class RegistryTask(pulumi.CustomResource):
         """
         Manages a Container Registry Task.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_registry = azure.containerservice.Registry("exampleRegistry",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku="Basic")
+        example_registry_task = azure.containerservice.RegistryTask("exampleRegistryTask",
+            container_registry_id=example_registry.id,
+            platform=azure.containerservice.RegistryTaskPlatformArgs(
+                os="Linux",
+            ),
+            docker_step=azure.containerservice.RegistryTaskDockerStepArgs(
+                dockerfile_path="Dockerfile",
+                context_path="https://github.com/<username>/<repository>#<branch>:<folder>",
+                context_access_token="<github personal access token>",
+                image_names=["helloworld:{{.Run.ID}}"],
+            ))
+        ```
+
         ## Import
 
         Container Registry Tasks can be imported using the `resource id`, e.g.
@@ -832,6 +856,30 @@ class RegistryTask(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Container Registry Task.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_registry = azure.containerservice.Registry("exampleRegistry",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku="Basic")
+        example_registry_task = azure.containerservice.RegistryTask("exampleRegistryTask",
+            container_registry_id=example_registry.id,
+            platform=azure.containerservice.RegistryTaskPlatformArgs(
+                os="Linux",
+            ),
+            docker_step=azure.containerservice.RegistryTaskDockerStepArgs(
+                dockerfile_path="Dockerfile",
+                context_path="https://github.com/<username>/<repository>#<branch>:<folder>",
+                context_access_token="<github personal access token>",
+                image_names=["helloworld:{{.Run.ID}}"],
+            ))
+        ```
 
         ## Import
 

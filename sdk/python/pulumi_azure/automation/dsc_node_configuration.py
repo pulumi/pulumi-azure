@@ -233,6 +233,50 @@ class DscNodeConfiguration(pulumi.CustomResource):
         """
         Manages a Automation DSC Node Configuration.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.automation.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="Basic")
+        example_dsc_configuration = azure.automation.DscConfiguration("exampleDscConfiguration",
+            resource_group_name=example_resource_group.name,
+            automation_account_name=example_account.name,
+            location=example_resource_group.location,
+            content_embedded="configuration test {}")
+        example_dsc_node_configuration = azure.automation.DscNodeConfiguration("exampleDscNodeConfiguration",
+            resource_group_name=example_resource_group.name,
+            automation_account_name=example_account.name,
+            content_embedded=\"\"\"instance of MSFT_FileDirectoryConfiguration as $MSFT_FileDirectoryConfiguration1ref
+        {
+          ResourceID = "[File]bla";
+          Ensure = "Present";
+          Contents = "bogus Content";
+          DestinationPath = "c:\\\\bogus.txt";
+          ModuleName = "PSDesiredStateConfiguration";
+          SourceInfo = "::3::9::file";
+          ModuleVersion = "1.0";
+          ConfigurationName = "bla";
+        };
+        instance of OMI_ConfigurationDocument
+        {
+          Version="2.0.0";
+          MinimumCompatibleVersion = "1.0.0";
+          CompatibleVersionAdditionalProperties= {"Omi_BaseResource:ConfigurationName"};
+          Author="bogusAuthor";
+          GenerationDate="06/15/2018 14:06:24";
+          GenerationHost="bogusComputer";
+          Name="test";
+        };
+        \"\"\",
+            opts=pulumi.ResourceOptions(depends_on=[example_dsc_configuration]))
+        ```
+
         ## Import
 
         Automation DSC Node Configuration's can be imported using the `resource id`, e.g.
@@ -256,6 +300,50 @@ class DscNodeConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Automation DSC Node Configuration.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.automation.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="Basic")
+        example_dsc_configuration = azure.automation.DscConfiguration("exampleDscConfiguration",
+            resource_group_name=example_resource_group.name,
+            automation_account_name=example_account.name,
+            location=example_resource_group.location,
+            content_embedded="configuration test {}")
+        example_dsc_node_configuration = azure.automation.DscNodeConfiguration("exampleDscNodeConfiguration",
+            resource_group_name=example_resource_group.name,
+            automation_account_name=example_account.name,
+            content_embedded=\"\"\"instance of MSFT_FileDirectoryConfiguration as $MSFT_FileDirectoryConfiguration1ref
+        {
+          ResourceID = "[File]bla";
+          Ensure = "Present";
+          Contents = "bogus Content";
+          DestinationPath = "c:\\\\bogus.txt";
+          ModuleName = "PSDesiredStateConfiguration";
+          SourceInfo = "::3::9::file";
+          ModuleVersion = "1.0";
+          ConfigurationName = "bla";
+        };
+        instance of OMI_ConfigurationDocument
+        {
+          Version="2.0.0";
+          MinimumCompatibleVersion = "1.0.0";
+          CompatibleVersionAdditionalProperties= {"Omi_BaseResource:ConfigurationName"};
+          Author="bogusAuthor";
+          GenerationDate="06/15/2018 14:06:24";
+          GenerationHost="bogusComputer";
+          Name="test";
+        };
+        \"\"\",
+            opts=pulumi.ResourceOptions(depends_on=[example_dsc_configuration]))
+        ```
 
         ## Import
 

@@ -422,6 +422,42 @@ class FailoverGroup(pulumi.CustomResource):
 
         > **Note:** The `sql.FailoverGroup` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.FailoverGroup` resource instead.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        primary = azure.sql.SqlServer("primary",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            version="12.0",
+            administrator_login="sqladmin",
+            administrator_login_password="pa$$w0rd")
+        secondary = azure.sql.SqlServer("secondary",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            version="12.0",
+            administrator_login="sqladmin",
+            administrator_login_password="pa$$w0rd")
+        db1 = azure.sql.Database("db1",
+            resource_group_name=primary.resource_group_name,
+            location=primary.location,
+            server_name=primary.name)
+        example_failover_group = azure.sql.FailoverGroup("exampleFailoverGroup",
+            resource_group_name=primary.resource_group_name,
+            server_name=primary.name,
+            databases=[db1.id],
+            partner_servers=[azure.sql.FailoverGroupPartnerServerArgs(
+                id=secondary.id,
+            )],
+            read_write_endpoint_failover_policy=azure.sql.FailoverGroupReadWriteEndpointFailoverPolicyArgs(
+                mode="Automatic",
+                grace_minutes=60,
+            ))
+        ```
+
         ## Import
 
         SQL Failover Groups can be imported using the `resource id`, e.g.
@@ -453,6 +489,42 @@ class FailoverGroup(pulumi.CustomResource):
         Create a failover group of databases on a collection of Azure SQL servers.
 
         > **Note:** The `sql.FailoverGroup` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.FailoverGroup` resource instead.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        primary = azure.sql.SqlServer("primary",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            version="12.0",
+            administrator_login="sqladmin",
+            administrator_login_password="pa$$w0rd")
+        secondary = azure.sql.SqlServer("secondary",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            version="12.0",
+            administrator_login="sqladmin",
+            administrator_login_password="pa$$w0rd")
+        db1 = azure.sql.Database("db1",
+            resource_group_name=primary.resource_group_name,
+            location=primary.location,
+            server_name=primary.name)
+        example_failover_group = azure.sql.FailoverGroup("exampleFailoverGroup",
+            resource_group_name=primary.resource_group_name,
+            server_name=primary.name,
+            databases=[db1.id],
+            partner_servers=[azure.sql.FailoverGroupPartnerServerArgs(
+                id=secondary.id,
+            )],
+            read_write_endpoint_failover_policy=azure.sql.FailoverGroupReadWriteEndpointFailoverPolicyArgs(
+                mode="Automatic",
+                grace_minutes=60,
+            ))
+        ```
 
         ## Import
 

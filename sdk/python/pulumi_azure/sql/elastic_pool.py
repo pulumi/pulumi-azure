@@ -470,6 +470,32 @@ class ElasticPool(pulumi.CustomResource):
 
         > **Note:** The `sql.ElasticPool` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.ElasticPool` resource instead.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_sql_server = azure.sql.SqlServer("exampleSqlServer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            version="12.0",
+            administrator_login="4dm1n157r470r",
+            administrator_login_password="4-v3ry-53cr37-p455w0rd")
+        example_elastic_pool = azure.sql.ElasticPool("exampleElasticPool",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            server_name=example_sql_server.name,
+            edition="Basic",
+            dtu=50,
+            db_dtu_min=0,
+            db_dtu_max=5,
+            pool_size=5000)
+        ```
+
+        > **NOTE on `sql.ElasticPool`:** -  The values of `edition`, `dtu`, and `pool_size` must be consistent with the [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus). Any inconsistent argument configuration will be rejected.
+
         ## Import
 
         SQL Elastic Pool's can be imported using the `resource id`, e.g.
@@ -501,6 +527,32 @@ class ElasticPool(pulumi.CustomResource):
         Allows you to manage an Azure SQL Elastic Pool.
 
         > **Note:** The `sql.ElasticPool` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.ElasticPool` resource instead.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_sql_server = azure.sql.SqlServer("exampleSqlServer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            version="12.0",
+            administrator_login="4dm1n157r470r",
+            administrator_login_password="4-v3ry-53cr37-p455w0rd")
+        example_elastic_pool = azure.sql.ElasticPool("exampleElasticPool",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            server_name=example_sql_server.name,
+            edition="Basic",
+            dtu=50,
+            db_dtu_min=0,
+            db_dtu_max=5,
+            pool_size=5000)
+        ```
+
+        > **NOTE on `sql.ElasticPool`:** -  The values of `edition`, `dtu`, and `pool_size` must be consistent with the [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus). Any inconsistent argument configuration will be rejected.
 
         ## Import
 

@@ -412,6 +412,17 @@ def get_compute_machine(name: Optional[str] = None,
 
     > **Note:** The  Data Source `hybrid_get_compute_machine` is deprecated will be removed in v4.0 of the Azure Provider - a replacement can be found in the form of the `arcmachine_get` Data Source.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.hybrid.get_compute_machine(name="existing-hcmachine",
+        resource_group_name="existing-rg")
+    pulumi.export("id", example.id)
+    ```
+
 
     :param str name: The name of this hybrid compute machine.
     :param str resource_group_name: The name of the Resource Group where the Hybrid Compute exists.
@@ -466,6 +477,17 @@ def get_compute_machine_output(name: Optional[pulumi.Input[str]] = None,
     ## Disclaimers
 
     > **Note:** The  Data Source `hybrid_get_compute_machine` is deprecated will be removed in v4.0 of the Azure Provider - a replacement can be found in the form of the `arcmachine_get` Data Source.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.hybrid.get_compute_machine(name="existing-hcmachine",
+        resource_group_name="existing-rg")
+    pulumi.export("id", example.id)
+    ```
 
 
     :param str name: The name of this hybrid compute machine.

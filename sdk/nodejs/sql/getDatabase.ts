@@ -8,6 +8,20 @@ import * as utilities from "../utilities";
  * Use this data source to access information about an existing SQL Azure Database.
  *
  * > **Note:** The `azure.sql.Database` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.Database` data source instead.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.sql.getDatabase({
+ *     name: "example_db",
+ *     serverName: "example_db_server",
+ *     resourceGroupName: "example-resources",
+ * });
+ * export const sqlDatabaseId = example.then(example => example.id);
+ * ```
  */
 export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseResult> {
 
@@ -99,6 +113,20 @@ export interface GetDatabaseResult {
  * Use this data source to access information about an existing SQL Azure Database.
  *
  * > **Note:** The `azure.sql.Database` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.Database` data source instead.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.sql.getDatabase({
+ *     name: "example_db",
+ *     serverName: "example_db_server",
+ *     resourceGroupName: "example-resources",
+ * });
+ * export const sqlDatabaseId = example.then(example => example.id);
+ * ```
  */
 export function getDatabaseOutput(args: GetDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseResult> {
     return pulumi.output(args).apply((a: any) => getDatabase(a, opts))

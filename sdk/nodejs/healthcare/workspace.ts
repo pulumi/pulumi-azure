@@ -9,6 +9,18 @@ import * as utilities from "../utilities";
 /**
  * Manages a Healthcare workspace
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const test = new azure.healthcare.Workspace("test", {
+ *     location: "east us",
+ *     resourceGroupName: "tfex-resource_group",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Healthcare Workspaces can be imported using the resource`id`, e.g.

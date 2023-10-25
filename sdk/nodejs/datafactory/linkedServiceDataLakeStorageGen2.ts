@@ -7,6 +7,27 @@ import * as utilities from "../utilities";
 /**
  * Manages a Linked Service (connection) between Data Lake Storage Gen2 and Azure Data Factory.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const current = azure.core.getClientConfig({});
+ * const exampleLinkedServiceDataLakeStorageGen2 = new azure.datafactory.LinkedServiceDataLakeStorageGen2("exampleLinkedServiceDataLakeStorageGen2", {
+ *     dataFactoryId: exampleFactory.id,
+ *     servicePrincipalId: current.then(current => current.clientId),
+ *     servicePrincipalKey: "exampleKey",
+ *     tenant: "11111111-1111-1111-1111-111111111111",
+ *     url: "https://datalakestoragegen2",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Data Factory Data Lake Storage Gen2 Linked Services can be imported using the `resource id`, e.g.

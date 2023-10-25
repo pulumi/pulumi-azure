@@ -12,6 +12,133 @@ namespace Pulumi.Azure.PrivateLink
     /// <summary>
     /// Manages an association between Private Endpoint and Application Security Group.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Azure.Core.GetSubscription.Invoke();
+    /// 
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.5.0.0/16",
+    ///         },
+    ///     });
+    /// 
+    ///     var service = new Azure.Network.Subnet("service", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.5.1.0/24",
+    ///         },
+    ///         EnforcePrivateLinkServiceNetworkPolicies = true,
+    ///     });
+    /// 
+    ///     var endpoint = new Azure.Network.Subnet("endpoint", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.5.2.0/24",
+    ///         },
+    ///         EnforcePrivateLinkEndpointNetworkPolicies = true,
+    ///     });
+    /// 
+    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     {
+    ///         Sku = "Standard",
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AllocationMethod = "Static",
+    ///     });
+    /// 
+    ///     var exampleLoadBalancer = new Azure.Lb.LoadBalancer("exampleLoadBalancer", new()
+    ///     {
+    ///         Sku = "Standard",
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         FrontendIpConfigurations = new[]
+    ///         {
+    ///             new Azure.Lb.Inputs.LoadBalancerFrontendIpConfigurationArgs
+    ///             {
+    ///                 Name = examplePublicIp.Name,
+    ///                 PublicIpAddressId = examplePublicIp.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleLinkService = new Azure.PrivateDns.LinkService("exampleLinkService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AutoApprovalSubscriptionIds = new[]
+    ///         {
+    ///             current.Apply(getSubscriptionResult =&gt; getSubscriptionResult.SubscriptionId),
+    ///         },
+    ///         VisibilitySubscriptionIds = new[]
+    ///         {
+    ///             current.Apply(getSubscriptionResult =&gt; getSubscriptionResult.SubscriptionId),
+    ///         },
+    ///         NatIpConfigurations = new[]
+    ///         {
+    ///             new Azure.PrivateDns.Inputs.LinkServiceNatIpConfigurationArgs
+    ///             {
+    ///                 Name = "primaryIpConfiguration",
+    ///                 Primary = true,
+    ///                 SubnetId = service.Id,
+    ///             },
+    ///         },
+    ///         LoadBalancerFrontendIpConfigurationIds = new[]
+    ///         {
+    ///             exampleLoadBalancer.FrontendIpConfigurations.Apply(frontendIpConfigurations =&gt; frontendIpConfigurations[0]?.Id),
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleEndpoint = new Azure.PrivateLink.Endpoint("exampleEndpoint", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         SubnetId = endpoint.Id,
+    ///         PrivateServiceConnection = new Azure.PrivateLink.Inputs.EndpointPrivateServiceConnectionArgs
+    ///         {
+    ///             Name = exampleLinkService.Name,
+    ///             IsManualConnection = false,
+    ///             PrivateConnectionResourceId = exampleLinkService.Id,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleApplicationSecurityGroup = new Azure.Network.ApplicationSecurityGroup("exampleApplicationSecurityGroup", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleApplicationSecurityGroupAssociation = new Azure.PrivateLink.ApplicationSecurityGroupAssociation("exampleApplicationSecurityGroupAssociation", new()
+    ///     {
+    ///         PrivateEndpointId = exampleEndpoint.Id,
+    ///         ApplicationSecurityGroupId = exampleApplicationSecurityGroup.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Associations between Private Endpoint and Application Security Group can be imported using the `resource id`, e.g.

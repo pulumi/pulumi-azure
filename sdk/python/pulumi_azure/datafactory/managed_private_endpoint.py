@@ -261,6 +261,29 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
         """
         Manages a Data Factory Managed Private Endpoint.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_factory = azure.datafactory.Factory("exampleFactory",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            managed_virtual_network_enabled=True)
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_kind="BlobStorage",
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_managed_private_endpoint = azure.datafactory.ManagedPrivateEndpoint("exampleManagedPrivateEndpoint",
+            data_factory_id=example_factory.id,
+            target_resource_id=example_account.id,
+            subresource_name="blob")
+        ```
+
         ## Import
 
         Data Factory Managed Private Endpoint can be imported using the `resource id`, e.g.
@@ -287,6 +310,29 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Data Factory Managed Private Endpoint.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_factory = azure.datafactory.Factory("exampleFactory",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            managed_virtual_network_enabled=True)
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_kind="BlobStorage",
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_managed_private_endpoint = azure.datafactory.ManagedPrivateEndpoint("exampleManagedPrivateEndpoint",
+            data_factory_id=example_factory.id,
+            target_resource_id=example_account.id,
+            subresource_name="blob")
+        ```
 
         ## Import
 

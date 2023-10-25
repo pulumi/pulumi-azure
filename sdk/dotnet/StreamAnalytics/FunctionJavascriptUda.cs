@@ -12,6 +12,60 @@ namespace Pulumi.Azure.StreamAnalytics
     /// <summary>
     /// Manages a JavaScript UDA Function within a Stream Analytics Streaming Job.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = Azure.Core.GetResourceGroup.Invoke(new()
+    ///     {
+    ///         Name = "example-resources",
+    ///     });
+    /// 
+    ///     var exampleJob = Azure.StreamAnalytics.GetJob.Invoke(new()
+    ///     {
+    ///         Name = "example-job",
+    ///         ResourceGroupName = exampleResourceGroup.Apply(getResourceGroupResult =&gt; getResourceGroupResult.Name),
+    ///     });
+    /// 
+    ///     var exampleFunctionJavascriptUda = new Azure.StreamAnalytics.FunctionJavascriptUda("exampleFunctionJavascriptUda", new()
+    ///     {
+    ///         StreamAnalyticsJobId = exampleJob.Apply(getJobResult =&gt; getJobResult.Id),
+    ///         Script = @"function main() {
+    ///     this.init = function () {
+    ///         this.state = 0;
+    ///     }
+    /// 
+    ///     this.accumulate = function (value, timestamp) {
+    ///         this.state += value;
+    ///     }
+    /// 
+    ///     this.computeResult = function () {
+    ///         return this.state;
+    ///     }
+    /// }
+    /// ",
+    ///         Inputs = new[]
+    ///         {
+    ///             new Azure.StreamAnalytics.Inputs.FunctionJavascriptUdaInputArgs
+    ///             {
+    ///                 Type = "bigint",
+    ///             },
+    ///         },
+    ///         Output = new Azure.StreamAnalytics.Inputs.FunctionJavascriptUdaOutputArgs
+    ///         {
+    ///             Type = "bigint",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Stream Analytics JavaScript UDA Functions can be imported using the `resource id`, e.g.

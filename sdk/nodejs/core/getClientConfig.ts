@@ -6,6 +6,16 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access the configuration of the AzureRM provider.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const current = azure.core.getClientConfig({});
+ * export const accountId = current.then(current => current.clientId);
+ * ```
  */
 export function getClientConfig(opts?: pulumi.InvokeOptions): Promise<GetClientConfigResult> {
 
@@ -41,6 +51,16 @@ export interface GetClientConfigResult {
 }
 /**
  * Use this data source to access the configuration of the AzureRM provider.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const current = azure.core.getClientConfig({});
+ * export const accountId = current.then(current => current.clientId);
+ * ```
  */
 export function getClientConfigOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetClientConfigResult> {
     return pulumi.output(getClientConfig(opts))

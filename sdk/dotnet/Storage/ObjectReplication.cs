@@ -12,6 +12,81 @@ namespace Pulumi.Azure.Storage
     /// <summary>
     /// Manages a Storage Object Replication.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var srcResourceGroup = new Azure.Core.ResourceGroup("srcResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var srcAccount = new Azure.Storage.Account("srcAccount", new()
+    ///     {
+    ///         ResourceGroupName = srcResourceGroup.Name,
+    ///         Location = srcResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///         BlobProperties = new Azure.Storage.Inputs.AccountBlobPropertiesArgs
+    ///         {
+    ///             VersioningEnabled = true,
+    ///             ChangeFeedEnabled = true,
+    ///         },
+    ///     });
+    /// 
+    ///     var srcContainer = new Azure.Storage.Container("srcContainer", new()
+    ///     {
+    ///         StorageAccountName = srcAccount.Name,
+    ///         ContainerAccessType = "private",
+    ///     });
+    /// 
+    ///     var dstResourceGroup = new Azure.Core.ResourceGroup("dstResourceGroup", new()
+    ///     {
+    ///         Location = "East US",
+    ///     });
+    /// 
+    ///     var dstAccount = new Azure.Storage.Account("dstAccount", new()
+    ///     {
+    ///         ResourceGroupName = dstResourceGroup.Name,
+    ///         Location = dstResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///         BlobProperties = new Azure.Storage.Inputs.AccountBlobPropertiesArgs
+    ///         {
+    ///             VersioningEnabled = true,
+    ///             ChangeFeedEnabled = true,
+    ///         },
+    ///     });
+    /// 
+    ///     var dstContainer = new Azure.Storage.Container("dstContainer", new()
+    ///     {
+    ///         StorageAccountName = dstAccount.Name,
+    ///         ContainerAccessType = "private",
+    ///     });
+    /// 
+    ///     var example = new Azure.Storage.ObjectReplication("example", new()
+    ///     {
+    ///         SourceStorageAccountId = srcAccount.Id,
+    ///         DestinationStorageAccountId = dstAccount.Id,
+    ///         Rules = new[]
+    ///         {
+    ///             new Azure.Storage.Inputs.ObjectReplicationRuleArgs
+    ///             {
+    ///                 SourceContainerName = srcContainer.Name,
+    ///                 DestinationContainerName = dstContainer.Name,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Storage Object Replication Policies can be imported using the `resource id`, e.g.

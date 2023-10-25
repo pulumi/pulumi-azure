@@ -13,12 +13,70 @@ namespace Pulumi.Azure.Mobile
     {
         /// <summary>
         /// Get information about a Mobile Network Sim Group.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleNetwork = Azure.Mobile.GetNetwork.Invoke(new()
+        ///     {
+        ///         Name = "example-mn",
+        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///     });
+        /// 
+        ///     var exampleNetworkSimGroup = Azure.Mobile.GetNetworkSimGroup.Invoke(new()
+        ///     {
+        ///         Name = "example-mnsg",
+        ///         MobileNetworkId = exampleNetwork.Apply(getNetworkResult =&gt; getNetworkResult.Id),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetNetworkSimGroupResult> InvokeAsync(GetNetworkSimGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkSimGroupResult>("azure:mobile/getNetworkSimGroup:getNetworkSimGroup", args ?? new GetNetworkSimGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get information about a Mobile Network Sim Group.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleNetwork = Azure.Mobile.GetNetwork.Invoke(new()
+        ///     {
+        ///         Name = "example-mn",
+        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///     });
+        /// 
+        ///     var exampleNetworkSimGroup = Azure.Mobile.GetNetworkSimGroup.Invoke(new()
+        ///     {
+        ///         Name = "example-mnsg",
+        ///         MobileNetworkId = exampleNetwork.Apply(getNetworkResult =&gt; getNetworkResult.Id),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetNetworkSimGroupResult> Invoke(GetNetworkSimGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkSimGroupResult>("azure:mobile/getNetworkSimGroup:getNetworkSimGroup", args ?? new GetNetworkSimGroupInvokeArgs(), options.WithDefaults());

@@ -13,12 +13,60 @@ namespace Pulumi.Azure.SiteRecovery
     {
         /// <summary>
         /// Use this data source to access information about an existing Azure Site Recovery replication policy.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var policy = Azure.SiteRecovery.GetReplicationPolicy.Invoke(new()
+        ///     {
+        ///         Name = "replication-policy",
+        ///         RecoveryVaultName = "tfex-recovery_vault",
+        ///         ResourceGroupName = "tfex-resource_group",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetReplicationPolicyResult> InvokeAsync(GetReplicationPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReplicationPolicyResult>("azure:siterecovery/getReplicationPolicy:getReplicationPolicy", args ?? new GetReplicationPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Azure Site Recovery replication policy.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var policy = Azure.SiteRecovery.GetReplicationPolicy.Invoke(new()
+        ///     {
+        ///         Name = "replication-policy",
+        ///         RecoveryVaultName = "tfex-recovery_vault",
+        ///         ResourceGroupName = "tfex-resource_group",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetReplicationPolicyResult> Invoke(GetReplicationPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicationPolicyResult>("azure:siterecovery/getReplicationPolicy:getReplicationPolicy", args ?? new GetReplicationPolicyInvokeArgs(), options.WithDefaults());

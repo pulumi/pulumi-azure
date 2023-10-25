@@ -25,6 +25,89 @@ import (
 // * Use Front Door to improve application performance with SSL offload and routing requests to the fastest available application backend.
 // * Use Front Door for application layer security and DDoS protection for your application.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/frontdoor"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = frontdoor.NewFrontdoor(ctx, "exampleFrontdoor", &frontdoor.FrontdoorArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				RoutingRules: frontdoor.FrontdoorRoutingRuleArray{
+//					&frontdoor.FrontdoorRoutingRuleArgs{
+//						Name: pulumi.String("exampleRoutingRule1"),
+//						AcceptedProtocols: pulumi.StringArray{
+//							pulumi.String("Http"),
+//							pulumi.String("Https"),
+//						},
+//						PatternsToMatches: pulumi.StringArray{
+//							pulumi.String("/*"),
+//						},
+//						FrontendEndpoints: pulumi.StringArray{
+//							pulumi.String("exampleFrontendEndpoint1"),
+//						},
+//						ForwardingConfiguration: &frontdoor.FrontdoorRoutingRuleForwardingConfigurationArgs{
+//							ForwardingProtocol: pulumi.String("MatchRequest"),
+//							BackendPoolName:    pulumi.String("exampleBackendBing"),
+//						},
+//					},
+//				},
+//				BackendPoolLoadBalancings: frontdoor.FrontdoorBackendPoolLoadBalancingArray{
+//					&frontdoor.FrontdoorBackendPoolLoadBalancingArgs{
+//						Name: pulumi.String("exampleLoadBalancingSettings1"),
+//					},
+//				},
+//				BackendPoolHealthProbes: frontdoor.FrontdoorBackendPoolHealthProbeArray{
+//					&frontdoor.FrontdoorBackendPoolHealthProbeArgs{
+//						Name: pulumi.String("exampleHealthProbeSetting1"),
+//					},
+//				},
+//				BackendPools: frontdoor.FrontdoorBackendPoolArray{
+//					&frontdoor.FrontdoorBackendPoolArgs{
+//						Name: pulumi.String("exampleBackendBing"),
+//						Backends: frontdoor.FrontdoorBackendPoolBackendArray{
+//							&frontdoor.FrontdoorBackendPoolBackendArgs{
+//								HostHeader: pulumi.String("www.bing.com"),
+//								Address:    pulumi.String("www.bing.com"),
+//								HttpPort:   pulumi.Int(80),
+//								HttpsPort:  pulumi.Int(443),
+//							},
+//						},
+//						LoadBalancingName: pulumi.String("exampleLoadBalancingSettings1"),
+//						HealthProbeName:   pulumi.String("exampleHealthProbeSetting1"),
+//					},
+//				},
+//				FrontendEndpoints: frontdoor.FrontdoorFrontendEndpointArray{
+//					&frontdoor.FrontdoorFrontendEndpointArgs{
+//						Name:     pulumi.String("exampleFrontendEndpoint1"),
+//						HostName: pulumi.String("example-FrontDoor.azurefd.net"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Front Doors can be imported using the `resource id`, e.g.

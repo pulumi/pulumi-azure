@@ -12,6 +12,40 @@ namespace Pulumi.Azure.Arc
     /// <summary>
     /// Manages an Arc Resource Bridge Appliance.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleResourceBridgeAppliance = new Azure.Arc.ResourceBridgeAppliance("exampleResourceBridgeAppliance", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Distro = "AKSEdge",
+    ///         InfrastructureProvider = "VMWare",
+    ///         Identity = new Azure.Arc.Inputs.ResourceBridgeApplianceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "hello", "world" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Arc Resource Bridge Appliance can be imported using the `resource id`, e.g.

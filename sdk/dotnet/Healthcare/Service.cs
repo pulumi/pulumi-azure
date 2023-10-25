@@ -12,6 +12,61 @@ namespace Pulumi.Azure.Healthcare
     /// <summary>
     /// Manages a Healthcare Service.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var example = new Azure.Healthcare.Service("example", new()
+    ///     {
+    ///         ResourceGroupName = "sample-resource-group",
+    ///         Location = "westus2",
+    ///         Kind = "fhir-R4",
+    ///         CosmosdbThroughput = 2000,
+    ///         AccessPolicyObjectIds = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "testenv" },
+    ///             { "purpose", "AcceptanceTests" },
+    ///         },
+    ///         AuthenticationConfiguration = new Azure.Healthcare.Inputs.ServiceAuthenticationConfigurationArgs
+    ///         {
+    ///             Authority = "https://login.microsoftonline.com/$%7Bdata.azurerm_client_config.current.tenant_id%7D",
+    ///             Audience = "https://azurehealthcareapis.com/",
+    ///             SmartProxyEnabled = true,
+    ///         },
+    ///         CorsConfiguration = new Azure.Healthcare.Inputs.ServiceCorsConfigurationArgs
+    ///         {
+    ///             AllowedOrigins = new[]
+    ///             {
+    ///                 "http://www.example.com",
+    ///                 "http://www.example2.com",
+    ///             },
+    ///             AllowedHeaders = new[]
+    ///             {
+    ///                 "x-tempo-*",
+    ///                 "x-tempo2-*",
+    ///             },
+    ///             AllowedMethods = new[]
+    ///             {
+    ///                 "GET",
+    ///                 "PUT",
+    ///             },
+    ///             MaxAgeInSeconds = 500,
+    ///             AllowCredentials = true,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Healthcare Service can be imported using the resource`id`, e.g.

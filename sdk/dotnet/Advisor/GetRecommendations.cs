@@ -13,12 +13,80 @@ namespace Pulumi.Azure.Advisor
     {
         /// <summary>
         /// Use this data source to access information about an existing Advisor Recommendations.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Advisor.GetRecommendations.Invoke(new()
+        ///     {
+        ///         FilterByCategories = new[]
+        ///         {
+        ///             "security",
+        ///             "cost",
+        ///         },
+        ///         FilterByResourceGroups = new[]
+        ///         {
+        ///             "example-resgroups",
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["recommendations"] = example.Apply(getRecommendationsResult =&gt; getRecommendationsResult.Recommendations),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetRecommendationsResult> InvokeAsync(GetRecommendationsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRecommendationsResult>("azure:advisor/getRecommendations:getRecommendations", args ?? new GetRecommendationsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Advisor Recommendations.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Advisor.GetRecommendations.Invoke(new()
+        ///     {
+        ///         FilterByCategories = new[]
+        ///         {
+        ///             "security",
+        ///             "cost",
+        ///         },
+        ///         FilterByResourceGroups = new[]
+        ///         {
+        ///             "example-resgroups",
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["recommendations"] = example.Apply(getRecommendationsResult =&gt; getRecommendationsResult.Recommendations),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetRecommendationsResult> Invoke(GetRecommendationsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRecommendationsResult>("azure:advisor/getRecommendations:getRecommendations", args ?? new GetRecommendationsInvokeArgs(), options.WithDefaults());

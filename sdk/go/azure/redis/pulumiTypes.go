@@ -387,6 +387,20 @@ type CacheRedisConfiguration struct {
 	// Second Storage Account connection string for AOF persistence.
 	//
 	// Example usage:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	AofStorageConnectionString1 *string `pulumi:"aofStorageConnectionString1"`
 	// If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
 	//
@@ -403,6 +417,20 @@ type CacheRedisConfiguration struct {
 	// Value in megabytes reserved for non-cache usage e.g. failover. Defaults are shown below.
 	MaxmemoryReserved *int `pulumi:"maxmemoryReserved"`
 	// Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	NotifyKeyspaceEvents *string `pulumi:"notifyKeyspaceEvents"`
 	// Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
 	//
@@ -439,6 +467,20 @@ type CacheRedisConfigurationArgs struct {
 	// Second Storage Account connection string for AOF persistence.
 	//
 	// Example usage:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	AofStorageConnectionString1 pulumi.StringPtrInput `pulumi:"aofStorageConnectionString1"`
 	// If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
 	//
@@ -455,6 +497,20 @@ type CacheRedisConfigurationArgs struct {
 	// Value in megabytes reserved for non-cache usage e.g. failover. Defaults are shown below.
 	MaxmemoryReserved pulumi.IntPtrInput `pulumi:"maxmemoryReserved"`
 	// Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	NotifyKeyspaceEvents pulumi.StringPtrInput `pulumi:"notifyKeyspaceEvents"`
 	// Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
 	//
@@ -580,6 +636,23 @@ func (o CacheRedisConfigurationOutput) AofStorageConnectionString0() pulumi.Stri
 // Second Storage Account connection string for AOF persistence.
 //
 // Example usage:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			return nil
+//		})
+//	}
+//
+// ```
 func (o CacheRedisConfigurationOutput) AofStorageConnectionString1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *string { return v.AofStorageConnectionString1 }).(pulumi.StringPtrOutput)
 }
@@ -617,6 +690,23 @@ func (o CacheRedisConfigurationOutput) MaxmemoryReserved() pulumi.IntPtrOutput {
 }
 
 // Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			return nil
+//		})
+//	}
+//
+// ```
 func (o CacheRedisConfigurationOutput) NotifyKeyspaceEvents() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *string { return v.NotifyKeyspaceEvents }).(pulumi.StringPtrOutput)
 }
@@ -700,6 +790,23 @@ func (o CacheRedisConfigurationPtrOutput) AofStorageConnectionString0() pulumi.S
 // Second Storage Account connection string for AOF persistence.
 //
 // Example usage:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			return nil
+//		})
+//	}
+//
+// ```
 func (o CacheRedisConfigurationPtrOutput) AofStorageConnectionString1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheRedisConfiguration) *string {
 		if v == nil {
@@ -772,6 +879,23 @@ func (o CacheRedisConfigurationPtrOutput) MaxmemoryReserved() pulumi.IntPtrOutpu
 }
 
 // Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			return nil
+//		})
+//	}
+//
+// ```
 func (o CacheRedisConfigurationPtrOutput) NotifyKeyspaceEvents() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheRedisConfiguration) *string {
 		if v == nil {

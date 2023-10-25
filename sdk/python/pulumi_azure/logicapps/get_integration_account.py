@@ -104,6 +104,17 @@ def get_integration_account(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Logic App Integration Account.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.logicapps.get_integration_account(name="example-account",
+        resource_group_name="example-resource-group")
+    pulumi.export("id", example.id)
+    ```
+
 
     :param str name: The name of this Logic App Integration Account.
     :param str resource_group_name: The name of the Resource Group where the Logic App Integration Account exists.
@@ -129,6 +140,17 @@ def get_integration_account_output(name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationAccountResult]:
     """
     Use this data source to access information about an existing Logic App Integration Account.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.logicapps.get_integration_account(name="example-account",
+        resource_group_name="example-resource-group")
+    pulumi.export("id", example.id)
+    ```
 
 
     :param str name: The name of this Logic App Integration Account.

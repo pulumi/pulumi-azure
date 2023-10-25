@@ -15,6 +15,135 @@ namespace Pulumi.Azure.AppConfiguration
     /// &gt; **Note:** App Configuration Keys are provisioned using a Data Plane API which requires the role `App Configuration Data Owner` on either the App Configuration or a parent scope (such as the Resource Group/Subscription). [More information can be found in the Azure Documentation for App Configuration](https://docs.microsoft.com/azure/azure-app-configuration/concept-enable-rbac#azure-built-in-roles-for-azure-app-configuration).
     /// 
     /// ## Example Usage
+    /// ### `Kv` Type
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var appconf = new Azure.AppConfiguration.ConfigurationStore("appconf", new()
+    ///     {
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///     });
+    /// 
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var appconfDataowner = new Azure.Authorization.Assignment("appconfDataowner", new()
+    ///     {
+    ///         Scope = appconf.Id,
+    ///         RoleDefinitionName = "App Configuration Data Owner",
+    ///         PrincipalId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///     });
+    /// 
+    ///     var test = new Azure.AppConfiguration.ConfigurationKey("test", new()
+    ///     {
+    ///         ConfigurationStoreId = appconf.Id,
+    ///         Key = "appConfKey1",
+    ///         Label = "somelabel",
+    ///         Value = "a test",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             appconfDataowner,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### `Vault` Type
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var appconf = new Azure.AppConfiguration.ConfigurationStore("appconf", new()
+    ///     {
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///     });
+    /// 
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var kv = new Azure.KeyVault.KeyVault("kv", new()
+    ///     {
+    ///         Location = azurerm_resource_group.Test.Location,
+    ///         ResourceGroupName = azurerm_resource_group.Test.Name,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "premium",
+    ///         SoftDeleteRetentionDays = 7,
+    ///         AccessPolicies = new[]
+    ///         {
+    ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
+    ///             {
+    ///                 TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///                 ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///                 KeyPermissions = new[]
+    ///                 {
+    ///                     "Create",
+    ///                     "Get",
+    ///                 },
+    ///                 SecretPermissions = new[]
+    ///                 {
+    ///                     "Set",
+    ///                     "Get",
+    ///                     "Delete",
+    ///                     "Purge",
+    ///                     "Recover",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var kvs = new Azure.KeyVault.Secret("kvs", new()
+    ///     {
+    ///         Value = "szechuan",
+    ///         KeyVaultId = kv.Id,
+    ///     });
+    /// 
+    ///     var appconfDataowner = new Azure.Authorization.Assignment("appconfDataowner", new()
+    ///     {
+    ///         Scope = appconf.Id,
+    ///         RoleDefinitionName = "App Configuration Data Owner",
+    ///         PrincipalId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///     });
+    /// 
+    ///     var test = new Azure.AppConfiguration.ConfigurationKey("test", new()
+    ///     {
+    ///         ConfigurationStoreId = azurerm_app_configuration.Test.Id,
+    ///         Key = "key1",
+    ///         Type = "vault",
+    ///         Label = "label1",
+    ///         VaultKeyReference = kvs.VersionlessId,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             appconfDataowner,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

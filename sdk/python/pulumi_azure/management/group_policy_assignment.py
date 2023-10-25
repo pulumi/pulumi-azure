@@ -608,6 +608,35 @@ class GroupPolicyAssignment(pulumi.CustomResource):
         """
         Manages a Policy Assignment to a Management Group.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_group = azure.management.Group("exampleGroup", display_name="Some Management Group")
+        example_definition = azure.policy.Definition("exampleDefinition",
+            policy_type="Custom",
+            mode="All",
+            display_name="my-policy-definition",
+            management_group_id=example_group.id,
+            policy_rule=\"\"\" {
+            "if": {
+              "not": {
+                "field": "location",
+                "equals": "westeurope"
+              }
+            },
+            "then": {
+              "effect": "Deny"
+            }
+          }
+        \"\"\")
+        example_group_policy_assignment = azure.management.GroupPolicyAssignment("exampleGroupPolicyAssignment",
+            policy_definition_id=example_definition.id,
+            management_group_id=example_group.id)
+        ```
+
         ## Import
 
         Management Group Policy Assignments can be imported using the `resource id`, e.g.
@@ -643,6 +672,35 @@ class GroupPolicyAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Policy Assignment to a Management Group.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_group = azure.management.Group("exampleGroup", display_name="Some Management Group")
+        example_definition = azure.policy.Definition("exampleDefinition",
+            policy_type="Custom",
+            mode="All",
+            display_name="my-policy-definition",
+            management_group_id=example_group.id,
+            policy_rule=\"\"\" {
+            "if": {
+              "not": {
+                "field": "location",
+                "equals": "westeurope"
+              }
+            },
+            "then": {
+              "effect": "Deny"
+            }
+          }
+        \"\"\")
+        example_group_policy_assignment = azure.management.GroupPolicyAssignment("exampleGroupPolicyAssignment",
+            policy_definition_id=example_definition.id,
+            management_group_id=example_group.id)
+        ```
 
         ## Import
 

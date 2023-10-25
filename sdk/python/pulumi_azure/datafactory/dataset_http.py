@@ -538,6 +538,28 @@ class DatasetHttp(pulumi.CustomResource):
         """
         Manages an Azure HTTP Dataset inside an Azure Data Factory.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_factory = azure.datafactory.Factory("exampleFactory",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_linked_service_web = azure.datafactory.LinkedServiceWeb("exampleLinkedServiceWeb",
+            data_factory_id=example_factory.id,
+            authentication_type="Anonymous",
+            url="https://www.bing.com")
+        example_dataset_http = azure.datafactory.DatasetHttp("exampleDatasetHttp",
+            data_factory_id=example_factory.id,
+            linked_service_name=example_linked_service_web.name,
+            relative_url="http://www.bing.com",
+            request_body="foo=bar",
+            request_method="POST")
+        ```
+
         ## Import
 
         Data Factory Datasets can be imported using the `resource id`, e.g.
@@ -571,6 +593,28 @@ class DatasetHttp(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure HTTP Dataset inside an Azure Data Factory.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_factory = azure.datafactory.Factory("exampleFactory",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_linked_service_web = azure.datafactory.LinkedServiceWeb("exampleLinkedServiceWeb",
+            data_factory_id=example_factory.id,
+            authentication_type="Anonymous",
+            url="https://www.bing.com")
+        example_dataset_http = azure.datafactory.DatasetHttp("exampleDatasetHttp",
+            data_factory_id=example_factory.id,
+            linked_service_name=example_linked_service_web.name,
+            relative_url="http://www.bing.com",
+            request_body="foo=bar",
+            request_method="POST")
+        ```
 
         ## Import
 

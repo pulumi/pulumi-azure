@@ -240,6 +240,16 @@ def get_service(name: Optional[str] = None,
 
     > **Supported Modes:** At present this data source only supports **User Forest** mode and _not_ **Resource Forest** mode. [Read more](https://docs.microsoft.com/azure/active-directory-domain-services/concepts-resource-forest) about the different operation modes for this service.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.domainservices.get_service(name="example-aadds",
+        resource_group_name="example-aadds-rg")
+    ```
+
 
     :param str name: The display name for your managed Active Directory Domain Service resource. Changing this forces a new resource to be created.
     :param str resource_group_name: The name of the Resource Group in which the Domain Service should exist. Changing this forces a new resource to be created.
@@ -282,6 +292,16 @@ def get_service_output(name: Optional[pulumi.Input[str]] = None,
     Gets information about an Active Directory Domain Service.
 
     > **Supported Modes:** At present this data source only supports **User Forest** mode and _not_ **Resource Forest** mode. [Read more](https://docs.microsoft.com/azure/active-directory-domain-services/concepts-resource-forest) about the different operation modes for this service.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.domainservices.get_service(name="example-aadds",
+        resource_group_name="example-aadds-rg")
+    ```
 
 
     :param str name: The display name for your managed Active Directory Domain Service resource. Changing this forces a new resource to be created.

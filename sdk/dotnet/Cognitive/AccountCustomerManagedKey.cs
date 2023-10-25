@@ -14,6 +14,159 @@ namespace Pulumi.Azure.Cognitive
     /// 
     /// &gt; **NOTE:** It's possible to define a Customer Managed Key both within the `azure.cognitive.Account` resource via the `customer_managed_key` block and by using the `azure.cognitive.AccountCustomerManagedKey` resource. However it's not possible to use both methods to manage a Customer Managed Key for a Cognitive Account, since there'll be conflicts.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West US",
+    ///     });
+    /// 
+    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("exampleUserAssignedIdentity", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Cognitive.Account("exampleAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Kind = "Face",
+    ///         SkuName = "E0",
+    ///         CustomSubdomainName = "example-account",
+    ///         Identity = new Azure.Cognitive.Inputs.AccountIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned, UserAssigned",
+    ///             IdentityIds = new[]
+    ///             {
+    ///                 exampleUserAssignedIdentity.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "standard",
+    ///         PurgeProtectionEnabled = true,
+    ///         AccessPolicies = new[]
+    ///         {
+    ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
+    ///             {
+    ///                 TenantId = exampleAccount.Identity.Apply(identity =&gt; identity?.TenantId),
+    ///                 ObjectId = exampleAccount.Identity.Apply(identity =&gt; identity?.PrincipalId),
+    ///                 KeyPermissions = new[]
+    ///                 {
+    ///                     "Get",
+    ///                     "Create",
+    ///                     "List",
+    ///                     "Restore",
+    ///                     "Recover",
+    ///                     "UnwrapKey",
+    ///                     "WrapKey",
+    ///                     "Purge",
+    ///                     "Encrypt",
+    ///                     "Decrypt",
+    ///                     "Sign",
+    ///                     "Verify",
+    ///                 },
+    ///                 SecretPermissions = new[]
+    ///                 {
+    ///                     "Get",
+    ///                 },
+    ///             },
+    ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
+    ///             {
+    ///                 TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///                 ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///                 KeyPermissions = new[]
+    ///                 {
+    ///                     "Get",
+    ///                     "Create",
+    ///                     "Delete",
+    ///                     "List",
+    ///                     "Restore",
+    ///                     "Recover",
+    ///                     "UnwrapKey",
+    ///                     "WrapKey",
+    ///                     "Purge",
+    ///                     "Encrypt",
+    ///                     "Decrypt",
+    ///                     "Sign",
+    ///                     "Verify",
+    ///                     "GetRotationPolicy",
+    ///                 },
+    ///                 SecretPermissions = new[]
+    ///                 {
+    ///                     "Get",
+    ///                 },
+    ///             },
+    ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
+    ///             {
+    ///                 TenantId = exampleUserAssignedIdentity.TenantId,
+    ///                 ObjectId = exampleUserAssignedIdentity.PrincipalId,
+    ///                 KeyPermissions = new[]
+    ///                 {
+    ///                     "Get",
+    ///                     "Create",
+    ///                     "Delete",
+    ///                     "List",
+    ///                     "Restore",
+    ///                     "Recover",
+    ///                     "UnwrapKey",
+    ///                     "WrapKey",
+    ///                     "Purge",
+    ///                     "Encrypt",
+    ///                     "Decrypt",
+    ///                     "Sign",
+    ///                     "Verify",
+    ///                 },
+    ///                 SecretPermissions = new[]
+    ///                 {
+    ///                     "Get",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleKey = new Azure.KeyVault.Key("exampleKey", new()
+    ///     {
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         KeyType = "RSA",
+    ///         KeySize = 2048,
+    ///         KeyOpts = new[]
+    ///         {
+    ///             "decrypt",
+    ///             "encrypt",
+    ///             "sign",
+    ///             "unwrapKey",
+    ///             "verify",
+    ///             "wrapKey",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAccountCustomerManagedKey = new Azure.Cognitive.AccountCustomerManagedKey("exampleAccountCustomerManagedKey", new()
+    ///     {
+    ///         CognitiveAccountId = exampleAccount.Id,
+    ///         KeyVaultKeyId = exampleKey.Id,
+    ///         IdentityClientId = exampleUserAssignedIdentity.ClientId,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Customer Managed Keys for a Cognitive Account can be imported using the `resource id`, e.g.

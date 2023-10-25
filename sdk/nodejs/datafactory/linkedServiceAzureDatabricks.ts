@@ -10,6 +10,84 @@ import * as utilities from "../utilities";
  * Manages a Linked Service (connection) between Azure Databricks and Azure Data Factory.
  *
  * ## Example Usage
+ * ### With Managed Identity & New Cluster
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "East US"});
+ * //Create a Linked Service using managed identity and new cluster config
+ * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ * });
+ * //Create a databricks instance
+ * const exampleWorkspace = new azure.databricks.Workspace("exampleWorkspace", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     sku: "standard",
+ * });
+ * const msiLinked = new azure.datafactory.LinkedServiceAzureDatabricks("msiLinked", {
+ *     dataFactoryId: exampleFactory.id,
+ *     description: "ADB Linked Service via MSI",
+ *     adbDomain: pulumi.interpolate`https://${exampleWorkspace.workspaceUrl}`,
+ *     msiWorkSpaceResourceId: exampleWorkspace.id,
+ *     newClusterConfig: {
+ *         nodeType: "Standard_NC12",
+ *         clusterVersion: "5.5.x-gpu-scala2.11",
+ *         minNumberOfWorkers: 1,
+ *         maxNumberOfWorkers: 5,
+ *         driverNodeType: "Standard_NC12",
+ *         logDestination: "dbfs:/logs",
+ *         customTags: {
+ *             custom_tag1: "sct_value_1",
+ *             custom_tag2: "sct_value_2",
+ *         },
+ *         sparkConfig: {
+ *             config1: "value1",
+ *             config2: "value2",
+ *         },
+ *         sparkEnvironmentVariables: {
+ *             envVar1: "value1",
+ *             envVar2: "value2",
+ *         },
+ *         initScripts: [
+ *             "init.sh",
+ *             "init2.sh",
+ *         ],
+ *     },
+ * });
+ * ```
+ * ### With Access Token & Existing Cluster
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "East US"});
+ * //Link to an existing cluster via access token
+ * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * //Create a databricks instance
+ * const exampleWorkspace = new azure.databricks.Workspace("exampleWorkspace", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     sku: "standard",
+ * });
+ * const atLinked = new azure.datafactory.LinkedServiceAzureDatabricks("atLinked", {
+ *     dataFactoryId: exampleFactory.id,
+ *     description: "ADB Linked Service via Access Token",
+ *     existingClusterId: "0308-201146-sly615",
+ *     accessToken: "SomeDatabricksAccessToken",
+ *     adbDomain: pulumi.interpolate`https://${exampleWorkspace.workspaceUrl}`,
+ * });
+ * ```
  *
  * ## Import
  *

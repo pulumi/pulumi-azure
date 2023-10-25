@@ -15,6 +15,54 @@ import (
 
 // Manages an Azure SQL Table Dataset inside an Azure Data Factory.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleLinkedServiceAzureSqlDatabase, err := datafactory.NewLinkedServiceAzureSqlDatabase(ctx, "exampleLinkedServiceAzureSqlDatabase", &datafactory.LinkedServiceAzureSqlDatabaseArgs{
+//				DataFactoryId:    exampleFactory.ID(),
+//				ConnectionString: pulumi.String("Integrated Security=False;Data Source=test;Initial Catalog=test;Initial Catalog=test;User ID=test;Password=test"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datafactory.NewDatasetAzureSqlTable(ctx, "exampleDatasetAzureSqlTable", &datafactory.DatasetAzureSqlTableArgs{
+//				DataFactoryId:   exampleFactory.ID(),
+//				LinkedServiceId: exampleLinkedServiceAzureSqlDatabase.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Data Factory Azure SQL Table Datasets can be imported using the `resource id`, e.g.

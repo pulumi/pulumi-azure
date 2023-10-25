@@ -464,6 +464,25 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
         """
         Manages a Sentinel MS Security Incident Alert Rule.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="PerGB2018")
+        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", workspace_id=example_analytics_workspace.id)
+        example_alert_rule_ms_security_incident = azure.sentinel.AlertRuleMsSecurityIncident("exampleAlertRuleMsSecurityIncident",
+            log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
+            product_filter="Microsoft Cloud App Security",
+            display_name="example rule",
+            severity_filters=["High"])
+        ```
+
         ## Import
 
         Sentinel MS Security Incident Alert Rules can be imported using the `resource id`, e.g.
@@ -495,6 +514,25 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Sentinel MS Security Incident Alert Rule.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="PerGB2018")
+        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", workspace_id=example_analytics_workspace.id)
+        example_alert_rule_ms_security_incident = azure.sentinel.AlertRuleMsSecurityIncident("exampleAlertRuleMsSecurityIncident",
+            log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
+            product_filter="Microsoft Cloud App Security",
+            display_name="example rule",
+            severity_filters=["High"])
+        ```
 
         ## Import
 

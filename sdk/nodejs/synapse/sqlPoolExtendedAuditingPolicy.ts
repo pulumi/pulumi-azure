@@ -7,6 +7,51 @@ import * as utilities from "../utilities";
 /**
  * Manages a Synapse SQL Pool Extended Auditing Policy.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ *     accountKind: "BlobStorage",
+ * });
+ * const exampleDataLakeGen2Filesystem = new azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", {storageAccountId: exampleAccount.id});
+ * const exampleWorkspace = new azure.synapse.Workspace("exampleWorkspace", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     storageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.id,
+ *     sqlAdministratorLogin: "sqladminuser",
+ *     sqlAdministratorLoginPassword: "H@Sh1CoR3!",
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ * });
+ * const exampleSqlPool = new azure.synapse.SqlPool("exampleSqlPool", {
+ *     synapseWorkspaceId: exampleWorkspace.id,
+ *     skuName: "DW100c",
+ *     createMode: "Default",
+ * });
+ * const auditLogs = new azure.storage.Account("auditLogs", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ * });
+ * const exampleSqlPoolExtendedAuditingPolicy = new azure.synapse.SqlPoolExtendedAuditingPolicy("exampleSqlPoolExtendedAuditingPolicy", {
+ *     sqlPoolId: exampleSqlPool.id,
+ *     storageEndpoint: auditLogs.primaryBlobEndpoint,
+ *     storageAccountAccessKey: auditLogs.primaryAccessKey,
+ *     storageAccountAccessKeyIsSecondary: false,
+ *     retentionInDays: 6,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Synapse SQL Pool Extended Auditing Policys can be imported using the `resource id`, e.g.

@@ -13,12 +13,58 @@ namespace Pulumi.Azure.PrivateDns
     {
         /// <summary>
         /// Gets information about an existing Private DNS Resolver.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Azure.PrivateDns.GetResolver.Invoke(new()
+        ///     {
+        ///         Name = "example",
+        ///         ResourceGroupName = "example-resourcegroup-name",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetResolverResult> InvokeAsync(GetResolverArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResolverResult>("azure:privatedns/getResolver:getResolver", args ?? new GetResolverArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about an existing Private DNS Resolver.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Azure.PrivateDns.GetResolver.Invoke(new()
+        ///     {
+        ///         Name = "example",
+        ///         ResourceGroupName = "example-resourcegroup-name",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetResolverResult> Invoke(GetResolverInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResolverResult>("azure:privatedns/getResolver:getResolver", args ?? new GetResolverInvokeArgs(), options.WithDefaults());

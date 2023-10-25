@@ -1025,6 +1025,30 @@ class Cluster(pulumi.CustomResource):
         """
         Manages a Service Fabric Cluster.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_cluster = azure.servicefabric.Cluster("exampleCluster",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            reliability_level="Bronze",
+            upgrade_mode="Manual",
+            cluster_code_version="7.1.456.959",
+            vm_image="Windows",
+            management_endpoint="https://example:80",
+            node_types=[azure.servicefabric.ClusterNodeTypeArgs(
+                name="first",
+                instance_count=3,
+                is_primary=True,
+                client_endpoint_port=2020,
+                http_endpoint_port=80,
+            )])
+        ```
+
         ## Import
 
         Service Fabric Clusters can be imported using the `resource id`, e.g.
@@ -1071,6 +1095,30 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Service Fabric Cluster.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_cluster = azure.servicefabric.Cluster("exampleCluster",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            reliability_level="Bronze",
+            upgrade_mode="Manual",
+            cluster_code_version="7.1.456.959",
+            vm_image="Windows",
+            management_endpoint="https://example:80",
+            node_types=[azure.servicefabric.ClusterNodeTypeArgs(
+                name="first",
+                instance_count=3,
+                is_primary=True,
+                client_endpoint_port=2020,
+                http_endpoint_port=80,
+            )])
+        ```
 
         ## Import
 

@@ -9,6 +9,72 @@ import * as utilities from "../utilities";
 /**
  * Manages an Application Insights Workbook Template.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleWorkbookTemplate = new azure.appinsights.WorkbookTemplate("exampleWorkbookTemplate", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: "West Europe",
+ *     author: "test author",
+ *     priority: 1,
+ *     galleries: [{
+ *         category: "workbook",
+ *         name: "test",
+ *         order: 100,
+ *         resourceType: "microsoft.insights/components",
+ *         type: "tsg",
+ *     }],
+ *     templateData: JSON.stringify({
+ *         version: "Notebook/1.0",
+ *         items: [{
+ *             type: 1,
+ *             content: {
+ *                 json: `## New workbook
+ * ---
+ *
+ * Welcome to your new workbook.`,
+ *             },
+ *             name: "text - 2",
+ *         }],
+ *         styleSettings: {},
+ *         $schema: "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json",
+ *     }),
+ *     localized: JSON.stringify({
+ *         ar: [{
+ *             galleries: [{
+ *                 name: "test",
+ *                 category: "Failures",
+ *                 type: "tsg",
+ *                 resourceType: "microsoft.insights/components",
+ *                 order: 100,
+ *             }],
+ *             templateData: {
+ *                 version: "Notebook/1.0",
+ *                 items: [{
+ *                     type: 1,
+ *                     content: {
+ *                         json: `## New workbook
+ * ---
+ *
+ * Welcome to your new workbook.`,
+ *                     },
+ *                     name: "text - 2",
+ *                 }],
+ *                 styleSettings: {},
+ *                 $schema: "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json",
+ *             },
+ *         }],
+ *     }),
+ *     tags: {
+ *         key: "value",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Application Insights Workbook Template can be imported using the `resource id`, e.g.

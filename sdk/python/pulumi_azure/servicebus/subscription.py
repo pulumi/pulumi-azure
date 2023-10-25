@@ -673,6 +673,28 @@ class Subscription(pulumi.CustomResource):
         """
         Manages a ServiceBus Subscription.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_namespace = azure.servicebus.Namespace("exampleNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard",
+            tags={
+                "source": "example",
+            })
+        example_topic = azure.servicebus.Topic("exampleTopic",
+            namespace_id=example_namespace.id,
+            enable_partitioning=True)
+        example_subscription = azure.servicebus.Subscription("exampleSubscription",
+            topic_id=example_topic.id,
+            max_delivery_count=1)
+        ```
+
         ## Import
 
         Service Bus Subscriptions can be imported using the `resource id`, e.g.
@@ -709,6 +731,28 @@ class Subscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a ServiceBus Subscription.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_namespace = azure.servicebus.Namespace("exampleNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard",
+            tags={
+                "source": "example",
+            })
+        example_topic = azure.servicebus.Topic("exampleTopic",
+            namespace_id=example_namespace.id,
+            enable_partitioning=True)
+        example_subscription = azure.servicebus.Subscription("exampleSubscription",
+            topic_id=example_topic.id,
+            max_delivery_count=1)
+        ```
 
         ## Import
 

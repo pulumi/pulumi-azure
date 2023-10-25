@@ -7,6 +7,38 @@ import * as utilities from "../utilities";
 /**
  * Manages a Managed Private Endpoint for a Kusto Cluster.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const current = azure.core.getClientConfig({});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleCluster = new azure.kusto.Cluster("exampleCluster", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: {
+ *         name: "Dev(No SLA)_Standard_D11_v2",
+ *         capacity: 1,
+ *     },
+ * });
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ * });
+ * const exampleClusterManagedPrivateEndpoint = new azure.kusto.ClusterManagedPrivateEndpoint("exampleClusterManagedPrivateEndpoint", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     clusterName: exampleCluster.name,
+ *     privateLinkResourceId: exampleAccount.id,
+ *     privateLinkResourceRegion: exampleAccount.location,
+ *     groupId: "blob",
+ *     requestMessage: "Please Approve",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Managed Private Endpoint for a Kusto Cluster can be imported using the `resource id`, e.g.

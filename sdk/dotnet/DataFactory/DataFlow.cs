@@ -12,6 +12,207 @@ namespace Pulumi.Azure.DataFactory
     /// <summary>
     /// Manages a Data Flow inside an Azure Data Factory.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleLinkedCustomService = new Azure.DataFactory.LinkedCustomService("exampleLinkedCustomService", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         Type = "AzureBlobStorage",
+    ///         TypePropertiesJson = exampleAccount.PrimaryConnectionString.Apply(primaryConnectionString =&gt; @$"{{
+    ///   ""connectionString"": ""{primaryConnectionString}""
+    /// }}
+    /// "),
+    ///     });
+    /// 
+    ///     var example1DatasetJson = new Azure.DataFactory.DatasetJson("example1DatasetJson", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         LinkedServiceName = exampleLinkedCustomService.Name,
+    ///         AzureBlobStorageLocation = new Azure.DataFactory.Inputs.DatasetJsonAzureBlobStorageLocationArgs
+    ///         {
+    ///             Container = "container",
+    ///             Path = "foo/bar/",
+    ///             Filename = "foo.txt",
+    ///         },
+    ///         Encoding = "UTF-8",
+    ///     });
+    /// 
+    ///     var example2DatasetJson = new Azure.DataFactory.DatasetJson("example2DatasetJson", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         LinkedServiceName = exampleLinkedCustomService.Name,
+    ///         AzureBlobStorageLocation = new Azure.DataFactory.Inputs.DatasetJsonAzureBlobStorageLocationArgs
+    ///         {
+    ///             Container = "container",
+    ///             Path = "foo/bar/",
+    ///             Filename = "bar.txt",
+    ///         },
+    ///         Encoding = "UTF-8",
+    ///     });
+    /// 
+    ///     var example1FlowletDataFlow = new Azure.DataFactory.FlowletDataFlow("example1FlowletDataFlow", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         Sources = new[]
+    ///         {
+    ///             new Azure.DataFactory.Inputs.FlowletDataFlowSourceArgs
+    ///             {
+    ///                 Name = "source1",
+    ///                 LinkedService = new Azure.DataFactory.Inputs.FlowletDataFlowSourceLinkedServiceArgs
+    ///                 {
+    ///                     Name = exampleLinkedCustomService.Name,
+    ///                 },
+    ///             },
+    ///         },
+    ///         Sinks = new[]
+    ///         {
+    ///             new Azure.DataFactory.Inputs.FlowletDataFlowSinkArgs
+    ///             {
+    ///                 Name = "sink1",
+    ///                 LinkedService = new Azure.DataFactory.Inputs.FlowletDataFlowSinkLinkedServiceArgs
+    ///                 {
+    ///                     Name = exampleLinkedCustomService.Name,
+    ///                 },
+    ///             },
+    ///         },
+    ///         Script = @"source(
+    ///   allowSchemaDrift: true, 
+    ///   validateSchema: false, 
+    ///   limit: 100, 
+    ///   ignoreNoFilesFound: false, 
+    ///   documentForm: 'documentPerLine') ~&gt; source1 
+    /// source1 sink(
+    ///   allowSchemaDrift: true, 
+    ///   validateSchema: false, 
+    ///   skipDuplicateMapInputs: true, 
+    ///   skipDuplicateMapOutputs: true) ~&gt; sink1
+    /// ",
+    ///     });
+    /// 
+    ///     var example2FlowletDataFlow = new Azure.DataFactory.FlowletDataFlow("example2FlowletDataFlow", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         Sources = new[]
+    ///         {
+    ///             new Azure.DataFactory.Inputs.FlowletDataFlowSourceArgs
+    ///             {
+    ///                 Name = "source1",
+    ///                 LinkedService = new Azure.DataFactory.Inputs.FlowletDataFlowSourceLinkedServiceArgs
+    ///                 {
+    ///                     Name = exampleLinkedCustomService.Name,
+    ///                 },
+    ///             },
+    ///         },
+    ///         Sinks = new[]
+    ///         {
+    ///             new Azure.DataFactory.Inputs.FlowletDataFlowSinkArgs
+    ///             {
+    ///                 Name = "sink1",
+    ///                 LinkedService = new Azure.DataFactory.Inputs.FlowletDataFlowSinkLinkedServiceArgs
+    ///                 {
+    ///                     Name = exampleLinkedCustomService.Name,
+    ///                 },
+    ///             },
+    ///         },
+    ///         Script = @"source(
+    ///   allowSchemaDrift: true, 
+    ///   validateSchema: false, 
+    ///   limit: 100, 
+    ///   ignoreNoFilesFound: false, 
+    ///   documentForm: 'documentPerLine') ~&gt; source1 
+    /// source1 sink(
+    ///   allowSchemaDrift: true, 
+    ///   validateSchema: false, 
+    ///   skipDuplicateMapInputs: true, 
+    ///   skipDuplicateMapOutputs: true) ~&gt; sink1
+    /// ",
+    ///     });
+    /// 
+    ///     var exampleDataFlow = new Azure.DataFactory.DataFlow("exampleDataFlow", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         Sources = new[]
+    ///         {
+    ///             new Azure.DataFactory.Inputs.DataFlowSourceArgs
+    ///             {
+    ///                 Name = "source1",
+    ///                 Flowlet = new Azure.DataFactory.Inputs.DataFlowSourceFlowletArgs
+    ///                 {
+    ///                     Name = example1FlowletDataFlow.Name,
+    ///                     Parameters = 
+    ///                     {
+    ///                         { "Key1", "value1" },
+    ///                     },
+    ///                 },
+    ///                 Dataset = new Azure.DataFactory.Inputs.DataFlowSourceDatasetArgs
+    ///                 {
+    ///                     Name = example1DatasetJson.Name,
+    ///                 },
+    ///             },
+    ///         },
+    ///         Sinks = new[]
+    ///         {
+    ///             new Azure.DataFactory.Inputs.DataFlowSinkArgs
+    ///             {
+    ///                 Name = "sink1",
+    ///                 Flowlet = new Azure.DataFactory.Inputs.DataFlowSinkFlowletArgs
+    ///                 {
+    ///                     Name = example2FlowletDataFlow.Name,
+    ///                     Parameters = 
+    ///                     {
+    ///                         { "Key1", "value1" },
+    ///                     },
+    ///                 },
+    ///                 Dataset = new Azure.DataFactory.Inputs.DataFlowSinkDatasetArgs
+    ///                 {
+    ///                     Name = example2DatasetJson.Name,
+    ///                 },
+    ///             },
+    ///         },
+    ///         Script = @"source(
+    ///   allowSchemaDrift: true, 
+    ///   validateSchema: false, 
+    ///   limit: 100, 
+    ///   ignoreNoFilesFound: false, 
+    ///   documentForm: 'documentPerLine') ~&gt; source1 
+    /// source1 sink(
+    ///   allowSchemaDrift: true, 
+    ///   validateSchema: false, 
+    ///   skipDuplicateMapInputs: true, 
+    ///   skipDuplicateMapOutputs: true) ~&gt; sink1
+    /// ",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Data Factory Data Flow can be imported using the `resource id`, e.g.

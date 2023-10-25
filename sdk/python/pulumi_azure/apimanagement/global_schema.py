@@ -293,6 +293,27 @@ class GlobalSchema(pulumi.CustomResource):
         """
         Manages a Global Schema within an API Management Service.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_service = azure.apimanagement.Service("exampleService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            publisher_name="pub1",
+            publisher_email="pub1@email.com",
+            sku_name="Consumption_0")
+        example_global_schema = azure.apimanagement.GlobalSchema("exampleGlobalSchema",
+            schema_id="example-schema1",
+            api_management_name=example_service.name,
+            resource_group_name=example_resource_group.name,
+            type="xml",
+            value=(lambda path: open(path).read())("api_management_api_schema.xml"))
+        ```
+
         ## Import
 
         API Management API Schema's can be imported using the `resource id`, e.g.
@@ -318,6 +339,27 @@ class GlobalSchema(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Global Schema within an API Management Service.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_service = azure.apimanagement.Service("exampleService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            publisher_name="pub1",
+            publisher_email="pub1@email.com",
+            sku_name="Consumption_0")
+        example_global_schema = azure.apimanagement.GlobalSchema("exampleGlobalSchema",
+            schema_id="example-schema1",
+            api_management_name=example_service.name,
+            resource_group_name=example_resource_group.name,
+            type="xml",
+            value=(lambda path: open(path).read())("api_management_api_schema.xml"))
+        ```
 
         ## Import
 

@@ -13,12 +13,70 @@ namespace Pulumi.Azure.Mobile
     {
         /// <summary>
         /// Get information about a Mobile Network Sim Policy.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleNetwork = Azure.Mobile.GetNetwork.Invoke(new()
+        ///     {
+        ///         Name = "example-mn",
+        ///         ResourceGroupName = "example-rg",
+        ///     });
+        /// 
+        ///     var exampleNetworkSimPolicy = Azure.Mobile.GetNetworkSimPolicy.Invoke(new()
+        ///     {
+        ///         Name = "example-mnsp",
+        ///         MobileNetworkId = exampleNetwork.Apply(getNetworkResult =&gt; getNetworkResult.Id),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetNetworkSimPolicyResult> InvokeAsync(GetNetworkSimPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkSimPolicyResult>("azure:mobile/getNetworkSimPolicy:getNetworkSimPolicy", args ?? new GetNetworkSimPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get information about a Mobile Network Sim Policy.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleNetwork = Azure.Mobile.GetNetwork.Invoke(new()
+        ///     {
+        ///         Name = "example-mn",
+        ///         ResourceGroupName = "example-rg",
+        ///     });
+        /// 
+        ///     var exampleNetworkSimPolicy = Azure.Mobile.GetNetworkSimPolicy.Invoke(new()
+        ///     {
+        ///         Name = "example-mnsp",
+        ///         MobileNetworkId = exampleNetwork.Apply(getNetworkResult =&gt; getNetworkResult.Id),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetNetworkSimPolicyResult> Invoke(GetNetworkSimPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkSimPolicyResult>("azure:mobile/getNetworkSimPolicy:getNetworkSimPolicy", args ?? new GetNetworkSimPolicyInvokeArgs(), options.WithDefaults());

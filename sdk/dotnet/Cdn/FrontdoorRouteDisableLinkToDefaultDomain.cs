@@ -14,6 +14,29 @@ namespace Pulumi.Azure.Cdn
     /// 
     /// !&gt;**IMPORTANT:** This resource has been deprecated and should not be used for new deployments. The `azure.cdn.FrontdoorRouteDisableLinkToDefaultDomain` resource will be removed from the 4.0 AzureRM provider. Please use the `link_to_default_domain` field in the `azure.cdn.FrontdoorRoute` resource to control this value.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Cdn.FrontdoorRouteDisableLinkToDefaultDomain("example", new()
+    ///     {
+    ///         CdnFrontdoorRouteId = azurerm_cdn_frontdoor_route.Example.Id,
+    ///         CdnFrontdoorCustomDomainIds = new[]
+    ///         {
+    ///             azurerm_cdn_frontdoor_custom_domain.Contoso.Id,
+    ///             azurerm_cdn_frontdoor_custom_domain.Fabrikam.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// FrontDoor Route Disable Link To Default Domain can be imported using the `resource id`, e.g.

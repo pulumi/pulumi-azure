@@ -15,6 +15,33 @@ import (
 
 // Manages a Synapse Private Link Hub.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/synapse"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := synapse.NewPrivateLinkHub(ctx, "example", &synapse.PrivateLinkHubArgs{
+//				Location:          pulumi.String("West Europe"),
+//				ResourceGroupName: pulumi.String("example-rg"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Synapse Private Link Hub can be imported using the `resource id`, e.g.

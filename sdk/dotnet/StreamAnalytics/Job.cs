@@ -12,6 +12,45 @@ namespace Pulumi.Azure.StreamAnalytics
     /// <summary>
     /// Manages a Stream Analytics Job.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleJob = new Azure.StreamAnalytics.Job("exampleJob", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         CompatibilityLevel = "1.2",
+    ///         DataLocale = "en-GB",
+    ///         EventsLateArrivalMaxDelayInSeconds = 60,
+    ///         EventsOutOfOrderMaxDelayInSeconds = 50,
+    ///         EventsOutOfOrderPolicy = "Adjust",
+    ///         OutputErrorPolicy = "Drop",
+    ///         StreamingUnits = 3,
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "Example" },
+    ///         },
+    ///         TransformationQuery = @"    SELECT *
+    ///     INTO [YourOutputAlias]
+    ///     FROM [YourInputAlias]
+    /// ",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Stream Analytics Job's can be imported using the `resource id`, e.g.

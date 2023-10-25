@@ -15,6 +15,93 @@ import (
 
 // Manages a Network Manager Management Group Connection which may cross tenants.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/management"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleGroup, err := management.NewGroup(ctx, "exampleGroup", nil)
+//			if err != nil {
+//				return err
+//			}
+//			alt, err := core.LookupSubscription(ctx, &core.LookupSubscriptionArgs{
+//				SubscriptionId: pulumi.StringRef("00000000-0000-0000-0000-000000000000"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = management.NewGroupSubscriptionAssociation(ctx, "exampleGroupSubscriptionAssociation", &management.GroupSubscriptionAssociationArgs{
+//				ManagementGroupId: exampleGroup.ID(),
+//				SubscriptionId:    *pulumi.String(alt.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			currentSubscription, err := core.LookupSubscription(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			currentClientConfig, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			networkContributor, err := authorization.NewAssignment(ctx, "networkContributor", &authorization.AssignmentArgs{
+//				Scope:              exampleGroup.ID(),
+//				RoleDefinitionName: pulumi.String("Network Contributor"),
+//				PrincipalId:        *pulumi.String(currentClientConfig.ObjectId),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleNetworkManager, err := network.NewNetworkManager(ctx, "exampleNetworkManager", &network.NetworkManagerArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Scope: &network.NetworkManagerScopeArgs{
+//					SubscriptionIds: pulumi.StringArray{
+//						*pulumi.String(currentSubscription.Id),
+//					},
+//				},
+//				ScopeAccesses: pulumi.StringArray{
+//					pulumi.String("SecurityAdmin"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewNetworkManagerManagementGroupConnection(ctx, "exampleNetworkManagerManagementGroupConnection", &network.NetworkManagerManagementGroupConnectionArgs{
+//				ManagementGroupId: exampleGroup.ID(),
+//				NetworkManagerId:  exampleNetworkManager.ID(),
+//				Description:       pulumi.String("example"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				networkContributor,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Network Manager Management Group Connection can be imported using the `resource id`, e.g.

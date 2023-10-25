@@ -12,6 +12,153 @@ namespace Pulumi.Azure.MSSql
     /// <summary>
     /// Manages a Microsoft SQL Azure Database Server.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleServer = new Azure.MSSql.Server("exampleServer", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Version = "12.0",
+    ///         AdministratorLogin = "missadministrator",
+    ///         AdministratorLoginPassword = "thisIsKat11",
+    ///         MinimumTlsVersion = "1.2",
+    ///         AzureadAdministrator = new Azure.MSSql.Inputs.ServerAzureadAdministratorArgs
+    ///         {
+    ///             LoginUsername = "AzureAD Admin",
+    ///             ObjectId = "00000000-0000-0000-0000-000000000000",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "production" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Transparent Data Encryption(TDE) With A Customer Managed Key(CMK) During Create
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("exampleUserAssignedIdentity", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     // Create a key vault with access policies which allow for the current user to get, list, create, delete, update, recover, purge and getRotationPolicy for the key vault key and also add a key vault access policy for the Microsoft Sql Server instance User Managed Identity to get, wrap, and unwrap key(s)
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         EnabledForDiskEncryption = true,
+    ///         TenantId = exampleUserAssignedIdentity.TenantId,
+    ///         SoftDeleteRetentionDays = 7,
+    ///         PurgeProtectionEnabled = true,
+    ///         SkuName = "standard",
+    ///         AccessPolicies = new[]
+    ///         {
+    ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
+    ///             {
+    ///                 TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///                 ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///                 KeyPermissions = new[]
+    ///                 {
+    ///                     "Get",
+    ///                     "List",
+    ///                     "Create",
+    ///                     "Delete",
+    ///                     "Update",
+    ///                     "Recover",
+    ///                     "Purge",
+    ///                     "GetRotationPolicy",
+    ///                 },
+    ///             },
+    ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
+    ///             {
+    ///                 TenantId = exampleUserAssignedIdentity.TenantId,
+    ///                 ObjectId = exampleUserAssignedIdentity.PrincipalId,
+    ///                 KeyPermissions = new[]
+    ///                 {
+    ///                     "Get",
+    ///                     "WrapKey",
+    ///                     "UnwrapKey",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleKey = new Azure.KeyVault.Key("exampleKey", new()
+    ///     {
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         KeyType = "RSA",
+    ///         KeySize = 2048,
+    ///         KeyOpts = new[]
+    ///         {
+    ///             "unwrapKey",
+    ///             "wrapKey",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleKeyVault,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleServer = new Azure.MSSql.Server("exampleServer", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Version = "12.0",
+    ///         AdministratorLogin = "Example-Administrator",
+    ///         AdministratorLoginPassword = "Example_Password!",
+    ///         MinimumTlsVersion = "1.2",
+    ///         AzureadAdministrator = new Azure.MSSql.Inputs.ServerAzureadAdministratorArgs
+    ///         {
+    ///             LoginUsername = exampleUserAssignedIdentity.Name,
+    ///             ObjectId = exampleUserAssignedIdentity.PrincipalId,
+    ///         },
+    ///         Identity = new Azure.MSSql.Inputs.ServerIdentityArgs
+    ///         {
+    ///             Type = "UserAssigned",
+    ///             IdentityIds = new[]
+    ///             {
+    ///                 exampleUserAssignedIdentity.Id,
+    ///             },
+    ///         },
+    ///         PrimaryUserAssignedIdentityId = exampleUserAssignedIdentity.Id,
+    ///         TransparentDataEncryptionKeyVaultKeyId = exampleKey.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// SQL Servers can be imported using the `resource id`, e.g.

@@ -17,6 +17,64 @@ import (
 //
 // > **Note:** The `sql.ManagedInstanceActiveDirectoryAdministrator` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.ManagedInstanceActiveDirectoryAdministrator` resource instead.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sql"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleManagedInstance, err := sql.NewManagedInstance(ctx, "exampleManagedInstance", &sql.ManagedInstanceArgs{
+//				ResourceGroupName:          exampleResourceGroup.Name,
+//				Location:                   exampleResourceGroup.Location,
+//				AdministratorLogin:         pulumi.String("mradministrator"),
+//				AdministratorLoginPassword: pulumi.String("thisIsDog11"),
+//				LicenseType:                pulumi.String("BasePrice"),
+//				SubnetId:                   pulumi.Any(azurerm_subnet.Example.Id),
+//				SkuName:                    pulumi.String("GP_Gen5"),
+//				Vcores:                     pulumi.Int(4),
+//				StorageSizeInGb:            pulumi.Int(32),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				azurerm_subnet_network_security_group_association.Example,
+//				azurerm_subnet_route_table_association.Example,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = sql.NewManagedInstanceActiveDirectoryAdministrator(ctx, "exampleManagedInstanceActiveDirectoryAdministrator", &sql.ManagedInstanceActiveDirectoryAdministratorArgs{
+//				ManagedInstanceName: exampleManagedInstance.Name,
+//				ResourceGroupName:   exampleResourceGroup.Name,
+//				Login:               pulumi.String("sqladmin"),
+//				TenantId:            *pulumi.String(current.TenantId),
+//				ObjectId:            *pulumi.String(current.ObjectId),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // A SQL Active Directory Administrator can be imported using the `resource id`, e.g.

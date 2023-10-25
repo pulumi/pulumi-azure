@@ -546,6 +546,41 @@ class ConnectedRegistry(pulumi.CustomResource):
         """
         Manages a Container Connected Registry.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_registry = azure.containerservice.Registry("exampleRegistry",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku="Premium",
+            data_endpoint_enabled=True)
+        example_registry_scope_map = azure.containerservice.RegistryScopeMap("exampleRegistryScopeMap",
+            container_registry_name=example_registry.name,
+            resource_group_name=example_registry.resource_group_name,
+            actions=[
+                "repositories/hello-world/content/delete",
+                "repositories/hello-world/content/read",
+                "repositories/hello-world/content/write",
+                "repositories/hello-world/metadata/read",
+                "repositories/hello-world/metadata/write",
+                "gateway/examplecr/config/read",
+                "gateway/examplecr/config/write",
+                "gateway/examplecr/message/read",
+                "gateway/examplecr/message/write",
+            ])
+        example_registry_token = azure.containerservice.RegistryToken("exampleRegistryToken",
+            container_registry_name=example_registry.name,
+            resource_group_name=example_registry.resource_group_name,
+            scope_map_id=example_registry_scope_map.id)
+        example_connected_registry = azure.containerservice.ConnectedRegistry("exampleConnectedRegistry",
+            container_registry_id=example_registry.id,
+            sync_token_id=example_registry_token.id)
+        ```
+
         ## Import
 
         Container Connected Registries can be imported using the `resource id`, e.g.
@@ -579,6 +614,41 @@ class ConnectedRegistry(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Container Connected Registry.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_registry = azure.containerservice.Registry("exampleRegistry",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku="Premium",
+            data_endpoint_enabled=True)
+        example_registry_scope_map = azure.containerservice.RegistryScopeMap("exampleRegistryScopeMap",
+            container_registry_name=example_registry.name,
+            resource_group_name=example_registry.resource_group_name,
+            actions=[
+                "repositories/hello-world/content/delete",
+                "repositories/hello-world/content/read",
+                "repositories/hello-world/content/write",
+                "repositories/hello-world/metadata/read",
+                "repositories/hello-world/metadata/write",
+                "gateway/examplecr/config/read",
+                "gateway/examplecr/config/write",
+                "gateway/examplecr/message/read",
+                "gateway/examplecr/message/write",
+            ])
+        example_registry_token = azure.containerservice.RegistryToken("exampleRegistryToken",
+            container_registry_name=example_registry.name,
+            resource_group_name=example_registry.resource_group_name,
+            scope_map_id=example_registry_scope_map.id)
+        example_connected_registry = azure.containerservice.ConnectedRegistry("exampleConnectedRegistry",
+            container_registry_id=example_registry.id,
+            sync_token_id=example_registry_token.id)
+        ```
 
         ## Import
 

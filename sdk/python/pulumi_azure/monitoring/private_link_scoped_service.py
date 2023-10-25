@@ -217,6 +217,24 @@ class PrivateLinkScopedService(pulumi.CustomResource):
         """
         Manages an Azure Monitor Private Link Scoped Service.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_insights = azure.appinsights.Insights("exampleInsights",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            application_type="web")
+        example_private_link_scope = azure.monitoring.PrivateLinkScope("examplePrivateLinkScope", resource_group_name=example_resource_group.name)
+        example_private_link_scoped_service = azure.monitoring.PrivateLinkScopedService("examplePrivateLinkScopedService",
+            resource_group_name=example_resource_group.name,
+            scope_name=example_private_link_scope.name,
+            linked_resource_id=example_insights.id)
+        ```
+
         ## Import
 
         Azure Monitor Private Link Scoped Services can be imported using the `resource id`, e.g.
@@ -240,6 +258,24 @@ class PrivateLinkScopedService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Monitor Private Link Scoped Service.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_insights = azure.appinsights.Insights("exampleInsights",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            application_type="web")
+        example_private_link_scope = azure.monitoring.PrivateLinkScope("examplePrivateLinkScope", resource_group_name=example_resource_group.name)
+        example_private_link_scoped_service = azure.monitoring.PrivateLinkScopedService("examplePrivateLinkScopedService",
+            resource_group_name=example_resource_group.name,
+            scope_name=example_private_link_scope.name,
+            linked_resource_id=example_insights.id)
+        ```
 
         ## Import
 

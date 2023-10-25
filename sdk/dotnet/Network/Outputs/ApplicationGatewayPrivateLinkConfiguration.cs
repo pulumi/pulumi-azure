@@ -21,6 +21,16 @@ namespace Pulumi.Azure.Network.Outputs
         /// One or more `ip_configuration` blocks as defined below.
         /// 
         /// &gt; **Please Note**: The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        /// });
+        /// ```
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationGatewayPrivateLinkConfigurationIpConfiguration> IpConfigurations;
         /// <summary>

@@ -14,6 +14,136 @@ namespace Pulumi.Azure.Policy
     /// 
     /// &gt; **NOTE:** You can create Guest Configuration Policies without defining a `azure.compute.Extension` resource, however the policies will not be executed until a `azure.compute.Extension` has been provisioned to the virtual machine.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("exampleNetworkInterface", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         IpConfigurations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
+    ///             {
+    ///                 Name = "internal",
+    ///                 SubnetId = exampleSubnet.Id,
+    ///                 PrivateIpAddressAllocation = "Dynamic",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleWindowsVirtualMachine = new Azure.Compute.WindowsVirtualMachine("exampleWindowsVirtualMachine", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Size = "Standard_F2",
+    ///         AdminUsername = "adminuser",
+    ///         AdminPassword = "P@$$w0rd1234!",
+    ///         NetworkInterfaceIds = new[]
+    ///         {
+    ///             exampleNetworkInterface.Id,
+    ///         },
+    ///         Identity = new Azure.Compute.Inputs.WindowsVirtualMachineIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///         OsDisk = new Azure.Compute.Inputs.WindowsVirtualMachineOsDiskArgs
+    ///         {
+    ///             Caching = "ReadWrite",
+    ///             StorageAccountType = "Standard_LRS",
+    ///         },
+    ///         SourceImageReference = new Azure.Compute.Inputs.WindowsVirtualMachineSourceImageReferenceArgs
+    ///         {
+    ///             Publisher = "MicrosoftWindowsServer",
+    ///             Offer = "WindowsServer",
+    ///             Sku = "2019-Datacenter",
+    ///             Version = "latest",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleExtension = new Azure.Compute.Extension("exampleExtension", new()
+    ///     {
+    ///         VirtualMachineId = exampleWindowsVirtualMachine.Id,
+    ///         Publisher = "Microsoft.GuestConfiguration",
+    ///         Type = "ConfigurationforWindows",
+    ///         TypeHandlerVersion = "1.29",
+    ///         AutoUpgradeMinorVersion = true,
+    ///     });
+    /// 
+    ///     var exampleVirtualMachineConfigurationAssignment = new Azure.Policy.VirtualMachineConfigurationAssignment("exampleVirtualMachineConfigurationAssignment", new()
+    ///     {
+    ///         Location = exampleWindowsVirtualMachine.Location,
+    ///         VirtualMachineId = exampleWindowsVirtualMachine.Id,
+    ///         Configuration = new Azure.Policy.Inputs.VirtualMachineConfigurationAssignmentConfigurationArgs
+    ///         {
+    ///             AssignmentType = "ApplyAndMonitor",
+    ///             Version = "1.*",
+    ///             Parameters = new[]
+    ///             {
+    ///                 new Azure.Policy.Inputs.VirtualMachineConfigurationAssignmentConfigurationParameterArgs
+    ///                 {
+    ///                     Name = "Minimum Password Length;ExpectedValue",
+    ///                     Value = "16",
+    ///                 },
+    ///                 new Azure.Policy.Inputs.VirtualMachineConfigurationAssignmentConfigurationParameterArgs
+    ///                 {
+    ///                     Name = "Minimum Password Age;ExpectedValue",
+    ///                     Value = "0",
+    ///                 },
+    ///                 new Azure.Policy.Inputs.VirtualMachineConfigurationAssignmentConfigurationParameterArgs
+    ///                 {
+    ///                     Name = "Maximum Password Age;ExpectedValue",
+    ///                     Value = "30,45",
+    ///                 },
+    ///                 new Azure.Policy.Inputs.VirtualMachineConfigurationAssignmentConfigurationParameterArgs
+    ///                 {
+    ///                     Name = "Enforce Password History;ExpectedValue",
+    ///                     Value = "10",
+    ///                 },
+    ///                 new Azure.Policy.Inputs.VirtualMachineConfigurationAssignmentConfigurationParameterArgs
+    ///                 {
+    ///                     Name = "Password Must Meet Complexity Requirements;ExpectedValue",
+    ///                     Value = "1",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Policy Virtual Machine Configuration Assignments can be imported using the `resource id`, e.g.

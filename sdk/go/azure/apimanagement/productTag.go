@@ -15,6 +15,69 @@ import (
 
 // Manages an API Management Product tag
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				PublisherName:     pulumi.String("My Company"),
+//				PublisherEmail:    pulumi.String("company@terraform.io"),
+//				SkuName:           pulumi.String("Developer_1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleProduct, err := apimanagement.NewProduct(ctx, "exampleProduct", &apimanagement.ProductArgs{
+//				ProductId:            pulumi.String("test-product"),
+//				ApiManagementName:    exampleService.Name,
+//				ResourceGroupName:    exampleResourceGroup.Name,
+//				DisplayName:          pulumi.String("Test Product"),
+//				SubscriptionRequired: pulumi.Bool(true),
+//				ApprovalRequired:     pulumi.Bool(true),
+//				Published:            pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apimanagement.NewTag(ctx, "exampleTag", &apimanagement.TagArgs{
+//				ApiManagementId: exampleService.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apimanagement.NewProductTag(ctx, "exampleProductTag", &apimanagement.ProductTagArgs{
+//				ApiManagementProductId: exampleProduct.ProductId,
+//				ApiManagementName:      exampleService.Name,
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // API Management Products can be imported using the `resource id`, e.g.

@@ -6,6 +6,18 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Storage Container.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.storage.getStorageContainer({
+ *     name: "example-container-name",
+ *     storageAccountName: "example-storage-account-name",
+ * });
+ * ```
  */
 export function getStorageContainer(args: GetStorageContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageContainerResult> {
 
@@ -68,6 +80,18 @@ export interface GetStorageContainerResult {
 }
 /**
  * Use this data source to access information about an existing Storage Container.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.storage.getStorageContainer({
+ *     name: "example-container-name",
+ *     storageAccountName: "example-storage-account-name",
+ * });
+ * ```
  */
 export function getStorageContainerOutput(args: GetStorageContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageContainerResult> {
     return pulumi.output(args).apply((a: any) => getStorageContainer(a, opts))

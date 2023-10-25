@@ -12,6 +12,66 @@ namespace Pulumi.Azure.Monitoring
     /// <summary>
     /// Manages a logz Tag Rule.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleLogzMonitor = new Azure.Monitoring.LogzMonitor("exampleLogzMonitor", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Plan = new Azure.Monitoring.Inputs.LogzMonitorPlanArgs
+    ///         {
+    ///             BillingCycle = "MONTHLY",
+    ///             EffectiveDate = "2022-06-06T00:00:00Z",
+    ///             UsageType = "COMMITTED",
+    ///         },
+    ///         User = new Azure.Monitoring.Inputs.LogzMonitorUserArgs
+    ///         {
+    ///             Email = "user@example.com",
+    ///             FirstName = "Example",
+    ///             LastName = "User",
+    ///             PhoneNumber = "+12313803556",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleLogzTagRule = new Azure.Monitoring.LogzTagRule("exampleLogzTagRule", new()
+    ///     {
+    ///         LogzMonitorId = exampleLogzMonitor.Id,
+    ///         TagFilters = new[]
+    ///         {
+    ///             new Azure.Monitoring.Inputs.LogzTagRuleTagFilterArgs
+    ///             {
+    ///                 Name = "name1",
+    ///                 Action = "Include",
+    ///                 Value = "value1",
+    ///             },
+    ///             new Azure.Monitoring.Inputs.LogzTagRuleTagFilterArgs
+    ///             {
+    ///                 Name = "name2",
+    ///                 Action = "Exclude",
+    ///                 Value = "value2",
+    ///             },
+    ///         },
+    ///         SendAadLogs = true,
+    ///         SendActivityLogs = true,
+    ///         SendSubscriptionLogs = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// logz Tag Rules can be imported using the `resource id`, e.g.

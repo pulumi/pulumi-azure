@@ -297,6 +297,35 @@ class SpringCloudDevToolPortal(pulumi.CustomResource):
 
         Manages a Spring Cloud Dev Tool Portal.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="E0")
+        example_spring_cloud_dev_tool_portal = azure.appplatform.SpringCloudDevToolPortal("exampleSpringCloudDevToolPortal",
+            spring_cloud_service_id=example_spring_cloud_service.id,
+            public_network_access_enabled=True,
+            sso=azure.appplatform.SpringCloudDevToolPortalSsoArgs(
+                client_id="example id",
+                client_secret="example secret",
+                metadata_url=f"https://login.microsoftonline.com/{current.tenant_id}/v2.0/.well-known/openid-configuration",
+                scopes=[
+                    "openid",
+                    "profile",
+                    "email",
+                ],
+            ),
+            application_accelerator_enabled=True,
+            application_live_view_enabled=True)
+        ```
+
         ## Import
 
         Spring Cloud Dev Tool Portals can be imported using the `resource id`, e.g.
@@ -324,6 +353,35 @@ class SpringCloudDevToolPortal(pulumi.CustomResource):
         > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
 
         Manages a Spring Cloud Dev Tool Portal.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="E0")
+        example_spring_cloud_dev_tool_portal = azure.appplatform.SpringCloudDevToolPortal("exampleSpringCloudDevToolPortal",
+            spring_cloud_service_id=example_spring_cloud_service.id,
+            public_network_access_enabled=True,
+            sso=azure.appplatform.SpringCloudDevToolPortalSsoArgs(
+                client_id="example id",
+                client_secret="example secret",
+                metadata_url=f"https://login.microsoftonline.com/{current.tenant_id}/v2.0/.well-known/openid-configuration",
+                scopes=[
+                    "openid",
+                    "profile",
+                    "email",
+                ],
+            ),
+            application_accelerator_enabled=True,
+            application_live_view_enabled=True)
+        ```
 
         ## Import
 

@@ -249,6 +249,39 @@ class FunctionJavascriptUda(pulumi.CustomResource):
         """
         Manages a JavaScript UDA Function within a Stream Analytics Streaming Job.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.get_resource_group(name="example-resources")
+        example_job = azure.streamanalytics.get_job(name="example-job",
+            resource_group_name=example_resource_group.name)
+        example_function_javascript_uda = azure.streamanalytics.FunctionJavascriptUda("exampleFunctionJavascriptUda",
+            stream_analytics_job_id=example_job.id,
+            script=\"\"\"function main() {
+            this.init = function () {
+                this.state = 0;
+            }
+
+            this.accumulate = function (value, timestamp) {
+                this.state += value;
+            }
+
+            this.computeResult = function () {
+                return this.state;
+            }
+        }
+        \"\"\",
+            inputs=[azure.streamanalytics.FunctionJavascriptUdaInputArgs(
+                type="bigint",
+            )],
+            output=azure.streamanalytics.FunctionJavascriptUdaOutputArgs(
+                type="bigint",
+            ))
+        ```
+
         ## Import
 
         Stream Analytics JavaScript UDA Functions can be imported using the `resource id`, e.g.
@@ -273,6 +306,39 @@ class FunctionJavascriptUda(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a JavaScript UDA Function within a Stream Analytics Streaming Job.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.get_resource_group(name="example-resources")
+        example_job = azure.streamanalytics.get_job(name="example-job",
+            resource_group_name=example_resource_group.name)
+        example_function_javascript_uda = azure.streamanalytics.FunctionJavascriptUda("exampleFunctionJavascriptUda",
+            stream_analytics_job_id=example_job.id,
+            script=\"\"\"function main() {
+            this.init = function () {
+                this.state = 0;
+            }
+
+            this.accumulate = function (value, timestamp) {
+                this.state += value;
+            }
+
+            this.computeResult = function () {
+                return this.state;
+            }
+        }
+        \"\"\",
+            inputs=[azure.streamanalytics.FunctionJavascriptUdaInputArgs(
+                type="bigint",
+            )],
+            output=azure.streamanalytics.FunctionJavascriptUdaOutputArgs(
+                type="bigint",
+            ))
+        ```
 
         ## Import
 

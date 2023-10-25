@@ -15,6 +15,57 @@ import (
 
 // Manages an Azure Site Recovery replication policy for VMWare within a Recovery Vault.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/recoveryservices"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/siterecovery"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("East US"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVault, err := recoveryservices.NewVault(ctx, "exampleVault", &recoveryservices.VaultArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("Standard"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVMWareReplicationPolicy, err := siterecovery.NewVMWareReplicationPolicy(ctx, "exampleVMWareReplicationPolicy", &siterecovery.VMWareReplicationPolicyArgs{
+//				RecoveryVaultId:                                 exampleVault.ID(),
+//				RecoveryPointRetentionInMinutes:                 pulumi.Int(1440),
+//				ApplicationConsistentSnapshotFrequencyInMinutes: pulumi.Int(240),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = siterecovery.NewVmwareReplicationPolicyAssociation(ctx, "exampleVmwareReplicationPolicyAssociation", &siterecovery.VmwareReplicationPolicyAssociationArgs{
+//				RecoveryVaultId: exampleVault.ID(),
+//				PolicyId:        exampleVMWareReplicationPolicy.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Site Recovery Replication Policies can be imported using the `resource id`, e.g.

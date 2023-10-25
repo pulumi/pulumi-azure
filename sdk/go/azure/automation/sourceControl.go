@@ -15,6 +15,55 @@ import (
 
 // Manages an Automation Source Control.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("Basic"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = automation.NewSourceControl(ctx, "exampleSourceControl", &automation.SourceControlArgs{
+//				AutomationAccountId: exampleAccount.ID(),
+//				FolderPath:          pulumi.String("runbook"),
+//				Security: &automation.SourceControlSecurityArgs{
+//					Token:     pulumi.String("ghp_xxx"),
+//					TokenType: pulumi.String("PersonalAccessToken"),
+//				},
+//				RepositoryUrl:     pulumi.String("https://github.com/foo/bat.git"),
+//				SourceControlType: pulumi.String("GitHub"),
+//				Branch:            pulumi.String("main"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Automations can be imported using the `resource id`, e.g.

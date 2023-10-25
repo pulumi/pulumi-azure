@@ -12,6 +12,71 @@ namespace Pulumi.Azure.CosmosDB
     /// <summary>
     /// Manages a Gremlin Graph within a Cosmos DB Account.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleAccount = Azure.CosmosDB.GetAccount.Invoke(new()
+    ///     {
+    ///         Name = "tfex-cosmosdb-account",
+    ///         ResourceGroupName = "tfex-cosmosdb-account-rg",
+    ///     });
+    /// 
+    ///     var exampleGremlinDatabase = new Azure.CosmosDB.GremlinDatabase("exampleGremlinDatabase", new()
+    ///     {
+    ///         ResourceGroupName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.ResourceGroupName),
+    ///         AccountName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Name),
+    ///     });
+    /// 
+    ///     var exampleGremlinGraph = new Azure.CosmosDB.GremlinGraph("exampleGremlinGraph", new()
+    ///     {
+    ///         ResourceGroupName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.ResourceGroupName),
+    ///         AccountName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Name),
+    ///         DatabaseName = exampleGremlinDatabase.Name,
+    ///         PartitionKeyPath = "/Example",
+    ///         Throughput = 400,
+    ///         IndexPolicy = new Azure.CosmosDB.Inputs.GremlinGraphIndexPolicyArgs
+    ///         {
+    ///             Automatic = true,
+    ///             IndexingMode = "consistent",
+    ///             IncludedPaths = new[]
+    ///             {
+    ///                 "/*",
+    ///             },
+    ///             ExcludedPaths = new[]
+    ///             {
+    ///                 "/\"_etag\"/?",
+    ///             },
+    ///         },
+    ///         ConflictResolutionPolicy = new Azure.CosmosDB.Inputs.GremlinGraphConflictResolutionPolicyArgs
+    ///         {
+    ///             Mode = "LastWriterWins",
+    ///             ConflictResolutionPath = "/_ts",
+    ///         },
+    ///         UniqueKeys = new[]
+    ///         {
+    ///             new Azure.CosmosDB.Inputs.GremlinGraphUniqueKeyArgs
+    ///             {
+    ///                 Paths = new[]
+    ///                 {
+    ///                     "/definition/id1",
+    ///                     "/definition/id2",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// &gt; **NOTE:** The CosmosDB Account needs to have the `EnableGremlin` capability enabled to use this resource - which can be done by adding this to the `capabilities` list within the `azure.cosmosdb.Account` resource.
+    /// 
     /// ## Import
     /// 
     /// Cosmos Gremlin Graphs can be imported using the `resource id`, e.g.

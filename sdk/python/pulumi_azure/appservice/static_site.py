@@ -411,6 +411,17 @@ class StaticSite(pulumi.CustomResource):
 
         ->**NOTE:** After the Static Site is provisioned, you'll need to associate your target repository, which contains your web app, to the Static Site, by following the [Azure Static Site document](https://docs.microsoft.com/azure/static-web-apps/github-actions-workflow).
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.appservice.StaticSite("example",
+            location="West Europe",
+            resource_group_name="example")
+        ```
+
         ## Import
 
         Static Web Apps can be imported using the `resource id`, e.g.
@@ -440,6 +451,17 @@ class StaticSite(pulumi.CustomResource):
         Manages an App Service Static Site.
 
         ->**NOTE:** After the Static Site is provisioned, you'll need to associate your target repository, which contains your web app, to the Static Site, by following the [Azure Static Site document](https://docs.microsoft.com/azure/static-web-apps/github-actions-workflow).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.appservice.StaticSite("example",
+            location="West Europe",
+            resource_group_name="example")
+        ```
 
         ## Import
 

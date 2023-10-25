@@ -306,6 +306,29 @@ class SrvRecord(pulumi.CustomResource):
                  zone_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_zone = azure.dns.Zone("exampleZone", resource_group_name=example_resource_group.name)
+        example_srv_record = azure.dns.SrvRecord("exampleSrvRecord",
+            zone_name=example_zone.name,
+            resource_group_name=example_resource_group.name,
+            ttl=300,
+            records=[azure.dns.SrvRecordRecordArgs(
+                priority=1,
+                weight=5,
+                port=8080,
+                target="target1.contoso.com",
+            )],
+            tags={
+                "Environment": "Production",
+            })
+        ```
+
         ## Import
 
         SRV records can be imported using the `resource id`, e.g.
@@ -330,6 +353,29 @@ class SrvRecord(pulumi.CustomResource):
                  args: SrvRecordArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_zone = azure.dns.Zone("exampleZone", resource_group_name=example_resource_group.name)
+        example_srv_record = azure.dns.SrvRecord("exampleSrvRecord",
+            zone_name=example_zone.name,
+            resource_group_name=example_resource_group.name,
+            ttl=300,
+            records=[azure.dns.SrvRecordRecordArgs(
+                priority=1,
+                weight=5,
+                port=8080,
+                target="target1.contoso.com",
+            )],
+            tags={
+                "Environment": "Production",
+            })
+        ```
+
         ## Import
 
         SRV records can be imported using the `resource id`, e.g.

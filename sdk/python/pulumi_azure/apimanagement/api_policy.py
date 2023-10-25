@@ -262,6 +262,28 @@ class ApiPolicy(pulumi.CustomResource):
         """
         Manages an API Management API Policy
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_api = azure.apimanagement.get_api(name="my-api",
+            api_management_name="example-apim",
+            resource_group_name="search-service",
+            revision="2")
+        example_api_policy = azure.apimanagement.ApiPolicy("exampleApiPolicy",
+            api_name=example_api.name,
+            api_management_name=example_api.api_management_name,
+            resource_group_name=example_api.resource_group_name,
+            xml_content=\"\"\"<policies>
+          <inbound>
+            <find-and-replace from="xyz" to="abc" />
+          </inbound>
+        </policies>
+        \"\"\")
+        ```
+
         ## Import
 
         API Management API Policy can be imported using the `resource id`, e.g.
@@ -286,6 +308,28 @@ class ApiPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an API Management API Policy
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_api = azure.apimanagement.get_api(name="my-api",
+            api_management_name="example-apim",
+            resource_group_name="search-service",
+            revision="2")
+        example_api_policy = azure.apimanagement.ApiPolicy("exampleApiPolicy",
+            api_name=example_api.name,
+            api_management_name=example_api.api_management_name,
+            resource_group_name=example_api.resource_group_name,
+            xml_content=\"\"\"<policies>
+          <inbound>
+            <find-and-replace from="xyz" to="abc" />
+          </inbound>
+        </policies>
+        \"\"\")
+        ```
 
         ## Import
 

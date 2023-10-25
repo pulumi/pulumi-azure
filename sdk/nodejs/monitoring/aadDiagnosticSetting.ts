@@ -11,6 +11,55 @@ import * as utilities from "../utilities";
  *
  * !> **Authentication** The API for this resource does not support service principal authentication. This resource can only be used with Azure CLI authentication.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "west europe"});
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountKind: "StorageV2",
+ *     accountReplicationType: "LRS",
+ * });
+ * const exampleAadDiagnosticSetting = new azure.monitoring.AadDiagnosticSetting("exampleAadDiagnosticSetting", {
+ *     storageAccountId: exampleAccount.id,
+ *     enabledLogs: [
+ *         {
+ *             category: "SignInLogs",
+ *             retentionPolicy: {
+ *                 enabled: true,
+ *                 days: 1,
+ *             },
+ *         },
+ *         {
+ *             category: "AuditLogs",
+ *             retentionPolicy: {
+ *                 enabled: true,
+ *                 days: 1,
+ *             },
+ *         },
+ *         {
+ *             category: "NonInteractiveUserSignInLogs",
+ *             retentionPolicy: {
+ *                 enabled: true,
+ *                 days: 1,
+ *             },
+ *         },
+ *         {
+ *             category: "ServicePrincipalSignInLogs",
+ *             retentionPolicy: {
+ *                 enabled: true,
+ *                 days: 1,
+ *             },
+ *         },
+ *     ],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Monitor Azure Active Directory Diagnostic Settings can be imported using the `resource id`, e.g.

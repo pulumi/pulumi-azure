@@ -9,6 +9,38 @@ import * as utilities from "../utilities";
 /**
  * Manages an IoT Central Application Network Rule Set.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleApplication = new azure.iotcentral.Application("exampleApplication", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     subDomain: "example-iotcentral-app-subdomain",
+ *     displayName: "example-iotcentral-app-display-name",
+ *     sku: "ST1",
+ *     tags: {
+ *         Foo: "Bar",
+ *     },
+ * });
+ * const exampleApplicationNetworkRuleSet = new azure.iotcentral.ApplicationNetworkRuleSet("exampleApplicationNetworkRuleSet", {
+ *     iotcentralApplicationId: exampleApplication.id,
+ *     ipRules: [
+ *         {
+ *             name: "rule1",
+ *             ipMask: "10.0.1.0/24",
+ *         },
+ *         {
+ *             name: "rule2",
+ *             ipMask: "10.1.1.0/24",
+ *         },
+ *     ],
+ * });
+ * ```
+ *
  * ## Import
  *
  * IoT Central Application Network Rule Sets can be imported using the `resource id`, e.g.

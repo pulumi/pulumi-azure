@@ -218,6 +218,25 @@ class ManagedDiskSasToken(pulumi.CustomResource):
 
         With the help of this resource, data from the disk can be copied from managed disk to a storage blob or to some other system without the need of azcopy.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        test_resource_group = azure.core.ResourceGroup("testResourceGroup", location="West Europe")
+        test_managed_disk = azure.compute.ManagedDisk("testManagedDisk",
+            location=test_resource_group.location,
+            resource_group_name=test_resource_group.name,
+            storage_account_type="Standard_LRS",
+            create_option="Empty",
+            disk_size_gb=1)
+        test_managed_disk_sas_token = azure.compute.ManagedDiskSasToken("testManagedDiskSasToken",
+            managed_disk_id=test_managed_disk.id,
+            duration_in_seconds=300,
+            access_level="Read")
+        ```
+
         ## Import
 
         Disk SAS Token can be imported using the `resource id`, e.g.
@@ -249,6 +268,25 @@ class ManagedDiskSasToken(pulumi.CustomResource):
         Shared access signatures allow fine-grained, ephemeral access control to various aspects of Managed Disk similar to blob/storage account container.
 
         With the help of this resource, data from the disk can be copied from managed disk to a storage blob or to some other system without the need of azcopy.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        test_resource_group = azure.core.ResourceGroup("testResourceGroup", location="West Europe")
+        test_managed_disk = azure.compute.ManagedDisk("testManagedDisk",
+            location=test_resource_group.location,
+            resource_group_name=test_resource_group.name,
+            storage_account_type="Standard_LRS",
+            create_option="Empty",
+            disk_size_gb=1)
+        test_managed_disk_sas_token = azure.compute.ManagedDiskSasToken("testManagedDiskSasToken",
+            managed_disk_id=test_managed_disk.id,
+            duration_in_seconds=300,
+            access_level="Read")
+        ```
 
         ## Import
 

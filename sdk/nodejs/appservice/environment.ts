@@ -9,6 +9,45 @@ import * as utilities from "../utilities";
 /**
  * Manages an App Service Environment.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     addressSpaces: ["10.0.0.0/16"],
+ * });
+ * const ase = new azure.network.Subnet("ase", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.1.0/24"],
+ * });
+ * const gateway = new azure.network.Subnet("gateway", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.2.0/24"],
+ * });
+ * const exampleEnvironment = new azure.appservice.Environment("exampleEnvironment", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     subnetId: ase.id,
+ *     pricingTier: "I2",
+ *     frontEndScaleFactor: 10,
+ *     internalLoadBalancingMode: "Web, Publishing",
+ *     allowedUserIpCidrs: [
+ *         "11.22.33.44/32",
+ *         "55.66.77.0/24",
+ *     ],
+ *     clusterSettings: [{
+ *         name: "DisableTls1.0",
+ *         value: "1",
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * The App Service Environment can be imported using the `resource id`, e.g.

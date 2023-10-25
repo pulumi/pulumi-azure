@@ -12,6 +12,36 @@ namespace Pulumi.Azure.DataFactory
     /// <summary>
     /// Manages a Data Factory Azure Integration Runtime.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleIntegrationRuntimeRule = new Azure.DataFactory.IntegrationRuntimeRule("exampleIntegrationRuntimeRule", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Data Factory Azure Integration Runtimes can be imported using the `resource id`, e.g.

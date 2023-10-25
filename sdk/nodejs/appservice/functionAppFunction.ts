@@ -10,6 +10,127 @@ import * as utilities from "../utilities";
  * Manages a Function App Function.
  *
  * ## Example Usage
+ * ### Basic HTTP Trigger
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ * });
+ * const exampleServicePlan = new azure.appservice.ServicePlan("exampleServicePlan", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     osType: "Linux",
+ *     skuName: "S1",
+ * });
+ * const exampleLinuxFunctionApp = new azure.appservice.LinuxFunctionApp("exampleLinuxFunctionApp", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     servicePlanId: exampleServicePlan.id,
+ *     storageAccountName: exampleAccount.name,
+ *     storageAccountAccessKey: exampleAccount.primaryAccessKey,
+ *     siteConfig: {
+ *         applicationStack: {
+ *             pythonVersion: "3.9",
+ *         },
+ *     },
+ * });
+ * const exampleFunctionAppFunction = new azure.appservice.FunctionAppFunction("exampleFunctionAppFunction", {
+ *     functionAppId: exampleLinuxFunctionApp.id,
+ *     language: "Python",
+ *     testData: JSON.stringify({
+ *         name: "Azure",
+ *     }),
+ *     configJson: JSON.stringify({
+ *         bindings: [
+ *             {
+ *                 authLevel: "function",
+ *                 direction: "in",
+ *                 methods: [
+ *                     "get",
+ *                     "post",
+ *                 ],
+ *                 name: "req",
+ *                 type: "httpTrigger",
+ *             },
+ *             {
+ *                 direction: "out",
+ *                 name: "$return",
+ *                 type: "http",
+ *             },
+ *         ],
+ *     }),
+ * });
+ * ```
+ * ### HTTP Trigger With Code Upload
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as fs from "fs";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ * });
+ * const exampleServicePlan = new azure.appservice.ServicePlan("exampleServicePlan", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     osType: "Windows",
+ *     skuName: "S1",
+ * });
+ * const exampleWindowsFunctionApp = new azure.appservice.WindowsFunctionApp("exampleWindowsFunctionApp", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     servicePlanId: exampleServicePlan.id,
+ *     storageAccountName: exampleAccount.name,
+ *     storageAccountAccessKey: exampleAccount.primaryAccessKey,
+ *     siteConfig: {
+ *         applicationStack: {
+ *             dotnetVersion: "6",
+ *         },
+ *     },
+ * });
+ * const exampleFunctionAppFunction = new azure.appservice.FunctionAppFunction("exampleFunctionAppFunction", {
+ *     functionAppId: exampleWindowsFunctionApp.id,
+ *     language: "CSharp",
+ *     files: [{
+ *         name: "run.csx",
+ *         content: fs.readFileSync("exampledata/run.csx"),
+ *     }],
+ *     testData: JSON.stringify({
+ *         name: "Azure",
+ *     }),
+ *     configJson: JSON.stringify({
+ *         bindings: [
+ *             {
+ *                 authLevel: "function",
+ *                 direction: "in",
+ *                 methods: [
+ *                     "get",
+ *                     "post",
+ *                 ],
+ *                 name: "req",
+ *                 type: "httpTrigger",
+ *             },
+ *             {
+ *                 direction: "out",
+ *                 name: "$return",
+ *                 type: "http",
+ *             },
+ *         ],
+ *     }),
+ * });
+ * ```
  *
  * ## Import
  *

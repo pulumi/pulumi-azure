@@ -311,6 +311,78 @@ class VolumeQuotaRule(pulumi.CustomResource):
         """
         Manages a Volume Quota Rule.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            address_spaces=["10.0.0.0/16"])
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"],
+            delegations=[azure.network.SubnetDelegationArgs(
+                name="netapp",
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                    name="Microsoft.Netapp/volumes",
+                    actions=[
+                        "Microsoft.Network/networkinterfaces/*",
+                        "Microsoft.Network/virtualNetworks/subnets/join/action",
+                    ],
+                ),
+            )])
+        example_account = azure.netapp.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_pool = azure.netapp.Pool("examplePool",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            account_name=example_account.name,
+            service_level="Premium",
+            size_in_tb=4)
+        example_volume = azure.netapp.Volume("exampleVolume",
+            location=example_resource_group.location,
+            zone="1",
+            resource_group_name=example_resource_group.name,
+            account_name=example_account.name,
+            pool_name=example_pool.name,
+            volume_path="my-unique-file-path",
+            service_level="Premium",
+            subnet_id=example_subnet.id,
+            network_features="Basic",
+            protocols=["NFSv4.1"],
+            security_style="unix",
+            storage_quota_in_gb=100,
+            snapshot_directory_visible=False)
+        quota1 = azure.netapp.VolumeQuotaRule("quota1",
+            location=example_resource_group.location,
+            volume_id=example_volume.id,
+            quota_target="3001",
+            quota_size_in_kib=1024,
+            quota_type="IndividualGroupQuota")
+        quota2 = azure.netapp.VolumeQuotaRule("quota2",
+            location=example_resource_group.location,
+            volume_id=example_volume.id,
+            quota_target="2001",
+            quota_size_in_kib=1024,
+            quota_type="IndividualUserQuota")
+        quota3 = azure.netapp.VolumeQuotaRule("quota3",
+            location=example_resource_group.location,
+            volume_id=example_volume.id,
+            quota_size_in_kib=1024,
+            quota_type="DefaultUserQuota")
+        quota4 = azure.netapp.VolumeQuotaRule("quota4",
+            location=example_resource_group.location,
+            volume_id=example_volume.id,
+            quota_size_in_kib=1024,
+            quota_type="DefaultGroupQuota")
+        ```
+
         ## Import
 
         Volume Quota Rules can be imported using the `resource id`, e.g.
@@ -340,6 +412,78 @@ class VolumeQuotaRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Volume Quota Rule.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            address_spaces=["10.0.0.0/16"])
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"],
+            delegations=[azure.network.SubnetDelegationArgs(
+                name="netapp",
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                    name="Microsoft.Netapp/volumes",
+                    actions=[
+                        "Microsoft.Network/networkinterfaces/*",
+                        "Microsoft.Network/virtualNetworks/subnets/join/action",
+                    ],
+                ),
+            )])
+        example_account = azure.netapp.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_pool = azure.netapp.Pool("examplePool",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            account_name=example_account.name,
+            service_level="Premium",
+            size_in_tb=4)
+        example_volume = azure.netapp.Volume("exampleVolume",
+            location=example_resource_group.location,
+            zone="1",
+            resource_group_name=example_resource_group.name,
+            account_name=example_account.name,
+            pool_name=example_pool.name,
+            volume_path="my-unique-file-path",
+            service_level="Premium",
+            subnet_id=example_subnet.id,
+            network_features="Basic",
+            protocols=["NFSv4.1"],
+            security_style="unix",
+            storage_quota_in_gb=100,
+            snapshot_directory_visible=False)
+        quota1 = azure.netapp.VolumeQuotaRule("quota1",
+            location=example_resource_group.location,
+            volume_id=example_volume.id,
+            quota_target="3001",
+            quota_size_in_kib=1024,
+            quota_type="IndividualGroupQuota")
+        quota2 = azure.netapp.VolumeQuotaRule("quota2",
+            location=example_resource_group.location,
+            volume_id=example_volume.id,
+            quota_target="2001",
+            quota_size_in_kib=1024,
+            quota_type="IndividualUserQuota")
+        quota3 = azure.netapp.VolumeQuotaRule("quota3",
+            location=example_resource_group.location,
+            volume_id=example_volume.id,
+            quota_size_in_kib=1024,
+            quota_type="DefaultUserQuota")
+        quota4 = azure.netapp.VolumeQuotaRule("quota4",
+            location=example_resource_group.location,
+            volume_id=example_volume.id,
+            quota_size_in_kib=1024,
+            quota_type="DefaultGroupQuota")
+        ```
 
         ## Import
 

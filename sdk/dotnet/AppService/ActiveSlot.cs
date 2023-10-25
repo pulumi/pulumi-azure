@@ -15,6 +15,42 @@ namespace Pulumi.Azure.AppService
     /// !&gt; **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `azure.appservice.WebAppActiveSlot` resource instead.
     /// 
     /// &gt; **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `azure.appservice.AppService` resource will be overwritten when promoting a Slot using the `azure.appservice.ActiveSlot` resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using Random = Pulumi.Random;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var server = new Random.RandomId("server");
+    /// 
+    ///     // ...
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup");
+    /// 
+    ///     // ...
+    ///     var examplePlan = new Azure.AppService.Plan("examplePlan");
+    /// 
+    ///     // ...
+    ///     var exampleAppService = new Azure.AppService.AppService("exampleAppService");
+    /// 
+    ///     // ...
+    ///     var exampleSlot = new Azure.AppService.Slot("exampleSlot");
+    /// 
+    ///     // ...
+    ///     var exampleActiveSlot = new Azure.AppService.ActiveSlot("exampleActiveSlot", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AppServiceName = exampleAppService.Name,
+    ///         AppServiceSlotName = exampleSlot.Name,
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [AzureResourceType("azure:appservice/activeSlot:ActiveSlot")]
     public partial class ActiveSlot : global::Pulumi.CustomResource

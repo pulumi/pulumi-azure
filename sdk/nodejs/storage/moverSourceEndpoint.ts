@@ -7,6 +7,25 @@ import * as utilities from "../utilities";
 /**
  * Manages a Storage Mover Source Endpoint.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleMover = new azure.storage.Mover("exampleMover", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: "West Europe",
+ * });
+ * const exampleMoverSourceEndpoint = new azure.storage.MoverSourceEndpoint("exampleMoverSourceEndpoint", {
+ *     storageMoverId: exampleMover.id,
+ *     "export": "/",
+ *     host: "192.168.0.1",
+ *     nfsVersion: "NFSv3",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Storage Mover Source Endpoint can be imported using the `resource id`, e.g.

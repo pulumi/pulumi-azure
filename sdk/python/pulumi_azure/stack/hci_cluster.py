@@ -339,6 +339,23 @@ class HciCluster(pulumi.CustomResource):
         """
         Manages an Azure Stack HCI Cluster.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_azuread as azuread
+
+        example_application = azuread.get_application(display_name="Allowed resource types")
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_hci_cluster = azure.stack.HciCluster("exampleHciCluster",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            client_id=example_application.application_id,
+            tenant_id=current.tenant_id)
+        ```
+
         ## Import
 
         Azure Stack HCI Clusters can be imported using the `resource id`, e.g.
@@ -367,6 +384,23 @@ class HciCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Stack HCI Cluster.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_azuread as azuread
+
+        example_application = azuread.get_application(display_name="Allowed resource types")
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_hci_cluster = azure.stack.HciCluster("exampleHciCluster",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            client_id=example_application.application_id,
+            tenant_id=current.tenant_id)
+        ```
 
         ## Import
 

@@ -13,6 +13,35 @@ import (
 )
 
 // Use this data source to access information about an existing Notification Hub within a Notification Hub Namespace.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/notificationhub"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := notificationhub.LookupHub(ctx, &notificationhub.LookupHubArgs{
+//				Name:              "notification-hub",
+//				NamespaceName:     "namespace-name",
+//				ResourceGroupName: "resource-group-name",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("id", example.Id)
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupHub(ctx *pulumi.Context, args *LookupHubArgs, opts ...pulumi.InvokeOption) (*LookupHubResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupHubResult

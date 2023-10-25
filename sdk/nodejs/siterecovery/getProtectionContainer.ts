@@ -6,6 +6,20 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing site recovery services protection container.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const container = azure.siterecovery.getProtectionContainer({
+ *     name: "primary-container",
+ *     recoveryFabricName: "primary-fabric",
+ *     recoveryVaultName: "tfex-recovery_vault",
+ *     resourceGroupName: "tfex-resource_group",
+ * });
+ * ```
  */
 export function getProtectionContainer(args: GetProtectionContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetProtectionContainerResult> {
 
@@ -55,6 +69,20 @@ export interface GetProtectionContainerResult {
 }
 /**
  * Use this data source to access information about an existing site recovery services protection container.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const container = azure.siterecovery.getProtectionContainer({
+ *     name: "primary-container",
+ *     recoveryFabricName: "primary-fabric",
+ *     recoveryVaultName: "tfex-recovery_vault",
+ *     resourceGroupName: "tfex-resource_group",
+ * });
+ * ```
  */
 export function getProtectionContainerOutput(args: GetProtectionContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProtectionContainerResult> {
     return pulumi.output(args).apply((a: any) => getProtectionContainer(a, opts))

@@ -81,6 +81,17 @@ def get_subscriptions(display_name_contains: Optional[str] = None,
     """
     Use this data source to access information about all the Subscriptions currently available.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    available = azure.core.get_subscriptions()
+    pulumi.export("availableSubscriptions", available.subscriptions)
+    pulumi.export("firstAvailableSubscriptionDisplayName", available.subscriptions[0].display_name)
+    ```
+
 
     :param str display_name_contains: A case-insensitive value which must be contained within the `display_name` field, used to filter the results
     :param str display_name_prefix: A case-insensitive prefix which can be used to filter on the `display_name` field
@@ -104,6 +115,17 @@ def get_subscriptions_output(display_name_contains: Optional[pulumi.Input[Option
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubscriptionsResult]:
     """
     Use this data source to access information about all the Subscriptions currently available.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    available = azure.core.get_subscriptions()
+    pulumi.export("availableSubscriptions", available.subscriptions)
+    pulumi.export("firstAvailableSubscriptionDisplayName", available.subscriptions[0].display_name)
+    ```
 
 
     :param str display_name_contains: A case-insensitive value which must be contained within the `display_name` field, used to filter the results

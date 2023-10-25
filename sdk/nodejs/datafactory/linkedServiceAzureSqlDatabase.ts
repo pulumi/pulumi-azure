@@ -9,6 +9,23 @@ import * as utilities from "../utilities";
 /**
  * Manages a Linked Service (connection) between Azure SQL Database and Azure Data Factory.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleLinkedServiceAzureSqlDatabase = new azure.datafactory.LinkedServiceAzureSqlDatabase("exampleLinkedServiceAzureSqlDatabase", {
+ *     dataFactoryId: exampleFactory.id,
+ *     connectionString: "data source=serverhostname;initial catalog=master;user id=testUser;Password=test;integrated security=False;encrypt=True;connection timeout=30",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Data Factory Azure SQL Database Linked Service's can be imported using the `resource id`, e.g.

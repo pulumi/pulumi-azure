@@ -9,6 +9,42 @@ import * as utilities from "../utilities";
 /**
  * Manages a Resource Deployment Script of Azure PowerShell.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleResourceDeploymentScriptPowerShell = new azure.core.ResourceDeploymentScriptPowerShell("exampleResourceDeploymentScriptPowerShell", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: "West Europe",
+ *     version: "8.3",
+ *     retentionInterval: "P1D",
+ *     commandLine: "-name \"John Dole\"",
+ *     cleanupPreference: "OnSuccess",
+ *     forceUpdateTag: "1",
+ *     timeout: "PT30M",
+ *     scriptContent: `          param([string] $name)
+ *             $output = 'Hello {0}.' -f $name
+ *             Write-Output $output
+ *             $DeploymentScriptOutputs = @{}
+ *             $DeploymentScriptOutputs['text'] = $output
+ * `,
+ *     identity: {
+ *         type: "UserAssigned",
+ *         identityIds: [exampleUserAssignedIdentity.id],
+ *     },
+ *     tags: {
+ *         key: "value",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Resource Deployment Script can be imported using the `resource id`, e.g.

@@ -15,6 +15,107 @@ import (
 
 // Manages a Private DNS Resolver Virtual Network Link.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("west europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.0.64/28"),
+//				},
+//				Delegations: network.SubnetDelegationArray{
+//					&network.SubnetDelegationArgs{
+//						Name: pulumi.String("Microsoft.Network.dnsResolvers"),
+//						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
+//							Actions: pulumi.StringArray{
+//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
+//							},
+//							Name: pulumi.String("Microsoft.Network/dnsResolvers"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleResolver, err := privatedns.NewResolver(ctx, "exampleResolver", &privatedns.ResolverArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				VirtualNetworkId:  exampleVirtualNetwork.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleResolverOutboundEndpoint, err := privatedns.NewResolverOutboundEndpoint(ctx, "exampleResolverOutboundEndpoint", &privatedns.ResolverOutboundEndpointArgs{
+//				PrivateDnsResolverId: exampleResolver.ID(),
+//				Location:             exampleResolver.Location,
+//				SubnetId:             exampleSubnet.ID(),
+//				Tags: pulumi.StringMap{
+//					"key": pulumi.String("value"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleResolverDnsForwardingRuleset, err := privatedns.NewResolverDnsForwardingRuleset(ctx, "exampleResolverDnsForwardingRuleset", &privatedns.ResolverDnsForwardingRulesetArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				PrivateDnsResolverOutboundEndpointIds: pulumi.StringArray{
+//					exampleResolverOutboundEndpoint.ID(),
+//				},
+//				Tags: pulumi.StringMap{
+//					"key": pulumi.String("value"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = privatedns.NewResolverVirtualNetworkLink(ctx, "exampleResolverVirtualNetworkLink", &privatedns.ResolverVirtualNetworkLinkArgs{
+//				DnsForwardingRulesetId: exampleResolverDnsForwardingRuleset.ID(),
+//				VirtualNetworkId:       exampleVirtualNetwork.ID(),
+//				Metadata: pulumi.StringMap{
+//					"key": pulumi.String("value"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Private DNS Resolver Virtual Network Link can be imported using the `resource id`, e.g.

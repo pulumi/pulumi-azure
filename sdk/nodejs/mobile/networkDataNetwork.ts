@@ -7,6 +7,29 @@ import * as utilities from "../utilities";
 /**
  * Manages a Mobile Network Data Network.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "East Us"});
+ * const exampleNetwork = new azure.mobile.Network("exampleNetwork", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     mobileCountryCode: "001",
+ *     mobileNetworkCode: "01",
+ * });
+ * const exampleNetworkDataNetwork = new azure.mobile.NetworkDataNetwork("exampleNetworkDataNetwork", {
+ *     mobileNetworkId: exampleNetwork.id,
+ *     location: exampleResourceGroup.location,
+ *     description: "example description",
+ *     tags: {
+ *         key: "value",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Mobile Network Data Network can be imported using the `resource id`, e.g.

@@ -225,6 +225,17 @@ class Workspace(pulumi.CustomResource):
         """
         Manages a Healthcare workspace
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        test = azure.healthcare.Workspace("test",
+            location="east us",
+            resource_group_name="tfex-resource_group")
+        ```
+
         ## Import
 
         Healthcare Workspaces can be imported using the resource`id`, e.g.
@@ -248,6 +259,17 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Healthcare workspace
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        test = azure.healthcare.Workspace("test",
+            location="east us",
+            resource_group_name="tfex-resource_group")
+        ```
 
         ## Import
 

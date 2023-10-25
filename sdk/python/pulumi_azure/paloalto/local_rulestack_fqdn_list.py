@@ -253,6 +253,21 @@ class LocalRulestackFqdnList(pulumi.CustomResource):
         """
         Manages a Palo Alto Local Rulestack FQDN List.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_local_rulestack = azure.paloalto.LocalRulestack("exampleLocalRulestack",
+            resource_group_name=azurerm_resrouce_group["example"]["name"],
+            location=example_resource_group.location)
+        example_local_rulestack_fqdn_list = azure.paloalto.LocalRulestackFqdnList("exampleLocalRulestackFqdnList",
+            rulestack_id=example_local_rulestack.id,
+            fully_qualified_domain_names=["contoso.com"])
+        ```
+
         ## Import
 
         Palo Alto Local Rulestack FQDN Lists can be imported using the `resource id`, e.g.
@@ -277,6 +292,21 @@ class LocalRulestackFqdnList(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Palo Alto Local Rulestack FQDN List.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_local_rulestack = azure.paloalto.LocalRulestack("exampleLocalRulestack",
+            resource_group_name=azurerm_resrouce_group["example"]["name"],
+            location=example_resource_group.location)
+        example_local_rulestack_fqdn_list = azure.paloalto.LocalRulestackFqdnList("exampleLocalRulestackFqdnList",
+            rulestack_id=example_local_rulestack.id,
+            fully_qualified_domain_names=["contoso.com"])
+        ```
 
         ## Import
 

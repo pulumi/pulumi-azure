@@ -11,6 +11,55 @@ import * as utilities from "../utilities";
  *
  * !> Video Analyzer (Preview) is now Deprecated and will be Retired on 2022-11-30 - as such the `azure.videoanalyzer.Analyzer` resource is deprecated and will be removed in v4.0 of the AzureRM Provider.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "GRS",
+ * });
+ * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ * });
+ * const contributor = new azure.authorization.Assignment("contributor", {
+ *     scope: exampleAccount.id,
+ *     roleDefinitionName: "Storage Blob Data Contributor",
+ *     principalId: exampleUserAssignedIdentity.principalId,
+ * });
+ * const reader = new azure.authorization.Assignment("reader", {
+ *     scope: exampleAccount.id,
+ *     roleDefinitionName: "Reader",
+ *     principalId: exampleUserAssignedIdentity.principalId,
+ * });
+ * const exampleAnalyzer = new azure.videoanalyzer.Analyzer("exampleAnalyzer", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     storageAccount: {
+ *         id: exampleAccount.id,
+ *         userAssignedIdentityId: exampleUserAssignedIdentity.id,
+ *     },
+ *     identity: {
+ *         type: "UserAssigned",
+ *         identityIds: [exampleUserAssignedIdentity.id],
+ *     },
+ *     tags: {
+ *         environment: "staging",
+ *     },
+ * }, {
+ *     dependsOn: [
+ *         contributor,
+ *         reader,
+ *     ],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Video Analyzer can be imported using the `resource id`, e.g.

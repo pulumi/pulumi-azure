@@ -9,6 +9,22 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("exampleSpringCloudService", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     skuName: "E0",
+ * });
+ * const exampleSpringCloudGateway = new azure.appplatform.SpringCloudGateway("exampleSpringCloudGateway", {springCloudServiceId: exampleSpringCloudService.id});
+ * const exampleSpringCloudGatewayCustomDomain = new azure.appplatform.SpringCloudGatewayCustomDomain("exampleSpringCloudGatewayCustomDomain", {springCloudGatewayId: exampleSpringCloudGateway.id});
+ * ```
+ *
  * ## Import
  *
  * Spring Cloud Gateway Custom Domains can be imported using the `resource id`, e.g.

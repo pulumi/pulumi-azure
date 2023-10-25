@@ -12,6 +12,42 @@ namespace Pulumi.Azure.Authorization
     /// <summary>
     /// Manages a custom Role Definition, used to assign Roles to Users/Principals. See ['Understand role definitions'](https://docs.microsoft.com/azure/role-based-access-control/role-definitions) in the Azure documentation for more details.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var primary = Azure.Core.GetSubscription.Invoke();
+    /// 
+    ///     var example = new Azure.Authorization.RoleDefinition("example", new()
+    ///     {
+    ///         Scope = primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
+    ///         Description = "This is a custom role created",
+    ///         Permissions = new[]
+    ///         {
+    ///             new Azure.Authorization.Inputs.RoleDefinitionPermissionArgs
+    ///             {
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "*",
+    ///                 },
+    ///                 NotActions = new() { },
+    ///             },
+    ///         },
+    ///         AssignableScopes = new[]
+    ///         {
+    ///             primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Role Definitions can be imported using the `resource id`, e.g.

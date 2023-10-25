@@ -298,6 +298,17 @@ def get_service(name: Optional[str] = None,
     """
     Use this data source to access information about an existing API Management Service.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.apimanagement.get_service(name="search-api",
+        resource_group_name="search-service")
+    pulumi.export("apiManagementId", example.id)
+    ```
+
 
     :param str name: The name of the API Management service.
     :param str resource_group_name: The Name of the Resource Group in which the API Management Service exists.
@@ -342,6 +353,17 @@ def get_service_output(name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
     """
     Use this data source to access information about an existing API Management Service.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.apimanagement.get_service(name="search-api",
+        resource_group_name="search-service")
+    pulumi.export("apiManagementId", example.id)
+    ```
 
 
     :param str name: The name of the API Management service.

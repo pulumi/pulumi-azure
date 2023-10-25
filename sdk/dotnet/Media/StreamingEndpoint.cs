@@ -12,6 +12,132 @@ namespace Pulumi.Azure.Media
     /// <summary>
     /// Manages a Streaming Endpoint.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "GRS",
+    ///     });
+    /// 
+    ///     var exampleServiceAccount = new Azure.Media.ServiceAccount("exampleServiceAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         StorageAccounts = new[]
+    ///         {
+    ///             new Azure.Media.Inputs.ServiceAccountStorageAccountArgs
+    ///             {
+    ///                 Id = exampleAccount.Id,
+    ///                 IsPrimary = true,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleStreamingEndpoint = new Azure.Media.StreamingEndpoint("exampleStreamingEndpoint", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         MediaServicesAccountName = exampleServiceAccount.Name,
+    ///         ScaleUnits = 2,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### With Access Control
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "GRS",
+    ///     });
+    /// 
+    ///     var exampleServiceAccount = new Azure.Media.ServiceAccount("exampleServiceAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         StorageAccounts = new[]
+    ///         {
+    ///             new Azure.Media.Inputs.ServiceAccountStorageAccountArgs
+    ///             {
+    ///                 Id = exampleAccount.Id,
+    ///                 IsPrimary = true,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleStreamingEndpoint = new Azure.Media.StreamingEndpoint("exampleStreamingEndpoint", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         MediaServicesAccountName = exampleServiceAccount.Name,
+    ///         ScaleUnits = 2,
+    ///         AccessControl = new Azure.Media.Inputs.StreamingEndpointAccessControlArgs
+    ///         {
+    ///             IpAllows = new[]
+    ///             {
+    ///                 new Azure.Media.Inputs.StreamingEndpointAccessControlIpAllowArgs
+    ///                 {
+    ///                     Name = "AllowedIP",
+    ///                     Address = "192.168.1.1",
+    ///                 },
+    ///                 new Azure.Media.Inputs.StreamingEndpointAccessControlIpAllowArgs
+    ///                 {
+    ///                     Name = "AnotherIp",
+    ///                     Address = "192.168.1.2",
+    ///                 },
+    ///             },
+    ///             AkamaiSignatureHeaderAuthenticationKeys = new[]
+    ///             {
+    ///                 new Azure.Media.Inputs.StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs
+    ///                 {
+    ///                     Identifier = "id1",
+    ///                     Expiration = "2030-12-31T16:00:00Z",
+    ///                     Base64Key = "dGVzdGlkMQ==",
+    ///                 },
+    ///                 new Azure.Media.Inputs.StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs
+    ///                 {
+    ///                     Identifier = "id2",
+    ///                     Expiration = "2032-01-28T16:00:00Z",
+    ///                     Base64Key = "dGVzdGlkMQ==",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Streaming Endpoints can be imported using the `resource id`, e.g.

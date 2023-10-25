@@ -129,6 +129,17 @@ def get_factory(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Azure Data Factory (Version 2).
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.datafactory.get_factory(name="existing-adf",
+        resource_group_name="existing-rg")
+    pulumi.export("id", example.id)
+    ```
+
 
     :param str name: The name of this Azure Data Factory.
     :param str resource_group_name: The name of the Resource Group where the Azure Data Factory exists.
@@ -156,6 +167,17 @@ def get_factory_output(name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFactoryResult]:
     """
     Use this data source to access information about an existing Azure Data Factory (Version 2).
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.datafactory.get_factory(name="existing-adf",
+        resource_group_name="existing-rg")
+    pulumi.export("id", example.id)
+    ```
 
 
     :param str name: The name of this Azure Data Factory.

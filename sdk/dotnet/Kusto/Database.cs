@@ -12,6 +12,44 @@ namespace Pulumi.Azure.Kusto
     /// <summary>
     /// Manages a Kusto (also known as Azure Data Explorer) Database
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var cluster = new Azure.Kusto.Cluster("cluster", new()
+    ///     {
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
+    ///         {
+    ///             Name = "Standard_D13_v2",
+    ///             Capacity = 2,
+    ///         },
+    ///     });
+    /// 
+    ///     var database = new Azure.Kusto.Database("database", new()
+    ///     {
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         ClusterName = cluster.Name,
+    ///         HotCachePeriod = "P7D",
+    ///         SoftDeletePeriod = "P31D",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Kusto Clusters can be imported using the `resource id`, e.g.

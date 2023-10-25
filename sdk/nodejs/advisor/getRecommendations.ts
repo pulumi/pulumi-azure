@@ -8,6 +8,22 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Advisor Recommendations.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.advisor.getRecommendations({
+ *     filterByCategories: [
+ *         "security",
+ *         "cost",
+ *     ],
+ *     filterByResourceGroups: ["example-resgroups"],
+ * });
+ * export const recommendations = example.then(example => example.recommendations);
+ * ```
  */
 export function getRecommendations(args?: GetRecommendationsArgs, opts?: pulumi.InvokeOptions): Promise<GetRecommendationsResult> {
     args = args || {};
@@ -50,6 +66,22 @@ export interface GetRecommendationsResult {
 }
 /**
  * Use this data source to access information about an existing Advisor Recommendations.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.advisor.getRecommendations({
+ *     filterByCategories: [
+ *         "security",
+ *         "cost",
+ *     ],
+ *     filterByResourceGroups: ["example-resgroups"],
+ * });
+ * export const recommendations = example.then(example => example.recommendations);
+ * ```
  */
 export function getRecommendationsOutput(args?: GetRecommendationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRecommendationsResult> {
     return pulumi.output(args).apply((a: any) => getRecommendations(a, opts))

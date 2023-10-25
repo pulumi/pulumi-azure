@@ -15,6 +15,53 @@ import (
 
 // Manages a PostgreSQL Flexible Server Database.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/postgresql"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFlexibleServer, err := postgresql.NewFlexibleServer(ctx, "exampleFlexibleServer", &postgresql.FlexibleServerArgs{
+//				ResourceGroupName:     exampleResourceGroup.Name,
+//				Location:              exampleResourceGroup.Location,
+//				Version:               pulumi.String("12"),
+//				AdministratorLogin:    pulumi.String("psqladmin"),
+//				AdministratorPassword: pulumi.String("H@Sh1CoR3!"),
+//				StorageMb:             pulumi.Int(32768),
+//				SkuName:               pulumi.String("GP_Standard_D4s_v3"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = postgresql.NewFlexibleServerDatabase(ctx, "exampleFlexibleServerDatabase", &postgresql.FlexibleServerDatabaseArgs{
+//				ServerId:  exampleFlexibleServer.ID(),
+//				Collation: pulumi.String("en_US.utf8"),
+//				Charset:   pulumi.String("utf8"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Azure PostgreSQL Flexible Server Database can be imported using the `resource id`, e.g.

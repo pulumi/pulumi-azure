@@ -306,6 +306,24 @@ class AAAARecord(pulumi.CustomResource):
         """
         Enables you to manage DNS AAAA Records within Azure Private DNS.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example", location="West Europe")
+        test_zone = azure.privatedns.Zone("testZone", resource_group_name=example.name)
+        test_aaaa_record = azure.privatedns.AAAARecord("testAAAARecord",
+            zone_name=test_zone.name,
+            resource_group_name=example.name,
+            ttl=300,
+            records=[
+                "fd5d:70bc:930e:d008:0000:0000:0000:7334",
+                "fd5d:70bc:930e:d008::7335",
+            ])
+        ```
+
         ## Import
 
         Private DNS AAAA Records can be imported using the `resource id`, e.g.
@@ -331,6 +349,24 @@ class AAAARecord(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Enables you to manage DNS AAAA Records within Azure Private DNS.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example", location="West Europe")
+        test_zone = azure.privatedns.Zone("testZone", resource_group_name=example.name)
+        test_aaaa_record = azure.privatedns.AAAARecord("testAAAARecord",
+            zone_name=test_zone.name,
+            resource_group_name=example.name,
+            ttl=300,
+            records=[
+                "fd5d:70bc:930e:d008:0000:0000:0000:7334",
+                "fd5d:70bc:930e:d008::7335",
+            ])
+        ```
 
         ## Import
 

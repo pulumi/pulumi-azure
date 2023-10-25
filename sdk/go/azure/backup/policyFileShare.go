@@ -15,6 +15,89 @@ import (
 
 // Manages an Azure File Share Backup Policy within a Recovery Services vault.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/backup"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/recoveryservices"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVault, err := recoveryservices.NewVault(ctx, "exampleVault", &recoveryservices.VaultArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("Standard"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = backup.NewPolicyFileShare(ctx, "policy", &backup.PolicyFileShareArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				RecoveryVaultName: exampleVault.Name,
+//				Timezone:          pulumi.String("UTC"),
+//				Backup: &backup.PolicyFileShareBackupArgs{
+//					Frequency: pulumi.String("Daily"),
+//					Time:      pulumi.String("23:00"),
+//				},
+//				RetentionDaily: &backup.PolicyFileShareRetentionDailyArgs{
+//					Count: pulumi.Int(10),
+//				},
+//				RetentionWeekly: &backup.PolicyFileShareRetentionWeeklyArgs{
+//					Count: pulumi.Int(7),
+//					Weekdays: pulumi.StringArray{
+//						pulumi.String("Sunday"),
+//						pulumi.String("Wednesday"),
+//						pulumi.String("Friday"),
+//						pulumi.String("Saturday"),
+//					},
+//				},
+//				RetentionMonthly: &backup.PolicyFileShareRetentionMonthlyArgs{
+//					Count: pulumi.Int(7),
+//					Weekdays: pulumi.StringArray{
+//						pulumi.String("Sunday"),
+//						pulumi.String("Wednesday"),
+//					},
+//					Weeks: pulumi.StringArray{
+//						pulumi.String("First"),
+//						pulumi.String("Last"),
+//					},
+//				},
+//				RetentionYearly: &backup.PolicyFileShareRetentionYearlyArgs{
+//					Count: pulumi.Int(7),
+//					Weekdays: pulumi.StringArray{
+//						pulumi.String("Sunday"),
+//					},
+//					Weeks: pulumi.StringArray{
+//						pulumi.String("Last"),
+//					},
+//					Months: pulumi.StringArray{
+//						pulumi.String("January"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Azure File Share Backup Policies can be imported using the `resource id`, e.g.

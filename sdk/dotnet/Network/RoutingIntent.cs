@@ -12,6 +12,68 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Manages a Virtual Hub Routing Intent.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualWan = new Azure.Network.VirtualWan("exampleVirtualWan", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleVirtualHub = new Azure.Network.VirtualHub("exampleVirtualHub", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         VirtualWanId = exampleVirtualWan.Id,
+    ///         AddressPrefix = "10.0.1.0/24",
+    ///     });
+    /// 
+    ///     var exampleFirewall = new Azure.Network.Firewall("exampleFirewall", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "AZFW_Hub",
+    ///         SkuTier = "Standard",
+    ///         VirtualHub = new Azure.Network.Inputs.FirewallVirtualHubArgs
+    ///         {
+    ///             VirtualHubId = exampleVirtualHub.Id,
+    ///             PublicIpCount = 1,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleRoutingIntent = new Azure.Network.RoutingIntent("exampleRoutingIntent", new()
+    ///     {
+    ///         VirtualHubId = exampleVirtualHub.Id,
+    ///         RoutingPolicies = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.RoutingIntentRoutingPolicyArgs
+    ///             {
+    ///                 Name = "InternetTrafficPolicy",
+    ///                 Destinations = new[]
+    ///                 {
+    ///                     "Internet",
+    ///                 },
+    ///                 NextHop = exampleFirewall.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Virtual Hub Routing Intents can be imported using the `resource id`, e.g.

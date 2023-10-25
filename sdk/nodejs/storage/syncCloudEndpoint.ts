@@ -9,6 +9,41 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** Please ensure Azure File Sync has access to the storage account in your subscription, which indicates that `Microsoft.StorageSync` is assigned role `Reader and Data Access` ( refer to details [here](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-troubleshooting-steps)).
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleSync = new azure.storage.Sync("exampleSync", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ * });
+ * const exampleSyncGroup = new azure.storage.SyncGroup("exampleSyncGroup", {storageSyncId: exampleSync.id});
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ * });
+ * const exampleShare = new azure.storage.Share("exampleShare", {
+ *     storageAccountName: exampleAccount.name,
+ *     quota: 50,
+ *     acls: [{
+ *         id: "GhostedRecall",
+ *         accessPolicies: [{
+ *             permissions: "r",
+ *         }],
+ *     }],
+ * });
+ * const exampleSyncCloudEndpoint = new azure.storage.SyncCloudEndpoint("exampleSyncCloudEndpoint", {
+ *     storageSyncGroupId: exampleSyncGroup.id,
+ *     fileShareName: exampleShare.name,
+ *     storageAccountId: exampleAccount.id,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Storage Sync Cloud Endpoints can be imported using the `resource id`, e.g.

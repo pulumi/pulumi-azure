@@ -7,6 +7,43 @@ import * as utilities from "../utilities";
 /**
  * Manages the Shared Private Link Resource for a Signalr service.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const current = azure.core.getClientConfig({});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "east us"});
+ * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     tenantId: current.then(current => current.tenantId),
+ *     skuName: "standard",
+ *     softDeleteRetentionDays: 7,
+ *     accessPolicies: [{
+ *         tenantId: current.then(current => current.tenantId),
+ *         objectId: current.then(current => current.objectId),
+ *         certificatePermissions: ["ManageContacts"],
+ *         keyPermissions: ["Create"],
+ *         secretPermissions: ["Set"],
+ *     }],
+ * });
+ * const test = new azure.signalr.Service("test", {
+ *     location: azurerm_resource_group.test.location,
+ *     resourceGroupName: azurerm_resource_group.test.name,
+ *     sku: {
+ *         name: "Standard_S1",
+ *         capacity: 1,
+ *     },
+ * });
+ * const exampleSharedPrivateLinkResource = new azure.signalr.SharedPrivateLinkResource("exampleSharedPrivateLinkResource", {
+ *     signalrServiceId: azurerm_signalr_service.example.id,
+ *     subResourceName: "vault",
+ *     targetResourceId: exampleKeyVault.id,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Signalr Shared Private Link Resource can be imported using the `resource id`, e.g.

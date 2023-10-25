@@ -135,6 +135,17 @@ def get_dicom_service(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Healthcare DICOM Service
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.healthcare.get_dicom_service(name="example-healthcare_dicom_service",
+        workspace_id=data["azurerm_healthcare_workspace"]["example"]["id"])
+    pulumi.export("azurermHealthcareDicomService", example.id)
+    ```
+
 
     :param str name: The name of the Healthcare DICOM Service
     :param str workspace_id: The id of the Healthcare Workspace in which the Healthcare DICOM Service exists.
@@ -163,6 +174,17 @@ def get_dicom_service_output(name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDicomServiceResult]:
     """
     Use this data source to access information about an existing Healthcare DICOM Service
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.healthcare.get_dicom_service(name="example-healthcare_dicom_service",
+        workspace_id=data["azurerm_healthcare_workspace"]["example"]["id"])
+    pulumi.export("azurermHealthcareDicomService", example.id)
+    ```
 
 
     :param str name: The name of the Healthcare DICOM Service

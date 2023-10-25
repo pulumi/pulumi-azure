@@ -10,6 +10,19 @@ import * as utilities from "../utilities";
  * Use this data source to access information about an existing App Service.
  *
  * !> **Note:** The `azure.appservice.AppService` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxWebApp` data sources instead.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.appservice.getAppService({
+ *     name: "search-app-service",
+ *     resourceGroupName: "search-service",
+ * });
+ * export const appServiceId = example.then(example => example.id);
+ * ```
  */
 export function getAppService(args: GetAppServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServiceResult> {
 
@@ -121,6 +134,19 @@ export interface GetAppServiceResult {
  * Use this data source to access information about an existing App Service.
  *
  * !> **Note:** The `azure.appservice.AppService` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxWebApp` data sources instead.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.appservice.getAppService({
+ *     name: "search-app-service",
+ *     resourceGroupName: "search-service",
+ * });
+ * export const appServiceId = example.then(example => example.id);
+ * ```
  */
 export function getAppServiceOutput(args: GetAppServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppServiceResult> {
     return pulumi.output(args).apply((a: any) => getAppService(a, opts))

@@ -9,6 +9,40 @@ import * as utilities from "../utilities";
 /**
  * Manages a Stream Analytics Stream Input IoTHub.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleJob = azure.streamanalytics.getJobOutput({
+ *     name: "example-job",
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleIoTHub = new azure.iot.IoTHub("exampleIoTHub", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     sku: {
+ *         name: "S1",
+ *         capacity: 1,
+ *     },
+ * });
+ * const exampleStreamInputIotHub = new azure.streamanalytics.StreamInputIotHub("exampleStreamInputIotHub", {
+ *     streamAnalyticsJobName: exampleJob.apply(exampleJob => exampleJob.name),
+ *     resourceGroupName: exampleJob.apply(exampleJob => exampleJob.resourceGroupName),
+ *     endpoint: "messages/events",
+ *     eventhubConsumerGroupName: "$Default",
+ *     iothubNamespace: exampleIoTHub.name,
+ *     sharedAccessPolicyKey: exampleIoTHub.sharedAccessPolicies.apply(sharedAccessPolicies => sharedAccessPolicies[0].primaryKey),
+ *     sharedAccessPolicyName: "iothubowner",
+ *     serialization: {
+ *         type: "Json",
+ *         encoding: "UTF8",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Stream Analytics Stream Input IoTHub's can be imported using the `resource id`, e.g.

@@ -225,6 +225,16 @@ def get_app(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Container App.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.containerapp.get_app(name="example-app",
+        resource_group_name="example-resources")
+    ```
+
 
     :param str name: The name of the Container App.
     :param str resource_group_name: The name of the Resource Group where this Container App exists.
@@ -261,6 +271,16 @@ def get_app_output(name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppResult]:
     """
     Use this data source to access information about an existing Container App.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.containerapp.get_app(name="example-app",
+        resource_group_name="example-resources")
+    ```
 
 
     :param str name: The name of the Container App.

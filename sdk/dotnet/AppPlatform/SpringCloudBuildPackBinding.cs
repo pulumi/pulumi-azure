@@ -14,6 +14,71 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     /// &gt; **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         SkuName = "E0",
+    ///     });
+    /// 
+    ///     var exampleSpringCloudBuilder = new Azure.AppPlatform.SpringCloudBuilder("exampleSpringCloudBuilder", new()
+    ///     {
+    ///         SpringCloudServiceId = exampleSpringCloudService.Id,
+    ///         BuildPackGroups = new[]
+    ///         {
+    ///             new Azure.AppPlatform.Inputs.SpringCloudBuilderBuildPackGroupArgs
+    ///             {
+    ///                 Name = "mix",
+    ///                 BuildPackIds = new[]
+    ///                 {
+    ///                     "tanzu-Build Packs/java-azure",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Stack = new Azure.AppPlatform.Inputs.SpringCloudBuilderStackArgs
+    ///         {
+    ///             Id = "io.Build Packs.stacks.bionic",
+    ///             Version = "base",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSpringCloudBuildPackBinding = new Azure.AppPlatform.SpringCloudBuildPackBinding("exampleSpringCloudBuildPackBinding", new()
+    ///     {
+    ///         SpringCloudBuilderId = exampleSpringCloudBuilder.Id,
+    ///         BindingType = "ApplicationInsights",
+    ///         Launch = new Azure.AppPlatform.Inputs.SpringCloudBuildPackBindingLaunchArgs
+    ///         {
+    ///             Properties = 
+    ///             {
+    ///                 { "abc", "def" },
+    ///                 { "any-string", "any-string" },
+    ///                 { "sampling-rate", "12.0" },
+    ///             },
+    ///             Secrets = 
+    ///             {
+    ///                 { "connection-string", "XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXX;XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXXXXXXXX" },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Spring Cloud Build Pack Bindings can be imported using the `resource id`, e.g.

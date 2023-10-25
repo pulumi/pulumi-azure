@@ -135,6 +135,76 @@ class ManagementPolicy(pulumi.CustomResource):
         """
         Manages an Azure Storage Account Management Policy.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS",
+            account_kind="BlobStorage")
+        example_management_policy = azure.storage.ManagementPolicy("exampleManagementPolicy",
+            storage_account_id=example_account.id,
+            rules=[
+                azure.storage.ManagementPolicyRuleArgs(
+                    name="rule1",
+                    enabled=True,
+                    filters=azure.storage.ManagementPolicyRuleFiltersArgs(
+                        prefix_matches=["container1/prefix1"],
+                        blob_types=["blockBlob"],
+                        match_blob_index_tags=[azure.storage.ManagementPolicyRuleFiltersMatchBlobIndexTagArgs(
+                            name="tag1",
+                            operation="==",
+                            value="val1",
+                        )],
+                    ),
+                    actions=azure.storage.ManagementPolicyRuleActionsArgs(
+                        base_blob=azure.storage.ManagementPolicyRuleActionsBaseBlobArgs(
+                            tier_to_cool_after_days_since_modification_greater_than=10,
+                            tier_to_archive_after_days_since_modification_greater_than=50,
+                            delete_after_days_since_modification_greater_than=100,
+                        ),
+                        snapshot=azure.storage.ManagementPolicyRuleActionsSnapshotArgs(
+                            delete_after_days_since_creation_greater_than=30,
+                        ),
+                    ),
+                ),
+                azure.storage.ManagementPolicyRuleArgs(
+                    name="rule2",
+                    enabled=False,
+                    filters=azure.storage.ManagementPolicyRuleFiltersArgs(
+                        prefix_matches=[
+                            "container2/prefix1",
+                            "container2/prefix2",
+                        ],
+                        blob_types=["blockBlob"],
+                    ),
+                    actions=azure.storage.ManagementPolicyRuleActionsArgs(
+                        base_blob=azure.storage.ManagementPolicyRuleActionsBaseBlobArgs(
+                            tier_to_cool_after_days_since_modification_greater_than=11,
+                            tier_to_archive_after_days_since_modification_greater_than=51,
+                            delete_after_days_since_modification_greater_than=101,
+                        ),
+                        snapshot=azure.storage.ManagementPolicyRuleActionsSnapshotArgs(
+                            change_tier_to_archive_after_days_since_creation=90,
+                            change_tier_to_cool_after_days_since_creation=23,
+                            delete_after_days_since_creation_greater_than=31,
+                        ),
+                        version=azure.storage.ManagementPolicyRuleActionsVersionArgs(
+                            change_tier_to_archive_after_days_since_creation=9,
+                            change_tier_to_cool_after_days_since_creation=90,
+                            delete_after_days_since_creation=3,
+                        ),
+                    ),
+                ),
+            ])
+        ```
+
         ## Import
 
         Storage Account Management Policies can be imported using the `resource id`, e.g.
@@ -156,6 +226,76 @@ class ManagementPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Storage Account Management Policy.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS",
+            account_kind="BlobStorage")
+        example_management_policy = azure.storage.ManagementPolicy("exampleManagementPolicy",
+            storage_account_id=example_account.id,
+            rules=[
+                azure.storage.ManagementPolicyRuleArgs(
+                    name="rule1",
+                    enabled=True,
+                    filters=azure.storage.ManagementPolicyRuleFiltersArgs(
+                        prefix_matches=["container1/prefix1"],
+                        blob_types=["blockBlob"],
+                        match_blob_index_tags=[azure.storage.ManagementPolicyRuleFiltersMatchBlobIndexTagArgs(
+                            name="tag1",
+                            operation="==",
+                            value="val1",
+                        )],
+                    ),
+                    actions=azure.storage.ManagementPolicyRuleActionsArgs(
+                        base_blob=azure.storage.ManagementPolicyRuleActionsBaseBlobArgs(
+                            tier_to_cool_after_days_since_modification_greater_than=10,
+                            tier_to_archive_after_days_since_modification_greater_than=50,
+                            delete_after_days_since_modification_greater_than=100,
+                        ),
+                        snapshot=azure.storage.ManagementPolicyRuleActionsSnapshotArgs(
+                            delete_after_days_since_creation_greater_than=30,
+                        ),
+                    ),
+                ),
+                azure.storage.ManagementPolicyRuleArgs(
+                    name="rule2",
+                    enabled=False,
+                    filters=azure.storage.ManagementPolicyRuleFiltersArgs(
+                        prefix_matches=[
+                            "container2/prefix1",
+                            "container2/prefix2",
+                        ],
+                        blob_types=["blockBlob"],
+                    ),
+                    actions=azure.storage.ManagementPolicyRuleActionsArgs(
+                        base_blob=azure.storage.ManagementPolicyRuleActionsBaseBlobArgs(
+                            tier_to_cool_after_days_since_modification_greater_than=11,
+                            tier_to_archive_after_days_since_modification_greater_than=51,
+                            delete_after_days_since_modification_greater_than=101,
+                        ),
+                        snapshot=azure.storage.ManagementPolicyRuleActionsSnapshotArgs(
+                            change_tier_to_archive_after_days_since_creation=90,
+                            change_tier_to_cool_after_days_since_creation=23,
+                            delete_after_days_since_creation_greater_than=31,
+                        ),
+                        version=azure.storage.ManagementPolicyRuleActionsVersionArgs(
+                            change_tier_to_archive_after_days_since_creation=9,
+                            change_tier_to_cool_after_days_since_creation=90,
+                            delete_after_days_since_creation=3,
+                        ),
+                    ),
+                ),
+            ])
+        ```
 
         ## Import
 

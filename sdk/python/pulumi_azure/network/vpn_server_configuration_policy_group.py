@@ -251,6 +251,33 @@ class VpnServerConfigurationPolicyGroup(pulumi.CustomResource):
         """
         Manages a VPN Server Configuration Policy Group.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_vpn_server_configuration = azure.network.VpnServerConfiguration("exampleVpnServerConfiguration",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            vpn_authentication_types=["Radius"],
+            radius=azure.network.VpnServerConfigurationRadiusArgs(
+                servers=[azure.network.VpnServerConfigurationRadiusServerArgs(
+                    address="10.105.1.1",
+                    secret="vindicators-the-return-of-worldender",
+                    score=15,
+                )],
+            ))
+        example_vpn_server_configuration_policy_group = azure.network.VpnServerConfigurationPolicyGroup("exampleVpnServerConfigurationPolicyGroup",
+            vpn_server_configuration_id=example_vpn_server_configuration.id,
+            policies=[azure.network.VpnServerConfigurationPolicyGroupPolicyArgs(
+                name="policy1",
+                type="RadiusAzureGroupId",
+                value="6ad1bd08",
+            )])
+        ```
+
         ## Import
 
         VPN Server Configuration Policy Groups can be imported using the `resource id`, e.g.
@@ -275,6 +302,33 @@ class VpnServerConfigurationPolicyGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a VPN Server Configuration Policy Group.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_vpn_server_configuration = azure.network.VpnServerConfiguration("exampleVpnServerConfiguration",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            vpn_authentication_types=["Radius"],
+            radius=azure.network.VpnServerConfigurationRadiusArgs(
+                servers=[azure.network.VpnServerConfigurationRadiusServerArgs(
+                    address="10.105.1.1",
+                    secret="vindicators-the-return-of-worldender",
+                    score=15,
+                )],
+            ))
+        example_vpn_server_configuration_policy_group = azure.network.VpnServerConfigurationPolicyGroup("exampleVpnServerConfigurationPolicyGroup",
+            vpn_server_configuration_id=example_vpn_server_configuration.id,
+            policies=[azure.network.VpnServerConfigurationPolicyGroupPolicyArgs(
+                name="policy1",
+                type="RadiusAzureGroupId",
+                value="6ad1bd08",
+            )])
+        ```
 
         ## Import
 

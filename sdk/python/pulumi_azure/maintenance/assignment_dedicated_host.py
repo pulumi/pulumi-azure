@@ -175,6 +175,32 @@ class AssignmentDedicatedHost(pulumi.CustomResource):
         """
         Manages a maintenance assignment to Dedicated Host.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_dedicated_host_group = azure.compute.DedicatedHostGroup("exampleDedicatedHostGroup",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            platform_fault_domain_count=2)
+        example_dedicated_host = azure.compute.DedicatedHost("exampleDedicatedHost",
+            location=example_resource_group.location,
+            dedicated_host_group_id=example_dedicated_host_group.id,
+            sku_name="DSv3-Type1",
+            platform_fault_domain=1)
+        example_configuration = azure.maintenance.Configuration("exampleConfiguration",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            scope="Host")
+        example_assignment_dedicated_host = azure.maintenance.AssignmentDedicatedHost("exampleAssignmentDedicatedHost",
+            location=example_resource_group.location,
+            maintenance_configuration_id=example_configuration.id,
+            dedicated_host_id=example_dedicated_host.id)
+        ```
+
         ## Import
 
         Maintenance Assignment can be imported using the `resource id`, e.g.
@@ -197,6 +223,32 @@ class AssignmentDedicatedHost(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a maintenance assignment to Dedicated Host.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_dedicated_host_group = azure.compute.DedicatedHostGroup("exampleDedicatedHostGroup",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            platform_fault_domain_count=2)
+        example_dedicated_host = azure.compute.DedicatedHost("exampleDedicatedHost",
+            location=example_resource_group.location,
+            dedicated_host_group_id=example_dedicated_host_group.id,
+            sku_name="DSv3-Type1",
+            platform_fault_domain=1)
+        example_configuration = azure.maintenance.Configuration("exampleConfiguration",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            scope="Host")
+        example_assignment_dedicated_host = azure.maintenance.AssignmentDedicatedHost("exampleAssignmentDedicatedHost",
+            location=example_resource_group.location,
+            maintenance_configuration_id=example_configuration.id,
+            dedicated_host_id=example_dedicated_host.id)
+        ```
 
         ## Import
 

@@ -13,12 +13,68 @@ namespace Pulumi.Azure.Automation
     {
         /// <summary>
         /// Use this data source to access information about an existing Automation Datetime Variable.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Automation.GetDateTimeVariable.Invoke(new()
+        ///     {
+        ///         Name = "tfex-example-var",
+        ///         ResourceGroupName = "tfex-example-rg",
+        ///         AutomationAccountName = "tfex-example-account",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["variableId"] = example.Apply(getDateTimeVariableResult =&gt; getDateTimeVariableResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetDateTimeVariableResult> InvokeAsync(GetDateTimeVariableArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDateTimeVariableResult>("azure:automation/getDateTimeVariable:getDateTimeVariable", args ?? new GetDateTimeVariableArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Automation Datetime Variable.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Automation.GetDateTimeVariable.Invoke(new()
+        ///     {
+        ///         Name = "tfex-example-var",
+        ///         ResourceGroupName = "tfex-example-rg",
+        ///         AutomationAccountName = "tfex-example-account",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["variableId"] = example.Apply(getDateTimeVariableResult =&gt; getDateTimeVariableResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetDateTimeVariableResult> Invoke(GetDateTimeVariableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDateTimeVariableResult>("azure:automation/getDateTimeVariable:getDateTimeVariable", args ?? new GetDateTimeVariableInvokeArgs(), options.WithDefaults());

@@ -96,6 +96,31 @@ class RegistryTaskScheduleRunNow(pulumi.CustomResource):
         """
         Runs a Container Registry Task Schedule.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_registry = azure.containerservice.Registry("exampleRegistry",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku="Basic")
+        example_registry_task = azure.containerservice.RegistryTask("exampleRegistryTask",
+            container_registry_id=example_registry.id,
+            platform=azure.containerservice.RegistryTaskPlatformArgs(
+                os="Linux",
+            ),
+            docker_step=azure.containerservice.RegistryTaskDockerStepArgs(
+                dockerfile_path="Dockerfile",
+                context_path="https://github.com/<user name>/acr-build-helloworld-node#main",
+                context_access_token="<github personal access token>",
+                image_names=["helloworld:{{.Run.ID}}"],
+            ))
+        example_registry_task_schedule_run_now = azure.containerservice.RegistryTaskScheduleRunNow("exampleRegistryTaskScheduleRunNow", container_registry_task_id=example_registry_task.id)
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] container_registry_task_id: The ID of the Container Registry Task that to be scheduled. Changing this forces a new Container Registry Task Schedule to be created.
@@ -108,6 +133,31 @@ class RegistryTaskScheduleRunNow(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Runs a Container Registry Task Schedule.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_registry = azure.containerservice.Registry("exampleRegistry",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku="Basic")
+        example_registry_task = azure.containerservice.RegistryTask("exampleRegistryTask",
+            container_registry_id=example_registry.id,
+            platform=azure.containerservice.RegistryTaskPlatformArgs(
+                os="Linux",
+            ),
+            docker_step=azure.containerservice.RegistryTaskDockerStepArgs(
+                dockerfile_path="Dockerfile",
+                context_path="https://github.com/<user name>/acr-build-helloworld-node#main",
+                context_access_token="<github personal access token>",
+                image_names=["helloworld:{{.Run.ID}}"],
+            ))
+        example_registry_task_schedule_run_now = azure.containerservice.RegistryTaskScheduleRunNow("exampleRegistryTaskScheduleRunNow", container_registry_task_id=example_registry_task.id)
+        ```
 
         :param str resource_name: The name of the resource.
         :param RegistryTaskScheduleRunNowArgs args: The arguments to use to populate this resource's properties.

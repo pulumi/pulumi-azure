@@ -15,6 +15,93 @@ import (
 
 // Manages a Mobile Network Packet Core Control Plane.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/databoxedge"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mobile"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = mobile.NewNetwork(ctx, "exampleNetwork", &mobile.NetworkArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				MobileCountryCode: pulumi.String("001"),
+//				MobileNetworkCode: pulumi.String("01"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleNetworkSite, err := mobile.NewNetworkSite(ctx, "exampleNetworkSite", &mobile.NetworkSiteArgs{
+//				MobileNetworkId: pulumi.Any(azurerm_mobile_network.Test.Id),
+//				Location:        exampleResourceGroup.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDevice, err := databoxedge.NewDevice(ctx, "exampleDevice", &databoxedge.DeviceArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				SkuName:           pulumi.String("EdgeP_Base-Standard"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"key": "value",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = mobile.NewNetworkPacketCoreControlPlane(ctx, "exampleNetworkPacketCoreControlPlane", &mobile.NetworkPacketCoreControlPlaneArgs{
+//				ResourceGroupName:             exampleResourceGroup.Name,
+//				Location:                      exampleResourceGroup.Location,
+//				Sku:                           pulumi.String("G0"),
+//				ControlPlaneAccessName:        pulumi.String("default-interface"),
+//				ControlPlaneAccessIpv4Address: pulumi.String("192.168.1.199"),
+//				ControlPlaneAccessIpv4Gateway: pulumi.String("192.168.1.1"),
+//				ControlPlaneAccessIpv4Subnet:  pulumi.String("192.168.1.0/25"),
+//				SiteIds: pulumi.StringArray{
+//					exampleNetworkSite.ID(),
+//				},
+//				LocalDiagnosticsAccess: &mobile.NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs{
+//					AuthenticationType: pulumi.String("AAD"),
+//				},
+//				Platform: &mobile.NetworkPacketCoreControlPlanePlatformArgs{
+//					Type:         pulumi.String("AKS-HCI"),
+//					EdgeDeviceId: exampleDevice.ID(),
+//				},
+//				InteroperabilitySettingsJson: pulumi.String(json0),
+//				Tags: pulumi.StringMap{
+//					"key": pulumi.String("value"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Mobile Network Packet Core Control Plane can be imported using the `resource id`, e.g.

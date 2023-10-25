@@ -297,6 +297,42 @@ class SqlRoleAssignment(pulumi.CustomResource):
         """
         Manages a Cosmos DB SQL Role Assignment.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.cosmosdb.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            offer_type="Standard",
+            kind="GlobalDocumentDB",
+            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
+                consistency_level="Strong",
+            ),
+            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
+                location=example_resource_group.location,
+                failover_priority=0,
+            )])
+        example_sql_role_definition = azure.cosmosdb.SqlRoleDefinition("exampleSqlRoleDefinition",
+            resource_group_name=example_resource_group.name,
+            account_name=example_account.name,
+            type="CustomRole",
+            assignable_scopes=[example_account.id],
+            permissions=[azure.cosmosdb.SqlRoleDefinitionPermissionArgs(
+                data_actions=["Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read"],
+            )])
+        example_sql_role_assignment = azure.cosmosdb.SqlRoleAssignment("exampleSqlRoleAssignment",
+            resource_group_name=example_resource_group.name,
+            account_name=example_account.name,
+            role_definition_id=example_sql_role_definition.id,
+            principal_id=current.object_id,
+            scope=example_account.id)
+        ```
+
         ## Import
 
         Cosmos DB SQL Role Assignments can be imported using the `resource id`, e.g.
@@ -322,6 +358,42 @@ class SqlRoleAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Cosmos DB SQL Role Assignment.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.cosmosdb.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            offer_type="Standard",
+            kind="GlobalDocumentDB",
+            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
+                consistency_level="Strong",
+            ),
+            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
+                location=example_resource_group.location,
+                failover_priority=0,
+            )])
+        example_sql_role_definition = azure.cosmosdb.SqlRoleDefinition("exampleSqlRoleDefinition",
+            resource_group_name=example_resource_group.name,
+            account_name=example_account.name,
+            type="CustomRole",
+            assignable_scopes=[example_account.id],
+            permissions=[azure.cosmosdb.SqlRoleDefinitionPermissionArgs(
+                data_actions=["Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read"],
+            )])
+        example_sql_role_assignment = azure.cosmosdb.SqlRoleAssignment("exampleSqlRoleAssignment",
+            resource_group_name=example_resource_group.name,
+            account_name=example_account.name,
+            role_definition_id=example_sql_role_definition.id,
+            principal_id=current.object_id,
+            scope=example_account.id)
+        ```
 
         ## Import
 

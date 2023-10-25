@@ -12,6 +12,43 @@ namespace Pulumi.Azure.LogicApps
     /// <summary>
     /// Manages a Custom Trigger within a Logic App Workflow
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleWorkflow = new Azure.LogicApps.Workflow("exampleWorkflow", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleTriggerCustom = new Azure.LogicApps.TriggerCustom("exampleTriggerCustom", new()
+    ///     {
+    ///         LogicAppId = exampleWorkflow.Id,
+    ///         Body = @"{
+    ///   ""recurrence"": {
+    ///     ""frequency"": ""Day"",
+    ///     ""interval"": 1
+    ///   },
+    ///   ""type"": ""Recurrence""
+    /// }
+    /// ",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Logic App Custom Triggers can be imported using the `resource id`, e.g.

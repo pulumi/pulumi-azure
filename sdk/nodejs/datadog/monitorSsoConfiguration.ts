@@ -8,6 +8,34 @@ import * as utilities from "../utilities";
  * Manages SingleSignOn on the datadog Monitor.
  *
  * ## Example Usage
+ * ### Enabling SSO on monitor
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US 2"});
+ * const exampleMonitor = new azure.datadog.Monitor("exampleMonitor", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     datadogOrganization: {
+ *         apiKey: "XXXX",
+ *         applicationKey: "XXXX",
+ *     },
+ *     user: {
+ *         name: "Example",
+ *         email: "abc@xyz.com",
+ *     },
+ *     skuName: "Linked",
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ * });
+ * const exampleMonitorSsoConfiguration = new azure.datadog.MonitorSsoConfiguration("exampleMonitorSsoConfiguration", {
+ *     datadogMonitorId: exampleMonitor.id,
+ *     singleSignOnEnabled: "Enable",
+ *     enterpriseApplicationId: "XXXX",
+ * });
+ * ```
  *
  * ## Import
  *

@@ -262,6 +262,46 @@ class LogzTagRule(pulumi.CustomResource):
         """
         Manages a logz Tag Rule.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_logz_monitor = azure.monitoring.LogzMonitor("exampleLogzMonitor",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            plan=azure.monitoring.LogzMonitorPlanArgs(
+                billing_cycle="MONTHLY",
+                effective_date="2022-06-06T00:00:00Z",
+                usage_type="COMMITTED",
+            ),
+            user=azure.monitoring.LogzMonitorUserArgs(
+                email="user@example.com",
+                first_name="Example",
+                last_name="User",
+                phone_number="+12313803556",
+            ))
+        example_logz_tag_rule = azure.monitoring.LogzTagRule("exampleLogzTagRule",
+            logz_monitor_id=example_logz_monitor.id,
+            tag_filters=[
+                azure.monitoring.LogzTagRuleTagFilterArgs(
+                    name="name1",
+                    action="Include",
+                    value="value1",
+                ),
+                azure.monitoring.LogzTagRuleTagFilterArgs(
+                    name="name2",
+                    action="Exclude",
+                    value="value2",
+                ),
+            ],
+            send_aad_logs=True,
+            send_activity_logs=True,
+            send_subscription_logs=True)
+        ```
+
         ## Import
 
         logz Tag Rules can be imported using the `resource id`, e.g.
@@ -286,6 +326,46 @@ class LogzTagRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a logz Tag Rule.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_logz_monitor = azure.monitoring.LogzMonitor("exampleLogzMonitor",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            plan=azure.monitoring.LogzMonitorPlanArgs(
+                billing_cycle="MONTHLY",
+                effective_date="2022-06-06T00:00:00Z",
+                usage_type="COMMITTED",
+            ),
+            user=azure.monitoring.LogzMonitorUserArgs(
+                email="user@example.com",
+                first_name="Example",
+                last_name="User",
+                phone_number="+12313803556",
+            ))
+        example_logz_tag_rule = azure.monitoring.LogzTagRule("exampleLogzTagRule",
+            logz_monitor_id=example_logz_monitor.id,
+            tag_filters=[
+                azure.monitoring.LogzTagRuleTagFilterArgs(
+                    name="name1",
+                    action="Include",
+                    value="value1",
+                ),
+                azure.monitoring.LogzTagRuleTagFilterArgs(
+                    name="name2",
+                    action="Exclude",
+                    value="value2",
+                ),
+            ],
+            send_aad_logs=True,
+            send_activity_logs=True,
+            send_subscription_logs=True)
+        ```
 
         ## Import
 

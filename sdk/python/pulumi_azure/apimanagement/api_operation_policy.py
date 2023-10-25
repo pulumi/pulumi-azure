@@ -304,6 +304,44 @@ class ApiOperationPolicy(pulumi.CustomResource):
         """
         Manages an API Management API Operation Policy
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_service = azure.apimanagement.Service("exampleService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            publisher_name="My Company",
+            publisher_email="company@terraform.io",
+            sku_name="Developer_1")
+        example_api = azure.apimanagement.Api("exampleApi",
+            resource_group_name=example_resource_group.name,
+            api_management_name=example_service.name,
+            revision="1")
+        example_api_operation = azure.apimanagement.ApiOperation("exampleApiOperation",
+            operation_id="acctest-operation",
+            api_name=example_api.name,
+            api_management_name=example_service.name,
+            resource_group_name=example_resource_group.name,
+            display_name="DELETE Resource",
+            method="DELETE",
+            url_template="/resource")
+        example_api_operation_policy = azure.apimanagement.ApiOperationPolicy("exampleApiOperationPolicy",
+            api_name=example_api_operation.api_name,
+            api_management_name=example_api_operation.api_management_name,
+            resource_group_name=example_api_operation.resource_group_name,
+            operation_id=example_api_operation.operation_id,
+            xml_content=\"\"\"<policies>
+          <inbound>
+            <find-and-replace from="xyz" to="abc" />
+          </inbound>
+        </policies>
+        \"\"\")
+        ```
+
         ## Import
 
         API Management API Operation Policy can be imported using the `resource id`, e.g.
@@ -329,6 +367,44 @@ class ApiOperationPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an API Management API Operation Policy
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_service = azure.apimanagement.Service("exampleService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            publisher_name="My Company",
+            publisher_email="company@terraform.io",
+            sku_name="Developer_1")
+        example_api = azure.apimanagement.Api("exampleApi",
+            resource_group_name=example_resource_group.name,
+            api_management_name=example_service.name,
+            revision="1")
+        example_api_operation = azure.apimanagement.ApiOperation("exampleApiOperation",
+            operation_id="acctest-operation",
+            api_name=example_api.name,
+            api_management_name=example_service.name,
+            resource_group_name=example_resource_group.name,
+            display_name="DELETE Resource",
+            method="DELETE",
+            url_template="/resource")
+        example_api_operation_policy = azure.apimanagement.ApiOperationPolicy("exampleApiOperationPolicy",
+            api_name=example_api_operation.api_name,
+            api_management_name=example_api_operation.api_management_name,
+            resource_group_name=example_api_operation.resource_group_name,
+            operation_id=example_api_operation.operation_id,
+            xml_content=\"\"\"<policies>
+          <inbound>
+            <find-and-replace from="xyz" to="abc" />
+          </inbound>
+        </policies>
+        \"\"\")
+        ```
 
         ## Import
 

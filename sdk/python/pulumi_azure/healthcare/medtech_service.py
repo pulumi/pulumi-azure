@@ -414,6 +414,45 @@ class MedtechService(pulumi.CustomResource):
         """
         Manages a Healthcare Med Tech Service.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="east us")
+        example_workspace = azure.healthcare.Workspace("exampleWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_medtech_service = azure.healthcare.MedtechService("exampleMedtechService",
+            workspace_id=example_workspace.id,
+            location="east us",
+            identity=azure.healthcare.MedtechServiceIdentityArgs(
+                type="SystemAssigned",
+            ),
+            eventhub_namespace_name="example-eventhub-namespace",
+            eventhub_name="example-eventhub",
+            eventhub_consumer_group_name="$Default",
+            device_mapping_json=json.dumps({
+                "templateType": "CollectionContent",
+                "template": [{
+                    "templateType": "JsonPathContent",
+                    "template": {
+                        "typeName": "heartrate",
+                        "typeMatchExpression": "$..[?(@heartrate)]",
+                        "deviceIdExpression": "$.deviceid",
+                        "timestampExpression": "$.measurementdatetime",
+                        "values": [{
+                            "required": "true",
+                            "valueExpression": "$.heartrate",
+                            "valueName": "hr",
+                        }],
+                    },
+                }],
+            }))
+        ```
+
         ## Import
 
         Healthcare Med Tech Service can be imported using the resource`id`, e.g.
@@ -442,6 +481,45 @@ class MedtechService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Healthcare Med Tech Service.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="east us")
+        example_workspace = azure.healthcare.Workspace("exampleWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_medtech_service = azure.healthcare.MedtechService("exampleMedtechService",
+            workspace_id=example_workspace.id,
+            location="east us",
+            identity=azure.healthcare.MedtechServiceIdentityArgs(
+                type="SystemAssigned",
+            ),
+            eventhub_namespace_name="example-eventhub-namespace",
+            eventhub_name="example-eventhub",
+            eventhub_consumer_group_name="$Default",
+            device_mapping_json=json.dumps({
+                "templateType": "CollectionContent",
+                "template": [{
+                    "templateType": "JsonPathContent",
+                    "template": {
+                        "typeName": "heartrate",
+                        "typeMatchExpression": "$..[?(@heartrate)]",
+                        "deviceIdExpression": "$.deviceid",
+                        "timestampExpression": "$.measurementdatetime",
+                        "values": [{
+                            "required": "true",
+                            "valueExpression": "$.heartrate",
+                            "valueName": "hr",
+                        }],
+                    },
+                }],
+            }))
+        ```
 
         ## Import
 

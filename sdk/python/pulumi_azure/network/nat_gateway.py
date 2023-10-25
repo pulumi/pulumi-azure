@@ -354,6 +354,23 @@ class NatGateway(pulumi.CustomResource):
         """
         Manages an Azure NAT Gateway.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_nat_gateway = azure.network.NatGateway("exampleNatGateway",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="Standard",
+            idle_timeout_in_minutes=10,
+            zones=["1"])
+        ```
+
+        For more complete examples, please see the network.NatGatewayPublicIpAssociation and network.NatGatewayPublicIpPrefixAssociation resources.
+
         ## Import
 
         NAT Gateway can be imported using the `resource id`, e.g.
@@ -382,6 +399,23 @@ class NatGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure NAT Gateway.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_nat_gateway = azure.network.NatGateway("exampleNatGateway",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="Standard",
+            idle_timeout_in_minutes=10,
+            zones=["1"])
+        ```
+
+        For more complete examples, please see the network.NatGatewayPublicIpAssociation and network.NatGatewayPublicIpPrefixAssociation resources.
 
         ## Import
 

@@ -12,6 +12,176 @@ namespace Pulumi.Azure.Cdn
     /// <summary>
     /// Manages a Front Door (standard/premium) Firewall Policy instance.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleFrontdoorProfile = new Azure.Cdn.FrontdoorProfile("exampleFrontdoorProfile", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "Premium_AzureFrontDoor",
+    ///     });
+    /// 
+    ///     var exampleFrontdoorFirewallPolicy = new Azure.Cdn.FrontdoorFirewallPolicy("exampleFrontdoorFirewallPolicy", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = exampleFrontdoorProfile.SkuName,
+    ///         Enabled = true,
+    ///         Mode = "Prevention",
+    ///         RedirectUrl = "https://www.contoso.com",
+    ///         CustomBlockResponseStatusCode = 403,
+    ///         CustomBlockResponseBody = "PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
+    ///         CustomRules = new[]
+    ///         {
+    ///             new Azure.Cdn.Inputs.FrontdoorFirewallPolicyCustomRuleArgs
+    ///             {
+    ///                 Name = "Rule1",
+    ///                 Enabled = true,
+    ///                 Priority = 1,
+    ///                 RateLimitDurationInMinutes = 1,
+    ///                 RateLimitThreshold = 10,
+    ///                 Type = "MatchRule",
+    ///                 Action = "Block",
+    ///                 MatchConditions = new[]
+    ///                 {
+    ///                     new Azure.Cdn.Inputs.FrontdoorFirewallPolicyCustomRuleMatchConditionArgs
+    ///                     {
+    ///                         MatchVariable = "RemoteAddr",
+    ///                         Operator = "IPMatch",
+    ///                         NegationCondition = false,
+    ///                         MatchValues = new[]
+    ///                         {
+    ///                             "10.0.1.0/24",
+    ///                             "10.0.0.0/24",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Azure.Cdn.Inputs.FrontdoorFirewallPolicyCustomRuleArgs
+    ///             {
+    ///                 Name = "Rule2",
+    ///                 Enabled = true,
+    ///                 Priority = 2,
+    ///                 RateLimitDurationInMinutes = 1,
+    ///                 RateLimitThreshold = 10,
+    ///                 Type = "MatchRule",
+    ///                 Action = "Block",
+    ///                 MatchConditions = new[]
+    ///                 {
+    ///                     new Azure.Cdn.Inputs.FrontdoorFirewallPolicyCustomRuleMatchConditionArgs
+    ///                     {
+    ///                         MatchVariable = "RemoteAddr",
+    ///                         Operator = "IPMatch",
+    ///                         NegationCondition = false,
+    ///                         MatchValues = new[]
+    ///                         {
+    ///                             "192.168.1.0/24",
+    ///                         },
+    ///                     },
+    ///                     new Azure.Cdn.Inputs.FrontdoorFirewallPolicyCustomRuleMatchConditionArgs
+    ///                     {
+    ///                         MatchVariable = "RequestHeader",
+    ///                         Selector = "UserAgent",
+    ///                         Operator = "Contains",
+    ///                         NegationCondition = false,
+    ///                         MatchValues = new[]
+    ///                         {
+    ///                             "windows",
+    ///                         },
+    ///                         Transforms = new[]
+    ///                         {
+    ///                             "Lowercase",
+    ///                             "Trim",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ManagedRules = new[]
+    ///         {
+    ///             new Azure.Cdn.Inputs.FrontdoorFirewallPolicyManagedRuleArgs
+    ///             {
+    ///                 Type = "DefaultRuleSet",
+    ///                 Version = "1.0",
+    ///                 Exclusions = new[]
+    ///                 {
+    ///                     new Azure.Cdn.Inputs.FrontdoorFirewallPolicyManagedRuleExclusionArgs
+    ///                     {
+    ///                         MatchVariable = "QueryStringArgNames",
+    ///                         Operator = "Equals",
+    ///                         Selector = "not_suspicious",
+    ///                     },
+    ///                 },
+    ///                 Overrides = new[]
+    ///                 {
+    ///                     new Azure.Cdn.Inputs.FrontdoorFirewallPolicyManagedRuleOverrideArgs
+    ///                     {
+    ///                         RuleGroupName = "PHP",
+    ///                         Rules = new[]
+    ///                         {
+    ///                             new Azure.Cdn.Inputs.FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs
+    ///                             {
+    ///                                 RuleId = "933100",
+    ///                                 Enabled = false,
+    ///                                 Action = "Block",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     new Azure.Cdn.Inputs.FrontdoorFirewallPolicyManagedRuleOverrideArgs
+    ///                     {
+    ///                         RuleGroupName = "SQLI",
+    ///                         Exclusions = new[]
+    ///                         {
+    ///                             new Azure.Cdn.Inputs.FrontdoorFirewallPolicyManagedRuleOverrideExclusionArgs
+    ///                             {
+    ///                                 MatchVariable = "QueryStringArgNames",
+    ///                                 Operator = "Equals",
+    ///                                 Selector = "really_not_suspicious",
+    ///                             },
+    ///                         },
+    ///                         Rules = new[]
+    ///                         {
+    ///                             new Azure.Cdn.Inputs.FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs
+    ///                             {
+    ///                                 RuleId = "942200",
+    ///                                 Action = "Block",
+    ///                                 Exclusions = new[]
+    ///                                 {
+    ///                                     new Azure.Cdn.Inputs.FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArgs
+    ///                                     {
+    ///                                         MatchVariable = "QueryStringArgNames",
+    ///                                         Operator = "Equals",
+    ///                                         Selector = "innocent",
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Azure.Cdn.Inputs.FrontdoorFirewallPolicyManagedRuleArgs
+    ///             {
+    ///                 Type = "Microsoft_BotManagerRuleSet",
+    ///                 Version = "1.0",
+    ///                 Action = "Log",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Front Door Firewall Policies can be imported using the `resource id`, e.g.

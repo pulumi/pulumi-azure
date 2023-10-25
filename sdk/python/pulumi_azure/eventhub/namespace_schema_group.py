@@ -215,6 +215,23 @@ class NamespaceSchemaGroup(pulumi.CustomResource):
                  schema_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example", location="East US")
+        test_event_hub_namespace = azure.eventhub.EventHubNamespace("testEventHubNamespace",
+            location=azurerm_resource_group["test"]["location"],
+            resource_group_name=azurerm_resource_group["test"]["name"],
+            sku="Standard")
+        test_namespace_schema_group = azure.eventhub.NamespaceSchemaGroup("testNamespaceSchemaGroup",
+            namespace_id=test_event_hub_namespace.id,
+            schema_compatibility="Forward",
+            schema_type="Avro")
+        ```
+
         ## Import
 
         Schema Group for a EventHub Namespace can be imported using the `resource id`, e.g.
@@ -237,6 +254,23 @@ class NamespaceSchemaGroup(pulumi.CustomResource):
                  args: NamespaceSchemaGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example", location="East US")
+        test_event_hub_namespace = azure.eventhub.EventHubNamespace("testEventHubNamespace",
+            location=azurerm_resource_group["test"]["location"],
+            resource_group_name=azurerm_resource_group["test"]["name"],
+            sku="Standard")
+        test_namespace_schema_group = azure.eventhub.NamespaceSchemaGroup("testNamespaceSchemaGroup",
+            namespace_id=test_event_hub_namespace.id,
+            schema_compatibility="Forward",
+            schema_type="Avro")
+        ```
+
         ## Import
 
         Schema Group for a EventHub Namespace can be imported using the `resource id`, e.g.

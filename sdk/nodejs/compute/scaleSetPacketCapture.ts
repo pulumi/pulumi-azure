@@ -9,6 +9,82 @@ import * as utilities from "../utilities";
 /**
  * Configures Network Packet Capturing against a Virtual Machine Scale Set using a Network Watcher.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleNetworkWatcher = new azure.network.NetworkWatcher("exampleNetworkWatcher", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.2.0/24"],
+ * });
+ * const exampleLinuxVirtualMachineScaleSet = new azure.compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     sku: "Standard_F2",
+ *     instances: 4,
+ *     adminUsername: "adminuser",
+ *     adminPassword: "P@ssword1234!",
+ *     computerNamePrefix: "my-linux-computer-name-prefix",
+ *     upgradeMode: "Automatic",
+ *     disablePasswordAuthentication: false,
+ *     sourceImageReference: {
+ *         publisher: "Canonical",
+ *         offer: "0001-com-ubuntu-server-focal",
+ *         sku: "20_04-lts",
+ *         version: "latest",
+ *     },
+ *     osDisk: {
+ *         storageAccountType: "Standard_LRS",
+ *         caching: "ReadWrite",
+ *     },
+ *     networkInterfaces: [{
+ *         name: "example",
+ *         primary: true,
+ *         ipConfigurations: [{
+ *             name: "internal",
+ *             primary: true,
+ *             subnetId: exampleSubnet.id,
+ *         }],
+ *     }],
+ * });
+ * const exampleVirtualMachineScaleSetExtension = new azure.compute.VirtualMachineScaleSetExtension("exampleVirtualMachineScaleSetExtension", {
+ *     virtualMachineScaleSetId: exampleLinuxVirtualMachineScaleSet.id,
+ *     publisher: "Microsoft.Azure.NetworkWatcher",
+ *     type: "NetworkWatcherAgentLinux",
+ *     typeHandlerVersion: "1.4",
+ *     autoUpgradeMinorVersion: true,
+ *     automaticUpgradeEnabled: true,
+ * });
+ * const exampleScaleSetPacketCapture = new azure.compute.ScaleSetPacketCapture("exampleScaleSetPacketCapture", {
+ *     networkWatcherId: exampleNetworkWatcher.id,
+ *     virtualMachineScaleSetId: exampleLinuxVirtualMachineScaleSet.id,
+ *     storageLocation: {
+ *         filePath: "/var/captures/packet.cap",
+ *     },
+ *     machineScope: {
+ *         includeInstanceIds: ["0"],
+ *         excludeInstanceIds: ["1"],
+ *     },
+ * }, {
+ *     dependsOn: [exampleVirtualMachineScaleSetExtension],
+ * });
+ * ```
+ *
+ * > **NOTE:** This Resource requires that [the Network Watcher Extension](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-manage-portal#before-you-begin) is installed on the Virtual Machine Scale Set before capturing can be enabled which can be installed via the `azure.compute.VirtualMachineScaleSetExtension` resource.
+ *
  * ## Import
  *
  * Virtual Machine Scale Set Packet Captures can be imported using the `resource id`, e.g.

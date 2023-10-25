@@ -7,6 +7,35 @@ import * as utilities from "../utilities";
 /**
  * Manages a API Management API Release.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleService = new azure.apimanagement.Service("exampleService", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     publisherName: "My Company",
+ *     publisherEmail: "company@terraform.io",
+ *     skuName: "Developer_1",
+ * });
+ * const exampleApi = new azure.apimanagement.Api("exampleApi", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     apiManagementName: exampleService.name,
+ *     revision: "1",
+ *     displayName: "Example API",
+ *     path: "example",
+ *     protocols: ["https"],
+ *     "import": {
+ *         contentFormat: "swagger-link-json",
+ *         contentValue: "http://conferenceapi.azurewebsites.net/?format=json",
+ *     },
+ * });
+ * const exampleApiRelease = new azure.apimanagement.ApiRelease("exampleApiRelease", {apiId: exampleApi.id});
+ * ```
+ *
  * ## Import
  *
  * API Management API Releases can be imported using the `resource id`, e.g.

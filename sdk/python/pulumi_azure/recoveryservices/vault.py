@@ -616,6 +616,20 @@ class Vault(pulumi.CustomResource):
         """
         Manages a Recovery Services Vault.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example", location="West Europe")
+        vault = azure.recoveryservices.Vault("vault",
+            location=example.location,
+            resource_group_name=example.name,
+            sku="Standard",
+            soft_delete_enabled=True)
+        ```
+
         ## Import
 
         Recovery Services Vaults can be imported using the `resource id`, e.g.
@@ -653,6 +667,20 @@ class Vault(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Recovery Services Vault.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example", location="West Europe")
+        vault = azure.recoveryservices.Vault("vault",
+            location=example.location,
+            resource_group_name=example.name,
+            sku="Standard",
+            soft_delete_enabled=True)
+        ```
 
         ## Import
 

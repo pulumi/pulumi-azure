@@ -186,6 +186,18 @@ def get_database(name: Optional[str] = None,
 
     > **Note:** The `sql.Database` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.Database` data source instead.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.sql.get_database(name="example_db",
+        server_name="example_db_server",
+        resource_group_name="example-resources")
+    pulumi.export("sqlDatabaseId", example.id)
+    ```
+
 
     :param str name: The name of the SQL Database.
     :param str resource_group_name: Specifies the name of the Resource Group where the Azure SQL Database exists.
@@ -225,6 +237,18 @@ def get_database_output(name: Optional[pulumi.Input[str]] = None,
     Use this data source to access information about an existing SQL Azure Database.
 
     > **Note:** The `sql.Database` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.Database` data source instead.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.sql.get_database(name="example_db",
+        server_name="example_db_server",
+        resource_group_name="example-resources")
+    pulumi.export("sqlDatabaseId", example.id)
+    ```
 
 
     :param str name: The name of the SQL Database.

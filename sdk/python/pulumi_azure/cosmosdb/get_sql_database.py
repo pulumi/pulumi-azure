@@ -103,6 +103,17 @@ def get_sql_database(account_name: Optional[str] = None,
     """
     Use this data source to access information about an existing CosmosDB SQL Database.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.cosmosdb.get_sql_database(account_name="tfex-cosmosdb-sql-database-account-name",
+        name="tfex-cosmosdb-sql-database",
+        resource_group_name="tfex-cosmosdb-sql-database-rg")
+    ```
+
 
     :param str account_name: The name of the Cosmos DB SQL Database to create the table within.
     :param str name: Specifies the name of the Cosmos DB SQL Database.
@@ -131,6 +142,17 @@ def get_sql_database_output(account_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlDatabaseResult]:
     """
     Use this data source to access information about an existing CosmosDB SQL Database.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.cosmosdb.get_sql_database(account_name="tfex-cosmosdb-sql-database-account-name",
+        name="tfex-cosmosdb-sql-database",
+        resource_group_name="tfex-cosmosdb-sql-database-rg")
+    ```
 
 
     :param str account_name: The name of the Cosmos DB SQL Database to create the table within.

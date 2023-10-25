@@ -6,6 +6,16 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Subscription.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const current = azure.core.getSubscription({});
+ * export const currentSubscriptionDisplayName = current.then(current => current.displayName);
+ * ```
  */
 export function getSubscription(args?: GetSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionResult> {
     args = args || {};
@@ -69,6 +79,16 @@ export interface GetSubscriptionResult {
 }
 /**
  * Use this data source to access information about an existing Subscription.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const current = azure.core.getSubscription({});
+ * export const currentSubscriptionDisplayName = current.then(current => current.displayName);
+ * ```
  */
 export function getSubscriptionOutput(args?: GetSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionResult> {
     return pulumi.output(args).apply((a: any) => getSubscription(a, opts))

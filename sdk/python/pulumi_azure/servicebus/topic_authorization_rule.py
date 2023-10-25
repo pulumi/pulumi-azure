@@ -372,6 +372,28 @@ class TopicAuthorizationRule(pulumi.CustomResource):
         """
         Manages a ServiceBus Topic authorization Rule within a ServiceBus Topic.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_namespace = azure.servicebus.Namespace("exampleNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard",
+            tags={
+                "source": "example",
+            })
+        example_topic = azure.servicebus.Topic("exampleTopic", namespace_id=example_namespace.id)
+        example_topic_authorization_rule = azure.servicebus.TopicAuthorizationRule("exampleTopicAuthorizationRule",
+            topic_id=example_topic.id,
+            listen=True,
+            send=False,
+            manage=False)
+        ```
+
         ## Import
 
         ServiceBus Topic authorization rules can be imported using the `resource id`, e.g.
@@ -398,6 +420,28 @@ class TopicAuthorizationRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a ServiceBus Topic authorization Rule within a ServiceBus Topic.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_namespace = azure.servicebus.Namespace("exampleNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard",
+            tags={
+                "source": "example",
+            })
+        example_topic = azure.servicebus.Topic("exampleTopic", namespace_id=example_namespace.id)
+        example_topic_authorization_rule = azure.servicebus.TopicAuthorizationRule("exampleTopicAuthorizationRule",
+            topic_id=example_topic.id,
+            listen=True,
+            send=False,
+            manage=False)
+        ```
 
         ## Import
 

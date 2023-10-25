@@ -12,6 +12,96 @@ namespace Pulumi.Azure.Monitoring
     /// <summary>
     /// Manages an Alert Processing Rule which apply action group.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleActionGroup = new Azure.Monitoring.ActionGroup("exampleActionGroup", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ShortName = "action",
+    ///     });
+    /// 
+    ///     var exampleAlertProcessingRuleActionGroup = new Azure.Monitoring.AlertProcessingRuleActionGroup("exampleAlertProcessingRuleActionGroup", new()
+    ///     {
+    ///         ResourceGroupName = "example",
+    ///         Scopes = new[]
+    ///         {
+    ///             exampleResourceGroup.Id,
+    ///         },
+    ///         AddActionGroupIds = new[]
+    ///         {
+    ///             exampleActionGroup.Id,
+    ///         },
+    ///         Condition = new Azure.Monitoring.Inputs.AlertProcessingRuleActionGroupConditionArgs
+    ///         {
+    ///             TargetResourceType = new Azure.Monitoring.Inputs.AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs
+    ///             {
+    ///                 Operator = "Equals",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "Microsoft.Compute/VirtualMachines",
+    ///                 },
+    ///             },
+    ///             Severity = new Azure.Monitoring.Inputs.AlertProcessingRuleActionGroupConditionSeverityArgs
+    ///             {
+    ///                 Operator = "Equals",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "Sev0",
+    ///                     "Sev1",
+    ///                     "Sev2",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Schedule = new Azure.Monitoring.Inputs.AlertProcessingRuleActionGroupScheduleArgs
+    ///         {
+    ///             EffectiveFrom = "2022-01-01T01:02:03",
+    ///             EffectiveUntil = "2022-02-02T01:02:03",
+    ///             TimeZone = "Pacific Standard Time",
+    ///             Recurrence = new Azure.Monitoring.Inputs.AlertProcessingRuleActionGroupScheduleRecurrenceArgs
+    ///             {
+    ///                 Dailies = new[]
+    ///                 {
+    ///                     new Azure.Monitoring.Inputs.AlertProcessingRuleActionGroupScheduleRecurrenceDailyArgs
+    ///                     {
+    ///                         StartTime = "17:00:00",
+    ///                         EndTime = "09:00:00",
+    ///                     },
+    ///                 },
+    ///                 Weeklies = new[]
+    ///                 {
+    ///                     new Azure.Monitoring.Inputs.AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs
+    ///                     {
+    ///                         DaysOfWeeks = new[]
+    ///                         {
+    ///                             "Saturday",
+    ///                             "Sunday",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "foo", "bar" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Alert Processing Rules can be imported using the `resource id`, e.g.

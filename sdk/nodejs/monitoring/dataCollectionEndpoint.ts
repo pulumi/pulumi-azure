@@ -7,6 +7,25 @@ import * as utilities from "../utilities";
 /**
  * Manages a Data Collection Endpoint.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleDataCollectionEndpoint = new azure.monitoring.DataCollectionEndpoint("exampleDataCollectionEndpoint", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     kind: "Windows",
+ *     publicNetworkAccessEnabled: true,
+ *     description: "monitor_data_collection_endpoint example",
+ *     tags: {
+ *         foo: "bar",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Data Collection Endpoints can be imported using the `resource id`, e.g.

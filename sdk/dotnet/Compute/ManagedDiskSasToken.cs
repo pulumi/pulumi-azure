@@ -18,6 +18,40 @@ namespace Pulumi.Azure.Compute
     /// 
     /// With the help of this resource, data from the disk can be copied from managed disk to a storage blob or to some other system without the need of azcopy.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var testResourceGroup = new Azure.Core.ResourceGroup("testResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var testManagedDisk = new Azure.Compute.ManagedDisk("testManagedDisk", new()
+    ///     {
+    ///         Location = testResourceGroup.Location,
+    ///         ResourceGroupName = testResourceGroup.Name,
+    ///         StorageAccountType = "Standard_LRS",
+    ///         CreateOption = "Empty",
+    ///         DiskSizeGb = 1,
+    ///     });
+    /// 
+    ///     var testManagedDiskSasToken = new Azure.Compute.ManagedDiskSasToken("testManagedDiskSasToken", new()
+    ///     {
+    ///         ManagedDiskId = testManagedDisk.Id,
+    ///         DurationInSeconds = 300,
+    ///         AccessLevel = "Read",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Disk SAS Token can be imported using the `resource id`, e.g.

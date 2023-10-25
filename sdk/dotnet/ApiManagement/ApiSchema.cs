@@ -12,6 +12,38 @@ namespace Pulumi.Azure.ApiManagement
     /// <summary>
     /// Manages an API Schema within an API Management Service.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.IO;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleApi = Azure.ApiManagement.GetApi.Invoke(new()
+    ///     {
+    ///         Name = "search-api",
+    ///         ApiManagementName = "search-api-management",
+    ///         ResourceGroupName = "search-service",
+    ///         Revision = "2",
+    ///     });
+    /// 
+    ///     var exampleApiSchema = new Azure.ApiManagement.ApiSchema("exampleApiSchema", new()
+    ///     {
+    ///         ApiName = exampleApi.Apply(getApiResult =&gt; getApiResult.Name),
+    ///         ApiManagementName = exampleApi.Apply(getApiResult =&gt; getApiResult.ApiManagementName),
+    ///         ResourceGroupName = exampleApi.Apply(getApiResult =&gt; getApiResult.ResourceGroupName),
+    ///         SchemaId = "example-schema",
+    ///         ContentType = "application/vnd.ms-azure-apim.xsd+xml",
+    ///         Value = File.ReadAllText("api_management_api_schema.xml"),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// API Management API Schema's can be imported using the `resource id`, e.g.

@@ -7,6 +7,23 @@ import * as utilities from "../utilities";
 /**
  * Manages a Logic App Integration Account.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleIntegrationAccount = new azure.logicapps.IntegrationAccount("exampleIntegrationAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     skuName: "Standard",
+ *     tags: {
+ *         foo: "bar",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Logic App Integration Accounts can be imported using the `resource id`, e.g.

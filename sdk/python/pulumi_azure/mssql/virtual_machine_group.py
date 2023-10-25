@@ -335,6 +335,24 @@ class VirtualMachineGroup(pulumi.CustomResource):
         """
         Manages a Microsoft SQL Virtual Machine Group.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_machine_group = azure.mssql.VirtualMachineGroup("exampleVirtualMachineGroup",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sql_image_offer="SQL2017-WS2016",
+            sql_image_sku="Developer",
+            wsfc_domain_profile=azure.mssql.VirtualMachineGroupWsfcDomainProfileArgs(
+                fqdn="testdomain.com",
+                cluster_subnet_type="SingleSubnet",
+            ))
+        ```
+
         ## Import
 
         Microsoft SQL Virtual Machine Groups can be imported using the `resource id`, e.g.
@@ -361,6 +379,24 @@ class VirtualMachineGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Microsoft SQL Virtual Machine Group.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_machine_group = azure.mssql.VirtualMachineGroup("exampleVirtualMachineGroup",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sql_image_offer="SQL2017-WS2016",
+            sql_image_sku="Developer",
+            wsfc_domain_profile=azure.mssql.VirtualMachineGroupWsfcDomainProfileArgs(
+                fqdn="testdomain.com",
+                cluster_subnet_type="SingleSubnet",
+            ))
+        ```
 
         ## Import
 

@@ -253,6 +253,21 @@ class LocalRulestackPrefixList(pulumi.CustomResource):
         """
         Manages a Palo Alto Local Rulestack Prefix List.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_local_rulestack = azure.paloalto.LocalRulestack("exampleLocalRulestack",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        example_local_rulestack_prefix_list = azure.paloalto.LocalRulestackPrefixList("exampleLocalRulestackPrefixList",
+            rulestack_id=example_local_rulestack.id,
+            prefix_lists=["10.0.1.0/24"])
+        ```
+
         ## Import
 
         Palo Alto Local Rulestack Prefix Lists can be imported using the `resource id`, e.g.
@@ -277,6 +292,21 @@ class LocalRulestackPrefixList(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Palo Alto Local Rulestack Prefix List.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_local_rulestack = azure.paloalto.LocalRulestack("exampleLocalRulestack",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        example_local_rulestack_prefix_list = azure.paloalto.LocalRulestackPrefixList("exampleLocalRulestackPrefixList",
+            rulestack_id=example_local_rulestack.id,
+            prefix_lists=["10.0.1.0/24"])
+        ```
 
         ## Import
 

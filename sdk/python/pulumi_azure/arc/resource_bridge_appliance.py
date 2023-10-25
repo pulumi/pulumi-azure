@@ -368,6 +368,26 @@ class ResourceBridgeAppliance(pulumi.CustomResource):
         """
         Manages an Arc Resource Bridge Appliance.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_resource_bridge_appliance = azure.arc.ResourceBridgeAppliance("exampleResourceBridgeAppliance",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            distro="AKSEdge",
+            infrastructure_provider="VMWare",
+            identity=azure.arc.ResourceBridgeApplianceIdentityArgs(
+                type="SystemAssigned",
+            ),
+            tags={
+                "hello": "world",
+            })
+        ```
+
         ## Import
 
         Arc Resource Bridge Appliance can be imported using the `resource id`, e.g.
@@ -395,6 +415,26 @@ class ResourceBridgeAppliance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Arc Resource Bridge Appliance.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_resource_bridge_appliance = azure.arc.ResourceBridgeAppliance("exampleResourceBridgeAppliance",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            distro="AKSEdge",
+            infrastructure_provider="VMWare",
+            identity=azure.arc.ResourceBridgeApplianceIdentityArgs(
+                type="SystemAssigned",
+            ),
+            tags={
+                "hello": "world",
+            })
+        ```
 
         ## Import
 

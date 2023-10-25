@@ -14,6 +14,62 @@ namespace Pulumi.Azure.Lb
     /// 
     /// &gt; **Note:** Backend Addresses can only be added to a `Standard` SKU Load Balancer.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleVirtualNetwork = Azure.Network.GetVirtualNetwork.Invoke(new()
+    ///     {
+    ///         Name = "example-network",
+    ///         ResourceGroupName = "example-resources",
+    ///     });
+    /// 
+    ///     var exampleLB = Azure.Lb.GetLB.Invoke(new()
+    ///     {
+    ///         Name = "example-lb",
+    ///         ResourceGroupName = "example-resources",
+    ///     });
+    /// 
+    ///     var exampleBackendAddressPool = Azure.Lb.GetBackendAddressPool.Invoke(new()
+    ///     {
+    ///         Name = "first",
+    ///         LoadbalancerId = exampleLB.Apply(getLBResult =&gt; getLBResult.Id),
+    ///     });
+    /// 
+    ///     var exampleBackendAddressPoolAddress = new Azure.Lb.BackendAddressPoolAddress("exampleBackendAddressPoolAddress", new()
+    ///     {
+    ///         BackendAddressPoolId = exampleBackendAddressPool.Apply(getBackendAddressPoolResult =&gt; getBackendAddressPoolResult.Id),
+    ///         VirtualNetworkId = exampleVirtualNetwork.Apply(getVirtualNetworkResult =&gt; getVirtualNetworkResult.Id),
+    ///         IpAddress = "10.0.0.1",
+    ///     });
+    /// 
+    ///     var backend_pool_cr = Azure.Lb.GetBackendAddressPool.Invoke(new()
+    ///     {
+    ///         Name = "globalLBBackendPool",
+    ///         LoadbalancerId = exampleLB.Apply(getLBResult =&gt; getLBResult.Id),
+    ///     });
+    /// 
+    ///     var example_1 = new Azure.Lb.BackendAddressPoolAddress("example-1", new()
+    ///     {
+    ///         BackendAddressPoolId = backend_pool_cr.Apply(backend_pool_cr =&gt; backend_pool_cr.Apply(getBackendAddressPoolResult =&gt; getBackendAddressPoolResult.Id)),
+    ///         BackendAddressIpConfigurationId = azurerm_lb.Backend_lb_R1.Frontend_ip_configuration[0].Id,
+    ///     });
+    /// 
+    ///     var example_2 = new Azure.Lb.BackendAddressPoolAddress("example-2", new()
+    ///     {
+    ///         BackendAddressPoolId = backend_pool_cr.Apply(backend_pool_cr =&gt; backend_pool_cr.Apply(getBackendAddressPoolResult =&gt; getBackendAddressPoolResult.Id)),
+    ///         BackendAddressIpConfigurationId = azurerm_lb.Backend_lb_R2.Frontend_ip_configuration[0].Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Backend Address Pool Addresses can be imported using the `resource id`, e.g.

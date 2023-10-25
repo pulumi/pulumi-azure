@@ -580,6 +580,56 @@ class TrafficManagerNestedEndpoint(pulumi.CustomResource):
         """
         Manages a Nested Endpoint within a Traffic Manager Profile.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_public_ip = azure.network.PublicIp("examplePublicIp",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            allocation_method="Static",
+            domain_name_label="example-pip")
+        parent = azure.network.TrafficManagerProfile("parent",
+            resource_group_name=example_resource_group.name,
+            traffic_routing_method="Weighted",
+            dns_config=azure.network.TrafficManagerProfileDnsConfigArgs(
+                relative_name="parent-profile",
+                ttl=100,
+            ),
+            monitor_config=azure.network.TrafficManagerProfileMonitorConfigArgs(
+                protocol="HTTP",
+                port=80,
+                path="/",
+                interval_in_seconds=30,
+                timeout_in_seconds=9,
+                tolerated_number_of_failures=3,
+            ),
+            tags={
+                "environment": "Production",
+            })
+        nested = azure.network.TrafficManagerProfile("nested",
+            resource_group_name=example_resource_group.name,
+            traffic_routing_method="Priority",
+            dns_config=azure.network.TrafficManagerProfileDnsConfigArgs(
+                relative_name="nested-profile",
+                ttl=30,
+            ),
+            monitor_config=azure.network.TrafficManagerProfileMonitorConfigArgs(
+                protocol="HTTP",
+                port=443,
+                path="/",
+            ))
+        example_traffic_manager_nested_endpoint = azure.network.TrafficManagerNestedEndpoint("exampleTrafficManagerNestedEndpoint",
+            target_resource_id=nested.id,
+            priority=1,
+            profile_id=parent.id,
+            minimum_child_endpoints=9,
+            weight=5)
+        ```
+
         ## Import
 
         Nested Endpoints can be imported using the `resource id`, e.g.
@@ -614,6 +664,56 @@ class TrafficManagerNestedEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Nested Endpoint within a Traffic Manager Profile.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_public_ip = azure.network.PublicIp("examplePublicIp",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            allocation_method="Static",
+            domain_name_label="example-pip")
+        parent = azure.network.TrafficManagerProfile("parent",
+            resource_group_name=example_resource_group.name,
+            traffic_routing_method="Weighted",
+            dns_config=azure.network.TrafficManagerProfileDnsConfigArgs(
+                relative_name="parent-profile",
+                ttl=100,
+            ),
+            monitor_config=azure.network.TrafficManagerProfileMonitorConfigArgs(
+                protocol="HTTP",
+                port=80,
+                path="/",
+                interval_in_seconds=30,
+                timeout_in_seconds=9,
+                tolerated_number_of_failures=3,
+            ),
+            tags={
+                "environment": "Production",
+            })
+        nested = azure.network.TrafficManagerProfile("nested",
+            resource_group_name=example_resource_group.name,
+            traffic_routing_method="Priority",
+            dns_config=azure.network.TrafficManagerProfileDnsConfigArgs(
+                relative_name="nested-profile",
+                ttl=30,
+            ),
+            monitor_config=azure.network.TrafficManagerProfileMonitorConfigArgs(
+                protocol="HTTP",
+                port=443,
+                path="/",
+            ))
+        example_traffic_manager_nested_endpoint = azure.network.TrafficManagerNestedEndpoint("exampleTrafficManagerNestedEndpoint",
+            target_resource_id=nested.id,
+            priority=1,
+            profile_id=parent.id,
+            minimum_child_endpoints=9,
+            weight=5)
+        ```
 
         ## Import
 

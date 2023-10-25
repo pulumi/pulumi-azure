@@ -244,6 +244,27 @@ class NetworkDataNetwork(pulumi.CustomResource):
         """
         Manages a Mobile Network Data Network.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="East Us")
+        example_network = azure.mobile.Network("exampleNetwork",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            mobile_country_code="001",
+            mobile_network_code="01")
+        example_network_data_network = azure.mobile.NetworkDataNetwork("exampleNetworkDataNetwork",
+            mobile_network_id=example_network.id,
+            location=example_resource_group.location,
+            description="example description",
+            tags={
+                "key": "value",
+            })
+        ```
+
         ## Import
 
         Mobile Network Data Network can be imported using the `resource id`, e.g.
@@ -268,6 +289,27 @@ class NetworkDataNetwork(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Mobile Network Data Network.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="East Us")
+        example_network = azure.mobile.Network("exampleNetwork",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            mobile_country_code="001",
+            mobile_network_code="01")
+        example_network_data_network = azure.mobile.NetworkDataNetwork("exampleNetworkDataNetwork",
+            mobile_network_id=example_network.id,
+            location=example_resource_group.location,
+            description="example description",
+            tags={
+                "key": "value",
+            })
+        ```
 
         ## Import
 

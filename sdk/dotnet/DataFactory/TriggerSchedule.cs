@@ -12,6 +12,43 @@ namespace Pulumi.Azure.DataFactory
     /// <summary>
     /// Manages a Trigger Schedule inside a Azure Data Factory.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var examplePipeline = new Azure.DataFactory.Pipeline("examplePipeline", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///     });
+    /// 
+    ///     var exampleTriggerSchedule = new Azure.DataFactory.TriggerSchedule("exampleTriggerSchedule", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         PipelineName = examplePipeline.Name,
+    ///         Interval = 5,
+    ///         Frequency = "Day",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Data Factory Schedule Trigger can be imported using the `resource id`, e.g.

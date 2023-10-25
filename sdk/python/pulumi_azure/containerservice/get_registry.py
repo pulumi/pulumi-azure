@@ -164,6 +164,17 @@ def get_registry(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Container Registry.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.containerservice.get_registry(name="testacr",
+        resource_group_name="test")
+    pulumi.export("loginServer", example.login_server)
+    ```
+
 
     :param str name: The name of the Container Registry.
     :param str resource_group_name: The Name of the Resource Group where this Container Registry exists.
@@ -194,6 +205,17 @@ def get_registry_output(name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistryResult]:
     """
     Use this data source to access information about an existing Container Registry.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.containerservice.get_registry(name="testacr",
+        resource_group_name="test")
+    pulumi.export("loginServer", example.login_server)
+    ```
 
 
     :param str name: The name of the Container Registry.

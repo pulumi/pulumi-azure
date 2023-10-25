@@ -282,6 +282,17 @@ def get_flexible_server(name: Optional[str] = None,
     """
     Use this data source to access information about an existing MySQL Flexible Server.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.mysql.get_flexible_server(name="existingMySqlFlexibleServer",
+        resource_group_name="existingResGroup")
+    pulumi.export("id", example.id)
+    ```
+
 
     :param str name: Specifies the name of the MySQL Flexible Server.
     :param str resource_group_name: The name of the resource group for the MySQL Flexible Server.
@@ -322,6 +333,17 @@ def get_flexible_server_output(name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFlexibleServerResult]:
     """
     Use this data source to access information about an existing MySQL Flexible Server.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.mysql.get_flexible_server(name="existingMySqlFlexibleServer",
+        resource_group_name="existingResGroup")
+    pulumi.export("id", example.id)
+    ```
 
 
     :param str name: Specifies the name of the MySQL Flexible Server.

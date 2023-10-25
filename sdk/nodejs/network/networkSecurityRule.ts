@@ -11,6 +11,31 @@ import * as utilities from "../utilities";
  * provides both a standalone Network Security Rule resource, and allows for Network Security Rules to be defined in-line within the Network Security Group resource.
  * At this time you cannot use a Network Security Group with in-line Network Security Rules in conjunction with any Network Security Rule resources. Doing so will cause a conflict of rule settings and will overwrite rules.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("exampleNetworkSecurityGroup", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleNetworkSecurityRule = new azure.network.NetworkSecurityRule("exampleNetworkSecurityRule", {
+ *     priority: 100,
+ *     direction: "Outbound",
+ *     access: "Allow",
+ *     protocol: "Tcp",
+ *     sourcePortRange: "*",
+ *     destinationPortRange: "*",
+ *     sourceAddressPrefix: "*",
+ *     destinationAddressPrefix: "*",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     networkSecurityGroupName: exampleNetworkSecurityGroup.name,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Network Security Rules can be imported using the `resource id`, e.g.

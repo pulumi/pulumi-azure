@@ -9,6 +9,42 @@ import * as utilities from "../utilities";
 /**
  * Manages a Stream Analytics Output to an EventHub.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleJob = azure.streamanalytics.getJobOutput({
+ *     name: "example-job",
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("exampleEventHubNamespace", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: "Standard",
+ *     capacity: 1,
+ * });
+ * const exampleEventHub = new azure.eventhub.EventHub("exampleEventHub", {
+ *     namespaceName: exampleEventHubNamespace.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     partitionCount: 2,
+ *     messageRetention: 1,
+ * });
+ * const exampleOutputEventHub = new azure.streamanalytics.OutputEventHub("exampleOutputEventHub", {
+ *     streamAnalyticsJobName: exampleJob.apply(exampleJob => exampleJob.name),
+ *     resourceGroupName: exampleJob.apply(exampleJob => exampleJob.resourceGroupName),
+ *     eventhubName: exampleEventHub.name,
+ *     servicebusNamespace: exampleEventHubNamespace.name,
+ *     sharedAccessPolicyKey: exampleEventHubNamespace.defaultPrimaryKey,
+ *     sharedAccessPolicyName: "RootManageSharedAccessKey",
+ *     serialization: {
+ *         type: "Avro",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Stream Analytics Outputs to an EventHub can be imported using the `resource id`, e.g.

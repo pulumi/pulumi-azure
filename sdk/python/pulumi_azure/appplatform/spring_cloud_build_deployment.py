@@ -339,6 +339,34 @@ class SpringCloudBuildDeployment(pulumi.CustomResource):
 
         > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="E0")
+        example_spring_cloud_app = azure.appplatform.SpringCloudApp("exampleSpringCloudApp",
+            resource_group_name=example_spring_cloud_service.resource_group_name,
+            service_name=example_spring_cloud_service.name)
+        example_spring_cloud_build_deployment = azure.appplatform.SpringCloudBuildDeployment("exampleSpringCloudBuildDeployment",
+            spring_cloud_app_id=example_spring_cloud_app.id,
+            build_result_id="<default>",
+            instance_count=2,
+            environment_variables={
+                "Foo": "Bar",
+                "Env": "Staging",
+            },
+            quota=azure.appplatform.SpringCloudBuildDeploymentQuotaArgs(
+                cpu="2",
+                memory="4Gi",
+            ))
+        ```
+
         ## Import
 
         Spring Cloud Build Deployments can be imported using the `resource id`, e.g.
@@ -367,6 +395,34 @@ class SpringCloudBuildDeployment(pulumi.CustomResource):
         Manages a Spring Cloud Build Deployment.
 
         > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="E0")
+        example_spring_cloud_app = azure.appplatform.SpringCloudApp("exampleSpringCloudApp",
+            resource_group_name=example_spring_cloud_service.resource_group_name,
+            service_name=example_spring_cloud_service.name)
+        example_spring_cloud_build_deployment = azure.appplatform.SpringCloudBuildDeployment("exampleSpringCloudBuildDeployment",
+            spring_cloud_app_id=example_spring_cloud_app.id,
+            build_result_id="<default>",
+            instance_count=2,
+            environment_variables={
+                "Foo": "Bar",
+                "Env": "Staging",
+            },
+            quota=azure.appplatform.SpringCloudBuildDeploymentQuotaArgs(
+                cpu="2",
+                memory="4Gi",
+            ))
+        ```
 
         ## Import
 

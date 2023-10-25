@@ -11,6 +11,24 @@ import * as utilities from "../utilities";
  *
  * > **Note:** Version v2.65.0 of the Azure Provider and later will attempt to Purge the Cognitive Account during deletion. This feature can be disabled using the `features` block within the `provider` block, see the provider documentation on the features block for more information.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAccount = new azure.cognitive.Account("exampleAccount", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     kind: "Face",
+ *     skuName: "S0",
+ *     tags: {
+ *         Acceptance: "Test",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Cognitive Service Accounts can be imported using the `resource id`, e.g.

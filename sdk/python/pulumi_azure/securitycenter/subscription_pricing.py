@@ -212,6 +212,43 @@ class SubscriptionPricing(pulumi.CustomResource):
         > **NOTE:** Deletion of this resource will reset the pricing tier to `Free`
 
         ## Example Usage
+        ### Basic usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.securitycenter.SubscriptionPricing("example",
+            resource_type="VirtualMachines",
+            tier="Standard")
+        ```
+        ### Using Extensions with Defender CSPM
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example1 = azure.securitycenter.SubscriptionPricing("example1",
+            extensions=[
+                azure.securitycenter.SubscriptionPricingExtensionArgs(
+                    name="ContainerRegistriesVulnerabilityAssessments",
+                ),
+                azure.securitycenter.SubscriptionPricingExtensionArgs(
+                    additional_extension_properties={
+                        "ExclusionTags": "[]",
+                    },
+                    name="AgentlessVmScanning",
+                ),
+                azure.securitycenter.SubscriptionPricingExtensionArgs(
+                    name="AgentlessDiscoveryForKubernetes",
+                ),
+                azure.securitycenter.SubscriptionPricingExtensionArgs(
+                    name="SensitiveDataDiscovery",
+                ),
+            ],
+            resource_type="CloudPosture",
+            tier="Standard")
+        ```
 
         ## Import
 
@@ -240,6 +277,43 @@ class SubscriptionPricing(pulumi.CustomResource):
         > **NOTE:** Deletion of this resource will reset the pricing tier to `Free`
 
         ## Example Usage
+        ### Basic usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.securitycenter.SubscriptionPricing("example",
+            resource_type="VirtualMachines",
+            tier="Standard")
+        ```
+        ### Using Extensions with Defender CSPM
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example1 = azure.securitycenter.SubscriptionPricing("example1",
+            extensions=[
+                azure.securitycenter.SubscriptionPricingExtensionArgs(
+                    name="ContainerRegistriesVulnerabilityAssessments",
+                ),
+                azure.securitycenter.SubscriptionPricingExtensionArgs(
+                    additional_extension_properties={
+                        "ExclusionTags": "[]",
+                    },
+                    name="AgentlessVmScanning",
+                ),
+                azure.securitycenter.SubscriptionPricingExtensionArgs(
+                    name="AgentlessDiscoveryForKubernetes",
+                ),
+                azure.securitycenter.SubscriptionPricingExtensionArgs(
+                    name="SensitiveDataDiscovery",
+                ),
+            ],
+            resource_type="CloudPosture",
+            tier="Standard")
+        ```
 
         ## Import
 

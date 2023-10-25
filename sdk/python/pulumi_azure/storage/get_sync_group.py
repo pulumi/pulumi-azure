@@ -68,6 +68,17 @@ def get_sync_group(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Storage Sync Group.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.storage.get_sync_group(name="existing-ss-group",
+        storage_sync_id="existing-ss-id")
+    pulumi.export("id", example.id)
+    ```
+
 
     :param str name: The name of this Storage Sync Group.
     :param str storage_sync_id: The resource ID of the Storage Sync where this Storage Sync Group is.
@@ -90,6 +101,17 @@ def get_sync_group_output(name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSyncGroupResult]:
     """
     Use this data source to access information about an existing Storage Sync Group.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.storage.get_sync_group(name="existing-ss-group",
+        storage_sync_id="existing-ss-id")
+    pulumi.export("id", example.id)
+    ```
 
 
     :param str name: The name of this Storage Sync Group.

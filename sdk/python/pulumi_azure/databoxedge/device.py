@@ -271,6 +271,19 @@ class Device(pulumi.CustomResource):
         """
         Manages a Databox Edge Device.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_device = azure.databoxedge.Device("exampleDevice",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku_name="EdgeP_Base-Standard")
+        ```
+
         ## Import
 
         Databox Edge Devices can be imported using the `resource id`, e.g.
@@ -295,6 +308,19 @@ class Device(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Databox Edge Device.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_device = azure.databoxedge.Device("exampleDevice",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku_name="EdgeP_Base-Standard")
+        ```
 
         ## Import
 

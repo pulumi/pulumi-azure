@@ -251,6 +251,24 @@ class HyperVReplicationPolicy(pulumi.CustomResource):
         """
         Manages a Azure Site Recovery replication policy for HyperV within a Recovery Vault. Replication policies define the frequency at which recovery points are created and how long they are stored.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example", location="East US")
+        vault = azure.recoveryservices.Vault("vault",
+            location=example.location,
+            resource_group_name=example.name,
+            sku="Standard")
+        policy = azure.siterecovery.HyperVReplicationPolicy("policy",
+            recovery_vault_id=vault.id,
+            recovery_point_retention_in_hours=2,
+            application_consistent_snapshot_frequency_in_hours=1,
+            replication_interval_in_seconds=300)
+        ```
+
         ## Import
 
         Site Recovery Replication Policies can be imported using the `resource id`, e.g.
@@ -274,6 +292,24 @@ class HyperVReplicationPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Azure Site Recovery replication policy for HyperV within a Recovery Vault. Replication policies define the frequency at which recovery points are created and how long they are stored.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example", location="East US")
+        vault = azure.recoveryservices.Vault("vault",
+            location=example.location,
+            resource_group_name=example.name,
+            sku="Standard")
+        policy = azure.siterecovery.HyperVReplicationPolicy("policy",
+            recovery_vault_id=vault.id,
+            recovery_point_retention_in_hours=2,
+            application_consistent_snapshot_frequency_in_hours=1,
+            replication_interval_in_seconds=300)
+        ```
 
         ## Import
 

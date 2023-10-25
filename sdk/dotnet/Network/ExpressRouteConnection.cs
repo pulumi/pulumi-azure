@@ -14,6 +14,86 @@ namespace Pulumi.Azure.Network
     /// 
     /// &gt; **NOTE:** The provider status of the Express Route Circuit must be set as provisioned while creating the Express Route Connection. See more details [here](https://docs.microsoft.com/azure/expressroute/expressroute-howto-circuit-portal-resource-manager#send-the-service-key-to-your-connectivity-provider-for-provisioning).
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualWan = new Azure.Network.VirtualWan("exampleVirtualWan", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleVirtualHub = new Azure.Network.VirtualHub("exampleVirtualHub", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         VirtualWanId = exampleVirtualWan.Id,
+    ///         AddressPrefix = "10.0.1.0/24",
+    ///     });
+    /// 
+    ///     var exampleExpressRouteGateway = new Azure.Network.ExpressRouteGateway("exampleExpressRouteGateway", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         VirtualHubId = exampleVirtualHub.Id,
+    ///         ScaleUnits = 1,
+    ///     });
+    /// 
+    ///     var exampleExpressRoutePort = new Azure.Network.ExpressRoutePort("exampleExpressRoutePort", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         PeeringLocation = "Equinix-Seattle-SE2",
+    ///         BandwidthInGbps = 10,
+    ///         Encapsulation = "Dot1Q",
+    ///     });
+    /// 
+    ///     var exampleExpressRouteCircuit = new Azure.Network.ExpressRouteCircuit("exampleExpressRouteCircuit", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ExpressRoutePortId = exampleExpressRoutePort.Id,
+    ///         BandwidthInGbps = 5,
+    ///         Sku = new Azure.Network.Inputs.ExpressRouteCircuitSkuArgs
+    ///         {
+    ///             Tier = "Standard",
+    ///             Family = "MeteredData",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleExpressRouteCircuitPeering = new Azure.Network.ExpressRouteCircuitPeering("exampleExpressRouteCircuitPeering", new()
+    ///     {
+    ///         PeeringType = "AzurePrivatePeering",
+    ///         ExpressRouteCircuitName = exampleExpressRouteCircuit.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SharedKey = "ItsASecret",
+    ///         PeerAsn = 100,
+    ///         PrimaryPeerAddressPrefix = "192.168.1.0/30",
+    ///         SecondaryPeerAddressPrefix = "192.168.2.0/30",
+    ///         VlanId = 100,
+    ///     });
+    /// 
+    ///     var exampleExpressRouteConnection = new Azure.Network.ExpressRouteConnection("exampleExpressRouteConnection", new()
+    ///     {
+    ///         ExpressRouteGatewayId = exampleExpressRouteGateway.Id,
+    ///         ExpressRouteCircuitPeeringId = exampleExpressRouteCircuitPeering.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Express Route Connections can be imported using the `resource id`, e.g.

@@ -486,6 +486,51 @@ class NetworkSim(pulumi.CustomResource):
         """
         Manages a Mobile Network Sim.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_network = azure.mobile.Network("exampleNetwork",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            mobile_country_code="001",
+            mobile_network_code="01")
+        example_network_sim_group = azure.mobile.NetworkSimGroup("exampleNetworkSimGroup",
+            location=example_resource_group.location,
+            mobile_network_id=example_network.id)
+        example_network_slice = azure.mobile.NetworkSlice("exampleNetworkSlice",
+            mobile_network_id=example_network.id,
+            location=example_resource_group.location,
+            single_network_slice_selection_assistance_information=azure.mobile.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs(
+                slice_service_type=1,
+            ))
+        example_network_attached_data_network = azure.mobile.NetworkAttachedDataNetwork("exampleNetworkAttachedDataNetwork",
+            mobile_network_data_network_name=azurerm_mobile_network_data_network["example"]["name"],
+            mobile_network_packet_core_data_plane_id=azurerm_mobile_network_packet_core_data_plane["example"]["id"],
+            location=example_resource_group.location,
+            dns_addresses=["1.1.1.1"],
+            user_equipment_address_pool_prefixes=["2.4.0.0/24"],
+            user_equipment_static_address_pool_prefixes=["2.4.1.0/24"],
+            user_plane_access_name="test",
+            user_plane_access_ipv4_address="10.204.141.4",
+            user_plane_access_ipv4_gateway="10.204.141.1",
+            user_plane_access_ipv4_subnet="10.204.141.0/24")
+        example_network_sim = azure.mobile.NetworkSim("exampleNetworkSim",
+            mobile_network_sim_group_id=example_network_sim_group.id,
+            authentication_key="00000000000000000000000000000000",
+            integrated_circuit_card_identifier="8900000000000000000",
+            international_mobile_subscriber_identity="000000000000000",
+            operator_key_code="00000000000000000000000000000000",
+            static_ip_configurations=[azure.mobile.NetworkSimStaticIpConfigurationArgs(
+                attached_data_network_id=data["azurerm_mobile_network_attached_data_network"]["test"]["id"],
+                slice_id=azurerm_mobile_network_slice["test"]["id"],
+                static_ipv4_address="2.4.0.1",
+            )])
+        ```
+
         ## Import
 
         Mobile Network Sim can be imported using the `resource id`, e.g.
@@ -514,6 +559,51 @@ class NetworkSim(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Mobile Network Sim.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_network = azure.mobile.Network("exampleNetwork",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            mobile_country_code="001",
+            mobile_network_code="01")
+        example_network_sim_group = azure.mobile.NetworkSimGroup("exampleNetworkSimGroup",
+            location=example_resource_group.location,
+            mobile_network_id=example_network.id)
+        example_network_slice = azure.mobile.NetworkSlice("exampleNetworkSlice",
+            mobile_network_id=example_network.id,
+            location=example_resource_group.location,
+            single_network_slice_selection_assistance_information=azure.mobile.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs(
+                slice_service_type=1,
+            ))
+        example_network_attached_data_network = azure.mobile.NetworkAttachedDataNetwork("exampleNetworkAttachedDataNetwork",
+            mobile_network_data_network_name=azurerm_mobile_network_data_network["example"]["name"],
+            mobile_network_packet_core_data_plane_id=azurerm_mobile_network_packet_core_data_plane["example"]["id"],
+            location=example_resource_group.location,
+            dns_addresses=["1.1.1.1"],
+            user_equipment_address_pool_prefixes=["2.4.0.0/24"],
+            user_equipment_static_address_pool_prefixes=["2.4.1.0/24"],
+            user_plane_access_name="test",
+            user_plane_access_ipv4_address="10.204.141.4",
+            user_plane_access_ipv4_gateway="10.204.141.1",
+            user_plane_access_ipv4_subnet="10.204.141.0/24")
+        example_network_sim = azure.mobile.NetworkSim("exampleNetworkSim",
+            mobile_network_sim_group_id=example_network_sim_group.id,
+            authentication_key="00000000000000000000000000000000",
+            integrated_circuit_card_identifier="8900000000000000000",
+            international_mobile_subscriber_identity="000000000000000",
+            operator_key_code="00000000000000000000000000000000",
+            static_ip_configurations=[azure.mobile.NetworkSimStaticIpConfigurationArgs(
+                attached_data_network_id=data["azurerm_mobile_network_attached_data_network"]["test"]["id"],
+                slice_id=azurerm_mobile_network_slice["test"]["id"],
+                static_ipv4_address="2.4.0.1",
+            )])
+        ```
 
         ## Import
 

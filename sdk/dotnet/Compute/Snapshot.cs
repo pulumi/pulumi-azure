@@ -12,6 +12,41 @@ namespace Pulumi.Azure.Compute
     /// <summary>
     /// Manages a Disk Snapshot.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleManagedDisk = new Azure.Compute.ManagedDisk("exampleManagedDisk", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         StorageAccountType = "Standard_LRS",
+    ///         CreateOption = "Empty",
+    ///         DiskSizeGb = 10,
+    ///     });
+    /// 
+    ///     var exampleSnapshot = new Azure.Compute.Snapshot("exampleSnapshot", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         CreateOption = "Copy",
+    ///         SourceUri = exampleManagedDisk.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Snapshots can be imported using the `resource id`, e.g.

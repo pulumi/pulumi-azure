@@ -12,6 +12,57 @@ namespace Pulumi.Azure.PrivateDns
     /// <summary>
     /// Enables you to manage DNS SRV Records within Azure Private DNS.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleZone = new Azure.PrivateDns.Zone("exampleZone", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSRVRecord = new Azure.PrivateDns.SRVRecord("exampleSRVRecord", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ZoneName = exampleZone.Name,
+    ///         Ttl = 300,
+    ///         Records = new[]
+    ///         {
+    ///             new Azure.PrivateDns.Inputs.SRVRecordRecordArgs
+    ///             {
+    ///                 Priority = 1,
+    ///                 Weight = 5,
+    ///                 Port = 8080,
+    ///                 Target = "target1.contoso.com",
+    ///             },
+    ///             new Azure.PrivateDns.Inputs.SRVRecordRecordArgs
+    ///             {
+    ///                 Priority = 10,
+    ///                 Weight = 10,
+    ///                 Port = 8080,
+    ///                 Target = "target2.contoso.com",
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Private DNS SRV Records can be imported using the `resource id`, e.g.

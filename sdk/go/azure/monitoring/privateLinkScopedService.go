@@ -15,6 +15,56 @@ import (
 
 // Manages an Azure Monitor Private Link Scoped Service.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ApplicationType:   pulumi.String("web"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePrivateLinkScope, err := monitoring.NewPrivateLinkScope(ctx, "examplePrivateLinkScope", &monitoring.PrivateLinkScopeArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = monitoring.NewPrivateLinkScopedService(ctx, "examplePrivateLinkScopedService", &monitoring.PrivateLinkScopedServiceArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ScopeName:         examplePrivateLinkScope.Name,
+//				LinkedResourceId:  exampleInsights.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Azure Monitor Private Link Scoped Services can be imported using the `resource id`, e.g.

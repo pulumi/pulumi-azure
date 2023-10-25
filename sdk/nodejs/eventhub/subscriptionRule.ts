@@ -10,6 +10,70 @@ import * as utilities from "../utilities";
  * Manages a ServiceBus Subscription Rule.
  *
  * ## Example Usage
+ * ### SQL Filter)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleNamespace = new azure.servicebus.Namespace("exampleNamespace", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: "Standard",
+ *     tags: {
+ *         source: "example",
+ *     },
+ * });
+ * const exampleTopic = new azure.servicebus.Topic("exampleTopic", {
+ *     namespaceId: exampleNamespace.id,
+ *     enablePartitioning: true,
+ * });
+ * const exampleSubscription = new azure.servicebus.Subscription("exampleSubscription", {
+ *     topicId: exampleTopic.id,
+ *     maxDeliveryCount: 1,
+ * });
+ * const exampleSubscriptionRule = new azure.servicebus.SubscriptionRule("exampleSubscriptionRule", {
+ *     subscriptionId: exampleSubscription.id,
+ *     filterType: "SqlFilter",
+ *     sqlFilter: "colour = 'red'",
+ * });
+ * ```
+ * ### Correlation Filter)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleNamespace = new azure.servicebus.Namespace("exampleNamespace", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: "Standard",
+ *     tags: {
+ *         source: "example",
+ *     },
+ * });
+ * const exampleTopic = new azure.servicebus.Topic("exampleTopic", {
+ *     namespaceId: exampleNamespace.id,
+ *     enablePartitioning: true,
+ * });
+ * const exampleSubscription = new azure.servicebus.Subscription("exampleSubscription", {
+ *     topicId: exampleTopic.id,
+ *     maxDeliveryCount: 1,
+ * });
+ * const exampleSubscriptionRule = new azure.servicebus.SubscriptionRule("exampleSubscriptionRule", {
+ *     subscriptionId: exampleSubscription.id,
+ *     filterType: "CorrelationFilter",
+ *     correlationFilter: {
+ *         correlationId: "high",
+ *         label: "red",
+ *         properties: {
+ *             customProperty: "value",
+ *         },
+ *     },
+ * });
+ * ```
  *
  * ## Import
  *

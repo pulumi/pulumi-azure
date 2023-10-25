@@ -1074,6 +1074,23 @@ class Account(pulumi.CustomResource):
 
         > **Note:** Version v2.65.0 of the Azure Provider and later will attempt to Purge the Cognitive Account during deletion. This feature can be disabled using the `features` block within the `provider` block, see the provider documentation on the features block for more information.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.cognitive.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            kind="Face",
+            sku_name="S0",
+            tags={
+                "Acceptance": "Test",
+            })
+        ```
+
         ## Import
 
         Cognitive Service Accounts can be imported using the `resource id`, e.g.
@@ -1128,6 +1145,23 @@ class Account(pulumi.CustomResource):
         Manages a Cognitive Services Account.
 
         > **Note:** Version v2.65.0 of the Azure Provider and later will attempt to Purge the Cognitive Account during deletion. This feature can be disabled using the `features` block within the `provider` block, see the provider documentation on the features block for more information.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.cognitive.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            kind="Face",
+            sku_name="S0",
+            tags={
+                "Acceptance": "Test",
+            })
+        ```
 
         ## Import
 

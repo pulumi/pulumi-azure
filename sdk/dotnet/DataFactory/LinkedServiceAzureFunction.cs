@@ -12,6 +12,43 @@ namespace Pulumi.Azure.DataFactory
     /// <summary>
     /// Manages a Linked Service (connection) between an Azure Function and Azure Data Factory.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleFunctionApp = Azure.AppService.GetFunctionApp.Invoke(new()
+    ///     {
+    ///         Name = "test-azure-functions",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleLinkedServiceAzureFunction = new Azure.DataFactory.LinkedServiceAzureFunction("exampleLinkedServiceAzureFunction", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         Url = $"https://{exampleFunctionApp.Apply(getFunctionAppResult =&gt; getFunctionAppResult.DefaultHostname)}",
+    ///         Key = "foo",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Data Factory Linked Service's can be imported using the `resource id`, e.g.

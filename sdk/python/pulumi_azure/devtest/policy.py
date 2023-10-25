@@ -412,6 +412,31 @@ class Policy(pulumi.CustomResource):
         """
         Manages a Policy within a Dev Test Policy Set.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_lab = azure.devtest.Lab("exampleLab",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            tags={
+                "Sydney": "Australia",
+            })
+        example_policy = azure.devtest.Policy("examplePolicy",
+            policy_set_name="default",
+            lab_name=example_lab.name,
+            resource_group_name=example_resource_group.name,
+            fact_data="",
+            threshold="999",
+            evaluator_type="MaxValuePolicy",
+            tags={
+                "Acceptance": "Test",
+            })
+        ```
+
         ## Import
 
         Dev Test Policies can be imported using the `resource id`, e.g.
@@ -440,6 +465,31 @@ class Policy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Policy within a Dev Test Policy Set.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_lab = azure.devtest.Lab("exampleLab",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            tags={
+                "Sydney": "Australia",
+            })
+        example_policy = azure.devtest.Policy("examplePolicy",
+            policy_set_name="default",
+            lab_name=example_lab.name,
+            resource_group_name=example_resource_group.name,
+            fact_data="",
+            threshold="999",
+            evaluator_type="MaxValuePolicy",
+            tags={
+                "Acceptance": "Test",
+            })
+        ```
 
         ## Import
 

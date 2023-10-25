@@ -188,6 +188,16 @@ def get_environment(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Container App Environment.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.containerapp.get_environment(name="example-environment",
+        resource_group_name="example-resources")
+    ```
+
 
     :param str name: The name of the Container Apps Managed Environment.
     :param str resource_group_name: The name of the Resource Group where this Container App Environment exists.
@@ -220,6 +230,16 @@ def get_environment_output(name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentResult]:
     """
     Use this data source to access information about an existing Container App Environment.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.containerapp.get_environment(name="example-environment",
+        resource_group_name="example-resources")
+    ```
 
 
     :param str name: The name of the Container Apps Managed Environment.

@@ -13,12 +13,66 @@ namespace Pulumi.Azure.DataShare
     {
         /// <summary>
         /// Use this data source to access information about an existing Data Share Kusto Cluster Dataset.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.DataShare.GetDatasetKustoCluster.Invoke(new()
+        ///     {
+        ///         Name = "example-dskc",
+        ///         ShareId = "example-share-id",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getDatasetKustoClusterResult =&gt; getDatasetKustoClusterResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetDatasetKustoClusterResult> InvokeAsync(GetDatasetKustoClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatasetKustoClusterResult>("azure:datashare/getDatasetKustoCluster:getDatasetKustoCluster", args ?? new GetDatasetKustoClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Data Share Kusto Cluster Dataset.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.DataShare.GetDatasetKustoCluster.Invoke(new()
+        ///     {
+        ///         Name = "example-dskc",
+        ///         ShareId = "example-share-id",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getDatasetKustoClusterResult =&gt; getDatasetKustoClusterResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetDatasetKustoClusterResult> Invoke(GetDatasetKustoClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatasetKustoClusterResult>("azure:datashare/getDatasetKustoCluster:getDatasetKustoCluster", args ?? new GetDatasetKustoClusterInvokeArgs(), options.WithDefaults());

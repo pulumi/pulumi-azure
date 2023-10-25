@@ -18,6 +18,75 @@ import (
 // > **NOTE:** Deletion of this resource will reset the pricing tier to `Free`
 //
 // ## Example Usage
+// ### Basic usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/securitycenter"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := securitycenter.NewSubscriptionPricing(ctx, "example", &securitycenter.SubscriptionPricingArgs{
+//				ResourceType: pulumi.String("VirtualMachines"),
+//				Tier:         pulumi.String("Standard"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Using Extensions with Defender CSPM
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/securitycenter"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := securitycenter.NewSubscriptionPricing(ctx, "example1", &securitycenter.SubscriptionPricingArgs{
+//				Extensions: securitycenter.SubscriptionPricingExtensionArray{
+//					&securitycenter.SubscriptionPricingExtensionArgs{
+//						Name: pulumi.String("ContainerRegistriesVulnerabilityAssessments"),
+//					},
+//					&securitycenter.SubscriptionPricingExtensionArgs{
+//						AdditionalExtensionProperties: pulumi.StringMap{
+//							"ExclusionTags": pulumi.String("[]"),
+//						},
+//						Name: pulumi.String("AgentlessVmScanning"),
+//					},
+//					&securitycenter.SubscriptionPricingExtensionArgs{
+//						Name: pulumi.String("AgentlessDiscoveryForKubernetes"),
+//					},
+//					&securitycenter.SubscriptionPricingExtensionArgs{
+//						Name: pulumi.String("SensitiveDataDiscovery"),
+//					},
+//				},
+//				ResourceType: pulumi.String("CloudPosture"),
+//				Tier:         pulumi.String("Standard"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //

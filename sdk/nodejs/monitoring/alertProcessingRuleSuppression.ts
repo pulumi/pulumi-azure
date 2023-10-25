@@ -9,6 +9,53 @@ import * as utilities from "../utilities";
 /**
  * Manages an Alert Processing Rule which suppress notifications.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAlertProcessingRuleSuppression = new azure.monitoring.AlertProcessingRuleSuppression("exampleAlertProcessingRuleSuppression", {
+ *     resourceGroupName: "example",
+ *     scopes: [exampleResourceGroup.id],
+ *     condition: {
+ *         targetResourceType: {
+ *             operator: "Equals",
+ *             values: ["Microsoft.Compute/VirtualMachines"],
+ *         },
+ *         severity: {
+ *             operator: "Equals",
+ *             values: [
+ *                 "Sev0",
+ *                 "Sev1",
+ *                 "Sev2",
+ *             ],
+ *         },
+ *     },
+ *     schedule: {
+ *         effectiveFrom: "2022-01-01T01:02:03",
+ *         effectiveUntil: "2022-02-02T01:02:03",
+ *         timeZone: "Pacific Standard Time",
+ *         recurrence: {
+ *             dailies: [{
+ *                 startTime: "17:00:00",
+ *                 endTime: "09:00:00",
+ *             }],
+ *             weeklies: [{
+ *                 daysOfWeeks: [
+ *                     "Saturday",
+ *                     "Sunday",
+ *                 ],
+ *             }],
+ *         },
+ *     },
+ *     tags: {
+ *         foo: "bar",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Alert Processing Rules can be imported using the `resource id`, e.g.

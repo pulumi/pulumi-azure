@@ -310,6 +310,45 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
                  tls: Optional[pulumi.Input[pulumi.InputType['FrontdoorCustomDomainTlsArgs']]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_zone = azure.dns.Zone("exampleZone", resource_group_name=example_resource_group.name)
+        example_frontdoor_profile = azure.cdn.FrontdoorProfile("exampleFrontdoorProfile",
+            resource_group_name=example_resource_group.name,
+            sku_name="Standard_AzureFrontDoor")
+        example_frontdoor_custom_domain = azure.cdn.FrontdoorCustomDomain("exampleFrontdoorCustomDomain",
+            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
+            dns_zone_id=example_zone.id,
+            host_name="contoso.fabrikam.com",
+            tls=azure.cdn.FrontdoorCustomDomainTlsArgs(
+                certificate_type="ManagedCertificate",
+                minimum_tls_version="TLS12",
+            ))
+        ```
+        ## Example CNAME Record Usage
+
+        !>**IMPORTANT:** You **must** include the `depends_on` meta-argument which references both the `cdn.FrontdoorRoute` and the `cdn.FrontdoorSecurityPolicy` that are associated with your Custom Domain. The reason for these `depends_on` meta-arguments is because all of the resources for the Custom Domain need to be associated within Front Door before the CNAME record can be written to the domains DNS, else the CNAME validation will fail and Front Door will not enable traffic to the Domain.
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.dns.CNameRecord("example",
+            zone_name=azurerm_dns_zone["example"]["name"],
+            resource_group_name=azurerm_resource_group["example"]["name"],
+            ttl=3600,
+            record=azurerm_cdn_frontdoor_endpoint["example"]["host_name"],
+            opts=pulumi.ResourceOptions(depends_on=[
+                    azurerm_cdn_frontdoor_route["example"],
+                    azurerm_cdn_frontdoor_security_policy["example"],
+                ]))
+        ```
+
         ## Import
 
         Front Door Custom Domains can be imported using the `resource id`, e.g.
@@ -337,6 +376,45 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
                  args: FrontdoorCustomDomainArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_zone = azure.dns.Zone("exampleZone", resource_group_name=example_resource_group.name)
+        example_frontdoor_profile = azure.cdn.FrontdoorProfile("exampleFrontdoorProfile",
+            resource_group_name=example_resource_group.name,
+            sku_name="Standard_AzureFrontDoor")
+        example_frontdoor_custom_domain = azure.cdn.FrontdoorCustomDomain("exampleFrontdoorCustomDomain",
+            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
+            dns_zone_id=example_zone.id,
+            host_name="contoso.fabrikam.com",
+            tls=azure.cdn.FrontdoorCustomDomainTlsArgs(
+                certificate_type="ManagedCertificate",
+                minimum_tls_version="TLS12",
+            ))
+        ```
+        ## Example CNAME Record Usage
+
+        !>**IMPORTANT:** You **must** include the `depends_on` meta-argument which references both the `cdn.FrontdoorRoute` and the `cdn.FrontdoorSecurityPolicy` that are associated with your Custom Domain. The reason for these `depends_on` meta-arguments is because all of the resources for the Custom Domain need to be associated within Front Door before the CNAME record can be written to the domains DNS, else the CNAME validation will fail and Front Door will not enable traffic to the Domain.
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.dns.CNameRecord("example",
+            zone_name=azurerm_dns_zone["example"]["name"],
+            resource_group_name=azurerm_resource_group["example"]["name"],
+            ttl=3600,
+            record=azurerm_cdn_frontdoor_endpoint["example"]["host_name"],
+            opts=pulumi.ResourceOptions(depends_on=[
+                    azurerm_cdn_frontdoor_route["example"],
+                    azurerm_cdn_frontdoor_security_policy["example"],
+                ]))
+        ```
+
         ## Import
 
         Front Door Custom Domains can be imported using the `resource id`, e.g.

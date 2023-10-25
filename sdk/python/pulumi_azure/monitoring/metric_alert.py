@@ -718,6 +718,46 @@ class MetricAlert(pulumi.CustomResource):
         """
         Manages a Metric Alert within Azure Monitor.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        to_monitor = azure.storage.Account("toMonitor",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        main = azure.monitoring.ActionGroup("main",
+            resource_group_name=example_resource_group.name,
+            short_name="exampleact",
+            webhook_receivers=[azure.monitoring.ActionGroupWebhookReceiverArgs(
+                name="callmyapi",
+                service_uri="http://example.com/alert",
+            )])
+        example_metric_alert = azure.monitoring.MetricAlert("exampleMetricAlert",
+            resource_group_name=example_resource_group.name,
+            scopes=[to_monitor.id],
+            description="Action will be triggered when Transactions count is greater than 50.",
+            criterias=[azure.monitoring.MetricAlertCriteriaArgs(
+                metric_namespace="Microsoft.Storage/storageAccounts",
+                metric_name="Transactions",
+                aggregation="Total",
+                operator="GreaterThan",
+                threshold=50,
+                dimensions=[azure.monitoring.MetricAlertCriteriaDimensionArgs(
+                    name="ApiName",
+                    operator="Include",
+                    values=["*"],
+                )],
+            )],
+            actions=[azure.monitoring.MetricAlertActionArgs(
+                action_group_id=main.id,
+            )])
+        ```
+
         ## Import
 
         Metric Alerts can be imported using the `resource id`, e.g.
@@ -763,6 +803,46 @@ class MetricAlert(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Metric Alert within Azure Monitor.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        to_monitor = azure.storage.Account("toMonitor",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        main = azure.monitoring.ActionGroup("main",
+            resource_group_name=example_resource_group.name,
+            short_name="exampleact",
+            webhook_receivers=[azure.monitoring.ActionGroupWebhookReceiverArgs(
+                name="callmyapi",
+                service_uri="http://example.com/alert",
+            )])
+        example_metric_alert = azure.monitoring.MetricAlert("exampleMetricAlert",
+            resource_group_name=example_resource_group.name,
+            scopes=[to_monitor.id],
+            description="Action will be triggered when Transactions count is greater than 50.",
+            criterias=[azure.monitoring.MetricAlertCriteriaArgs(
+                metric_namespace="Microsoft.Storage/storageAccounts",
+                metric_name="Transactions",
+                aggregation="Total",
+                operator="GreaterThan",
+                threshold=50,
+                dimensions=[azure.monitoring.MetricAlertCriteriaDimensionArgs(
+                    name="ApiName",
+                    operator="Include",
+                    values=["*"],
+                )],
+            )],
+            actions=[azure.monitoring.MetricAlertActionArgs(
+                action_group_id=main.id,
+            )])
+        ```
 
         ## Import
 

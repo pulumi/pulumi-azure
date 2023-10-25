@@ -6,6 +6,19 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Logic App Integration Account.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.logicapps.getIntegrationAccount({
+ *     name: "example-account",
+ *     resourceGroupName: "example-resource-group",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
  */
 export function getIntegrationAccount(args: GetIntegrationAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationAccountResult> {
 
@@ -55,6 +68,19 @@ export interface GetIntegrationAccountResult {
 }
 /**
  * Use this data source to access information about an existing Logic App Integration Account.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.logicapps.getIntegrationAccount({
+ *     name: "example-account",
+ *     resourceGroupName: "example-resource-group",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
  */
 export function getIntegrationAccountOutput(args: GetIntegrationAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationAccountResult> {
     return pulumi.output(args).apply((a: any) => getIntegrationAccount(a, opts))

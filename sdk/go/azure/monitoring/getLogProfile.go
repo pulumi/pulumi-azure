@@ -15,6 +15,33 @@ import (
 // Use this data source to access the properties of a Log Profile.
 //
 // !> **NOTE:** Azure Log Profiles will be retired on 30th September 2026 and will be removed in v4.0 of the AzureRM Provider. More information on the deprecation can be found [in the Azure documentation](https://learn.microsoft.com/azure/azure-monitor/essentials/activity-log?tabs=powershell#legacy-collection-methods).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := monitoring.LookupLogProfile(ctx, &monitoring.LookupLogProfileArgs{
+//				Name: "test-logprofile",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("logProfileStorageAccountId", example.StorageAccountId)
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupLogProfile(ctx *pulumi.Context, args *LookupLogProfileArgs, opts ...pulumi.InvokeOption) (*LookupLogProfileResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLogProfileResult

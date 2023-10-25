@@ -608,6 +608,34 @@ class SubscriptionPolicyAssignment(pulumi.CustomResource):
         """
         Manages a Subscription Policy Assignment.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_subscription()
+        example_definition = azure.policy.Definition("exampleDefinition",
+            policy_type="Custom",
+            mode="All",
+            display_name="Allowed resource types",
+            policy_rule=\"\"\" {
+            "if": {
+              "not": {
+                "field": "location",
+                "equals": "westeurope"
+              }
+            },
+            "then": {
+              "effect": "Deny"
+            }
+          }
+        \"\"\")
+        example_subscription_policy_assignment = azure.core.SubscriptionPolicyAssignment("exampleSubscriptionPolicyAssignment",
+            policy_definition_id=example_definition.id,
+            subscription_id=current.id)
+        ```
+
         ## Import
 
         Subscription Policy Assignments can be imported using the `resource id`, e.g.
@@ -643,6 +671,34 @@ class SubscriptionPolicyAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Subscription Policy Assignment.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_subscription()
+        example_definition = azure.policy.Definition("exampleDefinition",
+            policy_type="Custom",
+            mode="All",
+            display_name="Allowed resource types",
+            policy_rule=\"\"\" {
+            "if": {
+              "not": {
+                "field": "location",
+                "equals": "westeurope"
+              }
+            },
+            "then": {
+              "effect": "Deny"
+            }
+          }
+        \"\"\")
+        example_subscription_policy_assignment = azure.core.SubscriptionPolicyAssignment("exampleSubscriptionPolicyAssignment",
+            policy_definition_id=example_definition.id,
+            subscription_id=current.id)
+        ```
 
         ## Import
 

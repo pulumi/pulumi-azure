@@ -13,6 +13,34 @@ import (
 )
 
 // Use this data source to access information about an existing Application Insights component.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := appinsights.LookupInsights(ctx, &appinsights.LookupInsightsArgs{
+//				Name:              "production",
+//				ResourceGroupName: "networking",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("applicationInsightsInstrumentationKey", example.InstrumentationKey)
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupInsights(ctx *pulumi.Context, args *LookupInsightsArgs, opts ...pulumi.InvokeOption) (*LookupInsightsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupInsightsResult

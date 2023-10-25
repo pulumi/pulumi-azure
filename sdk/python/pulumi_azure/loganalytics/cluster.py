@@ -318,6 +318,21 @@ class Cluster(pulumi.CustomResource):
 
         Manages a Log Analytics Cluster.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_cluster = azure.loganalytics.Cluster("exampleCluster",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            identity=azure.loganalytics.ClusterIdentityArgs(
+                type="SystemAssigned",
+            ))
+        ```
+
         ## Import
 
         Log Analytics Clusters can be imported using the `resource id`, e.g.
@@ -347,6 +362,21 @@ class Cluster(pulumi.CustomResource):
         > **Note:** Log Analytics Clusters are subject to 14-day soft delete policy. Clusters created with the same resource group & name as a previously deleted cluster will be recovered rather than creating anew.
 
         Manages a Log Analytics Cluster.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_cluster = azure.loganalytics.Cluster("exampleCluster",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            identity=azure.loganalytics.ClusterIdentityArgs(
+                type="SystemAssigned",
+            ))
+        ```
 
         ## Import
 

@@ -13,12 +13,78 @@ namespace Pulumi.Azure.KeyVault
     {
         /// <summary>
         /// Use this data source to access information about an existing Key Vault Certificate.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleKeyVault = Azure.KeyVault.GetKeyVault.Invoke(new()
+        ///     {
+        ///         Name = "examplekv",
+        ///         ResourceGroupName = "some-resource-group",
+        ///     });
+        /// 
+        ///     var exampleCertificate = Azure.KeyVault.GetCertificate.Invoke(new()
+        ///     {
+        ///         Name = "secret-sauce",
+        ///         KeyVaultId = exampleKeyVault.Apply(getKeyVaultResult =&gt; getKeyVaultResult.Id),
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["certificateThumbprint"] = exampleCertificate.Apply(getCertificateResult =&gt; getCertificateResult.Thumbprint),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("azure:keyvault/getCertificate:getCertificate", args ?? new GetCertificateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Key Vault Certificate.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleKeyVault = Azure.KeyVault.GetKeyVault.Invoke(new()
+        ///     {
+        ///         Name = "examplekv",
+        ///         ResourceGroupName = "some-resource-group",
+        ///     });
+        /// 
+        ///     var exampleCertificate = Azure.KeyVault.GetCertificate.Invoke(new()
+        ///     {
+        ///         Name = "secret-sauce",
+        ///         KeyVaultId = exampleKeyVault.Apply(getKeyVaultResult =&gt; getKeyVaultResult.Id),
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["certificateThumbprint"] = exampleCertificate.Apply(getCertificateResult =&gt; getCertificateResult.Thumbprint),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("azure:keyvault/getCertificate:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());

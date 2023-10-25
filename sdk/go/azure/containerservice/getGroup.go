@@ -13,6 +13,36 @@ import (
 )
 
 // Use this data source to access information about an existing Container Group instance.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := containerservice.LookupGroup(ctx, &containerservice.LookupGroupArgs{
+//				Name:              "existing",
+//				ResourceGroupName: "existing",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("id", example.Id)
+//			ctx.Export("ipAddress", example.IpAddress)
+//			ctx.Export("fqdn", example.Fqdn)
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupGroup(ctx *pulumi.Context, args *LookupGroupArgs, opts ...pulumi.InvokeOption) (*LookupGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupGroupResult

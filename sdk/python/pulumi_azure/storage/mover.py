@@ -244,6 +244,22 @@ class Mover(pulumi.CustomResource):
         """
         Manages a Storage Mover.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_mover = azure.storage.Mover("exampleMover",
+            resource_group_name=example_resource_group.name,
+            location="West Europe",
+            description="Example Storage Mover Description",
+            tags={
+                "key": "value",
+            })
+        ```
+
         ## Import
 
         Storage Mover can be imported using the `resource id`, e.g.
@@ -268,6 +284,22 @@ class Mover(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Storage Mover.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_mover = azure.storage.Mover("exampleMover",
+            resource_group_name=example_resource_group.name,
+            location="West Europe",
+            description="Example Storage Mover Description",
+            tags={
+                "key": "value",
+            })
+        ```
 
         ## Import
 

@@ -15,6 +15,34 @@ import (
 
 // Allows accepting the Legal Terms for a Marketplace Image.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/marketplace"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := marketplace.NewAgreement(ctx, "barracuda", &marketplace.AgreementArgs{
+//				Offer:     pulumi.String("waf"),
+//				Plan:      pulumi.String("hourly"),
+//				Publisher: pulumi.String("barracudanetworks"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Marketplace Agreement can be imported using the `resource id`, e.g.

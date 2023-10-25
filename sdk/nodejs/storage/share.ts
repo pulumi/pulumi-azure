@@ -11,6 +11,33 @@ import * as utilities from "../utilities";
  *
  * > **Note:** The storage share supports two storage tiers: premium and standard. Standard file shares are created in general purpose (GPv1 or GPv2) storage accounts and premium file shares are created in FileStorage storage accounts. For further information, refer to the section "What storage tiers are supported in Azure Files?" of [documentation](https://docs.microsoft.com/azure/storage/files/storage-files-faq#general).
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ * });
+ * const exampleShare = new azure.storage.Share("exampleShare", {
+ *     storageAccountName: exampleAccount.name,
+ *     quota: 50,
+ *     acls: [{
+ *         id: "MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI",
+ *         accessPolicies: [{
+ *             permissions: "rwdl",
+ *             start: "2019-07-02T09:38:21.0000000Z",
+ *             expiry: "2019-07-02T10:38:21.0000000Z",
+ *         }],
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Storage Shares can be imported using the `resource id`, e.g.

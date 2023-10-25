@@ -425,6 +425,56 @@ class PolicyFileShare(pulumi.CustomResource):
         """
         Manages an Azure File Share Backup Policy within a Recovery Services vault.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_vault = azure.recoveryservices.Vault("exampleVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard")
+        policy = azure.backup.PolicyFileShare("policy",
+            resource_group_name=example_resource_group.name,
+            recovery_vault_name=example_vault.name,
+            timezone="UTC",
+            backup=azure.backup.PolicyFileShareBackupArgs(
+                frequency="Daily",
+                time="23:00",
+            ),
+            retention_daily=azure.backup.PolicyFileShareRetentionDailyArgs(
+                count=10,
+            ),
+            retention_weekly=azure.backup.PolicyFileShareRetentionWeeklyArgs(
+                count=7,
+                weekdays=[
+                    "Sunday",
+                    "Wednesday",
+                    "Friday",
+                    "Saturday",
+                ],
+            ),
+            retention_monthly=azure.backup.PolicyFileShareRetentionMonthlyArgs(
+                count=7,
+                weekdays=[
+                    "Sunday",
+                    "Wednesday",
+                ],
+                weeks=[
+                    "First",
+                    "Last",
+                ],
+            ),
+            retention_yearly=azure.backup.PolicyFileShareRetentionYearlyArgs(
+                count=7,
+                weekdays=["Sunday"],
+                weeks=["Last"],
+                months=["January"],
+            ))
+        ```
+
         ## Import
 
         Azure File Share Backup Policies can be imported using the `resource id`, e.g.
@@ -455,6 +505,56 @@ class PolicyFileShare(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure File Share Backup Policy within a Recovery Services vault.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_vault = azure.recoveryservices.Vault("exampleVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard")
+        policy = azure.backup.PolicyFileShare("policy",
+            resource_group_name=example_resource_group.name,
+            recovery_vault_name=example_vault.name,
+            timezone="UTC",
+            backup=azure.backup.PolicyFileShareBackupArgs(
+                frequency="Daily",
+                time="23:00",
+            ),
+            retention_daily=azure.backup.PolicyFileShareRetentionDailyArgs(
+                count=10,
+            ),
+            retention_weekly=azure.backup.PolicyFileShareRetentionWeeklyArgs(
+                count=7,
+                weekdays=[
+                    "Sunday",
+                    "Wednesday",
+                    "Friday",
+                    "Saturday",
+                ],
+            ),
+            retention_monthly=azure.backup.PolicyFileShareRetentionMonthlyArgs(
+                count=7,
+                weekdays=[
+                    "Sunday",
+                    "Wednesday",
+                ],
+                weeks=[
+                    "First",
+                    "Last",
+                ],
+            ),
+            retention_yearly=azure.backup.PolicyFileShareRetentionYearlyArgs(
+                count=7,
+                weekdays=["Sunday"],
+                weeks=["Last"],
+                months=["January"],
+            ))
+        ```
 
         ## Import
 

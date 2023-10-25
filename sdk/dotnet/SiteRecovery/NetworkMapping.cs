@@ -12,6 +12,87 @@ namespace Pulumi.Azure.SiteRecovery
     /// <summary>
     /// Manages a site recovery network mapping on Azure. A network mapping decides how to translate connected networks when a VM is migrated from one region to another.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var primaryResourceGroup = new Azure.Core.ResourceGroup("primaryResourceGroup", new()
+    ///     {
+    ///         Location = "West US",
+    ///     });
+    /// 
+    ///     var secondaryResourceGroup = new Azure.Core.ResourceGroup("secondaryResourceGroup", new()
+    ///     {
+    ///         Location = "East US",
+    ///     });
+    /// 
+    ///     var vault = new Azure.RecoveryServices.Vault("vault", new()
+    ///     {
+    ///         Location = secondaryResourceGroup.Location,
+    ///         ResourceGroupName = secondaryResourceGroup.Name,
+    ///         Sku = "Standard",
+    ///     });
+    /// 
+    ///     var primaryFabric = new Azure.SiteRecovery.Fabric("primaryFabric", new()
+    ///     {
+    ///         ResourceGroupName = secondaryResourceGroup.Name,
+    ///         RecoveryVaultName = vault.Name,
+    ///         Location = primaryResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var secondaryFabric = new Azure.SiteRecovery.Fabric("secondaryFabric", new()
+    ///     {
+    ///         ResourceGroupName = secondaryResourceGroup.Name,
+    ///         RecoveryVaultName = vault.Name,
+    ///         Location = secondaryResourceGroup.Location,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             primaryFabric,
+    ///         },
+    ///     });
+    /// 
+    ///     // Avoids issues with creating fabrics simultaneously
+    ///     var primaryVirtualNetwork = new Azure.Network.VirtualNetwork("primaryVirtualNetwork", new()
+    ///     {
+    ///         ResourceGroupName = primaryResourceGroup.Name,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "192.168.1.0/24",
+    ///         },
+    ///         Location = primaryResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var secondaryVirtualNetwork = new Azure.Network.VirtualNetwork("secondaryVirtualNetwork", new()
+    ///     {
+    ///         ResourceGroupName = secondaryResourceGroup.Name,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "192.168.2.0/24",
+    ///         },
+    ///         Location = secondaryResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var recovery_mapping = new Azure.SiteRecovery.NetworkMapping("recovery-mapping", new()
+    ///     {
+    ///         ResourceGroupName = secondaryResourceGroup.Name,
+    ///         RecoveryVaultName = vault.Name,
+    ///         SourceRecoveryFabricName = "primary-fabric",
+    ///         TargetRecoveryFabricName = "secondary-fabric",
+    ///         SourceNetworkId = primaryVirtualNetwork.Id,
+    ///         TargetNetworkId = secondaryVirtualNetwork.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Site Recovery Network Mapping can be imported using the `resource id`, e.g.

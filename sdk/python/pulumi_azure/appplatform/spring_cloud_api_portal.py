@@ -356,6 +356,32 @@ class SpringCloudApiPortal(pulumi.CustomResource):
 
         > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="E0")
+        example_spring_cloud_gateway = azure.appplatform.SpringCloudGateway("exampleSpringCloudGateway", spring_cloud_service_id=example_spring_cloud_service.id)
+        example_spring_cloud_api_portal = azure.appplatform.SpringCloudApiPortal("exampleSpringCloudApiPortal",
+            spring_cloud_service_id=example_spring_cloud_service.id,
+            gateway_ids=[example_spring_cloud_gateway.id],
+            https_only_enabled=False,
+            public_network_access_enabled=True,
+            instance_count=1,
+            sso=azure.appplatform.SpringCloudApiPortalSsoArgs(
+                client_id="test",
+                client_secret="secret",
+                issuer_uri="https://www.example.com/issueToken",
+                scopes=["read"],
+            ))
+        ```
+
         ## Import
 
         Spring Cloud API Portals can be imported using the `resource id`, e.g.
@@ -384,6 +410,32 @@ class SpringCloudApiPortal(pulumi.CustomResource):
         Manages a Spring Cloud API Portal.
 
         > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="E0")
+        example_spring_cloud_gateway = azure.appplatform.SpringCloudGateway("exampleSpringCloudGateway", spring_cloud_service_id=example_spring_cloud_service.id)
+        example_spring_cloud_api_portal = azure.appplatform.SpringCloudApiPortal("exampleSpringCloudApiPortal",
+            spring_cloud_service_id=example_spring_cloud_service.id,
+            gateway_ids=[example_spring_cloud_gateway.id],
+            https_only_enabled=False,
+            public_network_access_enabled=True,
+            instance_count=1,
+            sso=azure.appplatform.SpringCloudApiPortalSsoArgs(
+                client_id="test",
+                client_secret="secret",
+                issuer_uri="https://www.example.com/issueToken",
+                scopes=["read"],
+            ))
+        ```
 
         ## Import
 

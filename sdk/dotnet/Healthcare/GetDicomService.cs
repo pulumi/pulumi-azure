@@ -13,12 +13,66 @@ namespace Pulumi.Azure.Healthcare
     {
         /// <summary>
         /// Use this data source to access information about an existing Healthcare DICOM Service
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Healthcare.GetDicomService.Invoke(new()
+        ///     {
+        ///         Name = "example-healthcare_dicom_service",
+        ///         WorkspaceId = data.Azurerm_healthcare_workspace.Example.Id,
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["azurermHealthcareDicomService"] = example.Apply(getDicomServiceResult =&gt; getDicomServiceResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetDicomServiceResult> InvokeAsync(GetDicomServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDicomServiceResult>("azure:healthcare/getDicomService:getDicomService", args ?? new GetDicomServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Healthcare DICOM Service
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Healthcare.GetDicomService.Invoke(new()
+        ///     {
+        ///         Name = "example-healthcare_dicom_service",
+        ///         WorkspaceId = data.Azurerm_healthcare_workspace.Example.Id,
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["azurermHealthcareDicomService"] = example.Apply(getDicomServiceResult =&gt; getDicomServiceResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetDicomServiceResult> Invoke(GetDicomServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDicomServiceResult>("azure:healthcare/getDicomService:getDicomService", args ?? new GetDicomServiceInvokeArgs(), options.WithDefaults());

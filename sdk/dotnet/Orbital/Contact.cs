@@ -12,6 +12,136 @@ namespace Pulumi.Azure.Orbital
     /// <summary>
     /// Manages an orbital contact.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleSpacecraft = new Azure.Orbital.Spacecraft("exampleSpacecraft", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = "westeurope",
+    ///         NoradId = "12345",
+    ///         Links = new[]
+    ///         {
+    ///             new Azure.Orbital.Inputs.SpacecraftLinkArgs
+    ///             {
+    ///                 BandwidthMhz = 100,
+    ///                 CenterFrequencyMhz = 101,
+    ///                 Direction = "Uplink",
+    ///                 Polarization = "LHCP",
+    ///                 Name = "examplename",
+    ///             },
+    ///         },
+    ///         TwoLineElements = new[]
+    ///         {
+    ///             "1 23455U 94089A   97320.90946019  .00000140  00000-0  10191-3 0  2621",
+    ///             "2 23455  99.0090 272.6745 0008546 223.1686 136.8816 14.11711747148495",
+    ///         },
+    ///         TitleLine = "AQUA",
+    ///         Tags = 
+    ///         {
+    ///             { "aks-managed-cluster-name", "9a57225d-a405-4d40-aa46-f13d2342abef" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.1.0/24",
+    ///         },
+    ///         Delegations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.SubnetDelegationArgs
+    ///             {
+    ///                 Name = "orbitalgateway",
+    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                 {
+    ///                     Name = "Microsoft.Orbital/orbitalGateways",
+    ///                     Actions = new[]
+    ///                     {
+    ///                         "Microsoft.Network/publicIPAddresses/join/action",
+    ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
+    ///                         "Microsoft.Network/virtualNetworks/read",
+    ///                         "Microsoft.Network/publicIPAddresses/read",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleContactProfile = new Azure.Orbital.ContactProfile("exampleContactProfile", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         MinimumVariableContactDuration = "PT1M",
+    ///         AutoTracking = "disabled",
+    ///         Links = new[]
+    ///         {
+    ///             new Azure.Orbital.Inputs.ContactProfileLinkArgs
+    ///             {
+    ///                 Channels = new[]
+    ///                 {
+    ///                     new Azure.Orbital.Inputs.ContactProfileLinkChannelArgs
+    ///                     {
+    ///                         Name = "channelname",
+    ///                         BandwidthMhz = 100,
+    ///                         CenterFrequencyMhz = 101,
+    ///                         EndPoints = new[]
+    ///                         {
+    ///                             new Azure.Orbital.Inputs.ContactProfileLinkChannelEndPointArgs
+    ///                             {
+    ///                                 EndPointName = "AQUA_command",
+    ///                                 IpAddress = "10.0.1.0",
+    ///                                 Port = "49153",
+    ///                                 Protocol = "TCP",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Direction = "Uplink",
+    ///                 Name = "RHCP_UL",
+    ///                 Polarization = "RHCP",
+    ///             },
+    ///         },
+    ///         NetworkConfigurationSubnetId = exampleSubnet.Id,
+    ///     });
+    /// 
+    ///     var exampleContact = new Azure.Orbital.Contact("exampleContact", new()
+    ///     {
+    ///         SpacecraftId = exampleSpacecraft.Id,
+    ///         ReservationStartTime = "2020-07-16T20:35:00.00Z",
+    ///         ReservationEndTime = "2020-07-16T20:55:00.00Z",
+    ///         GroundStationName = "WESTUS2_0",
+    ///         ContactProfileId = exampleContactProfile.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Spacecraft can be imported using the `resource id`, e.g.

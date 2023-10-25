@@ -9,6 +9,88 @@ import * as utilities from "../utilities";
 /**
  * Manages an Application Gateway.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     addressSpaces: ["10.254.0.0/16"],
+ * });
+ * const frontend = new azure.network.Subnet("frontend", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.254.0.0/24"],
+ * });
+ * const backend = new azure.network.Subnet("backend", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.254.2.0/24"],
+ * });
+ * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     allocationMethod: "Dynamic",
+ * });
+ * const backendAddressPoolName = pulumi.interpolate`${exampleVirtualNetwork.name}-beap`;
+ * const frontendPortName = pulumi.interpolate`${exampleVirtualNetwork.name}-feport`;
+ * const frontendIpConfigurationName = pulumi.interpolate`${exampleVirtualNetwork.name}-feip`;
+ * const httpSettingName = pulumi.interpolate`${exampleVirtualNetwork.name}-be-htst`;
+ * const listenerName = pulumi.interpolate`${exampleVirtualNetwork.name}-httplstn`;
+ * const requestRoutingRuleName = pulumi.interpolate`${exampleVirtualNetwork.name}-rqrt`;
+ * const redirectConfigurationName = pulumi.interpolate`${exampleVirtualNetwork.name}-rdrcfg`;
+ * const network = new azure.network.ApplicationGateway("network", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     sku: {
+ *         name: "Standard_v2",
+ *         tier: "Standard_v2",
+ *         capacity: 2,
+ *     },
+ *     gatewayIpConfigurations: [{
+ *         name: "my-gateway-ip-configuration",
+ *         subnetId: frontend.id,
+ *     }],
+ *     frontendPorts: [{
+ *         name: frontendPortName,
+ *         port: 80,
+ *     }],
+ *     frontendIpConfigurations: [{
+ *         name: frontendIpConfigurationName,
+ *         publicIpAddressId: examplePublicIp.id,
+ *     }],
+ *     backendAddressPools: [{
+ *         name: backendAddressPoolName,
+ *     }],
+ *     backendHttpSettings: [{
+ *         name: httpSettingName,
+ *         cookieBasedAffinity: "Disabled",
+ *         path: "/path1/",
+ *         port: 80,
+ *         protocol: "Http",
+ *         requestTimeout: 60,
+ *     }],
+ *     httpListeners: [{
+ *         name: listenerName,
+ *         frontendIpConfigurationName: frontendIpConfigurationName,
+ *         frontendPortName: frontendPortName,
+ *         protocol: "Http",
+ *     }],
+ *     requestRoutingRules: [{
+ *         name: requestRoutingRuleName,
+ *         priority: 9,
+ *         ruleType: "Basic",
+ *         httpListenerName: listenerName,
+ *         backendAddressPoolName: backendAddressPoolName,
+ *         backendHttpSettingsName: httpSettingName,
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Application Gateway's can be imported using the `resource id`, e.g.

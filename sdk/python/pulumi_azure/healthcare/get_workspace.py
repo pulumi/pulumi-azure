@@ -92,6 +92,17 @@ def get_workspace(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Healthcare Workspace
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.healthcare.get_workspace(name="example-healthcare_service",
+        resource_group_name="example-resources")
+    pulumi.export("healthcareWorkspaceId", example.id)
+    ```
+
 
     :param str name: The name of the Healthcare Workspace.
     :param str resource_group_name: The name of the Resource Group in which the Healthcare Workspace exists.
@@ -116,6 +127,17 @@ def get_workspace_output(name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
     Use this data source to access information about an existing Healthcare Workspace
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.healthcare.get_workspace(name="example-healthcare_service",
+        resource_group_name="example-resources")
+    pulumi.export("healthcareWorkspaceId", example.id)
+    ```
 
 
     :param str name: The name of the Healthcare Workspace.

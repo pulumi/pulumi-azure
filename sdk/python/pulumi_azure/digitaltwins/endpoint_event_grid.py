@@ -300,6 +300,26 @@ class EndpointEventGrid(pulumi.CustomResource):
         """
         Manages a Digital Twins Event Grid Endpoint.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_instance = azure.digitaltwins.Instance("exampleInstance",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        example_topic = azure.eventgrid.Topic("exampleTopic",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_endpoint_event_grid = azure.digitaltwins.EndpointEventGrid("exampleEndpointEventGrid",
+            digital_twins_id=example_instance.id,
+            eventgrid_topic_endpoint=example_topic.endpoint,
+            eventgrid_topic_primary_access_key=example_topic.primary_access_key,
+            eventgrid_topic_secondary_access_key=example_topic.secondary_access_key)
+        ```
+
         ## Import
 
         Digital Twins Eventgrid Endpoints can be imported using the `resource id`, e.g.
@@ -325,6 +345,26 @@ class EndpointEventGrid(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Digital Twins Event Grid Endpoint.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_instance = azure.digitaltwins.Instance("exampleInstance",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        example_topic = azure.eventgrid.Topic("exampleTopic",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_endpoint_event_grid = azure.digitaltwins.EndpointEventGrid("exampleEndpointEventGrid",
+            digital_twins_id=example_instance.id,
+            eventgrid_topic_endpoint=example_topic.endpoint,
+            eventgrid_topic_primary_access_key=example_topic.primary_access_key,
+            eventgrid_topic_secondary_access_key=example_topic.secondary_access_key)
+        ```
 
         ## Import
 

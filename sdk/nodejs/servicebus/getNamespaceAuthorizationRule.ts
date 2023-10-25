@@ -6,6 +6,19 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing ServiceBus Namespace Authorization Rule.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.servicebus.getNamespaceAuthorizationRule({
+ *     name: "examplerule",
+ *     namespaceId: "examplenamespace",
+ * });
+ * export const ruleId = example.then(example => example.id);
+ * ```
  */
 export function getNamespaceAuthorizationRule(args: GetNamespaceAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceAuthorizationRuleResult> {
 
@@ -91,6 +104,19 @@ export interface GetNamespaceAuthorizationRuleResult {
 }
 /**
  * Use this data source to access information about an existing ServiceBus Namespace Authorization Rule.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.servicebus.getNamespaceAuthorizationRule({
+ *     name: "examplerule",
+ *     namespaceId: "examplenamespace",
+ * });
+ * export const ruleId = example.then(example => example.id);
+ * ```
  */
 export function getNamespaceAuthorizationRuleOutput(args: GetNamespaceAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceAuthorizationRuleResult> {
     return pulumi.output(args).apply((a: any) => getNamespaceAuthorizationRule(a, opts))

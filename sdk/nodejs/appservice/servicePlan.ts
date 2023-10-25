@@ -7,6 +7,21 @@ import * as utilities from "../utilities";
 /**
  * Manages an App Service: Service Plan.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleServicePlan = new azure.appservice.ServicePlan("exampleServicePlan", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     osType: "Linux",
+ *     skuName: "P1v2",
+ * });
+ * ```
+ *
  * ## Import
  *
  * AppServices can be imported using the `resource id`, e.g.

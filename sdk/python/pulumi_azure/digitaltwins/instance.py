@@ -266,6 +266,21 @@ class Instance(pulumi.CustomResource):
         """
         Manages a Digital Twins instance.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_instance = azure.digitaltwins.Instance("exampleInstance",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            tags={
+                "foo": "bar",
+            })
+        ```
+
         ## Import
 
         Digital Twins instances can be imported using the `resource id`, e.g.
@@ -290,6 +305,21 @@ class Instance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Digital Twins instance.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_instance = azure.digitaltwins.Instance("exampleInstance",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            tags={
+                "foo": "bar",
+            })
+        ```
 
         ## Import
 

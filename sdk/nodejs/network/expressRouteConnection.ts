@@ -11,6 +11,62 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** The provider status of the Express Route Circuit must be set as provisioned while creating the Express Route Connection. See more details [here](https://docs.microsoft.com/azure/expressroute/expressroute-howto-circuit-portal-resource-manager#send-the-service-key-to-your-connectivity-provider-for-provisioning).
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleVirtualWan = new azure.network.VirtualWan("exampleVirtualWan", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ * });
+ * const exampleVirtualHub = new azure.network.VirtualHub("exampleVirtualHub", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     virtualWanId: exampleVirtualWan.id,
+ *     addressPrefix: "10.0.1.0/24",
+ * });
+ * const exampleExpressRouteGateway = new azure.network.ExpressRouteGateway("exampleExpressRouteGateway", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     virtualHubId: exampleVirtualHub.id,
+ *     scaleUnits: 1,
+ * });
+ * const exampleExpressRoutePort = new azure.network.ExpressRoutePort("exampleExpressRoutePort", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     peeringLocation: "Equinix-Seattle-SE2",
+ *     bandwidthInGbps: 10,
+ *     encapsulation: "Dot1Q",
+ * });
+ * const exampleExpressRouteCircuit = new azure.network.ExpressRouteCircuit("exampleExpressRouteCircuit", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     expressRoutePortId: exampleExpressRoutePort.id,
+ *     bandwidthInGbps: 5,
+ *     sku: {
+ *         tier: "Standard",
+ *         family: "MeteredData",
+ *     },
+ * });
+ * const exampleExpressRouteCircuitPeering = new azure.network.ExpressRouteCircuitPeering("exampleExpressRouteCircuitPeering", {
+ *     peeringType: "AzurePrivatePeering",
+ *     expressRouteCircuitName: exampleExpressRouteCircuit.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sharedKey: "ItsASecret",
+ *     peerAsn: 100,
+ *     primaryPeerAddressPrefix: "192.168.1.0/30",
+ *     secondaryPeerAddressPrefix: "192.168.2.0/30",
+ *     vlanId: 100,
+ * });
+ * const exampleExpressRouteConnection = new azure.network.ExpressRouteConnection("exampleExpressRouteConnection", {
+ *     expressRouteGatewayId: exampleExpressRouteGateway.id,
+ *     expressRouteCircuitPeeringId: exampleExpressRouteCircuitPeering.id,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Express Route Connections can be imported using the `resource id`, e.g.

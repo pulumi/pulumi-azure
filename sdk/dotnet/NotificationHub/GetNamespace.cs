@@ -13,12 +13,66 @@ namespace Pulumi.Azure.NotificationHub
     {
         /// <summary>
         /// Use this data source to access information about an existing Notification Hub Namespace.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.NotificationHub.GetNamespace.Invoke(new()
+        ///     {
+        ///         Name = "my-namespace",
+        ///         ResourceGroupName = "my-resource-group",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["servicebusEndpoint"] = example.Apply(getNamespaceResult =&gt; getNamespaceResult.ServicebusEndpoint),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetNamespaceResult> InvokeAsync(GetNamespaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure:notificationhub/getNamespace:getNamespace", args ?? new GetNamespaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Notification Hub Namespace.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.NotificationHub.GetNamespace.Invoke(new()
+        ///     {
+        ///         Name = "my-namespace",
+        ///         ResourceGroupName = "my-resource-group",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["servicebusEndpoint"] = example.Apply(getNamespaceResult =&gt; getNamespaceResult.ServicebusEndpoint),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetNamespaceResult> Invoke(GetNamespaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceResult>("azure:notificationhub/getNamespace:getNamespace", args ?? new GetNamespaceInvokeArgs(), options.WithDefaults());

@@ -7,6 +7,23 @@ import * as utilities from "../utilities";
 /**
  * Manages a Storage Mover Project.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleMover = new azure.storage.Mover("exampleMover", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ * });
+ * const exampleMoverProject = new azure.storage.MoverProject("exampleMoverProject", {
+ *     storageMoverId: exampleMover.id,
+ *     description: "Example Project Description",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Storage Mover Project can be imported using the `resource id`, e.g.

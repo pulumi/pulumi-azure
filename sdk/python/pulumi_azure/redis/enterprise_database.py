@@ -523,6 +523,35 @@ class EnterpriseDatabase(pulumi.CustomResource):
         """
         Manages a Redis Enterprise Database.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_enterprise_cluster = azure.redis.EnterpriseCluster("exampleEnterpriseCluster",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku_name="Enterprise_E20-4")
+        example1 = azure.redis.EnterpriseCluster("example1",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku_name="Enterprise_E20-4")
+        example_enterprise_database = azure.redis.EnterpriseDatabase("exampleEnterpriseDatabase",
+            resource_group_name=example_resource_group.name,
+            cluster_id=example_enterprise_cluster.id,
+            client_protocol="Encrypted",
+            clustering_policy="EnterpriseCluster",
+            eviction_policy="NoEviction",
+            port=10000,
+            linked_database_ids=[
+                example_enterprise_cluster.id.apply(lambda id: f"{id}/databases/default"),
+                example1.id.apply(lambda id: f"{id}/databases/default"),
+            ],
+            linked_database_group_nickname="tftestGeoGroup")
+        ```
+
         ## Import
 
         Redis Enterprise Databases can be imported using the `resource id`, e.g.
@@ -556,6 +585,35 @@ class EnterpriseDatabase(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Redis Enterprise Database.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_enterprise_cluster = azure.redis.EnterpriseCluster("exampleEnterpriseCluster",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku_name="Enterprise_E20-4")
+        example1 = azure.redis.EnterpriseCluster("example1",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku_name="Enterprise_E20-4")
+        example_enterprise_database = azure.redis.EnterpriseDatabase("exampleEnterpriseDatabase",
+            resource_group_name=example_resource_group.name,
+            cluster_id=example_enterprise_cluster.id,
+            client_protocol="Encrypted",
+            clustering_policy="EnterpriseCluster",
+            eviction_policy="NoEviction",
+            port=10000,
+            linked_database_ids=[
+                example_enterprise_cluster.id.apply(lambda id: f"{id}/databases/default"),
+                example1.id.apply(lambda id: f"{id}/databases/default"),
+            ],
+            linked_database_group_nickname="tftestGeoGroup")
+        ```
 
         ## Import
 

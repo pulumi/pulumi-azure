@@ -19,6 +19,51 @@ import (
 //
 // > **Note:** Since this resource is provisioned by default, the Azure Provider will not check for the presence of an existing resource prior to attempting to create it.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mysql"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFlexibleServer, err := mysql.NewFlexibleServer(ctx, "exampleFlexibleServer", &mysql.FlexibleServerArgs{
+//				ResourceGroupName:     exampleResourceGroup.Name,
+//				Location:              exampleResourceGroup.Location,
+//				AdministratorLogin:    pulumi.String("adminTerraform"),
+//				AdministratorPassword: pulumi.String("H@Sh1CoR3!"),
+//				SkuName:               pulumi.String("GP_Standard_D2ds_v4"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = mysql.NewFlexibleServerConfiguration(ctx, "exampleFlexibleServerConfiguration", &mysql.FlexibleServerConfigurationArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ServerName:        exampleFlexibleServer.Name,
+//				Value:             pulumi.String("600"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // MySQL Flexible Server Configurations can be imported using the `resource id`, e.g.

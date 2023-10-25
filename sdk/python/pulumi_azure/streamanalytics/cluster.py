@@ -249,6 +249,19 @@ class Cluster(pulumi.CustomResource):
         """
         Manages a Stream Analytics Cluster.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_cluster = azure.streamanalytics.Cluster("exampleCluster",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            streaming_capacity=36)
+        ```
+
         ## Import
 
         Stream Analytics Clusters can be imported using the `resource id`, e.g.
@@ -273,6 +286,19 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Stream Analytics Cluster.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_cluster = azure.streamanalytics.Cluster("exampleCluster",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            streaming_capacity=36)
+        ```
 
         ## Import
 

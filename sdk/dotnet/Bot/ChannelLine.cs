@@ -14,6 +14,49 @@ namespace Pulumi.Azure.Bot
     /// 
     /// &gt; **Note** A bot can only have a single Line Channel associated with it.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleChannelsRegistration = new Azure.Bot.ChannelsRegistration("exampleChannelsRegistration", new()
+    ///     {
+    ///         Location = "global",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "F0",
+    ///         MicrosoftAppId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ClientId),
+    ///     });
+    /// 
+    ///     var exampleChannelLine = new Azure.Bot.ChannelLine("exampleChannelLine", new()
+    ///     {
+    ///         BotName = exampleChannelsRegistration.Name,
+    ///         Location = exampleChannelsRegistration.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         LineChannels = new[]
+    ///         {
+    ///             new Azure.Bot.Inputs.ChannelLineLineChannelArgs
+    ///             {
+    ///                 AccessToken = "asdfdsdfTYUIOIoj1231hkjhk",
+    ///                 Secret = "aagfdgfd123567",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// The Line Integration for a Bot Channel can be imported using the `resource id`, e.g.

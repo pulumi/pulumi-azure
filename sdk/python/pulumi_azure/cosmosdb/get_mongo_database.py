@@ -90,6 +90,18 @@ def get_mongo_database(account_name: Optional[str] = None,
     """
     Use this data source to access information about an existing Cosmos DB Mongo Database.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.cosmosdb.get_mongo_database(name="test-cosmosdb-mongo-db",
+        resource_group_name="test-cosmosdb-account-rg",
+        account_name="test-cosmosdb-account")
+    pulumi.export("id", example.id)
+    ```
+
 
     :param str account_name: The name of the Cosmos DB Account where the Mongo Database exists.
     :param str name: The name of this Cosmos DB Mongo Database.
@@ -117,6 +129,18 @@ def get_mongo_database_output(account_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMongoDatabaseResult]:
     """
     Use this data source to access information about an existing Cosmos DB Mongo Database.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.cosmosdb.get_mongo_database(name="test-cosmosdb-mongo-db",
+        resource_group_name="test-cosmosdb-account-rg",
+        account_name="test-cosmosdb-account")
+    pulumi.export("id", example.id)
+    ```
 
 
     :param str account_name: The name of the Cosmos DB Account where the Mongo Database exists.

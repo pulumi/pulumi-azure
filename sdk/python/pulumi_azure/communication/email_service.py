@@ -212,6 +212,18 @@ class EmailService(pulumi.CustomResource):
         """
         Manages an Email Communication Service.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_email_service = azure.communication.EmailService("exampleEmailService",
+            resource_group_name=example_resource_group.name,
+            data_location="United States")
+        ```
+
         ## Import
 
         Communication Services can be imported using the `resource id`, e.g.
@@ -235,6 +247,18 @@ class EmailService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Email Communication Service.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_email_service = azure.communication.EmailService("exampleEmailService",
+            resource_group_name=example_resource_group.name,
+            data_location="United States")
+        ```
 
         ## Import
 

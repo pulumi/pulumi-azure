@@ -548,6 +548,40 @@ class StreamingLocator(pulumi.CustomResource):
         """
         Manages a Media Streaming Locator.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="GRS")
+        example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
+                id=example_account.id,
+                is_primary=True,
+            )])
+        example_account_filter = azure.media.AccountFilter("exampleAccountFilter",
+            resource_group_name=example_resource_group.name,
+            media_services_account_name=example_service_account.name)
+        example_asset = azure.media.Asset("exampleAsset",
+            resource_group_name=example_resource_group.name,
+            media_services_account_name=example_service_account.name,
+            description="Asset description")
+        example_streaming_locator = azure.media.StreamingLocator("exampleStreamingLocator",
+            resource_group_name=example_resource_group.name,
+            media_services_account_name=example_service_account.name,
+            asset_name=example_asset.name,
+            streaming_policy_name="Predefined_ClearStreamingOnly",
+            filter_names=[example_account_filter.name])
+        ```
+
         ## Import
 
         Streaming Locators can be imported using the `resource id`, e.g.
@@ -579,6 +613,40 @@ class StreamingLocator(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Media Streaming Locator.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="GRS")
+        example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
+                id=example_account.id,
+                is_primary=True,
+            )])
+        example_account_filter = azure.media.AccountFilter("exampleAccountFilter",
+            resource_group_name=example_resource_group.name,
+            media_services_account_name=example_service_account.name)
+        example_asset = azure.media.Asset("exampleAsset",
+            resource_group_name=example_resource_group.name,
+            media_services_account_name=example_service_account.name,
+            description="Asset description")
+        example_streaming_locator = azure.media.StreamingLocator("exampleStreamingLocator",
+            resource_group_name=example_resource_group.name,
+            media_services_account_name=example_service_account.name,
+            asset_name=example_asset.name,
+            streaming_policy_name="Predefined_ClearStreamingOnly",
+            filter_names=[example_account_filter.name])
+        ```
 
         ## Import
 

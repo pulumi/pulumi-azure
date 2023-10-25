@@ -9,6 +9,43 @@ import * as utilities from "../utilities";
 /**
  * Manages a Virtual Hub Routing Intent.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleVirtualWan = new azure.network.VirtualWan("exampleVirtualWan", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ * });
+ * const exampleVirtualHub = new azure.network.VirtualHub("exampleVirtualHub", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     virtualWanId: exampleVirtualWan.id,
+ *     addressPrefix: "10.0.1.0/24",
+ * });
+ * const exampleFirewall = new azure.network.Firewall("exampleFirewall", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     skuName: "AZFW_Hub",
+ *     skuTier: "Standard",
+ *     virtualHub: {
+ *         virtualHubId: exampleVirtualHub.id,
+ *         publicIpCount: 1,
+ *     },
+ * });
+ * const exampleRoutingIntent = new azure.network.RoutingIntent("exampleRoutingIntent", {
+ *     virtualHubId: exampleVirtualHub.id,
+ *     routingPolicies: [{
+ *         name: "InternetTrafficPolicy",
+ *         destinations: ["Internet"],
+ *         nextHop: exampleFirewall.id,
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Virtual Hub Routing Intents can be imported using the `resource id`, e.g.

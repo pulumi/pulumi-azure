@@ -12,6 +12,28 @@ import * as utilities from "../utilities";
  * > **NOTE on Route Tables and Routes:** There is both a standalone `route` resource, and allows for Routes to be defined in-line within the `routeTable` resource.
  * At this time you cannot use a Route Table with in-line Routes in conjunction with any Route resources. Doing so will cause a conflict of Route configurations and will overwrite Routes.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleRouteTable = new azure.network.RouteTable("exampleRouteTable", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     disableBgpRoutePropagation: false,
+ *     routes: [{
+ *         name: "route1",
+ *         addressPrefix: "10.1.0.0/16",
+ *         nextHopType: "VnetLocal",
+ *     }],
+ *     tags: {
+ *         environment: "Production",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Route Tables can be imported using the `resource id`, e.g.

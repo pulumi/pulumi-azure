@@ -12,6 +12,44 @@ namespace Pulumi.Azure.Relay
     /// <summary>
     /// Manages an Azure Relay Namespace Authorization Rule.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleNamespace = new Azure.Relay.Namespace("exampleNamespace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "Standard",
+    ///         Tags = 
+    ///         {
+    ///             { "source", "terraform" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleNamespaceAuthorizationRule = new Azure.Relay.NamespaceAuthorizationRule("exampleNamespaceAuthorizationRule", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         NamespaceName = exampleNamespace.Name,
+    ///         Listen = true,
+    ///         Send = true,
+    ///         Manage = false,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Azure Relay Namespace Authorization Rules can be imported using the `resource id`, e.g.

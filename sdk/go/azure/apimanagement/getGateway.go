@@ -13,6 +13,40 @@ import (
 )
 
 // Use this data source to access information about an existing API Management Gateway.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleService, err := apimanagement.LookupService(ctx, &apimanagement.LookupServiceArgs{
+//				Name:              "example-apim",
+//				ResourceGroupName: "example-rg",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apimanagement.LookupGateway(ctx, &apimanagement.LookupGatewayArgs{
+//				Name:            "example-api-gateway",
+//				ApiManagementId: exampleService.Id,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupGateway(ctx *pulumi.Context, args *LookupGatewayArgs, opts ...pulumi.InvokeOption) (*LookupGatewayResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupGatewayResult

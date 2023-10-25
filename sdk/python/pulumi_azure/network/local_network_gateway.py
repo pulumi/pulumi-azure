@@ -381,6 +381,20 @@ class LocalNetworkGateway(pulumi.CustomResource):
         """
         Manages a local network gateway connection over which specific connections can be configured.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example", location="West Europe")
+        home = azure.network.LocalNetworkGateway("home",
+            resource_group_name=example.name,
+            location=example.location,
+            gateway_address="12.13.14.15",
+            address_spaces=["10.0.0.0/16"])
+        ```
+
         ## Import
 
         Local Network Gateways can be imported using the `resource id`, e.g.
@@ -410,6 +424,20 @@ class LocalNetworkGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a local network gateway connection over which specific connections can be configured.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example", location="West Europe")
+        home = azure.network.LocalNetworkGateway("home",
+            resource_group_name=example.name,
+            location=example.location,
+            gateway_address="12.13.14.15",
+            address_spaces=["10.0.0.0/16"])
+        ```
 
         ## Import
 

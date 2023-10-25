@@ -411,6 +411,39 @@ class Webhook(pulumi.CustomResource):
         """
         Manages an Automation Runbook's Webhook.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.automation.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="Basic")
+        example_run_book = azure.automation.RunBook("exampleRunBook",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            automation_account_name=example_account.name,
+            log_verbose=True,
+            log_progress=True,
+            description="This is an example runbook",
+            runbook_type="PowerShellWorkflow",
+            publish_content_link=azure.automation.RunBookPublishContentLinkArgs(
+                uri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
+            ))
+        example_webhook = azure.automation.Webhook("exampleWebhook",
+            resource_group_name=example_resource_group.name,
+            automation_account_name=example_account.name,
+            expiry_time="2021-12-31T00:00:00Z",
+            enabled=True,
+            runbook_name=example_run_book.name,
+            parameters={
+                "input": "parameter",
+            })
+        ```
+
         ## Import
 
         Automation Webhooks can be imported using the `resource id`, e.g.
@@ -439,6 +472,39 @@ class Webhook(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Automation Runbook's Webhook.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.automation.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="Basic")
+        example_run_book = azure.automation.RunBook("exampleRunBook",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            automation_account_name=example_account.name,
+            log_verbose=True,
+            log_progress=True,
+            description="This is an example runbook",
+            runbook_type="PowerShellWorkflow",
+            publish_content_link=azure.automation.RunBookPublishContentLinkArgs(
+                uri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
+            ))
+        example_webhook = azure.automation.Webhook("exampleWebhook",
+            resource_group_name=example_resource_group.name,
+            automation_account_name=example_account.name,
+            expiry_time="2021-12-31T00:00:00Z",
+            enabled=True,
+            runbook_name=example_run_book.name,
+            parameters={
+                "input": "parameter",
+            })
+        ```
 
         ## Import
 

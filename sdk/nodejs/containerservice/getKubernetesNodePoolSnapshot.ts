@@ -6,6 +6,18 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Kubernetes Node Pool Snapshot.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.containerservice.getKubernetesNodePoolSnapshot({
+ *     name: "example",
+ *     resourceGroupName: "example-resources",
+ * });
+ * ```
  */
 export function getKubernetesNodePoolSnapshot(args: GetKubernetesNodePoolSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetKubernetesNodePoolSnapshotResult> {
 
@@ -48,6 +60,18 @@ export interface GetKubernetesNodePoolSnapshotResult {
 }
 /**
  * Use this data source to access information about an existing Kubernetes Node Pool Snapshot.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.containerservice.getKubernetesNodePoolSnapshot({
+ *     name: "example",
+ *     resourceGroupName: "example-resources",
+ * });
+ * ```
  */
 export function getKubernetesNodePoolSnapshotOutput(args: GetKubernetesNodePoolSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKubernetesNodePoolSnapshotResult> {
     return pulumi.output(args).apply((a: any) => getKubernetesNodePoolSnapshot(a, opts))

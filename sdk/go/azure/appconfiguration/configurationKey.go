@@ -18,6 +18,156 @@ import (
 // > **Note:** App Configuration Keys are provisioned using a Data Plane API which requires the role `App Configuration Data Owner` on either the App Configuration or a parent scope (such as the Resource Group/Subscription). [More information can be found in the Azure Documentation for App Configuration](https://docs.microsoft.com/azure/azure-app-configuration/concept-enable-rbac#azure-built-in-roles-for-azure-app-configuration).
 //
 // ## Example Usage
+// ### `Kv` Type
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appconfiguration"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			appconf, err := appconfiguration.NewConfigurationStore(ctx, "appconf", &appconfiguration.ConfigurationStoreArgs{
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			appconfDataowner, err := authorization.NewAssignment(ctx, "appconfDataowner", &authorization.AssignmentArgs{
+//				Scope:              appconf.ID(),
+//				RoleDefinitionName: pulumi.String("App Configuration Data Owner"),
+//				PrincipalId:        *pulumi.String(current.ObjectId),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appconfiguration.NewConfigurationKey(ctx, "test", &appconfiguration.ConfigurationKeyArgs{
+//				ConfigurationStoreId: appconf.ID(),
+//				Key:                  pulumi.String("appConfKey1"),
+//				Label:                pulumi.String("somelabel"),
+//				Value:                pulumi.String("a test"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				appconfDataowner,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### `Vault` Type
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appconfiguration"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			appconf, err := appconfiguration.NewConfigurationStore(ctx, "appconf", &appconfiguration.ConfigurationStoreArgs{
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			kv, err := keyvault.NewKeyVault(ctx, "kv", &keyvault.KeyVaultArgs{
+//				Location:                pulumi.Any(azurerm_resource_group.Test.Location),
+//				ResourceGroupName:       pulumi.Any(azurerm_resource_group.Test.Name),
+//				TenantId:                *pulumi.String(current.TenantId),
+//				SkuName:                 pulumi.String("premium"),
+//				SoftDeleteRetentionDays: pulumi.Int(7),
+//				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
+//					&keyvault.KeyVaultAccessPolicyArgs{
+//						TenantId: *pulumi.String(current.TenantId),
+//						ObjectId: *pulumi.String(current.ObjectId),
+//						KeyPermissions: pulumi.StringArray{
+//							pulumi.String("Create"),
+//							pulumi.String("Get"),
+//						},
+//						SecretPermissions: pulumi.StringArray{
+//							pulumi.String("Set"),
+//							pulumi.String("Get"),
+//							pulumi.String("Delete"),
+//							pulumi.String("Purge"),
+//							pulumi.String("Recover"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			kvs, err := keyvault.NewSecret(ctx, "kvs", &keyvault.SecretArgs{
+//				Value:      pulumi.String("szechuan"),
+//				KeyVaultId: kv.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			appconfDataowner, err := authorization.NewAssignment(ctx, "appconfDataowner", &authorization.AssignmentArgs{
+//				Scope:              appconf.ID(),
+//				RoleDefinitionName: pulumi.String("App Configuration Data Owner"),
+//				PrincipalId:        *pulumi.String(current.ObjectId),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appconfiguration.NewConfigurationKey(ctx, "test", &appconfiguration.ConfigurationKeyArgs{
+//				ConfigurationStoreId: pulumi.Any(azurerm_app_configuration.Test.Id),
+//				Key:                  pulumi.String("key1"),
+//				Type:                 pulumi.String("vault"),
+//				Label:                pulumi.String("label1"),
+//				VaultKeyReference:    kvs.VersionlessId,
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				appconfDataowner,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //

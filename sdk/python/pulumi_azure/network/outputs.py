@@ -1856,6 +1856,10 @@ class ApplicationGatewayPrivateLinkConfiguration(dict):
         :param Sequence['ApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs'] ip_configurations: One or more `ip_configuration` blocks as defined below.
                
                > **Please Note**: The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
+               
+               ```python
+               import pulumi
+               ```
         :param str name: The name of the private link configuration.
         :param str id: The ID of the Rewrite Rule Set
         """
@@ -1892,6 +1896,10 @@ class ApplicationGatewayPrivateLinkConfiguration(dict):
         One or more `ip_configuration` blocks as defined below.
 
         > **Please Note**: The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
+
+        ```python
+        import pulumi
+        ```
         """
         return pulumi.get(self, "ip_configurations")
 

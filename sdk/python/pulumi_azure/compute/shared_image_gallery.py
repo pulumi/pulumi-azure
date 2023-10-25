@@ -303,6 +303,23 @@ class SharedImageGallery(pulumi.CustomResource):
         """
         Manages a Shared Image Gallery.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_shared_image_gallery = azure.compute.SharedImageGallery("exampleSharedImageGallery",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            description="Shared images and things.",
+            tags={
+                "Hello": "There",
+                "World": "Example",
+            })
+        ```
+
         ## Import
 
         Shared Image Galleries can be imported using the `resource id`, e.g.
@@ -328,6 +345,23 @@ class SharedImageGallery(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Shared Image Gallery.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_shared_image_gallery = azure.compute.SharedImageGallery("exampleSharedImageGallery",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            description="Shared images and things.",
+            tags={
+                "Hello": "There",
+                "World": "Example",
+            })
+        ```
 
         ## Import
 

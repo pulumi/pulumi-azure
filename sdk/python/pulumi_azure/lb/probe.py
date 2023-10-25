@@ -390,6 +390,29 @@ class Probe(pulumi.CustomResource):
 
         > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_public_ip = azure.network.PublicIp("examplePublicIp",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            allocation_method="Static")
+        example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
+                name="PublicIPAddress",
+                public_ip_address_id=example_public_ip.id,
+            )])
+        example_probe = azure.lb.Probe("exampleProbe",
+            loadbalancer_id=example_load_balancer.id,
+            port=22)
+        ```
+
         ## Import
 
         Load Balancer Probes can be imported using the `resource id`, e.g.
@@ -419,6 +442,29 @@ class Probe(pulumi.CustomResource):
         Manages a LoadBalancer Probe Resource.
 
         > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_public_ip = azure.network.PublicIp("examplePublicIp",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            allocation_method="Static")
+        example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
+                name="PublicIPAddress",
+                public_ip_address_id=example_public_ip.id,
+            )])
+        example_probe = azure.lb.Probe("exampleProbe",
+            loadbalancer_id=example_load_balancer.id,
+            port=22)
+        ```
 
         ## Import
 

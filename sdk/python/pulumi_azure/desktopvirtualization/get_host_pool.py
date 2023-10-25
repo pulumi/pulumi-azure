@@ -225,6 +225,16 @@ def get_host_pool(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Virtual Desktop Host Pool.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.desktopvirtualization.get_host_pool(name="example-pool",
+        resource_group_name="example-resources")
+    ```
+
 
     :param str name: The name of the Virtual Desktop Host Pool to retrieve.
     :param str resource_group_name: The name of the resource group where the Virtual Desktop Host Pool exists.
@@ -260,6 +270,16 @@ def get_host_pool_output(name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHostPoolResult]:
     """
     Use this data source to access information about an existing Virtual Desktop Host Pool.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.desktopvirtualization.get_host_pool(name="example-pool",
+        resource_group_name="example-resources")
+    ```
 
 
     :param str name: The name of the Virtual Desktop Host Pool to retrieve.

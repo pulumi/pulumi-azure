@@ -12,6 +12,39 @@ namespace Pulumi.Azure.PaloAlto
     /// <summary>
     /// Manages a Palo Alto Local Rulestack FQDN List.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleLocalRulestack = new Azure.PaloAlto.LocalRulestack("exampleLocalRulestack", new()
+    ///     {
+    ///         ResourceGroupName = azurerm_resrouce_group.Example.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleLocalRulestackFqdnList = new Azure.PaloAlto.LocalRulestackFqdnList("exampleLocalRulestackFqdnList", new()
+    ///     {
+    ///         RulestackId = exampleLocalRulestack.Id,
+    ///         FullyQualifiedDomainNames = new[]
+    ///         {
+    ///             "contoso.com",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Palo Alto Local Rulestack FQDN Lists can be imported using the `resource id`, e.g.

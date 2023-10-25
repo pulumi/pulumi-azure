@@ -9,6 +9,28 @@ import * as utilities from "../utilities";
 /**
  * Manages a Dashboard Grafana.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleGrafana = new azure.dashboard.Grafana("exampleGrafana", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: "West Europe",
+ *     apiKeyEnabled: true,
+ *     deterministicOutboundIpEnabled: true,
+ *     publicNetworkAccessEnabled: false,
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ *     tags: {
+ *         key: "value",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Dashboard Grafana can be imported using the `resource id`, e.g.

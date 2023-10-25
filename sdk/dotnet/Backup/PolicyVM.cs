@@ -12,6 +12,88 @@ namespace Pulumi.Azure.Backup
     /// <summary>
     /// Manages an Azure Backup VM Backup Policy.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVault = new Azure.RecoveryServices.Vault("exampleVault", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Standard",
+    ///     });
+    /// 
+    ///     var examplePolicyVM = new Azure.Backup.PolicyVM("examplePolicyVM", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         RecoveryVaultName = exampleVault.Name,
+    ///         Timezone = "UTC",
+    ///         Backup = new Azure.Backup.Inputs.PolicyVMBackupArgs
+    ///         {
+    ///             Frequency = "Daily",
+    ///             Time = "23:00",
+    ///         },
+    ///         RetentionDaily = new Azure.Backup.Inputs.PolicyVMRetentionDailyArgs
+    ///         {
+    ///             Count = 10,
+    ///         },
+    ///         RetentionWeekly = new Azure.Backup.Inputs.PolicyVMRetentionWeeklyArgs
+    ///         {
+    ///             Count = 42,
+    ///             Weekdays = new[]
+    ///             {
+    ///                 "Sunday",
+    ///                 "Wednesday",
+    ///                 "Friday",
+    ///                 "Saturday",
+    ///             },
+    ///         },
+    ///         RetentionMonthly = new Azure.Backup.Inputs.PolicyVMRetentionMonthlyArgs
+    ///         {
+    ///             Count = 7,
+    ///             Weekdays = new[]
+    ///             {
+    ///                 "Sunday",
+    ///                 "Wednesday",
+    ///             },
+    ///             Weeks = new[]
+    ///             {
+    ///                 "First",
+    ///                 "Last",
+    ///             },
+    ///         },
+    ///         RetentionYearly = new Azure.Backup.Inputs.PolicyVMRetentionYearlyArgs
+    ///         {
+    ///             Count = 77,
+    ///             Weekdays = new[]
+    ///             {
+    ///                 "Sunday",
+    ///             },
+    ///             Weeks = new[]
+    ///             {
+    ///                 "Last",
+    ///             },
+    ///             Months = new[]
+    ///             {
+    ///                 "January",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// VM Backup Policies can be imported using the `resource id`, e.g.

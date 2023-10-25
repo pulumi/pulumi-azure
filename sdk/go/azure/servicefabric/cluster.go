@@ -15,6 +15,54 @@ import (
 
 // Manages a Service Fabric Cluster.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/servicefabric"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = servicefabric.NewCluster(ctx, "exampleCluster", &servicefabric.ClusterArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				Location:           exampleResourceGroup.Location,
+//				ReliabilityLevel:   pulumi.String("Bronze"),
+//				UpgradeMode:        pulumi.String("Manual"),
+//				ClusterCodeVersion: pulumi.String("7.1.456.959"),
+//				VmImage:            pulumi.String("Windows"),
+//				ManagementEndpoint: pulumi.String("https://example:80"),
+//				NodeTypes: servicefabric.ClusterNodeTypeArray{
+//					&servicefabric.ClusterNodeTypeArgs{
+//						Name:               pulumi.String("first"),
+//						InstanceCount:      pulumi.Int(3),
+//						IsPrimary:          pulumi.Bool(true),
+//						ClientEndpointPort: pulumi.Int(2020),
+//						HttpEndpointPort:   pulumi.Int(80),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Service Fabric Clusters can be imported using the `resource id`, e.g.

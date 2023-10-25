@@ -17,6 +17,51 @@ import (
 //
 // Manages a Dev Center Project.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/devcenter"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDevCenter, err := devcenter.NewDevCenter(ctx, "exampleDevCenter", &devcenter.DevCenterArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				Identity: &devcenter.DevCenterIdentityArgs{
+//					Type: pulumi.String("example-value"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = devcenter.NewProject(ctx, "exampleProject", &devcenter.ProjectArgs{
+//				DevCenterId:       exampleDevCenter.ID(),
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // An existing Dev Center Project can be imported into Terraform using the `resource id`, e.g.

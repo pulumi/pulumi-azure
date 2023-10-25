@@ -9,6 +9,27 @@ import * as utilities from "../utilities";
 /**
  * Manages a Windows Web App.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleServicePlan = new azure.appservice.ServicePlan("exampleServicePlan", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     skuName: "P1v2",
+ *     osType: "Windows",
+ * });
+ * const exampleWindowsWebApp = new azure.appservice.WindowsWebApp("exampleWindowsWebApp", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleServicePlan.location,
+ *     servicePlanId: exampleServicePlan.id,
+ *     siteConfig: {},
+ * });
+ * ```
+ *
  * ## Import
  *
  * Windows Web Apps can be imported using the `resource id`, e.g.

@@ -11,6 +11,23 @@ import * as utilities from "../utilities";
  * `azure.network.IPGroup` resource for the same IP Group. Doing so will cause a conflict and
  * CIDRS will be removed.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleIPGroup = new azure.network.IPGroup("exampleIPGroup", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleIPGroupCIDR = new azure.network.IPGroupCIDR("exampleIPGroupCIDR", {
+ *     ipGroupId: exampleIPGroup.id,
+ *     cidr: "10.10.10.0/24",
+ * });
+ * ```
+ *
  * ## Import
  *
  * IP Group CIDRs can be imported using the `resource id` of the IP Group and the CIDR value (`/` characters have to be replaced by `_`), e.g.

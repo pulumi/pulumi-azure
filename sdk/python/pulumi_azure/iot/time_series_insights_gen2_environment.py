@@ -392,6 +392,30 @@ class TimeSeriesInsightsGen2Environment(pulumi.CustomResource):
         """
         Manages an Azure IoT Time Series Insights Gen2 Environment.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        storage = azure.storage.Account("storage",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_time_series_insights_gen2_environment = azure.iot.TimeSeriesInsightsGen2Environment("exampleTimeSeriesInsightsGen2Environment",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="L1",
+            warm_store_data_retention_time="P30D",
+            id_properties=["id"],
+            storage=azure.iot.TimeSeriesInsightsGen2EnvironmentStorageArgs(
+                name=storage.name,
+                key=storage.primary_access_key,
+            ))
+        ```
+
         ## Import
 
         Azure IoT Time Series Insights Gen2 Environment can be imported using the `resource id`, e.g.
@@ -419,6 +443,30 @@ class TimeSeriesInsightsGen2Environment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure IoT Time Series Insights Gen2 Environment.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        storage = azure.storage.Account("storage",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_time_series_insights_gen2_environment = azure.iot.TimeSeriesInsightsGen2Environment("exampleTimeSeriesInsightsGen2Environment",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="L1",
+            warm_store_data_retention_time="P30D",
+            id_properties=["id"],
+            storage=azure.iot.TimeSeriesInsightsGen2EnvironmentStorageArgs(
+                name=storage.name,
+                key=storage.primary_access_key,
+            ))
+        ```
 
         ## Import
 

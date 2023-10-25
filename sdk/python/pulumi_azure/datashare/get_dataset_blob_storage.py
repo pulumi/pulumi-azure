@@ -132,6 +132,17 @@ def get_dataset_blob_storage(data_share_id: Optional[str] = None,
     """
     Use this data source to access information about an existing Data Share Blob Storage Dataset.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.datashare.get_dataset_blob_storage(name="example-dsbsds",
+        data_share_id="example-share-id")
+    pulumi.export("id", example.id)
+    ```
+
 
     :param str data_share_id: The ID of the Data Share in which this Data Share Blob Storage Dataset should be created.
     :param str name: The name of this Data Share Blob Storage Dataset.
@@ -159,6 +170,17 @@ def get_dataset_blob_storage_output(data_share_id: Optional[pulumi.Input[str]] =
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatasetBlobStorageResult]:
     """
     Use this data source to access information about an existing Data Share Blob Storage Dataset.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.datashare.get_dataset_blob_storage(name="example-dsbsds",
+        data_share_id="example-share-id")
+    pulumi.export("id", example.id)
+    ```
 
 
     :param str data_share_id: The ID of the Data Share in which this Data Share Blob Storage Dataset should be created.

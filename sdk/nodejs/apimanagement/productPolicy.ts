@@ -7,6 +7,30 @@ import * as utilities from "../utilities";
 /**
  * Manages an API Management Product Policy
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleProduct = azure.apimanagement.getProduct({
+ *     productId: "my-product",
+ *     apiManagementName: "example-apim",
+ *     resourceGroupName: "search-service",
+ * });
+ * const exampleProductPolicy = new azure.apimanagement.ProductPolicy("exampleProductPolicy", {
+ *     productId: exampleProduct.then(exampleProduct => exampleProduct.productId),
+ *     apiManagementName: exampleProduct.then(exampleProduct => exampleProduct.apiManagementName),
+ *     resourceGroupName: exampleProduct.then(exampleProduct => exampleProduct.resourceGroupName),
+ *     xmlContent: `<policies>
+ *   <inbound>
+ *     <find-and-replace from="xyz" to="abc" />
+ *   </inbound>
+ * </policies>
+ * `,
+ * });
+ * ```
+ *
  * ## Import
  *
  * API Management Product Policy can be imported using the `resource id`, e.g.

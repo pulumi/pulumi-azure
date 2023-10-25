@@ -162,6 +162,18 @@ def get_product(api_management_name: Optional[str] = None,
     """
     Use this data source to access information about an existing API Management Product.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.apimanagement.get_product(product_id="my-product",
+        api_management_name="example-apim",
+        resource_group_name="search-service")
+    pulumi.export("productTerms", example.terms)
+    ```
+
 
     :param str api_management_name: The Name of the API Management Service in which this Product exists.
     :param str product_id: The Identifier for the API Management Product.
@@ -195,6 +207,18 @@ def get_product_output(api_management_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProductResult]:
     """
     Use this data source to access information about an existing API Management Product.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.apimanagement.get_product(product_id="my-product",
+        api_management_name="example-apim",
+        resource_group_name="search-service")
+    pulumi.export("productTerms", example.terms)
+    ```
 
 
     :param str api_management_name: The Name of the API Management Service in which this Product exists.

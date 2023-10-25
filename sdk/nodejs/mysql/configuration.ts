@@ -11,6 +11,37 @@ import * as utilities from "../utilities";
  *
  * > **Note:** Since this resource is provisioned by default, the Azure Provider will not check for the presence of an existing resource prior to attempting to create it.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleServer = new azure.mysql.Server("exampleServer", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     administratorLogin: "mysqladminun",
+ *     administratorLoginPassword: "H@Sh1CoR3!",
+ *     skuName: "B_Gen5_2",
+ *     storageMb: 5120,
+ *     version: "5.7",
+ *     autoGrowEnabled: true,
+ *     backupRetentionDays: 7,
+ *     geoRedundantBackupEnabled: true,
+ *     infrastructureEncryptionEnabled: true,
+ *     publicNetworkAccessEnabled: false,
+ *     sslEnforcementEnabled: true,
+ *     sslMinimalTlsVersionEnforced: "TLS1_2",
+ * });
+ * const exampleConfiguration = new azure.mysql.Configuration("exampleConfiguration", {
+ *     name: "interactive_timeout",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     serverName: exampleServer.name,
+ *     value: "600",
+ * });
+ * ```
+ *
  * ## Import
  *
  * MySQL Configurations can be imported using the `resource id`, e.g.

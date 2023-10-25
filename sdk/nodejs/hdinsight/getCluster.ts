@@ -8,6 +8,19 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing HDInsight Cluster.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.hdinsight.getCluster({
+ *     name: "example",
+ *     resourceGroupName: "example-resources",
+ * });
+ * export const httpsEndpoint = example.then(example => example.httpsEndpoint);
+ * ```
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
 
@@ -93,6 +106,19 @@ export interface GetClusterResult {
 }
 /**
  * Use this data source to access information about an existing HDInsight Cluster.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.hdinsight.getCluster({
+ *     name: "example",
+ *     resourceGroupName: "example-resources",
+ * });
+ * export const httpsEndpoint = example.then(example => example.httpsEndpoint);
+ * ```
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
     return pulumi.output(args).apply((a: any) => getCluster(a, opts))

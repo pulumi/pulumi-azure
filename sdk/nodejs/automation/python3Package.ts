@@ -7,6 +7,31 @@ import * as utilities from "../utilities";
 /**
  * Manages a Automation Python3 Package.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "%[2]s"});
+ * const exampleAccount = new azure.automation.Account("exampleAccount", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     skuName: "Basic",
+ * });
+ * const examplePython3Package = new azure.automation.Python3Package("examplePython3Package", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     automationAccountName: exampleAccount.name,
+ *     contentUri: "https://pypi.org/packages/source/r/requests/requests-2.31.0.tar.gz",
+ *     contentVersion: "2.31.0",
+ *     hashAlgorithm: "sha256",
+ *     hashValue: "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1",
+ *     tags: {
+ *         key: "foo",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Automation Python3 Packages can be imported using the `resource id`, e.g.

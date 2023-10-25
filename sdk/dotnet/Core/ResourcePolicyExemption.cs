@@ -12,6 +12,57 @@ namespace Pulumi.Azure.Core
     /// <summary>
     /// Manages a Resource Policy Exemption.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "westus",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///     });
+    /// 
+    ///     var examplePolicySetDefinition = Azure.Policy.GetPolicySetDefinition.Invoke(new()
+    ///     {
+    ///         DisplayName = "Audit machines with insecure password security settings",
+    ///     });
+    /// 
+    ///     var exampleResourcePolicyAssignment = new Azure.Core.ResourcePolicyAssignment("exampleResourcePolicyAssignment", new()
+    ///     {
+    ///         ResourceId = exampleVirtualNetwork.Id,
+    ///         PolicyDefinitionId = examplePolicySetDefinition.Apply(getPolicySetDefinitionResult =&gt; getPolicySetDefinitionResult.Id),
+    ///         Location = exampleResourceGroup.Location,
+    ///         Identity = new Azure.Core.Inputs.ResourcePolicyAssignmentIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleResourcePolicyExemption = new Azure.Core.ResourcePolicyExemption("exampleResourcePolicyExemption", new()
+    ///     {
+    ///         ResourceId = exampleResourcePolicyAssignment.ResourceId,
+    ///         PolicyAssignmentId = exampleResourcePolicyAssignment.Id,
+    ///         ExemptionCategory = "Mitigated",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Policy Exemptions can be imported using the `resource id`, e.g.

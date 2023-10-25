@@ -7,6 +7,29 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Site Recovery replication policy for VMWare within a Recovery Vault.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "East US"});
+ * const exampleVault = new azure.recoveryservices.Vault("exampleVault", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: "Standard",
+ * });
+ * const exampleVMWareReplicationPolicy = new azure.siterecovery.VMWareReplicationPolicy("exampleVMWareReplicationPolicy", {
+ *     recoveryVaultId: exampleVault.id,
+ *     recoveryPointRetentionInMinutes: 1440,
+ *     applicationConsistentSnapshotFrequencyInMinutes: 240,
+ * });
+ * const exampleVmwareReplicationPolicyAssociation = new azure.siterecovery.VmwareReplicationPolicyAssociation("exampleVmwareReplicationPolicyAssociation", {
+ *     recoveryVaultId: exampleVault.id,
+ *     policyId: exampleVMWareReplicationPolicy.id,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Site Recovery Replication Policies can be imported using the `resource id`, e.g.

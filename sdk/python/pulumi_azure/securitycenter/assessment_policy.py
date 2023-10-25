@@ -386,6 +386,18 @@ class AssessmentPolicy(pulumi.CustomResource):
         """
         Manages the Security Center Assessment Metadata for Azure Security Center.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.securitycenter.AssessmentPolicy("example",
+            description="Test Description",
+            display_name="Test Display Name",
+            severity="Medium")
+        ```
+
         ## Import
 
         Security Assessments Policy can be imported using the `resource id`, e.g.
@@ -413,6 +425,18 @@ class AssessmentPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages the Security Center Assessment Metadata for Azure Security Center.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.securitycenter.AssessmentPolicy("example",
+            description="Test Description",
+            display_name="Test Display Name",
+            severity="Medium")
+        ```
 
         ## Import
 

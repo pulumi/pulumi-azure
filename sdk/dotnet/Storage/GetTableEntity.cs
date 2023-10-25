@@ -13,12 +13,62 @@ namespace Pulumi.Azure.Storage
     {
         /// <summary>
         /// Use this data source to access information about an existing Storage Table Entity.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Storage.GetTableEntity.Invoke(new()
+        ///     {
+        ///         PartitionKey = "example-partition-key",
+        ///         RowKey = "example-row-key",
+        ///         StorageAccountName = "example-storage-account-name",
+        ///         TableName = "example-table-name",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetTableEntityResult> InvokeAsync(GetTableEntityArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTableEntityResult>("azure:storage/getTableEntity:getTableEntity", args ?? new GetTableEntityArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Storage Table Entity.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Storage.GetTableEntity.Invoke(new()
+        ///     {
+        ///         PartitionKey = "example-partition-key",
+        ///         RowKey = "example-row-key",
+        ///         StorageAccountName = "example-storage-account-name",
+        ///         TableName = "example-table-name",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetTableEntityResult> Invoke(GetTableEntityInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTableEntityResult>("azure:storage/getTableEntity:getTableEntity", args ?? new GetTableEntityInvokeArgs(), options.WithDefaults());

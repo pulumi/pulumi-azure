@@ -443,6 +443,34 @@ class QueryPackQuery(pulumi.CustomResource):
         """
         Manages a Log Analytics Query Pack Query.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_query_pack = azure.loganalytics.QueryPack("exampleQueryPack",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        example_query_pack_query = azure.operationalinsights.QueryPackQuery("exampleQueryPackQuery",
+            query_pack_id=example_query_pack.id,
+            body=\"\"\"let newExceptionsTimeRange = 1d;
+        let timeRangeToCheckBefore = 7d;
+        exceptions
+        | where timestamp < ago(timeRangeToCheckBefore)
+        | summarize count() by problemId
+        | join kind= rightanti (
+        exceptions
+        | where timestamp >= ago(newExceptionsTimeRange)
+        | extend stack = tostring(details[0].rawStack)
+        | summarize count(), dcount(user_AuthenticatedId), min(timestamp), max(timestamp), any(stack) by problemId  
+        ) on problemId 
+        | order by  count_ desc
+        \"\"\",
+            display_name="Exceptions - New in the last 24 hours")
+        ```
+
         ## Import
 
         Log Analytics Query Pack Queries can be imported using the `resource id`, e.g.
@@ -472,6 +500,34 @@ class QueryPackQuery(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Log Analytics Query Pack Query.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_query_pack = azure.loganalytics.QueryPack("exampleQueryPack",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        example_query_pack_query = azure.operationalinsights.QueryPackQuery("exampleQueryPackQuery",
+            query_pack_id=example_query_pack.id,
+            body=\"\"\"let newExceptionsTimeRange = 1d;
+        let timeRangeToCheckBefore = 7d;
+        exceptions
+        | where timestamp < ago(timeRangeToCheckBefore)
+        | summarize count() by problemId
+        | join kind= rightanti (
+        exceptions
+        | where timestamp >= ago(newExceptionsTimeRange)
+        | extend stack = tostring(details[0].rawStack)
+        | summarize count(), dcount(user_AuthenticatedId), min(timestamp), max(timestamp), any(stack) by problemId  
+        ) on problemId 
+        | order by  count_ desc
+        \"\"\",
+            display_name="Exceptions - New in the last 24 hours")
+        ```
 
         ## Import
 

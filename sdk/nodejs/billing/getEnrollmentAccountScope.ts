@@ -6,6 +6,19 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Enrollment Account Billing Scope.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.billing.getEnrollmentAccountScope({
+ *     billingAccountName: "existing",
+ *     enrollmentAccountName: "existing",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
  */
 export function getEnrollmentAccountScope(args: GetEnrollmentAccountScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetEnrollmentAccountScopeResult> {
 
@@ -43,6 +56,19 @@ export interface GetEnrollmentAccountScopeResult {
 }
 /**
  * Use this data source to access information about an existing Enrollment Account Billing Scope.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.billing.getEnrollmentAccountScope({
+ *     billingAccountName: "existing",
+ *     enrollmentAccountName: "existing",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
  */
 export function getEnrollmentAccountScopeOutput(args: GetEnrollmentAccountScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnrollmentAccountScopeResult> {
     return pulumi.output(args).apply((a: any) => getEnrollmentAccountScope(a, opts))

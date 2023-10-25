@@ -829,6 +829,22 @@ class PublicIp(pulumi.CustomResource):
 
         > **Note** If this resource is to be associated with a resource that requires disassociation before destruction (such as `network.NetworkInterface`) it is recommended to set the `lifecycle` argument `create_before_destroy = true`. Otherwise, it can fail to disassociate on destruction.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_public_ip = azure.network.PublicIp("examplePublicIp",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            allocation_method="Static",
+            tags={
+                "environment": "Production",
+            })
+        ```
+
         ## Import
 
         Public IPs can be imported using the `resource id`, e.g.
@@ -881,6 +897,22 @@ class PublicIp(pulumi.CustomResource):
         Manages a Public IP Address.
 
         > **Note** If this resource is to be associated with a resource that requires disassociation before destruction (such as `network.NetworkInterface`) it is recommended to set the `lifecycle` argument `create_before_destroy = true`. Otherwise, it can fail to disassociate on destruction.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_public_ip = azure.network.PublicIp("examplePublicIp",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            allocation_method="Static",
+            tags={
+                "environment": "Production",
+            })
+        ```
 
         ## Import
 

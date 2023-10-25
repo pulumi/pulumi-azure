@@ -11,6 +11,37 @@ import * as utilities from "../utilities";
  *
  * !> Creation of Databox Edge Order is not supported by the Azure API - as such the `azure.databoxedge.Order` resource is deprecated and will be removed in v4.0 of the AzureRM Provider.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleDevice = new azure.databoxedge.Device("exampleDevice", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     skuName: "EdgeP_Base-Standard",
+ * });
+ * const exampleOrder = new azure.databoxedge.Order("exampleOrder", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     deviceName: exampleDevice.name,
+ *     contact: {
+ *         name: "TerraForm Test",
+ *         emails: ["creator4983@FlynnsArcade.com"],
+ *         companyName: "Flynn's Arcade",
+ *         phoneNumber: "(800) 555-1234",
+ *     },
+ *     shipmentAddress: {
+ *         addresses: ["One Microsoft Way"],
+ *         city: "Redmond",
+ *         postalCode: "98052",
+ *         state: "WA",
+ *         country: "United States",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Databox Edge Orders can be imported using the `resource id`, e.g.

@@ -15,6 +15,75 @@ import (
 
 // Manages a Container Connected Registry.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleRegistry, err := containerservice.NewRegistry(ctx, "exampleRegistry", &containerservice.RegistryArgs{
+//				ResourceGroupName:   exampleResourceGroup.Name,
+//				Location:            exampleResourceGroup.Location,
+//				Sku:                 pulumi.String("Premium"),
+//				DataEndpointEnabled: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleRegistryScopeMap, err := containerservice.NewRegistryScopeMap(ctx, "exampleRegistryScopeMap", &containerservice.RegistryScopeMapArgs{
+//				ContainerRegistryName: exampleRegistry.Name,
+//				ResourceGroupName:     exampleRegistry.ResourceGroupName,
+//				Actions: pulumi.StringArray{
+//					pulumi.String("repositories/hello-world/content/delete"),
+//					pulumi.String("repositories/hello-world/content/read"),
+//					pulumi.String("repositories/hello-world/content/write"),
+//					pulumi.String("repositories/hello-world/metadata/read"),
+//					pulumi.String("repositories/hello-world/metadata/write"),
+//					pulumi.String("gateway/examplecr/config/read"),
+//					pulumi.String("gateway/examplecr/config/write"),
+//					pulumi.String("gateway/examplecr/message/read"),
+//					pulumi.String("gateway/examplecr/message/write"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleRegistryToken, err := containerservice.NewRegistryToken(ctx, "exampleRegistryToken", &containerservice.RegistryTokenArgs{
+//				ContainerRegistryName: exampleRegistry.Name,
+//				ResourceGroupName:     exampleRegistry.ResourceGroupName,
+//				ScopeMapId:            exampleRegistryScopeMap.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = containerservice.NewConnectedRegistry(ctx, "exampleConnectedRegistry", &containerservice.ConnectedRegistryArgs{
+//				ContainerRegistryId: exampleRegistry.ID(),
+//				SyncTokenId:         exampleRegistryToken.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Container Connected Registries can be imported using the `resource id`, e.g.

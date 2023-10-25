@@ -7,6 +7,29 @@ import * as utilities from "../utilities";
 /**
  * Manages a Network Manager Subscription Connection which may cross tenants.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const current = azure.core.getSubscription({});
+ * const exampleNetworkManager = new azure.network.NetworkManager("exampleNetworkManager", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     scope: {
+ *         subscriptionIds: [current.then(current => current.id)],
+ *     },
+ *     scopeAccesses: ["SecurityAdmin"],
+ * });
+ * const exampleNetworkManagerSubscriptionConnection = new azure.network.NetworkManagerSubscriptionConnection("exampleNetworkManagerSubscriptionConnection", {
+ *     subscriptionId: current.then(current => current.id),
+ *     networkManagerId: exampleNetworkManager.id,
+ *     description: "example",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Network Subscription Network Manager Connection can be imported using the `resource id`, e.g.

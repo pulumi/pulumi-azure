@@ -116,6 +116,17 @@ def get_volume_quota_rule(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Volume Quota Rule.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.netapp.get_volume_quota_rule(name="exampleQuotaRule",
+        volume_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/vol1")
+    pulumi.export("id", example.id)
+    ```
+
 
     :param str name: The name of this Volume Quota Rule.
     :param str volume_id: The NetApp volume ID where the Volume Quota Rule is assigned to.
@@ -142,6 +153,17 @@ def get_volume_quota_rule_output(name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumeQuotaRuleResult]:
     """
     Use this data source to access information about an existing Volume Quota Rule.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.netapp.get_volume_quota_rule(name="exampleQuotaRule",
+        volume_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/vol1")
+    pulumi.export("id", example.id)
+    ```
 
 
     :param str name: The name of this Volume Quota Rule.

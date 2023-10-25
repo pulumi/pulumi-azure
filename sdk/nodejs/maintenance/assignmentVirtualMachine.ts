@@ -7,6 +7,66 @@ import * as utilities from "../utilities";
 /**
  * Manages a maintenance assignment to virtual machine.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as fs from "fs";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.2.0/24"],
+ * });
+ * const exampleNetworkInterface = new azure.network.NetworkInterface("exampleNetworkInterface", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     ipConfigurations: [{
+ *         name: "internal",
+ *         subnetId: exampleSubnet.id,
+ *         privateIpAddressAllocation: "Dynamic",
+ *     }],
+ * });
+ * const exampleLinuxVirtualMachine = new azure.compute.LinuxVirtualMachine("exampleLinuxVirtualMachine", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     size: "Standard_F2",
+ *     adminUsername: "adminuser",
+ *     networkInterfaceIds: [exampleNetworkInterface.id],
+ *     adminSshKeys: [{
+ *         username: "adminuser",
+ *         publicKey: fs.readFileSync("~/.ssh/id_rsa.pub"),
+ *     }],
+ *     osDisk: {
+ *         caching: "ReadWrite",
+ *         storageAccountType: "Standard_LRS",
+ *     },
+ *     sourceImageReference: {
+ *         publisher: "Canonical",
+ *         offer: "0001-com-ubuntu-server-focal",
+ *         sku: "20_04-lts",
+ *         version: "latest",
+ *     },
+ * });
+ * const exampleConfiguration = new azure.maintenance.Configuration("exampleConfiguration", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     scope: "All",
+ * });
+ * const exampleAssignmentVirtualMachine = new azure.maintenance.AssignmentVirtualMachine("exampleAssignmentVirtualMachine", {
+ *     location: exampleResourceGroup.location,
+ *     maintenanceConfigurationId: exampleConfiguration.id,
+ *     virtualMachineId: exampleLinuxVirtualMachine.id,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Maintenance Assignment can be imported using the `resource id`, e.g.

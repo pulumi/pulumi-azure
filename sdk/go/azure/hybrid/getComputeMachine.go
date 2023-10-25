@@ -17,6 +17,34 @@ import (
 // ## Disclaimers
 //
 // > **Note:** The  Data Source `hybrid.getComputeMachine` is deprecated will be removed in v4.0 of the Azure Provider - a replacement can be found in the form of the `arcmachine.get` Data Source.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/hybrid"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := hybrid.GetComputeMachine(ctx, &hybrid.GetComputeMachineArgs{
+//				Name:              "existing-hcmachine",
+//				ResourceGroupName: "existing-rg",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("id", example.Id)
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetComputeMachine(ctx *pulumi.Context, args *GetComputeMachineArgs, opts ...pulumi.InvokeOption) (*GetComputeMachineResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetComputeMachineResult

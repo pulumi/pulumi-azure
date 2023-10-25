@@ -247,6 +247,24 @@ class CapacityReservation(pulumi.CustomResource):
         """
         Manages a Capacity Reservation within a Capacity Reservation Group.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_capacity_reservation_group = azure.compute.CapacityReservationGroup("exampleCapacityReservationGroup",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        example_capacity_reservation = azure.compute.CapacityReservation("exampleCapacityReservation",
+            capacity_reservation_group_id=example_capacity_reservation_group.id,
+            sku=azure.compute.CapacityReservationSkuArgs(
+                name="Standard_D2s_v3",
+                capacity=1,
+            ))
+        ```
+
         ## Import
 
         Capacity Reservations can be imported using the `resource id`, e.g.
@@ -271,6 +289,24 @@ class CapacityReservation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Capacity Reservation within a Capacity Reservation Group.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_capacity_reservation_group = azure.compute.CapacityReservationGroup("exampleCapacityReservationGroup",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        example_capacity_reservation = azure.compute.CapacityReservation("exampleCapacityReservation",
+            capacity_reservation_group_id=example_capacity_reservation_group.id,
+            sku=azure.compute.CapacityReservationSkuArgs(
+                name="Standard_D2s_v3",
+                capacity=1,
+            ))
+        ```
 
         ## Import
 

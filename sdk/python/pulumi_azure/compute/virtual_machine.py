@@ -1067,6 +1067,64 @@ class VirtualMachine(pulumi.CustomResource):
         > **Note:** Data Disks can be attached either directly on the `compute.VirtualMachine` resource, or using the `compute.DataDiskAttachment` resource - but the two cannot be used together. If both are used against the same Virtual Machine, spurious changes will occur.
 
         ## Example Usage
+        ### From An Azure Platform Image)
+
+        This example provisions a Virtual Machine with Managed Disks.
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        config = pulumi.Config()
+        prefix = config.get("prefix")
+        if prefix is None:
+            prefix = "tfvmex"
+        example = azure.core.ResourceGroup("example", location="West Europe")
+        main_virtual_network = azure.network.VirtualNetwork("mainVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=example.location,
+            resource_group_name=example.name)
+        internal = azure.network.Subnet("internal",
+            resource_group_name=example.name,
+            virtual_network_name=main_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
+        main_network_interface = azure.network.NetworkInterface("mainNetworkInterface",
+            location=example.location,
+            resource_group_name=example.name,
+            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
+                name="testconfiguration1",
+                subnet_id=internal.id,
+                private_ip_address_allocation="Dynamic",
+            )])
+        main_virtual_machine = azure.compute.VirtualMachine("mainVirtualMachine",
+            location=example.location,
+            resource_group_name=example.name,
+            network_interface_ids=[main_network_interface.id],
+            vm_size="Standard_DS1_v2",
+            storage_image_reference=azure.compute.VirtualMachineStorageImageReferenceArgs(
+                publisher="Canonical",
+                offer="0001-com-ubuntu-server-focal",
+                sku="20_04-lts",
+                version="latest",
+            ),
+            storage_os_disk=azure.compute.VirtualMachineStorageOsDiskArgs(
+                name="myosdisk1",
+                caching="ReadWrite",
+                create_option="FromImage",
+                managed_disk_type="Standard_LRS",
+            ),
+            os_profile=azure.compute.VirtualMachineOsProfileArgs(
+                computer_name="hostname",
+                admin_username="testadmin",
+                admin_password="Password1234!",
+            ),
+            os_profile_linux_config=azure.compute.VirtualMachineOsProfileLinuxConfigArgs(
+                disable_password_authentication=False,
+            ),
+            tags={
+                "environment": "staging",
+            })
+        ```
 
         ## Import
 
@@ -1129,6 +1187,64 @@ class VirtualMachine(pulumi.CustomResource):
         > **Note:** Data Disks can be attached either directly on the `compute.VirtualMachine` resource, or using the `compute.DataDiskAttachment` resource - but the two cannot be used together. If both are used against the same Virtual Machine, spurious changes will occur.
 
         ## Example Usage
+        ### From An Azure Platform Image)
+
+        This example provisions a Virtual Machine with Managed Disks.
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        config = pulumi.Config()
+        prefix = config.get("prefix")
+        if prefix is None:
+            prefix = "tfvmex"
+        example = azure.core.ResourceGroup("example", location="West Europe")
+        main_virtual_network = azure.network.VirtualNetwork("mainVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=example.location,
+            resource_group_name=example.name)
+        internal = azure.network.Subnet("internal",
+            resource_group_name=example.name,
+            virtual_network_name=main_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
+        main_network_interface = azure.network.NetworkInterface("mainNetworkInterface",
+            location=example.location,
+            resource_group_name=example.name,
+            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
+                name="testconfiguration1",
+                subnet_id=internal.id,
+                private_ip_address_allocation="Dynamic",
+            )])
+        main_virtual_machine = azure.compute.VirtualMachine("mainVirtualMachine",
+            location=example.location,
+            resource_group_name=example.name,
+            network_interface_ids=[main_network_interface.id],
+            vm_size="Standard_DS1_v2",
+            storage_image_reference=azure.compute.VirtualMachineStorageImageReferenceArgs(
+                publisher="Canonical",
+                offer="0001-com-ubuntu-server-focal",
+                sku="20_04-lts",
+                version="latest",
+            ),
+            storage_os_disk=azure.compute.VirtualMachineStorageOsDiskArgs(
+                name="myosdisk1",
+                caching="ReadWrite",
+                create_option="FromImage",
+                managed_disk_type="Standard_LRS",
+            ),
+            os_profile=azure.compute.VirtualMachineOsProfileArgs(
+                computer_name="hostname",
+                admin_username="testadmin",
+                admin_password="Password1234!",
+            ),
+            os_profile_linux_config=azure.compute.VirtualMachineOsProfileLinuxConfigArgs(
+                disable_password_authentication=False,
+            ),
+            tags={
+                "environment": "staging",
+            })
+        ```
 
         ## Import
 

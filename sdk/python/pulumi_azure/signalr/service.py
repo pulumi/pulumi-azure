@@ -999,6 +999,38 @@ class Service(pulumi.CustomResource):
         """
         Manages an Azure SignalR service.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_service = azure.signalr.Service("exampleService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku=azure.signalr.ServiceSkuArgs(
+                name="Free_F1",
+                capacity=1,
+            ),
+            cors=[azure.signalr.ServiceCorArgs(
+                allowed_origins=["http://www.example.com"],
+            )],
+            public_network_access_enabled=False,
+            connectivity_logs_enabled=True,
+            messaging_logs_enabled=True,
+            service_mode="Default",
+            upstream_endpoints=[azure.signalr.ServiceUpstreamEndpointArgs(
+                category_patterns=[
+                    "connections",
+                    "messages",
+                ],
+                event_patterns=["*"],
+                hub_patterns=["hub1"],
+                url_template="http://foo.com",
+            )])
+        ```
+
         ## Import
 
         SignalR services can be imported using the `resource id`, e.g.
@@ -1041,6 +1073,38 @@ class Service(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure SignalR service.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_service = azure.signalr.Service("exampleService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku=azure.signalr.ServiceSkuArgs(
+                name="Free_F1",
+                capacity=1,
+            ),
+            cors=[azure.signalr.ServiceCorArgs(
+                allowed_origins=["http://www.example.com"],
+            )],
+            public_network_access_enabled=False,
+            connectivity_logs_enabled=True,
+            messaging_logs_enabled=True,
+            service_mode="Default",
+            upstream_endpoints=[azure.signalr.ServiceUpstreamEndpointArgs(
+                category_patterns=[
+                    "connections",
+                    "messages",
+                ],
+                event_patterns=["*"],
+                hub_patterns=["hub1"],
+                url_template="http://foo.com",
+            )])
+        ```
 
         ## Import
 

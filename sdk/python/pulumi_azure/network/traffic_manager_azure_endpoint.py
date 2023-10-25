@@ -407,6 +407,42 @@ class TrafficManagerAzureEndpoint(pulumi.CustomResource):
         """
         Manages an Azure Endpoint within a Traffic Manager Profile.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_public_ip = azure.network.PublicIp("examplePublicIp",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            allocation_method="Static",
+            domain_name_label="example-public-ip")
+        example_traffic_manager_profile = azure.network.TrafficManagerProfile("exampleTrafficManagerProfile",
+            resource_group_name=example_resource_group.name,
+            traffic_routing_method="Weighted",
+            dns_config=azure.network.TrafficManagerProfileDnsConfigArgs(
+                relative_name="example-profile",
+                ttl=100,
+            ),
+            monitor_config=azure.network.TrafficManagerProfileMonitorConfigArgs(
+                protocol="HTTP",
+                port=80,
+                path="/",
+                interval_in_seconds=30,
+                timeout_in_seconds=9,
+                tolerated_number_of_failures=3,
+            ),
+            tags={
+                "environment": "Production",
+            })
+        example_traffic_manager_azure_endpoint = azure.network.TrafficManagerAzureEndpoint("exampleTrafficManagerAzureEndpoint",
+            profile_id=example_traffic_manager_profile.id,
+            weight=100,
+            target_resource_id=example_public_ip.id)
+        ```
+
         ## Import
 
         Azure Endpoints can be imported using the `resource id`, e.g.
@@ -435,6 +471,42 @@ class TrafficManagerAzureEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Endpoint within a Traffic Manager Profile.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_public_ip = azure.network.PublicIp("examplePublicIp",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            allocation_method="Static",
+            domain_name_label="example-public-ip")
+        example_traffic_manager_profile = azure.network.TrafficManagerProfile("exampleTrafficManagerProfile",
+            resource_group_name=example_resource_group.name,
+            traffic_routing_method="Weighted",
+            dns_config=azure.network.TrafficManagerProfileDnsConfigArgs(
+                relative_name="example-profile",
+                ttl=100,
+            ),
+            monitor_config=azure.network.TrafficManagerProfileMonitorConfigArgs(
+                protocol="HTTP",
+                port=80,
+                path="/",
+                interval_in_seconds=30,
+                timeout_in_seconds=9,
+                tolerated_number_of_failures=3,
+            ),
+            tags={
+                "environment": "Production",
+            })
+        example_traffic_manager_azure_endpoint = azure.network.TrafficManagerAzureEndpoint("exampleTrafficManagerAzureEndpoint",
+            profile_id=example_traffic_manager_profile.id,
+            weight=100,
+            target_resource_id=example_public_ip.id)
+        ```
 
         ## Import
 

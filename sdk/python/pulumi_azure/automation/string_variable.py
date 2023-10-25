@@ -286,6 +286,23 @@ class StringVariable(pulumi.CustomResource):
         """
         Manages a string variable in Azure Automation
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.automation.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="Basic")
+        example_string_variable = azure.automation.StringVariable("exampleStringVariable",
+            resource_group_name=example_resource_group.name,
+            automation_account_name=example_account.name,
+            value="Hello, Basic Test.")
+        ```
+
         ## Import
 
         Automation String Variable can be imported using the `resource id`, e.g.
@@ -311,6 +328,23 @@ class StringVariable(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a string variable in Azure Automation
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.automation.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="Basic")
+        example_string_variable = azure.automation.StringVariable("exampleStringVariable",
+            resource_group_name=example_resource_group.name,
+            automation_account_name=example_account.name,
+            value="Hello, Basic Test.")
+        ```
 
         ## Import
 

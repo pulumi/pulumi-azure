@@ -9,6 +9,72 @@ import * as utilities from "../utilities";
 /**
  * Manages the hub settings for a Web Pubsub.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "east us"});
+ * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ * });
+ * const exampleService = new azure.webpubsub.Service("exampleService", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: "Standard_S1",
+ *     capacity: 1,
+ * });
+ * const exampleHub = new azure.webpubsub.Hub("exampleHub", {
+ *     webPubsubId: exampleService.id,
+ *     eventHandlers: [
+ *         {
+ *             urlTemplate: "https://test.com/api/{hub}/{event}",
+ *             userEventPattern: "*",
+ *             systemEvents: [
+ *                 "connect",
+ *                 "connected",
+ *             ],
+ *         },
+ *         {
+ *             urlTemplate: "https://test.com/api/{hub}/{event}",
+ *             userEventPattern: "event1, event2",
+ *             systemEvents: ["connected"],
+ *             auth: {
+ *                 managedIdentityId: exampleUserAssignedIdentity.id,
+ *             },
+ *         },
+ *     ],
+ *     eventListeners: [
+ *         {
+ *             systemEventNameFilters: ["connected"],
+ *             userEventNameFilters: [
+ *                 "event1",
+ *                 "event2",
+ *             ],
+ *             eventhubNamespaceName: azurerm_eventhub_namespace.test.name,
+ *             eventhubName: azurerm_eventhub.test1.name,
+ *         },
+ *         {
+ *             systemEventNameFilters: ["connected"],
+ *             userEventNameFilters: ["*"],
+ *             eventhubNamespaceName: azurerm_eventhub_namespace.test.name,
+ *             eventhubName: azurerm_eventhub.test1.name,
+ *         },
+ *         {
+ *             systemEventNameFilters: ["connected"],
+ *             userEventNameFilters: ["event1"],
+ *             eventhubNamespaceName: azurerm_eventhub_namespace.test.name,
+ *             eventhubName: azurerm_eventhub.test1.name,
+ *         },
+ *     ],
+ *     anonymousConnectionsEnabled: true,
+ * }, {
+ *     dependsOn: [exampleService],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Web Pubsub Hub can be imported using the `resource id`, e.g.

@@ -570,6 +570,73 @@ class Configuration(pulumi.CustomResource):
         """
         Manages an Automanage Configuration.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_configuration = azure.automanage.Configuration("exampleConfiguration",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            antimalware=azure.automanage.ConfigurationAntimalwareArgs(
+                exclusions=azure.automanage.ConfigurationAntimalwareExclusionsArgs(
+                    extensions="exe;dll",
+                    paths="C:\\\\Windows\\\\Temp;D:\\\\Temp",
+                    processes="svchost.exe;notepad.exe",
+                ),
+                real_time_protection_enabled=True,
+                scheduled_scan_enabled=True,
+                scheduled_scan_type="Quick",
+                scheduled_scan_day=1,
+                scheduled_scan_time_in_minutes=1339,
+            ),
+            azure_security_baseline=azure.automanage.ConfigurationAzureSecurityBaselineArgs(
+                assignment_type="ApplyAndAutoCorrect",
+            ),
+            automation_account_enabled=True,
+            backup=azure.automanage.ConfigurationBackupArgs(
+                policy_name="acctest-backup-policy-%d",
+                time_zone="UTC",
+                instant_rp_retention_range_in_days=2,
+                schedule_policy=azure.automanage.ConfigurationBackupSchedulePolicyArgs(
+                    schedule_run_frequency="Daily",
+                    schedule_run_days=[
+                        "Monday",
+                        "Tuesday",
+                    ],
+                    schedule_run_times=["12:00"],
+                    schedule_policy_type="SimpleSchedulePolicy",
+                ),
+                retention_policy=azure.automanage.ConfigurationBackupRetentionPolicyArgs(
+                    retention_policy_type="LongTermRetentionPolicy",
+                    daily_schedule=azure.automanage.ConfigurationBackupRetentionPolicyDailyScheduleArgs(
+                        retention_times=["12:00"],
+                        retention_duration=azure.automanage.ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArgs(
+                            count=7,
+                            duration_type="Days",
+                        ),
+                    ),
+                    weekly_schedule=azure.automanage.ConfigurationBackupRetentionPolicyWeeklyScheduleArgs(
+                        retention_times=["14:00"],
+                        retention_duration=azure.automanage.ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArgs(
+                            count=4,
+                            duration_type="Weeks",
+                        ),
+                    ),
+                ),
+            ),
+            boot_diagnostics_enabled=True,
+            defender_for_cloud_enabled=True,
+            guest_configuration_enabled=True,
+            log_analytics_enabled=True,
+            status_change_alert_enabled=True,
+            tags={
+                "env": "test",
+            })
+        ```
+
         ## Import
 
         Automanage Configuration can be imported using the `resource id`, e.g.
@@ -602,6 +669,73 @@ class Configuration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Automanage Configuration.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_configuration = azure.automanage.Configuration("exampleConfiguration",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            antimalware=azure.automanage.ConfigurationAntimalwareArgs(
+                exclusions=azure.automanage.ConfigurationAntimalwareExclusionsArgs(
+                    extensions="exe;dll",
+                    paths="C:\\\\Windows\\\\Temp;D:\\\\Temp",
+                    processes="svchost.exe;notepad.exe",
+                ),
+                real_time_protection_enabled=True,
+                scheduled_scan_enabled=True,
+                scheduled_scan_type="Quick",
+                scheduled_scan_day=1,
+                scheduled_scan_time_in_minutes=1339,
+            ),
+            azure_security_baseline=azure.automanage.ConfigurationAzureSecurityBaselineArgs(
+                assignment_type="ApplyAndAutoCorrect",
+            ),
+            automation_account_enabled=True,
+            backup=azure.automanage.ConfigurationBackupArgs(
+                policy_name="acctest-backup-policy-%d",
+                time_zone="UTC",
+                instant_rp_retention_range_in_days=2,
+                schedule_policy=azure.automanage.ConfigurationBackupSchedulePolicyArgs(
+                    schedule_run_frequency="Daily",
+                    schedule_run_days=[
+                        "Monday",
+                        "Tuesday",
+                    ],
+                    schedule_run_times=["12:00"],
+                    schedule_policy_type="SimpleSchedulePolicy",
+                ),
+                retention_policy=azure.automanage.ConfigurationBackupRetentionPolicyArgs(
+                    retention_policy_type="LongTermRetentionPolicy",
+                    daily_schedule=azure.automanage.ConfigurationBackupRetentionPolicyDailyScheduleArgs(
+                        retention_times=["12:00"],
+                        retention_duration=azure.automanage.ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArgs(
+                            count=7,
+                            duration_type="Days",
+                        ),
+                    ),
+                    weekly_schedule=azure.automanage.ConfigurationBackupRetentionPolicyWeeklyScheduleArgs(
+                        retention_times=["14:00"],
+                        retention_duration=azure.automanage.ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArgs(
+                            count=4,
+                            duration_type="Weeks",
+                        ),
+                    ),
+                ),
+            ),
+            boot_diagnostics_enabled=True,
+            defender_for_cloud_enabled=True,
+            guest_configuration_enabled=True,
+            log_analytics_enabled=True,
+            status_change_alert_enabled=True,
+            tags={
+                "env": "test",
+            })
+        ```
 
         ## Import
 

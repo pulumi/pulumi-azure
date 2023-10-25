@@ -12,6 +12,46 @@ namespace Pulumi.Azure.ContainerApp
     /// <summary>
     /// Manages a Dapr Component for a Container App Environment.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "PerGB2018",
+    ///         RetentionInDays = 30,
+    ///     });
+    /// 
+    ///     var exampleEnvironment = new Azure.ContainerApp.Environment("exampleEnvironment", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         LogAnalyticsWorkspaceId = exampleAnalyticsWorkspace.Id,
+    ///     });
+    /// 
+    ///     var exampleEnvironmentDaprComponent = new Azure.ContainerApp.EnvironmentDaprComponent("exampleEnvironmentDaprComponent", new()
+    ///     {
+    ///         ContainerAppEnvironmentId = exampleEnvironment.Id,
+    ///         ComponentType = "state.azure.blobstorage",
+    ///         Version = "v1",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// A Dapr Component for a Container App Environment can be imported using the `resource id`, e.g.

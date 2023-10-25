@@ -12,6 +12,42 @@ namespace Pulumi.Azure.Iot
     /// <summary>
     /// Manages an Azure IoT Time Series Insights Access Policy.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleTimeSeriesInsightsStandardEnvironment = new Azure.Iot.TimeSeriesInsightsStandardEnvironment("exampleTimeSeriesInsightsStandardEnvironment", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "S1_1",
+    ///         DataRetentionTime = "P30D",
+    ///     });
+    /// 
+    ///     var exampleTimeSeriesInsightsAccessPolicy = new Azure.Iot.TimeSeriesInsightsAccessPolicy("exampleTimeSeriesInsightsAccessPolicy", new()
+    ///     {
+    ///         TimeSeriesInsightsEnvironmentId = exampleTimeSeriesInsightsStandardEnvironment.Name,
+    ///         PrincipalObjectId = "aGUID",
+    ///         Roles = new[]
+    ///         {
+    ///             "Reader",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Azure IoT Time Series Insights Access Policy can be imported using the `resource id`, e.g.

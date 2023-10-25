@@ -251,6 +251,26 @@ class FlexibleDatabase(pulumi.CustomResource):
         """
         Manages a MySQL Database within a MySQL Flexible Server
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_flexible_server = azure.mysql.FlexibleServer("exampleFlexibleServer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            administrator_login="mysqladminun",
+            administrator_password="H@Sh1CoR3!",
+            sku_name="B_Standard_B1s")
+        example_flexible_database = azure.mysql.FlexibleDatabase("exampleFlexibleDatabase",
+            resource_group_name=example_resource_group.name,
+            server_name=example_flexible_server.name,
+            charset="utf8",
+            collation="utf8_unicode_ci")
+        ```
+
         ## Import
 
         MySQL Database's can be imported using the `resource id`, e.g.
@@ -275,6 +295,26 @@ class FlexibleDatabase(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a MySQL Database within a MySQL Flexible Server
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_flexible_server = azure.mysql.FlexibleServer("exampleFlexibleServer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            administrator_login="mysqladminun",
+            administrator_password="H@Sh1CoR3!",
+            sku_name="B_Standard_B1s")
+        example_flexible_database = azure.mysql.FlexibleDatabase("exampleFlexibleDatabase",
+            resource_group_name=example_resource_group.name,
+            server_name=example_flexible_server.name,
+            charset="utf8",
+            collation="utf8_unicode_ci")
+        ```
 
         ## Import
 

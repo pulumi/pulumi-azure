@@ -7,6 +7,29 @@ import * as utilities from "../utilities";
 /**
  * Manages a Digital Twins Event Grid Endpoint.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleInstance = new azure.digitaltwins.Instance("exampleInstance", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ * });
+ * const exampleTopic = new azure.eventgrid.Topic("exampleTopic", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleEndpointEventGrid = new azure.digitaltwins.EndpointEventGrid("exampleEndpointEventGrid", {
+ *     digitalTwinsId: exampleInstance.id,
+ *     eventgridTopicEndpoint: exampleTopic.endpoint,
+ *     eventgridTopicPrimaryAccessKey: exampleTopic.primaryAccessKey,
+ *     eventgridTopicSecondaryAccessKey: exampleTopic.secondaryAccessKey,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Digital Twins Eventgrid Endpoints can be imported using the `resource id`, e.g.

@@ -255,6 +255,17 @@ class KubernetesFleetManager(pulumi.CustomResource):
         > **Note:** This Resource is in **Preview** to use this you must be opted into the Preview. You can do this by running `az feature register --namespace Microsoft.ContainerService --name FleetResourcePreview` and then `az provider register -n Microsoft.ContainerService`
         .
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_kubernetes_fleet_manager = azure.containerservice.KubernetesFleetManager("exampleKubernetesFleetManager",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        ```
         ## Blocks Reference
 
         ### `hub_profile` Block
@@ -300,6 +311,17 @@ class KubernetesFleetManager(pulumi.CustomResource):
         > **Note:** This Resource is in **Preview** to use this you must be opted into the Preview. You can do this by running `az feature register --namespace Microsoft.ContainerService --name FleetResourcePreview` and then `az provider register -n Microsoft.ContainerService`
         .
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_kubernetes_fleet_manager = azure.containerservice.KubernetesFleetManager("exampleKubernetesFleetManager",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        ```
         ## Blocks Reference
 
         ### `hub_profile` Block

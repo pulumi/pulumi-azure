@@ -7,6 +7,37 @@ import * as utilities from "../utilities";
 /**
  * Manages a Custom Action within a Logic App Workflow
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleWorkflow = new azure.logicapps.Workflow("exampleWorkflow", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleActionCustom = new azure.logicapps.ActionCustom("exampleActionCustom", {
+ *     logicAppId: exampleWorkflow.id,
+ *     body: `{
+ *     "description": "A variable to configure the auto expiration age in days. Configured in negative number. Default is -30 (30 days old).",
+ *     "inputs": {
+ *         "variables": [
+ *             {
+ *                 "name": "ExpirationAgeInDays",
+ *                 "type": "Integer",
+ *                 "value": -30
+ *             }
+ *         ]
+ *     },
+ *     "runAfter": {},
+ *     "type": "InitializeVariable"
+ * }
+ * `,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Logic App Custom Actions can be imported using the `resource id`, e.g.

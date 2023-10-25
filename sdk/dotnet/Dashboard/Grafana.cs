@@ -12,6 +12,41 @@ namespace Pulumi.Azure.Dashboard
     /// <summary>
     /// Manages a Dashboard Grafana.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleGrafana = new Azure.Dashboard.Grafana("exampleGrafana", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = "West Europe",
+    ///         ApiKeyEnabled = true,
+    ///         DeterministicOutboundIpEnabled = true,
+    ///         PublicNetworkAccessEnabled = false,
+    ///         Identity = new Azure.Dashboard.Inputs.GrafanaIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key", "value" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Dashboard Grafana can be imported using the `resource id`, e.g.

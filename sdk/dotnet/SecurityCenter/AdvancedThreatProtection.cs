@@ -12,6 +12,42 @@ namespace Pulumi.Azure.SecurityCenter
     /// <summary>
     /// Manages a resources Advanced Threat Protection setting.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "example" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAdvancedThreatProtection = new Azure.SecurityCenter.AdvancedThreatProtection("exampleAdvancedThreatProtection", new()
+    ///     {
+    ///         TargetResourceId = exampleAccount.Id,
+    ///         Enabled = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Advanced Threat Protection can be imported using the `resource id`, e.g.

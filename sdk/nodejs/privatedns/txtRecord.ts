@@ -9,6 +9,24 @@ import * as utilities from "../utilities";
 /**
  * Enables you to manage DNS TXT Records within Azure Private DNS.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleZone = new azure.privatedns.Zone("exampleZone", {resourceGroupName: exampleResourceGroup.name});
+ * const exampleTxtRecord = new azure.privatedns.TxtRecord("exampleTxtRecord", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     zoneName: exampleZone.name,
+ *     ttl: 300,
+ *     records: [{
+ *         value: "v=spf1 mx ~all",
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Private DNS TXT Records can be imported using the `resource id`, e.g.

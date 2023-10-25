@@ -12,6 +12,82 @@ namespace Pulumi.Azure.Compute
     /// <summary>
     /// Manages a Gallery Application Version.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleSharedImageGallery = new Azure.Compute.SharedImageGallery("exampleSharedImageGallery", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleGalleryApplication = new Azure.Compute.GalleryApplication("exampleGalleryApplication", new()
+    ///     {
+    ///         GalleryId = exampleSharedImageGallery.Id,
+    ///         Location = exampleResourceGroup.Location,
+    ///         SupportedOsType = "Linux",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
+    ///     {
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         ContainerAccessType = "blob",
+    ///     });
+    /// 
+    ///     var exampleBlob = new Azure.Storage.Blob("exampleBlob", new()
+    ///     {
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         StorageContainerName = exampleContainer.Name,
+    ///         Type = "Block",
+    ///         SourceContent = "[scripts file content]",
+    ///     });
+    /// 
+    ///     var exampleGalleryApplicationVersion = new Azure.Compute.GalleryApplicationVersion("exampleGalleryApplicationVersion", new()
+    ///     {
+    ///         GalleryApplicationId = exampleGalleryApplication.Id,
+    ///         Location = exampleGalleryApplication.Location,
+    ///         ManageAction = new Azure.Compute.Inputs.GalleryApplicationVersionManageActionArgs
+    ///         {
+    ///             Install = "[install command]",
+    ///             Remove = "[remove command]",
+    ///         },
+    ///         Source = new Azure.Compute.Inputs.GalleryApplicationVersionSourceArgs
+    ///         {
+    ///             MediaLink = exampleBlob.Id,
+    ///         },
+    ///         TargetRegions = new[]
+    ///         {
+    ///             new Azure.Compute.Inputs.GalleryApplicationVersionTargetRegionArgs
+    ///             {
+    ///                 Name = exampleGalleryApplication.Location,
+    ///                 RegionalReplicaCount = 1,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Gallery Application Versions can be imported using the `resource id`, e.g.

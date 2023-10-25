@@ -7,6 +7,19 @@ import * as utilities from "../utilities";
 /**
  * Manages a Capacity Reservation Group.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleCapacityReservationGroup = new azure.compute.CapacityReservationGroup("exampleCapacityReservationGroup", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Capacity Reservation Groups can be imported using the `resource id`, e.g.

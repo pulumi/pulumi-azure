@@ -729,6 +729,39 @@ class ManagedCluster(pulumi.CustomResource):
         """
         Manages a Resource Group.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.servicefabric.ManagedCluster("example",
+            client_connection_port=12345,
+            http_gateway_port=4567,
+            lb_rules=[azure.servicefabric.ManagedClusterLbRuleArgs(
+                backend_port=38080,
+                frontend_port=80,
+                probe_protocol="http",
+                probe_request_path="/test",
+                protocol="tcp",
+            )],
+            location="West Europe",
+            node_types=[azure.servicefabric.ManagedClusterNodeTypeArgs(
+                application_port_range="30000-49000",
+                data_disk_size_gb=130,
+                ephemeral_port_range="10000-20000",
+                name="test1",
+                primary=True,
+                vm_image_offer="WindowsServer",
+                vm_image_publisher="MicrosoftWindowsServer",
+                vm_image_sku="2019-Datacenter-with-Containers",
+                vm_image_version="latest",
+                vm_instance_count=5,
+                vm_size="Standard_DS1_v2",
+            )],
+            resource_group_name="example")
+        ```
+
         ## Import
 
         Resource Groups can be imported using the `resource id`, e.g.
@@ -765,6 +798,39 @@ class ManagedCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Resource Group.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.servicefabric.ManagedCluster("example",
+            client_connection_port=12345,
+            http_gateway_port=4567,
+            lb_rules=[azure.servicefabric.ManagedClusterLbRuleArgs(
+                backend_port=38080,
+                frontend_port=80,
+                probe_protocol="http",
+                probe_request_path="/test",
+                protocol="tcp",
+            )],
+            location="West Europe",
+            node_types=[azure.servicefabric.ManagedClusterNodeTypeArgs(
+                application_port_range="30000-49000",
+                data_disk_size_gb=130,
+                ephemeral_port_range="10000-20000",
+                name="test1",
+                primary=True,
+                vm_image_offer="WindowsServer",
+                vm_image_publisher="MicrosoftWindowsServer",
+                vm_image_sku="2019-Datacenter-with-Containers",
+                vm_image_version="latest",
+                vm_instance_count=5,
+                vm_size="Standard_DS1_v2",
+            )],
+            resource_group_name="example")
+        ```
 
         ## Import
 

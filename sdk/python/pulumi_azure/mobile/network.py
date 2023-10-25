@@ -311,6 +311,23 @@ class Network(pulumi.CustomResource):
         """
         Manages a Mobile Network.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="east us")
+        example_network = azure.mobile.Network("exampleNetwork",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            mobile_country_code="001",
+            mobile_network_code="01",
+            tags={
+                "key": "value",
+            })
+        ```
+
         ## Import
 
         Mobile Network can be imported using the `resource id`, e.g.
@@ -336,6 +353,23 @@ class Network(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Mobile Network.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="east us")
+        example_network = azure.mobile.Network("exampleNetwork",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            mobile_country_code="001",
+            mobile_network_code="01",
+            tags={
+                "key": "value",
+            })
+        ```
 
         ## Import
 

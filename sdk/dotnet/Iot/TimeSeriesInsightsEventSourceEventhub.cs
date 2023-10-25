@@ -12,6 +12,92 @@ namespace Pulumi.Azure.Iot
     /// <summary>
     /// Manages an Azure IoT Time Series Insights EventHub Event Source.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("exampleEventHubNamespace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Standard",
+    ///     });
+    /// 
+    ///     var exampleEventHub = new Azure.EventHub.EventHub("exampleEventHub", new()
+    ///     {
+    ///         NamespaceName = exampleEventHubNamespace.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PartitionCount = 2,
+    ///         MessageRetention = 7,
+    ///     });
+    /// 
+    ///     var exampleConsumerGroup = new Azure.EventHub.ConsumerGroup("exampleConsumerGroup", new()
+    ///     {
+    ///         NamespaceName = exampleEventHubNamespace.Name,
+    ///         EventhubName = exampleEventHub.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleAuthorizationRule = new Azure.EventHub.AuthorizationRule("exampleAuthorizationRule", new()
+    ///     {
+    ///         NamespaceName = exampleEventHubNamespace.Name,
+    ///         EventhubName = exampleEventHub.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Listen = true,
+    ///         Send = false,
+    ///         Manage = false,
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleTimeSeriesInsightsGen2Environment = new Azure.Iot.TimeSeriesInsightsGen2Environment("exampleTimeSeriesInsightsGen2Environment", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "L1",
+    ///         IdProperties = new[]
+    ///         {
+    ///             "id",
+    ///         },
+    ///         Storage = new Azure.Iot.Inputs.TimeSeriesInsightsGen2EnvironmentStorageArgs
+    ///         {
+    ///             Name = exampleAccount.Name,
+    ///             Key = exampleAccount.PrimaryAccessKey,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleTimeSeriesInsightsEventSourceEventhub = new Azure.Iot.TimeSeriesInsightsEventSourceEventhub("exampleTimeSeriesInsightsEventSourceEventhub", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         EnvironmentId = exampleTimeSeriesInsightsGen2Environment.Id,
+    ///         EventhubName = exampleEventHub.Name,
+    ///         NamespaceName = exampleEventHubNamespace.Name,
+    ///         SharedAccessKey = exampleAuthorizationRule.PrimaryKey,
+    ///         SharedAccessKeyName = exampleAuthorizationRule.Name,
+    ///         ConsumerGroupName = exampleConsumerGroup.Name,
+    ///         EventSourceResourceId = exampleEventHub.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Azure IoT Time Series Insights EventHub Event Source can be imported using the `resource id`, e.g.

@@ -414,6 +414,27 @@ class GroupPolicyExemption(pulumi.CustomResource):
         """
         Manages a Management Group Policy Exemption.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_group = azure.management.Group("exampleGroup", display_name="Example MgmtGroup")
+        example_policy_set_definition = azure.policy.get_policy_set_definition(display_name="Audit machines with insecure password security settings")
+        example_group_policy_assignment = azure.management.GroupPolicyAssignment("exampleGroupPolicyAssignment",
+            management_group_id=example_group.id,
+            policy_definition_id=example_policy_set_definition.id,
+            location="westus",
+            identity=azure.management.GroupPolicyAssignmentIdentityArgs(
+                type="SystemAssigned",
+            ))
+        example_group_policy_exemption = azure.management.GroupPolicyExemption("exampleGroupPolicyExemption",
+            management_group_id=example_group.id,
+            policy_assignment_id=example_group_policy_assignment.id,
+            exemption_category="Mitigated")
+        ```
+
         ## Import
 
         Policy Exemptions can be imported using the `resource id`, e.g.
@@ -442,6 +463,27 @@ class GroupPolicyExemption(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Management Group Policy Exemption.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_group = azure.management.Group("exampleGroup", display_name="Example MgmtGroup")
+        example_policy_set_definition = azure.policy.get_policy_set_definition(display_name="Audit machines with insecure password security settings")
+        example_group_policy_assignment = azure.management.GroupPolicyAssignment("exampleGroupPolicyAssignment",
+            management_group_id=example_group.id,
+            policy_definition_id=example_policy_set_definition.id,
+            location="westus",
+            identity=azure.management.GroupPolicyAssignmentIdentityArgs(
+                type="SystemAssigned",
+            ))
+        example_group_policy_exemption = azure.management.GroupPolicyExemption("exampleGroupPolicyExemption",
+            management_group_id=example_group.id,
+            policy_assignment_id=example_group_policy_assignment.id,
+            exemption_category="Mitigated")
+        ```
 
         ## Import
 

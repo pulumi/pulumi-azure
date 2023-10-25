@@ -12,6 +12,80 @@ namespace Pulumi.Azure.LogicApps
     /// <summary>
     /// Manages a Logic App Integration Account Agreement.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.IO;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var testIntegrationAccount = new Azure.LogicApps.IntegrationAccount("testIntegrationAccount", new()
+    ///     {
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         SkuName = "Standard",
+    ///     });
+    /// 
+    ///     var host = new Azure.LogicApps.IntegrationAccountPartner("host", new()
+    ///     {
+    ///         ResourceGroupName = example.Name,
+    ///         IntegrationAccountName = testIntegrationAccount.Name,
+    ///         BusinessIdentities = new[]
+    ///         {
+    ///             new Azure.LogicApps.Inputs.IntegrationAccountPartnerBusinessIdentityArgs
+    ///             {
+    ///                 Qualifier = "AS2Identity",
+    ///                 Value = "FabrikamNY",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var guest = new Azure.LogicApps.IntegrationAccountPartner("guest", new()
+    ///     {
+    ///         ResourceGroupName = example.Name,
+    ///         IntegrationAccountName = testIntegrationAccount.Name,
+    ///         BusinessIdentities = new[]
+    ///         {
+    ///             new Azure.LogicApps.Inputs.IntegrationAccountPartnerBusinessIdentityArgs
+    ///             {
+    ///                 Qualifier = "AS2Identity",
+    ///                 Value = "FabrikamDC",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var testIntegrationAccountAgreement = new Azure.LogicApps.IntegrationAccountAgreement("testIntegrationAccountAgreement", new()
+    ///     {
+    ///         ResourceGroupName = example.Name,
+    ///         IntegrationAccountName = testIntegrationAccount.Name,
+    ///         AgreementType = "AS2",
+    ///         HostPartnerName = host.Name,
+    ///         GuestPartnerName = guest.Name,
+    ///         Content = File.ReadAllText("testdata/integration_account_agreement_content_as2.json"),
+    ///         HostIdentity = new Azure.LogicApps.Inputs.IntegrationAccountAgreementHostIdentityArgs
+    ///         {
+    ///             Qualifier = "AS2Identity",
+    ///             Value = "FabrikamNY",
+    ///         },
+    ///         GuestIdentity = new Azure.LogicApps.Inputs.IntegrationAccountAgreementGuestIdentityArgs
+    ///         {
+    ///             Qualifier = "AS2Identity",
+    ///             Value = "FabrikamDC",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Logic App Integration Account Agreements can be imported using the `resource id`, e.g.

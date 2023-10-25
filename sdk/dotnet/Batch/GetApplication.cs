@@ -13,12 +13,68 @@ namespace Pulumi.Azure.Batch
     {
         /// <summary>
         /// Use this data source to access information about an existing Batch Application instance.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Batch.GetApplication.Invoke(new()
+        ///     {
+        ///         Name = "testapplication",
+        ///         ResourceGroupName = "test",
+        ///         AccountName = "testbatchaccount",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["batchApplicationId"] = example.Apply(getApplicationResult =&gt; getApplicationResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("azure:batch/getApplication:getApplication", args ?? new GetApplicationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Batch Application instance.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Batch.GetApplication.Invoke(new()
+        ///     {
+        ///         Name = "testapplication",
+        ///         ResourceGroupName = "test",
+        ///         AccountName = "testbatchaccount",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["batchApplicationId"] = example.Apply(getApplicationResult =&gt; getApplicationResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("azure:batch/getApplication:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());

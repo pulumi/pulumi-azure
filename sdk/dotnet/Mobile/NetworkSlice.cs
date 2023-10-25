@@ -12,6 +12,47 @@ namespace Pulumi.Azure.Mobile
     /// <summary>
     /// Manages a Mobile Network Slice.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleNetwork = new Azure.Mobile.Network("exampleNetwork", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         MobileCountryCode = "001",
+    ///         MobileNetworkCode = "01",
+    ///     });
+    /// 
+    ///     var exampleNetworkSlice = new Azure.Mobile.NetworkSlice("exampleNetworkSlice", new()
+    ///     {
+    ///         MobileNetworkId = exampleNetwork.Id,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Description = "an example slice",
+    ///         SingleNetworkSliceSelectionAssistanceInformation = new Azure.Mobile.Inputs.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs
+    ///         {
+    ///             SliceServiceType = 1,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key", "value" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Mobile Network Slice can be imported using the `resource id`, e.g.

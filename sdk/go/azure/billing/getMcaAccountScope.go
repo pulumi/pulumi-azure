@@ -13,6 +13,35 @@ import (
 )
 
 // Use this data source to access an ID for your MCA Account billing scope.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/billing"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := billing.GetMcaAccountScope(ctx, &billing.GetMcaAccountScopeArgs{
+//				BillingAccountName: "e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31",
+//				BillingProfileName: "PE2Q-NOIT-BG7-TGB",
+//				InvoiceSectionName: "MTT4-OBS7-PJA-TGB",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("id", example.Id)
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetMcaAccountScope(ctx *pulumi.Context, args *GetMcaAccountScopeArgs, opts ...pulumi.InvokeOption) (*GetMcaAccountScopeResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetMcaAccountScopeResult

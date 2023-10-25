@@ -12,6 +12,66 @@ namespace Pulumi.Azure.DevTest
     /// <summary>
     /// Manages a Windows Virtual Machine within a Dev Test Lab.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleLab = new Azure.DevTest.Lab("exampleLab", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Tags = 
+    ///         {
+    ///             { "Sydney", "Australia" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.DevTest.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         LabName = exampleLab.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Subnet = new Azure.DevTest.Inputs.VirtualNetworkSubnetArgs
+    ///         {
+    ///             UsePublicIpAddress = "Allow",
+    ///             UseInVirtualMachineCreation = "Allow",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleWindowsVirtualMachine = new Azure.DevTest.WindowsVirtualMachine("exampleWindowsVirtualMachine", new()
+    ///     {
+    ///         LabName = exampleLab.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Size = "Standard_DS2",
+    ///         Username = "exampleuser99",
+    ///         Password = "Pa$w0rd1234!",
+    ///         LabVirtualNetworkId = exampleVirtualNetwork.Id,
+    ///         LabSubnetName = exampleVirtualNetwork.Subnet.Apply(subnet =&gt; subnet.Name),
+    ///         StorageType = "Premium",
+    ///         Notes = "Some notes about this Virtual Machine.",
+    ///         GalleryImageReference = new Azure.DevTest.Inputs.WindowsVirtualMachineGalleryImageReferenceArgs
+    ///         {
+    ///             Offer = "WindowsServer",
+    ///             Publisher = "MicrosoftWindowsServer",
+    ///             Sku = "2019-Datacenter",
+    ///             Version = "latest",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// DevTest Windows Virtual Machines can be imported using the `resource id`, e.g.

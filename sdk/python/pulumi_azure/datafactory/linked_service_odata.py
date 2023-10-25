@@ -409,6 +409,28 @@ class LinkedServiceOdata(pulumi.CustomResource):
 
         > **Note:** All arguments including the connection_string will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_factory = azure.datafactory.Factory("exampleFactory",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        anonymous = azure.datafactory.LinkedServiceOdata("anonymous",
+            data_factory_id=example_factory.id,
+            url="https://services.odata.org/v4/TripPinServiceRW/People")
+        basic_auth = azure.datafactory.LinkedServiceOdata("basicAuth",
+            data_factory_id=example_factory.id,
+            url="https://services.odata.org/v4/TripPinServiceRW/People",
+            basic_authentication=azure.datafactory.LinkedServiceOdataBasicAuthenticationArgs(
+                username="emma",
+                password="Ch4ngeM3!",
+            ))
+        ```
+
         ## Import
 
         Data Factory OData Linked Service's can be imported using the `resource id`, e.g.
@@ -439,6 +461,28 @@ class LinkedServiceOdata(pulumi.CustomResource):
         Manages a Linked Service (connection) between a Database and Azure Data Factory through OData protocol.
 
         > **Note:** All arguments including the connection_string will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_factory = azure.datafactory.Factory("exampleFactory",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        anonymous = azure.datafactory.LinkedServiceOdata("anonymous",
+            data_factory_id=example_factory.id,
+            url="https://services.odata.org/v4/TripPinServiceRW/People")
+        basic_auth = azure.datafactory.LinkedServiceOdata("basicAuth",
+            data_factory_id=example_factory.id,
+            url="https://services.odata.org/v4/TripPinServiceRW/People",
+            basic_authentication=azure.datafactory.LinkedServiceOdataBasicAuthenticationArgs(
+                username="emma",
+                password="Ch4ngeM3!",
+            ))
+        ```
 
         ## Import
 

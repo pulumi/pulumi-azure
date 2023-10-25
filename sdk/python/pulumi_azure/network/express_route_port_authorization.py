@@ -215,6 +215,24 @@ class ExpressRoutePortAuthorization(pulumi.CustomResource):
         """
         Manages an ExpressRoute Port Authorization.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_express_route_port = azure.network.ExpressRoutePort("exampleExpressRoutePort",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            peering_location="Airtel-Chennai-CLS",
+            bandwidth_in_gbps=10,
+            encapsulation="Dot1Q")
+        example_express_route_port_authorization = azure.network.ExpressRoutePortAuthorization("exampleExpressRoutePortAuthorization",
+            express_route_port_name=example_express_route_port.name,
+            resource_group_name=example_resource_group.name)
+        ```
+
         ## Import
 
         ExpressRoute Port Authorizations can be imported using the `resource id`, e.g.
@@ -237,6 +255,24 @@ class ExpressRoutePortAuthorization(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an ExpressRoute Port Authorization.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_express_route_port = azure.network.ExpressRoutePort("exampleExpressRoutePort",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            peering_location="Airtel-Chennai-CLS",
+            bandwidth_in_gbps=10,
+            encapsulation="Dot1Q")
+        example_express_route_port_authorization = azure.network.ExpressRoutePortAuthorization("exampleExpressRoutePortAuthorization",
+            express_route_port_name=example_express_route_port.name,
+            resource_group_name=example_resource_group.name)
+        ```
 
         ## Import
 

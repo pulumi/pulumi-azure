@@ -9,6 +9,40 @@ import * as utilities from "../utilities";
 /**
  * Manages a Resource Group.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.servicefabric.ManagedCluster("example", {
+ *     clientConnectionPort: 12345,
+ *     httpGatewayPort: 4567,
+ *     lbRules: [{
+ *         backendPort: 38080,
+ *         frontendPort: 80,
+ *         probeProtocol: "http",
+ *         probeRequestPath: "/test",
+ *         protocol: "tcp",
+ *     }],
+ *     location: "West Europe",
+ *     nodeTypes: [{
+ *         applicationPortRange: "30000-49000",
+ *         dataDiskSizeGb: 130,
+ *         ephemeralPortRange: "10000-20000",
+ *         name: "test1",
+ *         primary: true,
+ *         vmImageOffer: "WindowsServer",
+ *         vmImagePublisher: "MicrosoftWindowsServer",
+ *         vmImageSku: "2019-Datacenter-with-Containers",
+ *         vmImageVersion: "latest",
+ *         vmInstanceCount: 5,
+ *         vmSize: "Standard_DS1_v2",
+ *     }],
+ *     resourceGroupName: "example",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Resource Groups can be imported using the `resource id`, e.g.

@@ -174,6 +174,16 @@ def get_policy_defintion_built_in(display_name: Optional[str] = None,
     """
     Use this data source to access information about a Built-In Policy Definition. Retrieves Policy Definitions from your current subscription by default.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.policy.get_policy_defintion_built_in(display_name="Allowed resource types")
+    pulumi.export("id", example.id)
+    ```
+
 
     :param str display_name: Specifies the display name of the Policy Definition. Conflicts with `name`.
            
@@ -210,6 +220,16 @@ def get_policy_defintion_built_in_output(display_name: Optional[pulumi.Input[Opt
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyDefintionBuiltInResult]:
     """
     Use this data source to access information about a Built-In Policy Definition. Retrieves Policy Definitions from your current subscription by default.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.policy.get_policy_defintion_built_in(display_name="Allowed resource types")
+    pulumi.export("id", example.id)
+    ```
 
 
     :param str display_name: Specifies the display name of the Policy Definition. Conflicts with `name`.

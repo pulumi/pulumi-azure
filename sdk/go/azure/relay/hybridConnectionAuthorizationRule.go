@@ -15,6 +15,64 @@ import (
 
 // Manages an Azure Relay Hybrid Connection Authorization Rule.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/relay"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleNamespace, err := relay.NewNamespace(ctx, "exampleNamespace", &relay.NamespaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("Standard"),
+//				Tags: pulumi.StringMap{
+//					"source": pulumi.String("terraform"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleHybridConnection, err := relay.NewHybridConnection(ctx, "exampleHybridConnection", &relay.HybridConnectionArgs{
+//				ResourceGroupName:           exampleResourceGroup.Name,
+//				RelayNamespaceName:          exampleNamespace.Name,
+//				RequiresClientAuthorization: pulumi.Bool(false),
+//				UserMetadata:                pulumi.String("testmetadata"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = relay.NewHybridConnectionAuthorizationRule(ctx, "exampleHybridConnectionAuthorizationRule", &relay.HybridConnectionAuthorizationRuleArgs{
+//				ResourceGroupName:    exampleResourceGroup.Name,
+//				HybridConnectionName: exampleHybridConnection.Name,
+//				NamespaceName:        exampleNamespace.Name,
+//				Listen:               pulumi.Bool(true),
+//				Send:                 pulumi.Bool(true),
+//				Manage:               pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Azure Relay Hybrid Connection Authorization Rules can be imported using the `resource id`, e.g.

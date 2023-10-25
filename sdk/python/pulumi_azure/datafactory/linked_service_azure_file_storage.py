@@ -575,6 +575,23 @@ class LinkedServiceAzureFileStorage(pulumi.CustomResource):
         """
         Manages a Linked Service (connection) between a SFTP Server and Azure Data Factory.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.get_account_output(name="storageaccountname",
+            resource_group_name=example_resource_group.name)
+        example_factory = azure.datafactory.Factory("exampleFactory",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_linked_service_azure_file_storage = azure.datafactory.LinkedServiceAzureFileStorage("exampleLinkedServiceAzureFileStorage",
+            data_factory_id=example_factory.id,
+            connection_string=example_account.primary_connection_string)
+        ```
+
         ## Import
 
         Data Factory Linked Service's can be imported using the `resource id`, e.g.
@@ -609,6 +626,23 @@ class LinkedServiceAzureFileStorage(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Linked Service (connection) between a SFTP Server and Azure Data Factory.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.get_account_output(name="storageaccountname",
+            resource_group_name=example_resource_group.name)
+        example_factory = azure.datafactory.Factory("exampleFactory",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_linked_service_azure_file_storage = azure.datafactory.LinkedServiceAzureFileStorage("exampleLinkedServiceAzureFileStorage",
+            data_factory_id=example_factory.id,
+            connection_string=example_account.primary_connection_string)
+        ```
 
         ## Import
 

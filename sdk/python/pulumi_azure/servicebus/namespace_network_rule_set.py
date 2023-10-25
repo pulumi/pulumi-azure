@@ -311,6 +311,42 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
         """
         Manages a ServiceBus Namespace Network Rule Set.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_namespace = azure.servicebus.Namespace("exampleNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Premium",
+            capacity=1)
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            address_spaces=["172.17.0.0/16"],
+            dns_servers=[
+                "10.0.0.4",
+                "10.0.0.5",
+            ])
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["172.17.0.0/24"],
+            service_endpoints=["Microsoft.ServiceBus"])
+        example_namespace_network_rule_set = azure.servicebus.NamespaceNetworkRuleSet("exampleNamespaceNetworkRuleSet",
+            namespace_id=example_namespace.id,
+            default_action="Deny",
+            public_network_access_enabled=True,
+            network_rules=[azure.servicebus.NamespaceNetworkRuleSetNetworkRuleArgs(
+                subnet_id=example_subnet.id,
+                ignore_missing_vnet_service_endpoint=False,
+            )],
+            ip_rules=["1.1.1.1"])
+        ```
+
         ## Import
 
         Service Bus Namespace can be imported using the `resource id`, e.g.
@@ -338,6 +374,42 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a ServiceBus Namespace Network Rule Set.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_namespace = azure.servicebus.Namespace("exampleNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Premium",
+            capacity=1)
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            address_spaces=["172.17.0.0/16"],
+            dns_servers=[
+                "10.0.0.4",
+                "10.0.0.5",
+            ])
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["172.17.0.0/24"],
+            service_endpoints=["Microsoft.ServiceBus"])
+        example_namespace_network_rule_set = azure.servicebus.NamespaceNetworkRuleSet("exampleNamespaceNetworkRuleSet",
+            namespace_id=example_namespace.id,
+            default_action="Deny",
+            public_network_access_enabled=True,
+            network_rules=[azure.servicebus.NamespaceNetworkRuleSetNetworkRuleArgs(
+                subnet_id=example_subnet.id,
+                ignore_missing_vnet_service_endpoint=False,
+            )],
+            ip_rules=["1.1.1.1"])
+        ```
 
         ## Import
 

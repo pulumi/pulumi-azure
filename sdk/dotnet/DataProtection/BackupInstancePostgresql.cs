@@ -14,6 +14,156 @@ namespace Pulumi.Azure.DataProtection
     /// 
     /// &gt; **Note:** Before using this resource, there are some prerequisite permissions for configure backup and restore. See more details from &lt;https://docs.microsoft.com/azure/backup/backup-azure-database-postgresql#prerequisite-permissions-for-configure-backup-and-restore&gt;.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleServer = new Azure.PostgreSql.Server("exampleServer", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "B_Gen5_2",
+    ///         StorageMb = 5120,
+    ///         BackupRetentionDays = 7,
+    ///         GeoRedundantBackupEnabled = false,
+    ///         AutoGrowEnabled = true,
+    ///         AdministratorLogin = "psqladmin",
+    ///         AdministratorLoginPassword = "H@Sh1CoR3!",
+    ///         Version = "9.5",
+    ///         SslEnforcementEnabled = true,
+    ///     });
+    /// 
+    ///     var exampleFirewallRule = new Azure.PostgreSql.FirewallRule("exampleFirewallRule", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ServerName = exampleServer.Name,
+    ///         StartIpAddress = "0.0.0.0",
+    ///         EndIpAddress = "0.0.0.0",
+    ///     });
+    /// 
+    ///     var exampleDatabase = new Azure.PostgreSql.Database("exampleDatabase", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ServerName = exampleServer.Name,
+    ///         Charset = "UTF8",
+    ///         Collation = "English_United States.1252",
+    ///     });
+    /// 
+    ///     var exampleBackupVault = new Azure.DataProtection.BackupVault("exampleBackupVault", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         DatastoreType = "VaultStore",
+    ///         Redundancy = "LocallyRedundant",
+    ///         Identity = new Azure.DataProtection.Inputs.BackupVaultIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "premium",
+    ///         SoftDeleteRetentionDays = 7,
+    ///         AccessPolicies = new[]
+    ///         {
+    ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
+    ///             {
+    ///                 TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///                 ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///                 KeyPermissions = new[]
+    ///                 {
+    ///                     "Create",
+    ///                     "Get",
+    ///                 },
+    ///                 SecretPermissions = new[]
+    ///                 {
+    ///                     "Set",
+    ///                     "Get",
+    ///                     "Delete",
+    ///                     "Purge",
+    ///                     "Recover",
+    ///                 },
+    ///             },
+    ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
+    ///             {
+    ///                 TenantId = exampleBackupVault.Identity.Apply(identity =&gt; identity?.TenantId),
+    ///                 ObjectId = exampleBackupVault.Identity.Apply(identity =&gt; identity?.PrincipalId),
+    ///                 KeyPermissions = new[]
+    ///                 {
+    ///                     "Create",
+    ///                     "Get",
+    ///                 },
+    ///                 SecretPermissions = new[]
+    ///                 {
+    ///                     "Set",
+    ///                     "Get",
+    ///                     "Delete",
+    ///                     "Purge",
+    ///                     "Recover",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSecret = new Azure.KeyVault.Secret("exampleSecret", new()
+    ///     {
+    ///         Value = Output.Tuple(exampleServer.Name, exampleDatabase.Name, exampleServer.Name).Apply(values =&gt;
+    ///         {
+    ///             var exampleServerName = values.Item1;
+    ///             var exampleDatabaseName = values.Item2;
+    ///             var exampleServerName1 = values.Item3;
+    ///             return $"Server={exampleServerName}.postgres.database.azure.com;Database={exampleDatabaseName};Port=5432;User Id=psqladmin@{exampleServerName1};Password=H@Sh1CoR3!;Ssl Mode=Require;";
+    ///         }),
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///     });
+    /// 
+    ///     var exampleBackupPolicyPostgresql = new Azure.DataProtection.BackupPolicyPostgresql("exampleBackupPolicyPostgresql", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VaultName = exampleBackupVault.Name,
+    ///         BackupRepeatingTimeIntervals = new[]
+    ///         {
+    ///             "R/2021-05-23T02:30:00+00:00/P1W",
+    ///         },
+    ///         DefaultRetentionDuration = "P4M",
+    ///     });
+    /// 
+    ///     var exampleAssignment = new Azure.Authorization.Assignment("exampleAssignment", new()
+    ///     {
+    ///         Scope = exampleServer.Id,
+    ///         RoleDefinitionName = "Reader",
+    ///         PrincipalId = exampleBackupVault.Identity.Apply(identity =&gt; identity?.PrincipalId),
+    ///     });
+    /// 
+    ///     var exampleBackupInstancePostgresql = new Azure.DataProtection.BackupInstancePostgresql("exampleBackupInstancePostgresql", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         VaultId = exampleBackupVault.Id,
+    ///         DatabaseId = exampleDatabase.Id,
+    ///         BackupPolicyId = exampleBackupPolicyPostgresql.Id,
+    ///         DatabaseCredentialKeyVaultSecretId = exampleSecret.VersionlessId,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Backup Instance PostgreSQL can be imported using the `resource id`, e.g.

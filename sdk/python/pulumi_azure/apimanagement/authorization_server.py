@@ -859,6 +859,25 @@ class AuthorizationServer(pulumi.CustomResource):
         """
         Manages an Authorization Server within an API Management Service.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_service = azure.apimanagement.get_service(name="search-api",
+            resource_group_name="search-service")
+        example_authorization_server = azure.apimanagement.AuthorizationServer("exampleAuthorizationServer",
+            api_management_name=example_service.name,
+            resource_group_name=example_service.resource_group_name,
+            display_name="Test Server",
+            authorization_endpoint="https://example.mydomain.com/client/authorize",
+            client_id="42424242-4242-4242-4242-424242424242",
+            client_registration_endpoint="https://example.mydomain.com/client/register",
+            grant_types=["authorizationCode"],
+            authorization_methods=["GET"])
+        ```
+
         ## Import
 
         API Management Authorization Servers can be imported using the `resource id`, e.g.
@@ -903,6 +922,25 @@ class AuthorizationServer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Authorization Server within an API Management Service.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_service = azure.apimanagement.get_service(name="search-api",
+            resource_group_name="search-service")
+        example_authorization_server = azure.apimanagement.AuthorizationServer("exampleAuthorizationServer",
+            api_management_name=example_service.name,
+            resource_group_name=example_service.resource_group_name,
+            display_name="Test Server",
+            authorization_endpoint="https://example.mydomain.com/client/authorize",
+            client_id="42424242-4242-4242-4242-424242424242",
+            client_registration_endpoint="https://example.mydomain.com/client/register",
+            grant_types=["authorizationCode"],
+            authorization_methods=["GET"])
+        ```
 
         ## Import
 

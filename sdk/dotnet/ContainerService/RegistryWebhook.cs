@@ -12,6 +12,50 @@ namespace Pulumi.Azure.ContainerService
     /// <summary>
     /// Manages an Azure Container Registry Webhook.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var acr = new Azure.ContainerService.Registry("acr", new()
+    ///     {
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         Sku = "Standard",
+    ///         AdminEnabled = false,
+    ///     });
+    /// 
+    ///     var webhook = new Azure.ContainerService.RegistryWebhook("webhook", new()
+    ///     {
+    ///         ResourceGroupName = example.Name,
+    ///         RegistryName = acr.Name,
+    ///         Location = example.Location,
+    ///         ServiceUri = "https://mywebhookreceiver.example/mytag",
+    ///         Status = "enabled",
+    ///         Scope = "mytag:*",
+    ///         Actions = new[]
+    ///         {
+    ///             "push",
+    ///         },
+    ///         CustomHeaders = 
+    ///         {
+    ///             { "Content-Type", "application/json" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Container Registry Webhooks can be imported using the `resource id`, e.g.

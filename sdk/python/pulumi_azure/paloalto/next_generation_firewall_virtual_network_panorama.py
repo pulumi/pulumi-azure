@@ -393,6 +393,70 @@ class NextGenerationFirewallVirtualNetworkPanorama(pulumi.CustomResource):
         """
         Manages a Palo Alto Next Generation Firewall Virtual Network Panorama.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="westeurope")
+        example_public_ip = azure.network.PublicIp("examplePublicIp",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            allocation_method="Static",
+            sku="Standard")
+        example_network_security_group = azure.network.NetworkSecurityGroup("exampleNetworkSecurityGroup",
+            location=azurerm_resource_group["test"]["location"],
+            resource_group_name=azurerm_resource_group["test"]["name"])
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            tags={
+                "environment": "Production",
+            })
+        trust_subnet = azure.network.Subnet("trustSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.1.0/24"],
+            delegations=[azure.network.SubnetDelegationArgs(
+                name="trusted",
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                    name="PaloAltoNetworks.Cloudngfw/firewalls",
+                    actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
+                ),
+            )])
+        trust_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("trustSubnetNetworkSecurityGroupAssociation",
+            subnet_id=trust_subnet.id,
+            network_security_group_id=example_network_security_group.id)
+        untrust_subnet = azure.network.Subnet("untrustSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"],
+            delegations=[azure.network.SubnetDelegationArgs(
+                name="untrusted",
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                    name="PaloAltoNetworks.Cloudngfw/firewalls",
+                    actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
+                ),
+            )])
+        untrust_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("untrustSubnetNetworkSecurityGroupAssociation",
+            subnet_id=untrust_subnet.id,
+            network_security_group_id=example_network_security_group.id)
+        example_next_generation_firewall_virtual_network_panorama = azure.paloalto.NextGenerationFirewallVirtualNetworkPanorama("exampleNextGenerationFirewallVirtualNetworkPanorama",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            panorama_base64_config="e2RnbmFtZTogY25nZnctYXotZXhhbXBsZSwgdHBsbmFtZTogY25nZnctZXhhbXBsZS10ZW1wbGF0ZS1zdGFjaywgZXhhbXBsZS1wYW5vcmFtYS1zZXJ2ZXI6IDE5Mi4xNjguMC4xLCB2bS1hdXRoLWtleTogMDAwMDAwMDAwMDAwMDAwLCBleHBpcnk6IDIwMjQvMDcvMzF9Cg==",
+            network_profile=azure.paloalto.NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgs(
+                public_ip_address_ids=[example_public_ip.id],
+                vnet_configuration=azure.paloalto.NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationArgs(
+                    virtual_network_id=example_virtual_network.id,
+                    trusted_subnet_id=trust_subnet.id,
+                    untrusted_subnet_id=untrust_subnet.id,
+                ),
+            ))
+        ```
+
         ## Import
 
         Palo Alto Next Generation Firewall Virtual Network Panoramas can be imported using the `resource id`, e.g.
@@ -420,6 +484,70 @@ class NextGenerationFirewallVirtualNetworkPanorama(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Palo Alto Next Generation Firewall Virtual Network Panorama.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="westeurope")
+        example_public_ip = azure.network.PublicIp("examplePublicIp",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            allocation_method="Static",
+            sku="Standard")
+        example_network_security_group = azure.network.NetworkSecurityGroup("exampleNetworkSecurityGroup",
+            location=azurerm_resource_group["test"]["location"],
+            resource_group_name=azurerm_resource_group["test"]["name"])
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            tags={
+                "environment": "Production",
+            })
+        trust_subnet = azure.network.Subnet("trustSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.1.0/24"],
+            delegations=[azure.network.SubnetDelegationArgs(
+                name="trusted",
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                    name="PaloAltoNetworks.Cloudngfw/firewalls",
+                    actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
+                ),
+            )])
+        trust_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("trustSubnetNetworkSecurityGroupAssociation",
+            subnet_id=trust_subnet.id,
+            network_security_group_id=example_network_security_group.id)
+        untrust_subnet = azure.network.Subnet("untrustSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"],
+            delegations=[azure.network.SubnetDelegationArgs(
+                name="untrusted",
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                    name="PaloAltoNetworks.Cloudngfw/firewalls",
+                    actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
+                ),
+            )])
+        untrust_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("untrustSubnetNetworkSecurityGroupAssociation",
+            subnet_id=untrust_subnet.id,
+            network_security_group_id=example_network_security_group.id)
+        example_next_generation_firewall_virtual_network_panorama = azure.paloalto.NextGenerationFirewallVirtualNetworkPanorama("exampleNextGenerationFirewallVirtualNetworkPanorama",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            panorama_base64_config="e2RnbmFtZTogY25nZnctYXotZXhhbXBsZSwgdHBsbmFtZTogY25nZnctZXhhbXBsZS10ZW1wbGF0ZS1zdGFjaywgZXhhbXBsZS1wYW5vcmFtYS1zZXJ2ZXI6IDE5Mi4xNjguMC4xLCB2bS1hdXRoLWtleTogMDAwMDAwMDAwMDAwMDAwLCBleHBpcnk6IDIwMjQvMDcvMzF9Cg==",
+            network_profile=azure.paloalto.NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgs(
+                public_ip_address_ids=[example_public_ip.id],
+                vnet_configuration=azure.paloalto.NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationArgs(
+                    virtual_network_id=example_virtual_network.id,
+                    trusted_subnet_id=trust_subnet.id,
+                    untrusted_subnet_id=untrust_subnet.id,
+                ),
+            ))
+        ```
 
         ## Import
 

@@ -7,6 +7,34 @@ import * as utilities from "../utilities";
 /**
  * Manages a Network Manager Scope Connection which may cross tenants.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const currentClientConfig = azure.core.getClientConfig({});
+ * const currentSubscription = azure.core.getSubscription({});
+ * const alt = azure.core.getSubscription({
+ *     subscriptionId: "00000000-0000-0000-0000-000000000000",
+ * });
+ * const exampleNetworkManager = new azure.network.NetworkManager("exampleNetworkManager", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     scope: {
+ *         subscriptionIds: [currentSubscription.then(currentSubscription => currentSubscription.id)],
+ *     },
+ *     scopeAccesses: ["SecurityAdmin"],
+ * });
+ * const exampleNetworkManagerScopeConnection = new azure.network.NetworkManagerScopeConnection("exampleNetworkManagerScopeConnection", {
+ *     networkManagerId: exampleNetworkManager.id,
+ *     tenantId: currentClientConfig.then(currentClientConfig => currentClientConfig.tenantId),
+ *     targetScopeId: alt.then(alt => alt.id),
+ *     description: "example",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Network Manager Scope Connection can be imported using the `resource id`, e.g.

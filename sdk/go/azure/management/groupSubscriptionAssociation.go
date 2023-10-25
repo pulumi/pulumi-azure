@@ -17,6 +17,46 @@ import (
 //
 // !> **Note:** When using this resource, configuring `subscriptionIds` on the `management.Group` resource is not supported.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/management"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleGroup, err := management.LookupGroup(ctx, &management.LookupGroupArgs{
+//				Name: pulumi.StringRef("exampleManagementGroup"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubscription, err := core.LookupSubscription(ctx, &core.LookupSubscriptionArgs{
+//				SubscriptionId: pulumi.StringRef("12345678-1234-1234-1234-123456789012"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = management.NewGroupSubscriptionAssociation(ctx, "exampleGroupSubscriptionAssociation", &management.GroupSubscriptionAssociationArgs{
+//				ManagementGroupId: *pulumi.String(exampleGroup.Id),
+//				SubscriptionId:    *pulumi.String(exampleSubscription.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Managements can be imported using the `resource id`, e.g.

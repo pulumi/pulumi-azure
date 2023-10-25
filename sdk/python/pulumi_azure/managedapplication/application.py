@@ -483,6 +483,46 @@ class Application(pulumi.CustomResource):
         """
         Manages a Managed Application.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        builtin = azure.authorization.get_role_definition(name="Contributor")
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_definition = azure.managedapplication.Definition("exampleDefinition",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            lock_level="ReadOnly",
+            package_file_uri="https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip",
+            display_name="TestManagedAppDefinition",
+            description="Test Managed App Definition",
+            authorizations=[azure.managedapplication.DefinitionAuthorizationArgs(
+                service_principal_id=current.object_id,
+                role_definition_id=builtin.id.split("/")[len(builtin.id.split("/")) - 1],
+            )])
+        example_application = azure.managedapplication.Application("exampleApplication",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            kind="ServiceCatalog",
+            managed_resource_group_name="infrastructureGroup",
+            application_definition_id=example_definition.id,
+            parameter_values=example_resource_group.location.apply(lambda location: json.dumps({
+                "location": {
+                    "value": location,
+                },
+                "storageAccountNamePrefix": {
+                    "value": "storeNamePrefix",
+                },
+                "storageAccountType": {
+                    "value": "Standard_LRS",
+                },
+            })))
+        ```
+
         ## Import
 
         Managed Application can be imported using the `resource id`, e.g.
@@ -514,6 +554,46 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Managed Application.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        builtin = azure.authorization.get_role_definition(name="Contributor")
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_definition = azure.managedapplication.Definition("exampleDefinition",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            lock_level="ReadOnly",
+            package_file_uri="https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip",
+            display_name="TestManagedAppDefinition",
+            description="Test Managed App Definition",
+            authorizations=[azure.managedapplication.DefinitionAuthorizationArgs(
+                service_principal_id=current.object_id,
+                role_definition_id=builtin.id.split("/")[len(builtin.id.split("/")) - 1],
+            )])
+        example_application = azure.managedapplication.Application("exampleApplication",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            kind="ServiceCatalog",
+            managed_resource_group_name="infrastructureGroup",
+            application_definition_id=example_definition.id,
+            parameter_values=example_resource_group.location.apply(lambda location: json.dumps({
+                "location": {
+                    "value": location,
+                },
+                "storageAccountNamePrefix": {
+                    "value": "storeNamePrefix",
+                },
+                "storageAccountType": {
+                    "value": "Standard_LRS",
+                },
+            })))
+        ```
 
         ## Import
 

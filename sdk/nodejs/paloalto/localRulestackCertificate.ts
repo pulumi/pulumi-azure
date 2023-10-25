@@ -7,6 +7,23 @@ import * as utilities from "../utilities";
 /**
  * Manages a Palo Alto Networks Rulestack Certificate.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleLocalRulestack = new azure.paloalto.LocalRulestack("exampleLocalRulestack", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ * });
+ * const exampleLocalRulestackCertificate = new azure.paloalto.LocalRulestackCertificate("exampleLocalRulestackCertificate", {
+ *     rulestackId: exampleLocalRulestack.id,
+ *     selfSigned: true,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Palo Alto Networks Rulestack Certificates can be imported using the `resource id`, e.g.

@@ -287,6 +287,24 @@ class ServicesCommunicationsGatewayTestLine(pulumi.CustomResource):
         """
         Manages a Voice Services Communications Gateway Test Line.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Central US")
+        example_services_communications_gateway = azure.voice.ServicesCommunicationsGateway("exampleServicesCommunicationsGateway", resource_group_name=example_resource_group.name)
+        example_services_communications_gateway_test_line = azure.voice.ServicesCommunicationsGatewayTestLine("exampleServicesCommunicationsGatewayTestLine",
+            location="West Central US",
+            voice_services_communications_gateway_id=example_services_communications_gateway.id,
+            phone_number="123456789",
+            purpose="Automated",
+            tags={
+                "key": "value",
+            })
+        ```
+
         ## Import
 
         Voice Services Communications Gateway Test Line can be imported using the `resource id`, e.g.
@@ -312,6 +330,24 @@ class ServicesCommunicationsGatewayTestLine(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Voice Services Communications Gateway Test Line.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Central US")
+        example_services_communications_gateway = azure.voice.ServicesCommunicationsGateway("exampleServicesCommunicationsGateway", resource_group_name=example_resource_group.name)
+        example_services_communications_gateway_test_line = azure.voice.ServicesCommunicationsGatewayTestLine("exampleServicesCommunicationsGatewayTestLine",
+            location="West Central US",
+            voice_services_communications_gateway_id=example_services_communications_gateway.id,
+            phone_number="123456789",
+            purpose="Automated",
+            tags={
+                "key": "value",
+            })
+        ```
 
         ## Import
 

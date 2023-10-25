@@ -17,6 +17,54 @@ import (
 //
 // > **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Managed Hardware Security Module resource on destroy, rather than the default soft-delete. See `purgeSoftDeletedHardwareSecurityModulesOnDestroy` for more information.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = keyvault.NewManagedHardwareSecurityModule(ctx, "exampleManagedHardwareSecurityModule", &keyvault.ManagedHardwareSecurityModuleArgs{
+//				ResourceGroupName:       exampleResourceGroup.Name,
+//				Location:                exampleResourceGroup.Location,
+//				SkuName:                 pulumi.String("Standard_B1"),
+//				PurgeProtectionEnabled:  pulumi.Bool(false),
+//				SoftDeleteRetentionDays: pulumi.Int(90),
+//				TenantId:                *pulumi.String(current.TenantId),
+//				AdminObjectIds: pulumi.StringArray{
+//					*pulumi.String(current.ObjectId),
+//				},
+//				Tags: pulumi.StringMap{
+//					"Env": pulumi.String("Test"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Key Vault Managed Hardware Security Module can be imported using the `resource id`, e.g.

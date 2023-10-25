@@ -23,6 +23,90 @@ import (
 //
 // > **NOTE:** This resource does not support Unmanaged Disks. If you need to use Unmanaged Disks you can continue to use the `compute.ScaleSet` resource instead
 //
+// ## Example Usage
+//
+// This example provisions a basic Windows Virtual Machine Scale Set on an internal network.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			internal, err := network.NewSubnet(ctx, "internal", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.2.0/24"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = compute.NewWindowsVirtualMachineScaleSet(ctx, "exampleWindowsVirtualMachineScaleSet", &compute.WindowsVirtualMachineScaleSetArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				Sku:               pulumi.String("Standard_F2"),
+//				Instances:         pulumi.Int(1),
+//				AdminPassword:     pulumi.String("P@55w0rd1234!"),
+//				AdminUsername:     pulumi.String("adminuser"),
+//				SourceImageReference: &compute.WindowsVirtualMachineScaleSetSourceImageReferenceArgs{
+//					Publisher: pulumi.String("MicrosoftWindowsServer"),
+//					Offer:     pulumi.String("WindowsServer"),
+//					Sku:       pulumi.String("2016-Datacenter-Server-Core"),
+//					Version:   pulumi.String("latest"),
+//				},
+//				OsDisk: &compute.WindowsVirtualMachineScaleSetOsDiskArgs{
+//					StorageAccountType: pulumi.String("Standard_LRS"),
+//					Caching:            pulumi.String("ReadWrite"),
+//				},
+//				NetworkInterfaces: compute.WindowsVirtualMachineScaleSetNetworkInterfaceArray{
+//					&compute.WindowsVirtualMachineScaleSetNetworkInterfaceArgs{
+//						Name:    pulumi.String("example"),
+//						Primary: pulumi.Bool(true),
+//						IpConfigurations: compute.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray{
+//							&compute.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{
+//								Name:     pulumi.String("internal"),
+//								Primary:  pulumi.Bool(true),
+//								SubnetId: internal.ID(),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Windows Virtual Machine Scale Sets can be imported using the `resource id`, e.g.

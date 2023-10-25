@@ -15,6 +15,34 @@ import (
 // Use this data source to access information about an existing App Service Plan (formerly known as a `Server Farm`).
 //
 // !> **Note:** The `appservice.Plan` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `appservice.ServicePlan` data source instead.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := appservice.GetAppServicePlan(ctx, &appservice.GetAppServicePlanArgs{
+//				Name:              "search-app-service-plan",
+//				ResourceGroupName: "search-service",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("appServicePlanId", example.Id)
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetAppServicePlan(ctx *pulumi.Context, args *GetAppServicePlanArgs, opts ...pulumi.InvokeOption) (*GetAppServicePlanResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAppServicePlanResult

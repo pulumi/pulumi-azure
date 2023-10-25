@@ -9,6 +9,79 @@ import * as utilities from "../utilities";
 /**
  * Manages a Mobile Network Sim Policy.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleNetwork = new azure.mobile.Network("exampleNetwork", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     mobileCountryCode: "001",
+ *     mobileNetworkCode: "01",
+ * });
+ * const exampleNetworkDataNetwork = new azure.mobile.NetworkDataNetwork("exampleNetworkDataNetwork", {
+ *     mobileNetworkId: exampleNetwork.id,
+ *     location: exampleResourceGroup.location,
+ * });
+ * const exampleNetworkService = new azure.mobile.NetworkService("exampleNetworkService", {
+ *     mobileNetworkId: exampleNetwork.id,
+ *     location: exampleResourceGroup.location,
+ *     servicePrecedence: 0,
+ *     pccRules: [{
+ *         name: "default-rule",
+ *         precedence: 1,
+ *         trafficControlEnabled: true,
+ *         serviceDataFlowTemplates: [{
+ *             direction: "Uplink",
+ *             name: "IP-to-server",
+ *             ports: [],
+ *             protocols: ["ip"],
+ *             remoteIpLists: ["10.3.4.0/24"],
+ *         }],
+ *     }],
+ * });
+ * const exampleNetworkSlice = new azure.mobile.NetworkSlice("exampleNetworkSlice", {
+ *     mobileNetworkId: exampleNetwork.id,
+ *     location: exampleResourceGroup.location,
+ *     singleNetworkSliceSelectionAssistanceInformation: {
+ *         sliceServiceType: 1,
+ *     },
+ * });
+ * const exampleNetworkSimPolicy = new azure.mobile.NetworkSimPolicy("exampleNetworkSimPolicy", {
+ *     mobileNetworkId: exampleNetwork.id,
+ *     location: exampleResourceGroup.location,
+ *     registrationTimerInSeconds: 3240,
+ *     defaultSliceId: exampleNetworkSlice.id,
+ *     slices: [{
+ *         defaultDataNetworkId: exampleNetworkDataNetwork.id,
+ *         sliceId: exampleNetworkSlice.id,
+ *         dataNetworks: [{
+ *             dataNetworkId: exampleNetworkDataNetwork.id,
+ *             allocationAndRetentionPriorityLevel: 9,
+ *             defaultSessionType: "IPv4",
+ *             qosIndicator: 9,
+ *             preemptionCapability: "NotPreempt",
+ *             preemptionVulnerability: "Preemptable",
+ *             allowedServicesIds: [exampleNetworkService.id],
+ *             sessionAggregateMaximumBitRate: {
+ *                 downlink: "1 Gbps",
+ *                 uplink: "500 Mbps",
+ *             },
+ *         }],
+ *     }],
+ *     userEquipmentAggregateMaximumBitRate: {
+ *         downlink: "1 Gbps",
+ *         uplink: "500 Mbps",
+ *     },
+ *     tags: {
+ *         key: "value",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Mobile Network Sim Policies can be imported using the `resource id`, e.g.

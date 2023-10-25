@@ -17,6 +17,133 @@ import (
 //
 // > **NOTE:** It's possible to define a Customer Managed Key both within the `storage.Account` resource via the `customerManagedKey` block and by using the `storage.CustomerManagedKey` resource. However it's not possible to use both methods to manage a Customer Managed Key for a Storage Account, since there'll be conflicts.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
+//				Location:               exampleResourceGroup.Location,
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				TenantId:               *pulumi.String(current.TenantId),
+//				SkuName:                pulumi.String("standard"),
+//				PurgeProtectionEnabled: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("GRS"),
+//				Identity: &storage.AccountIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			storage, err := keyvault.NewAccessPolicy(ctx, "storage", &keyvault.AccessPolicyArgs{
+//				KeyVaultId: exampleKeyVault.ID(),
+//				TenantId:   *pulumi.String(current.TenantId),
+//				ObjectId: exampleAccount.Identity.ApplyT(func(identity storage.AccountIdentity) (*string, error) {
+//					return &identity.PrincipalId, nil
+//				}).(pulumi.StringPtrOutput),
+//				SecretPermissions: pulumi.StringArray{
+//					pulumi.String("Get"),
+//				},
+//				KeyPermissions: pulumi.StringArray{
+//					pulumi.String("Get"),
+//					pulumi.String("UnwrapKey"),
+//					pulumi.String("WrapKey"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			client, err := keyvault.NewAccessPolicy(ctx, "client", &keyvault.AccessPolicyArgs{
+//				KeyVaultId: exampleKeyVault.ID(),
+//				TenantId:   *pulumi.String(current.TenantId),
+//				ObjectId:   *pulumi.String(current.ObjectId),
+//				SecretPermissions: pulumi.StringArray{
+//					pulumi.String("Get"),
+//				},
+//				KeyPermissions: pulumi.StringArray{
+//					pulumi.String("Get"),
+//					pulumi.String("Create"),
+//					pulumi.String("Delete"),
+//					pulumi.String("List"),
+//					pulumi.String("Restore"),
+//					pulumi.String("Recover"),
+//					pulumi.String("UnwrapKey"),
+//					pulumi.String("WrapKey"),
+//					pulumi.String("Purge"),
+//					pulumi.String("Encrypt"),
+//					pulumi.String("Decrypt"),
+//					pulumi.String("Sign"),
+//					pulumi.String("Verify"),
+//					pulumi.String("GetRotationPolicy"),
+//					pulumi.String("SetRotationPolicy"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleKey, err := keyvault.NewKey(ctx, "exampleKey", &keyvault.KeyArgs{
+//				KeyVaultId: exampleKeyVault.ID(),
+//				KeyType:    pulumi.String("RSA"),
+//				KeySize:    pulumi.Int(2048),
+//				KeyOpts: pulumi.StringArray{
+//					pulumi.String("decrypt"),
+//					pulumi.String("encrypt"),
+//					pulumi.String("sign"),
+//					pulumi.String("unwrapKey"),
+//					pulumi.String("verify"),
+//					pulumi.String("wrapKey"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				client,
+//				storage,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			_, err = storage.NewCustomerManagedKey(ctx, "exampleCustomerManagedKey", &storage.CustomerManagedKeyArgs{
+//				StorageAccountId: exampleAccount.ID(),
+//				KeyVaultId:       exampleKeyVault.ID(),
+//				KeyName:          exampleKey.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Customer Managed Keys for a Storage Account can be imported using the `resource id` of the Storage Account, e.g.

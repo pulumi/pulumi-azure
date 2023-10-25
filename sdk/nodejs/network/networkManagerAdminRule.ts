@@ -9,6 +9,61 @@ import * as utilities from "../utilities";
 /**
  * Manages a Network Manager Admin Rule.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const current = azure.core.getSubscription({});
+ * const exampleNetworkManager = new azure.network.NetworkManager("exampleNetworkManager", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     scope: {
+ *         subscriptionIds: [current.then(current => current.id)],
+ *     },
+ *     scopeAccesses: [
+ *         "Connectivity",
+ *         "SecurityAdmin",
+ *     ],
+ *     description: "example network manager",
+ * });
+ * const exampleNetworkManagerNetworkGroup = new azure.network.NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup", {networkManagerId: exampleNetworkManager.id});
+ * const exampleNetworkManagerSecurityAdminConfiguration = new azure.network.NetworkManagerSecurityAdminConfiguration("exampleNetworkManagerSecurityAdminConfiguration", {networkManagerId: exampleNetworkManager.id});
+ * const exampleNetworkManagerAdminRuleCollection = new azure.network.NetworkManagerAdminRuleCollection("exampleNetworkManagerAdminRuleCollection", {
+ *     securityAdminConfigurationId: exampleNetworkManagerSecurityAdminConfiguration.id,
+ *     networkGroupIds: [exampleNetworkManagerNetworkGroup.id],
+ * });
+ * const exampleNetworkManagerAdminRule = new azure.network.NetworkManagerAdminRule("exampleNetworkManagerAdminRule", {
+ *     adminRuleCollectionId: exampleNetworkManagerAdminRuleCollection.id,
+ *     action: "Deny",
+ *     direction: "Outbound",
+ *     priority: 1,
+ *     protocol: "Tcp",
+ *     sourcePortRanges: [
+ *         "80",
+ *         "1024-65535",
+ *     ],
+ *     destinationPortRanges: ["80"],
+ *     sources: [{
+ *         addressPrefixType: "ServiceTag",
+ *         addressPrefix: "Internet",
+ *     }],
+ *     destinations: [
+ *         {
+ *             addressPrefixType: "IPPrefix",
+ *             addressPrefix: "10.1.0.1",
+ *         },
+ *         {
+ *             addressPrefixType: "IPPrefix",
+ *             addressPrefix: "10.0.0.0/24",
+ *         },
+ *     ],
+ *     description: "example admin rule",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Network Manager Admin Rule can be imported using the `resource id`, e.g.

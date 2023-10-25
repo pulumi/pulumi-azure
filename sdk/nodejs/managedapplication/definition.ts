@@ -9,6 +9,28 @@ import * as utilities from "../utilities";
 /**
  * Manages a Managed Application Definition.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const current = azure.core.getClientConfig({});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleDefinition = new azure.managedapplication.Definition("exampleDefinition", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     lockLevel: "ReadOnly",
+ *     packageFileUri: "https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip",
+ *     displayName: "TestManagedApplicationDefinition",
+ *     description: "Test Managed Application Definition",
+ *     authorizations: [{
+ *         servicePrincipalId: current.then(current => current.objectId),
+ *         roleDefinitionId: "a094b430-dad3-424d-ae58-13f72fd72591",
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Managed Application Definition can be imported using the `resource id`, e.g.

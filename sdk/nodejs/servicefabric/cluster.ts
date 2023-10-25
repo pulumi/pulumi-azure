@@ -9,6 +9,31 @@ import * as utilities from "../utilities";
 /**
  * Manages a Service Fabric Cluster.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleCluster = new azure.servicefabric.Cluster("exampleCluster", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     reliabilityLevel: "Bronze",
+ *     upgradeMode: "Manual",
+ *     clusterCodeVersion: "7.1.456.959",
+ *     vmImage: "Windows",
+ *     managementEndpoint: "https://example:80",
+ *     nodeTypes: [{
+ *         name: "first",
+ *         instanceCount: 3,
+ *         isPrimary: true,
+ *         clientEndpointPort: 2020,
+ *         httpEndpointPort: 80,
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Service Fabric Clusters can be imported using the `resource id`, e.g.

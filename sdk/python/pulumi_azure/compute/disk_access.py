@@ -207,6 +207,17 @@ class DiskAccess(pulumi.CustomResource):
         """
         Manages a Disk Access.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.compute.DiskAccess("example",
+            location="West Europe",
+            resource_group_name="example")
+        ```
+
         ## Import
 
         Disk Access resource can be imported using the `resource id`, e.g.
@@ -230,6 +241,17 @@ class DiskAccess(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Disk Access.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.compute.DiskAccess("example",
+            location="West Europe",
+            resource_group_name="example")
+        ```
 
         ## Import
 

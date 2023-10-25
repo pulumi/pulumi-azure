@@ -292,6 +292,27 @@ class TimeSeriesInsightsReferenceDataSet(pulumi.CustomResource):
         """
         Manages an Azure IoT Time Series Insights Reference Data Set.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_time_series_insights_standard_environment = azure.iot.TimeSeriesInsightsStandardEnvironment("exampleTimeSeriesInsightsStandardEnvironment",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="S1_1",
+            data_retention_time="P30D")
+        example_time_series_insights_reference_data_set = azure.iot.TimeSeriesInsightsReferenceDataSet("exampleTimeSeriesInsightsReferenceDataSet",
+            time_series_insights_environment_id=example_time_series_insights_standard_environment.id,
+            location=example_resource_group.location,
+            key_properties=[azure.iot.TimeSeriesInsightsReferenceDataSetKeyPropertyArgs(
+                name="keyProperty1",
+                type="String",
+            )])
+        ```
+
         ## Import
 
         Azure IoT Time Series Insights Reference Data Set can be imported using the `resource id`, e.g.
@@ -317,6 +338,27 @@ class TimeSeriesInsightsReferenceDataSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure IoT Time Series Insights Reference Data Set.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_time_series_insights_standard_environment = azure.iot.TimeSeriesInsightsStandardEnvironment("exampleTimeSeriesInsightsStandardEnvironment",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="S1_1",
+            data_retention_time="P30D")
+        example_time_series_insights_reference_data_set = azure.iot.TimeSeriesInsightsReferenceDataSet("exampleTimeSeriesInsightsReferenceDataSet",
+            time_series_insights_environment_id=example_time_series_insights_standard_environment.id,
+            location=example_resource_group.location,
+            key_properties=[azure.iot.TimeSeriesInsightsReferenceDataSetKeyPropertyArgs(
+                name="keyProperty1",
+                type="String",
+            )])
+        ```
 
         ## Import
 

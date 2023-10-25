@@ -13,12 +13,66 @@ namespace Pulumi.Azure.AadB2C
     {
         /// <summary>
         /// Use this data source to access information about an existing AAD B2C Directory.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.AadB2C.GetDirectory.Invoke(new()
+        ///     {
+        ///         ResourceGroupName = "example-rg",
+        ///         DomainName = "exampleb2ctenant.onmicrosoft.com",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["tenantId"] = example.Apply(getDirectoryResult =&gt; getDirectoryResult.TenantId),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetDirectoryResult> InvokeAsync(GetDirectoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDirectoryResult>("azure:aadb2c/getDirectory:getDirectory", args ?? new GetDirectoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing AAD B2C Directory.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.AadB2C.GetDirectory.Invoke(new()
+        ///     {
+        ///         ResourceGroupName = "example-rg",
+        ///         DomainName = "exampleb2ctenant.onmicrosoft.com",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["tenantId"] = example.Apply(getDirectoryResult =&gt; getDirectoryResult.TenantId),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetDirectoryResult> Invoke(GetDirectoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDirectoryResult>("azure:aadb2c/getDirectory:getDirectory", args ?? new GetDirectoryInvokeArgs(), options.WithDefaults());

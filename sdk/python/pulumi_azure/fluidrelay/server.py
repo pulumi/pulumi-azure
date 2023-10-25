@@ -407,6 +407,18 @@ class Server(pulumi.CustomResource):
         """
         Manages a Fluid Relay Server.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_server = azure.fluidrelay.Server("exampleServer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        ```
+
         ## Import
 
         Fluid Relay Servers can be imported using the `resource id`, e.g.
@@ -432,6 +444,18 @@ class Server(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Fluid Relay Server.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_server = azure.fluidrelay.Server("exampleServer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        ```
 
         ## Import
 

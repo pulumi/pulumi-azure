@@ -15,6 +15,64 @@ import (
 
 // Manages a Policy Assignment to a Resource.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/policy"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleVirtualNetwork, err := network.LookupVirtualNetwork(ctx, &network.LookupVirtualNetworkArgs{
+//				Name:              "production",
+//				ResourceGroupName: "networking",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleDefinition, err := policy.NewDefinition(ctx, "exampleDefinition", &policy.DefinitionArgs{
+//				PolicyType:  pulumi.String("Custom"),
+//				Mode:        pulumi.String("All"),
+//				DisplayName: pulumi.String("my-policy-definition"),
+//				PolicyRule: pulumi.String(` {
+//	    "if": {
+//	      "not": {
+//	        "field": "location",
+//	        "equals": "westeurope"
+//	      }
+//	    },
+//	    "then": {
+//	      "effect": "Deny"
+//	    }
+//	  }
+//
+// `),
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = core.NewResourcePolicyAssignment(ctx, "exampleResourcePolicyAssignment", &core.ResourcePolicyAssignmentArgs{
+//				ResourceId:         *pulumi.String(exampleVirtualNetwork.Id),
+//				PolicyDefinitionId: exampleDefinition.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Resource Policy Assignments can be imported using the `resource id`, e.g.

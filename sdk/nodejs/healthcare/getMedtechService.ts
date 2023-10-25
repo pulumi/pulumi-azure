@@ -8,6 +8,19 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Healthcare Med Tech Service
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.healthcare.getMedtechService({
+ *     name: "tfexmedtech",
+ *     workspaceId: "tfexwks",
+ * });
+ * export const azurermHealthcareMedtechServiceId = example.then(example => example.id);
+ * ```
  */
 export function getMedtechService(args: GetMedtechServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetMedtechServiceResult> {
 
@@ -65,6 +78,19 @@ export interface GetMedtechServiceResult {
 }
 /**
  * Use this data source to access information about an existing Healthcare Med Tech Service
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.healthcare.getMedtechService({
+ *     name: "tfexmedtech",
+ *     workspaceId: "tfexwks",
+ * });
+ * export const azurermHealthcareMedtechServiceId = example.then(example => example.id);
+ * ```
  */
 export function getMedtechServiceOutput(args: GetMedtechServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMedtechServiceResult> {
     return pulumi.output(args).apply((a: any) => getMedtechService(a, opts))

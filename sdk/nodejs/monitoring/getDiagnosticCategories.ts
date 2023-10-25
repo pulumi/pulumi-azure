@@ -6,6 +6,21 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about the Monitor Diagnostics Categories supported by an existing Resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleKeyVault = azure.keyvault.getKeyVault({
+ *     name: azurerm_key_vault.example.name,
+ *     resourceGroupName: azurerm_key_vault.example.resource_group_name,
+ * });
+ * const exampleDiagnosticCategories = exampleKeyVault.then(exampleKeyVault => azure.monitoring.getDiagnosticCategories({
+ *     resourceId: exampleKeyVault.id,
+ * }));
+ * ```
  */
 export function getDiagnosticCategories(args: GetDiagnosticCategoriesArgs, opts?: pulumi.InvokeOptions): Promise<GetDiagnosticCategoriesResult> {
 
@@ -55,6 +70,21 @@ export interface GetDiagnosticCategoriesResult {
 }
 /**
  * Use this data source to access information about the Monitor Diagnostics Categories supported by an existing Resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleKeyVault = azure.keyvault.getKeyVault({
+ *     name: azurerm_key_vault.example.name,
+ *     resourceGroupName: azurerm_key_vault.example.resource_group_name,
+ * });
+ * const exampleDiagnosticCategories = exampleKeyVault.then(exampleKeyVault => azure.monitoring.getDiagnosticCategories({
+ *     resourceId: exampleKeyVault.id,
+ * }));
+ * ```
  */
 export function getDiagnosticCategoriesOutput(args: GetDiagnosticCategoriesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiagnosticCategoriesResult> {
     return pulumi.output(args).apply((a: any) => getDiagnosticCategories(a, opts))

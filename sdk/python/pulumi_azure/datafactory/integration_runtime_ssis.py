@@ -694,6 +694,22 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
         """
         Manages a Data Factory Azure-SSIS Integration Runtime.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_factory = azure.datafactory.Factory("exampleFactory",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_integration_runtime_ssis = azure.datafactory.IntegrationRuntimeSsis("exampleIntegrationRuntimeSsis",
+            data_factory_id=example_factory.id,
+            location=example_resource_group.location,
+            node_size="Standard_D8_v3")
+        ```
+
         ## Import
 
         Data Factory Azure-SSIS Integration Runtimes can be imported using the `resource id`, e.g.
@@ -729,6 +745,22 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Data Factory Azure-SSIS Integration Runtime.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_factory = azure.datafactory.Factory("exampleFactory",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_integration_runtime_ssis = azure.datafactory.IntegrationRuntimeSsis("exampleIntegrationRuntimeSsis",
+            data_factory_id=example_factory.id,
+            location=example_resource_group.location,
+            node_size="Standard_D8_v3")
+        ```
 
         ## Import
 

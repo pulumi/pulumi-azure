@@ -301,6 +301,42 @@ class WorkspaceExtendedAuditingPolicy(pulumi.CustomResource):
         """
         Manages a Synapse Workspace Extended Auditing Policy.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS",
+            account_kind="BlobStorage")
+        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
+        example_workspace = azure.synapse.Workspace("exampleWorkspace",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
+            sql_administrator_login="sqladminuser",
+            sql_administrator_login_password="H@Sh1CoR3!",
+            identity=azure.synapse.WorkspaceIdentityArgs(
+                type="SystemAssigned",
+            ))
+        audit_logs = azure.storage.Account("auditLogs",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_workspace_extended_auditing_policy = azure.synapse.WorkspaceExtendedAuditingPolicy("exampleWorkspaceExtendedAuditingPolicy",
+            synapse_workspace_id=example_workspace.id,
+            storage_endpoint=audit_logs.primary_blob_endpoint,
+            storage_account_access_key=audit_logs.primary_access_key,
+            storage_account_access_key_is_secondary=False,
+            retention_in_days=6)
+        ```
+
         ## Import
 
         Synapse Workspace Extended Auditing Policies can be imported using the `resource id`, e.g.
@@ -326,6 +362,42 @@ class WorkspaceExtendedAuditingPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Synapse Workspace Extended Auditing Policy.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS",
+            account_kind="BlobStorage")
+        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
+        example_workspace = azure.synapse.Workspace("exampleWorkspace",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
+            sql_administrator_login="sqladminuser",
+            sql_administrator_login_password="H@Sh1CoR3!",
+            identity=azure.synapse.WorkspaceIdentityArgs(
+                type="SystemAssigned",
+            ))
+        audit_logs = azure.storage.Account("auditLogs",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_workspace_extended_auditing_policy = azure.synapse.WorkspaceExtendedAuditingPolicy("exampleWorkspaceExtendedAuditingPolicy",
+            synapse_workspace_id=example_workspace.id,
+            storage_endpoint=audit_logs.primary_blob_endpoint,
+            storage_account_access_key=audit_logs.primary_access_key,
+            storage_account_access_key_is_secondary=False,
+            retention_in_days=6)
+        ```
 
         ## Import
 

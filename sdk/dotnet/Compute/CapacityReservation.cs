@@ -12,6 +12,40 @@ namespace Pulumi.Azure.Compute
     /// <summary>
     /// Manages a Capacity Reservation within a Capacity Reservation Group.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleCapacityReservationGroup = new Azure.Compute.CapacityReservationGroup("exampleCapacityReservationGroup", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleCapacityReservation = new Azure.Compute.CapacityReservation("exampleCapacityReservation", new()
+    ///     {
+    ///         CapacityReservationGroupId = exampleCapacityReservationGroup.Id,
+    ///         Sku = new Azure.Compute.Inputs.CapacityReservationSkuArgs
+    ///         {
+    ///             Name = "Standard_D2s_v3",
+    ///             Capacity = 1,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Capacity Reservations can be imported using the `resource id`, e.g.

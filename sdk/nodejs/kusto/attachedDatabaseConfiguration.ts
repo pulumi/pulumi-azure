@@ -9,6 +9,56 @@ import * as utilities from "../utilities";
 /**
  * Manages a Kusto (also known as Azure Data Explorer) Attached Database Configuration
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const followerCluster = new azure.kusto.Cluster("followerCluster", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: {
+ *         name: "Dev(No SLA)_Standard_D11_v2",
+ *         capacity: 1,
+ *     },
+ * });
+ * const followedCluster = new azure.kusto.Cluster("followedCluster", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: {
+ *         name: "Dev(No SLA)_Standard_D11_v2",
+ *         capacity: 1,
+ *     },
+ * });
+ * const followedDatabase = new azure.kusto.Database("followedDatabase", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     clusterName: followerCluster.name,
+ * });
+ * const exampleDatabase = new azure.kusto.Database("exampleDatabase", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     clusterName: followerCluster.name,
+ * });
+ * const exampleAttachedDatabaseConfiguration = new azure.kusto.AttachedDatabaseConfiguration("exampleAttachedDatabaseConfiguration", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     clusterName: followerCluster.name,
+ *     clusterResourceId: followedCluster.id,
+ *     databaseName: exampleDatabase.name,
+ *     sharing: {
+ *         externalTablesToExcludes: ["ExternalTable2"],
+ *         externalTablesToIncludes: ["ExternalTable1"],
+ *         materializedViewsToExcludes: ["MaterializedViewTable2"],
+ *         materializedViewsToIncludes: ["MaterializedViewTable1"],
+ *         tablesToExcludes: ["Table2"],
+ *         tablesToIncludes: ["Table1"],
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Kusto Attached Database Configurations can be imported using the `resource id`, e.g.

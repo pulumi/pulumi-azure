@@ -616,6 +616,35 @@ class ResourcePolicyAssignment(pulumi.CustomResource):
         """
         Manages a Policy Assignment to a Resource.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_virtual_network = azure.network.get_virtual_network(name="production",
+            resource_group_name="networking")
+        example_definition = azure.policy.Definition("exampleDefinition",
+            policy_type="Custom",
+            mode="All",
+            display_name="my-policy-definition",
+            policy_rule=\"\"\" {
+            "if": {
+              "not": {
+                "field": "location",
+                "equals": "westeurope"
+              }
+            },
+            "then": {
+              "effect": "Deny"
+            }
+          }
+        \"\"\")
+        example_resource_policy_assignment = azure.core.ResourcePolicyAssignment("exampleResourcePolicyAssignment",
+            resource_id=example_virtual_network.id,
+            policy_definition_id=example_definition.id)
+        ```
+
         ## Import
 
         Resource Policy Assignments can be imported using the `resource id`, e.g.
@@ -655,6 +684,35 @@ class ResourcePolicyAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Policy Assignment to a Resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_virtual_network = azure.network.get_virtual_network(name="production",
+            resource_group_name="networking")
+        example_definition = azure.policy.Definition("exampleDefinition",
+            policy_type="Custom",
+            mode="All",
+            display_name="my-policy-definition",
+            policy_rule=\"\"\" {
+            "if": {
+              "not": {
+                "field": "location",
+                "equals": "westeurope"
+              }
+            },
+            "then": {
+              "effect": "Deny"
+            }
+          }
+        \"\"\")
+        example_resource_policy_assignment = azure.core.ResourcePolicyAssignment("exampleResourcePolicyAssignment",
+            resource_id=example_virtual_network.id,
+            policy_definition_id=example_definition.id)
+        ```
 
         ## Import
 

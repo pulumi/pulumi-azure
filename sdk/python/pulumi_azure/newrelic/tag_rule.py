@@ -344,6 +344,43 @@ class TagRule(pulumi.CustomResource):
         """
         Manages an Azure Native New Relic Tag Rule.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="East US")
+        example_monitor = azure.newrelic.Monitor("exampleMonitor",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            plan=azure.newrelic.MonitorPlanArgs(
+                effective_date="2023-06-06T00:00:00Z",
+            ),
+            user=azure.newrelic.MonitorUserArgs(
+                email="user@example.com",
+                first_name="Example",
+                last_name="User",
+                phone_number="+12313803556",
+            ))
+        example_tag_rule = azure.newrelic.TagRule("exampleTagRule",
+            monitor_id=example_monitor.id,
+            azure_active_directory_log_enabled=True,
+            activity_log_enabled=True,
+            metric_enabled=True,
+            subscription_log_enabled=True,
+            log_tag_filters=[azure.newrelic.TagRuleLogTagFilterArgs(
+                name="key",
+                action="Include",
+                value="value",
+            )],
+            metric_tag_filters=[azure.newrelic.TagRuleMetricTagFilterArgs(
+                name="key",
+                action="Exclude",
+                value="value",
+            )])
+        ```
+
         ## Import
 
         Azure Native New Relic Tag Rule can be imported using the `resource id`, e.g.
@@ -370,6 +407,43 @@ class TagRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Native New Relic Tag Rule.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="East US")
+        example_monitor = azure.newrelic.Monitor("exampleMonitor",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            plan=azure.newrelic.MonitorPlanArgs(
+                effective_date="2023-06-06T00:00:00Z",
+            ),
+            user=azure.newrelic.MonitorUserArgs(
+                email="user@example.com",
+                first_name="Example",
+                last_name="User",
+                phone_number="+12313803556",
+            ))
+        example_tag_rule = azure.newrelic.TagRule("exampleTagRule",
+            monitor_id=example_monitor.id,
+            azure_active_directory_log_enabled=True,
+            activity_log_enabled=True,
+            metric_enabled=True,
+            subscription_log_enabled=True,
+            log_tag_filters=[azure.newrelic.TagRuleLogTagFilterArgs(
+                name="key",
+                action="Include",
+                value="value",
+            )],
+            metric_tag_filters=[azure.newrelic.TagRuleMetricTagFilterArgs(
+                name="key",
+                action="Exclude",
+                value="value",
+            )])
+        ```
 
         ## Import
 

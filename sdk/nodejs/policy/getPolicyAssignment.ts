@@ -8,6 +8,19 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Policy Assignment.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.policy.getPolicyAssignment({
+ *     name: "existing",
+ *     scopeId: data.azurerm_resource_group.example.id,
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
  */
 export function getPolicyAssignment(args: GetPolicyAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyAssignmentResult> {
 
@@ -85,6 +98,19 @@ export interface GetPolicyAssignmentResult {
 }
 /**
  * Use this data source to access information about an existing Policy Assignment.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.policy.getPolicyAssignment({
+ *     name: "existing",
+ *     scopeId: data.azurerm_resource_group.example.id,
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
  */
 export function getPolicyAssignmentOutput(args: GetPolicyAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getPolicyAssignment(a, opts))

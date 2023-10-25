@@ -9,6 +9,50 @@ import * as utilities from "../utilities";
 /**
  * Manages a Custom Event Trigger inside an Azure Data Factory.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const examplePipeline = new azure.datafactory.Pipeline("examplePipeline", {dataFactoryId: exampleFactory.id});
+ * const exampleTopic = new azure.eventgrid.Topic("exampleTopic", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleTriggerCustomEvent = new azure.datafactory.TriggerCustomEvent("exampleTriggerCustomEvent", {
+ *     dataFactoryId: exampleFactory.id,
+ *     eventgridTopicId: exampleTopic.id,
+ *     events: [
+ *         "event1",
+ *         "event2",
+ *     ],
+ *     subjectBeginsWith: "abc",
+ *     subjectEndsWith: "xyz",
+ *     annotations: [
+ *         "example1",
+ *         "example2",
+ *         "example3",
+ *     ],
+ *     description: "example description",
+ *     pipelines: [{
+ *         name: examplePipeline.name,
+ *         parameters: {
+ *             Env: "Prod",
+ *         },
+ *     }],
+ *     additionalProperties: {
+ *         foo: "foo1",
+ *         bar: "bar2",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Data Factory Custom Event Trigger can be imported using the `resource id`, e.g.

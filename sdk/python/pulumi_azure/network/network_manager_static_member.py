@@ -193,6 +193,37 @@ class NetworkManagerStaticMember(pulumi.CustomResource):
         """
         Manages a Network Manager Static Member.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        current = azure.core.get_subscription()
+        example_network_manager = azure.network.NetworkManager("exampleNetworkManager",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            scope=azure.network.NetworkManagerScopeArgs(
+                subscription_ids=[current.id],
+            ),
+            scope_accesses=[
+                "Connectivity",
+                "SecurityAdmin",
+            ],
+            description="example network manager")
+        example_network_manager_network_group = azure.network.NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup",
+            network_manager_id=example_network_manager.id,
+            description="example network group")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            resource_group_name=example_resource_group.name,
+            address_spaces=["192.168.1.0/24"],
+            location=example_resource_group.location)
+        example_network_manager_static_member = azure.network.NetworkManagerStaticMember("exampleNetworkManagerStaticMember",
+            network_group_id=example_network_manager_network_group.id,
+            target_virtual_network_id=example_virtual_network.id)
+        ```
+
         ## Import
 
         Network Manager Static Member can be imported using the `resource id`, e.g.
@@ -215,6 +246,37 @@ class NetworkManagerStaticMember(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Network Manager Static Member.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        current = azure.core.get_subscription()
+        example_network_manager = azure.network.NetworkManager("exampleNetworkManager",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            scope=azure.network.NetworkManagerScopeArgs(
+                subscription_ids=[current.id],
+            ),
+            scope_accesses=[
+                "Connectivity",
+                "SecurityAdmin",
+            ],
+            description="example network manager")
+        example_network_manager_network_group = azure.network.NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup",
+            network_manager_id=example_network_manager.id,
+            description="example network group")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            resource_group_name=example_resource_group.name,
+            address_spaces=["192.168.1.0/24"],
+            location=example_resource_group.location)
+        example_network_manager_static_member = azure.network.NetworkManagerStaticMember("exampleNetworkManagerStaticMember",
+            network_group_id=example_network_manager_network_group.id,
+            target_virtual_network_id=example_virtual_network.id)
+        ```
 
         ## Import
 

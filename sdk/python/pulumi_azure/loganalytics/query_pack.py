@@ -207,6 +207,18 @@ class QueryPack(pulumi.CustomResource):
         """
         Manages a Log Analytics Query Pack.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_query_pack = azure.loganalytics.QueryPack("exampleQueryPack",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        ```
+
         ## Import
 
         Log Analytics Query Packs can be imported using the `resource id`, e.g.
@@ -230,6 +242,18 @@ class QueryPack(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Log Analytics Query Pack.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_query_pack = azure.loganalytics.QueryPack("exampleQueryPack",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        ```
 
         ## Import
 

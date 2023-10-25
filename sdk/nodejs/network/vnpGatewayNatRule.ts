@@ -9,6 +9,40 @@ import * as utilities from "../utilities";
 /**
  * Manages a VPN Gateway NAT Rule.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleVirtualWan = new azure.network.VirtualWan("exampleVirtualWan", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ * });
+ * const exampleVirtualHub = new azure.network.VirtualHub("exampleVirtualHub", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     addressPrefix: "10.0.1.0/24",
+ *     virtualWanId: exampleVirtualWan.id,
+ * });
+ * const exampleVpnGateway = new azure.network.VpnGateway("exampleVpnGateway", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualHubId: exampleVirtualHub.id,
+ * });
+ * const exampleVnpGatewayNatRule = new azure.network.VnpGatewayNatRule("exampleVnpGatewayNatRule", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     vpnGatewayId: exampleVpnGateway.id,
+ *     externalMappings: [{
+ *         addressSpace: "192.168.21.0/26",
+ *     }],
+ *     internalMappings: [{
+ *         addressSpace: "10.4.0.0/26",
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * VPN Gateway NAT Rules can be imported using the `resource id`, e.g.

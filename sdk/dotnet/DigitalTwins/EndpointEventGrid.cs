@@ -12,6 +12,44 @@ namespace Pulumi.Azure.DigitalTwins
     /// <summary>
     /// Manages a Digital Twins Event Grid Endpoint.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleInstance = new Azure.DigitalTwins.Instance("exampleInstance", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleTopic = new Azure.EventGrid.Topic("exampleTopic", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleEndpointEventGrid = new Azure.DigitalTwins.EndpointEventGrid("exampleEndpointEventGrid", new()
+    ///     {
+    ///         DigitalTwinsId = exampleInstance.Id,
+    ///         EventgridTopicEndpoint = exampleTopic.Endpoint,
+    ///         EventgridTopicPrimaryAccessKey = exampleTopic.PrimaryAccessKey,
+    ///         EventgridTopicSecondaryAccessKey = exampleTopic.SecondaryAccessKey,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Digital Twins Eventgrid Endpoints can be imported using the `resource id`, e.g.

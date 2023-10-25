@@ -358,6 +358,52 @@ class AlertProcessingRuleSuppression(pulumi.CustomResource):
         """
         Manages an Alert Processing Rule which suppress notifications.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_alert_processing_rule_suppression = azure.monitoring.AlertProcessingRuleSuppression("exampleAlertProcessingRuleSuppression",
+            resource_group_name="example",
+            scopes=[example_resource_group.id],
+            condition=azure.monitoring.AlertProcessingRuleSuppressionConditionArgs(
+                target_resource_type=azure.monitoring.AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs(
+                    operator="Equals",
+                    values=["Microsoft.Compute/VirtualMachines"],
+                ),
+                severity=azure.monitoring.AlertProcessingRuleSuppressionConditionSeverityArgs(
+                    operator="Equals",
+                    values=[
+                        "Sev0",
+                        "Sev1",
+                        "Sev2",
+                    ],
+                ),
+            ),
+            schedule=azure.monitoring.AlertProcessingRuleSuppressionScheduleArgs(
+                effective_from="2022-01-01T01:02:03",
+                effective_until="2022-02-02T01:02:03",
+                time_zone="Pacific Standard Time",
+                recurrence=azure.monitoring.AlertProcessingRuleSuppressionScheduleRecurrenceArgs(
+                    dailies=[azure.monitoring.AlertProcessingRuleSuppressionScheduleRecurrenceDailyArgs(
+                        start_time="17:00:00",
+                        end_time="09:00:00",
+                    )],
+                    weeklies=[azure.monitoring.AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs(
+                        days_of_weeks=[
+                            "Saturday",
+                            "Sunday",
+                        ],
+                    )],
+                ),
+            ),
+            tags={
+                "foo": "bar",
+            })
+        ```
+
         ## Import
 
         Alert Processing Rules can be imported using the `resource id`, e.g.
@@ -385,6 +431,52 @@ class AlertProcessingRuleSuppression(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Alert Processing Rule which suppress notifications.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_alert_processing_rule_suppression = azure.monitoring.AlertProcessingRuleSuppression("exampleAlertProcessingRuleSuppression",
+            resource_group_name="example",
+            scopes=[example_resource_group.id],
+            condition=azure.monitoring.AlertProcessingRuleSuppressionConditionArgs(
+                target_resource_type=azure.monitoring.AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs(
+                    operator="Equals",
+                    values=["Microsoft.Compute/VirtualMachines"],
+                ),
+                severity=azure.monitoring.AlertProcessingRuleSuppressionConditionSeverityArgs(
+                    operator="Equals",
+                    values=[
+                        "Sev0",
+                        "Sev1",
+                        "Sev2",
+                    ],
+                ),
+            ),
+            schedule=azure.monitoring.AlertProcessingRuleSuppressionScheduleArgs(
+                effective_from="2022-01-01T01:02:03",
+                effective_until="2022-02-02T01:02:03",
+                time_zone="Pacific Standard Time",
+                recurrence=azure.monitoring.AlertProcessingRuleSuppressionScheduleRecurrenceArgs(
+                    dailies=[azure.monitoring.AlertProcessingRuleSuppressionScheduleRecurrenceDailyArgs(
+                        start_time="17:00:00",
+                        end_time="09:00:00",
+                    )],
+                    weeklies=[azure.monitoring.AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs(
+                        days_of_weeks=[
+                            "Saturday",
+                            "Sunday",
+                        ],
+                    )],
+                ),
+            ),
+            tags={
+                "foo": "bar",
+            })
+        ```
 
         ## Import
 

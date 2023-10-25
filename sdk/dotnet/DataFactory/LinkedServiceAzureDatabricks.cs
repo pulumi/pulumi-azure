@@ -13,6 +13,120 @@ namespace Pulumi.Azure.DataFactory
     /// Manages a Linked Service (connection) between Azure Databricks and Azure Data Factory.
     /// 
     /// ## Example Usage
+    /// ### With Managed Identity &amp; New Cluster
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "East US",
+    ///     });
+    /// 
+    ///     //Create a Linked Service using managed identity and new cluster config
+    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Identity = new Azure.DataFactory.Inputs.FactoryIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     //Create a databricks instance
+    ///     var exampleWorkspace = new Azure.DataBricks.Workspace("exampleWorkspace", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Sku = "standard",
+    ///     });
+    /// 
+    ///     var msiLinked = new Azure.DataFactory.LinkedServiceAzureDatabricks("msiLinked", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         Description = "ADB Linked Service via MSI",
+    ///         AdbDomain = exampleWorkspace.WorkspaceUrl.Apply(workspaceUrl =&gt; $"https://{workspaceUrl}"),
+    ///         MsiWorkSpaceResourceId = exampleWorkspace.Id,
+    ///         NewClusterConfig = new Azure.DataFactory.Inputs.LinkedServiceAzureDatabricksNewClusterConfigArgs
+    ///         {
+    ///             NodeType = "Standard_NC12",
+    ///             ClusterVersion = "5.5.x-gpu-scala2.11",
+    ///             MinNumberOfWorkers = 1,
+    ///             MaxNumberOfWorkers = 5,
+    ///             DriverNodeType = "Standard_NC12",
+    ///             LogDestination = "dbfs:/logs",
+    ///             CustomTags = 
+    ///             {
+    ///                 { "custom_tag1", "sct_value_1" },
+    ///                 { "custom_tag2", "sct_value_2" },
+    ///             },
+    ///             SparkConfig = 
+    ///             {
+    ///                 { "config1", "value1" },
+    ///                 { "config2", "value2" },
+    ///             },
+    ///             SparkEnvironmentVariables = 
+    ///             {
+    ///                 { "envVar1", "value1" },
+    ///                 { "envVar2", "value2" },
+    ///             },
+    ///             InitScripts = new[]
+    ///             {
+    ///                 "init.sh",
+    ///                 "init2.sh",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### With Access Token &amp; Existing Cluster
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "East US",
+    ///     });
+    /// 
+    ///     //Link to an existing cluster via access token
+    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     //Create a databricks instance
+    ///     var exampleWorkspace = new Azure.DataBricks.Workspace("exampleWorkspace", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Sku = "standard",
+    ///     });
+    /// 
+    ///     var atLinked = new Azure.DataFactory.LinkedServiceAzureDatabricks("atLinked", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         Description = "ADB Linked Service via Access Token",
+    ///         ExistingClusterId = "0308-201146-sly615",
+    ///         AccessToken = "SomeDatabricksAccessToken",
+    ///         AdbDomain = exampleWorkspace.WorkspaceUrl.Apply(workspaceUrl =&gt; $"https://{workspaceUrl}"),
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

@@ -9,6 +9,26 @@ import * as utilities from "../utilities";
 /**
  * Manages a Trigger Schedule inside a Azure Data Factory.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const examplePipeline = new azure.datafactory.Pipeline("examplePipeline", {dataFactoryId: exampleFactory.id});
+ * const exampleTriggerSchedule = new azure.datafactory.TriggerSchedule("exampleTriggerSchedule", {
+ *     dataFactoryId: exampleFactory.id,
+ *     pipelineName: examplePipeline.name,
+ *     interval: 5,
+ *     frequency: "Day",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Data Factory Schedule Trigger can be imported using the `resource id`, e.g.

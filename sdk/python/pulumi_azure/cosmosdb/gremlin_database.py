@@ -271,6 +271,20 @@ class GremlinDatabase(pulumi.CustomResource):
         """
         Manages a Gremlin Database within a Cosmos DB Account.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_account = azure.cosmosdb.get_account(name="tfex-cosmosdb-account",
+            resource_group_name="tfex-cosmosdb-account-rg")
+        example_gremlin_database = azure.cosmosdb.GremlinDatabase("exampleGremlinDatabase",
+            resource_group_name=example_account.resource_group_name,
+            account_name=example_account.name,
+            throughput=400)
+        ```
+
         ## Import
 
         CosmosDB Gremlin Databases can be imported using the `resource id`, e.g.
@@ -299,6 +313,20 @@ class GremlinDatabase(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Gremlin Database within a Cosmos DB Account.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_account = azure.cosmosdb.get_account(name="tfex-cosmosdb-account",
+            resource_group_name="tfex-cosmosdb-account-rg")
+        example_gremlin_database = azure.cosmosdb.GremlinDatabase("exampleGremlinDatabase",
+            resource_group_name=example_account.resource_group_name,
+            account_name=example_account.name,
+            throughput=400)
+        ```
 
         ## Import
 

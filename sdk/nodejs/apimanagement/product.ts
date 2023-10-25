@@ -7,6 +7,31 @@ import * as utilities from "../utilities";
 /**
  * Manages an API Management Product.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleService = new azure.apimanagement.Service("exampleService", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     publisherName: "My Company",
+ *     publisherEmail: "company@exmaple.com",
+ *     skuName: "Developer_1",
+ * });
+ * const exampleProduct = new azure.apimanagement.Product("exampleProduct", {
+ *     productId: "test-product",
+ *     apiManagementName: exampleService.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     displayName: "Test Product",
+ *     subscriptionRequired: true,
+ *     approvalRequired: true,
+ *     published: true,
+ * });
+ * ```
+ *
  * ## Import
  *
  * API Management Products can be imported using the `resource id`, e.g.

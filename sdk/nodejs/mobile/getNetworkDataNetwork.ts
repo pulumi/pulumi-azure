@@ -6,6 +6,22 @@ import * as utilities from "../utilities";
 
 /**
  * Get information about a Mobile Network Data Network.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleNetwork = azure.mobile.getNetwork({
+ *     name: "example-mn",
+ *     resourceGroupName: "example-rg",
+ * });
+ * const exampleNetworkDataNetwork = exampleNetwork.then(exampleNetwork => azure.mobile.getNetworkDataNetwork({
+ *     name: "example-mndn",
+ *     mobileNetworkId: exampleNetwork.id,
+ * }));
+ * ```
  */
 export function getNetworkDataNetwork(args: GetNetworkDataNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkDataNetworkResult> {
 
@@ -55,6 +71,22 @@ export interface GetNetworkDataNetworkResult {
 }
 /**
  * Get information about a Mobile Network Data Network.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleNetwork = azure.mobile.getNetwork({
+ *     name: "example-mn",
+ *     resourceGroupName: "example-rg",
+ * });
+ * const exampleNetworkDataNetwork = exampleNetwork.then(exampleNetwork => azure.mobile.getNetworkDataNetwork({
+ *     name: "example-mndn",
+ *     mobileNetworkId: exampleNetwork.id,
+ * }));
+ * ```
  */
 export function getNetworkDataNetworkOutput(args: GetNetworkDataNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkDataNetworkResult> {
     return pulumi.output(args).apply((a: any) => getNetworkDataNetwork(a, opts))

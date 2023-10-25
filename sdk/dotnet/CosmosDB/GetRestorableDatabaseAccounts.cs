@@ -13,12 +13,66 @@ namespace Pulumi.Azure.CosmosDB
     {
         /// <summary>
         /// Use this data source to access information about Cosmos DB Restorable Database Accounts.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.CosmosDB.GetRestorableDatabaseAccounts.Invoke(new()
+        ///     {
+        ///         Name = "example-ca",
+        ///         Location = "West Europe",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getRestorableDatabaseAccountsResult =&gt; getRestorableDatabaseAccountsResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetRestorableDatabaseAccountsResult> InvokeAsync(GetRestorableDatabaseAccountsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRestorableDatabaseAccountsResult>("azure:cosmosdb/getRestorableDatabaseAccounts:getRestorableDatabaseAccounts", args ?? new GetRestorableDatabaseAccountsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about Cosmos DB Restorable Database Accounts.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.CosmosDB.GetRestorableDatabaseAccounts.Invoke(new()
+        ///     {
+        ///         Name = "example-ca",
+        ///         Location = "West Europe",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getRestorableDatabaseAccountsResult =&gt; getRestorableDatabaseAccountsResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetRestorableDatabaseAccountsResult> Invoke(GetRestorableDatabaseAccountsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRestorableDatabaseAccountsResult>("azure:cosmosdb/getRestorableDatabaseAccounts:getRestorableDatabaseAccounts", args ?? new GetRestorableDatabaseAccountsInvokeArgs(), options.WithDefaults());

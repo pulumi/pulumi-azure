@@ -13,6 +13,35 @@ import * as utilities from "../utilities";
  * provides both a standalone Subnet resource, and allows for Subnets to be defined in-line within the Virtual Network resource.
  * At this time you cannot use a Virtual Network with in-line Subnets in conjunction with any Subnet resources. Doing so will cause a conflict of Subnet configurations and will overwrite Subnets.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.1.0/24"],
+ *     delegations: [{
+ *         name: "delegation",
+ *         serviceDelegation: {
+ *             name: "Microsoft.ContainerInstance/containerGroups",
+ *             actions: [
+ *                 "Microsoft.Network/virtualNetworks/subnets/join/action",
+ *                 "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
+ *             ],
+ *         },
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Subnets can be imported using the `resource id`, e.g.

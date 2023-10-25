@@ -14,6 +14,57 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     /// &gt; **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "E0",
+    ///     });
+    /// 
+    ///     var exampleSpringCloudConfigurationService = new Azure.AppPlatform.SpringCloudConfigurationService("exampleSpringCloudConfigurationService", new()
+    ///     {
+    ///         SpringCloudServiceId = exampleSpringCloudService.Id,
+    ///         Repositories = new[]
+    ///         {
+    ///             new Azure.AppPlatform.Inputs.SpringCloudConfigurationServiceRepositoryArgs
+    ///             {
+    ///                 Name = "fake",
+    ///                 Label = "master",
+    ///                 Patterns = new[]
+    ///                 {
+    ///                     "app/dev",
+    ///                 },
+    ///                 Uri = "https://github.com/Azure-Samples/piggymetrics",
+    ///                 SearchPaths = new[]
+    ///                 {
+    ///                     "dir1",
+    ///                     "dir2",
+    ///                 },
+    ///                 StrictHostKeyChecking = false,
+    ///                 Username = "adminuser",
+    ///                 Password = "H@Sh1CoR3!",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Spring Cloud Configuration Services can be imported using the `resource id`, e.g.

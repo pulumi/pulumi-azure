@@ -12,6 +12,96 @@ namespace Pulumi.Azure.NetApp
     /// <summary>
     /// Manages a NetApp Snapshot.
     /// 
+    /// ## NetApp Snapshot Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
+    ///         },
+    ///         Delegations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.SubnetDelegationArgs
+    ///             {
+    ///                 Name = "netapp",
+    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                 {
+    ///                     Name = "Microsoft.Netapp/volumes",
+    ///                     Actions = new[]
+    ///                     {
+    ///                         "Microsoft.Network/networkinterfaces/*",
+    ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.NetApp.Account("exampleAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var examplePool = new Azure.NetApp.Pool("examplePool", new()
+    ///     {
+    ///         AccountName = exampleAccount.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ServiceLevel = "Premium",
+    ///         SizeInTb = 4,
+    ///     });
+    /// 
+    ///     var exampleVolume = new Azure.NetApp.Volume("exampleVolume", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AccountName = exampleAccount.Name,
+    ///         PoolName = examplePool.Name,
+    ///         VolumePath = "my-unique-file-path",
+    ///         ServiceLevel = "Premium",
+    ///         SubnetId = exampleSubnet.Id,
+    ///         StorageQuotaInGb = 100,
+    ///     });
+    /// 
+    ///     var exampleSnapshot = new Azure.NetApp.Snapshot("exampleSnapshot", new()
+    ///     {
+    ///         AccountName = exampleAccount.Name,
+    ///         PoolName = examplePool.Name,
+    ///         VolumeName = exampleVolume.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// NetApp Snapshot can be imported using the `resource id`, e.g.

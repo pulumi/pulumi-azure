@@ -258,6 +258,28 @@ class Certificate(pulumi.CustomResource):
         """
         Manages an IotHub Certificate.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import base64
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku=azure.iot.IoTHubSkuArgs(
+                name="B1",
+                capacity=1,
+            ))
+        example_certificate = azure.iot.Certificate("exampleCertificate",
+            resource_group_name=example_resource_group.name,
+            iothub_name=example_io_t_hub.name,
+            is_verified=True,
+            certificate_content=(lambda path: base64.b64encode(open(path).read().encode()).decode())("example.cer"))
+        ```
+
         ## Import
 
         IoTHub Certificates can be imported using the `resource id`, e.g.
@@ -282,6 +304,28 @@ class Certificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an IotHub Certificate.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import base64
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku=azure.iot.IoTHubSkuArgs(
+                name="B1",
+                capacity=1,
+            ))
+        example_certificate = azure.iot.Certificate("exampleCertificate",
+            resource_group_name=example_resource_group.name,
+            iothub_name=example_io_t_hub.name,
+            is_verified=True,
+            certificate_content=(lambda path: base64.b64encode(open(path).read().encode()).decode())("example.cer"))
+        ```
 
         ## Import
 

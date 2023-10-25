@@ -733,6 +733,50 @@ class NetworkPacketCoreControlPlane(pulumi.CustomResource):
         """
         Manages a Mobile Network Packet Core Control Plane.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_network = azure.mobile.Network("exampleNetwork",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            mobile_country_code="001",
+            mobile_network_code="01")
+        example_network_site = azure.mobile.NetworkSite("exampleNetworkSite",
+            mobile_network_id=azurerm_mobile_network["test"]["id"],
+            location=example_resource_group.location)
+        example_device = azure.databoxedge.Device("exampleDevice",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku_name="EdgeP_Base-Standard")
+        example_network_packet_core_control_plane = azure.mobile.NetworkPacketCoreControlPlane("exampleNetworkPacketCoreControlPlane",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku="G0",
+            control_plane_access_name="default-interface",
+            control_plane_access_ipv4_address="192.168.1.199",
+            control_plane_access_ipv4_gateway="192.168.1.1",
+            control_plane_access_ipv4_subnet="192.168.1.0/25",
+            site_ids=[example_network_site.id],
+            local_diagnostics_access=azure.mobile.NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs(
+                authentication_type="AAD",
+            ),
+            platform=azure.mobile.NetworkPacketCoreControlPlanePlatformArgs(
+                type="AKS-HCI",
+                edge_device_id=example_device.id,
+            ),
+            interoperability_settings_json=json.dumps({
+                "key": "value",
+            }),
+            tags={
+                "key": "value",
+            })
+        ```
+
         ## Import
 
         Mobile Network Packet Core Control Plane can be imported using the `resource id`, e.g.
@@ -769,6 +813,50 @@ class NetworkPacketCoreControlPlane(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Mobile Network Packet Core Control Plane.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_network = azure.mobile.Network("exampleNetwork",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            mobile_country_code="001",
+            mobile_network_code="01")
+        example_network_site = azure.mobile.NetworkSite("exampleNetworkSite",
+            mobile_network_id=azurerm_mobile_network["test"]["id"],
+            location=example_resource_group.location)
+        example_device = azure.databoxedge.Device("exampleDevice",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku_name="EdgeP_Base-Standard")
+        example_network_packet_core_control_plane = azure.mobile.NetworkPacketCoreControlPlane("exampleNetworkPacketCoreControlPlane",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku="G0",
+            control_plane_access_name="default-interface",
+            control_plane_access_ipv4_address="192.168.1.199",
+            control_plane_access_ipv4_gateway="192.168.1.1",
+            control_plane_access_ipv4_subnet="192.168.1.0/25",
+            site_ids=[example_network_site.id],
+            local_diagnostics_access=azure.mobile.NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs(
+                authentication_type="AAD",
+            ),
+            platform=azure.mobile.NetworkPacketCoreControlPlanePlatformArgs(
+                type="AKS-HCI",
+                edge_device_id=example_device.id,
+            ),
+            interoperability_settings_json=json.dumps({
+                "key": "value",
+            }),
+            tags={
+                "key": "value",
+            })
+        ```
 
         ## Import
 

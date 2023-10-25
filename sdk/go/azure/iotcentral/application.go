@@ -15,6 +15,47 @@ import (
 
 // Manages an IoT Central Application
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iotcentral"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iotcentral.NewApplication(ctx, "exampleApplication", &iotcentral.ApplicationArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				SubDomain:         pulumi.String("example-iotcentral-app-subdomain"),
+//				DisplayName:       pulumi.String("example-iotcentral-app-display-name"),
+//				Sku:               pulumi.String("ST1"),
+//				Template:          pulumi.String("iotc-default@1.0.0"),
+//				Tags: pulumi.StringMap{
+//					"Foo": pulumi.String("Bar"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // The IoT Central Application can be imported using the `resource id`, e.g.

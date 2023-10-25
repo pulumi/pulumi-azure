@@ -12,6 +12,71 @@ namespace Pulumi.Azure.DataProtection
     /// <summary>
     /// Manages a Backup Instance Blob Storage.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleBackupVault = new Azure.DataProtection.BackupVault("exampleBackupVault", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         DatastoreType = "VaultStore",
+    ///         Redundancy = "LocallyRedundant",
+    ///         Identity = new Azure.DataProtection.Inputs.BackupVaultIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAssignment = new Azure.Authorization.Assignment("exampleAssignment", new()
+    ///     {
+    ///         Scope = exampleAccount.Id,
+    ///         RoleDefinitionName = "Storage Account Backup Contributor",
+    ///         PrincipalId = exampleBackupVault.Identity.Apply(identity =&gt; identity?.PrincipalId),
+    ///     });
+    /// 
+    ///     var exampleBackupPolicyBlobStorage = new Azure.DataProtection.BackupPolicyBlobStorage("exampleBackupPolicyBlobStorage", new()
+    ///     {
+    ///         VaultId = exampleBackupVault.Id,
+    ///         RetentionDuration = "P30D",
+    ///     });
+    /// 
+    ///     var exampleBackupInstanceBlogStorage = new Azure.DataProtection.BackupInstanceBlogStorage("exampleBackupInstanceBlogStorage", new()
+    ///     {
+    ///         VaultId = exampleBackupVault.Id,
+    ///         Location = exampleResourceGroup.Location,
+    ///         StorageAccountId = exampleAccount.Id,
+    ///         BackupPolicyId = exampleBackupPolicyBlobStorage.Id,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleAssignment,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Backup Instance Blob Storages can be imported using the `resource id`, e.g.

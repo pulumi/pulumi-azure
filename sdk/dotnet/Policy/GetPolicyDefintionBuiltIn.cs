@@ -13,12 +13,64 @@ namespace Pulumi.Azure.Policy
     {
         /// <summary>
         /// Use this data source to access information about a Built-In Policy Definition. Retrieves Policy Definitions from your current subscription by default.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Policy.GetPolicyDefintionBuiltIn.Invoke(new()
+        ///     {
+        ///         DisplayName = "Allowed resource types",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getPolicyDefintionBuiltInResult =&gt; getPolicyDefintionBuiltInResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetPolicyDefintionBuiltInResult> InvokeAsync(GetPolicyDefintionBuiltInArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyDefintionBuiltInResult>("azure:policy/getPolicyDefintionBuiltIn:getPolicyDefintionBuiltIn", args ?? new GetPolicyDefintionBuiltInArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about a Built-In Policy Definition. Retrieves Policy Definitions from your current subscription by default.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Policy.GetPolicyDefintionBuiltIn.Invoke(new()
+        ///     {
+        ///         DisplayName = "Allowed resource types",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getPolicyDefintionBuiltInResult =&gt; getPolicyDefintionBuiltInResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetPolicyDefintionBuiltInResult> Invoke(GetPolicyDefintionBuiltInInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyDefintionBuiltInResult>("azure:policy/getPolicyDefintionBuiltIn:getPolicyDefintionBuiltIn", args ?? new GetPolicyDefintionBuiltInInvokeArgs(), options.WithDefaults());

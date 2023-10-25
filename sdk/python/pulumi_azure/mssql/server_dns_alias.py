@@ -153,6 +153,22 @@ class ServerDnsAlias(pulumi.CustomResource):
         """
         Manages a MS SQL Server DNS Alias.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_server = azure.mssql.Server("exampleServer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            version="12.0",
+            administrator_login="missadministrator",
+            administrator_login_password="AdminPassword123!")
+        example_server_dns_alias = azure.mssql.ServerDnsAlias("exampleServerDnsAlias", mssql_server_id=example_server.id)
+        ```
+
         ## Import
 
         MSSQL Server DNS Aliass can be imported using the `resource id`, e.g.
@@ -174,6 +190,22 @@ class ServerDnsAlias(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a MS SQL Server DNS Alias.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_server = azure.mssql.Server("exampleServer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            version="12.0",
+            administrator_login="missadministrator",
+            administrator_login_password="AdminPassword123!")
+        example_server_dns_alias = azure.mssql.ServerDnsAlias("exampleServerDnsAlias", mssql_server_id=example_server.id)
+        ```
 
         ## Import
 

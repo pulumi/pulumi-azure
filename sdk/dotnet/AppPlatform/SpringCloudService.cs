@@ -12,6 +12,57 @@ namespace Pulumi.Azure.AppPlatform
     /// <summary>
     /// Manages an Azure Spring Cloud Service.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApplicationType = "web",
+    ///     });
+    /// 
+    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         SkuName = "S0",
+    ///         ConfigServerGitSetting = new Azure.AppPlatform.Inputs.SpringCloudServiceConfigServerGitSettingArgs
+    ///         {
+    ///             Uri = "https://github.com/Azure-Samples/piggymetrics",
+    ///             Label = "config",
+    ///             SearchPaths = new[]
+    ///             {
+    ///                 "dir1",
+    ///                 "dir2",
+    ///             },
+    ///         },
+    ///         Trace = new Azure.AppPlatform.Inputs.SpringCloudServiceTraceArgs
+    ///         {
+    ///             ConnectionString = exampleInsights.ConnectionString,
+    ///             SampleRate = 10,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Env", "staging" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Spring Cloud services can be imported using the `resource id`, e.g.

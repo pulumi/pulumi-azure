@@ -7,6 +7,25 @@ import * as utilities from "../utilities";
 /**
  * Enables you to manage DNS AAAA Records within Azure Private DNS.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
+ * const testZone = new azure.privatedns.Zone("testZone", {resourceGroupName: example.name});
+ * const testAAAARecord = new azure.privatedns.AAAARecord("testAAAARecord", {
+ *     zoneName: testZone.name,
+ *     resourceGroupName: example.name,
+ *     ttl: 300,
+ *     records: [
+ *         "fd5d:70bc:930e:d008:0000:0000:0000:7334",
+ *         "fd5d:70bc:930e:d008::7335",
+ *     ],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Private DNS AAAA Records can be imported using the `resource id`, e.g.

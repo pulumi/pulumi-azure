@@ -9,6 +9,56 @@ import * as utilities from "../utilities";
 /**
  * Manages a Mobile Network Sim.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleNetwork = new azure.mobile.Network("exampleNetwork", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     mobileCountryCode: "001",
+ *     mobileNetworkCode: "01",
+ * });
+ * const exampleNetworkSimGroup = new azure.mobile.NetworkSimGroup("exampleNetworkSimGroup", {
+ *     location: exampleResourceGroup.location,
+ *     mobileNetworkId: exampleNetwork.id,
+ * });
+ * const exampleNetworkSlice = new azure.mobile.NetworkSlice("exampleNetworkSlice", {
+ *     mobileNetworkId: exampleNetwork.id,
+ *     location: exampleResourceGroup.location,
+ *     singleNetworkSliceSelectionAssistanceInformation: {
+ *         sliceServiceType: 1,
+ *     },
+ * });
+ * const exampleNetworkAttachedDataNetwork = new azure.mobile.NetworkAttachedDataNetwork("exampleNetworkAttachedDataNetwork", {
+ *     mobileNetworkDataNetworkName: azurerm_mobile_network_data_network.example.name,
+ *     mobileNetworkPacketCoreDataPlaneId: azurerm_mobile_network_packet_core_data_plane.example.id,
+ *     location: exampleResourceGroup.location,
+ *     dnsAddresses: ["1.1.1.1"],
+ *     userEquipmentAddressPoolPrefixes: ["2.4.0.0/24"],
+ *     userEquipmentStaticAddressPoolPrefixes: ["2.4.1.0/24"],
+ *     userPlaneAccessName: "test",
+ *     userPlaneAccessIpv4Address: "10.204.141.4",
+ *     userPlaneAccessIpv4Gateway: "10.204.141.1",
+ *     userPlaneAccessIpv4Subnet: "10.204.141.0/24",
+ * });
+ * const exampleNetworkSim = new azure.mobile.NetworkSim("exampleNetworkSim", {
+ *     mobileNetworkSimGroupId: exampleNetworkSimGroup.id,
+ *     authenticationKey: "00000000000000000000000000000000",
+ *     integratedCircuitCardIdentifier: "8900000000000000000",
+ *     internationalMobileSubscriberIdentity: "000000000000000",
+ *     operatorKeyCode: "00000000000000000000000000000000",
+ *     staticIpConfigurations: [{
+ *         attachedDataNetworkId: data.azurerm_mobile_network_attached_data_network.test.id,
+ *         sliceId: azurerm_mobile_network_slice.test.id,
+ *         staticIpv4Address: "2.4.0.1",
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Mobile Network Sim can be imported using the `resource id`, e.g.

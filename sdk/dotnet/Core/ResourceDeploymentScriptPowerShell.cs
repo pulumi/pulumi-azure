@@ -12,6 +12,60 @@ namespace Pulumi.Azure.Core
     /// <summary>
     /// Manages a Resource Deployment Script of Azure PowerShell.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("exampleUserAssignedIdentity", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleResourceDeploymentScriptPowerShell = new Azure.Core.ResourceDeploymentScriptPowerShell("exampleResourceDeploymentScriptPowerShell", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = "West Europe",
+    ///         Version = "8.3",
+    ///         RetentionInterval = "P1D",
+    ///         CommandLine = "-name \"John Dole\"",
+    ///         CleanupPreference = "OnSuccess",
+    ///         ForceUpdateTag = "1",
+    ///         Timeout = "PT30M",
+    ///         ScriptContent = @"          param([string] $name)
+    ///             $output = 'Hello {0}.' -f $name
+    ///             Write-Output $output
+    ///             $DeploymentScriptOutputs = @{}
+    ///             $DeploymentScriptOutputs['text'] = $output
+    /// ",
+    ///         Identity = new Azure.Core.Inputs.ResourceDeploymentScriptPowerShellIdentityArgs
+    ///         {
+    ///             Type = "UserAssigned",
+    ///             IdentityIds = new[]
+    ///             {
+    ///                 exampleUserAssignedIdentity.Id,
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key", "value" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Resource Deployment Script can be imported using the `resource id`, e.g.

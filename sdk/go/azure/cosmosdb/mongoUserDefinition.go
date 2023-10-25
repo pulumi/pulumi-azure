@@ -15,6 +15,74 @@ import (
 
 // Manages a Cosmos DB Mongo User Definition.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := cosmosdb.NewAccount(ctx, "exampleAccount", &cosmosdb.AccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				OfferType:         pulumi.String("Standard"),
+//				Kind:              pulumi.String("MongoDB"),
+//				Capabilities: cosmosdb.AccountCapabilityArray{
+//					&cosmosdb.AccountCapabilityArgs{
+//						Name: pulumi.String("EnableMongo"),
+//					},
+//					&cosmosdb.AccountCapabilityArgs{
+//						Name: pulumi.String("EnableMongoRoleBasedAccessControl"),
+//					},
+//				},
+//				ConsistencyPolicy: &cosmosdb.AccountConsistencyPolicyArgs{
+//					ConsistencyLevel: pulumi.String("Strong"),
+//				},
+//				GeoLocations: cosmosdb.AccountGeoLocationArray{
+//					&cosmosdb.AccountGeoLocationArgs{
+//						Location:         exampleResourceGroup.Location,
+//						FailoverPriority: pulumi.Int(0),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleMongoDatabase, err := cosmosdb.NewMongoDatabase(ctx, "exampleMongoDatabase", &cosmosdb.MongoDatabaseArgs{
+//				ResourceGroupName: exampleAccount.ResourceGroupName,
+//				AccountName:       exampleAccount.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cosmosdb.NewMongoUserDefinition(ctx, "exampleMongoUserDefinition", &cosmosdb.MongoUserDefinitionArgs{
+//				CosmosMongoDatabaseId: exampleMongoDatabase.ID(),
+//				Username:              pulumi.String("myUserName"),
+//				Password:              pulumi.String("myPassword"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Cosmos DB Mongo User Definitions can be imported using the `resource id`, e.g.

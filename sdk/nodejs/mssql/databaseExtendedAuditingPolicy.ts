@@ -7,6 +7,36 @@ import * as utilities from "../utilities";
 /**
  * Manages a MS SQL Database Extended Auditing Policy.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleServer = new azure.mssql.Server("exampleServer", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     version: "12.0",
+ *     administratorLogin: "missadministrator",
+ *     administratorLoginPassword: "AdminPassword123!",
+ * });
+ * const exampleDatabase = new azure.mssql.Database("exampleDatabase", {serverId: exampleServer.id});
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ * });
+ * const exampleDatabaseExtendedAuditingPolicy = new azure.mssql.DatabaseExtendedAuditingPolicy("exampleDatabaseExtendedAuditingPolicy", {
+ *     databaseId: exampleDatabase.id,
+ *     storageEndpoint: exampleAccount.primaryBlobEndpoint,
+ *     storageAccountAccessKey: exampleAccount.primaryAccessKey,
+ *     storageAccountAccessKeyIsSecondary: false,
+ *     retentionInDays: 6,
+ * });
+ * ```
+ *
  * ## Import
  *
  * MS SQL Database Extended Auditing Policies can be imported using the `resource id`, e.g.

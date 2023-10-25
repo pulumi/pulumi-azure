@@ -138,6 +138,17 @@ class Setting(pulumi.CustomResource):
 
         > **NOTE:** Deletion of this resource disables the setting.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.securitycenter.Setting("example",
+            enabled=True,
+            setting_name="MCAS")
+        ```
+
         ## Import
 
         The setting can be imported using the `resource id`, e.g.
@@ -163,6 +174,17 @@ class Setting(pulumi.CustomResource):
         > **NOTE:** This resource requires the `Owner` permission on the Subscription.
 
         > **NOTE:** Deletion of this resource disables the setting.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.securitycenter.Setting("example",
+            enabled=True,
+            setting_name="MCAS")
+        ```
 
         ## Import
 

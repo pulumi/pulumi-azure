@@ -262,6 +262,32 @@ class NetworkSecurityGroup(pulumi.CustomResource):
         provides both a standalone Network Security Rule resource, and allows for Network Security Rules to be defined in-line within the Network Security Group resource.
         At this time you cannot use a Network Security Group with in-line Network Security Rules in conjunction with any Network Security Rule resources. Doing so will cause a conflict of rule settings and will overwrite rules.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_network_security_group = azure.network.NetworkSecurityGroup("exampleNetworkSecurityGroup",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            security_rules=[azure.network.NetworkSecurityGroupSecurityRuleArgs(
+                name="test123",
+                priority=100,
+                direction="Inbound",
+                access="Allow",
+                protocol="Tcp",
+                source_port_range="*",
+                destination_port_range="*",
+                source_address_prefix="*",
+                destination_address_prefix="*",
+            )],
+            tags={
+                "environment": "Production",
+            })
+        ```
+
         ## Import
 
         Network Security Groups can be imported using the `resource id`, e.g.
@@ -292,6 +318,32 @@ class NetworkSecurityGroup(pulumi.CustomResource):
         > **NOTE on Network Security Groups and Network Security Rules:** This provider currently
         provides both a standalone Network Security Rule resource, and allows for Network Security Rules to be defined in-line within the Network Security Group resource.
         At this time you cannot use a Network Security Group with in-line Network Security Rules in conjunction with any Network Security Rule resources. Doing so will cause a conflict of rule settings and will overwrite rules.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_network_security_group = azure.network.NetworkSecurityGroup("exampleNetworkSecurityGroup",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            security_rules=[azure.network.NetworkSecurityGroupSecurityRuleArgs(
+                name="test123",
+                priority=100,
+                direction="Inbound",
+                access="Allow",
+                protocol="Tcp",
+                source_port_range="*",
+                destination_port_range="*",
+                source_address_prefix="*",
+                destination_address_prefix="*",
+            )],
+            tags={
+                "environment": "Production",
+            })
+        ```
 
         ## Import
 

@@ -9,6 +9,95 @@ import * as utilities from "../utilities";
 /**
  * Manages an Action Group within Azure Monitor.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const current = azure.core.getClientConfig({});
+ * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleActionGroup = new azure.monitoring.ActionGroup("exampleActionGroup", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     shortName: "p0action",
+ *     armRoleReceivers: [{
+ *         name: "armroleaction",
+ *         roleId: "de139f84-1756-47ae-9be6-808fbbe84772",
+ *         useCommonAlertSchema: true,
+ *     }],
+ *     automationRunbookReceivers: [{
+ *         name: "action_name_1",
+ *         automationAccountId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-runbooks/providers/Microsoft.Automation/automationAccounts/aaa001",
+ *         runbookName: "my runbook",
+ *         webhookResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-runbooks/providers/Microsoft.Automation/automationAccounts/aaa001/webHooks/webhook_alert",
+ *         isGlobalRunbook: true,
+ *         serviceUri: "https://s13events.azure-automation.net/webhooks?token=randomtoken",
+ *         useCommonAlertSchema: true,
+ *     }],
+ *     azureAppPushReceivers: [{
+ *         name: "pushtoadmin",
+ *         emailAddress: "admin@contoso.com",
+ *     }],
+ *     azureFunctionReceivers: [{
+ *         name: "funcaction",
+ *         functionAppResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-funcapp/providers/Microsoft.Web/sites/funcapp",
+ *         functionName: "myfunc",
+ *         httpTriggerUrl: "https://example.com/trigger",
+ *         useCommonAlertSchema: true,
+ *     }],
+ *     emailReceivers: [
+ *         {
+ *             name: "sendtoadmin",
+ *             emailAddress: "admin@contoso.com",
+ *         },
+ *         {
+ *             name: "sendtodevops",
+ *             emailAddress: "devops@contoso.com",
+ *             useCommonAlertSchema: true,
+ *         },
+ *     ],
+ *     eventHubReceivers: [{
+ *         name: "sendtoeventhub",
+ *         eventHubNamespace: "eventhubnamespace",
+ *         eventHubName: "eventhub1",
+ *         subscriptionId: "00000000-0000-0000-0000-000000000000",
+ *         useCommonAlertSchema: false,
+ *     }],
+ *     itsmReceivers: [{
+ *         name: "createorupdateticket",
+ *         workspaceId: pulumi.all([current, exampleAnalyticsWorkspace.workspaceId]).apply(([current, workspaceId]) => `${current.subscriptionId}|${workspaceId}`),
+ *         connectionId: "53de6956-42b4-41ba-be3c-b154cdf17b13",
+ *         ticketConfiguration: "{\"PayloadRevision\":0,\"WorkItemType\":\"Incident\",\"UseTemplate\":false,\"WorkItemData\":\"{}\",\"CreateOneWIPerCI\":false}",
+ *         region: "southcentralus",
+ *     }],
+ *     logicAppReceivers: [{
+ *         name: "logicappaction",
+ *         resourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-logicapp/providers/Microsoft.Logic/workflows/logicapp",
+ *         callbackUrl: "https://logicapptriggerurl/...",
+ *         useCommonAlertSchema: true,
+ *     }],
+ *     smsReceivers: [{
+ *         name: "oncallmsg",
+ *         countryCode: "1",
+ *         phoneNumber: "1231231234",
+ *     }],
+ *     voiceReceivers: [{
+ *         name: "remotesupport",
+ *         countryCode: "86",
+ *         phoneNumber: "13888888888",
+ *     }],
+ *     webhookReceivers: [{
+ *         name: "callmyapiaswell",
+ *         serviceUri: "http://example.com/alert",
+ *         useCommonAlertSchema: true,
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Action Groups can be imported using the `resource id`, e.g.

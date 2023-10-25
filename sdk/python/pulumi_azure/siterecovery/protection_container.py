@@ -217,6 +217,28 @@ class ProtectionContainer(pulumi.CustomResource):
         """
         Manages a Azure Site Recovery protection container. Protection containers serve as containers for replicated VMs and belong to a single region / recovery fabric. Protection containers can contain more than one replicated VM. To replicate a VM, a container must exist in both the source and target Azure regions.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        primary = azure.core.ResourceGroup("primary", location="West US")
+        secondary = azure.core.ResourceGroup("secondary", location="East US")
+        vault = azure.recoveryservices.Vault("vault",
+            location=secondary.location,
+            resource_group_name=secondary.name,
+            sku="Standard")
+        fabric = azure.siterecovery.Fabric("fabric",
+            resource_group_name=secondary.name,
+            recovery_vault_name=vault.name,
+            location=primary.location)
+        protection_container = azure.siterecovery.ProtectionContainer("protection-container",
+            resource_group_name=secondary.name,
+            recovery_vault_name=vault.name,
+            recovery_fabric_name=fabric.name)
+        ```
+
         ## Import
 
         Site Recovery Protection Containers can be imported using the `resource id`, e.g.
@@ -240,6 +262,28 @@ class ProtectionContainer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Azure Site Recovery protection container. Protection containers serve as containers for replicated VMs and belong to a single region / recovery fabric. Protection containers can contain more than one replicated VM. To replicate a VM, a container must exist in both the source and target Azure regions.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        primary = azure.core.ResourceGroup("primary", location="West US")
+        secondary = azure.core.ResourceGroup("secondary", location="East US")
+        vault = azure.recoveryservices.Vault("vault",
+            location=secondary.location,
+            resource_group_name=secondary.name,
+            sku="Standard")
+        fabric = azure.siterecovery.Fabric("fabric",
+            resource_group_name=secondary.name,
+            recovery_vault_name=vault.name,
+            location=primary.location)
+        protection_container = azure.siterecovery.ProtectionContainer("protection-container",
+            resource_group_name=secondary.name,
+            recovery_vault_name=vault.name,
+            recovery_fabric_name=fabric.name)
+        ```
 
         ## Import
 

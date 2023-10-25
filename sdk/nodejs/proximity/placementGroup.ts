@@ -7,6 +7,22 @@ import * as utilities from "../utilities";
 /**
  * Manages a proximity placement group for virtual machines, virtual machine scale sets and availability sets.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const examplePlacementGroup = new azure.proximity.PlacementGroup("examplePlacementGroup", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     tags: {
+ *         environment: "Production",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Proximity Placement Groups can be imported using the `resource id`, e.g.

@@ -368,6 +368,23 @@ class RegistryAgentPool(pulumi.CustomResource):
         """
         Manages an Azure Container Registry Agent Pool.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europ")
+        example_registry = azure.containerservice.Registry("exampleRegistry",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku="Premium")
+        example_registry_agent_pool = azure.containerservice.RegistryAgentPool("exampleRegistryAgentPool",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            container_registry_name=example_registry.name)
+        ```
+
         ## Import
 
         Azure Container Registry Agent Pool can be imported using the `resource id`, e.g.
@@ -395,6 +412,23 @@ class RegistryAgentPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Container Registry Agent Pool.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europ")
+        example_registry = azure.containerservice.Registry("exampleRegistry",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku="Premium")
+        example_registry_agent_pool = azure.containerservice.RegistryAgentPool("exampleRegistryAgentPool",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            container_registry_name=example_registry.name)
+        ```
 
         ## Import
 

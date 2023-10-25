@@ -7,6 +7,24 @@ import * as utilities from "../utilities";
 /**
  * Manages a Linked Service (connection) between a Web Server and Azure Data Factory.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleLinkedServiceWeb = new azure.datafactory.LinkedServiceWeb("exampleLinkedServiceWeb", {
+ *     dataFactoryId: exampleFactory.id,
+ *     authenticationType: "Anonymous",
+ *     url: "http://www.bing.com",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Data Factory Linked Service's can be imported using the `resource id`, e.g.

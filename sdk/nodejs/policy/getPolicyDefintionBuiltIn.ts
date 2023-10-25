@@ -6,6 +6,18 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about a Built-In Policy Definition. Retrieves Policy Definitions from your current subscription by default.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.policy.getPolicyDefintionBuiltIn({
+ *     displayName: "Allowed resource types",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
  */
 export function getPolicyDefintionBuiltIn(args?: GetPolicyDefintionBuiltInArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyDefintionBuiltInResult> {
     args = args || {};
@@ -84,6 +96,18 @@ export interface GetPolicyDefintionBuiltInResult {
 }
 /**
  * Use this data source to access information about a Built-In Policy Definition. Retrieves Policy Definitions from your current subscription by default.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.policy.getPolicyDefintionBuiltIn({
+ *     displayName: "Allowed resource types",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
  */
 export function getPolicyDefintionBuiltInOutput(args?: GetPolicyDefintionBuiltInOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyDefintionBuiltInResult> {
     return pulumi.output(args).apply((a: any) => getPolicyDefintionBuiltIn(a, opts))

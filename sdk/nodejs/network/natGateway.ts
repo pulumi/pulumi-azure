@@ -7,6 +7,24 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure NAT Gateway.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleNatGateway = new azure.network.NatGateway("exampleNatGateway", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     skuName: "Standard",
+ *     idleTimeoutInMinutes: 10,
+ *     zones: ["1"],
+ * });
+ * ```
+ *
+ * For more complete examples, please see the azure.network.NatGatewayPublicIpAssociation and azure.network.NatGatewayPublicIpPrefixAssociation resources.
+ *
  * ## Import
  *
  * NAT Gateway can be imported using the `resource id`, e.g.

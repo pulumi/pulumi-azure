@@ -7,6 +7,37 @@ import * as utilities from "../utilities";
 /**
  * Associates a Spring Cloud Application with a Redis Cache.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("exampleSpringCloudService", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ * });
+ * const exampleSpringCloudApp = new azure.appplatform.SpringCloudApp("exampleSpringCloudApp", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     serviceName: exampleSpringCloudService.name,
+ * });
+ * const exampleCache = new azure.redis.Cache("exampleCache", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     capacity: 0,
+ *     family: "C",
+ *     skuName: "Basic",
+ *     enableNonSslPort: true,
+ * });
+ * const exampleSpringCloudAppRedisAssociation = new azure.appplatform.SpringCloudAppRedisAssociation("exampleSpringCloudAppRedisAssociation", {
+ *     springCloudAppId: exampleSpringCloudApp.id,
+ *     redisCacheId: exampleCache.id,
+ *     redisAccessKey: exampleCache.primaryAccessKey,
+ *     sslEnabled: true,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Spring Cloud Application Redis Association can be imported using the `resource id`, e.g.

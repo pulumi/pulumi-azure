@@ -36,6 +36,10 @@ class VirtualMachineScaleSetExtensionArgs:
         :param pulumi.Input[str] type_handler_version: Specifies the version of the extension to use, available versions can be found using the Azure CLI.
                
                > **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
+               
+               ```python
+               import pulumi
+               ```
         :param pulumi.Input[str] virtual_machine_scale_set_id: The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
                
                > **NOTE:** This should be the ID from the `compute.LinuxVirtualMachineScaleSet` or `compute.WindowsVirtualMachineScaleSet` resource - when using the older `compute.ScaleSet` resource extensions should instead be defined inline.
@@ -172,6 +176,10 @@ class VirtualMachineScaleSetExtensionArgs:
         Specifies the version of the extension to use, available versions can be found using the Azure CLI.
 
         > **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
+
+        ```python
+        import pulumi
+        ```
         """
         return pulumi.get(self, "type_handler_version")
 
@@ -350,6 +358,10 @@ class _VirtualMachineScaleSetExtensionState:
         :param pulumi.Input[str] type_handler_version: Specifies the version of the extension to use, available versions can be found using the Azure CLI.
                
                > **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
+               
+               ```python
+               import pulumi
+               ```
         :param pulumi.Input[str] virtual_machine_scale_set_id: The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
                
                > **NOTE:** This should be the ID from the `compute.LinuxVirtualMachineScaleSet` or `compute.WindowsVirtualMachineScaleSet` resource - when using the older `compute.ScaleSet` resource extensions should instead be defined inline.
@@ -581,6 +593,10 @@ class _VirtualMachineScaleSetExtensionState:
         Specifies the version of the extension to use, available versions can be found using the Azure CLI.
 
         > **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
+
+        ```python
+        import pulumi
+        ```
         """
         return pulumi.get(self, "type_handler_version")
 
@@ -627,6 +643,46 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
 
         > **NOTE:** This resource is not intended to be used with the `compute.ScaleSet` resource - instead it's intended for this to be used with the `compute.LinuxVirtualMachineScaleSet` and `compute.WindowsVirtualMachineScaleSet` resources.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku="Standard_F2",
+            admin_username="adminuser",
+            instances=1,
+            source_image_reference=azure.compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs(
+                publisher="Canonical",
+                offer="0001-com-ubuntu-server-focal",
+                sku="20_04-lts",
+                version="latest",
+            ),
+            network_interfaces=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs(
+                name="example",
+                ip_configurations=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs(
+                    name="internal",
+                )],
+            )],
+            os_disk=azure.compute.LinuxVirtualMachineScaleSetOsDiskArgs(
+                storage_account_type="Standard_LRS",
+                caching="ReadWrite",
+            ))
+        example_virtual_machine_scale_set_extension = azure.compute.VirtualMachineScaleSetExtension("exampleVirtualMachineScaleSetExtension",
+            virtual_machine_scale_set_id=example_linux_virtual_machine_scale_set.id,
+            publisher="Microsoft.Azure.Extensions",
+            type="CustomScript",
+            type_handler_version="2.0",
+            settings=json.dumps({
+                "commandToExecute": "echo $HOSTNAME",
+            }))
+        ```
+
         ## Import
 
         Virtual Machine Scale Set Extensions can be imported using the `resource id`, e.g.
@@ -659,6 +715,10 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
         :param pulumi.Input[str] type_handler_version: Specifies the version of the extension to use, available versions can be found using the Azure CLI.
                
                > **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
+               
+               ```python
+               import pulumi
+               ```
         :param pulumi.Input[str] virtual_machine_scale_set_id: The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
                
                > **NOTE:** This should be the ID from the `compute.LinuxVirtualMachineScaleSet` or `compute.WindowsVirtualMachineScaleSet` resource - when using the older `compute.ScaleSet` resource extensions should instead be defined inline.
@@ -673,6 +733,46 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
         Manages an Extension for a Virtual Machine Scale Set.
 
         > **NOTE:** This resource is not intended to be used with the `compute.ScaleSet` resource - instead it's intended for this to be used with the `compute.LinuxVirtualMachineScaleSet` and `compute.WindowsVirtualMachineScaleSet` resources.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku="Standard_F2",
+            admin_username="adminuser",
+            instances=1,
+            source_image_reference=azure.compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs(
+                publisher="Canonical",
+                offer="0001-com-ubuntu-server-focal",
+                sku="20_04-lts",
+                version="latest",
+            ),
+            network_interfaces=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs(
+                name="example",
+                ip_configurations=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs(
+                    name="internal",
+                )],
+            )],
+            os_disk=azure.compute.LinuxVirtualMachineScaleSetOsDiskArgs(
+                storage_account_type="Standard_LRS",
+                caching="ReadWrite",
+            ))
+        example_virtual_machine_scale_set_extension = azure.compute.VirtualMachineScaleSetExtension("exampleVirtualMachineScaleSetExtension",
+            virtual_machine_scale_set_id=example_linux_virtual_machine_scale_set.id,
+            publisher="Microsoft.Azure.Extensions",
+            type="CustomScript",
+            type_handler_version="2.0",
+            settings=json.dumps({
+                "commandToExecute": "echo $HOSTNAME",
+            }))
+        ```
 
         ## Import
 
@@ -799,6 +899,10 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
         :param pulumi.Input[str] type_handler_version: Specifies the version of the extension to use, available versions can be found using the Azure CLI.
                
                > **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
+               
+               ```python
+               import pulumi
+               ```
         :param pulumi.Input[str] virtual_machine_scale_set_id: The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
                
                > **NOTE:** This should be the ID from the `compute.LinuxVirtualMachineScaleSet` or `compute.WindowsVirtualMachineScaleSet` resource - when using the older `compute.ScaleSet` resource extensions should instead be defined inline.
@@ -925,6 +1029,10 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
         Specifies the version of the extension to use, available versions can be found using the Azure CLI.
 
         > **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
+
+        ```python
+        import pulumi
+        ```
         """
         return pulumi.get(self, "type_handler_version")
 

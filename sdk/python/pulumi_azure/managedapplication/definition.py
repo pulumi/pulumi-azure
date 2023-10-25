@@ -539,6 +539,27 @@ class Definition(pulumi.CustomResource):
         """
         Manages a Managed Application Definition.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_definition = azure.managedapplication.Definition("exampleDefinition",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            lock_level="ReadOnly",
+            package_file_uri="https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip",
+            display_name="TestManagedApplicationDefinition",
+            description="Test Managed Application Definition",
+            authorizations=[azure.managedapplication.DefinitionAuthorizationArgs(
+                service_principal_id=current.object_id,
+                role_definition_id="a094b430-dad3-424d-ae58-13f72fd72591",
+            )])
+        ```
+
         ## Import
 
         Managed Application Definition can be imported using the `resource id`, e.g.
@@ -572,6 +593,27 @@ class Definition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Managed Application Definition.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_definition = azure.managedapplication.Definition("exampleDefinition",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            lock_level="ReadOnly",
+            package_file_uri="https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip",
+            display_name="TestManagedApplicationDefinition",
+            description="Test Managed Application Definition",
+            authorizations=[azure.managedapplication.DefinitionAuthorizationArgs(
+                service_principal_id=current.object_id,
+                role_definition_id="a094b430-dad3-424d-ae58-13f72fd72591",
+            )])
+        ```
 
         ## Import
 

@@ -7,6 +7,32 @@ import * as utilities from "../utilities";
 /**
  * Manages a Data Factory Managed Private Endpoint.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     managedVirtualNetworkEnabled: true,
+ * });
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountKind: "BlobStorage",
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ * });
+ * const exampleManagedPrivateEndpoint = new azure.datafactory.ManagedPrivateEndpoint("exampleManagedPrivateEndpoint", {
+ *     dataFactoryId: exampleFactory.id,
+ *     targetResourceId: exampleAccount.id,
+ *     subresourceName: "blob",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Data Factory Managed Private Endpoint can be imported using the `resource id`, e.g.

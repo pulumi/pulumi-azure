@@ -7,6 +7,24 @@ import * as utilities from "../utilities";
 /**
  * Allows you to manage an Azure SQL Outbound Firewall Rule.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleServer = new azure.mssql.Server("exampleServer", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     version: "12.0",
+ *     administratorLogin: "4dm1n157r470r",
+ *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
+ *     outboundNetworkRestrictionEnabled: true,
+ * });
+ * const exampleOutboundFirewallRule = new azure.mssql.OutboundFirewallRule("exampleOutboundFirewallRule", {serverId: exampleServer.id});
+ * ```
+ *
  * ## Import
  *
  * SQL Outbound Firewall Rules can be imported using the `resource id`, e.g.

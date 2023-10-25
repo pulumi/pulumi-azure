@@ -623,6 +623,27 @@ class ManagedHardwareSecurityModule(pulumi.CustomResource):
 
         > **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Managed Hardware Security Module resource on destroy, rather than the default soft-delete. See `purge_soft_deleted_hardware_security_modules_on_destroy` for more information.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_managed_hardware_security_module = azure.keyvault.ManagedHardwareSecurityModule("exampleManagedHardwareSecurityModule",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku_name="Standard_B1",
+            purge_protection_enabled=False,
+            soft_delete_retention_days=90,
+            tenant_id=current.tenant_id,
+            admin_object_ids=[current.object_id],
+            tags={
+                "Env": "Test",
+            })
+        ```
+
         ## Import
 
         Key Vault Managed Hardware Security Module can be imported using the `resource id`, e.g.
@@ -657,6 +678,27 @@ class ManagedHardwareSecurityModule(pulumi.CustomResource):
         Manages a Key Vault Managed Hardware Security Module.
 
         > **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Managed Hardware Security Module resource on destroy, rather than the default soft-delete. See `purge_soft_deleted_hardware_security_modules_on_destroy` for more information.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_managed_hardware_security_module = azure.keyvault.ManagedHardwareSecurityModule("exampleManagedHardwareSecurityModule",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku_name="Standard_B1",
+            purge_protection_enabled=False,
+            soft_delete_retention_days=90,
+            tenant_id=current.tenant_id,
+            admin_object_ids=[current.object_id],
+            tags={
+                "Env": "Test",
+            })
+        ```
 
         ## Import
 

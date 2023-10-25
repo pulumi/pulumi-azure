@@ -298,6 +298,34 @@ class NamespaceDisasterRecoveryConfig(pulumi.CustomResource):
 
         > **NOTE:** Disaster Recovery Config is a Premium SKU only capability.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        primary = azure.servicebus.Namespace("primary",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Premium",
+            capacity=1)
+        secondary = azure.servicebus.Namespace("secondary",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Premium",
+            capacity=1)
+        example_namespace_authorization_rule = azure.servicebus.NamespaceAuthorizationRule("exampleNamespaceAuthorizationRule",
+            namespace_id=azurerm_servicebus_namespace["example"]["id"],
+            listen=True,
+            send=True,
+            manage=False)
+        example_namespace_disaster_recovery_config = azure.servicebus.NamespaceDisasterRecoveryConfig("exampleNamespaceDisasterRecoveryConfig",
+            primary_namespace_id=primary.id,
+            partner_namespace_id=secondary.id,
+            alias_authorization_rule_id=example_namespace_authorization_rule.id)
+        ```
+
         ## Import
 
         Service Bus DR configs can be imported using the `resource id`, e.g.
@@ -323,6 +351,34 @@ class NamespaceDisasterRecoveryConfig(pulumi.CustomResource):
         Manages a Disaster Recovery Config for a Service Bus Namespace.
 
         > **NOTE:** Disaster Recovery Config is a Premium SKU only capability.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        primary = azure.servicebus.Namespace("primary",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Premium",
+            capacity=1)
+        secondary = azure.servicebus.Namespace("secondary",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Premium",
+            capacity=1)
+        example_namespace_authorization_rule = azure.servicebus.NamespaceAuthorizationRule("exampleNamespaceAuthorizationRule",
+            namespace_id=azurerm_servicebus_namespace["example"]["id"],
+            listen=True,
+            send=True,
+            manage=False)
+        example_namespace_disaster_recovery_config = azure.servicebus.NamespaceDisasterRecoveryConfig("exampleNamespaceDisasterRecoveryConfig",
+            primary_namespace_id=primary.id,
+            partner_namespace_id=secondary.id,
+            alias_authorization_rule_id=example_namespace_authorization_rule.id)
+        ```
 
         ## Import
 

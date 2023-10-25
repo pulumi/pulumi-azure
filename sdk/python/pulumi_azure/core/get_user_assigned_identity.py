@@ -131,6 +131,18 @@ def get_user_assigned_identity(name: Optional[str] = None,
     Use this data source to access information about an existing User Assigned Identity.
 
     ## Example Usage
+    ### Reference An Existing)
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.authorization.get_user_assigned_identity(name="name_of_user_assigned_identity",
+        resource_group_name="name_of_resource_group")
+    pulumi.export("uaiClientId", example.client_id)
+    pulumi.export("uaiPrincipalId", example.principal_id)
+    pulumi.export("uaiTenantId", example.tenant_id)
+    ```
 
 
     :param str name: The name of the User Assigned Identity.
@@ -162,6 +174,18 @@ def get_user_assigned_identity_output(name: Optional[pulumi.Input[str]] = None,
     Use this data source to access information about an existing User Assigned Identity.
 
     ## Example Usage
+    ### Reference An Existing)
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.authorization.get_user_assigned_identity(name="name_of_user_assigned_identity",
+        resource_group_name="name_of_resource_group")
+    pulumi.export("uaiClientId", example.client_id)
+    pulumi.export("uaiPrincipalId", example.principal_id)
+    pulumi.export("uaiTenantId", example.tenant_id)
+    ```
 
 
     :param str name: The name of the User Assigned Identity.

@@ -12,6 +12,86 @@ namespace Pulumi.Azure.Monitoring
     /// <summary>
     /// Manages an Alert Processing Rule which suppress notifications.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAlertProcessingRuleSuppression = new Azure.Monitoring.AlertProcessingRuleSuppression("exampleAlertProcessingRuleSuppression", new()
+    ///     {
+    ///         ResourceGroupName = "example",
+    ///         Scopes = new[]
+    ///         {
+    ///             exampleResourceGroup.Id,
+    ///         },
+    ///         Condition = new Azure.Monitoring.Inputs.AlertProcessingRuleSuppressionConditionArgs
+    ///         {
+    ///             TargetResourceType = new Azure.Monitoring.Inputs.AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs
+    ///             {
+    ///                 Operator = "Equals",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "Microsoft.Compute/VirtualMachines",
+    ///                 },
+    ///             },
+    ///             Severity = new Azure.Monitoring.Inputs.AlertProcessingRuleSuppressionConditionSeverityArgs
+    ///             {
+    ///                 Operator = "Equals",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "Sev0",
+    ///                     "Sev1",
+    ///                     "Sev2",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Schedule = new Azure.Monitoring.Inputs.AlertProcessingRuleSuppressionScheduleArgs
+    ///         {
+    ///             EffectiveFrom = "2022-01-01T01:02:03",
+    ///             EffectiveUntil = "2022-02-02T01:02:03",
+    ///             TimeZone = "Pacific Standard Time",
+    ///             Recurrence = new Azure.Monitoring.Inputs.AlertProcessingRuleSuppressionScheduleRecurrenceArgs
+    ///             {
+    ///                 Dailies = new[]
+    ///                 {
+    ///                     new Azure.Monitoring.Inputs.AlertProcessingRuleSuppressionScheduleRecurrenceDailyArgs
+    ///                     {
+    ///                         StartTime = "17:00:00",
+    ///                         EndTime = "09:00:00",
+    ///                     },
+    ///                 },
+    ///                 Weeklies = new[]
+    ///                 {
+    ///                     new Azure.Monitoring.Inputs.AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs
+    ///                     {
+    ///                         DaysOfWeeks = new[]
+    ///                         {
+    ///                             "Saturday",
+    ///                             "Sunday",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "foo", "bar" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Alert Processing Rules can be imported using the `resource id`, e.g.

@@ -18998,6 +18998,33 @@ export namespace compute {
     export interface ScaleSetIdentity {
         /**
          * Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
+         *
+         * ```typescript
+         * import * as pulumi from "@pulumi/pulumi";
+         * import * as azure from "@pulumi/azure";
+         *
+         * const example = new azure.compute.ScaleSet("example", {
+         *     resourceGroupName: azurerm_resource_group.example.name,
+         *     location: azurerm_resource_group.example.location,
+         *     sku: {
+         *         name: _var.vm_sku,
+         *         tier: "Standard",
+         *         capacity: _var.instance_count,
+         *     },
+         *     identity: {
+         *         type: "SystemAssigned",
+         *     },
+         *     extensions: [{
+         *         name: "MSILinuxExtension",
+         *         publisher: "Microsoft.ManagedIdentity",
+         *         type: "ManagedIdentityExtensionForLinux",
+         *         typeHandlerVersion: "1.0",
+         *         settings: "{\"port\": 50342}",
+         *     }],
+         * });
+         * // ...
+         * export const principalId = example.identity.apply(identity => identity.principalId);
+         * ```
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         principalId?: pulumi.Input<string>;
@@ -22263,6 +22290,19 @@ export namespace containerservice {
          * > **Note:** At this time ACI Connectors are not supported in Azure China.
          *
          * > **Note:** AKS will add a delegation to the subnet named here. To prevent further runs from failing you should make sure that the subnet you create for virtual nodes has a delegation, like so.
+         *
+         * ```typescript
+         * import * as pulumi from "@pulumi/pulumi";
+         * import * as azure from "@pulumi/azure";
+         *
+         * const virtual = new azure.network.Subnet("virtual", {delegations: [{
+         *     name: "aciDelegation",
+         *     serviceDelegation: {
+         *         actions: ["Microsoft.Network/virtualNetworks/subnets/action"],
+         *         name: "Microsoft.ContainerInstance/containerGroups",
+         *     },
+         * }]});
+         * ```
          */
         subnetName: pulumi.Input<string>;
     }
@@ -33759,6 +33799,9 @@ export namespace keyvault {
          * > **NOTE:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a privateKey in pkcs8 format. There should only be linux style `\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
          *
          * To convert a private key to pkcs8 format with openssl use:
+         * ```typescript
+         * import * as pulumi from "@pulumi/pulumi";
+         * ```
          *
          * The PEM content should look something like:
          */
@@ -33930,6 +33973,9 @@ export namespace keyvault {
          * > **NOTE:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a privateKey in pkcs8 format. There should only be linux style `\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
          *
          * To convert a private key to pkcs8 format with openssl use:
+         * ```typescript
+         * import * as pulumi from "@pulumi/pulumi";
+         * ```
          *
          * The PEM content should look something like:
          */
@@ -41902,6 +41948,10 @@ export namespace network {
          * One or more `ipConfiguration` blocks as defined below.
          *
          * > **Please Note**: The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
+         *
+         * ```typescript
+         * import * as pulumi from "@pulumi/pulumi";
+         * ```
          */
         ipConfigurations: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayPrivateLinkConfigurationIpConfiguration>[]>;
         /**
@@ -46244,6 +46294,10 @@ export namespace redis {
          * Second Storage Account connection string for AOF persistence.
          *
          * Example usage:
+         *
+         * ```typescript
+         * import * as pulumi from "@pulumi/pulumi";
+         * ```
          */
         aofStorageConnectionString1?: pulumi.Input<string>;
         /**
@@ -46274,6 +46328,10 @@ export namespace redis {
         maxmemoryReserved?: pulumi.Input<number>;
         /**
          * Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
+         *
+         * ```typescript
+         * import * as pulumi from "@pulumi/pulumi";
+         * ```
          */
         notifyKeyspaceEvents?: pulumi.Input<string>;
         /**

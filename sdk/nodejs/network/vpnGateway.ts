@@ -9,6 +9,35 @@ import * as utilities from "../utilities";
 /**
  * Manages a VPN Gateway within a Virtual Hub, which enables Site-to-Site communication.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     addressSpaces: ["10.0.0.0/16"],
+ * });
+ * const exampleVirtualWan = new azure.network.VirtualWan("exampleVirtualWan", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ * });
+ * const exampleVirtualHub = new azure.network.VirtualHub("exampleVirtualHub", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     virtualWanId: exampleVirtualWan.id,
+ *     addressPrefix: "10.0.1.0/24",
+ * });
+ * const exampleVpnGateway = new azure.network.VpnGateway("exampleVpnGateway", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualHubId: exampleVirtualHub.id,
+ * });
+ * ```
+ *
  * ## Import
  *
  * VPN Gateways can be imported using the `resource id`, e.g.

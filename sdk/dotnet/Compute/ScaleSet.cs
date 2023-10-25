@@ -13,6 +13,335 @@ namespace Pulumi.Azure.Compute
     /// Manages a virtual machine scale set.
     /// 
     /// ## Example Usage
+    /// ### With Managed Disks (Recommended)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.IO;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AllocationMethod = "Static",
+    ///         DomainNameLabel = exampleResourceGroup.Name,
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "staging" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleLoadBalancer = new Azure.Lb.LoadBalancer("exampleLoadBalancer", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         FrontendIpConfigurations = new[]
+    ///         {
+    ///             new Azure.Lb.Inputs.LoadBalancerFrontendIpConfigurationArgs
+    ///             {
+    ///                 Name = "PublicIPAddress",
+    ///                 PublicIpAddressId = examplePublicIp.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var bpepool = new Azure.Lb.BackendAddressPool("bpepool", new()
+    ///     {
+    ///         LoadbalancerId = exampleLoadBalancer.Id,
+    ///     });
+    /// 
+    ///     var lbnatpool = new Azure.Lb.NatPool("lbnatpool", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         LoadbalancerId = exampleLoadBalancer.Id,
+    ///         Protocol = "Tcp",
+    ///         FrontendPortStart = 50000,
+    ///         FrontendPortEnd = 50119,
+    ///         BackendPort = 22,
+    ///         FrontendIpConfigurationName = "PublicIPAddress",
+    ///     });
+    /// 
+    ///     var exampleProbe = new Azure.Lb.Probe("exampleProbe", new()
+    ///     {
+    ///         LoadbalancerId = exampleLoadBalancer.Id,
+    ///         Protocol = "Http",
+    ///         RequestPath = "/health",
+    ///         Port = 8080,
+    ///     });
+    /// 
+    ///     var exampleScaleSet = new Azure.Compute.ScaleSet("exampleScaleSet", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AutomaticOsUpgrade = true,
+    ///         UpgradePolicyMode = "Rolling",
+    ///         RollingUpgradePolicy = new Azure.Compute.Inputs.ScaleSetRollingUpgradePolicyArgs
+    ///         {
+    ///             MaxBatchInstancePercent = 20,
+    ///             MaxUnhealthyInstancePercent = 20,
+    ///             MaxUnhealthyUpgradedInstancePercent = 5,
+    ///             PauseTimeBetweenBatches = "PT0S",
+    ///         },
+    ///         HealthProbeId = exampleProbe.Id,
+    ///         Sku = new Azure.Compute.Inputs.ScaleSetSkuArgs
+    ///         {
+    ///             Name = "Standard_F2",
+    ///             Tier = "Standard",
+    ///             Capacity = 2,
+    ///         },
+    ///         StorageProfileImageReference = new Azure.Compute.Inputs.ScaleSetStorageProfileImageReferenceArgs
+    ///         {
+    ///             Publisher = "Canonical",
+    ///             Offer = "0001-com-ubuntu-server-focal",
+    ///             Sku = "20_04-lts",
+    ///             Version = "latest",
+    ///         },
+    ///         StorageProfileOsDisk = new Azure.Compute.Inputs.ScaleSetStorageProfileOsDiskArgs
+    ///         {
+    ///             Name = "",
+    ///             Caching = "ReadWrite",
+    ///             CreateOption = "FromImage",
+    ///             ManagedDiskType = "Standard_LRS",
+    ///         },
+    ///         StorageProfileDataDisks = new[]
+    ///         {
+    ///             new Azure.Compute.Inputs.ScaleSetStorageProfileDataDiskArgs
+    ///             {
+    ///                 Lun = 0,
+    ///                 Caching = "ReadWrite",
+    ///                 CreateOption = "Empty",
+    ///                 DiskSizeGb = 10,
+    ///             },
+    ///         },
+    ///         OsProfile = new Azure.Compute.Inputs.ScaleSetOsProfileArgs
+    ///         {
+    ///             ComputerNamePrefix = "testvm",
+    ///             AdminUsername = "myadmin",
+    ///         },
+    ///         OsProfileLinuxConfig = new Azure.Compute.Inputs.ScaleSetOsProfileLinuxConfigArgs
+    ///         {
+    ///             DisablePasswordAuthentication = true,
+    ///             SshKeys = new[]
+    ///             {
+    ///                 new Azure.Compute.Inputs.ScaleSetOsProfileLinuxConfigSshKeyArgs
+    ///                 {
+    ///                     Path = "/home/myadmin/.ssh/authorized_keys",
+    ///                     KeyData = File.ReadAllText("~/.ssh/demo_key.pub"),
+    ///                 },
+    ///             },
+    ///         },
+    ///         NetworkProfiles = new[]
+    ///         {
+    ///             new Azure.Compute.Inputs.ScaleSetNetworkProfileArgs
+    ///             {
+    ///                 Name = "mynetworkprofile",
+    ///                 Primary = true,
+    ///                 IpConfigurations = new[]
+    ///                 {
+    ///                     new Azure.Compute.Inputs.ScaleSetNetworkProfileIpConfigurationArgs
+    ///                     {
+    ///                         Name = "TestIPConfiguration",
+    ///                         Primary = true,
+    ///                         SubnetId = exampleSubnet.Id,
+    ///                         LoadBalancerBackendAddressPoolIds = new[]
+    ///                         {
+    ///                             bpepool.Id,
+    ///                         },
+    ///                         LoadBalancerInboundNatRulesIds = new[]
+    ///                         {
+    ///                             lbnatpool.Id,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "staging" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### With Unmanaged Disks
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.IO;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "staging" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
+    ///     {
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         ContainerAccessType = "private",
+    ///     });
+    /// 
+    ///     var exampleScaleSet = new Azure.Compute.ScaleSet("exampleScaleSet", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         UpgradePolicyMode = "Manual",
+    ///         Sku = new Azure.Compute.Inputs.ScaleSetSkuArgs
+    ///         {
+    ///             Name = "Standard_F2",
+    ///             Tier = "Standard",
+    ///             Capacity = 2,
+    ///         },
+    ///         OsProfile = new Azure.Compute.Inputs.ScaleSetOsProfileArgs
+    ///         {
+    ///             ComputerNamePrefix = "testvm",
+    ///             AdminUsername = "myadmin",
+    ///         },
+    ///         OsProfileLinuxConfig = new Azure.Compute.Inputs.ScaleSetOsProfileLinuxConfigArgs
+    ///         {
+    ///             DisablePasswordAuthentication = true,
+    ///             SshKeys = new[]
+    ///             {
+    ///                 new Azure.Compute.Inputs.ScaleSetOsProfileLinuxConfigSshKeyArgs
+    ///                 {
+    ///                     Path = "/home/myadmin/.ssh/authorized_keys",
+    ///                     KeyData = File.ReadAllText("~/.ssh/demo_key.pub"),
+    ///                 },
+    ///             },
+    ///         },
+    ///         NetworkProfiles = new[]
+    ///         {
+    ///             new Azure.Compute.Inputs.ScaleSetNetworkProfileArgs
+    ///             {
+    ///                 Name = "TestNetworkProfile",
+    ///                 Primary = true,
+    ///                 IpConfigurations = new[]
+    ///                 {
+    ///                     new Azure.Compute.Inputs.ScaleSetNetworkProfileIpConfigurationArgs
+    ///                     {
+    ///                         Name = "TestIPConfiguration",
+    ///                         Primary = true,
+    ///                         SubnetId = exampleSubnet.Id,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         StorageProfileOsDisk = new Azure.Compute.Inputs.ScaleSetStorageProfileOsDiskArgs
+    ///         {
+    ///             Name = "osDiskProfile",
+    ///             Caching = "ReadWrite",
+    ///             CreateOption = "FromImage",
+    ///             VhdContainers = new[]
+    ///             {
+    ///                 Output.Tuple(exampleAccount.PrimaryBlobEndpoint, exampleContainer.Name).Apply(values =&gt;
+    ///                 {
+    ///                     var primaryBlobEndpoint = values.Item1;
+    ///                     var name = values.Item2;
+    ///                     return $"{primaryBlobEndpoint}{name}";
+    ///                 }),
+    ///             },
+    ///         },
+    ///         StorageProfileImageReference = new Azure.Compute.Inputs.ScaleSetStorageProfileImageReferenceArgs
+    ///         {
+    ///             Publisher = "Canonical",
+    ///             Offer = "0001-com-ubuntu-server-focal",
+    ///             Sku = "20_04-lts",
+    ///             Version = "latest",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ## Example of storage_profile_image_reference with id
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleImage = new Azure.Compute.Image("exampleImage");
+    /// 
+    ///     // ...
+    ///     var exampleScaleSet = new Azure.Compute.ScaleSet("exampleScaleSet", new()
+    ///     {
+    ///         StorageProfileImageReference = new Azure.Compute.Inputs.ScaleSetStorageProfileImageReferenceArgs
+    ///         {
+    ///             Id = exampleImage.Id,
+    ///         },
+    ///     });
+    /// 
+    ///     // ...
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

@@ -9,6 +9,21 @@ import * as utilities from "../utilities";
  *
  * Manages a Spring Cloud Accelerator.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("exampleSpringCloudService", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     skuName: "E0",
+ * });
+ * const exampleSpringCloudAccelerator = new azure.appplatform.SpringCloudAccelerator("exampleSpringCloudAccelerator", {springCloudServiceId: exampleSpringCloudService.id});
+ * ```
+ *
  * ## Import
  *
  * Spring Cloud Accelerators can be imported using the `resource id`, e.g.

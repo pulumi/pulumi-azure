@@ -12,6 +12,49 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Manages a VPN Site.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualWan = new Azure.Network.VirtualWan("exampleVirtualWan", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleVpnSite = new Azure.Network.VpnSite("exampleVpnSite", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         VirtualWanId = exampleVirtualWan.Id,
+    ///         AddressCidrs = new[]
+    ///         {
+    ///             "10.0.0.0/24",
+    ///         },
+    ///         Links = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.VpnSiteLinkArgs
+    ///             {
+    ///                 Name = "link1",
+    ///                 IpAddress = "10.0.0.1",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// VPN Sites can be imported using the `resource id`, e.g.

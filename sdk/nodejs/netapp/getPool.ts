@@ -6,6 +6,20 @@ import * as utilities from "../utilities";
 
 /**
  * Uses this data source to access information about an existing NetApp Pool.
+ *
+ * ## NetApp Pool Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.netapp.getPool({
+ *     resourceGroupName: "acctestRG",
+ *     accountName: "acctestnetappaccount",
+ *     name: "acctestnetapppool",
+ * });
+ * export const netappPoolId = example.then(example => example.id);
+ * ```
  */
 export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPoolResult> {
 
@@ -61,6 +75,20 @@ export interface GetPoolResult {
 }
 /**
  * Uses this data source to access information about an existing NetApp Pool.
+ *
+ * ## NetApp Pool Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.netapp.getPool({
+ *     resourceGroupName: "acctestRG",
+ *     accountName: "acctestnetappaccount",
+ *     name: "acctestnetapppool",
+ * });
+ * export const netappPoolId = example.then(example => example.id);
+ * ```
  */
 export function getPoolOutput(args: GetPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPoolResult> {
     return pulumi.output(args).apply((a: any) => getPool(a, opts))

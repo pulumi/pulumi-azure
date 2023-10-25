@@ -12,6 +12,45 @@ namespace Pulumi.Azure.DevTest
     /// <summary>
     /// Manages a Virtual Network within a DevTest Lab.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleLab = new Azure.DevTest.Lab("exampleLab", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Tags = 
+    ///         {
+    ///             { "Sydney", "Australia" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.DevTest.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         LabName = exampleLab.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Subnet = new Azure.DevTest.Inputs.VirtualNetworkSubnetArgs
+    ///         {
+    ///             UsePublicIpAddress = "Allow",
+    ///             UseInVirtualMachineCreation = "Allow",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// DevTest Virtual Networks can be imported using the `resource id`, e.g.

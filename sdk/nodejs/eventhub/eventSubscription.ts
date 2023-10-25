@@ -9,6 +9,32 @@ import * as utilities from "../utilities";
 /**
  * Manages an EventGrid Event Subscription
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ *     tags: {
+ *         environment: "staging",
+ *     },
+ * });
+ * const exampleQueue = new azure.storage.Queue("exampleQueue", {storageAccountName: exampleAccount.name});
+ * const exampleEventSubscription = new azure.eventgrid.EventSubscription("exampleEventSubscription", {
+ *     scope: exampleResourceGroup.id,
+ *     storageQueueEndpoint: {
+ *         storageAccountId: exampleAccount.id,
+ *         queueName: exampleQueue.name,
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * EventGrid Event Subscription's can be imported using the `resource id`, e.g.

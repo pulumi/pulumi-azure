@@ -6,6 +6,20 @@ import * as utilities from "../utilities";
 
 /**
  * Uses this data source to access information about an existing Marketplace Agreement.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const barracuda = azure.marketplace.getAgreement({
+ *     publisher: "barracudanetworks",
+ *     offer: "waf",
+ *     plan: "hourly",
+ * });
+ * export const azurermMarketplaceAgreementId = data.azurerm_marketplace_agreement.id;
+ * ```
  */
 export function getAgreement(args: GetAgreementArgs, opts?: pulumi.InvokeOptions): Promise<GetAgreementResult> {
 
@@ -51,6 +65,20 @@ export interface GetAgreementResult {
 }
 /**
  * Uses this data source to access information about an existing Marketplace Agreement.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const barracuda = azure.marketplace.getAgreement({
+ *     publisher: "barracudanetworks",
+ *     offer: "waf",
+ *     plan: "hourly",
+ * });
+ * export const azurermMarketplaceAgreementId = data.azurerm_marketplace_agreement.id;
+ * ```
  */
 export function getAgreementOutput(args: GetAgreementOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAgreementResult> {
     return pulumi.output(args).apply((a: any) => getAgreement(a, opts))

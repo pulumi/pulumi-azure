@@ -13,6 +13,34 @@ import (
 )
 
 // Use this data source to access endpoint connection information about an existing Private Link Service.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatelink"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := privatelink.GetServiceEndpointConnections(ctx, &privatelink.GetServiceEndpointConnectionsArgs{
+//				ServiceId:         azurerm_private_link_service.Example.Id,
+//				ResourceGroupName: azurerm_resource_group.Example.Name,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("privateEndpointStatus", example.PrivateEndpointConnections[0].Status)
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetServiceEndpointConnections(ctx *pulumi.Context, args *GetServiceEndpointConnectionsArgs, opts ...pulumi.InvokeOption) (*GetServiceEndpointConnectionsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetServiceEndpointConnectionsResult

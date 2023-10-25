@@ -68,6 +68,19 @@ def get_alert_rule(log_analytics_workspace_id: Optional[str] = None,
     """
     Use this data source to access information about an existing Sentinel Alert Rule.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example_analytics_workspace = azure.operationalinsights.get_analytics_workspace(name="example",
+        resource_group_name="example-resources")
+    example_alert_rule = azure.sentinel.get_alert_rule(name="existing",
+        log_analytics_workspace_id=example_analytics_workspace.id)
+    pulumi.export("id", example_alert_rule.id)
+    ```
+
 
     :param str log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel Alert Rule belongs to.
     :param str name: The name which should be used for this Sentinel Alert Rule.
@@ -90,6 +103,19 @@ def get_alert_rule_output(log_analytics_workspace_id: Optional[pulumi.Input[str]
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAlertRuleResult]:
     """
     Use this data source to access information about an existing Sentinel Alert Rule.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example_analytics_workspace = azure.operationalinsights.get_analytics_workspace(name="example",
+        resource_group_name="example-resources")
+    example_alert_rule = azure.sentinel.get_alert_rule(name="existing",
+        log_analytics_workspace_id=example_analytics_workspace.id)
+    pulumi.export("id", example_alert_rule.id)
+    ```
 
 
     :param str log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel Alert Rule belongs to.

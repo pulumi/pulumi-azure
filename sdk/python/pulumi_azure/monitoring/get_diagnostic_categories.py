@@ -109,6 +109,17 @@ def get_diagnostic_categories(resource_id: Optional[str] = None,
     """
     Use this data source to access information about the Monitor Diagnostics Categories supported by an existing Resource.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example_key_vault = azure.keyvault.get_key_vault(name=azurerm_key_vault["example"]["name"],
+        resource_group_name=azurerm_key_vault["example"]["resource_group_name"])
+    example_diagnostic_categories = azure.monitoring.get_diagnostic_categories(resource_id=example_key_vault.id)
+    ```
+
 
     :param str resource_id: The ID of an existing Resource which Monitor Diagnostics Categories should be retrieved for.
     """
@@ -131,6 +142,17 @@ def get_diagnostic_categories_output(resource_id: Optional[pulumi.Input[str]] = 
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiagnosticCategoriesResult]:
     """
     Use this data source to access information about the Monitor Diagnostics Categories supported by an existing Resource.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example_key_vault = azure.keyvault.get_key_vault(name=azurerm_key_vault["example"]["name"],
+        resource_group_name=azurerm_key_vault["example"]["resource_group_name"])
+    example_diagnostic_categories = azure.monitoring.get_diagnostic_categories(resource_id=example_key_vault.id)
+    ```
 
 
     :param str resource_id: The ID of an existing Resource which Monitor Diagnostics Categories should be retrieved for.

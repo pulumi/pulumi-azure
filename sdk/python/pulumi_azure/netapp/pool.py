@@ -382,6 +382,24 @@ class Pool(pulumi.CustomResource):
         """
         Manages a Pool within a NetApp Account.
 
+        ## NetApp Pool Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.netapp.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_pool = azure.netapp.Pool("examplePool",
+            account_name=example_account.name,
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            service_level="Premium",
+            size_in_tb=4)
+        ```
+
         ## Import
 
         NetApp Pool can be imported using the `resource id`, e.g.
@@ -411,6 +429,24 @@ class Pool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Pool within a NetApp Account.
+
+        ## NetApp Pool Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.netapp.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_pool = azure.netapp.Pool("examplePool",
+            account_name=example_account.name,
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            service_level="Premium",
+            size_in_tb=4)
+        ```
 
         ## Import
 

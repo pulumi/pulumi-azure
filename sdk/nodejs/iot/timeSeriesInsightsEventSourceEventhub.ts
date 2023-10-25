@@ -7,6 +7,65 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure IoT Time Series Insights EventHub Event Source.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("exampleEventHubNamespace", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: "Standard",
+ * });
+ * const exampleEventHub = new azure.eventhub.EventHub("exampleEventHub", {
+ *     namespaceName: exampleEventHubNamespace.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     partitionCount: 2,
+ *     messageRetention: 7,
+ * });
+ * const exampleConsumerGroup = new azure.eventhub.ConsumerGroup("exampleConsumerGroup", {
+ *     namespaceName: exampleEventHubNamespace.name,
+ *     eventhubName: exampleEventHub.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleAuthorizationRule = new azure.eventhub.AuthorizationRule("exampleAuthorizationRule", {
+ *     namespaceName: exampleEventHubNamespace.name,
+ *     eventhubName: exampleEventHub.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     listen: true,
+ *     send: false,
+ *     manage: false,
+ * });
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ * });
+ * const exampleTimeSeriesInsightsGen2Environment = new azure.iot.TimeSeriesInsightsGen2Environment("exampleTimeSeriesInsightsGen2Environment", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     skuName: "L1",
+ *     idProperties: ["id"],
+ *     storage: {
+ *         name: exampleAccount.name,
+ *         key: exampleAccount.primaryAccessKey,
+ *     },
+ * });
+ * const exampleTimeSeriesInsightsEventSourceEventhub = new azure.iot.TimeSeriesInsightsEventSourceEventhub("exampleTimeSeriesInsightsEventSourceEventhub", {
+ *     location: exampleResourceGroup.location,
+ *     environmentId: exampleTimeSeriesInsightsGen2Environment.id,
+ *     eventhubName: exampleEventHub.name,
+ *     namespaceName: exampleEventHubNamespace.name,
+ *     sharedAccessKey: exampleAuthorizationRule.primaryKey,
+ *     sharedAccessKeyName: exampleAuthorizationRule.name,
+ *     consumerGroupName: exampleConsumerGroup.name,
+ *     eventSourceResourceId: exampleEventHub.id,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Azure IoT Time Series Insights EventHub Event Source can be imported using the `resource id`, e.g.

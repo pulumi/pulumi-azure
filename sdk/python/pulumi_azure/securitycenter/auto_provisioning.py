@@ -98,6 +98,15 @@ class AutoProvisioning(pulumi.CustomResource):
 
         > **NOTE:** There is no resource name required, it will always be "default"
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.securitycenter.AutoProvisioning("example", auto_provision="On")
+        ```
+
         ## Import
 
         Security Center Auto Provisioning can be imported using the `resource id`, e.g.
@@ -120,6 +129,15 @@ class AutoProvisioning(pulumi.CustomResource):
         Enables or disables the Security Center Auto Provisioning feature for the subscription
 
         > **NOTE:** There is no resource name required, it will always be "default"
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.securitycenter.AutoProvisioning("example", auto_provision="On")
+        ```
 
         ## Import
 

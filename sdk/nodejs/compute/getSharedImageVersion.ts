@@ -8,6 +8,20 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Version of a Shared Image within a Shared Image Gallery.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.compute.getSharedImageVersion({
+ *     galleryName: "my-image-gallery",
+ *     imageName: "my-image",
+ *     name: "1.0.0",
+ *     resourceGroupName: "example-resources",
+ * });
+ * ```
  */
 export function getSharedImageVersion(args: GetSharedImageVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetSharedImageVersionResult> {
 
@@ -98,6 +112,20 @@ export interface GetSharedImageVersionResult {
 }
 /**
  * Use this data source to access information about an existing Version of a Shared Image within a Shared Image Gallery.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.compute.getSharedImageVersion({
+ *     galleryName: "my-image-gallery",
+ *     imageName: "my-image",
+ *     name: "1.0.0",
+ *     resourceGroupName: "example-resources",
+ * });
+ * ```
  */
 export function getSharedImageVersionOutput(args: GetSharedImageVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSharedImageVersionResult> {
     return pulumi.output(args).apply((a: any) => getSharedImageVersion(a, opts))

@@ -12,6 +12,55 @@ namespace Pulumi.Azure.AppPlatform
     /// <summary>
     /// Manages a Spring Cloud Customized Accelerator.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "west europe",
+    ///     });
+    /// 
+    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "E0",
+    ///     });
+    /// 
+    ///     var exampleSpringCloudAccelerator = new Azure.AppPlatform.SpringCloudAccelerator("exampleSpringCloudAccelerator", new()
+    ///     {
+    ///         SpringCloudServiceId = exampleSpringCloudService.Id,
+    ///     });
+    /// 
+    ///     var exampleSpringCloudCustomizedAccelerator = new Azure.AppPlatform.SpringCloudCustomizedAccelerator("exampleSpringCloudCustomizedAccelerator", new()
+    ///     {
+    ///         SpringCloudAcceleratorId = exampleSpringCloudAccelerator.Id,
+    ///         GitRepository = new Azure.AppPlatform.Inputs.SpringCloudCustomizedAcceleratorGitRepositoryArgs
+    ///         {
+    ///             Url = "https://github.com/Azure-Samples/piggymetrics",
+    ///             GitTag = "spring.version.2.0.3",
+    ///             IntervalInSeconds = 100,
+    ///         },
+    ///         AcceleratorTags = new[]
+    ///         {
+    ///             "tag-a",
+    ///             "tag-b",
+    ///         },
+    ///         Description = "example description",
+    ///         DisplayName = "example name",
+    ///         IconUrl = "https://images.freecreatives.com/wp-content/uploads/2015/05/smiley-559124_640.jpg",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Spring Cloud Customized Accelerators can be imported using the `resource id`, e.g.

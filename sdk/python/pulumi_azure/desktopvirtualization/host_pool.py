@@ -674,6 +674,33 @@ class HostPool(pulumi.CustomResource):
         """
         Manages a Virtual Desktop Host Pool.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_host_pool = azure.desktopvirtualization.HostPool("exampleHostPool",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            friendly_name="pooleddepthfirst",
+            validate_environment=True,
+            start_vm_on_connect=True,
+            custom_rdp_properties="audiocapturemode:i:1;audiomode:i:0;",
+            description="Acceptance Test: A pooled host pool - pooleddepthfirst",
+            type="Pooled",
+            maximum_sessions_allowed=50,
+            load_balancer_type="DepthFirst",
+            scheduled_agent_updates=azure.desktopvirtualization.HostPoolScheduledAgentUpdatesArgs(
+                enabled=True,
+                schedules=[azure.desktopvirtualization.HostPoolScheduledAgentUpdatesScheduleArgs(
+                    day_of_week="Saturday",
+                    hour_of_day=2,
+                )],
+            ))
+        ```
+
         ## Import
 
         Virtual Desktop Host Pools can be imported using the `resource id`, e.g. text
@@ -713,6 +740,33 @@ class HostPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Virtual Desktop Host Pool.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_host_pool = azure.desktopvirtualization.HostPool("exampleHostPool",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            friendly_name="pooleddepthfirst",
+            validate_environment=True,
+            start_vm_on_connect=True,
+            custom_rdp_properties="audiocapturemode:i:1;audiomode:i:0;",
+            description="Acceptance Test: A pooled host pool - pooleddepthfirst",
+            type="Pooled",
+            maximum_sessions_allowed=50,
+            load_balancer_type="DepthFirst",
+            scheduled_agent_updates=azure.desktopvirtualization.HostPoolScheduledAgentUpdatesArgs(
+                enabled=True,
+                schedules=[azure.desktopvirtualization.HostPoolScheduledAgentUpdatesScheduleArgs(
+                    day_of_week="Saturday",
+                    hour_of_day=2,
+                )],
+            ))
+        ```
 
         ## Import
 

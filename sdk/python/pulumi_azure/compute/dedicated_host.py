@@ -373,6 +373,24 @@ class DedicatedHost(pulumi.CustomResource):
         """
         Manage a Dedicated Host within a Dedicated Host Group.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_dedicated_host_group = azure.compute.DedicatedHostGroup("exampleDedicatedHostGroup",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            platform_fault_domain_count=2)
+        example_dedicated_host = azure.compute.DedicatedHost("exampleDedicatedHost",
+            location=example_resource_group.location,
+            dedicated_host_group_id=example_dedicated_host_group.id,
+            sku_name="DSv3-Type1",
+            platform_fault_domain=1)
+        ```
+
         ## Import
 
         Dedicated Hosts can be imported using the `resource id`, e.g.
@@ -400,6 +418,24 @@ class DedicatedHost(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manage a Dedicated Host within a Dedicated Host Group.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_dedicated_host_group = azure.compute.DedicatedHostGroup("exampleDedicatedHostGroup",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            platform_fault_domain_count=2)
+        example_dedicated_host = azure.compute.DedicatedHost("exampleDedicatedHost",
+            location=example_resource_group.location,
+            dedicated_host_group_id=example_dedicated_host_group.id,
+            sku_name="DSv3-Type1",
+            platform_fault_domain=1)
+        ```
 
         ## Import
 

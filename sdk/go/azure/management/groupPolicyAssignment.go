@@ -15,6 +15,63 @@ import (
 
 // Manages a Policy Assignment to a Management Group.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/management"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/policy"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleGroup, err := management.NewGroup(ctx, "exampleGroup", &management.GroupArgs{
+//				DisplayName: pulumi.String("Some Management Group"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDefinition, err := policy.NewDefinition(ctx, "exampleDefinition", &policy.DefinitionArgs{
+//				PolicyType:        pulumi.String("Custom"),
+//				Mode:              pulumi.String("All"),
+//				DisplayName:       pulumi.String("my-policy-definition"),
+//				ManagementGroupId: exampleGroup.ID(),
+//				PolicyRule: pulumi.String(` {
+//	    "if": {
+//	      "not": {
+//	        "field": "location",
+//	        "equals": "westeurope"
+//	      }
+//	    },
+//	    "then": {
+//	      "effect": "Deny"
+//	    }
+//	  }
+//
+// `),
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = management.NewGroupPolicyAssignment(ctx, "exampleGroupPolicyAssignment", &management.GroupPolicyAssignmentArgs{
+//				PolicyDefinitionId: exampleDefinition.ID(),
+//				ManagementGroupId:  exampleGroup.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Management Group Policy Assignments can be imported using the `resource id`, e.g.

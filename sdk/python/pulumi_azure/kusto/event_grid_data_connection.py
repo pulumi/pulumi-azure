@@ -708,6 +708,70 @@ class EventGridDataConnection(pulumi.CustomResource):
         """
         Manages a Kusto (also known as Azure Data Explorer) Event Grid Data Connection
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_cluster = azure.kusto.Cluster("exampleCluster",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku=azure.kusto.ClusterSkuArgs(
+                name="Standard_D13_v2",
+                capacity=2,
+            ))
+        example_database = azure.kusto.Database("exampleDatabase",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            cluster_name=example_cluster.name,
+            hot_cache_period="P7D",
+            soft_delete_period="P31D")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="GRS")
+        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard")
+        example_event_hub = azure.eventhub.EventHub("exampleEventHub",
+            namespace_name=example_event_hub_namespace.name,
+            resource_group_name=example_resource_group.name,
+            partition_count=1,
+            message_retention=1)
+        example_consumer_group = azure.eventhub.ConsumerGroup("exampleConsumerGroup",
+            namespace_name=example_event_hub_namespace.name,
+            eventhub_name=example_event_hub.name,
+            resource_group_name=example_resource_group.name)
+        example_event_subscription = azure.eventgrid.EventSubscription("exampleEventSubscription",
+            scope=example_account.id,
+            eventhub_endpoint_id=example_event_hub.id,
+            event_delivery_schema="EventGridSchema",
+            included_event_types=[
+                "Microsoft.Storage.BlobCreated",
+                "Microsoft.Storage.BlobRenamed",
+            ],
+            retry_policy=azure.eventgrid.EventSubscriptionRetryPolicyArgs(
+                event_time_to_live=144,
+                max_delivery_attempts=10,
+            ))
+        example_event_grid_data_connection = azure.kusto.EventGridDataConnection("exampleEventGridDataConnection",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            cluster_name=example_cluster.name,
+            database_name=example_database.name,
+            storage_account_id=example_account.id,
+            eventhub_id=example_event_hub.id,
+            eventhub_consumer_group_name=example_consumer_group.name,
+            table_name="my-table",
+            mapping_rule_name="my-table-mapping",
+            data_format="JSON",
+            opts=pulumi.ResourceOptions(depends_on=[example_event_subscription]))
+        ```
+
         ## Import
 
         Kusto Event Grid Data Connections can be imported using the `resource id`, e.g.
@@ -743,6 +807,70 @@ class EventGridDataConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Kusto (also known as Azure Data Explorer) Event Grid Data Connection
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_cluster = azure.kusto.Cluster("exampleCluster",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku=azure.kusto.ClusterSkuArgs(
+                name="Standard_D13_v2",
+                capacity=2,
+            ))
+        example_database = azure.kusto.Database("exampleDatabase",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            cluster_name=example_cluster.name,
+            hot_cache_period="P7D",
+            soft_delete_period="P31D")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="GRS")
+        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard")
+        example_event_hub = azure.eventhub.EventHub("exampleEventHub",
+            namespace_name=example_event_hub_namespace.name,
+            resource_group_name=example_resource_group.name,
+            partition_count=1,
+            message_retention=1)
+        example_consumer_group = azure.eventhub.ConsumerGroup("exampleConsumerGroup",
+            namespace_name=example_event_hub_namespace.name,
+            eventhub_name=example_event_hub.name,
+            resource_group_name=example_resource_group.name)
+        example_event_subscription = azure.eventgrid.EventSubscription("exampleEventSubscription",
+            scope=example_account.id,
+            eventhub_endpoint_id=example_event_hub.id,
+            event_delivery_schema="EventGridSchema",
+            included_event_types=[
+                "Microsoft.Storage.BlobCreated",
+                "Microsoft.Storage.BlobRenamed",
+            ],
+            retry_policy=azure.eventgrid.EventSubscriptionRetryPolicyArgs(
+                event_time_to_live=144,
+                max_delivery_attempts=10,
+            ))
+        example_event_grid_data_connection = azure.kusto.EventGridDataConnection("exampleEventGridDataConnection",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            cluster_name=example_cluster.name,
+            database_name=example_database.name,
+            storage_account_id=example_account.id,
+            eventhub_id=example_event_hub.id,
+            eventhub_consumer_group_name=example_consumer_group.name,
+            table_name="my-table",
+            mapping_rule_name="my-table-mapping",
+            data_format="JSON",
+            opts=pulumi.ResourceOptions(depends_on=[example_event_subscription]))
+        ```
 
         ## Import
 

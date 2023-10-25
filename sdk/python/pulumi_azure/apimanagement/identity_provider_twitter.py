@@ -222,6 +222,26 @@ class IdentityProviderTwitter(pulumi.CustomResource):
         """
         Manages an API Management Twitter Identity Provider.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_service = azure.apimanagement.Service("exampleService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            publisher_name="My Company",
+            publisher_email="company@mycompany.io",
+            sku_name="Developer_1")
+        example_identity_provider_twitter = azure.apimanagement.IdentityProviderTwitter("exampleIdentityProviderTwitter",
+            resource_group_name=example_resource_group.name,
+            api_management_name=example_service.name,
+            api_key="00000000000000000000000000000000",
+            api_secret_key="00000000000000000000000000000000")
+        ```
+
         ## Import
 
         API Management Twitter Identity Provider can be imported using the `resource id`, e.g.
@@ -245,6 +265,26 @@ class IdentityProviderTwitter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an API Management Twitter Identity Provider.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_service = azure.apimanagement.Service("exampleService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            publisher_name="My Company",
+            publisher_email="company@mycompany.io",
+            sku_name="Developer_1")
+        example_identity_provider_twitter = azure.apimanagement.IdentityProviderTwitter("exampleIdentityProviderTwitter",
+            resource_group_name=example_resource_group.name,
+            api_management_name=example_service.name,
+            api_key="00000000000000000000000000000000",
+            api_secret_key="00000000000000000000000000000000")
+        ```
 
         ## Import
 

@@ -161,6 +161,17 @@ def get_analytics_workspace(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Log Analytics (formally Operational Insights) Workspace.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.operationalinsights.get_analytics_workspace(name="acctest-01",
+        resource_group_name="acctest")
+    pulumi.export("logAnalyticsWorkspaceId", example.workspace_id)
+    ```
+
 
     :param str name: Specifies the name of the Log Analytics Workspace.
     :param str resource_group_name: The name of the resource group in which the Log Analytics workspace is located in.
@@ -191,6 +202,17 @@ def get_analytics_workspace_output(name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAnalyticsWorkspaceResult]:
     """
     Use this data source to access information about an existing Log Analytics (formally Operational Insights) Workspace.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.operationalinsights.get_analytics_workspace(name="acctest-01",
+        resource_group_name="acctest")
+    pulumi.export("logAnalyticsWorkspaceId", example.workspace_id)
+    ```
 
 
     :param str name: Specifies the name of the Log Analytics Workspace.

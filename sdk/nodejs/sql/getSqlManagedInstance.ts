@@ -10,6 +10,19 @@ import * as utilities from "../utilities";
  * Use this data source to access information about an existing SQL Managed Instance.
  *
  * > **Note:** The `azure.sql.ManagedInstance` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.ManagedInstance` data source instead.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.sql.getSqlManagedInstance({
+ *     name: "example_mi",
+ *     resourceGroupName: "example-resources",
+ * });
+ * export const sqlInstanceId = example.then(example => example.id);
+ * ```
  */
 export function getSqlManagedInstance(args: GetSqlManagedInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlManagedInstanceResult> {
 
@@ -122,6 +135,19 @@ export interface GetSqlManagedInstanceResult {
  * Use this data source to access information about an existing SQL Managed Instance.
  *
  * > **Note:** The `azure.sql.ManagedInstance` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.ManagedInstance` data source instead.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.sql.getSqlManagedInstance({
+ *     name: "example_mi",
+ *     resourceGroupName: "example-resources",
+ * });
+ * export const sqlInstanceId = example.then(example => example.id);
+ * ```
  */
 export function getSqlManagedInstanceOutput(args: GetSqlManagedInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlManagedInstanceResult> {
     return pulumi.output(args).apply((a: any) => getSqlManagedInstance(a, opts))

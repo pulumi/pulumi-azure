@@ -23,6 +23,36 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// &gt; **Note:** At this time ACI Connectors are not supported in Azure China.
         /// 
         /// &gt; **Note:** AKS will add a delegation to the subnet named here. To prevent further runs from failing you should make sure that the subnet you create for virtual nodes has a delegation, like so.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var @virtual = new Azure.Network.Subnet("virtual", new()
+        ///     {
+        ///         Delegations = new[]
+        ///         {
+        ///             new Azure.Network.Inputs.SubnetDelegationArgs
+        ///             {
+        ///                 Name = "aciDelegation",
+        ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+        ///                 {
+        ///                     Actions = new[]
+        ///                     {
+        ///                         "Microsoft.Network/virtualNetworks/subnets/action",
+        ///                     },
+        ///                     Name = "Microsoft.ContainerInstance/containerGroups",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public readonly string SubnetName;
 

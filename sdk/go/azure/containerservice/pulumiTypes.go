@@ -5677,6 +5677,37 @@ type KubernetesClusterAciConnectorLinux struct {
 	// > **Note:** At this time ACI Connectors are not supported in Azure China.
 	//
 	// > **Note:** AKS will add a delegation to the subnet named here. To prevent further runs from failing you should make sure that the subnet you create for virtual nodes has a delegation, like so.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := network.NewSubnet(ctx, "virtual", &network.SubnetArgs{
+	// 			Delegations: network.SubnetDelegationArray{
+	// 				&network.SubnetDelegationArgs{
+	// 					Name: pulumi.String("aciDelegation"),
+	// 					ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
+	// 						Actions: pulumi.StringArray{
+	// 							pulumi.String("Microsoft.Network/virtualNetworks/subnets/action"),
+	// 						},
+	// 						Name: pulumi.String("Microsoft.ContainerInstance/containerGroups"),
+	// 					},
+	// 				},
+	// 			},
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	SubnetName string `pulumi:"subnetName"`
 }
 
@@ -5699,6 +5730,37 @@ type KubernetesClusterAciConnectorLinuxArgs struct {
 	// > **Note:** At this time ACI Connectors are not supported in Azure China.
 	//
 	// > **Note:** AKS will add a delegation to the subnet named here. To prevent further runs from failing you should make sure that the subnet you create for virtual nodes has a delegation, like so.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := network.NewSubnet(ctx, "virtual", &network.SubnetArgs{
+	// 			Delegations: network.SubnetDelegationArray{
+	// 				&network.SubnetDelegationArgs{
+	// 					Name: pulumi.String("aciDelegation"),
+	// 					ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
+	// 						Actions: pulumi.StringArray{
+	// 							pulumi.String("Microsoft.Network/virtualNetworks/subnets/action"),
+	// 						},
+	// 						Name: pulumi.String("Microsoft.ContainerInstance/containerGroups"),
+	// 					},
+	// 				},
+	// 			},
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	SubnetName pulumi.StringInput `pulumi:"subnetName"`
 }
 
@@ -5809,6 +5871,40 @@ func (o KubernetesClusterAciConnectorLinuxOutput) ConnectorIdentities() Kubernet
 // > **Note:** At this time ACI Connectors are not supported in Azure China.
 //
 // > **Note:** AKS will add a delegation to the subnet named here. To prevent further runs from failing you should make sure that the subnet you create for virtual nodes has a delegation, like so.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := network.NewSubnet(ctx, "virtual", &network.SubnetArgs{
+//				Delegations: network.SubnetDelegationArray{
+//					&network.SubnetDelegationArgs{
+//						Name: pulumi.String("aciDelegation"),
+//						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
+//							Actions: pulumi.StringArray{
+//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/action"),
+//							},
+//							Name: pulumi.String("Microsoft.ContainerInstance/containerGroups"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func (o KubernetesClusterAciConnectorLinuxOutput) SubnetName() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesClusterAciConnectorLinux) string { return v.SubnetName }).(pulumi.StringOutput)
 }
@@ -5858,6 +5954,40 @@ func (o KubernetesClusterAciConnectorLinuxPtrOutput) ConnectorIdentities() Kuber
 // > **Note:** At this time ACI Connectors are not supported in Azure China.
 //
 // > **Note:** AKS will add a delegation to the subnet named here. To prevent further runs from failing you should make sure that the subnet you create for virtual nodes has a delegation, like so.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := network.NewSubnet(ctx, "virtual", &network.SubnetArgs{
+//				Delegations: network.SubnetDelegationArray{
+//					&network.SubnetDelegationArgs{
+//						Name: pulumi.String("aciDelegation"),
+//						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
+//							Actions: pulumi.StringArray{
+//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/action"),
+//							},
+//							Name: pulumi.String("Microsoft.ContainerInstance/containerGroups"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func (o KubernetesClusterAciConnectorLinuxPtrOutput) SubnetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterAciConnectorLinux) *string {
 		if v == nil {

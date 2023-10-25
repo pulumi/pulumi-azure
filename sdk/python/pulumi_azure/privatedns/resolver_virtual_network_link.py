@@ -212,6 +212,54 @@ class ResolverVirtualNetworkLink(pulumi.CustomResource):
         """
         Manages a Private DNS Resolver Virtual Network Link.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="west europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            address_spaces=["10.0.0.0/16"])
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.0.64/28"],
+            delegations=[azure.network.SubnetDelegationArgs(
+                name="Microsoft.Network.dnsResolvers",
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                    actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
+                    name="Microsoft.Network/dnsResolvers",
+                ),
+            )])
+        example_resolver = azure.privatedns.Resolver("exampleResolver",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            virtual_network_id=example_virtual_network.id)
+        example_resolver_outbound_endpoint = azure.privatedns.ResolverOutboundEndpoint("exampleResolverOutboundEndpoint",
+            private_dns_resolver_id=example_resolver.id,
+            location=example_resolver.location,
+            subnet_id=example_subnet.id,
+            tags={
+                "key": "value",
+            })
+        example_resolver_dns_forwarding_ruleset = azure.privatedns.ResolverDnsForwardingRuleset("exampleResolverDnsForwardingRuleset",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            private_dns_resolver_outbound_endpoint_ids=[example_resolver_outbound_endpoint.id],
+            tags={
+                "key": "value",
+            })
+        example_resolver_virtual_network_link = azure.privatedns.ResolverVirtualNetworkLink("exampleResolverVirtualNetworkLink",
+            dns_forwarding_ruleset_id=example_resolver_dns_forwarding_ruleset.id,
+            virtual_network_id=example_virtual_network.id,
+            metadata={
+                "key": "value",
+            })
+        ```
+
         ## Import
 
         Private DNS Resolver Virtual Network Link can be imported using the `resource id`, e.g.
@@ -235,6 +283,54 @@ class ResolverVirtualNetworkLink(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Private DNS Resolver Virtual Network Link.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="west europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            address_spaces=["10.0.0.0/16"])
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.0.64/28"],
+            delegations=[azure.network.SubnetDelegationArgs(
+                name="Microsoft.Network.dnsResolvers",
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                    actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
+                    name="Microsoft.Network/dnsResolvers",
+                ),
+            )])
+        example_resolver = azure.privatedns.Resolver("exampleResolver",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            virtual_network_id=example_virtual_network.id)
+        example_resolver_outbound_endpoint = azure.privatedns.ResolverOutboundEndpoint("exampleResolverOutboundEndpoint",
+            private_dns_resolver_id=example_resolver.id,
+            location=example_resolver.location,
+            subnet_id=example_subnet.id,
+            tags={
+                "key": "value",
+            })
+        example_resolver_dns_forwarding_ruleset = azure.privatedns.ResolverDnsForwardingRuleset("exampleResolverDnsForwardingRuleset",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            private_dns_resolver_outbound_endpoint_ids=[example_resolver_outbound_endpoint.id],
+            tags={
+                "key": "value",
+            })
+        example_resolver_virtual_network_link = azure.privatedns.ResolverVirtualNetworkLink("exampleResolverVirtualNetworkLink",
+            dns_forwarding_ruleset_id=example_resolver_dns_forwarding_ruleset.id,
+            virtual_network_id=example_virtual_network.id,
+            metadata={
+                "key": "value",
+            })
+        ```
 
         ## Import
 

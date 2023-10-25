@@ -12,6 +12,42 @@ namespace Pulumi.Azure.PostgreSql
     /// <summary>
     /// Manages a PostgreSQL Flexible Server Database.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleFlexibleServer = new Azure.PostgreSql.FlexibleServer("exampleFlexibleServer", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Version = "12",
+    ///         AdministratorLogin = "psqladmin",
+    ///         AdministratorPassword = "H@Sh1CoR3!",
+    ///         StorageMb = 32768,
+    ///         SkuName = "GP_Standard_D4s_v3",
+    ///     });
+    /// 
+    ///     var exampleFlexibleServerDatabase = new Azure.PostgreSql.FlexibleServerDatabase("exampleFlexibleServerDatabase", new()
+    ///     {
+    ///         ServerId = exampleFlexibleServer.Id,
+    ///         Collation = "en_US.utf8",
+    ///         Charset = "utf8",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Azure PostgreSQL Flexible Server Database can be imported using the `resource id`, e.g.

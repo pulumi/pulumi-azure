@@ -15,6 +15,76 @@ import (
 
 // Manages a Stream Analytics Output to Microsoft SQL Server Database.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sql"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/streamanalytics"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleJob := streamanalytics.LookupJobOutput(ctx, streamanalytics.GetJobOutputArgs{
+//				Name:              pulumi.String("example-job"),
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			}, nil)
+//			exampleSqlServer, err := sql.NewSqlServer(ctx, "exampleSqlServer", &sql.SqlServerArgs{
+//				ResourceGroupName:          exampleResourceGroup.Name,
+//				Location:                   exampleResourceGroup.Location,
+//				Version:                    pulumi.String("12.0"),
+//				AdministratorLogin:         pulumi.String("dbadmin"),
+//				AdministratorLoginPassword: pulumi.String("example-password"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDatabase, err := sql.NewDatabase(ctx, "exampleDatabase", &sql.DatabaseArgs{
+//				ResourceGroupName:             exampleResourceGroup.Name,
+//				Location:                      exampleResourceGroup.Location,
+//				ServerName:                    exampleSqlServer.Name,
+//				RequestedServiceObjectiveName: pulumi.String("S0"),
+//				Collation:                     pulumi.String("SQL_LATIN1_GENERAL_CP1_CI_AS"),
+//				MaxSizeBytes:                  pulumi.String("268435456000"),
+//				CreateMode:                    pulumi.String("Default"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = streamanalytics.NewOutputMssql(ctx, "exampleOutputMssql", &streamanalytics.OutputMssqlArgs{
+//				StreamAnalyticsJobName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (*string, error) {
+//					return &exampleJob.Name, nil
+//				}).(pulumi.StringPtrOutput),
+//				ResourceGroupName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (*string, error) {
+//					return &exampleJob.ResourceGroupName, nil
+//				}).(pulumi.StringPtrOutput),
+//				Server:   exampleSqlServer.FullyQualifiedDomainName,
+//				User:     exampleSqlServer.AdministratorLogin,
+//				Password: exampleSqlServer.AdministratorLoginPassword,
+//				Database: exampleDatabase.Name,
+//				Table:    pulumi.String("ExampleTable"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Stream Analytics Outputs to Microsoft SQL Server Database can be imported using the `resource id`, e.g.

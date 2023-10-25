@@ -17,6 +17,68 @@ import (
 //
 // > **NOTE:** Disaster Recovery Config is a Premium SKU only capability.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/servicebus"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			primary, err := servicebus.NewNamespace(ctx, "primary", &servicebus.NamespaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("Premium"),
+//				Capacity:          pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			secondary, err := servicebus.NewNamespace(ctx, "secondary", &servicebus.NamespaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("Premium"),
+//				Capacity:          pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleNamespaceAuthorizationRule, err := servicebus.NewNamespaceAuthorizationRule(ctx, "exampleNamespaceAuthorizationRule", &servicebus.NamespaceAuthorizationRuleArgs{
+//				NamespaceId: pulumi.Any(azurerm_servicebus_namespace.Example.Id),
+//				Listen:      pulumi.Bool(true),
+//				Send:        pulumi.Bool(true),
+//				Manage:      pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = servicebus.NewNamespaceDisasterRecoveryConfig(ctx, "exampleNamespaceDisasterRecoveryConfig", &servicebus.NamespaceDisasterRecoveryConfigArgs{
+//				PrimaryNamespaceId:       primary.ID(),
+//				PartnerNamespaceId:       secondary.ID(),
+//				AliasAuthorizationRuleId: exampleNamespaceAuthorizationRule.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Service Bus DR configs can be imported using the `resource id`, e.g.

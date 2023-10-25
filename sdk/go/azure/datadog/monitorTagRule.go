@@ -16,6 +16,72 @@ import (
 // Manages TagRules on the datadog Monitor.
 //
 // ## Example Usage
+// ### Adding TagRules on monitor
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West US 2"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleMonitor, err := datadog.NewMonitor(ctx, "exampleMonitor", &datadog.MonitorArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				DatadogOrganization: &datadog.MonitorDatadogOrganizationArgs{
+//					ApiKey:         pulumi.String("XXXX"),
+//					ApplicationKey: pulumi.String("XXXX"),
+//				},
+//				User: &datadog.MonitorUserArgs{
+//					Name:  pulumi.String("Example"),
+//					Email: pulumi.String("abc@xyz.com"),
+//				},
+//				SkuName: pulumi.String("Linked"),
+//				Identity: &datadog.MonitorIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datadog.NewMonitorTagRule(ctx, "exampleMonitorTagRule", &datadog.MonitorTagRuleArgs{
+//				DatadogMonitorId: exampleMonitor.ID(),
+//				Logs: datadog.MonitorTagRuleLogArray{
+//					&datadog.MonitorTagRuleLogArgs{
+//						SubscriptionLogEnabled: pulumi.Bool(true),
+//					},
+//				},
+//				Metrics: datadog.MonitorTagRuleMetricArray{
+//					&datadog.MonitorTagRuleMetricArgs{
+//						Filters: datadog.MonitorTagRuleMetricFilterArray{
+//							&datadog.MonitorTagRuleMetricFilterArgs{
+//								Name:   pulumi.String("Test"),
+//								Value:  pulumi.String("Logs"),
+//								Action: pulumi.String("Include"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //

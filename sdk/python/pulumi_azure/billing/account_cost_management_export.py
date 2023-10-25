@@ -382,6 +382,34 @@ class AccountCostManagementExport(pulumi.CustomResource):
         """
         Manages a Cost Management Export for a Billing Account.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_container = azure.storage.Container("exampleContainer", storage_account_name=example_account.name)
+        example_account_cost_management_export = azure.billing.AccountCostManagementExport("exampleAccountCostManagementExport",
+            billing_account_id="example",
+            recurrence_type="Monthly",
+            recurrence_period_start_date="2020-08-18T00:00:00Z",
+            recurrence_period_end_date="2020-09-18T00:00:00Z",
+            export_data_storage_location=azure.billing.AccountCostManagementExportExportDataStorageLocationArgs(
+                container_id=example_container.resource_manager_id,
+                root_folder_path="/root/updated",
+            ),
+            export_data_options=azure.billing.AccountCostManagementExportExportDataOptionsArgs(
+                type="Usage",
+                time_frame="WeekToDate",
+            ))
+        ```
+
         ## Import
 
         Billing Account Cost Management Exports can be imported using the `resource id`, e.g.
@@ -409,6 +437,34 @@ class AccountCostManagementExport(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Cost Management Export for a Billing Account.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_container = azure.storage.Container("exampleContainer", storage_account_name=example_account.name)
+        example_account_cost_management_export = azure.billing.AccountCostManagementExport("exampleAccountCostManagementExport",
+            billing_account_id="example",
+            recurrence_type="Monthly",
+            recurrence_period_start_date="2020-08-18T00:00:00Z",
+            recurrence_period_end_date="2020-09-18T00:00:00Z",
+            export_data_storage_location=azure.billing.AccountCostManagementExportExportDataStorageLocationArgs(
+                container_id=example_container.resource_manager_id,
+                root_folder_path="/root/updated",
+            ),
+            export_data_options=azure.billing.AccountCostManagementExportExportDataOptionsArgs(
+                type="Usage",
+                time_frame="WeekToDate",
+            ))
+        ```
 
         ## Import
 

@@ -13,12 +13,66 @@ namespace Pulumi.Azure.DataShare
     {
         /// <summary>
         /// Use this data source to access information about an existing Data Share Blob Storage Dataset.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.DataShare.GetDatasetBlobStorage.Invoke(new()
+        ///     {
+        ///         Name = "example-dsbsds",
+        ///         DataShareId = "example-share-id",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getDatasetBlobStorageResult =&gt; getDatasetBlobStorageResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetDatasetBlobStorageResult> InvokeAsync(GetDatasetBlobStorageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatasetBlobStorageResult>("azure:datashare/getDatasetBlobStorage:getDatasetBlobStorage", args ?? new GetDatasetBlobStorageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Data Share Blob Storage Dataset.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.DataShare.GetDatasetBlobStorage.Invoke(new()
+        ///     {
+        ///         Name = "example-dsbsds",
+        ///         DataShareId = "example-share-id",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getDatasetBlobStorageResult =&gt; getDatasetBlobStorageResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetDatasetBlobStorageResult> Invoke(GetDatasetBlobStorageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatasetBlobStorageResult>("azure:datashare/getDatasetBlobStorage:getDatasetBlobStorage", args ?? new GetDatasetBlobStorageInvokeArgs(), options.WithDefaults());

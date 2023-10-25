@@ -12,6 +12,55 @@ namespace Pulumi.Azure.PaloAlto
     /// <summary>
     /// Manages a Palo Alto Local Rulestack Rule.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleLocalRulestack = new Azure.PaloAlto.LocalRulestack("exampleLocalRulestack", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleLocalRulestackRule = new Azure.PaloAlto.LocalRulestackRule("exampleLocalRulestackRule", new()
+    ///     {
+    ///         RulestackId = exampleLocalRulestack.Id,
+    ///         Priority = 1000,
+    ///         Action = "Allow",
+    ///         Applications = new[]
+    ///         {
+    ///             "any",
+    ///         },
+    ///         Source = new Azure.PaloAlto.Inputs.LocalRulestackRuleSourceArgs
+    ///         {
+    ///             Cidrs = new[]
+    ///             {
+    ///                 "10.0.0.0/8",
+    ///             },
+    ///         },
+    ///         Destination = new Azure.PaloAlto.Inputs.LocalRulestackRuleDestinationArgs
+    ///         {
+    ///             Cidrs = new[]
+    ///             {
+    ///                 "192.168.16.0/24",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Palo Alto Local Rulestack Rules can be imported using the `resource id`, e.g.

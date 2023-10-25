@@ -15,6 +15,135 @@ import (
 
 // Manages an orbital contact.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/orbital"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSpacecraft, err := orbital.NewSpacecraft(ctx, "exampleSpacecraft", &orbital.SpacecraftArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          pulumi.String("westeurope"),
+//				NoradId:           pulumi.String("12345"),
+//				Links: orbital.SpacecraftLinkArray{
+//					&orbital.SpacecraftLinkArgs{
+//						BandwidthMhz:       pulumi.Float64(100),
+//						CenterFrequencyMhz: pulumi.Float64(101),
+//						Direction:          pulumi.String("Uplink"),
+//						Polarization:       pulumi.String("LHCP"),
+//						Name:               pulumi.String("examplename"),
+//					},
+//				},
+//				TwoLineElements: pulumi.StringArray{
+//					pulumi.String("1 23455U 94089A   97320.90946019  .00000140  00000-0  10191-3 0  2621"),
+//					pulumi.String("2 23455  99.0090 272.6745 0008546 223.1686 136.8816 14.11711747148495"),
+//				},
+//				TitleLine: pulumi.String("AQUA"),
+//				Tags: pulumi.StringMap{
+//					"aks-managed-cluster-name": pulumi.String("9a57225d-a405-4d40-aa46-f13d2342abef"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.1.0/24"),
+//				},
+//				Delegations: network.SubnetDelegationArray{
+//					&network.SubnetDelegationArgs{
+//						Name: pulumi.String("orbitalgateway"),
+//						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
+//							Name: pulumi.String("Microsoft.Orbital/orbitalGateways"),
+//							Actions: pulumi.StringArray{
+//								pulumi.String("Microsoft.Network/publicIPAddresses/join/action"),
+//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
+//								pulumi.String("Microsoft.Network/virtualNetworks/read"),
+//								pulumi.String("Microsoft.Network/publicIPAddresses/read"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleContactProfile, err := orbital.NewContactProfile(ctx, "exampleContactProfile", &orbital.ContactProfileArgs{
+//				ResourceGroupName:              exampleResourceGroup.Name,
+//				Location:                       exampleResourceGroup.Location,
+//				MinimumVariableContactDuration: pulumi.String("PT1M"),
+//				AutoTracking:                   pulumi.String("disabled"),
+//				Links: orbital.ContactProfileLinkArray{
+//					&orbital.ContactProfileLinkArgs{
+//						Channels: orbital.ContactProfileLinkChannelArray{
+//							&orbital.ContactProfileLinkChannelArgs{
+//								Name:               pulumi.String("channelname"),
+//								BandwidthMhz:       pulumi.Float64(100),
+//								CenterFrequencyMhz: pulumi.Float64(101),
+//								EndPoints: orbital.ContactProfileLinkChannelEndPointArray{
+//									&orbital.ContactProfileLinkChannelEndPointArgs{
+//										EndPointName: pulumi.String("AQUA_command"),
+//										IpAddress:    pulumi.String("10.0.1.0"),
+//										Port:         pulumi.String("49153"),
+//										Protocol:     pulumi.String("TCP"),
+//									},
+//								},
+//							},
+//						},
+//						Direction:    pulumi.String("Uplink"),
+//						Name:         pulumi.String("RHCP_UL"),
+//						Polarization: pulumi.String("RHCP"),
+//					},
+//				},
+//				NetworkConfigurationSubnetId: exampleSubnet.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = orbital.NewContact(ctx, "exampleContact", &orbital.ContactArgs{
+//				SpacecraftId:         exampleSpacecraft.ID(),
+//				ReservationStartTime: pulumi.String("2020-07-16T20:35:00.00Z"),
+//				ReservationEndTime:   pulumi.String("2020-07-16T20:55:00.00Z"),
+//				GroundStationName:    pulumi.String("WESTUS2_0"),
+//				ContactProfileId:     exampleContactProfile.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Spacecraft can be imported using the `resource id`, e.g.

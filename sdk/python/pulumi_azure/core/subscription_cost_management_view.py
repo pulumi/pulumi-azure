@@ -449,6 +449,28 @@ class SubscriptionCostManagementView(pulumi.CustomResource):
         """
         Manages an Azure Cost Management View for a Subscription.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.SubscriptionCostManagementView("example",
+            accumulated=False,
+            chart_type="StackedColumn",
+            dataset=azure.core.SubscriptionCostManagementViewDatasetArgs(
+                aggregations=[azure.core.SubscriptionCostManagementViewDatasetAggregationArgs(
+                    column_name="Cost",
+                    name="totalCost",
+                )],
+                granularity="Monthly",
+            ),
+            display_name="Cost View per Month",
+            report_type="Usage",
+            subscription_id="/subscription/00000000-0000-0000-0000-000000000000",
+            timeframe="MonthToDate")
+        ```
+
         ## Import
 
         Cost Management View for a Subscriptions can be imported using the `resource id`, e.g.
@@ -478,6 +500,28 @@ class SubscriptionCostManagementView(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Cost Management View for a Subscription.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.SubscriptionCostManagementView("example",
+            accumulated=False,
+            chart_type="StackedColumn",
+            dataset=azure.core.SubscriptionCostManagementViewDatasetArgs(
+                aggregations=[azure.core.SubscriptionCostManagementViewDatasetAggregationArgs(
+                    column_name="Cost",
+                    name="totalCost",
+                )],
+                granularity="Monthly",
+            ),
+            display_name="Cost View per Month",
+            report_type="Usage",
+            subscription_id="/subscription/00000000-0000-0000-0000-000000000000",
+            timeframe="MonthToDate")
+        ```
 
         ## Import
 

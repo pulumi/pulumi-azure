@@ -838,6 +838,25 @@ class Queue(pulumi.CustomResource):
         """
         Manages a ServiceBus Queue.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_namespace = azure.servicebus.Namespace("exampleNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard",
+            tags={
+                "source": "example",
+            })
+        example_queue = azure.servicebus.Queue("exampleQueue",
+            namespace_id=example_namespace.id,
+            enable_partitioning=True)
+        ```
+
         ## Import
 
         Service Bus Queue can be imported using the `resource id`, e.g.
@@ -879,6 +898,25 @@ class Queue(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a ServiceBus Queue.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_namespace = azure.servicebus.Namespace("exampleNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard",
+            tags={
+                "source": "example",
+            })
+        example_queue = azure.servicebus.Queue("exampleQueue",
+            namespace_id=example_namespace.id,
+            enable_partitioning=True)
+        ```
 
         ## Import
 

@@ -6,6 +6,19 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Storage Sync Group.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.storage.getSyncGroup({
+ *     name: "existing-ss-group",
+ *     storageSyncId: "existing-ss-id",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
  */
 export function getSyncGroup(args: GetSyncGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSyncGroupResult> {
 
@@ -43,6 +56,19 @@ export interface GetSyncGroupResult {
 }
 /**
  * Use this data source to access information about an existing Storage Sync Group.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.storage.getSyncGroup({
+ *     name: "existing-ss-group",
+ *     storageSyncId: "existing-ss-id",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
  */
 export function getSyncGroupOutput(args: GetSyncGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyncGroupResult> {
     return pulumi.output(args).apply((a: any) => getSyncGroup(a, opts))

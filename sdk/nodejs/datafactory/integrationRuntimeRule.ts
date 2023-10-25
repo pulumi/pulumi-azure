@@ -7,6 +7,23 @@ import * as utilities from "../utilities";
 /**
  * Manages a Data Factory Azure Integration Runtime.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleIntegrationRuntimeRule = new azure.datafactory.IntegrationRuntimeRule("exampleIntegrationRuntimeRule", {
+ *     dataFactoryId: exampleFactory.id,
+ *     location: exampleResourceGroup.location,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Data Factory Azure Integration Runtimes can be imported using the `resource id`, e.g.

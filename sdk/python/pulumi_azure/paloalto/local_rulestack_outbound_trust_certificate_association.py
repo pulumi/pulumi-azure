@@ -96,6 +96,22 @@ class LocalRulestackOutboundTrustCertificateAssociation(pulumi.CustomResource):
         """
         Manages a Palo Alto Networks Rulestack Outbound Trust Certificate Association.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_local_rulestack = azure.paloalto.LocalRulestack("exampleLocalRulestack",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        example_local_rulestack_certificate = azure.paloalto.LocalRulestackCertificate("exampleLocalRulestackCertificate",
+            rulestack_id=example_local_rulestack.id,
+            self_signed=True)
+        example_local_rulestack_outbound_trust_certificate_association = azure.paloalto.LocalRulestackOutboundTrustCertificateAssociation("exampleLocalRulestackOutboundTrustCertificateAssociation", certificate_id=example_local_rulestack_certificate.id)
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_id: The ID of the Certificate to use as the Outbound Trust Certificate. Changing this forces a new Palo Alto Networks Rulestack Outbound Trust Certificate Association to be created.
@@ -108,6 +124,22 @@ class LocalRulestackOutboundTrustCertificateAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Palo Alto Networks Rulestack Outbound Trust Certificate Association.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_local_rulestack = azure.paloalto.LocalRulestack("exampleLocalRulestack",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        example_local_rulestack_certificate = azure.paloalto.LocalRulestackCertificate("exampleLocalRulestackCertificate",
+            rulestack_id=example_local_rulestack.id,
+            self_signed=True)
+        example_local_rulestack_outbound_trust_certificate_association = azure.paloalto.LocalRulestackOutboundTrustCertificateAssociation("exampleLocalRulestackOutboundTrustCertificateAssociation", certificate_id=example_local_rulestack_certificate.id)
+        ```
 
         :param str resource_name: The name of the resource.
         :param LocalRulestackOutboundTrustCertificateAssociationArgs args: The arguments to use to populate this resource's properties.

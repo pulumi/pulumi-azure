@@ -12,6 +12,79 @@ namespace Pulumi.Azure.ManagedApplication
     /// <summary>
     /// Manages a Managed Application.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var builtin = Azure.Authorization.GetRoleDefinition.Invoke(new()
+    ///     {
+    ///         Name = "Contributor",
+    ///     });
+    /// 
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleDefinition = new Azure.ManagedApplication.Definition("exampleDefinition", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         LockLevel = "ReadOnly",
+    ///         PackageFileUri = "https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip",
+    ///         DisplayName = "TestManagedAppDefinition",
+    ///         Description = "Test Managed App Definition",
+    ///         Authorizations = new[]
+    ///         {
+    ///             new Azure.ManagedApplication.Inputs.DefinitionAuthorizationArgs
+    ///             {
+    ///                 ServicePrincipalId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///                 RoleDefinitionId = Output.Tuple(builtin.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.Id).Split("/"), builtin.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.Id).Split("/").Length).Apply(values =&gt;
+    ///                 {
+    ///                     var split = values.Item1;
+    ///                     var length = values.Item2;
+    ///                     return split[length - 1];
+    ///                 }),
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleApplication = new Azure.ManagedApplication.Application("exampleApplication", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Kind = "ServiceCatalog",
+    ///         ManagedResourceGroupName = "infrastructureGroup",
+    ///         ApplicationDefinitionId = exampleDefinition.Id,
+    ///         ParameterValues = exampleResourceGroup.Location.Apply(location =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["location"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["value"] = location,
+    ///             },
+    ///             ["storageAccountNamePrefix"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["value"] = "storeNamePrefix",
+    ///             },
+    ///             ["storageAccountType"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["value"] = "Standard_LRS",
+    ///             },
+    ///         })),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Managed Application can be imported using the `resource id`, e.g.

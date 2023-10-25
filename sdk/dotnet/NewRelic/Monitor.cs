@@ -12,6 +12,41 @@ namespace Pulumi.Azure.NewRelic
     /// <summary>
     /// Manages an Azure Native New Relic Monitor.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "East US",
+    ///     });
+    /// 
+    ///     var exampleMonitor = new Azure.NewRelic.Monitor("exampleMonitor", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Plan = new Azure.NewRelic.Inputs.MonitorPlanArgs
+    ///         {
+    ///             EffectiveDate = "2023-06-06T00:00:00Z",
+    ///         },
+    ///         User = new Azure.NewRelic.Inputs.MonitorUserArgs
+    ///         {
+    ///             Email = "user@example.com",
+    ///             FirstName = "Example",
+    ///             LastName = "User",
+    ///             PhoneNumber = "+12313803556",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Azure Native New Relic Monitor can be imported using the `resource id`, e.g.

@@ -11,6 +11,51 @@ import * as utilities from "../utilities";
  *
  * Manages a Spring Cloud Gateway.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("exampleSpringCloudService", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     skuName: "E0",
+ * });
+ * const exampleSpringCloudGateway = new azure.appplatform.SpringCloudGateway("exampleSpringCloudGateway", {
+ *     springCloudServiceId: exampleSpringCloudService.id,
+ *     httpsOnly: false,
+ *     publicNetworkAccessEnabled: true,
+ *     instanceCount: 2,
+ *     apiMetadata: {
+ *         description: "example description",
+ *         documentationUrl: "https://www.example.com/docs",
+ *         serverUrl: "https://wwww.example.com",
+ *         title: "example title",
+ *         version: "1.0",
+ *     },
+ *     cors: {
+ *         credentialsAllowed: false,
+ *         allowedHeaders: ["*"],
+ *         allowedMethods: ["PUT"],
+ *         allowedOrigins: ["example.com"],
+ *         exposedHeaders: ["x-example-header"],
+ *         maxAgeSeconds: 86400,
+ *     },
+ *     quota: {
+ *         cpu: "1",
+ *         memory: "2Gi",
+ *     },
+ *     sso: {
+ *         clientId: "example id",
+ *         clientSecret: "example secret",
+ *         issuerUri: "https://www.test.com/issueToken",
+ *         scopes: ["read"],
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Spring Cloud Gateways can be imported using the `resource id`, e.g.

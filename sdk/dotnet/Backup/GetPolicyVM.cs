@@ -13,12 +13,60 @@ namespace Pulumi.Azure.Backup
     {
         /// <summary>
         /// Use this data source to access information about an existing VM Backup Policy.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var policy = Azure.Backup.GetPolicyVM.Invoke(new()
+        ///     {
+        ///         Name = "policy",
+        ///         RecoveryVaultName = "recovery_vault",
+        ///         ResourceGroupName = "resource_group",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetPolicyVMResult> InvokeAsync(GetPolicyVMArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyVMResult>("azure:backup/getPolicyVM:getPolicyVM", args ?? new GetPolicyVMArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing VM Backup Policy.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var policy = Azure.Backup.GetPolicyVM.Invoke(new()
+        ///     {
+        ///         Name = "policy",
+        ///         RecoveryVaultName = "recovery_vault",
+        ///         ResourceGroupName = "resource_group",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetPolicyVMResult> Invoke(GetPolicyVMInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyVMResult>("azure:backup/getPolicyVM:getPolicyVM", args ?? new GetPolicyVMInvokeArgs(), options.WithDefaults());

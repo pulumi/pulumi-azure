@@ -14,6 +14,57 @@ namespace Pulumi.Azure.Policy
     /// 
     /// Policy definitions do not take effect until they are assigned to a scope using a Policy Assignment.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var policy = new Azure.Policy.Definition("policy", new()
+    ///     {
+    ///         DisplayName = "acceptance test policy definition",
+    ///         Metadata = @"    {
+    ///     ""category"": ""General""
+    ///     }
+    /// 
+    /// 
+    /// ",
+    ///         Mode = "Indexed",
+    ///         Parameters = @" {
+    ///     ""allowedLocations"": {
+    ///       ""type"": ""Array"",
+    ///       ""metadata"": {
+    ///         ""description"": ""The list of allowed locations for resources."",
+    ///         ""displayName"": ""Allowed locations"",
+    ///         ""strongType"": ""location""
+    ///       }
+    ///     }
+    ///   }
+    /// 
+    /// ",
+    ///         PolicyRule = @" {
+    ///     ""if"": {
+    ///       ""not"": {
+    ///         ""field"": ""location"",
+    ///         ""in"": ""[parameters('allowedLocations')]""
+    ///       }
+    ///     },
+    ///     ""then"": {
+    ///       ""effect"": ""audit""
+    ///     }
+    ///   }
+    /// 
+    /// ",
+    ///         PolicyType = "Custom",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Policy Definitions can be imported using the `policy name`, e.g.

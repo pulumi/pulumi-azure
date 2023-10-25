@@ -101,6 +101,16 @@ def get_public_i_ps(allocation_type: Optional[str] = None,
     """
     Use this data source to access information about a set of existing Public IP Addresses.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.network.get_public_i_ps(attachment_status="Attached",
+        resource_group_name="pip-test")
+    ```
+
 
     :param str allocation_type: The Allocation Type for the Public IP Address. Possible values include `Static` or `Dynamic`.
     :param str attachment_status: Filter to include IP Addresses which are attached to a device, such as a VM/LB (`Attached`) or unattached (`Unattached`).
@@ -132,6 +142,16 @@ def get_public_i_ps_output(allocation_type: Optional[pulumi.Input[Optional[str]]
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPublicIPsResult]:
     """
     Use this data source to access information about a set of existing Public IP Addresses.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.network.get_public_i_ps(attachment_status="Attached",
+        resource_group_name="pip-test")
+    ```
 
 
     :param str allocation_type: The Allocation Type for the Public IP Address. Possible values include `Static` or `Dynamic`.

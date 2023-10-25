@@ -12,6 +12,53 @@ namespace Pulumi.Azure.Relay
     /// <summary>
     /// Manages an Azure Relay Hybrid Connection Authorization Rule.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleNamespace = new Azure.Relay.Namespace("exampleNamespace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "Standard",
+    ///         Tags = 
+    ///         {
+    ///             { "source", "terraform" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleHybridConnection = new Azure.Relay.HybridConnection("exampleHybridConnection", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         RelayNamespaceName = exampleNamespace.Name,
+    ///         RequiresClientAuthorization = false,
+    ///         UserMetadata = "testmetadata",
+    ///     });
+    /// 
+    ///     var exampleHybridConnectionAuthorizationRule = new Azure.Relay.HybridConnectionAuthorizationRule("exampleHybridConnectionAuthorizationRule", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         HybridConnectionName = exampleHybridConnection.Name,
+    ///         NamespaceName = exampleNamespace.Name,
+    ///         Listen = true,
+    ///         Send = true,
+    ///         Manage = false,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Azure Relay Hybrid Connection Authorization Rules can be imported using the `resource id`, e.g.

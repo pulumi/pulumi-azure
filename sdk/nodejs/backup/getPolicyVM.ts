@@ -6,6 +6,19 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing VM Backup Policy.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const policy = azure.backup.getPolicyVM({
+ *     name: "policy",
+ *     recoveryVaultName: "recovery_vault",
+ *     resourceGroupName: "resource_group",
+ * });
+ * ```
  */
 export function getPolicyVM(args: GetPolicyVMArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyVMResult> {
 
@@ -49,6 +62,19 @@ export interface GetPolicyVMResult {
 }
 /**
  * Use this data source to access information about an existing VM Backup Policy.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const policy = azure.backup.getPolicyVM({
+ *     name: "policy",
+ *     recoveryVaultName: "recovery_vault",
+ *     resourceGroupName: "resource_group",
+ * });
+ * ```
  */
 export function getPolicyVMOutput(args: GetPolicyVMOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyVMResult> {
     return pulumi.output(args).apply((a: any) => getPolicyVM(a, opts))

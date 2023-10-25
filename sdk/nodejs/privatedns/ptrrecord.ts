@@ -7,6 +7,22 @@ import * as utilities from "../utilities";
 /**
  * Enables you to manage DNS PTR Records within Azure Private DNS.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleZone = new azure.privatedns.Zone("exampleZone", {resourceGroupName: exampleResourceGroup.name});
+ * const examplePTRRecord = new azure.privatedns.PTRRecord("examplePTRRecord", {
+ *     zoneName: exampleZone.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     ttl: 300,
+ *     records: ["test.example.com"],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Private DNS PTR Records can be imported using the `resource id`, e.g.

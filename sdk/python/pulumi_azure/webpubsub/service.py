@@ -698,6 +698,29 @@ class Service(pulumi.CustomResource):
         """
         Manages an Azure Web PubSub Service.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="east us")
+        example_service = azure.webpubsub.Service("exampleService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard_S1",
+            capacity=1,
+            public_network_access_enabled=False,
+            live_trace=azure.webpubsub.ServiceLiveTraceArgs(
+                enabled=True,
+                messaging_logs_enabled=True,
+                connectivity_logs_enabled=False,
+            ),
+            identity=azure.webpubsub.ServiceIdentityArgs(
+                type="SystemAssigned",
+            ))
+        ```
+
         ## Import
 
         Web PubSub services can be imported using the `resource id`, e.g.
@@ -729,6 +752,29 @@ class Service(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Web PubSub Service.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="east us")
+        example_service = azure.webpubsub.Service("exampleService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard_S1",
+            capacity=1,
+            public_network_access_enabled=False,
+            live_trace=azure.webpubsub.ServiceLiveTraceArgs(
+                enabled=True,
+                messaging_logs_enabled=True,
+                connectivity_logs_enabled=False,
+            ),
+            identity=azure.webpubsub.ServiceIdentityArgs(
+                type="SystemAssigned",
+            ))
+        ```
 
         ## Import
 

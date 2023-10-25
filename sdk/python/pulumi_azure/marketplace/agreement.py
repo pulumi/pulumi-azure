@@ -200,6 +200,18 @@ class Agreement(pulumi.CustomResource):
         """
         Allows accepting the Legal Terms for a Marketplace Image.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        barracuda = azure.marketplace.Agreement("barracuda",
+            offer="waf",
+            plan="hourly",
+            publisher="barracudanetworks")
+        ```
+
         ## Import
 
         Marketplace Agreement can be imported using the `resource id`, e.g.
@@ -222,6 +234,18 @@ class Agreement(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Allows accepting the Legal Terms for a Marketplace Image.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        barracuda = azure.marketplace.Agreement("barracuda",
+            offer="waf",
+            plan="hourly",
+            publisher="barracudanetworks")
+        ```
 
         ## Import
 

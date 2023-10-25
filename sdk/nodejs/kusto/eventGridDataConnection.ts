@@ -7,6 +7,79 @@ import * as utilities from "../utilities";
 /**
  * Manages a Kusto (also known as Azure Data Explorer) Event Grid Data Connection
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleCluster = new azure.kusto.Cluster("exampleCluster", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: {
+ *         name: "Standard_D13_v2",
+ *         capacity: 2,
+ *     },
+ * });
+ * const exampleDatabase = new azure.kusto.Database("exampleDatabase", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     clusterName: exampleCluster.name,
+ *     hotCachePeriod: "P7D",
+ *     softDeletePeriod: "P31D",
+ * });
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "GRS",
+ * });
+ * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("exampleEventHubNamespace", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: "Standard",
+ * });
+ * const exampleEventHub = new azure.eventhub.EventHub("exampleEventHub", {
+ *     namespaceName: exampleEventHubNamespace.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     partitionCount: 1,
+ *     messageRetention: 1,
+ * });
+ * const exampleConsumerGroup = new azure.eventhub.ConsumerGroup("exampleConsumerGroup", {
+ *     namespaceName: exampleEventHubNamespace.name,
+ *     eventhubName: exampleEventHub.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleEventSubscription = new azure.eventgrid.EventSubscription("exampleEventSubscription", {
+ *     scope: exampleAccount.id,
+ *     eventhubEndpointId: exampleEventHub.id,
+ *     eventDeliverySchema: "EventGridSchema",
+ *     includedEventTypes: [
+ *         "Microsoft.Storage.BlobCreated",
+ *         "Microsoft.Storage.BlobRenamed",
+ *     ],
+ *     retryPolicy: {
+ *         eventTimeToLive: 144,
+ *         maxDeliveryAttempts: 10,
+ *     },
+ * });
+ * const exampleEventGridDataConnection = new azure.kusto.EventGridDataConnection("exampleEventGridDataConnection", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     clusterName: exampleCluster.name,
+ *     databaseName: exampleDatabase.name,
+ *     storageAccountId: exampleAccount.id,
+ *     eventhubId: exampleEventHub.id,
+ *     eventhubConsumerGroupName: exampleConsumerGroup.name,
+ *     tableName: "my-table",
+ *     mappingRuleName: "my-table-mapping",
+ *     dataFormat: "JSON",
+ * }, {
+ *     dependsOn: [exampleEventSubscription],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Kusto Event Grid Data Connections can be imported using the `resource id`, e.g.

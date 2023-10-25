@@ -428,6 +428,26 @@ class ShareFile(pulumi.CustomResource):
         """
         Manages a File within an Azure Storage File Share.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_share = azure.storage.Share("exampleShare",
+            storage_account_name=example_account.name,
+            quota=50)
+        example_share_file = azure.storage.ShareFile("exampleShareFile",
+            storage_share_id=example_share.id,
+            source="some-local-file.zip")
+        ```
+
         ## Import
 
         Directories within an Azure Storage File Share can be imported using the `resource id`, e.g.
@@ -456,6 +476,26 @@ class ShareFile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a File within an Azure Storage File Share.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_share = azure.storage.Share("exampleShare",
+            storage_account_name=example_account.name,
+            quota=50)
+        example_share_file = azure.storage.ShareFile("exampleShareFile",
+            storage_share_id=example_share.id,
+            source="some-local-file.zip")
+        ```
 
         ## Import
 

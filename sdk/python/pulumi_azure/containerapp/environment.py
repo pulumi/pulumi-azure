@@ -536,6 +536,24 @@ class Environment(pulumi.CustomResource):
         """
         Manages a Container App Environment.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="PerGB2018",
+            retention_in_days=30)
+        example_environment = azure.containerapp.Environment("exampleEnvironment",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            log_analytics_workspace_id=example_analytics_workspace.id)
+        ```
+
         ## Import
 
         A Container App Environment can be imported using the `resource id`, e.g.
@@ -570,6 +588,24 @@ class Environment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Container App Environment.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="PerGB2018",
+            retention_in_days=30)
+        example_environment = azure.containerapp.Environment("exampleEnvironment",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            log_analytics_workspace_id=example_analytics_workspace.id)
+        ```
 
         ## Import
 

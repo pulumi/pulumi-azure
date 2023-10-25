@@ -7,6 +7,44 @@ import * as utilities from "../utilities";
 /**
  * Manages an Application Insights component.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleInsights = new azure.appinsights.Insights("exampleInsights", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     applicationType: "web",
+ * });
+ * export const instrumentationKey = exampleInsights.instrumentationKey;
+ * export const appId = exampleInsights.appId;
+ * ```
+ * ### Workspace Mode
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: "PerGB2018",
+ *     retentionInDays: 30,
+ * });
+ * const exampleInsights = new azure.appinsights.Insights("exampleInsights", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     workspaceId: exampleAnalyticsWorkspace.id,
+ *     applicationType: "web",
+ * });
+ * export const instrumentationKey = exampleInsights.instrumentationKey;
+ * export const appId = exampleInsights.appId;
+ * ```
+ *
  * ## Import
  *
  * Application Insights instances can be imported using the `resource id`, e.g.

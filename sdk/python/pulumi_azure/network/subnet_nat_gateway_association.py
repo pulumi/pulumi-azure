@@ -138,6 +138,29 @@ class SubnetNatGatewayAssociation(pulumi.CustomResource):
         """
         Associates a NAT Gateway with a Subnet within a Virtual Network.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
+        example_nat_gateway = azure.network.NatGateway("exampleNatGateway",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet_nat_gateway_association = azure.network.SubnetNatGatewayAssociation("exampleSubnetNatGatewayAssociation",
+            subnet_id=example_subnet.id,
+            nat_gateway_id=example_nat_gateway.id)
+        ```
+
         ## Import
 
         Subnet NAT Gateway Associations can be imported using the `resource id` of the Subnet, e.g.
@@ -159,6 +182,29 @@ class SubnetNatGatewayAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Associates a NAT Gateway with a Subnet within a Virtual Network.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
+        example_nat_gateway = azure.network.NatGateway("exampleNatGateway",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet_nat_gateway_association = azure.network.SubnetNatGatewayAssociation("exampleSubnetNatGatewayAssociation",
+            subnet_id=example_subnet.id,
+            nat_gateway_id=example_nat_gateway.id)
+        ```
 
         ## Import
 

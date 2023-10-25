@@ -15,6 +15,92 @@ import (
 
 // Manages an Alert Processing Rule which apply action group.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleActionGroup, err := monitoring.NewActionGroup(ctx, "exampleActionGroup", &monitoring.ActionGroupArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ShortName:         pulumi.String("action"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = monitoring.NewAlertProcessingRuleActionGroup(ctx, "exampleAlertProcessingRuleActionGroup", &monitoring.AlertProcessingRuleActionGroupArgs{
+//				ResourceGroupName: pulumi.String("example"),
+//				Scopes: pulumi.StringArray{
+//					exampleResourceGroup.ID(),
+//				},
+//				AddActionGroupIds: pulumi.StringArray{
+//					exampleActionGroup.ID(),
+//				},
+//				Condition: &monitoring.AlertProcessingRuleActionGroupConditionArgs{
+//					TargetResourceType: &monitoring.AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs{
+//						Operator: pulumi.String("Equals"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("Microsoft.Compute/VirtualMachines"),
+//						},
+//					},
+//					Severity: &monitoring.AlertProcessingRuleActionGroupConditionSeverityArgs{
+//						Operator: pulumi.String("Equals"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("Sev0"),
+//							pulumi.String("Sev1"),
+//							pulumi.String("Sev2"),
+//						},
+//					},
+//				},
+//				Schedule: &monitoring.AlertProcessingRuleActionGroupScheduleArgs{
+//					EffectiveFrom:  pulumi.String("2022-01-01T01:02:03"),
+//					EffectiveUntil: pulumi.String("2022-02-02T01:02:03"),
+//					TimeZone:       pulumi.String("Pacific Standard Time"),
+//					Recurrence: &monitoring.AlertProcessingRuleActionGroupScheduleRecurrenceArgs{
+//						Dailies: monitoring.AlertProcessingRuleActionGroupScheduleRecurrenceDailyArray{
+//							&monitoring.AlertProcessingRuleActionGroupScheduleRecurrenceDailyArgs{
+//								StartTime: pulumi.String("17:00:00"),
+//								EndTime:   pulumi.String("09:00:00"),
+//							},
+//						},
+//						Weeklies: monitoring.AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArray{
+//							&monitoring.AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs{
+//								DaysOfWeeks: pulumi.StringArray{
+//									pulumi.String("Saturday"),
+//									pulumi.String("Sunday"),
+//								},
+//							},
+//						},
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"foo": pulumi.String("bar"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Alert Processing Rules can be imported using the `resource id`, e.g.

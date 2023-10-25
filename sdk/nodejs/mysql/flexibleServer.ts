@@ -9,6 +9,51 @@ import * as utilities from "../utilities";
 /**
  * Manages a MySQL Flexible Server.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     addressSpaces: ["10.0.0.0/16"],
+ * });
+ * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.2.0/24"],
+ *     serviceEndpoints: ["Microsoft.Storage"],
+ *     delegations: [{
+ *         name: "fs",
+ *         serviceDelegation: {
+ *             name: "Microsoft.DBforMySQL/flexibleServers",
+ *             actions: ["Microsoft.Network/virtualNetworks/subnets/join/action"],
+ *         },
+ *     }],
+ * });
+ * const exampleZone = new azure.privatedns.Zone("exampleZone", {resourceGroupName: exampleResourceGroup.name});
+ * const exampleZoneVirtualNetworkLink = new azure.privatedns.ZoneVirtualNetworkLink("exampleZoneVirtualNetworkLink", {
+ *     privateDnsZoneName: exampleZone.name,
+ *     virtualNetworkId: exampleVirtualNetwork.id,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleFlexibleServer = new azure.mysql.FlexibleServer("exampleFlexibleServer", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     administratorLogin: "psqladmin",
+ *     administratorPassword: "H@Sh1CoR3!",
+ *     backupRetentionDays: 7,
+ *     delegatedSubnetId: exampleSubnet.id,
+ *     privateDnsZoneId: exampleZone.id,
+ *     skuName: "GP_Standard_D2ds_v4",
+ * }, {
+ *     dependsOn: [exampleZoneVirtualNetworkLink],
+ * });
+ * ```
+ *
  * ## Import
  *
  * MySQL Flexible Servers can be imported using the `resource id`, e.g.

@@ -437,6 +437,29 @@ class SourceControl(pulumi.CustomResource):
         """
         Manages an App Service Web App or Function App Source Control Configuration.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            os_type="Linux",
+            sku_name="P1v2")
+        example_linux_web_app = azure.appservice.LinuxWebApp("exampleLinuxWebApp",
+            resource_group_name=example_resource_group.name,
+            location=example_service_plan.location,
+            service_plan_id=example_service_plan.id,
+            site_config=azure.appservice.LinuxWebAppSiteConfigArgs())
+        example_source_control = azure.appservice.SourceControl("exampleSourceControl",
+            app_id=example_linux_web_app.id,
+            repo_url="https://github.com/Azure-Samples/python-docs-hello-world",
+            branch="master")
+        ```
+
         ## Import
 
         App Service Source Controls can be imported using the `resource id`, e.g.
@@ -468,6 +491,29 @@ class SourceControl(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an App Service Web App or Function App Source Control Configuration.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            os_type="Linux",
+            sku_name="P1v2")
+        example_linux_web_app = azure.appservice.LinuxWebApp("exampleLinuxWebApp",
+            resource_group_name=example_resource_group.name,
+            location=example_service_plan.location,
+            service_plan_id=example_service_plan.id,
+            site_config=azure.appservice.LinuxWebAppSiteConfigArgs())
+        example_source_control = azure.appservice.SourceControl("exampleSourceControl",
+            app_id=example_linux_web_app.id,
+            repo_url="https://github.com/Azure-Samples/python-docs-hello-world",
+            branch="master")
+        ```
 
         ## Import
 

@@ -12,6 +12,73 @@ namespace Pulumi.Azure.Monitoring
     /// <summary>
     /// Manages an Activity Log Alert within Azure Monitor.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var mainActionGroup = new Azure.Monitoring.ActionGroup("mainActionGroup", new()
+    ///     {
+    ///         ResourceGroupName = example.Name,
+    ///         ShortName = "p0action",
+    ///         WebhookReceivers = new[]
+    ///         {
+    ///             new Azure.Monitoring.Inputs.ActionGroupWebhookReceiverArgs
+    ///             {
+    ///                 Name = "callmyapi",
+    ///                 ServiceUri = "http://example.com/alert",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var toMonitor = new Azure.Storage.Account("toMonitor", new()
+    ///     {
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "GRS",
+    ///     });
+    /// 
+    ///     var mainActivityLogAlert = new Azure.Monitoring.ActivityLogAlert("mainActivityLogAlert", new()
+    ///     {
+    ///         ResourceGroupName = example.Name,
+    ///         Scopes = new[]
+    ///         {
+    ///             example.Id,
+    ///         },
+    ///         Description = "This alert will monitor a specific storage account updates.",
+    ///         Criteria = new Azure.Monitoring.Inputs.ActivityLogAlertCriteriaArgs
+    ///         {
+    ///             ResourceId = toMonitor.Id,
+    ///             OperationName = "Microsoft.Storage/storageAccounts/write",
+    ///             Category = "Recommendation",
+    ///         },
+    ///         Actions = new[]
+    ///         {
+    ///             new Azure.Monitoring.Inputs.ActivityLogAlertActionArgs
+    ///             {
+    ///                 ActionGroupId = mainActionGroup.Id,
+    ///                 WebhookProperties = 
+    ///                 {
+    ///                     { "from", "source" },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Activity log alerts can be imported using the `resource id`, e.g.

@@ -777,6 +777,23 @@ class EventHubNamespace(pulumi.CustomResource):
         """
         Manages an EventHub Namespace.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard",
+            capacity=2,
+            tags={
+                "environment": "Production",
+            })
+        ```
+
         ## Import
 
         EventHub Namespaces can be imported using the `resource id`, e.g.
@@ -813,6 +830,23 @@ class EventHubNamespace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an EventHub Namespace.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard",
+            capacity=2,
+            tags={
+                "environment": "Production",
+            })
+        ```
 
         ## Import
 

@@ -9,6 +9,90 @@ import * as utilities from "../utilities";
  *
  * > **Note:** Keys that are actively protecting a workspace cannot be deleted. When the keys resource is deleted, if the key is inactive it will be deleted, if it is active it will not be deleted.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ *     accountKind: "StorageV2",
+ *     isHnsEnabled: true,
+ * });
+ * const exampleDataLakeGen2Filesystem = new azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", {storageAccountId: exampleAccount.id});
+ * const current = azure.core.getClientConfig({});
+ * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     tenantId: current.then(current => current.tenantId),
+ *     skuName: "standard",
+ *     purgeProtectionEnabled: true,
+ * });
+ * const deployer = new azure.keyvault.AccessPolicy("deployer", {
+ *     keyVaultId: exampleKeyVault.id,
+ *     tenantId: current.then(current => current.tenantId),
+ *     objectId: current.then(current => current.objectId),
+ *     keyPermissions: [
+ *         "Create",
+ *         "Get",
+ *         "Delete",
+ *         "Purge",
+ *         "GetRotationPolicy",
+ *     ],
+ * });
+ * const exampleKey = new azure.keyvault.Key("exampleKey", {
+ *     keyVaultId: exampleKeyVault.id,
+ *     keyType: "RSA",
+ *     keySize: 2048,
+ *     keyOpts: [
+ *         "unwrapKey",
+ *         "wrapKey",
+ *     ],
+ * }, {
+ *     dependsOn: [deployer],
+ * });
+ * const exampleWorkspace = new azure.synapse.Workspace("exampleWorkspace", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     storageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.id,
+ *     sqlAdministratorLogin: "sqladminuser",
+ *     sqlAdministratorLoginPassword: "H@Sh1CoR3!",
+ *     customerManagedKey: {
+ *         keyVersionlessId: exampleKey.versionlessId,
+ *         keyName: "enckey",
+ *     },
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ *     tags: {
+ *         Env: "production",
+ *     },
+ * });
+ * const workspacePolicy = new azure.keyvault.AccessPolicy("workspacePolicy", {
+ *     keyVaultId: exampleKeyVault.id,
+ *     tenantId: exampleWorkspace.identity.apply(identity => identity?.tenantId),
+ *     objectId: exampleWorkspace.identity.apply(identity => identity?.principalId),
+ *     keyPermissions: [
+ *         "Get",
+ *         "WrapKey",
+ *         "UnwrapKey",
+ *     ],
+ * });
+ * const exampleWorkspaceKey = new azure.synapse.WorkspaceKey("exampleWorkspaceKey", {
+ *     customerManagedKeyVersionlessId: exampleKey.versionlessId,
+ *     synapseWorkspaceId: exampleWorkspace.id,
+ *     active: true,
+ *     customerManagedKeyName: "enckey",
+ * }, {
+ *     dependsOn: [workspacePolicy],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Synapse Workspace Keys can be imported using the `resource id`, e.g.

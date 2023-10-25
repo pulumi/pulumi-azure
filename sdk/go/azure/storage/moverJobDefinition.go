@@ -15,6 +15,103 @@ import (
 
 // Manages a Storage Mover Job Definition.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleMover, err := storage.NewMover(ctx, "exampleMover", &storage.MoverArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleMoverAgent, err := storage.NewMoverAgent(ctx, "exampleMoverAgent", &storage.MoverAgentArgs{
+//				StorageMoverId: exampleMover.ID(),
+//				ArcVirtualMachineId: exampleResourceGroup.ID().ApplyT(func(id string) (string, error) {
+//					return fmt.Sprintf("%v/providers/Microsoft.HybridCompute/machines/examples-hybridComputeName", id), nil
+//				}).(pulumi.StringOutput),
+//				ArcVirtualMachineUuid: pulumi.String("3bb2c024-eba9-4d18-9e7a-1d772fcc5fe9"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:          exampleResourceGroup.Name,
+//				Location:                   exampleResourceGroup.Location,
+//				AccountTier:                pulumi.String("Standard"),
+//				AccountReplicationType:     pulumi.String("LRS"),
+//				AllowNestedItemsToBePublic: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
+//				StorageAccountName:  exampleAccount.Name,
+//				ContainerAccessType: pulumi.String("blob"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleMoverTargetEndpoint, err := storage.NewMoverTargetEndpoint(ctx, "exampleMoverTargetEndpoint", &storage.MoverTargetEndpointArgs{
+//				StorageMoverId:       exampleMover.ID(),
+//				StorageAccountId:     exampleAccount.ID(),
+//				StorageContainerName: exampleContainer.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleMoverSourceEndpoint, err := storage.NewMoverSourceEndpoint(ctx, "exampleMoverSourceEndpoint", &storage.MoverSourceEndpointArgs{
+//				StorageMoverId: exampleMover.ID(),
+//				Host:           pulumi.String("192.168.0.1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleMoverProject, err := storage.NewMoverProject(ctx, "exampleMoverProject", &storage.MoverProjectArgs{
+//				StorageMoverId: exampleMover.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = storage.NewMoverJobDefinition(ctx, "exampleMoverJobDefinition", &storage.MoverJobDefinitionArgs{
+//				StorageMoverProjectId: exampleMoverProject.ID(),
+//				AgentName:             exampleMoverAgent.Name,
+//				CopyMode:              pulumi.String("Additive"),
+//				SourceName:            exampleMoverSourceEndpoint.Name,
+//				SourceSubPath:         pulumi.String("/"),
+//				TargetName:            exampleMoverTargetEndpoint.Name,
+//				TargetSubPath:         pulumi.String("/"),
+//				Description:           pulumi.String("Example Job Definition Description"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Storage Mover Job Definition can be imported using the `resource id`, e.g.

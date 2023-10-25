@@ -12,6 +12,48 @@ namespace Pulumi.Azure.DevTest
     /// <summary>
     /// Manages a Policy within a Dev Test Policy Set.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleLab = new Azure.DevTest.Lab("exampleLab", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Tags = 
+    ///         {
+    ///             { "Sydney", "Australia" },
+    ///         },
+    ///     });
+    /// 
+    ///     var examplePolicy = new Azure.DevTest.Policy("examplePolicy", new()
+    ///     {
+    ///         PolicySetName = "default",
+    ///         LabName = exampleLab.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         FactData = "",
+    ///         Threshold = "999",
+    ///         EvaluatorType = "MaxValuePolicy",
+    ///         Tags = 
+    ///         {
+    ///             { "Acceptance", "Test" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Dev Test Policies can be imported using the `resource id`, e.g.

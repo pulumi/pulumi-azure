@@ -14,6 +14,83 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     /// Manages a Spring Cloud Gateway.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "E0",
+    ///     });
+    /// 
+    ///     var exampleSpringCloudGateway = new Azure.AppPlatform.SpringCloudGateway("exampleSpringCloudGateway", new()
+    ///     {
+    ///         SpringCloudServiceId = exampleSpringCloudService.Id,
+    ///         HttpsOnly = false,
+    ///         PublicNetworkAccessEnabled = true,
+    ///         InstanceCount = 2,
+    ///         ApiMetadata = new Azure.AppPlatform.Inputs.SpringCloudGatewayApiMetadataArgs
+    ///         {
+    ///             Description = "example description",
+    ///             DocumentationUrl = "https://www.example.com/docs",
+    ///             ServerUrl = "https://wwww.example.com",
+    ///             Title = "example title",
+    ///             Version = "1.0",
+    ///         },
+    ///         Cors = new Azure.AppPlatform.Inputs.SpringCloudGatewayCorsArgs
+    ///         {
+    ///             CredentialsAllowed = false,
+    ///             AllowedHeaders = new[]
+    ///             {
+    ///                 "*",
+    ///             },
+    ///             AllowedMethods = new[]
+    ///             {
+    ///                 "PUT",
+    ///             },
+    ///             AllowedOrigins = new[]
+    ///             {
+    ///                 "example.com",
+    ///             },
+    ///             ExposedHeaders = new[]
+    ///             {
+    ///                 "x-example-header",
+    ///             },
+    ///             MaxAgeSeconds = 86400,
+    ///         },
+    ///         Quota = new Azure.AppPlatform.Inputs.SpringCloudGatewayQuotaArgs
+    ///         {
+    ///             Cpu = "1",
+    ///             Memory = "2Gi",
+    ///         },
+    ///         Sso = new Azure.AppPlatform.Inputs.SpringCloudGatewaySsoArgs
+    ///         {
+    ///             ClientId = "example id",
+    ///             ClientSecret = "example secret",
+    ///             IssuerUri = "https://www.test.com/issueToken",
+    ///             Scopes = new[]
+    ///             {
+    ///                 "read",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Spring Cloud Gateways can be imported using the `resource id`, e.g.

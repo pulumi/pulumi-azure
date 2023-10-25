@@ -13,6 +13,50 @@ namespace Pulumi.Azure.Datadog
     /// Manages SingleSignOn on the datadog Monitor.
     /// 
     /// ## Example Usage
+    /// ### Enabling SSO on monitor
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West US 2",
+    ///     });
+    /// 
+    ///     var exampleMonitor = new Azure.Datadog.Monitor("exampleMonitor", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         DatadogOrganization = new Azure.Datadog.Inputs.MonitorDatadogOrganizationArgs
+    ///         {
+    ///             ApiKey = "XXXX",
+    ///             ApplicationKey = "XXXX",
+    ///         },
+    ///         User = new Azure.Datadog.Inputs.MonitorUserArgs
+    ///         {
+    ///             Name = "Example",
+    ///             Email = "abc@xyz.com",
+    ///         },
+    ///         SkuName = "Linked",
+    ///         Identity = new Azure.Datadog.Inputs.MonitorIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleMonitorSsoConfiguration = new Azure.Datadog.MonitorSsoConfiguration("exampleMonitorSsoConfiguration", new()
+    ///     {
+    ///         DatadogMonitorId = exampleMonitor.Id,
+    ///         SingleSignOnEnabled = "Enable",
+    ///         EnterpriseApplicationId = "XXXX",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

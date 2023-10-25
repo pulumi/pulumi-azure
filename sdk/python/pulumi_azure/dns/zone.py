@@ -273,6 +273,16 @@ class Zone(pulumi.CustomResource):
         """
         Enables you to manage DNS zones within Azure DNS. These zones are hosted on Azure's name servers to which you can delegate the zone from the parent domain.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example", location="West Europe")
+        example_public = azure.dns.Zone("example-public", resource_group_name=example.name)
+        ```
+
         ## Import
 
         DNS Zones can be imported using the `resource id`, e.g.
@@ -296,6 +306,16 @@ class Zone(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Enables you to manage DNS zones within Azure DNS. These zones are hosted on Azure's name servers to which you can delegate the zone from the parent domain.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example", location="West Europe")
+        example_public = azure.dns.Zone("example-public", resource_group_name=example.name)
+        ```
 
         ## Import
 

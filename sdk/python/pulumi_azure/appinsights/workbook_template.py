@@ -400,6 +400,72 @@ class WorkbookTemplate(pulumi.CustomResource):
         """
         Manages an Application Insights Workbook Template.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_workbook_template = azure.appinsights.WorkbookTemplate("exampleWorkbookTemplate",
+            resource_group_name=example_resource_group.name,
+            location="West Europe",
+            author="test author",
+            priority=1,
+            galleries=[azure.appinsights.WorkbookTemplateGalleryArgs(
+                category="workbook",
+                name="test",
+                order=100,
+                resource_type="microsoft.insights/components",
+                type="tsg",
+            )],
+            template_data=json.dumps({
+                "version": "Notebook/1.0",
+                "items": [{
+                    "type": 1,
+                    "content": {
+                        "json": \"\"\"## New workbook
+        ---
+
+        Welcome to your new workbook.\"\"\",
+                    },
+                    "name": "text - 2",
+                }],
+                "styleSettings": {},
+                "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json",
+            }),
+            localized=json.dumps({
+                "ar": [{
+                    "galleries": [{
+                        "name": "test",
+                        "category": "Failures",
+                        "type": "tsg",
+                        "resourceType": "microsoft.insights/components",
+                        "order": 100,
+                    }],
+                    "templateData": {
+                        "version": "Notebook/1.0",
+                        "items": [{
+                            "type": 1,
+                            "content": {
+                                "json": \"\"\"## New workbook
+        ---
+
+        Welcome to your new workbook.\"\"\",
+                            },
+                            "name": "text - 2",
+                        }],
+                        "styleSettings": {},
+                        "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json",
+                    },
+                }],
+            }),
+            tags={
+                "key": "value",
+            })
+        ```
+
         ## Import
 
         Application Insights Workbook Template can be imported using the `resource id`, e.g.
@@ -428,6 +494,72 @@ class WorkbookTemplate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Application Insights Workbook Template.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_workbook_template = azure.appinsights.WorkbookTemplate("exampleWorkbookTemplate",
+            resource_group_name=example_resource_group.name,
+            location="West Europe",
+            author="test author",
+            priority=1,
+            galleries=[azure.appinsights.WorkbookTemplateGalleryArgs(
+                category="workbook",
+                name="test",
+                order=100,
+                resource_type="microsoft.insights/components",
+                type="tsg",
+            )],
+            template_data=json.dumps({
+                "version": "Notebook/1.0",
+                "items": [{
+                    "type": 1,
+                    "content": {
+                        "json": \"\"\"## New workbook
+        ---
+
+        Welcome to your new workbook.\"\"\",
+                    },
+                    "name": "text - 2",
+                }],
+                "styleSettings": {},
+                "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json",
+            }),
+            localized=json.dumps({
+                "ar": [{
+                    "galleries": [{
+                        "name": "test",
+                        "category": "Failures",
+                        "type": "tsg",
+                        "resourceType": "microsoft.insights/components",
+                        "order": 100,
+                    }],
+                    "templateData": {
+                        "version": "Notebook/1.0",
+                        "items": [{
+                            "type": 1,
+                            "content": {
+                                "json": \"\"\"## New workbook
+        ---
+
+        Welcome to your new workbook.\"\"\",
+                            },
+                            "name": "text - 2",
+                        }],
+                        "styleSettings": {},
+                        "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json",
+                    },
+                }],
+            }),
+            tags={
+                "key": "value",
+            })
+        ```
 
         ## Import
 

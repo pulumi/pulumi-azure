@@ -301,6 +301,16 @@ class Zone(pulumi.CustomResource):
         """
         Enables you to manage Private DNS zones within Azure DNS. These zones are hosted on Azure's name servers.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_zone = azure.privatedns.Zone("exampleZone", resource_group_name=example_resource_group.name)
+        ```
+
         ## Import
 
         Private DNS Zones can be imported using the `resource id`, e.g.
@@ -326,6 +336,16 @@ class Zone(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Enables you to manage Private DNS zones within Azure DNS. These zones are hosted on Azure's name servers.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_zone = azure.privatedns.Zone("exampleZone", resource_group_name=example_resource_group.name)
+        ```
 
         ## Import
 

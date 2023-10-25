@@ -12,6 +12,73 @@ namespace Pulumi.Azure.Automation
     /// <summary>
     /// Manages a Automation DSC Node Configuration.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Automation.Account("exampleAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "Basic",
+    ///     });
+    /// 
+    ///     var exampleDscConfiguration = new Azure.Automation.DscConfiguration("exampleDscConfiguration", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AutomationAccountName = exampleAccount.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ContentEmbedded = "configuration test {}",
+    ///     });
+    /// 
+    ///     var exampleDscNodeConfiguration = new Azure.Automation.DscNodeConfiguration("exampleDscNodeConfiguration", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AutomationAccountName = exampleAccount.Name,
+    ///         ContentEmbedded = @"instance of MSFT_FileDirectoryConfiguration as $MSFT_FileDirectoryConfiguration1ref
+    /// {
+    ///   ResourceID = ""[File]bla"";
+    ///   Ensure = ""Present"";
+    ///   Contents = ""bogus Content"";
+    ///   DestinationPath = ""c:\\bogus.txt"";
+    ///   ModuleName = ""PSDesiredStateConfiguration"";
+    ///   SourceInfo = ""::3::9::file"";
+    ///   ModuleVersion = ""1.0"";
+    ///   ConfigurationName = ""bla"";
+    /// };
+    /// instance of OMI_ConfigurationDocument
+    /// {
+    ///   Version=""2.0.0"";
+    ///   MinimumCompatibleVersion = ""1.0.0"";
+    ///   CompatibleVersionAdditionalProperties= {""Omi_BaseResource:ConfigurationName""};
+    ///   Author=""bogusAuthor"";
+    ///   GenerationDate=""06/15/2018 14:06:24"";
+    ///   GenerationHost=""bogusComputer"";
+    ///   Name=""test"";
+    /// };
+    /// ",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleDscConfiguration,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Automation DSC Node Configuration's can be imported using the `resource id`, e.g.

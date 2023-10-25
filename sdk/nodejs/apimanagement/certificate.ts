@@ -8,6 +8,86 @@ import * as utilities from "../utilities";
  * Manages an Certificate within an API Management Service.
  *
  * ## Example Usage
+ * ### With Base64 Certificate)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as fs from "fs";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleService = new azure.apimanagement.Service("exampleService", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     publisherName: "My Company",
+ *     publisherEmail: "company@exmaple.com",
+ *     skuName: "Developer_1",
+ * });
+ * const exampleCertificate = new azure.apimanagement.Certificate("exampleCertificate", {
+ *     apiManagementName: exampleService.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     data: Buffer.from(fs.readFileSync("example.pfx"), 'binary').toString('base64'),
+ * });
+ * ```
+ * ### With Key Vault Certificate)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as fs from "fs";
+ *
+ * const current = azure.core.getClientConfig({});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleService = new azure.apimanagement.Service("exampleService", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     publisherName: "My Company",
+ *     publisherEmail: "company@terraform.io",
+ *     skuName: "Developer_1",
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ * });
+ * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     tenantId: current.then(current => current.tenantId),
+ *     skuName: "standard",
+ * });
+ * const exampleAccessPolicy = new azure.keyvault.AccessPolicy("exampleAccessPolicy", {
+ *     keyVaultId: exampleKeyVault.id,
+ *     tenantId: exampleService.identity.apply(identity => identity?.tenantId),
+ *     objectId: exampleService.identity.apply(identity => identity?.principalId),
+ *     secretPermissions: ["Get"],
+ *     certificatePermissions: ["Get"],
+ * });
+ * const exampleCertificate = new azure.keyvault.Certificate("exampleCertificate", {
+ *     keyVaultId: exampleKeyVault.id,
+ *     certificate: {
+ *         contents: Buffer.from(fs.readFileSync("example_cert.pfx"), 'binary').toString('base64'),
+ *         password: "terraform",
+ *     },
+ *     certificatePolicy: {
+ *         issuerParameters: {
+ *             name: "Self",
+ *         },
+ *         keyProperties: {
+ *             exportable: true,
+ *             keySize: 2048,
+ *             keyType: "RSA",
+ *             reuseKey: false,
+ *         },
+ *         secretProperties: {
+ *             contentType: "application/x-pkcs12",
+ *         },
+ *     },
+ * });
+ * const exampleApimanagement_certificateCertificate = new azure.apimanagement.Certificate("exampleApimanagement/certificateCertificate", {
+ *     apiManagementName: exampleService.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     keyVaultSecretId: exampleCertificate.secretId,
+ * });
+ * ```
  *
  * ## Import
  *

@@ -221,6 +221,29 @@ class ChannelLine(pulumi.CustomResource):
 
         > **Note** A bot can only have a single Line Channel associated with it.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_channels_registration = azure.bot.ChannelsRegistration("exampleChannelsRegistration",
+            location="global",
+            resource_group_name=example_resource_group.name,
+            sku="F0",
+            microsoft_app_id=current.client_id)
+        example_channel_line = azure.bot.ChannelLine("exampleChannelLine",
+            bot_name=example_channels_registration.name,
+            location=example_channels_registration.location,
+            resource_group_name=example_resource_group.name,
+            line_channels=[azure.bot.ChannelLineLineChannelArgs(
+                access_token="asdfdsdfTYUIOIoj1231hkjhk",
+                secret="aagfdgfd123567",
+            )])
+        ```
+
         ## Import
 
         The Line Integration for a Bot Channel can be imported using the `resource id`, e.g.
@@ -246,6 +269,29 @@ class ChannelLine(pulumi.CustomResource):
         Manages a Line integration for a Bot Channel
 
         > **Note** A bot can only have a single Line Channel associated with it.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_channels_registration = azure.bot.ChannelsRegistration("exampleChannelsRegistration",
+            location="global",
+            resource_group_name=example_resource_group.name,
+            sku="F0",
+            microsoft_app_id=current.client_id)
+        example_channel_line = azure.bot.ChannelLine("exampleChannelLine",
+            bot_name=example_channels_registration.name,
+            location=example_channels_registration.location,
+            resource_group_name=example_resource_group.name,
+            line_channels=[azure.bot.ChannelLineLineChannelArgs(
+                access_token="asdfdsdfTYUIOIoj1231hkjhk",
+                secret="aagfdgfd123567",
+            )])
+        ```
 
         ## Import
 

@@ -15,6 +15,110 @@ import (
 
 // Manages a service connector for function app.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := cosmosdb.NewAccount(ctx, "exampleAccount", &cosmosdb.AccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				OfferType:         pulumi.String("Standard"),
+//				Kind:              pulumi.String("GlobalDocumentDB"),
+//				ConsistencyPolicy: &cosmosdb.AccountConsistencyPolicyArgs{
+//					ConsistencyLevel:     pulumi.String("BoundedStaleness"),
+//					MaxIntervalInSeconds: pulumi.Int(10),
+//					MaxStalenessPrefix:   pulumi.Int(200),
+//				},
+//				GeoLocations: cosmosdb.AccountGeoLocationArray{
+//					&cosmosdb.AccountGeoLocationArgs{
+//						Location:         exampleResourceGroup.Location,
+//						FailoverPriority: pulumi.Int(0),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSqlDatabase, err := cosmosdb.NewSqlDatabase(ctx, "exampleSqlDatabase", &cosmosdb.SqlDatabaseArgs{
+//				ResourceGroupName: exampleAccount.ResourceGroupName,
+//				AccountName:       exampleAccount.Name,
+//				Throughput:        pulumi.Int(400),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cosmosdb.NewSqlContainer(ctx, "exampleSqlContainer", &cosmosdb.SqlContainerArgs{
+//				ResourceGroupName: exampleAccount.ResourceGroupName,
+//				AccountName:       exampleAccount.Name,
+//				DatabaseName:      exampleSqlDatabase.Name,
+//				PartitionKeyPath:  pulumi.String("/definition"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = storage.NewAccount(ctx, "exampleStorage/accountAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appservice.NewServicePlan(ctx, "exampleServicePlan", &appservice.ServicePlanArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("P1v2"),
+//				OsType:            pulumi.String("Linux"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appservice.NewFunctionApp(ctx, "test", &appservice.FunctionAppArgs{
+//				Location:                pulumi.Any(azurerm_resource_group.Test.Location),
+//				ResourceGroupName:       pulumi.Any(azurerm_resource_group.Test.Name),
+//				AppServicePlanId:        pulumi.Any(azurerm_app_service_plan.Test.Id),
+//				StorageAccountName:      pulumi.Any(azurerm_storage_account.Test.Name),
+//				StorageAccountAccessKey: pulumi.Any(azurerm_storage_account.Test.Primary_access_key),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appservice.NewAppConnection(ctx, "exampleAppConnection", &appservice.AppConnectionArgs{
+//				FunctionAppId:    pulumi.Any(azurerm_function_app.Example.Id),
+//				TargetResourceId: pulumi.Any(azurerm_cosmosdb_account.Test.Id),
+//				Authentication: &appservice.AppConnectionAuthenticationArgs{
+//					Type: pulumi.String("systemAssignedIdentity"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Service Connector for app service can be imported using the `resource id`, e.g.

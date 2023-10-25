@@ -12,6 +12,44 @@ namespace Pulumi.Azure.MSSql
     /// <summary>
     /// Manages a Microsoft SQL Virtual Machine
     /// 
+    /// ## Example Usage
+    /// 
+    /// This example provisions a brief Managed Microsoft SQL Virtual Machine.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleVirtualMachine = Azure.Compute.GetVirtualMachine.Invoke(new()
+    ///     {
+    ///         Name = "example-vm",
+    ///         ResourceGroupName = "example-resources",
+    ///     });
+    /// 
+    ///     var exampleMssql_virtualMachineVirtualMachine = new Azure.MSSql.VirtualMachine("exampleMssql/virtualMachineVirtualMachine", new()
+    ///     {
+    ///         VirtualMachineId = exampleVirtualMachine.Apply(getVirtualMachineResult =&gt; getVirtualMachineResult.Id),
+    ///         SqlLicenseType = "PAYG",
+    ///         RServicesEnabled = true,
+    ///         SqlConnectivityPort = 1433,
+    ///         SqlConnectivityType = "PRIVATE",
+    ///         SqlConnectivityUpdatePassword = "Password1234!",
+    ///         SqlConnectivityUpdateUsername = "sqllogin",
+    ///         AutoPatching = new Azure.MSSql.Inputs.VirtualMachineAutoPatchingArgs
+    ///         {
+    ///             DayOfWeek = "Sunday",
+    ///             MaintenanceWindowDurationInMinutes = 60,
+    ///             MaintenanceWindowStartingHour = 2,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Microsoft SQL Virtual Machines can be imported using the `resource id`, e.g.

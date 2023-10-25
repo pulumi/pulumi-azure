@@ -7,6 +7,41 @@ import * as utilities from "../utilities";
 /**
  * Manages the Shared Private Link Resource for a Web Pubsub service.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const current = azure.core.getClientConfig({});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "east us"});
+ * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     tenantId: current.then(current => current.tenantId),
+ *     skuName: "standard",
+ *     softDeleteRetentionDays: 7,
+ *     accessPolicies: [{
+ *         tenantId: current.then(current => current.tenantId),
+ *         objectId: current.then(current => current.objectId),
+ *         certificatePermissions: ["managecontacts"],
+ *         keyPermissions: ["create"],
+ *         secretPermissions: ["set"],
+ *     }],
+ * });
+ * const exampleService = new azure.webpubsub.Service("exampleService", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: "Standard_S1",
+ *     capacity: 1,
+ * });
+ * const exampleSharedPrivateLinkResource = new azure.webpubsub.SharedPrivateLinkResource("exampleSharedPrivateLinkResource", {
+ *     webPubsubId: exampleService.id,
+ *     subresourceName: "vault",
+ *     targetResourceId: exampleKeyVault.id,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Web Pubsub Shared Private Link Resource can be imported using the `resource id`, e.g.

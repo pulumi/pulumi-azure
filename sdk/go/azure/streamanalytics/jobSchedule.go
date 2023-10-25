@@ -15,6 +15,123 @@ import (
 
 // Manages a Stream Analytics Job Schedule.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/streamanalytics"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
+//				StorageAccountName:  exampleAccount.Name,
+//				ContainerAccessType: pulumi.String("private"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = storage.NewBlob(ctx, "exampleBlob", &storage.BlobArgs{
+//				StorageAccountName:   exampleAccount.Name,
+//				StorageContainerName: exampleContainer.Name,
+//				Type:                 pulumi.String("Block"),
+//				Source:               pulumi.NewFileAsset("example.csv"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleJob, err := streamanalytics.NewJob(ctx, "exampleJob", &streamanalytics.JobArgs{
+//				ResourceGroupName:                  exampleResourceGroup.Name,
+//				Location:                           exampleResourceGroup.Location,
+//				CompatibilityLevel:                 pulumi.String("1.2"),
+//				DataLocale:                         pulumi.String("en-GB"),
+//				EventsLateArrivalMaxDelayInSeconds: pulumi.Int(60),
+//				EventsOutOfOrderMaxDelayInSeconds:  pulumi.Int(50),
+//				EventsOutOfOrderPolicy:             pulumi.String("Adjust"),
+//				OutputErrorPolicy:                  pulumi.String("Drop"),
+//				StreamingUnits:                     pulumi.Int(3),
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("Example"),
+//				},
+//				TransformationQuery: pulumi.String("    SELECT *\n    INTO [exampleoutput]\n    FROM [exampleinput]\n"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleStreamInputBlob, err := streamanalytics.NewStreamInputBlob(ctx, "exampleStreamInputBlob", &streamanalytics.StreamInputBlobArgs{
+//				StreamAnalyticsJobName: exampleJob.Name,
+//				ResourceGroupName:      exampleJob.ResourceGroupName,
+//				StorageAccountName:     exampleAccount.Name,
+//				StorageAccountKey:      exampleAccount.PrimaryAccessKey,
+//				StorageContainerName:   exampleContainer.Name,
+//				PathPattern:            pulumi.String(""),
+//				DateFormat:             pulumi.String("yyyy/MM/dd"),
+//				TimeFormat:             pulumi.String("HH"),
+//				Serialization: &streamanalytics.StreamInputBlobSerializationArgs{
+//					Type:           pulumi.String("Csv"),
+//					Encoding:       pulumi.String("UTF8"),
+//					FieldDelimiter: pulumi.String(","),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleOutputBlob, err := streamanalytics.NewOutputBlob(ctx, "exampleOutputBlob", &streamanalytics.OutputBlobArgs{
+//				StreamAnalyticsJobName: exampleJob.Name,
+//				ResourceGroupName:      exampleJob.ResourceGroupName,
+//				StorageAccountName:     exampleAccount.Name,
+//				StorageAccountKey:      exampleAccount.PrimaryAccessKey,
+//				StorageContainerName:   exampleContainer.Name,
+//				PathPattern:            pulumi.String("example-{date}-{time}"),
+//				DateFormat:             pulumi.String("yyyy-MM-dd"),
+//				TimeFormat:             pulumi.String("HH"),
+//				Serialization: &streamanalytics.OutputBlobSerializationArgs{
+//					Type: pulumi.String("Avro"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = streamanalytics.NewJobSchedule(ctx, "exampleJobSchedule", &streamanalytics.JobScheduleArgs{
+//				StreamAnalyticsJobId: exampleJob.ID(),
+//				StartMode:            pulumi.String("CustomTime"),
+//				StartTime:            pulumi.String("2022-09-21T00:00:00Z"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleJob,
+//				exampleStreamInputBlob,
+//				exampleOutputBlob,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Stream Analytics Job's can be imported using the `resource id`, e.g.

@@ -259,6 +259,25 @@ class DataConnectorAwsS3(pulumi.CustomResource):
         """
         Manages a AWS S3 Data Connector.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="PerGB2018")
+        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", workspace_id=example_analytics_workspace.id)
+        example_data_connector_aws_s3 = azure.sentinel.DataConnectorAwsS3("exampleDataConnectorAwsS3",
+            log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
+            aws_role_arn="arn:aws:iam::000000000000:role/role1",
+            destination_table="AWSGuardDuty",
+            sqs_urls=["https://sqs.us-east-1.amazonaws.com/000000000000/example"])
+        ```
+
         ## Import
 
         AWS S3 Data Connectors can be imported using the `resource id`, e.g.
@@ -283,6 +302,25 @@ class DataConnectorAwsS3(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a AWS S3 Data Connector.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="PerGB2018")
+        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", workspace_id=example_analytics_workspace.id)
+        example_data_connector_aws_s3 = azure.sentinel.DataConnectorAwsS3("exampleDataConnectorAwsS3",
+            log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
+            aws_role_arn="arn:aws:iam::000000000000:role/role1",
+            destination_table="AWSGuardDuty",
+            sqs_urls=["https://sqs.us-east-1.amazonaws.com/000000000000/example"])
+        ```
 
         ## Import
 

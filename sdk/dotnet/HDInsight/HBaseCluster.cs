@@ -12,6 +12,86 @@ namespace Pulumi.Azure.HDInsight
     /// <summary>
     /// Manages a HDInsight HBase Cluster.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
+    ///     {
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         ContainerAccessType = "private",
+    ///     });
+    /// 
+    ///     var exampleHBaseCluster = new Azure.HDInsight.HBaseCluster("exampleHBaseCluster", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ClusterVersion = "3.6",
+    ///         Tier = "Standard",
+    ///         ComponentVersion = new Azure.HDInsight.Inputs.HBaseClusterComponentVersionArgs
+    ///         {
+    ///             Hbase = "1.1",
+    ///         },
+    ///         Gateway = new Azure.HDInsight.Inputs.HBaseClusterGatewayArgs
+    ///         {
+    ///             Username = "acctestusrgw",
+    ///             Password = "Password123!",
+    ///         },
+    ///         StorageAccounts = new[]
+    ///         {
+    ///             new Azure.HDInsight.Inputs.HBaseClusterStorageAccountArgs
+    ///             {
+    ///                 StorageContainerId = exampleContainer.Id,
+    ///                 StorageAccountKey = exampleAccount.PrimaryAccessKey,
+    ///                 IsDefault = true,
+    ///             },
+    ///         },
+    ///         Roles = new Azure.HDInsight.Inputs.HBaseClusterRolesArgs
+    ///         {
+    ///             HeadNode = new Azure.HDInsight.Inputs.HBaseClusterRolesHeadNodeArgs
+    ///             {
+    ///                 VmSize = "Standard_D3_V2",
+    ///                 Username = "acctestusrvm",
+    ///                 Password = "AccTestvdSC4daf986!",
+    ///             },
+    ///             WorkerNode = new Azure.HDInsight.Inputs.HBaseClusterRolesWorkerNodeArgs
+    ///             {
+    ///                 VmSize = "Standard_D3_V2",
+    ///                 Username = "acctestusrvm",
+    ///                 Password = "AccTestvdSC4daf986!",
+    ///                 TargetInstanceCount = 3,
+    ///             },
+    ///             ZookeeperNode = new Azure.HDInsight.Inputs.HBaseClusterRolesZookeeperNodeArgs
+    ///             {
+    ///                 VmSize = "Standard_D3_V2",
+    ///                 Username = "acctestusrvm",
+    ///                 Password = "AccTestvdSC4daf986!",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// HDInsight HBase Clusters can be imported using the `resource id`, e.g.

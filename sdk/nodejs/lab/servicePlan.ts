@@ -11,6 +11,20 @@ import * as utilities from "../utilities";
  *
  * > **Note:** Before using this resource, it's required to submit the request of registering the provider with Azure CLI `az provider register --namespace Microsoft.LabServices`.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleServicePlan = new azure.lab.ServicePlan("exampleServicePlan", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     allowedRegions: [exampleResourceGroup.location],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Lab Service Plans can be imported using the `resource id`, e.g.

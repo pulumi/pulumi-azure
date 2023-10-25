@@ -232,6 +232,23 @@ class ServicesAccount(pulumi.CustomResource):
         """
         Manages a Microsoft Graph Services Account.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_azuread as azuread
+
+        example_application = azuread.Application("exampleApplication", display_name="example-app")
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_services_account = azure.graph.ServicesAccount("exampleServicesAccount",
+            resource_group_name=example_resource_group.name,
+            application_id=example_application.application_id,
+            tags={
+                "environment": "Production",
+            })
+        ```
+
         ## Import
 
         An existing Account can be imported into Terraform using the `resource id`, e.g.
@@ -255,6 +272,23 @@ class ServicesAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Microsoft Graph Services Account.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_azuread as azuread
+
+        example_application = azuread.Application("exampleApplication", display_name="example-app")
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_services_account = azure.graph.ServicesAccount("exampleServicesAccount",
+            resource_group_name=example_resource_group.name,
+            application_id=example_application.application_id,
+            tags={
+                "environment": "Production",
+            })
+        ```
 
         ## Import
 

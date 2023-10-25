@@ -247,6 +247,18 @@ class SpatialAnchorsAccount(pulumi.CustomResource):
         """
         Manages an Azure Spatial Anchors Account.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_spatial_anchors_account = azure.mixedreality.SpatialAnchorsAccount("exampleSpatialAnchorsAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        ```
+
         ## Import
 
         Spatial Anchors Account can be imported using the `resource id`, e.g.
@@ -270,6 +282,18 @@ class SpatialAnchorsAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Spatial Anchors Account.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_spatial_anchors_account = azure.mixedreality.SpatialAnchorsAccount("exampleSpatialAnchorsAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        ```
 
         ## Import
 

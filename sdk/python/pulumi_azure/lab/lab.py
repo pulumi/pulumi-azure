@@ -561,6 +561,38 @@ class Lab(pulumi.CustomResource):
         """
         Manages a Lab Service Lab.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_lab = azure.lab.Lab("exampleLab",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            title="Test Title",
+            security=azure.lab.LabSecurityArgs(
+                open_access_enabled=False,
+            ),
+            virtual_machine=azure.lab.LabVirtualMachineArgs(
+                admin_user=azure.lab.LabVirtualMachineAdminUserArgs(
+                    username="testadmin",
+                    password="Password1234!",
+                ),
+                image_reference=azure.lab.LabVirtualMachineImageReferenceArgs(
+                    offer="0001-com-ubuntu-server-focal",
+                    publisher="canonical",
+                    sku="20_04-lts",
+                    version="latest",
+                ),
+                sku=azure.lab.LabVirtualMachineSkuArgs(
+                    name="Classic_Fsv2_2_4GB_128_S_SSD",
+                    capacity=0,
+                ),
+            ))
+        ```
+
         ## Import
 
         Lab Service Labs can be imported using the `resource id`, e.g.
@@ -593,6 +625,38 @@ class Lab(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Lab Service Lab.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_lab = azure.lab.Lab("exampleLab",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            title="Test Title",
+            security=azure.lab.LabSecurityArgs(
+                open_access_enabled=False,
+            ),
+            virtual_machine=azure.lab.LabVirtualMachineArgs(
+                admin_user=azure.lab.LabVirtualMachineAdminUserArgs(
+                    username="testadmin",
+                    password="Password1234!",
+                ),
+                image_reference=azure.lab.LabVirtualMachineImageReferenceArgs(
+                    offer="0001-com-ubuntu-server-focal",
+                    publisher="canonical",
+                    sku="20_04-lts",
+                    version="latest",
+                ),
+                sku=azure.lab.LabVirtualMachineSkuArgs(
+                    name="Classic_Fsv2_2_4GB_128_S_SSD",
+                    capacity=0,
+                ),
+            ))
+        ```
 
         ## Import
 

@@ -11,6 +11,40 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** This resource is applicable only for Spring Cloud Service with basic and standard tier.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("exampleSpringCloudService", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ * });
+ * const exampleSpringCloudApp = new azure.appplatform.SpringCloudApp("exampleSpringCloudApp", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     serviceName: exampleSpringCloudService.name,
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ * });
+ * const exampleSpringCloudJavaDeployment = new azure.appplatform.SpringCloudJavaDeployment("exampleSpringCloudJavaDeployment", {
+ *     springCloudAppId: exampleSpringCloudApp.id,
+ *     instanceCount: 2,
+ *     jvmOptions: "-XX:+PrintGC",
+ *     quota: {
+ *         cpu: "2",
+ *         memory: "4Gi",
+ *     },
+ *     runtimeVersion: "Java_11",
+ *     environmentVariables: {
+ *         Foo: "Bar",
+ *         Env: "Staging",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Spring Cloud Deployment can be imported using the `resource id`, e.g.

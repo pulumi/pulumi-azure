@@ -250,6 +250,33 @@ class RegistryScopeMap(pulumi.CustomResource):
         """
         Manages an Azure Container Registry scope map.  Scope Maps are a preview feature only available in Premium SKU Container registries.
 
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_registry = azure.containerservice.Registry("exampleRegistry",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku="Premium",
+            admin_enabled=False,
+            georeplications=[
+                azure.containerservice.RegistryGeoreplicationArgs(
+                    location="East US",
+                ),
+                azure.containerservice.RegistryGeoreplicationArgs(
+                    location="West Europe",
+                ),
+            ])
+        example_registry_scope_map = azure.containerservice.RegistryScopeMap("exampleRegistryScopeMap",
+            container_registry_name=example_registry.name,
+            resource_group_name=example_resource_group.name,
+            actions=[
+                "repositories/repo1/content/read",
+                "repositories/repo1/content/write",
+            ])
+        ```
+
         ## Import
 
         Container Registries can be imported using the `resource id`, e.g.
@@ -274,6 +301,33 @@ class RegistryScopeMap(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Container Registry scope map.  Scope Maps are a preview feature only available in Premium SKU Container registries.
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_registry = azure.containerservice.Registry("exampleRegistry",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku="Premium",
+            admin_enabled=False,
+            georeplications=[
+                azure.containerservice.RegistryGeoreplicationArgs(
+                    location="East US",
+                ),
+                azure.containerservice.RegistryGeoreplicationArgs(
+                    location="West Europe",
+                ),
+            ])
+        example_registry_scope_map = azure.containerservice.RegistryScopeMap("exampleRegistryScopeMap",
+            container_registry_name=example_registry.name,
+            resource_group_name=example_resource_group.name,
+            actions=[
+                "repositories/repo1/content/read",
+                "repositories/repo1/content/write",
+            ])
+        ```
 
         ## Import
 

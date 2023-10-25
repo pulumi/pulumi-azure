@@ -414,6 +414,37 @@ class PolicySetDefinition(pulumi.CustomResource):
 
         > **NOTE:**  Policy set definitions (also known as policy initiatives) do not take effect until they are assigned to a scope using a Policy Set Assignment.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.policy.PolicySetDefinition("example",
+            display_name="Test Policy Set",
+            parameters=\"\"\"    {
+                "allowedLocations": {
+                    "type": "Array",
+                    "metadata": {
+                        "description": "The list of allowed locations for resources.",
+                        "displayName": "Allowed locations",
+                        "strongType": "location"
+                    }
+                }
+            }
+
+        \"\"\",
+            policy_definition_references=[azure.policy.PolicySetDefinitionPolicyDefinitionReferenceArgs(
+                parameter_values=\"\"\"    {
+              "listOfAllowedLocations": {"value": "[parameters('allowedLocations')]"}
+            }
+            
+        \"\"\",
+                policy_definition_id="/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
+            )],
+            policy_type="Custom")
+        ```
+
         ## Import
 
         Policy Set Definitions can be imported using the `resource id`, e.g.
@@ -450,6 +481,37 @@ class PolicySetDefinition(pulumi.CustomResource):
         Manages a policy set definition.
 
         > **NOTE:**  Policy set definitions (also known as policy initiatives) do not take effect until they are assigned to a scope using a Policy Set Assignment.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.policy.PolicySetDefinition("example",
+            display_name="Test Policy Set",
+            parameters=\"\"\"    {
+                "allowedLocations": {
+                    "type": "Array",
+                    "metadata": {
+                        "description": "The list of allowed locations for resources.",
+                        "displayName": "Allowed locations",
+                        "strongType": "location"
+                    }
+                }
+            }
+
+        \"\"\",
+            policy_definition_references=[azure.policy.PolicySetDefinitionPolicyDefinitionReferenceArgs(
+                parameter_values=\"\"\"    {
+              "listOfAllowedLocations": {"value": "[parameters('allowedLocations')]"}
+            }
+            
+        \"\"\",
+                policy_definition_id="/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
+            )],
+            policy_type="Custom")
+        ```
 
         ## Import
 

@@ -401,6 +401,21 @@ class Directory(pulumi.CustomResource):
         """
         Manages an AAD B2C Directory.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.aadb2c.Directory("example",
+            country_code="US",
+            data_residency_location="United States",
+            display_name="example-b2c-tenant",
+            domain_name="exampleb2ctenant.onmicrosoft.com",
+            resource_group_name="example-rg",
+            sku_name="PremiumP1")
+        ```
+
         ## Import
 
         AAD B2C Directories can be imported using the `resource id`, e.g.
@@ -427,6 +442,21 @@ class Directory(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an AAD B2C Directory.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.aadb2c.Directory("example",
+            country_code="US",
+            data_residency_location="United States",
+            display_name="example-b2c-tenant",
+            domain_name="exampleb2ctenant.onmicrosoft.com",
+            resource_group_name="example-rg",
+            sku_name="PremiumP1")
+        ```
 
         ## Import
 

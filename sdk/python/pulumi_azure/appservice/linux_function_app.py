@@ -1512,6 +1512,32 @@ class LinuxFunctionApp(pulumi.CustomResource):
         """
         Manages a Linux Function App.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            os_type="Linux",
+            sku_name="Y1")
+        example_linux_function_app = azure.appservice.LinuxFunctionApp("exampleLinuxFunctionApp",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            storage_account_name=example_account.name,
+            storage_account_access_key=example_account.primary_access_key,
+            service_plan_id=example_service_plan.id,
+            site_config=azure.appservice.LinuxFunctionAppSiteConfigArgs())
+        ```
+
         ## Import
 
         Linux Function Apps can be imported using the `resource id`, e.g.
@@ -1570,6 +1596,32 @@ class LinuxFunctionApp(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Linux Function App.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            os_type="Linux",
+            sku_name="Y1")
+        example_linux_function_app = azure.appservice.LinuxFunctionApp("exampleLinuxFunctionApp",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            storage_account_name=example_account.name,
+            storage_account_access_key=example_account.primary_access_key,
+            service_plan_id=example_service_plan.id,
+            site_config=azure.appservice.LinuxFunctionAppSiteConfigArgs())
+        ```
 
         ## Import
 

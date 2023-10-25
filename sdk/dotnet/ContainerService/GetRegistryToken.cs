@@ -13,12 +13,68 @@ namespace Pulumi.Azure.ContainerService
     {
         /// <summary>
         /// Use this data source to access information about an existing Container Registry token.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.ContainerService.GetRegistryToken.Invoke(new()
+        ///     {
+        ///         Name = "exampletoken",
+        ///         ResourceGroupName = "example-resource-group",
+        ///         ContainerRegistryName = "example-registry",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["scopeMapId"] = example.Apply(getRegistryTokenResult =&gt; getRegistryTokenResult.ScopeMapId),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetRegistryTokenResult> InvokeAsync(GetRegistryTokenArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegistryTokenResult>("azure:containerservice/getRegistryToken:getRegistryToken", args ?? new GetRegistryTokenArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Container Registry token.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.ContainerService.GetRegistryToken.Invoke(new()
+        ///     {
+        ///         Name = "exampletoken",
+        ///         ResourceGroupName = "example-resource-group",
+        ///         ContainerRegistryName = "example-registry",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["scopeMapId"] = example.Apply(getRegistryTokenResult =&gt; getRegistryTokenResult.ScopeMapId),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetRegistryTokenResult> Invoke(GetRegistryTokenInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegistryTokenResult>("azure:containerservice/getRegistryToken:getRegistryToken", args ?? new GetRegistryTokenInvokeArgs(), options.WithDefaults());

@@ -258,6 +258,32 @@ class EndpointServicebus(pulumi.CustomResource):
         """
         Manages a Digital Twins Service Bus Endpoint.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_instance = azure.digitaltwins.Instance("exampleInstance",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        example_namespace = azure.servicebus.Namespace("exampleNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard")
+        example_topic = azure.servicebus.Topic("exampleTopic", namespace_id=example_namespace.id)
+        example_topic_authorization_rule = azure.servicebus.TopicAuthorizationRule("exampleTopicAuthorizationRule",
+            topic_id=example_topic.id,
+            listen=False,
+            send=True,
+            manage=False)
+        example_endpoint_servicebus = azure.digitaltwins.EndpointServicebus("exampleEndpointServicebus",
+            digital_twins_id=example_instance.id,
+            servicebus_primary_connection_string=example_topic_authorization_rule.primary_connection_string,
+            servicebus_secondary_connection_string=example_topic_authorization_rule.secondary_connection_string)
+        ```
+
         ## Import
 
         Digital Twins Service Bus Endpoints can be imported using the `resource id`, e.g.
@@ -282,6 +308,32 @@ class EndpointServicebus(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Digital Twins Service Bus Endpoint.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_instance = azure.digitaltwins.Instance("exampleInstance",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        example_namespace = azure.servicebus.Namespace("exampleNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard")
+        example_topic = azure.servicebus.Topic("exampleTopic", namespace_id=example_namespace.id)
+        example_topic_authorization_rule = azure.servicebus.TopicAuthorizationRule("exampleTopicAuthorizationRule",
+            topic_id=example_topic.id,
+            listen=False,
+            send=True,
+            manage=False)
+        example_endpoint_servicebus = azure.digitaltwins.EndpointServicebus("exampleEndpointServicebus",
+            digital_twins_id=example_instance.id,
+            servicebus_primary_connection_string=example_topic_authorization_rule.primary_connection_string,
+            servicebus_secondary_connection_string=example_topic_authorization_rule.secondary_connection_string)
+        ```
 
         ## Import
 

@@ -13,6 +13,41 @@ import (
 )
 
 // Uses this data source to access information about an existing NetApp Snapshot Policy.
+//
+// ## NetApp Snapshot Policy Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/netapp"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := netapp.LookupSnapshotPolicy(ctx, &netapp.LookupSnapshotPolicyArgs{
+//				ResourceGroupName: "acctestRG",
+//				AccountName:       "acctestnetappaccount",
+//				Name:              "example-snapshot-policy",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("id", example.Id)
+//			ctx.Export("name", example.Name)
+//			ctx.Export("enabled", example.Enabled)
+//			ctx.Export("hourlySchedule", example.HourlySchedules)
+//			ctx.Export("dailySchedule", example.DailySchedules)
+//			ctx.Export("weeklySchedule", example.WeeklySchedules)
+//			ctx.Export("monthlySchedule", example.MonthlySchedules)
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupSnapshotPolicy(ctx *pulumi.Context, args *LookupSnapshotPolicyArgs, opts ...pulumi.InvokeOption) (*LookupSnapshotPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSnapshotPolicyResult

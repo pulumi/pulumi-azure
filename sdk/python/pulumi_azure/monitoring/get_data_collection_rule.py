@@ -201,6 +201,17 @@ def get_data_collection_rule(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Data Collection Rule.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.monitoring.get_data_collection_rule(name="example-rule",
+        resource_group_name=azurerm_resource_group["example"]["name"])
+    pulumi.export("ruleId", example.id)
+    ```
+
 
     :param str name: Specifies the name of the Data Collection Rule.
     :param str resource_group_name: Specifies the name of the resource group the Data Collection Rule is located in.
@@ -234,6 +245,17 @@ def get_data_collection_rule_output(name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataCollectionRuleResult]:
     """
     Use this data source to access information about an existing Data Collection Rule.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.monitoring.get_data_collection_rule(name="example-rule",
+        resource_group_name=azurerm_resource_group["example"]["name"])
+    pulumi.export("ruleId", example.id)
+    ```
 
 
     :param str name: Specifies the name of the Data Collection Rule.

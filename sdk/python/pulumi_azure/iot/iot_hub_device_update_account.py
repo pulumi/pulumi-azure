@@ -344,6 +344,24 @@ class IotHubDeviceUpdateAccount(pulumi.CustomResource):
         """
         Manages an IoT Hub Device Update Account.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="East US")
+        example_iot_hub_device_update_account = azure.iot.IotHubDeviceUpdateAccount("exampleIotHubDeviceUpdateAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            identity=azure.iot.IotHubDeviceUpdateAccountIdentityArgs(
+                type="SystemAssigned",
+            ),
+            tags={
+                "key": "value",
+            })
+        ```
+
         ## Import
 
         IoT Hub Device Update Account can be imported using the `resource id`, e.g.
@@ -370,6 +388,24 @@ class IotHubDeviceUpdateAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an IoT Hub Device Update Account.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="East US")
+        example_iot_hub_device_update_account = azure.iot.IotHubDeviceUpdateAccount("exampleIotHubDeviceUpdateAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            identity=azure.iot.IotHubDeviceUpdateAccountIdentityArgs(
+                type="SystemAssigned",
+            ),
+            tags={
+                "key": "value",
+            })
+        ```
 
         ## Import
 

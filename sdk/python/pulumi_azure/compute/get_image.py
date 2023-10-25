@@ -152,6 +152,17 @@ def get_image(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Image.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    search = azure.compute.get_image(name="search-api",
+        resource_group_name="packerimages")
+    pulumi.export("imageId", search.id)
+    ```
+
 
     :param str name: The name of the Image.
     :param str name_regex: Regex pattern of the image to match.
@@ -187,6 +198,17 @@ def get_image_output(name: Optional[pulumi.Input[Optional[str]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageResult]:
     """
     Use this data source to access information about an existing Image.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    search = azure.compute.get_image(name="search-api",
+        resource_group_name="packerimages")
+    pulumi.export("imageId", search.id)
+    ```
 
 
     :param str name: The name of the Image.

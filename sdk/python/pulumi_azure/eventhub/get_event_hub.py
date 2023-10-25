@@ -102,6 +102,18 @@ def get_event_hub(name: Optional[str] = None,
     """
     Use this data source to access information about an existing EventHub.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.eventhub.get_event_hub(name="search-eventhub",
+        resource_group_name="search-service",
+        namespace_name="search-eventhubns")
+    pulumi.export("eventhubId", example.id)
+    ```
+
 
     :param str name: The name of this EventHub.
     :param str namespace_name: The name of the EventHub Namespace where the EventHub exists.
@@ -130,6 +142,18 @@ def get_event_hub_output(name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventHubResult]:
     """
     Use this data source to access information about an existing EventHub.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.eventhub.get_event_hub(name="search-eventhub",
+        resource_group_name="search-service",
+        namespace_name="search-eventhubns")
+    pulumi.export("eventhubId", example.id)
+    ```
 
 
     :param str name: The name of this EventHub.

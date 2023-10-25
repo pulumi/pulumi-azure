@@ -164,6 +164,18 @@ def get_configuration_key(configuration_store_id: Optional[str] = None,
 
     > **Note:** App Configuration Keys are provisioned using a Data Plane API which requires the role `App Configuration Data Owner` on either the App Configuration or a parent scope (such as the Resource Group/Subscription). [More information can be found in the Azure Documentation for App Configuration](https://docs.microsoft.com/azure/azure-app-configuration/concept-enable-rbac#azure-built-in-roles-for-azure-app-configuration).
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    test = azure.appconfiguration.get_configuration_key(configuration_store_id=azurerm_app_configuration["appconf"]["id"],
+        key="appConfKey1",
+        label="somelabel")
+    pulumi.export("value", test.value)
+    ```
+
 
     :param str configuration_store_id: Specifies the id of the App Configuration.
     :param str key: The name of the App Configuration Key.
@@ -199,6 +211,18 @@ def get_configuration_key_output(configuration_store_id: Optional[pulumi.Input[s
     Use this data source to access information about an existing Azure App Configuration Key.
 
     > **Note:** App Configuration Keys are provisioned using a Data Plane API which requires the role `App Configuration Data Owner` on either the App Configuration or a parent scope (such as the Resource Group/Subscription). [More information can be found in the Azure Documentation for App Configuration](https://docs.microsoft.com/azure/azure-app-configuration/concept-enable-rbac#azure-built-in-roles-for-azure-app-configuration).
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    test = azure.appconfiguration.get_configuration_key(configuration_store_id=azurerm_app_configuration["appconf"]["id"],
+        key="appConfKey1",
+        label="somelabel")
+    pulumi.export("value", test.value)
+    ```
 
 
     :param str configuration_store_id: Specifies the id of the App Configuration.

@@ -138,6 +138,31 @@ class WorkspaceApplicationGroupAssociation(pulumi.CustomResource):
         """
         Manages a Virtual Desktop Workspace Application Group Association.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example", location="West Europe")
+        pooledbreadthfirst = azure.desktopvirtualization.HostPool("pooledbreadthfirst",
+            location=example.location,
+            resource_group_name=example.name,
+            type="Pooled",
+            load_balancer_type="BreadthFirst")
+        remoteapp = azure.desktopvirtualization.ApplicationGroup("remoteapp",
+            location=example.location,
+            resource_group_name=example.name,
+            type="RemoteApp",
+            host_pool_id=pooledbreadthfirst.id)
+        workspace = azure.desktopvirtualization.Workspace("workspace",
+            location=example.location,
+            resource_group_name=example.name)
+        workspaceremoteapp = azure.desktopvirtualization.WorkspaceApplicationGroupAssociation("workspaceremoteapp",
+            workspace_id=workspace.id,
+            application_group_id=remoteapp.id)
+        ```
+
         ## Import
 
         Associations between Virtual Desktop Workspaces and Virtual Desktop Application Groups can be imported using the `resource id`, e.g.
@@ -159,6 +184,31 @@ class WorkspaceApplicationGroupAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Virtual Desktop Workspace Application Group Association.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example", location="West Europe")
+        pooledbreadthfirst = azure.desktopvirtualization.HostPool("pooledbreadthfirst",
+            location=example.location,
+            resource_group_name=example.name,
+            type="Pooled",
+            load_balancer_type="BreadthFirst")
+        remoteapp = azure.desktopvirtualization.ApplicationGroup("remoteapp",
+            location=example.location,
+            resource_group_name=example.name,
+            type="RemoteApp",
+            host_pool_id=pooledbreadthfirst.id)
+        workspace = azure.desktopvirtualization.Workspace("workspace",
+            location=example.location,
+            resource_group_name=example.name)
+        workspaceremoteapp = azure.desktopvirtualization.WorkspaceApplicationGroupAssociation("workspaceremoteapp",
+            workspace_id=workspace.id,
+            application_group_id=remoteapp.id)
+        ```
 
         ## Import
 

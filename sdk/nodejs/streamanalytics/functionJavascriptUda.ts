@@ -9,6 +9,44 @@ import * as utilities from "../utilities";
 /**
  * Manages a JavaScript UDA Function within a Stream Analytics Streaming Job.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = azure.core.getResourceGroup({
+ *     name: "example-resources",
+ * });
+ * const exampleJob = exampleResourceGroup.then(exampleResourceGroup => azure.streamanalytics.getJob({
+ *     name: "example-job",
+ *     resourceGroupName: exampleResourceGroup.name,
+ * }));
+ * const exampleFunctionJavascriptUda = new azure.streamanalytics.FunctionJavascriptUda("exampleFunctionJavascriptUda", {
+ *     streamAnalyticsJobId: exampleJob.then(exampleJob => exampleJob.id),
+ *     script: `function main() {
+ *     this.init = function () {
+ *         this.state = 0;
+ *     }
+ *
+ *     this.accumulate = function (value, timestamp) {
+ *         this.state += value;
+ *     }
+ *
+ *     this.computeResult = function () {
+ *         return this.state;
+ *     }
+ * }
+ * `,
+ *     inputs: [{
+ *         type: "bigint",
+ *     }],
+ *     output: {
+ *         type: "bigint",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Stream Analytics JavaScript UDA Functions can be imported using the `resource id`, e.g.

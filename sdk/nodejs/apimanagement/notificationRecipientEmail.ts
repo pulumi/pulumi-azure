@@ -7,6 +7,27 @@ import * as utilities from "../utilities";
 /**
  * Manages a API Management Notification Recipient Email.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleService = new azure.apimanagement.Service("exampleService", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     publisherName: "My Company",
+ *     publisherEmail: "company@terraform.io",
+ *     skuName: "Developer_1",
+ * });
+ * const exampleNotificationRecipientEmail = new azure.apimanagement.NotificationRecipientEmail("exampleNotificationRecipientEmail", {
+ *     apiManagementId: exampleService.id,
+ *     notificationType: "AccountClosedPublisher",
+ *     email: "foo@bar.com",
+ * });
+ * ```
+ *
  * ## Import
  *
  * API Management Notification Recipient Emails can be imported using the `resource id`, e.g.

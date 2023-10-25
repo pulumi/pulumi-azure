@@ -444,6 +444,37 @@ class TrafficManagerExternalEndpoint(pulumi.CustomResource):
         """
         Manages an External Endpoint within a Traffic Manager Profile.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_traffic_manager_profile = azure.network.TrafficManagerProfile("exampleTrafficManagerProfile",
+            resource_group_name=example_resource_group.name,
+            traffic_routing_method="Weighted",
+            dns_config=azure.network.TrafficManagerProfileDnsConfigArgs(
+                relative_name="example-profile",
+                ttl=100,
+            ),
+            monitor_config=azure.network.TrafficManagerProfileMonitorConfigArgs(
+                protocol="HTTP",
+                port=80,
+                path="/",
+                interval_in_seconds=30,
+                timeout_in_seconds=9,
+                tolerated_number_of_failures=3,
+            ),
+            tags={
+                "environment": "Production",
+            })
+        example_traffic_manager_external_endpoint = azure.network.TrafficManagerExternalEndpoint("exampleTrafficManagerExternalEndpoint",
+            profile_id=example_traffic_manager_profile.id,
+            weight=100,
+            target="www.example.com")
+        ```
+
         ## Import
 
         External Endpoints can be imported using the `resource id`, e.g.
@@ -473,6 +504,37 @@ class TrafficManagerExternalEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an External Endpoint within a Traffic Manager Profile.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_traffic_manager_profile = azure.network.TrafficManagerProfile("exampleTrafficManagerProfile",
+            resource_group_name=example_resource_group.name,
+            traffic_routing_method="Weighted",
+            dns_config=azure.network.TrafficManagerProfileDnsConfigArgs(
+                relative_name="example-profile",
+                ttl=100,
+            ),
+            monitor_config=azure.network.TrafficManagerProfileMonitorConfigArgs(
+                protocol="HTTP",
+                port=80,
+                path="/",
+                interval_in_seconds=30,
+                timeout_in_seconds=9,
+                tolerated_number_of_failures=3,
+            ),
+            tags={
+                "environment": "Production",
+            })
+        example_traffic_manager_external_endpoint = azure.network.TrafficManagerExternalEndpoint("exampleTrafficManagerExternalEndpoint",
+            profile_id=example_traffic_manager_profile.id,
+            weight=100,
+            target="www.example.com")
+        ```
 
         ## Import
 

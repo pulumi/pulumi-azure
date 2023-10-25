@@ -537,6 +537,21 @@ class ExpressRoutePort(pulumi.CustomResource):
         """
         Manages a Express Route Port.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_express_route_port = azure.network.ExpressRoutePort("exampleExpressRoutePort",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            peering_location="Airtel-Chennai-CLS",
+            bandwidth_in_gbps=10,
+            encapsulation="Dot1Q")
+        ```
+
         ## Import
 
         Express Route Ports can be imported using the `resource id`, e.g.
@@ -567,6 +582,21 @@ class ExpressRoutePort(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Express Route Port.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_express_route_port = azure.network.ExpressRoutePort("exampleExpressRoutePort",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            peering_location="Airtel-Chennai-CLS",
+            bandwidth_in_gbps=10,
+            encapsulation="Dot1Q")
+        ```
 
         ## Import
 

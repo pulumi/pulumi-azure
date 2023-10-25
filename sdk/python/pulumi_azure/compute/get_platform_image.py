@@ -98,6 +98,19 @@ def get_platform_image(location: Optional[str] = None,
     """
     Use this data source to access information about a Platform Image.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.compute.get_platform_image(location="West Europe",
+        publisher="Canonical",
+        offer="0001-com-ubuntu-server-focal",
+        sku="20_04-lts")
+    pulumi.export("id", example.id)
+    ```
+
 
     :param str location: Specifies the Location to pull information about this Platform Image from.
     :param str offer: Specifies the Offer associated with the Platform Image.
@@ -132,6 +145,19 @@ def get_platform_image_output(location: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPlatformImageResult]:
     """
     Use this data source to access information about a Platform Image.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.compute.get_platform_image(location="West Europe",
+        publisher="Canonical",
+        offer="0001-com-ubuntu-server-focal",
+        sku="20_04-lts")
+    pulumi.export("id", example.id)
+    ```
 
 
     :param str location: Specifies the Location to pull information about this Platform Image from.

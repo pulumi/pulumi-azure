@@ -305,6 +305,20 @@ class LoadTest(pulumi.CustomResource):
 
         Manages a Load Test Service.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        example_load_test = azure.loadtest.LoadTest("exampleLoadTest",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        ```
         ## Blocks Reference
 
         ### `identity` Block
@@ -349,6 +363,20 @@ class LoadTest(pulumi.CustomResource):
 
         Manages a Load Test Service.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        example_load_test = azure.loadtest.LoadTest("exampleLoadTest",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        ```
         ## Blocks Reference
 
         ### `identity` Block

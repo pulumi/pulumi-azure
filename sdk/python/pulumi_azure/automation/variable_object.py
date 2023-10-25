@@ -286,6 +286,27 @@ class VariableObject(pulumi.CustomResource):
         """
         Manages an object variable in Azure Automation
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.automation.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="Basic")
+        example_variable_object = azure.automation.VariableObject("exampleVariableObject",
+            resource_group_name=example_resource_group.name,
+            automation_account_name=example_account.name,
+            value=json.dumps({
+                "greeting": "Hello, Terraform Basic Test.",
+                "language": "en",
+            }))
+        ```
+
         ## Import
 
         Automation Object Variable can be imported using the `resource id`, e.g.
@@ -311,6 +332,27 @@ class VariableObject(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an object variable in Azure Automation
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.automation.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="Basic")
+        example_variable_object = azure.automation.VariableObject("exampleVariableObject",
+            resource_group_name=example_resource_group.name,
+            automation_account_name=example_account.name,
+            value=json.dumps({
+                "greeting": "Hello, Terraform Basic Test.",
+                "language": "en",
+            }))
+        ```
 
         ## Import
 
